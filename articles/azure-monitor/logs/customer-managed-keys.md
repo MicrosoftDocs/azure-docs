@@ -55,7 +55,7 @@ The following rules apply:
 - The Log Analytics cluster storage accounts generate unique encryption key for every storage account, which is known as the AEK.
 - The AEK is used to derive DEKs, which are the keys that are used to encrypt each block of data written to disk.
 - When you configure your key in Key Vault and reference it in the cluster, Azure Storage sends requests to your Azure Key Vault to wrap and unwrap the AEK to perform data encryption and decryption operations.
-- Your KEK never leaves your Key Vault and in the case of an HSM key, it never leaves the hardware.
+- Your KEK never leaves your Key Vault.
 - Azure Storage uses the managed identity that's associated with the *Cluster* resource to authenticate and access to Azure Key Vault via Azure Active Directory.
 
 ### Customer-Managed key provisioning steps
@@ -132,7 +132,7 @@ Clusters support two [managed identity types](../../active-directory/managed-ide
   "identity": {
   "type": "UserAssigned",
     "userAssignedIdentities": {
-      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft. ManagedIdentity/UserAssignedIdentities/<cluster-assigned-managed-identity>"
+      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.ManagedIdentity/UserAssignedIdentities/<cluster-assigned-managed-identity>"
       }
   }
   ```
@@ -164,6 +164,9 @@ Select the current version of your key in Azure Key Vault to get the key identif
 ![Grant Key Vault permissions](media/customer-managed-keys/key-identifier-8bit.png)
 
 Update KeyVaultProperties in cluster with key identifier details.
+
+>[!NOTE]
+>Key rotation supports two modes: auto-rotation or explicit key version update, see [Key rotation](#key-rotation) to determine the best approach for you.
 
 The operation is asynchronous and can take a while to complete.
 
@@ -263,7 +266,9 @@ The cluster's storage periodically checks your Key Vault to attempt to unwrap th
 
 ## Key rotation
 
-Customer-managed key rotation requires an explicit update to the cluster with the new key version in Azure Key Vault. [Update cluster with Key identifier details](#update-cluster-with-key-identifier-details). If you don't update the new key version in the cluster, the Log Analytics cluster storage will keep using your previous key for encryption. If you disable or delete your old key before updating the new key in the cluster, you will get into [key revocation](#key-revocation) state.
+Key rotation has two modes: 
+- Auto-rotation - when you you update your cluster with ```"keyVaultProperties"``` but omit ```"keyVersion"``` property, or set it to ```""```, storage will autoamatically use the latest versions.
+- Explicit key version update - when you update your cluster and provide key version in ```"keyVersion"``` property, any new key versions require an explicit ```"keyVaultProperties"``` update in cluster, see [Update cluster with Key identifier details](#update-cluster-with-key-identifier-details). If you generate new key version in Key Vault but don't update it in the cluster, the Log Analytics cluster storage will keep using your previous key. If you disable or delete your old key before updating the new key in the cluster, you will get into [key revocation](#key-revocation) state.
 
 All your data remains accessible after the key rotation operation, since data always encrypted with Account Encryption Key (AEK) while AEK is now being encrypted with your new Key Encryption Key (KEK) version in Key Vault.
 

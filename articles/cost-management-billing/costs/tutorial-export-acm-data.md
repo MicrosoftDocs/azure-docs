@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.custom: seodec18, devx-track-azurepowershell
+ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Tutorial: Create and manage exported data
@@ -30,9 +30,9 @@ In this tutorial, you learn how to:
 ## Prerequisites
 Data export is available for a variety of Azure account types, including [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) and [Microsoft Customer Agreement](get-started-partners.md) customers. To view the full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md). The following Azure permissions, or scopes, are supported per subscription for data export by user and group. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
-- Owner – Can create, modify, or delete scheduled exports for a subscription.
-- Contributor – Can create, modify, or delete their own scheduled exports. Can modify the name of scheduled exports created by others.
-- Reader – Can schedule exports that they have permission to.
+- Owner â€“ Can create, modify, or delete scheduled exports for a subscription.
+- Contributor â€“ Can create, modify, or delete their own scheduled exports. Can modify the name of scheduled exports created by others.
+- Reader â€“ Can schedule exports that they have permission to.
 
 For Azure Storage accounts:
 - Write permissions are required to change the configured storage account, regardless of permissions on the export.
@@ -58,10 +58,10 @@ To create or view a data export or to schedule an export, open the desired scope
     - **Actual cost (Usage and Purchases)** - Select to export standard usage and purchases
     - **Amortized cost (Usage and Purchases)** - Select to export amortized costs for purchases like Azure reservations
 1. For **Export type**, make a selection:
-    - **Daily export of month-to-date costs** – Provides a new export file daily for your month-to-date costs. The latest data is aggregated from previous daily exports.
-    - **Weekly export of cost for the last seven days** – Creates a weekly export of your costs for the past seven days from the selected start date of your export.
-    - **Monthly export of last month's costs** – Provides you with an export of your last month's costs compared to the current month that you create the export. Moving forward, the schedule runs an export on the fifth day of every new month with your previous months costs.
-    - **One-time export** – Allows you to choose a date range for historical data to export to Azure blob storage. You can export a maximum of 90 days of historical costs from the day you choose. This export runs immediately and is available in your storage account within two hours.
+    - **Daily export of month-to-date costs** â€“ Provides a new export file daily for your month-to-date costs. The latest data is aggregated from previous daily exports.
+    - **Weekly export of cost for the last seven days** â€“ Creates a weekly export of your costs for the past seven days from the selected start date of your export.
+    - **Monthly export of last month's costs** â€“ Provides you with an export of your last month's costs compared to the current month that you create the export. Moving forward, the schedule runs an export on the fifth day of every new month with your previous months costs.
+    - **One-time export** â€“ Allows you to choose a date range for historical data to export to Azure blob storage. You can export a maximum of 90 days of historical costs from the day you choose. This export runs immediately and is available in your storage account within two hours.
         Depending on your export type, either choose a start date, or choose a **From** and **To** date.
 1. Specify the subscription for your Azure storage account, then select a resource group or create a new one.
 1. Select the storage account name or create a new one.
@@ -82,7 +82,7 @@ Start by preparing your environment for the Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-1. After you sign in, to see your current exports, use the [az costmanagement export list](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_list) command:
+1. After you sign in, to see your current exports, use the [az costmanagement export list](/cli/azure/costmanagement/export#az_costmanagement_export_list) command:
 
    ```azurecli
    az costmanagement export list --scope "subscriptions/00000000-0000-0000-0000-000000000000"
@@ -105,7 +105,7 @@ Start by preparing your environment for the Azure CLI:
    az storage account create --resource-group TreyNetwork --name cmdemo
    ```
 
-1. Run the [az costmanagement export create](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_create) command to create the export:
+1. Run the [az costmanagement export create](/cli/azure/costmanagement/export#az_costmanagement_export_create) command to create the export:
 
    ```azurecli
    az costmanagement export create --name DemoExport --type ActualCost \
@@ -119,14 +119,14 @@ Start by preparing your environment for the Azure CLI:
 
    This example uses `MonthToDate`. The export creates an export file daily for your month-to-date costs. The latest data is aggregated from previous daily exports this month.
 
-1. To see the details of your export operation, use the [az costmanagement export show](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_show) command:
+1. To see the details of your export operation, use the [az costmanagement export show](/cli/azure/costmanagement/export#az_costmanagement_export_show) command:
 
    ```azurecli
    az costmanagement export show --name DemoExport \
       --scope "subscriptions/00000000-0000-0000-0000-000000000000"
    ```
 
-1. Update an export by using the [az costmanagement export update](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_update) command:
+1. Update an export by using the [az costmanagement export update](/cli/azure/costmanagement/export#az_costmanagement_export_update) command:
 
    ```azurecli
    az costmanagement export update --name DemoExport
@@ -138,7 +138,7 @@ Start by preparing your environment for the Azure CLI:
 >[!NOTE]
 >Initially, it can take 12-24 hours before the export runs. However, it can take longer before data is shown in exported files.
 
-You can delete an export by using the [az costmanagement export delete](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_delete) command:
+You can delete an export by using the [az costmanagement export delete](/cli/azure/costmanagement/export#az_costmanagement_export_delete) command:
 
 ```azurecli
 az costmanagement export delete --name DemoExport --scope "subscriptions/00000000-0000-0000-0000-000000000000"

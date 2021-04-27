@@ -142,6 +142,8 @@ You can associate a public IP address with a [Windows](../virtual-machines/windo
 
 Choose **dynamic** or **static** for the public IP address. Learn more about [assigning IP addresses to network interfaces](virtual-network-network-interface-addresses.md).
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Internet-facing load balancers
 
 You can associate a public IP address of either [SKU](#sku) with an [Azure Load Balancer](../load-balancer/load-balancer-overview.md), by assigning it to the load balancer **frontend** configuration. The public IP serves as a load-balanced IP. 
@@ -149,6 +151,8 @@ You can associate a public IP address of either [SKU](#sku) with an [Azure Load 
 You can assign either a dynamic or a static public IP address to a load balancer front end. You can assign multiple public IP addresses to a load balancer front end. This configuration enables [multi-VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) scenarios like a multi-tenant environment with TLS-based websites. 
 
 For more information about Azure load balancer SKUs, see [Azure load balancer standard SKU](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## VPN gateways
 

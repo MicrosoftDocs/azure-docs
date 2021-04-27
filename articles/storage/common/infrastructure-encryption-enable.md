@@ -54,21 +54,21 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
 
 # [Azure CLI](#tab/azure-cli)
 
-To register with Azure CLI, call the [az feature register](/cli/azure/feature#az-feature-register) command.
+To register with Azure CLI, call the [az feature register](/cli/azure/feature#az_feature_register) command.
 
 ```azurecli
 az feature register --namespace Microsoft.Storage \
     --name AllowRequireInfraStructureEncryption
 ```
 
-To check the status of your registration with Azure CLI, call the [az feature](/cli/azure/feature#az-feature-show) command.
+To check the status of your registration with Azure CLI, call the [az feature](/cli/azure/feature#az_feature_show) command.
 
 ```azurecli
 az feature show --namespace Microsoft.Storage \
     --name AllowRequireInfraStructureEncryption
 ```
 
-After your registration is approved, you must re-register the Azure Storage resource provider. To re-register the resource provider with Azure CLI, call the [az provider register](/cli/azure/provider#az-provider-register) command.
+After your registration is approved, you must re-register the Azure Storage resource provider. To re-register the resource provider with Azure CLI, call the [az provider register](/cli/azure/provider#az_provider_register) command.
 
 ```azurecli
 az provider register --namespace 'Microsoft.Storage'
@@ -118,7 +118,7 @@ New-AzStorageAccount -ResourceGroupName <resource_group> `
 
 To use Azure CLI to create a storage account that has infrastructure encryption enabled, make sure you have installed Azure CLI version 2.8.0 or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-Next, create a general-purpose v2 storage account by calling the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command and include the `--require-infrastructure-encryption option` to enable infrastructure encryption.
+Next, create a general-purpose v2 storage account by calling the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command and include the `--require-infrastructure-encryption option` to enable infrastructure encryption.
 
 The following example shows how to create a general-purpose v2 storage account that is configured for read-access geo-redundant storage (RA-GRS) and has infrastructure encryption enabled for double encryption of data. Remember to replace the placeholder values in brackets with your own values:
 
@@ -193,7 +193,7 @@ $account.Encryption.RequireInfrastructureEncryption
 
 # [Azure CLI](#tab/azure-cli)
 
-To verify that infrastructure encryption is enabled for a storage account with Azure CLI, call the [az storage account show](/cli/azure/storage/account#az-storage-account-show) command. This command returns a set of storage account properties and their values. Look for the `requireInfrastructureEncryption` field within the `encryption` property and verify that it is set to `true`.
+To verify that infrastructure encryption is enabled for a storage account with Azure CLI, call the [az storage account show](/cli/azure/storage/account#az_storage_account_show) command. This command returns a set of storage account properties and their values. Look for the `requireInfrastructureEncryption` field within the `encryption` property and verify that it is set to `true`.
 
 The following example retrieves the value of the `requireInfrastructureEncryption` property. Remember to replace the placeholder values in angle brackets with your own values:
 

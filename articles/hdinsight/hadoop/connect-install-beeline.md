@@ -4,7 +4,7 @@ description: Learn how to connect to the Apache Beeline client to run Hive queri
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperf-fy21q1
-ms.date: 05/27/2020
+ms.date: 04/07/2021
 ---
 # Connect to Apache Beeline on HDInsight or install it locally
 
@@ -71,7 +71,9 @@ Apache Spark provides its own implementation of HiveServer2, which is sometimes 
 
 #### Through public or private endpoints
 
-The connection string used  is slightly different. Instead of containing `httpPath=/hive2` it uses `httpPath/sparkhive2`. Replace `clustername` with the name of your HDInsight cluster. Replace `admin` with the cluster login account for your cluster. For ESP clusters, use the full UPN (for example, user@domain.com). Replace `password` with the password for the cluster login account.
+The connection string used  is slightly different. Instead of containing `httpPath=/hive2` it uses `httpPath/sparkhive2`. Replace `clustername` with the name of your HDInsight cluster. Replace `admin` with the cluster login account for your cluster. Replace `password` with the password for the cluster login account.
+> [!NOTE]
+> For ESP clusters, replace `admin` with full UPN (for example, user@domain.com). 
 
 ```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p 'password'

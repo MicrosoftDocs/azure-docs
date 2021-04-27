@@ -8,7 +8,7 @@
   expanded: true
   items:
   - name: Explore a sample scenario
-    href: quickstart-adt-explorer.md
+    href: quickstart-azure-digital-twins-explorer.md
 - name: Tutorials
   items:
   - name: Code a client app
@@ -43,6 +43,8 @@
     href: concepts-query-units.md
   - name: Integration with other services
     href: concepts-integration.md
+  - name: Event notifications
+    href: concepts-event-notifications.md
   - name: Event routes
     href: concepts-route-events.md
   - name: Security for Azure Digital Twins solutions
@@ -91,8 +93,6 @@
       href: how-to-manage-twin.md
     - name: Manage the twin graph with relationships
       href: how-to-manage-graph.md
-    - name: Interpret event data
-      href: how-to-interpret-event-data.md
     - name: Set up an Azure function for processing data
       href: how-to-create-azure-function.md
     - name: Query the twin graph
@@ -149,6 +149,10 @@
       items:
       - name: 403 (Forbidden)
         href: troubleshoot-error-403.md
+      - name: 404 Sub-Domain not found
+        href: troubleshoot-error-404.md
+      - name: Azure Digital Twins Explorer authentication
+        href: troubleshoot-error-azure-digital-twins-explorer-authentication.md
 - name: Reference
   items:
   - name: REST API reference
@@ -172,7 +176,7 @@
         - name: Python SDK
           href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core
   - name: Digital Twins CLI
-    href: /cli/azure/ext/azure-iot/dt
+    href: /cli/azure/dt
   - name: DTDL v2 spec
     href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md
 - name: Resources

@@ -747,7 +747,7 @@ Configure soft delete for the Azure storage account that's used for capturing Ev
 
 - [Set up a key vault with keys](configure-customer-managed-key.md)
 
-- [Soft delete for Azure Storage blobs](//azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Soft delete for Azure Storage blobs](/azure/storage/blobs/soft-delete-blob-overview)
 
 **Responsibility**: Customer
 

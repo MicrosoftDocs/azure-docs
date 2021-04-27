@@ -68,10 +68,10 @@ Specifically, all Microsoft Graph scopes represent some dataset that can individ
 For example, if an app requests the following Microsoft Graph scopes,
 
 ```
-scopes="Bookings.Read.All Mail.Read"
+scopes="ChannelMessages.Read.All Mail.Read"
 ```
 
-An app can expect their users to fulfill all policies set on Bookings and Exchange. Some scopes may map to multiple datasets if it grants access.
+An app can expect their users to fulfill all policies set on Teams and Exchange. Some scopes may map to multiple datasets if it grants access.
 
 ### Complying with a Conditional Access policy
 

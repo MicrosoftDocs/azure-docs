@@ -4,7 +4,7 @@ description: This quickstart shows how to deploy an app by creating a prediction
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/06/2020
+ms.date: 03/29/2021
 ---
 
 # Quickstart: Deploy an app in the LUIS portal
@@ -116,4 +116,4 @@ When you're done with this quickstart, select **My apps** from the top navigatio
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Identify common intents and entities](./tutorial-machine-learned-entity.md)
+> [Iterative app development for LUIS](./luis-concept-app-iteration.md)

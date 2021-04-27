@@ -4,7 +4,8 @@ description: This article tells how to configure machines to a desired state usi
 services: automation
 ms.subservice: dsc
 ms.topic: conceptual
-ms.date: 08/08/2018
+ms.date: 08/08/2018 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure machines to a desired state

@@ -16,9 +16,9 @@ ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-j
 #Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform so that my JavaScript app can sign in users of personal accounts, work accounts, and school accounts.
 ---
 
-# Quickstart: Sign in users and get an access token in a JavaScript SPA using the auth code flow with PKCE 
+# Quickstart: Sign in users and get an access token in a JavaScript SPA using the auth code flow with PKCE
 
-In this quickstart, you download and run a code sample that demonstrates how a JavaScript single-page application (SPA) can sign in users and call Microsoft Graph using the authorization code flow with Proof Key for Code Exchange (PKCE). The code sample demonstrates how to get an access token to call the Microsoft Graph API or any web API. 
+In this quickstart, you download and run a code sample that demonstrates how a JavaScript single-page application (SPA) can sign in users and call Microsoft Graph using the authorization code flow with Proof Key for Code Exchange (PKCE). The code sample demonstrates how to get an access token to call the Microsoft Graph API or any web API.
 
 See [How the sample works](#how-the-sample-works) for an illustration.
 
@@ -81,10 +81,10 @@ This quickstart uses MSAL.js v2 with the authorization code flow. For a similar 
 > [!div renderon="docs"]
 > #### Step 3: Configure your JavaScript app
 >
-> In the *app* folder, open the *authConfig.js* file and update the `clientID`, `authority`, and `redirectUri` values in the `msalConfig` object.
+> In the *app* folder, open the *authConfig.js* file, and then update the `clientID`, `authority`, and `redirectUri` values in the `msalConfig` object.
 >
 > ```javascript
-> // Config object to be passed to Msal on creation
+> // Config object to be passed to MSAL on creation
 > const msalConfig = {
 >   auth: {
 >     clientId: "Enter_the_Application_Id_Here",
@@ -104,13 +104,13 @@ This quickstart uses MSAL.js v2 with the authorization code flow. For a similar 
 
 > [!div renderon="docs"]
 >
-> Modify the values in the `msalConfig` section as described here:
+> Modify the values in the `msalConfig` section:
 >
 > - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered.
 >
 >    To find the value of **Application (client) ID**, go to the app registration's **Overview** page in the Azure portal.
-> - `Enter_the_Cloud_Instance_Id_Here` is the instance of the Azure cloud. For the main or global Azure cloud, enter `https://login.microsoftonline.com/`. For **national** clouds (for example, China), see [National clouds](authentication-national-cloud.md).
-> - `Enter_the_Tenant_info_here` is set to one of the following:
+> - `Enter_the_Cloud_Instance_Id_Here` is the Azure cloud instance. For the main or global Azure cloud, enter `https://login.microsoftonline.com/`. For **national** clouds (for example, China), see [National clouds](authentication-national-cloud.md).
+> - `Enter_the_Tenant_info_here` is one of the following:
 >   - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name**. For example, `contoso.microsoft.com`.
 >
 >    To find the value of the **Directory (tenant) ID**, go to the app registration's **Overview** page in the Azure portal.
@@ -130,11 +130,12 @@ This quickstart uses MSAL.js v2 with the authorization code flow. For a similar 
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
+>
 > We have configured your project with values of your app's properties.
 
 > [!div renderon="docs"]
 >
-> Then, still in the same folder, edit the *graphConfig.js* file and update the `graphMeEndpoint` and `graphMailEndpoint` values in the `apiConfig` object.
+> Next, open the *graphConfig.js* file to update the `graphMeEndpoint` and `graphMailEndpoint` values in the `apiConfig` object.
 >
 > ```javascript
 >   // Add here the endpoints for MS Graph API services you would like to use.
@@ -151,9 +152,9 @@ This quickstart uses MSAL.js v2 with the authorization code flow. For a similar 
 >
 > [!div renderon="docs"]
 >
-> `Enter_the_Graph_Endpoint_Here` is the endpoint that API calls will be made against. For the main (global) Microsoft Graph API service, enter `https://graph.microsoft.com/` (include the trailing forward-slash). For more information about Microsoft Graph on national clouds, see [National cloud deployment](/graph/deployments).
+> `Enter_the_Graph_Endpoint_Here` is the endpoint that API calls are made against. For the main (global) Microsoft Graph API service, enter `https://graph.microsoft.com/` (include the trailing forward-slash). For more information about Microsoft Graph on national clouds, see [National cloud deployment](/graph/deployments).
 >
-> The `graphMeEndpoint` and `graphMailEndpoint` values in the *graphConfig.js* file should be similar to the following if you're using the main (global) Microsoft Graph API service:
+> If you're using the main (global) Microsoft Graph API service, the `graphMeEndpoint` and `graphMailEndpoint` values in the *graphConfig.js* file should be similar to the following:
 >
 > ```javascript
 > graphMeEndpoint: "https://graph.microsoft.com/v1.0/me",
@@ -162,18 +163,20 @@ This quickstart uses MSAL.js v2 with the authorization code flow. For a similar 
 >
 > #### Step 4: Run the project
 
-Run the project with a web server by using Node.js:
+Run the project with a web server by using Node.js.
 
 1. To start the server, run the following commands from within the project directory:
+
     ```console
     npm install
     npm start
     ```
-1. Browse to `http://localhost:3000/`.
+
+1. Go to `http://localhost:3000/`.
 
 1. Select **Sign In** to start the sign-in process and then call the Microsoft Graph API.
 
-    The first time you sign in, you're prompted to provide your consent to allow the application to access your profile and sign you in. After you're signed in successfully, your user profile information should be displayed on the page.
+    The first time you sign in, you're prompted to provide your consent to allow the application to access your profile and sign you in. After you're signed in successfully, your user profile information is displayed on the page.
 
 ## More information
 
@@ -181,7 +184,7 @@ Run the project with a web server by using Node.js:
 
 ![Diagram showing the authorization code flow for a single-page application.](media/quickstart-v2-javascript-auth-code/diagram-01-auth-code-flow.png)
 
-### msal.js
+### MSAL.js
 
 The MSAL.js library signs in users and requests the tokens that are used to access an API that's protected by Microsoft identity platform. The sample's *index.html* file contains a reference to the library:
 

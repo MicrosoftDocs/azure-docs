@@ -64,7 +64,7 @@ The following architecture diagram shows the implementation.
 ## Set up the solution
 
 1. [Create a Facebook application](./identity-provider-facebook.md#create-a-facebook-application) configured to allow federation to Azure AD B2C.
-2. [Add the Facebook secret](./custom-policy-get-started.md#create-the-facebook-key) you created as an Identity Experience Framework policy key.
+2. [Add the Facebook secret](./tutorial-create-user-flows.md?pivots=b2c-custom-policy#create-the-facebook-key) you created as an Identity Experience Framework policy key.
 
 ## Configure your application under Microsoft DFP
 
@@ -122,8 +122,8 @@ In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integr
 |  {your_tenant_extensions_appid}   |  App ID of your tenant's storage application   |  01234567-89ab-cdef-0123-456789abcdef  |
 |   {your_tenant_extensions_app_objectid}  | Object ID of your tenant's storage application    | 01234567-89ab-cdef-0123-456789abcdef   |
 |   {your_app_insights_instrumentation_key}  |   Instrumentation key of your app insights instance*  |   01234567-89ab-cdef-0123-456789abcdef |
-|  {your_ui_base_url}   | Endpoint in your app service from where your UI files are served    | https://yourapp.azurewebsites.net/B2CUI/GetUIPage   |
-|   {your_app_service_url}  | URL of your app service    |  https://yourapp.azurewebsites.net  |
+|  {your_ui_base_url}   | Endpoint in your app service from where your UI files are served    | `https://yourapp.azurewebsites.net/B2CUI/GetUIPage`   |
+|   {your_app_service_url}  | URL of your app service    |  `https://yourapp.azurewebsites.net`  |
 |   {your-facebook-app-id}  |  App ID of the facebook app you configured for federation with Azure AD B2C   | 000000000000000   |
 |  {your-facebook-app-secret}   |  Name of the policy key you've saved facebook's app secret as   | B2C_1A_FacebookAppSecret   |
 
@@ -144,7 +144,7 @@ The value of the userID needs to be the same as the one in the corresponding Azu
 
 1. Go to the [Azure AD B2C policy](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/Policies) in the Policies folder.
 
-2. Follow this [document](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) to download [LocalAccounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)
+2. Follow this [document](./tutorial-create-user-flows.md?pivots=b2c-custom-policy?tabs=applications#custom-policy-starter-pack) to download [LocalAccounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)
 
 3. Configure the policy for the Azure AD B2C tenant.
 
@@ -180,4 +180,4 @@ For additional information, review the following articles:
 
 - [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)

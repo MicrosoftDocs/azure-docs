@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 04/08/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Connect to Windows Virtual Desktop with the macOS client
 

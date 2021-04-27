@@ -211,7 +211,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.network#expressroute
   - name: Azure CLI
-    href: /cli/azure/network/express-route
+    href: /cli/azure/azure-cli-reference-for-network
   - name: REST
     href: /rest/api/expressroute/
   - name: REST (classic)

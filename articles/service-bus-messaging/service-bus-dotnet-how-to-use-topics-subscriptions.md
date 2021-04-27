@@ -4,7 +4,7 @@ description: This quickstart shows you how to send messages to Azure Service Bus
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 03/16/2021
-ms.custom: devx-track-csharp
+ms.custom: contperf-fy21q3
 ---
 
 # Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (.NET)

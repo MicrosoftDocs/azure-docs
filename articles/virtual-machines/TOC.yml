@@ -234,6 +234,8 @@
         href: sizes-field-programmable-gate-arrays.md?context=/azure/virtual-machines/context/context
       - name: NP-series
         href: np-series.md
+      - name: FPGA Attestation Service
+        href: field-programmable-gate-arrays-attestation.md
     - name: High performance compute
       items:
       - name: Overview
@@ -249,6 +251,8 @@
         href: hbv3-series.md
       - name: HC-series
         href: hc-series.md
+    - name: States and billing
+      href: states-billing.md
     - name: vCPU quotas
       items:
       - name: CLI
@@ -428,6 +432,10 @@
         href: ./extensions/features-windows.md
       - name: Windows VM Agent
         href: ./extensions/agent-windows.md
+    - name: Azure Backup for SQL Server
+      items:
+      - name: Azure Backup for SQL Server
+        href: ./extensions/backup-azure-sql-server-running-azure-vm.md
     - name: Azure Disk Encryption
       items:
       - name: Linux
@@ -444,10 +452,8 @@
       - name: Windows
         displayName: Azure Key Vault, key vault, encryption
         href: ./extensions/key-vault-windows.md
-    - name: Azure Backup for SQL Server
-      items:
-      - name: Azure Backup for SQL Server
-        href: ./extensions/backup-azure-sql-server-running-azure-vm.md
+    - name: Azure Policy Guest Configuration
+      href: ./extensions/guest-configuration.md
     - name: Custom Script
       items:
       - name: Linux - version 2
@@ -791,6 +797,8 @@
         href: https://azure.microsoft.com/resources/templates/101-sig-image-version-create/
       - name: Create a VM from Image Version
         href: https://azure.microsoft.com/resources/templates/101-vm-from-sig/
+    - name: Ansible
+      href: https://docs.microsoft.com/azure/developer/ansible/vm-configure-from-azure-shared-image-gallery?tabs=ansible
     - name: Troubleshoot shared images
       displayName: Shared Image Gallery, SIG, sig, gallery, image, troubleshooting
       href: troubleshooting-shared-images.md
@@ -940,8 +948,6 @@
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
   - name: Understand VM reboots
     href: understand-vm-reboots.md
-  - name: States and billing
-    href: states-billing.md
   - name: Azure Regions
     href: regions.md
 - name: Disks
@@ -1195,13 +1201,13 @@
     - name: Windows
       displayName: detach a disk
       href: ./windows/detach-disk.md
-  - name: Expand OS disk
+  - name: Expand a disk
     items:
     - name: Linux
-      displayName: Expand OS disk
+      displayName: Expand a disk - Linux
       href: ./linux/expand-disks.md
     - name: Windows
-      displayName: Expand OS disk
+      displayName: Expand a disk - Windows
       href: ./windows/expand-os-disk.md
   - name: Manage storage
     items:
@@ -1303,6 +1309,8 @@
       href: ./windows/nsg-quickstart-portal.md
   - name: Assign public IP address
     href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?context=/azure/virtual-machines/context/context
+  - name: Use a custom domain name
+    href: custom-domain.md
   - name: Use multiple NICs
     items:
     - name: Linux using CLI
@@ -1720,12 +1728,10 @@
       - name: Windows
         displayName: Enable disaster recovery
         href: ./windows/tutorial-disaster-recovery.md
-    - name: Enable disaster recovery for a VM
-      href: ../site-recovery/azure-to-azure-tutorial-enable-replication.md
-    - name: Run a disaster recovery drill for a VM
-      href: ../site-recovery/azure-to-azure-tutorial-dr-drill.md
     - name: Fail over a VM to another region
       href: ../site-recovery/azure-to-azure-tutorial-failover-failback.md
+    - name: Fail back a VM to the primary region
+      href: ../site-recovery/azure-to-azure-tutorial-failback.md
   - name: Move and migrate VMs
     items:
     - name: Change subscription or resource group
@@ -1780,6 +1786,8 @@
     href: /azure/cloud-adoption-framework/get-started/
   - name: Architecture center
     href: /azure/architecture/
+  - name: Migration tools
+    href: https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools
   - name: Microsoft Q&A
     href: /answers/topics/azure-virtual-machines.html
   - name: Azure Quickstart templates

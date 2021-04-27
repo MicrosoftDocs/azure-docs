@@ -40,7 +40,7 @@ landingContent:
           - text: Monitoring
             url: monitoring/reacting-to-media-services-events.md
           - text: Player clients
-            url: use-azure-media-player.md  
+            url: player-use-azure-media-player-how-to.md  
           - text: Developing with v3 API guidance
             url: media-services-apis-overview.md            
 
@@ -78,7 +78,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Live streaming
-            url: live-streaming-overview.md           
+            url: stream-live-streaming-concept.md           
       - linkListType: tutorial
         links:
           - text: Stream live

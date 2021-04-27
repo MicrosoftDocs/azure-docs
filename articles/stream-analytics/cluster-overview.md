@@ -6,7 +6,7 @@ ms.author: sidram
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
-ms.date: 09/22/2020
+ms.date: 04/21/2021
 ---
 
 # Overview of Azure Stream Analytics Cluster
@@ -63,7 +63,7 @@ Your Stream Analytics clusters are charged based on the chosen SU capacity. Clus
 
 ### Which inputs and outputs can I privately connect to from my Stream Analytics cluster?
 
-Stream Analytics supports various input and output types. You can [create private endpoints](private-endpoints.md) in your cluster that allow jobs to access the input and output resources. Currently Azure SQL Database, Azure Storage, Azure Data Lake Storage Gen2, Azure Event Hub and Azure Service Bus are supported services and other types will be added soon. 
+Stream Analytics supports various input and output types. You can [create private endpoints](private-endpoints.md) in your cluster that allow jobs to access the input and output resources. Currently Azure SQL Database, Azure Storage, Azure Data Lake Storage Gen2, Azure Event Hub, Azure IoT Hubs, Azure Function and Azure Service Bus are supported services for which you can create managed private endpoints. 
 
 ## Next steps
 

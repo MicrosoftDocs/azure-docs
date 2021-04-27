@@ -336,7 +336,7 @@ Apply tags to your Azure resources, resource groups, and subscriptions to logica
 
 **Guidance**: Remove Azure Firewall Manager resources when they are no longer needed to minimize attack surface. Users can manage their Azure Firewall Manager resources via the Azure portal, CLI, or REST APIs.
 
-- [Azure Firewall Policy CLI](/cli/azure/ext/azure-firewall/network/firewall/policy)
+- [Azure Firewall Policy CLI](/cli/azure/network/firewall/policy)
 
 - [Azure network CLI](/powershell/module/az.network/?preserve-view=true&view=azps-5.1.0#networking)
 
@@ -556,7 +556,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 - [Azure Firewall Policy template reference](/azure/templates/microsoft.network/firewallpolicies)
 
-- [Azure Firewall Policy CLI](/cli/azure/ext/azure-firewall/network/firewall/policy)
+- [Azure Firewall Policy CLI](/cli/azure/network/firewall/policy)
 
 - [Illustration of guardrails implementation in enterprise-scale landing zone](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture#landing-zone-expanded-definition)
 

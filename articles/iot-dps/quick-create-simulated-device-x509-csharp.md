@@ -40,7 +40,7 @@ This article will demonstrate individual enrollments.
     git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     ```
 
-1. Make sure you have the [.NET Core 3.0.0 SDK or later](https://www.microsoft.com/net/download/windows) installed on your machine. You can use the following command to check your version.
+1. Make sure you have the [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download) installed on your machine. You can use the following command to check your version.
 
     ```bash
     dotnet --info

@@ -6,41 +6,45 @@ ms.date: 03/29/2021
 ---
 
 # Message browsing
-
 Message browsing, or peeking, enables a Service Bus client to enumerate all messages in a queue or a subscription, for diagnostic and debugging purposes.
 
-The peek operation on a **queue** returns all messages in the queue, not only the ones available for immediate acquisition. The peek operation on a **subscription** returns all messages except scheduled messages in the subscription message log. 
+The Peek operation on a queue or a subscription returns at most the requested number of messages. The following table shows the types of messages that are returned by the Peek operation. 
 
-Consumed and expired messages are cleaned up by an asynchronous "garbage collection" run. This step may not necessarily occur immediately after messages expire. That's why, a peek operation may return messages that have already expired. These messages will be removed or dead-lettered when a receive operation is invoked on the queue or subscription the next time. Keep this behavior in mind when attempting to recover deferred messages from the queue. An expired message is no longer eligible for regular retrieval by any other means, even when it's being returned by Peek. Returning these messages is by design as Peek is a diagnostics tool reflecting the current state of the log.
+| Type of messages | Included? | 
+| ---------------- | ----- | 
+| Active messages | Yes |
+| Dead-lettered messages | No | 
+| Locked messages | Yes |
+| Expired messages |  May be (before they are dead-lettered) |
+| Scheduled messages | Yes for queues. No for subscriptions |
 
-Peek also returns messages that were locked and are currently being processed by other receivers. However, because Peek returns a disconnected snapshot, the lock state of a message can't be observed on peeked messages.
+## Dead-lettered messages
+To peek into **Dead-lettered** messages of a queue or subscription, the peek operation should be run on the dead letter queue associated with the queue or subscription. For more information, see [accessing dead letter queues](service-bus-dead-letter-queues.md#path-to-the-dead-letter-queue).
+
+## Expired messages
+Expired messages may be included in the results returned from the Peek operation. Consumed and expired messages are cleaned up by an asynchronous "garbage collection" run. This step may not necessarily occur immediately after messages expire. That's why, a peek operation may return messages that have already expired. These messages will be removed or dead-lettered when a receive operation is invoked on the queue or subscription the next time. Keep this behavior in mind when attempting to recover deferred messages from the queue. 
+
+An expired message is no longer eligible for regular retrieval by any other means, even when it's being returned by Peek. Returning these messages is by design as Peek is a diagnostics tool reflecting the current state of the log.
+
+## Locked messages
+Peek also returns messages that were **locked** and are currently being processed by other receivers. However, because Peek returns a disconnected snapshot, the lock state of a message can't be observed on peeked messages.
 
 ## Peek APIs
-## [Azure.Messaging.ServiceBus](#tab/dotnet)
-The [PeekMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.peekmessageasync) and [PeekMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.peekmessagesasync) methods exist on receiver objects: `ServiceBusReceiver`, `ServiceBusSessionReceiver`. Peek works on queues, subscriptions, and their respective dead-letter queues.
+Peek works on queues, subscriptions, and their dead-letter queues. 
 
-When called repeatedly, `PeekMessageAsync` enumerates all messages in the queue or subscription log, in order, from the lowest available sequence number to the highest. It’s the order in which messages were enqueued, not the order in which messages might eventually be retrieved.
-PeekMessagesAsync retrieves multiple messages and returns them as an enumeration. If no messages are available, the enumeration object is empty, not null.
+When called repeatedly, the peek operation enumerates all messages in the queue or subscription, in order, from the lowest available sequence number to the highest. It’s the order in which messages were enqueued, not the order in which messages might eventually be retrieved.
 
-You can also populate the [fromSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.eventposition.fromsequencenumber) parameter with a SequenceNumber at which to start, and then call the method again without specifying the parameter to enumerate further. `PeekMessagesAsync` functions equivalently, but retrieves a set of messages all at once.
-
-
-## [Microsoft.Azure.ServiceBus](#tab/dotnetold)
-The [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) and [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) methods exist on receiver objects: `MessageReceiver`, `MessageSession`. Peek works on queues, subscriptions, and their respective dead-letter queues.
-
-When called repeatedly, `Peek` enumerates all messages in the queue or subscription log, in order, from the lowest available sequence number to the highest. It's the order in which messages were enqueued, not the order in which messages might eventually be retrieved.
-
-[PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) retrieves multiple messages and returns them as an enumeration. If no messages are available, the enumeration object is empty, not null.
-
-You can also use an overload of the method with a [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) at which to start, and then call the parameterless method overload to enumerate further. **PeekBatch** functions equivalently, but retrieves a set of messages all at once.
-
-
----
+You can also pass a SequenceNumber to a peek operation. It will be used to determine where to start peeking from. You can make subsequent calls to the peek operation without specifying the parameter to enumerate further.
 
 ## Next steps
+Try the samples in the language of your choice to explore the peek or message browsing feature:
 
-To learn more about Service Bus messaging, see the following topics:
+- [Azure Service Bus client library samples for Java](/samples/azure/azure-sdk-for-java/servicebus-samples/) - **Peek at a message** sample
+- [Azure Service Bus client library samples for Python](/samples/azure/azure-sdk-for-python/servicebus-samples/) - **receive_peek.py** sample
+- [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/) - **browseMessages.js** sample
+- [Azure Service Bus client library samples for TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/) - **browseMessages.ts** sample
+- [Azure.Messaging.ServiceBus samples for .NET](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) - See peek methods on receiver classes in the [reference documentation](/dotnet/api/azure.messaging.servicebus).
 
-* [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
-* [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-* [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+Find samples for the older .NET and Java client libraries below:
+- [Microsoft.Azure.ServiceBus samples for .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) - **Message Browsing (Peek)** sample 
+- [azure-servicebus samples for Java](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse) - **Message Browse** sample. 

@@ -24,7 +24,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 * Access to an IoT Hub. It is recommended that you use a S1 (Standard) tier or above.
-* A Device Update instance and account linked to your IoT Hub. Follow the guide to [create and link](http://create-device-update-account.md/) a device update account if you have not done so previously.
+* A Device Update instance and account linked to your IoT Hub. Follow the guide to [create and link](create-device-update-account.md) a device update account if you have not done so previously.
 
 ## Get started
 

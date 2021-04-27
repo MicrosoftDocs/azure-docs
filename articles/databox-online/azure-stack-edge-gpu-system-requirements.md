@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 04/07/2021
 ms.author: alkohli
 ms.custom: "contperf-fy21q3"
 ---
@@ -103,6 +103,18 @@ We recommend that you set your firewall rules for outbound traffic, based on Azu
 | https://\*.azurecr.io                     | Personal and third-party container registries (optional) | 
 | https://\*.azure-devices.net              | IoT Hub access (required)                             | 
 
+### URL patterns for monitoring
+
+Add the following URL patterns for Azure Monitor if you're using the containerized version of the Log Analytics agent for Linux.
+
+| URL pattern | Port | Component or functionality |
+|-------------|-------------|----------------------------|
+| http://\*ods.opinsights.azure.com | 443 | Data ingestion |
+| http://\*.oms.opinsights.azure.com | 443 | Operations Management Suite (OMS) onboarding |
+| http://\*.dc.services.visualstudio.com | 443 | Agent telemetry that uses Azure Public Cloud Application Insights |
+
+For more information, see [Network firewall requirements for monitoring container insights](../azure-monitor/containers/container-insights-onboard.md#network-firewall-requirements).
+
 ### URL patterns for gateway for Azure Government
 
 [!INCLUDE [Azure Government URL patterns for firewall](../../includes/azure-stack-edge-gateway-gov-url-patterns-firewall.md)]
@@ -114,6 +126,17 @@ We recommend that you set your firewall rules for outbound traffic, based on Azu
 | https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Microsoft container registry (required)               |
 | https://\*.azure-devices.us              | IoT Hub access (required)           |
 | https://\*.azurecr.us                    | Personal and third-party container registries (optional) | 
+
+### URL patterns for monitoring for Azure Government
+
+Add the following URL patterns for Azure Monitor if you're using the containerized version of the Log Analytics agent for Linux.
+
+| URL pattern | Port | Component or functionality |
+|-------------|-------------|----------------------------|
+| http://\*ods.opinsights.azure.us | 443 | Data ingestion |
+| http://\*.oms.opinsights.azure.us | 443 | Operations Management Suite (OMS) onboarding |
+| http://\*.dc.services.visualstudio.com | 443 | Agent telemetry that uses Azure Public Cloud Application Insights |
+
 
 ## Internet bandwidth
 

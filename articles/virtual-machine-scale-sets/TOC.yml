@@ -223,7 +223,7 @@
     href: ../virtual-machines/put-calls-create-or-update.md
     maintainContext: true
   - name: Scale Set FAQ
-    href: virtual-machine-scale-sets-faq.md
+    href: virtual-machine-scale-sets-faq.yml
 - name: How To
   items:
   - name: Plan and design
@@ -401,6 +401,8 @@
       maintainContext: true
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/vmss
   - name: Azure PowerShell
     href: /powershell/azure/
   - name: REST

@@ -4,7 +4,8 @@ description: This article tells how to move your Automation account to another s
 services: automation
 ms.subservice: process-automation
 ms.date: 01/07/2021
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Move your Azure Automation account to another subscription

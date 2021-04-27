@@ -473,7 +473,7 @@ Follow the instructions in the links below:
 
 ## Use the Access Reviews API
 
-See [graph API methods](/graph/api/resources/accessreviews-root?view=graph-rest-beta) and [role and application permission authorization checks](/graph/api/resources/accessreviews-root?view=graph-rest-beta) to interact with and manage reviewable resources. The Access Reviews methods in the Microsoft Graph API are available for both application and user contexts. When running scripts in the application context, the account used to run the API (the service principle) must be granted the “AccessReview.Read.All” permission to query Access Reviews information.
+See [graph API methods](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true) and [role and application permission authorization checks](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true) to interact with and manage reviewable resources. The Access Reviews methods in the Microsoft Graph API are available for both application and user contexts. When running scripts in the application context, the account used to run the API (the service principle) must be granted the “AccessReview.Read.All” permission to query Access Reviews information.
 
 Popular Access Reviews tasks to automate using the Graph API for Access Reviews are:
 

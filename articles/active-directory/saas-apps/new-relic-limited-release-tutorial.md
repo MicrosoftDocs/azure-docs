@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/04/2020
+ms.date: 04/13/2021
 ms.author: jeedes
 ---
 
@@ -20,8 +20,6 @@ In this tutorial, you'll learn how to integrate New Relic with Azure Active Dire
 * Control in Azure AD who has access to New Relic.
 * Enable your users to be automatically signed-in to New Relic with their Azure AD accounts.
 * Manage your accounts in one central location: the Azure portal.
-
-To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -35,13 +33,12 @@ To get started, you need:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * New Relic supports SSO that's initiated by either the service provider or the identity provider.
-* After you configure New Relic, you can enforce session control, which protects against exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## Add New Relic from the gallery
 
 To configure the integration of New Relic into Azure AD, you need to add **New Relic (By Organization)** from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) by using either a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal by using either a work or school account, or a personal Microsoft account.
 1. Select the **Azure Active Directory** service.
 1. Select **Enterprise applications** > **New application**.
 1. On the **Browse Azure AD Gallery** page, type **New Relic (By Organization)** in the search box.
@@ -64,7 +61,7 @@ To configure and test Azure AD SSO with New Relic:
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **New Relic by Organization** application integration page, find the **Manage** section. Then select **Single sign-on**.
+1. In the Azure portal on the **New Relic by Organization** application integration page, find the **Manage** section. Then select **Single sign-on**.
 
 1. On the **Select a single sign-on method** page, select **SAML**.
 
@@ -93,32 +90,27 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-Here's how to create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-1. From the Azure portal, select **Azure Active Directory**.
-1. Select **Users** > **New user**.
-1. On the **New user** page:
-   1. In the **User name** field, enter the `username@companydomain.extension`. For example, `b.simon@contoso.com`. This should match the email address you'll use on the New Relic side.
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
    1. In the **Name** field, enter `B.Simon`.  
-   1. Select **Show password**, and then save the value that is shown.
-   1. Select **Create**.
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
 ### Assign the Azure AD test user
 
-Here's how to enable B.Simon to use Azure AD single sign-on by granting access to the New Relic by Organization application.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to New Relic.
 
-1. From the Azure portal, select **Azure Active Directory**.
-1. Select **Enterprise applications** > **New Relic by Organization**.
-1. In the app's overview page, find the **Manage** section, and select **Users and groups**.
-
-   ![Screenshot of Manage section, with Users and groups highlighted.](common/users-groups-blade.png)
-
-1. Select **Add user**. In **Add Assignment**, select **Users and groups** (or **Users**, depending on your plan level).
-
-   ![Screenshot of Add user option.](common/add-assign-user.png)
-
-1. In **Users and groups** (or **Users**), select **B.Simon** from the **Users** list, and then choose **Select** at the bottom of the screen.
-1. In **Add Assignment**, select **Assign**.
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **New Relic**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure New Relic SSO
 
@@ -162,18 +154,20 @@ In this section, you create a user called B.Simon in New Relic.
 
 ## Test SSO 
 
-Here's how to test your Azure AD single sign-on configuration by using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you select **New Relic by Organization** in the Access Panel, you should be automatically signed into New Relic. For more information about the Access Panel, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
+#### SP initiated:
 
-## Additional resources
+* Click on **Test this application** in Azure portal. This will redirect to New Relic Sign on URL where you can initiate the login flow.  
 
-- [Tutorials for integrating SaaS applications with Azure Active Directory](./tutorial-list.md)
+* Go to New Relic Sign-on URL directly and initiate the login flow from there.
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+#### IDP initiated:
 
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the New Relic for which you set up the SSO. 
 
-- [Try New Relic with Azure AD](https://aad.portal.azure.com/)
+You can also use Microsoft My Apps to test the application in any mode. When you click the New Relic tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the New Relic for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+## Next steps
+
+Once you configure New Relic you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

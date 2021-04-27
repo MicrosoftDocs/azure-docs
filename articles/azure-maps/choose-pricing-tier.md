@@ -41,7 +41,7 @@ If the core geospatial APIs meet your service requirements, choose the S0 pricin
 | Geofencing                                |                    |✓        |
 | Azure Maps Data (Preview)                |                     | ✓        |
 | Mobility (Preview)                       |                     | ✓        |
-| Weather (Preview)                        |✓                    |✓        |
+| Weather                       |✓                    |✓        |
 |  Creator (Preview)                         |                   |✓        |
 |  Elevation (Preview)                        |                   |✓        |
 

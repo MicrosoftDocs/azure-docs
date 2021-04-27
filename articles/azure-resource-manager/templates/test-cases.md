@@ -2,7 +2,7 @@
 title: Test cases for test toolkit
 description: Describes the tests that are run by the ARM template test toolkit.
 ms.topic: conceptual
-ms.date: 12/03/2020
+ms.date: 04/12/2021
 ms.author: tomfitz
 author: tfitzmac
 ---
@@ -632,7 +632,7 @@ The following example **passes** this test.
 
 Test name: **ManagedIdentityExtension must not be used**
 
-Don't apply the ManagedIdentity extension to a virtual machine. For more information, see [How to stop using the virtual machine managed identities extension and start using the Azure Instance Metadata Service](../../active-directory/managed-identities-azure-resources/howto-migrate-vm-extension.md).
+Don't apply the ManagedIdentity extension to a virtual machine. The extension was deprecated in 2019 and should no longer be used.
 
 ## Outputs can't include secrets
 

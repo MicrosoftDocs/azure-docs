@@ -4,7 +4,8 @@ description: This article tells how to send an email from within a runbook.
 services: automation
 ms.subservice: process-automation
 ms.date: 01/05/2021
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Send an email from a runbook

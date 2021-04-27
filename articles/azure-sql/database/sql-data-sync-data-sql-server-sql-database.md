@@ -146,6 +146,7 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 - If there are tables with the same name but different schema (for example, dbo.customers and sales.customers) only one of the tables can be added into sync.
 - Columns with User-Defined Data Types aren't supported
 - Moving servers between different subscriptions isn't supported. 
+- If two primary keys are only different in case (e.g. Foo and foo), Data Sync won't support this scenario.
 
 #### Unsupported data types
 

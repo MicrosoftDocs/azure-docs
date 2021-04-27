@@ -30,39 +30,37 @@ Organizations can use this network location for common tasks like:
 
 The network location is determined by the public IP address a client provides to Azure Active Directory. Conditional Access policies by default apply to all IPv4 and IPv6 addresses. 
 
-> [!TIP]
-> IPv6 ranges are only supported in the **[Named location (preview)](#preview-features)** interface. 
-
 ## Named locations
 
-Locations are designated in the Azure portal under **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**. These named network locations may include locations like an organization's headquarters network ranges, VPN network ranges, or ranges that you wish to block. 
+Locations are designated in the Azure portal under **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**. These named network locations may include locations like an organization's headquarters network ranges, VPN network ranges, or ranges that you wish to block. Named locations can be defined by IPv4/IPv6 address ranges or by countries/regions. 
 
 ![Named locations in the Azure portal](./media/location-condition/new-named-location.png)
 
-To configure a location, you will need to provide at least a **Name** and the IP range. 
+### IP address ranges
 
-The number of named locations you can configure is constrained by the size of the related object in Azure AD. You can configure locations based on of the following limitations:
+To define a named location by IPv4/IPv6 address ranges, you will need to provide a **Name** and an IP range. 
 
-- One named location with up to 1200 IPv4 ranges.
-- A maximum of 90 named locations with one IP range assigned to each of them.
-
-> [!TIP]
-> IPv6 ranges are only supported in the **[Named location (preview)](#preview-features)** interface. 
+Named locations defined by IPv4/IPv6 address ranges are subject to the following limitations: 
+- Configure up to 195 named locations
+- Configure up to 2000 IP ranges per named location
+- Both IPv4 and IPv6 ranges are supported
+- Private IP ranges connot be configured
+- The number of IP addresses contained in a range is limited. Only CIDR masks greater than /8 are allowed when defining an IP range. 
 
 ### Trusted locations
 
-When creating a network location, an administrator has the option to mark a location as a trusted location. 
+Administrators can designate named locations defined by IP address ranges to be trusted named locations. 
 
 ![Trusted locations in the Azure portal](./media/location-condition/new-trusted-location.png)
 
-This option can factor in to Conditional Access policies where you may, for example,  require registration for multi-factor authentication from a trusted network location. It also factors in to Azure AD Identity Protection's risk calculation, lowering a users' sign-in risk when coming from a location marked as trusted.
+Sign-ins from trusted named locations improve the accuracy of Azure AD Identity Protection's risk calculation, lowering a users' sign-in risk when they authenticate from a location marked as trusted. Additionally, trusted named locations can be targeted in Conditional Access policies. For example, you may require restrict multi-factor authentication registration to trusted named locations only. 
 
 ### Countries and regions
 
-Some organizations may choose to define entire countries or regions IP boundaries as named locations for Conditional Access policies. They may use these locations when blocking unnecessary traffic when they know valid users will never come from a location such as North Korea. These mappings of IP address to country are updated periodically. 
+Some organizations may choose to restrict access to certain countries or regions using Conditional Access. In addition to defining named locations by IP ranges, admins can define named locations by country or regions. When a user signs in, Azure AD resolves the user's IPv4 address to a country or region, and the mapping is updated periodically. Organizations can use named locations defined by countries to block traffic from countries where they do not do business, such as North Korea. 
 
 > [!NOTE]
-> IPv6 address ranges cannot be mapped to countries. Only IPv4 addresses map to countries.
+> Sign-ins from IPv6 addresses cannot be mapped to countries or regions, and are considered unknown areas. Only IPv4 addresses can be mapped to countries or regions.
 
 ![Create a new country or region-based location in the Azure portal](./media/location-condition/new-named-location-country-region.png)
 
@@ -89,33 +87,6 @@ For mobile and desktop applications, which have long lived session lifetimes, Co
 
 If both steps fail, a user is considered to be no longer on a trusted IP.
 
-## Preview features
-
-In addition to the generally available named location feature, there is also a named location (preview). You can access the named location preview by using the banner at the top of the current named location blade.
-
-![Try the named locations preview](./media/location-condition/preview-features.png)
-
-With the named location preview, you are able to
-
-- Configure up to 195 named locations
-- Configure up to 2000 IP Ranges per named location
-- Configure IPv6 addresses alongside IPv4 addresses
-
-We’ve also added some additional checks to help reduce the change of misconfiguration.
-
-- Private IP ranges can no longer be configured
-- The number of IP addresses that can be included in a range are limited. Only CIDR masks greater than /8 will be allowed when configuring an IP range.
-
-With the preview, there are now two create options: 
-
-- **Countries location**
-- **IP ranges location**
-
-> [!NOTE]
-> IPv6 address ranges cannot be mapped to countries. Only IPv4 addresses map to countries.
-
-![Named locations preview interface](./media/location-condition/named-location-preview.png)
-
 ## Location condition in policy
 
 When you configure the location condition, you have the option to distinguish between:
@@ -141,7 +112,7 @@ With this option, you can select one or more named locations. For a policy with 
 
 ## IPv6 traffic
 
-By default, Conditional Access policies will apply to all IPv6 traffic. With the [named location preview](#preview-features), you can exclude specific IPv6 address ranges from a Conditional Access policy. This option is useful in cases where you don’t want policy to be enforced for specific IPv6 ranges. For example, if you want to not enforce a policy for uses on your corporate network, and your corporate network is hosted on public IPv6 ranges.  
+By default, Conditional Access policies will apply to all IPv6 traffic. You can exclude specific IPv6 address ranges from a Conditional Access policy if you don’t want policies to be enforced for specific IPv6 ranges. For example, if you want to not enforce a policy for uses on your corporate network, and your corporate network is hosted on public IPv6 ranges.  
 
 ### When will my tenant have IPv6 traffic?
 
@@ -192,7 +163,7 @@ When a cloud proxy is in place, a policy that is used to require a hybrid Azure 
 
 ### API support and PowerShell
 
-A preview version of the Graph API for named locations is available, for more information see the [namedLocation API](/graph/api/resources/namedlocation?view=graph-rest-beta).
+A preview version of the Graph API for named locations is available, for more information see the [namedLocation API](/graph/api/resources/namedlocation).
 
 > [!NOTE]
 > Named locations that you create by using PowerShell display only in Named locations (preview). You can't see named locations in the old view.  

@@ -208,7 +208,7 @@ A: Yes, you can. You can use the license type of `RHEL_BYOS` for RHEL VMs and `S
 
 *Q: Can I use Azure Hybrid Benefit on virtual machine scale sets for RHEL and SLES?*
 
-A: Yes, Azure Hybrid Benefit on virtual machine scale sets for RHEL and SLES is in preview. You can [learn more about this benefit and how to use it here](https://docs.microsoft.com/azure/virtual-machine-scale-sets/azure-hybrid-benefit-linux-vmss). 
+A: Yes, Azure Hybrid Benefit on virtual machine scale sets for RHEL and SLES is in preview. You can [learn more about this benefit and how to use it here](/azure/virtual-machine-scale-sets/azure-hybrid-benefit-linux). 
 
 *Q: Can I use Azure Hybrid Benefit on reserved instances for RHEL and SLES?*
 

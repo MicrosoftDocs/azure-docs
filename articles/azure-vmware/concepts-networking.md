@@ -62,9 +62,9 @@ For full interconnectivity to your private cloud, you need to enable ExpressRout
 
 Now that you've covered Azure VMware Solution network and interconnectivity concepts, you may want to learn about:
 
-- [Azure VMware Solution storage concepts](concepts-storage.md).
-- [Azure VMware Solution identity concepts](concepts-identity.md).
-- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md).
+- [Azure VMware Solution storage concepts](concepts-storage.md)
+- [Azure VMware Solution identity concepts](concepts-identity.md)
+- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md)
 
 <!-- LINKS - external -->
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md

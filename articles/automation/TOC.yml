@@ -66,6 +66,12 @@
           href: automation-create-standalone-account.md
         - name: Create Automation account with Resource Manager template
           href: quickstart-create-automation-account-template.md
+        - name: Managed identity
+          items:
+            - name: Enable managed identity
+              href: enable-managed-identity-for-automation.md
+            - name: Disable managed identity
+              href: disable-managed-identity-for-automation.md
         - name: Run As account
           items:
             - name: Create Run As account
@@ -116,7 +122,7 @@
           href: troubleshoot/shared-resources.md
     - name: Process automation
       items:
-        - name: Use runbooks and modules in PowerShell Gallery
+        - name: Use existing runbooks and modules
           href: automation-runbook-gallery.md
         - name: Learn PowerShell Workflow
           href: automation-powershell-workflow.md
@@ -334,6 +340,8 @@
           href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/ext/automation/automation
   - name: Azure PowerShell Az
     href: /powershell/module/az.automation
   - name: Azure PowerShell AzureRM

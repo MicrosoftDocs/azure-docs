@@ -32,6 +32,8 @@
   - name: Assign a policy - ARM template
     displayName: assign, compliance, resource manager
     href: ./assign-policy-template.md
+  - name: Assign a policy - Bicep
+    href: ./assign-policy-bicep.md
   - name: Assign a policy - Terraform
     displayName: assign, compliance, hcl, provider
     href: ./assign-policy-terraform.md
