@@ -500,7 +500,7 @@
   - name: Accept sign-ins from multiple tenants
     items:
     - name: Modify accounts supported by an app
-      href: quickstart-modify-supported-accounts.md
+      href: ./howto-modify-supported-accounts.md
     - name: Enable multi-tenant log-ins
       href: howto-convert-app-to-be-multi-tenant.md
     - name: Configure the publisher domain
@@ -558,9 +558,9 @@
     - name: Diagnose errors during authentication
       href: vs-active-directory-error.md
   - name: Remove an app registration
-    href: quickstart-remove-app.md
+    href: ./howto-remove-app.md
   - name: Restore or remove a deleted app registration
-    href: quickstart-restore-app.md
+    href: ./howto-restore-app.md
 - name: Reference
   items:
   - name: Glossary
