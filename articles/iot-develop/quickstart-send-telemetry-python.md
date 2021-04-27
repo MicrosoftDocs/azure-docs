@@ -58,7 +58,7 @@ To create a new device:
     The created device appears in the **All devices** list.
     :::image type="content" source="media/quickstart-send-telemetry-python/iot-central-devices-list.png" alt-text="IoT Central all devices list":::
     
-To retrieve connection details for the new device:
+To get connection details for the new device:
 1. In the **All devices** list, click the linked device name to display details. 
 1. In the top menu, select **Connect**.
 
