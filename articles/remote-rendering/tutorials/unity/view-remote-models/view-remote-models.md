@@ -122,7 +122,7 @@ Perform the following steps to validate that the project settings are correct.
     ![Unity editor project validation](./media/remote-render-unity-validation.png)
 
 > [!NOTE]
-> If you use MRTK in your project and enable the camera subsystem MRTK will override manual changes you apply to the camera. This includes fixes from the ValidateProject tool.
+> If you use MRTK in your project and you enable the camera subsystem, MRTK will override manual changes that you apply to the camera. This includes fixes from the ValidateProject tool.
 
 ## Create a script to coordinate Azure Remote Rendering connection and state
 
