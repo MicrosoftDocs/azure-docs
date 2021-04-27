@@ -195,4 +195,5 @@ If your DNS changes have populated, the website returns your custom domain confi
 
 ## Next steps
 
-> [!div class="nextstepaction"] > [Configure app settings](application-settings.md)
+> [!div class="nextstepaction"]
+> [Configure app settings](application-settings.md)
