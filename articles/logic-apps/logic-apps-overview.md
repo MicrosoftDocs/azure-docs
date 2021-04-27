@@ -41,16 +41,6 @@ For more information about the ways workflows can access and work with apps, dat
 * [Built-in triggers and actions for Azure Logic Apps](../connectors/managed.md)
 * [B2B enterprise integration solutions with Azure Logic Apps](logic-apps-enterprise-integration-overview.md)
 
-## How do logic apps work?
-
-In a logic app, each workflow always starts with a single [trigger](#logic-app-concepts). A trigger fires when a condition is met, for example, when a specific event happens or when data meets specific criteria. Many triggers include [scheduling capabilities](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md) that control how often your workflow runs. Following the trigger, one or more [actions](#logic-app-concepts) run operations that, for example, process, handle, or convert data that travels through the workflow, or that advance the workflow to the next step.
-
-For example, the following workflow starts with a Dynamics trigger that has a built-in condition named **When a record is updated**. The actions include transforming XML, calling a web app that updates data, evaluating a condition that controls which actions to take, and sending an email notification with the results. When the trigger detects an event that meets the condition, the trigger fires, and the actions in the workflow start to run. Each time the trigger fires, the Logic Apps service creates a workflow instance that runs the actions.
-
-![Logic Apps Designer - example workflow](./media/logic-apps-overview/azure-logic-apps-designer.png)
-
-You can visually create workflows using the Logic Apps designer in the Azure portal, Visual Studio, or Visual Studio Code. Each workflow also has an underlying definition that's described using JavaScript Object Notation (JSON). If you prefer, you can build and customize workflows by using the code view editor in the Azure portal, Visual Studio, or Visual Studio Code. For some creation and management tasks, Logic Apps provides Azure PowerShell and Azure CLI command support. For automated deployment, Logic Apps supports Azure Resource Manager templates.
-
 <a name="logic-app-concepts"></a>
 
 ## Key terms
@@ -69,7 +59,17 @@ You can visually create workflows using the Logic Apps designer in the Azure por
 
   For example, you can start almost any workflow on a schedule when you use the Recurrence trigger. Or, you can have your workflow wait until called when you use the Request trigger. For more information, review [Built-in triggers and actions for Azure Logic Apps](../connectors/built-in.md).
 
-## Why use Logic Apps
+## How logic apps work
+
+In a logic app, each workflow always starts with a single [trigger](#logic-app-concepts). A trigger fires when a condition is met, for example, when a specific event happens or when data meets specific criteria. Many triggers include [scheduling capabilities](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md) that control how often your workflow runs. Following the trigger, one or more [actions](#logic-app-concepts) run operations that, for example, process, handle, or convert data that travels through the workflow, or that advance the workflow to the next step.
+
+For example, the following workflow starts with a Dynamics trigger that has a built-in condition named **When a record is updated**. The actions include transforming XML, calling a web app that updates data, evaluating a condition that controls which actions to take, and sending an email notification with the results. When the trigger detects an event that meets the condition, the trigger fires, and the actions in the workflow start to run. Each time the trigger fires, the Logic Apps service creates a workflow instance that runs the actions.
+
+![Logic Apps Designer - example workflow](./media/logic-apps-overview/azure-logic-apps-designer.png)
+
+You can visually create workflows using the Logic Apps designer in the Azure portal, Visual Studio, or Visual Studio Code. Each workflow also has an underlying definition that's described using JavaScript Object Notation (JSON). If you prefer, you can build and customize workflows by using the code view editor in the Azure portal, Visual Studio, or Visual Studio Code. For some creation and management tasks, Logic Apps provides Azure PowerShell and Azure CLI command support. For automated deployment, Logic Apps supports Azure Resource Manager templates.
+
+## Why use logic apps
 
 With businesses moving toward digitization, the Logic Apps platform helps you connect legacy, modern, and cutting-edge systems more easily and quickly by providing prebuilt APIs as Microsoft-managed connectors. That way, you can focus on your apps' business logic and functionality. You don't have to worry about building, hosting, scaling, managing, maintaining, and monitoring your apps. Logic Apps handles these concerns for you. Plus, you pay only for what you use based on a consumption [pricing model](../logic-apps/logic-apps-pricing.md).
 
