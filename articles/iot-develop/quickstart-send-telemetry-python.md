@@ -86,11 +86,8 @@ In this section, you use the Python SDK samples to configure a simulated thermos
     cd azure-iot-sdk-python/azure-iot-device/samples/pnp
     ```
 1. Install the Azure IoT Python SDK.
-    > [!NOTE]
-    > If you have both Python 2 and Python 3 installed, and use a Python 3 environment, use the `pip3` command rather `pip` to install libraries. Running `pip3` ensures that the libraries are installed to your Python 3 runtime.
-
     ```console
-    pip install azure-iot-device
+    pip3 install azure-iot-device
     ```
 
 1. Set each of the following environment variables, to enable your simulated device to connect to IoT Central. For `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY`, and `IOTHUB_DEVICE_DPS_DEVICE_ID`, use the device connection values that you saved.
@@ -106,7 +103,7 @@ In this section, you use the Python SDK samples to configure a simulated thermos
     ```
 
     > [!NOTE]
-    > For Windows CMD there are no quotation marks surrounding the connection string or other variable values.
+    > For Windows CMD there are no quotation marks surrounding the variable values.
 
     **PowerShell**
 
