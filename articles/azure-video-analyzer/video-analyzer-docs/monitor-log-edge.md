@@ -52,22 +52,22 @@ Azure Video Analyzer on IoT Edge emits events, or telemetry data, according to t
       - RTSP [SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol) information (shown in the following example)       
 - Gaps in the incoming video feed
       
-        *Check Example Below*
-    
-      ```
-      {
-        "body": {
-          "sdp": "SDP:\nv=0\r\no=- 1589326384077235 1 IN IP4 XXX.XX.XX.XXX\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/lots_015.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.04.12\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-73.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/lots_015.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=640028;sprop-parameter-sets=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\r\na=control:track1\r\n"
-        },
-        "applicationProperties": {
-          "topic": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/Microsoft.Media/videoAnalyzers/<account-name>/edgeModules/avaedge",
-          "subject": "/livePipelines/Sample-1/sources/rtspSource",
-          "eventType": "Microsoft.VideoAnalyzer.Diagnostics.MediaSessionEstablished",
-          "eventTime": "2021-04-26T18:15:13.298Z",
-          "dataVersion": "1.0"
-        }
+    *Check Example Below*
+  
+    ```
+    {
+      "body": {
+        "sdp": "SDP:\nv=0\r\no=- 1589326384077235 1 IN IP4 XXX.XX.XX.XXX\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/lots_015.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.04.12\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-73.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/lots_015.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=640028;sprop-parameter-sets=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\r\na=control:track1\r\n"
+      },
+      "applicationProperties": {
+        "topic": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/Microsoft.Media/videoAnalyzers/<account-name>/edgeModules/avaedge",
+        "subject": "/livePipelines/Sample-1/sources/rtspSource",
+        "eventType": "Microsoft.VideoAnalyzer.Diagnostics.MediaSessionEstablished",
+        "eventTime": "2021-04-26T18:15:13.298Z",
+        "dataVersion": "1.0"
       }
-      ```
+    }
+    ```
 * Analytic:  Events generated as part of video analysis
 
    * Volume: Can be high (several times a minute or more)
