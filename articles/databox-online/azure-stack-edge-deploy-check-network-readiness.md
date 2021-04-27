@@ -114,7 +114,7 @@ To run a network readiness check, do these steps:
 1. Run a network readiness check by entering the following command:<!--Add new parameters.-->
 
     ```powershell
-    Invoke-AzsNetworkValidation -DnsServer <string[]> -DeviceFqdn <string> [-TimeServer <string[]>] [-Proxy <uri>] [ProxyCredential <pscredentials>] [-WindowsUpdateServer <uri[]>] [CustomUrl <url[]>] [AzureEnvironment {AzureCloud | AzureChinaCloud | AzureGermanCloud |
+    Invoke-AzsNetworkValidation -DnsServer <string[]> -DeviceFqdn <string> [-TimeServer <string[]>] [-Proxy <uri>] [ProxyCredential <pscredential>] [-WindowsUpdateServer <uri[]>] [CustomUrl <url[]>] [AzureEnvironment {AzureCloud | AzureChinaCloud | AzureGermanCloud |
     AzureUSGovernment | CustomCloud}] [-SkipTests {LinkLayer | IPConfig | DnsServer | TimeServer | DuplicateIP | AzureEndpoint] |
     WindowsUpdateServer | DnsRegistration}] [-OutputPath <string>]
     ```
@@ -138,7 +138,7 @@ To run a network readiness check, do these steps:
 
 ## Sample output: Success
 
-The following sample is the output from a successful run of the Azure Stack Network Readiness Checker tool, with these parameters:<!--Update command and output with new parameters-->
+The following sample is the output from a successful run of the Azure Stack Network Readiness Checker tool, with these parameters:
 
    `Invoke-AzsNetworkValidation -DnsServer '10.50.10.50', '10.50.50.50' -DeviceFqdn 'aseclient.contoso.com' -TimeServer 'pool.ntp.org' -Proxy 'http://proxy.contoso.com:3128/' -SkipTests DuplicateIP -WindowsUpdateServer 'http://ase-prod.contoso.com' -OutputPath C:\ase-network-tests`
 
@@ -180,7 +180,7 @@ If a test fails, the Network Readiness Checker returns information to help you r
 
 The following sample is the output from this command:
 
-`Invoke-AzsNetworkValidation -DnsServer '10.50.10.50' -TimeServer 'time.windows.com' -DeviceFqdn aseclient.contoso.com -ComputeIPs 10.10.52.1-10.10.52.20 -CustomUrl 'http://www.custom1.com','http://time.windows.com','http://fakename.fakeurl.com'`
+`Invoke-AzsNetworkValidation -DnsServer '10.50.10.50' -TimeServer 'time.windows.com' -DeviceFqdn aseclient.contoso.com -ComputeIPs 10.10.52.1-10.10.52.20 -CustomUrl 'http://www.custom1.com','http://time.windows.com','http://fakename.fakeurl.com'`<!--time.windows.com is used twice - Validates as the time server; fails as a custom URL.-->
 
 ```powershell
    PS C:\Users\Administrator> Invoke-AzsNetworkValidation -DnsServer '10.50.10.50' -TimeServer 'time.windows.com' -DeviceFqdn aseclient.contoso.com -ComputeIPs 10.10.52.1-10.10.52.20 -CustomUrl 'http://www.nytimes.com','http://time.windows.com','http://fakename.fakeurl.com'
