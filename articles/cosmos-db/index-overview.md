@@ -375,11 +375,11 @@ Like in the first example, the `Contains` system function may return some false 
 
 Queries with the following aggregate functions must rely exclusively on the index, so evaluating some system functions requires a full scan.
 
-- `Avg`
-- `Count`
-- `Max`
-- `Min`
-- `Sum`
+- [Avg](sql-query-aggregate-avg.md)
+- [Count](sql-query-aggregate-count.md)
+- [Max](sql-query-aggregate-max.md)
+- [Min](sql-query-aggregate-min.md)
+- [Sum](sql-query-aggregate-sum.md)
 
 ## Next steps
 

@@ -5,7 +5,7 @@ author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 04/27/21
+ms.date: 04/27/2021
 ms.author: girobins
 ms.custom: query-reference
 ---
@@ -40,6 +40,7 @@ The following scalar functions perform an operation on a string input value and 
 | [StringToBoolean](sql-query-stringtoboolean.md) | Full scan          | Full scan                                              |                                                              |
 | [StringToNull](sql-query-stringtonull.md)       | Full scan          | Full scan                                              |                                                              |
 | [StringToNumber](sql-query-stringtonumber.md)   | Full scan          | Full scan                                              |                                                              |
+
 Learn about about [index usage](index-overview.md#index-usage) in Azure Cosmos DB.
 
 ## Next steps
