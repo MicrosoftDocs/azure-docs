@@ -227,8 +227,8 @@
     #     href: application-proxy-configure-hard-coded-link-translation.md
     #   - name: Configure cookie settings
     #     href: application-proxy-configure-cookie-settings.md
-    #   - name: Publish using wildcards
-    #     href: application-proxy-wildcard.md
+      - name: Publish using wildcards
+        href: application-proxy-wildcard.md
     #   - name: Remove personal data
     #     href: application-proxy-remove-personal-data.md
     #   - name: Configure custom domain
