@@ -103,5 +103,5 @@ Conditions don't apply for access to the blob specified by the `prevsnapshot` UR
 
 - [Authorize access to blobs using Azure role assignment conditions (Preview)](storage-blob-auth-abac.md)
 - [Attributes and operations supported for Azure role assignment conditions in Azure Storage (preview)](storage-blob-auth-abac-attributes.md)
-- [What is Azure attribute-based access control (Azure ABAC)?](../../role-based-access-control/conditions-overview.md)
+- [What is Azure attribute-based access control (Azure ABAC)? (Preview)](../../role-based-access-control/conditions-overview.md)
 
