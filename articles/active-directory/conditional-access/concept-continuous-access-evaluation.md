@@ -133,7 +133,7 @@ From this page, you can optionally limit the users and groups that will be subje
 
 ![Enabling the CAE preview in the Azure portal](./media/concept-continuous-access-evaluation/enable-cae-preview.png)
 
-> ![WARNING]
+> [!WARNING]
 > To disable continuous access evaluation please select **Enable preview** then **Disable preview** and select **Save**
 
 ## Troubleshooting
