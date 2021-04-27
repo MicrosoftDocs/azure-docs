@@ -568,6 +568,9 @@ To install:
 
 ## HP EdgeLine 300 installation
 
+•	A default administrative user is provided. We recommend that you change the password during the network configuration.
+•	The installation process takes about 20 minutes. After the installation, the system is restarted several times.
+
 ### HP EdgeLine 300 back panel
 
 :::image type="content" source="media/tutorial-install-components/edgeline-el300-panel.png" alt-text="View of the back panel of the EL300":::
