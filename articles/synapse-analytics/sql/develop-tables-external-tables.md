@@ -33,7 +33,7 @@ The key differences between Hadoop and native external tables are presented in t
 
 ## External tables in dedicated SQL pool and serverless SQL pool
 
-External table created on `HADOOP` external data sources to:
+You can use external tables to:
 
 - Query Azure Blob Storage and Azure Data Lake Gen2 with Transact-SQL statements.
 - Store query results to files in Azure Blob Storage or Azure Data Lake Storage using [CETAS](develop-tables-cetas.md)
@@ -125,6 +125,11 @@ TYPE = `HADOOP` is the option that specifies that Java-based technology should b
 The following example creates a Hadoop external data source in dedicated SQL pool for Azure Data Lake Gen2 pointing to the New York data set:
 
 ```sql
+CREATE DATABASE SCOPED CREDENTIAL [ADLS_credential]
+WITH IDENTITY='SHARED ACCESS SIGNATURE',  
+SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
+GO
+
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 WITH
   -- Please note the abfss endpoint when your account has secure transfer enabled
@@ -132,6 +137,14 @@ WITH
     CREDENTIAL = ADLS_credential ,
     TYPE = HADOOP
   ) ;
+```
+
+The following example creates an external data source for Azure Data Lake Gen2 pointing to the publicly available New York data set:
+
+```sql
+CREATE EXTERNAL DATA SOURCE YellowTaxi
+WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/',
+       TYPE = HADOOP)
 ```
 
 #### [Native](#tab/native)
