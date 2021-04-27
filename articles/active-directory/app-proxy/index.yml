@@ -20,8 +20,8 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is application management?
-            url: what-is-application-management.md
+          - text: What is application proxy?
+            url: what-is-application-proxy.md
           # - text: What is single sign-on?
           #   url: what-is-single-sign-on.md
   - title: Get started

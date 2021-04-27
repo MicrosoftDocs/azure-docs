@@ -3,8 +3,8 @@
   - name: Overview
     expanded: true
     items:
-    # - name: What is application management?
-    #   href: what-is-application-management.md
+    - name: What is application proxy?
+      href: what-is-application-proxy.md
     # - name: What is single sign-on (SSO)?
     #   href: what-is-single-sign-on.md
     # - name: What's new in docs?
