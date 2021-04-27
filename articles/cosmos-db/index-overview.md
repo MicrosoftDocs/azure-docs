@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 04/27/2021
 ms.author: tisande
 ---
 
@@ -237,7 +237,7 @@ Example items:
     }
 ```
 
-Azure Cosmos DB uses an inverted index. The index works by mapping each JSON path to the set of items that contain that value. Here is a sample diagram of an inverted index for a container that includes the two example items:
+Azure Cosmos DB uses an inverted index. The index works by mapping each JSON path to the set of items that contain that value. The path value to item id mapping is represented across many different index pages for the container. Here is a sample diagram of an inverted index for a container that includes the two example items:
 
 | Path                    | Value   | List of item ids   |
 | ----------------------- | ------- | ---------- |
@@ -255,7 +255,7 @@ The inverted index has two important attributes:
 - For a given path, values are sorted in ascending order. Therefore, the query engine can easily serve `ORDER BY` from the index.
 - For a given path, the query engine can scan through the distinct set of possible values to identify the index pages where there are results.
 
-The query engine can utilize the inverted index in three different ways:
+The query engine can utilize the inverted index in four different ways:
 
 ### Index seek
 
@@ -271,7 +271,7 @@ The query predicate (filtering on items where any location has "France" as its c
 
 :::image type="content" source="./media/index-overview/matching-path.png" alt-text="Matching a specific path within a tree" border="false":::
 
-Since this query has an equality filter, after traversing this tree, we can quickly identify the index pages that contain the query results. In this case, the query engine would read index pages 7 and 18 and load the matching documents according to the bitmap for the those pages. An index seek is the most efficient way to use the index. With an index seek we only read the necessary index pages and load only the items in the query results. Therefore, the index lookup time and RU charge from index lookup are incredibly low, regardless of the total data volume. 
+Since this query has an equality filter, after traversing this tree, we can quickly identify the index pages that contain the query results. In this case, the query engine would read index pages that contain Item 1. An index seek is the most efficient way to use the index. With an index seek we only read the necessary index pages and load only the items in the query results. Therefore, the index lookup time and RU charge from index lookup are incredibly low, regardless of the total data volume. 
 
 ### Precise index scan
 
@@ -283,7 +283,7 @@ FROM company
 WHERE company.headquarters.employees > 200
 ```
 
-The query predicate (filtering on items where there are more than 200 employees) can be evaluated with a precise index scan of the `headquarters/employees` path. When doing a precise index scan, the query engine starts by doing a binary search of the distinct set of possible values to find the location of the value `200` for the `headquarters/employees` path. Since the values for each path are sorted in ascending order, it's easy for the query engine to do a binary search. After the query engine finds the value `200`, it starts reading all remaining index pages (going into the ascending direction).
+The query predicate (filtering on items where there are more than 200 employees) can be evaluated with a precise index scan of the `headquarters/employees` path. When doing a precise index scan, the query engine starts by doing a binary search of the distinct set of possible values to find the location of the value `200` for the `headquarters/employees` path. Since the values for each path are sorted in ascending order, it's easy for the query engine to do a binary search. After the query engine finds the value `200`, it starts reading all remaining index pages (going in the ascending direction).
 
 Because the query engine can do a binary search to avoid scanning unnecessary index pages, precise index scans tend to have comparable latency and RU charges to index seek operations.
 
@@ -299,7 +299,7 @@ WHERE StartsWith(company.headquarters.country, "United", true)
 
 The query predicate (filtering on items that have headquarters in a country that start with case-sensitive "United") can be evaluated with an expanded index scan of the `headquarters/country` path. Operations that do an expanded index scan have optimizations that can help avoid needs to scan every index page but are slightly more expensive than a precise index scan's binary search.
 
-For example, when evaluating case-insensitive StartsWith, the query engine will check the index for different possible combinations of uppercase and lowercase values. This optimization allows the query engine to avoid reading the majority of index pages. Different system functions have different optimizations that they can use to avoid reading every index page, so we'll broadly categorize these as **expanded index scan**. 
+For example, when evaluating case-insensitive `StartsWith`, the query engine will check the index for different possible combinations of uppercase and lowercase values. This optimization allows the query engine to avoid reading the majority of index pages. Different system functions have different optimizations that they can use to avoid reading every index page, so we'll broadly categorize these as expanded index scan. 
 
 ### Full index scan
 
@@ -311,7 +311,7 @@ FROM company
 WHERE Contains(company.headquarters.country, "United")
 ```
 
-The query predicate (filtering on items that have headquarters in a country that contains "United") can be evaluated with an index scan of the `headquarters/country` path. Unlike a precise index scan, a full index scan will always scan through the distinct set of possible values to identify the index pages where there are results. In this case, `Contains` is run on the index. The index lookup time and RU charge for index scans increases as the cardinality of the path increases. In other words, the more possible distinct values that the query engine needs to scan, the higher the latency and RU charge involved in doing an index scan.  
+The query predicate (filtering on items that have headquarters in a country that contains "United") can be evaluated with an index scan of the `headquarters/country` path. Unlike a precise index scan, a full index scan will always scan through the distinct set of possible values to identify the index pages where there are results. In this case, `Contains` is run on the index. The index lookup time and RU charge for index scans increases as the cardinality of the path increases. In other words, the more possible distinct values that the query engine needs to scan, the higher the latency and RU charge involved in doing a full index scan.  
 
 For example, consider two properties: town and country. The cardinality of town is 5,000 and the cardinality of country is 200. Here are two example queries that each have a [Contains](sql-query-contains.md) system function that does an index scan on the `town` property. The first query will use more RUs than the second query because the cardinality of town is higher than country.
 
@@ -343,15 +343,15 @@ FROM company
 WHERE company.headquarters.employees = 200 AND CONTAINS(company.headquarters.country, "United")
 ```
 
-To execute this query, the query engine must do a precise index seek on `headquarters/employees` and full index scan on `headquarters/country`. The query engine has internal heuristics that it uses to evaluate the query filter expression as efficiently as possible. In this case, the query engine would avoid needing to read unnecessary index pages by doing the index seek first. If, for example, only fifty items matched the equality filter, the query engine would only need to evaluate `Contains` on the index pages that contained those fifty items. A full index scan of the entire container wouldn't be necessary.
+To execute this query, the query engine must do a precise index seek on `headquarters/employees` and full index scan on `headquarters/country`. The query engine has internal heuristics that it uses to evaluate the query filter expression as efficiently as possible. In this case, the query engine would avoid needing to read unnecessary index pages by doing the index seek first. If, for example, only 50 items matched the equality filter, the query engine would only need to evaluate `Contains` on the index pages that contained those 50 items. A full index scan of the entire container wouldn't be necessary.
 
 ## Index utilization for scalar aggregate functions
 
 Queries with aggregate functions must rely exclusively on the index in order to use it. 
 
-In some cases, the index can return false positives. For example, when evaluating `Contains` on the index, the number of matches in the index may exceed the number of query results. In this case, the query engine will load all index matches, evaluate the filter on the loaded items, and return only the correct results.
+In some cases, the index can return false positives. For example, when evaluating `Contains` on the index, the number of matches in the index may exceed the number of query results. The query engine will load all index matches, evaluate the filter on the loaded items, and return only the correct results.
 
-For the majority of queries, loading false positive index matches will not have any noticable impact on index utilization.
+For the majority of queries, loading false positive index matches will not have any noticeable impact on index utilization.
 
 For example, consider the following query:
 
