@@ -9,7 +9,7 @@ ms.date: 04/20/2021
 ms.author: ginle
 ---
 
-# Search Examples
+# FHIR Search Examples
 
 Below are some examples of using FHIR search operations, including search parameters and modifiers, chain and reverse chain search, composite search, viewing the next entry set for search results, and searching with a POST request.
    
