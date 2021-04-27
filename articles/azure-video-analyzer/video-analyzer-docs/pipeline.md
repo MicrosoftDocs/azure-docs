@@ -123,5 +123,5 @@ Using a combination of the sources, processors, and sinks defined above, you can
 
 ## Next steps
 
-To see how you can run motion detection on a live video feed, see [Quickstart: Run Video Analyzer with your own model](add-valid-link.md).
+To see how you can run motion detection on a live video feed, see [Quickstart: Run Video Analyzer with your own model](get-started-detect-motion-emit-events.md).
 
