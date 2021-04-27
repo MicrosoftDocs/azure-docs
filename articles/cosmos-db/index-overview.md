@@ -149,7 +149,7 @@ Spatial indexes can be used on correctly formatted [GeoJSON](./sql-query-geospat
 
 ### Composite indexes
 
-**Composite** indices increase the efficiency when you are performing operations on multiple fields. The composite index type is used for:
+**Composite** indexes increase the efficiency when you are performing operations on multiple fields. The composite index type is used for:
 
 - `ORDER BY` queries on multiple properties:
 
@@ -187,16 +187,16 @@ There are five ways that the query engine can evaluate query filters, sorted by 
 - Full index scan
 - Full scan
 
-When you index properties, the query engine will automatically use the indexes as efficiently as possible. Aside from creating new indexes, you don't need to configure anything to optimize how queries use indexes. A query's RU charge is a combination of both the RU charge from index usage and the RU charge from loading items.
+When you index property paths, the query engine will automatically use the index as efficiently as possible. Aside from indexing new property paths, you don't need to configure anything to optimize how queries use the index. A query's RU charge is a combination of both the RU charge from index usage and the RU charge from loading items.
 
 Here is a table that summarizes the different ways indexes are used in Azure Cosmos DB:
 
-| Index lookup type  | Description                                                  | Common Examples                                 | RU charge from index usage                                   | RU charge from loading items                        |
+| Index lookup type  | Description                                                  | Common Examples                                 | RU charge from index usage                                   | RU charge from loading items from transactional data store                   |
 | ------------------ | ------------------------------------------------------------ | ----------------------------------------------- | ------------------------------------------------------------ | --------------------------------------------------- |
-| Index seek         | Read only index pages that match the query filter and load only matching items | Equality filters, IN                            | Constant per equality filter                                                     | Increases based on number of items in query results |
-| Precise index scan | Binary search of index pages and load only matching items | Range comparisons (>, <, <=, or >=), StartsWith | Comparable to index seek, increases slightly based on the cardinality of indexed properties | Increases based on number of items in query results |
-| Expanded index scan | Optimized search of index pages and load only matching items | StartsWith (case-insensitive), StringEquals (case-insensitive) | Increases slightly based on the cardinality of indexed properties | Increases based on number of items in query results |
-| Full index scan    | Read all index pages and load only matching items                                              | Contains, EndsWith, RegexMatch, LIKE                                    | Increases linearly based on the cardinality of indexed properties | Increases based on number of items in query results |
+| Index seek         | Read only required indexed values and load only matching items from the transactional data store | Equality filters, IN                            | Constant per equality filter                                                     | Increases based on number of items in query results |
+| Precise index scan | Binary search of indexed values and load only matching items from the transactional data store | Range comparisons (>, <, <=, or >=), StartsWith | Comparable to index seek, increases slightly based on the cardinality of indexed properties | Increases based on number of items in query results |
+| Expanded index scan | Optimized search (but less efficient than a binary search) of indexed values and load only matching items from the transactional data store | StartsWith (case-insensitive), StringEquals (case-insensitive) | Increases slightly based on the cardinality of indexed properties | Increases based on number of items in query results |
+| Full index scan    | Read distinct set of indexed values and load only matching items from the transactional data store                                              | Contains, EndsWith, RegexMatch, LIKE                                    | Increases linearly based on the cardinality of indexed properties | Increases based on number of items in query results |
 | Full scan          | Load all items                                               | Upper, Lower                                    | N/A                                                          | Increases based on number of items in container |
 
 When writing queries, you should use filter predicate that use the index as efficiently as possible. For example, if either `StartsWith` or `Contains` would work for your use case, you should opt for `StartsWith` since it will do a precise index scan instead of a full index scan.
@@ -237,7 +237,7 @@ Example items:
     }
 ```
 
-Azure Cosmos DB uses an inverted index. The index works by mapping each JSON path to the set of items that contain that value. The path value to item id mapping is represented across many different index pages for the container. Here is a sample diagram of an inverted index for a container that includes the two example items:
+Azure Cosmos DB uses an inverted index. The index works by mapping each JSON path to the set of items that contain that value. The item id mapping is represented across many different index pages for the container. Here is a sample diagram of an inverted index for a container that includes the two example items:
 
 | Path                    | Value   | List of item ids   |
 | ----------------------- | ------- | ---------- |
@@ -329,7 +329,7 @@ For example, consider two properties: town and country. The cardinality of town 
 
 ### Full scan
 
-In some cases, the query engine may not be able to evaluate a query filter using the index. In this case, the query engine will need to load all items to evaluate the query filter. Full scans do not use the index and have an RU charge that increases linearly with the total data size. Luckily, operations that require full scans are rare. 
+In some cases, the query engine may not be able to evaluate a query filter using the index. In this case, the query engine will need to load all items from the transactional store in order to evaluate the query filter. Full scans do not use the index and have an RU charge that increases linearly with the total data size. Luckily, operations that require full scans are rare. 
 
 ### Queries with complex filter expressions
 
