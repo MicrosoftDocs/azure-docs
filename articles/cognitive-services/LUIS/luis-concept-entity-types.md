@@ -24,7 +24,7 @@ Entities are optional but recommended. You don't need to create entities for eve
 * The client application needs the data, or 
 * The entity acts as a hint or signal to another entity or intent. To learn more about entities as Features go to [Entities as features](#entities-as-features).
 
-# Entity types
+## Entity types
 
 To create an entity, you have to give it a name and a type. There are several types of entities in LUIS. 
 
