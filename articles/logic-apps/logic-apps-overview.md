@@ -11,12 +11,12 @@ ms.date: 04/26/2021
 
 # What is Azure Logic Apps
 
-[Logic Apps](https://azure.microsoft.com/services/logic-apps) is a cloud-based platform that helps you quickly and easily integrate apps, data, systems, and services by building and running automated [workflows](#logic-app-concepts). Part of [Azure Integration Services](https://azure.microsoft.com/product-categories/integration/), Logic Apps provides a simpler way to create, host, and manage highly scalable integration solutions for enterprise and business-to-business (B2B) scenarios across cloud, on premises, and hybrid environments.
+[Logic Apps](https://azure.microsoft.com/services/logic-apps) is a cloud-based platform that helps you create and run automated [workflows](#logic-app-concepts) for integrating apps, data, services, and systems. Using this platform, you can more easily and quickly build highly scalable integration solutions for enterprise and business-to-business (B2B) scenarios. As a member of [Azure Integration Services](https://azure.microsoft.com/product-categories/integration/), Logic Apps provides a simpler way for you to connect legacy, modern, and cutting-edge systems across cloud, on premises, and hybrid environments.
 
 This list describes just a few example tasks, business processes, and workloads that you can automate with the Logic Apps service:
 
+* Schedule and send email notifications using Office 365 when a specific event happens, for example, a new file is uploaded.
 * Route and process customer orders across on-premises systems and cloud services.
-* Schedule and send email notifications using Office 365 when a specific event happens.
 * Move uploaded files from an SFTP or FTP server to Azure Storage.
 * Monitor tweets, analyze the sentiment, and create alerts or tasks for items that need review.
 
@@ -51,7 +51,7 @@ For more information about the ways workflows can access and work with apps, dat
 
 * **Action**: Each subsequent step that follows after the trigger and runs some operation in a workflow
 
-* **Managed connector**: A Microsoft-managed connector that provides access to a specific app, data, service, or system. Before you can use them, most managed connectors require that you first create a connection from your workflow and authenticate your identity.
+* **Managed connector**: A Microsoft-managed API that provides access to a specific app, data, service, or system. Before you can use them, most managed connectors require that you first create a connection from your workflow and authenticate your identity.
 
   For example, you can start a workflow with a trigger or include an action that works with Azure Blob Storage, Office 365, Salesforce, or SFTP servers. For more information, review [Managed connectors for Azure Logic Apps](../connectors/managed.md).
 
@@ -71,15 +71,17 @@ For example, the following workflow starts with a Dynamics trigger that has a bu
 
 You can visually create workflows using the Logic Apps designer in the Azure portal, Visual Studio, or Visual Studio Code. Each workflow also has an underlying definition that's described using JavaScript Object Notation (JSON). If you prefer, you can build and customize workflows by using the code view editor in the Azure portal, Visual Studio, or Visual Studio Code. For some creation and management tasks, Logic Apps provides Azure PowerShell and Azure CLI command support. For automated deployment, Logic Apps supports Azure Resource Manager templates.
 
-## Why use logic apps
+## Why use Logic Apps
 
-With businesses moving toward digitization, the Logic Apps platform helps you connect legacy, modern, and cutting-edge systems more easily and quickly by providing prebuilt APIs as Microsoft-managed connectors. That way, you can focus on your apps' business logic and functionality. You don't have to worry about building, hosting, scaling, managing, maintaining, and monitoring your apps. Logic Apps handles these concerns for you. Plus, you pay only for what you use based on a consumption [pricing model](../logic-apps/logic-apps-pricing.md).
+The Logic Apps platform helps you more easily and quickly connect legacy, modern, and cutting-edge systems by providing prebuilt connectors and built-in operations. That way, you can focus more on your apps' business logic and functionality. You don't have to worry about building, hosting, scaling, managing, maintaining, and monitoring your apps. Logic Apps handles these concerns for you. 
 
 Usually, you won't have to write any code. But if you must write some code, you can create code snippets with [Azure Functions](../azure-functions/functions-overview.md) and run that code on-demand from workflows. Also, if your workflows need to interact with events from Azure services, custom apps, or other solutions, you can use [Azure Event Grid](../event-grid/overview.md) with your workflows for event monitoring, routing, and publishing.
 
 Logic Apps, Functions, and Event Grid are fully managed by Microsoft Azure, which frees you from worries about building, hosting, scaling, managing, monitoring, and maintaining your solutions. With the capability to create ["serverless" apps and solutions](../logic-apps/logic-apps-serverless-overview.md), you can just focus on the business logic. These services automatically scale to meet your needs, make integrations faster, and help you build robust cloud apps with minimal code.
 
 To learn how companies improved their agility and increased focus on their core businesses when they combined Logic Apps with other Azure services and Microsoft products, check out these [customer stories](https://aka.ms/logic-apps-customer-stories).
+
+Logic Apps offers different environments for building and hosting your workflows, each with their own [pricing model](../logic-apps/logic-apps-pricing.md).
 
 Here are more details about the capabilities and benefits that you get with Logic Apps:
 
