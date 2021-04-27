@@ -66,7 +66,7 @@ LUIS offers a set of prebuilt entities for recognizing common types of data like
 
 See the [prebuilt entities reference article](./luis-reference-prebuilt-entities.md) for more information.
 
-## Pattern.Any Entity
+## Pattern.Any entity
 
 A pattern.Any entity is a variable-length placeholder used only in a pattern's template utterance to mark where the entity begins and ends. It follows a specific rule or pattern and best used for sentences with fixed lexical structure. For example:
 
