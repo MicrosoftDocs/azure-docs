@@ -201,8 +201,6 @@ The response status is 204 with no results. Use the `-v` command-line parameter 
 
 Before you query the knowledge base, you need to Publish the knowledge base.
 
-This task publishes the knowledge base. Getting the runtime endpoint key is a [separate task](#get-published-knowledge-bases-runtime-endpoint-key).
-
 |Information|cURL configuration|Purpose|
 |--|--|--|
 |Text Analytics resource name (Custom question answering feature enabled)|URL|used to construct URL|
