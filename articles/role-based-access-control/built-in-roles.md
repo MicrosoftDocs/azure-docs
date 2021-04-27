@@ -137,10 +137,10 @@ The following table provides a brief description of each built-in role. Click th
 > | [Cognitive Services QnA Maker Reader](#cognitive-services-qna-maker-reader) | Let's you read and test a KB only. | 466ccd10-b268-4a11-b098-b4849f024126 |
 > | [Cognitive Services User](#cognitive-services-user) | Lets you read and list keys of Cognitive Services. | a97b65f3-24c7-4388-baec-2e87135dc908 |
 > | **Internet of things** |  |  |
-> | [IoT Hub Data Contributor](#iot-hub-data-contributor) | Allows for full access to IoT Hub data plane operations. | 4fc6c259-987e-4a07-842e-c321cc9d413f |
+> | [IoT Hub Data Contributor](#iot-hub-data-contributor) | Allows for full access to IoT Hub data plane operations. | 4fc6c259-987e-4a07-842e-c321cc9d413f |
 > | [IoT Hub Data Reader](#iot-hub-data-reader) | Allows for full read access to IoT Hub data-plane properties | b447c946-2db7-41ec-983d-d8bf3b1c77e3 |
 > | [IoT Hub Registry Contributor](#iot-hub-registry-contributor) | Allows for full access to IoT Hub device registry. | 4ea46cd5-c1b2-4a8e-910b-273211f9ce47 |
-> | [IoT Hub Twin Contributor](#iot-hub-twin-contributor) | Allows for read and write access to all IoT Hub device and module twins. | 494bdba2-168f-4f31-a0a1-191d2f7c028c |
+> | [IoT Hub Twin Contributor](#iot-hub-twin-contributor) | Allows for read and write access to all IoT Hub device and module twins. | 494bdba2-168f-4f31-a0a1-191d2f7c028c |
 > | [Device Update Administrator](#device-update-administrator) | Gives you full access to management and content operations | 02ca0879-e8e4-47a5-a61e-5c618b76e64a |
 > | [Device Update Content Administrator](#device-update-content-administrator) | Gives you full access to content operations | 0378884a-3af5-44ab-8323-f5b22f9f3c98 |
 > | [Device Update Content Reader](#device-update-content-reader) | Gives you read access to content operations, but does not allow making changes | d1ee9a80-8b14-47f0-bdc2-f4a351625a7b |
@@ -6014,7 +6014,7 @@ Lets you read and list keys of Cognitive Services. [Learn more](../cognitive-ser
 
 ## Internet of things
 
-### IoT Hub Data Contributor
+### IoT Hub Data Contributor
 
 Allows for full access to IoT Hub data plane operations.
 
@@ -6047,7 +6047,7 @@ Allows for full access to IoT Hub data plane operations.
       "notDataActions": []
     }
   ],
-  "roleName": "IoT Hub Data Contributor",
+  "roleName": "IoT Hub Data Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -6133,7 +6133,7 @@ Allows for full access to IoT Hub device registry.
 }
 ```
 
-### IoT Hub Twin Contributor
+### IoT Hub Twin Contributor
 
 Allows for read and write access to all IoT Hub device and module twins.
 
@@ -6166,7 +6166,7 @@ Allows for read and write access to all IoT Hub device and module twins.
       "notDataActions": []
     }
   ],
-  "roleName": "IoT Hub Twin Contributor",
+  "roleName": "IoT Hub Twin Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
