@@ -24,7 +24,9 @@ keywords: facial recognition, facial recognition software, facial analysis, face
 
 The Azure Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many different scenarios, such as  security, natural user interface, image content analysis and management, mobile apps, and robotics.
 
-The Face service enables several different facial analysis scenarios which are outlined in the following sections.
+The Face service enables several different scenarios which are outlined in the following sections.
+
+:::image type="content" source="media/overview/scenarios.png" alt-text="Face scenarios: detection and analysis, and identity verification":::
 
 This documentation contains the following types of articles:
 * The [quickstarts](./Quickstarts/client-libraries.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
