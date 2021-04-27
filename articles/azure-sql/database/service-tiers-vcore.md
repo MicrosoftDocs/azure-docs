@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 01/15/2021
+ms.date: 05/01/2021
 ---
 # vCore model overview - Azure SQL Database and Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

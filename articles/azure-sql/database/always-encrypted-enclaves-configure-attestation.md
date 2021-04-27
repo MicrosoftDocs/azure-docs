@@ -10,7 +10,7 @@ ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
-ms.date: 01/15/2021
+ms.date: 05/01/2021
 ---
 
 # Configure Azure Attestation for your Azure SQL logical server
@@ -24,9 +24,9 @@ ms.date: 01/15/2021
 
 To use Azure Attestation for attesting Intel SGX enclaves used for [Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves) in Azure SQL Database, you need to:
 
-1. Create an [attestation provider](../../attestation/basic-concepts.md#attestation-provider) and configure it with the recommended attestation policy.
+1. Create an [attestation provider](../../attestation/basic-concepts.md#attestation-provider)/and configure it with the recommended attestation policy.
 
-2. Grant your Azure SQL logical server access to your attestation provider.
+2. Determine the attestation URL and share it with application administrators.
 
 > [!NOTE]
 > Configuring attestation is the responsibility of the attestation administrator. See [Roles and responsibilities when configuring SGX enclaves and attestation](always-encrypted-enclaves-plan.md#roles-and-responsibilities-when-configuring-sgx-enclaves-and-attestation).
@@ -87,62 +87,21 @@ For instructions for how to create an attestation provider and configure with an
 
 ## Determine the attestation URL for your attestation policy
 
-After you've configured an attestation policy, you need to share the attestation URL, referencing the policy, administrators of applications that use Always Encrypted with secure enclaves in Azure SQL Database. Application administrators or/and application users will need to configure their apps with the attestation URL, so that they can run statements that use secure enclaves.
+After you've configured an attestation policy, you need to share the attestation URL with administrators of applications that use Always Encrypted with secure enclaves in Azure SQL Database. The attestation URL is the `Attest URI` of the attestation provider containing the attestation policy, which looks like this: `https://MyAttestationProvider.wus.attest.azure.net`.
 
 ### Use PowerShell to determine the attestation URL
 
-Use the following script to determine your attestation URL:
+Use the `Get-AzAttestation` cmdlet to retrieve the attestation provider properties, including AttestURI.
 
 ```powershell
-$attestationProvider = Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName 
-$attestationUrl = $attestationProvider.AttestUri + "/attest/SgxEnclave"
-Write-Host "Your attestation URL is: " $attestationUrl 
+Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName
 ```
+
+For more information, see [Create and manage an attestation provider](../../attestation/quickstart-powershell.md#create-and-manage-an-attestation-provider).
 
 ### Use Azure portal to determine the attestation URL
 
-1. In the Overview pane for your attestation provider, copy the value of the Attest URI property to clipboard. An Attest URI should look like this: `https://MyAttestationProvider.us.attest.azure.net`.
-
-2. Append the following to the Attest URI: `/attest/SgxEnclave`. 
-
-The resulting attestation URL should look like this: `https://MyAttestationProvider.us.attest.azure.net/attest/SgxEnclave`
-
-## Grant your Azure SQL logical server access to your attestation provider
-
-During the attestation workflow, the Azure SQL logical server containing your database calls the attestation provider to submit an attestation request. For the Azure SQL logical server to be able to submit attestation requests, the server must have a permission for the `Microsoft.Attestation/attestationProviders/attestation/read` action on the attestation provider. The recommended way to grant the permission is for the administrator of the attestation provider to assign the Azure AD identity of the server to the Attestation Reader role for the attestation provider, or its containing resource group.
-
-### Use Azure portal to assign permission
-
-To assign the identity of an Azure SQL server to the Attestation Reader role for an attestation provider, follow the general instructions in [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md). When you are in the **Add role assignment** pane:
-
-1. In the **Role** drop-down, select the **Attestation Reader** role.
-1. In the **Select** field, enter the name of your Azure SQL server to search for it.
-
-See the below screenshot for an example.
-
-![attestation reader role assignment](./media/always-encrypted-enclaves/attestation-provider-role-assigment.png)
-
-> [!NOTE]
-> For a server to show up in the **Add role assignment** pane, the server must have an Azure AD identity assigned - see [Requirements](#requirements).
-
-### Use PowerShell to assign permission
-
-1. Find your Azure SQL logical server.
-
-```powershell
-$serverResourceGroupName = "<server resource group name>"
-$serverName = "<server name>" 
-$server = Get-AzSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName 
-```
- 
-2. Assign the server to the Attestation Reader role for the resource group containing your attestation provider.
-
-```powershell
-$attestationResourceGroupName = "<attestation provider resource group name>"
-New-AzRoleAssignment -ObjectId $server.Identity.PrincipalId -RoleDefinitionName "Attestation Reader" -ResourceGroupName $attestationResourceGroupName
-```
-
-For more information, see [Assign Azure roles using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md#assign-role-examples).
+In the Overview pane for your attestation provider, copy the value of the `Attest URI` property to clipboard. 
 
 ## Next Steps
 
