@@ -49,8 +49,4 @@ To understand how many registration and resolution networks, you can link to pri
 
 * Read about some common [private zone scenarios](./private-dns-scenarios.md) that can be realized with private zones in Azure DNS.
 
-<<<<<<< HEAD
 * For common questions and answers about private zones in Azure DNS, including specific behavior you can expect for certain kinds of operations, see [Private DNS FAQ](./dns-faq-private.yml).
-=======
-* For common questions and answers about private zones in Azure DNS, including specific behavior you can expect for certain kinds of operations, see [Private DNS FAQ](./dns-faq-private.md).
->>>>>>> 3e56f8189900643e119eb0c5a641044139e3fddd
