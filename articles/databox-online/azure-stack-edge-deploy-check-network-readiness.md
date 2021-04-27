@@ -25,7 +25,7 @@ You can run the tool from any computer on the network where you'll deploy the Az
 
 ## About the tool
 
-<!--Add subheadings?-->The Azure Stack Network Readiness Checker can check whether a network meets the following prerequisites:
+The Azure Stack Network Readiness Checker can check whether a network meets the following prerequisites:
 
 - The Domain Name System (DNS) server is available and functioning.
 
@@ -35,18 +35,25 @@ You can run the tool from any computer on the network where you'll deploy the Az
 
 - The Windows Update server - either the customer-provided Windows Server Update services (WSUS) server or the public Windows Update server - is available and functioning.
 
-- There are no overlapping IP addresses for Edge Compute.<!--Is "Edge Compute" a thing? Should this be "Edge computing"? When is "Edge" used without "Azure Stack"?-->
+- There are no overlapping IP addresses for Edge Compute.
 
 - DNS resource records registration for Azure Stack Edge is functioning correctly.
+
+#### Report file
 
 The tool saves a report, AzsReadinessCheckerReport.json, with detailed diagnostics that are collected during each test. This information can be helpful if you need to contact Support.
 
 For example, the report provides:
- * A list of network adapters on the machine on which the tests ran, with their driver versions, MAC addresses, and connection state
- * The IP configuration of the machine on which the tests ran
- * Detailed DNS response properties returned by the DNS server for each test
- * Detailed HTTP response for all URL tests
- * Network route trace for each of the tests
+
+ * A list of network adapters on the machine used to run the tests, with the driver version, MAC address, and connection state for each network adapter
+
+ * IP configuration of the machine used to run the tests
+
+ * Detailed DNS response properties that the DNS server returned for each test
+
+ * Detailed HTTP response for each test of a URL
+
+ * Network route trace for each test
 
 <!--The Network Readiness Checker includes the following tests. You can choose which tests to run.
 
@@ -222,28 +229,18 @@ Invoke-AzsNetworkValidation Completed
 
 #### Log file sample
 
-For more information, you can review the log file that the tool saves. The following sample is taken from the log file for the network readiness check above.<!--Get log sample for failed scenario.-->
+The following sample is taken from the log file, AzsReadinessChecker.log, for this command.<!--Get log sample for failed scenario.-->
 
 ```XML
-   TBD
+   PLEASE PROVIDE LOG FILE TO TAKE SAMPLE FROM.
 ```
 
 #### Report file sample
 
-There's also a report file, AzsReadinessCheckerReport.json, which gives detailed diagnostic information collected during each test. 
-
-The diagnostic information includes:
-
-- List of network adapters on the machine used to run the tests, with the driver version, MAC addresses, and connection state for each adapter
-- IP configuration of the machine used to run the tests
-- Detailed DNS response properties that the DNS server returned for each test
-- Detailed HTTP response for all URL tests
-- Network route trace for each test
-
-The following sample is taken from the report file for the network readiness check above.<!--Get sample report for failed scenario.-->
+The following sample is from the report file, AzsReadinessCheckerReport.json, for this command.<!--Get sample report for failed scenario.-->
 
 ```JSON
-   TBD
+   PLEASE PROVIDE REPORT FILE TO TAKE SAMPLE FROM.
 ```
 
 
