@@ -295,7 +295,7 @@ After you create your *Cluster* resource and it is fully provisioned, you can ed
 - **billingType** - The *billingType* property determines the billing attribution for the *cluster* resource and its data:
   - **Cluster** (default) - The Capacity Reservation costs for your Cluster are attributed to the *Cluster* resource.
   - **Workspaces** - The Capacity Reservation costs for your Cluster are attributed proportionately to the workspaces in the Cluster, with the *Cluster* resource being billed some of the usage if the total ingested data for the day is under the Capacity Reservation. See [Log Analytics Dedicated Clusters](./manage-cost-storage.md#log-analytics-dedicated-clusters) to learn more about the Cluster pricing model.
-  -	**Identity** - The identity to be used to authenticate to your Key Valt. This can be System-assigned or User-assigned.
+  - **Identity** - The identity to be used to authenticate to your Key Valt. This can be System-assigned or User-assigned.
 
 >[!IMPORTANT]
 >Cluster update should not include both identity and key identifier details in the same operation. If you need to update both, the update should be in two consecutive operations.
