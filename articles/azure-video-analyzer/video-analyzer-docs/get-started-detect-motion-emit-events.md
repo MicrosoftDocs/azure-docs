@@ -371,7 +371,7 @@ Within a few seconds, you see the following response in the **OUTPUT** window:
 In the response payload, notice these details:
 
 * The status code is 200, indicating success.
-* The payload includes the `created` time stamp and the `lastModified` time stamp.
+* The payload includes the `createdAt` time stamp and the `lastModifiedAt` time stamp.
 
 ### Invoke livePipelineSet
 
