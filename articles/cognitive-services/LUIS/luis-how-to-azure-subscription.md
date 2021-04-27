@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 04/26/2021
 ---
 
-# LUIS Recources
+# LUIS resources
 
 Learn more about LUIS resources [here](./luis-concept-azure-subscription.md).
 
