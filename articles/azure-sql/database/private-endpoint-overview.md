@@ -48,15 +48,15 @@ Once the network admin creates the Private Endpoint (PE), the SQL admin can mana
 
 1. Finally clicking on the private endpoint name 
 
-![Screenshot of PEC details][7]
+   ![Screenshot of PEC details][7]
 
-leads to the Network Interface details
+   leads to the Network Interface details
 
-![Screenshot of NIC details][8]
+   ![Screenshot of NIC details][8]
 
-which finally leads to the IP address
+   which finally leads to the IP address
 
-![Screenshot of Private IP][9]
+   ![Screenshot of Private IP][9]
 
 ## Test connectivity to SQL Database from an Azure VM in same virtual network
 For this scenario, assume you've created an Azure Virtual Machine (VM) running Windows Server 2016 in the same virtual network and subnet as the private endpoint.
