@@ -105,8 +105,6 @@
         href: application-proxy-configure-single-sign-on-on-premises-apps.md
       - name: Password-based SSO
         href: configure-password-single-sign-on-non-gallery-applications.md
-      - name: Password-based SSO (on-prem apps)
-        href: application-proxy-configure-single-sign-on-password-vaulting.md
       - name: Linked-based SSO
         href: configure-linked-sign-on.md
       - name: Header-based SSO (on-prem apps)

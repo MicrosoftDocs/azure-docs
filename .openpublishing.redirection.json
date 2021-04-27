@@ -54317,7 +54317,12 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-sso-azure-portal.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-password-vaulting",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-single-sign-on-password-vaulting",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-single-sign-on-password-vaulting",
       "redirect_document_id": false
     },
     {
