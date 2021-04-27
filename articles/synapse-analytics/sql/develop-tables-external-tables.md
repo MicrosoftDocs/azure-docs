@@ -122,7 +122,7 @@ TYPE = `HADOOP` is the option that specifies that Java-based technology should b
 
 #### [Hadoop](#tab/hadoop)
 
-The following example creates an Hadoop external data source in dedicated SQL pool for Azure Data Lake Gen2 pointing to the New York data set:
+The following example creates a Hadoop external data source in dedicated SQL pool for Azure Data Lake Gen2 pointing to the New York data set:
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
@@ -357,9 +357,9 @@ Using Data Lake exploration capabilities of Synapse Studio you can now create an
 
 ### Prerequisites
 
-- You must have access to the workspace with at least the Storage Blob Data Contributor ARM Access role to the ADLS Gen2 Account
+- You must have access to the workspace with at least the `Storage Blob Data Contributor` access role to the ADLS Gen2 Account
 
-- You must have at least [permissions to create](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#permissions-2&preserve-view=true) and query external tables on the SQL pool or SQL OD
+- You must have at least [permissions to create](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#permissions-2&preserve-view=true) and query external tables on the Synapse SQL pool (dedicated or serverless).
 
 From the Data panel, select the file that you would like to create the external table from:
 > [!div class="mx-imgBorder"]
