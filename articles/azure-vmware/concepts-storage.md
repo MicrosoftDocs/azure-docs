@@ -3,12 +3,12 @@ title: Concepts - Storage
 description: Learn about storage capacity, storage policies, fault tolerance, and storage integration in Azure VMware Solution private clouds.
 ms.topic: conceptual
 ms.custom: contperf-fy21q4
-ms.date: 04/23/2021
+ms.date: 04/26/2021
 ---
 
 # Azure VMware Solution storage concepts
 
-Azure VMware Solution private clouds provide native, cluster-wide storage with VMware vSAN. All local storage from each host in a cluster is used in a vSAN datastore, and data-at-rest encryption is available and enabled by default. You can use Azure Storage resources to extend storage capabilities of your private clouds.
+Azure VMware Solution private clouds provide native, cluster-wide storage with VMware vSAN. Local storage from each host in a cluster is used in a vSAN datastore, and data-at-rest encryption is available and enabled by default. You can use Azure Storage resources to extend storage capabilities of your private clouds.
 
 ## vSAN clusters
 
@@ -24,7 +24,7 @@ Local storage in cluster hosts is used in cluster-wide vSAN datastore. All datas
 - Datastore.UpdateVirtualMachineMetadata
 
 >[!IMPORTANT]
->You can't change the name of datastores or clusters.
+>You can't change the name of datastores or clusters. You can select a cluster name other than "Cluster-n" where n > 1 when provisioning from somewhere other than the portal (AzureCLI or PowerShell).
 
 ## Storage policies and fault tolerance
 
