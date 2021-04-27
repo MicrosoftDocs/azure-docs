@@ -13,7 +13,9 @@ ms.author: hasshah
 ms.custom: devx-track-csharp
 ---
 
-# Choosing an effective keyword
+# Recommendations and guidelines for keyword recognition
+
+## Choosing an effective keyword
 
 Creating an effective keyword is vital to ensuring your product will consistently and accurately respond. Consider the following guidelines when you choose a keyword. *Note: though the examples below are in English, the guidelines apply to all languages supported by Custom Keyword.*
 - It should take no longer than two seconds to say.
@@ -25,7 +27,7 @@ Creating an effective keyword is vital to ensuring your product will consistentl
 - Do not use special characters, symbols, or digits. For example, "Go#" and "20 + cats" could be problematic keywords. However, "go sharp" or "twenty plus cats" might work. You can still use the symbols in your branding and use marketing and documentation to reinforce the proper pronunciation.
 
 
-# User experience recommendations with Keyword Verification
+## User experience recommendations with Keyword Verification
 
 With a multi-stage keyword recognition scenario where [Keyword Verification](keyword-verification-overview.md) is used, applications can choose when the end-user is notified of a keyword detection. The recommendation for rendering any visual or audible indicator is to rely upon on responses from the Keyword Verification service:
 

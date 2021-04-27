@@ -31,21 +31,21 @@ Accuracy of keyword recognition is measured via the following metrics:
 
 The goal is to maximize the correct accept rate while minimizing the false accept rate. The current system is designed to detect a keyword or phrase preceded by a short amount of silence. Detecting a keyword in the middle of a sentence or utterance is not supported.
 
-# Custom Keyword
+## Custom Keyword
 
 The Custom Keyword portal on Speech Studio allows you to generate keyword recognition models that execute at the edge by specifying any word or short phrase that best represents your brand or product. You can further personalize your keyword model by choosing the right pronunciations and selecting your desired accuracy tradeoffs. There is no cost to using Custom Keyword for generating models, or for running models on-device with the Speech SDK. To learn more, read [Custom Keyword for on-device models](custom-keyword-overview.md).
 
-# Keyword Verification
+## Keyword Verification
 
-Keyword Verification is a cloud service that reduces the impact of false accepts from on-device models with robust models running on Azure. It is always used in combination with Speech-to-Text, and there is no cost to using Keyword Verification beyond the cost of Speech-to-Text. To learn more, read [Keyword Verification](keyword-verification.md).
+Keyword Verification is a cloud service that reduces the impact of false accepts from on-device models with robust models running on Azure. It is always used in combination with Speech-to-Text, and there is no cost to using Keyword Verification beyond the cost of Speech-to-Text. To learn more, read [Keyword Verification](keyword-verification-overview.md).
 
-# Speech SDK integration and scenarios
+## Speech SDK integration and scenarios
 
 The Speech SDK facilitates easy use of personalized on-device keyword recognition models generated with Custom Keyword and the Keyword Verification service. To ensure your product needs can be met, the SDK supports two scenarios:
 
 | Scenario | Description | Samples |
 | -------- | ----------- | ------- |
-| End-to-end keyword recognition with Speech-to-Text | Best suited for products that will use a customized on-device keyword model from Custom Keyword with Azure Speech’s Keyword Verification and Speech-to-Text services. This is the most common scenario. | [Voice assistant sample code.](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant) <br> [Tutorial: Voice enable your assistant built using Azure Bot Service with the C# Speech SDK.](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk) <br> [Tutorial: Create a Custom Commands application with simple voice commands.](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-develop-custom-commands-application) |
+| End-to-end keyword recognition with Speech-to-Text | Best suited for products that will use a customized on-device keyword model from Custom Keyword with Azure Speech’s Keyword Verification and Speech-to-Text services. This is the most common scenario. | [Voice assistant sample code.](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant) <br> [Tutorial: Voice enable your assistant built using Azure Bot Service with the C# Speech SDK.](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk) <br> [Tutorial: Create a Custom Commands application with simple voice commands.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-develop-custom-commands-application) |
 | Offline keyword recognition | Best suited for products without network connectivity that will use a customized on-device keyword model from Custom Keyword. | [C# on Windows UWP sample.](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer) <br> [Java on Android sample.](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
 
 ## Next steps

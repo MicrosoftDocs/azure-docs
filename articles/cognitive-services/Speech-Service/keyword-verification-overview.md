@@ -13,9 +13,11 @@ ms.author: hasshah
 ms.custom: devx-track-csharp
 ---
 
+# Keyword Verification overview
+
 Keyword Verification is a cloud service that reduces the impact of false accepts from on-device models with robust models running on Azure. There is no tuning or training required for Keyword Verification to work with your keyword. Incremental model updates are continually deployed to the service to improve accuracy and latency, completely transparent to client applications.
 
-# Keyword Verification and Speech-to-Text
+## Keyword Verification and Speech-to-Text
 
 When Keyword Verification is used, it is always in combination with Speech-to-Text where both services are executed in parallel. This means that audio is sent to both services for simultaneous processing.
 
@@ -26,7 +28,7 @@ Executing Keyword Verification and Speech-to-Text in parallel yields the followi
 2. **Forced keyword prefix in Speech-to-Text results** – Speech-to-Text processing will ensure that the results sent to the client are prefixed with the keyword. This allows for increased accuracy in the Speech-to-Text results for speech that follows the keyword.
 3. **Increased Speech-to-Text timeout** – Due to the expected presence of the keyword at the beginning of audio, Speech-to-Text will allow for a longer pause of up to 5 seconds after the keyword, before determining end of speech and terminating Speech-to-Text processing. This ensures the end-user experience for both staged commands (*\<keyword> \<pause> \<command>*) and chained commands (*\<keyword> \<command>*) is correctly handled. 
 
-# Keyword Verification responses and latency considerations
+## Keyword Verification responses and latency considerations
 
 For each request to the service, Keyword Verification will return one of two responses: Accepted or Rejected. The processing latency varies depending on the length of the keyword and the length of the audio segment expected to contain the keyword. *Note: processing latency does not include network cost between the client and Azure Speech services.*
 
@@ -37,7 +39,7 @@ For each request to the service, Keyword Verification will return one of two res
 
 Rejected cases often yield higher latencies as the service processes more audio than accepted cases. By default, Keyword Verification will process a maximum of two seconds of audio to search for the keyword. If the keyword is determined not to be present in the two seconds, the service will time out and signal a rejected response to the client.
 
-# Using Keyword Verification with on-device models from Custom Keyword
+## Using Keyword Verification with on-device models from Custom Keyword
 
 The Speech SDK facilitates seamless use of on-device models generated using Custom Keyword with Keyword Verification and Speech-to-Text. It transparently handles:
 1. Audio gating to Keyword Verification & Speech recognition based on the outcome of on-device model.
@@ -51,7 +53,7 @@ The sample and tutorials linked below show how to use the Speech SDK:
  * [Tutorial: Voice enable your assistant built using Azure Bot Service with the C# Speech SDK.](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk)
  * [Tutorial: Create a Custom Commands application with simple voice commands.](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-develop-custom-commands-application)
 
-# Pricing
+## Pricing
 
 Keyword Verification is always used in combination with Speech-to-text, and there is no cost to using Keyword Verification beyond the cost of Speech-to-Text. 
 

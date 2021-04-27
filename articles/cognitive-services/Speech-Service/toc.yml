@@ -301,7 +301,7 @@
   items:
     - name: Keyword recognition overview
       href: keyword-recognition-overview.md
-    - name: Custom Keyword for on-device models
+    - name: Custom Keyword overview
       href: custom-keyword-overview.md
     - name: Keyword Verification overview
       href: keyword-verification-overview.md

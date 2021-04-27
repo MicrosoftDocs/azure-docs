@@ -13,7 +13,9 @@ ms.author: hasshah
 ms.custom: devx-track-csharp
 ---
 
-# Supported languages
+# Keyword recognition language and region support
+
+## Supported languages
 
 | Language | Locale (BCP-47) | Custom Keyword | Keyword Verification |
 | -------- | --------------- | -------------- | -------------------- |
@@ -22,7 +24,7 @@ ms.custom: devx-track-csharp
 | Japanese (Japan) | ja-JP | No | Yes |
 | Portuguese (Brazil) | pt-BR | No | Yes |
 
-# Supported regions
+## Supported regions
 
 | Region | Custom Keyword (Basic models) | Custom Keyword (Advanced models) | Keyword Verification |
 | ------ | ----------------------------- | -------------------------------- | -------------------- |

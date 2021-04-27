@@ -44,7 +44,7 @@ Before you can use a custom keyword, you need to create a keyword using the [Cus
 
 1. To create a new keyword model, click **Train model**.
 
-1. Enter a **Name** for the model, an optional **Description**, and the **Keyword** of your choice, then click **Next**. See the [guidelines](./custom-keyword-overview.md#choose-an-effective-keyword) on choosing an effective keyword.
+1. Enter a **Name** for the model, an optional **Description**, and the **Keyword** of your choice, then click **Next**. See the [guidelines](keyword-recognition-guidelines.md#choosing-an-effective-keyword) on choosing an effective keyword.
 
     ![Enter your keyword](media/custom-keyword/custom-kws-portal-new-model.png)
 
