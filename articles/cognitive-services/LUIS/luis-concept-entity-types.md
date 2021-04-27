@@ -44,7 +44,7 @@ Matching in list entities is both case sensitive and it has to be an exact match
 
 See the [list entities reference article](reference-entity-list.md) for more information.
 
-## Regex Entity
+## Regex entity
 
 A regular expression entity extracts an entity based on a regular expression pattern you provide. It ignores case and ignores cultural variant. Regular expression is best for structured text or a predefined sequence of alphanumeric values that are expected in a certain format. For example:
 
