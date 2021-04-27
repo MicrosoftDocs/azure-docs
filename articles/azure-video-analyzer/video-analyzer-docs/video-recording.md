@@ -31,5 +31,5 @@ Recording policy refers to the policies that dictate the recording start/stop ti
 <!-- TODO: Add links to the CVR and EVR concept pages -->
 ## Next steps
 
-- [Detect motion, record video clips to Azure Media Services](add-valid-link.md)
+- [Tutorial: Continuous video recording and playback](use-continuous-video-recording.md)
 - [Detect motion, record video clips to edge devices](detect-motion-record-video-clips-edge-devices.md)  
