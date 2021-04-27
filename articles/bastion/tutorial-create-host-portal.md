@@ -77,7 +77,7 @@ This section helps you create the bastion object in your VNet. This is required 
 1. Review your settings. Next, at the bottom of the page, select **Create**.
 1. You will see a message letting you know that your deployment is underway. Status will display on this page as the resources are created. It takes about 5 minutes for the Bastion resource to be created and deployed.
 
-## Remove VM public IP address
+## Remove a VM public IP address
 
 When you connect to a VM using Azure Bastion, you do not need a public IP address for your VM. To disassociate a public IP address for your VM, use the following steps:
 
