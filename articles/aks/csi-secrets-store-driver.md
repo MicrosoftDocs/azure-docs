@@ -64,7 +64,18 @@ To create an AKS cluster with Secrets Store CSI Driver capability, use the [az-a
 az aks create -n myAKSCluster -g myResourceGroup --enable-addons azure-keyvault-secrets-provider
 ```
 
-This command will install the Secrets Store CSI Driver and the Azure Key Vault provider on your nodes. Verify by listing all pods from all namespaces and ensuring your output looks similar to the following:
+## Upgrade an existing AKS cluster with Secrets Store CSI Driver support
+
+> [!NOTE]
+> If you plan to provide access to the cluster via a user-assigned or system-assigned managed identity, enable Azure Active Directory on your cluster with the flag `enable-managed-identity`. See [Use managed identities in Azure Kubernetes Service][aks-managed-identity] for more.
+
+To upgrade an existing AKS cluster with Secrets Store CSI Driver capability, use the [az-aks-create][az-aks-create] command with the addon `azure-keyvault-secrets-provider`:
+
+```azurecli-interactive
+az aks upgrade -n myAKSCluster -g myResourceGroup --enable-addons azure-keyvault-secrets-provider
+```
+
+These commands will install the Secrets Store CSI Driver and the Azure Key Vault provider on your nodes. Verify by listing all pods from all namespaces and ensuring your output looks similar to the following:
 
 ```bash
 kubectl get pods -n kube-system
@@ -199,6 +210,14 @@ kubectl exec busybox-secrets-store-inline -- ls /mnt/secrets-store/
 
 ## print a test secret 'secret1' held in secrets-store
 kubectl exec busybox-secrets-store-inline -- cat /mnt/secrets-store/secret1
+```
+
+## Disable Secrets Store CSI Driver
+
+To disable the Secrets Store CSI Driver capability in an existing cluster, use the az aks command with the disable-addon `azure-keyvault-secrets-provider`:
+
+```azurecli-interactive
+az aks disable-addons -n myAKSCluster -g myResourceGroup --addons azure-keyvault-secrets-provider
 ```
 
 ## Next steps
