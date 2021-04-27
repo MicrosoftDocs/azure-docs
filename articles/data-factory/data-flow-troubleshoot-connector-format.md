@@ -302,10 +302,10 @@ You can apply the following steps to solve your issues correspondingly.
 1. You can provide the SQL statement which creates the view to the engineering support team, and they can help analyze if the statement hits an authentication issue or something else.
 
 
-### Load small size data to DW without staging is slow 
+### Load small size data to Data Warehouse without staging is slow 
 
 #### Symptoms
-When you load small data to DataWarehouse without staging, it will take a long time to finish. For example, the data size 2 MB but it takes more than 1 hour to finish. 
+When you load small data to Data Warehouse without staging, it will take a long time to finish. For example, the data size 2 MB but it takes more than 1 hour to finish. 
 
 #### Cause
 This issue is caused by the row count rather than the size. The row count has few thousand, and each insert needs to be packaged into an independent request, go to the control node, start a new transaction, get locks and go to the distribution node repeatedly. Bulk load gets the lock once, and each distribution node performs the insert by batching into memory efficiently.
