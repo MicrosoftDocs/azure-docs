@@ -34,7 +34,7 @@
   - name: Security
     items: 
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/database-migration-security-baseline
+      href: /security/benchmark/azure/baselines/database-migration-security-baseline?toc=/azure/dms/toc.json
 - name: Tutorials
   expanded: true
   items:

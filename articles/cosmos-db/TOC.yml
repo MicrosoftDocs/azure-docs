@@ -65,7 +65,7 @@
           displayName: regulatory, compliance, standards, domains
           href: ./security-controls-policy.md
         - name: Security baseline
-          href: /security/benchmark/azure/baselines/cosmos-db-security-baseline
+          href: /security/benchmark/azure/baselines/cosmos-db-security-baseline?toc=/azure/cosmos-db/TOC.json
     - name: Analytics with Azure Synapse Link
       items:
         - name: Azure Synapse Link for Cosmos DB
