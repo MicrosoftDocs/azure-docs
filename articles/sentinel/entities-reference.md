@@ -380,7 +380,7 @@ Strong identifiers of a mailbox entity:
 *Entity name: MailCluster*
 
 > [!NOTE]
-> **MDO** = **Microsoft Defender for Office 365**, formerly known as Office 365 Advanced Threat Protection (O365 ATP).
+> **Microsoft Defender for Office 365** was formerly known as Office 365 Advanced Threat Protection (O365 ATP).
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
@@ -396,10 +396,10 @@ Strong identifiers of a mailbox entity:
 | IsVolumeAnomaly | Bool? | Determines whether this is a volume anomaly mail cluster. |
 | Source | String | The source of the mail cluster (default is 'O365 ATP'). |
 | ClusterSourceIdentifier | String | The network message ID of the mail that is the source of this mail cluster. |
-| ClusterSourceType | String | The source type of the mail cluster. This maps to the MailClusterSourceType setting from MDO (see note above). |
-| ClusterQueryStartTime | DateTime? | Cluster start time - used as start time for cluster counts query. Usually dates to the End time minus DaysToLookBack setting from MDO (see note above). |
+| ClusterSourceType | String | The source type of the mail cluster. This maps to the MailClusterSourceType setting from Microsoft Defender for Office 365 (see note above). |
+| ClusterQueryStartTime | DateTime? | Cluster start time - used as start time for cluster counts query. Usually dates to the End time minus DaysToLookBack setting from Microsoft Defender for Office 365 (see note above). |
 | ClusterQueryEndTime | DateTime? | Cluster end time - used as end time for cluster counts query. Usually the mail data's received time. |
-| ClusterGroup | String | Corresponds to the Kusto query key used on MDO (see note above). |
+| ClusterGroup | String | Corresponds to the Kusto query key used on Microsoft Defender for Office 365 (see note above). |
 |
 
 Strong identifiers of a mail cluster entity:
