@@ -8,7 +8,7 @@ ms.date: 04/21/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge 
-ms.custom: devx-track-azurecli
+ms.custom: 
 services: iot-edge
 ---
 # Monitor IoT Edge deployments

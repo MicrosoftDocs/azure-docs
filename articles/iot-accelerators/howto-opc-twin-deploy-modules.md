@@ -6,7 +6,7 @@ ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: conceptual
 ms.service: industrial-iot 
-ms.custom: devx-track-azurecli
+ms.custom: 
 services: iot-industrialiot
 manager: philmea
 ---
