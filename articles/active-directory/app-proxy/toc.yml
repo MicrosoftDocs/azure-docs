@@ -84,12 +84,13 @@
       href: application-proxy-configure-single-sign-on-with-headers.md
     - name: Kerberos-based SSO (on-prem apps)
       href: application-proxy-configure-single-sign-on-with-kcd.md
+    - name: High availability and load balancing
+      href: application-proxy-high-availability-load-balancing.md
   #   - name: Security
   #     href: application-proxy-security.md
   #   - name: Network topology
   #     href: application-proxy-network-topology.md
-  #   - name: High availability and load balancing
-  #     href: application-proxy-high-availability-load-balancing.md
+
   #   - name: Comparison of remote access solutions
   #     href: application-proxy-migration.md
       #   - name: Single sign-on with on-prem apps

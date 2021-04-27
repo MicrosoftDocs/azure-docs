@@ -54336,6 +54336,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-high-availability-load-balancing.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-high-availability-load-balancing",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md",
       "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-single-sign-on-with-kcd",
       "redirect_document_id": false
