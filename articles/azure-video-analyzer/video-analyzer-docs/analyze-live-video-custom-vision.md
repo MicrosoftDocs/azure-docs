@@ -13,7 +13,7 @@ In this tutorial, you'll learn how to use Azure [Custom Vision](https://azure.mi
 
 We'll show you how to bring together the power of Custom Vision to build and train a computer vision model by uploading and labeling a few images. You don't need any knowledge of data science, machine learning, or AI. You'll also learn about the capabilities of Azure Video Analyzer and how to easily deploy a custom model as a container on the edge and analyze a simulated live video feed.
 
-This tutorial uses an Azure virtual machine (VM) as an IoT Edge device and is based on sample code written in C#. The information in this tutorial builds on the [Detect motion and emit events](get-started-detect-motion-emit-events.md) quickstart.
+This tutorial uses an Azure virtual machine (VM) as an IoT Edge device and is based on sample code written in C#. The information in this tutorial builds on the [Detect motion and emit events](https://review.docs.microsoft.com/en-us/azure/azure-video-analyzer/video-analyzer-docs/detect-motion-emit-events-quickstart?branch=pr-en-us-155216) quickstart.
 
 The tutorial shows you how to:
 
@@ -23,18 +23,18 @@ The tutorial shows you how to:
 - Run the sample code.
 - Examine and interpret the results.
 
-If you don't have an [Azure subscription](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+If you don't have an [Azure subscription](https://docs.microsoft.com/en-us/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 ## Suggested pre-reading
 
 Read through the following articles before you begin:
 
-- [Azure Video Analyzer on IoT Edge overview](overview.md)
-- [Azure Custom Vision overview](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/overview)
-- [Azure Video Analyzer on IoT Edge terminology](terminology.md)
-- [Pipeline concept](pipeline.md)
-- [Azure Video Analyzer without video recording](analyze-live-video-without-recording.md)
-- [Tutorial: Developing an IoT Edge module](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux)
+- [Azure Video Analyzer on IoT Edge overview]()
+- [Azure Custom Vision overview](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/overview)
+- [Azure Video Analyzer on IoT Edge terminology]()
+- [Pipeline concept]()
+- [Azure Video Analyzer without video recording]()
+- [Tutorial: Developing an IoT Edge module](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-develop-for-linux)
 - [How to edit deployment.*.template.json](https://github.com/microsoft/vscode-azure-iot-edge/wiki/How-to-edit-deployment.*.template.json)
 
 ## Prerequisites
@@ -43,19 +43,22 @@ Prerequisites for this tutorial are:
 
 - [Visual Studio Code](https://code.visualstudio.com/) on your development machine with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) and [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) extensions.
 
-> [!TIP]
-> You might be prompted to install Docker. Ignore this prompt.
+   Tip
+
+  You might be prompted to install Docker. Ignore this prompt.
 
 - [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer) on your development machine.
+
 - [Running Azure Video Analyzer with your own model]()
+
 - Ensure you have:
 
-  - [Set up Azure Resources](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/detect-motion-emit-events-quickstart#set-up-azure-resources)
-  - [Set up your development environment](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/detect-motion-emit-events-quickstart#set-up-your-development-environment)
+  - [Set up Azure Resources](https://docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/detect-motion-emit-events-quickstart#set-up-azure-resources)
+  - [Set up your development environment](https://docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/detect-motion-emit-events-quickstart#set-up-your-development-environment)
 
  Tip
 
-If you run into issues with Azure resources that get created, please view our **[troubleshooting guide](troubleshoot.md)** to resolve some commonly encountered issues.
+If you run into issues with Azure resources that get created, please view our **[troubleshooting guide]()** to resolve some commonly encountered issues.
 
  Important
 
@@ -65,38 +68,43 @@ This Custom Vision module only supports **Intel x86 and amd64** architectures. C
 
 This tutorial uses a [toy car inference video](https://lvamedia.blob.core.windows.net/public/t2.mkv) file to simulate a live stream. You can examine the video via an application such as [VLC media player](https://www.videolan.org/vlc/). Select **Ctrl+N**, and then paste a link to the [toy car inference video](https://lvamedia.blob.core.windows.net/public/t2.mkv) to start playback. As you watch the video, note that at the 36-second marker a toy truck appears in the video. The custom model has been trained to detect this specific toy truck.
 
-<iframe src="https://www.microsoft.com/videoplayer/embed/RE4LPwK" frameborder="0" allowfullscreen="true" data-linktype="external" style="box-sizing: inherit; margin: 0px; padding: 0px; border: 0px; outline-color: inherit; width: 640px; position: absolute; inset: 0px; height: 360px;"></iframe>
+<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4LPwK" frameborder="0" allowfullscreen="true" data-linktype="external" style="box-sizing: inherit; margin: 0px; padding: 0px; border: 0px; outline-color: inherit; width: 640px; position: absolute; inset: 0px; height: 360px;"></iframe>
+
+
 
 In this tutorial, you'll use Azure Video Analyzer on IoT Edge to detect such toy trucks and publish associated inference events to the IoT Edge hub.
 
 ## Overview
 
-![Diagram that shows a Custom Vision overview.](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/custom-vision-tutorial/topology-custom-vision.svg)
+![Diagram that shows a Custom Vision overview.](https://docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media/custom-vision-tutorial/topology-custom-vision.svg)
 
-This diagram shows how the signals flow in this tutorial. An [edge module]() simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline.md#http-extension-processor) node.
+This diagram shows how the signals flow in this tutorial. An [edge module]() simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source]() node pulls the video feed from this server and sends video frames to the [HTTP extension processor]() node.
 
-The HTTP extension node plays the role of a proxy. It samples the incoming video frames set by you using the `samplingOptions` field and also converts the video frames to the specified image type. Then it relays the image to the toy truck detector model built by using Custom Vision. The HTTP extension processor node gathers the detection results and publishes events to the [Azure IoT Hub sink](pipeline.md#iot-hub-message-sink) node, which sends those events to the [IoT Edge hub](https://docs.microsoft.com/azure/iot-fundamentals/iot-glossary#iot-edge-hub).
+The HTTP extension node plays the role of a proxy. It samples the incoming video frames set by you using the `samplingOptions` field and also converts the video frames to the specified image type. Then it relays the image to the toy truck detector model built by using Custom Vision. The HTTP extension processor node gathers the detection results and publishes events to the [Azure IoT Hub sink]() node, which sends those events to the [IoT Edge hub](https://docs.microsoft.com/en-us/azure/iot-fundamentals/iot-glossary#iot-edge-hub).
 
 ## Build and deploy a Custom Vision toy detection model
 
 As the name Custom Vision suggests, you can use it to build your own custom object detector or classifier in the cloud. It provides a simple, easy-to-use, and intuitive interface to build Custom Vision models that can be deployed in the cloud or on the edge via containers.
 
-To build a toy truck detector, follow the steps in [Quickstart: Build an object detector with the Custom Vision website](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector).
+To build a toy truck detector, follow the steps in [Quickstart: Build an object detector with the Custom Vision website](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/get-started-build-detector).
 
-> [!IMPORTANT]
-> This Custom Vision module only supports **Intel x86 and amd64** architectures only. Check the architecture of your edge device before continuing.
+ Important
+
+This Custom Vision module only supports **Intel x86 and amd64** architectures only. Check the architecture of your edge device before continuing.
 
 Additional notes:
 
-- For this tutorial, don't use the sample images provided in the quickstart article's [Prerequisites section](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#prerequisites). Instead, we've used a certain image set to build a toy detector Custom Vision model. Use [these images](https://lvamedia.blob.core.windows.net/public/ToyCarTrainingImages.zip) when you're asked to [choose your training images](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#choose-training-images) in the [quickstart](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector).
+- For this tutorial, don't use the sample images provided in the quickstart article's [Prerequisites section](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/get-started-build-detector#prerequisites). Instead, we've used a certain image set to build a toy detector Custom Vision model. Use [these images](https://lvamedia.blob.core.windows.net/public/ToyCarTrainingImages.zip) when you're asked to [choose your training images](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/get-started-build-detector#choose-training-images) in the [quickstart](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/get-started-build-detector).
 - In the tagging image section of the quick start, ensure that you're tagging the toy truck seen in the picture with the tag "delivery truck."
 
 After you're finished, you can export the model to a Docker container by using the **Export** button on the **Performance** tab. Ensure you choose Linux as the container platform type. This is the platform on which the container will run. The machine you download the container on could be either Windows or Linux. The instructions that follow were based on the container file downloaded onto a Windows machine.
 
-![Screen that shows Dockerfile selected.](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/custom-vision-tutorial/docker-file.png)
+![Screen that shows Dockerfile selected.](https://docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media/custom-vision-tutorial/docker-file.png)
 
 1. You should have a zip file downloaded onto your local machine named `<projectname>.DockerFile.Linux.zip`.
+
 2. Check if you have Docker installed. If not, install [Docker](https://docs.docker.com/get-docker/) for your Windows desktop.
+
 3. Unzip the downloaded file in a location of your choice. Use the command line to go to the unzipped folder directory.
 
    Run the following commands:
@@ -105,26 +113,34 @@ After you're finished, you can export the model to a Docker container by using t
 
       This command downloads many packages, builds the Docker image, and tags it as `cvtruck:latest`.
 
-      > [!NOTE]
-      > If successful, you should see the following messages: `Successfully built <docker image id>` and `Successfully tagged cvtruck:latest`. If the build command fails, try again. Sometimes dependency packages don't download the first time around.
+       Note
+
+      If successful, you should see the following messages: `Successfully built <docker image id>` and `Successfully tagged cvtruck:latest`. If the build command fails, try again. Sometimes dependency packages don't download the first time around.
 
    2. `docker image ls`
 
       This command checks if the new image is in your local registry.
+
    3. `docker run -p 127.0.0.1:80:80 -d cvtruck`
 
       This command should publish the Docker's exposed port (80) onto your local machine's port (80).
+
    4. `docker container ls`
 
       This command checks the port mappings and if the Docker container is running successfully on your machine. The output should be something like:
-      
+
+      Copy
+
       ```
       CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                      NAMES
       8b7505398367        cvtruck             "/bin/sh -c 'python …"   13 hours ago        Up 25 seconds       127.0.0.1:80->80/tcp   practical_cohen
       ```
+
    5. `curl -X POST http://127.0.0.1:80/image -F imageData=@<path to any image file that has the toy delivery truck in it>`
 
       This command tests the container on the local machine. If the image has the same delivery truck as we trained the model on, the output should be something like the following example. It suggests the delivery truck was detected with 90.12% probability.
+
+      Copy
 
       ```
       {"created":"2020-03-20T07:10:47.827673","id":"","iteration":"","predictions":[{"boundingBox":{"height":0.66167289,"left":-0.03923762,"top":0.12781593,"width":0.70003178},"probability":0.90128148,"tagId":0,"tagName":"delivery truck"},{"boundingBox":{"height":0.63733053,"left":0.25220079,"top":0.0876643,"width":0.53331227},"probability":0.59745145,"tagId":0,"tagName":"delivery truck"}],"project":""}
@@ -135,6 +151,7 @@ After you're finished, you can export the model to a Docker container by using t
 1. In Visual Studio Code, browse to src/edge. You'll see the .env file that you created along with a few deployment template files.
 
    The deployment template refers to the deployment manifest for the edge device with some placeholder values. The .env file has the values for those variables.
+
 2. Next, browse to the src/cloud-to-device-console-app folder. Here you'll see the appsettings.json file that you created along with a few other files:
 
    - c2d-console-app.csproj: This is the project file for Visual Studio Code.
@@ -148,20 +165,26 @@ After you're finished, you can export the model to a Docker container by using t
 ## Generate and deploy the deployment manifest
 
 1. In Visual Studio Code, go to src/cloud-to-device-console-app/operations.json.
-2. Under `pipelineTopologySet`, ensure the following is true:<br/>
+
+2. Under `pipelineTopologySet`, ensure the following is true:
    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/httpExtension/topology.json"`
+
 3. Under `livePipelineSet`, ensure:
 
    1. `"topologyName" : "InferencingWithHttpExtension"`
    2. Add the following to the top of the parameters array: `{"name": "inferencingUrl","value": "http://cv/image"},`
    3. Change the `rtspUrl` parameter value to `"rtsp://rtspsim:554/media/t2.mkv"`.
+
 4. Under `livePipelineDelete`, ensure `"name": "InferencingWithHttpExtension"`.
+
 5. Right-click the src/edge/ deployment.customvision.template.json file, and select **Generate IoT Edge Deployment Manifest**.
 
-   ![Screenshot that shows Generate IoT Edge Deployment Manifest.](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/custom-vision-tutorial/deployment-template-json.png)
+   ![Screenshot that shows Generate IoT Edge Deployment Manifest.](https://docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media/custom-vision-tutorial/deployment-template-json.png)
 
    This action should create a manifest file in the src/edge/config folder named deployment.customvision.amd64.json.
+
 6. Open the src/edge/ deployment.customvision.template.json file, and find the `registryCredentials` JSON block. In this block, you'll find the address of your Azure container registry along with its username and password.
+
 7. Push the local Custom Vision container into your Azure Container Registry instance by following these steps on the command line:
 
    1. Sign in to the registry by executing the following command:
@@ -170,22 +193,30 @@ After you're finished, you can export the model to a Docker container by using t
 
       Enter the username and password when asked for authentication.
 
-      > [!NOTE]
-      > The password isn't visible on the command line.
-   2. Tag your image by using this command:<br/>
+       Note
+
+      The password isn't visible on the command line.
+
+   2. Tag your image by using this command:
       `docker tag cvtruck <address>/cvtruck`.
-   3. Push your image by using this command:<br/>
+
+   3. Push your image by using this command:
       `docker push <address>/cvtruck`.
 
       If successful, you should see `Pushed` on the command line along with the SHA for the image.
+
    4. You can also confirm by checking your Azure Container Registry instance in the Azure portal. Here you'll see the name of the repository along with the tag.
+
 8. Set the IoT Hub connection string by selecting the **More actions** icon next to the **AZURE IOT HUB** pane in the lower-left corner. You can copy the string from the appsettings.json file. (Here's another recommended approach to ensure you have the proper IoT hub configured within Visual Studio Code via the [Select IoT Hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).)
 
-   ![Screenshot that shows Set IoT Hub Connection String.](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/custom-vision-tutorial/connection-string.png)
+   ![Screenshot that shows Set IoT Hub Connection String.](https://docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media/custom-vision-tutorial/connection-string.png)
+
 9. Next, right-click src/edge/config/ deployment.customvision.amd64.json, and select **Create Deployment for Single Device**.
 
-   ![Screenshot that shows Create Deployment for Single Device.](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/custom-vision-tutorial/deployment-amd64-json.png)
+   ![Screenshot that shows Create Deployment for Single Device.](https://docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media/custom-vision-tutorial/deployment-amd64-json.png)
+
 10. You'll then be asked to select an IoT Hub device. Select **ava-sample-device** from the drop-down list.
+
 11. In about 30 seconds, refresh the Azure IoT hub in the lower-left section. You should have the edge device with the following modules deployed:
 
     - The Azure Video Analyzer on IoT Edge module named `avaedge`.
@@ -196,26 +227,32 @@ After you're finished, you can export the model to a Docker container by using t
 
 Right-click the ava-sample-device, and select **Start Monitoring Built-in Event Endpoint**. You need this step to monitor the IoT Hub events in the **OUTPUT** window of Visual Studio Code.
 
-![Screenshot that shows Start Monitoring Built-in Event Endpoint.](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/custom-vision-tutorial/start-monitoring.png)
+![Screenshot that shows Start Monitoring Built-in Event Endpoint.](https://docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media/custom-vision-tutorial/start-monitoring.png)
 
 ## Run the sample program
 
 If you open the graph topology for this tutorial in a browser, you'll see that the value of `inferencingUrl` has been set to `http://cv/image`. This setting means the inference server will return results after detecting toy trucks, if any, in the live video.
 
 1. In Visual Studio Code, open the **Extensions** tab (or select **Ctrl+Shift+X**) and search for Azure IoT Hub.
+
 2. Right-click and select **Extension Settings**.
 
-   ![Screenshot that shows Extension Settings.](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/run-program/extensions-tab.png)
+   ![Screenshot that shows Extension Settings.](https://docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media/run-program/extensions-tab.png)
+
 3. Search and enable **Show Verbose Message**.
 
-   ![Screenshot that shows Show Verbose Message.](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/run-program/show-verbose-message.png)
+   ![Screenshot that shows Show Verbose Message.](https://docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media/run-program/show-verbose-message.png)
+
 4. To start a debugging session, select the **F5** key. You see messages printed in the **TERMINAL** window.
+
 5. The operations.json code starts off with calls to the direct methods `livePipelineList` and `livePipelineList`. If you cleaned up resources after you completed previous quickstarts, this process will return empty lists and then pause. To continue, select the **Enter** key.
 
    The **TERMINAL** window shows the next set of direct method calls:
 
    - A call to `pipelineTopologySet` that uses the preceding `topologyUrl`.
    - A call to `livePipelineSet` that uses the following body:
+
+   Copy
 
    ```
         {
@@ -250,7 +287,9 @@ If you open the graph topology for this tutorial in a browser, you'll see that t
    - A second call to `livePipelineList` that shows that the graph instance is in the running state.
 
 6. The output in the **TERMINAL** window pauses at a **Press Enter to continue** prompt. Don't select **Enter** yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
+
 7. Switch to the **OUTPUT** window in Visual Studio Code. You see messages that the Azure Video Analyzer on IoT Edge module is sending to the IoT hub. The following section of this tutorial discusses these messages.
+
 8. The pipeline continues to run and print results. The RTSP simulator keeps looping the source video. To stop the pipeline, return to the **TERMINAL** window and select **Enter**. The next series of calls cleans up resources:
 
    - A call to `livePipelineDeactivate` deactivates the graph instance.
@@ -260,7 +299,7 @@ If you open the graph topology for this tutorial in a browser, you'll see that t
 
 ## Interpret the results
 
-When you run the pipeline, the results from the HTTP extension processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a body section and an `applicationProperties` section. For more information, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+When you run the pipeline, the results from the HTTP extension processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a body section and an `applicationProperties` section. For more information, see [Create and read IoT Hub messages](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-construct).
 
 In the following messages, the Azure Video Analyzer module defines the application properties and the content of the body.
 
@@ -268,6 +307,7 @@ In the following messages, the Azure Video Analyzer module defines the applicati
 
 When a pipeline is instantiated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live555 container. If the connection succeeds, the following event is printed.
 
+Copy
 
 ```
 {
@@ -361,7 +401,7 @@ If you intend to try the other tutorials or quickstarts, hold on to the resource
 Review additional challenges for advanced users:
 
 - Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that has support for RTSP instead of using the RTSP simulator. You can search for IP cameras that support RTSP on the [ONVIF conformant](https://www.onvif.org/conformant-products/) products page. Look for devices that conform with profiles G, S, or T.
-- Use an AMD64 or x64 Linux device instead of an Azure Linux VM. This device must be in the same network as the IP camera. You can follow the instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge).
+- Use an AMD64 or x64 Linux device instead of an Azure Linux VM. This device must be in the same network as the IP camera. You can follow the instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge).
 
-Then register the device with Azure IoT Hub by following instructions in [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).
+Then register the device with Azure IoT Hub by following instructions in [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart-linux).
 
