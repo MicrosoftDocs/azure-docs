@@ -1,6 +1,6 @@
 ---
-title: Known issues for Azure role assignment conditions (Preview)
-description: Known issues for Azure role assignment conditions (Preview)
+title: FAQ for Azure role assignment conditions (Preview)
+description: Frequently asked questions for Azure role assignment conditions (Preview)
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -8,42 +8,32 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/24/2020
+ms.date: 04/27/2020
 ms.author: rolyon
 
 #Customer intent: 
 ---
 
-# Known issues and FAQ for Azure role assignment conditions (Preview)
+# FAQ for Azure role assignment conditions (Preview)
 
 > [!IMPORTANT]
 > Azure ABAC and Azure role assignment conditions are currently in preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Known issues
+## Frequently asked questions
 
-**Picker for storage container names or blob path in the condition builder in the Azure portal**
+**Can you pick the storage container names or blob path in the condition builder in the Azure portal?**
 
 You must write the storage container name, blob path, tag name, or values in the condition. There is no picking experience for the attribute values.
 
-**Switching between the visual editor and code editor in the condition builder in the Azure portal**
-
-If you switch from the visual editor to the code editor and make updates to the condition that the visual editor is not able to parse, you will need to complete the condition in the code editor.
-
-**Logical grouping of expressions or operator precedence**
+**Can you group expressions?**
 
 If you add three or more expressions for a targeted action, you must define the logical grouping of those expressions in the code editor, Azure PowerShell, or Azure CLI. A logical grouping of `a AND b OR c` can be either `(a AND b) OR c` or `a AND (b OR c )`.
 
-**Role assignments conditions at the management group scope**
+**Can you add role assignments conditions at the management group scope?**
   
 The Azure portal does not allow you to edit or view a condition at the management group scope. The **Condition** column isn't displayed for the management group scope. Azure PowerShell and Azure CLI does allow you to add conditions at management group scope.
-
-**Azure PowerShell requires special escape characters**
-
-In Azure PowerShell, if your condition includes a dollar sign ($), you must prefix it with add a backtick (\`).
-
-## Frequently asked questions
 
 **Are conditions supported via Azure AD Privileged Identity Management (PIM) for Azure resources in preview?**
 
@@ -55,7 +45,7 @@ No.
 
 **Can you add conditions to custom role assignments?**
 
-Yes, as long as the custom role includes [data actions that support conditions](conditions-format.md#actions).
+Yes, as long as the custom role includes [actions that support conditions](conditions-format.md#actions).
  
 **Do the conditions increase latency for access to storage blobs?**
 
@@ -84,3 +74,8 @@ No, if your try to create these role assignments an error is displayed.
 **Are conditions in role assignments offering an explicit deny effect?**
 
 No, conditions in role assignments do not have an explicit deny effect. Conditions in role assignments filter down access granted in a role assignment, which can result in access not allowed. Explicit deny effect is part of deny assignments.
+
+## Next steps
+
+- [Azure role assignment condition format and syntax (Preview)](conditions-format.md)
+- [Troubleshoot Azure role assignment conditions (Preview)](conditions-troubleshoot.md)

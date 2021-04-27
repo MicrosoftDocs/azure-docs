@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 04/24/2021
+ms.date: 04/27/2021
 ms.author: rolyon
 
 #Customer intent: 
@@ -92,4 +92,22 @@ You are likely using an earlier version of Azure CLI that does not support role 
 
 Update to the latest version of Azure CLI (2.18 or later). For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
+## Symptom - Condition not recognized in visual editor
+
+After using the code editor, you switch to the visual editor and get a message similar to the following:
+
+`The current expression cannot be recognized. Switch to the code editor to edit the expression or delete the expression and add a new one.`
+
+**Cause**
+
+Updates have been to the condition that the visual editor is not able to parse.
+
+**Solution**
+
+Fix any [condition format or syntax](conditions-format.md) issues. Alternatively, you can delete the condition and try again.
+
 ## Next steps
+
+- [Azure role assignment condition format and syntax (Preview)](conditions-format.md)
+- [FAQ for Azure role assignment conditions (Preview)](conditions-faq.md)
+- [Example Azure role assignment conditions (Preview)](../storage/blobs/storage-blob-abac-examples.md)
