@@ -155,7 +155,7 @@ The following procedure uses the Azure CLI extension to provision an instance of
 
 ## Next steps
 
-In this quickstart, you created Azure resources that will continue to accrue charges if they remain in your subscription. If you don't intend to continue on to the next quickstart, see [Clean up resources](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources). Otherwise, advance to the next quickstart:
+In this quickstart, you created Azure resources that will continue to accrue charges if they remain in your subscription. If you don't intend to continue on to the next quickstart, see [Clean up resources](./quickstart-logs-metrics-tracing.md#clean-up-resources). Otherwise, advance to the next quickstart:
 
 > [!div class="nextstepaction"]
-> [Set up configuration server](spring-cloud-quickstart-setup-config-server.md)
+> [Set up configuration server](./quickstart-setup-config-server.md)
