@@ -8,7 +8,7 @@ ms.date: 04/27/2021
 ms.topic: article
 ---
 
-# Event schemas
+# Event schemas in Event Grid on Kubernetes
 
 Event Grid module accepts and delivers events in JSON format. There are currently three schemas that are supported by Event Grid: -
 
