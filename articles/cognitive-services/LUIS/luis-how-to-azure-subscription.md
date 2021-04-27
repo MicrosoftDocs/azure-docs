@@ -71,7 +71,7 @@ Resource `kind`:
     > These keys aren't used by the LUIS portal until they're assigned on the **Manage** > **Azure Resources** page in the LUIS portal.
 
 ## Assign LUIS resources
-Creating a resource doesn't necessarily mean that it is put to use, you need to asign it to your apps.
+Creating a resource doesn't necessarily mean that it is put to use, you need to assign it to your apps.
 
 ## Assign resources using LUIS portal
 **Assign an authoring resource to all your apps** 
@@ -127,7 +127,7 @@ For automated processes like CI/CD pipelines, you might want to automate the ass
     |Header|`Ocp-Apim-Subscription-Key`|Your authoring key.|
     |Header|`Content-type`|`application/json`|
     |Querystring|`appid`|The LUIS app ID.
-    |Body||{`AzureSubscriptionId`: Your Sucbscription ID,<br>`ResourceGroup`: Resource Group name that has your prediction resource,<br>`AccountName`: Name of your prediction resource}|
+    |Body||{`AzureSubscriptionId`: Your Subscription ID,<br>`ResourceGroup`: Resource Group name that has your prediction resource,<br>`AccountName`: Name of your prediction resource}|
 
     When this API is successful, it returns `201 - created status`.
 
@@ -142,7 +142,7 @@ When you unassign a resource, it's not deleted from Azure. It's only unlinked fr
 1. Select the **Unassign resource** button for the resource.
 
 
-## Unassign prediction resorce programatically
+## Unassign prediction resource programatically
 
 1. Get an Azure Resource Manager token from [this website](https://resources.azure.com/api/token?plaintext=true). This token does expire, so use it right away. The request returns an Azure Resource Manager token.
 
@@ -173,7 +173,7 @@ When you unassign a resource, it's not deleted from Azure. It's only unlinked fr
     |Header|`Ocp-Apim-Subscription-Key`|Your authoring key.|
     |Header|`Content-type`|`application/json`|
     |Querystring|`appid`|The LUIS app ID.
-    |Body||{`AzureSubscriptionId`: Your Sucbscription ID,<br>`ResourceGroup`: Resource Group name that has your prediction resource,<br>`AccountName`: Name of your prediction resource}|
+    |Body||{`AzureSubscriptionId`: Your Subscription ID,<br>`ResourceGroup`: Resource Group name that has your prediction resource,<br>`AccountName`: Name of your prediction resource}|
 
     When this API is successful, it returns `200 - OK status`.
 
@@ -228,7 +228,7 @@ If you want to know when you reach a certain transaction threshold, for example 
 
 ![Screenshot that shows the Alert rules page4.](./media/luis-usage-tiers/alerts-4.png)
 
-6. To send notifications or invoke actions when the alert rule triggers go to hthe **Actions** section and add your action group.
+6. To send notifications or invoke actions when the alert rule triggers go to the **Actions** section and add your action group.
 
 ![Screenshot that shows the Alert rules page5.](./media/luis-usage-tiers/alerts-5.png)
 
@@ -241,6 +241,19 @@ For apps that haven't been migrated: The key is reset on all your apps in the LU
 ### Regenerate an Azure key
 
 You can regenerate an Azure key from the **Keys** page in the Azure portal.
+
+<a name="securing-the-endpoint"></a>
+
+## App ownership, access, and security
+
+An app is defined by its Azure resources, which are determined by the owner's subscription.
+
+You can move your LUIS app. Use the following resources to help you do so by using the Azure portal or Azure CLI:
+
+* [Move an app between LUIS authoring resources](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-move-app-to-another-luis-authoring-azure-resource)
+* [Move a resource to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+* [Move a resource within the same subscription or across subscriptions](../../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)
+
 
 ## Next steps
 
