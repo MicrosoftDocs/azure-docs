@@ -158,7 +158,7 @@ At this point, the database comes online with the log in the new location.
 
 ## Next steps
 
-Review the [performance best practices](performance-guidelines-best-practices.md) for additional settings to improve performance. 
+Review the [performance best practices](./performance-guidelines-best-practices-checklist.md) for additional settings to improve performance. 
 
 For an overview of SQL Server on Azure Virtual Machines, see the following articles:
 

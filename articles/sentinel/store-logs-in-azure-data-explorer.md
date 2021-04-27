@@ -209,14 +209,14 @@ The following image shows a sample flow of exported data into an Azure Storage, 
 
     - Create linked services for Azure Storage and Azure Data Explorer. For more information, see:
 
-        - [Copy and transform data in Azure Blob storage by using Azure Data Factory](/azure/data-factory/connector-azure-blob-storage)
-        - [Copy data to or from Azure Data Explorer by using Azure Data Factory](/azure/data-factory/connector-azure-data-explorer).
+        - [Copy and transform data in Azure Blob storage by using Azure Data Factory](../data-factory/connector-azure-blob-storage.md)
+        - [Copy data to or from Azure Data Explorer by using Azure Data Factory](../data-factory/connector-azure-data-explorer.md).
 
-    - Create a dataset from Azure Storage. For more information, see [Datasets in Azure Data Factory](/azure/data-factory/concepts-datasets-linked-services).
+    - Create a dataset from Azure Storage. For more information, see [Datasets in Azure Data Factory](../data-factory/concepts-datasets-linked-services.md).
 
     - Create a data pipeline with a copy operation, based on the **LastModifiedDate** properties.
 
-        For more information, see [Copy new and changed files by **LastModifiedDate** with Azure Data Factory](/azure/data-factory/solution-template-copy-new-files-lastmodifieddate).
+        For more information, see [Copy new and changed files by **LastModifiedDate** with Azure Data Factory](../data-factory/solution-template-copy-new-files-lastmodifieddate.md).
 
 ---
 
