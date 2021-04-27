@@ -19,9 +19,9 @@ ms.collection: M365-identity-device-management
 
 This article guides you to achieving National Institute of Standards and Technology authenticator assurance level (NIST AAL) 3. Resources you may want to see prior to trying to achieve AAL 3:
 * [NIST overview](nist-overview.md) - understand the different AAL levels.
-* [Authentication basics](nist-authentication-basics) - Important terminology and authentication types.
+* [Authentication basics](nist-authentication-basics.md) - Important terminology and authentication types.
 * [NIST authenticator types](nist-authenticator-types.md)- Understand each of the authenticator types.
-* [NIST AALs](nist-about-autheticator-assurance-levels) - the components of the AALs, and how Microsoft Azure Active Directory authentication methods map to them.
+* [NIST AALs](nist-about-autheticator-assurance-levels.md) - the components of the AALs, and how Microsoft Azure Active Directory authentication methods map to them.
 
 ## Permitted authenticator types
 Microsoft offers authentication methods that enable you to meet required NIST authenticator types. Please see our recommendations.
@@ -141,8 +141,8 @@ NIST allows the use of compensating controls for mitigating malware risk. Any In
 
 [NIST authenticator types](nist-authenticator-types.md)
 
-[Achieving NIST AAL1 with Azure AD](nist-authenticator-assurance-level-1)
+[Achieving NIST AAL1 with Azure AD](nist-authenticator-assurance-level-1.md)
 
-[Achieving NIST AAL2 with Azure AD](nist-authenticator-assurance-level-2)
+[Achieving NIST AAL2 with Azure AD](nist-authenticator-assurance-level-2.md)
 
-[Achieving NIST AAL3 with Azure AD](nist-authenticator-assurance-level-3) 
+[Achieving NIST AAL3 with Azure AD](nist-authenticator-assurance-level-3.md) 

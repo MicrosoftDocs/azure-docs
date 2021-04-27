@@ -1,6 +1,6 @@
 ---
-title: Configure identification and authentication controls to meet FedRAMP High Impact
-description: Detailed guidance on how to configure identification and authentication controls to meet FedRAMP High Impact levels.
+title: Configure additional controls to meet FedRAMP High Impact
+description: Detailed guidance on how to configure additional controls to meet FedRAMP High Impact levels.
 services: active-directory 
 ms.service: active-directory
 ms.subservice: fundamentals

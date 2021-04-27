@@ -18,13 +18,13 @@ ms.collection: M365-identity-device-management
 
 # Configure Azure Active Directory to meet FedRAMP High Impact level
 
-The [Federal Risk and Authorization Management Program](https://www.fedramp.gov/) (FedRAMP) is an assessment and authorization process for cloud service providers (CSPs) creating cloud solution offerings (CSOs) for use with federal agencies. Azure and Azure Government have earned a [Provisional Authority to Operate (P-ATO) at the High Impact Level](https://docs.microsoft.com/en-us/compliance/regulatory/offering-fedramp) from the Joint Authorization Board, the highest bar for FedRAMP accreditation.
+The [Federal Risk and Authorization Management Program](https://www.fedramp.gov/) (FedRAMP) is an assessment and authorization process for cloud service providers (CSPs) creating cloud solution offerings (CSOs) for use with federal agencies. Azure and Azure Government have earned a [Provisional Authority to Operate (P-ATO) at the High Impact Level](https://docs.microsoft.com/compliance/regulatory/offering-fedramp) from the Joint Authorization Board, the highest bar for FedRAMP accreditation.
 
 Azure provides the capability to fulfill all control requirements to achieve a FedRAMP high rating for your CSO, or as a federal agency. It is your organization’s responsibility to complete additional configurations or processes to be compliant. This responsibility applies to both CSPs seeking a FedRAMP high authorization for their CSO, and federal agencies seeking an Authority to Operate (ATO). 
 
 ## Microsoft and FedRAMP 
 
-Microsoft Azure supports more services at [FedRAMP High Impact](https://docs.microsoft.com/en-us/azure/azure-government/compliance/azure-services-in-fedramp-auditscope) levels than any other CSP. And while FedRAMP High in the Azure public cloud will meet the needs of many US government customers, agencies with more stringent requirements may rely on the Azure Government cloud. Azure Government cloud provides additional safeguards such as the heightened screening of personnel. 
+Microsoft Azure supports more services at [FedRAMP High Impact](https://docs.microsoft.com/azure/azure-government/compliance/azure-services-in-fedramp-auditscope) levels than any other CSP. And while FedRAMP High in the Azure public cloud will meet the needs of many US government customers, agencies with more stringent requirements may rely on the Azure Government cloud. Azure Government cloud provides additional safeguards such as the heightened screening of personnel. 
 
 Microsoft is required to recertify its cloud services each year to maintain its authorizations. To do so, Microsoft continuously monitors and assesses its security controls and demonstrate that the security of its services remains in compliance.
 
@@ -64,10 +64,10 @@ FedRAMP Resources
 
 ## Next Steps
 
-[Configure access controls](fedramp-acccess-controls.md)
+[Configure access controls](fedramp-access-controls.md)
 
-[Configure identification & authentication controls](fedramp-identity-and-access-controls.md)
+[Configure identification & authentication controls](fedramp-identification-and-authentication-controls.md)
 
-[Configure other controls](fedramp-other-controls)
+[Configure other controls](fedramp-other-controls.m)
 
  

@@ -21,9 +21,9 @@ The National Institute of Standards and Technology (NIST) develops the technical
 
 Resources you may want to see prior to trying to achieve AAL 1:
 * [NIST overview](nist-overview.md) - understand the different AAL levels.
-* [Authentication basics](nist-authentication-basics) - Important terminology and authentication types.
+* [Authentication basics](nist-authentication-basics.md) - Important terminology and authentication types.
 * [NIST authenticator types](nist-authenticator-types.md)- Understand each of the authenticator types.
-* [NIST AALs](nist-about-autheticator-assurance-levels) - the components of the AALs, how Microsoft Azure Active Directory authentication methods map to them, and understanding trusted platform modules (TPMs). 
+* [NIST AALs](nist-about-autheticator-assurance-levels.md) - the components of the AALs, how Microsoft Azure Active Directory authentication methods map to them, and understanding trusted platform modules (TPMs). 
 
 ## Permitted authenticator types
 
@@ -59,8 +59,8 @@ All communications between the claimant and Azure AD are performed over an authe
 
 [NIST authenticator types](nist-authenticator-types.md)
 
-[Achieving NIST AAL1 with Azure AD](nist-authenticator-assurance-level-1)
+[Achieving NIST AAL1 with Azure AD](nist-authenticator-assurance-level-1.md)
 
-[Achieving NIST AAL2 with Azure AD](nist-authenticator-assurance-level-2)
+[Achieving NIST AAL2 with Azure AD](nist-authenticator-assurance-level-2.md)
 
-[Achieving NIST AAL3 with Azure AD](nist-authenticator-assurance-level-3) 
+[Achieving NIST AAL3 with Azure AD](nist-authenticator-assurance-level-3.md) 

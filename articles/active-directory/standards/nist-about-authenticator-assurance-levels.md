@@ -76,9 +76,9 @@ In addition, Microsoft is fully committed to [protecting and managing customer d
 
 [NIST authenticator types](nist-authenticator-types.md)
 
-[Achieving NIST AAL1 with Azure AD](nist-authenticator-assurance-level-1)
+[Achieving NIST AAL1 with Azure AD](nist-authenticator-assurance-level-1.md)
 
-[Achieving NIST AAL2 with Azure AD](nist-authenticator-assurance-level-2)
+[Achieving NIST AAL2 with Azure AD](nist-authenticator-assurance-level-2.md)
 
-[Achieving NIST AAL3 with Azure AD](nist-authenticator-assurance-level-3) 
+[Achieving NIST AAL3 with Azure AD](nist-authenticator-assurance-level-3.md) 
 ‎ 
