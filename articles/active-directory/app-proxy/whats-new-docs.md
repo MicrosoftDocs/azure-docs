@@ -17,4 +17,4 @@ Welcome to what's new in Azure Active Directory application proxy documentation.
 
 ## April 2021
 
-Application proxy content has moved out of the [application management content set](https://docs.microsoft.com/azure/active-directory/manage-apps/) and into its own content set.
+Application proxy content has moved out of the [application management content set](/azure/active-directory/manage-apps/) and into its own content set.
