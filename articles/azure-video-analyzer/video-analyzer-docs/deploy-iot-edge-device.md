@@ -26,18 +26,36 @@ This article lists the steps that will help you deploy Azure Video Analyzer on y
 
 ## Configuring Azure resources and deploying edge modules for Azure Video Analyzer
 
+Click the **Deploy to Azure** button
+
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava/click-to-deploy/form)
 
+* Select the your **subscription**
+* Select your preferred **region**
+* Select the **resource group** that your edge device is in 
+* **Do you need an edge device?**, select ***Use an existing edge device*** from the drop-down menu
+> [!NOTE]
+> You will need to provide the name of the existing edge device and select the IoT Hub where it is registered. Also note, that this will override the modules deployed to the edge device.
+* Click **Next**
+![Screenshot of initial deployment form](./media/deploy-iot-edge-device/form1.png)
+
+* Select the **Existing IoT Hub Name** that your edge device is connected to
+* Click **Next**
+![Screenshot of second deployment form](./media/deploy-iot-edge-device/form2.png)
+
+* Click **Create**
+
+It may take a few moments for the Azure resoruces to be created and the edge modules to be deployed
 
 
 ### Verify your deployment
 
-After you create the deployment, you return to the IoT Edge page of your IoT hub.
+After creating the deployment, return to the IoT Edge page of your IoT hub.
 
 1. Select the IoT Edge device that you targeted with the deployment to open its details.
-2. In the device details, verify that the blob storage module is listed as both **Specified in deployment and Reported by device**.
+2. In the device details, verify that the modules are listed as both **Specified in deployment and Reported by device**.
 
-It may take a few moments for the module to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status.
+It may take a few moments for the modules to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status.
 Status code: 200 –OK means that [the IoT Edge runtime](../../iot-edge/iot-edge-runtime.md) is healthy and is operating fine.
 
 ![Screenshot shows a status value for an IoT Edge runtime.](./media/deploy-iot-edge-device/status.png)
