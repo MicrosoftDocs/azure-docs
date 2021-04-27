@@ -15,11 +15,11 @@ ms.author: alkohli
 
 # Virtual machines on your Azure Stack Edge Pro GPU device
 
-This article provides a brief overview of virtual machines (VMs) running on your Azure Stack Edge devices, supported VM sizes, and summarizes the various way of creating VM images, deploying, and then managing VMs. 
+This article provides a brief overview of virtual machines (VMs) running on your Azure Stack Edge devices, supported VM sizes, and summarizes the various ways of creating VM images, deploying, and then managing VMs. 
 
 ## About VMs
 
-Azure Stack Edge solution comprises of purpose-built hardware-as-a-service devices from Microsoft. You use these devices to deploy edge computing workloads and get quick actionable insights at the edge where the data is generated. 
+Azure Stack Edge solution provides purpose-built hardware-as-a-service devices from Microsoft that can be used to deploy edge computing workloads and get quick actionable insights at the edge where the data is generated. 
 
 Depending on your environment and the type of applications you are running, you can deploy one of the following edge computing workloads on these devices: 
 
@@ -37,11 +37,6 @@ Before you begin, review the following considerations about your VM:
 - The operating system that the VM runs.
 - The configuration of the VM after it starts.
 
-<!--### Names
-
-A VM has a name assigned to it and it has a computer name configured as part of the operating system. The name of a VM can be up to 15 characters.
-
-If you use Azure Stack Hub to create the operating system disk, the computer name and the VM name are the same. If you upload and use your own image that contains a previously configured operating system and use it to create a VM, the names may be different. When you upload your own image file, as a best practice make sure the computer name in the operating system matches the VM name.-->
 
 ### VM size
 
@@ -51,8 +46,8 @@ To figure out the size and the number of VMs that you can deploy on your device,
 
 |Kubernetes VM type|CPU and memory requirement|
 |---------|---------|
-|Master VM|4 cores, 4 GB RAM|
-|Worker VM|12 cores, 32 GB RAM|
+|Master VM|4 cores, 4-GB RAM|
+|Worker VM|12 cores, 32-GB RAM|
 
 
 For the usable compute and memory on your device, see the [Compute and memory specifications](azure-stack-edge-gpu-technical-specifications-compliance.md#compute-and-memory-specifications) for your device model. 
@@ -73,9 +68,14 @@ The images that you use to create VM images can be generalized or specialized. W
 - [Create custom VM images starting from an Azure VM](azure-stack-edge-gpu-create-virtual-machine-image.md)
 - [Use specialized image](azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md)
 
+### Extensions
+
+Custom script extensions are available for the VMs on your device that help configure workloads by running your script when the VM is provisioned.
+
+For more information, see [Deploy Custom Script Extension on VMs running on your device](azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md)
 
 
-### Deployment workflow
+## Create a VM
 
 To deploy a VM, you first need to create all the resources that are needed to create a VM. Regardless of the method employed to create a VM, you'll follow these steps: 
 
@@ -88,19 +88,11 @@ To deploy a VM, you first need to create all the resources that are needed to cr
 1. Enable compute on a device port to create a virtual switch.
 1. Create a virtual network using the virtual switch attached to the port on which you enabled compute. 
 1. In the virtual network, create one or more virtual network interfaces to communicate within the virtual network. 
-1. Create a VM using the previously created VM image, virtual network, and virtual network interface(s) and assign a public IP address to remotely access the VM. Optionally include data disks to provide additional storage for your VM.
+1. Create a VM using the previously created VM image, virtual network, and virtual network interface(s) and assign a public IP address to remotely access the VM. Optionally include data disks to provide more storage for your VM.
  
 The deployment workflow is displayed in the following diagram:
 
 ![Diagram of the VM deployment workflow.](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell/vm-workflow-r.svg)
-
-### Extensions
-
-Custom script extensions are available for the VMs on your device that help configure workloads by running your script when the VM is provisioned.
-
-For more information, see [Deploy Custom Script Extension on VMs running on your device](azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md)
-
-## Create a VM
 
 There are several ways to deploy a VM on your device. Your choice depends on your environment. The following table summarizes the various ways to deploy a VM on your device:
 
@@ -123,13 +115,10 @@ You can manage the VMs on your device via the Azure portal, via the PowerShell i
 
 ### Get information about your VM
 
-The following table shows some of the ways you can get information about a VM:
+To get more information about your VM via the Azure portal, follow these steps:
 
-|Method|Description|
-|---------|---------|
-|Azure portal|On the hub menu, click **Virtual Machines** and then select the VM from the list. On the page for the VM, you have access to overview information, setting values, and monitoring metrics.|
-|Azure PowerShell|Managing VMs is similar in Azure and Azure Stack Hub. For more information about using PowerShell, see the Azure topic [Create and Manage Windows VMs with the Azure PowerShell module](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes).|
-|Client SDKs|Using C# to manage VMs is similar in Azure and Azure Stack Hub. For more information, see [Create and manage Windows VMs in Azure using C#](/azure/virtual-machines/windows/csharp).|
+1. Go to Azure Stack Edge resource for your device and then go to **Virtual machines > Overview**. 
+1. In the **Overview** page, go to **Virtual machines** and select the virtual machine that you are interested in. You can then view the details of the VM. 
 
 ### Connect to your VM
 
@@ -144,5 +133,6 @@ You can back up the VM disks and in the event of a device failure, restore the d
 
 ## Next steps
 
+- Learn about [VM sizes and types for Azure Stack Edge Pro GPU](azure-stack-edge-gpu-virtual-machine-sizes.md).
 
 
