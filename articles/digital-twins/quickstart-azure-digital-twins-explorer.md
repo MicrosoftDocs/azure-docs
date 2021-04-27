@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Quickstart - Use the Azure Digital Twins Explorer sample to visualize and explore a prebuilt scenario.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/24/2020
+ms.date: 4/27/2021
 ms.topic: quickstart
 ms.service: digital-twins
 
@@ -139,12 +139,6 @@ Follow these steps to upload models.
  
 1. In the file selector window that appears, go to the **digital-twins-explorer-main/client/examples** folder in the downloaded repository.
 1. Select **Room.json** and **Floor.json**, and select **OK**. You can upload additional models if you want, but they won't be used in this quickstart.
-1. Follow the pop-up dialog box that asks you to sign in to your Azure account.
-
->[!NOTE]
->If you see the following error message:
-> :::image type="content" source="media/quickstart-azure-digital-twins-explorer/error-models-popup.png" alt-text="A pop-up box reading 'Error: Error fetching models: ClientAuthError: Error opening popup window. This can happen if you are using IE or if popups are blocked in the browser.' with a Close button at the bottom." border="false"::: 
-> Try disabling your pop-up blocker or using a different browser.
 
 Azure Digital Twins Explorer now uploads these model files to your Azure Digital Twins instance. They should show up in the **MODEL VIEW** panel and display their friendly names and full model IDs. You can select the **View Model** information icons to see the DTDL code behind them.
 
