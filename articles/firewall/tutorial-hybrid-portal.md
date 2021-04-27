@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 04/23/2021
+ms.date: 04/27/2021
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
@@ -37,10 +37,10 @@ In this tutorial, you learn how to:
 > * Create the virtual machines
 > * Test the firewall
 
-If you want to use Azure PowerShell instead to complete this procedure, see [Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell](tutorial-hybrid-ps.md).
+If you want to use Azure PowerShell instead to complete this tutorial, see [Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell](tutorial-hybrid-ps.md).
 
 > [!NOTE]
-> This tutorial uses classic Firewall rules to manage the firewall. The preferred method is to use Firewall Policy. To complete this tutorial using Firewall Policy, see [Tutorial: Deploy and configure Azure Firewall and policy in a hybrid network using the Azure portal](tutorial-hybrid-portal-policy.md).
+> This tutorial uses classic Firewall rules to manage the firewall. The preferred method is to use [Firewall Policy](../firewall-manager/policy-overview.md). To complete this tutorial using Firewall Policy, see [Tutorial: Deploy and configure Azure Firewall and policy in a hybrid network using the Azure portal](tutorial-hybrid-portal-policy.md).
 
 ## Prerequisites
 
