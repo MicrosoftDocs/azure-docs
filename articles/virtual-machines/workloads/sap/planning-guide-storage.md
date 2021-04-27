@@ -67,7 +67,7 @@ For SAP HANA certified and supported Azure storage types read the article [SAP H
 The sections describing the different Azure storage types will give you more background about the restrictions and possibilities using the SAP supported storage. 
 
 ### Storage choices when using DBMS replication
-Our reference architectures foresee the usage of DBMS functionality like SQL Server Always On, HANA System Replication, Db2 HADR, or Oracle Data Guard. In case, you are using these technologies between two or multiple Azure virtual machines, the storage types chosen for each of the VMs is required to be the same. That means if the storage chose for the redo log volume of a DBMS system is Azure Premium storage on one VM, the same volume is required to be based on Azure Premium storage with all the other VMs that are in the same high availability synchronization configuration. The same is true for the data volumes used for the database files.
+Our reference architectures foresee the usage of DBMS functionality like SQL Server Always On, HANA System Replication, Db2 HADR, or Oracle Data Guard. In case, you are using these technologies between two or multiple Azure virtual machines, the storage types chosen for each of the VMs is required to be the same. That means if the storage chose for the redo log volume of a DBMS system is Azure premium storage on one VM, the same volume is required to be based on Azure premium storage with all the other VMs that are in the same high availability synchronization configuration. The same is true for the data volumes used for the database files.
   
 
 ## Storage recommendations for SAP storage scenarios
