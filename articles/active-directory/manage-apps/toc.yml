@@ -30,8 +30,6 @@
     items:
     - name: List of app integration tutorials
       href: /azure/active-directory/saas-apps/
-    - name: Add an on-premises app with Application Proxy
-      href: application-proxy-add-on-premises-application.md
   - name: Samples
     items: 
     - name: App Management PowerShell samples
@@ -243,7 +241,7 @@
       - name: Publishing walkthroughs
         items:
         - name: Integrate with Application Proxy on an NDES server
-          href: active-directory-app-proxy-protect-ndes.md
+          href: active-directory-app-proxy-protect-ndes.md 
         - name: Integrate with Application Proxy using PingAccess
           href: application-proxy-ping-access-publishing-guide.md
         - name: Integrate with Azure AD Domain Services
