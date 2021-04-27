@@ -124,6 +124,6 @@ The following table lists the supported actions, suboperations, and attribute di
 ## See also
 
 - [Security considerations for Azure role assignment conditions in Azure Storage (preview)](storage-blob-auth-abac-security.md)
-- [Attributes and operations supported for Azure role assignment conditions in Azure Storage (preview)](storage-blob-auth-abac-attributes.md)
+- [Azure role assignment condition format and syntax (Preview)](../../role-based-access-control/conditions-format.md)
 - [What is Azure attribute-based access control (Azure ABAC)? (Preview)](../../role-based-access-control/conditions-overview.md)
 
