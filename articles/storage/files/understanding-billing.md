@@ -12,6 +12,15 @@ ms.subservice: files
 # Understand Azure Files billing
 Azure Files provides two distinct billing models: provisioned and pay-as-you-go. The provisioned model is only available for premium file shares, which are file shares deployed in the **FileStorage** storage account kind. The pay-as-you-go model is only available for standard file shares, which are file shares deployed in the **general purpose version 2 (GPv2)** storage account kind. This article explains how both models work in order to help you understand your monthly Azure Files bill.
 
+:::row:::
+    :::column:::
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/m5_-GsKv4-o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    :::column-end:::
+    :::column:::
+        This video is an interview discussing covering the basics of the Azure Files billing model including how to optimize Azure file shares to achieve the lowest costs possible and how to compare Azure Files to other file storage offerings on-premises and in the cloud.
+   :::column-end:::
+:::row-end:::
+
 For Azure Files pricing information, see [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## Storage units	
@@ -120,6 +129,21 @@ There are five basic transaction categories: write, list, read, other, and delet
 
 > [!Note]  
 > NFS 4.1 is only available for premium file shares, which use the provisioned billing model, transactions do not affect billing for premium file shares.
+
+## File storage comparison checklist
+To correctly evaluate the cost of Azure Files compared to other file storage options, consider the following questions:
+
+- How do you pay for storage, IOPS, and bandwidth?  
+    With Azure Files, the billing model you use depends on whether you are deploying [premium](#provisioned-model) or [standard](#pay-as-you-go-model) file shares. Most cloud solutions have models that align with the principles of either provisioned storage (price determinism, simplicity) or pay-as-you-go storage (pay only for you actually use). Of particular interest for provisioned models is minimum provisioned share size, the provisioning unit, and the ability to increase and decrease the provisioning. 
+
+- How do you achieve storage resiliency and redundancy?  
+    With Azure Files, storage resiliency and redundancy are baked into the product offering. All tiers and redundancy levels ensure that data is highly available and at least three copies of your data are accessible. When considering other file storage options, consider whether storage resiliency and redundancy is built-in or something you must assemble yourself. 
+
+- What do you need to manage?  
+    With Azure Files, the basic unit of management is a storage account. Other solutions may require additional management, such as operating system updates or virtual resource management (VMs, disks, network IP addresses, etc.).
+
+- What are the backup costs?  
+    With Azure Files, Azure Backup integration is easily enabled and is backup storage is billed as part of the cost share (backups are stored as differential snapshots). Other solutions may require backup software licensing and additional backup storage costs.
 
 ## See also
 - [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
