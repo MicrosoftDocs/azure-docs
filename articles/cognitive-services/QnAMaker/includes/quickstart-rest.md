@@ -199,9 +199,7 @@ The response status is 204 with no results. Use the `-v` command-line parameter 
 
 # [Custom question answering (preview release)](#tab/v2)
 
-Before you query the knowledge base, you need to:
-* Publish knowledge base
-* Get the runtime endpoint key
+Before you query the knowledge base, you need to Publish the knowledge base.
 
 This task publishes the knowledge base. Getting the runtime endpoint key is a [separate task](#get-published-knowledge-bases-runtime-endpoint-key).
 
