@@ -175,7 +175,7 @@ sections:
         answer: Yes, vSAN datastores use data-at-rest encryption by default using keys stored in Azure Key Vault. The encryption solution is KMS-based and supports vCenter operations for key management.  When a host is removed from a cluster, data on SSDs is invalidated immediately.
 
       - question: Can I rename a datastore or cluster during creation?
-        answer: No, you can't change the name of datastores or clusters.
+        answer: No, you can't change the name of datastores or clusters. The cluster name is configurable through non-portal deployment mechanisms for non-primary clusters.
 
       - question: What is the Fault tolerance of hardware failure on the vSAN?
         answer: |
@@ -231,8 +231,6 @@ sections:
       - question: What are trial clusters?
         answer: Trial clusters are three host clusters used for one-month evaluations of Azure VMware Solution private clouds.
 
-      - question: Can I use High-end hosts for trial clusters?
-        answer: No. High-end ESXi hosts are reserved for use in production clusters.
 
   - name: Identity management
     questions:

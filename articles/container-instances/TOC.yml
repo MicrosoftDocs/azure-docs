@@ -59,7 +59,7 @@
   - name: Security
     items:
      - name: Security baseline
-       href: security-baseline.md
+       href: /security/benchmark/azure/baselines/container-instances-security-baseline
      - name: Security considerations
        href: container-instances-image-security.md
   - name: Virtual networking

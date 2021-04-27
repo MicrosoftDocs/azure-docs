@@ -73,8 +73,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Routes
-            url: routes.md
+          - text: Application configuration
+            url: configuration.md
           - text: Public APIs
             url: apis.md
           - text: Staging

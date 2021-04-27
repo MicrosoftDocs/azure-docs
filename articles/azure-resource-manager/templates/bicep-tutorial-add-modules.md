@@ -106,8 +106,8 @@ You can verify the deployment by exploring the resource groups from the Azure po
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. From the left menu, select **Resource groups**.
-1. You see the two new resource groups you deployed in this tutorial.
-1. Select either resource group and view the deployed resources. Notice that they match the values you specified in your parameter file for that environment.
+1. You will see the new resource group you deployed in this tutorial.
+1. Select the resource group and view the deployed resources. Notice that they match the values you specified in your template file.
 
 ## Clean up resources
 
