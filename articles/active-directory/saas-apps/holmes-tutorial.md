@@ -33,8 +33,6 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Holmes supports **SP and IDP** initiated SSO.
-
 ## Adding Holmes from the gallery
 
 To configure the integration of Holmes into Azure AD, you need to add Holmes from the gallery to your list of managed SaaS apps.
@@ -70,20 +68,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+2. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
     In the **Identifier** text box, type a URL using the following pattern:
     `https://<WorkspaceID>.holmescloud.com`
-
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    In the **Sign-on URL** text box, type the URL:
-    `https://www.holmescloud.com/login`
+    In the **Reply URL (Assertion Consumer Service URL)** text box, type a following URL:
+    `https://holmescloud.com/sso/acs`
+    In the **Logout Url** text box, type a following URL:
+    `https://holmescloud.com/sso/logout`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Identifier. Contact [Holmes Client support team](mailto:team-dev@holmescloud.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> Update the value with the actual Identifier referring to the Holmes Admin page. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+3. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
@@ -117,11 +114,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Holmes SSO
 
-To configure single sign-on on **Holmes** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Holmes support team](mailto:team-dev@holmescloud.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Holmes** side, you need to register the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal in Holmes Admin page. 
 
 ### Create Holmes test user
 
-In this section, you create a user called Britta Simon in Holmes. Work with [Holmes support team](mailto:team-dev@holmescloud.com) to add the users in the Holmes platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Holmes. You can create/invite a user in Holmes Member Management page. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
