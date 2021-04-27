@@ -681,7 +681,6 @@ ContainerLog
 | join kind= leftouter (
    ContainerData
 ) on $left.ContainerID == $right.ContainerID2 | project-away ContainerID1, ContainerID2, Name, Image, ImageTag | project-rename Name = Name1, Image=Image1, ImageTag=ImageTag1
-
 ```
 
 #### Option 2
@@ -748,7 +747,6 @@ This data will look like the following example in Azure Monitor for logs when yo
 
 ```
 LogEntry : ({"Hello": "This example has multiple lines:","Docker/Moby": "will not break this into multiple lines", "and you will receive":"all of them in log analytics", "as one": "log entry"}
-
 ```
 
 For a detailed look at the issue, review the following [GitHub link](https://github.com/moby/moby/issues/22920).

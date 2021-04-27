@@ -294,7 +294,6 @@ IF %EXECUTE_PS1% EQU 1 (
 )
 
 EXIT /B %ERRORLEVEL%
-
 ```
 
 ## Step 3: Add the startup task to the role's service definition (csdef)

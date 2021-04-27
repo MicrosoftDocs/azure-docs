@@ -76,8 +76,10 @@ After all the seed nodes become healthy, use following command from Powershell t
 
 ```powershell
 PS C:\> Send-ServiceFabricClusterHealthReport -SourceId "System.FM" -HealthProperty "SeedNodeStatus" -HealthState OK
+```
 
 ## Node system health reports
+
 System.FM, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
 
 ### Node up/down
@@ -106,10 +108,10 @@ HealthEvents          :
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
-
 ```
 
 ### Certificate expiration
+
 **System.FabricNode** reports a warning when certificates used by the node are near expiration. There are three certificates per node: **Certificate_cluster**, **Certificate_server**, and **Certificate_default_client**. When the expiration is at least two weeks away, the report health state is OK. When the expiration is within two weeks, the report type is a warning. TTL of these events is infinite, and they are removed when a node leaves the cluster.
 
 * **SourceId**: System.FabricNode
@@ -161,7 +163,6 @@ HealthEvents                    :
                                   RemoveWhenExpired     : False
                                   IsExpired             : False
                                   Transitions           : Error->Ok = 7/13/2017 5:57:05 PM, LastWarning = 1/1/0001 12:00:00 AM
-
 ```
 
 ## Service system health reports
@@ -196,7 +197,6 @@ HealthEvents          :
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
-
 ```
 
 ### Service correlation error
@@ -248,7 +248,6 @@ HealthEvents          :
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
-
 ```
 
 The following example shows the health of a partition that's below target replica count. The next step is to get the partition description, which shows how it's configured: **MinReplicaSetSize** is three and **TargetReplicaSetSize** is seven. Then get the number of nodes in the cluster, which in this case is five. So, in this case, two replicas can't be placed, because the target number of replicas is higher than the number of nodes available.
@@ -325,7 +324,6 @@ MinReplicaSetSize TargetReplicaSetSize
 
 PS C:\> @(Get-ServiceFabricNode).Count
 5
-
 ```
 
 The following example shows the health of a partition that's stuck in reconfiguration due to the user not honoring the cancellation token in the **RunAsync** method. Investigating the health report of any replica marked as primary (P) can help to drill down further into the problem.
@@ -358,16 +356,14 @@ HealthEvents          :
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Ok->Warning = 8/27/2017 3:43:32 AM, LastError = 1/1/0001 12:00:00 AM
-
 ```
+
 This health report shows the state of the replicas of the partition undergoing reconfiguration:
 
 ```
-
   P/S Ready Node1 131482789658160654
   S/P Ready Node2 131482789688598467
   S/S Ready Node3 131482789688598468
-
 ```
 
 For each replica, the health report contains:
@@ -414,7 +410,6 @@ HealthEvents          :
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Error->Ok = 7/14/2017 4:55:13 PM, LastWarning = 1/1/0001 12:00:00 AM
-
 ```
 
 ### ReplicaOpenStatus, ReplicaCloseStatus, ReplicaChangeRoleStatus
@@ -474,7 +469,6 @@ Exception has been thrown by the target of an invocation.
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Error->Warning = 8/27/2017 11:43:21 PM, LastOk = 1/1/0001 12:00:00 AM
-
 ```
 
 The following example shows a replica that's constantly crashing during close:
@@ -504,10 +498,10 @@ HealthEvents          :
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Error->Warning = 8/28/2017 1:16:03 AM, LastOk = 1/1/0001 12:00:00 AM
-
 ```
 
 ### Reconfiguration
+
 This property is used to indicate when a replica performing a [reconfiguration](service-fabric-concepts-reconfiguration.md) detects that the reconfiguration is stalled or stuck. This health report might be on the replica whose current role is primary, except in the cases of a swap primary reconfiguration, where it might be on the replica that's being demoted from primary to active secondary.
 
 The reconfiguration can be stuck for one of the following reasons:
@@ -548,7 +542,6 @@ HealthEvents          :
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Error->Warning = 8/28/2017 2:13:57 AM, LastOk = 1/1/0001 12:00:00 AM
-
 ```
 
 The following example shows a health report where a reconfiguration is stuck waiting for a response from two remote replicas. In this example, there are three replicas in the partition, including the current primary.
@@ -580,16 +573,13 @@ HealthEvents          :
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Error->Warning = 8/28/2017 12:07:37 PM, LastOk = 1/1/0001 12:00:00 AM
-
 ```
 
 This health report shows that the reconfiguration is stuck waiting for a response from two replicas:
 
 ```
-
     P/I Down 40 131483956244554282
     S/S Down 20 131483956274972403
-
 ```
 
 For each replica, the following information is given:
@@ -633,7 +623,6 @@ HealthEvents          :
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Error->Warning = 8/28/2017 12:24:56 PM, LastOk = 1/1/0001 12:00:00 AM
-
 ```
 
 The property and text indicate which API got stuck. The next steps to take for different stuck APIs are different. Any API on the *IStatefulServiceReplica* or *IStatelessServiceInstance* is usually a bug in the service code. The following section describes how these translate to the [Reliable Services model](service-fabric-reliable-services-lifecycle.md):
@@ -730,7 +719,6 @@ HealthEvents          :
                         RemoveWhenExpired     : True
                         IsExpired             : False
                         Transitions           : Error->Warning = 4/29/2016 8:39:38 PM, LastOk = 1/1/0001 12:00:00 AM
-
 ```
 
 ## DeployedApplication system health reports
@@ -769,7 +757,6 @@ HealthEvents                       :
                                      RemoveWhenExpired     : False
                                      IsExpired             : False
                                      Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
-
 ```
 
 ### Download
@@ -847,7 +834,6 @@ HealthEvents               :
                              RemoveWhenExpired     : False
                              IsExpired             : False
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
-
 ```
 
 ### Download

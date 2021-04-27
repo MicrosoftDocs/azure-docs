@@ -81,7 +81,6 @@ $RestoredDatabase = Restore-AzSqlDatabase –FromPointInTimeBackup –PointInTim
 
 # Verify the status of restored database
 $RestoredDatabase.status
-
 ```
 
 ## Restore an existing dedicated SQL pool (formerly SQL DW) through the Azure portal

@@ -145,7 +145,6 @@ public async Task<IActionResult> Profile()
 
   return View();
 }
-
 ```
 
 > [!NOTE]
@@ -176,7 +175,6 @@ private String getUserInfoFromGraph(String accessToken) throws Exception {
     JSONObject responseObject = HttpClientHelper.processResponse(responseCode, response);
     return responseObject.toString();
 }
-
 ```
 
 # [Python](#tab/python)
@@ -192,7 +190,6 @@ def graphcall():
         headers={'Authorization': 'Bearer ' + token['access_token']},
         ).json()
     return render_template('display.html', result=graph_data)
-
 ```
 
 ---

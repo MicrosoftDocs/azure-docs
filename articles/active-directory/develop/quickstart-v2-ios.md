@@ -107,17 +107,17 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 
 > 1. If you're building an app for [Azure AD national clouds](/graph/deployments#app-registration-and-token-service-root-endpoints), replace the line starting with 'let kGraphEndpoint' and 'let kAuthority' with correct endpoints. For global access, use default values:
 >
->     ```swift
->     let kGraphEndpoint = "https://graph.microsoft.com/"
->     let kAuthority = "https://login.microsoftonline.com/common"
->     ```
+>    ```swift
+>    let kGraphEndpoint = "https://graph.microsoft.com/"
+>    let kAuthority = "https://login.microsoftonline.com/common"
+>    ```
 
 > 1. Other endpoints are documented [here](/graph/deployments#app-registration-and-token-service-root-endpoints). For example, to run the quickstart with Azure AD Germany, use following:
 >
->     ```swift
->     let kGraphEndpoint = "https://graph.microsoft.de/"
->     let kAuthority = "https://login.microsoftonline.de/common"
->     ```
+>    ```swift
+>    let kGraphEndpoint = "https://graph.microsoft.de/"
+>    let kAuthority = "https://login.microsoftonline.de/common"
+>    ```
 
 > 1. Open the project settings. In the **Identity** section, enter the **Bundle Identifier** that you entered into the portal.
 > 1. Right-click **Info.plist** and select **Open As** > **Source Code**.
@@ -147,7 +147,6 @@ MSAL ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-libra
 
 ```
 $ vi Podfile
-
 ```
 
 Add the following to this podfile (with your project's target):
@@ -158,7 +157,6 @@ use_frameworks!
 target 'MSALiOS' do
    pod 'MSAL'
 end
-
 ```
 
 Run CocoaPods installation command:
@@ -171,7 +169,6 @@ You can add the reference for MSAL by adding the following code:
 
 ```swift
 import MSAL
-
 ```
 
 Then, initialize MSAL using the following code:
@@ -181,7 +178,6 @@ let authority = try MSALAADAuthority(url: URL(string: kAuthority)!)
 
 let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
 self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
-
 ```
 
 > |Where: | Description |
@@ -199,7 +195,6 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 
     return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
 }
-
 ```
 
 > [!NOTE]
@@ -218,7 +213,6 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
 
    MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApp)
 }
-
 ```
 
 Finally, your app must have an `LSApplicationQueriesSchemes` entry in your ***Info.plist*** alongside the `CFBundleURLTypes`. The sample comes with this included.
@@ -247,7 +241,6 @@ Some situations require users to interact with Microsoft identity platform. In t
 ```swift
 let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParameters: self.webViewParamaters!)
 self.applicationContext!.acquireToken(with: parameters) { (result, error) in /* Add your handling logic */}
-
 ```
 
 > |Where:| Description |
@@ -268,7 +261,6 @@ self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previou
    let silentParams = MSALSilentTokenParameters(scopes: self.kScopes, account: account)
    self.applicationContext!.acquireTokenSilent(with: silentParams) { (result, error) in /* Add your handling logic */}
 }
-
 ```
 
 > |Where: | Description |

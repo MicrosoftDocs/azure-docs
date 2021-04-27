@@ -41,7 +41,6 @@ Select-AzSubscription -SubscriptionName $SubscriptionName
 
 # Create a restore point of the original database
 New-AzSqlDatabaseRestorePoint -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -RestorePointLabel $Label
-
 ```
 
 6. See the list of all the existing restore points.

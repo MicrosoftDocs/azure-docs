@@ -285,7 +285,6 @@ namespace CosmosDBSamplesV2
         }
     }
 }
-
 ```
 
 <a id="http-trigger-get-multiple-docs-using-documentclient-c"></a>

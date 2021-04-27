@@ -645,7 +645,6 @@ PointInTime          : 10/17/2019 7:52:13 PM
 ServerName           : myserver.microsoft.com
 ItemSize             :
 ItemLastModifiedTime : 21-Jun-14 6:43:02 AM
-
 ```
 
 ### Triggering the restore process

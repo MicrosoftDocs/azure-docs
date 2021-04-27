@@ -52,7 +52,6 @@ catch(MsalUiRequiredException ex)
 # [Java](#tab/java)
 
 ```java
-
 Set<IAccount> accountsInCache = pca.getAccounts().join();
 // Take first account in the cache. In a production application, you would filter
 // accountsInCache to get the right account for the user authenticating.
@@ -85,7 +84,6 @@ try {
     }
 }
 return result;
-
 ```
 
 # [macOS](#tab/macOS)
@@ -526,7 +524,6 @@ if not result:
     result = app.acquire_token_by_authorization_code(
          request.args['code'],
          scopes=config["scope"])
-
 ```
 
 ---
@@ -1457,7 +1454,6 @@ app = PublicClientApplicationBuilder.Create(clientId)
 FilesBasedTokenCacheHelper.EnableSerialization(app.UserTokenCache,
                                                unifiedCacheFileName,
                                                adalV3cacheFileName);
-
 ```
 
 This time the helper class looks like the following code:
