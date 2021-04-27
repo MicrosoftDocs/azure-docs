@@ -20,7 +20,7 @@ Site Recovery helps you keep your applications up and running in the event of pl
 Azure Policy solves this problem. Once you have a disaster recovery policy created for a resource group, then all the new virtual machines that are added to the Resource Group will get Site Recovery enabled for them automatically. Moreover, for all the virtual machines already present in the Resource Group, you can get Site Recovery enabled through a process called _remediation_ (details below).
 
 >[!NOTE]
-    >The _Scope_ of this policy should be at Resource Group Level.
+>The _Scope_ of this policy should be at Resource Group Level.
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ Hot add/remove of disks | Not supported
 Interoperability with other policies applied as default by Azure (if any) | Supported
 
 >[!NOTE]
-    >If a not-supported VM is created within the scope of policy, Site Recovery will not be enabled for them. However, they wil reflect as _Non-complaint_ in Resource Compliance.
+>If a not-supported VM is created within the scope of policy, Site Recovery will not be enabled for them. However, they wil reflect as _Non-complaint_ in Resource Compliance.
 
 ## Create a Policy Assignment
 In this section, you create a policy assignment that enables Azure Site Recovery for all newly created resources.
