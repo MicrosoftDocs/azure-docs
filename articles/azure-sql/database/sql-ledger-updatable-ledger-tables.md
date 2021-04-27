@@ -6,7 +6,6 @@ ms.date: "05/25/2021"
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
-ms.technology: security
 ms.topic: conceptual
 author: janders
 ms.author: janders

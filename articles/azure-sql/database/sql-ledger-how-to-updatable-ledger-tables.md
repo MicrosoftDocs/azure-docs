@@ -17,7 +17,7 @@ This article shows you how to create an updatable ledger table in Azure SQL Data
 
 ## Prerequisite
 
-- Have an existing Azure SQL Database. See [Quickstart: Create an Azure SQL Database single database](../../../single-database-create-quickstart.md) if you have not already created an Azure SQL Database.
+- Have an existing Azure SQL Database. See [Quickstart: Create an Azure SQL Database single database](single-database-create-quickstart.md) if you have not already created an Azure SQL Database.
 
 ## Create an updatable ledger table
 

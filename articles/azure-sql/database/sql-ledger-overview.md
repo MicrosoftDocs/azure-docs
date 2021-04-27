@@ -6,11 +6,11 @@ ms.date: "05/25/2021"
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
-ms.technology: security
 ms.topic: conceptual
 author: janders
 ms.author: janders
 ---
+
 # Azure SQL Database ledger
 
 Establishing trust around the integrity of data stored in database systems has been a long-standing problem for all organizations that manage financial, medical, or other sensitive data. The ledger feature of [Azure SQL Database](sql-database-paas-overview.md) provides tamper-evidence capabilities in your database, enabling the ability to cryptographically attest to other parties, such as auditors or other business parties, that your data has not been tampered.
