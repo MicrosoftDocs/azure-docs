@@ -9,6 +9,7 @@ ms.date: 04/27/2021
 
 This article describes the restore options available with the Microsoft Azure Recovery Services (MARS) agent.
 
+
 ## Before you begin
 
 - Ensure that the latest version of the [MARS agent](https://aka.ms/azurebackup_agent) is installed.
