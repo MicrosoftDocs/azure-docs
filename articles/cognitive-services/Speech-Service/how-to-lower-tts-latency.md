@@ -15,17 +15,28 @@ ms.custom: references_regions
 
 # How to lower speech synthesis latency using Speech SDK
 
+> [!NOTE]
+> Speech SDK 1.17.0 is required as the minimum version for this instruction.
+
 The synthesis latency is critical to your applications.
 In this article, we will introduce the best practices to lower the latency and bring the best performance to you and your end users.
-Normally, we measure the latency by `first audio chunk latency` and `finish latency`, as follows:
+Normally, we measure the latency by _`first byte latency`_ and _`finish latency`_, as follows:
 
-| Latency | Description |
-|-----------|-------------|
-| `first audio chunk latency` | Indicates the time delay between the synthesis starts and the first audio chunk is received. |
-| `finish latency` | Indicates the time delay between the synthesis starts and the whole synthesized audio is received. |
+| Latency | Description | Property in the property bag of `SpeechSynthesizer` |
+|-----------|-------------|------------|
+| `first byte latency` | Indicates the time delay between the synthesis starts and the first audio chunk is received. | `SpeechServiceResponse_SynthesisFirstByteLatencyMs` |
+| `finish latency` | Indicates the time delay between the synthesis starts and the whole synthesized audio is received. | .SpeechServiceResponse_SynthesisFinishLatencyMs |
 
-The `first audio chunk latency` is much lower than `finish latency` in most cases.
-And the `first audio chunk latency` is almost independent with the text length, while `finish latency` increases with the text length.
+The Speech SDK measured the latencies and puts them in the property bag of [`SpeechSynthesisResult`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult). Refer following codes to get them.
+
+```cpp
+auto result = synthesizer->SpeakTextAsync(text);
+std::cout << "fist byte latency: \t" << std::stoi(result->Properties.GetProperty(PropertyId::SpeechServiceResponse_SynthesisFirstByteLatencyMs)) << " ms" << std::endl;
+std::cout << "finish latency: \t" << std::stoi(result->Properties.GetProperty(PropertyId::SpeechServiceResponse_SynthesisFinishLatencyMs)) << " ms" << std::endl;
+```
+
+The `first byte latency` is much lower than `finish latency` in most cases.
+And the `first byte latency` is almost independent with the text length, while `finish latency` increases with the text length.
 
 Ideally, we want to minimum the user-experienced latency (the latency before user hears the sound) to one network route trip time plus the first audio chunk latency of the speech synthesis service.
 
@@ -58,7 +69,7 @@ using (var synthesizer = new SpeechSynthesizer(config, null as AudioConfig))
 }
 ```
 
-## Pre-connection and reuse SpeechSynthesizer
+## Pre-connect and reuse SpeechSynthesizer
 
 The Speech SDK uses websocket to commutate with the service.
 Ideally, the network latency should be one route trip time (RTT).
@@ -66,7 +77,7 @@ If the connection is newly established, the network latency will contains extra 
 The establishment of websocket connection needs the TCP handshake, SSL handshake, HTTP connection, and protocol upgrade, which introduce time delay.
 To avoid the connection latency, we recommend pre-connection and reusing the `SpeechSynthesizer`.
 
-### Pre-connection
+### Pre-connect
 
 For example, if you are building a speech bot in client, you can per-connect to the speech synthesis service when the user starts to talk, and call `SpeakTextAsync` when the bot reply text is ready.
 
@@ -90,7 +101,7 @@ Another way to reduce the connection latency is to reuse the `SpeechSynthesizer`
 We recommend using object pool in service scenario, see our [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_server_scenario_sample.cs).
 
 
-## Using compressed audio format for transmission on wire
+## Transmit compressed audio over the network
 
 When the network is unstable or with limited bandwidth, the payload size will also impact latency.
 Meanwhile, compressed audio format helps to save the users' precious network bandwidth especially for mobile users.
@@ -107,18 +118,7 @@ The Speech SDK uses CRL files to check the certification.
 Caching the CRL files until expired help you avoid download `CRL` files every time.
 See [How to configure OpenSSL for Linux](how-to-configure-openssl-linux.md#certificate-revocation-checks) for details.
 
-### Using latest Speech SDK
+### Use latest Speech SDK
 
 We are keeping improve the Speech SDK's performance, ensure to use the latest Speech SDK in your application.
 For example, we fix a `TCP_NODELAY` setting issue in [1.16.0](releasenotes.md#speech-sdk-1160-2021-march-release), which help to reduce extra one route trip time.
-
-## Track the latency using Speech SDK
-
-The Speech SDK measured the latencies and puts them in the property bag of [`SpeechSynthesisResult`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult).
-
-```cpp
-auto result = synthesizer->SpeakTextAsync(text);
-std::cout << "fist byte latency: \t" << std::stoi(result->Properties.GetProperty(PropertyId::SpeechServiceResponse_SynthesisFirstByteLatencyMs)) << " ms" << std::endl;
-std::cout << "finish latency: \t" << std::stoi(result->Properties.GetProperty(PropertyId::SpeechServiceResponse_SynthesisFinishLatencyMs)) << " ms" << std::endl;
-std::cout << "underrun time: \t" << std::stoi(result->Properties.GetProperty(PropertyId::SpeechServiceResponse_SynthesisUnderrunTimeMs)) << " ms" << std::endl;
-```
