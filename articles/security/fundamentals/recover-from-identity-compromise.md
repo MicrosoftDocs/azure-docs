@@ -28,17 +28,22 @@ The content in this article is based on guidance provided by Microsoft's Detecti
 > This information is provided as-is and constitutes generalized guidance; the ultimate determination about how to apply this guidance to your IT environment and tenant(s) must consider your unique environment and needs, which each Customer is in the best position to determine.
 >
 
-## Overview
+## A systemic identity compromise and its response
 
 A systemic identity compromise attack on an organization occurs when an attacker successfully gains a foothold into the administration of an organization's identity infrastructure.
 
-- **Attackers with administrative control of an environment's identity infrastructure** can use that control to create, modify, or delete identities and identity permissions in that environment. 
+If this has happened to your organization, you are in a race against the attacker to secure your environment before further damage can be done.
 
-    In an on-premises compromise, if trusted SAML token-signing certificates are *not* stored in an [HSM](/azure/key-vault/keys/hsm-protected-keys), the attack includes access to that trusted SAML token-signing certificate. 
+- **Attackers with administrative control of an environment's identity infrastructure** can use that control to create, modify, or delete identities and identity permissions in that environment.
 
-- **Attackers can then use the certificate to forge SAML tokens** to impersonate any of the organization's existing users and accounts without making any changes, and without requiring access to the account credentials.
+    In an on-premises compromise, if trusted SAML token-signing certificates are *not* stored in an [HSM](/azure/key-vault/keys/hsm-protected-keys), the attack includes access to that trusted SAML token-signing certificate.
+
+- **Attackers can then use the certificate to forge SAML tokens** to impersonate any of the organization's existing users and accounts without requiring access to account credentials, and without leaving any traces.
 
 - **Highly-privileged account access** can also be used to add illegitimate credentials to existing applications, enabling attackers to call APIs using those illegitimate permissions.
+
+### Responding to the attack
+
 
 Responding to systemic identity compromises should include the steps shown in the following image and table:
 
@@ -47,7 +52,7 @@ Responding to systemic identity compromises should include the steps shown in th
 
 |Step  |Description  |
 |---------|---------|
-|**Establish secure communications**     |  The personnel on your team who are key to your investigations and response effort must be able to communicate securely. <br><br>*This must be the very first step in your response so that you can proceed without the attacker's knowledge.* |
+|**Establish secure communications**     |  An organization that has experienced a systemic identity compromise must assume that all communication is affected. Before taking any recovery action, you must ensure that the members of your team who are key to your investigation and response effort can communicate securely. <br><br>*Securing communications must be your very first step so that you can proceed without the attacker's knowledge.*|
 |**Investigate your environment**.     | After you have secured communications on your core investigation team, you can start looking for initial access points and persistence techniques. Look for initial access points and persistence at the same time as establishing continuous monitoring operations during your recovery efforts.        |
 |**Regain and retain administrative control**     |  You must regain control of your environment from the attacker. After you have control again, make sure to remediate or block all possible persistence techniques and new initial access exploits.       |
 |**Improve security posture**     | Enable security features and capabilities following best practice recommendations for improved system security moving forward.        |
@@ -58,9 +63,11 @@ Responding to systemic identity compromises should include the steps shown in th
 
 Before you start responding, you must be sure that you can communicate safely without the attacker eavesdropping. Make sure to isolate any communications related to the incident so that the attacker is not tipped-off to your investigation and is taken by surprise at your response actions.
 
-For example, for initial one-on-one and group communications, you may want to use PSTN calls, conference bridges that are not connected to the corporate infrastructure, and end-to-end encrypted messaging solutions.
+For example:
 
-After those initial conversations, you may want to create an entirely new Office 365 tenant, isolated from the organization's production tenant. Create accounts only for key personnel who need to be part of the response.
+1. For initial one-on-one and group communications, you may want to use PSTN calls, conference bridges that are not connected to the corporate infrastructure, and end-to-end encrypted messaging solutions.
+
+2. After those initial conversations, you may want to create an entirely new Office 365 tenant, isolated from the organization's production tenant. Create accounts only for key personnel who need to be part of the response.
 
 If you do create a new Office 365 tenant, make sure to follow all best practices for the tenant, and especially for administrative accounts and rights. Limit administrative rights, with no trusts for outside applications or vendors. 
 
