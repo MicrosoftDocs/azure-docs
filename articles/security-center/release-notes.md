@@ -299,7 +299,7 @@ We've released an improved version of the recommendations list to present more i
 Now on the page you'll see:
 
 1. The maximum score and current score for each security control.
-1. Icons replacing tags such as **Quick fix** and **Preview**.
+1. Icons replacing tags such as **Fix** and **Preview**.
 1. A new column showing the [Policy initiative](security-policy-concept.md) related to each recommendation - visible when "Group by controls" is disabled.
 
 :::image type="content" source="media/release-notes/recommendations-grid-enhancements.png" alt-text="Enhancements to Azure Security Center's recommendations page - March 2021" lightbox="media/release-notes/recommendations-grid-enhancements.png":::
@@ -758,13 +758,13 @@ The filters added this month provide options to refine the recommendations list 
 
 - **Environment** - View recommendations for your AWS, GCP, or Azure resources (or any combination)
 - **Severity** - View recommendations according to the severity classification set by Security Center
-- **Response actions** - View recommendations according to the availability of Security Center response options: Quick fix, Deny, and Enforce
+- **Response actions** - View recommendations according to the availability of Security Center response options: Fix, Deny, and Enforce
 
     > [!TIP]
     > The response actions filter replaces the **Quick fix available (Yes/No)** filter. 
     > 
     > Learn more about each of these response options:
-    > - [Quick fix remediation](security-center-remediate-recommendations.md#quick-fix-remediation)
+    > - [Fix button](security-center-remediate-recommendations.md#fix-button)
     > - [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md)
 
 :::image type="content" source="./media/release-notes/added-recommendations-filters.png" alt-text="Recommendations grouped by security control" lightbox="./media/release-notes/added-recommendations-filters.png":::

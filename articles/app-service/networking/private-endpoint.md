@@ -4,7 +4,7 @@ description: Connect privately to a Web App using Azure Private Endpoint
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 03/16/2021
+ms.date: 04/23/2021
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
@@ -120,6 +120,8 @@ You can connect up to 100 Private Endpoints to a particular Web App.
 Remote Debugging functionality is not available when Private Endpoint is enabled for the Web App. The recommendation is to deploy the code to a slot and remote debug it there.
 
 FTP access is provided through the inbound public IP address. Private Endpoint does not support FTP access to the Web App.
+
+There is a known limitation affecting Private Endpoints and traffic routing with slots. As of April 2021, automatic and manual request routing between slots will result in a "403 Access Denied". This limitation will be removed in a future release.
 
 We are improving Private Link feature and Private Endpoint regularly, check [this article][pllimitations] for up-to-date information about limitations.
 

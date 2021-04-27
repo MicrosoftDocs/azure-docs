@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 11/06/2020
 ms.topic: how-to
-ms.custom: how-to
+
 ---
 
 # Configure authentication for models deployed as web services

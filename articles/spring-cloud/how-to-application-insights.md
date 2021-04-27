@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Application Insights Java In-Process Agent in Azure Spring Cloud (Preview)
 
-This document explains how to monitor apps and microservices using the Application Insights Java agent in Azure Spring Cloud. 
+This article explains how to monitor apps and microservices by using the Application Insights Java agent in Azure Spring Cloud. 
 
 With this feature you can:
 
@@ -83,6 +83,7 @@ In the left navigation pane, click **Application Insights** to jump to the **Ove
   [ ![IPA 9](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)
 
 ## ARM Template
+
 To use the Azure Resource Manager template, copy following content to `azuredeploy.json`.
 
 ```json
@@ -116,6 +117,7 @@ To use the Azure Resource Manager template, copy following content to `azuredepl
 ```
 
 ## CLI
+
 Apply ARM template with the CLI command:
 
 * For an existing Azure Spring Cloud instance:
