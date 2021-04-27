@@ -9,7 +9,9 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Serverless Application
+  - name: Try the live demo
+    href: quickstart-live-demo.md
+  - name: Start with a simple chatroom serverless application
     href: quickstart-serverless.md
 
 - name: How-to guides
@@ -19,6 +21,12 @@
     items:
     - name: Create instance
       href: howto-develop-create-instance.md
+    - name: Publish and subscribe messages
+      href: https://azure.github.io/azure-webpubsub/getting-started/publish-messages/js-publish-message
+    - name: Work with subprotocols
+      href: https://azure.github.io/azure-webpubsub/getting-started/using-pubsub-subprotocol/js-work-with-subprotocols
+    - name: Authentication and permissions
+      href: https://azure.github.io/azure-webpubsub/getting-started/auth-and-permissions/js-auth-and-permissions
   - name: Secure
     items:
     - name: Protect the access key
@@ -36,17 +44,19 @@
 
 - name: Concepts
   items:
+  - name: Azure Web PubSub service internals
+    href: https://azure.github.io/azure-webpubsub/concepts/service-internals
   - name: Billing model
     href: concept-billing-model.md
 
 - name: Reference 
   items:
   - name: REST API
-    href: https://github.com/Azure/azure-webpubsub/blob/main/docs/references/protocol-rest-api.md
+    href: https://docs.microsoft.com/rest/api/documentation-preview/webpubsub?view=azure-rest-preview&branch=result_openapiHub_production_138700d9fb80
   - name: PubSub WebSocket Subprotocol
-    href: https://github.com/Azure/azure-webpubsub/blob/main/docs/references/pubsub-websocket-subprotocol.md
+    href: https://azure.github.io/azure-webpubsub/references/pubsub-websocket-subprotocol
   - name: Web PubSub CloudEvents 
-    href: https://github.com/Azure/azure-webpubsub/blob/main/docs/references/protocol-cloudevents.md
+    href: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents
   - name: Server SDKs
     href: choose-server-sdks.md
 
@@ -58,5 +68,9 @@
     href: https://azure.microsoft.com/global-infrastructure/services/?products=web-pubsub
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/web-pubsub/
+  - name: FAQs
+    href: resource-faq.md
+  - name: Microsoft Q&A
+    href: https://docs.microsoft.com/answers/topics/azure-web-pubsub.html
   - name: StackOverflow
-    href: https://stackoverflow.com/search?q=azure+web+pubsub
+    href: https://stackoverflow.com/questions/tagged/azure-web-pubsub
