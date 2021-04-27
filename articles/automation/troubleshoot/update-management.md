@@ -3,7 +3,7 @@ title: Troubleshoot Azure Automation Update Management issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 04/18/2021
+ms.date: 04/27/2021
 ms.topic: troubleshooting
 ---
 
@@ -416,7 +416,7 @@ This error can occur for one of the following reasons:
 
 ### Resolution
 
-You can retrieve more details programmatically by using the REST API. See [Software Update Configuration Machine Runs](https://docs.microsoft.com/rest/api/automation/softwareupdateconfigurationmachineruns) for information on retrieving either a list of update configuration machine runs, or a single software update configuration machine run by ID.
+You can retrieve more details programmatically by using the REST API. See [Software Update Configuration Machine Runs](/rest/api/automation/softwareupdateconfigurationmachineruns) for information on retrieving either a list of update configuration machine runs, or a single software update configuration machine run by ID.
 
 When applicable, use [dynamic groups](../update-management/configure-groups.md) for your update deployments. In addition, you can take the following steps.
 
