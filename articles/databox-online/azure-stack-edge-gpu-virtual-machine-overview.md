@@ -11,9 +11,9 @@ ms.date: 04/26/2021
 ms.author: alkohli
 ---
 
-[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
-
 # Virtual machines on your Azure Stack Edge Pro GPU device
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article provides a brief overview of virtual machines (VMs) running on your Azure Stack Edge devices, supported VM sizes, and summarizes the various ways of creating VM images, deploying, and then managing VMs. 
 
