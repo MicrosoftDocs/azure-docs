@@ -51,12 +51,7 @@ In this article, you will learn how to:
 
 ## onHandshake operation
 
-Built into the WebSocket protocol, onHandshake is immutable, preventing customers from deleting it. onHandshake streamlines client and server communication. With onHandshake:
-
-1. The WebSocket connection is established and an onHandshake `GET` request is sent.
-1. You can intercept the `GET` request and apply management policies and tokens.
-    * Valid tokens will step through the request.
-    * Invalid tokens will cause the request to be rejected.
+Built into the WebSocket protocol, onHandshake streamlines client and server communication. The WebSocket connection is established and an onHandshake `GET` request is sent. onHandshake is immutable, so you can't delete the request, but you can intercept it and apply management policies and tokens.
 
 ## Test your WebSocket API
 1. <!-- Step 1 -->
