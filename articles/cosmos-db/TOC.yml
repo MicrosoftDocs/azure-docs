@@ -676,7 +676,7 @@
                 - name: Provision autoscale throughput - database or container
                   displayName: request units, RUs, RU, shared throughput, database level, collection level, autoscale
                   href: how-to-provision-autoscale-throughput.md
-                - name: Estimate RU/s with Cosmos capacity planner
+                - name: Estimate RU/s with capacity planner
                   displayName: request units, RUs, RU, capacity
                   href: estimate-ru-with-capacity-planner.md
                 - name: Scale using Azure Functions timer
@@ -1152,6 +1152,9 @@
           href: mongodb-indexing.md
         - name: Use multi-document transactions
           href: use-multi-document-transactions.md
+        - name: Estimate RU/s with capacity planner
+          displayName: request units, RUs, RU, capacity
+          href: mongodb/estimate-ru-capacity-planner.md
         - name: Create a container - MongoDB API
           href: how-to-create-container-mongodb.md
         - name: Provision throughput- MongoDB API
