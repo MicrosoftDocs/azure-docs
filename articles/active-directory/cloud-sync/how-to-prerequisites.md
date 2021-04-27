@@ -121,6 +121,11 @@ The following are known limitations:
 ### Group re-naming or OU re-naming
 - If you rename a group or OU in AD that's in scope for a given configuration, the cloud sync job will not be able to recognize the name change in AD. The job won't go into quarantine and will remain healthy.
 
+### Scoping filter
+When using OU scoping filter
+- you can only sync up to 59 separate OUs for a given configuration. 
+- Nested OUs are supported (that is, you **can** sync an OU that has 130 nested OUs, but you **cannot** sync 60 separate OUs in the same configuration). 
+
 
 ## Next steps 
 

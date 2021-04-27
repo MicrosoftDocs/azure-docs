@@ -48,7 +48,7 @@ The following are the attributes supported by a direct mapping:
   - **Always**: Apply this mapping on both user-creation and update actions.
   - **Only during creation**: Apply this mapping only on user-creation actions.
 
- ![Screenshot that shows the link for managing cloud sync.](media/how-to-attribute-mapping/mapping-7.png)
+ ![Screenshot for direct](media/how-to-attribute-mapping/mapping-7.png)
 
 ### Constant mapping attributes
 The following are the attributes supported by a constant mapping:
@@ -59,7 +59,7 @@ The following are the attributes supported by a constant mapping:
   - **Always**: Apply this mapping on both user-creation and update actions.
   - **Only during creation**: Apply this mapping only on user-creation actions.
 
- ![Screenshot that shows the link for managing cloud sync.](media/how-to-attribute-mapping/mapping-9.png)
+ ![Screenshot for constant](media/how-to-attribute-mapping/mapping-9.png)
 
 ### Expression mapping attributes
 The following are the attributes supported by a direct mapping:
@@ -72,7 +72,7 @@ The following are the attributes supported by a direct mapping:
   - **Always**: Apply this mapping on both user-creation and update actions.
   - **Only during creation**: Apply this mapping only on user-creation actions.
 
- ![Screenshot that shows the link for managing cloud sync.](media/how-to-attribute-mapping/mapping-10.png)
+ ![Screenshot for expression](media/how-to-attribute-mapping/mapping-10.png)
 
 ## Add an attribute mapping
 
