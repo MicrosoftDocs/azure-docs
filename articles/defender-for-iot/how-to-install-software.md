@@ -654,10 +654,6 @@ To configure the BIOS:
 
 1. Accept the settings and continue by entering `Y`.
 
-The network ports will now be configured as:
-- Port 1 - Management
-- Port 2 - Monitoring
-
 ## Sensor installation for the virtual appliance
 
 You can deploy the virtual machine for the Defender for IoT sensor in the following architectures:
