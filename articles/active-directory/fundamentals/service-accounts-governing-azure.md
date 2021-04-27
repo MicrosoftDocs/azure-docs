@@ -167,7 +167,7 @@ Establish a review process to ensure that service accounts are regularly reviewe
 
 **The processes for deprovisioning should include the following tasks.**
 
-1. Once the associated application or script is deprovisioned, [monitor sign-ins](../reports-monitoring/concept-sign-ins.md#sign-ins-report) and resource access by the service account.
+1. Once the associated application or script is deprovisioned, [monitor sign-ins](../reports-monitoring/concept-sign-ins.md) and resource access by the service account.
 
    * If the account still is active, determine how it's being used before taking subsequent steps.
  

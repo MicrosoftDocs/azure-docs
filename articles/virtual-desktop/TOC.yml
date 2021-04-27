@@ -212,6 +212,8 @@
   items:
   - name: Security best practices
     href: security-guide.md
+  - name: Proxy support guidelines
+    href: proxy-server-support.md
   - name: Linux support
     href: linux-overview.md
   - name: Azure CLI
