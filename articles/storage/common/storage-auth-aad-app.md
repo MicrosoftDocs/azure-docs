@@ -73,6 +73,8 @@ The application needs a client secret to prove its identity when requesting a to
 1. Provide a description for the secret, and choose the desired expiration interval.
 1. Immediately copy the value of the new secret to a secure location. The full value is displayed to you only once.
 
+For security reasons, Microsoft limits creation of client secrets longer than 24 months and strongly recommends that you set this to a value less than 12 months.
+
     ![Screenshot showing client secret](media/storage-auth-aad-app/client-secret.png)
 
 ### Enable implicit grant flow
