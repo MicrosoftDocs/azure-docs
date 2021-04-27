@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/26/2021
+ms.date: 04/27/2021
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I want to save time and avoid Support calls during deployment of Azure Stack Edge devices by verifying network settings in advance.
@@ -17,7 +17,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to check your network for the most common deployment issues before you deploy an Azure Stack Edge device.<!--Verify ASE SKUs.-->
+This article describes how to check your network for the most common deployment issues before you deploy an Azure Stack Edge device.
 
 You'll use the Azure Stack Network Readiness Checker, a PowerShell tool that runs a series of tests to check mandatory and optional settings on the network where you deploy your Azure Stack Edge devices. The tool returns Pass/Fail status for each test and saves a log file and report file with more detail.
 
@@ -55,25 +55,11 @@ For example, the report provides:
 
  * Network route trace for each test
 
-<!--The Network Readiness Checker includes the following tests. You can choose which tests to run.
-
-|Test               |Network checks| 
-|-------------------|-------------|
-|LinkLayer          |Verifies that a layer 2 network link is established on all applicable network interfaces.|
-|IpConfig           |WHAT SPECIFICALLY DOES THE TEST VERIFY IN THE CONFIGURATION?|
-|DnsServer          |Verifies that Domain Name System (DNS) server(s) are accessible and respond to DNS queries on UDP port 53.|
-|TimeServer         |(Recommended) Verifies that Network Time Protocol (NTP) servers respond with system time on UDP port 123 and that the response message meets NTP requirements so that network clients can use the system time.|
-|DuplicateIP        |Checks for IP address conflicts between the Azure Stack Edge device and other devices on the network, and for conflicts within the IP address pool that's used for Kubernetes in Azure Stack Edge.|
-|Proxy              |(Optional) If you're using a proxy server, verifies that the web proxy server is accessible, that proxy server credentials work, and that the Secure Sockets Layer (SSL) tunnel isn't terminated at the proxy.|
-|AzureEndpoint      |Tests endpoints for the Azure Resource Manager login, Azure Resource Manager, Blob storage, COMPUTE?, and the Windows Update server. |
-|WindowsUpdateServer|(Optional) Verifies that the Windows Update Server or Windows Update for Business Server is accessible over HTTPS.|
-|DnsRegistration    |WHICH DNS SETTINGS? - Endpoint certs match DNS name? DNS records?|-->
-
 ## Prerequisites
 
 Before you begin, complete the following tasks:
 
-- Review network requirements in the [Deployment checklist for your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-checklist.md). 
+- Review network requirements in the [Deployment checklist for your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-checklist.md).
 
 - Make sure you have access to a client computer that is running on the network where you'll deploy your Azure Stack Edge devices.
 
@@ -111,7 +97,7 @@ To run a network readiness check, do these steps:
 
 1. Open PowerShell on a client computer running on the network where you'll deploy the Azure Stack Edge device.
 
-1. Run a network readiness check by entering the following command:<!--Add new parameters.-->
+1. Run a network readiness check by entering the following command:
 
     ```powershell
     Invoke-AzsNetworkValidation -DnsServer <string[]> -DeviceFqdn <string> [-TimeServer <string[]>] [-Proxy <uri>] [ProxyCredential <pscredential>] [-WindowsUpdateServer <uri[]>] [CustomUrl <url[]>] [AzureEnvironment {AzureCloud | AzureChinaCloud | AzureGermanCloud |
@@ -127,12 +113,12 @@ To run a network readiness check, do these steps:
     |`-DeviceFqdn`|Fully qualified domain name (FQDN) that you plan to use for the Azure Stack Edge device.|
     |`-TimeServer`|FQDN of one or more Network Time Protocol (NTP) servers. (Recommended)|
     |`-Proxy`|URI for the proxy server, if you're using a proxy server. (Optional)|
-    |`-ProxyCredential`|Username and password used on the proxy server. (Required if proxy server requires user authentication)|
+    |`-ProxyCredential`|Username and password used on the proxy server. (Required if proxy server requires user authentication)|<!--What format are the proxy server username and password entered in? Not clear in format line.-->
     |`-WindowsUpdateServer`|URIs for one or more Windows Update Servers or Windows Update for Business Servers. (Optional)|
     |`-ComputeIPs`|The Compute IP range to be used by Kubernetes. Specify the Start IP and End IP separated by a hyphen.|
     |`-CustomUrl`|Lists other URLs that you want to test HTTP access to. (Optional)|
     |`-AzureEnvironment`|Indicates the Azure environment. Required if the device is deployed to an environment other than the Azure public cloud (Azure Cloud).| 
-    |`-SkipTests`|Can be used to exclude tests. (Optional)<br> Separate test names with a comma.|
+    |`-SkipTests`|Can be used to exclude tests. (Optional)<br>Separate test names with a comma.|
     |`-OutputPath`|Tells where to store the log file and report from the tests. (Optional)<br>If you don't use this path, the files are stored in the following path: C:\Users\<username>\AppData\Local\Temp\1\AzsReadinessChecker\AzsReadinessChecker.logs <br>Each run of the Network Readiness Checker overwrites the existing log and report.|
  
 
@@ -180,10 +166,10 @@ If a test fails, the Network Readiness Checker returns information to help you r
 
 The following sample is the output from this command:
 
-`Invoke-AzsNetworkValidation -DnsServer '10.50.10.50' -TimeServer 'time.windows.com' -DeviceFqdn aseclient.contoso.com -ComputeIPs 10.10.52.1-10.10.52.20 -CustomUrl 'http://www.custom1.com','http://time.windows.com','http://fakename.fakeurl.com'`<!--time.windows.com is used twice - Validates as the time server; fails as a custom URL.-->
+`Invoke-AzsNetworkValidation -DnsServer '10.50.10.50' -TimeServer 'time.windows.com' -DeviceFqdn aseclient.contoso.com -ComputeIPs 10.10.52.1-10.10.52.20 -CustomUrl 'http://www.nytimes.com','http://fakename.fakeurl.com'`
 
 ```powershell
-   PS C:\Users\Administrator> Invoke-AzsNetworkValidation -DnsServer '10.50.10.50' -TimeServer 'time.windows.com' -DeviceFqdn aseclient.contoso.com -ComputeIPs 10.10.52.1-10.10.52.20 -CustomUrl 'http://www.nytimes.com','http://time.windows.com','http://fakename.fakeurl.com'
+   PS C:\Users\Administrator> Invoke-AzsNetworkValidation -DnsServer '10.50.10.50' -TimeServer 'time.windows.com' -DeviceFqdn aseclient.contoso.com -ComputeIPs 10.10.52.1-10.10.52.20 -CustomUrl 'http://www.nytimes.com','http://fakename.fakeurl.com'
 
 Invoke-AzsNetworkValidation v1.0 started.
 Validating input parameters
@@ -198,7 +184,6 @@ Validating Azure Stack Edge Network Readiness
         Azure Login Endpoint: OK
         Azure ManagementService Endpoint: OK
         URL http://www.nytimes.com/: OK
-        URL http://time.windows.com/: Fail
         URL http://fakename.fakeurl.com/: Fail
         Windows Update Server windowsupdate.microsoft.com port 80: OK
         Windows Update Server update.microsoft.com port 80: OK
@@ -213,7 +198,6 @@ Validating Azure Stack Edge Network Readiness
         DNS Registration for *.blob.aseclient.contoso.com: Fail
         DNS Registration for compute.aseclient.contoso.com: Fail
 Details:
-[-] URL http://time.windows.com/: Unable to connect to URI http://time.windows.com/. The operation has timed out..
 [-] URL http://fakename.fakeurl.com/: fakename.fakeurl.com : DNS name does not exist
 [-] Duplicate IP: Some IP addresses allocated to Azure Stack may be active on the network. Check the output log for the detailed list.
 [-] DNS Registration for login.aseclient.contoso.com: login.aseclient.contoso.com : DNS name does not exist
@@ -229,18 +213,18 @@ Invoke-AzsNetworkValidation Completed
 
 #### Log file sample
 
-The following sample is taken from the log file, AzsReadinessChecker.log, for this command.<!--Get log sample for failed scenario.-->
+The following sample is taken from the log file, AzsReadinessChecker.log, for this command.<!--Can we have a good log sample?-->
 
 ```XML
-   PLEASE PROVIDE LOG FILE TO TAKE SAMPLE FROM.
+   PLEASE PROVIDE LOG FILE SAMPLE.
 ```
 
 #### Report file sample
 
-The following sample is from the report file, AzsReadinessCheckerReport.json, for this command.<!--Get sample report for failed scenario.-->
+The following sample is from the report file, AzsReadinessCheckerReport.json, for this command.<!--Can we have a good sample report?-->
 
 ```JSON
-   PLEASE PROVIDE REPORT FILE TO TAKE SAMPLE FROM.
+   PLEASE PROVIDE REPORT FILE SAMPLE.
 ```
 
 
