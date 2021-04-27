@@ -202,7 +202,7 @@ Valid values:
 
 ## MDMaxBackgroundUpgradePeriod 
 
-Controls the background update period for PowerShell function apps, with a default value of `7.00:00:00` (7 days). 
+Controls the managed dependencies background update period for PowerShell function apps, with a default value of `7.00:00:00` (7 days). 
 
 Each PowerShell worker process initiates checking for module upgrades on the PowerShell Gallery on process start and every `MDMaxBackgroundUpgradePeriod` after that. When a new module version is available in the PowerShell Gallery, it's installed to the file system and made available to PowerShell workers. Decreasing this value lets your function app get newer module versions sooner, but it also increases the app resource usage (network I/O, CPU, storage). Increasing this value decreases the app's resource usage, but it may also delay delivering new module versions to your app. 
 
@@ -214,7 +214,7 @@ To learn more, see [Dependency management](functions-reference-powershell.md#dep
 
 ## MDNewSnapshotCheckPeriod
 
-The period during which the worker processes for a PowerShell function app are restarted due to updates, with a default of `01:00:00` (1 hour). 
+Specifies how often each PowerShell worker checks whether managed dependency upgrades having been installed, which requires a restart. The default frequency is `01:00:00` (every 1 hour). 
 
 After new module versions are installed to the file system, every PowerShell worker process must be restarted. Restarting PowerShell workers affects your app availability as it can interrupt current function execution. Until all PowerShell worker processes are restarted, function invocations may use either the old or the new module versions. Restarting all PowerShell workers completes within `MDNewSnapshotCheckPeriod`. Increasing this value decreases the frequency of interruptions, but may also increase the period of time when function invocations use either the old or the new module versions non-deterministically. 
 
@@ -227,10 +227,9 @@ To learn more, see [Dependency management](functions-reference-powershell.md#dep
 
 ## MDMinBackgroundUpgradePeriod
 
-The period of time after a previous upgrade check before another upgrade check is started, with a default of  `1.00:00:00` (1 day). 
+The period of time after a previous managed dependencies upgrade check before another upgrade check is started, with a default of  `1.00:00:00` (1 day). 
 
-To avoid excessive module upgrades on frequent Worker restarts, checking for module upgrades isn't performed when any worker has already initiated that check in the last `MDMinBackgroundUpgradePeriod`. |
-
+To avoid excessive module upgrades on frequent Worker restarts, checking for module upgrades isn't performed when any worker has already initiated that check in the last `MDMinBackgroundUpgradePeriod`. 
 
 |Key|Sample value|
 |---|------------|
