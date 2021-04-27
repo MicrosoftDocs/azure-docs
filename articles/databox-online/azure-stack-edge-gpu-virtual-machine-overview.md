@@ -1,0 +1,149 @@
+---
+title: Overview of VMs on your Azure Stack Edge device
+description: Describes virtual machines on your Azure Stack Edge device.
+services: databox
+author: alkohli
+
+ms.service: databox
+ms.subservice: edge
+ms.topic: how-to
+ms.date: 04/26/2021
+ms.author: alkohli
+#Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device. I want to use APIs so that I can efficiently manage my VMs.
+---
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
+
+# Virtual machines on your Azure Stack Edge Pro GPU device
+
+This article provides a brief overview of virtual machines (VMs) running on your Azure Stack Edge devices, supported VM sizes, and summarizes the various way of creating VM images, deploying, and then managing VMs. 
+
+## About VMs
+
+Azure Stack Edge solution comprises of purpose-built hardware-as-a-service devices from Microsoft. You use these devices to deploy edge computing workloads and get quick actionable insights at the edge where the data is generated. 
+
+Depending on your environment and the type of applications you are running, you can deploy one of the following edge computing workloads on these devices: 
+
+- **Containerized** - Use IoT Edge or Kubernetes to run your containerized applications.
+- **Non-containerized** - Deploy both Windows and Linux virtual machines on your devices to run non-containerized applications. 
+
+You deploy a VM on your device when you need more control over the computing environment. You can use VMs on your device in several ways ranging from development and test to running applications on the edge.
+
+## Before you create a VM
+
+Before you begin, review the following considerations about your VM:
+
+- The size of the VM you'll use.
+- The maximum number of VMs that can be created on your device.
+- The operating system that the VM runs.
+- The configuration of the VM after it starts.
+
+<!--### Names
+
+A VM has a name assigned to it and it has a computer name configured as part of the operating system. The name of a VM can be up to 15 characters.
+
+If you use Azure Stack Hub to create the operating system disk, the computer name and the VM name are the same. If you upload and use your own image that contains a previously configured operating system and use it to create a VM, the names may be different. When you upload your own image file, as a best practice make sure the computer name in the operating system matches the VM name.-->
+
+### VM size
+
+You need to be aware of VM sizes if you are planning to deploy VMs. There are multiple sizes available for the VMs that you can use to run apps and workloads on your device. The size that you choose then determines factors such as processing power, memory, and storage capacity. For  more information, see [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes).
+
+To figure out the size and the number of VMs that you can deploy on your device, factor in the usable compute on your device and other workloads that you are running. If running Kubernetes, consider the compute requirements for the Kubernetes master and worker VMs as well.
+
+|Kubernetes VM type|CPU and memory requirement|
+|---------|---------|
+|Master VM|4 cores, 4 GB RAM|
+|Worker VM|12 cores, 32 GB RAM|
+
+
+For the usable compute and memory on your device, see the [Compute and memory specifications](azure-stack-edge-gpu-technical-specifications-compliance.md#compute-and-memory-specifications) for your device model. 
+
+
+### VM limits
+
+You can run a maximum of up to 24 VMs on your device. This is another factor to consider when deploying your workload.
+
+### Operating system disks and images
+
+On your device, you can only use Generation 1 VMs with a fixed virtual hard disk (VHD/VHDX) format. VHDs are used to store the machine operating system (OS) and data. VHDs are also used for the images you use to install an OS. 
+
+The images that you use to create VM images can be generalized or specialized. When creating images for your VMs, you must prepare the images. See the various ways to prepare and use VM images on your device:
+
+- [Prepare Windows generalized image from a VHD](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md)
+- [Prepare generalized image from an ISO](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md)
+- [Create custom VM images starting from an Azure VM](azure-stack-edge-gpu-create-virtual-machine-image.md)
+- [Use specialized image](azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md)
+
+
+
+### Deployment workflow
+
+To deploy a VM, you first need to create all the resources that are needed to create a VM. Regardless of the method employed to create a VM, you'll follow these steps: 
+
+1. Connect to the local Azure Resource Manager of your device. 
+1. Identify the built-in subscription on the device.
+1. Create a resource group in the built-in subscription. The resource group will contain the VM and all the related resources.
+1. Create a local storage account on the device to store the VHD that will be used to create a VM image.
+1. Upload a Windows/Linux source image into the storage account to create a managed disk.
+1. Use the managed disk to create a VM image.
+1. Enable compute on a device port to create a virtual switch.
+1. Create a virtual network using the virtual switch attached to the port on which you enabled compute. 
+1. In the virtual network, create one or more virtual network interfaces to communicate within the virtual network. 
+1. Create a VM using the previously created VM image, virtual network, and virtual network interface(s) and assign a public IP address to remotely access the VM. Optionally include data disks to provide additional storage for your VM.
+ 
+The deployment workflow is displayed in the following diagram:
+
+![Diagram of the VM deployment workflow.](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell/vm-workflow-r.svg)
+
+### Extensions
+
+Custom script extensions are available for the VMs on your device that help configure workloads by running your script when the VM is provisioned.
+
+For more information, see [Deploy Custom Script Extension on VMs running on your device](azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md)
+
+## Create a VM
+
+There are several ways to deploy a VM on your device. Your choice depends on your environment. The following table summarizes the various ways to deploy a VM on your device:
+
+|Method|Article|
+|---------|---------|
+|Azure portal|[Deploy a VM on your device via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).|
+|Templates|[Deploy a VM on your device via templates](azure-stack-edge-gpu-deploy-virtual-machine-templates.md)|
+|PowerShell|[Deploy a VM on your device via Azure PowerShell cmdlets](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md)<br>[Deploy a VM on your device via Azure PowerShell script](azure-stack-edge-gpu-deploy-virtual-machine-powershell-script.md)|
+|CLI/Python|[Deploy a VM on your device via Azure CLI/Python](azure-stack-edge-gpu-deploy-virtual-machine-cli-python.md)|
+|GPU|[Deploy a VM on your device using GPUs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md)|
+
+
+## Manage your VM
+
+You can manage the VMs on your device via the Azure portal, via the PowerShell interface of the device, or directly through the APIs. Some typical management tasks are:
+
+- Get information about a VM.
+- Connect to a VM.
+- Make backups.
+
+### Get information about your VM
+
+The following table shows some of the ways you can get information about a VM:
+
+|Method|Description|
+|---------|---------|
+|Azure portal|On the hub menu, click **Virtual Machines** and then select the VM from the list. On the page for the VM, you have access to overview information, setting values, and monitoring metrics.|
+|Azure PowerShell|Managing VMs is similar in Azure and Azure Stack Hub. For more information about using PowerShell, see the Azure topic [Create and Manage Windows VMs with the Azure PowerShell module](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes).|
+|Client SDKs|Using C# to manage VMs is similar in Azure and Azure Stack Hub. For more information, see [Create and manage Windows VMs in Azure using C#](/azure/virtual-machines/windows/csharp).|
+
+### Connect to your VM
+
+Depending on the OS that your VM runs, you can connect to the VM as follows: 
+
+- [Connect to a Windows VM on your device](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#connect-to-windows-vm).
+- [Connect to a Linux VM on your device](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#connect-to-linux-vm).
+
+### Back up VMs
+
+You can back up the VM disks and in the event of a device failure, restore the data from the backups. For more information, see [Back up VM disks](azure-stack-edge-gpu-back-up-virtual-machine-disks.md).
+
+## Next steps
+
+- [Considerations for VMs in Azure Stack Hub](azure-stack-vm-considerations.md)
+
