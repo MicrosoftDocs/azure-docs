@@ -22,16 +22,16 @@ The synthesis latency is critical to your applications.
 In this article, we will introduce the best practices to lower the latency and bring the best performance to you and your end users.
 Normally, we measure the latency by _`first byte latency`_ and _`finish latency`_, as follows:
 
-| Latency | Description | Property in the property bag of `SpeechSynthesizer` |
+| Latency | Description | Property in the property bag of [SpeechSynthesizer](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult) |
 |-----------|-------------|------------|
 | `first byte latency` | Indicates the time delay between the synthesis starts and the first audio chunk is received. | `SpeechServiceResponse_SynthesisFirstByteLatencyMs` |
-| `finish latency` | Indicates the time delay between the synthesis starts and the whole synthesized audio is received. | .SpeechServiceResponse_SynthesisFinishLatencyMs |
+| `finish latency` | Indicates the time delay between the synthesis starts and the whole synthesized audio is received. | `SpeechServiceResponse_SynthesisFinishLatencyMs` |
 
 The Speech SDK measured the latencies and puts them in the property bag of [`SpeechSynthesisResult`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult). Refer following codes to get them.
 
 ```cpp
 auto result = synthesizer->SpeakTextAsync(text);
-std::cout << "fist byte latency: \t" << std::stoi(result->Properties.GetProperty(PropertyId::SpeechServiceResponse_SynthesisFirstByteLatencyMs)) << " ms" << std::endl;
+std::cout << "first byte latency: \t" << std::stoi(result->Properties.GetProperty(PropertyId::SpeechServiceResponse_SynthesisFirstByteLatencyMs)) << " ms" << std::endl;
 std::cout << "finish latency: \t" << std::stoi(result->Properties.GetProperty(PropertyId::SpeechServiceResponse_SynthesisFinishLatencyMs)) << " ms" << std::endl;
 ```
 
