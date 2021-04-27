@@ -3,7 +3,7 @@ title: Peer on-premises environments to Azure VMware Solution
 description: Learn how to create ExpressRoute Global Reach peering to a private cloud in Azure VMware Solution.
 ms.topic: tutorial
 ms.custom: contperf-fy21q4
-ms.date: 04/23/2021
+ms.date: 04/27/2021
 ---
 
 # Peer on-premises environments to Azure VMware Solution
@@ -12,7 +12,7 @@ In this step of the quick start, you'll use the [information gathered during the
 
 ExpressRoute Global Reach connects your on-premises environment to your Azure VMware Solution private cloud. The ExpressRoute Global Reach connection is established between the private cloud ExpressRoute circuit and an existing ExpressRoute connection to your on-premises environments. 
 
-The ExpressRoute circuit you use when you [configure networking for your VMware private cloud in Azure](tutorial-configure-networking.md) requires you to create and use authorization keys.  You'll have already used one authorization key from the ExpressRoute circuit, and in this tutorial, you'll create a second authorization key to peer with your on-premises ExpressRoute circuit.
+The ExpressRoute circuit you use when you [configure networking for your VMware private cloud in Azure](tutorial-configure-networking.md) requires you to create and use authorization keys.  You'll have already used one authorization key from the ExpressRoute circuit, and in this tutorial, you'll create a second authorization key to peer with your on-premises ExpressRoute circuit. 
 
 >[!NOTE]
 > You can connect through VPN, but that's out of scope for this quick start document.
@@ -42,67 +42,31 @@ Before you enable connectivity between two ExpressRoute circuits using ExpressRo
 >[!IMPORTANT]
 >In the context of these prerequisites, your on-premises ExpressRoute circuit is _circuit 1_, and your private cloud ExpressRoute circuit is in a different subscription and labeled _circuit 2_.
 
-## Step 1. Create an ExpressRoute circuit authorization key
+## Create an authorization key in the on-premises ExpressRoute circuit
 
 [!INCLUDE [request-authorization-key](includes/request-authorization-key.md)]
  
-## Step 2. Peer private cloud to on-premises with authorization key
-Now that you've created an authorization key for the private cloud ExpressRoute circuit, you can peer it with your on-premises ExpressRoute circuit. The peering is done from the perspective of the on-premises ExpressRoute circuit in either the **Azure portal** or using the **Azure CLI**. With both methods, you use the resource ID and authorization key of your private cloud ExpressRoute circuit to finish the peering.
+## Peer private cloud to on-premises 
+Now that you've created an authorization key for the private cloud ExpressRoute circuit, you can peer it with your on-premises ExpressRoute circuit. The peering is done from the on-premises ExpressRoute circuit in the **Azure portal**. You'll use the resource ID and authorization key of your private cloud ExpressRoute circuit to finish the peering.
 
-### [Portal](#tab/azure-portal)
- 
-1. Sign in to the [Azure portal](https://portal.azure.com) using the same subscription as the on-premises ExpressRoute circuit.
 
 1. From the private cloud, under Manage, select **Connectivity** > **ExpressRoute Global Reach** > **Add**.
 
     :::image type="content" source="./media/expressroute-global-reach/expressroute-global-reach-tab.png" alt-text="Screenshot showing the ExpressRoute Global Reach tab in the Azure VMware Solution private cloud.":::
 
-1. Create an on-premises cloud connection. Do one of the following and then select **Create**:
-
-   - Select the **ExpressRoute circuit** from the list, or
-   - Paste the circuit ID and authorization key you created.
+1. Enter the ExpressRoute ID and the authorization key created in the previous section.
 
    :::image type="content" source="./media/expressroute-global-reach/on-premises-cloud-connections.png" alt-text="Screenshot that shows the dialog for entering the connection information.":::   
-   
-   The new connection shows in the on-premises cloud connections list.
+
+1. Select **Create**. The new connection shows in the on-premises cloud connections list.
 
 >[!TIP]
 >You can delete or disconnect a connection from the list by selecting **More**.  
 >
 > :::image type="content" source="./media/expressroute-global-reach/on-premises-connection-disconnect.png" alt-text="Disconnect or deleted an on-premises connection":::
 
-### [Azure CLI](#tab/azure-cli)
 
-We've augmented the [CLI commands](../expressroute/expressroute-howto-set-global-reach-cli.md) with specific details and examples to help you configure the ExpressRoute Global Reach peering between on-premises environments to an Azure VMware Solution private cloud.
-
->[!TIP]
->For brevity in the Azure CLI command output, these instructions may use a [`–query` argument](/cli/azure/query-azure-cli) to execute a JMESPath query to only show the required results.
-
-1. Sign in to the [Azure portal](https://portal.azure.com) using the same subscription as the on-premises ExpressRoute circuit. 
-
-1. Open a Cloud Shell and leave the shell as bash.
-
-   :::image type="content" source="media/expressroute-global-reach/azure-portal-cloud-shell.png" alt-text="Screenshot showing the Azure portal Cloud Shell.":::
-
-1. Create the peering against circuit 1, passing in circuit 2's resource ID and authorization key. 
-
-   ```azurecli-interactive
-   az network express-route peering connection create -g <ResourceGroupName> --circuit-name <Circuit1Name> --peering-name AzurePrivatePeering -n <ConnectionName> --peer-circuit <Circuit2ResourceID> --address-prefix <__.__.__.__/29> --authorization-key <authorizationKey>
-   ```
-
-   :::image type="content" source="media/expressroute-global-reach/azure-command-with-results.png" alt-text="Screenshot showing the command and the results of a successful peering between circuit 1 and circuit 2.":::
-
-You can connect from on-premises environments to your private cloud over the ExpressRoute Global Reach peering.
-
->[!TIP]
->You can delete the peering by following the [Disable connectivity between your on-premises networks](../expressroute/expressroute-howto-set-global-reach-cli.md#disable-connectivity-between-your-on-premises-networks) instructions.
-
-
----
-
-
-
-## Step 3. Verify on-premises network connectivity
+## Verify on-premises network connectivity
 
 You should now see in your **on-premises edge router** where the ExpressRoute connects the NSX-T network segments and the Azure VMware Solution management segments.
 
