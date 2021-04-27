@@ -23,6 +23,8 @@ QnA Maker allows you to manage your knowledge bases by providing access to the k
 > * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 > * A [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, Text Analytics resource name you selected when you created the resource.
 
+---
+
 ## Create a knowledge base
 
 # [QnA Maker GA (stable release)](#tab/v1)
