@@ -69,7 +69,52 @@ When you create a diagnostic setting, you specify which categories of logs to co
 
 4. Select your load balancer. For this example, **myLoadBalancer** is used.
 
-5. 
+5. In the **Monitoring** section of **myLoadBalancer**, select **Diagnostic settings**.
+
+6. In **Diagnostic settings**, select **+ Add diagnostic setting**.
+
+7. Enter or select the following information in **Diagnostic setting**.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Diagnostic setting name | Enter a name for the diagnostic setting. |
+    | **Category details** |   |
+    | metric | Select **AllMetrics**. |
+
+#### Log Analytics workspace
+
+1. Select the box next to **Send to Log Analytics workspace** in **Destination details**.
+
+2. Select your **Subscription**.
+
+3. Select your **Log Analytics workspace**.
+
+4. Select **Save**.
+
+#### Archive to a storage account
+
+1. Select the box next to **Archive to a storage account** in **Destination details**.
+
+2. Select your **Subscription**.
+
+3. Select your **Storage account**.
+
+4. Select **Save**. 
+
+#### Stream to an event hub
+
+1. Select the box next to **Stream to an event hub** in **Destination details**.
+
+2. Select your **Subscription**.
+
+3. Select your **Event hub namespace**.
+
+4. Select your **Event hub name** if applicable.
+
+5. Select your **Event hub policy name**.
+
+6. Select **Save**. 
+
 ### PowerShell
 
 ### Azure CLI
