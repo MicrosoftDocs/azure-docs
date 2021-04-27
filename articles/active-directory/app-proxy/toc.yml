@@ -1,9 +1,9 @@
-  - name: Application proxy documentation
+  - name: Application Proxy documentation
     href: index.yml
   - name: Overview
     expanded: true
     items:
-    - name: What is application proxy?
+    - name: What is Application Proxy?
       href: what-is-application-proxy.md
     # - name: What is single sign-on (SSO)?
     #   href: what-is-single-sign-on.md
@@ -20,9 +20,9 @@
     #   href: add-application-portal-configure.md
     # - name: Assign users to an app
     #   href: add-application-portal-assign-users.md
-    # - name: Setup SAML-based single sign-on
+    # - name: Set up SAML-based single sign-on
     #   href: add-application-portal-setup-sso.md
-    # - name: Setup OIDC-based single sign-on
+    # - name: Set up OIDC-based single sign-on
     #   href: add-application-portal-setup-oidc-sso.md
     # - name: Delete an app
     #   href: delete-application-portal.md
@@ -140,7 +140,7 @@
     #   items:
     #   - name: Application Proxy
     #     href: application-proxy.md
-    #   - name: What is application proxy for on-premises apps?
+    #   - name: What is application Proxy for on-premises apps?
     #     href: what-is-application-proxy.md
     #   - name: Planning an Application Proxy deployment
     #     href: application-proxy-deployment-plan.md

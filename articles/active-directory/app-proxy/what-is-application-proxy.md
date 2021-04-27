@@ -160,7 +160,8 @@ It's recommended that you always deploy multiple connectors for redundancy and s
 
 Connectors also poll the server to find out if there is a newer version of the connector. Although you can do a manual update, connectors will update automatically as long as the Application Proxy Connector Updater service is running. For tenants with multiple connectors, the automatic updates target one connector at a time in each group to prevent downtime in your environment.
 
-**Note**: You can monitor the Application Proxy [version history page](../manage-apps/application-proxy-release-version-history.md) to be notified when updates have been released by subscribing to its RSS feed.
+> [!NOTE]
+> You can monitor the Application Proxy [version history page](../manage-apps/application-proxy-release-version-history.md) to be notified when updates have been released by subscribing to its RSS feed.
 
 Each Application Proxy connector is assigned to a [connector group](../manage-apps/application-proxy-connector-groups.md). Connectors in the same connector group act as a single unit for high availability and load balancing. You can create new groups, assign connectors to them in the Azure portal, then assign specific connectors to serve specific applications. It's recommended to have at least two connectors in each connector group for high availability.
 
