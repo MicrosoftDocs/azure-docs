@@ -13,15 +13,15 @@ Azure Video Analyzer allows you to extend the pipeline processing capabilities t
 
 Video Analyzer supports the following pipeline extension processors:
 
-* [HTTP extension processor]() <!--TODO: add the right topic-->
-* [gRPC extension processor]() <!--TODO: add the right topic-->
-* [Cognitive Services extension processor]() <!--TODO: add the right topic-->
+* [HTTP extension processor](pipeline.md#http-extension-processor) 
+* [gRPC extension processor](pipeline.md#grpc-extension-processor)
+* [Cognitive Services extension processor](add-valid-link.md) 
 	
-The pipeline extension node expects the analytics extension plugin to return the results in JSON format. Ideally the results should follow the [inference metadata schema object model]() <!--TODO: add the right topic-->
+The pipeline extension node expects the analytics extension plugin to return the results in JSON format. Ideally the results should follow the [inference metadata schema object model](inference-metadata-schema.md)
 
 ## HTTP extension processor
 
-HTTP extension processor enables extensibility scenarios using the [HTTP protocol]() <!--TODO: add the right topic-->, where performance and/or optimal resource utilization is not the primary concern. You can expose your own AI to a media graph via an HTTP REST endpoint.
+HTTP extension processor enables extensibility scenarios using the [HTTP protocol](add-valid-link.md), where performance and/or optimal resource utilization is not the primary concern. You can expose your own AI to a media graph via an HTTP REST endpoint.
 
 Use HTTP extension processor node when:
 
@@ -31,7 +31,7 @@ Use HTTP extension processor node when:
 
 ## gRPC extension processor
 
-gRPC extension processor enables extensibility scenarios using gRPC based, highly performant [structured protocol]() <!--TODO: add the right topic-->. It is ideal for scenarios where performance and/or optimal resource utilization is a priority. The gRPC extension processor enables you to get the full benefit of the structured data definitions. gRPC offers high content transfer performance using:
+gRPC extension processor enables extensibility scenarios using gRPC based, highly performant [structured protocol](add-valid-link.md). It is ideal for scenarios where performance and/or optimal resource utilization is a priority. The gRPC extension processor enables you to get the full benefit of the structured data definitions. gRPC offers high content transfer performance using:
 
 * [in-box shared memory](https://en.wikipedia.org/wiki/Shared_memory) or
 * directly embedding the content into the body of gRPC messages.
@@ -45,7 +45,7 @@ The gRPC extension processor can be used for sending media properties along with
 
 ## Cognitive Services extension processor
 
-Cognitive Services extension processor is a custom-built extension processor that allows Video Analyzer to work well with the [Computer Vision spatial analysis](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) capabilities, using gRPC based, highly performant [structured protocol]() <!--TODO: add the right topic-->. 
+Cognitive Services extension processor is a custom-built extension processor that allows Video Analyzer to work well with the [Computer Vision spatial analysis](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) capabilities, using gRPC based, highly performant [structured protocol](add-valid-link.md). 
 
 Use Cognitive Services extension processor node when:
 
@@ -55,7 +55,7 @@ Use Cognitive Services extension processor node when:
 
 ## Use your inferencing model
 
-Pipeline extensions allow you to run inference models of your choice on any available inference runtime, such as ONNX, TensorFlow, PyTorch, or others in your own docker container. The inferencing custom extension should be deployed alongside Video Analyzer  edge module for best performance and will then be invoked via the HTTP extension processor, the gRPC extension processor, or the Cognitive Services extension processor included in your graph topology. Additionally, the frequency of the calls into your custom extension can be throttled by optionally adding a [motion detector processor]() <!--TODO: add the right topic--> upstream to the pipeline extension processor.
+Pipeline extensions allow you to run inference models of your choice on any available inference runtime, such as ONNX, TensorFlow, PyTorch, or others in your own docker container. The inferencing custom extension should be deployed alongside Video Analyzer  edge module for best performance and will then be invoked via the HTTP extension processor, the gRPC extension processor, or the Cognitive Services extension processor included in your graph topology. Additionally, the frequency of the calls into your custom extension can be throttled by optionally adding a [motion detector processor](pipeline.md#motion-detection-processor) upstream to the pipeline extension processor.
 
 The diagram below depicts the high-level data flow:
 
@@ -64,7 +64,7 @@ The diagram below depicts the high-level data flow:
  
 ## Samples
 
-You can get started with one of our quickstarts that illustrate live video analytics with pre-built extension service at low frame rates with [HTTP extension processor]() <!--TODO: add the right topic--> or at high frame rates with [gRPC extension processor]() <!--TODO: add the right topic-->.
+You can get started with one of our quickstarts that illustrate live video analytics with pre-built extension service at low frame rates with [HTTP extension processor](pipeline.md#http-extension-processor) or at high frame rates with [gRPC extension processor](pipeline.md#grpc-extension-processor).
 
 For advanced users, you can check out some of our [Jupyter notebook](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) samples for Video Analyzer. These notebooks will provide you with step-by-step instructions for the pipeline extensions on:
 

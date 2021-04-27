@@ -13,11 +13,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/21/2021
 ms.author: phjensen
 ---
 
-# Tips and tricks for using Azure Application Consistent Snapshot tool (preview)
+# Tips and tricks for using Azure Application Consistent Snapshot tool
 
 This article provides tips and tricks that might be helpful when you use AzAcSnap.
 
@@ -206,7 +206,7 @@ In some cases, customers already have tools to protect SAP HANA and only want to
 
     ```output
     {
-      "version": "5.0 Preview",
+      "version": "5.0",
       "logPath": "./logs",
       "securityPath": "./security",
       "comments": [
@@ -255,7 +255,7 @@ In some cases, customers already have tools to protect SAP HANA and only want to
     ```output
     List snapshot details called with snapshotFilter 'TestBootVolume'
     #, Volume, Snapshot, Create Time, HANA Backup ID, Snapshot Size
-    #1, t210_sles_boot_azsollabbl20a31_vol, TestBootVolume.2020-07-03T034651.7059085Z, "Fri Jul 03 03:48:24 2020", "otherVolume Backup|azacsnap version: 5.0 Preview (20200617.75879)", 200KB
+    #1, t210_sles_boot_azsollabbl20a31_vol, TestBootVolume.2020-07-03T034651.7059085Z, "Fri Jul 03 03:48:24 2020", "otherVolume Backup|azacsnap version: 5.0 (Build: 20210421.6349)", 200KB
     , t210_sles_boot_azsollabbl20a31_vol, , , Size used by Snapshots, 1.31GB
     ```
 

@@ -8,7 +8,7 @@ ms.date: 04/04/2021
 ---
 # Manage recording policy with Video Analyzer
 
-You can use Azure Video Analyzer for [continuous video recording]()<!-- continuous-video-recording-concept.md -->, whereby you can record video into the cloud for weeks or months. You can manage the length (in days) of that cloud archive by using the [Lifecycle Management tools](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal) built into Azure storage.  
+You can use Azure Video Analyzer for [continuous video recording](continuous-video-recording.md), whereby you can record video into the cloud for weeks or months. You can manage the length (in days) of that cloud archive by using the [Lifecycle Management tools](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal) built into Azure storage.  
 
 Your Video Analyzer account is linked to an Azure Storage account, and when you record to a video resource, the media data is written to a container in the storage account. Lifecycle management allows you to define a [policy](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#policy) for a Storage account, wherein you can specify a [rule](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#rules) such as the following.
 
@@ -41,7 +41,7 @@ The above rule:
 * Specifies that when blobs age beyond 30 days, they are moved from the [hot access tier to cool](../../storage/blobs/storage-blob-storage-tiers.md?tabs=azure-portal).
 * And when blobs age beyond 90 days, they are to be deleted.
 
-When you use Video Analyzer to record to a video resource, you specify a `segmentLength` property that specifies the minimum duration of video (in seconds) to be aggregated before it's written to the storage account. Your video resource will contain a series of segments, each with a creation timestamp that is `segmentLength` newer than the previous. When the lifecycle management policy kicks in, it deletes segments older than the specified threshold. However, you will continue to be able to access and play back the remaining segments via Video Analyzer APIs. For more information, see [play back recordings]()(<!--playback-recordings-how-to.md-->. 
+When you use Video Analyzer to record to a video resource, you specify a `segmentLength` property that specifies the minimum duration of video (in seconds) to be aggregated before it's written to the storage account. Your video resource will contain a series of segments, each with a creation timestamp that is `segmentLength` newer than the previous. When the lifecycle management policy kicks in, it deletes segments older than the specified threshold. However, you will continue to be able to access and play back the remaining segments via Video Analyzer APIs. For more information, see [play back recordings](playback-recordings-how-to.md). 
 
 ## Limitations
 
@@ -53,4 +53,4 @@ Following are some known limitations with lifecycle management:
 
 ## Next steps
 
-[Playback of recordings]()<!--playback-recordings-how-to.md-->
+[Playback of recordings](playback-recordings-how-to.md)
