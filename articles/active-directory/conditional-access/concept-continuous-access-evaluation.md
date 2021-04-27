@@ -131,10 +131,10 @@ In the following example, a Conditional Access administrator has configured a lo
 
 From this page, you can optionally limit the users and groups that will be subject to the preview.
 
-![Enabling the CAE preview in the Azure portal](./media/concept-continuous-access-evaluation/enable-cae-preview.png)
-
 > [!WARNING]
-> To disable continuous access evaluation please select **Enable preview** then **Disable preview** and select **Save**
+> To disable continuous access evaluation please select **Enable preview** then **Disable preview** and select **Save**.
+
+![Enabling the CAE preview in the Azure portal](./media/concept-continuous-access-evaluation/enable-cae-preview.png)
 
 ## Troubleshooting
 
