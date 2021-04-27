@@ -145,6 +145,8 @@ You can also create an instance
 
 The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance does not release quota to ensure you will be able to restart the compute instance.
 
+Compute instance comes with P10 OS disk. Temp disk type depends on the VM size chosen. Currently, it is not possible to change the OS disk type.
+
 
 ### Create on behalf of (preview)
 
