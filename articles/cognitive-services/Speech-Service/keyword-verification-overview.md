@@ -50,8 +50,8 @@ You do not need to explicitly specify any configuration parameters. All necessar
 
 The sample and tutorials linked below show how to use the Speech SDK:
  * [Voice assistant samples on GitHub.](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)
- * [Tutorial: Voice enable your assistant built using Azure Bot Service with the C# Speech SDK.](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk)
- * [Tutorial: Create a Custom Commands application with simple voice commands.](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-develop-custom-commands-application)
+ * [Tutorial: Voice enable your assistant built using Azure Bot Service with the C# Speech SDK.](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk)
+ * [Tutorial: Create a Custom Commands application with simple voice commands.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-develop-custom-commands-application)
 
 ## Pricing
 
