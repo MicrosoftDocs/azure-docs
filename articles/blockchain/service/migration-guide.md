@@ -101,7 +101,7 @@ Decrypt the data using the API access key. You can [get the key from the Azure p
 
 You can use the data with either ConsenSys Quorum Blockchain service or your IaaS VM-based deployment.
 
-For ConsenSys Quorum Blockchain Service migration, contact ConsenSys at [qbsmigration@consensys.net](qbsmigration@consensys.net).
+For ConsenSys Quorum Blockchain Service migration, contact ConsenSys at [qbsmigration@consensys.net](mailto:qbsmigration@consensys.net).
 
 For using the data with your IaaS VM-based deployment, follow the steps in the [Azure VM based Quorum guidance](#azure-vm-based-quorum-guidance) section of this article.
 
