@@ -1,21 +1,17 @@
 ---
-title: Wildcard applications in the Azure AD Application Proxy
-description: Learn how to use Wildcard applications in the Azure Active Directory application proxy.
+title: Wildcard applications in Azure Active Directory Application Proxy
+description: Learn how to use Wildcard applications in Azure Active Directory Application Proxy.
 services: active-directory
-documentationcenter: ''
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-proxy
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 09/06/2018
+ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.collection: M365-identity-device-management
 ---
 
 # Wildcard applications in the Azure Active Directory application proxy
@@ -52,7 +48,7 @@ To get started, make sure you've met these requirements.
 
 ### Custom domains
 
-While [custom domains](application-proxy-configure-custom-domain.md) are optional for all other applications, they are a prerequisite for wildcard applications. Creating custom domains requires you to:
+While [custom domains](../manage-apps/application-proxy-configure-custom-domain.md) are optional for all other applications, they are a prerequisite for wildcard applications. Creating custom domains requires you to:
 
 1. Create a verified domain within Azure.
 1. Upload a TLS/SSL certificate in the PFX format to your application proxy.
@@ -70,7 +66,7 @@ When using custom domains, you need to create a DNS entry with a CNAME record fo
 To confirm that you have configured your CNAME correctly, you can use [nslookup](/windows-server/administration/windows-commands/nslookup) on one of the target endpoints, for example, `expenses.adventure-works.com`.  Your response should include the already mentioned alias (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
 
 ### Using connector groups assigned to an App Proxy cloud service region other than the default region
-If you have connectors installed in regions different from your default tenant region, it may be beneficial to change which region your connector group is optimized for to improve performance accessing these applications. To learn more see, [Optimize connector groups to use closest Application Proxy cloud service](application-proxy-network-topology.md#optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview).
+If you have connectors installed in regions different from your default tenant region, it may be beneficial to change which region your connector group is optimized for to improve performance accessing these applications. To learn more see, [Optimize connector groups to use closest Application Proxy cloud service](../manage-apps/application-proxy-network-topology.md#optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview).
  
 If the connector group assigned to the wildcard application uses a **different region than your default region**, you will need to update the CNAME record to point to a regional specific external URL. Use the following table to determine the relevant URL:
 
@@ -116,12 +112,12 @@ If you use this option, you also need another CNAME entry for the value `AppId.d
 
 The wildcard application is represented with just one tile in the [MyApps panel](https://myapps.microsoft.com). By default this tile is hidden. To show the tile and have users land on a specific page:
 
-1. Follow the guidelines for [setting a homepage URL](application-proxy-configure-custom-home-page.md).
+1. Follow the guidelines for [setting a homepage URL](../manage-apps/application-proxy-configure-custom-home-page.md).
 1. Set **Show Application** to **true** on the application properties page.
 
 ### Kerberos constrained delegation
 
-For applications using [kerberos constrained delegation (KCD) as the SSO method](application-proxy-configure-single-sign-on-with-kcd.md), the SPN listed for the SSO method may also need a wildcard. For example, the SPN could be: `HTTP/*.adventure-works.com`. You still need to have the individual SPNs configured on your backend servers (for example, `HTTP/expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
+For applications using [kerberos constrained delegation (KCD) as the SSO method](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md), the SPN listed for the SSO method may also need a wildcard. For example, the SPN could be: `HTTP/*.adventure-works.com`. You still need to have the individual SPNs configured on your backend servers (for example, `HTTP/expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
 
 ## Scenario 1: General wildcard application
 
@@ -198,5 +194,5 @@ If you have multiple applications published for finance and you have `finance.ad
 
 ## Next steps
 
-- To learn more about **Custom domains**, see [Working with custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
+- To learn more about **Custom domains**, see [Working with custom domains in Azure AD Application Proxy](../manage-apps/application-proxy-configure-custom-domain.md).
 - To learn more about **Publishing applications**, see [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md)
