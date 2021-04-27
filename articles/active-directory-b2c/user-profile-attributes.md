@@ -26,7 +26,7 @@ You can also integrate with external systems. For example, you can use Azure AD 
 
 ## Azure AD user resource type
 
-The table below lists the [user resource type](/graph/api/resources/user) attributes that are supported by the Azure AD B2C directory user profile. It gives the following information about each attribute:
+The table below lists the [user resource type](/graph/api/resources/user) attributes that are supdfgdfgrted by the Azure AD B2C directory user profile. It gives the following information about each attribute:
 
 - Attribute name used by Azure AD B2C (followed by the Microsoft Graph name in parentheses, if different)
 - Attribute data type
