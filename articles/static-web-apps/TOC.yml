@@ -46,7 +46,7 @@
     - name: Configure front-end frameworks and libraries
       href: front-end-frameworks.md
     - name: Enable monitoring
-      href: monitoring.md
+      href: monitor.md
       displayName: Application Insights
     - name: Reset deployment tokens
       href: deployment-token-management.md
