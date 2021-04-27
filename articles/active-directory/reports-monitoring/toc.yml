@@ -32,28 +32,22 @@
 
 - name: Concepts
   items:
-  - name: Plan a reporting and monitoring deployment
-    href: plan-monitoring-and-reporting.md
   - name: Audit logs
     href: concept-audit-logs.md
   - name: New sign-in logs - preview
     href: concept-all-sign-ins.md
   - name: Sign-in logs
     href: concept-sign-ins.md
-  - name: Usage and Insights report
-    href: concept-usage-insights-report.md
-  - name: Risky sign-ins
-    href: ../identity-protection/overview-identity-protection.md
-  - name: Risk detections
-    href: ../identity-protection/overview-identity-protection.md
-  - name: Users at risk
-    href: ../identity-protection/overview-identity-protection.md
   - name: Provisioning logs
     href: concept-provisioning-logs.md
+  - name: Usage and Insights report
+    href: concept-usage-insights-report.md
   - name: Reporting APIs
     href: concept-reporting-api.md
   - name: Azure AD logs in Azure Monitor
     href: concept-activity-logs-azure-monitor.md
+  - name: Plan a reporting and monitoring deployment
+    href: plan-monitoring-and-reporting.md
 
 - name: How-to guides
   expanded: true

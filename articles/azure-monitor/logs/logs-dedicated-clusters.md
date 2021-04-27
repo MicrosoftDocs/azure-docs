@@ -294,7 +294,11 @@ After you create your *Cluster* resource and it is fully provisioned, you can ed
 - **keyVaultProperties** - Updates the key in Azure Key Vault. See [Update cluster with Key identifier details](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details). It contains the following parameters: *KeyVaultUri*, *KeyName*, *KeyVersion*. 
 - **billingType** - The *billingType* property determines the billing attribution for the *cluster* resource and its data:
   - **Cluster** (default) - The Capacity Reservation costs for your Cluster are attributed to the *Cluster* resource.
-  - **Workspaces** - The Capacity Reservation costs for your Cluster are attributed proportionately to the workspaces in the Cluster, with the *Cluster* resource being billed some of the usage if the total ingested data for the day is under the Capacity Reservation. See [Log Analytics Dedicated Clusters](./manage-cost-storage.md#log-analytics-dedicated-clusters) to learn more about the Cluster pricing model. 
+  - **Workspaces** - The Capacity Reservation costs for your Cluster are attributed proportionately to the workspaces in the Cluster, with the *Cluster* resource being billed some of the usage if the total ingested data for the day is under the Capacity Reservation. See [Log Analytics Dedicated Clusters](./manage-cost-storage.md#log-analytics-dedicated-clusters) to learn more about the Cluster pricing model.
+  - **Identity** - The identity to be used to authenticate to your Key Valt. This can be System-assigned or User-assigned.
+
+>[!IMPORTANT]
+>Cluster update should not include both identity and key identifier details in the same operation. If you need to update both, the update should be in two consecutive operations.
 
 > [!NOTE]
 > The *billingType* property is not supported in PowerShell.
@@ -509,6 +513,8 @@ Use the following REST call to delete a cluster:
 - You can link a workspace to your cluster and then unlink it. The number of workspace link operations on particular workspace is limited to 2 in a period of 30 days.
 
 - Cluster move to another resource group or subscription isn't supported currently.
+
+- Cluster update should not include both identity and key identifier details in the same operation. In case you need to update both, the update should be in two consecutive operations.
 
 - Lockbox isn't available in China currently. 
 

@@ -269,7 +269,9 @@
   items:
   - name: SAP BusinessObjects BI platform planning and implementation guide on Azure 
     href: businessobjects-deployment-guide.md
-  - name: SAP BusinessObjects BI platform deployment guide for linux on Azure
+  - name: SAP BusinessObjects BI platform deployment guide for Windows on Azure
+    href: businessobjects-deployment-guide-windows.md
+  - name: SAP BusinessObjects BI platform deployment guide for Linux on Azure
     href: businessobjects-deployment-guide-linux.md
 - name: Integrate Azure AD with SAP applications
   items:
