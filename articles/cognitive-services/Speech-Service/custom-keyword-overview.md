@@ -1,61 +1,67 @@
 ---
-title: Custom Keywords - Speech service
+title: Custom Keyword for on-device models - Speech service
 titleSuffix: Azure Cognitive Services
-description: An overview of the features, capabilities, and restrictions for custom keywords using the Speech Software Development Kit (SDK).
+description: An overview of the features, capabilities, and restrictions for Custom Keyword and on-device models.
 services: cognitive-services
 author: hasyashah
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/30/2021
 ms.author: hasshah
 ms.custom: devx-track-csharp
 ---
 
-# What is a keyword?
+The Custom Keyword portal on Speech Studio allows you to generate keyword recognition models that execute at the edge by specifying any word or short phrase. You can further personalize your keyword model by choosing the right pronunciations and selecting your desired accuracy tradeoffs.
 
-A keyword is a word or short phrase which allows your product to be voice activated. For example, "Hey Cortana" is the keyword for the Cortana assistant. Voice activation allows your users to start interacting with your product completely hands-free by simply speaking the keyword. As your product continuously listens for the keyword, all audio is processed locally on the user's device until a detection occurs to ensure their data stays as private as possible.
+# Types of models
 
-## Core features of Custom Keyword
+Custom Keyword allows you to generate two types of on-device models for any keyword:
 
-With Custom Keyword's customization, performance, and integration features, you can tailor voice activation to best suit your product's vision and users' needs.
+| Model type | Description |
+| ---------- | ----------- |
+| Basic | Best suited for demo or rapid prototyping purposes. Models are generated with a common base model and can take up to 15 minutes to be ready. Models may not have optimal accuracy characteristics. |
+| Advanced | Best suited for product integration purposes. Models are generated with adaptation of a common base model using simulated training data to improve accuracy characteristics. It can take up to 48 hours for models to be ready. |
 
-| Feature | Description |
-|----------|----------|
-| Keyword customization | As an extension of your brand, a keyword reinforces the equity you've built with your customers. The Custom Keyword portal on Speech Studio allows you to specify any word or short phrase that best represents your brand. You can further personalize your keyword by choosing the right pronunciations, which will be honored by the keyword model generated.
-| Keyword verification | When there's high confidence in the keyword being detected locally, audio is sent to the cloud for further verification that a user said the keyword. Keyword verification provides an additional layer of security by reducing the impact of an incorrect local detection and protecting user privacy.
-| Voice assistant & Speech SDK integration | Keywords generated from the Custom Keyword on Speech Studio can be easily integrated within your device or application via the Speech SDK. Simply point the SDK to the keyword model provided by Speech Studio and your product will be voice activated, backed by keyword verification. You can complete your product's voice experiences by building your own [voice assistant](voice-assistants.md).
+Neither model type requires you to upload training data. Custom Keyword fully handles data generation and model training.
 
-## Get started with custom keywords
+# Pronunciations
 
-* See [custom keyword basics](custom-keyword-basics.md) for basic usage and design patterns.
-* How to [voice-activate your product with the Speech SDK, using C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+When creating a new model, Custom Keyword will automatically generate possible pronunciations of the provided keyword. You can listen to each pronunciation and choose all that closely represent the way you expect end-users to say the keyword. All other pronunciations should not be selected.
 
-## Choose an effective keyword
+It is important to be deliberate about the pronunciations you select to ensure the best accuracy characteristics. For example, choosing more pronunciations than needed can lead to higher false accept rates. Choosing too few pronunciations, where not all expected variations are covered, can lead to lower correct accept rates.
 
-Creating an effective keyword is vital to ensuring your device will consistently and accurately respond. Customizing your keyword is an effective way to differentiate your device and strengthen your branding. Consider the following guidelines when you choose a keyword:
+# Testing models
 
-> [!div class="checklist"]
-> * Your keyword should be an English word or phrase.
-> * It should take no longer than two seconds to say.
-> * Words of 4 to 7 syllables work best. For example, "Hey, Computer" is a good keyword. Just "Hey" is a poor one.
-> * Keywords should follow common English pronunciation rules.
-> * A unique or even a made-up word that follows common English pronunciation rules might reduce false positives. For example, "computerama" might be a good keyword.
-> * Do not choose a common word. For example, "eat" and "go" are words that people say frequently in ordinary conversation. They might be false triggers for your device.
-> * Avoid using a keyword that might have alternative pronunciations. Users would have to know the "right" pronunciation to get their device to respond. For example, "509" can be pronounced "five zero nine," "five oh nine," or "five hundred and nine." "R.E.I." can be pronounced "r-e-i" or "ray." "Live" can be pronounced "/līv/" or "/liv/".
-> * Do not use special characters, symbols, or digits. For example, "Go#" and "20 + cats" could be problematic keywords. However, "go sharp" or "twenty plus cats" might work. You can still use the symbols in your branding and use marketing and documentation to reinforce the proper pronunciation.
+Once on-device models are generated by Custom Keyword, they can be tested directly on the portal. The portal allows you to speak directly into your browser and get keyword recognition results. You can also choose which configuration of your model you would like to test (see Tuning models below for more information).
 
-> [!NOTE]
-> If you choose a trademarked word as your keyword, be sure that you own that trademark or that you have permission from the trademark owner to use the word. Microsoft is not liable for any legal issues that might arise from your choice of keyword.
+# Tuning models
 
-## See samples on GitHub
+Each model generated by Custom Keyword can be tuned to three different configurations. Configurations are automatically determined based on simulated test data that covers both correct accept data (i.e., containing your keyword) and false accept data (i.e., not containing your keyword).
 
-* [Recognize keywords with the Speech SDK, on Universal Windows Platform using C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer)
-* [Recognize keywords with the Speech SDK, on Android using Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
+| Configuration | Description |
+| ------------- | ----------- |
+| Default | Optimized for a balance between correct accept rates and false accept rates. |
+| Higher correct accepts | Optimized for higher correct accept rates, which can result in higher false accept rates. |
+| Lower false accepts | Optimized for lower false accept rates, which can result in lower correct accept rates. |
+
+# Integrating on-device models using the Speech SDK
+
+The Speech SDK allows you to quickly integrate your on-device keyword recognition model within your product. There are two main scenarios you can choose from depending on your product’s needs:
+
+| Scenario | Description | Samples |
+| -------- | ----------- | ------- |
+| End-to-end keyword recognition with Speech-to-Text | Best suited for products that will use a customized on-device keyword model from Custom Keyword with Azure Speech’s Keyword Verification and Speech-to-Text services. This is the most common scenario. | [Voice assistant sample code.](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant) <br> [Tutorial: Voice enable your assistant built using Azure Bot Service with the C# Speech SDK.](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk) <br> [Tutorial: Create a Custom Commands application with simple voice commands.](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-develop-custom-commands-application) |
+| Offline keyword recognition | Best suited for products without network connectivity that will use a customized on-device keyword model from Custom Keyword. | [C# on Windows UWP sample.](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer) <br> [Java on Android sample.](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
+
+# Pricing
+
+There is no cost to using Custom Keyword for generating models, including both Basic and Advanced models. There is also no cost for running models on-device with the Speech SDK.
 
 ## Next steps
 
-* [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)
-* [Get the Speech SDK](speech-sdk.md)
-* [Learn more about Voice Assistants](voice-assistants.md)
+* [Learn more about the Keyword Verification service.](keyword-verification-overview.md)
+* [Learn more about choosing an effective keyword.](keyword-recognition-guidelines.md#choosing-an-effective-keyword)
+* [Get the Speech SDK.](speech-sdk.md)
+* [Learn more about Voice Assistants.](voice-assistants.md)
