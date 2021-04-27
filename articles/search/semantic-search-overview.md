@@ -21,8 +21,8 @@ Semantic search is a collection of query-related capabilities that add semantic 
 We recommend reviewing this article for background, but if you'd rather get started right away, follow these steps:
 
 1. [Sign up for the preview](https://aka.ms/SemanticSearchPreviewSignup), assuming a service that meets [regional and tier requirements](#availability-and-pricing).
-1. Modify existing queries to return [semantic captions and highlights](semantic-how-to-query-request.md).
-1. Add a few more properties to also include [semantic answers](semantic-answers.md).
+1. Create new or modify existing queries to return [semantic captions and highlights](semantic-how-to-query-request.md).
+1. Add a few more properties to also return [semantic answers](semantic-answers.md).
 1. Optionally, include a [spell check](speller-how-to-add.md) query property to maximize precision and recall.
 
 ## What is semantic search?
@@ -76,12 +76,6 @@ Between preview launch on March 2 through late April, spell correction and seman
 
 ## Next steps
 
-A new query type enables the relevance ranking and response structures of semantic search.
+[Sign-up](https://aka.ms/SemanticSearchPreviewSignup) for the preview on a search service that meets the tier and regional requirements noted in the previous section.
 
-[Create a semantic query](semantic-how-to-query-request.md) to get started. Or, review the following articles for related information.
-
-+ [Add spell check to query terms](speller-how-to-add.md)
-+ [Return a semantic answer](semantic-answers.md)
-+ [Semantic ranking](semantic-ranking.md)
-+ [Introducing semantic search (blog post)](https://techcommunity.microsoft.com/t5/azure-ai/introducing-semantic-search-bringing-more-meaningful-results-to/ba-p/2175636)
-+ [Find meaningful insights using semantic capabilities (AI Show video)](https://channel9.msdn.com/Shows/AI-Show/Find-meaningful-insights-using-semantic-capabilities-in-Azure-Cognitive-Search)
+When your service is ready, [create a semantic query](semantic-how-to-query-request.md) to see semantic ranking in action.
