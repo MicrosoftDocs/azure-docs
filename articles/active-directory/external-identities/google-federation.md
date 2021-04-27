@@ -29,7 +29,7 @@ After you've added Google as one of your application's sign-in options, on the *
 > Google federation is designed specifically for Gmail users. To federate with G Suite domains, use [direct federation](direct-federation.md).
 
 > [!IMPORTANT]
-> **Starting later in 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If you’re using Google federation for B2B invitations or B2C or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-webview-sign-in-support).
+> **Starting in the second half of 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If you’re using Google federation for B2B invitations or B2C or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-webview-sign-in-support).
 
 ## What is the experience for the Google user?
 
@@ -77,7 +77,7 @@ We’re continuing to test various platforms and scenarios, and will update this
 ### Action needed for embedded webviews
 Modify your apps to use the system browser for sign-in. For details, see [Embedded vs System Web UI](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-net-web-browsers#embedded-vs-system-web-ui) in the MSAL.NET documentation. All MSAL SDKs use the system webview by default. 
 ### What to expect
-Before Google puts these changes into place in the second half of 2021, Microsoft will deploy a workaround for apps still using embedded webviews. This will ask the user to finish their sign-in within their browser, to ensure that Google does not block authentication. 
+Before Google puts these changes into place in the second half of 2021, Microsoft will deploy a workaround for apps still using embedded webviews to ensure that Google does not block authentication. 
 Applications that migrate to an allowed webview for authentication will not see this experience, and users will be allowed to authenticate via Google as normal. 
 
 We will update this document as dates and further details are shared by Google. 
