@@ -78,7 +78,7 @@ Welcome to what's new in Azure Active Directory application management documenta
 - [Understand linked sign-on](configure-linked-sign-on.md)
 - [Understand password-based single sign-on](configure-password-single-sign-on-non-gallery-applications.md)
 - [Understand SAML-based single sign-on](configure-saml-single-sign-on.md)
-- [Troubleshoot common problem adding or removing an application to Azure Active Directory](troubleshoot-adding-apps.md)
+- [Troubleshoot common problem adding or removing an application to Azure Active Directory](/troubleshoot/azure/active-directory/troubleshoot-adding-apps)
 - [Viewing apps using your Azure AD tenant for identity management](application-types.md)
 - [Understand how users are assigned to apps in Azure Active Directory](ways-users-get-assigned-to-applications.md)
 - [Quickstart: Delete an application from your Azure Active Directory (Azure AD) tenant](delete-application-portal.md)
@@ -136,7 +136,7 @@ Welcome to what's new in Azure Active Directory application management documenta
 
 ### Updated articles
 - [Quickstart: Add an application to your Azure Active Directory (Azure AD) tenant](add-application-portal.md)
-- [Troubleshoot common problem adding or removing an application to Azure Active Directory](troubleshoot-adding-apps.md)
+- [Troubleshoot common problem adding or removing an application to Azure Active Directory](/troubleshoot/azure/active-directory/troubleshoot-adding-apps)
 - [Managing consent to applications and evaluating consent requests](manage-consent-requests.md)
 - [Viewing apps using your Azure AD tenant for identity management](application-types.md)
 - [Understand how users are assigned to apps in Azure Active Directory](ways-users-get-assigned-to-applications.md)
