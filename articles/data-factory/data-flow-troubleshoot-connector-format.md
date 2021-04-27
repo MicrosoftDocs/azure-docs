@@ -75,7 +75,7 @@ When you use the manifest.json for CDM, no data is shown in the data preview 
 The manifest document describes the CDM folder, for example, what entities that you have in the folder, references of those entities and the data that corresponds to this instance. Your manifest document misses the `dataPartitions` information that indicates ADF where to read the data, and  since it is empty, it returns zero data. 
 
 #### Recommendation
-Update your manifest document to have the `dataPartitions` information, and you can refer to this example manifest document to update your document: [Common Data Model metadata: Introducing manifest-Example manifest document](https://docs.microsoft.com/en-us/common-data-model/cdm-manifest#example-manifest-document).
+Update your manifest document to have the `dataPartitions` information, and you can refer to this example manifest document to update your document: [Common Data Model metadata: Introducing manifest-Example manifest document](https://docs.microsoft.com/common-data-model/cdm-manifest#example-manifest-document).
 
 ### JSON array attributes are inferred as separate columns
 
@@ -145,7 +145,7 @@ You use the inline dataset as the common data model with manifest as a sourc
 ![Screenshot that shows the issue of unable to read data files](./media/data-flow-troubleshoot-connector-format/unable-read-data.png)
 
 #### Cause
-Your CDM folder is not separated into logical and physical models, and only physical models exist in the CDM folder. The following two articles describe the difference: [Logical definitions](https://docs.microsoft.com/en-us/common-data-model/sdk/logical-definitions) and [Resolving a logical entity definition](https://docs.microsoft.com/en-us/common-data-model/sdk/convert-logical-entities-resolved-entities).<br/> 
+Your CDM folder is not separated into logical and physical models, and only physical models exist in the CDM folder. The following two articles describe the difference: [Logical definitions](https://docs.microsoft.com/common-data-model/sdk/logical-definitions) and [Resolving a logical entity definition](https://docs.microsoft.com/common-data-model/sdk/convert-logical-entities-resolved-entities).<br/> 
 
 #### Recommendation
 For the data flow using CDM as a source, try to use a logical model as your entity reference, and use the manifest that describes the location of the physical resolved entities and the data partition locations. You can see some samples of logical entity definitions within the public CDM github repository: [CDM-schemaDocuments](https://github.com/microsoft/CDM/tree/master/schemaDocuments)<br/>
@@ -186,7 +186,7 @@ You use Azure PostgreSQL as a source or sink in the data flow such as previewing
 
 #### Cause 
 If you use the flexible server or Hyperscale (Citus) for your Azure PostgreSQL server, since the system is built via Spark upon Azure Databricks cluster, there is a limitation in Azure Databricks blocks our system to connect to the Flexible server or Hyperscale (Citus). You can review the following two links as references.
-- [Handshake fails trying to connect from Azure Databricks to Azure PostgreSQL with SSL](https://docs.microsoft.com/en-us/answers/questions/170730/handshake-fails-trying-to-connect-from-azure-datab.html)
+- [Handshake fails trying to connect from Azure Databricks to Azure PostgreSQL with SSL](https://docs.microsoft.com/answers/questions/170730/handshake-fails-trying-to-connect-from-azure-datab.html)
  
 - [MCW-Real-time-data-with-Azure-Database-for-PostgreSQL-Hyperscale](https://github.com/microsoft/MCW-Real-time-data-with-Azure-Database-for-PostgreSQL-Hyperscale/blob/master/Hands-on%20lab/HOL%20step-by%20step%20-%20Real-time%20data%20with%20Azure%20Database%20for%20PostgreSQL%20Hyperscale.md)<br/>
     Refer to the content in the following picture in this article：<br/>
@@ -296,7 +296,7 @@ You can apply the following steps to solve your issues correspondingly.
 1. Do not use 'enable staging' in Source for serverless pool.
 1. Only service principal/managed identity that has the permission to the external table data can query it. You should grant 'Storage Blob Data Contributor' permission to the external data source for the authentication method that you use in the ADF.
     >[!Note]
-    > The user-password authentication can not query external tables. You can refer to this article for more information: [Security model](https://docs.microsoft.com/en-us/azure/synapse-analytics/metadata/database#security-model).
+    > The user-password authentication can not query external tables. You can refer to this article for more information: [Security model](https://docs.microsoft.com/azure/synapse-analytics/metadata/database#security-model).
 
 1. You can use copy activity to fetch Cosmos DB data from the serverless pool.
 1. You can provide the SQL statement which creates the view to the engineering support team, and they can help analyze if the statement hits an authentication issue or something else.
@@ -352,7 +352,7 @@ You need to confirm if the SQL pool is created from the Synapse workspace.
     1. If the **Allow pipelines** option is already to be checked, you must uncheck this setting and save.
     1. Check the **Allow pipelines** option and save.
 
-- If the SQL pool is the old DWH version, only enable MI for your SQL server and assign the permission of the staging store to the MI of your SQL Server. You can refer to the steps in this article as an example: [Use virtual network service endpoints and rules for servers in Azure SQL Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/vnet-service-endpoint-rule-overview#steps).
+- If the SQL pool is the old DWH version, only enable MI for your SQL server and assign the permission of the staging store to the MI of your SQL Server. You can refer to the steps in this article as an example: [Use virtual network service endpoints and rules for servers in Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/vnet-service-endpoint-rule-overview#steps).
 
 ## Next steps
 For more help with troubleshooting, see these resources:
