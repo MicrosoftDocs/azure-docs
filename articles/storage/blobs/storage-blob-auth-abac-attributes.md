@@ -7,7 +7,7 @@ author: santoshc
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/16/2021
+ms.date: 04/26/2021
 ms.author: santoshc
 ms.reviewer: jiacfan
 ms.subservice: common
@@ -24,7 +24,7 @@ This article describes the supported attribute dictionaries that can be used in 
 
 To understand the role assignment condition format, see [Azure role assignment condition format and syntax](../../role-based-access-control/conditions-format.md).
 
-## Understanding suboperations
+## Suboperations
 
 Multiple Storage service operations can be associated with a single permission or DataAction. However, each of these operations that are associated with the same permission might support different parameters. *Suboperations* enable you to differentiate between service operations that require the same permission but support different set of attributes for conditions. Thus, by using a suboperation, you can specify one condition for access to a subset of operations that support a given parameter. Then, you can use another access condition for operations with the same action that doesn't support that parameter.
 
@@ -34,17 +34,51 @@ In this case, the optional suboperation `Blobs.Write.WithTagHeaders` can be used
 
 Similarly, only select operations on the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` action can have support blob index tags as a precondition for access. This subset of operations is identified by the `Blobs.Read.WithTagConditions` suboperation.
 
+> [!NOTE]
+> Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find data on Azure Blob Storage with Blob Index (Preview)](storage-manage-find-blobs.md).
+
 In this preview, storage accounts support the following suboperations:
 
 > [!div class="mx-tableFixed"]
-> | Action | SubOperation | Display Name | Description |
+> | DataAction | Suboperation | Display Name | Description |
 > | :--- | :--- | :--- | :--- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | `Blobs.Read.WithTagConditions` | Blob read operations that support conditions on tags | Includes REST operations Get Blob, Get Blob Metadata, Get Blob Properties, Get Block List, Get Page Ranges, Query Blob Contents. |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` <br/> `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` | `Blobs.Write.WithTagHeaders` | Blob writes for content with optional tags | Includes REST operations Put Blob, Copy Blob, Copy Blob From URL and Put Block List. |
 
-## Actions, suboperations, and attributes
+## Actions and suboperations
 
-The following table shows the full list of supported actions, suboperations, and attribute dictionaries for conditions in Azure Storage.
+The following table lists the descriptions for the supported actions and suboperations for conditions in Azure Storage.
+
+> [!div class="mx-tableFixed"]
+> | DataAction | Description | Code |
+> | --- | --- | --- |
+> | Delete a blob | DataAction for deleting blobs. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete` |
+> | Read a blob | DataAction for reading blobs. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
+> | Read content from a blob with tag conditions  | REST operations: Get Blob, Get Blob Metadata, Get Blob Properties, Get Block List, Get Page Ranges and Query Blob Contents. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br/>**Suboperation**<br/>`Blobs.Read.WithTagConditions` | 
+> | Write to a blob | DataAction for writing to blobs. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |
+> | Write to a blob with blob index tags | REST operations: Put Blob, Put Block List, Copy Blob and Copy Blob From URL. |`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`<br/>**Suboperation**<br/>`Blobs.Write.WithTagHeaders` | 
+> | Create a blob or snapshot, or append data | DataAction for creating blobs. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` |
+> | Write content to a blob with blob index tags | REST operations: Put Blob, Put Block List, Copy Blob and Copy Blob From URL. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action`<br/>**Suboperation**<br/>`Blobs.Write.WithTagHeaders` | 
+> | Delete a version of a blobs | DataAction for deleting a version of a blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action` |
+> | Changes ownership of a blobs | DataAction for changing ownership of a blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/manageOwnership/action` |
+> | Modify permissions of a blobs | DataAction for modifying permissions of a blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/action` |
+> | Rename file or directory | DataAction for renaming files or directories. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action` |
+> | Permanently deletes a blob overriding soft-delete | DataAction for permanently deleting a blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/permanentDelete/action` |
+> | All data operations for accounts with HNS | DataAction for all data operations on storage accounts with HNS. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` |
+> | Read blob index tags | DataAction for reading blob index tags. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` |
+> | Write blob index tags | DataAction for reading blob index tags. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` |
+
+## Attributes
+
+The following table lists the descriptions for the supported attributes for conditions in Azure Storage.
+
+> [!div class="mx-tableFixed"]
+> | Attribute | Description | Code |
+> | --- | --- | --- |
+> | Container name| Use when you want to check the container name. | `container:name` |
+> | Blob path | Use when you want to check the blob name or folders in a blob path. | `blobs:path` |
+> | Blob index tags [Keys] | Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check the key in blob index tags. | `tags&$keys$&` |
+> | Blob index tags [Values in key] | Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check both the key (case-sensitive) and value in blob index tags. | `tags:`*keyname*`<$key_case_sensitive$>` |
 
 > [!NOTE]
 > Attributes and values listed are considered case-insensitive, unless stated otherwise.
@@ -52,36 +86,40 @@ The following table shows the full list of supported actions, suboperations, and
 > [!NOTE]
 > When specifying conditions for `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path` attribute, the values shouldn't include the container name or a preceding '/' character. Use the path characters without any URL encoding.
 
+## Actions, suboperations, and attributes
+
+The following table lists the supported actions, suboperations, and attribute dictionaries for conditions in Azure Storage.
+
 > [!div class="mx-tableFixed"]
-> | Action  | SubOperation | Attribute | Type | Applies To |
+> | DataAction  | SubOperation | Attribute | Type | Applies To |
 > | :--- | :--- | :--- | :--- | :--- |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | N/A | Microsoft.Storage/storageAccounts/blobServices/containers:name | string | ResourceAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | N/A | Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path | string |ResourceAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | N/A | Microsoft.Storage/storageAccounts/blobServices/containers:name | string | ResourceAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | N/A | Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path | string |ResourceAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Blobs.Read.WithTagConditions | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags | dictionaryOfString | ResourceAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | N/A | Microsoft.Storage/storageAccounts/blobServices/containers:name | string | ResourceAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | N/A | Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path | string |ResourceAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Blobs.Write.WithTagHeaders | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags | dictionaryOfString | RequestAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action | N/A | Microsoft.Storage/storageAccounts/blobServices/containers:name | string | ResourceAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action | N/A | Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path | string |ResourceAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action | Blobs.Write.WithTagHeaders | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags | dictionaryOfString | RequestAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action | N/A | Microsoft.Storage/storageAccounts/blobServices/containers:name | string | ResourceAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action | N/A | Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path | string |ResourceAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/manageOwnership/action | N/A | Microsoft.Storage/storageAccounts/blobServices/containers:name | string | ResourceAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/manageOwnership/action | N/A | Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path | string |ResourceAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/action | N/A | Microsoft.Storage/storageAccounts/blobServices/containers:name | string | ResourceAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/action | N/A | Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path | string |ResourceAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action | N/A | Microsoft.Storage/storageAccounts/blobServices/containers:name | string | ResourceAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action | N/A | Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path | string |ResourceAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action | N/A | Microsoft.Storage/storageAccounts/blobServices/containers:name | string | ResourceAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action | N/A | Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path | string |ResourceAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read | N/A | Microsoft.Storage/storageAccounts/blobServices/containers:name | string | ResourceAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read | N/A | Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path | string |ResourceAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read | N/A | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags | dictionaryOfString | ResourceAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | N/A | Microsoft.Storage/storageAccounts/blobServices/containers:name | string | ResourceAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | N/A | Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path | string |ResourceAttributeOnly |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | N/A | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags | dictionaryOfString | RequestAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete` | N/A | `Microsoft.Storage/storageAccounts/blobServices/containers:name` | string | ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete` | N/A | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path` | string |ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | N/A | `Microsoft.Storage/storageAccounts/blobServices/containers:name` | string | ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | N/A | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path` | string |ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | `Blobs.Read.WithTagConditions` | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags` | dictionaryOfString | ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | N/A | `Microsoft.Storage/storageAccounts/blobServices/containers:name` | string | ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | N/A | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path` | string |ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | `Blobs.Write.WithTagHeaders` | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags` | dictionaryOfString | RequestAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` | N/A | `Microsoft.Storage/storageAccounts/blobServices/containers:name` | string | ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` | N/A | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path` | string |ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` | `Blobs.Write.WithTagHeaders` | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags` | dictionaryOfString | RequestAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action` | N/A | `Microsoft.Storage/storageAccounts/blobServices/containers:name` | string | ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action` | N/A | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path` | string |ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/manageOwnership/action` | N/A | `Microsoft.Storage/storageAccounts/blobServices/containers:name` | string | ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/manageOwnership/action` | N/A | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path` | string |ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/action` | N/A | `Microsoft.Storage/storageAccounts/blobServices/containers:name` | string | ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/action` | N/A | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path` | string |ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action` | N/A | `Microsoft.Storage/storageAccounts/blobServices/containers:name` | string | ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action` | N/A | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path` | string |ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | N/A | `Microsoft.Storage/storageAccounts/blobServices/containers:name` | string | ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | N/A | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path` | string |ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` | N/A | `Microsoft.Storage/storageAccounts/blobServices/containers:name` | string | ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` | N/A | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path` | string |ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` | N/A | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags` | dictionaryOfString | ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` | N/A | `Microsoft.Storage/storageAccounts/blobServices/containers:name` | string | ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` | N/A | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path` | string |ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` | N/A | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags` | dictionaryOfString | RequestAttributeOnly |
 
 ## See also
 

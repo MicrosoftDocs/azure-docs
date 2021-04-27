@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/24/2020
+ms.date: 04/26/2020
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
@@ -143,41 +143,9 @@ Currently, conditions can be added to built-in or custom role assignments that h
 - [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner)
 - [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader)
 
-The following table lists the storage blob data actions that you can use in conditions.
-
-> [!div class="mx-tableFixed"]
-> | DataAction | Description | Code |
-> | --- | --- | --- |
-> | Delete a blob | DataAction for deleting blobs. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete` |
-> | Read a blob | DataAction for reading blobs. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
-> | Read content from a blob with tag conditions  | REST operations: Get Blob, Get Blob Metadata, Get Blob Properties, Get Block List, Get Page Ranges and Query Blob Contents. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br/>**Suboperation**<br/>`Blobs.Read.WithTagConditions` | 
-> | Write to a blob | DataAction for writing to blobs. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |
-> | Write to a blob with blob index tags | REST operations: Put Blob, Put Block List, Copy Blob and Copy Blob From URL. |`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`<br/>**Suboperation**<br/>`Blobs.Write.WithTagHeaders` | 
-> | Create a blob or snapshot, or append data | DataAction for creating blobs. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` |
-> | Write content to a blob with blob index tags | REST operations: Put Blob, Put Block List, Copy Blob and Copy Blob From URL. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action`<br/>**Suboperation**<br/>`Blobs.Write.WithTagHeaders` | 
-> | Delete a version of a blobs | DataAction for deleting a version of a blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action` |
-> | Changes ownership of a blobs | DataAction for changing ownership of a blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/manageOwnership/action` |
-> | Modify permissions of a blobs | DataAction for modifying permissions of a blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/action` |
-> | Rename file or directory | DataAction for renaming files or directories. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action` |
-> | Permanently deletes a blob overriding soft-delete | DataAction for permanently deleting a blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/permanentDelete/action` |
-> | All data operations for accounts with HNS | DataAction for all data operations on storage accounts with HNS. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` |
-> | Read blob index tags | DataAction for reading blob index tags. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` |
-> | Write blob index tags | DataAction for reading blob index tags. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` |
+For a a list of the storage blob actions you can use in conditions, see [Attributes and operations supported for Azure role assignment conditions in Azure Storage (preview)](../storage/blobs/storage-blob-auth-abac-attributes.md)
 
 ## Attributes
-
-The following table lists the storage attributes that you can use in conditions.
-
-> [!div class="mx-tableFixed"]
-> | Attribute | Description | Code |
-> | --- | --- | --- |
-> | Container name| Use when you want to check the container name. | `container:name` |
-> | Blob path | Use when you want to check the blob name or folders in a blob path. | `blobs:path` |
-> | Blob index tags [Keys] | Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check the key in blob index tags. | `tags&$keys$&` |
-> | Blob index tags [Values in key] | Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check both the key (case-sensitive) and value in blob index tags. | `tags:`*keyname*`<$key_case_sensitive$>` |
-
-> [!NOTE]
-> Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find data on Azure Blob Storage with Blob Index (Preview)](../storage/blobs/storage-manage-find-blobs.md).
 
 Depending on the selected actions, the attribute might be found in different places. If you select multiple actions, there might be fewer attributes to choose from for your condition because the attributes must be available across the selected actions. To specify an attribute, you must include the source as a prefix.
 
@@ -186,6 +154,8 @@ Depending on the selected actions, the attribute might be found in different pla
 > | --- | --- | --- |
 > | Resource | Indicates that the attribute is on the resource, such as container name. | `@Resource` |
 > | Request | Indicates that the attribute is part of the action request, such as setting the blob index tag. | `@Request` |
+
+For a a list of the storage blob attributes you can use in conditions, see [Attributes and operations supported for Azure role assignment conditions in Azure Storage (preview)](../storage/blobs/storage-blob-auth-abac-attributes.md)
 
 ## Operators
 
@@ -256,3 +226,5 @@ a AND (b OR c)
 
 ## Next steps
 
+- [Example Azure role assignment conditions (Preview)](../storage/blobs/storage-blob-abac-examples.md)
+- [Attributes and operations supported for Azure role assignment conditions in Azure Storage (preview)](../storage/blobs/storage-blob-auth-abac-attributes.md)
