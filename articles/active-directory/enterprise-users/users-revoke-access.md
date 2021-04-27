@@ -55,13 +55,13 @@ For a hybrid environment with on-premises Active Directory synchronized with Azu
 
 As an admin in the Active Directory, connect to your on-premises network, open PowerShell, and take the following actions:
 
-1. Disable the user in Active Directory. Refer to [Disable-ADAccount](/powershell/module/addsadministration/disable-adaccount?view=win10-ps).
+1. Disable the user in Active Directory. Refer to [Disable-ADAccount](/powershell/module/activedirectory/disable-adaccount?view=win10-ps).
 
     ```PowerShell
     Disable-ADAccount -Identity johndoe  
     ```
 
-2. Reset the user’s password twice in the Active Directory. Refer to [Set-ADAccountPassword](/powershell/module/addsadministration/set-adaccountpassword?view=win10-ps).
+2. Reset the user’s password twice in the Active Directory. Refer to [Set-ADAccountPassword](/powershell/module/activedirectory/set-adaccountpassword?view=win10-ps).
 
     > [!NOTE]
     > The reason for changing a user’s password twice is to mitigate the risk of pass-the-hash, especially if there are delays in on-premises password replication. If you can safely assume this account isn't compromised, you may reset the password only once.

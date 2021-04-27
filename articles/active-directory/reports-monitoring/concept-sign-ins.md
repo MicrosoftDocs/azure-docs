@@ -57,7 +57,7 @@ To access the sign-ins log of another user, you need to be:
 
     - Security reader
 
-    - Gobal reader
+    - Global reader
 
     - Report reader
 
@@ -68,20 +68,13 @@ To access the sign-ins log of another user, you need to be:
 The sign-in activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) and can also be accessed through the Microsoft Graph API.
 
 
-## Where can you find it in the Azure Portal?
+## Where can you find it in the Azure portal?
 
-On the [Azure portal](https://portal.azure.com) menu, select **Azure Active Directory**, or search for and select **Azure Active Directory** from any page.
+The Azure portal provides you with several options to access the log. For example, on the Azure Active Directory menu, you can open the log in the **Monitoring** section.  
 
-![Select Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
+![Open sign-ins logs](./media/concept-sign-ins/sign-ins-logs-menu.png)
 
-Under **Monitoring**, select **Sign-ins** to open the [Sign-ins report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
-
-![Screenshot shows Sign-ins selected from the Monitoring menu.](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Sign-in activity")
-
-It may take up to two hours for some sign-in records to show up in the portal.
-
-> [!IMPORTANT]
-> The sign-ins report only displays the **interactive** sign-ins, that is, sign-ins where a user manually signs in using their username and password. Non-interactive sign-ins, such as service-to-service authentication, are not displayed in the sign-ins report. 
+Additionally, you can get directly get to the sign-ins logs using this link: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
 
 
 ## What is the default view?
@@ -126,7 +119,8 @@ While the log item provides you with a failure reason, there are cases where you
 
 ## Filter sign-in activities
 
-First, narrowing down the reported data to a level that works for you. Second, filter sign-ins data using date field as default filter. Azure AD provides you with a broad range of additional filters you can set:
+
+You can filter the data in a log to narrow it down to a level that works for you:
 
 ![Screenshot shows the Add filters option.](./media/concept-sign-ins/04.png "Sign-in activity")
 
