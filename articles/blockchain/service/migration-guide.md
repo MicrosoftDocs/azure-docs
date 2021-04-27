@@ -27,7 +27,7 @@ Quorum Blockchain Service is a managed offering by ConsenSys on Azure that suppo
 - **Ledger technology** - Based on ConsenSys Quorum which is an enhanced version of the GoQuorum Ledger technology used in Azure Blockchain Service. No new learning is required. For more information, see the [Consensys Quorum FAQ](https://consensys.net/quorum/faq).
 - **Continuity** - You can migrate your existing data on to Quorum Blockchain Service by ConsenSys. For more information, see [Migrate data from Azure Blockchain Service](#migrate-data-from-azure-blockchain-service)
 
-For more information, see [Quorum Blockchain Service](https://aka.ms/absmigration).
+For more information, see [Quorum Blockchain Service](https://consensys.net/QBS).
 
 #### Azure VM-based deployment
 
@@ -101,7 +101,7 @@ Decrypt the data using the API access key. You can [get the key from the Azure p
 
 You can use the data with either ConsenSys Quorum Blockchain service or your IaaS VM-based deployment.
 
-For ConsenSys Quorum Blockchain Service, contact [placeholder]().
+For ConsenSys Quorum Blockchain Service migration, contact ConsenSys at [qbsmigration@consensys.net](qbsmigration@consensys.net).
 
 For using the data with your IaaS VM-based deployment, follow the steps in the [Azure VM based Quorum guidance](#azure-vm-based-quorum-guidance) section of this article.
 
