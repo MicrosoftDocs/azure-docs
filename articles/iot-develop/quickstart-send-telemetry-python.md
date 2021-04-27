@@ -155,8 +155,8 @@ In this quickstart, you learned a basic Azure IoT application workflow for secur
 As a next step, explore IoT Central as a solution for hosting your devices, and explore the Azure SDK Python code samples.
 
 > [!div class="nextstepaction"]
-> [[Create an IoT Central application](../iot-central/core/quick-deploy-iot-central.md)
+> [Create an IoT Central application](../iot-central/core/quick-deploy-iot-central.md)
 > [!div class="nextstepaction"]
-> [[Asynchronous Samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-hub-scenarios)
+> [Asynchronous Samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-hub-scenarios)
 > [!div class="nextstepaction"]
-> [[[Synchronous Samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/sync-samples)
+> [Synchronous Samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/sync-samples)
