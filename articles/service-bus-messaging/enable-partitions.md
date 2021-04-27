@@ -174,6 +174,12 @@ To **create a topic with duplicate detection enabled**, set `enablePartitioning`
 ```
 
 
+> [!NOTE]
+> In a **Standard** tier namespace, you can create Service Bus queues and topics in 1, 2, 3, 4, or 5-GB sizes (the default is 1 GB). With partitioning enabled, Service Bus creates 16 copies (16 partitions) of the entity, each of the same size specified. As such, if you create a queue that's 5 GB in size, with 16 partitions the maximum queue size becomes (5 \* 16) = 80 GB. 
+> 
+> In a **Premium** tier namespace, partitioning entities are not supported. However, you can still create Service Bus queues and topics in 1, 2, 3, 4, 5, 10, 20, 40, or 80-GB sizes (the default is 1 GB). You can see the maximum size of your partitioned queue or topic on the **Overview** page in the [Azure portal](https://portal.azure.com).
+
+
 ## Next steps
 Try the samples in the language of your choice to explore Azure Service Bus features. 
 
