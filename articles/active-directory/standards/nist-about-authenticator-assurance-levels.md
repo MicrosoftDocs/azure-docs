@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 The National Institute of Standards and Technology (NIST) develops the technical requirements for US federal agencies implementing identity solutions. [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html) defines the technical guidelines for the implementation of digital authentication. It does so with a framework of Authenticator Assurance Levels (AALs). AALs characterize the strength of the authentication of a digital identity. The guidance also covers the management of the lifecycle of authenticators including revocation. 
 
-The standard denotes requirements for each AAL in terms of 11 requirement categories:
+The standard includes AAL requirements for 11 requirement categories:
 
 * Permitted authenticator types
 
@@ -48,9 +48,9 @@ The standard denotes requirements for each AAL in terms of 11 requirement catego
 > [!TIP]
 > We recommend that you meet at least AAL 2, unless business reasons, industry standards, or compliance requirements dictate that you meet AAL3.
 
-In general, AAL1 is not recommended because it accepts password-only solutions, and passwords are the most easily compromised form of authentication. See [Your Pa$$word doesn’t matter](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984). 
+In general, AAL1 isn't recommended because it accepts password-only solutions, and passwords are the most easily compromised form of authentication. See [Your Pa$$word doesn’t matter](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984). 
 
-While NIST does not require verifier impersonation (AKA credential phishing) resistance until AAL3, we highly advise you address this threat at all levels. You can do this by selecting authenticators that provide verifier impersonation resistance, such as requiring Azure AD joined or hybrid Azure AD joined devices. If you are using Office 365 you can address this by using Office 365 Advanced Threat Protection, and specifically [Anti-phishing policies](https://docs.microsoft.com/microsoft-365/security/office-365-security/set-up-anti-phishing-policies?view=o365-worldwide).
+While NIST doesn't require verifier impersonation (also known as credential phishing) resistance until AAL3, we highly advise that  you address this threat at all levels. You can select authenticators that provide verifier impersonation resistance, such as requiring Azure AD joined or hybrid Azure AD joined devices. If you're using Office 365 you can address use Office 365 Advanced Threat Protection, and specifically [Anti-phishing policies](https://docs.microsoft.com/microsoft-365/security/office-365-security/set-up-anti-phishing-policies?view=o365-worldwide).
 
 As you evaluate the appropriate NIST AAL for your organization, you can consider whether your entire organization must meet NIST standards, or if there are specific groups of users and resources that can be segregated, and the NIST AAL configurations applied to only a specific group of users and resources. 
 
