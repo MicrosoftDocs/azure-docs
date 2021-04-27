@@ -78,7 +78,7 @@ The HTTP extension processor node enables you to extend the video analyzer pipel
 
 #### gRPC extension processor
 
-The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC](add-valid-link.md) endpoint exposed by your module. The node supports transferring of data using [shared memory](https://en.wikipedia.org/wiki/Shared_memory) or directly embedding the frame into the body of gRPC messages. Additionally, the node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. The scaler has options for the image aspect ratio to be preserved, padded, or stretched. The image encoder supports jpeg, png, and bmp formats. Learn more about the [processor here](add-valid-link.md).
+The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC](pipeline-extension.md#grpc-extension-processor) endpoint exposed by your module. The node supports transferring of data using [shared memory](https://en.wikipedia.org/wiki/Shared_memory) or directly embedding the frame into the body of gRPC messages. Additionally, the node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. The scaler has options for the image aspect ratio to be preserved, padded, or stretched. The image encoder supports jpeg, png, and bmp formats. Learn more about the [processor here](/pipeline-extension.md#grpc-extension-processor).
 
 #### Signal gate processor
 
