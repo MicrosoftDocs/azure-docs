@@ -128,6 +128,14 @@ When no longer needed, you can delete the resource group, virtual machine, and a
 
 Select the resource group for the virtual machine, then select **Delete**. Confirm the name of the resource group to finish deleting the resources.
 
+## Support
+
+Contact Azure support to get assistance with issues related to STIG solution templates. You can create and manage support requests in the Azure portal. For more information see, [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md). Use the following support paths when creating a ticket:
+
+Azure -> Virtual Machine running Windows -> Cannot create a VM -> Troubleshoot my ARM template error
+
+:::image type="content" source="./media/stig-windows-support.png" alt-text="New support request for Windows STIG solution template":::
+
 ## Next steps
 
 This quickstart showed you how to deploy a STIG-compliant Windows virtual machine (Preview) on Azure or Azure Government. For more information about creating virtual machines in:
