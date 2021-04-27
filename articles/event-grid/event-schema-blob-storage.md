@@ -26,7 +26,8 @@ These events are triggered when a client creates, replaces, or deletes a blob by
  |----------|-----------|
  |**Microsoft.Storage.BlobCreated** |Triggered when a blob is created or replaced. <br>Specifically, this event is triggered when clients use the `PutBlob`, `PutBlockList`, or `CopyBlob` operations that are available in the Blob REST API.   |
  |**Microsoft.Storage.BlobDeleted** |Triggered when a blob is deleted. <br>Specifically, this event is triggered when clients call the `DeleteBlob` operation that is available in the Blob REST API. |
-
+ |**Microsoft.Storage.BlobTierChanged** |Triggered when the blob access tier is changed. <br>Specifically, this event is triggered when clients call the `Set Blob Tier` operation that is available in the Blob REST API. |
+ |**Microsoft.Storage.AsyncOperationInitiated** |Triggered when `<need explanation here>`.  |
 > [!NOTE]
 > For **Azure Blob Storage**, if you want to ensure that the **Microsoft.Storage.BlobCreated** event is triggered only when a Block Blob is completely committed, filter the event for the `CopyBlob`, `PutBlob`, and `PutBlockList` REST API calls. These API calls trigger the **Microsoft.Storage.BlobCreated** event only after data is fully committed to a Block Blob. To learn how to create a filter, see [Filter events for Event Grid](./how-to-filter-events.md).
 
@@ -179,6 +180,17 @@ If the blob storage account has a hierarchical namespace, the data looks similar
   "dataVersion": "2",
   "metadataVersion": "1"
 }]
+```
+
+### Microsoft.Storage.BlobTierChanged event
+
+```json
+Need example here.
+```
+### Microsoft.Storage.AsyncOperationInitiated event
+
+```json
+Need example here.
 ```
 
 ### Microsoft.Storage.BlobRenamed event
