@@ -159,11 +159,11 @@ public class CustomAzureSQLAuthProvider : SqlAuthenticationProvider
 
     private static readonly TokenCredential _credential = new DefaultAzureCredential();
 
-    public override Task<SqlAuthenticationToken> AcquireTokenAsync(SqlAuthenticationParameters parameters)
+    public override async Task<SqlAuthenticationToken> AcquireTokenAsync(SqlAuthenticationParameters parameters)
     {
         var tokenRequestContext = new TokenRequestContext(_azureSqlScopes);
-        var tokenResult = _credential.GetToken(tokenRequestContext, default);
-        return Task.FromResult(new SqlAuthenticationToken(tokenResult.Token, tokenResult.ExpiresOn));
+        var tokenResult = await _credential.GetTokenAsync(tokenRequestContext, default);
+        return new SqlAuthenticationToken(tokenResult.Token, tokenResult.ExpiresOn);
     }
 
     public override bool IsSupported(SqlAuthenticationMethod authenticationMethod) => authenticationMethod.Equals(SqlAuthenticationMethod.ActiveDirectoryDeviceCodeFlow);
