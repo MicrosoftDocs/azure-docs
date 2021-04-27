@@ -102,7 +102,7 @@ For queues and topics, the timeout is specified either in the [MessagingFactoryS
 
 The **MessageLockLostException** is thrown when a message is received using the [PeekLock](message-transfers-locks-settlement.md#peeklock) Receive mode and the lock held by the client expires on the service side.
 
-The lock on a message may expire due to various reasons -
+The lock on a message may expire due to various reasons:
 
   * The lock timer has expired before it was renewed by the client application.
   * The client application acquired the lock, saved it to a persistent store and then restarted. Once it restarted, the client application looked at the inflight messages and tried to complete these.
@@ -121,7 +121,7 @@ If the **MaxDeliveryCount** has exceeded then the message may be moved to the **
 
 The **SessionLockLostException** is thrown when a session is accepted and the lock held by the client expires on the service side.
 
-The lock on a session may expire due to various reasons -
+The lock on a session may expire due to various reasons:
 
   * The lock timer has expired before it was renewed by the client application.
   * The client application acquired the lock, saved it to a persistent store and then restarted. Once it restarted, the client application looked at the inflight sessions and tried to process the messages in those sessions.
@@ -136,7 +136,8 @@ Since the lock on the session has expired, it would go back on the Queue (or Sub
 
 ### Cause
 
-A **SocketException** is thrown in the below cases -
+A **SocketException** is thrown in the following cases:
+
    * When a connection attempt fails because the host did not properly respond after a specified time (TCP error code 10060).
    * An established connection failed because connected host has failed to respond.
    * There was an error processing the message or the timeout is exceeded by the remote host.
