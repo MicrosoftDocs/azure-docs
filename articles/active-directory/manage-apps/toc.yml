@@ -139,8 +139,6 @@
       items:
       - name: Application Proxy
         href: application-proxy.md
-      - name: What is application proxy for on-premises apps?
-        href: what-is-application-proxy.md
       - name: Planning an Application Proxy deployment
         href: application-proxy-deployment-plan.md
       - name: Connectors
