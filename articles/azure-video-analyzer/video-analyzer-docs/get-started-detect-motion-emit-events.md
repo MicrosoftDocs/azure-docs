@@ -283,7 +283,7 @@ Invoke pipelineTopologyGet by using the following payload.
 
 ```
 {
-    "@apiVersion" : "3.0",
+    "@apiVersion" : "1.0",
     "name" : "MotionDetection"
 }
 ```
