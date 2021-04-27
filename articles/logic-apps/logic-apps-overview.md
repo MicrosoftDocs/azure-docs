@@ -11,7 +11,7 @@ ms.date: 04/26/2021
 
 # What is Azure Logic Apps
 
-[Logic Apps](https://azure.microsoft.com/services/logic-apps) is a cloud-based platform for building and running [workflows](#logic-app-concepts) that integrate apps, data, systems, and services. Part of [Azure Integration Services](https://azure.microsoft.com/product-categories/integration/), Logic Apps simplifies the way you create, deploy, and manage highly-scalable integration solutions hosted in the cloud, on premises, or hybrid environments for enterprise and business-to-business (B2B) scenarios.
+[Logic Apps](https://azure.microsoft.com/services/logic-apps) is a cloud-based platform for building and running [workflows](#logic-app-concepts) that integrate apps, data, systems, and services. Part of [Azure Integration Services](https://azure.microsoft.com/product-categories/integration/), Logic Apps simplifies the way you create, deploy, and manage highly scalable integration solutions hosted in the cloud, on premises, or hybrid environments for enterprise and business-to-business (B2B) scenarios.
 
 This list includes only a few example workloads that you can automate with the Logic Apps service:
 
@@ -55,17 +55,17 @@ You can visually build workflows using the Logic Apps designer in the Azure port
 
 * **Action**: Each subsequent step that follows after the trigger and performs some operation in a workflow
 
-* **Managed connector**: A Microsoft-managed connector that provides access to a specific kind of app, data, service, or system. Before you can use them, most managed connectors require that you first create a connection from your workflow and authenticate your identity.
+* **Managed connector**: A Microsoft-managed connector that provides access to a specific app, data, service, or system. Before you can use them, most managed connectors require that you first create a connection from your workflow and authenticate your identity.
 
   For example, you can start a workflow with a trigger or include an action that works with Azure Blob Storage, Office 365, Salesforce, or SFTP servers. For more information, review [Managed connectors for Azure Logic Apps](../connectors/managed.md).
 
-* **Built-in trigger or action**: A natively running Logic Apps operation that provides a way to control your workflow's schedule or structure, run your own code, manage or manipulate data, or complete other tasks in your workflow. Most built-in operations aren't associated with any service or system. Many also don't require that you first create a connection from your workflow and authenticate your identity. Built-in operations are also available for a small number of services, systems, and protocols, such as Azure Functions, Azure API Management, Azure App Services, and more.
+* **Built-in trigger or action**: A natively running Logic Apps operation that provides a way to control your workflow's schedule or structure, run your own code, manage or manipulate data, or complete other tasks in your workflow. Most built-in operations aren't associated with any service or system. Many also don't require that you first create a connection from your workflow and authenticate your identity. Built-in operations are also available for a few services, systems, and protocols, such as Azure Functions, Azure API Management, Azure App Services, and more.
 
   For example, you can start almost any workflow on a schedule when you use the Recurrence trigger. Or, you can have your workflow wait until called when you use the Request trigger. For more information, review [Built-in triggers and actions for Azure Logic Apps](../connectors/built-in.md).
 
 ## Why use Logic Apps
 
-With businesses moving toward digitization, the Logic Apps platform help you connect legacy, modern, and cutting-edge systems more easily and quickly by providing prebuilt APIs as Microsoft-managed connectors. That way, you can focus on your apps' business logic and functionality. You don't have to worry about building, hosting, scaling, managing, maintaining, and monitoring your apps. Logic Apps handles these concerns for you. Plus, you pay only for what you use based on a consumption [pricing model](../logic-apps/logic-apps-pricing.md).
+With businesses moving toward digitization, the Logic Apps platform helps you connect legacy, modern, and cutting-edge systems more easily and quickly by providing prebuilt APIs as Microsoft-managed connectors. That way, you can focus on your apps' business logic and functionality. You don't have to worry about building, hosting, scaling, managing, maintaining, and monitoring your apps. Logic Apps handles these concerns for you. Plus, you pay only for what you use based on a consumption [pricing model](../logic-apps/logic-apps-pricing.md).
 
 In many cases, you won't have to write code. But if you must write some code, you can create code snippets with [Azure Functions](../azure-functions/functions-overview.md) and run that code on-demand from workflows. Also, if your workflows need to interact with events from Azure services, custom apps, or other solutions, you can use [Azure Event Grid](../event-grid/overview.md) with your workflows for event monitoring, routing, and publishing.
 
@@ -127,7 +127,7 @@ Logic apps can access secured resources, such as virtual machines (VMs) and othe
 
 Running logic apps in your own separate dedicated instance helps reduce the impact that other Azure tenants might have on your apps' performance, also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). An ISE also provides these benefits:
 
-* Your own static IP addresses, which are separate from the static IP addresses that are shared by the logic apps in the multi-tenant service. You can also set up a single public, static, and predictable outbound IP address to communicate with destination systems. That way, you don't have to set up additional firewall openings at those destination systems for each ISE.
+* Your own static IP addresses, which are separate from the static IP addresses that are shared by the logic apps in the multi-tenant service. You can also set up a single public, static, and predictable outbound IP address to communicate with destination systems. That way, you don't have to set up extra firewall openings at those destination systems for each ISE.
 
 * Increased limits on run duration, storage retention, throughput, HTTP request and response timeouts, message sizes, and custom connector requests. For more information, see [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md).
 
