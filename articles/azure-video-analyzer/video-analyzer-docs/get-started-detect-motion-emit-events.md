@@ -408,6 +408,7 @@ Notice that this payload:
 
 * Specifies the topology name (`MotionDetection`) for which the instance needs to be created.
 * Contains a parameter value for parameters which didn't have a default value in the graph topology payload. This value is a link to the below sample video:
+* [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 
 Within few seconds, you see the following response in the **OUTPUT** window:
 
@@ -478,7 +479,7 @@ The status code of 200 indicates that the stream was successfully activated.
 
 ### Invoke livePipelineGet
 
-Now invoke the direct method streamGet by using the following payload.
+Now invoke the direct method livePipelineGet by using the following payload.
 
 ```
 {
