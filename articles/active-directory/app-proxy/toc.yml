@@ -185,8 +185,8 @@
     #     href: application-proxy-understand-cors-issues.md
   - name: Reference
     items:
-    # - name: App Proxy FAQ
-    #   href: application-proxy-faq.yml
+    - name: App Proxy FAQ
+      href: application-proxy-faq.yml
     # - name: Application Proxy version history
     #   href: application-proxy-release-version-history.md
   - name: Resources

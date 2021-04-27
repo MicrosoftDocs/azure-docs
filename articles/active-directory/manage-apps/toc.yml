@@ -308,8 +308,6 @@
           href: application-proxy-understand-cors-issues.md
   - name: Reference
     items:
-    - name: App Proxy FAQ
-      href: application-proxy-faq.yml
     - name: App Management certificates FAQ
       href: application-management-certs-faq.md
     - name: Application Proxy version history
