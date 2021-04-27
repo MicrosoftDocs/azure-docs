@@ -36,7 +36,7 @@ The Computer Vision API v3.2 is now generally available with the following updat
 The Computer Vision API v3.2 public preview has been updated. The preview release has all Computer Vision features along with updated Read and Analyze APIs.
 
 > [!div class="nextstepaction"]
-> [See Computer Vision v3.2 public preview 3](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
+> [See Computer Vision v3.2 public preview 3](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
 
 ## February 2021
 
@@ -51,7 +51,7 @@ Computer Vision's Read API v3.2 public preview, available as cloud service and D
 See the [Read API how-to guide](Vision-API-How-to-Topics/call-read-api.md) to learn more.
 
 > [!div class="nextstepaction"]
-> [Use the Read API v3.2 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
+> [Use the Read API v3.2 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
 
 
 ## January 2021
