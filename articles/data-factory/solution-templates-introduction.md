@@ -3,8 +3,8 @@ title: Overview of templates
 description:  Learn how to use a pre-defined template to get started quickly with Azure Data Factory.
 ms.service: data-factory
 ms.topic: conceptual
-ms.author: daperlov
-author: djpmsft
+ms.author: susabat
+author: ssabat
 ms.custom: seo-lt-2019
 ms.date: 01/04/2019
 ---
@@ -38,7 +38,7 @@ Data Factory uses Azure Resource Manager templates for saving data factory pipel
 -   Copy templates:
 
     -   [Bulk copy from Database](solution-template-bulk-copy-with-control-table.md)
-	
+    
     -   [Copy new files by LastModifiedDate](solution-template-copy-new-files-lastmodifieddate.md)
 
     -   [Copy multiple file containers between file-based stores](solution-template-copy-files-multiple-containers.md)

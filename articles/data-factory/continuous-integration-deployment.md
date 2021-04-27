@@ -2,11 +2,11 @@
 title: Continuous integration and delivery in Azure Data Factory 
 description: Learn how to use continuous integration and delivery to move Data Factory pipelines from one environment (development, test, production) to another.
 ms.service: data-factory
-author: dcstwh
-ms.author: weetok
+author: nabhishek
+ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 03/11/2021
+ms.date: 04/01/2021
 ---
 
 # Continuous integration and delivery in Azure Data Factory
@@ -692,6 +692,9 @@ When running a pre-deployment script, you will need to specify a variation of th
 When running a post-deployment script, you will need to specify a variation of the following parameters in the **Script Arguments** field.
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
+
+> [!NOTE]
+> The `-deleteDeployment` flag is used to specify the deletion of the ADF deployment entry from the deployment history in ARM.
 
 ![Azure PowerShell task](media/continuous-integration-deployment/continuous-integration-image11.png)
 

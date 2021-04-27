@@ -12,6 +12,10 @@ ms.service: iot-hub-device-update
 
 Device Update for IoT Hub uses [IoT Plug and Play](../iot-pnp/index.yml) to discover and manage devices that are over-the-air update capable. The Device Update service will send and receive properties and messages to and from devices using PnP interfaces. Device Update for IoT Hub requires IoT devices to implement the following interfaces and model-id as described below.
 
+Concepts: 
+* Understand the [IoT Plug and Play device client](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device?pivots=programming-language-csharp#implement-telemetry,-properties,-and-commands). 
+* See how the [Device Update agent is implemented](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).
+
 ## ADU Core Interface
 
 The 'ADUCoreInterface' interface is used to send update actions and metadata to devices and receive update status from devices. The 'ADU Core' interface is split into two Object properties.
@@ -53,6 +57,28 @@ It is the set of properties that contain the manufacturer and model.
 |aduVer|string|device to cloud|Version of the Device Update agent running on the device. This value is read from the build only if during compile time ENABLE_ADU_TELEMETRY_REPORTING is set to 1 (true). Customers can choose to opt-out of version reporting by setting the value to 0 (false). [How to customize Device Update agent properties](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).|
 |doVer|string|device to cloud|Version of the Delivery Optimization agent running on the device. The value is read from the build only if during compile time ENABLE_ADU_TELEMETRY_REPORTING is set to 1 (true). Customers can choose to opt-out of the version reporting by setting the value to 0 (false).[How to customize Delivery Optimization agent properties](https://github.com/microsoft/do-client/blob/main/README.md#building-do-client-components).|
 
+IoT Hub Device Twin sample
+```json
+ "azureDeviceUpdateAgent": {
+                           "__t": "c",
+                           "client": {
+                                     "state": 0,
+                                     "resultCode": 200,
+                                     "extendedResultCode": 0,
+                                     "deviceProperties": {
+                                                         "manufacturer": "Contoso",
+                                                         "model": "Video",
+                                                         "aduVer": "DU;agent/0.6.0",
+                                                         "doVer": "DU;lib/v0.4.0,DU;agent/v0.4.0,DU;plugin-apt/v0.2.0"
+                                                         },
+                                     "installedUpdateId": "{\"provider\":\"Contoso\",\"name\":\"SampleUpdate1\",\"version\":\"1.0.4\"}"
+                                     },
+                            }
+```
+
+Note: 
+The device or module must add the {"__t": "c"} marker to indicate that the element refers to a component, learn more [here](https://docs.microsoft.com/azure/iot-pnp/concepts-convention#sample-multiple-components-writable-property).
+
 ### Service Metadata
 
 Service Metadata contains fields that the Device Update services uses to communicate actions and data to the Device Update agent.
@@ -60,7 +86,7 @@ Service Metadata contains fields that the Device Update services uses to communi
 |Name|Schema|Direction|Description|
 |----|------|---------|-----------|
 |action|integer|cloud to device|It is an integer that corresponds to an action the agent should perform. Values listed below.|
-|updateManifest|string|cloud to device|Used to describe the content of an update. Generated from the [Import Manifest](import-update.md#create-device-update-import-manifest)|
+|updateManifest|string|cloud to device|Used to describe the content of an update. Generated from the [Import Manifest](import-update.md#create-a-device-update-import-manifest)|
 |updateManifestSignature|JSON Object|cloud to device|A JSON Web Signature (JWS) with JSON Web Keys used for source verification.|
 |fileUrls|Map|cloud to device|Map of `FileHash` to `DownloadUri`. Tells the agent, which files to download and the hash to use to verify the files were downloaded correctly.|
 

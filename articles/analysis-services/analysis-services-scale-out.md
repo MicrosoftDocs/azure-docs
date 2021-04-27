@@ -6,7 +6,8 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: owend
-ms.reviewer: minewiskan
+ms.reviewer: minewiskan 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Azure Analysis Services scale-out

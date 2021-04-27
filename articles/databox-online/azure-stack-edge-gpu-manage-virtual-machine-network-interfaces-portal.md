@@ -7,9 +7,9 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/23/2021
+ms.date: 03/30/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to manage network interfaces on an Azure Stack Edge Pro device so that I can use it to run applications using Edge compute before sending it to Azure.
+# Customer intent: As an IT admin, I need to understand how to manage network interfaces on an Azure Stack Edge Pro device so that I can use it to run applications using Edge compute before sending it to Azure.
 ---
 
 # Use the Azure portal to manage network interfaces on the VMs on your Azure Stack Edge Pro GPU
@@ -36,7 +36,7 @@ Your device supports only one virtual switch but multiple virtual network interf
 
 Before you begin to manage VMs on your device via the Azure portal, make sure that:
 
-1. You have enabled a network interface for compute on your device. This action creates a virtual switch on that network interface on your VM. 
+1. You've access to an activated Azure Stack Edge Pro GPU device. You have enabled a network interface for compute on your device. This action creates a virtual switch on that network interface on your VM. 
     1. In the local UI of your device, go to **Compute**. Select the network interface that you will use to create a virtual switch.
 
         > [!IMPORTANT] 

@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 03/16/2021
 
 ms.author: justinha
 author: justinha
@@ -34,7 +34,7 @@ Personal data is user-level information that's associated with a specific person
 * Blocked users
 * Bypassed users
 * Microsoft Authenticator device token change requests
-* Multifactor authentication activity reports
+* Multifactor Authentication activity reports—store multifactor authentication activity from the Multifactor Authentication on-premises components: NPS Extension, AD FS adapter and MFA server.
 * Microsoft Authenticator activations
 
 This information is retained for 90 days.

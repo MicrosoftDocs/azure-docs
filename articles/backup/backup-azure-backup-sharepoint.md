@@ -69,5 +69,5 @@ If you have more than one front-end web server, and want to switch the server th
 
 ## Next steps
 
-* [Azure Backup Server and DPM - FAQ](backup-azure-dpm-azure-server-faq.md)
+* [Azure Backup Server and DPM - FAQ](backup-azure-dpm-azure-server-faq.yml)
 * [Troubleshoot System Center Data Protection Manager](backup-azure-scdpm-troubleshooting.md)

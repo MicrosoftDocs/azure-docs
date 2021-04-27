@@ -46,7 +46,7 @@ The `--save` option adds the library as a dependency in your **package.json** fi
 
 ## Authenticate the client
 
-Import the **PhoneNumbersClient** from the client library and instantiate it with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+Import the **PhoneNumbersClient** from the client library and instantiate it with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 Add the following code to the top of **phone-numbers-quickstart.js**:
 

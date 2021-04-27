@@ -26,7 +26,7 @@ For more information about installing modules, see [Install Azure PowerShell](/p
 
 ## Install Azure CLI module
 
-To use what-if in Azure CLI, you must have Azure CLI 2.5.0 or later. If needed, [install the latest version of Azure CLI](/cli/azure/install-azure-cli).
+To use what-if in Azure CLI, you must have Azure CLI 2.14.0 or later. If needed, [install the latest version of Azure CLI](/cli/azure/install-azure-cli).
 
 ## See results
 
@@ -89,17 +89,17 @@ The preceding commands return a text summary that you can manually inspect. To g
 
 To preview changes before deploying a template, use:
 
-* [az deployment group what-if](/cli/azure/deployment/group#az-deployment-group-what-if) for resource group deployments
-* [az deployment sub what-if](/cli/azure/deployment/sub#az-deployment-sub-what-if) for subscription level deployments
-* [az deployment mg what-if](/cli/azure/deployment/mg#az-deployment-mg-what-if) for management group deployments
-* [az deployment tenant what-if](/cli/azure/deployment/tenant#az-deployment-tenant-what-if) for tenant deployments
+* [az deployment group what-if](/cli/azure/deployment/group#az_deployment_group_what_if) for resource group deployments
+* [az deployment sub what-if](/cli/azure/deployment/sub#az_deployment_sub_what_if) for subscription level deployments
+* [az deployment mg what-if](/cli/azure/deployment/mg#az_deployment_mg_what_if) for management group deployments
+* [az deployment tenant what-if](/cli/azure/deployment/tenant#az_deployment_tenant_what_if) for tenant deployments
 
 You can use the `--confirm-with-what-if` switch (or its short form `-c`) to preview the changes and get prompted to continue with the deployment. Add this switch to:
 
-* [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create)
-* [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create).
-* [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create)
-* [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create)
+* [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create)
+* [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create).
+* [az deployment mg create](/cli/azure/deployment/mg#az_deployment_mg_create)
+* [az deployment tenant create](/cli/azure/deployment/tenant#az_deployment_tenant_create)
 
 For example, use `az deployment group create --confirm-with-what-if` or `-c` for resource group deployments.
 
@@ -111,10 +111,10 @@ If you want to return the results without colors, open your [Azure CLI configura
 
 For REST API, use:
 
-* [Deployments - What If](/rest/api/resources/resources/deployments/whatif) for resource group deployments
-* [Deployments - What If At Subscription Scope](/rest/api/resources/resources/deployments/whatifatsubscriptionscope) for subscription deployments
-* [Deployments - What If At Management Group Scope](/rest/api/resources/resources/deployments/whatifatmanagementgroupscope) for management group deployments
-* [Deployments - What If At Tenant Scope](/rest/api/resources/resources/deployments/whatifattenantscope) for tenant deployments.
+* [Deployments - What If](/rest/api/resources/deployments/whatif) for resource group deployments
+* [Deployments - What If At Subscription Scope](/rest/api/resources/deployments/whatifatsubscriptionscope) for subscription deployments
+* [Deployments - What If At Management Group Scope](/rest/api/resources/deployments/whatifatmanagementgroupscope) for management group deployments
+* [Deployments - What If At Tenant Scope](/rest/api/resources/deployments/whatifattenantscope) for tenant deployments.
 
 ## Change types
 

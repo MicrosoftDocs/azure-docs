@@ -509,7 +509,7 @@ The data object has the following properties:
 | `encoderPort` | string | Port of the encoder from where this stream is coming. |
 | `resultCode` | string | The reason the connection was rejected. The result codes are listed in the following table. |
 
-You can find the error result codes in [live Event error codes](../media-services/latest/live-event-error-codes.md).
+You can find the error result codes in [live Event error codes](../media-services/latest/live-event-error-codes-reference.md).
 
 ### LiveEventEncoderConnected
 
@@ -634,7 +634,7 @@ The data object has the following properties:
 | `encoderPort` | string | Port of the encoder from where this stream is coming. |
 | `resultCode` | string | The reason for the encoder disconnecting. It could be graceful disconnect or from an error. The result codes are listed in the following table. |
 
-You can find the error result codes in [live Event error codes](../media-services/latest/live-event-error-codes.md).
+You can find the error result codes in [live Event error codes](../media-services/latest/live-event-error-codes-reference.md).
 
 The graceful disconnect result codes are:
 
@@ -1113,4 +1113,4 @@ An event has the following top-level data:
 
 - [EventGrid .NET SDK that includes Media Service events](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definitions of Media Services events](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
-- [Live Event error codes](../media-services/latest/live-event-error-codes.md)
+- [Live Event error codes](../media-services/latest/live-event-error-codes-reference.md)

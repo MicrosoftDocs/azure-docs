@@ -17,7 +17,7 @@ This article describes how the Azure Data Factory copy activity perform schema m
 
 ### Default mapping
 
-By default, copy activity maps source data to sink **by column names** in case-sensitive manner. If sink doesn't exist, for example, writing to file(s), the source field names will be persisted as sink names. Such default mapping supports flexible schemas and schema drift from source to sink from execution to execution - all the data returned by source data store can be copied to sink.
+By default, copy activity maps source data to sink **by column names** in case-sensitive manner. If sink doesn't exist, for example, writing to file(s), the source field names will be persisted as sink names. If the sink already exists, it must contain all columns being copied from the source. Such default mapping supports flexible schemas and schema drift from source to sink from execution to execution - all the data returned by source data store can be copied to sink.
 
 If your source is text file without header line, [explicit mapping](#explicit-mapping) is required as the source doesn't contain column names.
 

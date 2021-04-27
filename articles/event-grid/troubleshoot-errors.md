@@ -2,7 +2,7 @@
 title: Azure Event Grid - Troubleshooting guide
 description: This article provides a list of error codes, error messages, descriptions, and recommended actions. 
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 04/09/2021
 ---
 
 # Troubleshoot Azure Event Grid errors
@@ -25,7 +25,7 @@ This troubleshooting guide provides you the following information:
 | ---------- | ------------- | ----------- | -------------- | 
 | HttpStatusCode.Conflict <br/>409 | Topic with the specified name already exists. Choose a different topic name.	| The custom topic name should be unique in a single Azure region to ensure a correct publishing operation. The same name can be used in different Azure regions. | Choose a different name for the topic. |
 | HttpStatusCode.Conflict <br/> 409 | Domain with the specified already exists. Choose a different domain name. | The domain name should be unique in a single Azure region to ensure a correct publishing operation. The same name can be used in different Azure regions. | Choose a different name for the domain. |
-| HttpStatusCode.Conflict<br/>409 | Quota limit reached. For more information on these limits, see [Azure Event Grid limits](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits).  | Each Azure subscription has a limit on the number of Azure Event Grid resources that it can use. Some or all of this quota had been exceeded and no more resources could be created. |	Check your current resources usage and delete any that aren't needed. If you still need to increase your quota, send an email to [aeg@microsoft.com](mailto:aeg@microsoft.com) with the exact number of resources needed. |
+| HttpStatusCode.Conflict<br/>409 | Quota limit reached. For more information on these limits, see [Azure Event Grid limits](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits).  | Each Azure subscription has a limit on the number of Azure Event Grid resources that it can use. Some or all of this quota had been exceeded and no more resources could be created. | Check your current resources usage and delete any that aren't needed. If you can't delete any resources, create another Azure subscription and create Event Grid resources in that subscription. |
 
 ## Error code: 403
 

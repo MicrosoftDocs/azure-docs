@@ -9,7 +9,7 @@ author: asudbring
 manager: KumudD
 ms.service: virtual-network
 ms.subservice: nat
-Customer intent: As an IT administrator, I want to learn more about how to design virtual networks with NAT gateway resources.
+# Customer intent: As an IT administrator, I want to learn more about how to design virtual networks with NAT gateway resources.
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -212,7 +212,7 @@ If your scenario requires inbound endpoints, you have two options:
 
 You can't achieve a zonal promise with NAT gateway resources when virtual machine instances are deployed in multiple zones within the same subnet.   And even if there were multiple zonal NAT gateways attached to a subnet, the virtual machine instance wouldn't know which NAT gateway resource to select.
 
-A zonal promise does't exist when 
+A zonal promise doesn't exist when 
 a) the zone of a virtual machine instance and the zone of a zonal NAT gateway are not aligned, or
 b) a regional NAT gateway resource is used with zonal virtual machine instances.
 

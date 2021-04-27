@@ -15,7 +15,7 @@ ms.author: lajanuar
 
 # Form Recognizer prebuilt receipt model
 
-Azure Form Recognizer can analyze and extract information from sales receipts using its prebuilt receipt model. It combines our powerful [Optical Character Recognition (OCR)](../computer-vision/concept-recognizing-text.md) capabilities with deep learning models to extract key information from receipts written in English.
+Azure Form Recognizer can analyze and extract information from sales receipts using its prebuilt receipt model. It combines our powerful [Optical Character Recognition (OCR)](../computer-vision/overview-ocr.md) capabilities with deep learning models to extract key information from receipts written in English.
 
 ## Understanding Receipts
 

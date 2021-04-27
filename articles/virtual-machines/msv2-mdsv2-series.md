@@ -1,5 +1,5 @@
 ---
-title: Msv2-series (Preview) - Azure Virtual Machines
+title: Msv2/Mdsv2 Medium Memory Series - Azure Virtual Machines
 description: Specifications for the Msv2-series VMs.
 author: ayshakeen
 ms.service: virtual-machines
@@ -9,11 +9,7 @@ ms.date: 04/07/2020
 ms.author: jushiman
 ---
 
-# Msv2 and Mdsv2-series Medium Memory (Preview)
-
-
-> [!IMPORTANT]
-> Join the preview by filling out the form at **https://aka.ms/Mv2MedMemoryPreview**.  
+# Msv2 and Mdsv2-series Medium Memory
 
 The Msv2 and Mdsv2 Medium Memory VM Series features Intel® Xeon® Platinum 8280 (Cascade Lake) processor with an all core base frequency of 2.7 GHz and 4.0 GHz single core turbo frequency. With these VMs, customers achieve increased flexibility with local disk and diskless options. Customers also have access to a set of new isolated VM sizes with more CPU and memory that go up to 192 vCPU with 4 TiB of memory. 
 

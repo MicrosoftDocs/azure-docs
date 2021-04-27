@@ -38,7 +38,7 @@ Security Center analyzes the security state of your resources to identify potent
     1. **Freshness interval** (where relevant)
     1. **Count of exempted resources** if exemptions exist for this recommendation, this shows the number of resources that have been exempted
     1. **Description** - A short description of the issue
-    1. **Remediation steps** - A description of the manual steps required to remediate the security issue on the affected resources. For recommendations with 'quick fix', you can select **View remediation logic** before applying the suggested fix to your resources. 
+    1. **Remediation steps** - A description of the manual steps required to remediate the security issue on the affected resources. For recommendations with the **Fix** option**, you can select **View remediation logic** before applying the suggested fix to your resources.
     1. **Affected resources** - Your resources are grouped into tabs:
         - **Healthy resources** – Relevant resources which either aren't impacted or on which you've already  remediated the issue.
         - **Unhealthy resources** – Resources which are still impacted by the identified issue.
