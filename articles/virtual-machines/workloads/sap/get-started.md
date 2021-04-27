@@ -77,14 +77,14 @@ In this section, you can find information in how to configure SSO with most of t
 In this section, you find documents about Microsoft Power BI integration into SAP data sources as well as Azure Data Factory integration into SAP BW.
 
 ## Change Log
-- 04/27/2021: Change in [SAP ASCS/SCS instance with WSFC and file share](./sap-high-availability-guide-wsfc-file-share.md) to add links to important SAP notes in the prerequisites section
-- 04/27/2021: Added new Msv2, Mdsv2 VMs into HANA storage configuration in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
-- 04/27/2021: Added requirement for using same storage types in HANA System Replication across all VMs of HSR configuration in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
-- 04/27/2021: Added requirement for using same storage types in DBMS replication scenarios across all VMs of DBMS high availability replication configurations in [Azure Storage types for SAP workload](./planning-guide-storage.md)
-- 04/23/2021: Added section to configure private link for Azure database for MySQL and some minor changes in [SAP BusinessObjects BI platform deployment guide for linux on Azure](businessobjects-deployment-guide-linux.md)
-- 04/22/2021: Release of SAP BusinessObjects BI Platform for Windows on Azure documentation, [SAP BusinessObjects BI platform deployment guide for Windows on Azure](businessobjects-deployment-guide-windows.md)
-- 04/21/2021: Add explanation why HCMT/HWCCT storage tests on M32ts and M32ls might fall short of HANA KPIs when enabling read cache for the Premium storage disks in article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
-- 04/20/2021: Clarify storage block sizes for IBM Db2 with different Azure block storage in article [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_ibm.md)
+- April 27, 2021: Change in [SAP ASCS/SCS instance with WSFC and file share](./sap-high-availability-guide-wsfc-file-share.md) to add links to important SAP notes in the prerequisites section
+- April 27, 2021: Added new Msv2, Mdsv2 VMs into HANA storage configuration in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
+- April 27, 2021: Added requirement for using same storage types in HANA System Replication across all VMs of HSR configuration in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
+- April 27, 2021: Added requirement for using same storage types in DBMS replication scenarios across all VMs of DBMS high availability replication configurations in [Azure Storage types for SAP workload](./planning-guide-storage.md)
+- April 23, 2021: Added section to configure private link for Azure database for MySQL and some minor changes in [SAP BusinessObjects BI platform deployment guide for linux on Azure](businessobjects-deployment-guide-linux.md)
+- April 22, 2021: Release of SAP BusinessObjects BI Platform for Windows on Azure documentation, [SAP BusinessObjects BI platform deployment guide for Windows on Azure](businessobjects-deployment-guide-windows.md)
+- April 21, 2021: Add explanation why HCMT/HWCCT storage tests on M32ts and M32ls might fall short of HANA KPIs when enabling read cache for the Premium storage disks in article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
+- April 20, 2021: Clarify storage block sizes for IBM Db2 with different Azure block storage in article [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_ibm.md)
 - April 12, 2021: Change in [HA for SAP HANA on Azure VMs on SLES](./sap-hana-high-availability.md), [HA for SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md) and [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) to add configuration instructions for SAP HANA system replication Python hook  
 - April 12, 2021: Replaced backup documentation for SAP HANA by documents of [SAP HANA backup/restore with Azure Backup service](../../../backup/sap-hana-db-about.md) 
 - April 12, 2021: Release of [SAP HANA scale-out HSR with Pacemaker on Azure VMs on SLES](./sap-hana-high-availability-scale-out-hsr-suse.md) configuration guide
