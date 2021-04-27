@@ -113,8 +113,6 @@
         href: configure-linked-sign-on.md
       - name: Header-based SSO (on-prem apps)
         href: application-proxy-configure-single-sign-on-with-headers.md
-      - name: Kerberos-based SSO (on-prem apps)
-        href: application-proxy-configure-single-sign-on-with-kcd.md
       - name: One-click SSO
         href: one-click-sso-tutorial.md
     - name: Application security

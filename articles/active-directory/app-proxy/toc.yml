@@ -82,6 +82,8 @@
       href: application-proxy-connector-groups.md
     - name: Header-based SSO (on-prem apps)
       href: application-proxy-configure-single-sign-on-with-headers.md
+    - name: Kerberos-based SSO (on-prem apps)
+      href: application-proxy-configure-single-sign-on-with-kcd.md
   #   - name: Security
   #     href: application-proxy-security.md
   #   - name: Network topology
@@ -104,8 +106,6 @@
       #   href: application-proxy-configure-single-sign-on-password-vaulting.md
       # - name: Linked-based SSO
       #   href: configure-linked-sign-on.md
-      # - name: Kerberos-based SSO (on-prem apps)
-      #   href: application-proxy-configure-single-sign-on-with-kcd.md
   - name: How-to guides
     expanded: false
     items:
