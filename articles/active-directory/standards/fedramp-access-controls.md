@@ -22,7 +22,7 @@ Access control is a major part of achieving a [Federal Risk and Authorization Ma
 The following list of controls and control enhancements in the Access Control family may require configuration in your Azure AD tenant. 
 
 
-| Control family| Description |
+|Control family|Description|
 | - | - |
 | AC-02| Account management |
 | AC-06| Least privilege |

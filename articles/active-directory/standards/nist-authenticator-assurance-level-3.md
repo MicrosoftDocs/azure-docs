@@ -21,7 +21,7 @@ This article guides you to achieving National Institute of Standards and Technol
 * [NIST overview](nist-overview.md) - understand the different AAL levels.
 * [Authentication basics](nist-authentication-basics.md) - Important terminology and authentication types.
 * [NIST authenticator types](nist-authenticator-types.md)- Understand each of the authenticator types.
-* [NIST AALs](nist-about-autheticator-assurance-levels.md) - the components of the AALs, and how Microsoft Azure Active Directory authentication methods map to them.
+* [NIST AALs](nist-about-authenticator-assurance-levels.md) - the components of the AALs, and how Microsoft Azure Active Directory authentication methods map to them.
 
 ## Permitted authenticator types
 Microsoft offers authentication methods that enable you to meet required NIST authenticator types. Please see our recommendations.

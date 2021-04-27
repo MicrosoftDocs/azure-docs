@@ -68,6 +68,6 @@ FedRAMP Resources
 
 [Configure identification & authentication controls](fedramp-identification-and-authentication-controls.md)
 
-[Configure other controls](fedramp-other-controls.m)
+[Configure other controls](fedramp-other-controls.md)
 
  

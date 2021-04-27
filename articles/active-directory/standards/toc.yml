@@ -12,17 +12,17 @@
   - name: NIST overview
     href: nist-overview.md
   - name: About Authenticator Assurance Levels
-    href: nist-about-authenticator-assurance-levels
+    href: nist-about-authenticator-assurance-levels.md
   - name: Authenticator basics
-    href: nist-authenticator-basics.md
+    href: nist-authentication-basics.md
   - name: Authenticator types and Microsoft methods
     href: nist-authenticator-types.md
   - name: Achieving AAL 1
-    href: nist-auithenticator-assurance-level-1.md
+    href: nist-authenticator-assurance-level-1.md
   - name: Achieving AAL 2
-    href: nist-auithenticator-assurance-level-2.md
+    href: nist-authenticator-assurance-level-2.md
   - name: Achieving AAL 3
-    href: nist-auithenticator-assurance-level-3.md
+    href: nist-authenticator-assurance-level-3.md
 - name: Achieving FedRAMP High compliance
   expanded: true
   items:
