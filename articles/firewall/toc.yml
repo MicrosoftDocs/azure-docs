@@ -20,8 +20,10 @@
   items:
   - name: Deploy and configure
     href: tutorial-firewall-deploy-portal.md
-  - name: Deploy in hybrid network
+  - name: Deploy in hybrid network - classic
     href: tutorial-hybrid-portal.md
+  - name: Deploy in hybrid network - policy
+    href: tutorial-hybrid-portal-policy.md
   - name: Filter inbound traffic with DNAT
     href: tutorial-firewall-dnat.md
 - name: Samples
