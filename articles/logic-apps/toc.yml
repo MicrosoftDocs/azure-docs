@@ -58,7 +58,7 @@
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/logic-apps-security-baseline
 - name: How-to guides
   items:
   - name: Azure Logic Apps Preview

@@ -199,7 +199,7 @@ sections:
         answer: Microsoft provides alerts when capacity consumption exceeds 75%. Alternatively, you can also monitor capacity consumption metrics that are integrated into Azure Monitor.
 
       - question: How many 1.6 TB NVMe drives make up the disk groups to provide the 15.4 TB of raw SSD storage per host? 
-        answer: The [AVS36 SKU](https://azure.microsoft.com/pricing/details/azure-vmware/) includes two 1.6-TB NVMe cache and eight 1.9-TB raw storage capacity. These are then split into two disk groups. 
+        answer: The [AV36 SKU](https://azure.microsoft.com/pricing/details/azure-vmware/) includes two 1.6-TB NVMe cache and eight 1.9-TB raw storage capacity. These are then split into two disk groups. 
 
       - question: What is the RAID configuration of the disk groups?
         answer: The disk groups are not RAID configured. Instead, they are just a bunch of disks (JBOD) and are [directly controlled by vSAN](https://core.vmware.com/vsan-learn-and-evaluate).
