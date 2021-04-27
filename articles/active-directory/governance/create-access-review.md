@@ -49,14 +49,14 @@ For more information, see [License requirements](access-reviews-overview.md#lice
     ![Create an access review - Review name and description](./media/create-access-review/select-what-review.png)
 
 5. If you selected **Teams + Groups** in Step 1, you have two options in Step 2
-   - **All Microsoft 365 groups with guest users.** Select this option if you would like to create recurring reviews on all your guest users across all your Microsoft Teams and M365 groups in your organization. You can choose to exclude certain groups by clicking on ‘Select group(s) to exclude’.
+   - **All Microsoft 365 groups with guest users.** Select this option if you would like to create recurring reviews on all your guest users across all your Microsoft Teams and Microsoft 365 groups in your organization. You can choose to exclude certain groups by clicking on ‘Select group(s) to exclude’.
    - **Select teams + groups.** Select this option if you would like to specify a finite set of teams and/or groups to review. After clicking on this option, you will see a list of groups to the right to pick from.
 
      ![Teams and groups](./media/create-access-review/teams-groups.png)
 
      ![Teams and groups chosen in the user interface](./media/create-access-review/teams-groups-detailed.png)
 
-6. If you selected **Applications** in Step 1, you can then select one or more applications in Step 2.
+6. If you selected **Applications** in Step 1, you can then select one or more applications in Step 2
 
     >[!NOTE]
     > Selecting multiple groups and/or applications will result in multiple access reviews created. For example, if you select 5 groups to review, that will result in 5 separate access reviews
@@ -89,21 +89,22 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
     ![Create an access review - upon completion settings](./media/create-access-review/upon-completion-settings-new.png)
 
-If you want to automatically remove access for denied users, set Auto apply results to resource to Enable. If you want to manually apply the results when the review completes, set the switch to Disable.
-Use the If reviewers don't respond list to specify what happens for users that are not reviewed by the reviewer within the review period. This setting does not impact users who have been reviewed by the reviewers manually. If the final reviewer's decision is Deny, then the user's access will be removed.
+    If you want to automatically remove access for denied users, set Auto apply results to resource to Enable. If you want to manually apply the results when the review completes, set the switch to Disable.
+    
+    Use the If reviewers don't respond list to specify what happens for users that are not reviewed by the reviewer within the review period. This setting does not impact users who have been reviewed by the reviewers manually. If the final reviewer's decision is Deny, then the user's access will be removed.
 
-- **No change** - Leave user's access unchanged
-- **Remove access** - Remove user's access
-- **Approve access** - Approve user's access
-- **Take recommendations** - Take the system's recommendation on denying or approving the user's continued access
+    - **No change** - Leave user's access unchanged
+    - **Remove access** - Remove user's access
+    - **Approve access** - Approve user's access
+    - **Take recommendations** - Take the system's recommendation on denying or approving the user's continued access
 
     ![Upon completion settings options](./media/create-access-review/upon-completion-settings-new.png)
 
-Use the Action to apply on denied **guest** users to specify what happens to guest users if they are denied.
-- Remove user’s membership from the resource will remove denied user’s access to the group or application being reviewed, they will still be able to sign-in to the tenant.
-- Block user from signing-in for 30 days, then remove user from the tenant will block the denied users from signing in to the tenant, regardless if they have access to other resources. If there was a mistake or if an admin decides to re-enable one’s access, they can do so within 30 days after the user has been disabled. If there is no action taken on the disabled users, they will be deleted from the tenant.
+    Use the Action to apply on denied **guest** users to specify what happens to guest users if they are denied.
+    - Remove user’s membership from the resource will remove denied user’s access to the group or application being reviewed, they will still be able to sign-in to the tenant.
+    - Block user from signing-in for 30 days, then remove user from the tenant will block the denied users from signing in to the tenant, regardless if they have access to other resources. If there was a mistake or if an admin decides to re-enable one’s access, they can do so within 30 days after the user has been disabled. If there is no action taken on the disabled users, they will be deleted from the tenant.
 
-To learn more about best practices for removing guest users who no longer have access to resources in your organization read the article titled [Use Azure AD Identity Governance to review and remove external users who no longer have resource access.](access-reviews-external-users.md)
+    To learn more about best practices for removing guest users who no longer have access to resources in your organization read the article titled [Use Azure AD Identity Governance to review and remove external users who no longer have resource access.](access-reviews-external-users.md)
 
    > [!NOTE]
    > Action to apply on denied guest users is not configurable on reviews scoped to more than guest users. It is also not configurable for reviews of **All M365 groups with guest users.** When not configurable, the default option of removing user's membership from the resource is used on denied users.
