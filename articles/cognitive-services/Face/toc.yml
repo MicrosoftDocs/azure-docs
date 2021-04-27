@@ -23,12 +23,14 @@
     href: Face-API-How-to-Topics/specify-detection-model.md
   - name: Add faces to a group
     href: Face-API-How-to-Topics/how-to-add-faces.md
+  - name: Use the PersonDirectory structure
+    href: Face-API-How-to-Topics/use-persondirectory.md
+  - name: Use the large-scale feature
+    href: Face-API-How-to-Topics/how-to-use-large-scale.md
   - name: Use the HeadPose attribute
     href: Face-API-How-to-Topics/how-to-use-headpose.md
   - name: Mitigate latency when using the Face service
     href: Face-API-How-to-Topics/how-to-mitigate-latency.md
-  - name: Use the large-scale feature
-    href: Face-API-How-to-Topics/how-to-use-large-scale.md
   - name: Analyze videos in real time
     href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
   - name: Migrate face data
