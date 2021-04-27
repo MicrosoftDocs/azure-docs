@@ -48,7 +48,6 @@ Potential challenges and associated mitigations when using computer accounts.
 Use the following PowerShell cmdlet to find services running under LocalSystem context
 
 ```powershell
-
 Get-WmiObject win32_service | select Name, StartName | Where-Object {($_.StartName -eq "LocalSystem")}
 ```
 
@@ -57,8 +56,7 @@ Get-WmiObject win32_service | select Name, StartName | Where-Object {($_.StartNa
 Use the following PowerShell cmdlet to find computer accounts that are member of a specific group.
 
 ```powershell
-
-```Get-ADComputer -Filter {Name -Like "*"} -Properties MemberOf | Where-Object {[STRING]$_.MemberOf -like "Your_Group_Name_here*"} | Select Name, MemberOf
+Get-ADComputer -Filter {Name -Like "*"} -Properties MemberOf | Where-Object {[STRING]$_.MemberOf -like "Your_Group_Name_here*"} | Select Name, MemberOf
 ```
 
 **Find Computers accounts that are members of privileged groups**

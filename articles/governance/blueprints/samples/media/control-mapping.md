@@ -271,7 +271,7 @@ directly to a specific control mapping. Many of the mapped controls are implemen
 You've reviewed the control mapping of the Media blueprint sample. Next, visit the following
 articles to learn about the overview and how to deploy this sample:
 
-> [!div class="next step action"]
+> [!div class="nextstepaction"]
 > [Media blueprint - Overview](./control-mapping.md)
 > [Media blueprint - Deploy steps](./deploy.md)
 

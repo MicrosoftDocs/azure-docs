@@ -256,9 +256,9 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: H
    > [!NOTE]
    > If you are not migrating virtual machines on layer-2 (L2) extended networks, you can skip this step.
    
-   :::image type=" content" source="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png" alt-text="Screenshot that shows the selection of distributed virtual switches and the Continue button." lightbox="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png" alt-text="Screenshot that shows the selection of distributed virtual switches and the Continue button." lightbox="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png":::
 
-1. Review the connection rules and select **Continue**.  
+1. Review the connection rules and select **Continue**.
 
    :::image type="content" source="media/tutorial-vmware-hcx/review-connection-rules.png" alt-text="Screenshot that shows the connection rules and the Continue button." lightbox="media/tutorial-vmware-hcx/review-connection-rules.png":::
 

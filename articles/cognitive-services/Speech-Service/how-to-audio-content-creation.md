@@ -51,7 +51,7 @@ It takes a few moments to deploy your new Speech resource. Once the deployment i
 
 This diagram shows the steps it takes to fine-tune text-to-speech outputs. Use the links below to learn more about each step.
 
-:::image source="media/audio-content-creation/audio-content-creation-diagram.jpg" alt-text="A diagram of the steps it takes to fine-tune text-to-speech outputs":::
+:::image type="content" source="media/audio-content-creation/audio-content-creation-diagram.jpg" alt-text="A diagram of the steps it takes to fine-tune text-to-speech outputs":::
 
 
 1. Choose the speech resource you want to work on.
@@ -128,12 +128,12 @@ Follow these steps to add a user to a speech resource so they can use Audio Cont
 
 1. Search for **Cognitive services** in the [Azure portal](https://portal.azure.com/), select the speech resource that you want to add users to.
 2. Click **Access control (IAM)**. Click the **Role assignments** tab to view all the role assignments for this subscription.
-    :::image source="media/audio-content-creation/access-control-roles.png" alt-text="Role assignment tab":::
+    :::image type="content" source="media/audio-content-creation/access-control-roles.png" alt-text="Role assignment tab":::
 1. Click **Add** > **Add role assignment** to open the Add role assignment pane. In the Role drop-down list, select the **Cognitive Service User** role. If you want to give the user ownership of this speech resource, you can select the **Owner** role.
 1. In the list, select a user. If you do not see the user in the list, you can type in the Select box to search the directory for display names and email addresses. If the user is not in this directory, you can input the user’s [Microsoft account](https://account.microsoft.com/account) (which is trusted by Azure active directory).
 1. Click **Save** to assign the role. After a few moments, the user is assigned the Cognitive Service User role at the speech resource scope.
 
-    :::image source="media/audio-content-creation/add-role-first.png" alt-text="Add role dialog":::
+    :::image type="content" source="media/audio-content-creation/add-role-first.png" alt-text="Add role dialog":::
 
 1. The users you add will receive an invitation email. After they click **Accept invitation** > **Accept to join Azure**, then they can use [Audio Content Creation](https://aka.ms/audiocontentcreation).
 
@@ -143,12 +143,12 @@ Users who are in the same speech resource will see each other’s work in Audio 
 1. Search for **Cognitive services** in the Azure portal, select the speech resource that you want to remove users from.
 2. Click **Access control (IAM)**. Click the **Role assignments** tab to view all the role assignments for this speech resource.
 3. Select the users you want to remove, click **Remove** > **Ok**.
-    :::image source="media/audio-content-creation/remove-user.png" alt-text="Remove button":::
+    :::image type="content" source="media/audio-content-creation/remove-user.png" alt-text="Remove button":::
 
 ### Enable users to grant access
 If you want one of the users to give access to other users, you need to give the user the owner role for the speech resource and set the user as the Azure directory reader. 
 1. Add the user as the owner of the speech resource. See [how to add users to a speech resource](#add-users-to-a-speech-resource).
-    :::image source="media/audio-content-creation/add-role.png" alt-text="Role Owner field":::
+    :::image type="content" source="media/audio-content-creation/add-role.png" alt-text="Role Owner field":::
 1. Select the collapsed menu in the upper left. Click **Azure Active Directory**, and then Click **Users**.
 1. Search the user's Microsoft account, and go to the user's detail page. Click **Assigned roles**.
 1. Click **Add assignments** -> **Directory Readers**.

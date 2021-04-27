@@ -86,7 +86,7 @@ To create a Java application named `queues-how-to-v12`:
     [INFO] Total time:  6.775 s
     [INFO] Finished at: 2020-08-17T15:27:31-07:00
     [INFO] ------------------------------------------------------------------------
-        ```
+    ```
 
 1. Switch to the newly created `queues-howto-v12` directory.
 

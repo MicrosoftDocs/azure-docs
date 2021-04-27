@@ -103,7 +103,7 @@ If you choose to archive your logs to a storage account, you'll pay for the volu
    > ![Diagnostic settings page archive storage](media/monitor-queue-storage/diagnostic-logs-settings-pane-archive-storage.png)
 
 2. In the **Storage account** drop-down list, select the storage account that you want to archive your logs to, click the **OK** button, and then select the **Save** button.
- 
+
    [!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
 
    > [!NOTE]
