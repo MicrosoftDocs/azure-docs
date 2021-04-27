@@ -117,3 +117,7 @@ To delete a role assignment condition, edit the role assignment condition and se
 Alternatively, if you want to delete both the role assignment and the condition, you can use the [az role assignment delete](/cli/azure/role/assignment#az_role_assignment_delete) command. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
 
 ## Next steps
+
+- [Example Azure role assignment conditions (Preview)](../storage/blobs/storage-blob-abac-examples.md)
+- [Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI (Preview)](../storage/blobs/storage-blob-abac-cli.md)
+- [Troubleshoot Azure role assignment conditions (Preview)](conditions-troubleshoot.md)

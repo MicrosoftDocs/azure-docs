@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/24/2021
+ms.date: 04/27/2021
 ms.author: rolyon
 ---
 
@@ -74,9 +74,9 @@ Once you have the Add role assignment condition page open, you can review the ba
 
     Once you add a condition, you can toggle between Visual and Code.
 
-1. (Optional) In the **Description** box, enter a description.
+1. (Optional) If the **Description** box appears, enter a description.
 
-    A description can help you understand and remember the condition.
+    Depending on how you chose to add a condition, you might not see the Description box. A description can help you understand and remember the condition.
 
     ![Add role assignment condition basics](./media/conditions-role-assignments-portal/condition-basics.png)
 
@@ -148,3 +148,7 @@ Once you have the Add role assignment condition page open, you can review the ba
 1. When finished, click **Update**. To delete the entire condition, click **Delete condition**. Deleting the condition does not remove the role assignment.
 
 ## Next steps
+
+- [Example Azure role assignment conditions (Preview)](../storage/blobs/storage-blob-abac-examples.md)
+- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (Preview)](../storage/blobs/storage-blob-abac-portal.md)
+- [Troubleshoot Azure role assignment conditions (Preview)](conditions-troubleshoot.md)

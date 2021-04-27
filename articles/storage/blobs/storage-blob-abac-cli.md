@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.author: rolyon
 ms.reviewer: 
 ms.subservice: blobs
-ms.date: 04/24/2021
+ms.date: 04/27/2021
 
 #Customer intent: 
 
@@ -234,7 +234,7 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
         "Storage Queue Data Reader"
     
     If you want to use the old authentication method and allow querying for the right account key, please use the "--auth-mode" parameter and "key" value.
-        ```
+    ```
     
 1. Read the properties of the file for the Cascade project.
 
@@ -267,45 +267,9 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
         "blobType": "BlockBlob",
         "contentLength": 7,
         "contentRange": null,
-        "contentSettings": {
-          "cacheControl": null,
-          "contentDisposition": null,
-          "contentEncoding": null,
-          "contentLanguage": null,
-          "contentMd5": "<contentMd5>",
-          "contentType": "text/plain"
-        },
-        "copy": {
-          "completionTime": null,
-          "destinationSnapshot": null,
-          "id": null,
-          "incrementalCopy": null,
-          "progress": null,
-          "source": null,
-          "status": null,
-          "statusDescription": null
-        },
-        "creationTime": "2021-04-24T05:35:24+00:00",
-        "deletedTime": null,
-        "etag": "\"0x<etag>\"",
-        "lastModified": "2021-04-24T05:35:24+00:00",
-        "lease": {
-          "duration": null,
-          "state": "available",
-          "status": "unlocked"
-        },
-        "pageBlobSequenceNumber": null,
-        "pageRanges": null,
-        "rehydrationStatus": null,
-        "remainingRetentionDays": null,
-        "serverEncrypted": true
-      },
-      "rehydratePriority": null,
-      "requestServerEncrypted": true,
-      "snapshot": null,
-      "tagCount": null,
-      "tags": null,
-      "versionId": null
+
+      ...
+
     }
     ```
 
@@ -380,3 +344,7 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
 1. Delete the user you created.
 
 ## Next steps
+
+- [Example Azure role assignment conditions](storage-blob-abac-examples.md)
+- [Attributes and operations supported for Azure role assignment conditions in Azure Storage (preview)](storage-blob-auth-abac-attributes.md)
+- [Azure role assignment condition format and syntax](../../role-based-access-control/conditions-format.md)
