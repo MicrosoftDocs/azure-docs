@@ -104,7 +104,7 @@ To run hello world locally via Python, see the example in the `jobs` subdirector
 > [!IMPORTANT]
 > [Docker](https://docker.io) needs to be installed and running locally.
 
-And submit:
+And submit, streaming the logs to the console output:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="hello_world":::
 
