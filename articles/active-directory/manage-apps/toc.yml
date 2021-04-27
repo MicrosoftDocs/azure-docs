@@ -139,8 +139,6 @@
         href: application-proxy.md
       - name: Planning an Application Proxy deployment
         href: application-proxy-deployment-plan.md
-      - name: Connectors
-        href: application-proxy-connectors.md
       - name: Connector groups
         href: application-proxy-connector-groups.md
       - name: Security
