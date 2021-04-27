@@ -38,7 +38,7 @@ After signing up for the Azure account, you need to create a Speech resource und
 
 It takes a few moments to deploy your new Speech resource. Once the deployment is complete, you can start the Audio Content Creation journey.
 
- >[!NOTE]
+ > [!NOTE]
    > If you plan to use neural voices, make sure that you create your resource in [a region that supports neural voices](regions.md#neural-and-standard-voices).
 
 ### Step 3 - Log into the Audio Content Creation with your Azure account and Speech resource
@@ -56,7 +56,7 @@ This diagram shows the steps it takes to fine-tune text-to-speech outputs. Use t
 1. Choose the speech resource you want to work on.
 2. [Create an audio tuning file](#create-an-audio-tuning-file) using plain text or SSML scripts. Type or upload your content in to Audio Content Creation.
 3. Choose the voice and the language for your script content. Audio Content Creation includes all of the [Microsoft text-to-speech voices](language-support.md#text-to-speech). You can use standard, neural, or your own custom voice.
-   >[!NOTE]
+   > [!NOTE]
    > Gated access is available for Custom Neural Voices, which allow you to create high-definition voices similar to natural-sounding speech. For additional details, see [Gating process](./text-to-speech.md).
 
 4. Click the **play** icon (a triangle) to preview the default synthesis output. Then improve the output by adjusting pronunciation, break, pitch, rate, intonation, voice style, and more. For a complete list of options, see [Speech Synthesis Markup Language](speech-synthesis-markup.md). Here is a [video](https://www.youtube.com/watch?v=O1wIJ7mts_w) to show how to fine-tune speech output with Audio Content Creation.

@@ -204,7 +204,7 @@ The backup data sent to Azure Backup is encrypted to protect the confidentiality
 
 You must generate a security pin by selecting **Generate**, under **Settings** > **Properties** > **Security PIN** in the **Recovery Services vault** section of the Azure portal.
 
->[!NOTE]
+> [!NOTE]
 > The security PIN can only be generated via the Azure portal.
 
 Then, use this as the `generatedPIN` in the command:

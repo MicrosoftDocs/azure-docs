@@ -283,7 +283,7 @@ To unregister your SQL Server VM from the extension using the Azure portal, foll
 
    ![Uncheck the VM to prevent deleting the actual virtual machine and then select Delete to proceed with deleting the SQL VM resource](./media/sql-agent-extension-manually-register-single-vm/confirm-delete-of-resource-uncheck-box.png)
 
-   >[!WARNING]
+   > [!WARNING]
    > Failure to clear the checkbox next to the virtual machine name will *delete* the virtual machine entirely. Clear the checkbox to unregister the SQL Server VM from the extension but *not delete the actual virtual machine*.
 
 1. Select **Delete** to confirm the deletion of the SQL virtual machine *resource*, and not the SQL Server VM.

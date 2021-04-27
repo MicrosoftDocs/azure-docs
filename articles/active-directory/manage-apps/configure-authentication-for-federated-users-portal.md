@@ -42,8 +42,8 @@ As a result users can skip the initial Azure Active Directory page. This process
 
 In cases where the tenant is federated to another IdP for sign-in, auto-acceleration makes user sign-in more streamlined.  You can configure auto-acceleration for individual applications.
 
->[!NOTE]
->If you configure an application for auto-acceleration, users can't use managed credentials (like FIDO) and guest users can't sign in. If you take a user straight to a federated IdP for authentication, there is no way to for them to get back to the Azure Active Directory sign-in page. Guest users, who might need to be directed to other tenants or an external IdP such as a Microsoft account, can't sign in to that application because they're skipping the Home Realm Discovery step.
+> [!NOTE]
+> If you configure an application for auto-acceleration, users can't use managed credentials (like FIDO) and guest users can't sign in. If you take a user straight to a federated IdP for authentication, there is no way to for them to get back to the Azure Active Directory sign-in page. Guest users, who might need to be directed to other tenants or an external IdP such as a Microsoft account, can't sign in to that application because they're skipping the Home Realm Discovery step.
 
 There are three ways to control auto-acceleration to a federated IdP:
 
@@ -74,8 +74,8 @@ If the domain hint doesn't refer to a verified federated domain, it is ignored.
 
 For more information about auto-acceleration using the domain hints that are supported by Azure Active Directory, see the [Enterprise Mobility + Security blog](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/11/using-azure-ad-to-land-users-on-their-custom-login-page-from-within-your-app/).
 
->[!NOTE]
->If a domain hint is included in an authentication request and [should be respected](#home-realm-discovery-policy-to-prevent-auto-acceleration), its presence overrides auto-acceleration that is set for the application in HRD policy.
+> [!NOTE]
+> If a domain hint is included in an authentication request and [should be respected](#home-realm-discovery-policy-to-prevent-auto-acceleration), its presence overrides auto-acceleration that is set for the application in HRD policy.
 
 ### Home Realm Discovery policy for auto-acceleration
 

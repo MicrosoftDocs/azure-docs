@@ -66,7 +66,7 @@ For more information on the scheduler see [Azure AD Connect sync scheduler](how-
 
 The following section describes how to enable selective password hash synchronization when the number of users to **exclude** is **smaller** than the number of users to **include**.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Before you proceed ensure the synchronization scheduler is disabled as outlined above.
 
 - Create an editable copy of the **In from AD – User AccountEnabled** with the option to **enable password hash sync un-selected** and define its scoping filter
@@ -74,10 +74,10 @@ The following section describes how to enable selective password hash synchroniz
 - Re-enable the synchronization scheduler
 - Set the attribute value, in active directory, that was defined as scoping attribute on the users you want to allow in password hash synchronization.
 
->[!IMPORTANT]
->The steps provided to configure selective password hash synchronization will only affect user objects that have 
+> [!IMPORTANT]
+> The steps provided to configure selective password hash synchronization will only affect user objects that have 
 the attribute **adminDescription** populated in Active Directory with the value of **PHSFiltered**.
->If this attribute is not populated or the value is something other than **PHSFiltered** then these rules will not be applied to the user objects.
+> If this attribute is not populated or the value is something other than **PHSFiltered** then these rules will not be applied to the user objects.
 
 ### Configure the necessary synchronization rules:
 
@@ -113,7 +113,7 @@ the attribute **adminDescription** populated in Active Directory with the value 
  10. Confirm the rules creation. Remove the filters **Password Sync** **On** and **Rule Type** **Standard**. And you should see both new rules you just created.
      ![Confirm rules](media/how-to-connect-selective-password-hash-synchronization/exclude-10.png)
 
-### Re-enable synchronization scheduler:  
+### Re-enable synchronization scheduler:
 
 Once you completed the steps to configure the necessary synchronization rules, re-enable the synchronization scheduler with the following steps:
  1. In Windows PowerShell run:
@@ -140,7 +140,7 @@ You can also use the following PowerShell command to edit a user's **adminDescri
 
 The following section describes how to enable selective password hash synchronization when the number of users to **exclude** is **larger** than the number of users to **include**.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Before you proceed ensure the synchronization scheduler is disabled as outlined above.
 
 The following is a summary of the actions that will be taken in the steps below:
@@ -150,10 +150,10 @@ The following is a summary of the actions that will be taken in the steps below:
 - Re-enable the synchronization scheduler
 - Set the attribute value, in active directory, that was defined as scoping attribute on the users you want to allow in password hash synchronization.
 
->[!IMPORTANT]
->The steps provided to configure selective password hash synchronization will only affect user objects that have 
+> [!IMPORTANT]
+> The steps provided to configure selective password hash synchronization will only affect user objects that have 
 the attribute **adminDescription** populated in Active Directory with the value of **PHSIncluded**.
->If this attribute is not populated or the value is something other than **PHSIncluded** then these rules will not be applied to the user objects.
+> If this attribute is not populated or the value is something other than **PHSIncluded** then these rules will not be applied to the user objects.
 
 ### Configure the necessary synchronization rules:
 
@@ -189,7 +189,7 @@ Select **adminDescription** in the attribute column, **NOTEQUAL** in the Operato
  10. Confirm the rules creation. Remove the filters **Password Sync** **On** and **Rule Type** **Standard**. And you should see both new rules you just created.
      ![Sync on](media/how-to-connect-selective-password-hash-synchronization/include-10.png)
 
-### Re-enable synchronization scheduler:  
+### Re-enable synchronization scheduler:
 
 Once you completed the steps to configure the necessary synchronization rules, re-enable the synchronization scheduler with the following steps:
 

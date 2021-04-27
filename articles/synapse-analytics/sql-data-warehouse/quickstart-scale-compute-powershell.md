@@ -122,4 +122,4 @@ $database | Select-Object DatabaseName,Status
 You have now learned how to scale compute for dedicated SQL pool (formerly SQL DW). To learn more about dedicated SQL pool (formerly SQL DW), continue to the tutorial for loading data.
 
 > [!div class="nextstepaction"]
->[Load data into a dedicated SQL pool](load-data-from-azure-blob-storage-using-copy.md)
+> [Load data into a dedicated SQL pool](load-data-from-azure-blob-storage-using-copy.md)

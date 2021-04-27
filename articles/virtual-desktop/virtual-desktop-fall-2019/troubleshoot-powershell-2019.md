@@ -10,8 +10,8 @@ manager: femila
 
 # Windows Virtual Desktop (classic) PowerShell
 
->[!IMPORTANT]
->This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../troubleshoot-powershell.md).
+> [!IMPORTANT]
+> This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../troubleshoot-powershell.md).
 
 Use this article to resolve errors and issues when using PowerShell with Windows Virtual Desktop. For more information on Remote Desktop Services PowerShell, see [Windows Virtual Desktop Powershell](/powershell/windows-virtual-desktop/overview).
 
@@ -77,8 +77,8 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 
 **Fix 2:** A user with Active Directory permissions needs to execute the role assignment.
 
->[!NOTE]
->New-RdsRoleAssignment cannot give permissions to a user that doesn't exist in the Azure Active Directory (AD).
+> [!NOTE]
+> New-RdsRoleAssignment cannot give permissions to a user that doesn't exist in the Azure Active Directory (AD).
 
 ## Next steps
 

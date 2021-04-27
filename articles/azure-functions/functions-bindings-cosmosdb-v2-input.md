@@ -108,8 +108,8 @@ namespace CosmosDBSamplesV2
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
->[!NOTE]
->The HTTP query string parameter is case-sensitive.
+> [!NOTE]
+> The HTTP query string parameter is case-sensitive.
 >
 
 ```cs

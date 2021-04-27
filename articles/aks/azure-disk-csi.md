@@ -16,7 +16,7 @@ The CSI is a standard for exposing arbitrary block and file storage systems to c
 
 To create an AKS cluster with CSI driver support, see [Enable CSI drivers for Azure disks and Azure Files on AKS](csi-storage-drivers.md).
 
->[!NOTE]
+> [!NOTE]
 > *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code versus the new CSI drivers, which are plug-ins.
 
 ## Use CSI persistent volumes with Azure disks

@@ -96,7 +96,7 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 > > `Enter_the_Supported_Account_Info_Here`
 >
 > [!div renderon="docs"]
->#### Step 4: Configure your project
+> #### Step 4: Configure your project
 > If you selected Option 1 above, you can skip these steps.
 > 1. Extract the zip file and open the project in XCode.
 > 1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following code snippet. Remember to update the value for `kClientID` with the clientID that you saved when you registered your app in the portal earlier in this quickstart:

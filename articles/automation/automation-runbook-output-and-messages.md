@@ -102,8 +102,8 @@ Workflow Test-Runbook
 
 To declare an output type in a graphical or graphical PowerShell Workflow runbook, you can select the **Input and Output** menu option and enter the output type. It's recommended to use the full .NET class name to make the type easily identifiable when a parent runbook references it. Using the full name exposes all the properties of the class to the databus in the runbook and increases flexibility when the properties are used for conditional logic, logging, and referencing as values for other runbook activities.<br> ![Runbook Input and Output option](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
 
->[!NOTE]
->After you enter a value in the **Output Type** field in the Input and Output properties pane, be sure to click outside the control so that it recognizes your entry.
+> [!NOTE]
+> After you enter a value in the **Output Type** field in the Input and Output properties pane, be sure to click outside the control so that it recognizes your entry.
 
 The following example shows two graphical runbooks to demonstrate the Input and Output feature. Applying the modular runbook design model, you have one runbook as the Authenticate Runbook template managing authentication with Azure using the Run As account. The second runbook, which normally performs core logic to automate a given scenario, in this case executes the Authenticate Runbook template. It displays the results to your Test output pane. Under normal circumstances, you would have this runbook do something against a resource leveraging the output from the child runbook.
 
@@ -203,8 +203,8 @@ You can use the **Configure** tab of the Azure portal to configure a runbook to 
 
 If you enable progress record logging, your runbook writes a record to job history before and after each activity runs. Testing a runbook does not display progress messages even if the runbook is configured to log progress records.
 
->[!NOTE]
->The [Write-Progress](/powershell/module/microsoft.powershell.utility/write-progress) cmdlet is not valid in a runbook, since this cmdlet is intended for use with an interactive user.
+> [!NOTE]
+> The [Write-Progress](/powershell/module/microsoft.powershell.utility/write-progress) cmdlet is not valid in a runbook, since this cmdlet is intended for use with an interactive user.
 
 ## Work with preference variables
 

@@ -67,8 +67,8 @@ Follow these steps to find location information for your dedicated SQL pool (for
 
 To save costs, you can pause and resume compute resources on-demand. For example, if you are not using the database during the night and on weekends, you can pause it during those times, and resume it during the day.
 
->[!NOTE]
->There is no charge for compute resources while the database is paused. However, you continue to be charged for storage.
+> [!NOTE]
+> There is no charge for compute resources while the database is paused. However, you continue to be charged for storage.
 
 To pause a database, use the [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet. The following example pauses a SQL pool named **mySampleDataWarehouse** hosted on a server named **sqlpoolservername**. The server is in an Azure resource group named **myResourceGroup**.
 

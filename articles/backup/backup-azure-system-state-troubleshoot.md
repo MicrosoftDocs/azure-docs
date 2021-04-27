@@ -113,7 +113,7 @@ To validate Windows Server Backup status, perform the following steps:
       `wbadmin start systemstatebackup -backuptarget:X: -quiet`
 
       > [!NOTE]
-      >Replace X with the drive letter of the volume where you want to store the system state back up image.
+      > Replace X with the drive letter of the volume where you want to store the system state back up image.
 
     - Periodically check the status of the job by running `Get-WBJob` command from elevated PowerShell
     - After backup job completes check the final status of the job by running `Get-WBJob -Previous 1` command
