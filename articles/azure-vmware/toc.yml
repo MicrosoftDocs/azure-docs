@@ -47,9 +47,7 @@
   - name: Access and identity for private clouds
     href: concepts-identity.md
   - name: Monitor and repair private clouds
-    href: concepts-monitor-repair-private-cloud.md
-  - name: Private cloud upgrades
-    href: concepts-upgrades.md
+    href: /azure/azure-vmware/concepts-private-clouds-clusters#host-monitoring-and-remediation
 - name: How-to guides
   items:
   - name: Request host quota and enable Azure VMware Solution

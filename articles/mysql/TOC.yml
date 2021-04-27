@@ -178,7 +178,7 @@
       - name: Security overview
         href: concepts-security.md
       - name: Security baseline
-        href: security-baseline.md
+        href: /security/benchmark/azure/baselines/mysql-security-baseline
       - name: Authentication
         items:
         - name: Azure AD authentication
