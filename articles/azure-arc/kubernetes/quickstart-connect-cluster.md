@@ -70,7 +70,7 @@ In this quickstart, we'll reap the benefits of Azure Arc enabled Kubernetes and 
 | `https://mcr.microsoft.com`                                                                            | Required to pull container images for Azure Arc agents.                                                                  |  
 | `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`, `https://wcus.his.arc.azure.com`, `https://scus.his.arc.azure.com`, `https://sea.his.arc.azure.com`, `https://uks.his.arc.azure.com`, `https://wus2.his.arc.azure.com`, `https://ae.his.arc.azure.com`, `https://eus2.his.arc.azure.com`, `https://ne.his.arc.azure.com` |  Required to pull system-assigned Managed Service Identity (MSI) certificates.                                                                  |
 
-## Register the two providers for Azure Arc enabled Kubernetes
+## Register providers for Azure Arc enabled Kubernetes
 
 1. Enter the following commands:
     ```azurecli
