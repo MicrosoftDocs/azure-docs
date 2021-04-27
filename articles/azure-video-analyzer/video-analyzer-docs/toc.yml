@@ -40,8 +40,6 @@
       href: detect-motion-record-video-clips-edge-devices.md #404      
 - name: Tutorials
   items:
-  - name: Playback multi-day recordings
-    href: playback-multi-day-recordings.md #404
   - name: Use continuous video recording
     href: use-continuous-video-recording.md #404
   - name: Use event-based video recording
