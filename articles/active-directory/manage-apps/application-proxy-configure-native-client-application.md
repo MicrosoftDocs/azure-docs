@@ -32,7 +32,7 @@ This article walks you through the four steps to publish a native application wi
 
 ## Step 1: Publish your proxy application
 
-Publish your proxy application as you would any other application and assign users to access your application. For more information, see [Publish applications with Application Proxy](application-proxy-add-on-premises-application.md).
+Publish your proxy application as you would any other application and assign users to access your application. For more information, see [Publish applications with Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md).
 
 ## Step 2: Register your native application
 
