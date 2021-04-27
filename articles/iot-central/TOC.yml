@@ -220,8 +220,6 @@
           href: core/howto-connect-ruuvi.md
         - name: Prepare and connect a Rigado Cascade 500
           href: core/howto-connect-rigado-cascade-500.md
-        - name: Connect other IoT clouds
-          href: core/howto-build-iotc-device-bridge.md
     - name: Build integrated solutions
       items:
         - name: Add tiles to your dashboard
@@ -238,7 +236,7 @@
           href: core/howto-export-data.md
         - name: Export data to cloud destinations (legacy)
           href: core/howto-export-data-legacy.md
-        - name: Transform data for Azure IoT Central
+        - name: Transform data
           href: core/howto-transform-data.md
         - name: Use workflows to integrate with other services
           href: core/howto-configure-rules-advanced.md
@@ -248,6 +246,8 @@
           href: core/howto-create-custom-analytics.md
         - name: Visualize your data in Power BI
           href: core/howto-connect-powerbi.md
+        - name: Connect other IoT clouds
+          href: core/howto-build-iotc-device-bridge.md
         - name: Connect your application with Dynamics 365 Field Services
           href: government/how-to-configure-connected-field-services.md
     - name: Manage your devices

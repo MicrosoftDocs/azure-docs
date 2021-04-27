@@ -27,7 +27,7 @@ Before you proceed, make sure to configure your device and its *Hardware Securit
 * Visual Studio
 
 > [!NOTE]
-> Visual Studio is not required. The installation of [.NET](https://www.microsoft.com/net) is sufficient and developers can use their preferred editor on Windows or Linux.  
+> Visual Studio is not required. The installation of [.NET](https://dotnet.microsoft.com) is sufficient and developers can use their preferred editor on Windows or Linux.  
 
 This tutorial simulates the period during or right after the hardware manufacturing process, when device information is added to the provisioning service. This code is usually run on a PC or a factory device that can run .NET code and should not be added to the devices themselves.
 

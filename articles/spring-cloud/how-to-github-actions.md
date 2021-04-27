@@ -335,5 +335,5 @@ If your action runs in error, for example, if you haven't set the Azure credenti
 ## Next steps
 
 * [Key Vault for Spring Cloud GitHub actions](./spring-cloud-github-actions-key-vault.md)
-* [Azure Active Directory service principals](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)
+* [Azure Active Directory service principals](/cli/azure/ad/sp#az_ad_sp_create_for_rbac)
 * [GitHub Actions for Azure](https://github.com/Azure/actions/)

@@ -32,7 +32,7 @@ This article describes how to use Azure CLI to list Azure built-in roles and ass
 
 ## List available Azure roles
 
-To list available Azure built-in roles with Azure CLI, use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command:
+To list available Azure built-in roles with Azure CLI, use the [az role definition list](/cli/azure/role/definition#az_role_definition_list) command:
 
 ```azurecli-interactive
 az role definition list --out table
@@ -52,7 +52,7 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 
 ## Assign an Azure role to a security principal
 
-To assign an Azure role to a security principal, use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. The format of the command can differ based on the scope of the assignment. The following examples show how to assign a role to a user at various scopes, but you can use the same command to assign a role to any security principal.
+To assign an Azure role to a security principal, use the [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) command. The format of the command can differ based on the scope of the assignment. The following examples show how to assign a role to a user at various scopes, but you can use the same command to assign a role to any security principal.
 
 > [!IMPORTANT]
 > When you create an Azure Storage account, you are not automatically assigned permissions to access data via Azure AD. You must explicitly assign yourself an Azure RBAC role for data access. You can assign it at the level of your subscription, resource group, storage account, or container or queue.

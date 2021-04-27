@@ -2,12 +2,13 @@
 title: Tutorial - Configure networking for your VMware private cloud in Azure
 description: Learn to create and configure the networking needed to deploy your private cloud in Azure
 ms.topic: tutorial
-ms.date: 03/13/2021
+ms.custom: contperf-fy21q4
+ms.date: 04/23/2021
 ---
 
 # Tutorial: Configure networking for your VMware private cloud in Azure
 
-An Azure VMware Solution private cloud requires an Azure Virtual Network. Because Azure VMware Solution doesn't support your on-premises vCenter, additional steps for integration with your on-premises environment are needed. Setting up an ExpressRoute circuit and a virtual network gateway is also required.
+An Azure VMware Solution private cloud requires an Azure Virtual Network. Because Azure VMware Solution doesn't support your on-premises vCenter, extra steps for integration with your on-premises environment are needed. Setting up an ExpressRoute circuit and a virtual network gateway is also required.
 
 In this tutorial, you learn how to:
 
@@ -15,10 +16,7 @@ In this tutorial, you learn how to:
 > * Create a virtual network
 > * Create a virtual network gateway
 > * Connect your ExpressRoute circuit to the gateway
-> * Locate the URLs for vCenter and NSX Manager
 
-## Prerequisites 
-A virtual network that you created an [Azure VMware Solution private cloud](tutorial-create-private-cloud.md). 
 
 ## Create a virtual network
 
@@ -83,14 +81,6 @@ Now that you've deployed a virtual network gateway, you'll add a connection betw
 [!INCLUDE [connect-expressroute-to-vnet](includes/connect-expressroute-vnet.md)]
 
 
-## Locate the URLs for vCenter and NSX Manager
-
-To sign in to vCenter and NSX manager, you'll need the URLs to the vCenter web client and the NSX-T manager site. 
-
-Navigate to your Azure VMware Solution private cloud, under **Manage**, select **Identity**, here you'll find the information needed.
-
-:::image type="content" source="./media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Screenshot of the vCenter and NSX-T credentials and web client URLs." border="true" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
-
 ## Next steps
 
 In this tutorial, you learned how to:
@@ -99,7 +89,7 @@ In this tutorial, you learned how to:
 > * Create a virtual network
 > * Create a virtual network gateway
 > * Connect your ExpressRoute circuit to the gateway
-> * Locate the URLs for vCenter and NSX Manager
+
 
 Continue to the next tutorial to learn how to create the NSX-T network segments that are used for VMs in vCenter.
 

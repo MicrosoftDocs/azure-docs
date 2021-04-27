@@ -237,6 +237,6 @@ You can create queries or use the available pre-defined query in Azure Sentinel 
 
 Now that you've covered how to protect your Azure VMware Solution VMs, you may want to learn about:
 
-- Using the [Azure Defender dashboard](../security-center/azure-defender-dashboard.md).
-- [Advanced multistage attack detection in Azure Sentinel](../azure-monitor/logs/quick-create-workspace.md).
-- [Lifecycle management of Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md).
+- Using the [Azure Defender dashboard](../security-center/azure-defender-dashboard.md)
+- [Advanced multistage attack detection in Azure Sentinel](../azure-monitor/logs/quick-create-workspace.md)
+- [Lifecycle management of Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md)

@@ -248,7 +248,7 @@ You get the subscriptionId as part of the response from the command.
 
 First, install the extension by running `az extension add --name account` and `az extension add --name alias`.
 
-Run the following [az account alias create](/cli/azure/ext/account/account/alias#ext_account_az_account_alias_create) command and provide `billing-scope` and `id` from one of your `enrollmentAccounts`. 
+Run the following [az account alias create](/cli/azure/account/alias#az_account_alias_create) command and provide `billing-scope` and `id` from one of your `enrollmentAccounts`. 
 
 ```azurecli-interactive
 az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/1234567/enrollmentAccounts/654321" --display-name "Dev Team Subscription" --workload "Production"

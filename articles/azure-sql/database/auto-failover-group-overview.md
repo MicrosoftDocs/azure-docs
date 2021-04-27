@@ -430,11 +430,11 @@ As discussed previously, auto-failover groups and active geo-replication can als
 
 | Command | Description |
 | --- | --- |
-| [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) |This command creates a failover group and registers it on both primary and secondary servers|
-| [az sql failover-group delete](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | Removes a failover group from the server |
-| [az sql failover-group show](/cli/azure/sql/failover-group#az-sql-failover-group-show) | Retrieves a failover group configuration |
-| [az sql failover-group update](/cli/azure/sql/failover-group#az-sql-failover-group-update) |Modifies a failover group's configuration  and/or adds one or more databases to a failover group|
-| [az sql failover-group set-primary](/cli/azure/sql/failover-group#az-sql-failover-group-set-primary) | Triggers failover of a failover group to the secondary server |
+| [az sql failover-group create](/cli/azure/sql/failover-group#az_sql_failover_group_create) |This command creates a failover group and registers it on both primary and secondary servers|
+| [az sql failover-group delete](/cli/azure/sql/failover-group#az_sql_failover_group_delete) | Removes a failover group from the server |
+| [az sql failover-group show](/cli/azure/sql/failover-group#az_sql_failover_group_show) | Retrieves a failover group configuration |
+| [az sql failover-group update](/cli/azure/sql/failover-group#az_sql_failover_group_update) |Modifies a failover group's configuration  and/or adds one or more databases to a failover group|
+| [az sql failover-group set-primary](/cli/azure/sql/failover-group#az_sql_failover_group_set_primary) | Triggers failover of a failover group to the secondary server |
 
 # [Rest API](#tab/rest-api)
 
@@ -468,11 +468,11 @@ As discussed previously, auto-failover groups and active geo-replication can als
 
 | Command | Description |
 | --- | --- |
-| [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) |This command creates a failover group and registers it on both primary and secondary servers|
-| [az sql failover-group delete](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | Removes a failover group from the server |
-| [az sql failover-group show](/cli/azure/sql/failover-group#az-sql-failover-group-show) | Retrieves a failover group configuration |
-| [az sql failover-group update](/cli/azure/sql/failover-group#az-sql-failover-group-update) |Modifies a failover group's configuration  and/or adds one or more databases to a failover group|
-| [az sql failover-group set-primary](/cli/azure/sql/failover-group#az-sql-failover-group-set-primary) | Triggers failover of a failover group to the secondary server |
+| [az sql failover-group create](/cli/azure/sql/failover-group#az_sql_failover_group_create) |This command creates a failover group and registers it on both primary and secondary servers|
+| [az sql failover-group delete](/cli/azure/sql/failover-group#az_sql_failover_group_delete) | Removes a failover group from the server |
+| [az sql failover-group show](/cli/azure/sql/failover-group#az_sql_failover_group_show) | Retrieves a failover group configuration |
+| [az sql failover-group update](/cli/azure/sql/failover-group#az_sql_failover_group_update) |Modifies a failover group's configuration  and/or adds one or more databases to a failover group|
+| [az sql failover-group set-primary](/cli/azure/sql/failover-group#az_sql_failover_group_set_primary) | Triggers failover of a failover group to the secondary server |
 
 # [Rest API](#tab/rest-api)
 

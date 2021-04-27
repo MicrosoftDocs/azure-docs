@@ -7,7 +7,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 03/24/2021
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java
 ---
 
 # Enable end-to-end TLS for an application
@@ -41,6 +41,17 @@ Use the command `az spring-cloud app custom-domain update --enable-end-to-end-tl
 az spring-cloud app custom-domain update --enable-end-to-end-tls -n app_name -s service_name -g resource_group_name
 az spring-cloud app custom-domain bind --enable-end-to-end-tls -n app_name -s service_name -g resource_group_name
 ```
+
+## Enable end-to-end TLS using Azure portal
+To enable end-to-end TLS in the [Azure portal](https://portal.azure.com/), first create an app, and then enable the feature.
+
+1. Create an app in the portal as you normally would. Navigate to it in the portal.
+2. Scroll down to the **Settings** group in the left navigation pane.
+3. Select **End-to-end TLS**.
+4. Switch **End-to-end TLS** to *Yes*.
+
+ ![Enable End-to-end TLS in portal](./media/enable-end-to-end-tls/enable-tls.png)
+
 
 ## Verify end-to-end TLS status
 

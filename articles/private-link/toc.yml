@@ -54,7 +54,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/private-link-security-baseline
 - name: How-to
   items:
   - name: Disable network policies for a private endpoint
