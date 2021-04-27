@@ -22,7 +22,7 @@ ms.author: alkohli
 
 When you deactivate a StorSimple Virtual Array, you break the connection between the device and the corresponding StorSimple Device Manager service. This tutorial explains how to:
 
-* Deactivate a device 
+* Deactivate a device
 * Delete a deactivated device
 
 The information in this article applies to StorSimple Virtual Arrays only. For information on 8000 series, go to how to [deactivate or delete a device](./storsimple-8000-deactivate-and-delete-device.md).
