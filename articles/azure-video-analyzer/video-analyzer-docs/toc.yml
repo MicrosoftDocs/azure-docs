@@ -43,7 +43,7 @@
   - name: Playback multi-day recordings
     href: playback-multi-day-recordings.md #404
   - name: Use continuous video recording
-    href: use-continuous-video-recording.md #404
+    href: use-continuous-video-recording.md 
   - name: Use event-based video recording
     href: record-event-based-live-video.md #404
   - name: Use line crossing
@@ -106,7 +106,7 @@
     href: configure-signal-gate.md #404
   - name: Use widgets
     href: use-widgets.md #404
-  - name: Monitor and logging
+  - name: Monitor and log on IoT Edge
     href: monitor-logging-edge.md 
   - name: Troubleshoot
     href: troubleshoot.md
