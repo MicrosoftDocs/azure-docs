@@ -114,18 +114,6 @@ If you'd like to trigger a restore on the healthy SQL instances, do the followin
 | Backup, file manipulation operations (such as ALTER DATABASE ADD FILE) and encryption changes on a database must be serialized. | You may get this error when the triggered adhoc  or the scheduled backup job is conflicting with an already running backup operation triggered by Azure Backup extension on the same database.<br> The following are the cases where this error code might surface:<br><ul><li>Full backup is running on the database and another Full backup is triggered.</li><li>Diff backup is running on the database and another Diff backup is triggered.</li><li>Log backup is running on the database and another Log backup is triggered.</li></ul>| After the conflicting operation fails, restart the operation.
 
 
-### UserErrorCannotTakeBackupBasedOnBackupPreference
-
-| Error message | Possible causes | Recommended action |
-|---|---|---|
-| The node on which the backup was triggered cannot take the backup of the requested type. | The following are the cases where this error code might surface:<br><ul><li>If the backup preference of the AG is set to SECONDARY_ONLY, the node on which backup is taken is being PRIMARY and the current backup type is Log/CopyOnlyFull.</li><li>If the backup preference of the AG is set to PRIMARY, the node on which backup is being taken is SECONDARY, then logs backup will fail with the ErrorCode UserErrorCannotTakeBackupBasedOnBackupPreference.</li></ul> | Need input. |
-
-
-
-
-
-
-
 ### UserErrorSQLPODoesNotExist
 
 | Error message | Possible causes | Recommended action |
