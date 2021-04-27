@@ -21,7 +21,8 @@ The new `ml` extension to the [Azure CLI](/cli/azure/) is the next generation in
 
 - To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](/cli/azure/install-azure-cli).
 
-    If you use the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/), the CLI is accessed through the browser and lives in the cloud.
+    > [!TIP]
+    > If you use the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/), the CLI is accessed through the browser and lives in the cloud.
 
 ## Installation
 
