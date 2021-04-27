@@ -77,22 +77,22 @@ Follow these instructions to provision the Device Update agent on [IoT Edge enab
 1. Follow the instructions to [Install and provision the Azure IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11&preserve-view=true).
 
 1. Install the Device Update image update agent
-    - We provide sample images in [Artifacts](https://github.com/Azure/iot-hub-device-update/releases) to try image update rollouts to different versions using a base image (adu-base-image) and one update image (adu-update-image). See example of [how to flash the image to your IoT Hub device](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image).  
+    - We provide sample images in [Artifacts](https://github.com/Azure/iot-hub-device-update/releases), the swUpdate file is the base image that you can flash onto a Raspberry Pi B3+ board, and the .gz file is the update you would import through Device Update for IoT Hub. See example of [how to flash the image to your IoT Hub device](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image).  
 
 1. Install the Device Update package update agent  
     - For latest agent versions from packages.miscrosoft.com: Update package lists on your device and install the Device Update agent package and its dependencies using:	
-	```shell
-	sudo apt-get update
-	```
+		```shell
+		sudo apt-get update
+		```
 	
-	```shell
-	sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt
-	```
+		```shell
+		sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt
+		```
 	
     - For upcoming release candidate versions from [Artifacts](https://github.com/Azure/iot-hub-device-update/releases) : Download the .dep file to the machine you want to install the Device Update agent on, then:
-	 ```shell
-	Sudo apt-get install -y ./"<PATH TO FILE>"/"<.DEP FILE NAME>"
-	 ```
+	 	```shell
+		sudo apt-get install -y ./"<PATH TO FILE>"/"<.DEP FILE NAME>"
+	 	```
 	
 1. You are now ready to start the Device Update agent on your IoT Edge device. 
 
@@ -110,7 +110,7 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
         ```
         
 1. Provisioning IoT Identity service to get the IoT device information.
-    * Create a custom copy of the configuration template so we can add the provisioning information. In a terminal, enter the below command.
+    1. Create a custom copy of the configuration template so we can add the provisioning information. In a terminal, enter the below command.
       
         ```shell
         sudo cp /etc/aziot/config.toml.template /etc/aziot/config.toml 
@@ -142,7 +142,7 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
     sudo aziotctl config apply
     ```
     
-1.	Finally install the Device Update agent. We provide sample images in [Artifacts](https://github.com/Azure/iot-hub-device-update/releases) to try image update rollouts to different versions using a base image (adu-base-image) and one update image (adu-update-image). See example of [how to flash the image to your IoT Hub device](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image).
+1.	Finally install the Device Update agent. We provide sample images in [Artifacts](https://github.com/Azure/iot-hub-device-update/releases), the swUpdate file is the base image that you can flash onto a Raspberry Pi B3+ board, and the .gz file is the update you would import through Device Update for IoT Hub. See example of [how to flash the image to your IoT Hub device](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image).
 
 1.	You are now ready to start the Device Update agent on your IoT device. 
 
@@ -150,7 +150,7 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
 
 The Device Update agent can also be configured without the IoT Identity service for testing or on constrained devices. Follow the below steps to provision the Device Update agent using a connection string (from the Module or Device).
 
-1.	We provide sample images in [Artifacts](https://github.com/Azure/iot-hub-device-update/releases) to try image update rollouts to different versions using a base image (adu-base-image) and one update image (adu-update-image). See example of [how to flash the image to your IoT Hub device](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image).
+1.	We provide sample images in [Artifacts](https://github.com/Azure/iot-hub-device-update/releases), the swUpdate file is the base image that you can flash onto a Raspberry Pi B3+ board, and the .gz file is the update you would import through Device Update for IoT Hub. See example of [how to flash the image to your IoT Hub device](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image).
 
 1.	Log onto the machine or IoT Edge device/IoT device.
 	
@@ -158,8 +158,8 @@ The Device Update agent can also be configured without the IoT Identity service 
 
 1.	Add the connection string to the [Device Update configuration file](device-update-configuration-file.md):
     1. Enter the below in the terminal window:
-        - [Package updates](device-update-ubuntu-agent.md) use: sudo nano /etc/adu/adu-conf.txt
-        - [Image updates](device-update-raspberry-pi.md) use: sudo nano /adu/adu-conf.txt
+        - [For Package updates](device-update-ubuntu-agent.md) use: sudo nano /etc/adu/adu-conf.txt
+        - [For Image updates](device-update-raspberry-pi.md) use: sudo nano /adu/adu-conf.txt
        
     1. You should see a window open with some text in it. Delete the entire string following 'connection_String=' the first-time you provision the Device Update agent on the IoT device. It is just place holder text.
     

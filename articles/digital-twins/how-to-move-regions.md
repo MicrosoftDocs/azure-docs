@@ -68,7 +68,7 @@ First, navigate to **Azure Digital Twins Explorer** in the [Azure portal](https:
 
 :::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Screenshot of the Azure portal in an internet browser. The portal is showing the Azure Digital Twins Explorer, which contains no data." lightbox="media/how-to-move-regions/explorer-blank.png":::
 
-Select the **Run Query** button to run the default query to display all twins and relationships in the graph in the **QUERY EXPLORER** box.
+Select the **Run Query** button to run the default query to display all twins and relationships in the graph in the **TWIN GRAPH** box.
 
 :::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="A button reading Run Query in the upper-right corner of the window is highlighted." lightbox="media/how-to-move-regions/run-query.png":::
 
@@ -130,11 +130,9 @@ Azure Digital Twins Explorer now uploads your models and graph (including the tw
     :::column-end:::
     :::column:::
     :::column-end:::
-    :::column:::
-    :::column-end:::
 :::row-end:::
 
-To verify everything was uploaded successfully, select the **Run Query** button in the **QUERY EXPLORER** box to run the default query that displays all twins and relationships in the graph. This action also refreshes the list of models in the **MODELS** box.
+To verify everything was uploaded successfully, switch back to the **TWIN GRAPH** tab and select the **Run Query** button in the **QUERY EXPLORER** box to run the default query that displays all twins and relationships in the graph. This action also refreshes the list of models in the **MODELS** box.
 
 :::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Highlight around the Run Query button in the upper-right corner of the window." lightbox="media/how-to-move-regions/run-query.png":::
 

@@ -66,7 +66,7 @@
         displayName: regulatory, compliance, standards, domains
         href: ./database/security-controls-policy.md
       - name: Security baseline
-        href: database/security-baseline.md
+        href: /security/benchmark/azure/baselines/sql-database-security-baseline
       - name: Always Encrypted
         href: database/always-encrypted-landing.yml
       - name: Azure Defender for SQL

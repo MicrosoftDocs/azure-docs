@@ -51,7 +51,7 @@
     - name: Security
       items:
         - name: Security Baseline
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/aks-security-baseline
         - name: Security for applications and clusters
           href: concepts-security.md
         - name: Security controls by Azure Policy
