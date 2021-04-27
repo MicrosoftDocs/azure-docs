@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Azure Defender for IoT.
-ms.date: 4/20/2021
+ms.date: 04/27/2021
 ms.topic: how-to
 ---
 
@@ -205,7 +205,7 @@ To configure Dell BIOS:
 
 #### Import the BIOS configuration file
 
-This article describes how to configure the BIOS by using the configuration file.
+This section describes how to configure the BIOS by using the configuration file.
 
 1. Plug in a PC with a static preconfigured IP address **10.100.100.200** to the **iDRAC** port.
 
@@ -349,7 +349,7 @@ To install:
 
 ## HPE ProLiant DL20 installation
 
-This article describes the HPE ProLiant DL20 installation process, which includes the following steps:
+This section describes the HPE ProLiant DL20 installation process, which includes the following steps:
 
   - Enable remote access and update the default administrator password.
   - Configure BIOS and RAID settings.
@@ -566,10 +566,101 @@ To install:
 
 1. Select **Enter** to continue.
 
+## HP EdgeLine 300 installation
+
+•	A default administrative user is provided. We recommend that you change the password during the network configuration.
+
+•	The installation process takes about 20 minutes. After the installation, the system is restarted several times.
+
+### HP EdgeLine 300 back panel
+
+:::image type="content" source="media/tutorial-install-components/edgeline-el300-panel.png" alt-text="View of the back panel of the EL300":::
+
+### Enable remote access
+
+1. Enter the iSM IP Address into your web browser.
+
+1. Sign in using the default username and password found on your appliance.
+
+1. Navigate to **Wired and Wireless Network** > **IPV4**
+
+    :::image type="content" source="media/tutorial-install-components/wired-and-wireless.png" alt-text="navigate to highlighted sections.":::
+
+1. Disable **DHCP toggle**.
+
+1. Configure the IPv4 addresses as such:
+    - **IPV4 Address**: `192.168.1.125`
+    - **IPV4 Subnet Mask**: `255.255.255.0`
+    - **IPV4 Gateway**: `192.168.1.1`
+
+1. Select **Apply**.
+
+1. Sign out and reboot the appliance.
+
+### Configure the BIOS
+
+The following procedure describes how to configure the BIOS for HP EL300 appliance.
+
+To configure the BIOS:
+
+1. Turn on the appliance and push **F9** to enter the BIOS.
+
+1. Select **Advanced**, and scroll down to **CSM Support**.
+
+    :::image type="content" source="media/tutorial-install-components/csm-support.png" alt-text="Enable CSM support to open the additional menu.":::
+
+1. Push **Enter** to enable CSM Support.
+
+1. Navigate to **Storage** and push **+/-** to change it to Legacy.
+
+1. Navigate to **Video** and push **+/-** to change it to Legacy.
+
+    :::image type="content" source="media/tutorial-install-components/storage-and-video.png" alt-text="Navigate to storage and video and change them to Legacy.":::
+
+1. Navigate to **Boot** > **Boot mode select**.
+
+1. Push **+/-** to change it to Legacy.
+
+    :::image type="content" source="media/tutorial-install-components/boot-mode.png" alt-text="Change Boot mode select to Legacy.":::
+
+1. Navigate to **Save & Exit**.
+
+1. Select **Save Changes and Exit**.
+
+    :::image type="content" source="media/tutorial-install-components/save-and-exit.png" alt-text="Save your changes and exit the system.":::
+
+1. Select **Yes**, and the appliance will reboot.
+
+1. Push **F11** to enter the **Boot Menu**.
+
+1. Select the device with the sensor image. Either **DVD** or **USB**.
+
+1. Select your language.
+
+1. Select **sensor-10.0.3.12-62a2a3f724 Office: 4 CPUS, 8GB RAM, 100GB STORAGE**.
+
+    :::image type="content" source="media/tutorial-install-components/sensor-select-screen.png" alt-text="Select the sensor version as shown.":::
+
+1. In the Installation Wizard, define the appliance profile, and network properties:
+
+    :::image type="content" source="media/tutorial-install-components/appliance-parameters.png" alt-text="Define the appliance's profile and network configurations with the following parameters.":::
+
+    | Parameter | Configuration |
+    |--|--|
+    | **configure hardware profile** | **office** |
+    | **configure management network interface** | **enp3s0** <br />or <br />**possible value** |
+    | **configure management network IP address:** | **IP address provided by the customer** |
+    | **configure subnet mask:** | **IP address provided by the customer** |
+    | **configure DNS:** | **IP address provided by the customer** |
+    | **configure default gateway IP address:** | **IP address provided by the customer** |
+    | **configure input interface(s)** | **enp4s0** <br />or <br />**possible value** |
+    | **configure bridge interface(s)** | N/A |
+
+1. Accept the settings and continue by entering `Y`.
+
 ## Sensor installation for the virtual appliance
 
 You can deploy the virtual machine for the Defender for IoT sensor in the following architectures:
-
 
 | Architecture | Specifications | Usage | Comments |
 |---|---|---|---|
