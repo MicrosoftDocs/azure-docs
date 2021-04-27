@@ -84,11 +84,11 @@ If the connection succeeds, the list of edge devices appears. You should see at 
 
 ## Use direct method calls
 
-You can use the module to analyze live video streams by invoking direct methods. For more information, see [Direct methods for Azure Video Analyzer](https://review.docs.microsoft.com/en-us/azure/azure-video-analyzer/video-analyzer-docs/direct-methods?branch=release-azure-video-analyzer)<!--add a link-->.
+You can use the module to analyze live video streams by invoking direct methods. For more information, see [Direct methods for Azure Video Analyzer](https://review.docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/direct-methods?branch=release-azure-video-analyzer)<!--add a link-->.
 
 ### Invoke pipelineTopologyList
 
-To enumerate all of the [pipelines](https://review.docs.microsoft.com/en-us/azure/azure-video-analyzer/video-analyzer-docs/pipeline?branch=release-azure-video-analyzer)<!-- add a link-->  in the module:
+To enumerate all of the [pipelines](https://review.docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/pipeline?branch=release-azure-video-analyzer)<!-- add a link-->  in the module:
 
 1. In the Visual Studio Code, right-click the **avaEdge** module and select **Invoke Module Direct Method**.
 1. In the box that appears, enter pipelineTopologyList.
@@ -115,7 +115,7 @@ This response is expected because no topologies have been created.
 
 ### Invoke pipelineTopologySet
 
-Like we did before, you can now invoke pipelineTopologySet to set a [pipeline topology](https://review.docs.microsoft.com/en-us/azure/azure-video-analyzer/video-analyzer-docs/pipeline?branch=release-azure-video-analyzer)<!-- TODO: add a link later-->. Use the following JSON as the payload.
+Like we did before, you can now invoke pipelineTopologySet to set a [pipeline topology](https://review.docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/pipeline?branch=release-azure-video-analyzer)<!-- TODO: add a link later-->. Use the following JSON as the payload.
 
 ```json
 {
@@ -375,7 +375,7 @@ In the response payload, notice these details:
 
 ### Invoke livePipelineSet
 
-Create a pipeline instance that references the preceding topology. Pipeline instances let you analyze live video streams from many cameras by using the same pipeline topology. For more information, see [Pipeline topologies and instances](https://review.docs.microsoft.com/en-us/azure/azure-video-analyzer/video-analyzer-docs/pipeline?branch=release-azure-video-analyzer)<!--TODO:add a link later-->.
+Create a pipeline instance that references the preceding topology. Pipeline instances let you analyze live video streams from many cameras by using the same pipeline topology. For more information, see [Pipeline topologies and instances](https://review.docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/pipeline?branch=release-azure-video-analyzer)<!--TODO:add a link later-->.
 
 Invoke the direct method `livePipelineSet` by using the following payload.
 
