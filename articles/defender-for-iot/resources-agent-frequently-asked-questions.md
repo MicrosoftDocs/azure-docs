@@ -70,43 +70,6 @@ The agent cannot be turned off.
 
 If the agent stops communicating or fails to send security messages, a **Device is silent** alert is generated.
 
-## How can I change the default password
-
-To change the default password for either the sensor or the on-premises management console:
-
-1. Select the Users tab :::image type="icon" source="media/resources-agent-frequently-asked-questions/users-tab.png" border="false"::: from the left side toolbar.
-
-1. Select the edit icon :::image type="icon" source="media/resources-agent-frequently-asked-questions/pencil-icon.png" border="false"::: for the user whose password you want to change.
-
-1. In the change password fields enter a new password, and confirm the new password.
-
-> [!NOTE]
-> Passwords must be at least 16 characters, contain lowercase and uppercase alphabetic characters, numbers and one of the symbols: #%*+,-./:=?@[]^_{}~
-
-1. Select **Update**.
-
-## How do I activate the sensor and on-premises management console
-
-For information on how to activate your sensor, see [Sign in and activate the sensor](how-to-activate-and-set-up-your-sensor.md#sign-in-and-activate-the-sensor).
-
-For information on how to activate your on-premises management console, see [Activate the on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md#activate-the-on-premises-management-console).
-
-## How to change the network configuration
-
-You can see how to [update your sensor network configuration before activation](how-to-activate-and-set-up-your-sensor.md#update-sensor-network-configuration-before-activation).
-
-You can also [update the sensor network configuration](how-to-manage-individual-sensors.md#update-the-sensor-network-configuration) after activation.
-
-If you are working with the CLI commands, you can view a table of the [available commands](references-work-with-defender-for-iot-cli-commands.md#network-configuration), or you can learn how to [Filter network configurations](references-work-with-defender-for-iot-cli-commands.md#filter-network-configurations).
-
-## How do I check the sanity of my deployment
-
-After installing the software for your on-premises management console, you will want to perform the [Post-installation validation](how-to-install-software.md#post-installation-validation). There you will learn how to [Check system health by using the CLI](how-to-install-software.md#check-system-health-by-using-the-cli), perform a [Sanity](how-to-install-software.md#sanity) check, and review your overall [System](how-to-install-software.md#system) statistics through the GUI,
-
-You can also [Check system health by using the CLI](how-to-install-software.md#check-system-health-by-using-the-cli). Here you will test the systems sanity, version, network and management access to the UI.
-
-You can follow these links, if [The appliance isn't responding](how-to-install-software.md#the-appliance-isnt-responding) or [You can't connect by using a web interface](how-to-install-software.md#you-cant-connect-by-using-a-web-interface).
-
 ## Next steps
 
 To learn more about how to get started with Defender for IoT, see the following articles:
