@@ -92,6 +92,8 @@ QnA Maker allows you to manage your knowledge bases by providing access to the k
      |**Unstructured content**|Check this box to identify that the document has unstructured content|
     |**Chit-chat**|Select **Professional**|
 
+---
+
 ## Edit knowledge base
 
 1.  Select **My knowledge bases** in the top navigation bar.
