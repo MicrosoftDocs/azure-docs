@@ -179,7 +179,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/site-recovery-security-baseline
+      href: /security/benchmark/azure/baselines/site-recovery-security-baseline?toc=/azure/site-recovery/toc.json
 - name: How-to Guides
   items:
   - name: Azure to Azure disaster recovery
