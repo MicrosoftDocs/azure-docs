@@ -494,9 +494,9 @@ The following application settings can be used to change how the managed depende
 
 | Function App setting              | Default value             | Description                                         |
 |   -----------------------------   |   -------------------     |  -----------------------------------------------    |
-| **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00` (7 days)     | Controls the background update period for PowerShell function apps. To learn more, see [MDMaxBackgroundUpgradePeriod](functions-app-settings.md#mdmaxbackgroundupgradeperiod). | 
-| **`MDNewSnapshotCheckPeriod`**         | `01:00:00` (1 hour)       | The period during which the worker processes for a PowerShell function app are restarted due to updates. To learn more, see [MDNewSnapshotCheckPeriod](functions-app-settings.md#mdnewsnapshotcheckperiod).|
-| **`MDMinBackgroundUpgradePeriod`**      | `1.00:00:00` (1 day)     | The period of time after a previous upgrade check before another upgrade check is started. To learn more, see [MDMinBackgroundUpgradePeriod](functions-app-settings.md#mdminbackgroundupgradeperiod).|
+| **MDMaxBackgroundUpgradePeriod**      | `7.00:00:00` (seven days)     | Controls the background update period for PowerShell function apps. To learn more, see [MDMaxBackgroundUpgradePeriod](functions-app-settings.md#mdmaxbackgroundupgradeperiod). | 
+| **MDNewSnapshotCheckPeriod**         | `01:00:00` (one hour)       | Specifies how often each PowerShell worker checks whether managed dependency upgrades have been installed. To learn more, see [MDNewSnapshotCheckPeriod](functions-app-settings.md#mdnewsnapshotcheckperiod).|
+| **MDMinBackgroundUpgradePeriod**      | `1.00:00:00` (one day)     | The period of time after a previous upgrade check before another upgrade check is started. To learn more, see [MDMinBackgroundUpgradePeriod](functions-app-settings.md#mdminbackgroundupgradeperiod).|
 
 Essentially, your app upgrade starts within `MDMaxBackgroundUpgradePeriod`, and the upgrade process completes within approximately the `MDNewSnapshotCheckPeriod`.
 
