@@ -93,24 +93,24 @@ An application can consume a secret from CSS by declaring it as an environment v
      <Section Name="testsecrets">
       <Parameter Name="TopSecret" Type="SecretsStoreRef" Value="supersecret:ver1"/
      </Section>
-   ```
+```
 2. Import the section in **ApplicationManifest.xml**.
-   ```xml
-     <ServiceManifestImport>
-       <ServiceManifestRef ServiceManifestName="testservicePkg" ServiceManifestVersion="1.0.0" />
-       <ConfigOverrides />
-       <Policies>
-         <ConfigPackagePolicies CodePackageRef="Code">
-           <ConfigPackage Name="Config" SectionName="testsecrets" EnvironmentVariableName="SecretPath" />
-           </ConfigPackagePolicies>
-       </Policies>
-     </ServiceManifestImport>
-   ```
+```xml
+<ServiceManifestImport>
+<ServiceManifestRef ServiceManifestName="testservicePkg" ServiceManifestVersion="1.0.0" />
+<ConfigOverrides />
+<Policies>
+ <ConfigPackagePolicies CodePackageRef="Code">
+   <ConfigPackage Name="Config" SectionName="testsecrets" EnvironmentVariableName="SecretPath" />
+   </ConfigPackagePolicies>
+</Policies>
+</ServiceManifestImport>
+```
    
 The environment variable `SecretPath` will point to the directory where all secrets are stored. Each parameter listed under the `testsecrets` section is stored in a separate file. The application can now use the secret as follows:
-   ```C#
-   secretValue = IO.ReadFile(Path.Join(Environment.GetEnvironmentVariable("SecretPath"),  "TopSecret"))
-   ```
+```C#
+secretValue = IO.ReadFile(Path.Join(Environment.GetEnvironmentVariable("SecretPath"),  "TopSecret"))
+```
    
 2.1. Mount the secrets to a container. The only change required to make the secrets available inside the container is to `specify` a mount point in `<ConfigPackage>`.
 The following snippet is the modified **ApplicationManifest.xml**.  
@@ -127,15 +127,16 @@ The following snippet is the modified **ApplicationManifest.xml**.
          </ConfigPackagePolicies>
        </Policies>
      </ServiceManifestImport>
-   ```
-   Secrets are available under the mount point inside your container.
+```
+Secrets are available under the mount point inside your container.
 
 3. You can bind a secret to a process environment variable by specifying `Type='SecretsStoreRef`. The following snippet is an example of how to bind the `supersecret` version `ver1` to the environment variable `MySuperSecret` in **ServiceManifest.xml**.
+
 ```xml
    <EnvironmentVariables>
      <EnvironmentVariable Name="MySuperSecret" Type="SecretsStoreRef" Value="supersecret:ver1"/>
    </EnvironmentVariables>
-   ```
+```
    
 ## Rotating the Central Secret Service Encryption Certificate
 It is important to note that certificates remain valid for decryption beyond their expiry. At this time, we recommend continuing to provision past encryption certificates after rotation, to reduce the chance of a lockout. Rotating the CSS encryption certificate requires the following steps:
@@ -169,6 +170,7 @@ Upgrade cluster definition from `"DeployedState" = "removing"` to
 Central Secret Service should no longer be running in the cluster, and will not be present in the list of system services. The contents of CSS is irretrievably lost. 
 
 ## Next steps
-Learn more about [application and service security](service-fabric-application-and-service-security.md).
-Get introduced to [Managed Identity for Service Fabric Applications](concepts-managed-identity.md).
-Expand CSS's functionality with [KeyVaultReferences](service-fabric-keyvault-references.md)
+
+- Learn more about [application and service security](service-fabric-application-and-service-security.md).
+- Get introduced to [Managed Identity for Service Fabric Applications](concepts-managed-identity.md).
+- Expand CSS's functionality with [KeyVaultReferences](service-fabric-keyvault-references.md)
