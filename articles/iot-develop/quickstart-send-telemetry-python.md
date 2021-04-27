@@ -93,7 +93,7 @@ In this section, you use the Python SDK samples to configure a simulated thermos
     pip install azure-iot-device
     ```
 
-1. Set each of the following environment variables, to enable your simulated device to connect to IoT Central. For `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY`, `IOTHUB_DEVICE_DPS_DEVICE_ID`, use the device connection values that you saved earlier.
+1. Set each of the following environment variables, to enable your simulated device to connect to IoT Central. For `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY`, and `IOTHUB_DEVICE_DPS_DEVICE_ID`, use the device connection values that you saved.
 
     **Windows CMD**
 
