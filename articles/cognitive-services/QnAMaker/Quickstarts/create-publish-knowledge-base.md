@@ -26,6 +26,8 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 > * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 > * Create a Text Analytics resource with Custom question answering feature. Remember your Azure Active Directory ID, Subscription, QnA/Text Analytics resource name you selected when you created the resource.
 
+---
+
 ## Create your first QnA Maker knowledge base
 
 # [QnA Maker GA (stable release)](#tab/v1)
