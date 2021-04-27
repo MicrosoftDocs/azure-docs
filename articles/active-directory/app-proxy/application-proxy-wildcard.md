@@ -14,7 +14,7 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ---
 
-# Wildcard applications in the Azure Active Directory application proxy
+# Wildcard applications in the Azure Active Directory Application Proxy
 
 In Azure Active Directory (Azure AD), configuring a large number of on-premises applications can quickly become unmanageable and introduces unnecessary risks for configuration errors if many of them require the same settings. With [Azure AD Application Proxy](application-proxy.md), you can address this issue by using wildcard application publishing to publish and manage many applications at once. This is a solution that allows you to:
 
@@ -139,7 +139,7 @@ You can publish the wildcard application using the steps outlined in [Publish ap
 - A verified domain called `adventure-works.com` has been configured.
 - A **CNAME** entry that points `*.adventure-works.com` to `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net` has been created.
 
-Following the [documented steps](application-proxy-add-on-premises-application.md), you create a new application proxy application in your tenant. In this example, the wildcard is in the following fields:
+Following the [documented steps](application-proxy-add-on-premises-application.md), you create a new Application Proxy application in your tenant. In this example, the wildcard is in the following fields:
 
 - Internal URL:
 
