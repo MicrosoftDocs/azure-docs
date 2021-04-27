@@ -18,7 +18,7 @@
   items:
   - name: Create FAQ Bot with Azure Bot Service
     href: Tutorials/create-faq-bot-with-azure-bot-service.md
-  - name: Create an Advanced Bot
+  - name: Customize your bot
     items:
     - name: Add multiple domains to FAQ Bot
       href: Tutorials/create-faq-bot-for-multiple-domains.md
