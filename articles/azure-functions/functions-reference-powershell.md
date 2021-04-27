@@ -484,7 +484,7 @@ In this way, the older version of the Az.Account module is loaded first when the
 
 The following considerations apply when using dependency management:
 
-+ Managed dependencies requires access to <www.powershellgallery.com> to download modules. When running locally, make sure that the runtime can access this URL by adding any required firewall rules.
++ Managed dependencies requires access to <https://www.powershellgallery.com> to download modules. When running locally, make sure that the runtime can access this URL by adding any required firewall rules.
 
 + Managed dependencies currently don't support modules that require the user to accept a license, either by accepting the license interactively, or by providing `-AcceptLicense` switch when invoking `Install-Module`.
 
