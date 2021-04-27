@@ -10,7 +10,7 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2021
@@ -53,8 +53,8 @@ Responding to systemic identity compromises should include the steps shown in th
 |Step  |Description  |
 |---------|---------|
 |**Establish secure communications**     |  An organization that has experienced a systemic identity compromise must assume that all communication is affected. Before taking any recovery action, you must ensure that the members of your team who are key to your investigation and response effort can communicate securely. <br><br>*Securing communications must be your very first step so that you can proceed without the attacker's knowledge.*|
-|**Investigate your environment**.     | After you have secured communications on your core investigation team, you can start looking for initial access points and persistence techniques. Look for initial access points and persistence at the same time as establishing continuous monitoring operations during your recovery efforts.        |
-|**Regain and retain administrative control**     |  You must regain control of your environment from the attacker. After you have control again, make sure to remediate or block all possible persistence techniques and new initial access exploits.       |
+|**Investigate your environment**   | After you have secured communications on your core investigation team, you can start looking for initial access points and persistence techniques. Look for initial access points and persistence at the same time as establishing continuous monitoring operations during your recovery efforts.        |
+|**Regain / retain control**     |  You must regain administrative control of your environment from the attacker. After you have control again, make sure to remediate or block all possible persistence techniques and new initial access exploits.       |
 |**Improve security posture**     | Enable security features and capabilities following best practice recommendations for improved system security moving forward.        |
 |     |         |
 
