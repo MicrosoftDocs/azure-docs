@@ -235,7 +235,7 @@ Database instance logs, Kubernetes logs, and other diagnostic logs are exported 
 
 ## Customer Experience Improvement Program (CEIP) (Telemetry) 
 
-Telemetry is used to track customers product usage metrics and environment information. 
+Telemetry is used to track product usage metrics and environment information. 
 See [SQL Server privacy supplement](/sql/sql-server/sql-server-privacy/). 
 
 ## Next steps
