@@ -78,35 +78,35 @@ Azure Video Analyzer on IoT Edge emits events, or telemetry data, according to t
    - Inference result
      
         *Check Example Below*
-   
-   ```      
-   {
-     "body": {
-       "timestamp": 143039375044290,
-       "inferences": [
-         {
-           "type": "motion",
-           "motion": {
-             "box": {
-               "l": 0.48954,
-               "t": 0.140741,
-               "w": 0.075,
-               "h": 0.058824
-             }
-           }
-         }
-       ]
-     },
-     "applicationProperties": {
-       "topic": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/Microsoft.Media/videoAnalyzers/<account-name>/edgeModules/avaedge",
-       "subject": "/livePipelines/Sample-1/processors/md",
-       "eventType": "Microsoft.VideoAnalyzer.Analytics.Inference",
-       "eventTime": "2021-04-26T18:15:13.298Z",
-       "dataVersion": "1.0"
-     }
-   }
-   ```
-
+        
+        ```      
+        {
+          "body": {
+            "timestamp": 143039375044290,
+            "inferences": [
+              {
+                "type": "motion",
+                "motion": {
+                  "box": {
+                    "l": 0.48954,
+                    "t": 0.140741,
+                    "w": 0.075,
+                    "h": 0.058824
+                  }
+                }
+              }
+            ]
+          },
+          "applicationProperties": {
+            "topic": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/Microsoft.Media/videoAnalyzers/<account-name>/edgeModules/avaedge",
+            "subject": "/livePipelines/Sample-1/processors/md",
+            "eventType": "Microsoft.VideoAnalyzer.Analytics.Inference",
+            "eventTime": "2021-04-26T18:15:13.298Z",
+            "dataVersion": "1.0"
+          }
+        }
+        ```
+        
 The events emitted by the module are sent to the [IoT Edge hub](../../iot-edge/iot-edge-runtime.md#iot-edge-hub). They can be routed from there to other destinations. 
 
 ### Timestamps in events
