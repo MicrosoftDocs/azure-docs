@@ -223,7 +223,7 @@ You can use the runnable code sample below to create a twin, update its details,
 
 ### Set up the runnable sample
 
-The snippet uses the [Room.json](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) model definition from [Tutorial: Explore Azure Digital Twins with a sample client app](tutorial-command-line-app.md). You can use this link to go directly to the file, or download it as part of the full end-to-end sample project [here](/samples/azure-samples/digital-twins-samples/digital-twins-samples/).
+The snippet uses the [Room.json](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) model definition from [Tutorial: Explore Azure Digital Twins with a sample client app](tutorial-command-line-app.md). You can use this link to go directly to the file, or download it as part of the full [end-to-end sample project](/samples/azure-samples/digital-twins-samples/digital-twins-samples/).
 
 Before you run the sample, do the following:
 1. Download the model file, place it in your project, and replace the `<path-to>` placeholder in the code below to tell your program where to find it.

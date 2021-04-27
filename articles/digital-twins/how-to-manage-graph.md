@@ -153,7 +153,7 @@ The following runnable code snippet uses the relationship operations from this a
 
 ### Set up the runnable sample
 
-The snippet uses the [Room.json](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) and [Floor.json](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) model definitions from [Tutorial: Explore Azure Digital Twins with a sample client app](tutorial-command-line-app.md). You can use these links to go directly to the files, or download them as part of the full end-to-end sample project [here](/samples/azure-samples/digital-twins-samples/digital-twins-samples/). 
+The snippet uses the [Room.json](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) and [Floor.json](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) model definitions from [Tutorial: Explore Azure Digital Twins with a sample client app](tutorial-command-line-app.md). You can use these links to go directly to the files, or download them as part of the [full end-to-end sample project](/samples/azure-samples/digital-twins-samples/digital-twins-samples/). 
 
 Before you run the sample, do the following:
 1. Download the model files, place them in your project, and replace the `<path-to>` placeholders in the code below to tell your program where to find them.

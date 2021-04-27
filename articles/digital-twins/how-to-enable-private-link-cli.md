@@ -50,7 +50,7 @@ Here is an example that uses the command to create a private endpoint, with only
 az network private-endpoint create --connection-name {private_link_service_connection} -n {name_for_private_endpoint} -g {resource_group} --subnet {subnet_ID} --private-connection-resource-id "/subscriptions/{subscription_ID}/resourceGroups/{resource_group}/providers/Microsoft.DigitalTwins/digitalTwinsInstances/{Azure_Digital_Twins_instance_name}" 
 ```
 
-For a full list of required and optional parameters, as well as more private endpoint creation examples, see the [az network private-endpoint create** reference documentation](/cli/azure/network/private-endpoint#az_network_private_endpoint_create).
+For a full list of required and optional parameters, as well as more private endpoint creation examples, see the [az network private-endpoint create reference documentation](/cli/azure/network/private-endpoint#az_network_private_endpoint_create).
 
 ### Manage private endpoint connections on the instance
 
