@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
-# Quickstart: Provision Azure Spring Cloud service
+# Quickstart: Provision an Azure Spring Cloud service
 
 ::: zone pivot="programming-language-csharp"
 In this quickstart, you use the Azure CLI to provision an instance of the Azure Spring Cloud service.
