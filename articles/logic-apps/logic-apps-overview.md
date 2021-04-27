@@ -11,7 +11,7 @@ ms.date: 04/26/2021
 
 # What is Azure Logic Apps
 
-[Logic Apps](https://azure.microsoft.com/services/logic-apps) is a cloud-based platform that helps you quickly and easily integrate apps, data, systems, and services by building and running automated [workflows](#logic-app-concepts). Part of [Azure Integration Services](https://azure.microsoft.com/product-categories/integration/), Logic Apps provides a simpler way to create, host, and manage highly scalable integration solutions that support enterprise and business-to-business (B2B) scenarios across cloud, on premises, and hybrid environments.
+[Logic Apps](https://azure.microsoft.com/services/logic-apps) is a cloud-based platform that helps you quickly and easily integrate apps, data, systems, and services by building and running automated [workflows](#logic-app-concepts). Part of [Azure Integration Services](https://azure.microsoft.com/product-categories/integration/), Logic Apps provides a simpler way to create, host, and manage highly scalable integration solutions for enterprise and business-to-business (B2B) scenarios across cloud, on premises, and hybrid environments.
 
 This list describes just a few example tasks, business processes, and workloads that you can automate with the Logic Apps service:
 
@@ -32,7 +32,7 @@ To securely access and run operations in real time on various data sources, choo
 
 To communicate with any service endpoint, run your own code, organize your workflow, or manipulate data, you can use [built-in triggers and actions](#logic-app-concepts), which run natively within the Logic Apps service. For example, built-in triggers include Request, HTTP, and Recurrence. Built-in actions include Condition, For each, Execute JavaScript code, and operations that call Azure functions, web apps or API apps hosted in Azure, and other Logic Apps workflows.
 
-For B2B integration scenarios, Logic Apps includes capabilities from [BizTalk Server](/biztalk/core/introducing-biztalk-server). You can create an [integration account](logic-apps-enterprise-integration-create-integration-account.md) where you define trading partners, agreements, schemas, maps, and other B2B artifacts. When you link this account to a logic app, you can create workflows that can work with these artifacts and exchange messages using protocols such as AS2, EDIFACT, and X12.
+For B2B integration scenarios, Logic Apps includes capabilities from [BizTalk Server](/biztalk/core/introducing-biztalk-server). You can create an [integration account](logic-apps-enterprise-integration-create-integration-account.md) where you define trading partners, agreements, schemas, maps, and other B2B artifacts. When you link this account to a logic app, you can build workflows that work with these artifacts and exchange messages using protocols such as AS2, EDIFACT, and X12.
 
 For more information about the ways workflows can access and work with apps, data, services, and systems, review the following documentation:
 
@@ -43,13 +43,13 @@ For more information about the ways workflows can access and work with apps, dat
 
 ## How do logic apps work?
 
-In a logic app, each workflow always starts with a single [trigger](#logic-app-concepts). A trigger fires when a condition is met, for example, when a specific event happens or when data meets specific criteria. Many triggers include [scheduling capabilities](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md) that control how often your workflow runs. Following the trigger, one or more [actions](#logic-app-concepts) perform operations that, for example, process, handle, or convert data that travels through the workflow, or that advance the workflow to the next step.
+In a logic app, each workflow always starts with a single [trigger](#logic-app-concepts). A trigger fires when a condition is met, for example, when a specific event happens or when data meets specific criteria. Many triggers include [scheduling capabilities](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md) that control how often your workflow runs. Following the trigger, one or more [actions](#logic-app-concepts) run operations that, for example, process, handle, or convert data that travels through the workflow, or that advance the workflow to the next step.
 
 For example, the following workflow starts with a Dynamics trigger that has a built-in condition named **When a record is updated**. The actions include transforming XML, calling a web app that updates data, evaluating a condition that controls which actions to take, and sending an email notification with the results. When the trigger detects an event that meets the condition, the trigger fires, and the actions in the workflow start to run. Each time the trigger fires, the Logic Apps service creates a workflow instance that runs the actions.
 
 ![Logic Apps Designer - example workflow](./media/logic-apps-overview/azure-logic-apps-designer.png)
 
-You can visually build workflows using the Logic Apps designer in the Azure portal, Visual Studio, or Visual Studio Code. Each workflow also has an underlying definition that's described using JavaScript Object Notation (JSON). If you prefer, you can create and customize workflows by using the code view editor in the Azure portal, Visual Studio, or Visual Studio Code. For some creation and management tasks, you can use Azure PowerShell or Azure CLI commands. You can automate deployment using Azure Resource Manager templates.
+You can visually create workflows using the Logic Apps designer in the Azure portal, Visual Studio, or Visual Studio Code. Each workflow also has an underlying definition that's described using JavaScript Object Notation (JSON). If you prefer, you can build and customize workflows by using the code view editor in the Azure portal, Visual Studio, or Visual Studio Code. For some creation and management tasks, Logic Apps provides Azure PowerShell and Azure CLI command support. For automated deployment, Logic Apps supports Azure Resource Manager templates.
 
 <a name="logic-app-concepts"></a>
 
@@ -59,7 +59,7 @@ You can visually build workflows using the Logic Apps designer in the Azure port
 
 * **Trigger**: The first step that starts every workflow and specifies the condition to meet before running any actions in the workflow. For example, a trigger event might be getting an email in your inbox or detecting a new file in a storage account.
 
-* **Action**: Each subsequent step that follows after the trigger and performs some operation in a workflow
+* **Action**: Each subsequent step that follows after the trigger and runs some operation in a workflow
 
 * **Managed connector**: A Microsoft-managed connector that provides access to a specific app, data, service, or system. Before you can use them, most managed connectors require that you first create a connection from your workflow and authenticate your identity.
 
@@ -73,7 +73,7 @@ You can visually build workflows using the Logic Apps designer in the Azure port
 
 With businesses moving toward digitization, the Logic Apps platform helps you connect legacy, modern, and cutting-edge systems more easily and quickly by providing prebuilt APIs as Microsoft-managed connectors. That way, you can focus on your apps' business logic and functionality. You don't have to worry about building, hosting, scaling, managing, maintaining, and monitoring your apps. Logic Apps handles these concerns for you. Plus, you pay only for what you use based on a consumption [pricing model](../logic-apps/logic-apps-pricing.md).
 
-In many cases, you won't have to write code. But if you must write some code, you can create code snippets with [Azure Functions](../azure-functions/functions-overview.md) and run that code on-demand from workflows. Also, if your workflows need to interact with events from Azure services, custom apps, or other solutions, you can use [Azure Event Grid](../event-grid/overview.md) with your workflows for event monitoring, routing, and publishing.
+Usually, you won't have to write any code. But if you must write some code, you can create code snippets with [Azure Functions](../azure-functions/functions-overview.md) and run that code on-demand from workflows. Also, if your workflows need to interact with events from Azure services, custom apps, or other solutions, you can use [Azure Event Grid](../event-grid/overview.md) with your workflows for event monitoring, routing, and publishing.
 
 Logic Apps, Functions, and Event Grid are fully managed by Microsoft Azure, which frees you from worries about building, hosting, scaling, managing, monitoring, and maintaining your solutions. With the capability to create ["serverless" apps and solutions](../logic-apps/logic-apps-serverless-overview.md), you can just focus on the business logic. These services automatically scale to meet your needs, make integrations faster, and help you build robust cloud apps with minimal code.
 
@@ -119,7 +119,7 @@ Start small with your current systems and services, and grow incrementally at yo
   * [XML transform maps](../logic-apps/logic-apps-enterprise-integration-maps.md)
   * [XML validation schemas](../logic-apps/logic-apps-enterprise-integration-schemas.md)
 
-For example, if you're using Microsoft BizTalk Server, logic apps can communicate with your BizTalk Server by using the [BizTalk Server connector](../connectors/managed.md#on-premises-connectors). You can then extend or perform BizTalk-like operations in your workflows by including [integration account connectors](../connectors/managed.md#integration-account-connectors), which are available with the Enterprise Integration Pack.
+For example, if you're using Microsoft BizTalk Server, logic apps can communicate with your BizTalk Server by using the [BizTalk Server connector](../connectors/managed.md#on-premises-connectors). You can then extend or run BizTalk-like operations in your workflows by including [integration account connectors](../connectors/managed.md#integration-account-connectors), which are available with the Enterprise Integration Pack.
 
 Going in the other direction, BizTalk Server can connect to and communicate with logic apps by using the [Microsoft BizTalk Server Adapter for Logic Apps](https://www.microsoft.com/download/details.aspx?id=54287). Learn how to [set up and use the BizTalk Server Adapter](/biztalk/core/logic-app-adapter) in your BizTalk Server.
 
