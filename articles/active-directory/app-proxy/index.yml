@@ -29,17 +29,17 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: View your apps
-            url: ../view-applications-portal.md
+            url: ../manage-apps/view-applications-portal.md
           - text: Add an app
-            url: ../add-application-portal.md
+            url: ../manage-apps/add-application-portal.md
   - title: Understand single sign-on
     linkLists:
       - linkListType: architecture
         links:
           - text: Single sign-on concepts
-            url: ../what-is-single-sign-on.md
+            url: ../manage-apps/what-is-single-sign-on.md
           - text: Single sign-on options
-            url: ../sso-options.md
+            url: ../manage-apps/sso-options.md
   # - title: Use on-premises apps
   #   linkLists:
   #     - linkListType: learn
@@ -61,9 +61,9 @@ landingContent:
       - linkListType: learn
         links:
           - text: Plan a My Apps deployment
-            url: ../my-apps-deployment-plan.md
+            url: ../manage-apps/my-apps-deployment-plan.md
           - text: Create collections
-            url: ../access-panel-collections.md
+            url: ../manage-apps/access-panel-collections.md
   - title: Develop new apps
     linkLists:
       - linkListType: learn
