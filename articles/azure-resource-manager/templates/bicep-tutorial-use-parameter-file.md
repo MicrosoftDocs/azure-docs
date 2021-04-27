@@ -2,7 +2,7 @@
 title: Tutorial - use parameter file to deploy Azure Resource Manager Bicep file
 description: Use parameter files that contain the values to use for deploying your Bicep file.
 author: mumian
-ms.date: 03/10/2021
+ms.date: 04/27/2021
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -107,7 +107,7 @@ New-AzResourceGroup `
 New-AzResourceGroupDeployment `
   -Name prodenvironment `
   -ResourceGroupName myResourceGroupProd `
-  -TemplateFile $templateFile `
+  -TemplateFile $bicepFile `
   -TemplateParameterFile $parameterFile
 ```
 
@@ -121,7 +121,7 @@ az group create \
 az deployment group create \
   --name prodenvironment \
   --resource-group myResourceGroupProd \
-  --template-file $templateFile \
+  --template-file $bicepFile \
   --parameters $prodParameterFile
 ```
 
