@@ -52,8 +52,10 @@
   items:
   - name: Request host quota and enable Azure VMware Solution
     href: enable-azure-vmware-solution.md
-  - name: Move EA and CSP subscriptions
-    href: move-ea-csp-subscriptions.md
+  - name: Move resources
+    items:
+    - name: Move Azure VMware Solution subscriptions
+      href: move-ea-csp-subscriptions.md
   - name: Save costs with a reserved instance
     href: reserved-instance.md
   - name: Migration assessment
