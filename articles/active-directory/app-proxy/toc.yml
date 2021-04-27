@@ -10,7 +10,7 @@
     # - name: What's new in docs?
     #   href: whats-new-docs.md
   - name: Quickstarts
-    expanded: true
+    expanded: false
     items:
     # - name: View your apps
     #   href: view-applications-portal.md
@@ -27,13 +27,14 @@
     # - name: Delete an app
     #   href: delete-application-portal.md
   - name: Tutorials
+    expanded: false
     items:
     - name: List of app integration tutorials
       href: /azure/active-directory/saas-apps/
     # - name: Add an on-premises app with Application Proxy
     #   href: application-proxy-add-on-premises-application.md
-  - name: Samples
-    items: 
+  # - name: Samples
+  #   items: 
     # - name: App Management PowerShell samples
     #   items:
     #   - name: Overview of App Management samples
@@ -46,8 +47,8 @@
     #     href: ./scripts/powershell-export-apps-with-expriring-secrets.md
     #   - name: Export secrets and certs expiring beyond required date
     #     href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
-    - name: App Proxy PowerShell samples
-      items:
+    # - name: App Proxy PowerShell samples
+    #   items:
       # - name: Overview of App Proxy samples
       #   href: application-proxy-powershell-samples.md
       # - name: List basic info about apps
@@ -81,7 +82,7 @@
       # - name: Replace identical certs
       #   href: ./scripts/powershell-get-custom-domain-replace-cert.md
   - name: Concepts
-    expanded: true
+    expanded: false
     items: 
     # - name: App management best practices
     #   href: application-management-fundamentals.md
@@ -266,8 +267,8 @@
     #       href: application-proxy-integrate-with-tableau.md
     #     - name: Integrate with Qlik
     #       href: application-proxy-qlik.md
-    - name: Troubleshoot
-      items:
+    # - name: Troubleshoot
+    #   items:
       # - name: Troubleshoot password-based single sign-on
       #   href: troubleshoot-password-based-sso.md
       # - name: Troubleshoot SAML-based single sign-on
