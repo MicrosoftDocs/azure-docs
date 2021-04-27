@@ -27,7 +27,8 @@ This tutorial teaches you how to get started with [Always Encrypted with secure 
 
 ## Prerequisites
 
-- An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
+- An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/). You need to be a member of the Contributor role or the Owner role for the subscription to be able to create resources and configure attestation (create an attestation policy).
+
 - SQL Server Management Studio (SSMS), version 18.9.1 or later. See [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) for information on how to download SSMS.
 
 ### PowerShell requirements
@@ -63,9 +64,11 @@ To continue to interact with the PowerShell Gallery, run the following command b
 
 In this step, you will create a new Azure SQL Database logical server and a new database using the DC-series hardware generation, required for Always Encrypted with secure enclaves. For more information see [DC-series](service-tiers-vcore.md#dc-series).
 
-# [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
-# [PowerShell](#tab/azure-powershell)
+TODO
+
+### [PowerShell](#tab/azure-powershell)
 
 1. Open a PowerShell console and import the required version of Az.
 
@@ -132,9 +135,15 @@ In this step, you will create a new Azure SQL Database logical server and a new 
   Write-Host "Database name: $databaseName"
   ```
   
-## Step 2: Configure an attestation provider 
+## Step 2: Configure an attestation provider
 
 In this step, You'll create and configure an attestation provider in Microsoft Azure Attestation. This is needed to attest the secure enclave your database uses.
+
+### [Portal](#tab/azure-portal)
+
+TODO
+
+### [PowerShell](#tab/azure-powershell)
 
 1. Copy the below attestation policy and save the policy in a text file (txt). For information about the below policy, see [Create and configure an attestation provider](always-encrypted-enclaves-configure-attestation.md#create-and-configure-an-attestation-provider).
 
@@ -177,25 +186,13 @@ In this step, You'll create and configure an attestation provider in Microsoft A
     -PolicyFormat  $policyFormat
   ```
 
-5. Grant your Azure SQL logical server access to your attestation provider. In this step, you're using the object ID of the managed service identity that you assigned to your server earlier.
+5. Retrieve the attestation URL (the Atest URI of your attestation provider).
 
   ```powershell
-  New-AzRoleAssignment -ObjectId $serverObjectId `
-    -RoleDefinitionName "Attestation Reader" `
-    -ResourceName $attestationProviderName `
-    -ResourceType "Microsoft.Attestation/attestationProviders" `
-    -ResourceGroupName $resourceGroupName  
-  ```
-
-6. Retrieve the attestation URL that points to an attestation policy you configured for the SGX enclave. Save the URL, as you will need it later.
-
-  ```powershell
-  $attestationProvider = Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName 
-  $attestationUrl = $attestationProvider.AttestUri + “/attest/SgxEnclave”
-  Write-Host
+  $attestationUrl = (Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName).AttestUri
   Write-Host "Your attestation URL is: $attestationUrl"
   ```
-  
+
   The attestation URL should look like this: `https://contososqlattestation.uks.attest.azure.net/attest/SgxEnclave`
 
 ## Step 3: Populate your database
