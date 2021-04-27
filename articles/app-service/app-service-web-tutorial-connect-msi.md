@@ -143,9 +143,10 @@ Install-Package Azure.Identity -Version 1.4.0
 In the [ASP.NET Core and SQL Database tutorial](tutorial-dotnetcore-sqldb-app.md), the `MyDbConnection` connection string isn't used at all because the local development environment uses a Sqlite database file, and the Azure production environment uses a connection string from App Service. With Active Directory authentication, you want both environments to use the same connection string. In *appsettings.json*, replace the value of the `MyDbConnection` connection string with:
 
 ```json
-"Server=tcp:<server-name>.database.windows.net;Authentication=Active Directory.Device Code Flow; Database=<database-name>;"
+"Server=tcp:<server-name>.database.windows.net;Authentication=Active Directory Device Code Flow; Database=<database-name>;"
 ```
-
+> Note: We are using the `Active Directory Device Code Flow` Authentication type because this is the closest we can get to a custom option. Ideally there would be a `Custom Authentication` type but due to absess of a better term, we are using Device Code Flow
+> 
 Next, you need to create a custom authentication provider class to acquire and supply the Entity Framework database context with the access token for the SQL Database. In the *Data\* directory, add a new class `CustomAzureSQLAuthProvider.cs` with the following code inside :
 
 ```csharp
