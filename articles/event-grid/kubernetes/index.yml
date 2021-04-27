@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Event Grid on Kubernetes documentation # < 60 chars
-summary: Learn how to use Event Grid on IoT Edge to react to relevant events generated on edge devices in near-real time fashion.  # < 160 chars
+summary: Learn how to use Event Grid on Kubernetes to react to relevant events generated on edge devices in near-real time fashion.  # < 160 chars
 
 metadata:
-  title: Event Grid on IoT Edge documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Learn how to use Event Grid on IoT Edge to react to relevant events generated on edge devices in near-real time fashion. # Required; article description that is displayed in search results. < 160 chars.
+  title: Event Grid on Kubernetes documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Learn how to use Event Grid on Kubernetes to react to relevant events generated on edge devices in near-real time fashion. # Required; article description that is displayed in search results. < 160 chars.
   services: event-grid
   ms.service: event-grid #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: 
@@ -21,52 +21,32 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Event Grid on IoT Edge
+  - title: About Event Grid on Kubernetes
     linkLists:
       - linkListType: overview
         links:
-          - text: What's Event Grid on IoT Edge?
-            url: ../edge/overview.md
+          - text: What's Event Grid on Kubernetes?
+            url: overview.md
       - linkListType: concept
         links:
-          - text: Event Grid concepts
-            url: ../edge/concepts.md
+          - text: Event handlers and destinations
+            url: event-handlers.md            
           - text: Event schemas
-            url: ../edge/event-schemas.md
+            url: event-schemas.md
           - text: Output batching
-            url: ../edge/delivery-output-batching.md
+            url: delivery-output-batching.md
           - text: Advanced filtering
-            url: ../edge/advanced-filtering.md
+            url: advanced-filtering.md
           - text: Delivery and retry
-            url: ../edge/delivery-retry.md
+            url: delivery-retry.md
   # Card
   - title: Scenarios
     linkLists:
       - linkListType: tutorial
         links:
           - text: Publish and subscribe to events locally
-            url: ../edge/pub-sub-events-webhook-local.md
+            url: pub-sub-events-webhook-local.md
           - text: Publish and subscribe to events in the cloud
-            url: ../edge/pub-sub-events-webhook-cloud.md            
+            url: pub-sub-events-webhook-cloud.md            
           - text: Forward events to Azure Event Grid
-            url: ../edge/forward-events-event-grid-cloud.md
-          - text: Forward events to Azure IoT Hub
-            url: ../edge/forward-events-event-grid-cloud.md     
-          - text: React to Azure Blob storage events locally
-            url: ../edge/react-blob-storage-events-locally.md
-  # Card
-  - title: Security
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Security and authentication
-            url: ../edge/security-authentication.md
-      - linkListType: how-to-guide
-        links:
-          - text: Configure client authentication
-            url: ../edge/configure-client-auth.md  
-          - text: Configure webhook subscriber authentication
-            url: ../edge/configure-webhook-subscriber-auth.md  
-          - text: Configure identity authentication
-            url: ../edge/configure-identity-auth.md
-  
+            url: forward-events-event-grid-cloud.md
