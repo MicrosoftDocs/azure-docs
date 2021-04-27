@@ -21,18 +21,14 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-#  - title: About Event Grid on Kubernetes
-#    linkLists:
-#      - linkListType: overview
-#        links:
-#          - text: What's Event Grid on Kubernetes?
-#            url: overview.md
-#      - linkListType: concept
-#        links:
+  - title: About Event Grid on Kubernetes
+    linkLists:
+      - linkListType: concept
+        links:
 #          - text: Event handlers and destinations
 #            url: event-handlers.md            
-#          - text: Event schemas
-#            url: event-schemas.md
+          - text: Event schemas
+            url: event-schemas.md
 #          - text: Output batching
 #            url: delivery-output-batching.md
 #          - text: Advanced filtering
