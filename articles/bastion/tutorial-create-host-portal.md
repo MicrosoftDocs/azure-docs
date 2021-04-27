@@ -6,19 +6,20 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 04/23/2021
+ms.date: 04/27/2021
 ms.author: cherylmc
 
 ---
 
 # Tutorial: Configure Bastion and connect to a Windows VM through a browser
 
-This tutorial shows you how to connect to a virtual machine through your browser using Azure Bastion and the Azure portal. In the Azure portal, you deploy Bastion to your virtual network. After deploying Bastion, you connect to a VM via its private IP address using the Azure portal. Your VM does not need a Public IP address or special software. Once the service is provisioned, the RDP/SSH experience is available to all of the virtual machines in the same virtual network. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md).
+This tutorial shows you how to connect to a virtual machine through your browser using Azure Bastion and the Azure portal. In the Azure portal, you deploy Bastion to your virtual network. After deploying Bastion, you connect to a VM via its private IP address using the Azure portal. Your VM does not need a public IP address or special software. Once the service is provisioned, the RDP/SSH experience is available to all of the virtual machines in the same virtual network. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md).
 
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 > * Create a bastion host for your VNet
+> * Remove the public IP address from a VM
 > * Connect to a Windows virtual machine
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -65,9 +66,9 @@ This section helps you create the bastion object in your VNet. This is required 
          * The subnet must be at least /27 or larger.
 
       You don't need to fill out additional fields. Select **OK** and then, at the top of the page, select **Create a Bastion** to return to the Bastion configuration page.
-    * **Public IP address**: The Public IP of the Bastion resource on which RDP/SSH will be accessed (over port 443). Create a new Public IP. The Public IP address must be in the same region as the Bastion resource you are creating. This IP address does not have anything to do with any of the VMs that you want to connect to. It's the Public IP for the Bastion host resource.
-    * **Public IP address name**: The name of the Public IP address resource. For this tutorial, you can leave the default.
-    * **Public IP address SKU**: This setting is prepopulated by default to **Standard**. Azure Bastion uses/supports only the Standard Public IP SKU.
+    * **Public IP address**: The public IP address of the Bastion resource on which RDP/SSH will be accessed (over port 443). Create a new public IP address. The public IP address must be in the same region as the Bastion resource you are creating. This IP address does not have anything to do with any of the VMs that you want to connect to. It's the public IP address for the Bastion host resource.
+    * **Public IP address name**: The name of the public IP address resource. For this tutorial, you can leave the default.
+    * **Public IP address SKU**: This setting is prepopulated by default to **Standard**. Azure Bastion uses/supports only the Standard public IP SKU.
     * **Assignment**: This setting is prepopulated by default to **Static**.
 
 1. When you have finished specifying the settings, select **Review + Create**. This validates the values. Once validation passes, you can create the Bastion resource.
@@ -76,25 +77,25 @@ This section helps you create the bastion object in your VNet. This is required 
 1. Review your settings. Next, at the bottom of the page, select **Create**.
 1. You will see a message letting you know that your deployment is underway. Status will display on this page as the resources are created. It takes about 5 minutes for the Bastion resource to be created and deployed.
 
-## Remove the Public IP address
+## Remove the public IP address
 
-When you connect using Azure Bastion, you do not need a Public IP address for your VM. To disassociate a Public IP address for your VM, use the following steps:
+When you connect to a VM using Azure Bastion, you do not need a public IP address for your VM. To disassociate a public IP address for your VM, use the following steps:
 
-1. Navigate to your virtual machine and select **Networking**. Select the **NIC Public IP** to open the Public IP address page.
+1. Navigate to your virtual machine and select **Networking**. Select the **NIC Public IP** to open the public IP address page.
 
    :::image type="content" source="./media/tutorial-create-host-portal/networking.png" alt-text="Screenshot of networking page.":::
 
 1. On the **Public IP address** page for the VM, select **Disassociate**.
 
-   :::image type="content" source="./media/tutorial-create-host-portal/disassociate.png" alt-text="Screenshot of Public IP address for the VM.":::
+   :::image type="content" source="./media/tutorial-create-host-portal/disassociate.png" alt-text="Screenshot of public IP address for the VM.":::
 
 1. Select **Yes** to disassociated the IP address from the network interface.
 
-   :::image type="content" source="./media/tutorial-create-host-portal/disassociate-yes.png" alt-text="Screenshot of Disassociate Public IP address.":::
+   :::image type="content" source="./media/tutorial-create-host-portal/disassociate-yes.png" alt-text="Screenshot of Disassociate public IP address.":::
 
-1. After you disassociate the IP address, you can delete the Public IP address resource. To delete the Public IP address resource, navigate to the resource group and locate the IP address resource you want to delete. Then, select **Delete** to delete the resource.
+1. After you disassociate the IP address, you can delete the public IP address resource. To delete the public IP address resource, navigate to the resource group and locate the IP address resource you want to delete. Then, select **Delete** to delete the resource.
 
-   :::image type="content" source="./media/tutorial-create-host-portal/delete-resource.png" alt-text="Screenshot of delete the Public IP address resource.":::
+   :::image type="content" source="./media/tutorial-create-host-portal/delete-resource.png" alt-text="Screenshot of delete the public IP address resource.":::
 
 ## Connect to a VM
 
@@ -111,7 +112,7 @@ your resources using the following steps:
 
 ## Next steps
 
-In this tutorial, you created a Bastion host and associated it to a virtual network, then connected to a Windows VM. You may choose to use Network Security Groups with your Azure Bastion subnet. To do so, see:
+In this tutorial, you created a Bastion host and associated it to a virtual network. You then removed the public IP address from a VM and connected to it. You may choose to use Network Security Groups with your Azure Bastion subnet. To do so, see:
 
 > [!div class="nextstepaction"]
 > [Work with NSGs](bastion-nsg.md)
