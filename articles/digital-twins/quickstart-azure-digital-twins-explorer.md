@@ -93,11 +93,11 @@ Follow these steps to upload models.
 1. In the Open window that appears, navigate to the **digital-twins-explorer-main/client/examples** folder that you downloaded earlier.
 1. Select **Room.json** and **Floor.json**, and select **Open**. You can upload additional models if you want, but they won't be used in this quickstart.
 
-Azure Digital Twins Explorer will upload these model files to your Azure Digital Twins instance. They should show up in the **MODELS** box and display their friendly names and full model IDs. You can select the **View Model** information icons to see the DTDL code behind them.
+Azure Digital Twins Explorer will upload these model files to your Azure Digital Twins instance. They should show up in the **MODELS** panel and display their friendly names and full model IDs. You can select the **View Model** information icons to see the DTDL code behind them.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/model-info.png" alt-text="A view of the MODELS box with two model definitions listed inside, Floor (dtmi:example:Floor;1) and Room (dtmi:example:Room;1). The View Model information icon showing a letter 'i' in a circle is highlighted for each model." lightbox="media/quickstart-azure-digital-twins-explorer/model-info.png":::
+        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/model-info.png" alt-text="A view of the MODELS panel with two model definitions listed inside, Floor (dtmi:example:Floor;1) and Room (dtmi:example:Room;1). The View Model information icon showing a letter 'i' in a circle is highlighted for each model." lightbox="media/quickstart-azure-digital-twins-explorer/model-info.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -158,7 +158,7 @@ Follow these steps to import the graph.
 
    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/run-query.png" alt-text="The Run Query button in the upper-right corner of the window is highlighted." lightbox="media/quickstart-azure-digital-twins-explorer/run-query.png":::
 
-This action runs the default query to select and display all digital twins. Azure Digital Twins Explorer retrieves all twins and relationships from the service. It draws the graph defined by them in the **TWIN GRAPH** box.
+This action runs the default query to select and display all digital twins. Azure Digital Twins Explorer retrieves all twins and relationships from the service. It draws the graph defined by them in the **TWIN GRAPH** panel.
 
 ## Explore the graph
 

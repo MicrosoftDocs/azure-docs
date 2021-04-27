@@ -68,17 +68,17 @@ First, navigate to **Azure Digital Twins Explorer** in the [Azure portal](https:
 
 :::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Screenshot of the Azure portal in an internet browser. The portal is showing the Azure Digital Twins Explorer, which contains no data." lightbox="media/how-to-move-regions/explorer-blank.png":::
 
-Select the **Run Query** button to run the default query to display all twins and relationships in the graph in the **TWIN GRAPH** box.
+Select the **Run Query** button to run the default query to display all twins and relationships in the graph in the **TWIN GRAPH** panel.
 
 :::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="A button reading Run Query in the upper-right corner of the window is highlighted." lightbox="media/how-to-move-regions/run-query.png":::
 
-The full graph should now be visible in the **TWIN GRAPH** box.
+The full graph should now be visible in the **TWIN GRAPH** panel.
 
-Next, select the **Export Graph** icon in the **TWIN GRAPH** box that shows an arrow pointing down out of a cloud. This will enable you to download the models, twins, and graph in your solution to your machine.
+Next, select the **Export Graph** icon in the **TWIN GRAPH** panel that shows an arrow pointing down out of a cloud. This will enable you to download the models, twins, and graph in your solution to your machine.
 
-:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="In the TWIN GRAPH box, an icon is highlighted. It shows an arrow pointing down out of a cloud." lightbox="media/how-to-move-regions/export-graph.png":::
+:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="In the TWIN GRAPH panel, an icon is highlighted. It shows an arrow pointing down out of a cloud." lightbox="media/how-to-move-regions/export-graph.png":::
 
-This action enables a **Download** link in the **TWIN GRAPH** box. Select it to download a JSON-based representation of the query result, which includes your models, twins, and relationships. This action will download a .json file to your machine.
+This action enables a **Download** link in the **TWIN GRAPH** panel. Select it to download a JSON-based representation of the query result, which includes your models, twins, and relationships. This action will download a .json file to your machine.
 
 >[!NOTE]
 >If the downloaded file appears to have a different file extension, try editing the extension directly and changing it to .json.
@@ -104,15 +104,15 @@ In this section, you can reupload your models, twins, and graph to the new insta
 
 First, navigate to **Azure Digital Twins Explorer** for the new instance in the [Azure portal](https://portal.azure.com). 
 
-To upload your models, twins, and graph that you downloaded earlier, select the **Import Graph** icon in the **TWIN GRAPH** box that shows an arrow pointing into a cloud. This option uploads all three of these components at once. It even uploads models that aren't currently being used in the graph.
+To upload your models, twins, and graph that you downloaded earlier, select the **Import Graph** icon in the **TWIN GRAPH** panel that shows an arrow pointing into a cloud. This option uploads all three of these components at once. It even uploads models that aren't currently being used in the graph.
 
-:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="In the TWIN GRAPH box, an icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/how-to-move-regions/import-graph.png":::
+:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="In the TWIN GRAPH panel, an icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/how-to-move-regions/import-graph.png":::
 
 In the Open window, navigate to your downloaded graph. Select the graph **.json** file, and select **Open**.
 
 After a few seconds, Azure Digital Twins Explorer opens an **IMPORT** view that shows a preview of the graph to be loaded.
 
-To confirm the graph upload, select the **Save** icon in the upper-right corner of the graph preview box.
+To confirm the graph upload, select the **Save** icon in the upper-right corner of the graph preview panel.
 
 :::row:::
     :::column:::
@@ -132,13 +132,13 @@ Azure Digital Twins Explorer now uploads your models and graph (including the tw
     :::column-end:::
 :::row-end:::
 
-To verify everything was uploaded successfully, switch back to the **TWIN GRAPH** tab and select the **Run Query** button in the **QUERY EXPLORER** box to run the default query that displays all twins and relationships in the graph. This action also refreshes the list of models in the **MODELS** box.
+To verify everything was uploaded successfully, switch back to the **TWIN GRAPH** tab and select the **Run Query** button in the **QUERY EXPLORER** panel to run the default query that displays all twins and relationships in the graph. This action also refreshes the list of models in the **MODELS** panel.
 
 :::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Highlight around the Run Query button in the upper-right corner of the window." lightbox="media/how-to-move-regions/run-query.png":::
 
-You should see your graph with all its twins and relationships displayed in the **TWIN GRAPH** box. You should also see your models listed in the **MODELS** box.
+You should see your graph with all its twins and relationships displayed in the **TWIN GRAPH** panel. You should also see your models listed in the **MODELS** panel.
 
-:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="A view of Azure Digital Twins Explorer showing two models highlighted in the MODELS box and a graph highlighted in the TWIN GRAPH box." lightbox="media/how-to-move-regions/post-upload.png":::
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="A view of Azure Digital Twins Explorer showing two models highlighted in the MODELS panel and a graph highlighted in the TWIN GRAPH panel." lightbox="media/how-to-move-regions/post-upload.png":::
 
 These views confirm that your models, twins, and graph were re-uploaded to the new instance in the target region.
 
