@@ -73,7 +73,7 @@ Group claims can be configured in the Enterprise Applications section of the por
 
 To configure Group Claims for a Gallery or Non-Gallery SAML application, open **Enterprise Applications**, click on the application in the list, select **Single Sign On configuration**, and then select **User Attributes & Claims**.
 
-Click on **Add a group claim**  
+Click on **Add a group claim**
 
 ![Screenshot that shows the "User Attributes & Claims" page with "Add a group claim" selected.](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
 
@@ -200,7 +200,7 @@ Emit groups as group names in OAuth access tokens in dnsDomainName\SAMAccountNam
         "additionalProperties": ["dns_domain_and_sam_account_name"]
     }]
 }
- ```
+```
 
 To emit group names to be returned in netbiosDomain\samAccountName format as the roles claim in SAML and OIDC ID Tokens:
 
@@ -215,8 +215,8 @@ To emit group names to be returned in netbiosDomain\samAccountName format as the
         "name": "groups",
         "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
     }]
- }
- ```
+}
+```
 
 ## Next steps
 

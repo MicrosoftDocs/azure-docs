@@ -16,7 +16,6 @@ ms.custom:
   - mode-api
 ---
 
-
 # Quickstart: Scale compute for dedicated SQL pool (formerly SQL DW) with Azure PowerShell
 
 You can scale compute for dedicated SQL pool (formerly SQL DW) using Azure PowerShell. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs.
@@ -70,7 +69,7 @@ In dedicated SQL pool (formerly SQL DW), you can increase or decrease compute re
 
 To change data warehouse units, use the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet. The following example sets the data warehouse units to DW300c for the database **mySampleDataWarehouse**, which is hosted in the Resource group **resourcegroupname** on server **sqlpoolservername**.
 
-```Powershell
+```powershell
 Set-AzSqlDatabase -ResourceGroupName "resourcegroupname" -DatabaseName "mySampleDataWarehouse" -ServerName "sqlpoolservername" -RequestedServiceObjectiveName "DW300c"
 ```
 

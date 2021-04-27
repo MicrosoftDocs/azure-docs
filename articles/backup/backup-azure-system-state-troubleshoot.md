@@ -37,15 +37,15 @@ We recommend you perform the following validation steps, before you start troubl
 
 ## Prerequisites
 
-Before we troubleshoot System State Backup with Azure Backup, perform the following prerequisites check.  
+Before we troubleshoot System State Backup with Azure Backup, perform the following prerequisites check.
 
 ### Verify Windows Server Backup is installed
 
 Ensure Windows Server Backup is installed and enabled in the server. To check the installation status, run this PowerShell command:
 
- ```powershell
+```powershell
 Get-WindowsFeature Windows-Server-Backup
- ```
+```
 
 If the output displays the **Install State** as **available**, then it means Windows Server backup feature is available for the installation but not installed on the server. However, if Windows Server Backup isn't installed, then use one of the methods below to install it.
 

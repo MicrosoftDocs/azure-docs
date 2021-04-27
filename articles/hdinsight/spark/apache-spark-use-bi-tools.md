@@ -32,7 +32,7 @@ The [Jupyter Notebook](https://jupyter.org/) that you created in the [previous t
 
 1. From the Jupyter Notebook, paste the following code, and then press **SHIFT + ENTER**. The code verifies the existence of the tables.
 
-    ```PySpark
+    ```pyspark
     %%sql
     SHOW TABLES
     ```
@@ -45,7 +45,7 @@ The [Jupyter Notebook](https://jupyter.org/) that you created in the [previous t
 
 2. Paste the following code in an empty cell, and then press **SHIFT + ENTER**. The code verifies the data in the table.
 
-    ```PySpark
+    ```pyspark
     %%sql
     SELECT * FROM hvac LIMIT 10
     ```

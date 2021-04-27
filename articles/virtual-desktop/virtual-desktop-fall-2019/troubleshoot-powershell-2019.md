@@ -7,6 +7,7 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
 ---
+
 # Windows Virtual Desktop (classic) PowerShell
 
 >[!IMPORTANT]
@@ -24,7 +25,7 @@ This section lists PowerShell commands that are typically used while setting up 
 
 ### Error: Add-RdsAppGroupUser command -- The specified UserPrincipalName is already assigned to a RemoteApp app group in the specified Host Pool
 
-```Powershell
+```powershell
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName 'Desktop Application Group' -UserPrincipalName <UserName>
 ```
 
@@ -34,7 +35,7 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 
 ### Error: Add-RdsAppGroupUser command -- The specified UserPrincipalName doesn't exist in the Azure Active Directory associated with the Remote Desktop tenant
 
-```PowerShell
+```powershell
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName "Desktop Application Group" -UserPrincipalName <UserPrincipalName>
 ```
 
@@ -48,7 +49,7 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 
 ### Error: Get-RdsDiagnosticActivities -- User isn't authorized to query the management service
 
-```PowerShell
+```powershell
 Get-RdsDiagnosticActivities -ActivityId <ActivityId>
 ```
 
@@ -58,7 +59,7 @@ Get-RdsDiagnosticActivities -ActivityId <ActivityId>
 
 ### Error: Get-RdsDiagnosticActivities -- the user isn't authorized to query the management service
 
-```PowerShell
+```powershell
 Get-RdsDiagnosticActivities -Deployment -username <username>
 ```
 

@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot using the dsregcmd command - Azure Active Directory
-description: Using the output from dsregcmd to understand the state of devices in Azure AD 
+description: Using the output from dsregcmd to understand the state of devices in Azure AD
 
 services: active-directory
 ms.service: active-directory
@@ -15,6 +15,7 @@ ms.reviewer: spunukol
 
 ms.collection: M365-identity-device-management
 ---
+
 # Troubleshooting devices using the dsregcmd command
 
 The dsregcmd /status utility must be run as a domain user account.
@@ -56,7 +57,7 @@ This section lists the device join state parameters. The table below lists the c
 Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not Azure AD registered). This section lists device identifying details stored in the cloud.
 
 - **DeviceId:** - Unique ID of the device in the Azure AD tenant
-- **Thumbprint:** - Thumbprint of the device certificate 
+- **Thumbprint:** - Thumbprint of the device certificate
 - **DeviceCertificateValidity:** - Validity of the device certificate
 - **KeyContainerId:** -	ContainerId of the device private key associated with the device certificate
 - **KeyProvider:** - KeyProvider (Hardware/Software) used to store the device private key.
@@ -86,7 +87,7 @@ Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not
 > If the MDM URLs in this section are empty, it indicates that the MDM was either not configured or current user is not in scope of MDM enrollment. Check the Mobility settings in Azure AD to review your MDM configuration.
 
 > [!NOTE]
-> Even if you see MDM URLs this does not mean that the device is managed by an MDM. The information is displayed if the tenant has MDM configuration for auto-enrollment even if the device itself is not managed. 
+> Even if you see MDM URLs this does not mean that the device is managed by an MDM. The information is displayed if the tenant has MDM configuration for auto-enrollment even if the device itself is not managed.
 
 ### Sample tenant details output
 
@@ -128,13 +129,13 @@ This section lists the status of various attributes for the user currently logge
 
 - **NgcSet:** - Set to “YES” if a Windows Hello key is set for the current logged on user.
 - **NgcKeyId:** - ID of the Windows Hello key if one is set for the current logged on user.
-- **CanReset:** - Denotes if the Windows Hello key can be reset by the user. 
-- **Possible values:** - DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive, or Unknown if error. 
+- **CanReset:** - Denotes if the Windows Hello key can be reset by the user.
+- **Possible values:** - DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive, or Unknown if error.
 - **WorkplaceJoined:** - Set to “YES” if Azure AD registered accounts have been added to the device in the current NTUSER context.
-- **WamDefaultSet:** - Set to “YES” if a WAM default WebAccount is created for the logged in user. This field could display an error if dsreg /status is run from an elevated command prompt. 
+- **WamDefaultSet:** - Set to “YES” if a WAM default WebAccount is created for the logged in user. This field could display an error if dsreg /status is run from an elevated command prompt.
 - **WamDefaultAuthority:** - Set to “organizations” for Azure AD.
 - **WamDefaultId:** - Always “https://login.microsoft.com” for Azure AD.
-- **WamDefaultGUID:** - The WAM provider’s (Azure AD/Microsoft account) GUID for the default WAM WebAccount. 
+- **WamDefaultGUID:** - The WAM provider’s (Azure AD/Microsoft account) GUID for the default WAM WebAccount.
 
 ### Sample user state output
 
@@ -198,7 +199,7 @@ This section is displayed only if the device is domain joined and is unable to h
 
 This section performs various tests to help diagnose join failures. This section also includes the details of the previous (?). This information includes the error phase, the error code, the server request ID, server response http status, server response error message.
 
-- **User Context:** - The context in which the diagnostics are run. Possible values: SYSTEM, UN-ELEVATED User, ELEVATED User. 
+- **User Context:** - The context in which the diagnostics are run. Possible values: SYSTEM, UN-ELEVATED User, ELEVATED User.
 
    > [!NOTE]
    > Since the actual join is performed in SYSTEM context, running the diagnostics in SYSTEM context is closest to the actual join scenario. To run diagnostics in SYSTEM context, the dsregcmd /status command must be run from an elevated command prompt.
@@ -209,6 +210,8 @@ This section performs various tests to help diagnose join failures. This section
 - **DRS Discovery Test:** - Test gets the DRS endpoints from discovery metadata endpoint and performs a user realm request. Errors in this test would likely result in Join errors in the discover phase.
 - **DRS Connectivity Test:** - Test performs basic connectivity test to the DRS endpoint.
 - **Token acquisition Test:** - Test tries to get an Azure AD authentication token if the user tenant is federated. Errors in this test would likely result in Join errors in the auth phase. If auth fails sync join will be attempted as fallback, unless fallback is explicitly disabled with the below registry key settings.
+-
+
 ```
     Keyname: Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ
     Value: FallbackToSyncJoin
@@ -216,12 +219,13 @@ This section performs various tests to help diagnose join failures. This section
     Value: 0x0 -> Disabled
     Value: 0x1 -> Enabled
     Default (No Key): Enabled
- ```
+```
+
 - **Fallback to Sync-Join:** - Set to “Enabled” if the above registry key, to prevent the fallback to sync join with auth failures, is NOT present. This option is available from Windows 10 1803 and later.
 - **Previous Registration:** - Time the previous Join attempt occurred. Only failed Join attempts are logged.
 - **Error Phase:** - The stage of the join in which it was aborted. Possible values are pre-check, discover, auth, join.
 - **Client ErrorCode:** - Client error code returned (HRESULT).
-- **Server ErrorCode:** - Server error code if a request was sent to the server and server responded back with an error code. 
+- **Server ErrorCode:** - Server error code if a request was sent to the server and server responded back with an error code.
 - **Server Message:** - Server message returned along with the error code.
 - **Https Status:** - Http status returned by the server.
 - **Request ID:** - The client requestId sent to the server. Useful to correlate with server-side logs.
@@ -302,7 +306,7 @@ This section displays the output of sanity checks performed on a device joined t
 
 ## NGC prerequisite check
 
-This section performs the prerequisite checks for the provisioning of Windows Hello for Business (WHFB). 
+This section performs the prerequisite checks for the provisioning of Windows Hello for Business (WHFB).
 
 > [!NOTE]
 > You may not see NGC prerequisite check details in dsregcmd /status if the user already successfully configured WHFB.

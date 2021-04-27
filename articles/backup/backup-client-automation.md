@@ -4,6 +4,7 @@ description: In this article, learn how to use PowerShell to set up Azure Backup
 ms.topic: conceptual
 ms.date: 12/2/2019
 ---
+
 # Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell
 
 This article shows you how to use PowerShell to set up Azure Backup on Windows Server or a Windows client, and manage backup and recovery.
@@ -24,7 +25,7 @@ The following steps lead you through creating a Recovery Services vault. A Recov
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-2. The Recovery Services vault is an Azure Resource Manager resource, so you need to place it within a Resource Group. You can use an existing resource group, or create a new one. When creating a new resource group, specify the name and location for the resource group.  
+2. The Recovery Services vault is an Azure Resource Manager resource, so you need to place it within a Resource Group. You can use an existing resource group, or create a new one. When creating a new resource group, specify the name and location for the resource group.
 
     ```powershell
     New-AzResourceGroup –Name "test-rg" –Location "WestUS"
@@ -58,7 +59,7 @@ Run the command, **Get-AzRecoveryServicesVault**, and all vaults in the subscrip
 Get-AzRecoveryServicesVault
 ```
 
-```Output
+```output
 Name              : Contoso-vault
 ID                : /subscriptions/1234
 Type              : Microsoft.RecoveryServices/vaults
@@ -76,12 +77,12 @@ Before you install the Azure Backup agent, you need to have the installer downlo
 
 Alternatively, use PowerShell to get the downloader:
 
- ```powershell
- $MarsAURL = 'https://aka.ms/Azurebackup_Agent'
- $WC = New-Object System.Net.WebClient
- $WC.DownloadFile($MarsAURL,'C:\downloads\MARSAgentInstaller.EXE')
- C:\Downloads\MARSAgentInstaller.EXE /q
- ```
+```powershell
+$MarsAURL = 'https://aka.ms/Azurebackup_Agent'
+$WC = New-Object System.Net.WebClient
+$WC.DownloadFile($MarsAURL,'C:\downloads\MARSAgentInstaller.exe')
+C:\Downloads\MARSAgentInstaller.exe /q
+```
 
 To install the agent, run the following command in an elevated PowerShell console:
 
@@ -162,7 +163,7 @@ Once you load the Online Backup cmdlets, you register the vault credentials:
 Start-OBRegistration -VaultCredentials $CredsFilename.FilePath -Confirm:$false
 ```
 
-```Output
+```output
 CertThumbprint      : 7a2ef2caa2e74b6ed1222a5e89288ddad438df2
 SubscriptionID      : ef4ab577-c2c0-43e4-af80-af49f485f3d1
 ServiceResourceName : testvault
@@ -187,7 +188,7 @@ Setting the proxy and bandwidth details is done using the [Set-OBMachineSetting]
 Set-OBMachineSetting -NoProxy
 ```
 
-```Output
+```output
 Server properties updated successfully.
 ```
 
@@ -195,7 +196,7 @@ Server properties updated successfully.
 Set-OBMachineSetting -NoThrottle
 ```
 
-```Output
+```output
 Server properties updated successfully.
 ```
 
@@ -215,7 +216,7 @@ $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -
 Set-OBMachineSetting -EncryptionPassPhrase $PassPhrase -SecurityPin "<generatedPIN>"
 ```
 
-```Output
+```output
 Server properties updated successfully
 ```
 
@@ -259,7 +260,7 @@ The backup schedule needs to be associated with a policy, and this can be achiev
 Set-OBSchedule -Policy $NewPolicy -Schedule $Schedule
 ```
 
-```Output
+```output
 BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName : RetentionPolicy : State : New PolicyState : Valid
 ```
 
@@ -277,7 +278,7 @@ The retention policy must be associated with the main policy using the cmdlet [S
 Set-OBRetentionPolicy -Policy $NewPolicy -RetentionPolicy $RetentionPolicy
 ```
 
-```Output
+```output
 BackupSchedule  : 4:00 PM
                   Saturday, Sunday,
                   Every 1 week(s)
@@ -316,7 +317,7 @@ $Exclusions = New-OBFileSpec -FileSpec @("C:\windows", "C:\temp") -Exclude
 Add-OBFileSpec -Policy $NewPolicy -FileSpec $Inclusions
 ```
 
-```Output
+```output
 BackupSchedule  : 4:00 PM
                   Saturday, Sunday,
                   Every 1 week(s)
@@ -357,7 +358,7 @@ PolicyState     : Valid
 Add-OBFileSpec -Policy $NewPolicy -FileSpec $Exclusions
 ```
 
-```Output
+```output
 BackupSchedule  : 4:00 PM
                   Saturday, Sunday,
                   Every 1 week(s)
@@ -410,7 +411,7 @@ Now the policy object is complete and has an associated backup schedule, retenti
 Get-OBPolicy | Remove-OBPolicy
 ```
 
-```Output
+```output
 Microsoft Azure Backup Are you sure you want to remove this backup policy? This will delete all the backed up data. [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
 ```
 
@@ -420,7 +421,7 @@ Committing the policy object is done using the [Set-OBPolicy](/powershell/module
 Set-OBPolicy -Policy $NewPolicy
 ```
 
-```Output
+```output
 Microsoft Azure Backup Do you want to save this backup policy ? [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
 BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s)
 DsList : {DataSource
@@ -468,7 +469,7 @@ You can view the details of the existing backup policy using the [Get-OBPolicy](
 Get-OBPolicy | Get-OBSchedule
 ```
 
-```Output
+```output
 SchedulePolicyName : 71944081-9950-4f7e-841d-32f0a0a1359a
 ScheduleRunDays : {Saturday, Sunday}
 ScheduleRunTimes : {16:00:00}
@@ -479,7 +480,7 @@ State : Existing
 Get-OBPolicy | Get-OBRetentionPolicy
 ```
 
-```Output
+```output
 RetentionDays : 7
 RetentionPolicyName : ca3574ec-8331-46fd-a605-c01743a5265e
 State : Existing
@@ -489,7 +490,7 @@ State : Existing
 Get-OBPolicy | Get-OBFileSpec
 ```
 
-```Output
+```output
 FileName : *
 FilePath : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\
 FileSpec : D:\
@@ -523,7 +524,7 @@ Once a backup policy has been set, the backups will occur per the schedule. Trig
 Get-OBPolicy | Start-OBBackup
 ```
 
-```Output
+```output
 Initializing
 Taking snapshot of volumes...
 Preparing storage...
@@ -556,13 +557,13 @@ $rtn = New-OBRetentionPolicy -RetentionDays 32 -RetentionWeeklyPolicy -Retention
 
 ```powershell
 New-OBPolicy | Add-OBSystemState |  Set-OBRetentionPolicy -RetentionPolicy $rtn | Set-OBSchedule -Schedule $sched | Set-OBSystemStatePolicy
- ```
+```
 
 ### Verifying the policy
 
 ```powershell
 Get-OBSystemStatePolicy
- ```
+```
 
 ## Restore data from Azure Backup
 
@@ -582,7 +583,7 @@ $Source = Get-OBRecoverableSource
 $Source
 ```
 
-```Output
+```output
 FriendlyName : C:\
 RecoverySourceName : C:\
 ServerName : myserver.microsoft.com
@@ -601,7 +602,7 @@ $Rps = Get-OBRecoverableItem $Source[0]
 $Rps
 ```
 
-```Output
+```output
 
 IsDir                : False
 ItemNameFriendly     : C:\
@@ -637,7 +638,7 @@ $Item = New-OBRecoverableItem $Rps[0] "Test\cat.jpg" $FALSE
 $Item
 ```
 
-```Output
+```output
 IsDir                : False
 ItemNameFriendly     : C:\Test\cat.jpg
 ItemNameGuid         :
@@ -665,7 +666,7 @@ Now trigger the restore process by using the [Start-OBRecovery](/powershell/modu
 Start-OBRecovery -RecoverableItem $Item -RecoveryOption $RecoveryOption
 ```
 
-```Output
+```output
 Estimating size of backup items...
 Estimating size of backup items...
 Estimating size of backup items...
@@ -700,7 +701,7 @@ By default, the WinRM service is configured for manual startup. The startup type
 Get-Service -Name WinRM
 ```
 
-```Output
+```output
 Status   Name               DisplayName
 ------   ----               -----------
 Running  winrm              Windows Remote Management (WS-Manag...
@@ -712,7 +713,7 @@ PowerShell should be configured for remoting.
 Enable-PSRemoting -Force
 ```
 
-```Output
+```output
 WinRM is already set up to receive requests on this computer.
 WinRM has been updated for remote management.
 WinRM firewall exception enabled.

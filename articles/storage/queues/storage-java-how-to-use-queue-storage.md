@@ -92,6 +92,7 @@ To create a Java application named `queues-how-to-v12`:
 
    ```console
    cd queues-howto-v12
+
    ```
 
 ### Install the package

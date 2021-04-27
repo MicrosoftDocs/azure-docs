@@ -37,34 +37,36 @@ Ensure that the Pass-through Authentication feature is still **Enabled** on your
 
 ### User-facing sign-in error messages
 
-If the user is unable to sign into using Pass-through Authentication, they may see one of the following user-facing errors on the Azure AD sign-in screen: 
+If the user is unable to sign into using Pass-through Authentication, they may see one of the following user-facing errors on the Azure AD sign-in screen:
 
 |Error|Description|Resolution
 | --- | --- | ---
-|AADSTS80001|Unable to connect to Active Directory|Ensure that agent servers are members of the same AD forest as the users whose passwords need to be validated and they are able to connect to Active Directory.  
+|AADSTS80001|Unable to connect to Active Directory|Ensure that agent servers are members of the same AD forest as the users whose passwords need to be validated and they are able to connect to Active Directory.
 |AADSTS8002|A timeout occurred connecting to Active Directory|Check to ensure that Active Directory is available and is responding to requests from the agents.
 |AADSTS80004|The username passed to the agent was not valid|Ensure the user is attempting to sign in with the right username.
 |AADSTS80005|Validation encountered unpredictable WebException|A transient error. Retry the request. If it continues to fail, contact Microsoft support.
 |AADSTS80007|An error occurred communicating with Active Directory|Check the agent logs for more information and verify that Active Directory is operating as expected.
 
-### Users get invalid username/password error 
+### Users get invalid username/password error
 
 This can happen when a user’s on-premises UserPrincipalName (UPN) is different than the user's cloud UPN.
 
 To confirm that this is the issue, first test that the Pass-through Authentication agent is working correctly:
 
+1. Create a test account.
 
-1. Create a test account.  
 2. Import the PowerShell module on the agent machine:
 
- ```powershell
- Import-Module "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\PassthroughAuthPSModule\PassthroughAuthPSModule.psd1"
- ```
-3. Run the Invoke PowerShell command: 
+   ```powershell
+   Import-Module "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\PassthroughAuthPSModule\PassthroughAuthPSModule.psd1"
+   ```
 
- ```powershell
- Invoke-PassthroughAuthOnPremLogonTroubleshooter 
- ``` 
+3. Run the Invoke PowerShell command:
+
+   ```powershell
+   Invoke-PassthroughAuthOnPremLogonTroubleshooter 
+   ```
+
 4. When you are prompted to enter credentials, enter the same username and password that are used to sign in to (https://login.microsoftonline.com).
 
 If you get the same username/password error, this means that the Pass-through Authentication agent is working correctly and the issue may be that the on-premises UPN is non-routable. To learn more, see [Configuring Alternate Login ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
@@ -89,7 +91,7 @@ Navigate to **Azure Active Directory** -> **Sign-ins** on the [Azure Active Dire
 | 80004 | Incorrect User Principal Name (UPN) used in sign-in request. | Ask the user to sign in with the correct username.
 | 80005 | Authentication Agent: Error occurred. | Transient error. Try again later.
 | 80007 | Authentication Agent unable to connect to Active Directory. | Check if your Active Directory is reachable from the Authentication Agent.
-| 80010 | Authentication Agent unable to decrypt password. | If the problem is consistently reproducible, install and register a new Authentication Agent. And uninstall the current one. 
+| 80010 | Authentication Agent unable to decrypt password. | If the problem is consistently reproducible, install and register a new Authentication Agent. And uninstall the current one.
 | 80011 | Authentication Agent unable to retrieve decryption key. | If the problem is consistently reproducible, install and register a new Authentication Agent. And uninstall the current one.
 | 80014 | Validation request responded after maximum elapsed time exceeded. | Authentication agent timed out. Open a support ticket with the error code, correlation ID, and timestamp to get more details on this error
 
@@ -151,8 +153,6 @@ For errors related to installation, check the Azure AD Connect logs at **%Progra
 For errors related to the Authentication Agent, open up the Event Viewer application on the server and check under **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
 For detailed analytics, enable the "Session" log (right-click inside the Event Viewer application to find this option). Don't run the Authentication Agent with this log enabled during normal operations; use only for troubleshooting. The log contents are only visible after the log is disabled again.
-
-
 
 ### Detailed trace logs
 

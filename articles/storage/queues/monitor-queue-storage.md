@@ -548,7 +548,7 @@ Use these queries to help you monitor your Azure Storage accounts:
 
 - To list the 10 most common errors over the last three days.
 
-    ```Kusto
+    ```kusto
     StorageQueueLogs
     | where TimeGenerated > ago(3d) and StatusText !contains "Success"
     | summarize count() by StatusText
@@ -557,7 +557,7 @@ Use these queries to help you monitor your Azure Storage accounts:
 
 - To list the top 10 operations that caused the most errors over the last three days.
 
-    ```Kusto
+    ```kusto
     StorageQueueLogs
     | where TimeGenerated > ago(3d) and StatusText !contains "Success"
     | summarize count() by OperationName
@@ -566,7 +566,7 @@ Use these queries to help you monitor your Azure Storage accounts:
 
 - To list the top 10 operations with the longest end-to-end latency over the last three days.
 
-    ```Kusto
+    ```kusto
     StorageQueueLogs
     | where TimeGenerated > ago(3d)
     | top 10 by DurationMs desc
@@ -575,7 +575,7 @@ Use these queries to help you monitor your Azure Storage accounts:
 
 - To list all operations that caused server-side throttling errors over the last three days.
 
-    ```Kusto
+    ```kusto
     StorageQueueLogs
     | where TimeGenerated > ago(3d) and StatusText contains "ServerBusy"
     | project TimeGenerated, OperationName, StatusCode, StatusText
@@ -583,7 +583,7 @@ Use these queries to help you monitor your Azure Storage accounts:
 
 - To list all requests with anonymous access over the last three days.
 
-    ```Kusto
+    ```kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d) and AuthenticationType == "Anonymous"
     | project TimeGenerated, OperationName, AuthenticationType, Uri
@@ -591,7 +591,7 @@ Use these queries to help you monitor your Azure Storage accounts:
 
 - To create a pie chart of operations used over the last three days.
 
-    ```Kusto
+    ```kusto
     StorageQueueLogs
     | where TimeGenerated > ago(3d)
     | summarize count() by OperationName

@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: contperf-fy21q3
 ---
+
 # Deploy Ethereum proof-of-authority consortium solution template on Azure
 
 You can use [the Ethereum Proof-of-Authority Consortium preview Azure solution template](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-blockchain.azure-blockchain-ethereum) to deploy, configure, and govern a multi-member consortium proof-of-authority Ethereum network with minimal Azure and Ethereum knowledge.
@@ -238,7 +239,7 @@ The existing member must run the following PowerShell script to complete the con
 
 ![cloud shell](./media/ethereum-poa-deployment/cloud-shell.png)
 
-```Powershell
+```powershell
 $MyGatewayResourceId = "<EXISTING_MEMBER_RESOURCEID>"
 $OtherGatewayResourceId = "<NEW_MEMBER_RESOURCEID]"
 $ConnectionName = "Leader2Member"
@@ -285,7 +286,7 @@ Admins have the power to delegate consensus participation to a set of validator 
 
 To perform any kind of transactions through the Governance DApp, you need to use an Ethereum wallet. The most straightforward approach is to use an in-browser wallet such as [MetaMask](https://metamask.io); however, because these smart contracts are deployed on the network you may also automate your interactions to the Governance contract.
 
-After installing MetaMask, navigate to the Governance DApp in the browser.  You can locate the URL through Azure portal in the deployment output.  If you don't have an in-browser wallet installed you won't be able to perform any actions; however, you can view the administrator state.  
+After installing MetaMask, navigate to the Governance DApp in the browser.  You can locate the URL through Azure portal in the deployment output.  If you don't have an in-browser wallet installed you won't be able to perform any actions; however, you can view the administrator state.
 
 ### Becoming an admin
 

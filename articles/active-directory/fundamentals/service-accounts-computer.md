@@ -33,15 +33,14 @@ The computer account provides the following benefits.
 
 ## Assess security posture of computer accounts
 
-Potential challenges and associated mitigations when using computer accounts. 
+Potential challenges and associated mitigations when using computer accounts.
 
 | Issues| Mitigations |
 | - | - |
-| Computer accounts are subject to deletion and recreation when the computer leaves and rejoins the domain.| Validate the need to add a computer to an AD group and verify which computer account has been added to a group using the example scripts provided on this page.| 
+| Computer accounts are subject to deletion and recreation when the computer leaves and rejoins the domain.| Validate the need to add a computer to an AD group and verify which computer account has been added to a group using the example scripts provided on this page.|
 | If you add a computer account to a group, all services running as LocalSystem on that computer are given access rights of the group.| Be selective of the group memberships of your computer account. Avoid making computer accounts members of any domain administrator groups because the associated service has complete access to Active Directory Domain Services. |
 | Improper network defaults for LocalSystem| Do not assume that the computer account has the default limited access to network resources. Instead, check group memberships for this account carefully. |
 | Unknown services running as LocalSystem| Ensure that all services running under the LocalSystem account are Microsoft services or trusted services from third parties. |
-
 
 ## Find services running under the computer account
 
@@ -66,6 +65,7 @@ Use the following PowerShell cmdlet to find computer accounts that are member of
 ```powershell
 Get-ADGroupMember -Identity Administrators -Recursive | Where objectClass -eq "computer"
 ```
+
 ## Move from computer accounts
 
 > [!IMPORTANT]
@@ -75,7 +75,7 @@ Get-ADGroupMember -Identity Administrators -Recursive | Where objectClass -eq "c
 
 * Use a domain user account with just the privileges needed to run your service.
 
-## Next Steps 
+## Next Steps
 
 See the following articles on securing service accounts
 
@@ -90,7 +90,3 @@ See the following articles on securing service accounts
 * [Secure user accounts](service-accounts-user-on-premises.md)
 
 * [Govern on-premises service accounts](service-accounts-govern-on-premises.md)
-
- 
-
- 
