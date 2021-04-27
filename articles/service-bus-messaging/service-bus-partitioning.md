@@ -54,7 +54,9 @@ To give Service Bus enough time to enqueue the message into a different partitio
 
 A partition key "pins" a message to a specific partition. If the messaging store that holds this partition is unavailable, Service Bus returns an error. In the absence of a partition key, Service Bus can choose a different partition and the operation succeeds. Therefore, it is recommended that you don't supply a partition key unless it is required.
 
-## Advanced topics: use transactions with partitioned entities
+## Advanced topics
+
+### Use transactions with partitioned entities
 
 Messages that are sent as part of a transaction must specify a partition key. The key can be one of the following properties: session ID, partition key, or message ID. All messages that are sent as part of the same transaction must specify the same partition key. If you attempt to send a message without a partition key within a transaction, Service Bus returns an invalid operation exception. If you attempt to send multiple messages within the same transaction that have different partition keys, Service Bus returns an invalid operation exception. For example:
 
@@ -72,7 +74,7 @@ committableTransaction.Commit();
 
 If any of the properties that serve as a partition key are set, Service Bus pins the message to a specific partition. This behavior occurs whether or not a transaction is used. It is recommended that you don't specify a partition key if it isn't necessary.
 
-## Using sessions with partitioned entities
+### Use sessions with partitioned entities
 
 To send a transactional message to a session-aware topic or queue, the message must have the session ID property set. If the partition key property is specified as well, it must be identical to the session ID property. If they differ, Service Bus returns an invalid operation exception.
 
@@ -90,7 +92,7 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
 committableTransaction.Commit();
 ```
 
-## Automatic message forwarding with partitioned entities
+### Automatic message forwarding with partitioned entities
 
 Service Bus supports automatic message forwarding from, to, or between partitioned entities. You can enable this feature either when creating or updating queues and subscriptions. For more information, see [Enable message forwarding](enable-auto-forward.md). If the message specifies a partition key (session ID, partition key or message ID), that partition key is used for the destination entity.
 
