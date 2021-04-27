@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Azure Defender for IoT.
-ms.date: 4/20/2021
+ms.date: 04/27/2021
 ms.topic: how-to
 ---
 
@@ -569,6 +569,7 @@ To install:
 ## HP EdgeLine 300 installation
 
 •	A default administrative user is provided. We recommend that you change the password during the network configuration.
+
 •	The installation process takes about 20 minutes. After the installation, the system is restarted several times.
 
 ### HP EdgeLine 300 back panel
