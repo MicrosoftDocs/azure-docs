@@ -8,7 +8,6 @@ ms.topic: quickstart
 ms.service: signalr
 ms.custom:
   - subject-armqs
-  - 
   - mode-arm
 ---
 

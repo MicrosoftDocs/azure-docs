@@ -6,7 +6,7 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/13/2020 
-ms.custom: 
+ 
 ---
 
 # Data encryption for Azure Database for PostgreSQL Single server by using the Azure portal

@@ -5,7 +5,6 @@ author: mumian
 ms.date: 03/31/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.custom: 
 ---
 
 # Tutorial: Add parameters to your ARM template

@@ -8,7 +8,6 @@ ms.date: 06/23/2020
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.custom:
-  - 
   - devx-track-azurepowershell
   - mode-arm
 ---
