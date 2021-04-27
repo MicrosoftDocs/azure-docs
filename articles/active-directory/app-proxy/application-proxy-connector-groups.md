@@ -120,5 +120,5 @@ In the example below, the company has two datacenters, A and B, with two connect
 
 ## Next steps
 
-* [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)
-* [Enable single-sign on](../manage-apps/what-is-single-sign-on.md)
+[Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)
+[Enable single-sign on](../manage-apps/what-is-single-sign-on.md)
