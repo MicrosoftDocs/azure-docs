@@ -7,7 +7,7 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog 
-ms.custom: devx-track-azurecli
+
 ---
 
 # Order device connection events from Azure IoT Hub using Azure Cosmos DB

@@ -120,7 +120,7 @@ In this section, you create an Azure Database for PostgreSQL server and database
 az extension add --name db-up
 ```
 
-Create the Postgres database in Azure with the [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) command, as shown in the following example. Replace *\<postgresql-name>* with a *unique* name (the server endpoint is *https://\<postgresql-name>.postgres.database.azure.com*). For *\<admin-username>* and *\<admin-password>*, specify credentials to create an administrator user for this Postgres server.
+Create the Postgres database in Azure with the [`az postgres up`](/cli/azure/postgres#az_postgres_up) command, as shown in the following example. Replace *\<postgresql-name>* with a *unique* name (the server endpoint is *https://\<postgresql-name>.postgres.database.azure.com*). For *\<admin-username>* and *\<admin-password>*, specify credentials to create an administrator user for this Postgres server.
 
 <!-- Issue: without --location -->
 ```azurecli
