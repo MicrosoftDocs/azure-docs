@@ -55,7 +55,7 @@ A regular expression entity extracts an entity based on a regular expression pat
 
 See the [regex entities reference article](reference-entity-regular-expression.md) for more information.
 
-## Prebuilt Entity
+## Prebuilt entity
 
 LUIS offers a set of prebuilt entities for recognizing common types of data like name, date, number, and currency.  The behavior of prebuilt entities is fixed. Prebuilt entity support varies according to the culture of the LUIS app. For example:
 
