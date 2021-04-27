@@ -64,11 +64,51 @@ To continue to interact with the PowerShell Gallery, run the following command b
 
 In this step, you will create a new Azure SQL Database logical server and a new database using the DC-series hardware generation, required for Always Encrypted with secure enclaves. For more information see [DC-series](service-tiers-vcore.md#dc-series).
 
-### [Portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 
-TODO
+1. Browse to the [Select SQL Deployment option](https://portal.azure.com/#create/Microsoft.AzureSQL) page.
+1. Under **SQL databases**, leave **Resource type** set to **Single database**, and select **Create**.
 
-### [PowerShell](#tab/azure-powershell)
+   ![Add to Azure SQL](./media/single-database-create-quickstart/select-deployment.png)
+
+1. On the **Basics** tab of the **Create SQL Database** form, under **Project details**, select the desired Azure **Subscription**.
+1. For **Resource group**, select **Create new**, enter *myResourceGroup*, and select **OK**.
+1. For **Database name** enter *ContosoHR*.
+1. For **Server**, select **Create new**, and fill out the **New server** form with the following values:
+   - **Server name**: Enter *mysqlserver*, and add some characters for uniqueness. We can't provide an exact server name to use because server names must be globally unique for all servers in Azure, not just unique within a subscription. So enter something like mysqlserver12345, and the portal lets you know if it is available or not.
+   - **Server admin login**: Enter *azureuser*.
+   - **Password**: Enter a password that meets requirements, and enter it again in the **Confirm password** field.
+   - **Location**: Select a location from the dropdown list.
+
+   Select **OK**.
+
+1. Leave **Want to use SQL elastic pool** set to **No**.
+1. Under **Compute + storage**, select **Configure database**.
+1. This quickstart uses a serverless database, so select **Serverless**, and then select **Apply**. 
+
+      ![configure serverless database](./media/single-database-create-quickstart/configure-database.png)
+
+1. Select **Next: Networking** at the bottom of the page.
+
+   ![New SQL database - Basic tab](./media/single-database-create-quickstart/new-sql-database-basics.png)
+
+1. On the **Networking** tab, for **Connectivity method**, select **Public endpoint**.
+1. For **Firewall rules**, set **Add current client IP address** to **Yes**. Leave **Allow Azure services and resources to access this server** set to **No**.
+1. Select **Next: Additional settings** at the bottom of the page.
+
+   ![Networking tab](./media/single-database-create-quickstart/networking.png)
+  
+
+1. On the **Additional settings** tab, in the **Data source** section, for **Use existing data**, select **Sample**. This creates an AdventureWorksLT sample database so there's some tables and data to query and experiment with, as opposed to an empty blank database.
+1. Optionally, enable [Azure Defender for SQL](../database/azure-defender-for-sql.md).
+1. Optionally, set the [maintenance window](../database/maintenance-window.md) so planned maintenance is performed at the best time for your database.
+1. Select **Review + create** at the bottom of the page:
+
+   ![Additional settings tab](./media/single-database-create-quickstart/additional-settings.png)
+
+1. On the **Review + create** page, after reviewing, select **Create**.
+
+# [PowerShell](#tab/azure-powershell)
 
 1. Open a PowerShell console and import the required version of Az.
 
@@ -292,8 +332,6 @@ In this step, you'll encrypt the data stored in the **SSN** and **Salary** colum
 
     7. Select **Connect**.
     8. If you're prompted to enable Parameterization for Always Encrypted queries, select **Enable**.
-
-
 
 1. Using the same SSMS instance (with Always Encrypted enabled), open a new query window and encrypt the **SSN** and **Salary** columns by running the below statements.
 
