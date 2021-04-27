@@ -131,6 +131,10 @@ Using the latest [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azu
 TokenCredential credential = new ClientSecretCredential("<tenant_id>", "<client_id>", "<client_secret>");
 var client = new ServiceBusClient("<fully_qualified_namespace>", credential);
 ```
+
+If using the older .NET packages, refer to the below samples
+- [RoleBasedAccessControl in Microsoft.Azure.ServiceBus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/RoleBasedAccessControl)
+- [RoleBasedAccessControl in WindowsAzure.ServiceBus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)
 ---
 
 ## Next steps
