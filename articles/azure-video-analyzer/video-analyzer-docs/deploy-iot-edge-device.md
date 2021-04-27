@@ -30,22 +30,19 @@ Click the **Deploy to Azure** button
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava/click-to-deploy/form)
 
-* Select your **subscription**
-* Select your preferred **region**
-* Select the **resource group** that your edge device is in 
-* **Do you need an edge device?**, select ***Use an existing edge device*** from the drop-down menu
-> [!NOTE]
-> You will need to provide the name of the existing edge device and select the IoT Hub where it is registered. Also note, that this will override the modules deployed to the edge device.
-* Click **Next**
+1. Select your **subscription**1. Select your preferred **region**
+1. Select the **resource group** that your edge device is in 
+1. **Do you need an edge device?**, select ***Use an existing edge device*** from the drop-down menu
+1. Click **Next**
 ![Screenshot of initial deployment form](./media/deploy-iot-edge-device/form1.PNG)
 
-* Select the **Existing IoT Hub Name** that your edge device is connected to
-* Click **Next**
+1. Select the **Existing IoT Hub Name** that your edge device is connected to
+1. Click **Next**
 ![Screenshot of second deployment form](./media/deploy-iot-edge-device/form2.PNG)
 
-* On the final page, click **Create**
+1. On the final page, click **Create**
 
-It may take a few moments for the Azure resoruces to be created and the edge modules to be deployed.
+It may take a few moments for the Azure resources to be created and the edge modules to be deployed.
 
 
 ### Verify your deployment
@@ -76,11 +73,11 @@ Next, lets test the sample by invoking a direct method. Read [direct methods for
 1. Next, Enter "pipelineTopologyList" in the Method Name box.
 1. Next, copy and paste the below JSON payload in the payload box.
     
-```
-{
-     "@apiVersion": "1.0"
-}
-```
+   ```
+   {
+       "@apiVersion": "1.0"
+   }
+   ```
 1. Click on “Invoke Method” option on top of the page
 
     ![Direct methods](./media/deploy-iot-edge-device/direct-method.png)
