@@ -5,12 +5,12 @@ description: Learn how to link Azure Synapse and Azure Machine Learning workspac
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/08/2021
-ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
+ms.custom: devx-track-python, data4ml, synapse-azureml
 
 
 # Customer intent: As a workspace administrator, I want to link Azure Synapse workspaces and Azure Machine Learning workspaces for a unified data wrangling experience.

@@ -44,7 +44,7 @@ Before you begin, note that:
 Get a Microsoft [Azure account](https://azure.microsoft.com/).
 
 - You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-- Learn about [Site Recovery pricing](site-recovery-faq.md#pricing), and get [pricing details](https://azure.microsoft.com/pricing/details/site-recovery/).
+- Learn about [Site Recovery pricing](/azure/site-recovery/site-recovery-faq#pricing), and get [pricing details](https://azure.microsoft.com/pricing/details/site-recovery/).
 - Find out which [regions are supported](https://azure.microsoft.com/pricing/details/site-recovery/) for Site Recovery.
 
 ### Verify Azure account permissions

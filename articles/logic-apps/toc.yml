@@ -58,7 +58,7 @@
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/logic-apps-security-baseline
 - name: How-to guides
   items:
   - name: Azure Logic Apps Preview
@@ -394,7 +394,7 @@
   - name: Pricing model & usage metering
     href: logic-apps-pricing.md
   - name: Azure CLI
-    href: /cli/azure/ext/logic/logic
+    href: /cli/azure/logic
   - name: Azure PowerShell
     href: /powershell/module/az.logicapp
   - name: REST API

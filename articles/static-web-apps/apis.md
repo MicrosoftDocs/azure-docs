@@ -31,7 +31,25 @@ Azure Static Web Apps provides an API through Azure Functions. The capabilities 
 - Triggers are limited to [HTTP](../azure-functions/functions-bindings-http-webhook.md).
   - Input and output [bindings](../azure-functions/functions-triggers-bindings.md#supported-bindings) are supported.
 - Logs are only available if you add [Application Insights](../azure-functions/functions-monitoring.md) to your Functions app.
-- Some application settings are managed by the service. You can't configure app settings that start with the following prefixes: `APPSETTING_`, `AZUREBLOBSTORAGE_`, `AZUREFILESSTORAGE_`, `AZURE_FUNCTION_`, `CONTAINER_`, `DIAGNOSTICS_`, `DOCKER_`, `FUNCTIONS_`, `IDENTITY_`, `MACHINEKEY_`, `MAINSITE_`, `MSDEPLOY_`, `SCMSITE_`, `SCM_`, `WEBSITES_`, `WEBSITE_`, `WEBSOCKET_`, `AzureWeb`.
+- Some application settings are managed by the service. Therefore, you can't configure app settings that start with the following prefixes:
+	- `APPSETTING_`
+	- `AZUREBLOBSTORAGE_`
+	- `AZUREFILESSTORAGE_`
+	- `AZURE_FUNCTION_`
+	- `CONTAINER_`
+	- `DIAGNOSTICS_`
+	- `DOCKER_`
+	- `FUNCTIONS_`
+	- `IDENTITY_`
+	- `MACHINEKEY_`
+	- `MAINSITE_`
+	- `MSDEPLOY_`
+	- `SCMSITE_`
+	- `SCM_`
+	- `WEBSITES_`
+	- `WEBSITE_`
+	- `WEBSOCKET_`
+	- `AzureWeb`
 
 ## Next steps
 
