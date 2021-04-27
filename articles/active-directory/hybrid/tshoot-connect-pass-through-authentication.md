@@ -49,7 +49,7 @@ If the user is unable to sign into using Pass-through Authentication, they may s
 
 ### Users get invalid username/password error
 
-This can happen when a user’s on-premises UserPrincipalName (UPN) is different than the user's cloud UPN.
+This can happen when a user's on-premises UserPrincipalName (UPN) is different than the user's cloud UPN.
 
 To confirm that this is the issue, first test that the Pass-through Authentication agent is working correctly:
 

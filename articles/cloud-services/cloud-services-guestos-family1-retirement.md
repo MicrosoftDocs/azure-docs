@@ -51,12 +51,12 @@ We recommend you migrate your Cloud Service roles to one of the supported Guest 
 **Guest OS family 4.x** - Windows Server 2012 R2 *(recommended)*
 
 1. Ensure that your application is using SDK 2.1 or later with .NET framework 4.0, 4.5 or 4.5.1.
-2. Set the osFamily attribute to “4” in the ServiceConfiguration.cscfg file, and redeploy your cloud service.
+2. Set the osFamily attribute to "4" in the ServiceConfiguration.cscfg file, and redeploy your cloud service.
 
 **Guest OS family 3.x** - Windows Server 2012
 
 1. Ensure that your application is using SDK 1.8 or later with .NET framework 4.0 or 4.5.
-2. Set the osFamily attribute to “3” in the ServiceConfiguration.cscfg file, and redeploy your cloud service.
+2. Set the osFamily attribute to "3" in the ServiceConfiguration.cscfg file, and redeploy your cloud service.
 
 **Guest OS family 2.x** - Windows Server 2008 R2
 

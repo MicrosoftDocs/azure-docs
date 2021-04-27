@@ -131,7 +131,7 @@ Backup the SQL Server database to your local file path like any typical SQL Serv
 ```sql
 BACKUP DATABASE Test
 TO DISK = 'c:\tmp\test.bak'
-WITH FORMAT, MEDIANAME = 'Test’ ;
+WITH FORMAT, MEDIANAME = 'Test' ;
 GO
 ```
 

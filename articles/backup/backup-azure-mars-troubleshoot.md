@@ -168,7 +168,7 @@ The current operation failed due to an internal service error "Resource not prov
 
 ## Job could not be started as another job was in progress
 
-If you notice a warning message in the **MARS console** > **Job history**, saying “Job could not be started as another job was in progress”, then this could be because of a duplicate instance of the job triggered by the Task Scheduler.
+If you notice a warning message in the **MARS console** > **Job history**, saying "Job could not be started as another job was in progress", then this could be because of a duplicate instance of the job triggered by the Task Scheduler.
 
 ![Job could not be started as another job was in progress](./media/backup-azure-mars-troubleshoot/job-could-not-be-started.png)
 

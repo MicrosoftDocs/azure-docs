@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting issues caused by applications that don’t support TLS 1.2 | Microsoft Docs
-description: Troubleshooting issues caused by applications that don’t support TLS 1.2
+title: Troubleshooting issues caused by applications that don't support TLS 1.2 | Microsoft Docs
+description: Troubleshooting issues caused by applications that don't support TLS 1.2
 services: cloud-services
 documentationcenter: ''
 author: tanmaygore
@@ -14,7 +14,7 @@ ms.date: 03/16/2020
 ms.author: tagore
 ---
 
-# Troubleshooting applications that don’t support TLS 1.2
+# Troubleshooting applications that don't support TLS 1.2
 
 > [!IMPORTANT]
 > [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
@@ -297,7 +297,7 @@ EXIT /B %ERRORLEVEL%
 
 ```
 
-## Step 3: Add the startup task to the role’s service definition (csdef)
+## Step 3: Add the startup task to the role's service definition (csdef)
 
 Add the following snippet to your existing service definition file.
 

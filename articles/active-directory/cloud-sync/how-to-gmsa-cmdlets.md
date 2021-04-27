@@ -80,7 +80,7 @@ You can use AADCloudSyncPermissions in one of two ways:
 Granting certain permissions to all configured domains will require the use of an enterprise admin account.
 
 ```powershell
-Set-AADCloudSyncPermissions -PermissionType “Any mentioned above” -EACredential $credential (prepopulated same as above [$credential = Get-Credential]) 
+Set-AADCloudSyncPermissions -PermissionType "Any mentioned above" -EACredential $credential (prepopulated same as above [$credential = Get-Credential]) 
 ```
 
 ## Grant a certain permission to a specific domain
@@ -88,7 +88,7 @@ Set-AADCloudSyncPermissions -PermissionType “Any mentioned above” -EACredent
 Granting certain permissions to a specific domain will require the use of, at minimum a domain admin account of the domain you are attempting to add.
 
 ```powershell
-Set-AADCloudSyncPermissions -PermissionType “Any mentioned above” -TargetDomain “FQDN of domain” (has to be already configured through wizard) -TargetDomainCredential $credential(same as above) 
+Set-AADCloudSyncPermissions -PermissionType "Any mentioned above" -TargetDomain "FQDN of domain" (has to be already configured through wizard) -TargetDomainCredential $credential(same as above) 
 ```
 
 Note: for 1. The credentials must be at a minimum Enterprise admin.

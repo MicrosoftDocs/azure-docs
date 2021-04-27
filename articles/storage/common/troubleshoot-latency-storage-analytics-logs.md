@@ -60,7 +60,7 @@ The following steps demonstrate how to identify and troubleshoot latency issues 
             "client-request-id"
         )
 
-   $logs = Import-Csv “REPLACE THIS WITH FILE PATH” -Delimiter ";" -Header $Columns
+   $logs = Import-Csv "REPLACE THIS WITH FILE PATH" -Delimiter ";" -Header $Columns
 
    $logs | Out-GridView -Title "Storage Analytic Log Parser"
    ```
@@ -69,7 +69,7 @@ The following steps demonstrate how to identify and troubleshoot latency issues 
 
    ![Storage Analytic Log Parser Window](media/troubleshoot-latency-storage-analytics-logs/storage-analytic-log-parser-window.png)
 
-4. Narrow down the log entries based on “operation-type”, and look for the log entry created during the issue's time frame.
+4. Narrow down the log entries based on "operation-type", and look for the log entry created during the issue's time frame.
 
    ![Operation-type log entries](media/troubleshoot-latency-storage-analytics-logs/operation-type.png)
 

@@ -139,7 +139,7 @@ Make sure the domain name you use is the same url you set for your on-prem domai
 PUT – https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/secrets
 ```
 
-Add the following key/value pair in the below value array based on what you’re trying to do:
+Add the following key/value pair in the below value array based on what you're trying to do:
 
 - Enable both PHS and sync tenant flags
   { key: "AppKey", value: "{"appKeyScenario":"AD2AADPasswordHash"}" }
@@ -196,7 +196,7 @@ Here, the highlighted "Domain" value is the name of the on-premises Active Direc
    - Provision Active Directory Users
    - Provision Active Directory inetOrgPersons
 
-   Object mappings are within the schema.synchronizationRules[0].objectMappings (For now you can assume there’s only 1 Synchronization Rule)
+   Object mappings are within the schema.synchronizationRules[0].objectMappings (For now you can assume there's only 1 Synchronization Rule)
 
 4. Take the CredentialData Mapping from Step (2) and insert it into the object mappings in Step (3)
 
@@ -220,7 +220,7 @@ Here, the highlighted "Domain" value is the name of the on-premises Active Direc
 
    Remember to do this for both Users and inetOrgpersons.
 
-5. Save the schema you’ve created:
+5. Save the schema you've created:
 
    ```
    PUT –
@@ -248,7 +248,7 @@ We're going to need to update the SyncNotificationSettings this configuration is
 PUT – https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/secrets
 ```
 
-Add the following Key/value pair in the below value array based on what you’re trying to do:
+Add the following Key/value pair in the below value array based on what you're trying to do:
 
 ```
 Request body -

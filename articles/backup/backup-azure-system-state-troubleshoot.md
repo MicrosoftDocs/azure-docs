@@ -126,19 +126,19 @@ If the job fails, it indicates a WSB issue that would result in MARS agent Syste
 
 | Symptom | Cause | Resolution
 | -- | -- | --
-| - MARS agent fails with error message: “WSB job failed with VSS errors. Check VSS event logs to resolve the failure”<br/><br/> - Following error log is present in VSS Application event logs: “A VSS writer has rejected an event with error 0x800423f2, the writer's timeout expired between the Freeze and Thaw events.”| VSS writer is unable to complete in time due to lack of CPU and memory resources on the machine <br/><br/> Another backup software is already using the VSS writer, as a result snapshot operation could not complete for this backup | Wait for CPU/memory to be freed up on system or abort the processes taking too much memory/CPU and try the operation again. <br/><br/>  Wait for the ongoing backup to complete and try the operation at a later point when no backups are running on the machine.
+| - MARS agent fails with error message: "WSB job failed with VSS errors. Check VSS event logs to resolve the failure"<br/><br/> - Following error log is present in VSS Application event logs: "A VSS writer has rejected an event with error 0x800423f2, the writer's timeout expired between the Freeze and Thaw events."| VSS writer is unable to complete in time due to lack of CPU and memory resources on the machine <br/><br/> Another backup software is already using the VSS writer, as a result snapshot operation could not complete for this backup | Wait for CPU/memory to be freed up on system or abort the processes taking too much memory/CPU and try the operation again. <br/><br/>  Wait for the ongoing backup to complete and try the operation at a later point when no backups are running on the machine.
 
 ### Insufficient disk space to grow shadow copies
 
 | Symptom | Resolution
 | -- | --
-| - MARS agent fails with error message: Backup failed as the shadow copy volume could not grow due to insufficient disk space on volumes containing system files <br/><br/> - Following error/warning log is present in volsnap system event logs: “There was insufficient disk space on volume C: to grow the shadow copy storage for shadow copies of C: due to this failure all shadow copies of volume C: are at risk of being deleted” | - Free up space in the highlighted volume in the event log so that there's sufficient space for shadow copies to grow while backup is in progress <br/><br/> -  While configuring shadow copy space we can restrict the amount of space used for shadow copy. For more information, see this [article](/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)
+| - MARS agent fails with error message: Backup failed as the shadow copy volume could not grow due to insufficient disk space on volumes containing system files <br/><br/> - Following error/warning log is present in volsnap system event logs: "There was insufficient disk space on volume C: to grow the shadow copy storage for shadow copies of C: due to this failure all shadow copies of volume C: are at risk of being deleted" | - Free up space in the highlighted volume in the event log so that there's sufficient space for shadow copies to grow while backup is in progress <br/><br/> -  While configuring shadow copy space we can restrict the amount of space used for shadow copy. For more information, see this [article](/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)
 
 ### EFI partition locked
 
 | Symptom | Resolution
 | -- | --
-| MARS agent fails with error message: “System state backup failed as the EFI system partition is locked. This can be due to system partition access by a third-party security or back up software” | - If the issue is due to a third-party security software, then you need to contact the Anti Virus vendor so that they can allow MARS agent <br/><br/> - If a third-party backup software is running, then wait for it to finish and then retry back up
+| MARS agent fails with error message: "System state backup failed as the EFI system partition is locked. This can be due to system partition access by a third-party security or back up software" | - If the issue is due to a third-party security software, then you need to contact the Anti Virus vendor so that they can allow MARS agent <br/><br/> - If a third-party backup software is running, then wait for it to finish and then retry back up
 
 ## Next steps
 

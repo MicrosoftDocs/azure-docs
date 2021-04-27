@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 [Password hash synchronization](whatis-phs.md) is one of the sign-in methods used to accomplish hybrid identity. Azure AD Connect synchronizes a hash, of the hash, of a user's password from an on-premises Active Directory instance to a cloud-based Azure AD instance.  By default, once it has been setup, password hash synchronization will occur on all of the users you are synchronizing.
 
-If you’d like to have a subset of users excluded from synchronizing their password hash to Azure AD, you can configure selective password hash synchronization using the guided steps provided in this article.
+If you'd like to have a subset of users excluded from synchronizing their password hash to Azure AD, you can configure selective password hash synchronization using the guided steps provided in this article.
 
 >[!Important]
 > Microsoft doesn't support modifying or operating Azure AD Connect sync outside of the configurations or actions that are formally documented. Any of these configurations or actions might result in an inconsistent or unsupported state of Azure AD Connect sync. As a result, Microsoft cannot guarantee that we will be able to provide efficient technical support for such deployments.
@@ -63,6 +63,7 @@ Before you start either scenario, you must disable the synchronization scheduler
 For more information on the scheduler see [Azure AD Connect sync scheduler](how-to-connect-sync-feature-scheduler.md).
 
 ## Excluded users is smaller than included users
+
 The following section describes how to enable selective password hash synchronization when the number of users to **exclude** is **smaller** than the number of users to **include**.
 
 >[!Important]
@@ -99,7 +100,7 @@ the attribute **adminDescription** populated in Active Directory with the value 
  6. Next, create another custom rule with password hash synchronization enabled. Select again the default rule **In from AD – User AccountEnabled** for the Active Directory forest you want to configure selective password had synchronization on and click **Edit**. Select **yes** in the next dialog box to create an editable copy of the original rule.
      ![Custom rule](media/how-to-connect-selective-password-hash-synchronization/exclude-6.png)
  7. Provide the following name to the new custom rule: **In from AD - User AccountEnabled - Users included for PHS**.
- Change the precedence value to a number lower than the rule previously created (In this example that’ll be **89**).
+ Change the precedence value to a number lower than the rule previously created (In this example that'll be **89**).
  Make sure the checkbox **Enable Password Sync** is checked and the **Disabled** checkbox is unchecked.
  Click **Next**.  
      ![Edit new rule](media/how-to-connect-selective-password-hash-synchronization/exclude-7.png)
@@ -113,6 +114,7 @@ the attribute **adminDescription** populated in Active Directory with the value 
      ![Confirm rules](media/how-to-connect-selective-password-hash-synchronization/exclude-10.png)
 
 ### Re-enable synchronization scheduler:  
+
 Once you completed the steps to configure the necessary synchronization rules, re-enable the synchronization scheduler with the following steps:
  1. In Windows PowerShell run:
 
@@ -125,6 +127,7 @@ Once you completed the steps to configure the necessary synchronization rules, r
 For more information on the scheduler see [Azure AD Connect sync scheduler](how-to-connect-sync-feature-scheduler.md).
 
 ### Edit users **adminDescription** attribute:
+
 Once all configurations are complete, you need edit the attribute **adminDescription** for all users you wish to **exclude** from password hash synchronization in Active Directory and add the string used in the scoping filter: **PHSFiltered**.
 
   ![Edit attribute](media/how-to-connect-selective-password-hash-synchronization/exclude-11.png)
@@ -134,6 +137,7 @@ You can also use the following PowerShell command to edit a user's **adminDescri
 `set-adusermyuser-replace@{adminDescription="PHSFiltered"}`
 
 ## Excluded users is larger than included users
+
 The following section describes how to enable selective password hash synchronization when the number of users to **exclude** is **larger** than the number of users to **include**.
 
 >[!Important]
@@ -172,7 +176,7 @@ Select **adminDescription** in the attribute column, **NOTEQUAL** in the Operato
  6. Next, create another custom rule with password hash synchronization enabled. Select again the default rule **In from AD – User AccountEnabled** for the Active Directory forest you want to configure selective password had synchronization on and click **Edit**. Select **yes** in the next dialog box to create an editable copy of the original rule.
      ![User AccountEnabled](media/how-to-connect-selective-password-hash-synchronization/include-6.png)
  7. Provide the following name to the new custom rule: **In from AD - User AccountEnabled - Users included for PHS**.
- Change the precedence value to a number lower than the rule previously created (In this example that’ll be **89**).
+ Change the precedence value to a number lower than the rule previously created (In this example that'll be **89**).
  Make sure the checkbox **Enable Password Sync** is checked and the **Disabled** checkbox is unchecked.
  Click **Next**.
      ![Enable Password Sync](media/how-to-connect-selective-password-hash-synchronization/include-7.png)
@@ -186,6 +190,7 @@ Select **adminDescription** in the attribute column, **NOTEQUAL** in the Operato
      ![Sync on](media/how-to-connect-selective-password-hash-synchronization/include-10.png)
 
 ### Re-enable synchronization scheduler:  
+
 Once you completed the steps to configure the necessary synchronization rules, re-enable the synchronization scheduler with the following steps:
 
 1. In Windows PowerShell, run:

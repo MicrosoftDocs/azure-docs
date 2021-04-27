@@ -38,7 +38,7 @@ Some organizations configure domains in their Azure Active Directory tenant to f
 
 When a user signs into an application, they are first presented with an Azure AD sign-in page. After they have typed their UPN, if they are in a federated domain they are then taken to the sign-in page of the IdP serving that domain. Under certain circumstances, administrators might want to direct users to the sign-in page when they're signing in to specific applications.
 
-As a result users can skip the initial Azure Active Directory page. This process is referred to as “sign-in auto-acceleration.”
+As a result users can skip the initial Azure Active Directory page. This process is referred to as "sign-in auto-acceleration."
 
 In cases where the tenant is federated to another IdP for sign-in, auto-acceleration makes user sign-in more streamlined.  You can configure auto-acceleration for individual applications.
 
@@ -70,7 +70,7 @@ By default, Azure AD attempts to redirect sign-in to the IdP that's configured f
 - A domain hint is included in the authentication request from the application **and**
 - The tenant is federated with that domain.
 
-If the domain hint doesn’t refer to a verified federated domain, it is ignored.
+If the domain hint doesn't refer to a verified federated domain, it is ignored.
 
 For more information about auto-acceleration using the domain hints that are supported by Azure Active Directory, see the [Enterprise Mobility + Security blog](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/11/using-azure-ad-to-land-users-on-their-custom-login-page-from-within-your-app/).
 
@@ -79,7 +79,7 @@ For more information about auto-acceleration using the domain hints that are sup
 
 ### Home Realm Discovery policy for auto-acceleration
 
-Some applications do not provide a way to configure the authentication request they emit. In these cases, it’s not possible to use domain hints to control auto-acceleration. Auto-acceleration can be configured via Home Realm Discovery policy to achieve the same behavior.
+Some applications do not provide a way to configure the authentication request they emit. In these cases, it's not possible to use domain hints to control auto-acceleration. Auto-acceleration can be configured via Home Realm Discovery policy to achieve the same behavior.
 
 ### Home Realm Discovery policy to prevent auto-acceleration
 
@@ -239,7 +239,7 @@ Add-AzureADServicePrincipalPolicy -Id <ObjectID of the Service Principal> -RefOb
 
 You can repeat this command for each service principal to which you want to add the policy.
 
-In the case where an application already has a HomeRealmDiscovery policy assigned, you won’t be able to add a second one.  In that case, change the definition of the Home Realm Discovery policy that is assigned to the application to add additional parameters.
+In the case where an application already has a HomeRealmDiscovery policy assigned, you won't be able to add a second one.  In that case, change the definition of the Home Realm Discovery policy that is assigned to the application to add additional parameters.
 
 #### Step 4: Check which application service principals your HRD policy is assigned to
 
