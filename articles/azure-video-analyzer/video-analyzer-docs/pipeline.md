@@ -41,7 +41,7 @@ Here is a pipeline topology.
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/pipeline/topology.png" alt-text="A pipeline topology" lightbox="./media/pipeline/topology.png":::
 
-You start with [creating the pipeline topology](#peline-opologies). Once the topology is defined, you can create pipelines by providing values for the parameters. Upon successful creation a pipeline starts in the “Inactive” state. Upon activation, a pipeline enters the “Activating” state and then “Active” state. 
+You start with [creating the pipeline topology](#pipeline-opologies). Once the topology is defined, you can create pipelines by providing values for the parameters. Upon successful creation a pipeline starts in the “Inactive” state. Upon activation, a pipeline enters the “Activating” state and then “Active” state. 
 
 The data flow starts upon reaching “Active” state. Upon deactivation, an active pipeline enters the “Deactivating” state and then “Inactive” state. Only inactive pipelines can be deleted.
 
