@@ -363,7 +363,6 @@ You can examine the Video Analyzer video resource that was created by the live p
 1. You'll find a video listed with the name `sample-cvr-video`. This is the name chosen in your pipeline topology file.
 1. Select the video.
 1. On the video details page, select playback option <!-- TODO:  ![VIdeo playback]() new screenshot is needed here -->
-1. For more information on scrubbing the video to see the entire recording, see [video playback](video-playback.md).
 
 > [!NOTE]
 > Because the source of the video was a container simulating a camera feed, the time stamps in the video are related to when you activated the live pipeline and when you deactivated it. To see how to browse a multi-day recording and view portions of that archive, see the [Playback of multi-day recordings](playback-multi-day-recordings-tutorial.md) tutorial. In that tutorial, you also can see the time stamps in the video displayed onscreen.
