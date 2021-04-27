@@ -28,7 +28,7 @@ Entities are optional but recommended. You don't need to create entities for eve
 
 To create an entity, you have to give it a name and a type. There are several types of entities in LUIS. 
 
-## List Entity
+## List entity
 
 A list entity represents a fixed, closed set of related words along with their synonyms. You can use list entities to recognize multiple synonyms or variations and extract a normalized output for them. Use the *recommend* option to see suggestions for new words based on the current list. 
 
