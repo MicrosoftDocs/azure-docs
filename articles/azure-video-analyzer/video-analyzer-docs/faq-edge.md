@@ -45,30 +45,7 @@ Yes, when the live pipeline is in *inactive* state.
 
 **Is an RTSP simulator available to use during testing and development?**
 
-Yes, an [RTSP simulator]()<!-- https://github.com/Azure/azure-video-analyzer/tree/master/utilities/rtspsim-live555 --> edge module is available for use in the quickstarts and tutorials to support the learning process. This module is provided as best-effort and might not always be available. We recommend strongly that you *not* use the simulator for more than a few hours. You should invest in testing with your actual RTSP source before you plan a production deployment.
-
-**Do you support ONVIF discovery of IP cameras at the edge?**
-
-No, we don't support Open Network Video Interface Forum (ONVIF) discovery of devices on the edge.
-
-## Streaming and playback
-
-**What players can I use to view content from the recorded assets?**
-
-All standard players that support compliant HLS version 3 or version 4 are supported. In addition, any player that's capable of compliant MPEG-DASH playback is also supported.
-
-Recommended players for testing include:
-
-* [AVA Player]() <!-- use-ava-player.md -->
-* [Azure Media Player]() <!-- use-azure-media-player.md -->
-* [HLS.js](https://hls-js.netlify.app/demo/)
-* [Video.js](https://videojs.com/)
-* [Dash.js](https://github.com/Dash-Industry-Forum/dash.js/wiki)
-* [Shaka Player](https://github.com/google/shaka-player)
-* [ExoPlayer](https://github.com/google/ExoPlayer)
-* [Apple native HTTP Live Streaming](https://developer.apple.com/streaming/)
-* Edge, Chrome, or Safari built-in HTML5 video player
-* Commercial players that support HLS or DASH playback
+Yes, an [RTSP simulator](add-valid-link.md)<!-- https://github.com/Azure/azure-video-analyzer/tree/master/utilities/rtspsim-live555 --> edge module is available for use in the quickstarts and tutorials to support the learning process. This module is provided as best-effort and might not always be available. We recommend strongly that you *not* use the simulator for more than a few hours. You should invest in testing with your actual RTSP source before you plan a production deployment.
 
 ## Design your AI model 
 
@@ -120,7 +97,7 @@ Solutions vary depending on the communication protocol that's used by the infere
 
  First, be sure that your server can either handle more than one request at a time or work in parallel threads. 
 
-For example, a default number of parallel channels has been set in the following [Azure Video Analyzer gRPC sample]()<!-- https://github.com/Azure/azure-video-analyzer/blob/master/utilities/video-analysis/notebooks/Yolo/yolov3/yolov3-grpc-icpu-onnx/avaextension/server/server.py -->: 
+For example, a default number of parallel channels has been set in the following [Azure Video Analyzer gRPC sample](add-valid-link.md)<!-- https://github.com/Azure/azure-video-analyzer/blob/master/utilities/video-analysis/notebooks/Yolo/yolov3/yolov3-grpc-icpu-onnx/avaextension/server/server.py -->: 
 
 ```
 server = grpc.server(futures.ThreadPoolExecutor(max_workers=3)) 
@@ -134,7 +111,7 @@ To set up and use multiple cameras, you can instantiate multiple live pipelines,
 
 **I want to be able to receive multiple frames from upstream before I make an inferencing decision. How can I enable that?** 
 
-Our current [default samples]()<!--https://github.com/Azure/azure-video-analyzer/tree/master/utilities/video-analysis--> work in a *stateless* mode. They don't keep the state of the previous calls or even who called. This means that multiple live pipelines might call the same inference server, but the server can't distinguish who is calling or the state per caller. 
+Our current [default samples](add-valid-link.md)<!--https://github.com/Azure/azure-video-analyzer/tree/master/utilities/video-analysis--> work in a *stateless* mode. They don't keep the state of the previous calls or even who called. This means that multiple live pipelines might call the same inference server, but the server can't distinguish who is calling or the state per caller. 
 
 *Use the HTTP protocol*:
 
@@ -186,11 +163,11 @@ Today, we are providing bounding box coordinates as inference messages only. You
 
 Any field that you don't supply a value to is given a [default value, as specified by gRPC](https://developers.google.com/protocol-buffers/docs/proto3#default).  
 
-Azure Video Analyzer uses the *proto3* version of the protocol buffer language. All the protocol buffer data that's used by Azure Video Analyzer contracts is available in the [protocol buffer files]()<!--https://github.com/Azure/azree-video-analyzer/tree/master/contracts/grpc-->. 
+Azure Video Analyzer uses the *proto3* version of the protocol buffer language. All the protocol buffer data that's used by Azure Video Analyzer contracts is available in the [protocol buffer files](add-valid-link.md)<!--https://github.com/Azure/azree-video-analyzer/tree/master/contracts/grpc-->. 
 
 **How can I ensure that I'm using the latest protocol buffer files?** 
 
-You can obtain the latest protocol buffer files on the [contract files site]()<!--https://github.com/Azure/azree-video-analyzer/tree/master/contracts/grpc-->. Whenever we update the contract files, they'll be in this location. There's no immediate plan to update the protocol files, so look for the package name at the top of the files to know the version. It should read: 
+You can obtain the latest protocol buffer files on the [contract files site](add-valid-link.md)<!--https://github.com/Azure/azree-video-analyzer/tree/master/contracts/grpc-->. Whenever we update the contract files, they'll be in this location. There's no immediate plan to update the protocol files, so look for the package name at the top of the files to know the version. It should read: 
 
 <!-- check if we should rename-->
 ```
@@ -228,7 +205,7 @@ For more information, see the [monitoring and logging](monitoring-logging.md) ar
 
 **How is Azure Video Analyzer billed?**
 
-For billing details, see [Azure Video Analyzer pricing]()<!--https://azure.microsoft.com/pricing/details/media-services/-->.
+For billing details, see [Azure Video Analyzer pricing](add-valid-link.md)<!--https://azure.microsoft.com/pricing/details/media-services/-->.
 
 ## Next steps
 

@@ -9,7 +9,6 @@
   - name: Video Analyzer terminology
     href: terminology.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: Get started - Azure Video Analyzer
     href: get-started-detect-motion-emit-events.md
@@ -34,10 +33,10 @@
     - name: Using direct method calls
       displayName: Detect motion and emit events    
       href: detect-motion-emit-events-quickstart.md
-  - name: Detect motion, record video on edge devices
+  - name: Detect motion, record video clips on edge devices
     items:
     - name: Using direct method calls
-      displayName: Detect motion, record video on edge devices
+      displayName: Detect motion, record video clips on edge devices
       href: detect-motion-record-video-clips-edge-devices.md #404      
 - name: Tutorials
   items:
@@ -76,7 +75,7 @@
     items:
     - name: Pipeline extension
       href: pipeline-extension.md
-    - name: Event based video recording
+    - name: Event-based video recording
       href: event-based-video-recording-concept.md 
     - name: Continuous video recording
       href: continuous-video-recording.md
@@ -145,8 +144,8 @@
   - name: Azure Video Analyzer player
     href: player.md #404
   - name: FAQs - Cloud
-    href: faqs-cloud.md # 404
+    href: faq-cloud.md # 404
   - name: FAQs - Edge
-    href: faqs-edge.md 
+    href: faq-edge.md 
   - name: Quotas and limitations
     href: quotas-limitations.md
