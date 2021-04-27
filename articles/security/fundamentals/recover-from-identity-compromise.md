@@ -1,6 +1,6 @@
 ---
 title: Use Microsoft security resources to help recover from systemic identity compromise | Microsoft Docs
-description: Learn how to use Microsoft security resources and recommendations to secure your system against systemic-identity compromises similar to the SolarWinds attack (Solorigate).
+description: Learn how to use Microsoft security resources and recommendations to secure your system against systemic-identity compromises similar to the Nobelium attack (Solorigate) of December 2020.
 services: sentinel
 documentationcenter: na
 author: batamig
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2021
+ms.date: 04/27/2021
 ms.author: bagol
 
 ---
@@ -22,26 +22,36 @@ ms.author: bagol
 
 This article describes Microsoft resources and recommendations for recovering from a systemic identity compromise attack against your organization, such as the [Nobelium](https://aka.ms/solorigate) attack of December 2020.
 
+The content in this article is based on guidance provided by Microsoft's Detection and Response Team (DART), which works to respond to compromises and help customers become cyber-resilient. For more guidance from the DART team, see their [Microsoft security blog series](https://www.microsoft.com/security/blog/microsoft-detection-and-response-team-dart-blog-series/). 
+
 > [!IMPORTANT]
 > This information is provided as-is and constitutes generalized guidance; the ultimate determination about how to apply this guidance to your IT environment and tenant(s) must consider your unique environment and needs, which each Customer is in the best position to determine.
+>
 
 ## Overview
 
-An advanced systemic identity compromise attack on an organization occurs when an attacker successfully gains a foothold into the organization's network and elevated credentials.
+A systemic identity compromise attack on an organization occurs when an attacker successfully gains a foothold into the administration of an organization's identity infrastructure.
 
-Intruders who are able to use administrator controls, acquired through an on-premises compromise, can gain access to the organization's trusted SAML token-signing certificate, and then forge SAML tokens to impersonate any of the organization's existing users and accounts.
+- **Attackers with administrative control of an environment's identity infrastructure** can use that control to create, modify, or delete identities and identity permissions in that environment. 
 
-Highly privileged account access can then be used to add illegitimate credentials to existing applications, enabling the attacker to call APIs with the illegitimate permissions.
+    In an on-premises compromise, if trusted SAML token-signing certificates are *not* stored in an [HSM](/azure/key-vault/keys/hsm-protected-keys), the attack includes access to that trusted SAML token-signing certificate. 
 
-The response to such an advanced attack should include the following objectives:
+- **Attackers can then use the certificate to forge SAML tokens** to impersonate any of the organization's existing users and accounts without making any changes, and without requiring access to the account credentials.
 
-1. **Establish secure communications** for personnel key to the investigation and response effort.
+- **Highly-privileged account access** can also be used to add illegitimate credentials to existing applications, enabling attackers to call APIs using those illegitimate permissions.
 
-1. **Investigate the environment** for persistence and initial access point, while establishing continuous monitoring operations during recovery efforts.
+Responding to systemic identity compromises should include the steps shown in the following image and table:
 
-1. **Regain and retain administrative control** of your environment and remediate or block possible persistence techniques and initial access exploits.
+:::image type="content" source="media/recover-identity-compromise.png" alt-text="Steps to recover from identity compromise.":::
 
-1. **Improve posture** by enabling security features and capabilities following best practice recommendations.
+
+|Step  |Description  |
+|---------|---------|
+|**Establish secure communications**     |  The personnel on your team who are key to your investigations and response effort must be able to communicate securely. <br><br>*This must be the very first step in your response so that you can proceed without the attacker's knowledge.* |
+|**Investigate your environment**.     | After you have secured communications on your core investigation team, you can start looking for initial access points and persistence techniques. Look for initial access points and persistence at the same time as establishing continuous monitoring operations during your recovery efforts.        |
+|**Regain and retain administrative control**     |  You must regain control of your environment from the attacker. After you have control again, make sure to remediate or block all possible persistence techniques and new initial access exploits.       |
+|**Improve security posture**     | Enable security features and capabilities following best practice recommendations for improved system security moving forward.        |
+|     |         |
 
 
 ## Establish secure communications
