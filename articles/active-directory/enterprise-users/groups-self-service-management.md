@@ -64,7 +64,7 @@ When users can create groups, all users in your organization are allowed to crea
 
 ## Security Groups setting change
 
-The **Users can create security groups in Azure portals** setting is being deprecated. It is being replaced with a new setting named **Users can create security groups in Azure portals, PowerShell, and API**. The current setting is being replaced because it only controls group creation in Azure portals. The new setting will control user's ability to create security groups in the Access panel, Azure portals, PowerShell, and API. You should configure this new setting before the end of May 2021. When the current setting is deprecated in June, the new setting will take effect.
+The **Users can create security groups in Azure portals** setting is being deprecated. It is being replaced with a new setting named **Users can create security groups in Azure portals, PowerShell, and API**. The current setting is being replaced because it only controls group creation in Azure portals. The new setting will control user's ability to create security groups in the Access panel, Azure portals, PowerShell, and API. You should configure this new setting before the end of May 2021. The new setting will take effect immediately for PowerShell and API, and will take effect in Azure portals sometime in June.
 
 ![Azure Active Directory security groups setting change](./media/groups-self-service-management/security-groups-setting.png)
 
