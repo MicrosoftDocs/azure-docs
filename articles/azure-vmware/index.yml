@@ -193,6 +193,15 @@ landingContent:
           - text: Rotate vCenter & NSX-T passwords using Azure Logic App
             url: https://youtu.be/cK1qY3knj88
                             
+# Move resources (card 8)
+  - title: Move Azure VMware Solution resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Move subscriptions
+            url: move-ea-csp-subscriptions.md
+
+
 
 # card 8
   - title: Troubleshooting
