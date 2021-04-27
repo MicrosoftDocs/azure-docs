@@ -177,17 +177,7 @@ A compute instance:
 You can use compute instance as a local inferencing deployment target for test/debug scenarios.
 
 > [!TIP]
-> The compute instance has 120GB OS disk. If you run out of disk space, [use the terminal](how-to-access-terminal.md) to clear at least 1-2 GB before you [stop or restart](how-to-create-manage-compute-instance.md#manage) the compute instance.
-
-
-## <a name="notebookvm"></a>What happened to Notebook VM?
-
-Compute instances are replacing the Notebook VM.  
-
-Any notebook files stored in the workspace file share and data in workspace data stores will be accessible from a compute instance. However, any custom packages previously installed on a Notebook VM will need to be reinstalled on the compute instance. Quota limitations, which apply to compute clusters creation will apply to compute instance creation as well.
-
-New Notebook VMs cannot be created. However, you can still access and use Notebook VMs you have created, with full functionality. Compute instances can be created in same workspace as the existing Notebook VMs.
-
+> The compute instance has 120GB OS disk. If you run out of disk space and get into an unusable state, please clear at least 5 GB disk space on OS disk (/dev/sda1/ filesystem mounted on /) through the JupyterLab terminal by removing files/folders and then do sudo reboot. To access the JupyterLab terminal go to https://ComputeInstanceName.AzureRegion.instances.azureml.ms/lab replacing the name of compute instance and Azure region, and then click File->New->Terminal. Please clear at least 5 GB before you [stop or restart](how-to-create-manage-compute-instance.md#manage) the compute instance. You can check available disk space by running df -h on the terminal.
 
 ## Next steps
 
