@@ -61,7 +61,6 @@ The new subscription appears in the private cloud Overview.
 ## Next steps
 Learn more about:
 
-- [Move Azure VMware Solution across regions](move-ea-csp-across-regions.md)
 - [Move guidance for networking resources](/azure/azure-resource-manager/management/move-limitations/networking-move-limitations)
 - [Move guidance for virtual machines](/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations)
 - [Move guidance for App Service resources](/azure/azure-resource-manager/management/move-limitations/app-service-move-limitations)
