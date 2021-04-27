@@ -5,7 +5,7 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 04/27/2021
 
 ms.author: mimart
 author: msmimart
