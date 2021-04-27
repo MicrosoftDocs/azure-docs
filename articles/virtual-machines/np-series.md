@@ -38,10 +38,17 @@ VM Generation Support: Generation 1<br>
 
 **A:** Xilinx recommends [Vitis 2020.2](https://www.xilinx.com/products/design-tools/vitis/vitis-platform.html)
 
-
 **Q:** Do I need to use NP VMs to develop my solution? 
 
-**A:** No, you can develop on-premise and deploy to the cloud! Please make sure to follow the attestation documentation to deploy on NP VMs. 
+**A:** No, you can develop on-premise and deploy to the cloud! Please make sure to follow the [attestation documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/field-programmable-gate-arrays-attestation) to deploy on NP VMs. 
+
+**Q:** Which file returned from attestation should I use when programming my FPGA in an NP VM?
+
+**A:** Attestation returns two xclbins, **design.bit.xclbin** and **design.azure.xclbin**. Please use **design.azure.xclbin**.
+
+**Q:** Where should I get all the XRT/Platform files?
+
+**A:** Please visit Xilinx's [Microsoft-Azure](https://www.xilinx.com/microsoft-azure.html) site for all files.
 
 **Q:** What Version of XRT should I use?
 
