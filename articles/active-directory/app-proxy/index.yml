@@ -20,8 +20,8 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          # - text: What is application management?
-          #   url: what-is-application-management.md
+          - text: What is application management?
+            url: what-is-application-management.md
           # - text: What is single sign-on?
           #   url: what-is-single-sign-on.md
   - title: Get started
@@ -40,18 +40,18 @@ landingContent:
             url: ../what-is-single-sign-on.md
           - text: Single sign-on options
             url: ../sso-options.md
-  - title: Use on-premises apps
-    linkLists:
-      - linkListType: learn
-        links:
+  # - title: Use on-premises apps
+  #   linkLists:
+  #     - linkListType: learn
+        # links:
           # - text: What is App Proxy?
           #   url: what-is-application-proxy.md
           # - text: App Proxy deployment
           #   url: application-proxy-deployment-plan.md
-  - title: Secure apps
-    linkLists:
-      - linkListType: learn
-        links:
+  # - title: Secure apps
+  #   linkLists:
+  #     - linkListType: learn
+        # links:
           # - text: Manage access to apps
           #   url: what-is-access-management.md
           # - text: Manage tenant restrictions
