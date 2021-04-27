@@ -40,11 +40,11 @@ When you enable mutual auth for your application, all paths under the root of yo
 
 1. Next to **Client exclusion paths**, click the edit icon.
 
-1. Click **New path**, specify a path, and click **OK**.
+1. Click **New path**, specify a path, or a list of paths separated by `,` or `;`, and click **OK**.
 
 1. Click **Save** at the top of the page.
 
-In the following screenshot, anything under the `/public` path for your app does not request a client certificate.
+In the following screenshot, any path for your app that starts with `/public` does not request a client certificate. Path matching is case-insensitive.
 
 ![Certificate Exclusion Paths][exclusion-paths]
 

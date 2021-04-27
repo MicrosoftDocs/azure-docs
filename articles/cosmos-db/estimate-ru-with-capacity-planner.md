@@ -28,7 +28,7 @@ To get a quick estimate for your workload using the basic mode, navigate to the 
 |Total data stored in transactional store |Total estimated data stored(GB) in the transactional store in a single region.|
 |Use analytical store| Choose **On** if you want to use analytical store. Enter the **Total data stored in analytical store**, it represents the estimated data stored (GB) in the analytical store in a single region.  |
 |Item size|The estimated size of the data item (for example, document), ranging from 1 KB to 2 MB. |
-|Queries/sec |Number of queries expected per second per region. The average cost of queries/sec per region is estimated at 10 RU/s. |
+|Queries/sec |Number of queries expected per second per region. The average RU charge to run a query is estimated at 10 RUs. |
 |Point reads/sec |Number of point read operations expected per second per region. Point reads are the key/value lookup on a single item ID and a partition key. To learn more about point reads, see the [options to read data](optimize-cost-reads-writes.md#reading-data-point-reads-and-queries) article. |
 |Creates/sec |Number of create operations expected per second per region. |
 |Updates/sec |Number of update operations expected per second per region. When you choose automatic indexing, the estimated RU/s for the update operation is calculated as one property being changed per an update. |
