@@ -97,8 +97,6 @@
         href: plan-sso-deployment.md
       - name: Single sign-on options
         href: sso-options.md
-      - name: Single sign-on with on-prem apps
-        href: application-proxy-config-sso-how-to.md
       - name: OIDC-based SSO
         href: configure-oidc-single-sign-on.md
       - name: SAML-based SSO

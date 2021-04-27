@@ -74,6 +74,8 @@
     items: 
     - name: Application Proxy
       href: application-proxy.md
+    - name: Single sign-on with on-prem apps
+      href: application-proxy-config-sso-how-to.md
   #   - name: Planning an Application Proxy deployment
   #     href: application-proxy-deployment-plan.md
     - name: Connectors
@@ -93,8 +95,6 @@
 
   #   - name: Comparison of remote access solutions
   #     href: application-proxy-migration.md
-      #   - name: Single sign-on with on-prem apps
-      #   href: application-proxy-config-sso-how-to.md
       # - name: OIDC-based SSO
       #   href: configure-oidc-single-sign-on.md
       # - name: SAML-based SSO

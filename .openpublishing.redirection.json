@@ -54277,8 +54277,13 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-config-sso-how-to.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-config-sso-how-to",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-config-sso-how-to",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-config-sso-how-to.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-config-sso-how-to",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-working-with-proxy-servers.md",
