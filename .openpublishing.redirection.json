@@ -1016,6 +1016,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/custom-policy-rest-api-intro.md",
+      "redirect_url": "/azure/active-directory-b2c/api-connectors-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-setup-li-app.md",
       "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin",
       "redirect_document_id": true
@@ -34097,7 +34102,7 @@
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-cli-reference.md",
-      "redirect_url": "/cli/azure/ext/spring-cloud/spring-cloud",
+      "redirect_url": "/cli/azure/spring-cloud",
       "redirect_document_id": false
     },
     {
@@ -51776,6 +51781,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/develop/GuidedSetups/active-directory-javascriptspa.md",
+      "redirect_url": "/azure/active-directory/develop/tutorial-v2-javascript-spa",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-v1-add-azure-ad-app",
       "redirect_document_id": true
@@ -52008,11 +52018,6 @@
     {
       "source_path_from_root": "/articles/active-directory/develop/GuidedSetups/active-directory-ios.md",
       "redirect_url": "/azure/active-directory/develop/tutorial-v2-ios",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/develop/GuidedSetups/active-directory-javascriptspa.md",
-      "redirect_url": "/azure/active-directory/develop/tutorial-v2-javascript-spa",
       "redirect_document_id": true
     },
     {
@@ -65261,5 +65266,3 @@
     }
   ]
 }
-
-
