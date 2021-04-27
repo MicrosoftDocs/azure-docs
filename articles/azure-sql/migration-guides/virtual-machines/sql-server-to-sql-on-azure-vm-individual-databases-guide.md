@@ -141,7 +141,7 @@ The following table provides a list of components and recommended migration meth
 | **Feature** | **Component** | **Migration methods** |
 | --- | --- | --- |
 | **Databases** | Model | Script with SQL Server Management Studio. |
-|| TempDB | Plan to move tempDB onto [Azure VM temporary disk (SSD)](../../virtual-machines/windows/performance-guidelines-best-practices-checklist.md#temporary-disk)) for best performance. Be sure to pick a VM size that has a sufficient local SSD to accommodate your tempDB. |
+|| TempDB | Plan to move tempDB onto [Azure VM temporary disk (SSD)](../../virtual-machines/windows/performance-guidelines-best-practices-checklist.md#storage)) for best performance. Be sure to pick a VM size that has a sufficient local SSD to accommodate your tempDB. |
 || User databases with FileStream | Use the [Backup and restore](../../virtual-machines/windows/migrate-to-vm-from-sql-server.md#back-up-and-restore) methods for migration. Data Migration Assistant doesn't support databases with FileStream. |
 | **Security** | SQL Server and Windows logins | Use Data Migration Assistant to [migrate user logins](/sql/dma/dma-migrateserverlogins). |
 || SQL Server roles | Script with SQL Server Management Studio. |
