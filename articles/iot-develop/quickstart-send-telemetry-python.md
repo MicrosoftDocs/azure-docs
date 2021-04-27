@@ -129,7 +129,7 @@ In this section, you use the Python SDK samples to configure a simulated thermos
 After configuring your system, you're ready to run the code. The code creates a simulated thermostat, 
 connects to your IoT Central application and device instance, and sends telemetry.
 
-1. In your terminal, run the code for the sample file *simple_send_temperature.py*. Optionally, you can run the Python sample code in your Python IDE.
+1. In your terminal, run the following code sample. Optionally, you can run the Python sample code in your Python IDE.
     ```console
     python temp_controller_with_thermostats.py
     ```
