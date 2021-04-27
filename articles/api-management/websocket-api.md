@@ -51,9 +51,12 @@ In this article, you will learn how to:
 
 ## onHandshake operation
 
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+Built into the WebSocket protocol, onHandshake is immutable, preventing customers from deleting it. onHandshake streamlines client and server communication. With onHandshake:
+
+1. The WebSocket connection is established and an onHandshake `GET` request is sent.
+1. You can intercept the `GET` request and apply management policies and tokens.
+    * Valid tokens will step through the request.
+    * Invalid tokens will cause the request to be rejected.
 
 ## Test your WebSocket API
 1. <!-- Step 1 -->
@@ -65,7 +68,7 @@ In this article, you will learn how to:
 
 ## Limitations
 
-WebSocket APIs are not currently supported in the following:
+WebSocket APIs are available through Azure portal and Management API. They are not currently supported in the following:
 * Consumption tier
 * Self-hosted gateway
 * Azure CLI, PowerShell, and SDK
