@@ -67,15 +67,14 @@ To enable your MSAL.js application for sovereign clouds:
 
 - Register your application in a specific portal, depending on the cloud. For more information on how to choose the portal refer [App registration endpoints](authentication-national-cloud.md#app-registration-endpoints)
 - Use any of the [samples](https://github.com/Azure-Samples/ms-identity-javascript-tutorial) from the repo with a few changes to the configuration, depending on the cloud, which is mentioned next.
-- Use a specific authority, depending on the cloud you registered the application in. For more information on authorities for different clouds, refer [Azure AD Authentication endpoints](authentication-national-cloud.md#azure-ad-authentication-endpoints).
+- Use a specific authority, depending on the cloud you registered the application in. For more information on authorities for different clouds, refer to [Azure AD Authentication endpoints](authentication-national-cloud.md#azure-ad-authentication-endpoints).
+- Calling the Microsoft Graph API requires an endpoint URL specific to the cloud you are using. To find Microsoft Graph endpoints for all the national clouds, refer to [Microsoft Graph and Graph Explorer service root endpoints](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 Here's an example authority:
 
 ```json
 "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
 ```
-
-- Calling the Microsoft Graph API requires an endpoint URL specific to the cloud you are using. To find Microsoft Graph endpoints for all the national clouds, refer to [Microsoft Graph and Graph Explorer service root endpoints](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 Here's an example of a Microsoft Graph endpoint, with scope:
 
