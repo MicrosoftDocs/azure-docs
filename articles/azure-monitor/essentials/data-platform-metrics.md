@@ -97,6 +97,25 @@ This non-dimensional metric can only answer a basic question like "what was my n
 
 This metric can answer questions such as "what was the network throughput for each IP address?", and "how much data was sent versus received?" Multi-dimensional metrics carry additional analytical and diagnostic value compared to non-dimensional metrics.
 
+### View multi-dimensional performance counter metrics in metrics explorer 
+It is not possible to send performance counter metrics that contain an asterisk (\*) to Azure Monitor via the Classic Guest Metrics API. This API cannot display metrics that contain an asterisk because it is a multi-dimensional metric, which Classic metrics do not support.
+Below are the instructions on how to configure and view multi-dimensional performance counter metrics:
+1.	Go to the diagnostic settings page for your Virtual Machine
+2.	Select the “Performance counters” tab. 
+3.	Click on “Custom” to configure the performance counters you would like to collect.
+![Screenshot of performance counters section of diagnostic setting page](media/data-platform-metrics/azure-monitor-perf-counter.png)
+
+4.	After you have configured your performance counters, click on “Sinks”. Then select enable to send your data to Azure Monitor.
+![Screenshot of sinks section of diagnostic setting page](media/data-platform-metrics/azure-monitor-sink.png)
+
+5.	To view your metric in Azure Monitor, select “Virtual Machine Guest” in the metric namespace dropdown.
+![Screenshot of metric namespace](media/data-platform-metrics/vm-guest-namespace.png)
+
+6.	Split metric by instance to see the metric broken down by each of the possible values represented by the "\*" in the configuration.  In this example, the "\*" represents the different logical disk volumes plus the total.
+![Screenshot of splitting metric by instance](media/data-platform-metrics/split-by-instance.png)
+
+
+
 ## Retention of Metrics
 For most resources in Azure, metrics are stored for 93 days. There are some exceptions:
 
