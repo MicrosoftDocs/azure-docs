@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 04/16/2021
+ms.date: 04/27/2021
 ms.custom: devx-track-python
 ---
 
@@ -65,7 +65,7 @@ If you have previously stopped your compute instance, start it now with the **St
 
 NEEDS AN IMAGE
 
-Use the **Save and run script in terminal** to run the script.
+Select **Save and run script in terminal** to run the script.
 
 ```bash
 cd <path/to/tutorial>

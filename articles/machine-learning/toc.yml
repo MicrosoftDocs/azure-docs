@@ -27,7 +27,7 @@
           href: tutorial-1st-experiment-hello-world.md
         - name: 2. Train your model
           href: tutorial-1st-experiment-sdk-train.md
-        - name: 43. Bring your own data
+        - name: 3. Bring your own data
           href: tutorial-1st-experiment-bring-data.md
     - name: Jupyter Notebooks
       items:

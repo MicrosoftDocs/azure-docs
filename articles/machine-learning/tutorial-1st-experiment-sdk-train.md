@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 04/16/2021
+ms.date: 04/27/2021
 ms.custom: devx-track-python, contperf-fy21q3
 ---
 
@@ -59,9 +59,19 @@ You now have the following directory structure:
 > [!div class="nextstepaction"]
 > [I created the training scripts](?success=create-scripts#environment) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=create-scripts)
 
+
+## <a name="test-local"></a> Test locally
+
+Select **Save and run script in terminal** to run the script.
+
+After you run this script, select **Refresh** above the file folders. You'll see the new data folder called `tutorial/.data`. Expand this folder to view the downloaded data.
+
+> [!div class="nextstepaction"]
+> [I ran the code locally](?success=test-local#create-local) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=test-local)
+
 ## <a name="environment"></a> Create a new Python environment
 
-Create a file called `pytorch-env.yml` in the `.azureml` hidden directory:
+To prepare for submitting this code to your compute cluster, you'll create an environment file. Create a file called `pytorch-env.yml` in the `.azureml` hidden directory:
 
 :::code language="yml" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/environments/pytorch-env.yml":::
 
@@ -69,22 +79,6 @@ This environment has all the dependencies that your model and training script re
 
 > [!div class="nextstepaction"]
 > [I created the environment file](?success=create-env-file#test-local) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=create-env-file)
-
-## <a name="test-local"></a> Test locally
-
-In a terminal or Anaconda Prompt window, use the following code to test your script locally in the new environment.  
-
-```bash
-conda deactivate                                # If you are still using the tutorial environment, exit it
-conda env create -f .azureml/pytorch-env.yml    # create the new Conda environment
-conda activate pytorch-env                      # activate new Conda environment
-python src/train.py                             # train model
-```
-
-After you run this script, you'll see the data downloaded into a directory called `tutorial/data`.
-
-> [!div class="nextstepaction"]
-> [I ran the code locally](?success=test-local#create-local) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=test-local)
 
 ## <a name="create-local"></a> Create the control script
 
@@ -144,13 +138,7 @@ if __name__ == "__main__":
 
 ## <a name="submit"></a> Submit the run to Azure Machine Learning
 
-Switch back to the *tutorial* environment that has the Azure Machine Learning SDK for Python installed. Since the training code isn't running on your computer, you don't need to have PyTorch installed.  But you do need the `azureml-sdk`, which is in the *tutorial* environment.
-
-```bash
-conda deactivate
-conda activate tutorial
-python 04-run-pytorch.py
-```
+Select **Save and run script in terminal** to run the 04-run-pytorch.py script.
 
 >[!NOTE] 
 > The first time you run this script, Azure Machine Learning will build a new Docker image from your PyTorch environment. The whole run might take 5 to 10 minutes to complete. 
@@ -183,7 +171,7 @@ Finished Training
 > [!WARNING]
 > If you see an error `Your total snapshot size exceeds the limit`, the `data` directory is located in the `source_directory` value used in `ScriptRunConfig`.
 >
-> Move `data` outside `src`.
+> Select the **...** at the end of the directory, then select **Move** to move `data` to the **tutorial** folder.  
 
 Environments can be registered to a workspace with `env.register(ws)`. They can then be easily shared, reused, and versioned. Environments make it easy to reproduce previous results and to collaborate with your team.
 
@@ -206,6 +194,7 @@ Modify your `train.py` script to include two more lines of code:
 
 :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/code/pytorch-cifar10-train-with-logging/train.py":::
 
+**Save** this file, then close the tab if you wish.
 
 #### Understand the additional two lines of code
 
@@ -239,12 +228,11 @@ The `train.py` script just took a new dependency on `azureml.core`. Update `pyto
 > [!div class="nextstepaction"]
 > [I updated the environment file](?success=update-environment#submit-again) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=update-environment)
 
-### <a name="submit-again"></a> Submit the run to Azure Machine Learning
-Submit this script once more:
+**Save** this file, then close the tab if you wish.
 
-```bash
-python 04-run-pytorch.py
-```
+### <a name="submit-again"></a> Submit the run to Azure Machine Learning
+
+Select the tab for 04-run-pytorch.py script, then select **Save and run script in terminal** to re-run the 04-run-pytorch.py script.
 
 This time when you visit the studio, go to the **Metrics** tab where you can now see live updates on the model training loss!
 
