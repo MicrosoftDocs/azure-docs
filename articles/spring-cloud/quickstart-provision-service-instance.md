@@ -143,10 +143,12 @@ The following procedure uses the Azure CLI extension to provision an instance of
 
 1. Prepare a name for your Azure Spring Cloud service.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
 
-1. Create a resource group to contain your Azure Spring Cloud service. Create the Azure Spring Cloud service.
+1. Create in instance of the Azure Spring Cloud service.  Create a resource group to contain your Azure Spring Cloud service.
 
-    ```azurecli
+    ```azurecli 
+    az spring-cloud create -n <service instance name> -g <resource group name> 
     az group create --name <resource group name>
+
     ```
 
     Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).
