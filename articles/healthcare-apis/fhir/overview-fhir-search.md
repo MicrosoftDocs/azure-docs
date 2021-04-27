@@ -49,16 +49,17 @@ There are [common search parameters](https://www.hl7.org/fhir/search.html#all) t
 | --------------------------  | -------------------- | ------------------------- | ------------------------------- | ------------------------------ |
 | _id                         | Yes                  | Yes                       | Yes                             |                                |
 | _lastUpdated                | Yes                  | Yes                       | Yes                             |                                |
-| _tag                        | Yes                  | Yes                       | Yes                             |                                |                           |                                |
+| _tag                        | Yes                  | Yes                       | Yes                             |                                | 
 | _type                       | Yes                  | Yes                       | Yes                             |                                |
 | _security                   | Yes                  | Yes                       | Yes                             |                                |
-| _profile                    | Yes                  | Yes                       | Yes                             | **Note**: If you created your R4 database before February 20, 2021, you’ll need to run a reindexing job to enable **_profile**.                                                    |
+| _profile                    | Yes                  | Yes                       | Yes                             | **Note**: If you created your R4 database before February 20, 2021, you’ll need to run a reindexing job to enable **_profile**.                                                      |
 | _text                       | No                   | No                        | No                              |                                |
 | _content                    | No                   | No                        | No                              |                                |
 | _has                        | No                   | No                        | No                              |                                |
 | _query                      | No                   | No                        | No                              |                                |
 | _filter                     | No                   | No                        | No                              |                                |
-| _list                       | No                 | No                      | No  
+| _list                       | No                   | No                        | No                              |                                |
+
 ### Resource specific parameters
 
 With the Azure API for FHIR, we support almost all resource specific search parameters defined by the FHIR specification. The only search parameters we don’t support are available in the links below:
