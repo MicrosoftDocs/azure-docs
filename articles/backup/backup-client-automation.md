@@ -173,8 +173,6 @@ Machine registration succeeded.
 
 > [!IMPORTANT]
 > Don't use relative paths to specify the vault credentials file. You must provide an absolute path as an input to the cmdlet.
->
->
 
 ## Networking settings
 
@@ -222,8 +220,6 @@ Server properties updated successfully
 
 > [!IMPORTANT]
 > Keep the passphrase information safe and secure once it's set. You can't restore data from Azure without this passphrase.
->
->
 
 ## Back up files and folders
 

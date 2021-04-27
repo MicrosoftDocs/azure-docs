@@ -156,8 +156,6 @@ The database backup for the app is stored in the root of the .zip file. For SQL 
 
 > [!WARNING]
 > Altering any of the files in your **websitebackups** container can cause the backup to become invalid and therefore non-restorable.
->
->
 
 ## Automate with scripts
 

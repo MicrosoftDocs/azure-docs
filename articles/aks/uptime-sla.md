@@ -15,7 +15,7 @@ Customers needing an SLA to meet compliance requirements or require extending an
 
 Customers can still create unlimited free clusters with a service level objective (SLO) of 99.5% and opt for the preferred SLO or SLA Uptime as needed.
 
-> [!Important]
+> [!IMPORTANT]
 > For clusters with egress lockdown, see [limit egress traffic](limit-egress-traffic.md) to open appropriate ports.
 
 ## Region availability

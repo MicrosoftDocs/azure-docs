@@ -11,15 +11,11 @@ Azure Service Fabric components provide system health reports on all entities in
 
 > [!NOTE]
 > To understand health-related concepts, read more at [Service Fabric health model](service-fabric-health-introduction.md).
->
->
 
 System health reports provide visibility into cluster and application functionality, and flag problems. For applications and services, system health reports verify that entities are implemented and are behaving correctly from the Service Fabric perspective. The reports don't provide any health monitoring of the business logic of the service or detection of processes that are not responding. User services can enrich the health data with information specific to their logic.
 
 > [!NOTE]
 > Health reports sent by user watchdogs are visible only *after* the system components create an entity. When an entity is deleted, the health store automatically deletes all the health reports associated with it. The same is true when a new instance of the entity is created. An example is when a new stateful persisted service replica instance is created. All reports associated with the old instance are deleted and cleaned up from the store.
->
->
 
 The system component reports are identified by the source, which starts with the "**System.**" prefix. Watchdogs can't use the same prefix for their sources, as reports with invalid parameters are rejected.
 
@@ -27,8 +23,6 @@ Let's look at some system reports to understand what triggers them and to learn 
 
 > [!NOTE]
 > Service Fabric continues to add reports on conditions of interest that improve visibility into what is happening in the cluster and the applications. Existing reports can be enhanced with more details to help troubleshoot the problem faster.
->
->
 
 ## Cluster system health reports
 
@@ -684,8 +678,6 @@ Other API calls that can get stuck are on the **IReplicator** interface. For exa
 
 > [!NOTE]
 > The Naming service resolves service names to a location in the cluster. Users can use it to manage service names and properties. It's a Service Fabric partitioned-persisted service. One of the partitions represents the *Authority Owner*, which contains metadata about all Service Fabric names and services. The Service Fabric names are mapped to different partitions, called *Name Owner* partitions, so the service is extensible. Read more about the [Naming service](service-fabric-architecture.md).
->
->
 
 When a Naming operation takes longer than expected, the operation is flagged with a warning report on the primary replica of the Naming service partition that serves the operation. If the operation completes successfully, the warning is cleared. If the operation completes with an error, the health report includes details about the error.
 

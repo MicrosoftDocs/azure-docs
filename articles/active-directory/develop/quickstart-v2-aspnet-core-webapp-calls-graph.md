@@ -98,7 +98,6 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >    "TenantId": "common",
 >    "clientSecret": "Enter_the_Client_Secret_Here"
 >    ```
-
 >
 >    - Replace `Enter_the_Application_Id_here` with the **Application (client) ID** of the application you registered in the Azure portal. You can find **Application (client) ID** in the app's **Overview** page.
 >    - Replace `common` with one of the following:

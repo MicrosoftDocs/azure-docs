@@ -187,5 +187,4 @@ For VM scale sets, you can update the Autoscale setting in the Resource Manager 
 
 > [!NOTE]
 > For Service Bus, the resource group concept does not exist but Azure Resource Manager creates a default resource group per region. The resource group is usually in the 'Default-ServiceBus-[region]' format. For example, 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast' etc.
->
->
+

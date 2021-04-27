@@ -794,8 +794,6 @@ telemetry.trackEvent("WinGame", properties, metrics);
 
 > [!NOTE]
 > Take care not to log personally identifiable information in properties.
->
->
 
 ### Alternative way to set properties and metrics
 
@@ -816,8 +814,6 @@ telemetry.TrackEvent(event);
 
 > [!WARNING]
 > Don't reuse the same telemetry item instance (`event` in this example) to call Track*() multiple times. This may cause telemetry to be sent with incorrect configuration.
->
->
 
 ### Custom measurements and properties in Analytics
 

@@ -100,17 +100,20 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 > If you selected Option 1 above, you can skip these steps.
 > 1. Extract the zip file and open the project in XCode.
 > 1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following code snippet. Remember to update the value for `kClientID` with the clientID that you saved when you registered your app in the portal earlier in this quickstart:
+>
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
 
 > 1. If you're building an app for [Azure AD national clouds](/graph/deployments#app-registration-and-token-service-root-endpoints), replace the line starting with 'let kGraphEndpoint' and 'let kAuthority' with correct endpoints. For global access, use default values:
+>
 >     ```swift
 >     let kGraphEndpoint = "https://graph.microsoft.com/"
 >     let kAuthority = "https://login.microsoftonline.com/common"
 >     ```
 
 > 1. Other endpoints are documented [here](/graph/deployments#app-registration-and-token-service-root-endpoints). For example, to run the quickstart with Azure AD Germany, use following:
+>
 >     ```swift
 >     let kGraphEndpoint = "https://graph.microsoft.de/"
 >     let kAuthority = "https://login.microsoftonline.de/common"
@@ -130,10 +133,9 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 >          </array>
 >       </dict>
 >    </array>
->
 >    ```
 
-> 1. Build & run the app!
+> 1. Build and run the app!
 
 ## More Information
 

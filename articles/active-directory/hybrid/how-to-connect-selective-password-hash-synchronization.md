@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 If you'd like to have a subset of users excluded from synchronizing their password hash to Azure AD, you can configure selective password hash synchronization using the guided steps provided in this article.
 
->[!Important]
+> [!IMPORTANT]
 > Microsoft doesn't support modifying or operating Azure AD Connect sync outside of the configurations or actions that are formally documented. Any of these configurations or actions might result in an inconsistent or unsupported state of Azure AD Connect sync. As a result, Microsoft cannot guarantee that we will be able to provide efficient technical support for such deployments.
 
 ## Consider your implementation
@@ -29,10 +29,10 @@ To reduce the configuration administrative effort, you should first consider the
 - If the number of users to **exclude** is **smaller** than the number of users to **include**, follow the steps in this [section](#excluded-users-is-smaller-than-included-users).
 - If the number of users to **exclude** is **greater** than the number of users to **include**, follow the steps in this [section](#excluded-users-is-larger-than-included-users).
 
-> [!Important]
+> [!IMPORTANT]
 > With either configuration option chosen, a required initial sync (Full Sync) to apply the changes, will be performed automatically over the next sync cycle.
 
-> [!Important]
+> [!IMPORTANT]
 > Configuring selective password hash synchronization directly influences password writeback. Password changes or password resets that are initiated in Azure Active Directory write back to on-premises Active Directory only if the user is in scope for password hash synchronization.
 
 ### The adminDescription attribute
@@ -66,7 +66,7 @@ For more information on the scheduler see [Azure AD Connect sync scheduler](how-
 
 The following section describes how to enable selective password hash synchronization when the number of users to **exclude** is **smaller** than the number of users to **include**.
 
->[!Important]
+>[!IMPORTANT]
 > Before you proceed ensure the synchronization scheduler is disabled as outlined above.
 
 - Create an editable copy of the **In from AD – User AccountEnabled** with the option to **enable password hash sync un-selected** and define its scoping filter
@@ -74,7 +74,7 @@ The following section describes how to enable selective password hash synchroniz
 - Re-enable the synchronization scheduler
 - Set the attribute value, in active directory, that was defined as scoping attribute on the users you want to allow in password hash synchronization.
 
->[!Important]
+>[!IMPORTANT]
 >The steps provided to configure selective password hash synchronization will only affect user objects that have 
 the attribute **adminDescription** populated in Active Directory with the value of **PHSFiltered**.
 >If this attribute is not populated or the value is something other than **PHSFiltered** then these rules will not be applied to the user objects.
@@ -140,7 +140,7 @@ You can also use the following PowerShell command to edit a user's **adminDescri
 
 The following section describes how to enable selective password hash synchronization when the number of users to **exclude** is **larger** than the number of users to **include**.
 
->[!Important]
+>[!IMPORTANT]
 > Before you proceed ensure the synchronization scheduler is disabled as outlined above.
 
 The following is a summary of the actions that will be taken in the steps below:
@@ -150,7 +150,7 @@ The following is a summary of the actions that will be taken in the steps below:
 - Re-enable the synchronization scheduler
 - Set the attribute value, in active directory, that was defined as scoping attribute on the users you want to allow in password hash synchronization.
 
->[!Important]
+>[!IMPORTANT]
 >The steps provided to configure selective password hash synchronization will only affect user objects that have 
 the attribute **adminDescription** populated in Active Directory with the value of **PHSIncluded**.
 >If this attribute is not populated or the value is something other than **PHSIncluded** then these rules will not be applied to the user objects.

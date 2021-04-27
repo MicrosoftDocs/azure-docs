@@ -77,7 +77,7 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 
 **Fix 2:** A user with Active Directory permissions needs to execute the role assignment.
 
->[!Note]
+>[!NOTE]
 >New-RdsRoleAssignment cannot give permissions to a user that doesn't exist in the Azure Active Directory (AD).
 
 ## Next steps
