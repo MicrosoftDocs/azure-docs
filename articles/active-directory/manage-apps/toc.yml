@@ -294,8 +294,6 @@
           href: application-proxy-config-how-to.md
         - name: Problem creating an app in admin portal
           href: application-proxy-config-problem.md
-        - name: Configure Kerberos Constrained Delegation
-          href: application-proxy-back-end-kerberos-constrained-delegation-how-to.md
         - name: Configure with PingAccess
           href: ./application-proxy-ping-access-publishing-guide.md
         - name: Can't Access this Corporate Application error

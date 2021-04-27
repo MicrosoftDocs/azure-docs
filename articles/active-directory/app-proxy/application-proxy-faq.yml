@@ -278,7 +278,7 @@ sections:
         answer: |
               Yes. Link translation affects performance. The Application Proxy service scans the application for hardcoded links and replaces them with their respective, published external URLs before presenting them to the user. 
           
-              For best performance, we recommend using identical internal and external URLs by configuring [custom domains](../manage-apps/application-proxy-configure-custom-domain.md). If using custom domains isn't possible, you can improve link translation performance by using the My Apps Secure Sign in Extension or Microsoft Edge Browser on mobile. See [Redirect hardcoded links for apps published with Azure AD Application Proxy](application-proxy-configure-hard-coded-link-translation.md).
+              For best performance, we recommend using identical internal and external URLs by configuring [custom domains](../manage-apps/application-proxy-configure-custom-domain.md). If using custom domains isn't possible, you can improve link translation performance by using the My Apps Secure Sign in Extension or Microsoft Edge Browser on mobile. See [Redirect hardcoded links for apps published with Azure AD Application Proxy](../manage-apps/application-proxy-configure-hard-coded-link-translation.md).
           
       - question: |
          Wildcards

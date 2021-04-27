@@ -54257,8 +54257,13 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-back-end-kerberos-constrained-delegation-how-to.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-back-end-kerberos-constrained-delegation-how-to",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-back-end-kerberos-constrained-delegation-how-to",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-back-end-kerberos-constrained-delegation-how-to.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-back-end-kerberos-constrained-delegation-how-to",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-config-how-to.md",
