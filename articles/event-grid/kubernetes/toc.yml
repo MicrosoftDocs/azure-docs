@@ -2,36 +2,6 @@
   href: index.yml
 - name: Switch to Azure Event Grid documentation
   href: ../overview.md    
-- name: Overview
-  items:
-  - name: What is Event Grid on Kubernetes?
-    href: overview.md  
-- name: Tutorials
-  items:
-  - name: Publish and subscribe to events locally
-    href: pub-sub-events-webhook-local.md
-  - name: Publish and subscribe to events in cloud
-    href: pub-sub-events-webhook-cloud.md
-  - name: Forward events to Azure Event Grid
-    href: forward-events-event-grid-cloud.md
-  - name: Forward events to Azure IoT Hub
-    href: forward-events-iothub.md
-  - name: React to Blob Storage events locally
-    href: react-blob-storage-events-locally.md    
-- name: Samples
-  href: https://github.com/Azure/event-grid-iot-edge
-- name: Concepts
-  items:
-  - name: Event handlers and destinations
-    href: event-handlers.md
-  - name: Event schemas
-    href: event-schemas.md
-  - name: Delivery and retry
-    href: delivery-retry.md
-  - name: Output batching
-    href: delivery-output-batching.md
-  - name: Advanced filtering
-    href: advanced-filtering.md
 - name: Reference
   items:
   - name: REST API
