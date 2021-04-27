@@ -34,11 +34,11 @@ Click the **Deploy to Azure** button
 1. Select the **resource group** that your edge device is in 
 1. **Do you need an edge device?**, select ***Use an existing edge device*** from the drop-down menu
 1. Click **Next**
-![Screenshot of initial deployment form](./media/deploy-iot-edge-device/form1.PNG)
+![Screenshot of initial deployment form](./media/deploy-iot-edge-device/project-details.png)
 
 1. Select the **Existing IoT Hub Name** that your edge device is connected to
 1. Click **Next**
-![Screenshot of second deployment form](./media/deploy-iot-edge-device/form2.PNG)
+![Screenshot of second deployment form](./media/deploy-iot-edge-device/iot-hub-name.png)
 
 1. On the final page, click **Create**
 
