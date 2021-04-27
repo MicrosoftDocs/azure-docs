@@ -29,7 +29,8 @@ Machines, review the following details.
 
 ## Resource provider
 
-Before you can use Guest Configuration, you must register the resource provider. If assignment of a Guest Configuration policy is done through
+Before you can use Guest Configuration, you must register the resource provider.
+If assignment of a Guest Configuration policy is done through
 the portal, or if the subscription is enrolled in Azure Security Center, the resource
 provider is registered automatically. You can manually register through the
 [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal),
