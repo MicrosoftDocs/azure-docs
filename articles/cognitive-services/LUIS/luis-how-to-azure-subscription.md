@@ -5,19 +5,21 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 04/11/2021
+ms.date: 04/26/2021
 ---
 
 # LUIS Recources
 
 Learn more about LUIS resources [here](./luis-concept-azure-resource.md).
 
-## Create LUIS resources 
+# Create LUIS resources 
 
 [!INCLUDE [Create LUIS resource in Azure portal](includes/create-luis-resource.md)]
 
-### Create LUIS resources in the LUIS Portal
-**Create LUIS Authoring resource**
+## Create LUIS resources in LUIS Portal
+
+### Create LUIS Authoring resource
+
 1. Sign in to the [LUIS portal](https://www.luis.ai), select your country/region and agree to the terms of use. If you see **My Apps** instead, a LUIS resource already exists and you can skip the next step.
 
 2. In the **Choose an authoring** window that appears, find your Azure subscription, and LUIS authoring resource. If you don't have a resource, you can create a new one.
@@ -30,12 +32,13 @@ Learn more about LUIS resources [here](./luis-concept-azure-resource.md).
     * **Azure resource group name** - a custom resource group name you choose or create. Resource groups allow you to group Azure resources for access and management.
     * **Azure resource name** - a custom name you choose, used as part of the URL for your authoring and prediction endpoint queries.
     * **Pricing tier** - the pricing tier determines the maximum transaction per second and month.
-**Create LUIS Prediction resource**
+
+### Create LUIS Prediction resource
 
 [!INCLUDE [Create LUIS Prediction resource in LUIS portal](./includes/add-pred-resource-portal.md)
 
 
-### Create LUIS resources in the Azure CLI
+## Create LUIS resources in the Azure CLI
 
 Use the [Azure CLI](/cli/azure/install-azure-cli) to create each resource individually.
 
@@ -67,12 +70,10 @@ Resource `kind`:
     > [!Note]
     > These keys aren't used by the LUIS portal until they're assigned on the **Manage** > **Azure Resources** page in the LUIS portal.
 
-<a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>
-
-
-## Assign LUIS resources
+# Assign LUIS resources
 Creating a resource doesn't necessarily mean that it is put to use, you need to asign it to your apps.
 
+## Assign resources using LUIS portal
 **Assign an authoring resource to all your apps** 
 
 You can assign an authoring resource for a single app or for all apps in LUIS. The following procedure assigns the authoring resource to all apps.
@@ -93,9 +94,9 @@ The following procedure assigns a resource to a specific app.
 1. On the **Prediction resource** or **Authoring resource** tab, select the **Add prediction resource** or **Add authoring resource** button.
 1. Use the fields in the form to find the correct resource, and then select **Save**.
 
-**Assign a Prediction Resource using Azure CLI
+## Assign prediction resource programatically 
 
-For automated processes like CI/CD pipelines, you might want to automate the assignment of a LUIS runtime resource to a LUIS app. To do so, complete these steps:
+For automated processes like CI/CD pipelines, you might want to automate the assignment of a LUIS resource to a LUIS app. To do so, complete these steps:
 
 1. Get an Azure Resource Manager token from [this website](https://resources.azure.com/api/token?plaintext=true). This token does expire, so use it right away. The request returns an Azure Resource Manager token.
 
@@ -126,17 +127,63 @@ For automated processes like CI/CD pipelines, you might want to automate the ass
     |Header|`Ocp-Apim-Subscription-Key`|Your authoring key.|
     |Header|`Content-type`|`application/json`|
     |Querystring|`appid`|The LUIS app ID.
-    |Body||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
+    |Body||{`AzureSubscriptionId`: Your Sucbscription ID,<br>`ResourceGroup`: Resource Group name that has your prediction resource,<br>`AccountName`: Name of your prediction resource}|
 
     When this API is successful, it returns `201 - created status`.
 
-## Unassign a resource
+# Unassign a resource
+
+When you unassign a resource, it's not deleted from Azure. It's only unlinked from LUIS.
+
+## Unassign resources using LUIS portal
 
 1. Sign in to the [LUIS portal](https://www.luis.ai), and then select an app from the **My apps** list.
 1. Go to **Manage** > **Azure Resources**.
-1. On the **Prediction resource** or **Authoring resource** tab, select the **Unassign resource** button for the resource.
+1. Select the **Unassign resource** button for the resource.
 
-When you unassign a resource, it's not deleted from Azure. It's only unlinked from LUIS.
+
+## Unassign prediction resorce programatically
+
+1. Get an Azure Resource Manager token from [this website](https://resources.azure.com/api/token?plaintext=true). This token does expire, so use it right away. The request returns an Azure Resource Manager token.
+
+    ```azurecli
+    az account get-access-token --resource=https://management.core.windows.net/ --query accessToken --output tsv
+    ```
+    
+    ![Screenshot that shows the website for requesting an Azure Resource Manager token.](./media/luis-manage-keys/get-arm-token.png)
+
+1. Use the token to request the LUIS runtime resources across subscriptions. Use the [Get LUIS Azure accounts API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), which your user account has access to.
+
+    This POST API requires the following values:
+
+    |Header|Value|
+    |--|--|
+    |`Authorization`|The value of `Authorization` is `Bearer {token}`. The token value must be preceded by the word `Bearer` and a space.|
+    |`Ocp-Apim-Subscription-Key`|Your authoring key.|
+
+    The API returns an array of JSON objects that represent your LUIS subscriptions. Returned values include the subscription ID, resource group, and resource name, returned as `AccountName`. Find the item in the array that's the LUIS resource that you want to assign to the LUIS app.
+
+1. Assign the token to the LUIS resource by using the [Unassign a LUIS Azure account from an application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be32554f8591db3a86232e1/console) API.
+
+    This DELETE API requires the following values:
+
+    |Type|Setting|Value|
+    |--|--|--|
+    |Header|`Authorization`|The value of `Authorization` is `Bearer {token}`. The token value must be preceded by the word `Bearer` and a space.|
+    |Header|`Ocp-Apim-Subscription-Key`|Your authoring key.|
+    |Header|`Content-type`|`application/json`|
+    |Querystring|`appid`|The LUIS app ID.
+    |Body||{`AzureSubscriptionId`: Your Sucbscription ID,<br>`ResourceGroup`: Resource Group name that has your prediction resource,<br>`AccountName`: Name of your prediction resource}|
+
+    When this API is successful, it returns `200 - OK status`.
+
+## Resource ownership
+
+An Azure resource, like a LUIS resource, is owned by the subscription that contains the resource.
+
+To change the ownership of a resource, you can take one of these actions:
+* Transfer the [ownership](../../cost-management-billing/manage/billing-subscription-transfer.md) of your subscription.
+* Export the LUIS app as a file, and then import the app on a different subscription. Export is available on the **My apps** page in the LUIS portal.
 
 ## Change the pricing tier
 
@@ -147,21 +194,21 @@ When you unassign a resource, it's not deleted from Azure. It's only unlinked fr
 1.  Select the pricing tier you want, and click **Select** to save your change<br>
     When the pricing change is complete, a notification appears in the top right verifying  the pricing tier update.
 
-## View Azure resource metrics
+# View Azure resource metrics
 
-### View a summary of Azure resource usage
+## View a summary of Azure resource usage
 You can view LUIS usage information in the Azure portal. The **Overview** page shows a summary, including recent calls and errors. If you make a LUIS endpoint request, allow up to five minutes for the change to appear.
 
 ![Screenshot that shows the Overview page.](./media/luis-usage-tiers/overview.png)
 
 
-### Customizing Azure resource usage charts
+## Customizing Azure resource usage charts
 The **Metrics** page provides a more detailed view of the data. 
 You can configure your metrics charts for a specific **time period** and **metric type**.
 
 ![Screenshot that shows the Metrics page.](./media/luis-usage-tiers/metrics.png)
 
-### Total transactions threshold alert
+## Total transactions threshold alert
 If you want to know when you reach a certain transaction threshold, for example 10,000 transactions, you can create an alert:
 
 1. From the left side menu select **Alerts**
@@ -188,3 +235,5 @@ If you want to know when you reach a certain transaction threshold, for example 
 ## Next steps
 
 * Learn [how to use versions](luis-how-to-manage-versions.md) to control your app life cycle.
+
+
