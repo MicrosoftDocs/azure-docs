@@ -122,15 +122,9 @@ Then open the job's run details in the studio:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="show_job_in_studio":::
 
-> [!TIP]
-> In the studio, you can view the run details like the environment used, the command run, and even the git commit the code is from.
-
 Or, stream the logs, which will block the console:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="stream_job_logs_to_console":::
-
-> [!TIP]
-> This can be useful in CI/CD automation to wait for the job to complete.
 
 Check the status:
 
