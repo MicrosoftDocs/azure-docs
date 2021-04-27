@@ -24,15 +24,11 @@ This article lists the steps that will help you deploy Azure Video Analyzer on y
     * Use one of these regions: East US 2, East US, Central US, North Central US, Japan East, West US, West US 2, West Central US, Canada East, UK South, France Central, France South, Switzerland North, Switzerland West, and Japan West.
     * It is recommended that you use General-purpose v2 (GPv2) Storage accounts
 
-## Configuring Azure resources for using Azure Video Analyzer and deploying Azure Video Analyzer edge modules
+## Configuring Azure resources and deploying edge modules for Azure Video Analyzer
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava/click-to-deploy/form)
 
-#### Review deployment
 
-The review section shows you the JSON deployment manifest that was created based on your selections in the previous two sections. There are also two modules declared that you didn't add: $edgeAgent and $edgeHub. These two modules make up the IoT Edge runtime and are required defaults in every deployment.
-
-Review your deployment information, then select Create.
 
 ### Verify your deployment
 
