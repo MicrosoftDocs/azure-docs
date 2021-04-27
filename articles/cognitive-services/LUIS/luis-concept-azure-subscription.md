@@ -4,11 +4,11 @@ description: learn more about azure resources.
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: concept
+ms.topic: concepts
 ms.date: 04/22/2021
 ---
 
-## LUIS resources
+# LUIS resources
 
 LUIS allows three types of Azure resources and one non-Azure resource:
 
