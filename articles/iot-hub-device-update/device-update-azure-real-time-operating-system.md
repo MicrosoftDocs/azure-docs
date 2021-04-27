@@ -36,7 +36,7 @@ Each board-specific sample Azure RTOS project contains code and documentation on
 6. Next publish firmware image and manifest to Device Update for IoT Hub.
 7. Finally download and run the project on your device.
 
-Learn more about [Azure RTOS](https://docs.microsoft.com/azure/rtos/).  
+Learn more about [Azure RTOS](/azure/rtos/).  
 
 ## Tag your device
 

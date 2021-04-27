@@ -379,7 +379,7 @@ The following functionality for devices that use X.509 certificate authority (CA
 * HTTPS, MQTT over WebSockets, and AMQP over WebSockets protocols.
 * File uploads (all protocols).
 
-For more information about authentication using certificate authority, see [Device Authentication using X.509 CA Certificates](iot-hub-x509ca-overview.md). For information about how to upload and verify a certificate authority with your IoT hub, see [Set up X.509 security in your Azure IoT hub](iot-hub-security-x509-get-started.md).
+For more information about authentication using certificate authority, see [Device Authentication using X.509 CA Certificates](iot-hub-x509ca-overview.md). For information about how to upload and verify a certificate authority with your IoT hub, see [Set up X.509 security in your Azure IoT hub](./tutorial-x509-scripts.md).
 
 ### Register an X.509 certificate for a device
 

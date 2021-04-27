@@ -16,7 +16,7 @@ This document describes the latest versions of the Linux diagnostic extension (L
 
 > [!IMPORTANT]
 > For information about version 3.x, see  [Use the Linux diagnostic extension 3.0 to monitor metrics and logs](./diagnostics-linux-v3.md). 
-> For information about version 2.3 and earlier, see [Monitor the performance and diagnostic data of a Linux VM](https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
+> For information about version 2.3 and earlier, see [Monitor the performance and diagnostic data of a Linux VM](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## Introduction
 
