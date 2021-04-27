@@ -68,8 +68,6 @@
     href: pipeline.md
   - name: Video recording
     href: video-recording.md
-  - name: Video playback
-    href: video-playback-concept.md
   - name: AI composition overview
     href: ai-composition-overview.md
   - name: Widgets
