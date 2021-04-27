@@ -12,31 +12,28 @@ ms.date: 01/11/2021
 # Quickstart: Send telemetry from a device to Azure IoT Central (Python)
 
 **Applies to**: [Device application developers](about-iot-develop.md#device-application-development)<br>
-**Completion time**:  15 minutes
+**Completion time**:  12 minutes
 
 In this quickstart, you learn a basic IoT application development workflow. First you create a cloud application to manage devices in  Azure IoT Central. Then, you use the Azure IoT Python SDK to build a simulated thermostat device,  connect it to IoT Central, and send telemetry.
 
 ## Prerequisites
 - [Python 3.7](https://www.python.org/downloads/) or later. To check your Python version, run `python --version`. 
-- An Azure account with an active subscription. Create an account for [free](https://aka.ms/createazuresubscription).
-- In the Azure subscription, [add the user role](../role-based-access-control/role-assignments-portal.md) of **Contributor** to your account.
-
 
 ## Create an application
-In this section, you create an IoT Central application. IoT Central is a portal-based IoT application platform that helps reduce the complexity and cost of developing and managing IoT solutions. 
+There are several ways to connect devices to Azure IoT. In this section, you learn how to connect a device by using Azure IoT Central. IoT Central is an IoT application platform that reduces the cost and complexity of managing devices in an IoT solution.
 
-To create an Azure IoT Central application:
+To create a new application:
 1. Browse to [Azure IoT Central](https://apps.azureiotcentral.com/) and sign in with a Microsoft personal, work, or school account.
 1. Navigate to **Build** and select **Custom apps**.
    :::image type="content" source="media/quickstart-send-telemetry-python/iot-central-build.png" alt-text="IoT Central start page":::
 1. In **Application name**, enter a unique name or use the generated name.
 1. In **URL**, enter a memorable application URL prefix or use the generated URL prefix.
-1. Leave **Application template** set to *Custom application*. The dropdown might show other options, if any templates already exist in your account.
+1. Leave **Application template** set to *Custom application*. 
 1. Select a **Pricing plan** option. 
     - To use the application for free for seven days, select **Free**. You can convert a free application to standard pricing before it expires.
     - Optionally, you can select a standard pricing plan. If you select standard pricing, more options appear and you'll need to set a **Directory**, an **Azure subscription**, and a **Location**. To learn about pricing, see [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). 
         - **Directory** is the Azure Active Directory in which you create your application. An Azure Active Directory contains user identities, credentials, and other organizational information. If you don't have an Azure Active Directory, one is created when you create an Azure subscription.
-        - An **Azure subscription** enables you to create instances of Azure services. IoT Central provisions resources in your subscription. If you have a subscription, you can select it in the dropdown.
+        - An **Azure subscription** enables you to create instances of Azure services. IoT Central provisions resources in your subscription. If you don't have a subscription, you can create one for [free](https://aka.ms/createazuresubscription). If you have a subscription, you can select it in the dropdown.
         - **Location** is the [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) in which you create an application. Select a location that's physically closest to your devices to get optimal performance. After you choose a location, you can't move the application to a different location.
 
     :::image type="content" source="media/quickstart-send-telemetry-python/iot-central-pricing.png" alt-text="IoT Central new application dialog":::
@@ -45,22 +42,32 @@ To create an Azure IoT Central application:
     After IoT Central creates the application, it redirects you to the application dashboard.
     :::image type="content" source="media/quickstart-send-telemetry-python/iot-central-created.png" alt-text="IoT Central new application dashboard":::
 
-## Get connection information
-To connect a real or simulated device to your IoT Central application, retrieve the following settings from the application. 
+## Add a device
+In this section, you add a new device to your IoT Central application. The device is an instance of a device template that represents a real or simulated device that you'll connect to the application. 
 
-To get application connection settings:
-1. Select **Administration > Device connection**.
-1. In the **Device connection** dialog under **Enrollment groups**, select **SaS-IoT-Devices**.
-1. In the **SaS-IoT-Devices** dialog, copy the following values. You'll use both in later steps.
-    - **ID scope**. The application ID scope for devices.
-    - **Primary key**. The group primary key for device groups.
-    :::image type="content" source="media/quickstart-send-telemetry-python/iot-central-app-connection-settings.png" alt-text="IoT Central application device connection settings":::
-1. Run the following code in the Azure Cloud Shell. This code generates a device key that devices use to connect to the application. 
-    ```azurecli-interactive
-    az extension add --name azure-iot
-    az iot central device compute-device-key --device-id my-thermostat --pk <the group primary key value>
-    ```
-    Save the generated device key for use in the next section.
+To create a new device:
+1. In the left pane select **Devices**, then select **+New**.
+1. Leave **Device template** set to *Unassigned*.
+
+    > [!NOTE]
+    > In this quickstart for simplicity, you connect a simulated device that uses an unassigned template. If you continue using IoT Central to manage devices, you'll learn about using device templates. For an overview of working with device templates, see [Quickstart: Add a simulated device to your IoT Central application](../iot-central/core/quick-create-simulated-device.md).
+1. Set a friendly **Device name** and **Device ID**. Optionally, use the generated values.
+    :::image type="content" source="media/quickstart-send-telemetry-python/iot-central-create-device.png" alt-text="IoT Central new device dialog":::
+1. Select **Create**.
+
+    The created device appears in the **All devices** list.
+    :::image type="content" source="media/quickstart-send-telemetry-python/iot-central-devices-list.png" alt-text="IoT Central all devices list":::
+    
+To retrieve connection details for the new device:
+1. In the **All devices** list, click the linked device name to display details. 
+1. In the top menu, select **Connect**.
+
+    The **Device connection** dialog displays the connection details:
+    :::image type="content" source="media/quickstart-send-telemetry-python/iot-central-device-connect.png" alt-text="IoT Central device connection details":::
+1. Copy the following values from the **Device connection** dialog to a safe location. You'll use these values in the next section to connect your device to IoT Central.
+    * `ID scope`
+    * `Device ID`
+    * `Primary key`
 
 ## Configure a simulated device
 In this section, you use the Python SDK samples to configure a simulated thermostat device.
@@ -86,14 +93,15 @@ In this section, you use the Python SDK samples to configure a simulated thermos
     pip install azure-iot-device
     ```
 
-1. Set each of the following environment variables, to enable your simulated device to connect to IoT Central. For `IOTHUB_DEVICE_DPS_ID_SCOPE` and `IOTHUB_DEVICE_DPS_DEVICE_KEY`, use the values that you retrieved earlier.
+1. Set each of the following environment variables, to enable your simulated device to connect to IoT Central. For `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY`, `IOTHUB_DEVICE_DPS_DEVICE_ID`, use the device connection values that you saved earlier.
 
     **Windows CMD**
 
     ```console
     set IOTHUB_DEVICE_SECURITY_TYPE=DPS
     set IOTHUB_DEVICE_DPS_ID_SCOPE=<application ID scope>
-    set IOTHUB_DEVICE_DPS_DEVICE_KEY=<generated device key>
+    set IOTHUB_DEVICE_DPS_DEVICE_KEY=<device primary key>
+    set IOTHUB_DEVICE_DPS_DEVICE_ID=<your device ID>
     set IOTHUB_DEVICE_DPS_ENDPOINT=global.azure-devices-provisioning.net
     ```
 
@@ -105,7 +113,8 @@ In this section, you use the Python SDK samples to configure a simulated thermos
     ```azurepowershell
     $env:IOTHUB_DEVICE_SECURITY_TYPE='DPS'
     $env:IOTHUB_DEVICE_DPS_ID_SCOPE='<application ID scope>'
-    $env:IOTHUB_DEVICE_DPS_DEVICE_KEY='<generated device key>'
+    $env:IOTHUB_DEVICE_DPS_DEVICE_KEY='<device primary key>'
+    $env:IOTHUB_DEVICE_DPS_DEVICE_ID='<your device ID>'
     $env:IOTHUB_DEVICE_DPS_ENDPOINT='global.azure-devices-provisioning.net'
     ```
 
@@ -114,8 +123,9 @@ In this section, you use the Python SDK samples to configure a simulated thermos
     ```bash
     export IOTHUB_DEVICE_SECURITY_TYPE='DPS'
     export IOTHUB_DEVICE_DPS_ID_SCOPE='<application ID scope>'
-    export IOTHUB_DEVICE_DPS_DEVICE_KEY='<generated device key>'
-    export IOTHUB_DEVICE_DPS_ENDPOINT='global.azure-devices-provisioning.net's
+    export IOTHUB_DEVICE_DPS_DEVICE_KEY='<device primary key>'
+    export IOTHUB_DEVICE_DPS_DEVICE_ID='<your device ID>'
+    export IOTHUB_DEVICE_DPS_ENDPOINT='global.azure-devices-provisioning.net' 
     ```
 
 ## Send telemetry
@@ -123,26 +133,40 @@ After configuring your system, you're ready to run the code. The code creates a 
 connects to your IoT Central application and device instance, and sends telemetry.
 
 1. In your terminal, run the code for the sample file *simple_send_temperature.py*. Optionally, you can run the Python sample code in your Python IDE.
-
-    To run the Python sample from the terminal:
     ```console
     python temp_controller_with_thermostats.py
     ```
 
-As the Python code sends a message from your device to your IoT Central application, it creates an instance of the device in the application and begins to receive telemetry. You might need to refresh the page to show recent messages.
+    After your simulated device connects to your IoT Central application, it connects to the device instance you created in the application and begins to send telemetry. The connection details and telemetry output are shown in your console: 
+    
+    ```console
+    c:\azure-iot-sdk-python\azure-iot-device\samples\pnp>python temp_controller_with_thermostats.py
+    Device was assigned
+    iotc-55eb28ee-c912-4ffb-9188-4a2ffb83933d.azure-devices.net
+    my-sdk-device
+    Updating pnp properties for root interface
+    {'serialNumber': 'alohomora'}
+    Updating pnp properties for thermostat1
+    {'thermostat1': {'maxTempSinceLastReboot': 98.34, '__t': 'c'}}
+    Updating pnp properties for thermostat2
+    {'thermostat2': {'maxTempSinceLastReboot': 48.92, '__t': 'c'}}
+    Updating pnp properties for deviceInformation
+    {'deviceInformation': {'swVersion': '5.5', 'manufacturer': 'Contoso Device Corporation', 'model': 'Contoso 4762B-turbo', 'osName': 'Mac Os', 'processorArchitecture': 'x86-64', 'processorManufacturer': 'Intel', 'totalStorage': 1024, 'totalMemory': 32, '__t': 'c'}}
+    Listening for command requests and property updates
+    Press Q to quit
+    Sending telemetry from various components
+    Sent message
+    {"temperature": 33}
+    ```
 
-To view device telemetry, select **Devices**, select your device, then select **Overview**. The overview provides a graphical view of device telemetry.
+1. In IoT Central, select **Devices**, click your device name, then select the **Raw data** tab. This view displays the raw telemetry from the simulated device. 
 
-:::image type="content" source="media/quickstart-send-telemetry-python/iot-central-telemetry-overview.png" alt-text="IoT Central device telemetry overview":::
-
-To view raw device telemetry, select **Raw** and expand some of the telemetry output.
-
-:::image type="content" source="media/quickstart-send-telemetry-python/iot-central-telemetry-output.png" alt-text="IoT Central device telemetry raw output":::
-
-Your device is now securely connected and sending telemetry to Azure IoT.
-
+    :::image type="content" source="media/quickstart-send-telemetry-python/iot-central-telemetry-output.png" alt-text="IoT Central device telemetry raw output":::
+    
+    Your device is now securely connected and sending telemetry to Azure IoT.
+    
 ## Clean up resources
-If you no longer need the IoT Central resources created in this tutorial, you can delete them from the IoT Central portal. Optionally, if you plan to continue following the documentation in this guide, you can keep the application you created and reuse it for other samples.
+If you no longer need the IoT Central resources created in this quickstart, you can delete them. Optionally, if you plan to continue following the documentation in this guide, you can keep the application you created and reuse it for other samples.
 
 To remove the Azure IoT Central sample application and all its devices and resources:
 1. Select **Administration** > **Your application**.
