@@ -142,7 +142,7 @@ connects to your IoT Central application and device instance, and sends telemetr
     ```console
     c:\azure-iot-sdk-python\azure-iot-device\samples\pnp>python temp_controller_with_thermostats.py
     Device was assigned
-    iotc-55eb28ee-c912-4ffb-9188-4a2ffb83933d.azure-devices.net
+    iotc-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azure-devices.net
     my-sdk-device
     Updating pnp properties for root interface
     {'serialNumber': 'alohomora'}
