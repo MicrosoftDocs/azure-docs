@@ -507,4 +507,4 @@ app.listen(3000, () => console.log(`listening on port 3000!`));
 ## Next steps
 
 - [MSAL Node API reference](https://azuread.github.io/microsoft-authentication-library-for-js/ref/modules/_azure_msal_node.html)
-- [MSAL Node Code samples](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples)
+- [MSAL Node Code samples](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples)
