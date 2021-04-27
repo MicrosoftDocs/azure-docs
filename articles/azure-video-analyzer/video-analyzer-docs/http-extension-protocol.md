@@ -96,6 +96,6 @@ If your module returns a response with content type as “application/json” bu
 
 ## Next steps
 
-[gRPC extension protocol](pipeline.md#grpc-extension-protocol)
+[gRPC extension protocol](grpc-extension-protocol.md)
 
 
