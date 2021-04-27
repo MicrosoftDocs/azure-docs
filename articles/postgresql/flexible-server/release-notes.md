@@ -16,7 +16,7 @@ This page provides latest news and updates regarding feature additions, engine v
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is in preview
 
-## April-2021-Release-1.0
+## Release: April 26, 2021
 
 * Support for [latest PostgreSQL minors](./concepts-supported-versions.md) 12.6 and 11.11 with new server creates.
 * Support for Virtual Network (VNET) [private DNS zone](./concepts-networking.md#private-access-vnet-integration).
