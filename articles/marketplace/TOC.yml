@@ -68,9 +68,9 @@
     - name: Your marketplace benefits
       href: gtm-your-marketplace-benefits.md 
     - name: Co-sell partner engagement
-      href: marketplace-co-sell.md 
+      href: ./co-sell-overview.md
     - name: Co-sell option in Partner Center
-      href: commercial-marketplace-co-sell.md 
+      href: ./co-sell-configure.md
     - name: Migrate co-sell solutions from OCP GTM
       href: co-sell-solution-migration.md 
     - name: Resell through CSP Partners
@@ -347,10 +347,48 @@
     href: partner-center-portal/downloads-dashboard.md
   - name: Ratings and reviews dashboard
     href: partner-center-portal/ratings-reviews.md
-  - name: Manage metered billing anomalies 
+  - name: Programmatic access to analytics
+    items:
+    - name: Prerequisites for programmatic analytics
+      href: analytics-prerequisites.md
+    - name: Programmatic access paradigm
+      href: analytics-programmatic-access.md
+    - name: Get started
+      href: analytics-get-started.md
+    - name: List of system queries
+      href: analytics-system-queries.md
+    - name: Sample queries
+      href: analytics-sample-queries.md
+    - name: Frequently asked questions
+      href: analytics-programmatic-faq.md
+    - name: Custom query specification
+      href: analytics-custom-query-specification.md
+  - name: Analytics APIs
+    items:
+    - name: Available APIs
+      href: analytics-available-apis.md
+    - name: Get all datasets
+      href: analytics-api-get-all-datasets.md
+    - name: Get report queries
+      href: analytics-api-get-report-queries.md
+    - name: Delete report queries
+      href: analytics-api-delete-report-queries.md
+    - name: Try report queries
+      href: analytics-api-try-report-queries.md
+    - name: Get report
+      href: analytics-api-get-report.md
+    - name: Update report
+      href: analytics-api-update-report.md
+    - name: Delete report
+      href: analytics-api-delete-report.md
+    - name: Pause report executions
+      href: analytics-api-pause-report-executions.md
+    - name: Resume report executions
+      href: analytics-api-resume-report-executions.md
+  - name: Manage metered billing anomalies
     href: anomaly-detection.md
-  - name: Analytics common questions 
-    href: analytics-faq.md 
+  - name: Analytics common questions
+    href: analytics-faq.md
 - name: Policies and terms
   items:    
   - name: About our policies and terms

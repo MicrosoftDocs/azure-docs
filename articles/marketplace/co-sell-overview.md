@@ -82,6 +82,6 @@ To learn how to achieve co-sell ready and co-sell incentivized status, see [Co-s
 ## Next steps
 
 - For information about requirements, see [Co-sell ready and co-sell incentivized requirements](co-sell-requirements.md)
-- To configure an offer for co-sell, see [Configure Co-sell for a commercial marketplace offer](commercial-marketplace-co-sell.md)
+- To configure an offer for co-sell, see [Configure Co-sell for a commercial marketplace offer](./co-sell-configure.md)
 - To verify co-sell status, see [Verify co-sell status for an offer](co-sell-status.md).
 - Learn more about [Co-selling with Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
