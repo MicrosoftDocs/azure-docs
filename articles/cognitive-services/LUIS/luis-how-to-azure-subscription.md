@@ -10,7 +10,7 @@ ms.date: 04/26/2021
 
 # LUIS Recources
 
-Learn more about LUIS resources [here](./luis-concept-azure-resource.md).
+Learn more about LUIS resources [here](./luis-concept-azure-subscripton.md).
 
 # Create LUIS resources 
 
