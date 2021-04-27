@@ -58,7 +58,7 @@ Some guiding principles in selecting your storage configuration for HANA can be 
 - Decide on the type of storage based on [Azure Storage types for SAP workload](./planning-guide-storage.md) and [Select a disk type](../../disks-types.md)
 - The overall VM I/O throughput and IOPS limits in mind when sizing or deciding for a VM. Overall VM storage throughput is documented in the article [Memory optimized virtual machine sizes](../../sizes-memory.md)
 - When deciding for the storage configuration, try to stay below the overall throughput of the VM with your **/hana/data** volume configuration. Writing savepoints, SAP HANA can be aggressive issuing I/Os. It is easily possible to push up to throughput limits of your **/hana/data** volume when writing a savepoint. If your disk(s) that build the **/hana/data** volume have a higher throughput than your VM allows, you could run into situations where throughput utilized by the savepoint writing is interfering with throughput demands of the redo log writes. A situation that can impact the application throughput
-- If you are considering using HANA System Replication, you need to use exactly the same type of Azure storage for **/hana/data** and **/hana/log** for all the VMs participating in the HANA System Replication configuration. For example, using Azure premium storage for /hana/data with one VM and Azure Ultra disk for /hana/log in another VM within the same HANA System replication configuration,  is not supported
+- If you are considering using HANA System Replication, you need to use exactly the same type of Azure storage for **/hana/data** and **/hana/log** for all the VMs participating in the HANA System Replication configuration. For example, using Azure Premium storage for **/hana/data** with one VM and Azure Ultra disk for **/hana/log** in another VM within the same HANA System replication configuration, is not supported
 
 
 > [!IMPORTANT]
@@ -166,10 +166,13 @@ Configuration for SAP **/hana/data** volume:
 | M32ts | 192 GiB | 500 MBps | 4 x P6 | 200 MBps | 680 MBps | 960 | 14,000 |
 | M32ls | 256 GiB | 500 MBps | 4 x P6 | 200 MBps | 680 MBps | 960 | 14,000 |
 | M64ls | 512 GiB | 1,000 MBps | 4 x P10 | 400 MBps | 680 MBps | 2,000 | 14,000 |
-| M64s | 1,000 GiB | 1,000 MBps | 4 x P15 | 500 MBps | 680 MBps | 4,400 | 14,000 |
-| M64ms | 1,750 GiB | 1,000 MBps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 |  
-| M128s | 2,000 GiB | 2,000 MBps | 4 x P20 | 600 MBps | 680 MBps | 9,200| 14,000 | 
-| M128ms | 3,800 GiB | 2,000 MBps | 4 x P30 | 800 MBps | no bursting | 20,000 | no bursting | 
+| M32dms_v2, M32ms_v2 | 875 GiB  | 500 MBps | 4 x P15 | 500 MBps | 680 MBps | 4,400 | 14,000 |
+| M64s, M64ds_v2, M64s_v2 | 1,024 GiB | 1,000 MBps | 4 x P15 | 500 MBps | 680 MBps | 4,400 | 14,000 |
+| M64ms, M64dms_v2, M64ms_v2 | 1,792 GiB | 1,000 MBps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 |  
+| M128s, M128ds_v2, M128s_v2 | 2,048 GiB | 2,000 MBps | 4 x P20 | 600 MBps | 680 MBps | 9,200| 14,000 | 
+| M128ms, M128dms_v2, M128ms_v2 | 3,892 GiB | 2,000 MBps | 4 x P30 | 800 MBps | no bursting | 20,000 | no bursting | 
+| M192ds_v2, M192s_v2 | 2,048 GiB | 2,000 MBps | 4 x P20 | 600 MBps | 680 MBps | 9,200| 14,000 | 
+| M192ms, M192dms_v2, M128ms_v2 | 4,096 GiB | 2,000 MBps | 4 x P30 | 800 MBps | no bursting | 20,000 | no bursting | 
 | M208s_v2 | 2,850 GiB | 1,000 MBps | 4 x P30 | 800 MBps | no bursting | 20,000| no bursting | 
 | M208ms_v2 | 5,700 GiB | 1,000 MBps | 4 x P40 | 1,000 MBps | no bursting | 30,000 | no bursting |
 | M416s_v2 | 5,700 GiB | 2,000 MBps | 4 x P40 | 1,000 MBps | no bursting | 30,000 | no bursting |
@@ -183,10 +186,13 @@ For the **/hana/log** volume. the configuration would look like:
 | M32ts | 192 GiB | 500 MBps | 3 x P10 | 300 MBps | 510 MBps | 1,500 | 10,500 | 
 | M32ls | 256 GiB | 500 MBps | 3 x P10 | 300 MBps | 510 MBps | 1,500 | 10,500 | 
 | M64ls | 512 GiB | 1,000 MBps | 3 x P10 | 300 MBps | 510 MBps | 1,500 | 10,500 | 
-| M64s | 1,000 GiB | 1,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 | 
-| M64ms | 1,750 GiB | 1,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 |  
-| M128s | 2,000 GiB | 2,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500|  
-| M128ms | 3,800 GiB | 2,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 | 
+| M32dms_v2, M32ms_v2 | 875 GiB | 500 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 | 
+| M64s, M64ds_v2, M64s_v2 | 1,024 GiB | 1,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 | 
+| M64ms, M64dms_v2, M64ms_v2 | 1,792 GiB | 1,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 |  
+| M128s, M128ds_v2, M128s_v2 | 2,048 GiB | 2,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500|  
+| M128ms, M128dms_v2, M128ms_v2 | 3,892 GiB | 2,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 |
+| M192ds_v2, M192s_v2 | 2,048 GiB | 2,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500|  
+| M192dms_v2, M192ms_v2 | 4,096 GiB | 2,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 | 
 | M208s_v2 | 2,850 GiB | 1,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 |  
 | M208ms_v2 | 5,700 GiB | 1,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 |  
 | M416s_v2 | 5,700 GiB | 2,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 |  
@@ -200,10 +206,13 @@ For the other volumes, the configuration would look like:
 | M32ts | 192 GiB | 500 MBps | 1 x P15 | 1 x P6 | 1 x P6 |
 | M32ls | 256 GiB | 500 MBps |  1 x P15 | 1 x P6 | 1 x P6 |
 | M64ls | 512 GiB | 1000 MBps | 1 x P20 | 1 x P6 | 1 x P6 |
-| M64s | 1,000 GiB | 1,000 MBps | 1 x P30 | 1 x P6 | 1 x P6 |
-| M64ms | 1,750 GiB | 1,000 MBps | 1 x P30 | 1 x P6 | 1 x P6 | 
-| M128s | 2,000 GiB | 2,000 MBps | 1 x P30 | 1 x P10 | 1 x P6 | 
-| M128ms | 3,800 GiB | 2,000 MBps | 1 x P30 | 1 x P10 | 1 x P6 |
+| M32dms_v2, M32ms_v2 | 875 GiB | 500 MBps | 1 x P30 | 1 x P6 | 1 x P6 |
+| M64s, M64ds_v2, M64s_v2 | 1,024 GiB | 1,000 MBps | 1 x P30 | 1 x P6 | 1 x P6 |
+| M64ms, M64dms_v2, M64ms_v2 | 1,792 GiB | 1,000 MBps | 1 x P30 | 1 x P6 | 1 x P6 | 
+| M128s, M128ds_v2, M128s_v2 | 2,048 GiB | 2,000 MBps | 1 x P30 | 1 x P10 | 1 x P6 | 
+| M128ms, M128dms_v2, M128ms_v2 | 3,892 GiB | 2,000 MBps | 1 x P30 | 1 x P10 | 1 x P6 |
+| M192ds_v2, M192s_v2  | 2,048 GiB | 2,000 MBps | 1 x P30 | 1 x P10 | 1 x P6 | 
+| M192dms_v2, M192ms_v2  | 4,096 GiB | 2,000 MBps | 1 x P30 | 1 x P10 | 1 x P6 |
 | M208s_v2 | 2,850 GiB | 1,000 MBps |  1 x P30 | 1 x P10 | 1 x P6 |
 | M208ms_v2 | 5,700 GiB | 1,000 MBps | 1 x P30 | 1 x P10 | 1 x P6 | 
 | M416s_v2 | 5,700 GiB | 2,000 MBps |  1 x P30 | 1 x P10 | 1 x P6 | 
@@ -268,10 +277,13 @@ The recommendations are often exceeding the SAP minimum requirements as stated e
 | M32ts | 192 GiB | 500 MB/s | 250 GB | 400 MBps | 2,500 | 96 GB | 250 MBps  | 1,800 |
 | M32ls | 256 GiB | 500 MB/s | 300 GB | 400 MBps | 2,500 | 256 GB | 250 MBps  | 1,800 |
 | M64ls | 512 GiB | 1,000 MB/s | 620 GB | 400 MBps | 3,500 | 256 GB | 250 MBps  | 1,800 |
-| M64s | 1,000 GiB | 1,000 MB/s |  1,200 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
-| M64ms | 1,750 GiB | 1,000 MB/s | 2,100 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
-| M128s | 2,000 GiB | 2,000 MB/s |2,400 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
-| M128ms | 3,800 GiB | 2,000 MB/s | 4,800 GB | 750 MBps |9,600 | 512 GB | 250 MBps  | 2,500 | 
+| M32dms_v2, M32ms_v2 | 875 GiB | 500 MB/s |  1,200 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
+| M64s, M64ds_v2, M64s_v2 | 1,024 GiB | 1,000 MB/s |  1,200 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
+| M64ms, M64dms_v2, M64ms_v2 | 1,792 GiB | 1,000 MB/s | 2,100 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
+| M128s, M128ds_v2, M128s_v2 | 2,048 GiB | 2,000 MB/s |2,400 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
+| M128ms, M128dms_v2, M128ms_v2 | 3,892 GiB | 2,000 MB/s | 4,800 GB | 750 MBps |9,600 | 512 GB | 250 MBps  | 2,500 | 
+| M192ds_v2, M192s_v2 | 2,048 GiB | 2,000 MB/s |2,400 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
+| M192dms_v2, M192ms_v2 | 4,096 GiB | 2,000 MB/s | 4,800 GB | 750 MBps |9,600 | 512 GB | 250 MBps  | 2,500 | 
 | M208s_v2 | 2,850 GiB | 1,000 MB/s | 3,500 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
 | M208ms_v2 | 5,700 GiB | 1,000 MB/s | 7,200 GB | 750 MBps | 14,400 | 512 GB | 250 MBps  | 2,500 | 
 | M416s_v2 | 5,700 GiB | 2,000 MB/s | 7,200 GB | 1,000 MBps | 14,400 | 512 GB | 400 MBps  | 4,000 | 
@@ -308,11 +320,14 @@ A less costly alternative for such configurations could look like:
 | E64v3 | 432 GiB | 1,200 MB/s | 6 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | Will not achieve less than 1ms storage latency<sup>1</sup> |
 | E64ds_v4 | 504 GiB | 1200 MB/s |  7 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | Will not achieve less than 1ms storage latency<sup>1</sup> |
 | M64ls | 512 GiB | 1,000 MB/s | 7 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 10,000<sup>2</sup> |
-| M64s | 1,000 GiB | 1,000 MB/s | 7 x P15 | 1 x E30 | 1 x E6 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 10,000<sup>2</sup> |
-| M64ms | 1,750 GiB | 1,000 MB/s | 6 x P20 | 1 x E30 | 1 x E6 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 10,000<sup>2</sup> |
-| M128s | 2,000 GiB | 2,000 MB/s |6 x P20 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 20,000<sup>2</sup> |
+| M32dms_v2, M32ms_v2 | 875 GiB | 500 MB/s | 6 x P15 | 1 x E30 | 1 x E6 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 5,000<sup>2</sup> |
+| M64s, M64ds_v2, M64s_v2 | 1,024 GiB | 1,000 MB/s | 7 x P15 | 1 x E30 | 1 x E6 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 10,000<sup>2</sup> |
+| M64ms, M64dms_v2, M64ms_v2| 1,792 GiB | 1,000 MB/s | 6 x P20 | 1 x E30 | 1 x E6 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 10,000<sup>2</sup> |
+| M128s, M128ds_v2, M128s_v2 | 2,048 GiB | 2,000 MB/s |6 x P20 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 20,000<sup>2</sup> |
+| M128ms, M128dms_v2, M128ms_v2  | 3,800 GiB | 2,000 MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 20,000<sup>2</sup> |
+| M192ds_v2, M192s_v2 | 2,048 GiB | 2,000 MB/s |6 x P20 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 20,000<sup>2</sup> |
+| M192dms_v2, M192ms_v2  | 4,096 GiB | 2,000 MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 20,000<sup>2</sup> |
 | M208s_v2 | 2,850 GiB | 1,000 MB/s | 4 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 10,000<sup>2</sup> |
-| M128ms | 3,800 GiB | 2,000 MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 20,000<sup>2</sup> |
 | M208ms_v2 | 5,700 GiB | 1,000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 10,000<sup>2</sup> |
 | M416s_v2 | 5,700 GiB | 2,000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 20,000<sup>2</sup> |
 | M416ms_v2 | 11400 GiB | 2,000 MB/s | 7 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 20,000<sup>2</sup> |
