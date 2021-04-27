@@ -68,7 +68,7 @@ The following comparison matrix shows basic functionality of different tools tha
 | **Support for open / locked files**       | Yes | Yes                        | Yes | Yes                            |
 | **Incremental migration**                 | Yes | Yes                        | Yes | Yes                            |
 | **Switchover support**                    | No  | Yes                        | Yes | No (manual only)               |
-| **[Other features](#other-features)**         | [Link](#azure-file-sync)| [Link](#dobimigrate) | [Link](#data-mobility-and-migration) | [Link](#intelligent-data-management)                |
+| **[Other features](#other-features)**         | [Link](#azure-file-sync)| [Link](#datadobi-dobimigrate) | [Link](#data-dynamics-data-mobility-and-migration) | [Link](#komprise-intelligent-data-management)                |
 
 ## Assessment and reporting
 
@@ -97,7 +97,7 @@ The following comparison matrix shows basic functionality of different tools tha
 
 - Internal hash validation
 
-### DobiMigrate
+### Datadobi DobiMigrate
 
 - Migration pre checks
 - Migration Planning
@@ -117,12 +117,13 @@ The following comparison matrix shows basic functionality of different tools tha
 - Ability to override NFSv3 permissions and write new mode bits to target
 - Ability to convert NFSv3 POSIX draft ACLS to NFSv4 ACLS
 - SMB 1 (CIFS)
+- Support 24 x 7 x 365
 
-### Data Mobility and Migration
+### Data Dynamics Data Mobility and Migration
 
 - Hash validation
 
-### Intelligent Data Management
+### Komprise Intelligent Data Management
 
 - Project/directory based migrations
 - Automatic retry of failures

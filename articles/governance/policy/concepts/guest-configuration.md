@@ -29,7 +29,8 @@ Machines, review the following details.
 
 ## Resource provider
 
-Before you can use Guest Configuration, you must register the resource provider. If assignment of a Guest Configuration policy is done through
+Before you can use Guest Configuration, you must register the resource provider.
+If assignment of a Guest Configuration policy is done through
 the portal, or if the subscription is enrolled in Azure Security Center, the resource
 provider is registered automatically. You can manually register through the
 [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal),
@@ -122,8 +123,8 @@ ranges](https://www.microsoft.com/en-us/download/details.aspx?id=56519) for Azur
 ### Communicate over private link in Azure
 
 Virtual machines can use [private link](../../../private-link/private-link-overview.md) for
-communication to the Guest Configuration service. Apply tag with the name `EnablePrivateNeworkGC`
-(with no "t" in Network) and value `TRUE` to enable this feature. The tag can be applied before
+communication to the Guest Configuration service. Apply tag with the name `EnablePrivateNetworkGC`
+and value `TRUE` to enable this feature. The tag can be applied before
 or after Guest Configuration policy definitions are applied to the machine.
 
 Traffic is routed using the Azure
