@@ -26,19 +26,19 @@ Next, download and install .NET Core 2.0 for your operating system. If you are r
 
 ### Windows
 
-- Install [.NET Core for Windows](https://www.microsoft.com/net/download/windows) or the [.NET Framework](https://www.microsoft.com/net/download/windows) (included with Visual Studio for Windows)
+- Install [.NET Core SDK for Windows](https://dotnet.microsoft.com/download) or the [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) (included with Visual Studio for Windows)
 - Install [Visual Studio for Windows](https://www.visualstudio.com/). If you are using .NET Core, installing Visual Studio is optional.
 
 For information about choosing between .NET Core and the .NET Framework, see [Choose between .NET Core and .NET Framework for server apps](/dotnet/standard/choosing-core-framework-server).
 
 ### Linux
 
-- Install [.NET Core for Linux](https://www.microsoft.com/net/download/linux)
+- Install [.NET Core SDK for Linux](/dotnet/core/install/linux)
 - Optionally install [Visual Studio Code](https://www.visualstudio.com/) and the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 
 ### macOS
 
-- Install [.NET Core for macOS](https://www.microsoft.com/net/download/macos).
+- Install [.NET Core SDK for macOS](https://dotnet.microsoft.com/download).
 - Optionally install [Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
 
 ## Download the sample application
@@ -278,4 +278,4 @@ In this quickstart, you learned how to add messages to a queue, peek messages fr
 > [!div class="nextstepaction"]
 > [Communicate between applications with Azure Queue Storage](/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
 
-- To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/).
+- To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).

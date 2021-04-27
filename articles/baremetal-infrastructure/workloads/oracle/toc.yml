@@ -1,0 +1,24 @@
+- name: What is BareMetal Infrastructure for Oracle?
+  href: oracle-baremetal-overview.md
+- name: BareMetal SKUs 
+  href: oracle-baremetal-skus.md
+- name: Storage
+  href: oracle-baremetal-storage.md
+- name: Patching considerations
+  href: oracle-baremetal-patching.md
+- name: Ethernet configuration
+  href: oracle-baremetal-ethernet.md
+- name: Architecture
+  href: oracle-baremetal-architecture.md
+- name: Provision
+  href: oracle-baremetal-provision.md
+- name: High availability and disaster recovery
+  items: 
+    - name: Overview
+      href: concepts-oracle-high-availability.md
+    - name: High availability features
+      href: high-availability-features.md
+    - name: Options and considerations
+      href: options-considerations-high-availability.md
+    - name: Choose how to recover 
+      href: oracle-high-availability-recovery.md

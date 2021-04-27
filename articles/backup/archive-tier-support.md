@@ -35,6 +35,8 @@ Supported clients:
 
 ## Get started with PowerShell
 
+1. Download the [latest](https://github.com/PowerShell/PowerShell/releases) version of PowerShell from GitHub.
+
 1. Run the following command in PowerShell:
   
     ```azurepowershell
@@ -52,7 +54,13 @@ Supported clients:
 
 1. Get the list of backup items:
 
-    `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureVM/AzureWorkload" -WorkloadType "AzureVM/MSSQL"`
+    - For Azure virtual machines:
+
+        `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureVM" -WorkloadType "AzureVM"`
+
+    - For SQL Server in Azure virtual machines:
+
+        `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureWorkload" -WorkloadType "MSSQL"`
 
 1. Get the backup item.
 

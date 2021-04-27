@@ -337,7 +337,7 @@ if (tokenClaims != null && tokenClaims.Length > 0)
 }
 ```
 
-The *groups* claim is a member of a [Restricted Claim Set](../../active-directory/develop/active-directory-claims-mapping.md#claim-sets) in Azure AD.
+The *groups* claim is a member of a [Restricted Claim Set](../../active-directory/develop/reference-claims-mapping-policy-type.md#claim-sets) in Azure AD.
 
 #### Test
 

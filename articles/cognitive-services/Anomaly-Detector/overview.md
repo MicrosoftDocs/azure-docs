@@ -108,5 +108,5 @@ No customer configuration is necessary to enable zone-resiliency. Zone-resilienc
 ## Next steps
 
 * [Quickstart: Detect anomalies in your time series data using the Anomaly Detector](quickstarts/client-libraries.md)
-* The Anomaly Detector API [online demo](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector)
+* The Anomaly Detector API [online demo](https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook)
 * The Anomaly Detector [REST API reference](https://aka.ms/anomaly-detector-rest-api-ref)

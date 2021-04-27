@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 02/12/2021
+ms.date: 04/12/2021
 tags: active-directory
 ms.author: mimart
 author: msmimart
@@ -69,6 +69,9 @@ External users can be added only to “assigned” or “Security” groups and 
 ## My external user did not receive an email to redeem
 
 The invitee should check with their ISP or spam filter to ensure that the following address is allowed: Invites@microsoft.com
+
+> [!NOTE]
+> For the Azure service operated by 21Vianet in China, the sender address is Invites@oe.21vianet.com.
 
 ## I notice that the custom message does not get included with invitation messages at times
 

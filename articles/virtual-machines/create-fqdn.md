@@ -22,7 +22,7 @@ This article assumes that you have already created a VM. If needed, you can crea
 1. Select your VM in the portal. 
 1. In the left menu, select **Properties**
 1. Under **Public IP address\DNS name label**, select your IP address.
-2. Under **DNA name label**, enter the prefix you want to use.
+2. Under **DNS name label**, enter the prefix you want to use.
 3. Select **Save** at the top of the page.
 4. Select **Overview** in the left menu to return to the VM overview blade.
 5. Verify that the **DNS name** appears correctly. 

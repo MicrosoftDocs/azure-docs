@@ -4,7 +4,8 @@ description: This article tells how to implement error handling logic and descri
 services: automation
 ms.subservice: process-automation
 ms.date: 11/03/2020
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 # Configure runbook output and message streams
 

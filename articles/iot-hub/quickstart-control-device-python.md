@@ -25,7 +25,7 @@ In this quickstart, you use a direct method to control a simulated device connec
 
 * [Python 3.7+](https://www.python.org/downloads/). For other versions of Python supported, see [Azure IoT Device Features](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features).
 
-* [A sample Python project](https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip).
+* [A sample Python project](https://github.com/Azure-Samples/azure-iot-samples-python/) from github. Download or clone the samples by using the **Code** button in the github repository.
 
 * Port 8883 open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
