@@ -59,7 +59,7 @@ You can run a maximum of up to 24 VMs on your device. This is another factor to 
 
 ### Operating system disks and images
 
-On your device, you can only use Generation 1 VMs with a fixed virtual hard disk (VHD/VHDX) format. VHDs are used to store the machine operating system (OS) and data. VHDs are also used for the images you use to install an OS. 
+On your device, you can only use Generation 1 VMs with a fixed virtual hard disk (VHD) format. VHDs are used to store the machine operating system (OS) and data. VHDs are also used for the images you use to install an OS. 
 
 The images that you use to create VM images can be generalized or specialized. When creating images for your VMs, you must prepare the images. See the various ways to prepare and use VM images on your device:
 
