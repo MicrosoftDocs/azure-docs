@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 04/27/2021
 ms.author: aahi
 ---
 
@@ -74,7 +74,7 @@ Add the following information to the variables you created. They represent the c
 | Action |Name   | Type | Value |
 |---------|---------|---|---|
 | Initialize variable | var_person | String | Person |
-| Initialize variable 2 | var_phone | String | Phone_Number |
+| Initialize variable 2 | var_phone | String | Phone Number |
 | Initialize variable 3 | var_plumbing | String | plumbing |
 | Initialize variable 4 | var_other | String | other | 
 
@@ -127,12 +127,12 @@ In your flow, enter the following information to create a new Text Analytics con
 
 ## Extract the excel content 
 
-After the connection is created, search for **Text Analytics** and select **Entities**. This will extract information from the description column of the issue.
+After the connection is created, search for **Text Analytics** and select **Named Entity Recognition**. This will extract information from the description column of the issue.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/extract-info.png" alt-text="Add Text Analytics Entities.":::
 
-Click in the **Text** field and select **Description** from the Dynamic content windows that appears. Enter `en` for Language. (Click Show advanced options if you don't see Language)
+Click in the **Text** field and select **Description** from the Dynamic content windows that appears. Enter `en` for Language, and a unique name as  the document ID (you might need to click **Show advanced options**).
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/description-from-dynamic-content.png" alt-text="Add Text Analytics settings.":::
@@ -150,7 +150,7 @@ Within the newly created **Apply to each 2** action, click **Add an action**, an
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/create-condition.png" alt-text="Add Text Analytics credentials to your flow. 3":::
 
-In the Condition window, click on the first text box. In the Dynamic content window, search for **Entities Type** and select it.
+In the Condition window, click on the first text box. In the Dynamic content window, search for **Category** and select it.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/choose-entities-value.png" alt-text="Add Text Analytics credentials to your flow. 4":::
@@ -177,7 +177,7 @@ Minimize the **Apply to each 2** action by clicking on the name. Then add anothe
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/add-apply-action-3.png" alt-text="Add Text Analytics credentials to your flow. 8":::
 
-Within **Apply to each 3**, add a **Condition** control. It will be named **Condition 2**. In the first text box, search for, and add **Entities Type** from the Dynamic content window. Be sure the center box is set to **is equal to**. Then, in the right text box, enter `var_phone`. 
+Within **Apply to each 3**, add a **Condition** control. It will be named **Condition 2**. In the first text box, search for, and add **categories** from the Dynamic content window. Be sure the center box is set to **is equal to**. Then, in the right text box, enter `var_phone`. 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/condition-2-options.png" alt-text="Add Text Analytics credentials to your flow. 9":::
