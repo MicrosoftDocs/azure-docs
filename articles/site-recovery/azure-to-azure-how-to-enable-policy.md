@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Using Policy with Azure Site Recovery (Public Preview)
 
-This article describes how to set up [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) for your resources, using Azure Policy. [Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview) helps to enforce certain business rules on your Azure resources and assess compliance of said resources.
+This article describes how to set up [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) for your resources, using Azure Policy. [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) helps to enforce certain business rules on your Azure resources and assess compliance of said resources.
 
 ## Disaster Recovery with Azure Policy
 Site Recovery helps you keep your applications up and running in the event of planned or unplanned zonal/regional outages. Enabling Site Recovery on your machines at scale through the Azure portal can be challenging. Now, you have way to enable Site Recovery en masse on specific Resource Groups (_Scope_ of the Policy) through the portal.
