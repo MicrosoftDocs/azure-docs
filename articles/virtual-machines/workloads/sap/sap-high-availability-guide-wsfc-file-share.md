@@ -29,7 +29,7 @@ Windows Server failover clustering is the foundation of a high-availability SAP 
 A failover cluster is a group of 1+n independent servers (nodes) that work together to increase the availability of applications and services. If a node failure occurs, Windows Server failover clustering calculates the number of failures that can occur and still maintain a healthy cluster to provide applications and services. You can choose from different quorum modes to achieve failover clustering.
 
 ## Prerequisites
-Before you begin the tasks that are described in this article, review this article:
+Before you begin the tasks that are described in this article, review the following articles and SAP notes:
 
 * [Azure Virtual Machines high-availability architecture and scenarios for SAP NetWeaver][sap-high-availability-architecture-scenarios]
 * SAP Note [1928533][1928533], which contains:  
