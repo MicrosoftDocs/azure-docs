@@ -53,4 +53,4 @@ The following features/properties are defined on Deployment level, and will be e
 * **Deployment management is not available in Basic Tier**: Use Standard tier for Blue-Green deployment capability.
 
 ## See also
-* [Set up a staging environment in Azure Spring Cloud](spring-cloud-howto-staging-environment.md)
+* [Set up a staging environment in Azure Spring Cloud](./how-to-staging-environment.md)

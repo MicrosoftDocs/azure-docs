@@ -30,7 +30,7 @@ dotnet build
 While still in the application directory, install the Azure Communication PhoneNumbers client library for .NET package by using the `dotnet add package` command.
 
 ```console
-dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0-beta.6
+dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0
 ```
 
 Add a `using` directive to the top of **Program.cs** to include the namespaces.
