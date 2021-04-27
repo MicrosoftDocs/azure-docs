@@ -145,7 +145,7 @@ The well-defined schema representation creates a simple tabular representation o
   * SQL serverless pools in Azure Synapse will represent these values as `NULL`.
 
 * Expect different behavior in regard to explicit `null` values:
-  * Spark pools in Azure Synapse will read these values as 0 (zero). And it will change to `undefined` as soon as the column has a non-null value.
+  * Spark pools in Azure Synapse will read these values as `0` (zero). And it will change to `undefined` as soon as the column has a non-null value.
   * SQL serverless pools in Azure Synapse will read these values as `NULL`.
     
 * Expect different behavior in regard to missing columns:
