@@ -169,6 +169,8 @@ Invoke-AzsNetworkValidation Completed
 
 If a test fails, the Network Readiness Checker returns information to help you resolve the issue, as shown in the sample output below. 
 
+#### Command output
+
 The following sample is the output from this command:
 
 `Invoke-AzsNetworkValidation -DnsServer '10.50.10.50' -TimeServer 'time.windows.com' -DeviceFqdn aseclient.contoso.com -ComputeIPs 10.10.52.1-10.10.52.20 -CustomUrl 'http://www.custom1.com','http://time.windows.com','http://fakename.fakeurl.com'`
@@ -218,23 +220,27 @@ Report location (contains PII): C:\Users\[*redacted*]\AppData\Local\Temp\AzsRead
 Invoke-AzsNetworkValidation Completed
 ```
 
-For more information, you can review the log file that the tool saves to the output path. The following sample is taken from the log file for the test above.<!--Get log sample for failed scenario.-->
+#### Log file sample
+
+For more information, you can review the log file that the tool saves. The following sample is taken from the log file for the network readiness check above.<!--Get log sample for failed scenario.-->
 
 ```XML
    TBD
 ```
 
-There's also a report file, AzsReadinessCheckerReport.json, which gives detailed diagnostic information collected during each test. The diagnostic information includes:
+#### Report file sample
 
-- A list of network adapters, with the driver version, MAC addresses, and connection state for each adapter, on the machine used to run the tests
+There's also a report file, AzsReadinessCheckerReport.json, which gives detailed diagnostic information collected during each test. 
+
+The diagnostic information includes:
+
+- List of network adapters on the machine used to run the tests, with the driver version, MAC addresses, and connection state for each adapter
 - IP configuration of the machine used to run the tests
 - Detailed DNS response properties that the DNS server returned for each test
 - Detailed HTTP response for all URL tests
 - Network route trace for each test
 
-```
-
-The following sample is taken from the report file for the test above.<!--Get sample report for failed scenario.-->
+The following sample is taken from the report file for the network readiness check above.<!--Get sample report for failed scenario.-->
 
 ```JSON
    TBD
