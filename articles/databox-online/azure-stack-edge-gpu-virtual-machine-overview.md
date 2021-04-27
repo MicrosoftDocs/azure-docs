@@ -9,7 +9,6 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 04/26/2021
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device. I want to use APIs so that I can efficiently manage my VMs.
 ---
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
@@ -145,5 +144,5 @@ You can back up the VM disks and in the event of a device failure, restore the d
 
 ## Next steps
 
-- [Considerations for VMs in Azure Stack Hub](azure-stack-vm-considerations.md)
+
 
