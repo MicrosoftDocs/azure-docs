@@ -62,4 +62,6 @@ Before proceeding with the migration with Azure Migration, review the [Prepare o
 
 ## Step 7: Deploy Azure VM extensions
 
-After migration and completion of all post-configuration steps, you can deploy the Azure VM extensions based on the the VM extensions originally installed on your Arc enabled server. 
+After migration and completion of all post-migration configuration steps, you can now deploy the Azure VM extensions based on the the VM extensions originally installed on your Arc enabled server. Review [Azure virtual machine extensions and features](../../virtual-machines/extensions/overview.md) to help plan your extension deployment. 
+
+If the Log Analytics VM extension or Dependency agent VM extension were deployed using Azure Policy and the [VM insights initiative](../../azure-monitor/vm/vminsights-enable-policy.md), remove the [exclusion](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion) you created earlier. To use Azure Policy to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](../../azure-monitor/deploy-scale.md#vm-insights). 
