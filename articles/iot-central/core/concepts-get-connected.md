@@ -215,7 +215,7 @@ As shown in the diagram below, if a device connects, the connection will be regi
 
 ![Device Connectivity diagram](./media/concepts-get-connected/device-connectivity.png)
 
-Device Connectivity is now available for [exporting out of IoT Central](./howto-export-data.md#set-up-data-export). See  For more information around limitations, please see the IoT Hub Documentations [here](../../iot-hub/iot-hub-event-grid#limitations-for-device-connected-and-device-disconnected-events).
+Device Connectivity is now available for [exporting out of IoT Central](howto-export-data.md#set-up-data-export). See  For more information around limitations, please see the IoT Hub Documentations [here](../../iot-hub/iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events).
 ## SDK support
 
 The Azure Device SDKs offer the easiest way for you implement your device code. The following device SDKs are available:
