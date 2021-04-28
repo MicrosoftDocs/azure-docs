@@ -194,8 +194,6 @@
           href: f5-aad-password-less-vpn.md
       - name: Publishing walkthroughs
         items:
-        - name: Integrate with Azure AD Domain Services
-          href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
         - name: Integrate with Teams
           href: application-proxy-integrate-with-teams.md
         - name: Integrate with Tableau
