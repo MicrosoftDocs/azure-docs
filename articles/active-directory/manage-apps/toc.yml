@@ -198,8 +198,6 @@
           href: f5-aad-password-less-vpn.md
       - name: Publishing walkthroughs
         items:
-        - name: Integrate with Application Proxy using PingAccess
-          href: application-proxy-ping-access-publishing-guide.md
         - name: Integrate with Azure AD Domain Services
           href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
         - name: Integrate with Power BI
@@ -232,8 +230,6 @@
           href: application-sign-in-problem-first-party-microsoft.md
       - name: Troubleshoot on-premises apps
         items:
-        - name: Configure with PingAccess
-          href: ./application-proxy-ping-access-publishing-guide.md
         - name: CORS issues in Application Proxy
           href: application-proxy-understand-cors-issues.md
   - name: Reference
