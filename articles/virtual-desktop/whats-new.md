@@ -59,9 +59,9 @@ Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](
 
 Here's what's new for April:
 
-### Use the Start VM on Connect feature in the Azure portal
+### Use the Start VM on Connect feature (preview) in the Azure portal
 
-You can now configure Start VM on Connect in the Azure portal. With this update, users can access their VMs from the Android and macOS clients. To learn more, see [Start VM on Connect](start-virtual-machine-connect.md#use-the-azure-portal).
+You can now configure Start VM on Connect (preview) in the Azure portal. With this update, users can access their VMs from the Android and macOS clients. To learn more, see [Start VM on Connect](start-virtual-machine-connect.md#use-the-azure-portal).
 
 ### Required URL Check tool 
 
