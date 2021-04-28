@@ -47,7 +47,7 @@ When you add a condition to a role assignment, it can take up to 5 minutes for t
 
 Wait for 5 minutes and test the condition again.
 
-## Symptom - Adding a condition using Azure PowerShell results in an error
+## Symptom - Copying and pasting a condition results in an error
 
 **Cause**
 
@@ -55,7 +55,7 @@ If you copy a condition from a document, it might include special characters and
 
 **Solution**
 
-If you are certain that your condition is correct, delete all whitespaces (spaces and returns) and then add back the relevant spaces.
+If you are certain that your condition is correct, delete all spaces and returns and then add back the relevant spaces.
 
 ## Symptom - Adding a condition using Azure PowerShell results in a resource attribute is not valid error
 
@@ -72,11 +72,43 @@ If your condition includes a dollar sign ($), you must prefix it with a backtick
 
 **Solution**
 
-Add a backtick (\`) before each dollar sign. The following shows an example:
+Add a backtick (\`) before each dollar sign. The following shows an example. For more information about rules for quotation marks in PowerShell, see [About Quoting Rules](/powershell/module/microsoft.powershell.core/about/about_quoting_rules).
 
 ```azurepowershell
 $condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blobs.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade'))"
 ```
+
+## Symptom - Adding a condition using Azure CLI results in a resource attribute is not valid error
+
+When you try to add a role assignment with a condition using Azure CLI, you get an error similar to:
+
+```
+Resource attribute Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$> is not valid.
+```
+
+**Cause**
+
+If your condition includes a dollar sign ($), you must prefix it with a backslash (\\).
+
+**Solution**
+
+Add a backslash (\\) before each dollar sign. The following shows an example. For more information about rules for quotation marks in Bash, see [Double Quotes](https://www.gnu.org/software/bash/manual/html_node/Double-Quotes.html).
+
+```azurecli
+condition="((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blobs.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<\$key_case_sensitive\$>] StringEquals 'Cascade'))"
+```
+
+## Symptom - Assigning a condition string to a variable in Bash results in an error
+
+When you try to assign a condition string to a variable in Bash, you get the `bash: !: event not found` message.
+
+**Cause**
+
+In Bash, if history expansion is enabled, you might see the message `bash: !: event not found` because of the exclamation point (!).
+
+**Solution**
+
+Disable history expansion with the command `set +H`. To re-enable history expansion, use `set -H`.
 
 ## Symptom - Adding a condition using Azure CLI results in an unrecognized arguments error
 
@@ -100,7 +132,7 @@ After using the code editor, you switch to the visual editor and get a message s
 
 **Cause**
 
-Updates have been to the condition that the visual editor is not able to parse.
+Updates were made to the condition that the visual editor is not able to parse.
 
 **Solution**
 
