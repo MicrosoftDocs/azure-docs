@@ -67,7 +67,7 @@ The following table gives you some high-level guidelines.
 
 Typically there are three parameters you need to consider:
 
-* **The throughput you need from the feature**:
+* **The throughput you need**:
     * Custom question answering (Preview) is a free feature, and the throughput is currently capped at 10 TPS for both management APIs and prediction APIs.
     * This should also influence your Azure **Cognitive Search** SKU selection, see more details [here](../../../search/search-sku-tier.md). Additionally, you may need to adjust Cognitive Search [capacity](../../../search/search-capacity-planning.md) with replicas.
 
@@ -180,7 +180,8 @@ Your Custom question anwering (Preview) feature deals with two kinds of keys: **
 
 Use these keys when making requests to the service through APIs.
 
-![Key management managed preview](../media/qnamaker-how-to-key-management/qnamaker-v2-key-management.png)
+> [!div class="mx-imgBorder"]
+> ![Key management managed preview](../media/qnamaker-how-to-key-management/custom-question-answering-key-management.png)
 
 |Name|Location|Purpose|
 |--|--|--|
@@ -193,11 +194,13 @@ You can view and reset your authoring keys from the Azure portal, where you adde
 
 1. Go to the Text Analytics resource in the Azure portal and select the resource that has the *Cognitive Services* type:
 
-    ![QnA Maker managed (Preview) resource list](../media/qnamaker-how-to-key-management/qnamaker-v2-resource-list.png)
+> [!div class="mx-imgBorder"]
+> ![Custom qna (Preview) resource list](../media/qnamaker-how-to-setup-service/resources-created-question-answering.png)
 
 2. Go to **Keys and Endpoint**:
 
-    ![QnA Maker managed (Preview) Subscription key](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
+> [!div class="mx-imgBorder"]
+> ![Custom qna (Preview) Subscription key](../media/qnamaker-how-to-key-management/custom-qna-keys-and-endpoint.png)
 
 ### Update the resources
 
@@ -241,19 +244,19 @@ After the resources are created, they have the same name, except for the optiona
 
 # [Custom question anwering (preview release)](#tab/v2)
 
-The resource name for the Custom question anwering (Preview) resource, such as `qna-westus-f0-b`, is also used to name the other resources.
+The resource name for the Text Analytics resource, such as `qna-westus-f0-b`, is also used to name the other resources.
 
-The Azure portal create window allows you to create a QnA Maker managed (Preview) resource and select the pricing tiers for the other resources.
+The Azure portal create window allows you to create a Text Analytics resource and select the pricing tiers for the other resources.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of Azure portal for QnA Maker managed (Preview) resource creation](../media/qnamaker-how-to-setup-service/enter-qnamaker-v2-info.png)
+> ![Screenshot of Azure portal for QnA Maker managed (Preview) resource creation](../media/qnamaker-how-to-setup-service/custom-qna-create-button.png)
 After the resources are created, they have the same name.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of Azure portal resource listing QnA Maker managed (Preview)](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
+> ![Screenshot of Azure portal resource listing QnA Maker managed (Preview)](../media/qnamaker-how-to-setup-service/resources-created-question-answering.png)
 
 > [!TIP]
-> Create a new resource group when you create a QnA Maker resource. That allows you to see all resources associated with the QnA Maker managed (Preview) resource when searching by resource group.
+> Create a new resource group when you create a Text Analytics resource. That allows you to see all resources associated with the Text Analytics resource when searching by resource group.
 
 > [!TIP]
 > Use a naming convention to indicate pricing tiers within the name of the resource or the resource group. When you receive errors from creating a new knowledge base, or adding new documents, the Cognitive Search pricing tier limit is a common issue.
