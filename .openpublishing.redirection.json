@@ -14072,7 +14072,7 @@
     },
     {
       "source_path_from_root": "/articles/connectors/connectors-create-api-excel.md",
-      "redirect_url": "/connectors/excelonlinebusiness/",
+      "redirect_url": "https://docs.microsoft.com/connectors/excelonlinebusiness/",
       "redirect_document_id": true
     },
     {
