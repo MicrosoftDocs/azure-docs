@@ -114,68 +114,68 @@ In this step, you will create a new Azure SQL Database logical server and a new 
 
 1. Open a PowerShell console and import the required version of Az.
 
-  ```PowerShell
-  Import-Module "Az" -MinimumVersion "5.6.0"
-  ```
+   ```PowerShell
+   Import-Module "Az" -MinimumVersion "5.6.0"
+   ```
 
-2. Sign into Azure. If needed, [switch to the subscription](/powershell/azure/manage-subscriptions-azureps) you are using for this tutorial.
+1. Sign into Azure. If needed, [switch to the subscription](/powershell/azure/manage-subscriptions-azureps) you are using for this tutorial.
 
-  ```PowerShell
-  Connect-AzAccount
-  $subscriptionId = "<your subscription ID>"
-  Set-AzContext -Subscription $subscriptionId
-  ```
+   ```PowerShell
+   Connect-AzAccount
+   $subscriptionId = "<your subscription ID>"
+   Set-AzContext -Subscription $subscriptionId
+   ```
 
-3. Create a new resource group.
+1. Create a new resource group.
 
   > [!IMPORTANT]
   > You need to create your resource group in a region (location) that supports both the DC-series hardware generation and Microsoft Azure Attestation. For the list of regions supporting DC-series, see [DC-series availability](service-tiers-vcore.md#dc-series-1). [Here](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) is the regional availability of Microsoft Azure Attestation.
 
-  ```powershell
-  $resourceGroupName = "<your new resource group name>"
-  $location = "<Azure region supporting DC-series and Microsoft Azure Attestation>"
-  New-AzResourceGroup -Name $resourceGroupName -Location $location
-  ```
+   ```powershell
+   $resourceGroupName = "<your new resource group name>"
+   $location = "<Azure region supporting DC-series and Microsoft Azure Attestation>"
+   New-AzResourceGroup -Name $resourceGroupName -Location $location
+   ```
 
-4. Create an Azure SQL logical server. When prompted, enter the server administrator name and a password. Make sure you remember the admin name and the password - you will need them later to connect to the server.
+1. Create an Azure SQL logical server. When prompted, enter the server administrator name and a password. Make sure you remember the admin name and the password - you will need them later to connect to the server.
 
-  ```powershell
-  $serverName = "<your server name>" 
-  New-AzSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName -Location $location 
-  ```
+   ```powershell
+   $serverName = "<your server name>" 
+   New-AzSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName -Location $location 
+   ```
 
-5. Create a server firewall rule that allows access from the specified IP range.
+1. Create a server firewall rule that allows access from the specified IP range.
   
-  ```powershell
-  $startIp = "<start of IP range>"
-  $endIp = "<end of IP range>"
-  $serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
+   ```powershell
+   $startIp = "<start of IP range>"
+   $endIp = "<end of IP range>"
+   $serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
     -ServerName $serverName `
     -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
-  ```
+   ```
 
-6. Create a DC-series database.
+1. Create a DC-series database.
 
-  ```powershell
-  $databaseName = "ContosoHR"
-  $edition = "GeneralPurpose"
-  $vCore = 2
-  $generation = "DC"
-  New-AzSqlDatabase -ResourceGroupName $resourceGroupName `
+   ```powershell
+   $databaseName = "ContosoHR"
+   $edition = "GeneralPurpose"
+   $vCore = 2
+   $generation = "DC"
+   New-AzSqlDatabase -ResourceGroupName $resourceGroupName `
     -ServerName $serverName `
     -DatabaseName $databaseName `
     -Edition $edition `
     -Vcore $vCore `
     -ComputeGeneration $generation
-  ```
+   ```
 
-7. Retrieve and save the information about your server and the database. You will need this information, as well as the admin name and the password from step 4 in this section, in later sections.
+1. Retrieve and save the information about your server and the database. You will need this information, as well as the admin name and the password from step 4 in this section, in later sections.
 
-  ```powershell
-  Write-Host 
-  Write-Host "Fully qualified server name: $($server.FullyQualifiedDomainName)" 
-  Write-Host "Database name: $databaseName"
-  ```
+   ```powershell
+   Write-Host 
+   Write-Host "Fully qualified server name: $($server.FullyQualifiedDomainName)" 
+   Write-Host "Database name: $databaseName"
+   ```
 
 ---
 
