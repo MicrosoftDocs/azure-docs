@@ -7,7 +7,7 @@ ms.service: cache
 ms.topic: overview
 ms.date: 02/08/2021
 
-#As a developer, I want to understand what Azure Cache for Redis is and how it can improve performance in my application.
+#Customer intent: As a developer, I want to understand what Azure Cache for Redis is and how it can improve performance in my application.
 ---
 
 # About Azure Cache for Redis

@@ -3,8 +3,6 @@ title: Azure Monitor view designer to workbooks conversion examples
 description: Examples for transitioning from views to workbooks in Azure Monitor.
 author: austonli
 ms.author: aul
-
-ms.subservice: 
 ms.topic: conceptual
 ms.date: 02/07/2020
 

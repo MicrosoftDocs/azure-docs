@@ -29,7 +29,8 @@ Machines, review the following details.
 
 ## Resource provider
 
-Before you can use Guest Configuration, you must register the resource provider. If assignment of a Guest Configuration policy is done through
+Before you can use Guest Configuration, you must register the resource provider.
+If assignment of a Guest Configuration policy is done through
 the portal, or if the subscription is enrolled in Azure Security Center, the resource
 provider is registered automatically. You can manually register through the
 [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal),
@@ -73,14 +74,14 @@ built-in content, Guest Configuration handles loading these tools automatically.
 
 ### Validation frequency
 
-The Guest Configuration client checks for new content every 5 minutes. Once a guest assignment is
+The Guest Configuration client checks for new or changed guest assignments every 5 minutes. Once a guest assignment is
 received, the settings for that configuration are rechecked on a 15-minute interval. Results are
 sent to the Guest Configuration resource provider when the audit completes. When a policy
 [evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers) occurs, the state of the
 machine is written to the Guest Configuration resource provider. This update causes Azure Policy to
 evaluate the Azure Resource Manager properties. An on-demand Azure Policy evaluation retrieves the
 latest value from the Guest Configuration resource provider. However, it doesn't trigger a new audit
-of the configuration within the machine.
+of the configuration within the machine. The status is simultaneously written to Azure Resource Graph.
 
 ## Supported client types
 
@@ -111,16 +112,19 @@ report compliance status.
 
 ### Communicate over virtual networks in Azure
 
-Virtual machines using virtual networks for communication will require outbound access to Azure
-datacenters on port `443`. If you're using a private virtual network in Azure that doesn't allow
-outbound traffic, configure exceptions with Network Security Group rules. The service tag
-"GuestAndHybridManagement" can be used to reference the Guest Configuration service.
+To communicate with the Guest Configuration resource provider in Azure, machines require outbound
+access to Azure datacenters on port **443**. If a network in Azure doesn't allow outbound traffic,
+configure exceptions with [Network Security
+Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules. The
+[service tag](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" can be
+used to reference the Guest Configuration service rather than manually maintaining the [list of IP
+ranges](https://www.microsoft.com/en-us/download/details.aspx?id=56519) for Azure datacenters.
 
 ### Communicate over private link in Azure
 
 Virtual machines can use [private link](../../../private-link/private-link-overview.md) for
-communication to the Guest Configuration service. Apply tag with the name `EnablePrivateNeworkGC`
-(with no "t" in Network) and value `TRUE` to enable this feature. The tag can be applied before
+communication to the Guest Configuration service. Apply tag with the name `EnablePrivateNetworkGC`
+and value `TRUE` to enable this feature. The tag can be applied before
 or after Guest Configuration policy definitions are applied to the machine.
 
 Traffic is routed using the Azure
@@ -132,13 +136,6 @@ establish a secure, authenticated channel with Azure platform resources.
 Nodes located outside Azure that are connected by Azure Arc require connectivity to the Guest
 Configuration service. Details about network and proxy requirements provided in the
 [Azure Arc documentation](../../../azure-arc/servers/overview.md).
-
-To communicate with the Guest Configuration resource provider in Azure, machines require outbound
-access to Azure datacenters on port **443**. If a network in Azure doesn't allow outbound traffic,
-configure exceptions with [Network Security
-Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules. The
-[service tag](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" can be
-used to reference the Guest Configuration service.
 
 For Arc connected servers in private datacenters, allow traffic using the following patterns:
 
@@ -255,7 +252,10 @@ The Guest Configuration extension writes log files to the following locations:
 
 Windows: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
 
-Linux: `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
+Linux
+
+- Azure VM: `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
+- Azure VM: `/var/lib/GuestConfig/arc_policy_logs/gc_agent.log`
 
 ### Collecting logs remotely
 
@@ -295,9 +295,9 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 The Guest Configuration client downloads content packages to a machine and extracts the contents.
 To verify what content has been downloaded and stored, view the folder locations given below.
 
-Windows: `c:\programdata\guestconfig\configurations`
+Windows: `c:\programdata\guestconfig\configuration`
 
-Linux: `/var/lib/guestconfig/configurations`
+Linux: `/var/lib/GuestConfig/Configuration`
 
 ## Guest Configuration samples
 

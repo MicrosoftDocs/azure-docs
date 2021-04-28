@@ -1,7 +1,7 @@
 ---
 title: Device Update for IoT Hub update manifest | Microsoft Docs
 description: Learn how properties are sent from the Device Update service to the device during an update
-author: andbrown
+author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 2/17/2021
 ms.topic: conceptual

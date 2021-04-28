@@ -1,0 +1,14 @@
+- name: Azure
+  tocHref: /azure
+  topicHref: /azure/index
+  items: 
+  - name: Internet of Things
+    tocHref: /azure/iot-fundamentals/
+    topicHref: /azure/iot-fundamentals/index
+    items: 
+    - name: IoT Plug and Play
+      tocHref: /azure/iot-pnp/
+      topicHref: /azure/iot-pnp/index/
+    - name: IoT Plug and Play
+      tocHref: /azure/iot-fundamentals/
+      topicHref: /azure/iot-pnp/index

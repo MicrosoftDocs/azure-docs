@@ -3,10 +3,8 @@ title: 'Application management: Best practices and recommendations | Microsoft D
 description: Learn best practices and recommendations for managing applications in Azure Active Directory. Learn about using automatic provisioning and publishing on-premises apps with Application Proxy.
 
 services: active-directory
-documentationcenter: ''
-author: kenwith
-manager: daveba
-editor: ''
+author: iantheninja
+manager: CelesteDG
 ms.assetid: 
 ms.service: active-directory
 ms.devlang: na
@@ -15,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2019
 ms.subservice: app-mgmt
-ms.author: kenwith
+ms.author: iangithinji
 ms.collection: M365-identity-device-management
 ---
 

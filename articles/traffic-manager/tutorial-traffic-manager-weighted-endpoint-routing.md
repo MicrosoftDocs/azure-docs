@@ -3,7 +3,7 @@ title: Tutorial:Route traffic to weighted endpoints - Azure Traffic Manager
 description: This tutorial article describes how to route traffic to weighted endpoints by using Traffic Manager.
 services: traffic-manager
 author: duongau
-Customer intent: As an IT Admin, I want to distribute traffic based on the weight assigned to a website endpoint so that I can control the user traffic to a given website.
+# Customer intent: As an IT Admin, I want to distribute traffic based on the weight assigned to a website endpoint so that I can control the user traffic to a given website.
 ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/19/2020

@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor PowerShell samples
 description: Use PowerShell to access Azure Monitor features such as autoscale, alerts, webhooks and searching Activity logs.
-ms.subservice: ""
 ms.topic: sample
 author: bwren
 ms.author: bwren

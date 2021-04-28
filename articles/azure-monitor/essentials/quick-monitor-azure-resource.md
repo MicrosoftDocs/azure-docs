@@ -1,7 +1,6 @@
 ---
 title: Monitor an Azure resource with Azure Monitor
 description: Learn how to collect and analyze data for an Azure resource in Azure Monitor.
-ms. subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren

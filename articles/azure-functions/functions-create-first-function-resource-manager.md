@@ -4,7 +4,7 @@ description: Create and deploy to Azure a simple HTTP triggered serverless funct
 ms.date: 3/5/2020
 ms.topic: quickstart
 ms.service: azure-functions
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ---
 
 # Quickstart: Create and deploy Azure Functions resources from an ARM template

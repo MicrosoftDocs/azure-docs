@@ -169,7 +169,7 @@ The following list explains this activity in detail:
 
 ## Next steps
 
-* [SSPR and MFA usage and insights reporting](howto-authentication-methods-usage-insights.md)
+* [SSPR and MFA usage and insights reporting](./howto-authentication-methods-activity.md)
 * [How do I complete a successful rollout of SSPR?](howto-sspr-deployment.md)
 * [Reset or change your password](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Register for self-service password reset](../user-help/active-directory-passwords-reset-register.md).

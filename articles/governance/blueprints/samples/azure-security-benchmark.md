@@ -1,7 +1,7 @@
 ---
 title: Azure Security Benchmark blueprint sample overview
 description: Overview of the Azure Security Benchmark blueprint sample. This blueprint sample helps customers assess specific controls.
-ms.date: 01/27/2021
+ms.date: 04/02/2021
 ms.topic: sample
 ---
 # Azure Security Benchmark blueprint sample

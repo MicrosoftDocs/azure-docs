@@ -5,7 +5,6 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.subservice: alerts
 ---
 # Use the voluntary migration tool to migrate your classic alert rules
 

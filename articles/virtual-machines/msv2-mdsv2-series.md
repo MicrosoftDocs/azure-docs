@@ -1,19 +1,15 @@
 ---
-title: Msv2-series (Preview) - Azure Virtual Machines
+title: Msv2/Mdsv2 Medium Memory Series - Azure Virtual Machines
 description: Specifications for the Msv2-series VMs.
 author: ayshakeen
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
 ---
 
-# Msv2 and Mdsv2-series Medium Memory (Preview)
-
-
-> [!IMPORTANT]
-> Join the preview by filling out the form at **https://aka.ms/Mv2MedMemoryPreview**.  
+# Msv2 and Mdsv2-series Medium Memory
 
 The Msv2 and Mdsv2 Medium Memory VM Series features Intel® Xeon® Platinum 8280 (Cascade Lake) processor with an all core base frequency of 2.7 GHz and 4.0 GHz single core turbo frequency. With these VMs, customers achieve increased flexibility with local disk and diskless options. Customers also have access to a set of new isolated VM sizes with more CPU and memory that go up to 192 vCPU with 4 TiB of memory. 
 
@@ -43,13 +39,13 @@ For more information on Generation 2 virtual machines, see [Support for generati
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs | Expected network bandwidth (Mbps) | 
 |---|---|---|---|---|---|---|---|
-| Standard_M32dms_v2 | 32 | 875 | 0 | 32 |  20000/500 | 8 | 8000 | 
-| Standard_M64ds_v2 | 64 | 1024 | 0 | 64 | 40000/1000 | 8 | 16000 | 
-| Standard_M64dms_v2 | 64 | 1792 | 0 | 64 | 40000/1000 | 8 | 16000 | 
-| Standard_M128ds_v2 | 128 | 2048 | 0 | 64 | 80000/2000 | 8 | 30000 | 
-| Standard_M128dms_v2 | 128 | 3892 | 0 | 64 | 80000/2000 | 8 | 30000 | 
-| Standard_M192ids_v2 | 192 | 2048 | 0 | 64 | 80000/2000 | 8 | 30000 | 
-| Standard_M192idms_v2 | 192 | 4096 | 0 | 64 | 80000/2000 | 8 | 30000 | 
+| Standard_M32ms_v2 | 32 | 875 | 0 | 32 |  20000/500 | 8 | 8000 | 
+| Standard_M64s_v2 | 64 | 1024 | 0 | 64 | 40000/1000 | 8 | 16000 | 
+| Standard_M64ms_v2 | 64 | 1792 | 0 | 64 | 40000/1000 | 8 | 16000 | 
+| Standard_M128s_v2 | 128 | 2048 | 0 | 64 | 80000/2000 | 8 | 30000 | 
+| Standard_M128ms_v2 | 128 | 3892 | 0 | 64 | 80000/2000 | 8 | 30000 | 
+| Standard_M192is_v2 | 192 | 2048 | 0 | 64 | 80000/2000 | 8 | 30000 | 
+| Standard_M192ims_v2 | 192 | 4096 | 0 | 64 | 80000/2000 | 8 | 30000 | 
 
 ## Mdsv2 Medium Memory with Disk  
 

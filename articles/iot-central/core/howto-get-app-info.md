@@ -2,8 +2,8 @@
 title: Get information about Azure IoT Central application version | Microsoft Docs
 description: How to get information about the IoT Central application you're using
 services: iot-central
-author: TheJasonAndrew
-ms.author: v-anjaso
+author: philmea
+ms.author: philmea
 ms.date: 02/26/2021
 ms.topic: how-to
 ms.service: iot-central
@@ -28,7 +28,7 @@ To get information about your IoT Central application:
 
 1. The **About your app** page shows information about your application:  
 
-    :::image type="content" source="media/howto-get-app-info/about-your-app.png" alt-text="About your app screenshot":::
+    :::image type="content" source="media/howto-get-app-info/about-your-app2.png" alt-text="About your app screenshot":::
 
     Use the **Copy info** button to copy the information to the clipboard.
 

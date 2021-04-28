@@ -5,7 +5,6 @@ author: rboucher
 ms.author: robb
 ms.topic: conceptual
 ms.date: 02/14/2021
-ms.subservice: alerts
 ---
 # Create a classic metric alert with a Resource Manager template
 

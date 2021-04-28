@@ -36,6 +36,7 @@ Instances of the following services can access a network-restricted container re
 |Trusted service  |Supported usage scenarios  |
 |---------|---------|
 |ACR Tasks     | [Access a different registry from an ACR Task](container-registry-tasks-cross-registry-authentication.md)       |
+|Machine Learning | [Deploy](../machine-learning/how-to-deploy-custom-docker-image.md) or [train](../machine-learning/how-to-train-with-custom-image.md) a model in a Machine Learning workspace using a custom Docker container image |
 |Azure Container Registry | [Import images from another Azure container registry](container-registry-import-images.md#import-from-an-azure-container-registry-in-the-same-ad-tenant) | 
 
 > [!NOTE]
@@ -43,7 +44,7 @@ Instances of the following services can access a network-restricted container re
 
 ## Allow trusted services - CLI
 
-By default, the allow trusted services setting is enabled in a new Azure container registry. Disable or enable the setting by running the [az acr update](/cli/azure/acr#az-acr-update) command.
+By default, the allow trusted services setting is enabled in a new Azure container registry. Disable or enable the setting by running the [az acr update](/cli/azure/acr#az_acr_update) command.
 
 To disable:
 

@@ -99,7 +99,7 @@ Apart from the default fully connected mode, your device can also run in partial
 
 - **Fully connected** - This is the normal default mode in which the device operates. Both the cloud upload and download of data is enabled in this mode. You can use the Azure portal or the local web UI to manage the device.
 
-- **Partially disconnected** – In this mode, the device cannot upload or download any share data however can be managed via the Azure portal.
+- **Partially connected** – In this mode, the device cannot upload or download any share data however can be managed via the Azure portal.
 
     This mode is typically used when on a metered satellite network and the goal is to minimize network bandwidth consumption. Minimal network consumption may still occur for device monitoring operations.
 

@@ -34,7 +34,7 @@ The table in this article provides information on the Peering Service connectivi
 | [Intercloud](https://intercloud.com/microsoft-saas-applications/)|Europe  |
 | [Kordia](https://www.kordia.co.nz/cloudconnect) |Oceania  |
 | [Liquid Telecom](https://liquidcloud.africa/keep-expanding-365-direct/) | Africa  |
-| [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) | Japan |
+| [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) | Japan, Indonesia |
 | [PCCW](https://www.pccwglobal.com/en/enterprise/products/network/ep-global-internet-access) |Asia |
 | [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct) |Asia |
 | [NAP Africa](https://www.napafrica.net/technical/microsoft-azure-peering-service/) |Africa|

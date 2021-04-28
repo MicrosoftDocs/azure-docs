@@ -78,7 +78,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://radar.wandera.com/saml/acs/<tenant id>`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Reply URL. Contact [Wandera RADAR Admin Client support team](https://www.wandera.com/about-wandera/contact/#supportsection) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Reply URL. Contact [Wandera RADAR Admin Client support team](https://www.wandera.com/about-wandera/contact/#supportsection) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal. Carefully replace the <tenant id> part of the above URL with the Tenant ID shown in the **Settings** > **Administration** > **Single Sign-On** page within your Wandera account.
+
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 

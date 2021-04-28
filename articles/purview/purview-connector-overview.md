@@ -27,8 +27,12 @@ details.
 ||[Azure SQL Database](register-scan-azure-sql-database.md)|Yes| Yes| No| Yes| Yes| Yes|
 ||[Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|Yes| Yes| No| Yes| Yes| Yes|
 ||[Azure Synapse Analytics (formerly SQL DW)](register-scan-azure-synapse-analytics.md)|Yes| Yes| No| Yes| Yes| Yes|
-|Database|[SQL Server](register-scan-on-premises-sql-server.md)|Yes| Yes| No| Yes| Yes| Yes|
+|Database|[Oracle DB](register-scan-oracle-source.md)|Yes| Yes| No| No| No| Yes|
+||[SQL Server](register-scan-on-premises-sql-server.md)|Yes| Yes| No| Yes| Yes| Yes|
+||[Teradata](register-scan-teradata-source.md)|Yes| Yes| No| No| No| Yes|
 |Power BI|[Power BI](register-scan-power-bi-tenant.md)|Yes| Yes| No| No| No| Yes|
+|Services and apps|[SAP ECC](register-scan-sapecc-source.md)|Yes| Yes| No| Yes| Yes| Yes|
+||[SAP S4HANA](register-scan-saps4hana-source.md)|Yes| Yes| No| Yes| Yes| Yes|
 
 ## Next steps
 

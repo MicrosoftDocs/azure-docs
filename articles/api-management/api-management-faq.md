@@ -13,7 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
-ms.author: apimpm
+ms.author: apimpm 
+ms.custom: devx-track-azurepowershell
 ---
 # Azure API Management FAQs
 Get the answers to common questions, patterns, and best practices for Azure API Management.

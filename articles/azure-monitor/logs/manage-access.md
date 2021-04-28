@@ -1,7 +1,6 @@
 ---
 title: Manage Log Analytics workspaces in Azure Monitor | Microsoft Docs
 description: You can manage access to data stored in a Log Analytics workspace in Azure Monitor using resource, workspace, or table-level permissions. This article details how to complete.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

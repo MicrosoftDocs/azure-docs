@@ -5,7 +5,7 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 06/21/2018
+ms.date: 03/08/2021
 ms.custom: seodec18
 ---
 # Understand Stream Analytics job monitoring and how to monitor queries
@@ -24,7 +24,7 @@ The window will appear as shown:
 | ---------------------- | ---------------------------------------- |
 | Backlogged Input Events       | Number of input events that are backlogged. A non-zero value for this metric implies that your job isn't able to keep up with the number of incoming events. If this value is slowly increasing or consistently non-zero, you should scale out your job. You can learn more by visiting [Understand and adjust Streaming Units](stream-analytics-streaming-unit-consumption.md). |
 | Data Conversion Errors | Number of output events that could not be converted to the expected output schema. Error policy can be changed to 'Drop' to drop events that encounter this scenario. |
-| CPU % Utilization (preview)       | The percentage of CPU utilized by your job. If this metric is consistently higher than 80%, it could mean that your job is bottlenecked on CPU usage and will likely cause input events to get backlogged. You can increase number of SUs allocated to your job to mitigate such problems. |
+| CPU % Utilization (preview)       | The percentage of CPU utilized by your job. Even if this value is very high (90% or above), you should not increase number of SUs based on this metric alone. If number of backlogged input events or watermark delay increases, you can then use this CPU% utilization metric to determine if CPU is the bottleneck. It is possible that this metric has spikes intermittently. It is recommended to do scale tests to determine upper bound of your job after which inputs get backlogged or watermark delay increases due to CPU bottleneck. |
 | Early Input Events       | Events whose application timestamp is earlier than their arrival time by more than 5 minutes. |
 | Failed Function Requests | Number of failed Azure Machine Learning function calls (if present). |
 | Function Events        | Number of events sent to the Azure Machine Learning function (if present). |

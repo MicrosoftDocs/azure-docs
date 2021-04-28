@@ -1,9 +1,9 @@
 ---
 title: Authenticate to Azure Key Vault
 description: Learn how to authenticate to Azure Key Vault
-author: ShaneBala-keyvault
-ms.author: sudbalas
-ms.date: 08/27/2020
+author: msmbaldwin
+ms.author: mbaldwin
+ms.date: 03/31/2021
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
@@ -54,8 +54,6 @@ Key Vault works with two separate levels of authorization:
     - [Azure portal](../../role-based-access-control/role-assignments-portal.md)
     - [Azure CLI](../../role-based-access-control/role-assignments-cli.md)
     - [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-
-    Key Vault currently supports the [Contributor](../../role-based-access-control/built-in-roles.md#key-vault-contributor) role, which allows management operations on Key Vault resources. A number of other roles are currently in preview. You can also create custom roles, as described on [Azure custom roles](../../role-based-access-control/custom-roles.md).
 
     For general information on roles, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
 
