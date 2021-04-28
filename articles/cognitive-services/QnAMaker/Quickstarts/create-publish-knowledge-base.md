@@ -84,7 +84,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/connect-your-knowledge-base.png" alt-text="Screenshot of selecting a QnA Maker service knowledge base managed preview":::
 
-5. In **Step 2**, if you are creating the first knowledge base for your service, you can check/uncheck "Add knowledge bases in multiple languages to this service" property to specify if you want to assign different languages to knowledge bases within the service. You won't be able to modify this later.
+5. In **Step 2**, if you are creating the first knowledge base for your service, you can check **Add knowledge bases in multiple languages to this service** property to allow the capability to add knowledge bases in different languages to the service. You won't be able to modify this later.
 
 6. In **Step 3**, name your knowledge base **My Sample QnA KB**. 
 
