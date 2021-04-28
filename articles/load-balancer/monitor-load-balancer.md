@@ -224,7 +224,7 @@ To enable Diagnostic Logs for a Log Analytics workspace, enter these commands. R
 
 To enable Diagnostic Logs in a storage account, enter these commands. Replace the bracketed values with your values:
 
-```azurecli-interactive
+```azurecli
     lbid=$(az network lb show \
     --name <your-load-balancer-name> \
     --resource-group <your-resource-group> \
@@ -248,7 +248,7 @@ To enable Diagnostic Logs in a storage account, enter these commands. Replace th
 
 To enable Diagnostic Logs for an event hub namespace, enter these commands. Replace the bracketed values with your values:
 
-```azurecli-interactive
+```azurecli
 lbid=$(az network lb show \
     --name <your-load-balancer-name> \
     --resource-group <your-resource-group> \
