@@ -5,7 +5,7 @@ author: mumian
 ms.date: 09/10/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.custom: devx-track-azurecli
+
 ---
 
 # Tutorial: Use parameter files to deploy your ARM template

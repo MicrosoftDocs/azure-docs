@@ -22,9 +22,7 @@ A conceptual overview of this feature is available in [Custom locations - Azure 
 
 ## Prerequisites
 
-- Install or upgrade to the latest versions of the following tools:
-    - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), version 2.19.1 or later.
-    - [Helm](https://helm.sh/docs/intro/install/), version 3.5.3 or later.
+- [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0.
 
 - Install the following Azure CLI extensions:
     - `connectedk8s` (version 1.1.0 or later)
