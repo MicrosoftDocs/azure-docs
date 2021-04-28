@@ -163,7 +163,7 @@
   - name: Security
     items:
     - name: Security baseline for Azure Security Benchmark
-      href: ./concepts/azure-security-benchmark-baseline.md
+      href: /security/benchmark/azure/baselines/policy-security-baseline?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
 - name: How-to guides
   items:
   - name: Azure Policy extension for VS Code

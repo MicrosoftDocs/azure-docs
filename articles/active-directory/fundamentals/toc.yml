@@ -26,7 +26,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/aad-security-baseline?toc=/azure/active-directory/fundamentals/toc.json
     - name: Protect Microsoft 365 from on-premises attacks 
       href: protect-m365-from-on-premises-attacks.md    
     - name: Secure external collaboration
@@ -167,6 +167,8 @@
           href: resilience-client-app.md  
         - name: Daemon applications
           href: resilience-daemon-app.md
+        - name: OpenID Connect metadata refresh
+          href: ../develop/howto-build-services-resilient-to-metadata-refresh.md
       - name: Monitor application health for resilience
         href: monitor-sign-in-health-for-resilience.md
     - name: Certificate authorities used in Azure
