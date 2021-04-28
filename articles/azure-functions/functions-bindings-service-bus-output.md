@@ -407,7 +407,7 @@ This section describes the global configuration settings available for this bind
 > [!NOTE]
 > For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
 
-# [Version 2.x+](#tab/2.x+)
+## [Version 2.x+](#tab/2.x+)
 
 ```json
 {
@@ -441,7 +441,7 @@ If you have `isSessionsEnabled` set to `true`, the `sessionHandlerOptions` will 
 |maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate per scaled instance. By default, the Functions runtime processes multiple messages concurrently.|
 |maxConcurrentSessions|2000|The maximum number of sessions that can be handled concurrently per scaled instance.|
 
-# [Version 5.x+](#tab/5.x+)
+## [Version 5.x+](#tab/5.x+)
 
 ```json
 {
@@ -469,13 +469,27 @@ When using service bus extension version 5.x and higher, the following global co
 
 |Property  |Default | Description |
 |---------|---------|---------|
-|retryOptions|n/a||
+|prefetchCount|0|Gets or sets the number of messages that the message receiver can simultaneously request.|
+|autoCompleteMessages|true|Determines whether or not to automatically complete messages after successful execution of the function and should be used in place of the `autoComplete` configuration setting.|
+|maxAutoLockRenewalDuration|00:05:00|This should be used in place of `maxAutoRenewDuration`|
+|maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate per scaled instance. By default, the Functions runtime processes multiple messages concurrently.|
+|maxConcurrentSessions|8|The maximum number of sessions that can be handled concurrently per scaled instance.|
+|maxMessages|1000|The maximum number of messages that will be passed to each function call. This only applies for functions that receive a batch of messages.|
+|sessionIdleTimeout|n/a|The maximum amount of time to wait for a message to be received for the currently active session. After this time has elapsed, the processor will close the session and attempt to process another session.|
 |transportType|AmqpTcp|The type of protocol and transport that will be used for communicating with the Service Bus service.|
 |webProxy|n/a||
-|autoCompleteMessages|true|Determines whether or not to automatically complete messages after successful execution of the function and should be used in place of the `autoComplete` configuration setting.|
-|MaxAutoLockRenewalDuration|00:05:00|This should be used in place of `maxAutoRenewDuration`|
-|maxMessages|1000|Gets or sets the maximum number of messages that will be passed to each function call. This only applies for functions that receive a batch of messages.|
-|sessionIdleTimeout|1000|Gets or sets the maximum number of messages that will be passed to each function call. This only applies for functions that receive a batch of messages.|
+
+In addition to the above configuration properties, you can also configure `RetryOptions` from within the `ServiceBusOptions` when using version 5.x and higher of the service bus extension. These settings determine whether a failed operation should be retried, and, if so, the amount of time to wait between retry attempts. The options also control the amount of time allowed for receiving messages and other interactions with the Service Bus service.
+
+|Property  |Default | Description |
+|---------|---------|---------|
+|mode|Exponential|The approach to use for calculating retry delays. The default exponential mode will retry attempts with a delay based on a back-off strategy where each attempt will increase the duration that it waits before retrying. The `Fixed` mode will retry attempts at fixed intervals with each delay having a consistent duration.|
+|tryTimeout|00:00:10|The maximum duration to wait for an operation per attempt.|
+|delay|00:00:00.80|The delay or back-off factor to apply between retry attempts.|
+|maxDelay|00:01:00|The maximum delay to allow between retry attempts|
+|maxRetries|3|The maximum number of retry attempts before considering the associated operation to have failed.|
+
+---
 
 ## Next steps
 

@@ -432,7 +432,7 @@ See [code examples](#example) that use these properties earlier in this article.
 
 ### Additional message metadata
 
-The below metadata properties are supported for apps using 5.0.0 of the extension or higher.
+The below metadata properties are supported for apps using 5.0.0 of the extension or higher. These properties are members of the [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) class.
 
 |Property|Type|Description|
 |--------|----|-----------|
