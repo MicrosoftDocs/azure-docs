@@ -33,7 +33,7 @@ The following limits are common across all tiers.
 | Size in bytes per schema group property value | | 1024 | 
 
 ### Basic vs. standard vs. dedicated tiers
-The following table shows limits that may be different for basic, standard, and dedicated tiers. In the table CU is [capacity unit](../articles/event-hubs/event-hubs-dedicated-overview.md) and TU is [throughput unit](../articles/event-hubs/event-hubs-faq.md#what-are-event-hubs-throughput-units-). 
+The following table shows limits that may be different for basic, standard, and dedicated tiers. In the table CU is [capacity unit](../articles/event-hubs/event-hubs-dedicated-overview.md) and TU is [throughput unit](../articles/event-hubs/event-hubs-faq.yml#what-are-event-hubs-throughput-units-). 
 
 | Limit | Basic | Standard | Dedicated |
 | ----- | ----- | -------- | -------- | 
