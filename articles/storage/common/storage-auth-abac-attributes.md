@@ -7,7 +7,7 @@ author: santoshc
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/26/2021
+ms.date: 04/27/2021
 ms.author: santoshc
 ms.reviewer: jiacfan
 ms.subservice: common
@@ -35,7 +35,7 @@ In this case, the optional suboperation `Blobs.Write.WithTagHeaders` can be used
 Similarly, only select operations on the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` action can have support blob index tags as a precondition for access. This subset of operations is identified by the `Blobs.Read.WithTagConditions` suboperation.
 
 > [!NOTE]
-> Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find data on Azure Blob Storage with Blob Index (Preview)](storage-manage-find-blobs.md).
+> Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find data on Azure Blob Storage with Blob Index (Preview)](../blobs/storage-manage-find-blobs.md).
 
 In this preview, storage accounts support the following suboperations:
 
@@ -59,14 +59,14 @@ The following table lists the descriptions for the supported actions and suboper
 > | Write to a blob with blob index tags | REST operations: Put Blob, Put Block List, Copy Blob and Copy Blob From URL. |`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`<br/>**Suboperation**<br/>`Blobs.Write.WithTagHeaders` | 
 > | Create a blob or snapshot, or append data | DataAction for creating blobs. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` |
 > | Write content to a blob with blob index tags | REST operations: Put Blob, Put Block List, Copy Blob and Copy Blob From URL. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action`<br/>**Suboperation**<br/>`Blobs.Write.WithTagHeaders` | 
-> | Delete a version of a blobs | DataAction for deleting a version of a blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action` |
-> | Changes ownership of a blobs | DataAction for changing ownership of a blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/manageOwnership/action` |
-> | Modify permissions of a blobs | DataAction for modifying permissions of a blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/action` |
+> | Delete a version of a blob | DataAction for deleting a version of a blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action` |
+> | Changes ownership of a blob | DataAction for changing ownership of a blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/manageOwnership/action` |
+> | Modify permissions of a blob | DataAction for modifying permissions of a blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/action` |
 > | Rename file or directory | DataAction for renaming files or directories. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action` |
-> | Permanently deletes a blob overriding soft-delete | DataAction for permanently deleting a blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/permanentDelete/action` |
+> | Permanently delete a blob overriding soft-delete | DataAction for permanently deleting a blob overriding soft-delete. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/permanentDelete/action` |
 > | All data operations for accounts with HNS | DataAction for all data operations on storage accounts with HNS. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` |
 > | Read blob index tags | DataAction for reading blob index tags. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` |
-> | Write blob index tags | DataAction for reading blob index tags. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` |
+> | Write blob index tags | DataAction for writing blob index tags. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` |
 
 ## Attributes
 
