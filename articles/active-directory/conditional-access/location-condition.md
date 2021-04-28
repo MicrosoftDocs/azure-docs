@@ -38,9 +38,16 @@ Locations are designated in the Azure portal under **Azure Active Directory** > 
 
 ### IP address ranges
 
-To define a named location by IPv4/IPv6 address ranges, you will need to provide a **Name** and an IP range. 
+To define a named location by IPv4/IPv6 address ranges, you will need to provide: 
+
+- A **Name** for the location
+- One or more IP ranges
+- Optionally **Mark as trusted location**
+
+![New IP locations in the Azure portal](./media/location-condition/new-trusted-location.png)
 
 Named locations defined by IPv4/IPv6 address ranges are subject to the following limitations: 
+
 - Configure up to 195 named locations
 - Configure up to 2000 IP ranges per named location
 - Both IPv4 and IPv6 ranges are supported
@@ -51,13 +58,18 @@ Named locations defined by IPv4/IPv6 address ranges are subject to the following
 
 Administrators can designate locations defined by IP address ranges to be trusted named locations. 
 
-![Trusted locations in the Azure portal](./media/location-condition/new-trusted-location.png)
-
 Sign-ins from trusted named locations improve the accuracy of Azure AD Identity Protection's risk calculation, lowering a user's sign-in risk when they authenticate from a location marked as trusted. Additionally, trusted named locations can be targeted in Conditional Access policies. For example, you may [restrict multi-factor authentication registration to trusted locations](howto-conditional-access-policy-registration.md). 
 
 ### Countries
 
 Organizations can determine country location by IP address or GPS coordinates. 
+
+To define a named location by country, you will need to provide: 
+
+- A **Name** for the location
+- Choose to determine location by IP address or GPS coordinates
+- Add one or more countries
+- Optionally choose to **Include unknown countries/regions**
 
 ![Country as a location in the Azure portal](./media/location-condition/new-named-location-country-region.png)
 
