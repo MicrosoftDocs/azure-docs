@@ -50,9 +50,9 @@ You can use some of the following criteria to find these service accounts. Howev
 * Accounts with service principal names.  
 * Accounts with passwords that are set to never expire.
 
-To find the on-premises user accounts you've created for services, you can run the PowerShell commands in the following sections.
+To find the on-premises user accounts you've created for services, you can run the following PowerShell commands.
 
-### Find accounts that are trusted for delegation
+To find accounts that are trusted for delegation:
 
 ```PowerShell
 
@@ -60,7 +60,7 @@ Get-ADObject -Filter {(msDS-AllowedToDelegateTo -like '*') -or (UserAccountContr
 
 ```
 
-### Find accounts that have service principal names
+To find accounts that have service principal names:
 
 ```PowerShell
 
@@ -68,7 +68,7 @@ Get-ADUser -Filter * -Properties servicePrincipalName | where {$_.servicePrincip
 
 ```
 
-### Find accounts with passwords that are set to never expire
+To find accounts with passwords that are set to never expire:
 
 ```PowerShell
 
