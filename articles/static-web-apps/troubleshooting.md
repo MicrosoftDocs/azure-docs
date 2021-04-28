@@ -74,7 +74,7 @@ Use [Application Insights](../azure-monitor/app/app-insights-overview.md) to fin
 > [!NOTE]
 > You can only view error messages that are generated after Application Insights is installed.
 
-1. Inside the Azure Portal, open the **Resource Group** associated with your static web app.
+1. Inside the Azure portal, open the **Resource Group** associated with your static web app.
 1. Select the Application Insights instance, which has the same name as your static web app (if created using the steps above).
 1. Under *Investigate*, select **Failures**.
 1. Scroll down to *Drill into* on the right.
@@ -98,7 +98,7 @@ Application Settings are key/value pairs that set environment variables for your
 
 When deploying, double check any environment variables are set as Application Settings.
 
-1. Open your static web app in the Azure Portal.
+1. Open your static web app in the Azure portal.
 1. Select **Configuration**. The *Configuration* screen displays the list of all Application Settings.
 
     ![Screenshot of the Configuration screen on a static web app](media/troubleshooting/app-settings.png)
