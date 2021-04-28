@@ -9,7 +9,7 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 04/22/2021
 ms.author: gasinh
 ms.subservice: B2C
 ---
@@ -83,7 +83,7 @@ Learn more about [custom attributes](./user-flow-custom-attributes.md?pivots=b2c
 
 The user flow can be either for **sign-up** and **sign in** or just **sign-up**. The Arkose Labs user flow will only be shown during sign-up.
 
-1. See the [instructions](./tutorial-create-user-flows.md) to create a user flow. If using an existing user flow, it must be of the **Recommended (next-generation preview)** version type.
+1. See the [instructions](./tutorial-create-user-flows.md) to create a user flow. If using an existing user flow, it must be of the **Recommended** version type.
 
 2. In the user flow settings, go to **User attributes** and select the **ArkoseSessionToken** claim.
 

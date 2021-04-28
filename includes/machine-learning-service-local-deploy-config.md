@@ -2,7 +2,7 @@
 author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 03/16/2020
+ms.date: 04/21/2021
 ms.author: larryfr
 ---
 
@@ -21,3 +21,5 @@ This JSON is an example deployment configuration for use with the CLI:
     "port": 32267
 }
 ```
+
+Save this JSON as a file called `deploymentconfig.json`.
