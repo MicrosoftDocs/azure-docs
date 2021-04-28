@@ -29,15 +29,15 @@ Azure Video Analyzer on IoT Edge emits events, or telemetry data, according to t
       
         *Check Example Below*
       
-      ```
+      ```json
       {
          "body": {
              "outputType": "filePath",
              "outputLocation": "/var/media/Sample-1-fileSink/sampleFilesFromEVR-motion-filesinkOutput-20210426T181911Z.mp4"
            },
            "properties": {
-             "topic": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/Microsoft.Media/videoAnalyzers/<account-name>/edgeModules/avaedge",
-             "subject": "/livePipelines/Sample-1/sinks/fileSink",
+             "topic": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/Microsoft.Media/videoAnalyzers/<account-name>",
+             "subject": "/edgeModules/avaedge/livePipelines/Sample-1/sinks/fileSink",
              "eventType": "Microsoft.VideoAnalyzer.Operational.RecordingStarted",
              "eventTime": "2021-04-26T18:19:13.298Z",
              "dataVersion": "1.0"
@@ -50,18 +50,18 @@ Azure Video Analyzer on IoT Edge emits events, or telemetry data, according to t
    * Examples:
    
       - RTSP [SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol) information (shown in the following example)       
-- Gaps in the incoming video feed
+      - Errors for when a connection to something like a camera or AI extension fails
       
     *Check Example Below*
   
-    ```
+    ```json
     {
       "body": {
         "sdp": "SDP:\nv=0\r\no=- 1589326384077235 1 IN IP4 XXX.XX.XX.XXX\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/lots_015.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.04.12\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-73.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/lots_015.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=640028;sprop-parameter-sets=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\r\na=control:track1\r\n"
       },
       "applicationProperties": {
-        "topic": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/Microsoft.Media/videoAnalyzers/<account-name>/edgeModules/avaedge",
-        "subject": "/livePipelines/Sample-1/sources/rtspSource",
+        "topic": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/Microsoft.Media/videoAnalyzers/<account-name>",
+        "subject": "/edgeModules/avaedge/livePipelines/Sample-1/sources/rtspSource",
         "eventType": "Microsoft.VideoAnalyzer.Diagnostics.MediaSessionEstablished",
         "eventTime": "2021-04-26T18:15:13.298Z",
         "dataVersion": "1.0"
@@ -75,11 +75,11 @@ Azure Video Analyzer on IoT Edge emits events, or telemetry data, according to t
      
       - Motion detected (shown in the following example) 
       
-   - Inference result
+      - Inference result
      
       *Check Example Below*
         
-      ```      
+      ```json
       {
         "body": {
           "timestamp": 143039375044290,
@@ -98,8 +98,8 @@ Azure Video Analyzer on IoT Edge emits events, or telemetry data, according to t
           ]
         },
         "applicationProperties": {
-          "topic": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/Microsoft.Media/videoAnalyzers/<account-name>/edgeModules/avaedge",
-          "subject": "/livePipelines/Sample-1/processors/md",
+          "topic": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/Microsoft.Media/videoAnalyzers/<account-name>",
+          "subject": "/edgeModules/avaedge/livePipelines/Sample-1/processors/md",
           "eventType": "Microsoft.VideoAnalyzer.Analytics.Inference",
           "eventTime": "2021-04-26T18:15:13.298Z",
           "dataVersion": "1.0"
@@ -107,13 +107,13 @@ Azure Video Analyzer on IoT Edge emits events, or telemetry data, according to t
       }
       ```
         
-The events emitted by the module are sent to the [IoT Edge hub](../../iot-edge/iot-edge-runtime.md#iot-edge-hub). They can be routed from there to other destinations. 
+The events emitted by the module are sent to the [IoT Edge hub](../../iot-edge/iot-edge-runtime.md#iot-edge-hub). From there, they can be routed to other destinations. 
 
 ### Timestamps in events
 
 As indicated previously, events generated as part of video analysis have timestamps associated with them. If you [recorded the live video](video-recording.md) as part of your pipeline topology, these timestamps help you locate where in the recorded video the particular event occurred. Following are guidelines on how to map the timestamp in an analytic event to the timeline of the video that has been recorded.
 
-First, extract the `eventTime` value. Use this value in a [time range filter](playback-recordings-how-to.md#time-range-filters) to retrieve a suitable portion of the recording. For example, you might want to retrieve video that starts 30 seconds before `eventTime` and ends 30 seconds after it. For the previous example, where `eventTime` is 2020-05-12T23:33:09.381Z, a request for an HLS manifest for the 30 seconds before and after `eventTime` would look like this request:
+First, extract the `eventTime` value. Use this value in a [time range filter](playback-recordings-how-to.md#time-range-filters) to retrieve a suitable portion of the recording. For example, you might want to retrieve video that starts 30 seconds before `eventTime` and ends 30 seconds after it. For the previous example, where `eventTime` is `2020-05-12T23:33:09.381Z`, a request for an HLS manifest for the 30 seconds before and after `eventTime` could be made to the following URL:
 
 > [!NOTE]
 > The examples below omit details about the token header needed for authentication.
@@ -134,19 +134,19 @@ The preceding entry reports that a video fragment is available that starts at a 
 
 For more information, see these [articles on frame-accurate seeking](https://www.bing.com/search?q=frame+accurate+seeking+in+HLS) in HLS.
 
-## Controlling events
+## Routing events
 
-You can use the following module twin properties to control the operational and diagnostic events published by the Azure Video Analyzer on IoT Edge module. These properties are documented in the [module twin JSON schema](module-twin-configuration-schema.md).
+You can use the following module twin properties to route the operational and diagnostic events published by the Azure Video Analyzer on IoT Edge module. These properties are documented in the [module twin JSON schema](module-twin-configuration-schema.md).
 
 - `diagnosticsEventsOutputName`: To get diagnostic events from the module, include this property and provide any value for it. Omit it or leave it empty to stop the module from publishing diagnostic events.
   
 - `operationalEventsOutputName`: To get operational events from the module, include this property and provide any value for it. Omit it or leave it empty to stop the module from publishing operational events.
 
-Events are generated by nodes like the motion detection processor or an extension processor. The IoT hub message sink is used to send them to the IoT Edge hub. 
+Diagnostic and operational events are automatically emitted by nodes like the motion detection processor or an extension processor. Analytic events must be routed within a pipeline to an IoT hub message sink in order to be sent to the IoT Edge hub. 
 
 You can control the [routing of all the preceding events](../../iot-edge/module-composition.md#declare-routes) by using the `desired` property of the `$edgeHub` module twin in the deployment manifest:
 
-```
+```json
  "$edgeHub": {
    "properties.desired": {
      "schemaVersion": "1.0",
@@ -160,14 +160,14 @@ You can control the [routing of all the preceding events](../../iot-edge/module-
  }
 ```
 
-In the preceding JSON, avaedge is the name of the Azure Video Analytics on IoT Edge module. The routing rule follows the schema defined in [Declare routes](../../iot-edge/module-composition.md#declare-routes).
+In the preceding JSON, `avaedge` is the name of the Azure Video Analytics on IoT Edge module. The routing rule follows the schema defined in [Declare routes](../../iot-edge/module-composition.md#declare-routes).
 
 > [!NOTE]
-> To ensure that analytics events reach the IoT Edge hub, you need to have an IoT hub message sink node downstream of any motion detection processor node and/or any extension processor node.
+> To ensure that analytic events reach the IoT Edge hub, you must have an IoT hub message sink node downstream of any motion detection processor node and/or any extension processor node.
 
 ## Event schema
 
-Events originate on the edge device and can be consumed at the edge or in the cloud. Events generated by Azure Video Analytics on IoT Edge conform to the [streaming messaging pattern](../../iot-hub/iot-hub-devguide-messages-construct.md) established by Azure IoT Hub. The pattern consists of system properties, application properties, and a body.
+Events that originate on the edge device can be consumed at the edge or in the cloud. Events generated by Azure Video Analytics on IoT Edge conform to the [streaming messaging pattern](../../iot-hub/iot-hub-devguide-messages-construct.md) established by Azure IoT Hub. The pattern consists of system properties, application properties, and a body.
 
 ### Summary
 
@@ -191,43 +191,34 @@ A globally unique identifier (GUID) for the event.
 
 #### topic
 
-*Check the Topic Below*
+Represents the Azure Video Analyzer edge module that generated the event. Example:
 
-Represents the Azure Video Analyzer edge module that generated the event.
-
-`/subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.Media/videoAnalyzers/{accountName}/edgeModules/avaedge`
+`/subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.Media/videoAnalyzers/{accountName}`
 
 #### subject
 
-The entity that's emitting the event:
+The entity that's emitting the event. Examples:
 
-`/livePipelines/{livePipelineName}`<br/>
-`/livePipelines/{livePipelineName}/sources/{nodeName}`<br/>
-`/livePipelines/{livePipelineName}/processors/{nodeName}`<br/>
-`/livePipelines/{livePipelineName}/sinks/{nodeName}`
+`/edgeModules/avaedge/livePipelines/{livePipelineName}`<br/>
+`/edgeModules/avaedge/livePipelines/{livePipelineName}/sources/{nodeName}`<br/>
+`/edgeModules/avaedge/livePipelines/{livePipelineName}/processors/{nodeName}`<br/>
+`/edgeModules/avaedge/livePipelines/{livePipelineName}/sinks/{nodeName}`
 
-The `subject` property allows you to map generic events to the generating module. For example, for an invalid RTSP user name or password, the generated event would be `Microsoft.VideoAnalyzer.Diagnostics.ProtocolError` on the `/livePipelines/myLivePipeline/sources/myRtspSource` node.
+The `subject` property allows you to map generic events to the generating module. For example, for an invalid RTSP user name or password, the generated event would be `Microsoft.VideoAnalyzer.Diagnostics.ProtocolError` on the `/edgeModules/avaedge/livePipelines/myLivePipeline/sources/myRtspSource` node.
 
-#### Event types
+#### eventType
 
 Event types are assigned to a namespace according to this schema:
 
 `Microsoft.VideoAnalyzer.{EventClass}.{EventType}`
 
-Examples:
-
-- Microsoft.VideoAnalyzer.Operational.RecordingStarted 
-- Microsoft.VideoAnalyzer.Diagnostics.StorageError 
-
-#### Event classes
+The event class may be one of the following:
 
 | Class name  | Description                                                  |
 | ----------- | ------------------------------------------------------------ |
 | Analytics   | Events generated as part of content analysis.                |
 | Diagnostics | Events that help with the diagnostics of problems and performance. |
 | Operational | Events generated as part of resource operation.              |
-
-The event types are specific to each event class.
 
 Examples:
 
@@ -236,28 +227,39 @@ Examples:
 * `Microsoft.VideoAnalyzer.Diagnostics.AuthorizationError`
 * `Microsoft.VideoAnalyzer.Operational.StreamStarted`
 
-### Event time
+#### eventTime
 
 Event time is formatted in an ISO 8601 string. It represents the time when the event occurred.
 
-### Azure Monitor collection via Telegraf 
+Example:
 
-These metrics will be reported from the Azure Video Analytics on IoT Edge module:  
+`2021-04-26T18:15:13.298Z`
 
-| Metric name                | Type    | Label                                                        | Description                                                  |
-| -------------------------- | ------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ava_active_live_pipelines  | Gauge   | iothub, edge_device, module_name, pipeline_topology             | Total number of active live pipelines per topology.                  |
-| ava_received_bytes_total   | Counter | iothub, edge_device, module_name, pipeline_topology, live_pipeline, pipeline_node | Total number of bytes received by a node. Supported only for RTSP sources. |
-| ava_data_dropped_total     | Counter | iothub, edge_device, module_name, pipeline_topology, live_pipeline, pipeline_node, data_kind | Counter of any dropped data (events, media, and so on).      |
+## Metrics
+
+These metrics will be reported from the Azure Video Analytics on IoT Edge module through a [Prometheus endpoint](https://prometheus.io/docs/instrumenting/exposition_formats/#text-based-format) running on port 9600 of the module.
+
+| Metric name                           | Type    | Labels                                                                              | Description                                                  |
+| ------------------------------------- | ------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| va_active_live_pipelines              | Gauge   | iothub, edge_device, module_name, pipeline_topology                                 | Total number of active live pipelines per topology.          |
+| va_cumulative_latency_seconds_average | Gauge   | iothub, edge_device, module_name, pipeline_topology, live_pipeline, node            | The average latency from when a video frame has been received by a source to when it leaves the node over the last minute. This is not reported if there were no frames. |
+| va_cumulative_latency_seconds_max     | Gauge   | iothub, edge_device, module_name, pipeline_topology, live_pipeline, node            | The maximum latency from when a video frame has been received by a source to when it leaves the node over the last minute. This is not reported if there were no frames. |
+| va_data_dropped_total                 | Counter | iothub, edge_device, module_name, pipeline_topology, live_pipeline, node, data_kind | Counter of any dropped data (events, media, and so on).      |
+| va_received_bytes_total               | Counter | iothub, edge_device, module_name, pipeline_topology, live_pipeline, node            | Total number of bytes received by a node. Supported only for RTSP sources. |
+
 
 > [!NOTE]
-> A [Prometheus endpoint](https://prometheus.io/docs/practices/naming/) is exposed at port 9600 of the container. If you name your Azure Video Analyzer on IoT Edge module "avaedge," they will be able to access metrics by sending a GET request to http://avaedge:9600/metrics.   
+> If you name your Azure Video Analyzer on IoT Edge module `avaedge`, the metrics can be accessed by sending a GET request to `http://avaedge:9600/metrics`. Depending on your deployment, you may need to map this port to the device for it to be reachable.
 
-Follow these steps to enable the collection of metrics from the Azure Video Analytics on IoT Edge module:
+### Azure Monitor collection via Telegraf 
+
+Follow these steps to enable the collection of metrics from the Azure Video Analytics on IoT Edge module. The metrics will be collected by [Telegraf](https://github.com/influxdata/telegraf), then uploaded to [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/) as a [custom metric](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-custom-overview). In telegraf, the logs are scraped by the [prometheus](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/prometheus) plugin, and uploaded by the [azure_monitor](https://github.com/influxdata/telegraf/tree/master/plugins/outputs/azure_monitor) plugin.
+
+The agent can be used to collect metrics from any module which exposes a Prometheus endpoint.
 
 1. Create a folder on your development computer, and go to that folder.
 1. In the folder, create a `telegraf.toml` file that contains the following configurations:
-    ```
+    ```toml
     [agent]
         interval = "30s"
         omit_hostname = true
@@ -274,31 +276,39 @@ Follow these steps to enable the collection of metrics from the Azure Video Anal
     > [!IMPORTANT]
     > Be sure to replace the variables in the .toml file. The variables are denoted by braces (`{}`). In addition, update the value of `region`.
 1. In the same folder, create a Dockerfile that contains the following commands:
-    ```
-        FROM telegraf:1.15.3-alpine
-        COPY telegraf.toml /etc/telegraf/telegraf.conf
+    ```docker
+    FROM telegraf:1.15.3-alpine
+    COPY telegraf.toml /etc/telegraf/telegraf.conf
     ```
 1. Use Docker CLI commands to build the Docker file and publish the image to your Azure container registry.
    
    For more information about using the Docker CLI to push to a container registry, see [Push and pull Docker images](../../container-registry/container-registry-get-started-docker-cli.md). For other information about Azure Container Registry, see the [documentation](../../container-registry/index.yml).
+
+   ```bash
+   # Insert your own container image URL
+   docker build . -t myregistry.azurecr.io/telegraf_agent
+   docker push myregistry.azurecr.io/telegraf_agent
+   ```
+
 1. After the push to Azure Container Registry is complete, add the following node to your deployment manifest file:
-    ```
+    ```json
     "telegraf": 
     {
       "settings": 
         {
-            "image": "{AZURE_CONTAINER_REGISTRY_LINK_TO_YOUR_TELEGRAF_IMAGE}"
+            "image": "{AZURE_CONTAINER_REGISTRY_URL_OF_YOUR_TELEGRAF_IMAGE}"
         },
-      "type": "docker",
-      "version": "1.0",
-      "status": "running",
-      "restartPolicy": "always",
-      "env": 
+        "type": "docker",
+        "version": "1.0",
+        "status": "running",
+        "restartPolicy": "always",
+        "env": 
         {
             "AZURE_TENANT_ID": { "value": "{YOUR_TENANT_ID}" },
             "AZURE_CLIENT_ID": { "value": "{YOUR CLIENT_ID}" },
             "AZURE_CLIENT_SECRET": { "value": "{YOUR_CLIENT_SECRET}" }
         }
+    }
     ```
     > [!IMPORTANT]
     > Be sure to replace the variables in the manifest file. The variables are denoted by braces (`{}`).
@@ -334,7 +344,7 @@ Using [Prometheus endpoint](https://prometheus.io/docs/practices/naming/) along 
     ```json
     "azmAgent": {
       "settings": {
-        "image": "{AZURE_CONTAINER_REGISTRY_LINK_TO_YOUR_METRICS_COLLECTOR}"
+        "image": "{AZURE_CONTAINER_REGISTRY_URL_OF_YOUR_METRICS_COLLECTOR}"
       },
       "type": "docker",
       "version": "1.0",
@@ -385,7 +395,7 @@ As with other IoT Edge modules, you can also [examine the container logs](../../
    * The default value is `Information`. The logs will contain error, warning, and information messages.
    * If you set the value to `Warning`, the logs will contain error and warning messages.
    * If you set the value to `Error`, the logs will contain only error messages.
-   * If you set the value to `None`, no logs will be generated. (We don't recommend this configuration.)
+   * If you set the value to `None`, no logs will be generated. This is not recommended.
    * Use `Verbose` only if you need to share logs with Azure support to diagnose a problem.
 
 * `logCategories`
@@ -402,7 +412,7 @@ In certain cases, to help Azure support resolve a problem, you might need to gen
 
 1. [Link the module storage to the device storage](../../iot-edge/how-to-access-host-storage-from-module.md#link-module-storage-to-device-storage) via `createOptions`. If you look at a [deployment manifest template](https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp/blob/master/src/edge/deployment.template.json) from the quickstarts, you'll see this code:
 
-   ```
+   ```json
    "createOptions": {
      …
      "Binds": [
@@ -415,7 +425,7 @@ In certain cases, to help Azure support resolve a problem, you might need to gen
 
  1. Add the following `desired` property to the module:
 
-    `"debugLogsDirectory": "/var/lib/videoAnalyzer/debuglogs/",`
+    `"debugLogsDirectory": "/var/lib/videoAnalyzer/debuglogs/"`
 
 The module will now write debug logs in a binary format to the device storage path `/var/local/videoAnalyzer/debuglogs/`. You can share these logs with Azure support.
 
