@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 04/21/2021
+ms.date: 04/28/2021
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -139,12 +139,12 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 - [Page layout versions](page-layout.md)
 - [Billing model for Azure Active Directory B2C](billing.md)
 
-## Jun, 2020
+## June 2020
 
 - [AD SSPR technical profile](https://docs.microsoft.com/azure/active-directory-b2c/aad-sspr-technical-profile) provides support for verifying an email address for self-service password reset (SSPR).
 - [Custom email verification with Mailjet](https://docs.microsoft.com/azure/active-directory-b2c/custom-email-mailjet) This article describes how to use custom email in Azure Active Directory B2C (Azure AD B2C) to send customized email to users that sign up to use your applications
 
-## May, 2020
+## May 2020
 
 - [SAML Service provider in GA](https://docs.microsoft.com/azure/active-directory-b2c/connect-with-saml-service-providers) this article describes how to connect your Security Assertion Markup Language (SAML) applications (service providers) to Azure Active Directory B2C (Azure AD B2C) for authentication.
 - [Azure AD B2C to Azure AD B2C federation](https://docs.microsoft.com/azure/active-directory-b2c/identity-provider-azure-ad-b2c?pivots=b2c-custom-policy) is supported.
@@ -152,7 +152,7 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
    - [Configure session using custom policy, with single sign-out](https://docs.microsoft.com/azure/active-directory-b2c/session-behavior-custom-policy)
    - [Amazon federation app registration is updated with the Amazon new developer console](https://docs.microsoft.com/azure/active-directory-b2c/identity-provider-amazon-custom)
 
-## April, 2020
+## April 2020
 
 - [Single sign-out](https://docs.microsoft.com/azure/active-directory-b2c/session-overview#single-sign-out) for both OAuth2, OIDC and SAML relying party applications.
   - [Session overview](https://docs.microsoft.com/azure/active-directory-b2c/session-overview)
@@ -162,7 +162,7 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 - Claim resolver now supports [claim values](https://docs.microsoft.com/azure/active-directory-b2c/claim-resolver-overview#claims)
 - SAML:RelayState [claim resolver](https://docs.microsoft.com/azure/active-directory-b2c/claim-resolver-overview#saml)
 
-## March, 2020
+## March 2020
 
 - Phone factor technical profile supports auto dial. For more information check the [metadata](https://docs.microsoft.com/azure/active-directory-b2c/phone-factor-technical-profile#metadata).
 - [Keep me signed in (KMSI)](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-keep-me-signed-in) page layout version 1.2.0 and above requires `setting.enableRememberMe` metadata.
@@ -177,7 +177,8 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 - [claim resolvers](https://docs.microsoft.com/azure/active-directory-b2c/claim-resolver-overview) `{OIDC:scope}`, `{OIDC:RedirectUri}`, `{Context:KMSI}` and [SAML claims resolvers](https://docs.microsoft.com/azure/active-directory-b2c/claim-resolver-overview#saml)
 - Azure AD attribute `signInNames` the unique sign in name of the local account user of **any type** in the directory . Use this to get a user with sign in value without specifying the local account type. For more information, see [Sign In and Sign Up with Username or Email sample](https://github.com/azure-ad-b2c/samples/tree/master/policies/username-or-email)
 
-## February, 2020
+## February 2020
+
 - [Document] Learn how to:
   - [Localize your custom verification email](https://docs.microsoft.com/azure/active-directory-b2c/custom-email#optional-localize-your-email)
   - [Manage Azure AD B2C with Microsoft Graph](https://docs.microsoft.com/azure/active-directory-b2c/microsoft-graph-get-started?tabs=applications)
@@ -195,16 +196,17 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
   - StringCollection: [String collection contains](https://docs.microsoft.com/azure/active-directory-b2c/stringcollection-transformations#stringcollectioncontains)
   - PhoneNumber: [ConvertPhoneNumberClaimToString](https://docs.microsoft.com/azure/active-directory-b2c/phone-number-claims-transformations#convertphonenumberclaimtostring), now you can convert a phoneNumber data type back into a string data type.
 
-## January, 2020
+## January 2020
 
 - [Python web app sample](https://docs.microsoft.com/azure/active-directory-b2c/code-samples#web-apps-and-apis) - Demonstrate how to Integrate B2C of Microsoft identity platform with a Python web application.
 - Logout force to pass a previously issued ID token to the logout endpoint as a hint about the end user's current authenticated session with the client, is now supported with custom policies using `EnforceIdTokenHintOnLogout` attribute of the [SingleSignOn](https://docs.microsoft.com/azure/active-directory-b2c/relyingparty#singlesignon) element.
 - [Company branding (preview)](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-overview#company-branding-preview) - You can customize your user flow pages with a banner logo, background image, and background color by using Azure Active Directory Company branding
 - The Microsoft Azure AD B2C service is compatible with SameSite browser configurations, including support for SameSite=None with the Secure attribute. For more information, see [Azure AD B2C Cookie Definitions](https://docs.microsoft.com/azure/active-directory-b2c/cookie-definitions)
-## December, 2019
+
+## December 2019
 
 - Azure Active Directory B2C is [deprecating login.microsoftonline.com](https://azure.microsoft.com/updates/b2c-deprecate-msol/)
--  [Azure MFA technical profile](https://docs.microsoft.com/azure/active-directory-b2c/multi-factor-auth-technical-profile) provides support for verifying a phone number by using Azure Multi-Factor Authentication (MFA).
+- [Azure MFA technical profile](https://docs.microsoft.com/azure/active-directory-b2c/multi-factor-auth-technical-profile) provides support for verifying a phone number by using Azure Multi-Factor Authentication (MFA).
 - [Phone number claims transformations](https://docs.microsoft.com/azure/active-directory-b2c/phone-number-claims-transformations)
 - [Phone sign-up and sign-in](https://docs.microsoft.com/azure/active-directory-b2c/phone-authentication) in Azure AD B2C enables your users to sign up and sign in to your applications by using a one-time password (OTP)
 -SAML app registration, [learn how to configure Azure AD B2C to act as a SAML identity provider to your web applications.](https://docs.microsoft.com/azure/active-directory-b2c/connect-with-saml-service-providers)
@@ -216,7 +218,7 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 - [GenerateJson](https://docs.microsoft.com/azure/active-directory-b2c/json-transformations) claims transformation generates a complex JSON using input claim and input parameters.
 - Use [custom email](https://docs.microsoft.com/azure/active-directory-b2c/custom-email) in Azure AD B2C to send customized email to users that sign up to use your applications.
 
-## November, 2019
+## November 2019
 
 - [Use the Azure portal to create and delete consumer users in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/manage-users-portal) This article shows how a user can add or delete users through being assigned to the User administrator or Global administrator role.
 
@@ -229,7 +231,8 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
     ```XML
     <InputClaim ClaimTypeReferenceId="selected_idp" DefaultValue="{OAUTH-KV:idp}" AlwaysUseDefaultValue="true" />
     ```
-## October, 2019 
+
+## October 2019
 
 - [Manage password protection settings](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-threat-management#manage-password-protection-settings) This article helps you manage your passwords.
 
@@ -241,10 +244,10 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 
     - [MS Graph API samples](https://github.com/Azure-Samples/ActiveDirectory-B2C-MSGraph-PolicyAndKeysets) for User Flow, Custom Policies, and Key CRUD operations.
 
-## August, 2019
+## August 2019
 
 - Pass through an identity provider's access token in Azure AD B2C with [user flow](https://docs.microsoft.com/azure/active-directory-b2c/idp-pass-through-user-flow) and [custom policy](https://docs.microsoft.com/azure/active-directory-b2c/idp-pass-through-custom)
 
-## May, 2019
+## May 2019
 
 - [Azure AD admin roles for B2C are in public preview](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#b2c-user-flow-administrator) This article lists the Azure AD built-in roles you can assign to allow management of Azure AD resources
