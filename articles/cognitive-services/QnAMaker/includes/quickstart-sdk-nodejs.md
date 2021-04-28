@@ -21,7 +21,7 @@ Use the QnA Maker client library for Node.js to:
 
 [Reference documentation](/javascript/api/@azure/cognitiveservices-qnamaker/) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-qnamaker) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [Node.js Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/qnamaker_quickstart.js)
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 Use the QnA Maker client library for Node.js to:
 
@@ -49,14 +49,12 @@ Use the QnA Maker client library for Node.js to:
     * You will need the key and resource name from the resource you create to connect your application to the QnA Maker API. You'll paste your key and resource name into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The current version of [Node.js](https://nodejs.org).
-* Once you have your Azure subscription, create a [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) in the Azure portal to get your authoring key and endpoint.
-	* NOTE: Be sure to select the **Managed** checkbox.
-	* After your QnA Maker resource deploys, select **Go to resource**. You will need the key and endpoint from the resource you create to connect your application to the QnA Maker API. You'll paste your key and endpoint into the code below later in the quickstart.
-    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* Custom question and answering requires a [Text Analytics resource](https://ms.portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled to generate an API key and endpoint.
+     * After your Text Analytics resource deploys, select **Go to resource**. You will need the key and endpoint from the resource you create to connect your application to the QnA Maker API. You'll paste your key and endpoint into the code below later in the quickstart.
 
 ---
 
@@ -88,7 +86,7 @@ npm install @azure/cognitiveservices-qnamaker-runtime
 npm install @azure/ms-rest-js
 ```
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 Install the following NPM packages:
 
@@ -107,7 +105,7 @@ Create a file named index.js and import the following libraries:
 
 [!code-javascript[Dependencies](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=Dependencies)]
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 [!code-javascript[Dependencies](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/preview-sdk/quickstart.js?name=Dependencies)]
 
@@ -131,14 +129,15 @@ Create a variable for your resource's Azure key and resource name.
 
 [!code-javascript[Set the resource key and resource name](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=Resourcevariables)]
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
-- We use subscription key and authoring key interchangably. For more details on authoring key, follow [Keys in QnA Maker](../concepts/azure-resources.md?tabs=v2#keys-in-qna-maker).
+- We use subscription key and authoring key interchangably. For more details on authoring key, follow [Keys](../concepts/azure-resources.md?tabs=v2#keys-in-qna-maker).
 
-- The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Go to the Azure portal and find the QnA Maker resource you created in the prerequisites. Click on **Keys and Endpoint** page, under **resource management** to locate Authoring (Subscription) key and QnA Maker Endpoint.
+- The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Go to the Azure portal and find the Text Analytics resource you created in the prerequisites. Click on **Keys and Endpoint** page, under **resource management** to locate Authoring (Subscription) key and Endpoint.
 
- ![QnA Maker Authoring Endpoint](../media/keys-endpoint.png)
- 
+> [!div class="mx-imgBorder"]
+> ![Custom QnA Authoring Endpoint](../media/qnamaker-how-to-key-management/custom-qna-keys-and-endpoint.png)
+
 - For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../key-vault/general/overview.md) provides secure key storage.
 
 [!code-javascript[Set the resource key and resource name](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/preview-sdk/quickstart.js?name=Resourcevariables)]
@@ -153,7 +152,7 @@ Create a variable for your resource's Azure key and resource name.
 * **[QnAMakerClient](#qnamakerclient-object-model)** is the object to create, manage, publish, and download the knowledgebase.
 * **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** is the object to query the knowledge base with the GenerateAnswer API and send new suggested questions using the Train API (as part of [active learning](../how-to/use-active-learning.md)).
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 [QnA Maker](/javascript/api/@azure/cognitiveservices-qnamaker/) uses the following object model:
 * **[QnAMakerClient](#qnamakerclient-object-model)** is the object to create, manage, publish, download, and query the knowledgebase.
@@ -174,9 +173,9 @@ Manage your knowledge base by sending a JSON object. For immediate operations, a
 
 The prediction QnA Maker client is a QnAMakerRuntimeClient object that authenticates to Azure using Microsoft.Rest.ServiceClientCredentials, which contains your prediction runtime key, returned from the authoring client call, [client.EndpointKeys.getKeys](/javascript/api/@azure/cognitiveservices-qnamaker/endpointkeys#getkeys-msrest-requestoptionsbase-) after the knowledgebase is published.
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
-A QnA Maker managed resource does not require the use of the QnAMakerRuntimeClient object. Instead, you call [generateAnswer](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase#generateAnswer_string__QueryDTO__msRest_RequestOptionsBase_) directly on the [QnAMakerClient](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient) object.
+Custom question answering does not require the use of the QnAMakerRuntimeClient object. Instead, you call [generateAnswer](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase#generateAnswer_string__QueryDTO__msRest_RequestOptionsBase_) directly on the [QnAMakerClient](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient) object.
 
 ---
 
@@ -197,7 +196,7 @@ These code snippets show you how to do the following with the QnA Maker client l
 * [Authenticate the query runtime client](#authenticate-the-runtime-for-generating-an-answer)
 * [Generate an answer from the knowledge base](#generate-an-answer-from-the-knowledge-base)
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 * [Authenticate the authoring client](#authenticate-the-client-for-authoring-the-knowledge-base)
 * [Create a knowledge base](#create-a-knowledge-base)
@@ -218,7 +217,7 @@ Instantiate a client with your endpoint and key. Create an ServiceClientCredenti
 
 [!code-javascript[Create QnAMakerClient object with key and endpoint](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=AuthorizationAuthor)]
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 [!code-javascript[Create QnAMakerClient object with key and endpoint](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/preview-sdk/quickstart.js?name=AuthorizationAuthor)]
 
@@ -246,7 +245,7 @@ When the create method returns, pass the returned operation ID to the [wait_for_
 
 [!code-javascript[Create knowledgebase](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=CreateKBMethod)]
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 [!code-javascript[Create knowledgebase](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/preview-sdk/quickstart.js?name=CreateKBMethod)]
 
@@ -262,7 +261,7 @@ You can update a knowledge base by passing in the knowledge base ID and an [Upda
 
 [!code-javascript[Update a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=UpdateKBMethod)]
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 [!code-javascript[Update a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/preview-sdk/quickstart.js?name=UpdateKBMethod)]
 
@@ -278,7 +277,7 @@ Use the [download](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgeba
 
 [!code-javascript[Download a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=DownloadKB)]
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 [!code-javascript[Download a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/preview-sdk/quickstart.js?name=DownloadKB)]
 
@@ -292,7 +291,7 @@ Publish the knowledge base using the [publish](/javascript/api/@azure/cognitives
 
 [!code-javascript[Publish a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=PublishKB)]
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 [!code-javascript[Publish a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/preview-sdk/quickstart.js?name=PublishKB)]
 
@@ -326,7 +325,7 @@ Generate an answer from a published knowledge base using the RuntimeClient.runti
 
 [!code-javascript[Generate an answer from a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=GenerateAnswer)]
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 ### Generate an answer from the knowledge base
 
@@ -346,7 +345,7 @@ Delete the knowledge base using the [delete](/javascript/api/@azure/cognitiveser
 
 [!code-javascript[Delete a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=DeleteKB)]
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 [!code-javascript[Delete a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/preview-sdk/quickstart.js?name=DeleteKB)]
 
@@ -362,7 +361,7 @@ The _delayTimer_ call in the following code block is used to simulate the retry 
 
 [!code-javascript[Monitor an operation](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=MonitorOperation)]
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 [!code-javascript[Monitor an operation](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/preview-sdk/quickstart.js?name=MonitorOperation)]
 
@@ -380,7 +379,7 @@ node index.js
 
 The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/qnamaker_quickstart.js).
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/preview-sdk/quickstart.js).
 

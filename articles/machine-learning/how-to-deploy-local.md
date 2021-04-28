@@ -8,8 +8,8 @@ ms.subservice: core
 ms.author: laobri
 author: lobrien
 ms.date: 11/20/2020
-ms.topic: conceptual
-ms.custom: how-to, deploy
+ms.topic: how-to
+ms.custom: deploy
 ---
 
 # Deploy models trained with Azure Machine Learning on your local machines 

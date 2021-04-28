@@ -27,7 +27,7 @@ Follow the [quickstart](../Quickstarts/create-publish-knowledge-base.md) to crea
 
 ![Screenshot of successful publishing](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint.png)
 
-# [Custom Question Answering (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 ![Screenshot of successful publishing managed](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint-managed.png)
 
@@ -48,7 +48,7 @@ When you make changes to the knowledge base and republish, you don't need to tak
 
     ![Screenshot of creating a bot](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page.png)
 
-    # [Custom Question Answering (preview release)](#tab/v2)
+    # [Custom question answering (preview release)](#tab/v2)
 
     ![Screenshot of creating a bot managed preview](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page-managed.png)
 
@@ -84,4 +84,3 @@ When you make changes to the knowledge base and republish, you don't need to tak
 
     ![Screenshot of connecting a bot to a channel](../media/qnamaker-tutorial-updates/connect-with-teams.png)
 
-    
