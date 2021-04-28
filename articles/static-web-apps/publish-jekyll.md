@@ -142,6 +142,30 @@ Next, you add configuration settings that the build process uses to build your a
 
    :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="Deployed application":::
 
+#### Custom Jekyll settings
+
+When you generate a static web app, a [workflow file](./github-actions-workflow.md) is generated which contains the publishing configuration settings for the application.
+
+To configure environment variables, such as `JEKYLL_ENV`, add an `env` section to the Azure Static Web Apps GitHub Action in the workflow.
+
+```yaml
+- name: Build And Deploy
+   id: builddeploy
+   uses: Azure/static-web-apps-deploy@v0.0.1-preview
+   with:
+      azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+      repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+      action: "upload"
+      ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
+      # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+      app_location: "/" # App source code path
+      api_location: "" # Api source code path - optional
+      output_location: "_site_" # Built app content directory - optional
+      ###### End of Repository/Build Configurations ######
+   env:
+      JEKYLL_ENV: production
+```
+
 ## Clean up resources
 
 [!INCLUDE [cleanup-resource](../../includes/static-web-apps-cleanup-resource.md)]
