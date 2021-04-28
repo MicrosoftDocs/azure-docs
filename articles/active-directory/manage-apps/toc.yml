@@ -194,8 +194,6 @@
           href: f5-aad-password-less-vpn.md
       - name: Publishing walkthroughs
         items:
-        - name: Integrate with Teams
-          href: application-proxy-integrate-with-teams.md
         - name: Integrate with Tableau
           href: application-proxy-integrate-with-tableau.md
     - name: Troubleshoot

@@ -54507,8 +54507,13 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-teams.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-integrate-with-teams",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-integrate-with-teams",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-integrate-with-teams.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-integrate-with-teams",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-transition-from-uag-tmg.md",
