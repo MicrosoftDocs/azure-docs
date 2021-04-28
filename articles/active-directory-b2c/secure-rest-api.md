@@ -18,13 +18,11 @@ zone_pivot_groups: b2c-policy-type
 # Secure your API Connector 
 
 
-When integrating a REST API within an Azure AD B2C user flow, you must protect your REST API endpoint with authentication. This ensures that only services that have proper credentials, such as Azure AD B2C, can make calls to your REST API endpoint.This article will explore how to secure REST API. 
+When integrating a REST API within an Azure AD B2C user flow, you must protect your REST API endpoint with authentication. The REST API authentication ensures that only services that have proper credentials, such as Azure AD B2C, can make calls to your endpoint. This article will explore how to secure REST API. 
 
 ## Prerequisites
 
-Complete the steps in one of the following 'How to' guides:
-
-- [Walkthrough: Add an API connector to a sign-up user flow](add-api-connector.md).
+Complete the steps in the [Walkthrough: Add an API connector to a sign-up user flow](add-api-connector.md) guide.
 
 ## HTTP basic authentication
 
@@ -37,8 +35,8 @@ To configure an API Connector with HTTP basic authentication, follow these steps
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Under **Azure services**, select **Azure AD B2C**.
 1. Select **API connectors (Preview)**, and then select the **API Connector** you want to configure.
-1. For the the **Authentication type**, select **Basic**.
-1. Provide the REST API **Username**, and **Password**.
+1. For the **Authentication type**, select **Basic**.
+1. Provide the **Username**, and **Password** of your REST API endpoint.
 1. Select **Save**.
 
 ::: zone-end
@@ -86,7 +84,7 @@ After creating the necessary keys, configure your REST API technical profile met
     </CryptographicKeys>
     ```
 
-The following is an example of a RESTful technical profile configured with HTTP basic authentication:
+The following XML snippet is an example of a RESTful technical profile configured with HTTP basic authentication:
 
 ```xml
 <ClaimsProvider>
@@ -129,7 +127,7 @@ To configure an API Connector with client certificate authentication, follow the
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Under **Azure services**, select **Azure AD B2C**.
 1. Select **API connectors (Preview)**, and then select the **API Connector** you want to configure.
-1. For the the **Authentication type**, select **Certificate**.
+1. For the **Authentication type**, select **Certificate**.
 1. In the **Upload certificate** box, select your certificate's .pfx file with a private key.
 1. In the **Enter Password** box, type the certificate's password.
 1. Select **Save**.
@@ -168,7 +166,7 @@ After creating the necessary key, configure your REST API technical profile meta
     </CryptographicKeys>
     ```
 
-The following is an example of a RESTful technical profile configured with an HTTP client certificate:
+The following XML snippet is an example of a RESTful technical profile configured with an HTTP client certificate:
 
 ```xml
 <ClaimsProvider>
@@ -390,7 +388,7 @@ After creating the necessary key, configure your REST API technical profile meta
     </CryptographicKeys>
     ```
 
-The following is an example of a RESTful technical profile configured with bearer token authentication:
+The following XML snippet is an example of a RESTful technical profile configured with bearer token authentication:
 
 ```xml
 <ClaimsProvider>
@@ -453,7 +451,7 @@ After creating the necessary key, configure your REST API technical profile meta
 
 The **Id** of the cryptographic key defines the HTTP header. In this example, the API key is sent as **x-functions-key**.
 
-The following is an example of a RESTful technical profile configured to call an Azure Function with API key authentication:
+The following XML snippet is an example of a RESTful technical profile configured to call an Azure Function with API key authentication:
 
 ```xml
 <ClaimsProvider>

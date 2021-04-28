@@ -20,8 +20,18 @@ As a developer or IT administrator, you can use API connectors to integrate your
 
 ::: zone pivot="b2c-user-flow"
 
+In this scenario, the REST API validates whether email address' domain is fabrikam.com, or fabricam.com. The user-provided job title is greater than five characters. 
+
 > [!IMPORTANT]
 > API connectors for sign-up is a public preview feature of Azure AD B2C. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+In this scenario, we'll add the ability for users to enter a loyalty number into the Azure AD B2C sign-up page. The REST API validates whether the combination of email and loyalty number is mapped to a promotional code. If the REST API finds a promotional code for this user, it will be returned to Azure AD B2C. Finally, the promotional code will be inserted into the token claims for the application to consume.
+
+You can also design the interaction as an orchestration step. This is suitable when the REST API will not be validating data on screen, and always return claims. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](custom-policy-rest-api-claims-exchange.md).
 
 ::: zone-end
 
@@ -60,7 +70,7 @@ HTTP basic authentication is defined in [RFC 2617](https://tools.ietf.org/html/r
 > [!IMPORTANT]
 > This functionality is in preview and is provided without a service-level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Client certificate authentication is a mutual certificate-based authentication method where the client provides a client certificate to the server to prove its identity. In this case, Azure AD B2C will use the certificate that you upload as part of the API connector configuration. This happens as a part of the SSL handshake. Your API service can then limit access to only services that have proper certificates. The client certificate is an PKCS12 (PFX) X.509 digital certificate. In production environments, it should be signed by a certificate authority. 
+Client certificate authentication is a mutual certificate-based authentication method where the client provides a client certificate to the server to prove its identity. In this case, Azure AD B2C will use the certificate that you upload as part of the API connector configuration. This happens as a part of the TLS/SSL handshake. Your API service can then limit access to only services that have proper certificates. The client certificate is a PKCS12 (PFX) X.509 digital certificate. In production environments, it should be signed by a certificate authority. 
 
 To create a certificate, you can use [Azure Key Vault](../key-vault/certificates/create-certificate.md), which has options for self-signed certificates and integrations with certificate issuer providers for signed certificates. Recommended settings include:
 - **Subject**: `CN=<yourapiname>.<tenantname>.onmicrosoft.com`
@@ -72,14 +82,15 @@ To create a certificate, you can use [Azure Key Vault](../key-vault/certificates
 
 You can then [export the certificate](../key-vault/certificates/how-to-export-certificate.md). You can alternatively use PowerShell's [New-SelfSignedCertificate cmdlet](../active-directory-b2c/secure-rest-api.md#prepare-a-self-signed-certificate-optional) to generate a self-signed certificate.
 
-After you have a certificate, you can then upload it as part of the API connector configuration. Note that password is only required for certificate files protected by a password.
+After you have a certificate, you can then upload it as part of the API connector configuration. Note, the password is only required for certificate files protected by a password.
 
 Your API must implement the authorization based on sent client certificates in order to protect the API endpoints. For Azure App Service and Azure Functions, see [configure TLS mutual authentication](../app-service/app-service-web-configure-tls-mutual-auth.md) to learn how to enable and *validate the certificate from your API code*.  You can also use Azure API Management to [check client certificate properties](
 ../api-management/api-management-howto-mutual-certificates-for-clients.md)  against desired values using policy expressions.
 
-It's recommended you set reminder alerts for when your certificate will expire. You will need to generate a new certificate and repeat the steps above. Your API service can temporarily continue to accept old and new certificates while the new certificate is deployed. To upload a new certificate to an existing API connector, select the API connector under **API connectors** and click on **Upload new certificate**. The most recently uploaded certificate which is not expired and is past the start date will automatically be used  by Azure Active Directory.
+It's recommended you set reminder alerts for when your certificate will expire. You will need to generate a new certificate and repeat the steps above. Your API service can temporarily continue to accept old and new certificates while the new certificate is deployed. To upload a new certificate to an existing API connector, select the API connector under **API connectors** and click on **Upload new certificate**. The most recently uploaded certificate, which is not expired and is past the start date will automatically be used  by Azure Active Directory.
 
 ### API Key
+
 Some services use an "API key" mechanism to obfuscate access to your HTTP endpoints during development. For [Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), you can accomplish this by including the `code` as a query parameter in the **Endpoint URL**. For example, `https://contoso.azurewebsites.net/api/endpoint`<b>`?code=0123456789`</b>). 
 
 This is not a mechanism that should be used alone in production. Therefore, configuration for basic or certificate authentication is always required. If you do not wish to implement any authentication method (not recommended) for development purposes, you can choose basic authentication and use temporary values for `username` and `password` that your API can disregard while you implement the authorization in your API.
@@ -169,7 +180,7 @@ Content-type: application/json
 }
 ```
 
-The exact claims sent to the API depends on which information is provided by the identity provider. 'email' is always sent.
+The exact claims sent to the API depend on the information is provided by the identity provider. 'email' is always sent.
 
 ### Expected response types from the web API at this step
 
@@ -227,7 +238,8 @@ Content-type: application/json
  "ui_locales":"en-US"
 }
 ```
-The exact claims sent to the API depends on which information is collected from the user or is provided by the identity provider.
+
+The claims that send to the API depend on the information is collected from the user or is provided by the identity provider.
 
 ### Expected response types from the web API at this step
 
@@ -335,10 +347,6 @@ Content-type: application/json
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
-
-In this scenario, we'll add the ability for users to enter a loyalty number into the Azure AD B2C sign-up page. We'll validate whether this combination of email and loyalty number is mapped to a promotional code by sending this data to a REST API. If the REST API finds a promotional code for this user, it will be returned to Azure AD B2C. Finally, the promotional code will be inserted into the token claims for the application to consume.
-
-You can also design the interaction as an orchestration step. This is suitable when the REST API will not be validating data on screen, and always return claims. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](custom-policy-rest-api-claims-exchange.md).
 
 
 ## Prepare a REST API endpoint
@@ -578,7 +586,8 @@ To return the promo code claim back to the relying party application, add an out
 ## Best practices and how to troubleshoot
 
 ### Using serverless cloud functions
-Serverless functions, like HTTP triggers in Azure Functions, provide a simple way create API endpoints to use with the API connector. You can use the serverless cloud function to, [for example](code-samples.md#api-connectors), perform validation logic and limit sign-ups to specific email domains. The serverless cloud function can also call and invoke other web APIs, user stores, and other cloud services for more complex scenarios.
+
+Serverless functions, like HTTP triggers in Azure Functions, provide a way create API endpoints to use with the API connector. You can use the serverless cloud function to, [for example](code-samples.md#api-connectors), perform validation logic and limit sign-ups to specific email domains. The serverless cloud function can also call and invoke other web APIs, user stores, and other cloud services for more complex scenarios.
 
 ### Best practices
 Ensure that:
@@ -586,14 +595,14 @@ Ensure that:
 * The **Endpoint URL** of the API connector points to the correct API endpoint.
 * Your API explicitly checks for null values of received claims.
 * Your API responds as quickly as possible to ensure a fluid user experience.
-    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm." in production. For Azure Functions, its recommended to use the [Premium plan](../azure-functions/functions-scale.md)
+    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm." in production. For Azure Functions, it's recommended to use the [Premium plan](../azure-functions/functions-scale.md)
  
-
 ### Use logging
+
 In general, it's helpful to use the logging tools enabled by your web API service, like [Application insights](../azure-functions/functions-monitoring.md), to monitor your API for unexpected error codes, exceptions, and poor performance.
 * Monitor for HTTP status codes that aren't HTTP 200 or 400.
 * A 401 or 403 HTTP status code typically indicates there's an issue with your authentication. Double-check your API's authentication layer and the corresponding configuration in the API connector.
-* Use more aggressive levels of logging (e.g. "trace" or "debug") in development if needed.
+* Use more aggressive levels of logging (for example "trace" or "debug") in development if needed.
 * Monitor your API for long response times.
 
 ## Next steps
@@ -601,14 +610,14 @@ In general, it's helpful to use the logging tools enabled by your web API servic
 ::: zone pivot="b2c-user-flow"
 
 - Get started with our [samples](code-samples.md#api-connectors).
-- [Reference: RESTful technical profile](restful-technical-profile.md)
+- [Secure your API Connector](secure-rest-api.md)
 
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
 
 - [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](custom-policy-rest-api-claims-exchange.md)
-- [Secure your RESTful API](secure-rest-api.md)
+- [Secure your API Connector](secure-rest-api.md)
 - [Reference: RESTful technical profile](restful-technical-profile.md)
 
 ::: zone-end
