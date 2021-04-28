@@ -40,9 +40,9 @@ If this has happened to your organization, you are in a race against the attacke
 
 - **Attackers can then use the certificate to forge SAML tokens** to impersonate any of the organization's existing users and accounts without requiring access to account credentials, and without leaving any traces.
 
-- **Highly-privileged account access** can also be used to add illegitimate credentials to existing applications, enabling attackers to call APIs using those illegitimate permissions.
+- **Highly-privileged account access** can also be used to add attacker-controlled credentials to existing applications, enabling attackers to access your system undetected, such as to call APIs, using those permissions.
 
-### Responding to the attack
+## Responding to the attack
 
 
 Responding to systemic identity compromises should include the steps shown in the following image and table:
@@ -52,12 +52,11 @@ Responding to systemic identity compromises should include the steps shown in th
 
 |Step  |Description  |
 |---------|---------|
-|**Establish secure communications**     |  An organization that has experienced a systemic identity compromise must assume that all communication is affected. Before taking any recovery action, you must ensure that the members of your team who are key to your investigation and response effort can communicate securely. <br><br>*Securing communications must be your very first step so that you can proceed without the attacker's knowledge.*|
-|**Investigate your environment**   | After you have secured communications on your core investigation team, you can start looking for initial access points and persistence techniques. Look for initial access points and persistence at the same time as establishing continuous monitoring operations during your recovery efforts.        |
-|**Regain / retain control**     |  You must regain administrative control of your environment from the attacker. After you have control again, make sure to remediate or block all possible persistence techniques and new initial access exploits.       |
-|**Improve security posture**     | Enable security features and capabilities following best practice recommendations for improved system security moving forward.        |
+|**Establish secure communications**     |  An organization that has experienced a systemic identity compromise must assume that all communication is affected. Before taking any recovery action, you must ensure that the members of your team who are key to your investigation and response effort [can communicate securely](#establish-secure-communications). <br><br>*Securing communications must be your very first step so that you can proceed without the attacker's knowledge.*|
+|**Investigate your environment**   | After you have secured communications on your core investigation team, you can start looking for initial access points and persistence techniques. [Identify your indications of compromise](#identify-indications-of-compromise), and then look for initial access points and persistence. At the same time, start [establishing continuous monitoring operations](#establish-continuous-monitoring) during your recovery efforts.        |
+|**Regain / retain control**     |  You must regain administrative control of your environment from the attacker. After you have control again, make sure to [remediate or block](#remediate-and-retain-administrative-control) all possible persistence techniques and new initial access exploits.       |
+|**Improve security posture**     | [Enable security features and capabilities](#improve-security-posture) following best practice recommendations for improved system security moving forward.  <br><br>Make sure to continue your [continuous monitoring](#establish-continuous-monitoring) efforts as time goes on and the security landscape changes.    |
 |     |         |
-
 
 ## Establish secure communications
 
@@ -67,9 +66,14 @@ For example:
 
 1. For initial one-on-one and group communications, you may want to use PSTN calls, conference bridges that are not connected to the corporate infrastructure, and end-to-end encrypted messaging solutions.
 
-2. After those initial conversations, you may want to create an entirely new Office 365 tenant, isolated from the organization's production tenant. Create accounts only for key personnel who need to be part of the response.
+    Communications outside these frameworks should be treated as compromised and un-trusted, unless verified through a secure channel .
 
-If you do create a new Office 365 tenant, make sure to follow all best practices for the tenant, and especially for administrative accounts and rights. Limit administrative rights, with no trusts for outside applications or vendors. 
+2. After those initial conversations, you may want to create an entirely new Microsoft 365 tenant, isolated from the organization's production tenant. Create accounts only for key personnel who need to be part of the response.
+
+If you do create a new Microsoft 365 tenant, make sure to follow all best practices for the tenant, and especially for administrative accounts and rights. Limit administrative rights, with no trusts for outside applications or vendors.
+
+> [!IMPORTANT]
+> Make sure that you do not communicate about your new tenant on your existing, and potentially compromised, email accounts. 
 
 For more information, see [Best practices for securely using Microsoft 365](https://www.microsoft.com/security/blog/2019/01/10/best-practices-for-securely-using-microsoft-365-the-cis-microsoft-365-foundations-benchmark-now-available/).
 
@@ -77,38 +81,46 @@ For more information, see [Best practices for securely using Microsoft 365](http
 
 We recommend that customers follow updates from system providers, including both Microsoft and any partners, and implement any new detections and protections provided and identify published incidents of compromise (IOCs).
 
-For example, check for updates in the following Microsoft security products, and implement any recommended changes:
+Check for updates in the following Microsoft security products, and implement any recommended changes:
 
 - [Azure Sentinel](/azure/sentinel/)
 - [Microsoft 365 security solutions and services](/microsoft-365/security/)
 - [Windows 10 Enterprise Security](/windows/security/)
 - [Microsoft Cloud App Security ](/cloud-app-security/)
 
+Implementing new updates will help identify any prior campaigns and prevent future campaigns against your system. Keep in mind that lists of IOCs may not be exhaustive, and may expand as investigations continue.
+
+Therefore, we recommend also taking the following actions:
+
+- Make sure that you've applied the [Azure security benchmark documentation](/security/benchmark/azure/), and are monitoring compliance via [Azure Security Center](/azure/security-center/).
+
+- Incorporate threat intelligence feeds into your SIEM, such as in [Azure Sentinel](/azure/sentinel/import-threat-intelligence).
+
 For more information, see Microsoft's security documentation:
 
 - [Microsoft security documentation](/security/)
 - [Azure security documentation](/azure/security/)
 
-> [!NOTE]
-> Implementing new updates will help identify any prior campaigns and prevent future campaigns against your system.
->
-> Keep in mind that lists of IOCs may not be exhaustive, and may expand as investigations continue.
->
 ## Investigate your environment
 
 Once your incident responders and key personnel have a secure place to collaborate, you can start investigating the compromised environment.
 
 You'll need to balance out getting to the bottom of every anomalous behavior and taking quick action to stop any further activity by the attacker. Any successful remediation requires an understanding of the initial method of entry and persistence methods that the attacker used, as complete as is possible at the time. Any persistence methods missed during the investigation can result in continued access by the attacker, and a potential recompromise.
 
+At this point, you may want to perform a risk analysis to prioritize your actions. For more information, see:
+
+- [Datacenter threat, vulnerability, and risk assessment](/compliance/assurance/assurance-threat-vulnerability-risk-assessment)
+- [Track and respond to emerging threats with threat analytics](https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/threat-analytics)
+- [Threat and vulnerability management](https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt)
+
 Microsoft's security services provide extensive resources for detailed investigations. The following sections describe top recommended actions.
+
 
 > [!NOTE]
 > If you find that one or more of the listed logging sources is not currently part of your security program, we recommend configuring them as soon as possible to enable detections and future log reviews.
 >
 > Make sure to configure your log retention to support your organization’s investigation goals going forward. Retain evidence as needed for legal, regulatory, or insurance purposes.
 >
-
-
 
 ### Investigate and review cloud environment logs
 
@@ -181,6 +193,8 @@ The following table describes more methods for using Azure Active directory logs
 
 
 ## Remediate and retain administrative control
+
+<!-- zero trust?-->
 
 If your investigation has identified that the attacker has administrative control in the organization’s cloud or on-premises environment, you must regain control in such a way that you ensure that the attacker isn't persistent.
 
@@ -310,7 +324,7 @@ In addition to the recommendations listed earlier in this article, we also recom
 |Activity  |Description  |
 |---------|---------|
 |**Reset passwords**     |   Reset passwords on any [break-glass accounts](/azure/active-directory/roles/security-emergency-access) and reduce the number of break-glass accounts to the absolute minimum required.    |
-|**Privileged access accounts**     |    Ensure that service and user accounts with privileged access are cloud-only accounts, and do not use on-premise accounts that are synced or federated to Azure Active Directory.  |
+|**Restrict privileged access accounts**     |    Ensure that service and user accounts with privileged access are cloud-only accounts, and do not use on-premise accounts that are synced or federated to Azure Active Directory.  |
 |**Enforce MFA**     | Enforce Multi-Factor Authentication (MFA) across all elevated users in the tenant. We recommend enforcing MFA across all users in the tenant.       |
 |**Limit administrative access**     |    Implement [Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure) (PIM) and conditional access to limit administrative access.  <br><br>For Office 365 users, implement [Privileged Access Management](https://techcommunity.microsoft.com/t5/microsoft-security-and/privileged-access-management-in-office-365-is-now-generally/ba-p/261751) (PAM) to limit access to sensitive abilities, such as eDiscovery, Global Admin, Account Administration, and more.    |
 |**Review / reduce delegated permissions and consent grants**     |  Review and reduce all Enterprise Applications delegated permissions or [consent grants](/graph/auth-limit-mailbox-access) that allow any of the following functionalities: <br><br>- Modification of privileged users and roles. <br>- Reading, sending email, or accessing all mailboxes. <br>- Accessing OneDrive, Teams, or SharePoint content. <br>- Adding Service Principals that can read/write to the directory. <br>- Application Permissions versus Delegated Access.       |
@@ -342,6 +356,8 @@ Make sure to remediate any persistence techniques that you've identified in earl
 > For Office 365 accounts, you can automatically remediate known persistence techniques, if any are discovered, using the scripts provided. <!-- what are these?-->
 > 
 ### Remediate user and service account access
+
+<!-- zero trust?-->
 
 In addition to the recommended actions listed above, we recommend that you consider the following steps to remediate and restore user accounts:
 
@@ -419,7 +435,7 @@ stream the Windows Firewall logs to a SIEM for historical and proactive monitori
 
 ## Next steps
 
-- **Get help from inside Microsoft products**, including the Microsoft 365 security center, Office 365 Security & Compliance center, and Microsoft Defender Security Center by selecting the **?** button in the top navigation bar.
+- **Get help from inside Microsoft products**, including the Microsoft 365 security center, Office 365 Security & Compliance center, and Microsoft Defender Security Center by selecting the **Help** (**?**) button in the top navigation bar.
 
 - **For deployment assistance**, contact us at [FastTrack](https://fasttrack.microsoft.com)
 
