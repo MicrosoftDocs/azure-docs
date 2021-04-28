@@ -18,7 +18,7 @@ Azure Static Web Apps provides managed authentication but also the option to pro
 > [!NOTE]
 > Custom authentication is only available in the Standard tier of Azure Static Web Apps and is used to override a built-in provider.
 
-The settings used to override the built-in providers are configured in the `auth` section of the [Configuration file](configuration.md). For example, the following snippet shows how a custom Azure Active Directory provider is configured (see [Default provider configuration](#default-provider-configuration) for options across all providers), and additional providers can be .
+The settings used to override the built-in providers are configured in the `auth` section of the [Configuration file](configuration.md). For example, the following snippet shows how a custom Azure Active Directory provider is configured (see [Default provider configuration](#default-provider-configuration) for options across all providers), and additional providers can be added as required.
 
 ```json
 {
