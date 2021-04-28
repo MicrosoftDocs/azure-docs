@@ -30,9 +30,9 @@ Customer can establish a single connection or multiple connections as per the re
 >For more information about connection telemetry, refer to the [Peering Service connection telemetry](connection-telemetry.md).
 >
 
->## How to create a peering service connection?
+## How to create a peering service connection?
 
-**Scenario** - Let's say a branch office is spread across different geographic locations as shown in the figure below. Here, the customer is required to provide a logical name, Service Provider(SP) name, customer's physical location, and IP prefixes that are (owned by the customer or allocated by the Service Provider) associated with a single connection.  The primary and backup service locations with partner help defining the preferred service location for customer. This process must be repeated to creare Peering Service for other locations.
+**Scenario** - Let's say a branch office is spread across different geographic locations as shown in the figure below. Here, the customer is required to provide a logical name, Service Provider(SP) name, customer's physical location, and IP prefixes that are (owned by the customer or allocated by the Service Provider) associated with a single connection.  The primary and backup service locations with partner help defining the preferred service location for customer. This process must be repeated to create Peering Service for other locations.
 
 ![Geo Redundant connections](./media/peering-service-connection/peering-service-connections.png)
 
