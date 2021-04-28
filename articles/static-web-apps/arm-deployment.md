@@ -216,10 +216,10 @@ Following the best practices of ARM deployments, you will create
 
 You need either Azure PowerShell or Azure CLI to deploy the template. For the installation instructions, see:
 
-- [Install Azure PowerShell](../../powershell/azure/install-az-ps.md)
-- [Install Azure CLI on Windows OS](../../cli/azure/install-azure-cli-windows.md)
-- [Install Azure CLI on Linux OS](../../cli/azure/install-azure-cli-linux.md)
-- [Install Azure CLI on MacOS](../../cli/azure/install-azure-cli-macos.md)
+- [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
+- [Install Azure CLI on Windows OS](https://docs.microsoft.com/cli/azure/install-azure-cli-windows)
+- [Install Azure CLI on Linux OS](https://docs.microsoft.com/cli/azure/install-azure-cli-linux)
+- [Install Azure CLI on MacOS](https://docs.microsoft.com/cli/azure/install-azure-cli-macos)
 
 ### Sign in to Azure
 
