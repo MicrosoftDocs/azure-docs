@@ -60,11 +60,11 @@ A local user account (name format: *.\UserName*) exists only in the Security Acc
 
 | Criterion| gMSA| sMSA| Computer&nbsp;account| User&nbsp;account |
 | - | - | - | - | - |
-| App runs on single server| Yes| Yes. Use a gMSA if possible.| Yes. Use an MSA if possible.| Yes. Use an MSA if possible. |
+| App runs on a single server| Yes| Yes. Use a gMSA if possible.| Yes. Use an MSA if possible.| Yes. Use an MSA if possible. |
 | App runs on multiple servers| Yes| No| No. Account is tied to the server.| Yes. Use an MSA if possible. |
 | App runs behind a load balancer| Yes| No| No| Yes. Use only if you can't use a gMSA. |
 | App runs on Windows Server 2008 R2| No| Yes| Yes. Use an MSA if possible.| Yes. Use an MSA if possible. |
-| Runs on Windows Server 2012| Yes| Yes. Use a gMSA if possible.| Yes. Use an MSA if possible.| Yes. Use an MSA if possible. |
+| App runs on Windows Server 2012| Yes| Yes. Use a gMSA if possible.| Yes. Use an MSA if possible.| Yes. Use an MSA if possible. |
 | Requirement to restrict service account to single server| No| Yes| Yes. Use an sMSA if possible.| No |
 | | |
 
@@ -91,7 +91,7 @@ Out-GridView
 
 ## Find on-premises service accounts
 
-We recommend that you add a prefix such as “svc.” (including the dot) to all accounts that you use as service accounts. This naming convention will make the accounts easier to find and manage. Also consider using a description attribute for the service account and the owner of the service account. The description can be a team alias or security team owner.
+We recommend that you add a prefix such as “svc-” to all accounts that you use as service accounts. This naming convention will make the accounts easier to find and manage. Also consider using a description attribute for the service account and the owner of the service account. The description can be a team alias or security team owner.
 
 Finding on-premises service accounts is key to ensuring their security. Doing so can be difficult for non-MSA accounts. We recommend that you review all the accounts that have access to your important on-premises resources, and that you determine which computer or user accounts might be acting as service accounts. 
 
@@ -119,7 +119,6 @@ After you've found the service accounts in your on-premises environment, documen
 
 To learn more about securing service accounts, see the following articles:
 
-* [Introduction to on-premises service accounts](service-accounts-on-premises.md)  
 * [Secure group managed service accounts](service-accounts-group-managed.md)  
 * [Secure standalone managed service accounts](service-accounts-standalone-managed.md)  
 * [Secure computer accounts](service-accounts-computer.md)  
