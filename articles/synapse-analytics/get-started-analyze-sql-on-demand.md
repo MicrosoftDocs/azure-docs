@@ -56,9 +56,9 @@ However, as you continue data exploration, you might want to create some utility
                     COLLATE Latin1_General_100_BIN2_UTF8
     ```
 
-> [!IMPORTANT]
-> Use a collation with `_UTF8` suffix to ensure that UTF-8 text is properly converted to `VARCHAR` columns. `Latin1_General_100_BIN2_UTF8` provides 
-> the best performance in the queries that read data from Parquet files and cosmos Db containers.
+   > [!IMPORTANT]
+   > Use a collation with `_UTF8` suffix to ensure that UTF-8 text is properly converted to `VARCHAR` columns. `Latin1_General_100_BIN2_UTF8` provides 
+   > the best performance in the queries that read data from Parquet files and cosmos Db containers.
 
 2. Switch to `DataExplorationDB` where you can create utility objects such as credentials and data sources.
 
@@ -67,8 +67,8 @@ However, as you continue data exploration, you might want to create some utility
     WITH ( LOCATION = 'https://contosolake.dfs.core.windows.net')
     ```
 
-> [!NOTE]
-> An external data source can be created without credential. In that case, the caller's identity will be used to acces external data source.
+   > [!NOTE]
+   > An external data source can be created without credential. In that case, the caller's identity will be used to acces external data source.
 
 3. Optionally, create a login for a user in `DataExplorationDB` that will access external data:
 
