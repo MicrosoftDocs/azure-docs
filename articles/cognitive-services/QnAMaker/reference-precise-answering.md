@@ -26,7 +26,7 @@ You can unselect the **Display short answer** option, if you want to see only th
 
 The service also returns back the confidence score of the precise answer as an **Answer-span score** which you can check by selecting the **Inspect** option present just below the query in the test pane.
 
-![Managed answer span score](../QnAMaker/media/conversational-context/managed-answer-span-score.png)
+![Managed answer span score](../QnAMaker/media/conversational-context/inspect-precise-answering.png)
 
 ## Publishing a QnA Maker bot
 
