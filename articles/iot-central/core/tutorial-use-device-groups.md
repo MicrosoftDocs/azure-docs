@@ -36,7 +36,7 @@ For four of the simulated sensor devices, use the **Manage device** view to set 
 
 :::image type="content" source="media/tutorial-use-device-groups/customer-name.png" alt-text="Screenshot that shows how to set the Customer Name cloud property":::
 
-## Navigate to device groups and create a device group
+## Create a device group
 
 1. Select **Device groups** on the left pane to navigate to device groups page.
 

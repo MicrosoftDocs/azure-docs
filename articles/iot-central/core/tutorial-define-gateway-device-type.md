@@ -43,15 +43,15 @@ This tutorial uses device templates for an **S1 Sensor** device and an **RS40 Oc
 
 To create a device template for an **S1 Sensor** device:
 
-1. In the left pane, select **Device Templates**. Then select **+** to start adding the template.
+1. In the left pane, select **Device Templates**. Then select **+ New** to start adding the template.
 
 1. Scroll down until you can see the tile for the **Minew S1** device. Select the tile and then select **Next: Customize**.
 
 1. On the **Review** page, select **Create** to add the device template to your application. 
 
-To create a device template for an ***RS40 Occupancy Sensor** device:
+To create a device template for an **RS40 Occupancy Sensor** device:
 
-1. In the left pane, select **Device Templates**. Then select **+** to start adding the template.
+1. In the left pane, select **Device Templates**. Then select **+ New** to start adding the template.
 
 1. Scroll down until you can see the tile for the ***RS40 Occupancy Sensor** device. Select the tile and then select **Next: Customize**.
 
@@ -68,11 +68,11 @@ In this tutorial you create a device template for a gateway device from scratch.
 
 To add a new gateway device template to your application:
 
-1. In the left pane, select **Device Templates**. Then select **+** to start adding the template.
+1. In the left pane, select **Device Templates**. Then select **+ New** to start adding the template.
 
 1. On the **Select template type** page, select the **IoT Device** tile, and then select **Next: Customize**.
 
-1. On the **Customize device** page, select the **Gateway device** checkbox.
+1. On the **Customize device** page, select **This is a gateway device** checkbox.
 
 1. Enter **Smart Building gateway device** as the template name and then select **Next: Review**.
 
@@ -80,15 +80,13 @@ To add a new gateway device template to your application:
 
 
 
-1. On the **Create a capability model** page, select the **Custom** tile.
+1. On the **Create a model** page, select the **Custom model** tile.
 
 1. Select **+ Add capability** to add a capability.
 
-1. Enter **Send Data** as display name, **Send Data** as name, and then select **Property** as schema type.
+1. Enter **Send Data** as the display name, and then select **Property** as the capability type.
 
 1. Select **Save**
-
-1. Select **Publish** to publish the device template.
 
 
 ### Add relationships
@@ -159,7 +157,7 @@ To create a simulated gateway device:
 
 1. On the **Devices** page, select **Smart Building gateway device** in the list of device templates.
 
-1. Select **+** to start adding a new device.
+1. Select **+ New** to start adding a new device.
 
 1. Keep the generated **Device ID** and **Device name**. Make sure that the **Simulated** switch is **On**. Select **Create**.
 
@@ -167,13 +165,13 @@ To create a simulated downstream devices:
 
 1. On the **Devices** page, select **RS40 Occupancy Sensor** in the list of device templates.
 
-1. Select **+** to start adding a new device.
+1. Select **+ New** to start adding a new device.
 
 1. Keep the generated **Device ID** and **Device name**. Make sure that the **Simulated** switch is **On**. Select **Create**.
 
 1. On the **Devices** page, select **S1 Sensor** in the list of device templates.
 
-1. Select **+** to start adding a new device.
+1. Select **+ New** to start adding a new device.
 
 1. Keep the generated **Device ID** and **Device name**. Make sure that the **Simulated** switch is **On**. Select **Create**.
 
