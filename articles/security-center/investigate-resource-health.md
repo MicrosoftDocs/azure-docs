@@ -72,6 +72,8 @@ The resource health page lists the recommendations for which your resource is "u
 
         > [!TIP]
         > The instructions for fixing issues raised by security recommendations differ for each of Security Center's recommendations.
+        >
+        > To decide which recommendations to resolve first, look at the severity of each one and its [potential impact on your secure score](secure-score-security-controls.md#security-controls-and-their-recommendations).
 
 - To investigate an Azure Defender alert:
     1. From the right pane, select an alert.
