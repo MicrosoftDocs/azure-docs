@@ -24706,6 +24706,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-pnp/howto-use-embedded-c.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device?pivots=programming-language-embedded-c",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/container-instances/container-instances-jenkins.md",
       "redirect_url": "/azure/jenkins/container-instances-jenkins",
       "redirect_document_id": false

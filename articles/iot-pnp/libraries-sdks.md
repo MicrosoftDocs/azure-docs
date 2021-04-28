@@ -12,7 +12,7 @@ ms.custom: mvc
 
 # Microsoft SDKs for IoT Plug and Play
 
-The IoT Plug and Play libraries and SDKs enable developers to build IoT solutions using a variety of programming languages on multiple platforms. The following table includes links to samples and quickstarts to help you get started:
+The IoT Plug and Play libraries and SDKs enable developers to build IoT solutions using various programming languages on multiple platforms. The following table includes links to samples and quickstarts to help you get started:
 
 ## Device SDKs
 
@@ -23,7 +23,7 @@ The IoT Plug and Play libraries and SDKs enable developers to build IoT solution
 | Java - Device | [Maven 1.26.0](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-device-client) | [GitHub](https://github.com/Azure/azure-iot-sdk-java/tree/master/) | [Samples](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/pnp-device-sample) | [Connect to IoT Hub](quickstart-connect-device.md) | [Reference](/java/api/com.microsoft.azure.sdk.iot.device) |
 | Python - Device | [pip 2.3.0](https://pypi.org/project/azure-iot-device/) | [GitHub](https://github.com/Azure/azure-iot-sdk-python/tree/master/) | [Samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/pnp) | [Connect to IoT Hub](quickstart-connect-device.md) | [Reference](/python/api/azure-iot-device/azure.iot.device) |
 | Node - Device | [npm 1.17.2](https://www.npmjs.com/package/azure-iot-device)  | [GitHub](https://github.com/Azure/azure-iot-sdk-node/tree/master/) | [Samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp) | [Connect to IoT Hub](quickstart-connect-device.md) | [Reference](/javascript/api/azure-iot-device/) |
-| Embedded C - Device | N/A | [GitHub](https://github.com/Azure/azure-sdk-for-c/)| [Samples](howto-use-embedded-c.md#samples) | [How to use Embedded C](howto-use-embedded-c.md) | N/A
+| Embedded C - Device | N/A | [GitHub](https://github.com/Azure/azure-sdk-for-c/)| [Samples](quickstart-connect-device.md?pivots=programming-language-embedded-c#samples) | [How to use Embedded C](quickstart-connect-device.md?pivots=programming-language-embedded-c) | N/A
 
 ## Service SDKs
 

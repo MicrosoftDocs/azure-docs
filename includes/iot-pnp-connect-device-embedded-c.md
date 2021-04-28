@@ -1,23 +1,16 @@
 ---
-title: Use IoT Plug and Play on constrained devices | Microsoft Docs
-description: Learn how you can implement IoT Plug and Play on constrained devices using either the SDK for Embedded C or Azure RTOS.
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/23/2020
-ms.topic: how-to
 ms.service: iot-pnp
-services: iot-pnp
-
-#Customer intent: As a device builder, I want to know about the options for implementing IoT Plug and Play on constrained devices.
+ms.topic: include
+ms.date: 04/28/2021
 ---
-
-# Implement IoT Plug and Play on constrained devices
 
 If you're developing for *constrained devices*, you can use IoT Plug and Play with the [Azure SDK for Embedded C IoT client libraries](https://aka.ms/embeddedcsdk) or with [Azure RTOS](/azure/rtos/overview-rtos). This article includes links and resources for these constrained scenarios.
 
 ## Use the SDK for Embedded C
 
-The SDK for Embedded C offers a lightweight solution to connect constrained devices to Azure IoT services, including using the [IoT Plug and Play conventions](concepts-convention.md). The following links include samples for real device and for educational and debugging purposes.
+The SDK for Embedded C offers a lightweight solution to connect constrained devices to Azure IoT services, including using the [IoT Plug and Play conventions](../articles/iot-pnp/concepts-convention.md). The following links include samples for real device and for educational and debugging purposes.
 
 ### Use a real device
 
@@ -60,7 +53,3 @@ Manufacturer | Device | Samples |
 | STMicroelectronics | [32F746GDISCOVERY](https://www.st.com/en/evaluation-tools/32f746gdiscovery.html) | [IAR](https://aka.ms/azrtos-sample/f746g-iar) • [STM32Cube](https://aka.ms/azrtos-sample/f746g-cubeide)
 | STMicroelectronics | [B-L475E-IOT01](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) | [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/STM32L4_L4%2B) • [IAR](https://aka.ms/azrtos-sample/l4s5-iar) • [STM32Cube](https://aka.ms/azrtos-sample/l4s5-cubeide)
 | STMicroelectronics | [B-L4S5I-IOT01](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html) | [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/STM32L4_L4%2B) • [IAR](https://aka.ms/azrtos-sample/l4s5-iar) • [STM32Cube](https://aka.ms/azrtos-sample/l4s5-cubeide)
-
-## Next steps
-
-Now that you've learned about the options for implementing IoT Plug and Play on constrained devices, a suggested next step is to learn about the [IoT Plug and Play conventions](concepts-convention.md).

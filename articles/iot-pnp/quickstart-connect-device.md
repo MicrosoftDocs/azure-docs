@@ -7,9 +7,9 @@ ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-zone_pivot_groups: programming-languages-set-twenty-six
+zone_pivot_groups: programming-languages-set-twenty-seven
 
-#- id: programming-languages-set-twenty-six
+#- id: programming-languages-set-twenty-seven
 ## Owner: dobett
 #  title: Programming languages
 #  prompt: Choose a programming language
@@ -24,6 +24,8 @@ zone_pivot_groups: programming-languages-set-twenty-six
 #    title: JavaScript
 #  - id: programming-language-python
 #    title: Python
+#  - id: programming-language-embedded-c
+#    title: Embedded C
 
 #Customer intent: As a device builder, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
@@ -57,6 +59,12 @@ zone_pivot_groups: programming-languages-set-twenty-six
 :::zone pivot="programming-language-python"
 
 [!INCLUDE [iot-pnp-connect-device-python](../../includes/iot-pnp-connect-device-python.md)]
+
+:::zone-end
+
+:::zone pivot="programming-language-embedded-c"
+
+[!INCLUDE [iot-pnp-connect-device-embedded-c](../../includes/iot-pnp-connect-device-embedded-c.md)]
 
 :::zone-end
 
