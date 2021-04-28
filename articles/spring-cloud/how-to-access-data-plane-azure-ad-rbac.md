@@ -7,7 +7,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/04/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, subject-rbac-steps
 ---
 
 # Access Config Server and Service Registry
