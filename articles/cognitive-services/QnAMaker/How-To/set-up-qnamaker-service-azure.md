@@ -68,7 +68,7 @@ This procedure creates the Azure resources needed to manage the knowledge base c
 > [!div class="mx-imgBorder"]
 > ![Add QnA to TA](../media/qnamaker-how-to-setup-service/select-qna-feature-create-flow.png)
 
-3.  Select the appropriate tiers and regions for the Text Analytics resource. For Custom question answering feature, select search location and pricing tier.
+3.  Select the appropriate tiers and regions for the Text Analytics resource. For the custom question answering feature, select search location and pricing tier.
 
 > [!div class="mx-imgBorder"]
 > ![Create a new TA service - pricing tier and regions](../media/qnamaker-how-to-setup-service/custom-qna-create-button.png)
