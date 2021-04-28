@@ -56,13 +56,13 @@ The API Management service in an internal virtual network is hosted behind an [i
 2. Select **Virtual network**.
 3. Configure the API Management instance to be deployed inside the virtual network.
 
-    ![Menu for setting up an Azure API Management in an internal virtual network][updated-api-management-using-internal-vnet-menu]
+    ![Menu for setting up an Azure API Management in an internal virtual network][api-management-using-internal-vnet-menu]
 
 4. Select **Save**.
 
 After the deployment succeeds, you should see **private** virtual IP address and **public** virtual IP address of your API Management service on the overview blade. The **private** virtual IP address is a load balanced IP address from within the API Management delegated subnet over which `gateway`, `portal`, `management` and `scm` endpoints can be accessed. The **public** virtual IP address is used **only** for control plane traffic to `management` endpoint over port 3443 and can be locked down to the [ApiManagement][ServiceTags] servicetag.
 
-![API Management dashboard with an internal virtual network configured][updated-api-management-internal-vnet-dashboard]
+![API Management dashboard with an internal virtual network configured][api-management-internal-vnet-dashboard]
 
 > [!NOTE]
 > The Test console available on the Azure Portal will not work for **Internal** VNET deployed service, as the Gateway Url is not registered on the Public DNS. You should instead use the Test Console provided on the **Developer portal**.
@@ -117,7 +117,7 @@ If you use a custom DNS server in a virtual network, you can also create A DNS r
 
 1. If you don’t want to access the API Management service with the default host names, you can set up custom domain names for all your service endpoints as shown in the following image:
 
-   ![Setting up a custom domain for API Management][updated-api-management-custom-domain-name]
+   ![Setting up a custom domain for API Management][api-management-custom-domain-name]
 
 2. Then you can create records in your DNS server to access the endpoints that are only accessible from within your virtual network.
 
