@@ -164,7 +164,7 @@ The following information is shown in the reindex job result:
 
 * **progress**: Reindex job percent complete. Equals resourcesSuccessfullyReindexed/totalResourcesToReindex x 100.
 
-* **status**: This will state if the reindex job is running, complete, or canceled.
+* **status**: This will state if the reindex job is queued, running, complete, failed, or canceled.
 
 * **resources**: This lists all the resource types impacted by the reindex job.
 

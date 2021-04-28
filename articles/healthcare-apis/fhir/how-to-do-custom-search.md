@@ -66,11 +66,11 @@ POST {fhirurl}/SearchParameter
 ``` 
 
 > [!NOTE]
-> The new search parameter will appear in your capability statement after you POST it to the FHIR server and reindex your database. It won’t be useable until you run a [reindex job](how-to-run-a-reindex.md). This is the only way right now to tell if a search parameter is supported or not within your database. If you can find the search parameter by searching for the search parameter but cannot see it in the capability statement, run a reindex job.
+> The new search parameter will appear in your capability statement after you POST it to the FHIR server and reindex your database. It won’t be useable until you run a [reindex job](how-to-run-a-reindex.md). This is the only way right now to tell if a search parameter is supported or not within your database. If you can find the search parameter by searching for the search parameter but cannot see it in the capability statement, run a reindex job. You are able to POST multiple search parameters before triggering a reindex operation.
 
 Important field descriptions:
 
-* **url**: This is a unique key to describe the search parameter. Many organizations, such as HL7, specify a standard for how this should be as shown above in the US Core race search parameter.
+* **url**: This is a unique key to describe the search parameter. Many organizations, such as HL7, use a standard format for the URLs that they define, as shown above in the US Core race search parameter.
 
 * **code**: The value here is what you’ll use when searching. For the example above, you would search with `GET {FHIR URL}/Patient?race=2028-9` to get all Asian patients. This value must be unique for the resource(s) it applies to.
 
@@ -92,6 +92,9 @@ To update a search parameter, use `PUT` to create a new version of the search pa
 `PUT {fhirurl}/SearchParameter/{SearchParameter ID}`
 
 You must include the `SearchParameter ID` in the ID field of the body of the `PUT` request and in the `PUT` call.
+
+> [!NOTE]
+> If you don't know the ID for your search parameter, you can search for it. Using `GET {fhirurl}/SearchParameter` will return all custom search parameters, and you can scroll through it to find your search parameter. You could also limit the search by name. With the example below, you could search for name using `USCoreRace: GET {fhirurl}/SearchParameter?name=USCoreRace`.
 
 ```json
 {
