@@ -208,6 +208,14 @@ When a real device connects to your IoT Central application, its device status c
 
     The Operator can associate a device to a device template from the **Devices** page using the **Migrate** button.
 
+## Device connection status
+When a device or edge device connects using the MQTT protocol, connected and disconnected events will be shown for the device. These events are not something that the device sends. Device connected and Device disconnected events are generated. 
+
+As shown in the diagram below, if a device connects, the connection will be registered in IoT Central at the end of a time window. If multiple connection and disconnection events occur, IoT Central will register the one that is closest to the falling edge of the time window. For example, if there is a device disconnects and then reconnects within the time window, the connection event will be registered. The time window today is approximately 1 minute.
+
+![Device Connectivity diagram](./media/concepts-get-connected/device-connectivity.png)
+
+Device Connectivity is now available for [exporting out of IoT Central](./howto-export-data.md#set-up-data-export). See  For more information around limitations, please see the IoT Hub Documentations [here](../../iot-hub/iot-hub-event-grid#limitations-for-device-connected-and-device-disconnected-events).
 ## SDK support
 
 The Azure Device SDKs offer the easiest way for you implement your device code. The following device SDKs are available:
