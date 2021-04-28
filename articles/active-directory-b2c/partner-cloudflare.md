@@ -9,7 +9,7 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/24/2021
+ms.date: 04/24/2021
 ms.author: gasinh
 ms.subservice: B2C
 ---
