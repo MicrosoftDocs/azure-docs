@@ -82,6 +82,8 @@ Import the downloaded file, and then create a server in the VMware environment:
 
 Make sure that the appliance server can connect to Azure URLs for [public clouds](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls).
 
+<a name="4-configure-the-appliance"></a>
+
 ### Configure the appliance
 
 To set up the appliance for the first time:
