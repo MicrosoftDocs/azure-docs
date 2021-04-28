@@ -6,7 +6,7 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: how-to
 ms.custom: subject-monitoring
-ms.date: 4/23/2021
+ms.date: 04/27/2021
 ---
 
 # Monitoring Load Balancer
@@ -81,42 +81,113 @@ When you create a diagnostic setting, you specify which categories of logs to co
     | **Category details** |   |
     | metric | Select **AllMetrics**. |
 
-#### Log Analytics workspace
+8. Select the **Destination details**. Destination options are:
+    * **Send to Log Analytics**
+        * Select the **Subscription** and **Log Analytics workspace**.
+    * **Archive to a storage account**
+        * Select the **Subscription** and the **Storage Account**.
+    * **Stream to an event hub**
+        * Select the **Subscription**, **Event hub namespace**, **Event hub name (optional)**, and **Event hub policy name**
 
-1. Select the box next to **Send to Log Analytics workspace** in **Destination details**.
-
-2. Select your **Subscription**.
-
-3. Select your **Log Analytics workspace**.
-
-4. Select **Save**.
-
-#### Archive to a storage account
-
-1. Select the box next to **Archive to a storage account** in **Destination details**.
-
-2. Select your **Subscription**.
-
-3. Select your **Storage account**.
-
-4. Select **Save**. 
-
-#### Stream to an event hub
-
-1. Select the box next to **Stream to an event hub** in **Destination details**.
-
-2. Select your **Subscription**.
-
-3. Select your **Event hub namespace**.
-
-4. Select your **Event hub name** if applicable.
-
-5. Select your **Event hub policy name**.
-
-6. Select **Save**. 
+9. Select **Save**.
 
 ### PowerShell
 
+Sign in to Azure PowerShell:
+
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+    ```
+
+#### Log Analytics workspace
+
+To enable Diagnostic Logs for a Log Analytics workspace, enter these commands. Replace the bracketed values with your values:
+
+    ```azurepowershell-interactive
+    ## Place the load balancer in a variable. ##
+    $lbpara = @{
+        ResourceGroupName = <your-resource-group-name>
+        Name = <your-load-balancer-name>
+    }
+    $lb = Get-AzLoadBalancer @lbpara
+    
+    ## Place the workspace in a variable. ##
+    $wspara = @{
+        ResourceGroupName = <your-resource-group-name>
+        Name = <your-log-analytics-workspace-name>
+    }
+    $ws = Get-AzOperationalInsightsWorkspace @wspara
+    
+    ## Enable the diagnostic setting. ##
+    $diag = {
+        ResourceId = $lb.id
+        Name = <your-diagnostic-setting-name>
+        Enabled = $true
+        Category = 'AllMetrics'
+        WorkspaceId = $ws.id
+    }
+    Set-AzDiagnosticSetting @diag
+    ```
+
+#### Storage account
+
+To enable Diagnostic Logs in a storage account, enter these commands. Replace the bracketed values with your values:
+
+    ```azurepowershell-interactive
+    ## Place the load balancer in a variable. ##
+    $lbpara = @{
+        ResourceGroupName = <your-resource-group-name>
+        Name = <your-load-balancer-name>
+    }
+    $lb = Get-AzLoadBalancer @lbpara
+    
+    ## Place the storage account in a variable. ##
+    $storpara = @{
+        ResourceGroupName = <your-resource-group-name>
+        Name = <your-storage-account-name>
+    }
+    $storage = Get-AzStorageAccount @storpara
+    
+    ## Enable the diagnostic setting. ##
+    $diag = {
+        ResourceId = $lb.id
+        Name = <your-diagnostic-setting-name>
+        StorageAccountId = $storage.id
+        Enabled = $true
+        Category = 'AllMetrics'
+    }
+    Set-AzDiagnosticSetting @diag
+    ```
+
+#### Event hub
+
+To enable Diagnostic Logs for an event hub namespace, enter these commands. Replace the bracketed values with your values:
+
+    ```azurepowershell-interactive
+    ## Place the load balancer in a variable. ##
+    $lbpara = @{
+        ResourceGroupName = <your-resource-group-name>
+        Name = <your-load-balancer-name>
+    }
+    $lb = Get-AzLoadBalancer @lbpara
+    
+    ## Place the event hub in a variable. ##
+    $hubpara = @{
+        ResourceGroupName = <your-resource-group-name>
+        Name = <your-event-hub-name>
+    }
+    $eventhub = Get-AzEventHubNamespace @hubpara
+    
+    ## Enable the diagnostic setting. ##
+    $diag = {
+        ResourceId = $lb.id
+        Name = <your-diagnostic-setting-name>
+        EventHubName = $eventhub.id
+        Enabled = $true
+        Category = 'AllMetrics'
+    }
+    Set-AzDiagnosticSetting @diag
+    ```
 ### Azure CLI
 
 The metrics and logs you can collect are discussed in the following sections.
