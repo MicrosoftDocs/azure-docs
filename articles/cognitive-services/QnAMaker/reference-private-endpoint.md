@@ -9,7 +9,7 @@ ms.date: 01/12/2021
 
 # Private Endpoints
 
-Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Now, QnA Maker provides you support to create private endpoints to the Azure Search Service. This functionality is available in QnA Maker managed. 
+Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Now, Custom question answering provides you support to create private endpoints to the Azure Search Service. This functionality is available in Custom question answering. 
 
 Private endpoints are provided by [Azure Private Link](../../private-link/private-link-overview.md), as a separate service. For more information about costs, see the [pricing page.](https://azure.microsoft.com/pricing/details/private-link/) 
 
@@ -22,7 +22,7 @@ Private endpoints are provided by [Azure Private Link](../../private-link/privat
 1. Assign *Contributer* role to Text Analytics service in the Azure Search Service instance. This operation requires *Owner* access to the subscription. Go to Identity tab in the service resource to get the identity.
 
 > [!div class="mx-imgBorder"]
-![Text Analytics Identity](../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoints-identity.png)
+> ![Text Analytics Identity](../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoints-identity.png)
 
 2. Add the above identity as *Contributer* by going to Azure Search Service IAM tab.
 
@@ -39,7 +39,7 @@ Private endpoints are provided by [Azure Private Link](../../private-link/privat
 5. Go to *Networking* tab of Text Analytics service and under the *Allow access from*, select the *Selected Networks and private endpoints* option and Click *save*.
  
 > [!div class="mx-imgBorder"]
-![Text Analytics newtorking](../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoint-networking-custom-qna.png)
+> ![Text Analytics newtorking](../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoint-networking-custom-qna.png)
 
 This will establish a private endpoint connection between QnA maker service and Azure cognitive search service instance. You can verify the Private endpoint connection on the *Networking* tab of Azure Search service instance. Once the whole operation is completed, you are good to use your QnA Maker service. 
 
