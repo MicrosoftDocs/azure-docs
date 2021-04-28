@@ -119,14 +119,12 @@ $wspara = @{
 $ws = Get-AzOperationalInsightsWorkspace @wspara
     
 ## Enable the diagnostic setting. ##
-$diag = {
-    ResourceId = $lb.id
-    Name = <your-diagnostic-setting-name>
-    Enabled = $true
-    Category = 'AllMetrics'
-    WorkspaceId = $ws.id
-}
-Set-AzDiagnosticSetting @diag
+Set-AzDiagnosticSetting `
+    -ResourceId $lb.id `
+    -Name <your-diagnostic-setting-name> `
+    -Enabled $true `
+    -MetricCategory 'AllMetrics' `
+    -WorkspaceId $ws.ResourceId
 ```
 
 #### Storage account
@@ -149,14 +147,12 @@ $storpara = @{
 $storage = Get-AzStorageAccount @storpara
     
 ## Enable the diagnostic setting. ##
-$diag = {
-    ResourceId = $lb.id
-    Name = <your-diagnostic-setting-name>
-    StorageAccountId = $storage.id
-    Enabled = $true
-    Category = 'AllMetrics'
-}
-Set-AzDiagnosticSetting @diag
+Set-AzDiagnosticSetting `
+    -ResourceId $lb.id `
+    -Name <your-diagnostic-setting-name> `
+    -StorageAccountId $storage.id `
+    -Enabled $true `
+    -MetricCategory 'AllMetrics'
 ```
 
 #### Event hub
@@ -177,16 +173,22 @@ $hubpara = @{
     Name = <your-event-hub-name>
 }
 $eventhub = Get-AzEventHubNamespace @hubpara
-    
-## Enable the diagnostic setting. ##
-$diag = {
-    ResourceId = $lb.id
-    Name = <your-diagnostic-setting-name>
-    EventHubName = $eventhub.id
-    Enabled = $true
-    Category = 'AllMetrics'
+
+## Place the event hub authorization rule in a variable. ##    
+$hubrule = @{
+    ResourceGroupName = 'myResourceGroup'
+    Namespace = 'myeventhub8675'
 }
-Set-AzDiagnosticSetting @diag
+$eventhubrule = Get-AzEventHubAuthorizationRule @hubrule
+
+## Enable the diagnostic setting. ##
+Set-AzDiagnosticSetting `
+    -ResourceId $lb.Id `
+    -Name 'myDiagSetting-event'`
+    -EventHubName $eventhub.Name `
+    -EventHubAuthorizationRuleId $eventhubrule.Id `
+    -Enabled $true `
+    -MetricCategory 'AllMetrics'
 ```
 ### Azure CLI
 
@@ -201,19 +203,19 @@ az login
 To enable Diagnostic Logs for a Log Analytics workspace, enter these commands. Replace the bracketed values with your values:
 
 ```azurecli
-    lbid=$(az network lb show \
+lbid=$(az network lb show \
     --name <your-load-balancer-name> \
     --resource-group <your-resource-group> \
     --query id \
     --output tsv)
 
-    wsid=$(az monitor log-analytics workspace show \
+wsid=$(az monitor log-analytics workspace show \
     --resource-group <your-resource-group> \
     --workspace-name <your-log-analytics-workspace-name> \
     --query id \
     --output tsv)
     
-    az monitor diagnostic-settings create \
+az monitor diagnostic-settings create \
     --name <your-diagnostic-setting-name> \
     --resource $lbid \
     --metrics '[{"category": "AllMetrics","enabled": true}]' \
@@ -225,19 +227,19 @@ To enable Diagnostic Logs for a Log Analytics workspace, enter these commands. R
 To enable Diagnostic Logs in a storage account, enter these commands. Replace the bracketed values with your values:
 
 ```azurecli
-    lbid=$(az network lb show \
+lbid=$(az network lb show \
     --name <your-load-balancer-name> \
     --resource-group <your-resource-group> \
     --query id \
     --output tsv)
 
-    storid=$(az storage account show \
-    --name <your-storage-account-name> \  
-    --resource-group <your-resource-group> \
-    --query id \
-    --output tsv)
+storid=$(az storage account show \
+        --name <your-storage-account-name> \
+        --resource-group <your-resource-group> \
+        --query id \
+        --output tsv)
     
-    az monitor diagnostic-settings create \
+az monitor diagnostic-settings create \
     --name <your-diagnostic-setting-name> \
     --resource $lbid \
     --metrics '[{"category": "AllMetrics","enabled": true}]' \
@@ -255,18 +257,11 @@ lbid=$(az network lb show \
     --query id \
     --output tsv)
 
-evhubid=$(az eventhubs eventhub show \
-    --name <your-event-hub-name> \
-    --namespace-name <your-event-hub-namespace-name>
-    --resource-group <your-resource-group> \
-    --query id \
-    --output tsv)
-    
 az monitor diagnostic-settings create \
-    --name <your-diagnostic-setting-name> \
+    --name myDiagSetting-event \
     --resource $lbid \
     --metrics '[{"category": "AllMetrics","enabled": true}]' \
-    --event-hub $evhubid
+    --event-hub-rule /subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/providers/Microsoft.EventHub/namespaces/<your-event-hub-namespace>/authorizationrules/RootManageSharedAccessKey
 ```
 
 The metrics and logs you can collect are discussed in the following sections.
