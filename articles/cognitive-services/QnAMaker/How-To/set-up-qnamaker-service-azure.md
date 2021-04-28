@@ -74,7 +74,7 @@ This procedure creates the Azure resources needed to manage the knowledge base c
 > ![Create a new TA service - pricing tier and regions](../media/qnamaker-how-to-setup-service/custom-qna-create-button.png)
 
    * Choose the **Subscription** under which the Text Analytics resource will be deployed.
-   * Create a new **Resource group** (recommended) or use an existing one in which to deploy this Text Analytics resource. Enabling custom question answering with Text Analytics resource creates few Azure resources. When you create a resource group to hold these resources, you can easily find, manage, and delete these resources by the resource group name.
+   * Create a new **Resource group** (recommended) or use an existing one in which to deploy this Text Analytics resource. Enabling custom question answering with a Text Analytics resource creates fewer Azure resources. When you create a resource group to hold these resources, you can easily find, manage, and delete these resources by the resource group name.
    * In the **Name** field, enter a unique name to identify this Text Analytics resource. 
    * Choose the **Location** where you want the Text Analytics resource to be deployed. The management APIs and service endpoint will be hosted in this location. 
    * Select the **Pricing tier** for the Text Analytics service. See [more details about SKU pricing](https://aka.ms/qnamaker-pricing).
