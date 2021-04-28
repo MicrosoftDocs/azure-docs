@@ -1,6 +1,6 @@
 ---
 title: Achieving NIST AAL2 with the Azure Active Directory
-description: Guidance on achieving NIST authenticator assurance levell 2 (AAL 2) with Azure Active Directory.
+description: Guidance on achieving NIST authenticator assurance level 2 (AAL 2) with Azure Active Directory.
 services: active-directory 
 ms.service: active-directory
 ms.subservice: fundamentals

@@ -100,7 +100,7 @@ These methods perform two independent authentication transactions with Azure AD.
 
 Multi-factor factor authentication requires one authentication factor (something you know or something you are) to unlock a second authentication factor. This is typically a simpler user experience than multiple independent authenticators.
 
-![Conceptual image of multi-factor authentication a single multi-factor authenticator.](media/nist-authentication-basics/nist-authentication-basics-3.png)
+![Conceptual image of multi-factor authentication a single multi-factor authenticator.](media/nist-authentication-basics/nist-authentication-basics-3a.png)
 
 One example is the Microsoft Authenticator app used in the passwordless mode. With this method the user attempts to access a secured resource (relying party), and receives a notification on their authenticator app. The user responds to a notification by providing either a biometric (something you are) or a PIN (something you know), which then unlocks the cryptographic key on the phone (something you have) which is then validated by the verifier.
 
