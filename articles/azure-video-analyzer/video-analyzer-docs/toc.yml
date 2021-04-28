@@ -40,10 +40,8 @@
       href: detect-motion-record-video-clips-edge-devices.md #404      
 - name: Tutorials
   items:
-  - name: Playback multi-day recordings
-    href: playback-multi-day-recordings.md #404
   - name: Use continuous video recording
-    href: use-continuous-video-recording.md 
+    href: use-continuous-video-recording.md #404
   - name: Use event-based video recording
     href: record-event-based-live-video.md #404
   - name: Use line crossing
@@ -106,8 +104,8 @@
     href: configure-signal-gate.md #404
   - name: Use widgets
     href: use-widgets.md #404
-  - name: Monitor and log on IoT Edge
-    href: monitor-log-edge.md 
+  - name: Monitor and logging
+    href: monitor-logging-edge.md 
   - name: Troubleshoot
     href: troubleshoot.md
 - name: Reference 
@@ -132,8 +130,6 @@
     href: vs-code-extension.md  #404
   - name: Cookies
     href: auth-session-cookies.md #404
-  - name: Video Indexer Migration
-    href: video-indexer-migration.md #404
 - name: Resources
   items:
   - name: Azure roadmap
@@ -142,9 +138,7 @@
     href: https://azure.microsoft.com/pricing/details/media-services/
   - name: Azure Video Analyzer player
     href: player.md #404
-  - name: FAQs - Cloud
-    href: faq-cloud.md # 404
-  - name: FAQs - Edge
+  - name: FAQs
     href: faq-edge.md 
   - name: Quotas and limitations
     href: quotas-limitations.md
