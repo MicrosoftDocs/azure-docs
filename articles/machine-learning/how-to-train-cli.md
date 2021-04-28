@@ -132,6 +132,7 @@ With a parameterized command, you can easily modify the `job.yml` into `job-swee
 | `max_total_trials` | The maximum number of individual trials to run. |
 | `max_concurrent_trials` | [Optional] The maximum number of trials to run concurrently on your compute cluster. |
 | `timeout_minutes` | [Optional] The maximum number of minutes to run the sweep job for. |
+| `experiment_name` | [Optional] The experiment to track the sweep job under. If omitted, it will default to the name of the working directory when the job is created. |
 
 A sweep job can be specified for sweeping across hyperparameters used in the command.
 
