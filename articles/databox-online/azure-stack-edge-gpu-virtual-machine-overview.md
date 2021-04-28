@@ -82,7 +82,7 @@ To deploy a VM, you first need to create all the resources that are needed to cr
 
 1. Connect to the local Azure Resource Manager of your device. 
 1. Identify the built-in subscription on the device.
-1. Bring your VM image
+1. Bring your VM image.
     1. Create a resource group in the built-in subscription. The resource group will contain the VM and all the related resources.
     2. Create a local storage account on the device to store the VHD that will be used to create a VM image.
     3. Upload a Windows/Linux source image into the storage account to create a managed disk.
@@ -136,6 +136,10 @@ You can [turn on the VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.
 ### Manage network interfaces, virtual switches
 
 You can [add, modify, detach network interfaces](azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md) for your VMs. You can also [create new virtual switches](azure-stack-edge-gpu-create-virtual-switch-powershell.md) on your device to deploy VMs. 
+
+### Manage data disks, VM size
+
+You can add a [data disk to an existing VM](azure-stack-edge-gpu-manage-virtual-machine-disks-portal.md#add-a-data-disk), [attach an existing disk](azure-stack-edge-gpu-manage-virtual-machine-disks-portal.md#add-a-data-disk), [detach a data disk](azure-stack-edge-gpu-manage-virtual-machine-disks-portal.md#detach-a-data-disk), and finally [resize the VM](azure-stack-edge-gpu-manage-virtual-machine-resize-portal.md#resize-a-vm) itself via the Azure portal.
 
 ### Back up VMs
 
