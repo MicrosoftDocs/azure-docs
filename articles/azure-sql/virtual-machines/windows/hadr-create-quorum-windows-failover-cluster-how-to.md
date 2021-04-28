@@ -72,7 +72,7 @@ Some of the scenarios that are supported use of Cloud Witness as a quorum witnes
 - Starting with Windows Server 2012 R2, it is recommended to always configure a witness as the cluster automatically 
 manages the witness vote and the nodes vote with Dynamic Quorum.
 
-#### <a name="CloudWitnessSetUp"></a> Set up a Cloud Witness for a cluster
+### <a name="CloudWitnessSetUp"></a> Set up a Cloud Witness for a cluster
 
 To set up a Cloud Witness as a quorum witness for your cluster, complete the following steps:
 1. Create an Azure Storage Account to use as a Cloud Witness
