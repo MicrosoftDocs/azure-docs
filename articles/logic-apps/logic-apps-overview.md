@@ -1,6 +1,6 @@
 ---
 title: Overview for Azure Logic Apps
-description: Logic Apps is a cloud platform for building automated workflows that integrate apps, data, services, and systems for enterprise scenarios using minimal code.
+description: The Logic Apps cloud platform helps you create and run automated workflows for enterprise integration scenarios using little to no code.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
@@ -92,7 +92,7 @@ Logic apps running in different Azure environments also have different limits. F
 
 The Logic Apps integration platform provides prebuilt Microsoft-managed API connectors and built-in operations so you can connect and integrate apps, data, services, and systems more easily and quickly. You can focus more on designing and implementing your solution's business logic and functionality, not on figuring out how to access your resources.
 
-You usually won't have write any code. However, if you have to write some code, you can create code snippets using [Azure Functions](../azure-functions/functions-overview.md) and run that code from your workflow. You can also create code snippets that run in your workflow by using the [**Inline Code** action](logic-apps-add-run-inline-code.md). If your workflow needs to interact with events from Azure services, custom apps, or other solutions, you can monitor, route, and publish events using [Azure Event Grid](../event-grid/overview.md).
+You usually won't have to write any code. However, if you have to write some code, you can create code snippets using [Azure Functions](../azure-functions/functions-overview.md) and run that code from your workflow. You can also create code snippets that run in your workflow by using the [**Inline Code** action](logic-apps-add-run-inline-code.md). If your workflow needs to interact with events from Azure services, custom apps, or other solutions, you can monitor, route, and publish events using [Azure Event Grid](../event-grid/overview.md).
 
 Logic Apps, Azure Functions, Azure Event Grid, and other Azure services are fully managed by Microsoft, which frees you from worrying about hosting, scaling, managing, monitoring, and maintaining solutions built with these services. When you use these capabilities to create ["serverless" apps and solutions](../logic-apps/logic-apps-serverless-overview.md), you can just focus on the business logic and functionality. These services automatically scale to meet your needs, make integrations faster, and help you build robust cloud apps using little to no code.
 
