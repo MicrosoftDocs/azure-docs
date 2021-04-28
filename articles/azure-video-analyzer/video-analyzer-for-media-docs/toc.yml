@@ -1,8 +1,8 @@
-- name: Video Indexer Documentation
+- name: Video Analyzer for Media documentation
   href: ./index.yml
 - name: Overview
   items:
-  - name: What is Video Indexer?
+  - name: What is Video Analyzer for Media?
     href: video-indexer-overview.md
 - name: Quickstarts
   expanded: true
@@ -15,19 +15,19 @@
   items:
   - name: Create a new account
     href: connect-to-azure.md
-  - name: Use Video Indexer API
+  - name: Use Video Analyzer for Media API
     href: video-indexer-use-apis.md
   - name: Logic Apps connector
     href: logic-apps-connector-tutorial.md
 - name: Samples
   items:
-  - name: Video Indexer samples
+  - name: Video Analyzer for Media samples
     href: https://github.com/Azure-Samples/media-services-video-indexer
 - name: Concepts
   items:
   - name: Overview
     href: concepts-overview.md
-  - name: Compare Video Indexer and Media Services presets
+  - name: Compare Video Analyzer for Media and Media Services presets
     href: compare-video-indexer-with-media-services-presets.md   
   - name: Manage multiple tenants
     href: manage-multiple-tenants.md  
@@ -53,7 +53,7 @@
     href: manage-account-connected-to-azure.md
   - name: Upload and index videos
     href: upload-index-videos.md
-  - name: Examine Video Indexer output
+  - name: Examine Video Analyzer for Media output
     href: video-indexer-output-json-v2.md
   - name: Find exact moments within videos
     displayName: search
@@ -62,13 +62,13 @@
     href: scenes-shots-keyframes.md
   - name: Identify and transcribe multi-language content
     href: multi-language-identification-transcription.md
-  - name: View and edit Video Indexer insights
+  - name: View and edit insights
     href: video-indexer-view-edit.md
   - name: Use editor to create projects
     href: use-editor-create-project.md
   - name: Embed widgets into your application
     href: video-indexer-embed-widgets.md
-  - name: Considerations when using Video Indexer at scale
+  - name: Considerations when using Video Analyzer for Media at scale
     href: considerations-when-use-at-scale.md
   - name: Disaster recovery
     href: video-indexer-disaster-recovery.md        
@@ -78,25 +78,25 @@
       href: animated-characters-recognition-how-to.md
     - name: Person
       items: 
-      - name: using Video Indexer website
+      - name: using the website
         href: customize-person-model-with-website.md
-      - name: using Video Indexer API
+      - name: using the API
         href: customize-person-model-with-api.md
     - name: Brands 
       items: 
-      - name: using Video Indexer website
+      - name: using the website
         href: customize-brands-model-with-website.md
-      - name: using Video Indexer API
+      - name: using the API
         href: customize-brands-model-with-api.md        
     - name: Language
       items: 
-      - name: using Video Indexer website
+      - name: using the website
         href: customize-language-model-with-website.md
-      - name: using Video Indexer API
+      - name: using the API
         href: customize-language-model-with-api.md        
 - name: Reference
   items:
-  - name: Video Indexer API
+  - name: Video Analyzer for Media API
     href: https://api-portal.videoindexer.ai/
 - name: Resources
   items:

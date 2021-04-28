@@ -45,9 +45,9 @@ In this quickstart, you'll use Azure Video Analyzer on IoT Edge along with the O
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/use-intel-openvino-tutorial/http-extension-with-vino.svg" alt-text="Overview":::
 
-This diagram shows how the signals flow in this quickstart. An [edge module]() simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source]() node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline-extension.md) node. 
+This diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/azure-video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline-extension.md#http-extension-processor) node. 
 
-The HTTP extension node plays the role of a proxy. It  It samples the incoming video frames set by you `samplingOptions` field and also converts the video frames to the specified image type. Then it relays the image over REST to another edge module that runs AI models behind an HTTP endpoint. In this example, that edge module is the OpenVINO™ Model Server – AI Extension from Intel. The HTTP extension processor node gathers the detection results and publishes events to the [IoT Hub sink]() node. The node then sends those events to [IoT Edge Hub](../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
+The HTTP extension node plays the role of a proxy. It  It samples the incoming video frames set by you `samplingOptions` field and also converts the video frames to the specified image type. Then it relays the image over REST to another edge module that runs AI models behind an HTTP endpoint. In this example, that edge module is the OpenVINO™ Model Server – AI Extension from Intel. The HTTP extension processor node gathers the detection results and publishes events to the [IoT Hub sink](pipeline.md#iot-hub-message-sink) node. The node then sends those events to [IoT Edge Hub](../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
 
 In this tutorial, you will:
 
@@ -146,7 +146,7 @@ Right-click the Azure Video Analyzer device and select **Start Monitoring Built-
 ![Start monitoring](./media/quickstarts/start-monitoring-iot-hub-events.png)<!-- needs new screenshot --> 
 
 ### Run the sample program to detect vehicles
-If you open the [pipeline topology]()<!-- need updated link --> for this tutorial in a browser, you will see that the value of `inferencingUrl` has been set to `http://openvino:4000/vehicleDetection`, which means the inference server will return results after detecting vehicles, if any, in the live video.
+If you open the [pipeline topology](pipeline.md)<!-- need updated link --> for this tutorial in a browser, you will see that the value of `inferencingUrl` has been set to `http://openvino:4000/vehicleDetection`, which means the inference server will return results after detecting vehicles, if any, in the live video.
 
 1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
 1. Right click and select **Extension Settings**.
@@ -303,7 +303,7 @@ In the messages, notice the following details:
 ## Run the sample program to detect persons, vehicles or bikes
 To use a different model, you will need to modify the pipeline topology, and as well as `operations.json` file.
 
-Copy the [pipeline topology]()<!-- need new link --> to a local file, say `C:\TEMP\topology.json`. Open that copy, and edit the value of `inferencingUrl` to `http://openvino:4000/personVehicleBikeDetection`.
+Copy the [pipeline topology](pipeline.md) to a local file, say `C:\TEMP\topology.json`. Open that copy, and edit the value of `inferencingUrl` to `http://openvino:4000/personVehicleBikeDetection`.
 
 Next, in Visual Studio Code, go to the *src/cloud-to-device-console-app* folder and open `operations.json` file. Edit the line with `topologyUrl` to:
 

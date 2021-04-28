@@ -25,8 +25,8 @@ The following example illustrates how you can generate a preset to stitch two or
 
 ## Prerequisites
 
-Clone or download the [Media Services .NET samples](https://github.com/Azure-Samples/media-services-v3-dotnet/).  The code that is referenced below is located in the [EncodingWithMESCustomStitchTwoAssets folder](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/VideoEncoding/EncodingWithMESCustomStitchTwoAssets/Program.cs).
+Clone or download the [Media Services .NET samples](https://github.com/Azure-Samples/media-services-v3-dotnet/).  The code that is referenced below is located in the [EncodingWithMESCustomStitchTwoAssets folder](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/VideoEncoding/Encoding_StitchTwoAssets/Program.cs).
 
 ### .NET code
 
-[!code-csharp[Main](../../../media-services-v3-dotnet/VideoEncoding/EncodingWithMESCustomStitchTwoAssets/Program.cs)]
+[!code-csharp[Main](../../../media-services-v3-dotnet/VideoEncoding/Encoding_StitchTwoAssets/Program.cs)]

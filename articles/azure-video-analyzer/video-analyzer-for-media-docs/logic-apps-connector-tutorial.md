@@ -10,7 +10,7 @@ ms.date: 09/21/2020
 
 # Tutorial: use Video Analyzer for Media with Logic App and Power Automate
 
-Azure Media Services [Azure Video Analyzer for Media (formerly Video Indexer) v2 REST API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Delete-Video?) supports both server-to-server and client-to-server communication and enables Video Analyzer for Media users to integrate video and audio insights easily into their application logic, unlocking new experiences and monetization opportunities.
+Azure Video Analyzer for Media (formerly Video Indexer) [REST API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Video) supports both server-to-server and client-to-server communication and enables Video Analyzer for Media users to integrate video and audio insights easily into their application logic, unlocking new experiences and monetization opportunities.
 
 To make the integration even easier, we support [Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Power Automate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/) connectors that are compatible with our API. You can use the connectors to set up custom workflows to effectively index and extract insights from a large amount of video and audio files, without writing a single line of code. Furthermore, using the connectors for your integration gives you better visibility on the health of your workflow and an easy way to debug it.  
 
@@ -91,7 +91,7 @@ Fill out [your account location](regions.md) and [account ID](./video-indexer-us
 
 Go to the “Get Video Index” action and fill out the required parameters. For Video ID, put in the following expression: triggerOutputs()['queries']['id'] 
 
-![video indexer action info](./media/logic-apps-connector-tutorial/video-indexer-action-info.jpg)
+![Video Analyzer for Media action info](./media/logic-apps-connector-tutorial/video-indexer-action-info.jpg)
 
 This expression tells the connecter to get the Video ID from the output of your trigger. In this case, the output of your trigger will be the output of “Upload video and index” in your first trigger. 
 
@@ -130,4 +130,4 @@ This tutorial showed just one Video Analyzer for Media connectors example. You c
 > [!div class="nextstepaction"]
 > [Use the Video Analyzer for Media API](video-indexer-use-apis.md)
 
-For additional resources, refer to this document on [Video Analyzer for Media.](/connectors/videoindexer-v2/)
+For additional resources, refer to [Video Analyzer for Media](/connectors/videoindexer-v2/)
