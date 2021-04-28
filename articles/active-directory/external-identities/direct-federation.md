@@ -192,13 +192,13 @@ Next, you'll configure federation with the identity provider configured in step 
 
 ### To configure direct federation in Azure AD using PowerShell
 
-1. Install the latest version of the Azure AD PowerShell for Graph module ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)). (If you need detailed steps, the Quickstart includes the guidance, [Powershell Module](b2b-quickstart-invite-powershell.md#prerequisites).)
+1. Install the latest version of the Azure AD PowerShell for Graph module ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)). If you need detailed steps, the Quickstart includes the guidance, [PowerShell module](b2b-quickstart-invite-powershell.md#prerequisites).
 2. Run the following command: 
    ```powershell
    Connect-AzureAD
    ```
-1. At the sign-in prompt, sign in with the managed Global Administrator account. 
-2. Run the following commands, replacing the values from the federation metadata file. For AD FS Server and Okta, the federation file is federationmetadata.xml, for example: `https://sts.totheclouddemo.com/federationmetadata/2007-06/federationmetadata.xml`. 
+3. At the sign-in prompt, sign in with the managed Global Administrator account. 
+4. Run the following commands, replacing the values from the federation metadata file. For AD FS Server and Okta, the federation file is federationmetadata.xml, for example: `https://sts.totheclouddemo.com/federationmetadata/2007-06/federationmetadata.xml`. 
 
    ```powershell
    $federationSettings = New-Object Microsoft.Open.AzureAD.Model.DomainFederationSettings
