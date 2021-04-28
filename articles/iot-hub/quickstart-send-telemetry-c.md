@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Send telemetry to Azure IoT Hub quickstart (C) | Microsoft Docs
-description: In this quickstart, you run two sample C applications to send simulated telemetry to an IoT hub and to read telemetry from the IoT hub for processing in the cloud.
+description: In this quickstart, you run two sample C applications in Windows to send simulated telemetry to an IoT hub and to read telemetry from the IoT hub for processing in the cloud.
 author: wesmc7777
 manager: philmea
 ms.service: iot-hub
@@ -13,7 +13,7 @@ ms.author: wesmc
 #Customer intent: As a C developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
 
-# Quickstart: Send telemetry from a device to an IoT hub and read it with a back-end application (C)
+# Quickstart: Send telemetry from a device to an IoT hub and read it with a back-end application (C - Windows)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -21,7 +21,7 @@ IoT Hub is an Azure service that enables you to ingest high volumes of telemetry
 
 The quickstart uses a C sample application from the [Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md) to send telemetry to an IoT hub. The Azure IoT device SDKs are written in [ANSI C (C99)](https://wikipedia.org/wiki/C99) for portability and broad platform compatibility. Before running the sample code, you will create an IoT hub and register the simulated device with that hub.
 
-This article is written for Windows, but you can complete this quickstart on Linux as well.
+This article is written for Windows, but you can complete this quickstart on [Linux](quickstart-send-telemetry-c-linux.md) as well.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
