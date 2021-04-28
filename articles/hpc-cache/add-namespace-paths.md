@@ -4,7 +4,7 @@ description: How to create client-facing paths for back-end storage with Azure H
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/11/2021
+ms.date: 04/22/2021
 ms.author: v-erkel
 ---
 
@@ -72,27 +72,7 @@ An NFS storage target can have multiple virtual paths, as long as each path repr
 
 When planning your namespace for an NFS storage target, keep in mind that each path must be unique, and can't be a subdirectory of another namespace path. For example, if you have a namespace path that is called ``/parent-a``, you can't also create namespace paths like ``/parent-a/user1`` and ``/parent-a/user2``. Those directory paths are already accessible in the namespace as subdirectories of ``/parent-a``.
 
-All of the namespace paths for an NFS storage system are created on one storage target. Most cache configurations can support up to ten namespace paths per storage target, but larger configurations can support up to 20.
-
-This list shows the maximum number of namespace paths per configuration.
-
-* Up to 2 GB/s throughput:
-
-  * 3 TB cache - 10 namespace paths
-  * 6 TB cache - 10 namespace paths
-  * 12 TB cache - 20 namespace paths
-
-* Up to 4 GB/s throughput:
-
-  * 6 TB cache - 10 namespace paths
-  * 12 TB cache - 10 namespace paths
-  * 24 TB cache -20 namespace paths
-
-* Up to 8 GB/s throughput:
-
-  * 12 TB cache - 10 namespace paths
-  * 24 TB cache - 10 namespace paths
-  * 48 TB cache - 20 namespace paths
+All of the namespace paths for an NFS storage system are created on one storage target.
 
 For each NFS namespace path, provide the client-facing path, the storage system export, and optionally an export subdirectory.
 

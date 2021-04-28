@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 04/27/2021
 ---
 
 # Validate XML with schemas in Azure Logic Apps with Enterprise Integration Pack
@@ -256,6 +256,14 @@ find and open your integration account, if not already open.
 1. After the **Schemas** page opens, select your schema, and choose **Delete**.
 
 1. To confirm that you want to delete the schema, choose **Yes**.
+
+## Limitations
+
+Usually, when you're using an integration account with your workflow and you want to validate XML, you add or upload the schema to that account. If you're referencing or importing a schema that's not in your integration account, you might receive the following error when you use the element `xsd:redefine`:
+
+`An error occurred while processing the XML schemas: ''SchemaLocation' must successfully resolve if <redefine> contains any child other than <annotation>.'.`
+
+To resolve this error, you need to use the element `xsd:import` or `xsd:include` instead of `xsd:redefine`, or use a URI.
 
 ## Next steps
 
