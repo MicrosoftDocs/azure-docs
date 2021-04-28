@@ -9,7 +9,6 @@ metadata:
   ms.service: virtual-desktop
   services: virtual-desktop
   ms.topic: landing-page
-  manager: femila
   author: Heidilohr
   ms.author: helohr
   ms.date: 04/27/2021
@@ -42,7 +41,7 @@ landingContent:
             url: connect-web.md
 
   # Card
-    - title: Connect with the macOS client
+  - title: Connect with the macOS client
     linkLists:
       - linkListType: how-to-guide
         links:
