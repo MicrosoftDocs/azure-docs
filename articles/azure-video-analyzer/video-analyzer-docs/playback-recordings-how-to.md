@@ -18,7 +18,7 @@ ms.date: 04/26/2021
 
 You can use Azure Video Analyzer on IoT Edge for [continuous video recording](continuous-video-recording.md) (CVR), whereby you can record video into the cloud for weeks or months. You can also limit your recording to clips that are of interest, via [event-based video recording](event-based-video-recording-concept.md) (EVR). 
 
-If you are evaluating the capabilities of Video Analyzer, then you should go through the [tutorial on CVR](use-continuous-video-recording.md), where you would play back the recordings using Azure Portal.
+If you are evaluating the capabilities of Video Analyzer, then you should go through the [tutorial on CVR](use-continuous-video-recording.md), where you would play back the recordings using Azure portal.
 
 If you are building an application or service using Video Analyzer APIs, then you should review the following to understand how you can play back recordings, in addition to reviewing the article on [access policies]()<!-- todo-->.
 
