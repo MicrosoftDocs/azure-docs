@@ -1,7 +1,7 @@
 ---
 title: Activate and set up your sensor
 description: This article describes how to sign in and activate a sensor console.
-ms.date: 1/12/2021
+ms.date: 04/28/2021
 ms.topic: how-to
 ---
 
@@ -97,7 +97,7 @@ For information about uploading a new certificate, supported certificate paramet
 
 #### Update sensor network configuration before activation  
 
-The sensor network configuration parameters were defined during the software installation or when you purchased a preconfigured sensor. The following parameters were defined:
+The sensor network configuration parameters were defined during the software installation, or when you purchased a preconfigured sensor. The following parameters were defined:
 
 - IP address
 - DNS
@@ -114,6 +114,28 @@ To update sensor network configuration parameters:
    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/editable-network-configuration-screen-v2.png" alt-text="Sensor Network Configuration.":::
 
 2. The parameters defined during installation are displayed. The option to define the proxy is also available. Update any settings as required and select **Save**.
+
+### Activate an expired license (legacy)
+
+For users with versions prior to 10.0, your license may expire, and the following alert will be displayed. 
+
+:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/activation-popup.png" alt-text="When youer license expires you will need to update your license throught the activation file.":::
+
+To activate your license:
+
+1. Open a case with support.
+
+1. Supply support with your Activation ID number.
+
+1. Support will supply you with new license information in the form of a string of letters.
+
+1. Read the terms and conditions, and check the checkbox to approve.
+
+1. Paste the string into space provided.
+
+    :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/add-license.png" alt-text="Paste the string into the provided field.":::
+
+1. Select **Activate**.
 
 ### Subsequent sign-ins
 

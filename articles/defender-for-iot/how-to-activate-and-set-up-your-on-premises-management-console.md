@@ -1,7 +1,7 @@
 ---
 title: Activate and set up your on-premises management console 
 description: Activating the management console ensures that sensors are registered with Azure and send information to the on-premises management console, and that the on-premises management console carries out management tasks on connected sensors.
-ms.date: 4/6/2021
+ms.date: 04/28/2021
 ms.topic: how-to
 ---
 
@@ -55,6 +55,28 @@ To activate the on-premises management console:
 1. Select the downloaded file.
 
 After initial activation, the number of monitored devices can exceed the number of committed devices defined during onboarding. This occurs if you connect more sensors to the management console. If there's a discrepancy between the number of monitored devices, and the number of committed devices, a warning will appear on the management console. If this happens, upload a new activation file.
+
+### Activate an expired license (legacy)
+
+For users with versions prior to 10.0, your license may expire, and the following alert will be displayed. 
+
+:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/activation-popup.png" alt-text="When youer license expires you will need to update your license throught the activation file.":::
+
+To activate your license:
+
+1. Open a case with support.
+
+1. Supply support with your Activation ID number.
+
+1. Support will supply you with new license information in the form of a string of letters.
+
+1. Read the terms and conditions, and check the checkbox to approve.
+
+1. Paste the string into space provided.
+
+    :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/add-license.png" alt-text="Paste the string into the provided field.":::
+
+1. Select **Activate**.
 
 ## Set up a certificate
 
