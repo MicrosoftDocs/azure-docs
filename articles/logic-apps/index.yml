@@ -32,7 +32,7 @@ landingContent:
           - text: Managed connectors
             url: ../connectors/managed.md
           - text: Available connectors for Azure Logic Apps
-            url: https://docs.microsoft.com/en-gb/connectors/connector-reference/connector-reference-logicapps-connectors
+            url: /connectors/connector-reference/connector-reference-logicapps-connectors
           - text: Built-in triggers and actions
             url: ../connectors/built-in.md
           - text: Schedule recurring workflows
