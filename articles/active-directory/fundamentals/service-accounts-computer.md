@@ -27,7 +27,7 @@ A computer account provides the following benefits:
 
 * **Unrestricted local access**: The computer account provides complete access to the machine’s local resources.
 
-* **Automatic password management**: Removes the need for you to manually change passwords. The account is a member of Active Directory, and the account password is changed automatically. Automatic password management also eliminates the need to register the service principal name for the service.
+* **Automatic password management**: Removes the need for you to manually change passwords. The account is a member of Active Directory, and the account password is changed automatically. Using a computer account eliminates the need to register the service principal name for the service.
 
 * **Limited access rights off-machine**: The default access-control list in Active Directory Domain Services (AD DS) permits minimal access to computer accounts. In the event of access by an unauthorized user, the service would have only limited access to resources on your network.
 
@@ -83,6 +83,5 @@ To learn more about securing service accounts, see the following articles:
 * [Introduction to on-premises service accounts](service-accounts-on-premises.md)
 * [Secure group managed service accounts](service-accounts-group-managed.md)
 * [Secure standalone managed service accounts](service-accounts-standalone-managed.md)
-* [Secure computer accounts](service-accounts-computer.md)  
 * [Secure user accounts](service-accounts-user-on-premises.md)  
 * [Govern on-premises service accounts](service-accounts-govern-on-premises.md)
