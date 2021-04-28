@@ -71,15 +71,12 @@ Uninstall-ADServiceAccount
 ```
 
 
-To work effectively, gMSAs must be in the managed service accounts organizational unit (OU).
+To work effectively, gMSAs must be in the managed service account's organizational unit (OU).
 
   
 ![Screen shot of a gMSA account in the managed service account OU.](./media/securing-service-accounts/secure-gmsa-image-1.png)
 
-To find service MSAs that might not be in the list, run the following commands.
-
-**To find all service accounts, including gMSAs and sMSAs:**
-
+To find service MSAs that might not be in the list, run the following commands:
 
 ```powershell
 
