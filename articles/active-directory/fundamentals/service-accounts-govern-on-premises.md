@@ -128,7 +128,7 @@ After you've conducted and documented the risk assessment, you might find that t
 
 Create a service account only after you've completed the risk assessment and documented the relevant information in your CMDB. Align the account restrictions with the risk assessment. Consider the following restrictions when they're relevant to your assessment:
 
-For all user accounts that you use as service accounts, define a realistic, definite end date. Set the date by using the **Account Expires** flag. For more information, see [Set-ADAccountExpiration](/powershell/module/activedirectory/set-adaccountexpiration). 
+* For all user accounts that you use as service accounts, define a realistic, definite end date. Set the date by using the **Account Expires** flag. For more information, see [Set-ADAccountExpiration](/powershell/module/activedirectory/set-adaccountexpiration). 
 
 * Login to the [LogonWorkstation](/powershell/module/activedirectory/set-aduser).
 
@@ -182,5 +182,4 @@ To learn more about securing service accounts, see the following articles:
 * [Secure group managed service accounts](service-accounts-group-managed.md)  
 * [Secure standalone managed service accounts](service-accounts-standalone-managed.md)  
 * [Secure computer accounts](service-accounts-computer.md)  
-* [Secure user accounts](service-accounts-user-on-premises.md)  
-* [Govern on-premises service accounts](service-accounts-govern-on-premises.md)
+* [Secure user accounts](service-accounts-user-on-premises.md)
