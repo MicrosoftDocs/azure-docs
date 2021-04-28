@@ -18,7 +18,7 @@ ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
 
 # Quickstart: Sign in users and get an access token in a Node web app using the auth code flow
 
-In this quickstart, you download and run a code sample that demonstrates how a Node.js web app can sign in users using the authorization code flow. The code sample also demonstrates how to get an access token to call Microsoft Graph API.
+In this quickstart, you download and run a code sample that demonstrates how a Node.js web app can sign in users by using the authorization code flow. The code sample also demonstrates how to get an access token to call Microsoft Graph API.
 
 See [How the sample works](#how-the-sample-works) for an illustration.
 
@@ -44,7 +44,7 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 > 1. Select **Register**.
 > 1. On the app **Overview** page, note the **Application (client) ID** value for later use.
 > 1. Under **Manage**, select **Certificates & secrets** > **New client secret**.  Leave the description blank and default expiration, and then select **Add**.
-> 1. Note the **Value** of the **Client Secret** for later use.
+> 1. Note the value of **Client secret** for later use.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure the application in Azure portal
@@ -71,7 +71,7 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 >
 > Extract the project, open the *ms-identity-node-main* folder, and then open the *index.js* file.
 >
-> Set the `clientID` with the **Application (client) ID**, and then set the `clientSecret` with the **Value** of the **Client secret**.
+> Set the `clientID` value with the application (client) ID, and then set the `clientSecret` value with the client secret.
 >
 >```javascript
 >const config = {
@@ -96,12 +96,12 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 >
 > Modify the values in the `config` section:
 >
-> - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered.
+> - `Enter_the_Application_Id_Here` is the application (client) ID for the application you registered.
 >
->    To find the value of **Application (client) ID**, go to the app registration's **Overview** page in the Azure portal.
-> - `Enter_the_Client_Secret_Here` is the **Value** of the **Client secret** for the application you registered.
+>    To find the application (client) ID, go to the app registration's **Overview** page in the Azure portal.
+> - `Enter_the_Client_Secret_Here` is the client secret for the application you registered.
 >
->    To retrieve or generate a new **Client secret**, under **Manage**, select **Certificates & secrets**.
+>    To retrieve or generate a new client secret, under **Manage**, select **Certificates & secrets**.
 >
 > The default `authority` value represents the main (global) Azure cloud:
 >
@@ -135,7 +135,7 @@ Run the project by using Node.js.
 
 ### How the sample works
 
-The sample hosts a web server on localhost, port 3000. When a web browser accesses this site, the sample immediately redirects the user to a Microsoft authentication page. Because of this, the sample does not contain any HTML or display elements. Authentication success displays the message, "OK".
+The sample hosts a web server on localhost, port 3000. When a web browser accesses this site, the sample immediately redirects the user to a Microsoft authentication page. Because of this, the sample does not contain any HTML or display elements. Authentication success displays the message "OK".
 
 ### MSAL Node
 
