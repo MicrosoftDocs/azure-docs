@@ -36,16 +36,16 @@ You can install the RVX Widget to playback video recordings. The widget can be i
 
 NPM:
 ```
-npm install –-save @azure/video-analytics/widgets
+npm install –-save @azure/video-analyzer/widgets
 ```
 YARN:
 ```
-yarn add @azure/video-analytics/widgets 
+yarn add @azure/video-analyzer/widgets 
 ```
 Alternatively you can embed an existing pre-build script by adding type="module" to the script element referencing the pre-build location using the following example:
 
 ```
-<script async type="module" src="https://unpkg.com/@azure/video-analytics/widgets"></script> 
+<script async type="module" src="https://unpkg.com/@azure/video-analyzer/widgets"></script> 
 ``` 
 
 ## Media endpoint 
