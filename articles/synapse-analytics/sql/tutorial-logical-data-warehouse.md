@@ -37,7 +37,7 @@ As a first step, you need to configure data source and specify file format of re
 
 Data sources represent connection string information that describes where your data is placed and how to authenticate to your data source.
 
-One example of data source definition that references public Azure Open Data Set is shown in the following example:
+One example of data source definition that references public [ECDC COVID 19 Azure Open Data Set](https://azure.microsoft.com/en-us/services/open-datasets/catalog/ecdc-covid-19-cases/) is shown in the following example:
 
 ```sql
 CREATE EXTERNAL DATA SOURCE ecdc_cases WITH (
@@ -198,7 +198,6 @@ The security rules depend on your security policies. Some generic guidelines are
 
 ## Next steps
 
-To learn how to connect serverless SQL pool to Power BI Desktop and create reports, see [Connect serverless SQL pool to Power BI Desktop and create reports](tutorial-connect-power-bi-desktop.md).
-
-To learn how to use External tables in serverless SQL pool see [Use external tables with Synapse SQL](develop-tables-external-tables.md?tabs=sql-pool)
+- To learn how to connect serverless SQL pool to Power BI Desktop and create reports, see [Connect serverless SQL pool to Power BI Desktop and create reports](tutorial-connect-power-bi-desktop.md).
+- To learn how to use External tables in serverless SQL pool see [Use external tables with Synapse SQL](develop-tables-external-tables.md?tabs=sql-pool)
 
