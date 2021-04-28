@@ -170,6 +170,8 @@ The following tables contain the different configuration options for each defaul
 }
 ```
 
+For more information on how to configure Azure Active Directory refer to the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-aad.md).
+
 # [Apple](#tab/apple)
 
 | Field Path                             | Description                                                                                          |
@@ -196,6 +198,8 @@ The following tables contain the different configuration options for each defaul
   }
 }
 ```
+
+For more information on how to configure Apple as an authentication provider refer to the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-apple.md).
 
 # [Facebook](#tab/facebook)
 
@@ -224,6 +228,8 @@ The following tables contain the different configuration options for each defaul
 }
 ```
 
+For more information on how to configure Facebook as an authentication provider refer to the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-facebook.md).
+
 # [GitHub](#tab/github)
 
 | Field Path                             | Description                                                                                          |
@@ -250,6 +256,8 @@ The following tables contain the different configuration options for each defaul
   }
 }
 ```
+
+For more information on how to configure GitHub as an authentication provider refer to the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-github.md).
 
 # [Google](#tab/google)
 
@@ -278,6 +286,8 @@ The following tables contain the different configuration options for each defaul
 }
 ```
 
+For more information on how to configure Google as an authentication provider refer to the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-google.md).
+
 # [Twitter](#tab/twitter)
 
 | Field Path                               | Description                                                                                            |
@@ -304,6 +314,8 @@ The following tables contain the different configuration options for each defaul
   }
 }
 ```
+
+For more information on how to configure Twitter as an authentication provider refer to the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-twitter.md).
 
 ## Next steps
 
