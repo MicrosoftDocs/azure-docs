@@ -63,15 +63,14 @@ This procedure creates the Azure resources needed to manage the knowledge base c
 
 1. Sign in to the Azure portal and [create a Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) resource.
 
-1. Select **Create** after you read the terms and conditions:
-
-    ![Create a new QnA Maker service](../media/qnamaker-how-to-setup-service/create-new-resource-button.png)
-    
 1. Select Custom question answering feature to add to the Text Analytics resource. Click on 'Continue to create your resource'.
+
+  > [!div class="mx-imgBorder"]
+  > ![Add QnA to TA](../media/qnamaker-how-to-setup-service/select-qna-feature-create-flow.png)
 
 1. Select the appropriate tiers and regions for the resource:
 
-    ![Create a new QnA Maker managed service - pricing tier and regions](../media/qnamaker-how-to-setup-service/enter-qnamaker-v2-info.png)
+    ![Create a new TA service - pricing tier and regions](../media/qnamaker-how-to-setup-service/custom-qna-create-button.png)
 
     * Choose the **Subscription** under which the Text Analytics resource will be deployed.
     * Create a new **Resource group** (recommended) or use an existing one in which to deploy this Text Analytics resource. Enabling custom question answering with Text Analytics resource creates few Azure resources. When you create a resource group to hold these resources, you can easily find, manage, and delete these resources by the resource group name.
@@ -86,9 +85,12 @@ This procedure creates the Azure resources needed to manage the knowledge base c
 
 1. After all the fields are validated, select **Review + Create**. The process can take a few minutes to complete.
 
+  > [!div class="mx-imgBorder"]
+  > ![Add QnA to TA](../media/qnamaker-how-to-setup-service/custom-qna-review-resource.png)
+
 1. After deployment is completed, you'll see the following resources created in your subscription:
 
-    ![Resource created a new QnA Maker managed (Preview) service](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
+    ![Resource created a new QnA Maker managed (Preview) service](../media/qnamaker-how-to-setup-service/resources-created-question-answering.png)
 
     The resource with the _Cognitive Services_ type has your _subscription_ keys.
 
