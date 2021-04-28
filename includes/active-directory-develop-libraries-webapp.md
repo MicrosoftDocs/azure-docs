@@ -18,7 +18,7 @@
 
 <sup>1</sup> [Supplemental terms of use for Microsoft Azure Previews][preview-tos] apply to libraries in *Public preview*.
 
-<sup>2</sup> Contrary to the MSAL libraries [Microsoft.IdentityModel](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) isn't about acquiring tokens, but it's about validating tokens.
+<sup>2</sup> The [Microsoft.IdentityModel](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) library only _validates_ tokens - it cannot request ID or access tokens.
 
 <!--Image references-->
 
