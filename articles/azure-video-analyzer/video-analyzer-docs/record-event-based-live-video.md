@@ -26,7 +26,7 @@ Read these articles before you begin:
 * [Azure Video Analyzer on IoT Edge overview](overview.md)
 * [Azure Video Analyzer on IoT Edge terminology](terminology.md)
 * [Video Analyzer Pipeline concepts](pipeline.md) 
-* [Event-based video recording]() <!—event-based-video-concept -->	
+* [Event-based video recording](event-based-video-recording-concept.md)
 * [Tutorial: Developing an IoT Edge module](../../iot-edge/tutorial-develop-for-linux.md)
 * [How to edit deployment.*.template.json](https://github.com/microsoft/vscode-azure-iot-edge/wiki/How-to-edit-deployment.*.template.json)
 * Section on [how to declare routes in IoT Edge deployment manifest](../../iot-edge/module-composition.md#declare-routes)
@@ -192,7 +192,6 @@ When you use the Azure Video Analyzer on IoT Edge module to record the live vide
 
     `"topologyName" : "EVRtoVideosOnObjDetect"`
 1. Open the [pipeline topology](https://raw.githubusercontent.com/Azure/azure-video-analyzer/master/pipelines/live/topologies/evr-video/topology.json) in a browser, and look at videoName - it is hard-coded to `sample-evr-video`. This is acceptable for a tutorial. In production, you would take care to ensure that each unique RTSP camera is recorded to a video resource with a unique name.
-1. 
 1. Start a debugging session by selecting F5. You'll see some messages printed in the **TERMINAL** window.
 1. The operations.json file starts off with calls to pipelineTopologyList and livePipelineList. If you've cleaned up resources after previous quickstarts or tutorials, this action returns empty lists and then pauses for you to select **Enter**, as shown:
     ```
@@ -381,7 +380,7 @@ This event indicates that recording has stopped. The subject section in applicat
 
 You can examine the Video Analyzer video resource that was created by the live pipeline by logging in to the Azure portal and viewing the video.
 1. Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
-1. Locate your Video Analzyer account among the resources you have in your subscription, and open the account pane.
+1. Locate your Video Analyzer account among the resources you have in your subscription, and open the account pane.
 1. Select **Videos** in the **Video Analyzers** list.
 
     ![Video Analyzers videos]()<!--./media/event-based-video-recording-tutorial/videos.png-->
@@ -389,7 +388,7 @@ You can examine the Video Analyzer video resource that was created by the live p
 1. Select the video.
 1. On the video details page, select playback option <!-- TODO: fix this-->
 
-    ![VIdeo playback]()<!--TODO: new screenshot is needed here-->
+    ![Video playback]()<!--TODO: new screenshot is needed here-->
 
 1. For more information on scrubbing the video to see the entire recording, see [video playback]()<!--video-playback-concept.md-->.
 
