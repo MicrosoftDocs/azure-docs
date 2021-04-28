@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: tutorial
 ms.author: rolyon
 ms.reviewer: 
-ms.subservice: blobs
+ms.subservice: common
 ms.date: 04/27/2021
 
 #Customer intent: 
