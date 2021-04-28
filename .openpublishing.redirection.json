@@ -54472,7 +54472,17 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-enable-remote-access-sharepoint.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-integrate-with-sharepoint-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-integrate-with-sharepoint-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server-saml.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-integrate-with-sharepoint-server-saml",
       "redirect_document_id": false
     },
     {
@@ -54557,8 +54567,13 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-qlik.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-qlik",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-qlik",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-qlik.md",
+      "redirect_url": "/azure/active-directory/apps-proxy/application-proxy-qlik",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-silent-installation.md",

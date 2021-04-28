@@ -1,24 +1,19 @@
 ---
-title: Publish on=premises SharePoint with Application Proxy - Azure AD
-description: Covers the basics about how to integrate an on-premises SharePoint server with Azure AD Application Proxy for SAML.
+title: Publish on premises SharePoint with Azure Active Directory Application Proxy
+description: Covers the basics about how to integrate an on-premises SharePoint server with Azure Active Directory Application Proxy for SAML.
 services: active-directory
-documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: mtillman
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-proxy
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 10/02/2019
+ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
 ---
 
-# Integrate with SharePoint (SAML)
+# Integrate Azure Active Directory Application Proxy with SharePoint (SAML)
 
 This step-by-step guide explains how to secure the access to the [Azure Active Directory integrated on-premises Sharepoint (SAML)](../saas-apps/sharepoint-on-premises-tutorial.md) using Azure AD Application Proxy, where users in your organization (Azure AD, B2B) connect to Sharepoint through the Internet.
 
