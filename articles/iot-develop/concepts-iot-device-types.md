@@ -39,10 +39,10 @@ Below is a table showing some of the defining differences between an MCU and an 
 |**RAM**| Less | More |
 |**Flash**| Less | More |
 |**OS**| No or RTOS | General Purpose |
-|**Development Difficulty**| Harder |  Easier |
+|**Development Difficulty**| Harder | Easier |
 |**Power Consumption**| Lower | Higher |
 |**Cost**| Lower | Higher |
-|**Deterministic**| Yes | No  - with exceptions|
+|**Deterministic**| Yes | No - with exceptions |
 |**Device Size**| Smaller | Larger |
 
 # Next steps
