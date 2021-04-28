@@ -117,5 +117,4 @@ If you do extend network segments, identify those networks now following these g
 Now that you've gathered and documented the needed information continue to the next section to create your Azure VMware Solution private cloud.
 
 > [!div class="nextstepaction"]
-> [Deploy Azure VMware Solution](deploy-azure-vmware-solution.md)
-> 
+> [Deploy Azure VMware Solution](deploy-azure-vmware-solution.md)> 

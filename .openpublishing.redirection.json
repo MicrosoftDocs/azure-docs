@@ -1016,6 +1016,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/custom-policy-rest-api-claims-validation.md",
+      "redirect_url": "/azure/active-directory-b2c/add-api-connector",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-setup-li-app.md",
       "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin",
       "redirect_document_id": true
@@ -43078,6 +43083,11 @@
     {
       "source_path_from_root": "/articles/mysql/reference-azure-cli.md",
       "redirect_url": "/cli/azure/mysql",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/howto-build-services-resilent-to-metadata-refresh.md",
+      "redirect_url": "/azure/active-directory/develop/howto-build-services-resilient-to-metadata-refresh",
       "redirect_document_id": false
     },
     {
