@@ -25,7 +25,7 @@ This article describes how to set up direct federation with another organization
 When you set up direct federation with a partner's IdP, new guest users from that domain can use their own IdP-managed organizational account to sign in to your Azure AD tenant and start collaborating with you. There's no need for the guest user to create a separate Azure AD account.
 
 > [!IMPORTANT]
-> “Should do” info as best practice; “must do” to complete task
+> You can set up direct federation with partners who use specific identity providers or if their IdP authentication URL domain matches the target domain. Otherwise, some DNS configuration might be required. See [Step 1: Determine if the partner needs to update their DNS text records](#step-1-determine-if-the-partner-needs-to-update-their-dns-text-records) for details. 
 
 ## When is a guest user authenticated with direct federation?
 After you set up direct federation with an organization, any new guest users you invite will be authenticated using direct federation. It’s important to note that setting up direct federation doesn’t change the authentication method for guest users who have already redeemed an invitation from you. Here are some examples:
