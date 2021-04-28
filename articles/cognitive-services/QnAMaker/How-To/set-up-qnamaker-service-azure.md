@@ -61,36 +61,37 @@ This procedure creates the Azure resources needed to manage the knowledge base c
 
 This procedure creates the Azure resources needed to manage the knowledge base content. After you complete these steps, you'll find the *subscription* keys on the **Keys** page for the resource in the Azure portal.
 
-1. Sign in to the Azure portal and [create a Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) resource.
+1.  Sign in to the Azure portal and [create a Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) resource.
 
-1. Select **Create** after you read the terms and conditions:
+2.  Select Custom question answering feature to add to the Text Analytics resource. Click on **Continue to create your resource**.
 
-    ![Create a new QnA Maker service](../media/qnamaker-how-to-setup-service/create-new-resource-button.png)
-    
-1. Select Custom question answering feature to add to the Text Analytics resource. Click on 'Continue to create your resource'.
+> [!div class="mx-imgBorder"]
+> ![Add QnA to TA](../media/qnamaker-how-to-setup-service/select-qna-feature-create-flow.png)
 
-1. Select the appropriate tiers and regions for the resource:
+3.  Select the appropriate tiers and regions for the Text Analytics resource. For the custom question answering feature, select search location and pricing tier.
 
-    ![Create a new QnA Maker managed service - pricing tier and regions](../media/qnamaker-how-to-setup-service/enter-qnamaker-v2-info.png)
+> [!div class="mx-imgBorder"]
+> ![Create a new TA service - pricing tier and regions](../media/qnamaker-how-to-setup-service/custom-qna-create-button.png)
 
-    * Choose the **Subscription** under which the Text Analytics resource will be deployed.
-    * Create a new **Resource group** (recommended) or use an existing one in which to deploy this Text Analytics resource. Enabling custom question answering with Text Analytics resource creates few Azure resources. When you create a resource group to hold these resources, you can easily find, manage, and delete these resources by the resource group name.
-    * In the **Name** field, enter a unique name to identify this Text Analytics service. 
-    * Choose the **Location** where you want the Text Analytics service to be deployed. The management APIs and service endpoint will be hosted in this location. 
-    * Select the **Pricing tier** for the Text Analytics service. See [more details about SKU pricing](https://aka.ms/qnamaker-pricing).
-    
-1. For Custom question answering feature, select search location and pricing tier.
+   * Choose the **Subscription** under which the Text Analytics resource will be deployed.
+   * Create a new **Resource group** (recommended) or use an existing one in which to deploy this Text Analytics resource. Enabling custom question answering with a Text Analytics resource creates fewer Azure resources. When you create a resource group to hold these resources, you can easily find, manage, and delete these resources by the resource group name.
+   * In the **Name** field, enter a unique name to identify this Text Analytics resource. 
+   * Choose the **Location** where you want the Text Analytics resource to be deployed. The management APIs and service endpoint will be hosted in this location. 
+   * Select the **Pricing tier** for the Text Analytics service. See [more details about SKU pricing](https://aka.ms/qnamaker-pricing).
+   * Choose the **Search location** where you want Azure Cognitive Search indexes to be deployed. Restrictions on where customer data must be stored will help determine the location you choose for Azure Cognitive Search.
+   * Choose the **Search pricing tier** of the Azure Cognitive Search service. If the Free tier option is unavailable (appears dimmed), it means you already have a free service deployed through your subscription. In that case, you'll need to start with the Basic tier. See [Azure Cognitive Search pricing details](https://azure.microsoft.com/pricing/details/search/).
 
-    * Choose the **Search location** where you want Azure Cognitive Search indexes to be deployed. Restrictions on where customer data must be stored will help determine the location you choose for Azure Cognitive Search.
-    * Choose the **Search pricing tier** of the Azure Cognitive Search service. If the Free tier option is unavailable (appears dimmed), it means you already have a free service deployed through your subscription. In that case, you'll need to start with the Basic tier. See [Azure Cognitive Search pricing details](https://azure.microsoft.com/pricing/details/search/).
+4.  After all the fields are validated, select **Review + Create**. The process can take a few minutes to complete.
 
-1. After all the fields are validated, select **Review + Create**. The process can take a few minutes to complete.
+> [!div class="mx-imgBorder"]
+> ![Review TA resource](../media/qnamaker-how-to-setup-service/custom-qna-review-resource.png)
 
-1. After deployment is completed, you'll see the following resources created in your subscription:
+5.  After deployment is completed, you'll see the following resources created in your subscription:
 
-    ![Resource created a new QnA Maker managed (Preview) service](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
+> [!div class="mx-imgBorder"]
+> ![Resource created a new QnA Maker managed (Preview) service](../media/qnamaker-how-to-setup-service/resources-created-question-answering.png)
 
-    The resource with the _Cognitive Services_ type has your _subscription_ keys.
+   The resource with the _Cognitive Services_ type has your _subscription_ keys.
 
 ---
 
