@@ -150,7 +150,7 @@ Now set up the routing for the storage account. You go to the Message Routing pa
    >
    > For example, using the default blob file name format, if the hub name is ContosoTestHub, and the date/time is October 30, 2018 at 10:56 a.m., the blob name will look like this: `ContosoTestHub/0/2018/10/30/10/56`.
    > 
-   > The blobs are written in the Avro format by default.
+   > The blobs are written in the AVRO format by default.
    >
 
 8. Select **Create** to create the storage endpoint and add it to the route. You return to the **Add a route** pane.
