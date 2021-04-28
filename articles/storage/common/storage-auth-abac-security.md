@@ -7,7 +7,7 @@ author: santoshc
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/16/2021
+ms.date: 04/28/2021
 ms.author: santoshc
 ms.reviewer: jiacfan
 ms.subservice: common
@@ -92,12 +92,6 @@ When you define a role assignment condition on these roles, you should use ident
 For the [Copy Blob](/rest/api/storageservices/Copy-Blob) and [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) operations, `@Request` conditions using blob path as attribute on the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` action and its suboperations are evaluated only for the destination blob.
 
 For conditions on the source blob, `@Resource` conditions on the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` action are evaluated.
-
-### Behavior for Get Page Ranges
-
-For the [Get Page Ranges](/rest/api/storageservices/get-page-ranges) operation, `@Resource` conditions using `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags` as an attribute on the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read action` and its suboperations are evaluated only for the destination blob.
-
-Conditions don't apply for access to the blob specified by the `prevsnapshot` URI parameter in the API.
 
 ## See also
 
