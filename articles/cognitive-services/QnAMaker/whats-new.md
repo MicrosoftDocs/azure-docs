@@ -22,7 +22,7 @@ Learn what's new with QnA Maker.
 
 * QnA Maker managed has been re-introduced as Custom question answering feature in [Text Analytics resource](https://ms.portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics).
 * Support for unstructured documents.
-* Prebuilt API has been introduced to fetch answer from document text passed with API.
+* Prebuilt API has been introduced to fetch answer from document text.
 
 ### November 2020
 
