@@ -47,7 +47,7 @@ One of the required parameters in the ARM template is `repositoryToken`, which a
 1. As your token is created the details are shown on screen.
 
 > [!IMPORTANT]
-> Make sure you copy this token and store it somewhere safe. Consider storing this token in [Azure KeyVault](../azure/azure-resource-manager/templates/template-tutorial-use-key-vault.md) and access it in your ARM Template. 
+> Make sure you copy this token and store it somewhere safe. Consider storing this token in [Azure KeyVault](../azure-resource-manager/templates/template-tutorial-use-key-vault.md) and access it in your ARM Template. 
 ## Create a GitHub Repo for your static content
 Follow these steps to create a new GitHub Repo with a sample "index.html" Static Web App
 
