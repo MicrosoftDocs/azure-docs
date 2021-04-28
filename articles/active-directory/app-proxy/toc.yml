@@ -115,8 +115,8 @@
       href: application-proxy-secure-api-access.md 
     - name: Configure custom home page
       href: application-proxy-configure-custom-home-page.md
-    #   - name: Configure cookie settings
-    #     href: application-proxy-configure-cookie-settings.md
+    - name: Configure cookie settings
+      href: application-proxy-configure-cookie-settings.md
     - name: Publish using wildcards
       href: application-proxy-wildcard.md
     - name: Configure custom domain

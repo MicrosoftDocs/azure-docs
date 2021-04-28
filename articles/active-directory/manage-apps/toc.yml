@@ -182,8 +182,6 @@
         href: migrate-adfs-application-activity.md
     - name: Configure on-premises app access
       items:
-      - name: Configure cookie settings
-        href: application-proxy-configure-cookie-settings.md
       - name: Secure legacy apps 
         items:
         - name: Secure hybrid access with Azure AD 
