@@ -72,7 +72,7 @@ Following are the high level steps in order to enable playback of recordings in 
 
 ## Browsing and selective playback of recordings  
 
-Consider the scenario where you have used Azure Video Analyzer on IoT Edge to record video only from 8AM to 10AM on days when a school was open, for the entire academic year. Or perhaps you are recording video only from 7AM to 7PM on national holidays. In either of these two scenarios, when attempting to browse and view your video recording, you would need:
+Consider the scenario where you have used Video Analyzer on IoT Edge to record video only from 8AM to 10AM on days when a school was open, for the entire academic year. Or perhaps you are recording video only from 7AM to 7PM on national holidays. In either of these two scenarios, when attempting to browse and view your video recording, you would need:
 
 * A way to determine what dates/hours of video you have in a  recording.
 * A way to select a portion (for example, 9AM to 11AM on New Years Day) of that recording to playback.
@@ -256,8 +256,8 @@ Here are the constraints on the filters.
 
 |startTime|	endTime	|Result|
 |---|---|---|
-|Absent	|Absent	|Returns the most recent portion of the video in the Asset, up to a maximum length of 4 hours.<br/><br/>If the Asset has not been written to (no new video data coming in) recently, an on-demand (VoD) manifest is returned. Else, a live manifest is returned.|
-|Present|Absent|	Return a manifest with whatever video is available that is newer than startTime, if such a manifest would be shorter than 24 hours.<br/>If the length of the manifest would exceed 24 hours, then return an error.<br/>If the Asset has not been written to (no new video data coming in) recently, an on-demand (VoD) manifest is returned. Else, a live manifest is returned.
+|Absent	|Absent	|Returns the most recent portion of the video, up to a maximum length of 4 hours.<br/><br/>If the video resource has not been written to (no new video data coming in) recently, an on-demand (VoD) manifest is returned. Else, a live manifest is returned.|
+|Present|Absent|	Return a manifest with whatever video is available that is newer than startTime, if such a manifest would be shorter than 24 hours.<br/>If the length of the manifest would exceed 24 hours, then return an error.<br/>If the video resource has not been written to (no new video data coming in) recently, an on-demand (VoD) manifest is returned. Else, a live manifest is returned.
 |Absent|Present	|Error – if startTime is present, then endTime is mandatory.|
 |Present|Present|Return a VoD manifest with whatever video is available between startTime and endTime.<br/>The span (startTime, endTime) cannot exceed 24 hours.|
 
@@ -333,10 +333,10 @@ With such a recording:
 * If you request a manifest where both startTime/endTime range filters were inside the ‘available’ parts of the timeline, namely from midnight to 4AM, or noon to midnight, then the service would return a manifest that covers the time from startTime to endTime, such as:
 
     `GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T14:01:00.000Z,endTime=2019-12-21T03:00:00.000Z).m3u8`
-* If you request a manifest where the startTime and endTime were inside the ‘hole’ in the middle – say from 8AM to 10AM UTC, then the service would behave the same way as if an Asset Filter were to result in an empty result.
+* If you request a manifest where the startTime and endTime were inside the ‘hole’ in the middle – say from 8AM to 10AM UTC, then the service would return an empty result.
 
     [This is a request that gets an empty response] `GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T08:00:00.000Z,endTime=2019-12-21T10:00:00.000Z).m3u8`
-* If you request a manifest where only one of the startTime or endTime is inside the ‘hole’, then the returned manifest would only include a portion of that timespan. It would snap the startTime or endTime value to the nearest valid boundary. For example, if you asked for a 3-hr stream from 10AM to 1PM, the response would contain 1-hr worth of media for 12 noon to 1PM
+* If you request a manifest where only one of the startTime or endTime is inside the ‘hole’, then the returned manifest would only include a portion of that timespan. It would snap the startTime or endTime value to the nearest valid boundary. For example, if you asked for a 3-hr stream from 10AM to 1PM, the response would contain 1-hr worth of media for 12 noon to 1PM:
 
     `GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T10:00:00.000Z,endTime=2019-12-21T13:00:00.000Z).m3u8`
     
