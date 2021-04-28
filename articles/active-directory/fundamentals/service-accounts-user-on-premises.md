@@ -1,6 +1,6 @@
 ---
-title: Secure on-premises user service accounts  | Azure Active Directory
-description: A guide to securing on-premises user accounts.
+title: Secure user-based service accounts  | Azure Active Directory
+description: A guide to securing user-based service accounts.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -15,7 +15,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Secure on-premises user accounts in Active Directory
+# Secure user-based service accounts in Active Directory
 
 Using on-premises user accounts is the traditional approach to helping secure services that run on Windows. Use these accounts as a last resort when group managed service accounts (gMSAs) and standalone managed service accounts (sMSAs) aren't supported by your service. For information about selecting the best type of account to use, see [Introduction to on-premises service accounts](service-accounts-on-premises.md). 
 
@@ -33,8 +33,8 @@ The challenges associated with the use of on-premises user accounts are summariz
 
 | Challenge | Mitigation |
 | - | - |
-| Password management is a manual process that can lead to weaker security and service downtime.| Do either of the following:<li>Ensure that password complexity and password change are governed by a robust process that ensures regular updates with strong password.<li>Coordinate password change with a password update on the service, which will help reduce service downtime. |
-| Identifying on-premises user accounts that are acting as service accounts can be difficult. | Do any of the following:<li>Document and maintain records of service accounts deployed in your environment.<li>Track the account name and the resources to which they're assigned access.<li>Consider adding a prefix of "svc_" to all user accounts used as service accounts. |
+| Password management is a manual process that can lead to weaker security and service downtime.| <li>Ensure that password complexity and password change are governed by a robust process that ensures regular updates with strong password.<li>Coordinate password change with a password update on the service, which will help reduce service downtime. |
+| Identifying on-premises user accounts that are acting as service accounts can be difficult. | <li>Document and maintain records of service accounts deployed in your environment.<li>Track the account name and the resources to which they're assigned access.<li>Consider adding a prefix of "svc-" to all user accounts that are used as service accounts. |
 | | |
 
 
@@ -42,7 +42,7 @@ The challenges associated with the use of on-premises user accounts are summariz
 
 On-premises user accounts are just like any other Active Directory user account. It can be difficult to find such accounts, because no single attribute of a user account identifies it as a service account. 
 
-We recommend that you create an easily identifiable naming convention for any user account that you use as a service account. For example, you might add "service-" (including the dash) as a prefix and name the service “service-HRDataConnector.”
+We recommend that you create an easily identifiable naming convention for any user account that you use as a service account. For example, you might add "svc-" (including the dash) as a prefix and name the service “svc-HRDataConnector.”
 
 You can use some of the following criteria to find these service accounts. However, this approach might not find all such accounts.
 
@@ -92,9 +92,9 @@ Potential security issues and their mitigations for on-premises user accounts ar
 
 | Security issue | Mitigation |
 | - | - |
-| Password management.| Do either of the following:<li>Ensure that password complexity and password change are governed by a robust process that includes regular updates and strong password requirements.<li>Coordinate password changes with a password update to minimize service downtime. |
-| The account is a member of privileged groups.| Do any of the following:<li>Review group memberships.<li>Remove the account from privileged groups.<li>Grant the account only the rights and permissions it requires to run its service (consult with service vendor). For example, you might be able to deny sign-in locally or deny interactive sign-in. |
-| The account has read/write permissions to sensitive resources.| Do any of the following:<li>Audit access to sensitive resources.<li>Archive audit logs to a SIEM (Azure Log Analytics or Azure Sentinel) for analysis.<li>Remediate resource permissions if an undesirable level of access is detected. |
+| Password management.| <li>Ensure that password complexity and password change are governed by a robust process that includes regular updates and strong password requirements.<li>Coordinate password changes with a password update to minimize service downtime. |
+| The account is a member of privileged groups.| <li>Review group memberships.<li>Remove the account from privileged groups.<li>Grant the account only the rights and permissions it requires to run its service (consult with service vendor). For example, you might be able to deny sign-in locally or deny interactive sign-in. |
+| The account has read/write permissions to sensitive resources.| <li>Audit access to sensitive resources.<li>Archive audit logs to a SIEM (Azure Log Analytics or Azure Sentinel) for analysis.<li>Remediate resource permissions if an undesirable level of access is detected. |
 | | |
 
 
@@ -112,7 +112,6 @@ To learn more about securing service accounts, see the following articles:
 * [Secure group managed service accounts](service-accounts-group-managed.md)  
 * [Secure standalone managed service accounts](service-accounts-standalone-managed.md)  
 * [Secure computer accounts](service-accounts-computer.md)  
-* [Secure user accounts](service-accounts-user-on-premises.md)  
 * [Govern on-premises service accounts](service-accounts-govern-on-premises.md)
 
  
