@@ -151,7 +151,9 @@ In the application's `Main` method, add variables and code, shown in the followi
 
 - The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Go to the Azure portal and find the QnA Maker resource you created in the prerequisites. Click on **Keys and Endpoint** page, under **resource management** to locate Authoring (Subscription) key and QnA Maker Endpoint.
 
- ![QnA Maker Authoring Endpoint](../media/keys-endpoint.png)
+> [!div class="mx-imgBorder"]
+> ![Custom QnA Authoring Endpoint](../media/qnamaker-how-to-key-management/custom-qna-keys-and-endpoint.png)
+
 
 - For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../key-vault/general/overview.md) provides secure key storage.
 
