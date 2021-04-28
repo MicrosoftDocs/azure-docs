@@ -81,30 +81,22 @@ In this step, you will create a new Azure SQL Database logical server and a new 
    - **Location**: Select a location from the dropdown list.
 
    Select **OK**.
-
 1. Leave **Want to use SQL elastic pool** set to **No**.
-1. Under **Compute + storage**, select **Configure database**.
-1. This quickstart uses a serverless database, so select **Serverless**, and then select **Apply**. 
+1. Under **Compute + storage**, select **Configure database**, and click **Change configuration**.
 
-      ![configure serverless database](./media/single-database-create-quickstart/configure-database.png)
+   ![configure database](./media/always-encrypted-enclaves/portal-configure-database.png)
 
+1. Select the **DC-series** hardware configuration, and then select **OK**.
+
+   ![configure DC-series database](./media/always-encrypted-enclaves/portal-configre-dc-series-database.png)
+
+1. Select **Apply**.
 1. Select **Next: Networking** at the bottom of the page.
-
-   ![New SQL database - Basic tab](./media/single-database-create-quickstart/new-sql-database-basics.png)
-
 1. On the **Networking** tab, for **Connectivity method**, select **Public endpoint**.
 1. For **Firewall rules**, set **Add current client IP address** to **Yes**. Leave **Allow Azure services and resources to access this server** set to **No**.
-1. Select **Next: Additional settings** at the bottom of the page.
+1. Select **Review + create** at the bottom of the page.
 
-   ![Networking tab](./media/single-database-create-quickstart/networking.png)
-  
-
-1. On the **Additional settings** tab, in the **Data source** section, for **Use existing data**, select **Sample**. This creates an AdventureWorksLT sample database so there's some tables and data to query and experiment with, as opposed to an empty blank database.
-1. Optionally, enable [Azure Defender for SQL](../database/azure-defender-for-sql.md).
-1. Optionally, set the [maintenance window](../database/maintenance-window.md) so planned maintenance is performed at the best time for your database.
-1. Select **Review + create** at the bottom of the page:
-
-   ![Additional settings tab](./media/single-database-create-quickstart/additional-settings.png)
+   ![New SQL database - networking](./media/always-encrypted-enclaves/portal-configre-database-networking.png)
 
 1. On the **Review + create** page, after reviewing, select **Create**.
 
@@ -179,11 +171,11 @@ In this step, you will create a new Azure SQL Database logical server and a new 
 
 In this step, You'll create and configure an attestation provider in Microsoft Azure Attestation. This is needed to attest the secure enclave your database uses.
 
-### [Portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 
 TODO
 
-### [PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 1. Copy the below attestation policy and save the policy in a text file (txt). For information about the below policy, see [Create and configure an attestation provider](always-encrypted-enclaves-configure-attestation.md#create-and-configure-an-attestation-provider).
 
