@@ -38,4 +38,4 @@ To check license usage of ISV apps in Partner Center, do the following:
 
 ## Next steps
 
-- [Access analytic reports for the commercial marketplace in Partner Center](/partner-center-portal/analytics.md)
+- [Access analytic reports for the commercial marketplace in Partner Center](./partner-center-portal/analytics.md)
