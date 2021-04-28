@@ -6,7 +6,7 @@ ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 03/12/2021
+ms.date: 04/27/2021
 ---
 
 # Troubleshoot CI-CD, Azure DevOps and GitHub issues in ADF 
@@ -206,6 +206,28 @@ To recover the Deleted Data Factory which has Source Control refer the steps bel
 
  * If customer had a Self-hosted Integration Runtime in deleted ADF, they will have to create a new instance in new ADF, also uninstall and reinstall the instance on their On-prem machine/VM with the new key obtained. After setup of IR is completed, customer will have to change the Linked Service to point to new IR and test the connection or it will fail with error **invalid reference.**
 
+### Cannot deploy to different stage using automatic pubish method
+
+#### Issue
+Customer followed all necessary steps like installing NPM package and setting up a higher stage using Azure DevOps and ADF. But, dpeloyment is not happening.
+
+#### Cause
+
+While npm packages can be consumed in various ways, one of the primary benefits is being consumed via Azure Pipeline. On each merge into your collaboration branch, a pipeline can be triggered that first validates all of the code and then exports the ARM template into a build artifact that can be consumed by a release pipeline. In Starter pipeline,  YAML file should be valid and complete.
+
+
+#### Resolution
+Following section is not valid because cusotmer forgot to replace with valid package.json folder.
+
+```
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    workingDir: '$(Build.Repository.LocalPath)/<folder-of-the-package.json-file>' #replace with the package.json folder
+    customCommand: 'run build validate $(Build.Repository.LocalPath) /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName'
+  displayName: 'Validate'
+```
+It should have DataFactory included in customCommand like *'run build validate $(Build.Repository.LocalPath)/DataFactory/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName'*. Make sure the generated YAML file for higher stage should have required JSON artifcats.
 
 
 ## Next steps
