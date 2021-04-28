@@ -15,7 +15,7 @@ This article features step-by-step guides to troubleshooting deployment and othe
 
 ## Retrieve deployment error messages
 
-The Azure Static Web Apps deployment workflow uses the Node.js [Oryx build process](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/nodejs.md#build) which automatically runs the following commands:
+The Azure Static Web Apps deployment workflow uses the Node.js [Oryx build process](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/nodejs.md#build) that automatically runs the following commands:
 
 ```bash
 npm install
@@ -42,7 +42,7 @@ Any errors raised by this process are logged in the GitHub workflow run.
     > [!NOTE]
     > Some warning error messages may display in red, such as notes about *.oryx_prod_node_modules* and *workspace*. These are part of the normal deployment process.
 
-If any packages fail to install or other issues are raised you'll see the original error messages here, just as if you ran the `npm` commands locally.
+If any packages fail to install or other issues are raised you'll see the original error messages here, as if you ran the `npm` commands locally.
 
 ### Confirm folder configuration
 
@@ -60,7 +60,7 @@ There are three folder locations specified in the workflow. Ensure these setting
 
 | Configuration setting | Description |
 | --- | --- |
-| `app_location` | The root location of the source code to be deployed. This will typically be */* or the location of the JavaScript and HTML for your project. |
+| `app_location` | The root location of the source code to be deployed. This setting will typically be */* or the location of the JavaScript and HTML for your project. |
 | `output_location` | Name of the folder created by any build process from a bundler such as webpack. This folder both needs to be created by the build process, and a subdirectory under the `app_location` |
 | `api_location` |The root location of your Azure Functions application hosted by Azure Static Web Apps. This points to the root folder of all Azure Functions for your project, typically *api*. |
 
@@ -82,7 +82,7 @@ Use [Application Insights](../azure-monitor/app/app-insights-overview.md) to fin
 
     ![Screenshot of the failures screen](./media/troubleshooting/app-insights-errors.png)
 
-1. Select the button which says **x Operations** to open a panel displaying the recent failed operations.
+1. Select the button that says **x Operations** to open a panel displaying the recent failed operations.
 
     ![Screenshot of the operations screen](./media/troubleshooting/app-insights-operations.png)
 
@@ -94,7 +94,7 @@ Use [Application Insights](../azure-monitor/app/app-insights-overview.md) to fin
 
 Many web applications use environment variables for storing sensitive or environment-specific settings. Azure Static Web Apps supports environment variables through Application Settings.
 
-Application Settings are key/value pairs which set environment variables for your application. Variables are available to your application using the same syntax typical for accessing environment variables.
+Application Settings are key/value pairs that set environment variables for your application. Variables are available to your application using the same syntax typical for accessing environment variables.
 
 When deploying, double check any environment variables are set as Application Settings.
 
