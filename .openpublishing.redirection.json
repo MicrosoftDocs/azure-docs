@@ -54631,6 +54631,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-integrate-with-microsoft-cloud-application-security.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-integrate-with-microsoft-cloud-application-security",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-security.md",
       "redirect_url": "/azure/active-directory/app-proxy/application-proxy-security",
       "redirect_document_id": false

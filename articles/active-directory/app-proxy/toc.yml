@@ -151,8 +151,8 @@
     #       href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
     #     - name: Integrate with Power BI
     #       href: application-proxy-integrate-with-power-bi.md
-    #     - name: Integrate with Cloud App Security
-    #       href: application-proxy-integrate-with-microsoft-cloud-application-security.md
+      - name: Integrate with Cloud App Security
+        href: application-proxy-integrate-with-microsoft-cloud-application-security.md
       - name: Integrate with Remote Desktop
         href: application-proxy-integrate-with-remote-desktop-services.md
       - name: Integrate with SharePoint (Kerberos)
