@@ -41,11 +41,11 @@ Private endpoints are provided by [Azure Private Link](../../private-link/privat
 > [!div class="mx-imgBorder"]
 > ![Text Analytics newtorking](../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoint-networking-custom-qna.png)
 
-This will establish a private endpoint connection between QnA maker service and Azure cognitive search service instance. You can verify the Private endpoint connection on the *Networking* tab of Azure Search service instance. Once the whole operation is completed, you are good to use your QnA Maker service. 
+This will establish a private endpoint connection between Text Analytics service and Azure cognitive search service instance. You can verify the Private endpoint connection on the *Networking* tab of Azure Search service instance. Once the whole operation is completed, you are good to use your Text Analytics service. 
 
 ![Managed Networking Service](../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoint-networking-3.png)
 
 
 ## Support details
- * We don't support change Azure Search Service once you enable private access to your QnAMaker service. If you change the Azure Search Service via 'Configuration' tab after you have enabled private access, the QnAMaker service will become unusable.
- * After establishing Private Endpoint Connection, if you switch Azure Search Service Networking to 'Public', you won't be able to use the QnAMaker service. Azure Search Service Networking needs to be 'Private' for the Private Endpoint Connection to work
+ * We don't support change in Azure Search Service once you enable private access to your Text Analytics service. If you change the Azure Search Service via 'Configuration' tab after you have enabled private access, the Text Analytics service will become unusable.
+ * After establishing Private Endpoint Connection, if you switch Azure Search Service Networking to 'Public', you won't be able to use the Text Analytics service. Azure Search Service Networking needs to be 'Private' for the Private Endpoint Connection to work
