@@ -56,7 +56,7 @@ Custom question answering now supports unstructured documents. A  document that 
 
 Below is an example of an unstructured PDF document:
 
- ![Structured QnA document example for a knowledge base](./media/qnamaker-concepts-datasources/unstructured-qna-pdf.png)
+ ![Unstructured  document example for a knowledge base](./media/qnamaker-concepts-datasources/unstructured-qna-pdf.png)
 
  Currently this functionality is available only via document upload and only for PDF and DOC file formats.
 
