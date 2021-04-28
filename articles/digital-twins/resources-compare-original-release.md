@@ -43,6 +43,6 @@ For a list of Azure Digital Twins limits, see [*Azure Digital Twins service limi
 
 ## Next steps
 
-* Dive into working with the current release in the quickstart: [*Quickstart: Explore a sample scenario*](quickstart-adt-explorer.md).
+* Dive into working with the current release in the quickstart: [*Quickstart: Explore a sample scenario*](quickstart-azure-digital-twins-explorer.md).
 
 * Or, start reading about key concepts with [*Concepts: Custom models*](concepts-models.md).

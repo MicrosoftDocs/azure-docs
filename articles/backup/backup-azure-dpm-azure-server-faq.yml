@@ -1,0 +1,87 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Backup Server and DPM FAQ
+  description: In this article, discover answers to common questions about the Microsoft Azure Backup Server (MABS) and DPM (Data Protection Manager).
+  ms.reviewer: srinathv
+  ms.topic: conceptual
+  ms.date: 07/05/2019
+    
+title: Azure Backup Server and DPM - FAQ
+summary: |
+
+sections:
+  - name: General questions
+    questions:
+      - question: |
+          Can I use Azure Backup Server to create a Bare Metal Recovery (BMR) backup for a physical server?
+        answer: |
+          Yes.
+
+      - question: |
+          Can I register the server to multiple vaults?
+        answer: |
+          No. A DPM or Azure Backup server can be registered to only one vault.
+
+      - question: |
+          Can I use DPM to back up apps in Azure Stack?
+        answer: |
+          No. You can use Azure Backup to protect Azure Stack, Azure Backup doesn't support using DPM to back up apps in Azure Stack.
+
+      - question: |
+          If I've installed Azure Backup agent to protect my files and folders, can I install System Center DPM to back up on-premises workloads to Azure?
+        answer: |
+          Yes. But you should set up DPM first, and then install the Azure Backup agent.  Installing components in this order ensures that the Azure Backup agent works with DPM. Installing the agent before installing DPM isn't advised or supported.
+
+      - question: |
+          Why can’t I add an external DPM server after installing UR7 and latest Azure Backup agent?
+        answer: |
+          For the DPM servers with data sources that are protected to the cloud (by using an update rollup earlier than Update Rollup 7), you must wait at least one day after installing the UR7 and latest Azure Backup agent, to start **Add External DPM server**. The one-day time period is needed to upload the metadata of the DPM protection groups to Azure. Protection group metadata is uploaded the first time through a nightly job.
+
+      - question: |
+          Are there recommendations for configuring exclusions for antivirus software?
+        answer: |
+          Yes, it's recommended to configure antivirus exclusion. For exclusions for DPM, see [Run antivirus software on the DPM server](/system-center/dpm/run-antivirus-server). For exclusions for MABS, see [Configure antivirus for MABS server](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server).
+          
+  - name: VMware and Hyper-V backup
+    questions:
+      - question: |
+          Can I back up VMware vCenter servers to Azure?
+        answer: |
+          Yes. You can use Azure Backup Server to back up VMware vCenter Server and ESXi hosts to Azure.
+          
+          - [Learn more](backup-mabs-protection-matrix.md) about supported versions.
+          - [Follow these steps](backup-azure-backup-server-vmware.md) to back up a VMware server.
+          
+      - question: |
+          Do I need a separate license to recover a full on-premises VMware/Hyper-V cluster?
+        answer: |
+          You don't need separate licensing for VMware/Hyper-V protection.
+          
+          - If you're a System Center customer, use System Center Data Protection Manager (DPM) to protect VMware VMs.
+          - If you aren't a System Center customer, you can use Azure Backup Server (pay-as-you-go) to protect VMware VMs.
+          
+      - question: |
+          Can I restore a backup of a Hyper-V or VMware VM, stored in Azure, to Azure as an Azure VM?
+        answer: |
+          No, this is not currently possible. You can only restore to an on-premises host.
+
+  - name: SharePoint
+    questions:
+      - question: |
+          Can I recover a SharePoint item to the original location if SharePoint is configured by using SQL AlwaysOn (with protection on disk)?
+        answer: |
+          Yes, the item can be recovered to the original SharePoint site.
+
+      - question: |
+          Can I recover a SharePoint database to the original location if SharePoint is configured by using SQL AlwaysOn?
+        answer: |
+          Because SharePoint databases are configured in SQL AlwaysOn, they can't be modified unless the availability group is removed. As a result, DPM can't restore a database to the original location. You can recover a SQL Server database to another SQL Server instance.
+
+additionalContent: |
+
+  ## Next steps
+  
+  Read the other FAQs:
+
+  - [Learn more](backup-support-matrix-mabs-dpm.md) about Azure Backup Server and DPM support matrix.
+  - [Learn more](backup-azure-mabs-troubleshoot.md) about the Azure Backup Server and DPM troubleshooting guidelines.

@@ -22,7 +22,7 @@ Recommendations are available from the **Overview** navigation sidebar in the Az
 
 :::image type="content" source="./media/concepts-azure-advisor-recommendations/advisor-example.png" alt-text="Screenshot of the Azure portal showing an Azure Advisor recommendation.":::
 
-## Recommendation Types
+## Recommendation types
 Azure Database for PostgreSQL prioritize the following types of recommendations:
 * **Performance**: To improve the speed of your PostgreSQL server. This includes CPU usage, memory pressure, connection pooling, disk utilization, and product-specific server parameters. For more information, see [Advisor Performance recommendations](../advisor/advisor-performance-recommendations.md).
 * **Reliability**: To ensure and improve the continuity of your business-critical databases. This includes storage limits, connection limits, and hyperscale data distribution recommendations. For more information, see [Advisor Reliability recommendations](../advisor/advisor-high-availability-recommendations.md).
@@ -32,5 +32,5 @@ Azure Database for PostgreSQL prioritize the following types of recommendations:
 * **Daily schedule**: For Azure PostgreSQL databases, we check server telemetry and issue recommendations on a daily schedule. If you make a change to your server configuration, existing recommendations will remain visible until we re-examine telemetry on the following day. 
 * **Performance history**: Some of our recommendations are based on performance history. These recommendations will only appear after a server has been operating with the same configuration for 7 days. This allows us to detect patterns of heavy usage (e.g. high CPU activity or high connection volume) over a sustained time period. If you provision a new server or change to a new vCore configuration, these recommendations will be paused temporarily. This prevents legacy telemetry from triggering recommendations on a newly reconfigured server. However, this also means that performance history-based recommendations may not be identified immediately.
 
-## Next Steps
+## Next steps
 For more information, see [Azure Advisor Overview](../advisor/advisor-overview.md).

@@ -6,7 +6,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/04/2020
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
@@ -21,9 +21,9 @@ The following procedures explain how to use Log Streaming, Log Analytics, Metric
 
 * Complete the previous quickstarts in this series:
 
-  * [Provision Azure Spring Cloud service](spring-cloud-quickstart-provision-service-instance.md).
-  * [Set up Azure Spring Cloud configuration server](spring-cloud-quickstart-setup-config-server.md).
-  * [Build and deploy apps](spring-cloud-quickstart-deploy-apps.md).
+  * [Provision Azure Spring Cloud service](./quickstart-provision-service-instance.md).
+  * [Set up Azure Spring Cloud configuration server](./quickstart-setup-config-server.md).
+  * [Build and deploy apps](./quickstart-deploy-apps.md).
 
 ## Logs
 
@@ -68,7 +68,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
    [ ![Logs Analytics query - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png#lightbox)
 
-1. To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, check out [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/query-monitor-data).
+1. To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, check out [Azure Data Explorer](/azure/data-explorer/query-monitor-data).
 
 ## Metrics
 
@@ -110,9 +110,9 @@ With the built-in monitoring capability in Azure Spring Cloud, you can debug and
 
 Complete previous steps: 
 
-* [Provision an instance of Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md)
-* [Set up the config server](spring-cloud-quickstart-setup-config-server.md)
-* [Build and deploy apps](spring-cloud-quickstart-deploy-apps.md).
+* [Provision an instance of Azure Spring Cloud](./quickstart-provision-service-instance.md)
+* [Set up the config server](./quickstart-setup-config-server.md)
+* [Build and deploy apps](./quickstart-deploy-apps.md).
 
 ## Logs
 
@@ -166,7 +166,7 @@ To get the logs using Azure Toolkit for IntelliJ:
 
    [ ![Logs Analytics query](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png#lightbox)
 
-1. To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, check out [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/query-monitor-data).
+1. To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, check out [Azure Data Explorer](/azure/data-explorer/query-monitor-data).
 
 ## Metrics
 
@@ -223,6 +223,6 @@ To explore more monitoring capabilities of Azure Spring Cloud, see:
 > [!div class="nextstepaction"]
 > [Diagnostic services](diagnostic-services.md)
 >
-> [Distributed tracing](spring-cloud-howto-distributed-tracing.md)
+> [Distributed tracing](./how-to-distributed-tracing.md)
 >
-> [Stream logs in real time](spring-cloud-howto-log-streaming.md)
+> [Stream logs in real time](./how-to-log-streaming.md)

@@ -16,7 +16,7 @@ ms.date: 04/04/2021
 
 In this tutorial, you'll learn how to use the Synapse Studio Knowledge Center.
 
-## Introduction to the Knowledge Center
+## Finding to the Knowledge center
 
 There are two ways of finding the Knowledge Center in Synapse Studio:
 
@@ -25,12 +25,14 @@ There are two ways of finding the Knowledge Center in Synapse Studio:
 
 Pick either method and open the **Knowledge Center**.
 
+## Exploring the Knowledge center
+
 Once it is visible, you will see that the **Knowledge center** allows you to do three things:
 * **Use samples immediately**. If you want a quick example of how Synapse works, choose this option.
 * **Browse gallery**. This option lets you link sample data sets and add sample code in the form of SQL scripts, notebooks, and pipelines.
 * **Tour Synapse Studio**. This option takes you on a brief tour of the basic parts of Synapse Studio. This is useful if you have never used Synapse Studio before.
 
-## Exploring: Use samples immediately
+## Use samples immediately: Three samples to help you get started fast
 
 There are three items in this section:
 * Explore sample data with Spark
@@ -44,7 +46,7 @@ There are three items in this section:
 1. Scroll to the first query (lines 28 to 32) and select the query text.
 1. Click Run. It will run only code you have selected.
 
-## Loading more NYC Taxi Data
+## Gallery: A collectiopn of sample data sets and sample code
 
 1. Go to the **Knowledge Center**, click **Browse gallery**.
 1. Select the **SQL scripts** tab at the top.

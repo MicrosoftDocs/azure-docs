@@ -1,7 +1,7 @@
 ---
 title: How to protect your resource hierarchy - Azure Governance
 description: Learn how to protect your resource hierarchy with hierarchy settings that include setting the default management group.
-ms.date: 02/05/2021
+ms.date: 04/09/2021
 ms.topic: conceptual
 ---
 # How to protect your resource hierarchy
@@ -138,6 +138,28 @@ hierarchy:
 
 To turn the setting back off, use the same endpoint and set
 **requireAuthorizationForGroupCreation** to a value of **false**.
+
+## PowerShell sample
+
+PowerShell does not have an 'Az' command to set the default management group or set require authorization, but as a workaround you can leverage the REST API with the PowerShell sample below:
+
+```powershell
+$root_management_group_id = "Enter the ID of root management group"
+$default_management_group_id = "Enter the ID of default management group (or use the same ID of the root management group)"
+
+$body = '{
+     "properties": {
+          "defaultManagementGroup": "/providers/Microsoft.Management/managementGroups/' + $default_management_group_id + '",
+          "requireAuthorizationForGroupCreation": true
+     }
+}'
+
+$token = (Get-AzAccessToken).Token
+$headers = @{"Authorization"= "Bearer $token"; "Content-Type"= "application/json"}
+$uri = "https://management.azure.com/providers/Microsoft.Management/managementGroups/$root_management_group_id/settings/default?api-version=2020-02-01"
+
+Invoke-RestMethod -Method PUT -Uri $uri -Headers $headers -Body $body
+```
 
 ## Next steps
 

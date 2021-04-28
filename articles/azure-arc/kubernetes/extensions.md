@@ -22,7 +22,7 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 
 ## Prerequisites
 
-- [Install or upgrade Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) to version >= 2.16.0.
+- [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0.
 - `connectedk8s` (version >= 1.1.0) and `k8s-extension` (version >= 0.2.0) Azure CLI extensions. Install these Azure CLI extensions by running the following commands:
   
     ```azurecli
@@ -46,7 +46,7 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 | Extension | Description |
 | --------- | ----------- |
 | [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json) | Provides visibility into the performance of workloads deployed on the Kubernetes cluster. Collects memory and CPU utilization metrics from controllers, nodes, and containers. |
-| [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json) | Gathers audit log data from control plane nodes of the Kubernetes cluster. Provides recommendations and threat alerts based on gathered data. |
+| [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json) | Gathers information related to security like audit log data from the Kubernetes cluster. Provides recommendations and threat alerts based on gathered data. |
 
 ## Usage of cluster extensions
 
@@ -96,7 +96,7 @@ az k8s-extension create --name azuremonitor-containers  --extension-type Microso
 
 > [!NOTE]
 > * The service is unable to retain sensitive information for more than 48 hours. If Azure Arc enabled Kubernetes agents don't have network connectivity for more than 48 hours and cannot determine whether to create an extension on the cluster, then the extension transitions to `Failed` state. Once in `Failed` state, you will need to run `k8s-extension create` again to create a fresh extension Azure resource.
-> * * Azure Monitor for containers is a singleton extension (only one required per cluster). You'll need to clean up any previous Helm chart installations of Azure Monitor for containers (without extensions) before installing the same via extensions. Follow the instructions for [deleting the Helm chart before running `az k8s-extension create`](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-optout-hybrid).
+> * * Azure Monitor for containers is a singleton extension (only one required per cluster). You'll need to clean up any previous Helm chart installations of Azure Monitor for containers (without extensions) before installing the same via extensions. Follow the instructions for [deleting the Helm chart before running `az k8s-extension create`](../../azure-monitor/containers/container-insights-optout-hybrid.md).
 
 **Required parameters**
 
@@ -230,31 +230,6 @@ az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGro
   }
 ]
 ```
-
-### Update an existing extension instance
-
-Update an extension instance on a cluster with `k8s-extension update`, passing in the values to update.  This command only updates the `auto-upgrade-minor-version`, `release-train`, and `version` properties. For example:
-
-- **Update release train:**
-
-    ```azurecli
-    az k8s-extension update --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <clusterName> --resource-group <resourceGroupName> --release-train Preview
-    ```
-
-- **Turn off auto-upgrade and pin extension instance to a specific version:**
-
-    ```azurecli
-    az k8s-extension update --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <clusterName> --resource-group <resourceGroupName> --auto-upgrade-minor-version false --version 2.2.2
-    ```
-
-- **Turn on auto-upgrade for the extension instance:**
-
-    ```azurecli
-    az k8s-extension update --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <clusterName> --resource-group <resourceGroupName> --auto-upgrade-minor-version true
-    ```
-
-> [!NOTE]
-> The `version` parameter can be set only when `--auto-upgrade-minor-version` is set to `false`.
 
 ### Delete extension instance
 

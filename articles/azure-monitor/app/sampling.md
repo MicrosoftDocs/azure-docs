@@ -315,7 +315,7 @@ By default no sampling is enabled in the Java agent and SDK. Currently it only s
 ```json
 {
   "sampling": {
-    "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
+    "percentage": 10 //this is just an example that shows you how to enable only 10% of transaction 
   }
 }
 ```
