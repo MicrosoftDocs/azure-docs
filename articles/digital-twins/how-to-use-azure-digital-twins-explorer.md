@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Use Azure Digital Twins Explorer
 
-[**Azure Digital Twins Explorer**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) is a tool for visualizing and working with Azure Digital Twins. This article describes the features of Azure Digital Twins Explorer, and how to use them to manage the data in your Azure Digital Twins instance. 
+[Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) is a tool for visualizing and working with Azure Digital Twins. This article describes the features of Azure Digital Twins Explorer, and how to use them to manage the data in your Azure Digital Twins instance. 
 
 ## Set up
 
@@ -440,7 +440,7 @@ If import is successful, a modal window will display the number of models, twins
 
 You can use the export feature to export partial or complete graphs, including models, twins, and relationships. Export serializes the twins and relationships from the most recent query results, as well as all models in the instance, to a JSON-based format that you can download to your machine.
 
-To begin, use the [**QUERY EXPLORER**](#query-your-digital-twin-graph) panel to run a query that selects the twins and relationships that you want to download. This will populate them in the TWIN GRAPH panel.
+To begin, use the [QUERY EXPLORER](#query-your-digital-twin-graph) panel to run a query that selects the twins and relationships that you want to download. This will populate them in the TWIN GRAPH panel.
 
 >[!TIP]
 >The query to display all twins and relationships is `SELECT * FROM digitaltwins`.
@@ -476,5 +476,5 @@ Clicking the settings cog in the top right corner allows the configuration of th
 ## Next steps 
 
 Learn about writing queries for the Azure Digital Twins twin graph: 
-* [*Concepts: Query language*](concepts-query-language.md)
-* [*How-to: Query the twin graph*](how-to-query-graph.md)
+* [Concepts: Query language](concepts-query-language.md)
+* [How-to: Query the twin graph](how-to-query-graph.md)

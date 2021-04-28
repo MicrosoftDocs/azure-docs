@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Create an app registration to use with Azure Digital Twins
 
-When working with an Azure Digital Twins instance, it is common to interact with that instance through client applications, such as the custom client app built in the [*Tutorial: Code a client app*](tutorial-code.md). Those applications need to authenticate with Azure Digital Twins in order to interact with it, and some of the [authentication mechanisms](how-to-authenticate-client.md) that apps can use involve an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **app registration**.
+When working with an Azure Digital Twins instance, it is common to interact with that instance through client applications, such as the custom client app built in the [Tutorial: Code a client app](tutorial-code.md). Those applications need to authenticate with Azure Digital Twins in order to interact with it, and some of the [authentication mechanisms](how-to-authenticate-client.md) that apps can use involve an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **app registration**.
 
 This is not required for all authentication scenarios. However, if you are using an authentication strategy or code sample that does require an app registration, including a **client ID** and **tenant ID**, this article shows you how to set one up.
 

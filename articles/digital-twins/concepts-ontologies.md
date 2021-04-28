@@ -59,7 +59,7 @@ No matter which strategy you choose for integrating an ontology into Azure Digit
 
 After this, you should be able to use your models in your Azure Digital Twins instance. 
 
-You can visualize them using the [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) or [Azure Digital Twins Model Visualizer](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer).
+You can visualize them using the [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) or [Azure Digital Twins Model Visualizer](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer).
 
 ## Next steps
 

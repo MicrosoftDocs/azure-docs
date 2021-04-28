@@ -31,8 +31,6 @@ This article focuses on managing relationships and the graph as a whole; to work
 
 [!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
-You can also make changes to your graph using Azure Digital Twins Explorer, which allows you to visualize your twins and graph, and makes use of the SDK behind the scenes. The next section describes this tool in detail.
-
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
 ## Create relationships

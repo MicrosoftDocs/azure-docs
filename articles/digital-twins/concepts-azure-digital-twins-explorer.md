@@ -82,4 +82,4 @@ During public preview, however, data may be sent for processing through differen
 
 ## Next steps 
 
-Learn how to use Azure Digital Twins Explorer's features in detail: [*How-to: Use Azure Digital Twins Explorer*](how-to-use-azure-digital-twins-explorer.md).
+Learn how to use Azure Digital Twins Explorer's features in detail: [How-to: Use Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md).
