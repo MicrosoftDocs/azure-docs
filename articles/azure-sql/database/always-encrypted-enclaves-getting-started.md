@@ -173,7 +173,44 @@ In this step, You'll create and configure an attestation provider in Microsoft A
 
 # [Portal](#tab/azure-portal)
 
-TODO
+1. Go to the Azure portal menu or the home page and select **Create a resource**.
+1. In the search box, enter **attestation**.
+1. In the results list, select **Microsoft Azure Attestation**.
+1. On the **Microsoft Azure Attestation** page, select **Create**.
+1. On the **Create attestation provider** page, provide the following inputs:
+
+   - **Subscription**: Choose the same subscription you created the Azure SQL logical server in.
+   - **Resource Group**: Choose the same resource group you created the Azure SQL logical server in.
+   - **Name**: Enter a unique name.
+   - **Location**: Choose the location, in which you created the Azure SQL logical server in.
+   - **Policy signer certificates file**: Leave this field empty, as you will configure an unsigned policy.
+
+1. After you provide the required inputs, select **Review + create**.
+1. If there are validation issues, fix them and then select **Create**.
+1. Once the attestation provider is created, lick **Go to resource**.
+1. Select **Policy** on the resource menu on the left side of the window or on the lower pane.
+1. Set **Attestation Type** to **SGX-IntelSDK**.
+1. Select **Configure** on the upper menu.
+1. Set **Policy Format** to **Text**.
+1. Set **Policy options** to **Enter policy**.
+1. Remove the content of the default policy from the **Text** field. Copy the below policy and paste in the **Text** field.
+
+  ```output
+  version= 1.0;
+  authorizationrules 
+  {
+       [ type=="x-ms-sgx-is-debuggable", value==false ]
+        && [ type=="x-ms-sgx-product-id", value==4639 ]
+        && [ type=="x-ms-sgx-svn", value>= 0 ]
+        && [ type=="x-ms-sgx-mrsigner", value=="e31c9e505f37a58de09335075fc8591254313eb20bb1a27e5443cc450b6e33e5"] 
+    => permit();
+  };
+  ```
+
+1. Click **Save**.
+1. Click **Refresh** on the upper menu to view the configured policy.
+1. Click **Overview** on the resource menu.
+1. Copy the **Attest URI** to clipboard and save it in a file. This is the attestation URL, you will need in later steps. The attestation URL should look like this: `https://contososqlattestation.uks.attest.azure.net`.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -218,14 +255,14 @@ TODO
     -PolicyFormat  $policyFormat
   ```
 
-5. Retrieve the attestation URL (the Atest URI of your attestation provider).
+5. Retrieve the attestation URL (the Attest URI of your attestation provider).
 
   ```powershell
   $attestationUrl = (Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName).AttestUri
   Write-Host "Your attestation URL is: $attestationUrl"
   ```
 
-  The attestation URL should look like this: `https://contososqlattestation.uks.attest.azure.net/attest/SgxEnclave`
+  The attestation URL should look like this: `https://contososqlattestation.uks.attest.azure.net`
 
 ## Step 3: Populate your database
 
