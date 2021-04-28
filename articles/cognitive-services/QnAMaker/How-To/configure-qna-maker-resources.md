@@ -59,7 +59,8 @@ If you create a Text Analytics resource and its dependencies (such as Search) th
 
 1. Select **Features** and select the Azure Cognitive Search service you want to link with your Text Analytics resource.
 
-    ![Screenshot of QnA Maker managed (Preview) configuration page](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-configuration.png)
+> [!div class="mx-imgBorder"]
+> [Add QnA to TA](../media/qnamaker-how-to-upgrade-qnamaker/update-custom-qna-feature.png)
 
 1. Click **Save**.
 
