@@ -21,9 +21,11 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 ## April 2021
 <!-- markdownlint-disable MD029 -->
 
-### SDK updates (API  version 2.1-preview.3)
+### SDK preview updates for API  version 2.1-preview.3
 
-### **C# version 3.1.0-beta.4**
+### [**C#**](#tab/csharp)
+
+SDK preview version 3.1.0-beta.4
 
 * **New methods to analyze data from identity documents**:
 
@@ -56,7 +58,11 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 * **[StartRecognizeCustomForms](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient.startrecognizecustomforms?view=azure-dotnet-preview&preserve-view=true#Azure_AI_FormRecognizer_FormRecognizerClient_StartRecognizeCustomForms_System_String_System_IO_Stream_Azure_AI_FormRecognizer_RecognizeCustomFormsOptions_System_Threading_CancellationToken_)** method now throws a `RequestFailedException()` when an invalid file is passed.
 
-### **Java version 3.1.0-beta.3**
+---
+
+### [**Java**](#tab/java)
+
+SDK preview package version 3.1.0-beta.3
 
 * **New methods to analyze data from identity documents**:
 
@@ -92,7 +98,11 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 * The client defaults to the latest supported service version, which currently is **2.1-preview.3**.
 
-### **JavaScript version 3.1.0-beta.3**
+---
+
+### [**JavaScript**](#tab/javascript)
+
+SDK preview package version 3.1.0-beta.3
 
 * **New methods to analyze data from identity documents**:
 
@@ -115,7 +125,11 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 * Migrated to the **2.1-preview.3** Form Recognizer service endpoint for all REST API calls.
 
-### **Python version  3.1.0b4**
+---
+
+### [**Python**](#tab/python)
+
+SDK preview package version  3.1.0b4
 
 * **New methods to analyze data from identity documents**:
 
@@ -162,6 +176,8 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
    **[begin_recognize_content_from_url](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python-preview&preserve-view=true#begin-recognize-content-from-url-form-url----kwargs-)**
 
    The `readingOrder` keyword argument is an optional parameter that allows you to specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
+
+---
 
 ## March 2021
 
