@@ -164,10 +164,9 @@ Before you can start with Azure Logic Apps, you need an Azure subscription. If y
 
 Learn more about the Logic Apps platform with these introductory videos:
 
-* [Azure Logic Apps Overview](https://channel9.msdn.com/Blogs/One-Dev-Minute/Azure-Logic-Apps-Overview)
-* [Go serverless: Enterprise integration with Azure Logic Apps](https://channel9.msdn.com/Shows/Azure-Friday/Go-serverless-Enterprise-integration-with-Azure-Logic-Apps)
-* [Connect and extend your mainframe to the cloud with Logic Apps](https://channel9.msdn.com/Shows/Azure-Friday/Connect-and-extend-your-mainframe-to-the-cloud-with-Logic-Apps)
-
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Go-serverless-Enterprise-integration-with-Azure-Logic-Apps/player]
+>
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Connect-and-extend-your-mainframe-to-the-cloud-with-Logic-Apps/player]
 
 ## Next steps
 
