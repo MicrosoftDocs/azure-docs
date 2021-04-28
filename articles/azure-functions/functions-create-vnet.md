@@ -231,7 +231,7 @@ Create the private endpoint to lock down your Service Bus:
 
 1. Select **Add your client IP address** to give your current client IP access to the namespace.
     > [!NOTE]
-    > Allowing your client IP address is necessary to enable the Azure portal to [publish messages to the queue later in this tutorial](#test-your-locked-down-function-app)
+    > Allowing your client IP address is necessary to enable the Azure portal to [publish messages to the queue later in this tutorial](#test-your-locked-down-function-app).
 1. Select **Enable** to enable the service endpoint.
 1. Select **Add** to add the selected virtual network and subnet to the firewall rules for the Service Bus.
 1. Select **Save** to save the updated firewall rules.
