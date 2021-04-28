@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.topic: sample
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Set up custom domain

@@ -60,6 +60,8 @@ Starting in v3.1-preview.3, the Text Analytics API provides two asynchronous end
 
 * The `/health` endpoint for Text Analytics for health, which can extract and label relevant medical information from clinical documents.  
 
+Please note the /analyze and /health endpoints are only available in the following regions: West US 2, East US 2, Central US, North Europe and West Europe.
+
 See the table below to see which features can be used asynchronously. Note that only a few features can be called from the `/analyze` endpoint. 
 
 | Feature | Synchronous | Asynchronous |

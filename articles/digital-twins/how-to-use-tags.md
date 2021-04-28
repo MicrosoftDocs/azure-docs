@@ -53,11 +53,11 @@ Once tags have been added to digital twins, the tags can be used to filter the t
 
 Here is a query to get all twins that have been tagged as "red": 
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags1":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerTags1":::
 
 You can also combine tags for more complex queries. Here is a query to get all twins that are round, and not red: 
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags2":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerTags2":::
 
 ## Value tags 
 
@@ -87,16 +87,16 @@ As with marker tags, you can use value tags to filter the twins in queries. You 
 
 From the example above, `red` is being used as a marker tag. Remember that this is a query to get all twins that have been tagged as "red": 
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags1":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerTags1":::
 
 Here is a query to get all entities that are small (value tag), and not red: 
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerValueTags":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerValueTags":::
 
 ## Next steps
 
 Read more about designing and managing digital twin models:
-* [*How-to: Manage DTDL models*](how-to-manage-model.md)
+* [How-to: Manage DTDL models](how-to-manage-model.md)
 
 Read more about querying the twin graph:
-* [*How-to: Query the twin graph*](how-to-query-graph.md)
+* [How-to: Query the twin graph](how-to-query-graph.md)

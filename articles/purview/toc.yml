@@ -16,6 +16,8 @@ items:
     href: create-purview-dotnet.md
   - name: Create a Purview account - Python
     href: create-purview-python.md
+  - name: Manage Kafka notifications - .NET
+    href: manage-kafka-dotnet.md
 - name: Tutorials
   items:
   - name: Starter kit
@@ -158,6 +160,8 @@ items:
       href: how-to-link-azure-data-factory.md
     - name: Azure Data Share lineage
       href: how-to-link-azure-data-share.md
+    - name: Power BI lineage
+      href: how-to-lineage-powerbi.md
   - name: Monitor
     items:
     - name: Monitor with Azure Monitor
@@ -180,6 +184,10 @@ items:
     items:
     - name: Manage Private endpoints
       href: catalog-private-link.md
+  - name: Disaster recovery
+    items:
+    - name: Disaster recovery
+      href: disaster-recovery.md
 - name: Reference
   items:
     - name: Supported classifications
@@ -193,4 +201,4 @@ items:
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/details/azure-purview/
     - name: Microsoft Q&A forum
-      href: https://docs.microsoft.com/answers/topics/azure-purview.html
+      href: /answers/topics/azure-purview.html

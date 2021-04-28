@@ -51,7 +51,7 @@ Metrics may differ from the numbers shown on your Azure IoT Central invoice. Thi
 
 - IoT Central [standard pricing plans](https://azure.microsoft.com/pricing/details/iot-central/) include two devices and varying message quotas for free. While the free items are excluded from billing, they're still counted in the metrics.
 
-- IoT Central autogenerates one test device ID for each device template in the application. This device ID is visible on the **Manage test device** page for a device template. Solution builders may choose to [validate their device templates](./overview-iot-central.md#connect-devices) before publishing them by generating code that uses these test device IDs. While these devices are excluded from billing, they're still counted in the metrics.
+- IoT Central autogenerates one test device ID for each device template in the application. This device ID is visible on the **Manage test device** page for a device template. Solution builders may choose to validate their device templates before publishing them by generating code that uses these test device IDs. While these devices are excluded from billing, they're still counted in the metrics.
 
 - While metrics may show a subset of device-to-cloud communication, all communication between the device and the cloud [counts as a message for billing](https://azure.microsoft.com/pricing/details/iot-central/).
 

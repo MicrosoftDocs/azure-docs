@@ -65,13 +65,9 @@ To set up authentication, create a security group and add the Purview managed id
 
 Now that you've given the Purview Managed Identity permissions to connect to the Admin API of your Power BI tenant, you can set up your scan from the Azure Purview Studio.
 
-1. Select the **Management Center** icon.
+1. Select the **Sources** on the left navigation.
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/management-center.png" alt-text="Management center icon.":::
-
-1. Then select **+ New** on **Data sources**.
-
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/data-sources.png" alt-text="Image of new data source button":::
+1. Then select **Register**.
 
     Select **Power BI** as your data source.
 

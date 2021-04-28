@@ -118,7 +118,7 @@ All slots scale to the same number of workers as the production slot.
 
 ## Add a slot
 
-You can add a slot via the [CLI](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-create) or through the portal. The following steps demonstrate how to create a new slot in the portal:
+You can add a slot via the [CLI](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_create) or through the portal. The following steps demonstrate how to create a new slot in the portal:
 
 1. Navigate to your function app.
 
@@ -132,7 +132,7 @@ You can add a slot via the [CLI](/cli/azure/functionapp/deployment/slot#az-funct
 
 ## Swap slots
 
-You can swap slots via the [CLI](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-swap) or through the portal. The following steps demonstrate how to swap slots in the portal:
+You can swap slots via the [CLI](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_swap) or through the portal. The following steps demonstrate how to swap slots in the portal:
 
 1. Navigate to the function app.
 1. Select **Deployment slots**, and then select **Swap**.
@@ -151,7 +151,7 @@ If a swap results in an error or you simply want to "undo" a swap, you can roll 
 
 ## Remove a slot
 
-You can remove a slot via the [CLI](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-delete) or through the portal. The following steps demonstrate how to remove a slot in the portal:
+You can remove a slot via the [CLI](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_delete) or through the portal. The following steps demonstrate how to remove a slot in the portal:
 
 1. Navigate to **Deployment slots** in the function app, and then select the slot name.
 
@@ -173,11 +173,11 @@ You can remove a slot via the [CLI](/cli/azure/functionapp/deployment/slot#az-fu
 
 Using the [Azure CLI](/cli/azure/functionapp/deployment/slot), you can automate the following actions for a slot:
 
-- [create](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-create)
-- [delete](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-delete)
-- [list](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-list)
-- [swap](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-swap)
-- [auto-swap](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-auto-swap)
+- [create](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_create)
+- [delete](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_delete)
+- [list](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_list)
+- [swap](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_swap)
+- [auto-swap](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_auto_swap)
 
 ## Change App Service plan
 

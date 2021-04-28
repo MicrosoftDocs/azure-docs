@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 04/05/2021
+ms.date: 04/27/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -23,7 +23,7 @@ The need for access to privileged Azure resource roles by employees changes over
 
 ## Prerequisite license
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]. For more information about licenses for PIM, refer to [License requirements to use Privileged Identity Management](subscription-requirements.md).
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)] For more information about licenses for PIM, refer to [License requirements to use Privileged Identity Management](subscription-requirements.md).
 
 > [!Note]
 >  Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles (Preview) with an Azure Active Directory Premium P2 edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required.
@@ -100,6 +100,10 @@ The need for access to privileged Azure resource roles by employees changes over
     - **Remove access** - Remove user's access
     - **Approve access** - Approve user's access
     - **Take recommendations** - Take the system's recommendation on denying or approving the user's continued access
+
+1. You can send notifications to additional users or groups (Preview) to receive review completion updates. This feature allows for stakeholders other than the review creator to be updated on the progress of the review. To use this feature, select **Select User(s) or Group(s)** and add an additional user or group upon you want to receive the status of completion.
+
+    ![Upon completion settings - Add additional users to receive notifications](./media/pim-resource-roles-start-access-review/upon-completion-settings-additional-receivers.png) 
 
 ### Advanced settings
 
