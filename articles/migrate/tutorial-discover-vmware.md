@@ -1,5 +1,5 @@
 ---
-title: Set up server discovery by an Azure Migrate appliance in a VMware environment
+title: Discover servers running on VMware with Azure Migrate Discovery and assessment tool
 description: Learn how to discover on-premises servers, applications, and dependencies in a VMware environment by using the Azure Migrate Discovery and assessment tool.
 author: vineetvikram
 ms.author: vivikram
@@ -10,7 +10,7 @@ ms.custom: mvc
 #Customer intent: As an VMware admin, I want to discover my on-premises servers running in a VMware environment.
 ---
 
-# Tutorial: Set up server discovery by an Azure Migrate appliance in a VMware environment
+# Tutorial: Discover servers running on VMware with Azure Migrate: Discovery and assessment
 
 As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
 
@@ -191,7 +191,7 @@ Before you deploy the OVA file, verify that the file is secure:
 Import the downloaded file, and then create a server in the VMware environment:
 
 1. In the vSphere Client console, select **File** > **Deploy OVF Template**.
-1. In the Deploy OVF Template Wizard, select **Source** and enter the location of the OVA file.
+1. In the Deploy OVF Template Wizard, select **Source**, and then enter the location of the OVA file.
 1. In **Name**, enter a name for the server. In **Location**, select the inventory object in which the server will be hosted.
 1. In **Host/Cluster**, select the host or cluster on which the server will run.
 1. In **Storage**, select the storage destination for the server.
