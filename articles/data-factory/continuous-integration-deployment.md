@@ -178,7 +178,7 @@ The data factory team has provided a [sample pre- and post-deployment script](#s
 
 1. Go to **Manage** hub in your data factory, and select **ARM template** in the "Source control" section. Under **ARM template** section, select **Export ARM template** to export the Resource Manager template for your data factory in the development environment.
 
-   ![Export a Resource Manager template](media/continuous-integration-deployment/continuous-integration-image1.png)
+   ![Export a Resource Manager template](media/continuous-integration-deployment/continuous-integration-image-1.png)
 
 1. In your test and production data factories, select **Import ARM Template**. This action takes you to the Azure portal, where you can import the exported template. Select **Build your own template in the editor** to open the Resource Manager template editor.
 
