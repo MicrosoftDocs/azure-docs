@@ -65,13 +65,13 @@ This procedure creates the Azure resources needed to manage the knowledge base c
 
 1. Select Custom question answering feature to add to the Text Analytics resource. Click on 'Continue to create your resource'.
 
-[!div class="mx-imgBorder"]
-![Add QnA to TA](../media/qnamaker-how-to-setup-service/select-qna-feature-create-flow.png)
+> [!div class="mx-imgBorder"]
+[Add QnA to TA](../media/qnamaker-how-to-setup-service/select-qna-feature-create-flow.png)
 
 1. Select the appropriate tiers and regions for the resource:
 
 > [!div class="mx-imgBorder"]
-> ![Create a new TA service - pricing tier and regions](../media/qnamaker-how-to-setup-service/custom-qna-create-button.png)
+![Create a new TA service - pricing tier and regions](../media/qnamaker-how-to-setup-service/custom-qna-create-button.png)
 
    * Choose the **Subscription** under which the Text Analytics resource will be deployed.
    * Create a new **Resource group** (recommended) or use an existing one in which to deploy this Text Analytics resource. Enabling custom question answering with Text Analytics resource creates few Azure resources. When you create a resource group to hold these resources, you can easily find, manage, and delete these resources by the resource group name.
@@ -87,12 +87,12 @@ This procedure creates the Azure resources needed to manage the knowledge base c
 4. After all the fields are validated, select **Review + Create**. The process can take a few minutes to complete.
 
 > [!div class="mx-imgBorder"]
-> ![Review TA resource](../media/qnamaker-how-to-setup-service/custom-qna-review-resource.png)
+![Review TA resource](../media/qnamaker-how-to-setup-service/custom-qna-review-resource.png)
 
 5. After deployment is completed, you'll see the following resources created in your subscription:
 
   > [!div class="mx-imgBorder"]
-  > ![Resource created a new QnA Maker managed (Preview) service](../media/qnamaker-how-to-setup-service/resources-created-question-answering.png)
+    ![Resource created a new QnA Maker managed (Preview) service](../media/qnamaker-how-to-setup-service/resources-created-question-answering.png)
 
    The resource with the _Cognitive Services_ type has your _subscription_ keys.
 
