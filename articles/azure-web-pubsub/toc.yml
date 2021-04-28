@@ -31,10 +31,6 @@
     items:
     - name: Protect the access key
       href: howto-secure-rotate-access-key.md
-    - name: Secure the traffic for VNet
-      href: howto-secure-private-endpoints.md
-    - name: Secure and control network access
-      href: howto-secure-network-access-control.md
   - name: Troubleshooting
     items:
     - name: Collect network trace
