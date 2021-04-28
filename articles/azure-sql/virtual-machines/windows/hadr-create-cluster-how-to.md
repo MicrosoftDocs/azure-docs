@@ -30,7 +30,7 @@ Before you complete the instructions in this article, you should already have:
 - The latest version of [PowerShell](/powershell/azure/install-az-ps).
 
 After the prerequisites are completed, the first step is to create a Windows Server Failover Cluster that includes two SQL Server Virtual Machines and a witness server.
-
+## Manually
 1. Use Remote Desktop Protocol (RDP) to connect to the first SQL Server. Use a domain account that is an administrator 
 on both SQL Servers and the witness server.
 
