@@ -11,7 +11,7 @@ ms.date: 04/23/2021
 In this article, you'll use the information from the [planning section](production-ready-deployment-steps.md) to deploy and configure Azure VMware Solution. 
 
 >[!IMPORTANT]
->If you haven't defined the information yet, go back to the [planning section](production-ready-deployment-steps.md) before continuing.
+>It's information that you've gone through the [planning section](production-ready-deployment-steps.md) before continuing.
 
 ## Step 1. Register the **Microsoft.AVS** resource provider
 
@@ -50,7 +50,7 @@ In the planning phase, you defined whether you to use an *existing* or *new* Exp
 
 You should have connectivity between the Azure Virtual Network where the ExpressRoute terminates and the Azure VMware Solution private cloud. 
 
-1. Use a [virtual machine](/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine) within the Azure Virtual Network where the Azure VMware Solution ExpressRoute terminates (see [Step 3. Connect to Azure Virtual Network with ExpressRoute](#step-3-connect-to-azure-virtual-network-with-expressroute)).  
+1. Use a [virtual machine](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine) within the Azure Virtual Network where the Azure VMware Solution ExpressRoute terminates (see [Step 3. Connect to Azure Virtual Network with ExpressRoute](#step-3-connect-to-azure-virtual-network-with-expressroute)).  
 
    1. Log into the Azure [portal](https://portal.azure.com).
    2. Navigate to a VM that is in the running state, and under **Settings**, select **Networking** and select the network interface resource.
@@ -67,5 +67,6 @@ You should have connectivity between the Azure Virtual Network where the Express
 ## Next steps
 
 In the next section, you'll connect Azure VMware Solution to your on-premises network through ExpressRoute.
+
 > [!div class="nextstepaction"]
 > [Connect to your on-premises environment](tutorial-expressroute-global-reach-private-cloud.md)

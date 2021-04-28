@@ -76,7 +76,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 ## Configure  Azure AD B2C Identity Experience Framework policies
 
-1. Configure the initial [custom policy configuration](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started).
+1. Configure the initial [custom policy configuration](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 2. Create a new file, which inherits from the extensions file.
 
@@ -361,7 +361,7 @@ Follow these steps to add the policy files to Azure AD B2C
 
 ## Test the solution
 
-1. [Register a dummy application, which redirects to JWT.MS](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications?tabs=app-reg-ga)  
+1. [Register a dummy application, which redirects to JWT.MS](./tutorial-register-applications.md?tabs=app-reg-ga)  
 
 2. Under the **Identity Experience Framework**, select the policy you created
 
@@ -420,6 +420,6 @@ Follow these steps to add the policy files to Azure AD B2C
 
 ## Additional resources
 
-- [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy&tabs=applications)

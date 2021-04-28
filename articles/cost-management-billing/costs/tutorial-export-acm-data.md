@@ -3,7 +3,7 @@ title: Tutorial - Create and manage exported data from Azure Cost Management
 description: This article shows you how you can create and manage exported Azure Cost Management data so that you can use it in external systems.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 04/26/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -28,11 +28,14 @@ In this tutorial, you learn how to:
 > * Verify that data is collected
 
 ## Prerequisites
+
 Data export is available for a variety of Azure account types, including [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) and [Microsoft Customer Agreement](get-started-partners.md) customers. To view the full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md). The following Azure permissions, or scopes, are supported per subscription for data export by user and group. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
-- Owner â€“ Can create, modify, or delete scheduled exports for a subscription.
-- Contributor â€“ Can create, modify, or delete their own scheduled exports. Can modify the name of scheduled exports created by others.
-- Reader â€“ Can schedule exports that they have permission to.
+- Owner - Can create, modify, or delete scheduled exports for a subscription.
+- Contributor - Can create, modify, or delete their own scheduled exports. Can modify the name of scheduled exports created by others.
+- Reader - Can schedule exports that they have permission to.
+
+For more information about scopes, including access needed to configure exports for Enterprise Agreement and Microsoft Customer agreement scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
 For Azure Storage accounts:
 - Write permissions are required to change the configured storage account, regardless of permissions on the export.

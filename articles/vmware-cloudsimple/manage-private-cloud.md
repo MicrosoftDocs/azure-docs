@@ -1,8 +1,8 @@
 --- 
 title: Manage Azure VMware Solution by CloudSimple Private Cloud
 description: Describes the capabilities available to manage your CloudSimple Private Cloud resources and activity
-author: Ajayan1008
-ms.author: v-hborys 
+author: shortpatti
+ms.author: v-patsho
 ms.date: 06/10/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
