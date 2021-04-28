@@ -122,6 +122,9 @@ ms.author: sedusch
 [deployment-guide-5.1-new]:deployment-guide.md#7bf24f59-7347-4c7a-b094-4693e4687ee5 (Readiness check for new Azure Extension for SAP)
 [deployment-guide-5.2]:deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Health check for the Azure Extension for SAP configuration)
 [deployment-guide-5.2-new]:deployment-guide.md#464ac96d-7d3c-435d-a5ae-3faf3bfef4b3 (Health check for the new Azure Extension for SAP configuration)
++
+
++
 [deployment-guide-5.3]:deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (Troubleshooting Azure Extension for SAP)
 [deployment-guide-5.3-new]:deployment-guide.md#b7afb8ef-a64c-495d-bb37-2af96688c530 (Troubleshooting the new Azure Extension for SAP)
 [deployment-guide-contact-support]:deployment-guide.md#3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2 (Troubleshooting Azure Extension for SAP - Contact Support)
@@ -982,8 +985,11 @@ To install the Azure Extension for SAP by using Azure CLI:
 
 1. Install using Azure CLI 2.0
 
-   1. Install Azure CLI 2.0, as described in [Install Azure CLI 2.0][azure-cli-2].
-   1. Sign in with your Azure account:
+   1. Install Azure CLI 2.0, as described in [Install Azure CLI 2.0][azure-cli-2].   
++
+NOTE: To install AEM Extension 0.2.2 or higher, the Latest version of AZ CLI must be installed.
++
+   3. Sign in with your Azure account:
 
       ```azurecli
       az login
