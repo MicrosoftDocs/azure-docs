@@ -57,11 +57,12 @@ By integrating Defender for Endpoint with Security Center, you'll benefit from t
 
     :::image type="content" source="./media/security-center-wdatp/microsoft-defender-security-center.png" alt-text="Microsoft Defender for Endpoint's own Security Center" lightbox="./media/security-center-wdatp/microsoft-defender-security-center.png":::
 
-## Microsoft Defender for Endpoint tenant location
+## What are the requirements for the Microsoft Defender for Endpoint tenant?
 
-When you use Azure Security Center to monitor your servers, a Microsoft Defender for Endpoint tenant is automatically created. Data collected by Defender for Endpoint is stored in the geo-location of the tenant as identified during provisioning. Customer data - in pseudonymized form - may also be stored in the central storage and processing systems in the United States. 
+When you use Azure Security Center to monitor your servers, a Microsoft Defender for Endpoint tenant is automatically created. 
 
-After you've configured the location, you can't change it. If you have your own license for Microsoft Defender for Endpoint and need to move your data to another location, contact Microsoft Support to reset the tenant.
+- **Location:** Data collected by Defender for Endpoint is stored in the geo-location of the tenant as identified during provisioning. Customer data - in pseudonymized form - may also be stored in the central storage and processing systems in the United States. After you've configured the location, you can't change it. If you have your own license for Microsoft Defender for Endpoint and need to move your data to another location, contact Microsoft Support to reset the tenant.
+- **Moving subscriptions:** If you've moved your Azure subscription between Azure tenants, some manual preparatory steps are required before Security Center will deploy Defender for Endpoint. For full details, [contact Microsoft support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 
 ## Enable the Microsoft Defender for Endpoint integration
@@ -70,9 +71,12 @@ After you've configured the location, you can't change it. If you have your own 
 
 Confirm that your machine meets the necessary requirements for Defender for Endpoint:
 
-1. Configure the network settings described in [Configure device proxy and Internet connectivity settings](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)
-1. If you're deploying Defender to Endpoint to an on-premises machines, connect it to Azure Arc as explained in [Connect hybrid machines with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)
-1. For Windows Server 2019 machines only, confirm that your machines are running a valid agent and have the MicrosoftMonitoringAgent extension
+1. Ensure the machine is connected to Azure as required:
+
+    - For **Windows** servers, configure the network settings described in [Configure device proxy and Internet connectivity settings](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)
+    - For **on-premises** machines, connect it to Azure Arc as explained in [Connect hybrid machines with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)
+    - For **Windows Server 2019** and [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md) machines, confirm that your machines are running the Log Analytics agent and have the MicrosoftMonitoringAgent extension.
+    
 1. Enable **Azure Defender for servers**. See [Quickstart: Enable Azure Defender](enable-azure-defender.md).
 1. If you've already licensed and deployed Microsoft Defender for Endpoints on your servers, remove it using the procedure described in [Offboard Windows servers](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
 1. If you've moved your subscription between Azure tenants, some manual preparatory steps are also required. For full details, [contact Microsoft support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

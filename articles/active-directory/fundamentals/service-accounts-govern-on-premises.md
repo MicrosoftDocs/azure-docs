@@ -54,8 +54,7 @@ For user accounts that are used as service accounts, apply the following setting
 
 *  **LogonWorkstations**: Restrict permissions where the service account can sign in. If it runs locally on a machine and accesses only resources on that machine, restrict it from signing in anywhere else.
 
-* [**CannotChangePassword**](/powershell/module/addsadministration/set-aduser): Prevent the service account from changing its own password by setting the parameter to false.
-
+* [**Cannot change password**](/powershell/module/addsadministration/set-aduser): Prevent the service account from changing its own password by setting the parameter to false.
  
 ## Build a lifecycle management process
 
@@ -129,9 +128,9 @@ After you've conducted and documented the risk assessment, you might find that t
 
 Create a service account only after you've completed the risk assessment and documented the relevant information in your CMDB. Align the account restrictions with the risk assessment. Consider the following restrictions when they're relevant to your assessment:
 
-* [Account expiration](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps&preserve-view=true). For all user accounts that you use as service accounts, define a realistic, definite end date. Set the date by using the "Account Expires" flag. For more information, see [Set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration). 
+For all user accounts that you use as service accounts, define a realistic, definite end date. Set the date by using the **Account Expires** flag. For more information, see [Set-ADAccountExpiration](/powershell/module/activedirectory/set-adaccountexpiration). 
 
-* Sign-in to the [LogonWorkstation](/powershell/module/addsadministration/set-aduser).
+* Login to the [LogonWorkstation](/powershell/module/activedirectory/set-aduser).
 
 * [Password Policy](../../active-directory-domain-services/password-policy.md) requirements.
 
@@ -176,6 +175,7 @@ After you've removed all permissions, remove the account by doing the following:
    * **For computer or user accounts**: Manually delete the account from within Active Directory.
 
 ## Next steps
+
 To learn more about securing service accounts, see the following articles:
 
 * [Introduction to on-premises service accounts](service-accounts-on-premises.md)  

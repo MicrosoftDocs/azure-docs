@@ -70,7 +70,7 @@ Virtual WAN allows the following types of connectivity: Site-to-Site VPN, User V
 
 You can connect to your resources in Azure over a Site-to-site IPsec/IKE (IKEv2) connection. For more information, see [Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md). 
 
-This type of connection requires a VPN device or a Virtual WAN Partner device. Virtual WAN partners provide automation for connectivity, which is the ability to export the device info into Azure, download the Azure configuration, and establish connectivity to the Azure Virtual WAN hub. For a list of the available partners and locations, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article. If your VPN/SD-WAN device provider is not listed in the mentioned link, then you can simplify use the step-by-step instruction [Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md) to set up the connection.
+This type of connection requires a VPN device or a Virtual WAN Partner device. Virtual WAN partners provide automation for connectivity, which is the ability to export the device info into Azure, download the Azure configuration, and establish connectivity to the Azure Virtual WAN hub. For a list of the available partners and locations, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article. If your VPN/SD-WAN device provider is not listed in the mentioned link, then you can simply use the step-by-step instruction [Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md) to set up the connection.
 
 ### <a name="uservpn"></a>User VPN (point-to-site) connections
 

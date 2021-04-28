@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Secure on-premises computer accounts
 
-A computer account, or LocalSystem account, is a built-in, highly privileged account with access to virtually all resources on the local computer. The account is not associated with any signed-on user account. Services run as LocalSystem access network resources by presenting the computer's credentials to remote servers. The account presents credentials in the format <domain_name>\\<computer_name>$. Its predefined name is NT AUTHORITY\SYSTEM. You can use it to start a service and provide security context for that service.
+A computer account, or LocalSystem account, is a built-in, highly privileged account with access to virtually all resources on the local computer. The account is not associated with any signed-on user account. Services run as LocalSystem access network resources by presenting the computer's credentials to remote servers in the format <domain_name>\\<computer_name>$. The computer account's predefined name is NT AUTHORITY\SYSTEM. You can use it to start a service and provide security context for that service.
 
 ![Screenshot of a list of local services on a computer account.](.\media\securing-service-accounts\secure-computer-accounts-image-1.png)
 
@@ -25,7 +25,7 @@ A computer account, or LocalSystem account, is a built-in, highly privileged acc
 
 A computer account provides the following benefits:
 
-* **Unrestricted local access**: Provides complete access to the machine’s local resources.
+* **Unrestricted local access**: The computer account provides complete access to the machine’s local resources.
 
 * **Automatic password management**: Removes the need for you to manually change passwords. The account is a member of Active Directory, and the account password is changed automatically. Automatic password management also eliminates the need to register the service principal name for the service.
 
@@ -37,10 +37,10 @@ Some potential challenges and associated mitigations when you use a computer acc
  
 | Issue | Mitigation |
 | - | - |
-| Computer accounts are subject to deletion and re-creation when the computer leaves and rejoins the domain.| Validate the need to add a computer to an Active Directory group, and verify which computer account has been added to a group by using the example scripts in the next section of this article.| 
+| Computer accounts are subject to deletion and re-creation when the computer leaves and rejoins the domain. | Validate the need to add a computer to an Active Directory group, and verify which computer account has been added to a group by using the example scripts in the next section of this article.| 
 | If you add a computer account to a group, all services that run as LocalSystem on that computer are given the access rights of the group.| Be selective about the group memberships of your computer account. Avoid making a computer account a member of any domain administrator groups, because the associated service has complete access to AD DS. |
-| Improper network defaults for LocalSystem | Do not assume that the computer account has the default limited access to network resources. Instead, check group memberships for this account carefully. |
-| Unknown services that run as LocalSystem| Ensure that all services that run under the LocalSystem account are Microsoft services or trusted services from third parties. |
+| Improper network defaults for LocalSystem. | Do not assume that the computer account has the default limited access to network resources. Instead, check group memberships for this account carefully. |
+| Unknown services that run as LocalSystem. | Ensure that all services that run under the LocalSystem account are Microsoft services or trusted services from third parties. |
 | | |
 
 ## Find services that run under the computer account
@@ -48,7 +48,6 @@ Some potential challenges and associated mitigations when you use a computer acc
 To find services that run under the LocalSystem context, use the following PowerShell cmdlet:
 
 ```powershell
-
 Get-WmiObject win32_service | select Name, StartName | Where-Object {($_.StartName -eq "LocalSystem")}
 ```
 
@@ -57,8 +56,7 @@ Get-WmiObject win32_service | select Name, StartName | Where-Object {($_.StartNa
 Run the following PowerShell cmdlet:
 
 ```powershell
-
-```Get-ADComputer -Filter {Name -Like "*"} -Properties MemberOf | Where-Object {[STRING]$_.MemberOf -like "Your_Group_Name_here*"} | Select Name, MemberOf
+Get-ADComputer -Filter {Name -Like "*"} -Properties MemberOf | Where-Object {[STRING]$_.MemberOf -like "Your_Group_Name_here*"} | Select Name, MemberOf
 ```
 
 **Find computer accounts that are members of privileged groups**
@@ -88,7 +86,3 @@ To learn more about securing service accounts, see the following articles:
 * [Secure computer accounts](service-accounts-computer.md)  
 * [Secure user accounts](service-accounts-user-on-premises.md)  
 * [Govern on-premises service accounts](service-accounts-govern-on-premises.md)
-
- 
-
- 

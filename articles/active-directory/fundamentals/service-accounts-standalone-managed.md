@@ -34,10 +34,9 @@ sMSAs offer greater security than user accounts that are used as service account
 * **Cycle passwords regularly**: Windows automatically changes the sMSA password every 30 days. Service and domain administrators don’t need to schedule password changes or manage the associated downtime.
 
 * **Simplify SPN management**: Service principal names are automatically updated if the domain functional level is Windows Server 2008 R2. For instance, the service principal name is automatically updated when you:
-
    * Rename the host computer account.  
    * Change the domain name server (DNS) name of the host computer.  
-   * Add or remove other sam-accountname or dns-hostname parameters by using [PowerShell](/powershell/module/addsadministration/set-adserviceaccount).
+   * Add or remove other sam-accountname or dns-hostname parameters by using [PowerShell](/powershell/module/activedirectory/set-adserviceaccount).
 
 ## When to use sMSAs
 
@@ -56,9 +55,9 @@ To see how to mitigate potential security issues posed by sMSAs, refer to the fo
 
 | Security issue| Mitigation |
 | - | - |
-| sMSA is a member of privileged groups. | Do one of the following:<li>Remove the sMSA from elevated privileged groups, such as Domain Admins.<li>Use the *least privileged* model, and grant the sMSA only the rights and permissions it requires to run its services.<li>If you're unsure of the required permissions, consult the service creator. |
-| sMSA has read/write access to sensitive resources. | Do one of the following:<li>Audit access to sensitive resources.<li>Archive audit logs to a Security Information and Event Management (SIEM) program, such as Azure Log Analytics or Azure Sentinel, for analysis.<li>Remediate resource permissions if an undesirable level of access is detected. |
-| By default, the sMSA password rollover frequency is 30 days. | You can use group policy to tune the duration, depending on enterprise security requirements. <br>To set the password expiration duration, use the following path:<br>*Computer Configuration\Policies\Windows Settings\Security Settings\Security Options*. For ​domain member, use **Maximum machine account password age**. |
+| sMSA is a member of privileged groups. | <li>Remove the sMSA from elevated privileged groups, such as Domain Admins.<li>Use the *least privileged* model, and grant the sMSA only the rights and permissions it requires to run its services.<li>If you're unsure of the required permissions, consult the service creator. |
+| sMSA has read/write access to sensitive resources. | <li>Audit access to sensitive resources.<li>Archive audit logs to a Security Information and Event Management (SIEM) program, such as Azure Log Analytics or Azure Sentinel, for analysis.<li>Remediate resource permissions if an undesirable level of access is detected. |
+| By default, the sMSA password rollover frequency is 30 days. | You can use group policy to tune the duration, depending on enterprise security requirements. <br>To set the password expiration duration, use the following path:<br>*Computer Configuration\Policies\Windows Settings\Security Settings\Security Options*. For domain member, use **Maximum machine account password age**. |
 | | |
 
 
@@ -123,4 +122,3 @@ To learn more about securing service accounts, see the following articles:
 * [Secure computer accounts](service-accounts-computer.md)  
 * [Secure user accounts](service-accounts-user-on-premises.md)  
 * [Govern on-premises service accounts](service-accounts-govern-on-premises.md)
-

@@ -173,10 +173,10 @@ Learn more about how Azure Dev Spaces works.
 > [How Azure Dev Spaces works](../how-dev-spaces-works.md)
 
 [azure-cli-installed]: /cli/azure/install-azure-cli
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-acr-show]: /cli/azure/acr#az-acr-show
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-acr-show]: /cli/azure/acr#az_acr_show
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
 [bikes-server-js]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/Bikes/server.js#L232-L233
 [bike-sharing-gh]: https://github.com/Azure/dev-spaces/
 [bike-sharing-values-yaml]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/charts/values.yaml

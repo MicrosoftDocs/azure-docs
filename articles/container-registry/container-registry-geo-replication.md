@@ -99,7 +99,7 @@ ACR begins syncing images across the configured replicas. Once complete, the por
 
 ## Delete a replica
 
-After you've configured a replica for your registry, you can delete it at any time if it's no longer needed. Delete a replica using the Azure portal or other tools such as the [az acr replication delete](/cli/azure/acr/replication#az-acr-replication-delete) command in the Azure CLI.
+After you've configured a replica for your registry, you can delete it at any time if it's no longer needed. Delete a replica using the Azure portal or other tools such as the [az acr replication delete](/cli/azure/acr/replication#az_acr_replication_delete) command in the Azure CLI.
 
 To delete a replica in the Azure portal:
 
@@ -157,5 +157,5 @@ Check out the three-part tutorial series, [Geo-replication in Azure Container Re
 > [!div class="nextstepaction"]
 > [Geo-replication in Azure Container Registry](container-registry-tutorial-prepare-registry.md)
 
-[az-acr-replication-list]: /cli/azure/acr/replication#az-acr-replication-list
-[az-acr-replication-update]: /cli/azure/acr/replication#az-acr-replication-update
+[az-acr-replication-list]: /cli/azure/acr/replication#az_acr_replication_list
+[az-acr-replication-update]: /cli/azure/acr/replication#az_acr_replication_update
