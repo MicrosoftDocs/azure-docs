@@ -148,19 +148,19 @@ If no suitable connector is available to run the code you want, you can create a
 
 #### Pricing options
 
-Logic Apps offers different [pricing models](../logic-apps/logic-apps-pricing.md) based on the environments and capabilities that you choose for deploying, hosting, and running your workflows.
-
-Logic Apps uses consumption-based [pricing and metering](../logic-apps/logic-apps-pricing.md) unless you have logic apps previously created with App Service plans.
-
-Learn more about Logic Apps with these introductory videos:
-
-* [Integration with Logic Apps - Go from zero to hero](https://channel9.msdn.com/Events/Build/2017/C9R17)
-* [Enterprise integration with Microsoft Azure Logic Apps](https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK2188)
-* [Building advanced business processes with Logic Apps](https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3179)
+Each logic app type, which differs by capabilities and where they run (multi-tenant, single-tenant, integration service environment), has a different [pricing model](../logic-apps/logic-apps-pricing.md). For example, multi-tenant logic apps use consumption-based pricing, while logic apps in an integration service environment use fixed pricing. Learn more about [pricing and metering](../logic-apps/logic-apps-pricing.md) for Logic Apps.
 
 ## How does Logic Apps differ from Functions, WebJobs, and Power Automate?
 
 All these services help you connect and bring together disparate systems. Each service has their advantages and benefits, so combining their capabilities is the best way to quickly build a scalable, full-featured integration system. For more information, see [Choose between Logic Apps, Functions, WebJobs, and Power Automate](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
+
+## Other resources
+
+Learn more about the Logic Apps platform with these introductory videos:
+
+* [Integration with Logic Apps - Go from zero to hero](https://channel9.msdn.com/Events/Build/2017/C9R17)
+* [Enterprise integration with Microsoft Azure Logic Apps](https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK2188)
+* [Building advanced business processes with Logic Apps](https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3179)
 
 ## Get started
 
