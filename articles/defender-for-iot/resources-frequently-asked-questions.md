@@ -81,7 +81,7 @@ If you are working with the CLI commands, you can view a table of the [available
 
 ## How do I check the sanity of my deployment
 
-After installing the software for your on-premises management console, you will want to perform the [Post-installation validation](how-to-install-software.md#post-installation-validation). There you will learn how to [Check system health by using the CLI](how-to-install-software.md#check-system-health-by-using-the-cli), perform a [Sanity](how-to-install-software.md#sanity) check, and review your overall [System](how-to-install-software.md#system) statistics.
+After installing the software for your sensor, or on-premises management console, you will want to perform the [Post-installation validation](how-to-install-software.md#post-installation-validation). There you will learn how to [Check system health by using the CLI](how-to-install-software.md#check-system-health-by-using-the-cli), perform a [Sanity](how-to-install-software.md#sanity) check, and review your overall [System](how-to-install-software.md#system) statistics.
 
 You can also [Check system health by using the CLI](how-to-install-software.md#check-system-health-by-using-the-cli). Here you will test the systems sanity, version, network and management access.
 
