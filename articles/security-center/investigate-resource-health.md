@@ -11,7 +11,7 @@ ms.author: memildin
 ---
 # Tutorial: Investigate the health of your resources
 
-The resource health page provides a snapshot view of the overall health of a single resource. You can review detailed information about the resource and all recommendations that apply to that resource. In addition, if you're using [Azure Defender](azure-defender.md), you can see outstanding security alerts for that specific resource too.
+The resource health page provides a snapshot view of the overall health of a single resource. You can review detailed information about the resource and all recommendations that apply to that resource. Also, if you're using [Azure Defender](azure-defender.md), you can see outstanding security alerts for that specific resource too.
 
 This single page in Security Center's portal pages shows:
 
@@ -54,13 +54,13 @@ To open the resource health page for a resource:
 
         :::image type="content" source="media/investigate-resource-health/inventory-select-resource.png" alt-text="Select a resource from the asset inventory to view the resource health page." lightbox="./media/investigate-resource-health/inventory-select-resource.png":::
 
-1. Use the left pane of the resource health page, to get a quick overview of the subscription, status, and monitoring information about the resource - including whether Azure Defender is enabled for the resource:
+1. Use the left pane of the resource health page for an overview of the subscription, status, and monitoring information about the resource. You can also see whether Azure Defender is enabled for the resource:
 
     :::image type="content" source="media/investigate-resource-health/resource-health-left-pane.png" alt-text="The left pane of Azure Security Center's resource health page shows the subscription, status, and monitoring information about the resource. It also includes the total number of outstanding security recommendations and Azure Defender alerts.":::
 
 1. Use the two tabs on the right pane to review the lists of security recommendations and Azure Defender alerts that apply to this resource:
 
-    :::image type="content" source="media/investigate-resource-health/resource-health-right-pane.png" alt-text="The right pane of Azure Security Center's resource health page has two tabs - recommendations and alerts." lightbox="./media/investigate-resource-health/resource-health-right-pane.png":::
+    :::image type="content" source="media/investigate-resource-health/resource-health-right-pane.png" alt-text="The right pane of Azure Security Center's resource health page has two tabs: recommendations and alerts." lightbox="./media/investigate-resource-health/resource-health-right-pane.png":::
 
     > [!NOTE]
     > Azure Security Center uses the terms "healthy" and "unhealthy" to describe the security status of a resource. These terms relate to whether the resource is compliant with a specific [security recommendation](security-policy-concept.md#what-is-a-security-recommendation).
@@ -77,7 +77,7 @@ The resource health page lists the recommendations for which your resource is "u
     1. Proceed as instructed on screen.
 
         > [!TIP]
-        > The instructions for fixing issues raised by security recommendations differs for each of Security Center's recommendations.
+        > The instructions for fixing issues raised by security recommendations differ for each of Security Center's recommendations.
 
 - To investigate an Azure Defender alert:
     1. From the right pane, select an alert.
