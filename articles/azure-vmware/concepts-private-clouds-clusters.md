@@ -32,6 +32,8 @@ The diagram shows a single Azure subscription with two private clouds that repre
 
 [!INCLUDE [hosts-minimum-initial-deployment-statement](includes/hosts-minimum-initial-deployment-statement.md)]
 
+[!INCLUDE [azure-vmware-solutions-limits](includes/azure-vmware-solutions-limits.md)]
+
 ## VMware software versions
 
 [!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]

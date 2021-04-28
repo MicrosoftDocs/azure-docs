@@ -43081,6 +43081,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/develop/howto-build-services-resilent-to-metadata-refresh.md",
+      "redirect_url": "/azure/active-directory/develop/howto-build-services-resilient-to-metadata-refresh",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/cloudappdiscovery-get-started.md",
       "redirect_url": "/cloud-app-security/set-up-cloud-discovery",
       "redirect_document_id": false
