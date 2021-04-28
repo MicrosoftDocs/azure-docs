@@ -6,7 +6,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, fasttrack-edit
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
@@ -74,8 +74,8 @@ The following procedure uses the Azure CLI to set up the config server to deploy
 Run the following command to set the Default repository.
 
 ```azurecli
+
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/azure-samples/spring-petclinic-microservices-config
-```
 ::: zone-end
 
 > [!TIP]
