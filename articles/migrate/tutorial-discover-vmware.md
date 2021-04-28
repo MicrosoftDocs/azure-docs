@@ -1,5 +1,5 @@
 ---
-title: Discover servers running on VMware with Azure Migrate Discovery and assessment tool
+title: Discover servers running in a VMware environment with Azure Migrate
 description: Learn how to discover on-premises servers, applications, and dependencies in a VMware environment by using the Azure Migrate Discovery and assessment tool.
 author: vineetvikram
 ms.author: vivikram
@@ -10,7 +10,7 @@ ms.custom: mvc
 #Customer intent: As an VMware admin, I want to discover my on-premises servers running in a VMware environment.
 ---
 
-# Tutorial: Discover servers running on VMware with Azure Migrate: Discovery and assessment
+# Tutorial: Discover servers running on in a VMware environment with Azure Migrate
 
 As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
 
