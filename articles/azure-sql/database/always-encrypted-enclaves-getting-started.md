@@ -33,7 +33,10 @@ This tutorial teaches you how to get started with [Always Encrypted with secure 
 
 ### PowerShell requirements
 
-If you choose to perform some of the steps in this tutorial using PowerShell, instead of Azure Portal, you also need to install the following PowerShell modules.
+> [!NOTE]
+> The prerequisites listed in this section apply only if you choose to use PowerShell for some of the steps in this tutorial. If you plan to use Azure portal instead, you can skip this section.
+
+Make sure the following PowerShell modules are installed on your machine.
 
 1. Az version 5.6 or later. For details on how to install the Az PowerShell module, see [Install the Azure Az PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps). To determine the version the Az module installed on your machine, run the following command from a PowerShell session.
 
@@ -76,8 +79,8 @@ In this step, you will create a new Azure SQL Database logical server and a new 
 1. For **Resource group**, select **Create new**, enter a name for your resource group, and select **OK**.
 1. For **Database name** enter *ContosoHR*.
 1. For **Server**, select **Create new**, and fill out the **New server** form with the following values:
-   - **Server name**: Enter *mysqlserver*, and add some characters for uniqueness. We can't provide an exact server name to use because server names must be globally unique for all servers in Azure, not just unique within a subscription. So enter something like mysqlserver12345, and the portal lets you know if it is available or not.
-   - **Server admin login**: Enter an admin logon name, for example: *azureuser*.
+   - **Server name**: Enter *mysqlserver*, and add some characters for uniqueness. We can't provide an exact server name to use because server names must be globally unique for all servers in Azure, not just unique within a subscription. So enter something like mysqlserver135, and the portal lets you know if it is available or not.
+   - **Server admin login**: Enter an admin login name, for example: *azureuser*.
    - **Password**: Enter a password that meets requirements, and enter it again in the **Confirm password** field.
    - **Location**: Select a location from the dropdown list.
       > [!IMPORTANT]
@@ -94,7 +97,7 @@ In this step, you will create a new Azure SQL Database logical server and a new 
    ![configure DC-series database](./media/always-encrypted-enclaves/portal-configre-dc-series-database.png)
 
 1. Select **Apply**. 
-1. Back on the **Basics** tab, verify **Compute + storage** is set to **General Purpose**, **DC, 2vCores, 32 GB storage**.
+1. Back on the **Basics** tab, verify **Compute + storage** is set to **General Purpose**, **DC, 2 vCores, 32 GB storage**.
 1. Select **Next: Networking** at the bottom of the page.
 
    ![New SQL database - networking](./media/always-encrypted-enclaves/portal-configre-dc-series-database-basics.png)
@@ -178,7 +181,7 @@ In this step, you will create a new Azure SQL Database logical server and a new 
 
 ## Step 2: Configure an attestation provider
 
-In this step, You'll create and configure an attestation provider in Microsoft Azure Attestation. This is needed to attest the secure enclave your database uses.
+In this step, you'll create and configure an attestation provider in Microsoft Azure Attestation. This is needed to attest the secure enclave your database uses.
 
 # [Portal](#tab/azure-portal)
 
@@ -195,9 +198,9 @@ In this step, You'll create and configure an attestation provider in Microsoft A
 
    ![Create attestation provider](./media/always-encrypted-enclaves/portal-create-attestation-provider-basics.png)
 
-1. If there are validation issues, fix them and then select **Create**.
+1. Select **Create**.
 1. Once the attestation provider is created, lick **Go to resource**.
-1. On the **Overview** tab for the attestation provider, copy the value **Attest URI** property to clipboard and save it in a file. This is the attestation URL, you will need in later steps.  
+1. On the **Overview** tab for the attestation provider, copy the value of the **Attest URI** property to clipboard and save it in a file. This is the attestation URL, you will need in later steps.  
 
    ![Attestation URL](./media/always-encrypted-enclaves/portal-attest-uri.png)
 
@@ -208,7 +211,7 @@ In this step, You'll create and configure an attestation provider in Microsoft A
    ![Configure attestation policy](./media/always-encrypted-enclaves/portal-configure-attestation-policy.png)
 
 1. Set **Policy Format** to **Text**. Leave  **Policy options** set to **Enter policy**.
-1. Remove the content of the default policy from the **Policy ext** field. Copy the below policy and paste in the **Policy text** field.
+1. In the **Policy text** field, replace the default policy with the below policy. For information about the below policy, see [Create and configure an attestation provider](always-encrypted-enclaves-configure-attestation.md#create-and-configure-an-attestation-provider).
 
     ```output
     version= 1.0;
@@ -277,7 +280,7 @@ In this step, You'll create and configure an attestation provider in Microsoft A
   Write-Host "Your attestation URL is: $attestationUrl"
   ```
 
-  The attestation URL should look like this: `https://contososqlattestation.uks.attest.azure.net`
+  The attestation URL should look like this: `https://myattestprovider12345.eus.attest.azure.net`
 
 ---
 
@@ -286,7 +289,7 @@ In this step, You'll create and configure an attestation provider in Microsoft A
 In this step, you'll create a table and populate it with some data that you'll later encrypt and query.
 
 1. Open SSMS and connect to the **ContosoHR** database in the Azure SQL logical server you created **without** Always Encrypted enabled in the database connection.
-    1. In the **Connect to Server** dialog, specify the fully qualified name of your server (for example, *myserver123.database.windows.net*), and enter the administrator user name and the password you specified when you created the server.
+    1. In the **Connect to Server** dialog, specify the fully qualified name of your server (for example, *myserver135.database.windows.net*), and enter the administrator user name and the password you specified when you created the server.
     2. Click **Options >>** and select the **Connection Properties** tab. Make sure to select the **ContosoHR** database (not the default, master database). 
     3. Select the **Always Encrypted** tab.
     4. Make sure the **Enable Always Encrypted (column encryption)** checkbox is **not** selected.
@@ -367,10 +370,10 @@ In this step, you'll encrypt the data stored in the **SSN** and **Salary** colum
 
 1. Open a new SSMS instance and connect to your database **with** Always Encrypted enabled for the database connection.
     1. Start a new instance of SSMS.
-    2. In the **Connect to Server** dialog, specify the fully qualified name of your server (for example, *myserver123.database.windows.net*), and enter the administrator user name and the password you specified when you created the server.
+    2. In the **Connect to Server** dialog, specify the fully qualified name of your server (for example, *myserver135.database.windows.net*), and enter the administrator user name and the password you specified when you created the server.
     3. Click **Options >>** and select the **Connection Properties** tab. Make sure to select the **ContosoHR** database (not the default, master database). 
     4. Select the **Always Encrypted** tab.
-    5. Make sure the **Enable Always Encrypted (column encryption)** checkbox is selected.
+    5. Make sure the **Enable Always Encrypted (column encryption)** checkbox **is** selected.
     6. Specify your enclave attestation URL that you've obtained by following the steps in [Step 2: Configure an attestation provider](#step-2-configure-an-attestation-provider). See the below screenshot.
 
         ![Connect with attestation](media/always-encrypted-enclaves/connect-to-server-configure-attestation.png)
