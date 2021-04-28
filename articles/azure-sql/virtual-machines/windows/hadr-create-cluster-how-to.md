@@ -18,14 +18,14 @@ ms.author: chadam
 # Create Windows Server Failover Cluster - SQL Server on Azure VMs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-In this article, learn to configure a Windows Server Failover for SQL Server on Azure VMs.
+In this article, learn to configure Windows Server Failover Cluster for SQL Server on Azure Virtual Machines (VMs)
 
 ## Prerequisites
 
 Before you complete the instructions in this article, you should already have:
 
 - An Azure subscription. Get started for [free](https://azure.microsoft.com/free/). 
-- [Two or more Windows Azure virtual machines](failover-cluster-instance-prepare-vm.md). [Availability sets](../../../virtual-machines/windows/tutorial-availability-sets.md) and [proximity placement groups](../../../virtual-machines/co-location.md#proximity-placement-groups) (PPGs) supported for Premium SSD and [availability zones](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) are supported for Ultra Disks. All nodes must exist in the same [proximity placement group](../../../virtual-machines/co-location.md#proximity-placement-groups).
+- [Two or more Windows Azure virtual machines](failover-cluster-instance-prepare-vm.md). [Availability sets](../../../virtual-machines/windows/tutorial-availability-sets.md).
 - An account that has permissions to create objects on both Azure virtual machines and in Active Directory.
 - The latest version of [PowerShell](/powershell/azure/install-az-ps).
 
@@ -115,65 +115,6 @@ windows-server-2012-R2-and-2012/hh831739(v=ws.11)).
    Failover Cluster Manager shows that your cluster has a new node and lists it in the **Nodes** container.
 
 10. Log out of the remote desktop session.
-
-
-the SQL IaaS rshell to create  Server VMs that e-sql/.
-ll/azure/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.com 
-
-
-
-
-
-
-
-
-
-
-d-to-group](/cli/ously given, quent uses of the r. 
-t: 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## PowerShell
 
 The cluster needs a storage account to act as the cloud witness. You can use any existing storage account, or you can create a new storage account. If you want to use an existing storage account, skip ahead to the next section. 
@@ -242,14 +183,12 @@ $sqlvmconfig2 = Set-AzSqlVMConfigGroup -SqlVM $sqlvm2 `
 
 Update-AzSqlVM -ResourceId $sqlvm2.ResourceId -SqlVM $sqlvmconfig2
 ```
+https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms
 
 ## Azure PowerShell
 
-The Azure Powershell component is a functionality of the SQL IaaS Extension. Adding 
-Agent extension to your SQL Server VM unlocks this feature in Azure. Use  Azure Powe
-a SQL Server VM cluster within the Azure portal. You can use Azure Powershell on SQL
-have been [registered with the IaaS extension](https://docs.microsoft.com/azure/azur
-virtual-machines/windows/sql-agent-extension-manually-register-single-vm) internally
+To use Azure Powershell to create the cluster, register your SQL Server VM with the SQL IaaS extension.
+[register your SQL Server VM with the SQL IaaS extension.](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms)
 
 Install the latest version of [Azure Powershell](https://docs.microsoft.com/powershe
 install-az-ps)
@@ -404,9 +343,6 @@ Two Azure quickstart templates are used in this process:
 
 Other parts of the availability group configuration must be done manually, such as creating the availability group and creating the internal load balancer. 
 
-While this article uses the Azure Quickstart templates to configure the availability group environment, it is also possible to do so using the [Azure portal](availability-group-azure-portal-configure.md), [PowerShell, or the Azure CLI](availability-group-az-commandline-configure.md), or [Manually](availability-group-manually-configure-tutorial.md) as well.
-
-
 ## Create an FCI with Azure shared disks
 Deploy a managed Premium SSD disk with the shared disk feature enabled. Set `maxShares` to **align with the number of cluster nodes** to make the disk shareable across all FCI nodes. 
 
@@ -478,27 +414,6 @@ Add an Azure shared disk by doing the following:
     Update-AzVm -VM $vm -ResourceGroupName $resourceGroup
     ```
 
-## Create an FCI with a premium file share
-
-1. Sign in to the [Azure portal](https://portal.azure.com). and go to your storage account.
-1. Go to **File Shares** under **File service**, and then select the premium file share you want to use for your SQL storage.
-1. Select **Connect** to bring up the connection string for your file share.
-1. In the drop-down list, select the drive letter you want to use, and then copy both code blocks to Notepad.
-
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/premium-file-storage-commands.png" alt-text="Copy both PowerShell commands from the file share connect portal":::
-
-1. Use Remote Desktop Protocol (RDP) to connect to the SQL Server VM with the account that your SQL Server FCI will use for the service account.
-1. Open an administrative PowerShell command console.
-1. Run the commands that you saved earlier when you were working in the portal.
-1. Go to the share by using either File Explorer or the **Run** dialog box (select Windows + R). Use the network path `\\storageaccountname.file.core.windows.net\filesharename`. For example, `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
-
-1. Create at least one folder on the newly connected file share to place your SQL data files into.
-1. Repeat these steps on each SQL Server VM that will participate in the cluster.
-
-  > [!IMPORTANT]
-  > - Consider using a separate file share for backup files to save the input/output operations per second (IOPS) and space capacity of this share for data and log files. You can use either a Premium or Standard File Share for backup files.
-  > - If you're on Windows 2012 R2 or earlier, follow these same steps to mount the file share that you're going to use as the file share witness. 
-  
 ## Create an FCI with Storage Spaces Direct
 
 [Storage Spaces Direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) 
@@ -544,7 +459,7 @@ To create the failover cluster, you need:
 The following PowerShell script creates a failover cluster. Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure virtual network.
 
 ```powershell
-New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
+New-Cluster -Name -Node ("","") –StaticAddress <n.n.n.n> -NoStorage
 ```   
 
 # [Windows Server 2019](#tab/windows2019)
@@ -552,10 +467,8 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 The following PowerShell script creates a failover cluster. Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure virtual network.
 
 ```powershell
-New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
+New-Cluster -Name -Node ("","") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType SingletonNew-Cluster -Name -Node ("","") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton
 ```
-
-For more information, see [Failover cluster: Cluster Network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97).
 
 ## Add the Windows cluster feature
 
@@ -653,7 +566,6 @@ For Windows Server 2012 or later
 Following PowerShell changes both SameSubnetThreshold and CrossSubnetThreshold to 40, when run as administrator.
 C:\Windows\system32> (get-cluster).SameSubnetThreshold = 40
 C:\Windows\system32> (get-cluster).CrossSubnetThreshold = 40
-
 
 For Windows Server 2008 or 2008 R2  
 
