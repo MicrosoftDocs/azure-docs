@@ -67,7 +67,7 @@ Azure Time Series Insights Gen2 retains up to two copies of each event in your A
 All of your data is stored indefinitely in your Azure Storage account.
 
 > [!WARNING]
-> Do not restrict Public Internet access to a hub or event source used by Time Series Insights or the necessary connection will be broken.
+> Do not restrict Public Internet access to the storage account used by Time Series Insights or the necessary connection will be broken.
 
 #### Writing and editing blobs
 
