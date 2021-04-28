@@ -141,7 +141,8 @@ To set up the appliance by using an OVA template:
 1. Provide an appliance name and generate a project key in the portal.
 1. Download an OVA template file, and then import it to vCenter Server. Verify that the OVA is secure.
 1. Create the appliance from the OVA file. Verify that it can connect to Azure Migrate.
-1. Configure the appliance for the first time. Register it with the project by using the project key.
+1. Configure the appliance for the first time. 
+1. Register it with the project by using the project key.
 
 #### Generate the project key
 
@@ -152,11 +153,11 @@ To set up the appliance by using an OVA template:
 1. After the Azure resources are successfully created, a *project key* is generated.
 1. Copy the key. You'll use the key to complete registration of the appliance when you configure the appliance.
 
-#### 2. Download the OVA template
+#### Download the OVA template
 
-In **2: Download Azure Migrate appliance**, select the .OVA file and select **Download**.
+In **2: Download Azure Migrate appliance**, select the OVA file, and then select **Download**.
 
-### Verify security
+##### Verify security
 
 Before you deploy the OVA file, verify that the file is secure:
 
@@ -183,83 +184,80 @@ Before you deploy the OVA file, verify that the file is secure:
         --- | --- | ---
         VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140337) | 2daaa2a59302bf911e8ef195f8add7d7c8352de77a9af0b860e2a627979085ca
 
-### 3. Create the appliance server
+#### Create the appliance server
 
 Import the downloaded file, and then create a server in the VMware environment:
 
 1. In the vSphere Client console, select **File** > **Deploy OVF Template**.
-2. In the Deploy OVF Template Wizard > **Source**, specify the location of the OVA file.
-3. In **Name** and **Location**, specify a friendly name for the server. Select the inventory object in which the server will be hosted.
-5. In **Host/Cluster**, specify the host or cluster on which the server will run.
-6. In **Storage**, specify the storage destination for the server.
-7. In **Disk Format**, specify the disk type and size.
-8. In **Network Mapping**, specify the network to which the server will connect. The network needs internet connectivity, to send metadata to Azure Migrate.
-9. Review and confirm the settings, then click **Finish**.
+2. In the Deploy OVF Template Wizard, select **Source** and enter the location of the OVA file.
+3. In **Name** and **Location**, enter a name for the server. Select the inventory object in which the server will be hosted.
+5. In **Host/Cluster**, select the host or cluster on which the server will run.
+6. In **Storage**, select the storage destination for the server.
+7. In **Disk Format**, select the disk type and size.
+8. In **Network Mapping**, select the network to which the server will connect. The network needs internet connectivity to send metadata to Azure Migrate.
+9. Review and confirm the settings, and then select **Finish**.
 
-### Verify appliance access to Azure
+#### Verify appliance access to Azure
 
-Make sure that the appliance server can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
+Make sure that the appliance server can connect to Azure URLs for [public clouds](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls).
 
-### 4. Configure the appliance
+### Configure the appliance
 
-Set up the appliance for the first time.
+To set up the appliance for the first time:
 
 > [!NOTE]
-> If you set up the appliance using a [**PowerShell script**](deploy-appliance-script.md) instead of the downloaded OVA, the first two steps in this procedure aren't relevant.
+> If you set up the appliance by using a [PowerShell script](deploy-appliance-script.md) instead of the downloaded OVA template, you can skip the first two steps in the following procedure.
 
 1. In the vSphere Client console, right-click the server, and then select **Open Console**.
-2. Provide the language, time zone, and password for the appliance.
-3. Open a browser on any machine that can connect to the appliance, and open the URL of the appliance configuration manager: `https://appliance name or IP address: 44368`.
+2. Select or enter the language, time zone, and password for the appliance.
+3. Open a browser on any computer that can connect to the appliance. Then, open the URL of the appliance configuration manager: `https://appliance name or IP address: 44368`.
 
-   Alternately, you can open the configuration manager from the appliance server desktop by selecting the shortcut for the configuration manager.
-1. Accept the **license terms**, and read the third-party information.
-1. In the configuration manager > **Set up prerequisites**, do the following:
-   - **Connectivity**: The appliance checks that the server has internet access. If the server uses a proxy:
-     - Click on **Setup proxy** to specify the proxy address `http://ProxyIPAddress` or `http://ProxyFQDN` and listening port.
-     - Specify credentials if the proxy needs authentication.
-     - Only HTTP proxy is supported.
-     - If you have added proxy details or disabled the proxy and/or authentication, click on **Save** to trigger connectivity check again.
-   - **Time sync**: The time on the appliance should be in sync with internet time for discovery to work properly.
-   - **Install updates**: The appliance ensures that the latest updates are installed. After the check completes, you can click on **View appliance services** to see the status and versions of the services running on the appliance server.
-   - **Install VDDK**: The appliance checks that VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If it isn't installed, download VDDK 6.7 from VMware, and extract the downloaded zip contents to the specified location on the appliance, as provided in the **Installation instructions**.
+     Alternately, you can open the configuration manager from the appliance server desktop by selecting the shortcut for the configuration manager.
+1. Accept the license terms and read the third-party information.
+1. In the configuration manager, select **Set up prerequisites**, and then complete these steps:
+    1. **Connectivity**: The appliance checks that the server has internet access. If the server uses a proxy:
+        1. Select **Setup proxy** to specify the proxy address (`http://ProxyIPAddress` or `http://ProxyFQDN`, where *FQDN* refers to a *fully qualified domain name*) and listening port.
+        1.  Enter credentials if the proxy needs authentication.
+             Note that only HTTP proxy is supported.
+        1. If you have added proxy details or disabled the proxy or authentication, select **Save** to trigger connectivity and check connectivity again.
+    1. **Time sync**: Check that the time on the appliance is in sync with internet time for discovery to work properly.
+    1. **Install updates**: The appliance ensures that the latest updates are installed. When the check is finished, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
+    1. **Install the VDDK**: The appliance checks that VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If the VDDK isn't installed, download VDDK 6.7 from VMware. Extract the downloaded zip file contents to the specified location on the appliance, as indicated in the *Installation instructions*.
 
-     Azure Migrate Server Migration uses the VDDK to replicate servers during migration to Azure. 
-1. If you want, you can **rerun prerequisites** at any time during appliance configuration to check if the appliance meets all the prerequisites.
+        Azure Migrate Server Migration uses the VDDK to replicate servers during migration to Azure. 
+1. You can *rerun prerequisites* at any time during appliance configuration to check whether the appliance meets all the prerequisites:
 
     :::image type="content" source="./media/tutorial-discover-vmware/appliance-prerequisites.png" alt-text="Panel 1 on appliance configuration manager":::
 
-### Register the appliance with Azure Migrate
+#### Register the appliance with Azure Migrate
 
-1. Paste the **project key** copied from the portal. If you do not have the key, go to **Azure Migrate: Discovery and assessment> Discover> Manage existing appliances**, select the appliance name you provided at the time of key generation and copy the corresponding key.
-1. You will need a device code to authenticate with Azure. Clicking on **Login** will open a modal with the device code as shown below.
+1. Paste the *project key* that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Discover** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key, and then copy the key that's shown.
+1. You must have a device code to authenticate with Azure. Select **Login**. In **Continue with Azure Login**,  select **Copy code & Login** to copy the device code and open an Azure Login prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
 
-    :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Modal showing the device code":::
+    :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and log in.":::
 
-1. Click on **Copy code & Login** to copy the device code and open an Azure Login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
-1. On the new tab, paste the device code and sign-in by using your Azure username and password.
-   
-   Sign-in with a PIN isn't supported.
-1. In case you close the login tab accidentally without logging in, you need to refresh the browser tab of the appliance configuration manager to enable the Login button again.
-1. After you successfully logged in, go back to the previous tab with the appliance configuration manager.
-1. If the Azure user account used for logging has the right permissions on the Azure resources created during key generation, the appliance registration will be initiated.
-1. After appliance is successfully registered, you can see the registration details by clicking on **View details**.
+1. In a new tab in your browser, paste the device code and sign in by using your Azure username and password. Signing in with a PIN isn't supported.
 
-    :::image type="content" source="./media/tutorial-discover-vmware/appliance-registration.png" alt-text="Panel 2 on appliance configuration manager":::
+    If you close the login tab accidentally without logging in, refresh the browser tab of the appliance configuration manager to display the device code and reload the **Copy code & Login** button.
+1. After you are successfully logged in, return to the browser tab that displays the appliance configuration manager. If the Azure user account that you used to log in has the required permissions on the Azure resources that were created during key generation, the appliance registration will be initiated.
+1. After the appliance is successfully registered, to see the registration details, select **View details**.
+
+    :::image type="content" source="./media/tutorial-discover-vmware/appliance-registration.png" alt-text="Screenshot of the **Register with Azure Migrate** pane showing that the appliance has been successfully registered.":::
 
 ## Start continuous discovery
 
 ### Provide vCenter Server details
 
-The appliance needs to connect to vCenter Server to discover the configuration and performance data of the servers.
+The appliance must connect to vCenter Server to discover the configuration and performance data of the servers:
 
-1. In **Step 1: Provide vCenter Server credentials**, click on **Add credentials** to  specify a friendly name for credentials, add **Username** and **Password** for the vCenter Server account that the appliance will use to discover servers running on the vCenter Server.
-    - You should have set up an account with the required permissions as covered in this article above.
-    - If you want to scope discovery to specific VMware objects (vCenter Server datacenters, clusters, a folder of clusters, hosts, a folder of hosts, or individual servers.), review the instructions in [this article](set-discovery-scope.md) to restrict the account used by Azure Migrate.
-1. In **Step 2: Provide vCenter Server details**, click on **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the vCenter Server. You can leave the **Port** to default (443) or specify a custom port on which vCenter Server listens and click on **Save**.
-1. On clicking **Save**, appliance will try validating the connection to the vCenter Server with the credentials provided and show the **Validation status** in the table against the vCenter Server IP address/FQDN.
-1. You can **revalidate** the connectivity to vCenter Server anytime before starting the discovery.
+1. In **Step 1: Provide vCenter Server credentials**, select **Add credentials** to enter a name for the credentials. Add the username and password for the vCenter Server account that the appliance will use to discover servers running on vCenter Server.
+    - You should have set up an account with the required permissions as described earlier in this article.
+    - If you want to scope discovery to specific VMware objects (vCenter Server datacenters, clusters, a folder of clusters, hosts, a folder of hosts, or individual servers), review the instructions to [set discovery scope](set-discovery-scope.md) to restrict the account used by Azure Migrate.
+1. In **Step 2: Provide vCenter Server details**, select **Add discovery source** to select the name for credentials from the drop-down list. Select the IP address or FQDN of the vCenter Server. You can leave the port as the default (443) or specify a custom port on which vCenter Server listens. Select **Save**.
+1. The appliance attempts to validate the connection to the vCenter Server with the credentials provided and show the validation status in the table for the vCenter Server IP address/FQDN.
+1. You can *revalidate* the connectivity to vCenter Server any time before starting the discovery.
 
-    :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel 3 on appliance configuration manager for vCenter Server details":::
+    :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Screenshot that shows managing credentials and discovery sources vCenter Server in the appliance configuration manager.":::
 
 ### Provide server credentials
 
@@ -289,7 +287,7 @@ If you want to use these features, you can provide server credentials by followi
 1. During software inventory, the added server credentials are iterated against servers and validated for agentless dependency analysis. You can enable agentless dependency analysis for servers from the portal. Only the servers where the validation succeeds can be selected to enable agentless dependency analysis.
 
 > [!Note]
->Azure Migrate will encrypt the communication between Azure Migrate appliance and source SQL Server instances (with Encrypt connection property set to TRUE). These connections are encrypted with [TrustServerCertificate](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (set to TRUE); the transport layer will use SSL to encrypt the channel and bypass the certificate chain to validate trust. The appliance server must be set up to [trust the certificate's root authority](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).<br/>
+> Azure Migrate will encrypt the communication between Azure Migrate appliance and source SQL Server instances (with Encrypt connection property set to TRUE). These connections are encrypted with [TrustServerCertificate](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (set to TRUE); the transport layer will use SSL to encrypt the channel and bypass the certificate chain to validate trust. The appliance server must be set up to [trust the certificate's root authority](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).<br/>
 If no certificate has been provisioned on the server when it starts up, SQL Server generates a self-signed certificate which is used to encrypt login packets. [Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
 Here's how discovery works:
