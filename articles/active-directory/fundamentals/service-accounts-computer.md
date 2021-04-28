@@ -39,7 +39,7 @@ Some potential challenges and associated mitigations when you use a computer acc
 | - | - |
 | Computer accounts are subject to deletion and re-creation when the computer leaves and rejoins the domain. | Validate the need to add a computer to an Active Directory group, and verify which computer account has been added to a group by using the example scripts in the next section of this article.| 
 | If you add a computer account to a group, all services that run as LocalSystem on that computer are given the access rights of the group.| Be selective about the group memberships of your computer account. Avoid making a computer account a member of any domain administrator groups, because the associated service has complete access to AD DS. |
-| Improper network defaults for LocalSystem. | Do not assume that the computer account has the default limited access to network resources. Instead, check group memberships for this account carefully. |
+| Improper network defaults for LocalSystem. | Do not assume that the computer account has the default limited access to network resources. Instead, check group memberships for the account carefully. |
 | Unknown services that run as LocalSystem. | Ensure that all services that run under the LocalSystem account are Microsoft services or trusted services from third parties. |
 | | |
 
