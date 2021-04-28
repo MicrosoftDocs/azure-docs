@@ -1,23 +1,18 @@
 ---
-title: Custom home page for published apps - Azure AD Application Proxy
-description: Covers the basics about Azure AD Application Proxy connectors
+title: Custom home page for published apps - Azure Active Directory Application Proxy
+description: Covers the basics about Azure Active Directory Application Proxy connectors
 services: active-directory
-documentationcenter: ''
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-proxy
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 05/23/2019
+ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: harshja
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
 ---
-# Set a custom home page for published apps by using Azure AD Application Proxy
+# Set a custom home page for published apps by using Azure Active Directory Application Proxy
 
 This article discusses how to configure an app to direct a user to a custom home page. When you publish an app with Application Proxy, you set an internal URL, but sometimes that's not the page a user should see first. Set a custom home page so that a user gets the right page when they access the app. A user will see the custom home page that you set, regardless of whether they access the app from the Azure Active Directory My Apps or the Microsoft 365 app launcher.
 

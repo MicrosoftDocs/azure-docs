@@ -184,8 +184,6 @@
       items:
       - name: Give mobile and desktop apps access to on-premises APIs
         href: application-proxy-secure-api-access.md 
-      - name: Configure custom home page
-        href: application-proxy-configure-custom-home-page.md
       - name: Configure cookie settings
         href: application-proxy-configure-cookie-settings.md
       - name: Remove personal data
@@ -246,10 +244,6 @@
           href: application-sign-in-problem-first-party-microsoft.md
       - name: Troubleshoot on-premises apps
         items:
-        - name: Connector troubleshooting flowchart
-          href: application-proxy-debug-connectors.md
-        - name: Application troubleshooting flowchart
-          href: application-proxy-debug-apps.md
         - name: Configure with PingAccess
           href: ./application-proxy-ping-access-publishing-guide.md
         - name: CORS issues in Application Proxy

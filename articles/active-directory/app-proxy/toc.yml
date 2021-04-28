@@ -113,8 +113,8 @@
       href: application-proxy-configure-connectors-with-proxy-servers.md
     #   - name: Give mobile and desktop apps access to on-premises APIs
     #     href: application-proxy-secure-api-access.md 
-    #   - name: Configure custom home page
-    #     href: application-proxy-configure-custom-home-page.md
+    - name: Configure custom home page
+      href: application-proxy-configure-custom-home-page.md
     #   - name: Configure cookie settings
     #     href: application-proxy-configure-cookie-settings.md
     - name: Publish using wildcards
@@ -171,10 +171,10 @@
         href: application-proxy-troubleshoot.md
       - name: Configure in admin portal
         href: application-proxy-config-how-to.md
-    #   - name: Connector troubleshooting flowchart
-    #     href: application-proxy-debug-connectors.md
-    #   - name: Application troubleshooting flowchart
-    #     href: application-proxy-debug-apps.md
+      - name: Connector troubleshooting flowchart
+        href: application-proxy-debug-connectors.md
+      - name: Application troubleshooting flowchart
+        href: application-proxy-debug-apps.md
       - name: Problem displaying app page
         href: application-proxy-page-appearance-broken-problem.md
       - name: Application load is too long

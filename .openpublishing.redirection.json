@@ -54317,7 +54317,22 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-office365-app-launcher.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-custom-home-page",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-custom-home-page",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/application-proxy-office365-app-launcher.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-custom-home-page",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-debug-connectors.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-debug-connectors",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-debug-apps.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-debug-apps",
       "redirect_document_id": false
     },
     {
