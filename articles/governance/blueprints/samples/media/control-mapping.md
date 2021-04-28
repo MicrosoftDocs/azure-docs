@@ -4,7 +4,6 @@ description: Control mapping of the Media blueprint samples. Each control is map
 ms.date: 04/13/2021
 ms.topic: sample
 ---
-
 # Control mapping of the Media blueprint sample
 
 The following article details how the Azure Blueprints Media blueprint sample maps to the Media
@@ -264,8 +263,7 @@ directly to a specific control mapping. Many of the mapped controls are implemen
 - Audit the OS vulnerabilities on your virtual machine scale sets to protect them from attacks.
 
 > [!NOTE]
-> Availability of specific Azure Policy definitions may vary in Azure Government and other national
-> clouds.
+> Availability of specific Azure Policy definitions may vary in Azure Government and other national clouds.
 
 ## Next steps
 
