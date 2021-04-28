@@ -16,11 +16,12 @@ Private endpoints are provided by [Azure Private Link](../../private-link/privat
 ## Prerequisites
 > [!div class="checklist"]
 > * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-> * A QnA Maker [managed resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
+> * A [Text Analytics resource](https://ms.portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, Text Analytics resource name you selected when you created the resource.
 
 ## Steps to enable private endpoint
-1. Assign *Contributer* role to QnA Maker managed service in the Azure Search Service instance. This operation requires *Owner* access to the subscription. Go to Identity tab in the service resource to get the identity.
-![Managed service Identity](../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoint-identity.png)
+1. Assign *Contributer* role to Text Analytics service in the Azure Search Service instance. This operation requires *Owner* access to the subscription. Go to Identity tab in the service resource to get the identity.
+[!div class="mx-imgBorder"]
+![Text Analytics Identity](../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoints-identity.png)
 
 2. Add the above identity as *Contributer* by going to Azure Search Service IAM tab.
 ![Managed service IAM](../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoint-access-control.png)
@@ -31,8 +32,9 @@ Private endpoints are provided by [Azure Private Link](../../private-link/privat
 4. Now, go to *Networking* tab in the Azure Search Service instance and switch Endpoint connectivity data from *Public* to *Private*. This operation is a long running process and can take up to 30 mins to complete. 
 ![Managed Azure search networking](../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoint-networking.png)
 
-5. Go to *Networking* tab of QnA Maker managed service and under the *Allow access from*, select the *Selected Networks and private endpoints* option and Click *save*. 
-![Managed QnA maker newtorking](../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoint-networking-2.png)
+5. Go to *Networking* tab of Text Analytics service and under the *Allow access from*, select the *Selected Networks and private endpoints* option and Click *save*. 
+[!div class="mx-imgBorder"]
+![Text Analytics newtorking](../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoint-networking-custom-qna.png)
 
 This will establish a private endpoint connection between QnA maker service and Azure cognitive search service instance. You can verify the Private endpoint connection on the *Networking* tab of Azure Search service instance. Once the whole operation is completed, you are good to use your QnA Maker service. 
 ![Managed Networking Service](../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoint-networking-3.png)
