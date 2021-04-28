@@ -1016,6 +1016,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/custom-policy-rest-api-claims-validation.md",
+      "redirect_url": "/azure/active-directory-b2c/add-api-connector",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-setup-li-app.md",
       "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin",
       "redirect_document_id": true
@@ -54222,122 +54227,242 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-get-started.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/active-directory-application-proxy-publish.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-add-on-premises-application",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-publish.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-add-on-premises-application",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-add-on-premises-application",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-enable-classic-portal.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-add-on-premises-application",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-add-on-premises-application",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-connectivity-ports-how-to.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-add-on-premises-application",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-add-on-premises-application",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-enable.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-add-on-premises-application",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-add-on-premises-application",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-publish-azure-portal.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-add-on-premises-application",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-add-on-premises-application",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-back-end-kerberos-constrained-delegation-how-to.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-back-end-kerberos-constrained-delegation-how-to",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-back-end-kerberos-constrained-delegation-how-to",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-back-end-kerberos-constrained-delegation-how-to.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-back-end-kerberos-constrained-delegation-how-to",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-config-how-to.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-config-how-to",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-config-how-to",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-config-how-to.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-config-how-to",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-config-problem.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-config-problem",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-config-problem",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-config-problem.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-config-problem",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-config-sso-how-to.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-config-sso-how-to",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-config-sso-how-to",
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-config-sso-how-to.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-config-sso-how-to",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/application-proxy-working-with-proxy-servers.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-connectors-with-proxy-servers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-connectors-with-proxy-servers",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-custom-domains.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-custom-domain",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-custom-domain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-configure-custom-domain.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-custom-domain",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-office365-app-launcher.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-custom-home-page",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-custom-home-page",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-debug-connectors.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-debug-connectors",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-release-version-history.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-release-version-history",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/active-directory-app-proxy-protect-ndes.md",
+      "redirect_url": "/azure/active-directory/app-proxy/active-directory-app-proxy-protect-ndes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-secure-api-access.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-secure-api-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-debug-apps.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-debug-apps",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-claims-aware-apps.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-for-claims-aware-applications",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-for-claims-aware-applications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-configure-for-claims-aware-applications.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-for-claims-aware-applications",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-link-translation.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-hard-coded-link-translation",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-hard-coded-link-translation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-configure-hard-coded-link-translation.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-hard-coded-link-translation",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-native-client.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-native-client-application",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-native-client-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-configure-native-client-application.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-native-client-application",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-sso-azure-portal.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-password-vaulting",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-single-sign-on-password-vaulting",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-single-sign-on-password-vaulting",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-ping-access.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-single-sign-on-with-headers",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-ping-access.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-single-sign-on-with-headers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-single-sign-on-with-headers",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-sso-using-kcd.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-single-sign-on-with-kcd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-high-availability-load-balancing.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-high-availability-load-balancing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-single-sign-on-with-kcd",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-connectivity-no-working-connector.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-connectivity-no-working-connector",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-connectivity-no-working-connector",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-connectivity-no-working-connector.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-connectivity-no-working-connector",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-connectors-azure-portal.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-connector-groups",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-connector-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-connector-groups.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-connector-groups",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-connector-installation-problem.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-connector-installation-problem",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-connector-installation-problem",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-connector-installation-problem.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-connector-installation-problem",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-understand-connectors.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-connectors",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-connectors",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-connectors.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-connectors",
       "redirect_document_id": false
     },
     {
@@ -54347,12 +54472,27 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-publish-remote-desktop.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-integrate-with-remote-desktop-services",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-integrate-with-remote-desktop-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-integrate-with-remote-desktop-services.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-integrate-with-remote-desktop-services",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-enable-remote-access-sharepoint.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-integrate-with-sharepoint-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-integrate-with-sharepoint-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server-saml.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-integrate-with-sharepoint-server-saml",
       "redirect_document_id": false
     },
     {
@@ -54372,23 +54512,53 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-network-topology-considerations.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-network-topology",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-network-topology",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-network-topology-considerations.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-network-topology",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-configure-single-sign-on-on-premises-apps.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-single-sign-on-on-premises-apps",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-page-appearance-broken-problem.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-page-appearance-broken-problem",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-page-appearance-broken-problem",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-page-appearance-broken-problem.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-page-appearance-broken-problem",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-page-links-broken-problem.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-page-links-broken-problem",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-page-links-broken-problem",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-page-links-broken-problem.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-page-links-broken-problem",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-page-load-speed-problem.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-page-load-speed-problem",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-page-load-speed-problem",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-deployment-plan.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-deployment-plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-page-load-speed-problem.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-page-load-speed-problem",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-back-end-ping-access-how-to.md",
@@ -54407,12 +54577,22 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-qlik.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-qlik",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-qlik",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-qlik.md",
+      "redirect_url": "/azure/active-directory/apps-proxy/application-proxy-qlik",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-silent-installation.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-register-connector-powershell",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-register-connector-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-register-connector-powershell.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-register-connector-powershell",
       "redirect_document_id": false
     },
     {
@@ -54422,23 +54602,43 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-security-considerations.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-security",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-security.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-security",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-sign-in-bad-gateway-timeout-error.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-sign-in-bad-gateway-timeout-error",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-sign-in-bad-gateway-timeout-error",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-sign-in-bad-gateway-timeout-error.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-sign-in-bad-gateway-timeout-error",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-troubleshoot.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-troubleshoot",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-troubleshoot.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-troubleshoot",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-wildcard.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-wildcard",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-wildcard",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-wildcard.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-wildcard",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-access-panel-web-sign-in-problem.md",
@@ -54517,8 +54717,13 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-sign-in-problem-on-premises-application-proxy.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-on-premises-application-proxy",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-sign-in-problem-on-premises-application-proxy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-sign-in-problem-on-premises-application-proxy.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-sign-in-problem-on-premises-application-proxy",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-sign-in-unexpected-user-consent-error.md",
@@ -54837,7 +55042,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/what-is-application-proxy.md",
-      "redirect_url": "/azure/active-directory/app-proxy/what-is-application-management",
+      "redirect_url": "/azure/active-directory/app-proxy/what-is-application-proxy",
       "redirect_document_id": false
     },
     {
