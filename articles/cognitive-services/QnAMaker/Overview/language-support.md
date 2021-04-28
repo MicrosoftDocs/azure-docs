@@ -21,7 +21,7 @@ The language determines the relevance of the results QnA Maker provides in respo
 
 # [Custom question answering (preview release)](#tab/v2)
 
-In Custom question answering, you get the choice to add knowledgebases in different languages to the service. Once set, this can't be changed for the service. 
+In Custom question answering, you get the choice to add knowledgebases in different languages to the same service. Once set, this can't be changed for the service. 
 
 ---
 
