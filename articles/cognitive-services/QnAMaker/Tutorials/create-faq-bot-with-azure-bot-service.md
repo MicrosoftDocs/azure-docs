@@ -74,5 +74,14 @@ When you make changes to the knowledge base and republish, you don't need to tak
 
     The chat bot responds with an answer from your knowledge base.
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Enter a user query into the test web chat.":::
+    ![Screenshot of creating a bot managed preview](../media/qnamaker-create-publish-knowledge-base/test-web-chat.png)
+
+
 1. Light up the Bot in additional [supported channels](/azure/bot-service/bot-service-manage-channels).
+
+
+    - Click on Channels in the Bot service resource.
+
+    ![Screenshot of creating a bot managed preview](../media/qnamaker-tutorial-updates/connect-with-teams.png)
+
+    
