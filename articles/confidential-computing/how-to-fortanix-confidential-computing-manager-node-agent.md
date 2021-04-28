@@ -41,7 +41,7 @@ For Fortanix-specific support, join the [Fortanix Slack community](https://forta
    :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/create-account-new.png" alt-text="Screenshot that shows how to create an account.":::
 
 1. After your account is created, hit **SELECT ACCOUNT** to select the newly created account. Now we can start enrolling compute nodes and creating applications.
-1. Navigate to the **Applications** tab and click **+ APPLICATION** to add an application. In this example, we will add an Enclave OS application running a Python Flask server.
+1. Go to the **Applications** tab and click **+ APPLICATION** to add an application. In this example, we will add an Enclave OS application running a Python Flask server.
 
 1. Select the **ADD** button for the Enclave OS Application.
 
@@ -70,8 +70,8 @@ For Fortanix-specific support, join the [Fortanix Slack community](https://forta
       ```bash
          sudo docker run fortanix/python-flask
       ```
-      > [!Note]
-      > It is recommended to use your private docker registry to store the output image.
+      > [!NOTE]
+      > We recommend that you don't use your private Docker registry to store the output image.
 
 1. Add a certificate. Fill in the information using the details below and then select **NEXT**:
     - **Domain**: myapp.domain.com
@@ -88,7 +88,7 @@ A Fortanix CCM Image is a software release or version of an application. Each im
 1. On the **Add Image** page, enter the **REGISTRY CREDENTIALS** for **Output image name**. These credentials are used to access the private docker registry where the image will be pushed. Since the input image is stored in a public registry, there is no need to provide credentials for the input image.
 1. Provide the image tag and select **CREATE**.
 
-   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/create-image1.png" alt-text="Screenshot that shows how to create an image.":::
+   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/create-image.png" alt-text="Screenshot that shows how to create an image.":::
 
 
 ## Domain and image allowlist
@@ -103,7 +103,7 @@ Switch to the **Tasks** tab on the left and approve the pending requests to allo
 
 In Fortanix Confidential Computing Manager, you'll create a token. This token allows a compute node in Azure to authenticate itself. You'll need to give this token to your Azure virtual machine.
 
-1. Navigate to the **Compute Nodes** tab and click the  **+ ENROLL NODE** button
+1. Go to the **Compute Nodes** tab and click the  **+ ENROLL NODE** button.
 1. Click the **COPY** button to copy the Join Token. This Join Token is used by the compute node to authenticate itself.
 
 ### Enroll nodes into Fortanix Node Agent in Azure Marketplace
@@ -111,7 +111,7 @@ In Fortanix Confidential Computing Manager, you'll create a token. This token al
 Creating a Fortanix Node Agent will deploy a virtual machine, network interface, virtual network, network security group, and a public IP address into your Azure resource group. Your Azure subscription will be billed hourly for the virtual machine. Before you create a Fortanix Node Agent, review the Azure [virtual machine pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) for DCsv2-Series. Delete Azure resources when not in use.
 
 1. Go to the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) and sign in with your Azure credentials.
-1. In the search bar, type **Fortanix Confidential Computing Node Agent**. Select the App that shows up in the search box called **Fortanix Confidential Computing Node Agent** to go to the offering's home page. Optionally, click the URL https://azuremarketplace.microsoft.com/en-us/marketplace/apps/fortanix.rte_node_agent?tab=OverviewFortanix to access the Node Agent.
+1. In the search bar, type **Fortanix Confidential Computing Node Agent**. Select the App that shows up in the search box called **Fortanix Confidential Computing Node Agent** to go to the offering's home page. Optionally, click the URL https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.rte_node_agent?tab=OverviewFortanix to access the Node Agent.
 
    ![search marketplace](media/how-to-fortanix-confidential-computing-manager-node-agent/search-fortanix-marketplace.png)
 1. Select **Get It Now**, fill in your information if necessary, and select **Continue**. You'll be redirected to the Azure portal.
@@ -127,7 +127,7 @@ Creating a Fortanix Node Agent will deploy a virtual machine, network interface,
 1. Leave the default OS Disk Size as 200 and select a VM size (Standard_DC4s_v2 will suffice for this tutorial).
 1. Paste the token generated earlier in **Join Token**.
 
-   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/deploy-fortanix-node-agent-protocol1.png" alt-text="Screenshot that shows how to deploy a resource.":::
+   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/deploy-fortanix-node-agent-protocol.png" alt-text="Screenshot that shows how to deploy a resource.":::
 
 1. Select **Review + Create**. Ensure the validation passes and then select **Create**. When all the resources deploy, the compute node is now enrolled in Fortanix Confidential Computing Manager.
 
@@ -166,7 +166,7 @@ Select the resource group for the virtual machine, then select **Delete**. Confi
 
 To delete the Fortanix Confidential Computing Manager account you created, go the [Accounts Page](https://ccm.fortanix.com/accounts) in the Fortanix Confidential Computing Manager. Hover over the account you want to delete. Select the vertical black dots in the upper right-hand corner and select **DELETE ACCOUNT**.
 
-:::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/delete-account1.png" alt-text="Screenshot that shows how to delete the account.":::
+:::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/delete-account.png" alt-text="Screenshot that shows how to delete the account.":::
 
 ## Next steps
 
