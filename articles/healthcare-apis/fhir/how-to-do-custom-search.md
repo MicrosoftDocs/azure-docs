@@ -135,7 +135,7 @@ You must include the `SearchParameter ID` in the ID field of the body of the `PU
 
 ```
 
-The result will be an updated `SearchParamter` and the version will increment.
+The result will be an updated `SearchParameter` and the version will increment.
 
   > [!Warning]
 > Be careful when updating SearchParameters that have already been indexed in your database. Changing an existing SearchParameter’s behavior could have impacts on the expected behavior. 
