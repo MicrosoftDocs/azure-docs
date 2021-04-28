@@ -239,7 +239,7 @@ az login
 
 ---
 
-If you have multiple Azure subscriptions, select the subscription you want to use. Replace `[SubscriptionID/SubscriptionName]` and the square brackets `[]` with your subscription information:
+If you have multiple Azure subscriptions, select the subscription you want to use. Replace `<SUBSCRIPTION-ID-OR-SUBSCRIPTION-NAME>` with your subscription information:
 
 # [PowerShell](#tab/azure-powershell)
 
