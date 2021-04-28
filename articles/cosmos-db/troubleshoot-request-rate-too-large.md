@@ -24,7 +24,7 @@ In a given second, if the operations consume more than the provisione
 
 Before taking any action to change the RU/s, it's important to understand the root cause of why throttling occurred and address the underlying issue. 
 
-## Error message: Request rate is large. More Request Units may be needed, so no changes were made. Please retry this request later.
+## Error message: Request rate is large. More Request Units may be needed, so no changes were made. 
 
 ### Step 1: Check the metrics to determine percent of requests with 429 error
 Getting 429s in and of itself doesn't necessarily mean there is a problem with your database or container.
@@ -67,10 +67,35 @@ If there is high percent of throttled requests and there is an underlying hot pa
 > [!TIP]
 >  When you increase the throughput, the scale-up operation can either be instantaneous or asynchronous, depending on the RU/s provisioned. If you want to know the highest RU/s you can set without triggering the asynchronous scale-up operation (which requires Azure Cosmos DB to provision more physical partitions), multiply the number of distinct PartitionKeyRangeIds by 10,0000 RU/s. For example, if you have 30,000 RU/s provisioned and 5 physical partitions (6000 RU/s allocated per physical partition), you can increase to 50,000 RU/s (10,000 RU/s per physical partition) in an instantaneous scale-up operation. Increasing to >50,000 RU/s would require an asynchronous scale-up operation.
 
-### Step 3: Determine what requests are consuming the most RUs
-TODO. 
+### Step 3: Determine what requests are returning 429s
+Use [Azure Diagnostic Logs](cosmosdb-monitor-resource-logs.md) to identify which requests are returning 429s and how many RUs they consumed. This sample query aggregates at the minute level. 
 
-## Error message: The request did not complete due to a high rate of metadata requests. Increasing request units will have no impact and is not recommended. Please retry the request.
+> [!IMPORTANT]
+> Enabling diagnostic logs incurs a separate charge for the Log Analytics service, which is billed based on volume of data ingested. It is recommended you turn on diagnostic logs for a limited amount of time for debugging, and turn off when no longer required. See [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details.
+```
+AzureDiagnostics
+| where TimeGenerated >= ago(24h)
+| where Category == "DataPlaneRequests"
+| summarize throttledOperations = dcountif(activityId_g, statusCode_s == 429), totalOperations = dcount(activityId_g), totalConsumedRUPerMinute = sum(todouble(requestCharge_s)) by databaseName_s, collectionName_s, OperationName, requestResourceType_s, bin(TimeGenerated, 1min)
+| extend averageRUPerOperation = 1.0 * totalConsumedRUPerMinute / totalOperations 
+| extend fractionOf429s = 1.0 * throttledOperations / totalOperations
+| order by fractionOf429s desc
+```
+For example, this sample output shows that each minute, 30% of Create Document requests were being throttled, with each request consuming an average of 17 RUs.
+:::image type="content" source="media/troubleshoot-request-rate-too-large/throttled-requests-diagnostic-logs.png" alt-text="Requests with 429 in Diagnostic Logs":::
+
+#### Recommended solution
+#### 429s on create, replace, or upsert document requests
+- By default, in the SQL API, all properties are indexed by default. Tune the [indexing policy](index-policy.md) to only index the properties needed.
+This will lower the Request Units required per create document operation, which will reduce the likelihood of seeing 429s or allow you to achieve higher operations per second for the same amount of provisioned RU/s. 
+
+#### 429s on query document requests
+- Follow the guidance to [troubleshoot queries with high RU charge](troubleshoot-query-performance.md#querys-ru-charge-is-too-high)
+
+#### 429s on execute stored procedures
+- [Stored procedures](stored-procedures-triggers-udfs.md) are intended for operations that require write transactions across a partition key value. It is not recommended to use stored procedures for a large number of read or query operations. For best performance, these read or query operations should be done on the client-side, using the Cosmos SDKs. 
+
+## Error message: The request did not complete due to a high rate of metadata requests. 
 
 Metadata throttling can occur when you are performing a high volume of metadata operations on databases and/or containers. Metadata operations include:
 - Create, read, update, or delete a container or database
@@ -86,7 +111,7 @@ There is a system-reserved RU limit for these operations, so increasing the prov
 
 - Cache the names of databases and containers. Retrieve the names of your databases and containers from configuration or cache them on start. Calls like ReadDatabaseAsync/ReadDocumentCollectionAsync or CreateDatabaseQuery/CreateDocumentCollectionQuery will result in metadata calls to the service, which consume from the system-reserved RU limit. These operations should be performed infrequently.
 
-## Error message: The request did not complete due to a transient service error. Increasing request units will have no impact and is not recommended. Please retry the request.
+## Error message: The request did not complete due to a transient service error.
 
 This 429 error is returned when the request encounters a transient service error. Increasing the RU/s on the database or container will have no impact and is not recommended.
 
