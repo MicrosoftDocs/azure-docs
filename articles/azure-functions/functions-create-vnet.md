@@ -421,17 +421,9 @@ The following DNS zones were created in this tutorial:
 
 In this tutorial, you created a Premium function app, storage account, and Service Bus. You secured all of these resources behind private endpoints. 
 
-Use the following links to learn more about the available networking features:
+Use the following links to learn more Azure Functions networking options and private endpoints:
 
-> [!div class="nextstepaction"]
-> [Networking options in Azure Functions](./functions-networking-options.md)
-
-
-> [!div class="nextstepaction"]
-> [Azure Functions Premium plan](./functions-premium-plan.md)
-
-> [!div class="nextstepaction"]
-> [Service Bus private endpoints](../service-bus-messaging/private-link-service.md)
-
-> [!div class="nextstepaction"]
-> [Azure Storage private endpoints](../storage/common/storage-private-endpoints.md)
+- [Networking options in Azure Functions](./functions-networking-options.md)
+- [Azure Functions Premium plan](./functions-premium-plan.md)
+- [Service Bus private endpoints](../service-bus-messaging/private-link-service.md)
+- [Azure Storage private endpoints](../storage/common/storage-private-endpoints.md)
