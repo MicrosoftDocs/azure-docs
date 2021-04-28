@@ -27,31 +27,31 @@ Improve the accuracy of your machine learning models with publicly available dat
 |--|--|
 | [COVID-19 Data Lake](dataset-covid-19-data-lake.md) | COVID-19 Data Lake collection is a collection of COVID-19 related datasets from various sources, covering testing and patient outcome tracking data, social distancing policy, hospital capacity, mobility, etc. |
 | [COVID-19 Open Research Dataset](dataset-covid-19-open-research.md) | A full-text and metadata dataset of COVID-19 and coronavirus-related scholarly articles optimized for machine readability and made available for use by the global research community. |
-| Genomics Data Lake | The Genomics Data Lake provides various public datasets that you can access for free and integrate into your genomics analysis workflows and applications. The datasets include genome sequences, variant info and subject/sample metadata in BAM, FASTA, VCF, CSV file formats. |
-
+| [Genomics Data Lake](dataset-genomics-data-lake.md) | The Genomics Data Lake provides various public datasets that you can access for free and integrate into your genomics analysis workflows and applications. The datasets include genome sequences, variant info and subject/sample metadata in BAM, FASTA, VCF, CSV file formats. |
+    
 ## Labor and economics
 
 | Dataset | Description |
 |--|--|
-| US Labor Force Statistics | US Labor Force Statistics provides Labor Force Statistics, labor force participation rates, and the civilian noninstitutional population by age, gender, race, and ethnic groups. in the United States. |
-| US National Employment Hours and Earnings | The Current Employment Statistics (CES) program produces detailed industry estimates of nonfarm employment, hours, and earnings of workers on payrolls in the United States. |
-| US State Employment Hours and Earnings | The Current Employment Statistics (CES) program produces detailed industry estimates of nonfarm employment, hours, and earnings of workers on payrolls in the United States. |
-| US Local Area Unemployment Statistics | The US Local Area Unemployment Statistics datasets provides monthly and annual employment, unemployment, and labor force data for Census regions and divisions, States, counties, metropolitan areas, and many cities in the United States. |
-| US Consumer Price Index | The Consumer Price Index (CPI) is a measure of the average change over time in the prices paid by urban consumers for a market basket of consumer goods and services. |
-| US Producer Price Index - Industry | The Producer Price Index (PPI) is a measure of average change over time in the selling prices received by domestic producers for their output. |
-| US Producer Price Index - Commodities | The Producer Price Index (PPI) is a measure of average change over time in the selling prices received by domestic producers for their commodities. |
+| [US Labor Force Statistics](dataset-us-labor-force.md) | US Labor Force Statistics provides Labor Force Statistics, labor force participation rates, and the civilian noninstitutional population by age, gender, race, and ethnic groups. in the United States. |
+| [US National Employment Hours and Earnings](dataset-us-national-employment-earnings.md) | The Current Employment Statistics (CES) program produces detailed industry estimates of nonfarm employment, hours, and earnings of workers on payrolls in the United States. |
+| [US State Employment Hours and Earnings](dataset-us-state-employment-earnings.md) | The Current Employment Statistics (CES) program produces detailed industry estimates of nonfarm employment, hours, and earnings of workers on payrolls in the United States. |
+| [US Local Area Unemployment Statistics](dataset-us-local-unemployment.md) | The US Local Area Unemployment Statistics datasets provides monthly and annual employment, unemployment, and labor force data for Census regions and divisions, States, counties, metropolitan areas, and many cities in the United States. |
+| [US Consumer Price Index](dataset-us-consumer-price-index.md) | The Consumer Price Index (CPI) is a measure of the average change over time in the prices paid by urban consumers for a market basket of consumer goods and services. |
+| [US Producer Price Index - Industry](dataset-us-producer-price-index-industry.md) | The Producer Price Index (PPI) is a measure of average change over time in the selling prices received by domestic producers for their output. |
+| [US Producer Price Index - Commodities](dataset-us-producer-price-index-commodities.md) | The Producer Price Index (PPI) is a measure of average change over time in the selling prices received by domestic producers for their commodities. |
 
 ## Population and safety
 
 | Dataset | Description |
 |--|--|
-| US Population by County | US population by gender and race for each US county sourced from 2000 and 2010 Decennial Census. This dataset is sourced from the United States Census Bureau. |
-| US Population by ZIP Code | US population by gender and race for each US ZIP code sourced from 2010 Decennial Census. This dataset is sourced from the United States Census Bureau. |
-| Boston Safety Data | Read data about 311 calls reported to the city of Boston. This dataset is stored in Parquet format and is updated daily. |
-| Chicago Safety Data | Read data about 311 calls reported to the city of Chicago. This dataset is stored in Parquet format and is updated daily. |
-| New York City Safety Data | This dataset contains all New York City 311 service requests from 2010 to the present. Itâ€™s stored in Parquet format and updated daily. |
-| San Francisco Safety Data | Fire department calls for service and 311 cases in San Francisco. This dataset contains historical records accumulated from 2015 to the present. |
-| Seattle Safety Data | Seattle Fire Department 911 dispatches. This dataset is updated daily, and contains historical records accumulated from 2010 to the present |
+| [US Population by County](dataset-us-population-county.md) | US population by gender and race for each US county sourced from 2000 and 2010 Decennial Census. This dataset is sourced from the United States Census Bureau. |
+| [US Population by ZIP Code](dataset-us-population-zip.md) | US population by gender and race for each US ZIP code sourced from 2010 Decennial Census. This dataset is sourced from the United States Census Bureau. |
+| [Boston Safety Data](dataset-boston-safety.md) | Read data about 311 calls reported to the city of Boston. This dataset is stored in Parquet format and is updated daily. |
+| [Chicago Safety Data](dataset-chicago-safety.md) | Read data about 311 calls reported to the city of Chicago. This dataset is stored in Parquet format and is updated daily. |
+| [New York City Safety Data](dataset-new-york-city-safety.md) | This dataset contains all New York City 311 service requests from 2010 to the present. Itâ€™s stored in Parquet format and updated daily. |
+| [San Francisco Safety Data](dataset-san-francisco-safety.md) | Fire department calls for service and 311 cases in San Francisco. This dataset contains historical records accumulated from 2015 to the present. |
+| [Seattle Safety Data](dataset-seattle-safety.md) | Seattle Fire Department 911 dispatches. This dataset is updated daily, and contains historical records accumulated from 2010 to the present |
 
 ## Supplemental and common datasets
 
