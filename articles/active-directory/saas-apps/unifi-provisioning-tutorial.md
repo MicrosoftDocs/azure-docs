@@ -50,15 +50,20 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Make sure SSO is enabled successfully in your Enterprise Application in Azure. 
 1. Find the **Login URL** in Single sign-on. In our case it is `https://login.microsoftonline.com/<guid>/saml2`.
 1. Download the Certificate (Base64) under the SAML Signing Certificate section.
-![Enterprise Application SSO View](media/unifi-provisioning-tutorial/enterprise-application-view.png)
+
+	![Enterprise Application SSO View](media/unifi-provisioning-tutorial/enterprise-application-view.png)
+
 1. If your identity provider is not added to UNIFI , then login to UNIFI Portal as a **Company Admin**. Navigate to **Users -> Configure SSO -> add provider** button.
-![Add Identity Provider View](media/unifi-provisioning-tutorial/add-identity-provider-view.png)
+
+	![Add Identity Provider View](media/unifi-provisioning-tutorial/add-identity-provider-view.png)
 
 1. The add SSO Provider modal will be displayed.
-![Add Identity Provider Modal](media/unifi-provisioning-tutorial/add-identity-provider-modal.png)
+
+	![Add Identity Provider Modal](media/unifi-provisioning-tutorial/add-identity-provider-modal.png)
 
 1. Provide any unique **Name** value you desire. the **URL** will be the **Login URL** from your Azure AD Enterprise Application. Provide any value for the **Token**. Place your Certificate (Base64) value in the **Certificate** field. If you want all of your users created from this point forward to use this identity provider, select the **Make this the default identity provider** checkbox.
-![Add Identity Provider Modal Populated](media/unifi-provisioning-tutorial/add-identity-provider-modal-populated.png)
+
+	![Add Identity Provider Modal Populated](media/unifi-provisioning-tutorial/add-identity-provider-modal-populated.png)
 
 1. Click SAVE Button.
 
@@ -97,9 +102,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab automatic](common/provisioning-automatic.png)
 
-1. In the **Admin Credentials** section, input your UNIFI Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to UNIFI. If the connection fails, ensure your UNIFI account has Admin permissions and try again. 
-**Tenant URL** - `https://licensing.inviewlabs.com/api/scim/v2/`
-![Token](common/provisioning-testconnection-tenanturltoken.png)
+1. In the **Admin Credentials** section, input your UNIFI **Tenant URL** -`https://licensing.inviewlabs.com/api/scim/v2/` and **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to UNIFI. If the connection fails , ensure your UNIFI account has Admin permissions and try again.
+
+	![Token](common/provisioning-testconnection-tenanturltoken.png)
 
 1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
