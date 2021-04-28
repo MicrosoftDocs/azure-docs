@@ -155,7 +155,7 @@ Azure Spring Cloud enabled some hot-loading mechanism to help you adjust the set
 > [!Note]
 > The hot-loading mechanism has delay in minutes.
 
-* When the Java agent has been previously enabled, Application Insights and/or SamplingRate instances do NOT require applications to be restarted.
+* When the Java agent has been previously enabled, adjust Application Insights instance and/or SamplingRate do NOT require applications to be restarted.
 * If you enable the Java agent, then you must restart applications.
 * When you disable Java agent, the application will stop to send all monitoring data after a delay in minutes. You can restart the application to remove the agent from Java runtime environment.
 
