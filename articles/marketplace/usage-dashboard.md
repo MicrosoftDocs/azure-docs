@@ -4,7 +4,7 @@ description: Learn how to access all usage and metered billing metrics for offer
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 04/28/2021
 author: sayantanroy83
 ms.author: sroy
 ---
