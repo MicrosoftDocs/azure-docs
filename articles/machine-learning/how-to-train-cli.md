@@ -75,7 +75,7 @@ This job can be created and run via `az ml job create` using the `--file/-f` par
 
 You can create an Azure Machine Learning compute cluster from the command line. For instance, the following commands will create one cluster named `cpu-cluster` and one named `gpu-cluster`.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="create_computes":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="create_computes":::
 
 Note that you are not charged for compute at this point, refer to compute cost guide?
 
@@ -104,21 +104,14 @@ To run the lightgbm/iris training job:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="lightgbm_iris":::
 
-You can then monitor the progress of the job in the studio:
-
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="show_job_in_studio":::
-
-You can also stream the logs to the console through the CLI:
-
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="stream_job_logs_to_console":::
-
-Note this will block further commands in the terminal unless run in the background, which can be useful in CI/CD workflows to wait for a job to complete.
-
 Once the job is complete, you can download the outputs:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="download_outputs":::
 
-This will download the logs and any captured artifacts locally in a directory named `$job_id`. For this example, the MLflow-logged model subdirectory will be downloaded.
+> [!IMPORTANT]
+> Replace "$run_id" with your run ID, which can be found in the console output or in the studio's run details page.
+
+This will download the logs and any captured artifacts locally in a directory named `$run_id`. For this example, the MLflow-logged model subdirectory will be downloaded.
 
 ## Sweeping hyperparameters
 
