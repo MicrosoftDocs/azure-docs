@@ -159,10 +159,10 @@
         href: application-proxy-integrate-with-sharepoint-server.md
       - name: Integrate with SharePoint (SAML)
         href: application-proxy-integrate-with-sharepoint-server-saml.md
-    #    - name: Integrate with Teams
-    #      href: application-proxy-integrate-with-teams.md
-    #    - name: Integrate with Tableau
-    #      href: application-proxy-integrate-with-tableau.md
+    #     - name: Integrate with Teams
+    #       href: application-proxy-integrate-with-teams.md
+    #     - name: Integrate with Tableau
+    #       href: application-proxy-integrate-with-tableau.md
       - name: Integrate with Qlik
         href: application-proxy-qlik.md
     - name: Troubleshoot
