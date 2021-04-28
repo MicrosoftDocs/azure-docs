@@ -298,7 +298,7 @@ You can also access the Microsoft 365 activity logs programmatically by using th
 
 ## Next steps
 
-* [Sign-in activity report error codes](reference-sign-ins-error-codes.md)
+* [Sign-in activity report error codes]()
 * [Azure AD data retention policies](reference-reports-data-retention.md)
 * [Azure AD report latencies](reference-reports-latencies.md)
-* [First party Microsoft applications in sign-ins report](https://docs.microsoft.com/troubleshoot/azure/active-directory/verify-first-party-apps-sign-in#application-ids-for-commonly-used-microsoft-applications)
+* [First party Microsoft applications in sign-ins report](/troubleshoot/azure/active-directory/verify-first-party-apps-sign-in#application-ids-for-commonly-used-microsoft-applications)
