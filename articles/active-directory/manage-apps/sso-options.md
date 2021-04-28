@@ -161,7 +161,7 @@ To configure an on-premises app for IWA, see [Kerberos Constrained Delegation fo
 ### How single sign-on with KCD works
 This diagram explains the flow when a user accesses an on-premises application that uses IWA.
 
-![Microsoft Azure AD authentication flow diagram](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
+![Microsoft Azure AD authentication flow diagram](../app-proxy/media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
 1. The user enters the URL to access the on premises application through Application Proxy.
 1. Application Proxy redirects the request to Azure AD authentication services to preauthenticate. At this point, Azure AD applies any applicable authentication and authorization policies, such as multifactor authentication. If the user is validated, Azure AD creates a token and sends it to the user.
