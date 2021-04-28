@@ -50,6 +50,16 @@ Below is an example of a semi-structured doc, without an index:
 
  ![Azure Blob storage semi-structured Doc](./media/qnamaker-concepts-datasources/semi-structured-doc.png)
 
+### Unstructured document support
+
+Custom question answering now supports unstructured documents. A  document that does not have its content organised in a well defined heirarchical manner, is missing a set structure or has its content free flowing can be considered as an unstructured document.
+
+Below is an example of an unstructured PDF document:
+
+ ![Structured QnA document example for a knowledge base](./media/qnamaker-concepts-datasources/unstructured-qna-pdf.png)
+
+ Currently this functionality is available only via document upload and only for PDF and DOC file formats.
+
 ### Structured QnA Document
 
 The format for structured Question-Answers in DOC files, is in the form of alternating Questions and Answers per line, one question per line followed by its answer in the following line, as shown below:
