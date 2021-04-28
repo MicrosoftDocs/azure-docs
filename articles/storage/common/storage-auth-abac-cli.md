@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: tutorial
 ms.author: rolyon
 ms.reviewer: 
-ms.subservice: blobs
+ms.subservice: common
 ms.date: 04/27/2021
 
 #Customer intent: 
@@ -150,9 +150,9 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
     condition="((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blobs.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<\$key_case_sensitive\$>] StringEquals 'Cascade'))"
     ```
 
-    In Bash, if history expansion is enabled, you might see the message `bash: !: event not found` because of the exclamation point (!). In this case, you can disable history expansion with the command `set +H`. To enable history expansion, use `set -H`.
+    In Bash, if history expansion is enabled, you might see the message `bash: !: event not found` because of the exclamation point (!). In this case, you can disable history expansion with the command `set +H`. To re-enable history expansion, use `set -H`.
 
-    In Bash, a dollar sign ($) has special meaning for expansion. If your condition includes a dollar sign ($), you might need to prefix it with a backslash (\\). For example, this condition uses dollar signs to delineate the tag key name.
+    In Bash, a dollar sign ($) has special meaning for expansion. If your condition includes a dollar sign ($), you might need to prefix it with a backslash (\\). For example, this condition uses dollar signs to delineate the tag key name. For more information about rules for quotation marks in Bash, see [Double Quotes](https://www.gnu.org/software/bash/manual/html_node/Double-Quotes.html).
 
 1. Initialize the condition version and description.
 

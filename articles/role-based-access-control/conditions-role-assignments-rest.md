@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/20/2021
+ms.date: 04/27/2021
 ms.author: rolyon
 ---
 
@@ -115,7 +115,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## List a condition
 
-To list a role assignment condition, use the [Role Assignments - List](/rest/api/authorization/roleassignments/list) API. Set the `api-version` to `2020-04-01-preview` or later. For more information, see [List Azure role assignments using the REST API](role-assignments-list-rest.md).
+To list a role assignment condition, use the [Role Assignments - List](/rest/api/authorization/roleassignments/list) API. Set the `api-version` to `2020-03-01-preview` or later. If you want to utilize the `description` property for role assignments, use `2020-04-01-preview` or later. For more information, see [List Azure role assignments using the REST API](role-assignments-list-rest.md).
 
 ## Delete a condition
 

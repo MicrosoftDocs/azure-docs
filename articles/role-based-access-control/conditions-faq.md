@@ -56,7 +56,7 @@ No, based on our benchmark tests, conditions are not expected to add any user pe
 Here are the three new properties:
 
 - `condition`: Condition statement built using one or more actions from role definition and attributes.
-- `conditionVersion`: A condition version number. Defaults to 2.0 and is the only supported version.
+- `conditionVersion`: A condition version number. Defaults to 2.0 and is the only publicly supported version.
 - `description`: The description for the role assignment that can be used to describe the condition.
 
 **Is a condition applied to the entire role assignment or specific actions?**
