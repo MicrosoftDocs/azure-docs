@@ -9,7 +9,7 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 12/31/2020
+ms.date: 04/15/2021
 ---
 
 # Analyze data with a serverless SQL pool
@@ -22,9 +22,7 @@ Serverless SQL pools let you use SQL without having to reserve capacity. Billing
 
 Every workspace comes with a pre-configured serverless SQL pool called **Built-in**. 
 
-## Analyze NYC Taxi data in blob storage using serverless SQL pool
-
-In this section, you'll use a serverless SQL pool to analyze NYC Taxi data in an Azure Blob Storage account.
+## Analyze NYC Taxi data with a serverless SQL pool
 
 1. In Synapse Studio, go to the **Develop** hub
 1. Create a new SQL script.
@@ -32,14 +30,14 @@ In this section, you'll use a serverless SQL pool to analyze NYC Taxi data in an
 
     ```
     SELECT
-        TOP 100 *
+        TOP 100 *
     FROM
         OPENROWSET(
-            BULK     'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
-            FORMAT = 'parquet'
-        ) AS [result];
+            BULK 'https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet',
+            FORMAT='PARQUET'
+        ) AS [result]
     ```
-1. Click **Run**
+1. Click **Run**. 
 
 ## Next steps
 

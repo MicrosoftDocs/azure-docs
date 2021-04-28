@@ -1,7 +1,7 @@
 ---
 title: Guidance for throttled requests
 description: Learn to group, stagger, paginate, and query in parallel to avoid requests being throttled by Azure Resource Graph.
-ms.date: 01/27/2021
+ms.date: 04/09/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ---
@@ -253,8 +253,8 @@ looking for. However, some Azure Resource Graph clients handle pagination differ
 
 ## Still get throttled?
 
-If you're getting throttled after exercising the above recommendations, contact the team at
-[resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com).
+If you're getting throttled after exercising the above recommendations, contact the [Azure Resource
+Graph team](mailto:resourcegraphsupport@microsoft.com).
 
 Provide these details:
 

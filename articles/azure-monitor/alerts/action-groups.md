@@ -142,6 +142,13 @@ If you are not receiving Notifications on your *primary email*, then you can try
 
 You may have a limited number of email actions in an Action Group. See the [rate limiting information](./alerts-rate-limiting.md) article.
 
+While setting up *Email ARM Role* you need to make sure below 3 conditions are met:
+
+1. The type of the entity being assigned to the role needs to be **“User”**.
+2. The assignment needs to be done at the **subscription** level.
+3. The user needs to have an email configured in their **AAD profile**. 
+
+
 ### Function
 Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functions/functions-get-started.md). To handle a request, your endpoint must handle the HTTP POST verb.
 

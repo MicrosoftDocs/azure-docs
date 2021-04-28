@@ -6,9 +6,9 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
 ms.workload: identity
-ms.author: kenwith
-author: kenwith
-manager: daveba
+ms.author: iangithinji
+author: iantheninja
+manager: CelesteDG
 ---
 
 # Azure Active Directory application management: What's new
@@ -35,7 +35,7 @@ Welcome to what's new in Azure Active Directory application management documenta
 - [Troubleshoot Kerberos constrained delegation configurations for Application Proxy](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 - [Quickstart: Set up SAML-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant](add-application-portal-setup-sso.md)
 - [Azure Active Directory application management: What's new](whats-new-docs.md)
-- [Active Directory (Azure AD) Application Proxy frequently asked questions](application-proxy-faq.md)
+- [Active Directory (Azure AD) Application Proxy frequently asked questions](application-proxy-faq.yml)
 - [Troubleshoot problems signing in to an application from Azure AD My Apps](application-sign-in-other-problem-access-panel.md)
 - [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md)
 - [Optimize traffic flow with Azure Active Directory Application Proxy](application-proxy-network-topology.md)
@@ -70,7 +70,7 @@ Welcome to what's new in Azure Active Directory application management documenta
 - [Application management best practices](application-management-fundamentals.md)
 - [Integrating Azure Active Directory with applications getting started guide](plan-an-application-integration.md)
 - [What is application management?](what-is-application-management.md)
-- [Active Directory (Azure AD) Application Proxy frequently asked questions](application-proxy-faq.md)
+- [Active Directory (Azure AD) Application Proxy frequently asked questions](application-proxy-faq.yml)
 - [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md)
 - [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md)
 - [Develop line-of-business apps for Azure Active Directory](../develop/v2-overview.md)
@@ -78,7 +78,7 @@ Welcome to what's new in Azure Active Directory application management documenta
 - [Understand linked sign-on](configure-linked-sign-on.md)
 - [Understand password-based single sign-on](configure-password-single-sign-on-non-gallery-applications.md)
 - [Understand SAML-based single sign-on](configure-saml-single-sign-on.md)
-- [Troubleshoot common problem adding or removing an application to Azure Active Directory](troubleshoot-adding-apps.md)
+- [Troubleshoot common problem adding or removing an application to Azure Active Directory](/troubleshoot/azure/active-directory/troubleshoot-adding-apps)
 - [Viewing apps using your Azure AD tenant for identity management](application-types.md)
 - [Understand how users are assigned to apps in Azure Active Directory](ways-users-get-assigned-to-applications.md)
 - [Quickstart: Delete an application from your Azure Active Directory (Azure AD) tenant](delete-application-portal.md)
@@ -136,7 +136,7 @@ Welcome to what's new in Azure Active Directory application management documenta
 
 ### Updated articles
 - [Quickstart: Add an application to your Azure Active Directory (Azure AD) tenant](add-application-portal.md)
-- [Troubleshoot common problem adding or removing an application to Azure Active Directory](troubleshoot-adding-apps.md)
+- [Troubleshoot common problem adding or removing an application to Azure Active Directory](/troubleshoot/azure/active-directory/troubleshoot-adding-apps)
 - [Managing consent to applications and evaluating consent requests](manage-consent-requests.md)
 - [Viewing apps using your Azure AD tenant for identity management](application-types.md)
 - [Understand how users are assigned to apps in Azure Active Directory](ways-users-get-assigned-to-applications.md)

@@ -27,20 +27,16 @@ In this tutorial, you'll learn the basic steps to load and analyze data with Apa
 
 ## Understanding serverless Apache Spark pools
 
-A serverless Spark pool is a way of indicating how a user wants to work with Spark. When you start using a pool a Spark session is created if needed. The pool controls how many Spark resources will be used by that session and how long the session well last before it automatically pauses. You pay for spark resources used during that session not for the pool itself. In this way a Spark pool lets you work with Spark, without having to worry managing clusters. This is similar to how a serverless SQL pool works.
+A serverless Spark pool is a way of indicating how a user wants to work with Spark. When you start using a pool a Spark session is created if needed. The pool controls how many Spark resources will be used by that session and how long the session will last before it automatically pauses. You pay for spark resources used during that session not for the pool itself. In this way a Spark pool lets you work with Spark, without having to worry managing clusters. This is similar to how a serverless SQL pool works.
 
-## Analyze NYC Taxi data in blob storage using Spark
+## Analyze NYC Taxi data with a Spark pool
 
-1. In Synapse Studio go to the **Develop** hub
-2. Create a new Notebook with the default language set to **PySpark (Python)**.
+1. In Synapse Studio, go to the **Develop** hub
+2. Create a new Notebook
 3. Create a new code cell and paste the following code into that cell.
     ```py
     %%pyspark
-    from azureml.opendatasets import NycTlcYellow
-
-    data = NycTlcYellow()
-    df = data.to_spark_dataframe()
-    # Display 10 rows
+    df = spark.read.load('abfss://users@contosolake.dfs.core.windows.net/NYCTripSmall.parquet', format='parquet')
     display(df.limit(10))
     ```
 1. In the notebook, in the **Attach to** menu, choose the **Spark1** serverless Spark pool that we created earlier.
@@ -48,22 +44,23 @@ A serverless Spark pool is a way of indicating how a user wants to work with Spa
 1. If you just want to see the schema of the dataframe run a cell with the following code:
 
     ```py
+    %%pyspark
     df.printSchema()
     ```
 
 ## Load the NYC Taxi data into the Spark nyctaxi database
 
-Data is available via the dataframe named **data**. Load it into a Spark database named **nyctaxi**.
+Data is available via the dataframe named **df**. Load it into a Spark database named **nyctaxi**.
 
 1. Add a new code cell to the notebook, and then enter the following code:
 
     ```py
+    %%pyspark
     spark.sql("CREATE DATABASE IF NOT EXISTS nyctaxi")
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
 ## Analyze the NYC Taxi data using Spark and notebooks
 
-1. Return to your notebook.
 1. Create a new code cell and enter the following code. 
 
    ```py
@@ -79,10 +76,10 @@ Data is available via the dataframe named **data**. Load it into a Spark databas
    %%pyspark
    df = spark.sql("""
       SELECT PassengerCount,
-          SUM(TripDistance) as SumTripDistance,
-          AVG(TripDistance) as AvgTripDistance
+          SUM(TripDistanceMiles) as SumTripDistance,
+          AVG(TripDistanceMiles) as AvgTripDistance
       FROM nyctaxi.trip
-      WHERE TripDistance > 0 AND PassengerCount > 0
+      WHERE TripDistanceMiles > 0 AND PassengerCount > 0
       GROUP BY PassengerCount
       ORDER BY PassengerCount
    """) 

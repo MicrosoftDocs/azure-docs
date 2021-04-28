@@ -22,7 +22,7 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 
 ### New articles
 
-- [Restore or remove a recently deleted application with the Microsoft identity platform](quickstart-restore-app.md)
+- [Restore or remove a recently deleted application with the Microsoft identity platform](./howto-restore-app.md)
 
 ### Updated articles
 

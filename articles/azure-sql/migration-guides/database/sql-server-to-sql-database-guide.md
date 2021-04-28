@@ -24,13 +24,13 @@ You can migrate SQL Server running on-premises or on:
 - Compute Engine (Google Cloud Platform - GCP)  
 - Cloud SQL for SQL Server (Google Cloud Platform – GCP) 
 
-For more migration information, see the [migration overview](sql-server-to-sql-database-overview.md). For other migration guides, see [Database Migration](https://docs.microsoft.com/data-migration). 
+For more migration information, see the [migration overview](sql-server-to-sql-database-overview.md). For other migration guides, see [Database Migration](/data-migration). 
 
 :::image type="content" source="media/sql-server-to-database-overview/migration-process-flow-small.png" alt-text="Migration process flow":::
 
 ## Prerequisites 
 
-For your [SQL Server migration](https://azure.microsoft.com/migration/migration-journey) to Azure SQL Database, make sure you have the following prerequisites: 
+For your [SQL Server migration](https://azure.microsoft.com/en-us/migration/sql-server/) to Azure SQL Database, make sure you have the following prerequisites: 
 
 - A chosen [migration method](sql-server-to-sql-database-overview.md#compare-migration-options) and corresponding tools .
 - [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) installed on a machine that can connect to your source SQL Server.

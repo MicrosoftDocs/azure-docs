@@ -63,6 +63,8 @@ landingContent:
             url: deploy-nextjs.md
           - text: Deploy from Nuxt.js
             url: deploy-nuxtjs.md
+          - text: Deploy with Azure DevOps
+            url: publish-devops.md
       - linkListType: learn
         links:
           - text: Publish a static web app with Gatsby
@@ -73,11 +75,11 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Routes
-            url: routes.md
+          - text: Application configuration
+            url: configuration.md
           - text: Public APIs
             url: apis.md
-          - text: Staging
+          - text: Staging environments
             url: review-publish-pull-requests.md
           - text: Restrict access
             url: authentication-authorization.md

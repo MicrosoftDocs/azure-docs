@@ -3,11 +3,11 @@ title: Troubleshoot redirection to App Service URL
 titleSuffix: Azure Application Gateway
 description: This article provides information on how to troubleshoot the redirection issue when Azure Application Gateway is used with Azure App Service
 services: application-gateway
-author: abshamsft
+author: jaesoni
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 11/14/2019
-ms.author: absha
+ms.date: 04/15/2021
+ms.author: jaysoni
 ---
 
 # Troubleshoot App Service issues in Application Gateway
@@ -78,34 +78,32 @@ In the previous example, notice that the response header has a status code of 30
 Set the host name in the location header to the application gateway's domain name. To do this, create a [rewrite rule](./rewrite-http-headers.md) with a condition that evaluates if the location header in the response contains azurewebsites.net. It must also perform an action to rewrite the location header to have the application gateway's host name. For more information, see instructions on [how to rewrite the location header](./rewrite-http-headers.md#modify-a-redirection-url).
 
 > [!NOTE]
-> The HTTP header rewrite support is only available for the [Standard_v2 and WAF_v2 SKU](./application-gateway-autoscaling-zone-redundant.md) of Application Gateway. If you use v1 SKU, we recommend that you [migrate from v1 to v2](./migrate-v1-v2.md). You want to use rewrite and other [advanced capabilities](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) that are available with v2 SKU.
+> The HTTP header rewrite support is only available for the [Standard_v2 and WAF_v2 SKU](./application-gateway-autoscaling-zone-redundant.md) of Application Gateway. We recommend [migrating to v2](./migrate-v1-v2.md) for Header Rewrite and other [advanced capabilities](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) that are available with v2 SKU.
 
 ## Alternate solution: Use a custom domain name
 
-If you use v1 SKU, you can't rewrite the location header. This capability is only available for v2 SKU. To resolve the redirection issue, pass the same host name that the application gateway receives to the app service as well, instead of doing a host override.
+Using App Service's Custom Domain feature is another solution to always redirect the traffic to Application Gateway's domain name (`www.contoso.com` in our example). This configuration also serves as a solution for the ARR Affinity cookie problem. By default, the ARRAffinity cookie domain is set to the App Service's default host name (example.azurewebsites.net) instead of the Application Gateway's domain name. Therefore, the browser in such cases will reject the cookie due to the difference in the domain names of the request and the cookie.
 
-The app service now does the redirection (if any) on the same original host header that points to the application gateway and not its own.
+You can follow the given method for both the Redirection and ARRAffinity's cookie domain mismatch issues. This method will need you to have your custom domain's DNS zone access.
 
-You must own a custom domain and follow this process:
+**Step1**: Set a Custom Domain in App Service and verify the domain ownership by adding the [CNAME & TXT DNS records](../app-service/app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id).
+The records would look similar to
+-  `www.contoso.com` IN CNAME `contoso.azurewebsite.net`
+-  `asuid.www.contoso.com` IN TXT "`<verification id string>`"
 
-- Register the domain to the custom domain list of the app service. You must have a CNAME in your custom domain that points to the app service's FQDN. For more information, see [Map an existing custom DNS name to Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md).
 
-    ![App service custom domain list](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
+**Step2**: The CNAME record in the previous step was only needed for the domain verification. Ultimately, we need the traffic to route via Application Gateway. You can thus modify `www.contoso.com`'s CNAME now to point to Application Gateway's FQDN. To set a FQDN for your Application Gateway, navigate to its Public IP address resource and assign a "DNS Name label" for it. The updated CNAME record should now look as 
+-  `www.contoso.com` IN CNAME `contoso.eastus.cloudapp.azure.com`
 
-- Your app service is ready to accept the host name `www.contoso.com`. Change your CNAME entry in DNS to point it back to the application gateway's FQDN, for example, `appgw.eastus.cloudapp.azure.com`.
 
-- Make sure that your domain `www.contoso.com` resolves to the application gateway's FQDN when you do a DNS query.
+**Step3**: Disable "Pick Hostname from Backend Address" for the associated HTTP Setting.
 
-- Set your custom probe to disable **Pick Hostname from Backend HTTP Settings**. In the Azure portal, clear the check box in the probe settings. In PowerShell, don't use the **-PickHostNameFromBackendHttpSettings** switch in the **Set-AzApplicationGatewayProbeConfig** command. In the host name field of the probe, enter your app service's FQDN, example.azurewebsites.net. The probe requests sent from the application gateway carry this FQDN in the host header.
+In PowerShell, don't use the `-PickHostNameFromBackendAddress` switch in the `Set-AzApplicationGatewayBackendHttpSettings` command.
 
-  > [!NOTE]
-  > For the next step, make sure that your custom probe isn't associated to your back-end HTTP settings. Your HTTP settings still have the **Pick Hostname from Backend Address** switch enabled at this point.
 
-- Set your application gateway's HTTP settings to disable **Pick Hostname from Backend Address**. In the Azure portal, clear the check box. In PowerShell, don't use the **-PickHostNameFromBackendAddress** switch in the **Set-AzApplicationGatewayBackendHttpSettings** command.
+**Step4**: For the probes to determine the backend as healthy and an operational traffic, set a custom Health Probe with Host field as custom or default domain of the App Service.
 
-- Associate the custom probe back to the back-end HTTP settings, and verify that the back end is healthy.
-
-- The application gateway should now forward the same host name, `www.contoso.com`, to the app service. The redirection happens on the same host name. Check the following example request and response headers.
+In PowerShell, don't use the `-PickHostNameFromBackendHttpSettings` switch in the `Set-AzApplicationGatewayProbeConfig` command and use either the custom or default domain of the App Service in the -HostName switch of the probe.
 
 To implement the previous steps using PowerShell for an existing setup, use the sample PowerShell script that follows. Note how we haven't used the **-PickHostname** switches in the probe and HTTP settings configuration.
 

@@ -83,7 +83,7 @@ In the table below you can find the available authorization types:
 | ------------------------------------- | ------------- | -----------    |
 | [User Identity](?tabs=user-identity#supported-storage-authorization-types)       | Not supported | Supported      |
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Supported     | Supported      |
-| [Managed Identity](?tabs=managed-identity#supported-storage-authorization-types) | Not supported | Supported      |
+| [Managed Identity](?tabs=managed-identity#supported-storage-authorization-types) | Supported | Supported      |
 
 ### Supported storages and authorization types
 

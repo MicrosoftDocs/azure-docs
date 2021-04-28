@@ -41,7 +41,7 @@ This article describes how to set up a federation with another Azure AD B2C tena
 
 To enable sign-in for users with an account from another Azure AD B2C tenant (for example, Fabrikam), in your Azure AD B2C (for example, Contoso):
 
-1. Create a [user flow](tutorial-create-user-flows.md), or a [custom policy](custom-policy-get-started.md).
+1. Create a [user flow](tutorial-create-user-flows.md?pivots=b2c-user-flow), or a [custom policy](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 1. Then create an application in the Azure AD B2C, as describe in this section. 
 
 To create an application.

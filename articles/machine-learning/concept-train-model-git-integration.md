@@ -191,7 +191,7 @@ The `az ml run` CLI command can be used to retrieve the properties from a run. F
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-For more information, see the [az ml run](/cli/azure/ext/azure-cli-ml/ml/run) reference documentation.
+For more information, see the [az ml run](/cli/azure/ml/run) reference documentation.
 
 ## Next steps
 

@@ -4,9 +4,14 @@ description: Learn how you can use Azure Cosmos DB to store and query massive am
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 03/02/2021
+ms.date: 04/21/2021
 author: sivethe
 ms.author: sivethe
+adobe-target: true
+adobe-target-activity: DocsExp– 396298–A/B–Docs–IntroToCosmosDBAPIforMongoDB-Revamp–FY21Q4
+adobe-target-experience: Experience B
+adobe-target-content: ./mongodb-introduction-experiment
+
 ---
 # Azure Cosmos DB's API for MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -18,7 +23,7 @@ ms.author: sivethe
 
 ## Wire protocol compatibility
 
-Azure Cosmos DB implements the wire protocol for MongoDB. This implementation allows transparent compatibility with native MongoDB client SDKs, drivers, and tools. Azure Cosmos DB does host the MongoDB database engine. The details of the supported features by MongoDB can be found here: 
+Azure Cosmos DB implements the wire protocol for MongoDB. This implementation allows transparent compatibility with native MongoDB client SDKs, drivers, and tools. Azure Cosmos DB does not host the MongoDB database engine. The details of the supported features by MongoDB can be found here: 
 - [Azure Cosmos DB's API for Mongo DB version 4.0](mongodb-feature-support-40.md)
 - [Azure Cosmos DB's API for Mongo DB version 3.6](mongodb-feature-support-36.md)
 

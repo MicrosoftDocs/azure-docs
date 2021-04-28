@@ -93,4 +93,4 @@ For full implementation details, see our fork of [PetClinic](https://github.com/
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Provision Azure Spring Cloud instance](spring-cloud-quickstart-provision-service-instance.md)
+> [Provision Azure Spring Cloud instance](./quickstart-provision-service-instance.md)

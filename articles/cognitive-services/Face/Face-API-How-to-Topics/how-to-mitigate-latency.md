@@ -3,12 +3,10 @@ title: How to mitigate latency when using the Face service
 titleSuffix: Azure Cognitive Services
 description: Learn how to mitigate latency when using the Face service.
 services: cognitive-services
-author: v-jaswel
 manager: chrhoder
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 1/5/2021
-ms.author: v-jawe
 ---
 
 # How to: mitigate latency when using the Face service

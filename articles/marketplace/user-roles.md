@@ -21,12 +21,12 @@ In order to access capabilities related to marketplace or your developer account
 
 | Role | Description |
 | ------------ | ------------- |
-| Owner | When a publisher account is created, an ownership role is assigned to the partner.<br>Permission details:<br><ul><li>Complete ownership of the account.</li><li>Add an type of users</li><li>May complete payout and tax information</li><li>View feedback reports and summaries</li><li>Enroll the publisher account into any other developer programs</li></ul> |
-| Manager | <ul><li>Manage publisher account users, roles, and permissions</li><li>Manage tenants</li><li>Access tax and payout settings</li></ul> |
-| Developer | <ul><li>Upload package</li><li>Submit apps and add-ons</li><li>View usage reports for telemetry details</li><li>Access financial information or account setings</li></ul> |
-| Business contributor | <ul><li>Access financial information</li><li>Set pricing details</li><li>Create or submit new apps and add-ons</li></ul> |
-| Financial contributor | <ul><li>View payout reports</li><li>Manage payout and tax profiles</li><li>Make changes to apps or settings</li></ul> |
-| Marketer | <ul><li>Respond to customer reviews</li><li>View non-financial reports</li><li>Make changes to apps or settings</li></ul> |
+| Owner | When a publisher account is created, an ownership role is assigned to the partner.<br><br>Permission details:<br><br>&#10004;&#160;&#160;Complete ownership of the account.<br>&#10004;&#160;&#160;Add an type of users<br>&#10004;&#160;&#160;May complete payout and tax information<br>&#10004;&#160;&#160;View feedback reports and summaries<br>&#10004;&#160;&#160;Enroll the publisher account into any other developer programs |
+| Manager | &#10004;&#160;&#160;Manage publisher account users, roles, and permissions<br>&#10004;&#160;&#160;Manage tenants<br>&#x2718;&#160;&#160;Access tax and payout settings |
+| Developer | &#10004;&#160;&#160;Upload package<br>&#10004;&#160;&#160;Submit apps and add-ons<br>&#10004;&#160;&#160;View usage reports for telemetry details<br>&#x2718;&#160;&#160;Access financial information or account settings |
+| Business contributor | &#10004;&#160;&#160;Access financial information<br>&#10004;&#160;&#160;Set pricing details<br>&#x2718;&#160;&#160;Create or submit new apps and add-ons |
+| Financial contributor | &#10004;&#160;&#160;View payout reports<br>&#10004;&#160;&#160;Manage payout and tax profiles<br>&#x2718;&#160;&#160;Make changes to apps or settings |
+| Marketer | &#10004;&#160;&#160;Respond to customer reviews<br>&#10004;&#160;&#160;View non-financial reports<br>&#x2718;&#160;&#160;Make changes to apps or settings |
 |||
 
 > [!NOTE]

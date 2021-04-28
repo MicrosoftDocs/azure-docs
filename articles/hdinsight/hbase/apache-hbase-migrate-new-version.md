@@ -86,7 +86,7 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
     
     		Provide Script URL.
     
-    		Provide hostname as a parameter (i.e. hn0, hn1, hn2.. or wn2 etc.).
+    		Provide hostname as a parameter (i.e. hn* or wn* etc.).
     ...
     		exit
     	fi

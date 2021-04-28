@@ -19,8 +19,8 @@ In this quickstart, you build and deploy microservice applications to Azure Spri
 
 * Complete the previous quickstarts in this series:
 
-  * [Provision Azure Spring Cloud service](spring-cloud-quickstart-provision-service-instance.md).
-  * [Set up Azure Spring Cloud configuration server](spring-cloud-quickstart-setup-config-server.md).
+  * [Provision Azure Spring Cloud service](./quickstart-provision-service-instance.md).
+  * [Set up Azure Spring Cloud configuration server](./quickstart-setup-config-server.md).
 
 ## Download the sample app
 
@@ -178,7 +178,7 @@ This document explains how to build and deploy microservice applications to Azur
 * Maven Plugin
 * Intellij
 
-Before deployment using Azure CLI or Maven, complete the examples that [provision an instance of Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md) and [set up the config server](spring-cloud-quickstart-setup-config-server.md).
+Before deployment using Azure CLI or Maven, complete the examples that [provision an instance of Azure Spring Cloud](./quickstart-provision-service-instance.md) and [set up the config server](./quickstart-setup-config-server.md).
 
 ## Prerequisites
 
@@ -345,7 +345,7 @@ In order to deploy to Azure you must sign in with your Azure account with Azure 
 1. In the **Name** field, append *:api-gateway* to the existing **Name**.
 1. In the **Artifact** textbox, select *spring-petclinic-api-gateway-2.3.6*.
 1. In the **Subscription** textbox, verify your subscription.
-1. In the **Spring Cloud** textbox, select the instance of Azure Spring Cloud that you created in [Provision Azure Spring Cloud instance](./spring-cloud-quickstart-provision-service-instance.md).
+1. In the **Spring Cloud** textbox, select the instance of Azure Spring Cloud that you created in [Provision Azure Spring Cloud instance](./quickstart-provision-service-instance.md).
 1. Set **Public Endpoint** to *Enable*.
 1. In the **App:** textbox, select **Create app...**.
 1. Enter *api-gateway*, then click **OK**.
@@ -392,7 +392,7 @@ Other microservices included in this sample can be deployed similarly.
 
 ## Next steps
 
-In this quickstart, you created Azure resources that will continue to accrue charges if they remain in your subscription. If you don't intend to continue on to the next quickstart, see [Clean up resources](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources). Otherwise, advance to the next quickstart:
+In this quickstart, you created Azure resources that will continue to accrue charges if they remain in your subscription. If you don't intend to continue on to the next quickstart, see [Clean up resources](./quickstart-logs-metrics-tracing.md#clean-up-resources). Otherwise, advance to the next quickstart:
 
 > [!div class="nextstepaction"]
-> [Logs, Metrics and Tracing](spring-cloud-quickstart-logs-metrics-tracing.md)
+> [Logs, Metrics and Tracing](./quickstart-logs-metrics-tracing.md)
