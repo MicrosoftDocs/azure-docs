@@ -86,7 +86,7 @@ To configure Cloud Witness, you must have a valid Azure Storage account that can
 
 When you use the same Azure Storage Account for configuring Cloud Witness for multiple different clusters, a single **msft-cloud-witness** container gets created automatically. This container will contain one-blob file per cluster.
 
-#### To create an Azure storage account
+##### To create an Azure storage account
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the Hub menu, select New -> Data + Storage -> Storage account.
