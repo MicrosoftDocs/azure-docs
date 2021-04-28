@@ -54,6 +54,11 @@ The workflow is simple: after onboarding your data, you can fine-tune the anomal
     4. View diagnostic insights
 3. Use the REST API to customize your instance.
 
+## Video
+* [Introducing Metrics Advisor](https://www.youtube.com/watch?v=0Y26cJqZMIM)
+* [New to Cognitive Services](https://www.youtube.com/watch?v=7tCLJHdBZgM)
+
+
 ## Next steps
 
 * Explore a quickstart: [Monitor your first metric on web](quickstarts/web-portal.md).
