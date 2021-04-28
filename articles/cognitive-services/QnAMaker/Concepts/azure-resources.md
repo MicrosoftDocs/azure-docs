@@ -244,9 +244,9 @@ After the resources are created, they have the same name, except for the optiona
 
 # [Custom question anwering (preview release)](#tab/v2)
 
-The resource name for the Custom question anwering (Preview) resource, such as `qna-westus-f0-b`, is also used to name the other resources.
+The resource name for the Text Analytics resource, such as `qna-westus-f0-b`, is also used to name the other resources.
 
-The Azure portal create window allows you to create a QnA Maker managed (Preview) resource and select the pricing tiers for the other resources.
+The Azure portal create window allows you to create a Text Analytics resource and select the pricing tiers for the other resources.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of Azure portal for QnA Maker managed (Preview) resource creation](../media/qnamaker-how-to-setup-service/custom-qna-create-button.png)
@@ -256,7 +256,7 @@ After the resources are created, they have the same name.
 > ![Screenshot of Azure portal resource listing QnA Maker managed (Preview)](../media/qnamaker-how-to-setup-service/resources-created-question-answering.png)
 
 > [!TIP]
-> Create a new resource group when you create a Text Analytics resource. That allows you to see all resources associated with the Text Analytics (Preview) resource when searching by resource group.
+> Create a new resource group when you create a Text Analytics resource. That allows you to see all resources associated with the Text Analytics resource when searching by resource group.
 
 > [!TIP]
 > Use a naming convention to indicate pricing tiers within the name of the resource or the resource group. When you receive errors from creating a new knowledge base, or adding new documents, the Cognitive Search pricing tier limit is a common issue.
