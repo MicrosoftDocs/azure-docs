@@ -1,5 +1,5 @@
 ---
-title: Discover servers running in a VMware environment with Azure Migrate
+title: Discover servers running in a VMware environment with Azure Migrate Discovery and assessment
 description: Learn how to discover on-premises servers, applications, and dependencies in a VMware environment by using the Azure Migrate Discovery and assessment tool.
 author: vineetvikram
 ms.author: vivikram
@@ -66,7 +66,6 @@ To set Contributor or Owner permissions in the Azure subscription:
 1. In **Add role assignment**, select the Contributor or Owner role, and then select the account. Select **Save**.
 
     :::image type="content" source="./media/tutorial-discover-vmware/assign-role.png" alt-text="Screenshot that shows the Add role assignment page to assign a role to the account.":::
-
 
 To give the account the required permissions to register Azure AD apps:
 
@@ -218,7 +217,7 @@ To set up the appliance for the first time:
 1. Accept the license terms and read the third-party information.
 1. In the configuration manager, select **Set up prerequisites**, and then complete these steps:
     1. **Connectivity**: The appliance checks that the server has internet access. If the server uses a proxy:
-        1. Select **Setup proxy** to specify the proxy address (`http://ProxyIPAddress` or `http://ProxyFQDN`, where *FQDN* refers to a *fully qualified domain name*) and listening port.
+        1. Select **Setup proxy** to specify the proxy address (in the form `http://ProxyIPAddress` or `http://ProxyFQDN`, where *FQDN* refers to a *fully qualified domain name*) and listening port.
         1.  Enter credentials if the proxy needs authentication.
         1. If you have added proxy details or disabled the proxy or authentication, select **Save** to trigger connectivity and check connectivity again.
 
@@ -230,7 +229,7 @@ To set up the appliance for the first time:
         Azure Migrate Server Migration uses the VDDK to replicate servers during migration to Azure. 
 1. You can *rerun prerequisites* at any time during appliance configuration to check whether the appliance meets all the prerequisites:
 
-    :::image type="content" source="./media/tutorial-discover-vmware/appliance-prerequisites.png" alt-text="Panel 1 on appliance configuration manager":::
+    :::image type="content" source="./media/tutorial-discover-vmware/appliance-prerequisites.png" alt-text="Screenshot that shows setting up the prerequisites in the appliance configuration manager.":::
 
 #### Register the appliance with Azure Migrate
 
