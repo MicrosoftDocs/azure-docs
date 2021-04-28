@@ -25,7 +25,7 @@ Verify that you have the following items before beginning your configuration.
 
 Open your PowerShell console and connect to your account. For more information, see [Sign in with Azure PowerShell](/powershell/azure/azurerm/authenticate-azureps).
 
-```powershell
+```azurepowershell-interactive
 Connect-AzAccount
 ```
 
@@ -33,13 +33,13 @@ Connect-AzAccount
  
 Check the subscriptions for the account.
 
-```powershell
+```azurepowershell-interactive
 Get-AzSubscription
 ```
 
 Choose which of your Azure subscriptions to use.
 
-```powershell
+```azurepowershell-interactive
 Select-AzSubscription -SubscriptionName "your_subscription_name"
 ```
 
@@ -49,6 +49,6 @@ Azure Resource Manager requires that all resource groups specify a location. Thi
 
 You can skip this step if you are using an existing resource group.
 
-```powershell
+```azurepowershell-interactive
 New-AzResourceGroup -Name MyDNSResourceGroup -location "West US"
 ```
