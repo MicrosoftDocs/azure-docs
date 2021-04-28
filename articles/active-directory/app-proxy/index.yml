@@ -4,7 +4,7 @@ title: Azure Active Directory Application Proxy documentation
 summary: Azure Active Directory Application Proxy provides secure remote access and cloud scale security to your private applications.
 
 metadata: 
-   title: Application proxy documentation
+   title: Application Proxy documentation
    description: Azure Active Directory Application Proxy provides secure remote access and cloud scale security to your private applications.
    ms.service: active-directory
    ms.subservice: app-proxy
@@ -16,11 +16,11 @@ metadata:
    manager: mtillman
 
 landingContent:
-  - title: About app proxy
+  - title: About Application Proxy
     linkLists:
       - linkListType: overview
         links:
-          - text: What is application proxy?
+          - text: What is Application Proxy?
             url: what-is-application-proxy.md
   - title: Get started
     linkLists:
