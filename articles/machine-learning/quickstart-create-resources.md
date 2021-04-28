@@ -35,21 +35,21 @@ If you don't yet have a workspace, create one now:
 
 If you didn't select **Go to workspace** in the previous section, sign in to [Azure Machine Learning studio](https://ml.azure.com) now, and select your workspace. The studio is your web portal for Azure Machine Learning. This portal combines no-code and code-first experiences for an inclusive data science platform.
 
-Review the parts of the studio on the left-hand navigation bar.
+Review the parts of the studio on the left-hand navigation bar:
 
-The **Author** section of the studio contains multiple ways to get started in creating machine learning models.  You can:
+* The **Author** section of the studio contains multiple ways to get started in creating machine learning models.  You can:
 
-* **Notebooks** section allows you to create Jupyter Notebooks, copy sample notebooks, and run notebooks and Python scripts
-* **Automated ML** steps you though created a machine learning model without writing code
-* **Designer** gives you a drag-and-drop way to build a model using prebuilt modules
+    * **Notebooks** section allows you to create Jupyter Notebooks, copy sample notebooks, and run notebooks and Python scripts.
+    * **Automated ML** steps you though created a machine learning model without writing code.
+    * **Designer** gives you a drag-and-drop way to build a model using prebuilt modules.
 
-The **Assets** section of the studio helps you keep track of the assets you create as you run your jobs.  If you have a new workspace, there's nothing in any of these sections yet.
+* The **Assets** section of the studio helps you keep track of the assets you create as you run your jobs.  If you have a new workspace, there's nothing in any of these sections yet.
 
-The **Manage** section of the studio helps you create and manage compute resources, data, and external services you link to your workspace.  You'll use this section to set up some compute resources next.
+* The **Manage** section of the studio helps you create and manage compute resources, data, and external services you link to your workspace.  You'll use this section to set up some compute resources next.
 
 ## Create compute instance
 
-You can install Azure Machine Learning on your own computer.  Or you create an online compute resource that has a development environment already installed and ready to go.  You'll use this online resource, a *compute instance*, for your development environment to write and run code in Python scripts or Jupyter notebooks. 
+You could install Azure Machine Learning on your own computer.  But in this quickstart, you'll create an online compute resource that has a development environment already installed and ready to go.  You'll use this online machine, a *compute instance*, for your development environment to write and run code in Python scripts and Jupyter notebooks.
 
 Create a *compute instance* to use this development environment for the rest of the tutorials and quickstarts.
 
@@ -78,7 +78,7 @@ Create a compute cluster that will autoscale between zero and four nodes:
 In less than a minute, the **State** of the cluster will change from *Creating* to *Succeeded*.  The list shows the provisioned compute cluster, along with the number of idle nodes, busy nodes, and unprovisioned nodes.  Since you haven't used the cluster yet, all the nodes are currently unprovisioned. 
 
 > [!NOTE]
-> When the cluster is created, it will have 0 nodes provisioned. The cluster *does not* incur costs until you submit a job. This cluster will scale down when it has been idle for 2,400 seconds (40 minutes).
+> When the cluster is created, it will have 0 nodes provisioned. The cluster *does not* incur costs until you submit a job. This cluster will scale down when it has been idle for 2,400 seconds (40 minutes).  This will give you time to use it in a few tutorials if you wish without waiting for it to scale back up.
 
 ## Clean up resources
 
@@ -96,6 +96,10 @@ If you plan to continue now to the next tutorial, leave the compute instance run
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 ## Next steps
+
+You now have an Azure Machine Learning workspace that contains:
+* A compute instance to use for your development environment.
+* A compute cluster to use for submitting training runs. 
 
 Use these resources to get started with Azure Machine Learning in these tutorials:  
 
