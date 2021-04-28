@@ -341,6 +341,9 @@ Once the renew operation is complete, click **Sync**. The sync operation automat
 
 Because an App Service Certificate is a [Key Vault secret](../key-vault/general/about-keys-secrets-certificates.md), you can export a PFX copy of it and use it for other Azure services or outside of Azure.
 
+> [!NOTE]
+> Renewed App Servie Certificate is not automatically synced with other Azure services or outside of Azure. You need to reinstall the new certificate by yourself.
+
 To export the App Service Certificate as a PFX file, run the following commands in the [Cloud Shell](https://shell.azure.com). You can also run it locally if you [installed Azure CLI](/cli/azure/install-azure-cli). Replace the placeholders with the names you used when you [created the App Service certificate](#start-certificate-order).
 
 ```azurecli-interactive
