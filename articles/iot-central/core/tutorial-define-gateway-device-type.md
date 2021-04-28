@@ -45,7 +45,7 @@ To create a device template for an **S1 Sensor** device:
 
 1. In the left pane, select **Device Templates**. Then select **+** to start adding the template.
 
-1. Scroll down until you can see the tile for the **S1 Sensor** device. Select the tile and then select **Next: Customize**.
+1. Scroll down until you can see the tile for the **Minew S1** device. Select the tile and then select **Next: Customize**.
 
 1. On the **Review** page, select **Create** to add the device template to your application. 
 
@@ -74,13 +74,22 @@ To add a new gateway device template to your application:
 
 1. On the **Customize device** page, select the **Gateway device** checkbox.
 
+1. Enter **Smart Building gateway device** as the template name and then select **Next: Review**.
+
 1. On the **Review** page, select **Create**. 
 
-1. Enter **Smart Building gateway device** as the template name.
+
 
 1. On the **Create a capability model** page, select the **Custom** tile.
 
-1. Select **+** to add an interface.  Choose the **Device Information** standard interface.
+1. Select **+ Add capability** to add a capability.
+
+1. Enter **Send Data** as display name, **Send Data** as name, and then select **Property** as schema type.
+
+1. Select **Save**
+
+1.Select **Publish** to publish the device template.
+
 
 ### Add relationships
 
@@ -176,11 +185,11 @@ Now that you have the simulated devices in your application, you can create the 
 
 1. On the **Devices** page, select **S1 Sensor** in the list of device templates, and then select your simulated **S1 Sensor** device.
 
-1. Select **Connect to gateway**.
+1. Select **Attach to gateway**.
 
-1. On the **Connect to a gateway** dialog, select the **Smart Building gateway device** template, and then select the simulated instance you created previously.
+1. On the **Attach to a gateway** dialog, select the **Smart Building gateway device** template, and then select the simulated instance you created previously.
 
-1. Select **Join**.
+1. Select **Attach**.
 
 1. On the **Devices** page, select **RS40 Occupancy Sensor** in the list of device templates, and then select your simulated **RS40 Occupancy Sensor** device.
 
@@ -188,13 +197,12 @@ Now that you have the simulated devices in your application, you can create the 
 
 1. On the **Connect to a gateway** dialog, select the **Smart Building gateway device** template, and then select the simulated instance you created previously.
 
-1. Select **Join**.
+1. Select **Attach**.
 
 Both your simulated downstream devices are now connected to your simulated gateway device. If you navigate to the **Downstream Devices** view for your gateway device, you can see the related downstream devices:
 
 ![Downstream devices view](./media/tutorial-define-gateway-device-type/downstream-device-view.png)
 
-Select a gateway device template and gateway device instance, and select **Join**.
 
 ## Clean up resources
 
