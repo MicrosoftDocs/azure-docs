@@ -17,9 +17,9 @@ This article describes feature availability in the Microsoft Azure and Azure Gov
 
 ## Azure Government
 
-Azure Government uses the same underlying technologies as Azure (sometimes referred to as Azure Commercial or Azure Public), which includes the core components of Infrastructure-as-a-Service (IaaS), Platform-as-a-Service (PaaS), and Software-as-a-Service (SaaS). Both Azure and Azure Government have comprehensive security controls in place, as well as the Microsoft commitment on the safeguarding of customer data.
+Azure Government uses the same underlying technologies as Azure (sometimes referred to as Azure Commercial or Azure Public), which includes the core components of Infrastructure-as-a-Service (IaaS), Platform-as-a-Service (PaaS), and Software-as-a-Service (SaaS). Both Azure and Azure Government have comprehensive security controls in place, and the Microsoft commitment on the safeguarding of customer data.
 
-Azure Government is a physically isolated cloud environment dedicated to US federal, state, local, and tribal governments, and their partners. Whereas both cloud environments are assessed and authorized at the FedRAMP High impact level, Azure Government provides an additional layer of protection to customers through contractual commitments regarding storage of customer data in the United States and limiting potential access to systems processing customer data to screened US persons. These commitments may be of interest to customers using the cloud to store or process data subject to US export control regulations such as the EAR, ITAR, and DoE 10 CFR Part 810.
+Azure Government is a physically isolated cloud environment dedicated to US federal, state, local, and tribal governments, and their partners. Whereas both cloud environments are assessed and authorized at the FedRAMP High impact level, Azure Government provides an extra layer of protection to customers through contractual commitments regarding storage of customer data in the United States and limiting potential access to systems processing customer data to screened US persons. These commitments may be of interest to customers using the cloud to store or process data subject to US export control regulations such as the EAR, ITAR, and DoE 10 CFR Part 810.
 
 For more information about Azure Government, see [What is Azure Government?](/azure/azure-government/documentation-government-welcome)
 
@@ -218,5 +218,5 @@ Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office
 - Understand the [shared responsibility](https://docs.microsoft.com/azure/security/fundamentals/shared-responsibility) model and which security tasks are handled by the cloud provider and which tasks are handled by you.
 - Understand the [Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) capabilities and the trustworthy design and security used to support compliance applicable to federal, state, and local government organizations and their partners.
 - Understand the [Office 365 Government plan](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/office-365-us-government#about-office-365-government-environments).
-- Understand [compliance in Azure](https://docs.microsoft.com/en-us/azure/compliance/) for legal and regulatory standards.
+- Understand [compliance in Azure](/azure/compliance/) for legal and regulatory standards.
 
