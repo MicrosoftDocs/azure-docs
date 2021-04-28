@@ -66,7 +66,7 @@ The following Azure permissions, or scopes, are supported per subscription for b
 - Contributor and Cost Management contributor – Can create, modify, or delete their own budgets. Can modify the budget amount for budgets created by others.
 - Reader and Cost Management reader – Can view budgets that they have permission to.
 
-For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md). For more information about assigning permission to Cost Management data, see [Assign access to Cost Management data](./assign-access-acm-data.md).
+**For more information about scopes, including access needed to configure exports for Enterprise Agreement and Microsoft Customer agreement scopes, see [Understand and work with scopes](understand-work-scopes.md)**. For more information about assigning permission to Cost Management data, see [Assign access to Cost Management data](./assign-access-acm-data.md).
 
 ## Sign in to Azure
 
