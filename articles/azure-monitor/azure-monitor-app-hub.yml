@@ -104,7 +104,7 @@ conceptualContent:
         - url: ./app/tutorial-performance.md
           itemType: how-to-guide
           text: Find and diagnose performance issues
-        - url: /azure/azure-monitor/app/tutorial-alert
+        - url: ./app/tutorial-alert.md
           itemType: how-to-guide
           text: Monitor and alert on application health
         - url: ./app/tutorial-users.md

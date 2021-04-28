@@ -81,7 +81,7 @@ Verify that both the primary and secondary on-premises management console applia
 2. Run the following command on the primary:
 
 ```azurecli-interactive
-sudo cyberx-management-trusted-hosts-add -ip <Secondary IP>
+sudo cyberx-management-trusted-hosts-add -ip <Secondary IP> -token <primary token>
 ```
 
 >[!NOTE]
