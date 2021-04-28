@@ -569,7 +569,7 @@ Notice this detail:
 
 ## Invoke additional direct methods to clean up
 
-Invoke direct methods to first stop the live pipeline and then delete it.
+Invoke direct methods to first deactivate the live pipeline and then delete it.
 
 ### Invoke livePipelineDeactivate
 
@@ -591,7 +591,7 @@ Within a few seconds, you see the following response in the **OUTPUT** window:
 }
 ```
 
-The status code of 200 indicates that the live pipeline was successfully stopped. 
+The status code of 200 indicates that the live pipeline was successfully deactivated. 
 
 Next, try to invoke `livePipelineGet` as indicated previously in this article. Observe the state value.
 
@@ -627,7 +627,8 @@ Invoke the direct method livePipelineDelete by using the following payload to de
 ```
 
 Within a few seconds, you see the following response in the OUTPUT window:
-```
+
+```json
 {
   "status": 200,
   "payload": null
