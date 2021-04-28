@@ -53,7 +53,7 @@ The Azure platform will block outbound SMTP delivery attempts on TCP port 25 for
 
 The restrictions are in place to prevent abuse. Requests to remove these restrictions won't be granted.
 
-If you're using these subscription types, we encourage you to use an an authenticated SMTP relay service, as outlined earlier in this article, or to change your subscription type.
+If you're using these subscription types, we encourage you to use an authenticated SMTP relay service, as outlined earlier in this article, or to change your subscription type.
 
 ## Cloud Solution Provider
 
