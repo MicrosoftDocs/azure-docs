@@ -31,7 +31,7 @@ landingContent:
             url: ../connectors/apis-list.md
           - text: Managed connectors
             url: ../connectors/managed.md
-          - text: List of available connectors for Azure Logic Apps
+          - text: Available connectors for Azure Logic Apps
             url: https://docs.microsoft.com/en-gb/connectors/connector-reference/connector-reference-logicapps-connectors
           - text: Built-in triggers and actions
             url: ../connectors/built-in.md
