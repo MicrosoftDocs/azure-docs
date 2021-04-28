@@ -88,6 +88,8 @@
     href: require-managed-devices.md
   - name: Require MFA for access attempts from untrusted networks
     href: untrusted-networks.md
+  - name: Configure named locations
+    href: howto-configure-named-locations.md
   - name: Require terms of use
     href: terms-of-use.md
   - name: Sign-in frequency and browser persistence controls

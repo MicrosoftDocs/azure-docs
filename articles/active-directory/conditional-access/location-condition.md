@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 04/28/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb
+ms.reviewer: calebb, olhuan
 
 ms.collection: M365-identity-device-management
 
@@ -150,6 +150,16 @@ By default, Azure AD issues a token on an hourly basis. After moving off the cor
 ### User IP address
 
 The IP address that is used in policy evaluation is the public IP address of the user. For devices on a private network, this IP address is not the client IP of the user’s device on the intranet, it is the address used by the network to connect to the public internet.
+
+### Countries location
+
+You can determine country location by IP address or GPS coordinates. If you select IP address, the system will collect the IP address of the device the user is signing into.
+
+If you select GPS coordinates, the user will need to have Microsoft Authenticator installed on their mobile device. Every hour, the system will contact the user’s Microsoft Authenticator app to collect the GPS location of the user’s mobile device.
+
+The first time the user is required to share their location from the Microsoft Authenticator app, the user will receive a notification to their app. The user will need to open the app and grant location permissions. 
+ 
+For the next 24 hours, if the user is still accessing the resource and the user has granted the app permission to run in the background, the location will be shared silently once per hour from the device, so the user will not need to keep getting out their mobile device. After 24 hours, the user will need to open up the app and manually approve the notification.
 
 ### Bulk uploading and downloading of named locations
 
