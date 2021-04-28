@@ -16,7 +16,7 @@ This article explains how to access the Spring Cloud Config Server and Spring Cl
 
 ## Assign role to Azure AD user/group, MSI, or service principal
 
-Assign the [role-name](../role-based-access-control/built-in-roles.md) role to the [user | group | service-principal | managed-identity] at [management-group | subscription | resource-group | resource] scope.
+Assign the [azure-spring-cloud-data-reader](../role-based-access-control/built-in-roles#azure-spring-cloud-data-reader) role to the [user | group | service-principal | managed-identity] at [management-group | subscription | resource-group | resource] scope.
 
 For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
