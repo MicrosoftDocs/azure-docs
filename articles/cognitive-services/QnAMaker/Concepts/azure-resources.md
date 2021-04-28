@@ -194,11 +194,13 @@ You can view and reset your authoring keys from the Azure portal, where you adde
 
 1. Go to the Text Analytics resource in the Azure portal and select the resource that has the *Cognitive Services* type:
 
-    ![QnA Maker managed (Preview) resource list](../media/qnamaker-how-to-key-management/qnamaker-v2-resource-list.png)
+[!div class="mx-imgBorder"]
+![Custom qna (Preview) resource list](../media/qnamaker-how-to-setup-service/resources-created-question-answering.png)
 
 2. Go to **Keys and Endpoint**:
 
-    ![QnA Maker managed (Preview) Subscription key](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
+[!div class="mx-imgBorder"]
+![Custom qna (Preview) Subscription key](../media/qnamaker-how-to-key-management/custom-qna-keys-and-endpoint.png)
 
 ### Update the resources
 
