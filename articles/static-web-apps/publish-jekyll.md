@@ -120,11 +120,9 @@ The following steps show you how to create a new static site app and deploy it t
 
 Next, you add configuration settings that the build process uses to build your app. The following settings configure the GitHub Action workflow file.
 
-1. Click the **Next: Build >** button to edit the build configuration.
-
 1. Set _App location_ to **/**.
 
-1. Set the _Output location_ **_site**.
+1. Set the _Output location_ to **_site**.
 
    A value for _API location_ isn't necessary as you aren't deploying an API at the moment.
 
