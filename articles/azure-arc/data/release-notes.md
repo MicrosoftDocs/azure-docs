@@ -60,9 +60,26 @@ Azure Arc enabled PostgreSQL Hyperscale  now supports configuring database engin
 
 #### Azure Arc enabled PostgreSQL Hyperscale
 
-- It is not supported to deploy an Azure Arc enabled Postgres Hyperscale server group in an Arc data controller enabled for direct connect mode.
-- Passing  an invalid value to the `--extensions` parameter when editing the configuration of a server group to enable additional extensions incorrectly resets the list of enabled extensions to what it was at the create time of the server group and prevents user from creating additional extensions. The only workaround available when that happens is to delete the server group and redeploy it.
+- Point in time restore is not supported for now on NFS storage.
+- It is not possible to enable and configure the `pg_cron` extension at the same time. You need to use two commands for this. One command to enable it and one command to configure it. For example:
 
+   1. Enable the extension:
+   
+      ```console
+      azdata arc postgres server edit -n myservergroup --extensions pg_cron 
+      ```
+
+   1. Restart the server group.
+
+   1. Configure the extension:
+   
+      ```console
+      azdata arc postgres server edit -n myservergroup --engine-settings cron.database_name='postgres'
+      ```
+
+   If you execute the second command before the restart has completed it will fail. If that is the case, simply wait for a few more moments and execute the second command again.
+
+- Passing  an invalid value to the `--extensions` parameter when editing the configuration of a server group to enable additional extensions incorrectly resets the list of enabled extensions to what it was at the create time of the server group and prevents user from creating additional extensions. The only workaround available when that happens is to delete the server group and redeploy it.
 
 
 ## March 2021
