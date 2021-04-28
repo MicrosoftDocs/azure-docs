@@ -47,7 +47,7 @@ For details see the [Azure pricing page](https://azure.microsoft.com/pricing/det
 
 ### Comparison with other disk types
 
-Except for more write latency, disks using ZRS are identical to disks using LRS. They have the same performance targets.
+Except for more write latency, disks using ZRS are identical to disks using LRS. They have the same performance targets. We recommend you to conduct [disk-benchmarking](disks-benchmarks.md) to simulate the workload of your application for comparing the latency between the LRS and ZRS disks. 
 
 ### Create ZRS managed disks
 

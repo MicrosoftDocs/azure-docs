@@ -132,7 +132,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-Similarly, if you list this role assignment using Azure CLI, you might see an empty `principalName`. For example, [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) returns a role assignment that is similar to the following output:
+Similarly, if you list this role assignment using Azure CLI, you might see an empty `principalName`. For example, [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list) returns a role assignment that is similar to the following output:
 
 ```
 {

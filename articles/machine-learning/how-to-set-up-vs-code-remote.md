@@ -5,8 +5,7 @@ description: Learn how to connect to an Azure Machine Learning compute instance 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 04/08/2021

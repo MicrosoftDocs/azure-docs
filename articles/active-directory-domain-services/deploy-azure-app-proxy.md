@@ -109,7 +109,7 @@ If you deploy multiple Azure AD Application Proxy connectors, you must configure
 
 ## Next steps
 
-With the Azure AD Application Proxy integrated with Azure AD DS, publish applications for users to access. For more information, see [publish applications using Azure AD Application Proxy](../active-directory/manage-apps/application-proxy-add-on-premises-application.md).
+With the Azure AD Application Proxy integrated with Azure AD DS, publish applications for users to access. For more information, see [publish applications using Azure AD Application Proxy](../active-directory/app-proxy/application-proxy-add-on-premises-application.md).
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
@@ -117,5 +117,5 @@ With the Azure AD Application Proxy integrated with Azure AD DS, publish applica
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
 [azure-bastion]: ../bastion/tutorial-create-host-portal.md
-[Get-ADComputer]: /powershell/module/addsadministration/get-adcomputer
-[Set-ADComputer]: /powershell/module/addsadministration/set-adcomputer
+[Get-ADComputer]: /powershell/module/activedirectory/get-adcomputer
+[Set-ADComputer]: /powershell/module/activedirectory/set-adcomputer

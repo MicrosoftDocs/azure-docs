@@ -394,7 +394,7 @@ The widget will look like the following at the end of training:
 
 ![Notebook widget](./media/tutorial-train-models-with-aml/widget.png)
 
-If you need to cancel a run, you can follow [these instructions](./how-to-manage-runs.md).
+If you need to cancel a run, you can follow [these instructions](./how-to-track-monitor-analyze-runs.md).
 
 ### Get log results upon completion
 

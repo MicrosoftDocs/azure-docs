@@ -26,7 +26,7 @@ Azure Percept DK is an edge AI development kit designed for developing vision an
 
 - Hardware root of trust security built in. Learn more about [Azure Percept security](./overview-percept-security.md).
 
-- Seamless integration with [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) and other Azure services, such as Azure IoT Hub, Azure Cognitive Services, and [Live Video Analytics](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview).
+- Seamless integration with [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) and other Azure services, such as Azure IoT Hub, Azure Cognitive Services, and [Live Video Analytics](../media-services/live-video-analytics-edge/overview.md).
 
 - Compatible with [Azure Percept Audio](./overview-azure-percept-audio.md), an optional accessory for building AI audio solutions.
 

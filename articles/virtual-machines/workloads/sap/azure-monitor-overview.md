@@ -83,7 +83,7 @@ It is highly recommended that customers enable data sharing, as it gives Microso
 
 At a high level, the following diagram explains how Azure Monitor for SAP Solutions collects telemetry from SAP HANA database. The architecture is agnostic to whether SAP HANA is deployed on Azure Virtual Machines or Azure Large Instances.
 
-![Azure Monitor for SAP solutions architecture](./media/azure-monitor-sap/azure-monitor-architecture.png)
+![Azure Monitor for SAP solutions architecture](https://user-images.githubusercontent.com/75772258/115046700-62ff3280-9ef5-11eb-8d0d-cfcda526aeeb.png)
 
 The key components of the architecture are:
 - Azure portal – the starting point for customers. Customers can navigate to marketplace within Azure portal and discover Azure Monitor for SAP Solutions

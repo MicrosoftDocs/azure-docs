@@ -24,7 +24,7 @@ After initially picking the number of vCores or eDTUs, you can scale an elastic 
 * [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
 * [Azure portal](elastic-pool-manage.md#azure-portal)
 * [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool)
-* [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)
+* [Azure CLI](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update)
 * [REST API](/rest/api/sql/elasticpools/update)
 
 
@@ -101,7 +101,7 @@ You are billed for each hour a database exists using the highest service tier + 
 ### DTU-based purchasing model
 
 - The eDTU price for an elastic pool includes a certain amount of storage at no additional cost. Extra storage beyond the included amount can be provisioned for an additional cost up to the max size limit in increments of 250 GB up to 1 TB, and then in increments of 256 GB beyond 1 TB. For included storage amounts and max size limits, see [Resources limits for elastic pools using the DTU purchasing model](resource-limits-dtu-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes) or [Resource limits for elastic pools using the vCore purchasing model](resource-limits-vcore-elastic-pools.md).
-- Extra storage for an elastic pool can be provisioned by increasing its max size using the [Azure portal](elastic-pool-manage.md#azure-portal), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), the [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), or the [REST API](/rest/api/sql/elasticpools/update).
+- Extra storage for an elastic pool can be provisioned by increasing its max size using the [Azure portal](elastic-pool-manage.md#azure-portal), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), the [Azure CLI](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update), or the [REST API](/rest/api/sql/elasticpools/update).
 - The price of extra storage for an elastic pool is the extra storage amount multiplied by the extra storage unit price of the service tier. For details on the price of extra storage, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]

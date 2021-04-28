@@ -5,6 +5,7 @@
   href: overview.md
   items:
   - name: What's new?
+    displayName: version, versions, servicing, information, timeline, support, support date, dates, versioning, policy
     href: release-notes.md
   - name: What is Agentless solution architecture
     displayName: deployment, where to deploy
@@ -20,7 +21,7 @@
       displayName: firewall, proxy, open ports
       href: quickstart-system-prerequisites.md
     - name: Get started with Azure Defender for IoT
-      displayName: getting started, registration, onboarding
+      displayName: getting started, registration, onboarding, activation, threat intelligence 
       href: getting-started.md
   - name: Agent-based solution for device builders
     items: 
@@ -94,7 +95,7 @@
         href: concept-baseline.md
       - name: Azure security baseline for Azure Defender for IoT
         displayName: identity management, active directory, privileged access, data protection, incident response, posture, vulnerability, governance
-        href: security-baseline.md
+        href: /security/benchmark/azure/baselines/defender-for-iot-security-baseline?toc=/azure/defender-for-iot/TOC.json
       - name: Defender-IoT-micro-agent classic event aggregation                                          
         displayName: twin, default, configuration, alerts
         href: event-aggregation.md
@@ -121,8 +122,8 @@
           href: how-to-install-software.md
     - name: Prepare your sensors
       items:
-      - name: Manage sensors
-        displayName: onboard, cloud, register, activate, offboard, subscription, subscriptions, offboarding
+      - name: Onboard sensors
+        displayName: onboard, cloud, register, version, activate, offboard, subscription, threat intelligence, packages, connected
         href: how-to-manage-sensors-on-the-cloud.md
       - name: Activate and set up your sensor
         displayName: deployment, onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial
@@ -155,7 +156,7 @@
         href: how-to-define-global-user-access-control.md
         displayName: business unit, site, region, user
     - name: Control what traffic is monitored
-      displayName: Windows, Learning, Smart IT Learning, DNS, DHCP, engines, subnets
+      displayName: Windows, Learning, Smart IT Learning, DNS, DHCP, engines, subnets,  WMI, active, probing, scanning, switch
       href: how-to-control-what-traffic-is-monitored.md
     - name: Manage sensors from the on-premises management console
       displayName: disconnect, connect, activation file, sensor backup
@@ -170,6 +171,7 @@
       displayName: mail, SMTP, activation, certificate, software update, backup, restore, proxy, password recovery
     - name: Work with threat intelligence packages
       href: how-to-work-with-threat-intelligence-packages.md
+      displayName: packages, automatic, intelligence, push, threat
     - name: Work with device inventory information
       items: 
       - name: Investigate all enterprise sensor detections in a device inventory
@@ -353,23 +355,21 @@
       href: edge-security-module-deprecation.md
 - name: Resource
   items:
+  - name: Build your security skills with Microsoft Learn
+    href: /learn/browse/?term=securityS&terms=securityS
+  - name: Azure Security Center documentation
+    href: ../security-center/
+  - name: Azure security documentation 
+    href: ../security/index.yml
+  - name: Azure IoT Security, Privacy, & Compliance blog
+    href: https://techcommunity.microsoft.com/t5/iot-security/bd-p/IoTSecurity
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/azure-defender/
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest
   - name: Agent-based solution for Device Builders
     items: 
-    - name: Build your security skills with Microsoft Learn
-      href: /learn/browse/?term=securityS&terms=securityS
-    - name: Azure Security Center documentation
-      href: ../security-center/
-    - name: Azure security documentation 
-      href: ../security/index.yml
     - name: Azure RTOS Defender-IoT-micro-agent on Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-rtos+azure-iot-security-module
-    - name: Azure IoT Security, Privacy, & Compliance blog
-      href: https://techcommunity.microsoft.com/t5/iot-security/bd-p/IoTSecurity
-    - name: Regional availability
-      href: https://azure.microsoft.com/regions/services/
-    - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/azure-defender/
-    - name: Support policies for Azure Defender for IoT
-      href: support-policies.md
-    - name: Videos
-      href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest
