@@ -37,7 +37,7 @@ As a first step, you need to configure data source and specify file format of re
 
 Data sources represent connection string information that describes where your data is placed and how to authenticate to your data source.
 
-One example of data source definition that references public [ECDC COVID 19 Azure Open Data Set](https://azure.microsoft.com/en-us/services/open-datasets/catalog/ecdc-covid-19-cases/) is shown in the following example:
+One example of data source definition that references public [ECDC COVID 19 Azure Open Data Set](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/) is shown in the following example:
 
 ```sql
 CREATE EXTERNAL DATA SOURCE ecdc_cases WITH (
