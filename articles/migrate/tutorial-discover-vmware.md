@@ -10,7 +10,7 @@ ms.custom: mvc
 #Customer intent: As an VMware admin, I want to discover my on-premises servers running in a VMware environment.
 ---
 
-# Tutorial: Discover servers running on in a VMware environment with Azure Migrate
+# Tutorial: Discover servers running in a VMware environment with Azure Migrate: Discovery and assessment
 
 As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
 
