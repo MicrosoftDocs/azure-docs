@@ -132,7 +132,7 @@ An AD FS server must already be set up and functioning before you begin this pro
 1. In the **Edit Claim Rules** wizard, select **Add Rule**. In **Choose Rule Type**, select **Send Claims Using a Custom Rule**. Select *Next*. 
 1. In **Configure Claim Rule**, specify the following values:
 
-   - **Claim rule name**: Issue Immutable Id  
+   - **Claim rule name**: Issue Immutable ID  
    - **Custom rule**: `c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] => issue(store = "Active Directory", types = ("http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID"), query = "samAccountName={0};objectGUID;{1}", param = regexreplace(c.Value, "(?<domain>[^\\]+)\\(?<user>.+)", "${user}"), param = c.Value);`
 
 1. Select **Finish**. 
