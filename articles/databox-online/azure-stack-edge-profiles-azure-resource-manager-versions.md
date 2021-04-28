@@ -1,13 +1,13 @@
 ---
 title: Resource provider API versions supported by profiles in Azure Stack Edge | Microsoft Docs
 description: Learn about the Azure Resource Manager API versions supported by profiles in Azure Stack Edge.
+services: databox
 author: v-dalc
-ms.custom: contperf-fy21q2
+ms.service: databox
+ms.subservice: edge
 ms.topic: article
 ms.date: 04/27/2021
 ms.author: alkohli
-ms.reviewer: alkohli
-ms.lastreviewed: 04/27/2021
 ---
 
 # Resource provider API versions supported by profiles in Azure Stack Edge
@@ -20,12 +20,12 @@ The API profile uses three naming conventions:
 - **yyyy-mm-dd-hybrid**
 - **yyyy-mm-dd-profile**
 
-For an explanation of API profiles and version release cadence for Azure Stack Edge, see [Manage API version profiles in Azure Stack Hub](https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-version-profiles?view=azs-2008).<!--Article title cites "Hub," not "Edge."-->
+For an explanation of API profiles and version release cadence for Azure Stack Edge, see [Manage API version profiles in Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-2008&preserve-view=true).<!--Article title cites "Hub," not "Edge."-->
 
 
 ## Overview of 2019-03-01-hybrid profile
 
-<!--Intro sentence needed to explain what this section is about.-->
+<!--Intro needed.-->
 
 |Resource types                        |API version|
 |--------------------------------------|-----------|
@@ -49,7 +49,7 @@ For an explanation of API profiles and version release cadence for Azure Stack E
 
 ## Microsoft.Network
 
-The operations call result is a representation of the available Network cloud operations list. For more information, see [Operation REST API](https://docs.microsoft.com/en-us/rest/api/operation/).<!--What is this link expected to provide for the user? It opens an empty "Overview" article with no links to subordinate articles.-->
+The operations call result is a representation of the available Network cloud operations list. For more information, see [Operation REST API](https://docs.microsoft.com/rest/api/operation/).<!--What is this link expected to provide for the user? It opens an empty "Overview" article with no links to subordinate articles.-->
 
 |Resource type     |API version|
 |------------------|-----------|
@@ -58,7 +58,7 @@ The operations call result is a representation of the available Network cloud op
 
 ## Microsoft Storage
 
-The Storage Resource Provider (SRP) lets you manage your storage account and keys programmatically. For more information, see the [Azure Storage Resource Provider REST API reference](https://docs.microsoft.com/en-us/rest/api/storagerp/).
+The Storage Resource Provider (SRP) lets you manage your storage account and keys programmatically. For more information, see the [Azure Storage Resource Provider REST API reference](https://docs.microsoft.com/rest/api/storagerp/).
 
 |Resource types       |API versions|
 |---------------------|------------|
