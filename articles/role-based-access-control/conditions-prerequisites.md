@@ -58,5 +58,5 @@ Just like role assignments, to add or update conditions, you must be signed in t
 
 ## Next steps
 
-- [Example Azure role assignment conditions (Preview)](../storage/blobs/storage-blob-abac-examples.md)
-- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (Preview)](../storage/blobs/storage-blob-abac-portal.md)
+- [Example Azure role assignment conditions (Preview)](../storage/common/storage-auth-abac-examples.md)
+- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (Preview)](../storage/common/storage-auth-abac-portal.md)

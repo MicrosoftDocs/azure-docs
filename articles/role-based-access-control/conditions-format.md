@@ -143,7 +143,7 @@ Currently, conditions can be added to built-in or custom role assignments that h
 - [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner)
 - [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader)
 
-For a a list of the storage blob actions you can use in conditions, see [Attributes and operations supported for Azure role assignment conditions in Azure Storage (preview)](../storage/blobs/storage-blob-auth-abac-attributes.md)
+For a a list of the storage blob actions you can use in conditions, see [Attributes and operations supported for Azure role assignment conditions in Azure Storage (preview)](../storage/common/storage-auth-abac-attributes.md)
 
 ## Attributes
 
@@ -155,7 +155,7 @@ Depending on the selected actions, the attribute might be found in different pla
 > | Resource | Indicates that the attribute is on the resource, such as container name. | `@Resource` |
 > | Request | Indicates that the attribute is part of the action request, such as setting the blob index tag. | `@Request` |
 
-For a a list of the storage blob attributes you can use in conditions, see [Attributes and operations supported for Azure role assignment conditions in Azure Storage (preview)](../storage/blobs/storage-blob-auth-abac-attributes.md)
+For a a list of the storage blob attributes you can use in conditions, see [Attributes and operations supported for Azure role assignment conditions in Azure Storage (preview)](../storage/common/storage-auth-abac-attributes.md)
 
 ## Operators
 
@@ -226,5 +226,5 @@ a AND (b OR c)
 
 ## Next steps
 
-- [Example Azure role assignment conditions (Preview)](../storage/blobs/storage-blob-abac-examples.md)
-- [Attributes and operations supported for Azure role assignment conditions in Azure Storage (preview)](../storage/blobs/storage-blob-auth-abac-attributes.md)
+- [Example Azure role assignment conditions (Preview)](../storage/common/storage-auth-abac-examples.md)
+- [Attributes and operations supported for Azure role assignment conditions in Azure Storage (preview)](../storage/common/storage-auth-abac-attributes.md)

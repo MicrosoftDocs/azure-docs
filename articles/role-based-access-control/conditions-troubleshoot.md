@@ -110,4 +110,4 @@ Fix any [condition format or syntax](conditions-format.md) issues. Alternatively
 
 - [Azure role assignment condition format and syntax (Preview)](conditions-format.md)
 - [FAQ for Azure role assignment conditions (Preview)](conditions-faq.md)
-- [Example Azure role assignment conditions (Preview)](../storage/blobs/storage-blob-abac-examples.md)
+- [Example Azure role assignment conditions (Preview)](../storage/common/storage-auth-abac-examples.md)

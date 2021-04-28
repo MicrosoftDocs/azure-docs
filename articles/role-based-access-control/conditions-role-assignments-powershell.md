@@ -127,6 +127,6 @@ Alternatively, if you want to delete both the role assignment and the condition,
 
 ## Next steps
 
-- [Example Azure role assignment conditions (Preview)](../storage/blobs/storage-blob-abac-examples.md)
-- [Tutorial: Add a role assignment condition to restrict access to blobs using Azure PowerShell (Preview)](../storage/blobs/storage-blob-abac-powershell.md)
+- [Example Azure role assignment conditions (Preview)](../storage/common/storage-auth-abac-examples.md)
+- [Tutorial: Add a role assignment condition to restrict access to blobs using Azure PowerShell (Preview)](../storage/common/storage-auth-abac-powershell.md)
 - [Troubleshoot Azure role assignment conditions (Preview)](conditions-troubleshoot.md)

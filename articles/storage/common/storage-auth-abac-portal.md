@@ -69,9 +69,9 @@ Here is what the condition looks like in code:
 
 ## Step 2: Set up storage
 
-1. If you haven't already, register your subscription to use blob index tags. For more information, see [Register your subscription (preview)](storage-manage-find-blobs.md#register-your-subscription-preview).
+1. If you haven't already, register your subscription to use blob index tags. For more information, see [Register your subscription (preview)](../blobs/storage-manage-find-blobs.md#register-your-subscription-preview).
 
-1. Create a storage account that is compatible with the blob index tags feature, which is currently in public preview. For more information, see [Manage and find Azure Blob data with blob index tags (preview)](storage-manage-find-blobs.md#regional-availability-and-storage-account-support).
+1. Create a storage account that is compatible with the blob index tags feature, which is currently in public preview. For more information, see [Manage and find Azure Blob data with blob index tags (preview)](../blobs/storage-manage-find-blobs.md#regional-availability-and-storage-account-support).
 
 1. Create a new container within the storage account and set the Public access level to **Private (no anonymous access)**.
 
@@ -83,7 +83,7 @@ Here is what the condition looks like in code:
 
 1. In the **Blob index tags** section, add the following blob index tag to the text file.
 
-    If you don't see the Blob index tags section and you just registered your subscription, you might need to wait a few minutes for changes to propagate. For more information, see [Use blob index tags (preview) to manage and find data on Azure Blob Storage](storage-blob-index-how-to.md).
+    If you don't see the Blob index tags section and you just registered your subscription, you might need to wait a few minutes for changes to propagate. For more information, see [Use blob index tags (preview) to manage and find data on Azure Blob Storage](../blobs/storage-blob-index-how-to.md).
 
     > [!NOTE]
     > Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. 
@@ -92,7 +92,7 @@ Here is what the condition looks like in code:
     | --- | --- |
     | Project  | Cascade |
 
-   ![Add blob index tags for a blob](./media/storage-blob-abac-portal/container-upload-blob.png)
+   ![Add blob index tags for a blob](./media/storage-auth-abac-portal/container-upload-blob.png)
 
 1. Click the **Upload** button to upload the file.
 
@@ -114,17 +114,17 @@ Here is what the condition looks like in code:
 
 1. Click **Add** > **Add role assignment (Preview)**.
 
-   ![Add role assignment menu preview](./media/storage-blob-abac-portal/add-role-assignment-menu-preview.png)
+   ![Add role assignment menu preview](./media/storage-auth-abac-portal/add-role-assignment-menu-preview.png)
 
     The Add role assignment page opens.
 
 1. On the **Roles** tab, select the [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role.
 
-    ![Add role assignment page with Roles tab](./media/storage-blob-abac-portal/roles.png)
+    ![Add role assignment page with Roles tab](./media/storage-auth-abac-portal/roles.png)
 
 1. On the **Members** tab, select the user you created earlier.
 
-   ![Add role assignment page with Members tab](./media/storage-blob-abac-portal/members.png)
+   ![Add role assignment page with Members tab](./media/storage-auth-abac-portal/members.png)
 
 1. (Optional) In the **Description** box, enter **Read access to blobs with the tag Project=Cascade**.
 
@@ -134,7 +134,7 @@ Here is what the condition looks like in code:
 
 1. On the **Condition** tab, click **Add condition**.
 
-    ![Add role assignment condition new](./media/storage-blob-abac-portal/condition-add-new.png)
+    ![Add role assignment condition new](./media/storage-auth-abac-portal/condition-add-new.png)
 
     The Add role assignment condition page appears.
 
@@ -142,7 +142,7 @@ Here is what the condition looks like in code:
 
     The Select an action pane appears. This pane is a filtered list of data actions based on the role assignment that will be the target of your condition. 
 
-    ![Select an action for condition](./media/storage-blob-abac-portal/condition-actions-select.png)
+    ![Select an action for condition](./media/storage-auth-abac-portal/condition-actions-select.png)
 
 1. Under Read a blog, click **Read content from a blob with tag conditions** and then click **Select**.
 
@@ -162,13 +162,13 @@ Here is what the condition looks like in code:
 
 1. In the Value box, enter **Cascade**.
 
-    ![Build expressions for blob index tags](./media/storage-blob-abac-portal/condition-expressions.png)
+    ![Build expressions for blob index tags](./media/storage-auth-abac-portal/condition-expressions.png)
 
 1. Scroll up to **Editor type** and click **Code**.
 
     The condition is displayed as code. You can make changes to the condition in this code editor. To go back to the visual editor, click **Visual**.
 
-    ![Condition displayed in code](./media/storage-blob-abac-portal/condition-code.png)
+    ![Condition displayed in code](./media/storage-auth-abac-portal/condition-code.png)
 
 1. Click **Save** to add the condition and return the Add role assignment page.
 
@@ -178,7 +178,7 @@ Here is what the condition looks like in code:
 
     After a few moments, the security principal is assigned the role at the selected scope.
 
-    ![Add role assignment condition saved](./media/storage-blob-abac-portal/rg-role-assignments-condition.png)
+    ![Add role assignment condition saved](./media/storage-auth-abac-portal/rg-role-assignments-condition.png)
 
 ## Step 5: Test the condition
 
@@ -250,6 +250,6 @@ To test the condition, you'll need to use Azure PowerShell.
 
 ## Next steps
 
-- [Example Azure role assignment conditions](storage-blob-abac-examples.md)
-- [Attributes and operations supported for Azure role assignment conditions in Azure Storage (preview)](storage-blob-auth-abac-attributes.md)
+- [Example Azure role assignment conditions](storage-auth-abac-examples.md)
+- [Attributes and operations supported for Azure role assignment conditions in Azure Storage (preview)](storage-auth-abac-attributes.md)
 - [Azure role assignment condition format and syntax](../../role-based-access-control/conditions-format.md)

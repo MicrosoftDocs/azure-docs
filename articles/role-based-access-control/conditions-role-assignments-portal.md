@@ -26,7 +26,7 @@ For information about the prerequisites to add or edit role assignment condition
 
 ## Step 1: Determine the condition you need
 
-To determine the conditions you need, review the examples in [Example Azure role assignment conditions](../storage/blobs/storage-blob-abac-examples.md).
+To determine the conditions you need, review the examples in [Example Azure role assignment conditions](../storage/common/storage-auth-abac-examples.md).
 
 Currently, conditions can be added to built-in or custom role assignments that have [storage blob data actions](conditions-format.md#actions). These include the following built-in roles:
 
@@ -149,6 +149,6 @@ Once you have the Add role assignment condition page open, you can review the ba
 
 ## Next steps
 
-- [Example Azure role assignment conditions (Preview)](../storage/blobs/storage-blob-abac-examples.md)
-- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (Preview)](../storage/blobs/storage-blob-abac-portal.md)
+- [Example Azure role assignment conditions (Preview)](../storage/common/storage-auth-abac-examples.md)
+- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (Preview)](../storage/common/storage-auth-abac-portal.md)
 - [Troubleshoot Azure role assignment conditions (Preview)](conditions-troubleshoot.md)

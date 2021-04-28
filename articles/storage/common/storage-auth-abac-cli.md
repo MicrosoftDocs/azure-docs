@@ -80,7 +80,7 @@ Here is what the condition looks like in code:
     subscriptionId="<subscriptionId>"
     ```
 
-1. If you haven't already, register your subscription to use blob index tags. For more information, see [Register your subscription (preview)](storage-manage-find-blobs.md#register-your-subscription-preview).
+1. If you haven't already, register your subscription to use blob index tags. For more information, see [Register your subscription (preview)](../blobs/storage-manage-find-blobs.md#register-your-subscription-preview).
 
 ## Step 2: Create a user
 
@@ -94,15 +94,15 @@ Here is what the condition looks like in code:
 
 ## Step 3: Set up storage
 
-You can authorize access to Blob storage from the Azure CLI either with Azure AD credentials or by using the storage account access key. This article shows how to authorize Blob storage operations using Azure AD. For more information, see [Quickstart: Create, download, and list blobs with Azure CLI](storage-quickstart-blobs-cli.md)
+You can authorize access to Blob storage from the Azure CLI either with Azure AD credentials or by using the storage account access key. This article shows how to authorize Blob storage operations using Azure AD. For more information, see [Quickstart: Create, download, and list blobs with Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
 
-1. Use [az storage account](/cli/azure/storage/account) to create a storage account that is compatible with the blob index feature. For more information, see [Manage and find Azure Blob data with blob index tags (preview)](storage-manage-find-blobs.md#regional-availability-and-storage-account-support).
+1. Use [az storage account](/cli/azure/storage/account) to create a storage account that is compatible with the blob index feature. For more information, see [Manage and find Azure Blob data with blob index tags (preview)](../blobs/storage-manage-find-blobs.md#regional-availability-and-storage-account-support).
 
 1. Use [az storage container](/cli/azure/storage/container) to create a new blob container within the storage account and set the Public access level to **Private (no anonymous access)**.
 
 1. Use [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) to upload a text file to the container.
 
-1. Add the following blob index tag to the text file. For more information, see [Use blob index tags (preview) to manage and find data on Azure Blob Storage](storage-blob-index-how-to.md).
+1. Add the following blob index tag to the text file. For more information, see [Use blob index tags (preview) to manage and find data on Azure Blob Storage](../blobs/storage-blob-index-how-to.md).
 
     > [!NOTE]
     > Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. 
@@ -345,6 +345,6 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
 
 ## Next steps
 
-- [Example Azure role assignment conditions](storage-blob-abac-examples.md)
-- [Attributes and operations supported for Azure role assignment conditions in Azure Storage (preview)](storage-blob-auth-abac-attributes.md)
+- [Example Azure role assignment conditions](storage-auth-abac-examples.md)
+- [Attributes and operations supported for Azure role assignment conditions in Azure Storage (preview)](storage-auth-abac-attributes.md)
 - [Azure role assignment condition format and syntax](../../role-based-access-control/conditions-format.md)

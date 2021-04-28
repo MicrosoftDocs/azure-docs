@@ -32,9 +32,9 @@ For information about the prerequisites to add or edit role assignment condition
 This condition allows users to read blobs with a blob index tag key of Project and a tag value of Cascade. Attempts to access blobs without this key-value tag will not be allowed.
 
 > [!TIP]
-> Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags (preview)](storage-manage-find-blobs.md).
+> Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags (preview)](../blobs/storage-manage-find-blobs.md).
 
-![Diagram of example 1 condition](./media/storage-blob-abac-examples/example-1.png)
+![Diagram of example 1 condition](./media/storage-auth-abac-examples/example-1.png)
 
 ```
 (
@@ -63,7 +63,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | StringEquals |
 | Value | {keyValue} |
 
-![Diagram of example 1 condition in Azure portal](./media/storage-blob-abac-examples/example-1-condition-1-portal.png)
+![Diagram of example 1 condition in Azure portal](./media/storage-auth-abac-examples/example-1-condition-1-portal.png)
 
 #### Azure PowerShell
 
@@ -89,14 +89,14 @@ Get-AzStorageBlob -Container <containerName> -Blob <blobName> -Context $bearerCt
 This condition requires that any new blobs must include a blob index tag key of Project and a tag value of Cascade.
 
 > [!TIP]
-> Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags (preview)](storage-manage-find-blobs.md).
+> Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags (preview)](../blobs/storage-manage-find-blobs.md).
 
 There are two permissions that allow you to create new blobs, so you must target both. You must add this condition to any role assignments that include one of the following permissions.
 
 - /blobs/write (create or update) 
 - /blobs/add/action (create)
 
-![Diagram of example 2 condition](./media/storage-blob-abac-examples/example-2.png)
+![Diagram of example 2 condition](./media/storage-auth-abac-examples/example-2.png)
 
 ```
 (
@@ -125,7 +125,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | StringEquals |
 | Value | {keyValue} |
 
-![Diagram of example 2 condition 1 in Azure portal](./media/storage-blob-abac-examples/example-2-condition-1-portal.png)
+![Diagram of example 2 condition 1 in Azure portal](./media/storage-auth-abac-examples/example-2-condition-1-portal.png)
 
 #### Azure PowerShell
 
@@ -158,14 +158,14 @@ $content = Set-AzStorageBlobContent -File $localSrcFile -Container example2 -Blo
 This condition requires that any existing blobs be tagged with at least one of the allowed blob index tag keys, Project or Program. This condition is useful for adding governance to existing blobs.
 
 > [!TIP]
-> Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags (preview)](storage-manage-find-blobs.md).
+> Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags (preview)](../blobs/storage-manage-find-blobs.md).
 
 There are two permissions that allow you to update tags on existing blobs, so you must target both. You must add this condition to any role assignments that include one of the following permissions.
 
 - /blobs/write (update or create, cannot exclude create)
 - /blobs/tags/write
 
-![Diagram of example 3 condition](./media/storage-blob-abac-examples/example-3.png)
+![Diagram of example 3 condition](./media/storage-auth-abac-examples/example-3.png)
 
 ```
 (
@@ -193,7 +193,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | ForAllOfAnyValues:StringEquals |
 | Value | {keyName1}<br/>{keyName2} |
 
-![Diagram of example 3 condition 1 in Azure portal](./media/storage-blob-abac-examples/example-3-condition-1-portal.png)
+![Diagram of example 3 condition 1 in Azure portal](./media/storage-auth-abac-examples/example-3-condition-1-portal.png)
 
 #### Azure PowerShell
 
@@ -226,14 +226,14 @@ $content = Set-AzStorageBlobContent -File $localSrcFile -Container example3 -Blo
 This condition requires that any existing blobs to have a blob index tag key of Project and tag values of Cascade, Baker, or Skagit. This condition is useful for adding governance to existing blobs.
 
 > [!TIP]
-> Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags (preview)](storage-manage-find-blobs.md).
+> Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags (preview)](../blobs/storage-manage-find-blobs.md).
 
 There are two permissions that allow you to update tags on existing blobs, so you must target both. You must add this condition to any role assignments that include one of the following permissions.
 
 - /blobs/write (update or create, cannot exclude create)
 - /blobs/tags/write
 
-![Diagram of example 4 condition](./media/storage-blob-abac-examples/example-4.png)
+![Diagram of example 4 condition](./media/storage-auth-abac-examples/example-4.png)
 
 ```
 (
@@ -270,7 +270,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | ForAllOfAnyValues:StringEquals |
 | Value | {keyValue1}<br/>{keyValue2}<br/>{keyValue3} |
 
-![Diagram of example 4 condition 1 in Azure portal](./media/storage-blob-abac-examples/example-4-condition-1-portal.png)
+![Diagram of example 4 condition 1 in Azure portal](./media/storage-auth-abac-examples/example-4-condition-1-portal.png)
 
 #### Azure PowerShell
 
@@ -315,7 +315,7 @@ There are four permissions for read, write, and delete of existing blobs, so you
 
 Suboperations are not used in this condition because the subOperation is needed only when conditions are authored based on tags.
 
-![Diagram of example 5 condition](./media/storage-blob-abac-examples/example-5.png)
+![Diagram of example 5 condition](./media/storage-auth-abac-examples/example-5.png)
 
 ```
 (
@@ -347,7 +347,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | StringEquals |
 | Value | {containerName} |
 
-![Diagram of example 5 condition 1 in Azure portal](./media/storage-blob-abac-examples/example-5-condition-1-portal.png)
+![Diagram of example 5 condition 1 in Azure portal](./media/storage-auth-abac-examples/example-5-condition-1-portal.png)
 
 #### Azure PowerShell
 
@@ -387,7 +387,7 @@ You must add this condition to any role assignments that include the following p
 
 - /blobs/read
 
-![Diagram of example 6 condition](./media/storage-blob-abac-examples/example-6.png)
+![Diagram of example 6 condition](./media/storage-auth-abac-examples/example-6.png)
 
 ```
 (
@@ -421,7 +421,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | StringLike |
 | Value | {pathString} |
 
-![Diagram of example 6 condition 1 in Azure portal](./media/storage-blob-abac-examples/example-6-condition-1-portal.png)
+![Diagram of example 6 condition 1 in Azure portal](./media/storage-auth-abac-examples/example-6-condition-1-portal.png)
 
 #### Azure PowerShell
 
@@ -456,7 +456,7 @@ You must add this condition to any role assignments that include the following p
 - /blobs/write (create or update)
 - /blobs/add/action (create)
 
-![Diagram of example 7 condition](./media/storage-blob-abac-examples/example-7.png)
+![Diagram of example 7 condition](./media/storage-auth-abac-examples/example-7.png)
 
 ```
 (
@@ -492,7 +492,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | StringLike |
 | Value | {pathString} |
 
-![Diagram of example 7 condition 1 in Azure portal](./media/storage-blob-abac-examples/example-7-condition-1-portal.png)
+![Diagram of example 7 condition 1 in Azure portal](./media/storage-auth-abac-examples/example-7-condition-1-portal.png)
 
 #### Azure PowerShell
 
@@ -523,13 +523,13 @@ $content = Set-AzStorageBlobContent -Container $grantedContainer -Blob "uploads/
 This condition allows a user to read blobs with a blob index tag key of Program, a tag value of Alpine, and a blob path of logs*. The blob path of logs* also includes the blob name.
 
 > [!TIP]
-> Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags (preview)](storage-manage-find-blobs.md).
+> Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags (preview)](../blobs/storage-manage-find-blobs.md).
 
 You must add this condition to any role assignments that includes the following permission.
 
 - /blobs/read
 
-![Diagram of example 8 condition](./media/storage-blob-abac-examples/example-8.png)
+![Diagram of example 8 condition](./media/storage-auth-abac-examples/example-8.png)
 
 ```
 (
@@ -568,7 +568,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | StringEquals |
 | Value | {keyValue} |
 
-![Diagram of example 8 condition 1 in Azure portal](./media/storage-blob-abac-examples/example-8-condition-1-portal.png)
+![Diagram of example 8 condition 1 in Azure portal](./media/storage-auth-abac-examples/example-8-condition-1-portal.png)
 
 | Condition #2 | Setting |
 | --- | --- |
@@ -578,7 +578,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | StringLike |
 | Value | {pathString} |
 
-![Diagram of example 8 condition 2 in Azure portal](./media/storage-blob-abac-examples/example-8-condition-2-portal.png)
+![Diagram of example 8 condition 2 in Azure portal](./media/storage-auth-abac-examples/example-8-condition-2-portal.png)
 
 #### Azure PowerShell
 
@@ -609,6 +609,6 @@ $content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "logs/Alp
 
 ## Next steps
 
-- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (Preview)](storage-blob-abac-portal.md)
-- [Attributes and operations supported for Azure role assignment conditions in Azure Storage (preview)](storage-blob-auth-abac-attributes.md)
+- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (Preview)](storage-auth-abac-portal.md)
+- [Attributes and operations supported for Azure role assignment conditions in Azure Storage (preview)](storage-auth-abac-attributes.md)
 - [Azure role assignment condition format and syntax (Preview)](../../role-based-access-control/conditions-format.md)
