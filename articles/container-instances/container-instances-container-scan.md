@@ -147,7 +147,7 @@ Build and tag the image using the following snippet in the workflow. The followi
 
 Before pushing the built image into the container registry, make sure you scan and check the image for any vulnerabilities by using the [Container image scan action](https://github.com/marketplace/actions/container-image-scan).
 
-Add the following code snippet into the workflow which scan the image for any **Critical** vulnerabilities so that the image that is going to be pushed is secure and complies with the standards.
+Add the following code snippet into the workflow which will scan the image for any ***critical vulnerabilities*** such that the image that will be pushed is secure and complies with the standards.
 
 You can also add other inputs with this action or add an allowedlist to ignore any vulnerabilities and best practice checks.
 
@@ -171,4 +171,4 @@ Once the image is scanned and there are no vulnerabilities found, it's safe to p
         
 ```
 ## Next steps
-- Learn how to [Deploy to Kubernetes](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/deploy?view=azure-devops).
+- Learn how to [Deploy to Azure Container Instances from Azure Container Registry](https://docs.microsoft.com/azure/container-instances/container-instances-using-azure-container-registry).
