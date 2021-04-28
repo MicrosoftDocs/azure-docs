@@ -44,7 +44,7 @@ In this example, you'll create a three secrets that you can use to authenticate 
 
 1. Open your GitHub repository and go to **Settings**.
 
-    :::image type="content" source="container-instances/media/container-instances-container-scan/github-repo-settings.png" alt-text="Select Settings in the navigation.":::
+    :::image type="content" source="media/container-instances-container-scan/github-repo-settings.png" alt-text="Select Settings in the navigation.":::
 
 1. Select **Secrets** and then **New Secret**.
 
@@ -171,4 +171,4 @@ Once the image is scanned and there are no vulnerabilities found, it's safe to p
         
 ```
 ## Next steps
-- Learn how to [deploy to Azure](deploy-to-azure.md).
+- Learn how to [Deploy to Kubernetes](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/deploy?view=azure-devops).
