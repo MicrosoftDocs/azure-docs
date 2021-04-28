@@ -129,8 +129,8 @@
       href: application-proxy-configure-native-client-application.md
     - name: Register connector - silent install
       href: application-proxy-register-connector-powershell.md
-    #   - name: Remove personal data
-    #     href: application-proxy-remove-personal-data.md
+    - name: Remove personal data
+      href: application-proxy-remove-personal-data.md
     #   - name: Secure legacy apps 
     #     items:
     #     - name: Secure hybrid access with Azure AD 
