@@ -10,9 +10,16 @@ ms.date: 4/28/2021
 
 ---
 
-# What are the Azure IoT support and help options?
+# What are the Azure Virtual Machine support and help options?
 
-Here are suggestions for where you can get help when developing your Azure IoT solutions.
+Here are suggestions for where you can get help when developing your Azure Virtual Machines solutions.
+
+## Self help Content
+
+Various articles explain how to determine, diagnose, and fix issues that you might encounter when you use Azure Virtual Machines. Use these articles to troubleshoot deployment failures, unexpected restarts, connection issues and more. 
+
+See a full list of self help content at [Azure Virtual Machine troubleshooting documentation](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
+
 
 ## Create an Azure support request
 
@@ -31,17 +38,16 @@ For quick and reliable answers on your technical product questions from Microsof
 
 If you can't find an answer to your problem using search, submit a new question to Microsoft Q&A. Use one of the following tags when you ask your question:
 
-- [Azure IoT](/answers/topics/azure-iot.html)
-- [Azure IoT Central](/answers/topics/azure-iot-central.html)
-- [Azure IoT Edge](/answers/topics/azure-iot-edge.html)
-- [Azure IoT Hub](/answers/topics/azure-iot-hub.html)
-- [Azure IoT Hub Device Provisioning Service (DPS)](/answers/topics/azure-iot-dps.html)
-- [Azure IoT SDKs](/answers/topics/azure-iot-sdk.html)
-- [Azure Digital Twins](/answers/topics/azure-digital-twins.html)
-- [Azure RTOS](/answers/topics/azure-rtos.html)
-- [Azure Sphere](/answers/topics/azure-sphere.html)
-- [Azure Time Series Insights](/answers/topics/azure-time-series-insights.html)
-- [Azure Maps](/answers/topics/azure-maps.html)
+- [Azure Virtual Machines](/answers/topics/azure-virtual-machines.html)
+- [Azure SQL Virtual Machines](/answers/topics/azure-sql-virtual-machines.html)
+- [Azure Virtual Machine backup](/answers/topics/azure-virtual-machine-backup.html)
+- [Azure Virtual Machine extensions](/answers/topics/azure-virtual-machine-extensions.html)
+- [Azure Virtual Machine Images](/answers/topics/azure-virtual-machine-images.html)
+- [Azure Virtual Machine migration](/answers/topics/azure-virtual-machine-migration.html)
+- [Azure Virtual Machine monitoring](/answers/topics/azure-virtual-machine-monitoring.html)
+- [Azure Virtual Machine networking](/answers/topics/azure-virtual-machine-networking.html)
+- [Azure Virtual Machine storage](/answers/topics/azure-virtual-machine-storage.html)
+- [Azure Virtual Machine Scale Sets](/answers/topics/azure-virtual-machine-scale-sets.html)
 
 ## Post a question on Stack Overflow
 
@@ -53,15 +59,10 @@ For answers on your developer questions from the largest community developer eco
 
 If you do submit a new question to Stack Overflow, please use one or more of the following tags when you create the question:
 
- - [Azure IoT Central](https://stackoverflow.com/questions/tagged/azure-iot-central)
- - [Azure IoT Edge](https://stackoverflow.com/questions/tagged/azure-iot-edge)
- - [Azure IoT Hub](https://stackoverflow.com/questions/tagged/azure-iot-hub)
- - [Azure IoT SDKs](https://stackoverflow.com/questions/tagged/azure-iot-sdk)
- - [Azure Digital Twins](https://stackoverflow.com/questions/tagged/azure-digital-twins)
- - [Azure RTOS](https://stackoverflow.com/questions/tagged/azure-rtos)
- - [Azure Sphere](https://stackoverflow.com/questions/tagged/azure-sphere)
- - [Azure Time Series Insights](https://stackoverflow.com/questions/tagged/azure-timeseries-insights)
- - [Azure Maps](https://stackoverflow.com/questions/tagged/azure-maps)
+ - [Azure Virtual Machines](https://stackoverflow.com/questions/tagged/azure-virtual-machine)
+ - [Azure](https://stackoverflow.com/questions/tagged/azure)
+ - [Virtual Machine](https://stackoverflow.com/questions/tagged/virtual-machine)
+
 
 ## Submit feedback on Azure Feedback
 
@@ -69,19 +70,11 @@ If you do submit a new question to Stack Overflow, please use one or more of the
     <img alt='UserVoice' src='https://docs.microsoft.com/media/logos/logo-uservoice.svg'>
 </div>
 
-To request new features, post them on Azure Feedback. Share your ideas for making Azure IoT services work better for the applications you develop:
+To request new features, post them on Azure Feedback. Share your ideas for making Azure Virtual Machine services work better for the applications you develop:
 
 | Service                       | Azure Feedback URL |
 |-------------------------------|---------------|
-| Azure IoT (Hub, DPS, SDKs)                    | https://feedback.azure.com/forums/321918-azure-iot |
-| Azure IoT Central             | https://feedback.azure.com/forums/911455-azure-iot-central |
-| Azure IoT Device Catalog      | https://feedback.azure.com/forums/916948-azure-iot-device-catalog |
-| Azure IoT Edge                | https://feedback.azure.com/forums/907045-azure-iot-edge |
-| Azure IoT Solution Accelerators | https://feedback.azure.com/forums/916438-azure-iot-solution-accelerators |
-| Azure Maps                 | https://feedback.azure.com/forums/909172-azure-maps |
-| Azure Time Series Insights | https://feedback.azure.com/forums/906859-azure-time-series-insights |
-| Azure Digital Twins | https://feedback.azure.com/forums/916621-azure-digital-twins |
-| Azure Sphere | https://feedback.azure.com/forums/915433-azure-sphere |
+| Azure Virtual Machines  | https://feedback.azure.com/forums/216843-virtual-machines 
 
 ## Stay informed of updates and new releases
 
@@ -89,12 +82,11 @@ To request new features, post them on Azure Feedback. Share your ideas for makin
     <img alt='Stay informed' src='https://docs.microsoft.com/media/common/i_blog.svg'>
 </div>
 
-Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?category=iot).
+Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?category=compute).
 
-News and information about Azure IoT is shared at the [Azure blog](https://azure.microsoft.com/blog/topics/internet-of-things/) and on the [Internet of Things Show on Channel 9](https://channel9.msdn.com/Shows/Internet-of-Things-Show).
+News and information about Azure Virtual Machines is shared at the [Azure blog](https://azure.microsoft.com/blog/topics/virtual-machines/).
 
-Also, share your experiences, engage and learn from experts in the [Internet of Things Tech Community](https://techcommunity.microsoft.com/t5/Internet-of-Things-IoT/ct-p/IoT).
 
 ## Next steps
 
-[What is Azure IoT?](iot-introduction.md)
+[What is Azure Virtual Machines?](./linux/overview.md)
