@@ -230,6 +230,6 @@ When enabling or disabling a given WSFC node's vote, follow these guidelines:
 * Number of votes. If necessary, add a cloud witness, file share witness, a witness node, or a witness disk to the cluster and adjust the quorum mode to prevent possible ties in the quorum vote. It is recommended to have three or more quorum votes. 
 * Reassess vote assignments post-failover. You do not want to fail over into a cluster configuration that does not support a healthy quorum.
 
-### Next Steps
+## Next Steps
 
 After you've determined the appropriate best practices for your solution, get started by [preparing your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md) or by creating your availability group by using the [Azure portal](availability-group-azure-portal-configure.md), the [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md), or [Azure quickstart templates](availability-group-quickstart-template-configure.md).
