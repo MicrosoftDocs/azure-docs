@@ -39,7 +39,7 @@ To get your endpoint details:
 
     # [Custom question answering (preview release)](#tab/v2)
 
-    ![Screenshot of endpoint details managed](../media/qnamaker-how-to-metadata-usage/view-code-managed.png)
+    ![Screenshot of endpoint details managed](../media/qnamaker-how-to-metadata-usage/view-code.png)
 
     ---
 
@@ -59,18 +59,9 @@ The POST request uses:
 
 The GenerateAnswer URL has the following format:
 
-# [QnA Maker GA (stable release)](#tab/v1)
-
 ```
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
-
-# [Custom question answering (preview release)](#tab/v2)
-
-```
-https://{Text-Analytics-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
-```
----
 
 Remember to set the HTTP header property of `Authorization` with a value of the string `EndpointKey` with a trailing space then the endpoint key found on the **Settings** page.
 
