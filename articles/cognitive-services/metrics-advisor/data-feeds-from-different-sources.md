@@ -98,7 +98,7 @@ The following sections specify the parameters required for all authentication ty
     ``` Kusto
     [TableName] | where [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd;
     ```
-    You can also refer to the [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+    <!-- You can also refer to the [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples. -->
   
 ## <span id="blob">Azure Blob Storage (JSON)</span>
 
@@ -165,7 +165,7 @@ The following sections specify the parameters required for all authentication ty
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd    
     ```
 
-    For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+    <!-- For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples. -->
 
 ## <span id="kusto">Azure Data Explorer (Kusto)</span>
 
@@ -209,7 +209,7 @@ The following sections specify the parameters required for all authentication ty
         Data Source=<Server>;Initial Catalog=<Database>
         ```
 
-        For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+        <!-- For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples. -->
 
 * **Query**: See [Kusto Query Language](https://docs.microsoft.com/azure/data-explorer/kusto/query) to get and formulate data into multi-dimensional time series data. You can use the `@IntervalStart` and `@IntervalEnd` variables in your query. They should be formatted: `yyyy-MM-ddTHH:mm:ssZ`.
 
@@ -219,7 +219,7 @@ The following sections specify the parameters required for all authentication ty
    [TableName] | where [TimestampColumn] >= datetime(@IntervalStart) and [TimestampColumn] < datetime(@IntervalEnd);    
    ```
 
-    For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+    <!-- For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples. -->
 
 ## <span id="adl">Azure Data Lake Storage Gen2</span>
 
@@ -330,7 +330,7 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
     | summarize [count_per_dimension]=count() by [Dimension]
     ```
 
-    For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.    
+    <!-- For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples. -->  
 
 ## <span id="sql">Azure SQL Database | SQL Server</span>
 
@@ -365,7 +365,7 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
             ```
     
     * **Azure SQL Connection String**: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. A service principal is created in each tenant where the application is used and references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
-    You can go through [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principalsto.md) to know about Service Principal and create one. Also, your connection string could be found in Azure SQL Server resource in **Settings > Connection strings** section.
+    You can go through [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md) to know about Service Principal and create one. Also, your connection string could be found in Azure SQL Server resource in **Settings > Connection strings** section.
 
         Here is an example of connection string: 
         
@@ -422,7 +422,7 @@ Check allowed services and allowed resource types checkboxes, then click the **G
     PartitionKey ge '@IntervalStart' and PartitionKey lt '@IntervalEnd'
     ```
 
-    For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+    <!-- For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples. -->
 
 ## <span id="es">Elasticsearch</span>
 
@@ -437,7 +437,7 @@ Check allowed services and allowed resource types checkboxes, then click the **G
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd
     ```
 
-    For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+    <!-- For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples. -->
 
 
 ## <span id="http">HTTP request</span>
@@ -463,7 +463,7 @@ Check allowed services and allowed resource types checkboxes, then click the **G
     }
     ```
 
-    For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+    <!-- For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples. -->
 
 ## <span id="influxdb">InfluxDB (InfluxQL)</span>
 
@@ -477,7 +477,7 @@ Check allowed services and allowed resource types checkboxes, then click the **G
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd
     ```
     
-For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+<!-- For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples. -->
 
 * **User name**: This is optional for authentication. 
 * **Password**: This is optional for authentication. 
@@ -506,7 +506,7 @@ For more information, refer to the [tutorial on writing a valid query](tutorial/
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn]< @IntervalEnd
     ```
 
-    For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+    <!-- For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples. -->
 
 ## <span id="pgsql">PostgreSQL</span>
 
@@ -518,7 +518,7 @@ For more information, refer to the [tutorial on writing a valid query](tutorial/
     ``` SQL
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd
     ```
-    For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+    <!-- For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples. -->
     
 ## <span id="csv">Local files(CSV)</span>
 
