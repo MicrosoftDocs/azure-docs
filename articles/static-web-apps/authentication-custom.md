@@ -39,10 +39,10 @@ The settings used to override the built-in providers are configured in the `auth
 }
 ```
 
-| Property           | Description                                                                                                                                  |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enabled`          | Defaults to `true` on all the providers if the provider is configured to a non-null value. For instance, not `"azureActiveDirectory": null`. |
-| `userDetailsClaim` | The name of the claim that contains the `userDetails` identity value.                                                                        |
+| Property           | Description                                                                                                             |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| `enabled`          | Used to control if a provider is available to the application or not. Defaults to `true` when a provider is configured. |
+| `userDetailsClaim` | The name of the claim that contains the `userDetails` identity value.                                                   |
 
 To avoid putting secrets in source control, the configuration looks into [Application Settings](application-settings.md), for a matching name in the configuration file.
 
