@@ -13,7 +13,7 @@ ms.reviewer: sngun
 # Diagnose and troubleshoot Azure Cosmos DB request rate too large (429) exceptions
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-A "Request rate too large" message or error code 429 indicates that your requests are being throttled. This article contains known causes and solutions for various 429 status code errors. 
+This article contains known causes and solutions for various 429 status code errors. 
 
 ## What is a "Request rate too large" (429) exception?
 A "Request rate too large" exception, also known as error code 429 indicates that your requests against Azure Cosmos DB are being throttled. 
@@ -21,7 +21,7 @@ A "Request rate too large" exception, also known as error code 429 ind
 When you use provisioned throughput, you set the throughput measured in request units per second (RU/s) required for your workload. Database operations against the service, such as reads, writes, and queries consume some amount of request units (RUs). Learn more about [request units](request-units.md).
 
 In a given second, if the operations consume more than the provisioned RU/s, Azure Cosmos DB will return a 429 exception. Each second, the amount of Request Units available to use reset. 
-
+    
 Before taking any action to change the RU/s, it's important to understand the root cause of why throttling occurred and address the underlying issue. 
 
 ## Error message: Request rate is large. More Request Units may be needed, so no changes were made. 
@@ -46,6 +46,7 @@ Here are some examples of partitioning strategies that lead to hot partitions:
 - If you have a container storing IOT device data that is partitioned by date, all data for a single date will reside on the same logical and physical partition. Each day, because all data being written has the same date, this would result in a hot partition. 
     - Instead, for this scenario, a partition key like id (either a GUID or device id), or a [synthetic partition key](/synthetic-partition-keys.md) combining id and date would yield a higher cardinality of values and better distribution of request volume.
 - If you have a multi-tenant scenario with a container partitioned by tenantId, and 1 tenant is significantly more active than the others (for example, the largest tenant has 100,000 users, but most tenants have fewer than 10 users), there will be a hot partition by tenant. 
+    - Instead, for this scenario, consider having a dedicated container for the largest tenant, partitioned by a more granular property, e.g. UserId. 
 
 #### How to investigate
 To verify if there is a hot partition, use the **Normalized RU Consumption** metric and split by **PartitionKeyRangeId**. Each PartitionKeyRangeId maps to a one physical partition. If there is one PartitionKeyRangeId that has significantly higher Normalized RU consumption than others (e.g. one is consistently at 100%, but others are at 30% or less), this can be a sign of a hot partition. 
@@ -85,14 +86,14 @@ For example, this sample output shows that each minute, 30% of Create Document r
 :::image type="content" source="media/troubleshoot-request-rate-too-large/throttled-requests-diagnostic-logs.png" alt-text="Requests with 429 in Diagnostic Logs":::
 
 #### Recommended solution
-#### 429s on create, replace, or upsert document requests
+##### 429s on create, replace, or upsert document requests
 - By default, in the SQL API, all properties are indexed by default. Tune the [indexing policy](index-policy.md) to only index the properties needed.
 This will lower the Request Units required per create document operation, which will reduce the likelihood of seeing 429s or allow you to achieve higher operations per second for the same amount of provisioned RU/s. 
 
-#### 429s on query document requests
+##### 429s on query document requests
 - Follow the guidance to [troubleshoot queries with high RU charge](troubleshoot-query-performance.md#querys-ru-charge-is-too-high)
 
-#### 429s on execute stored procedures
+##### 429s on execute stored procedures
 - [Stored procedures](stored-procedures-triggers-udfs.md) are intended for operations that require write transactions across a partition key value. It is not recommended to use stored procedures for a large number of read or query operations. For best performance, these read or query operations should be done on the client-side, using the Cosmos SDKs. 
 
 ## Error message: The request did not complete due to a high rate of metadata requests. 
