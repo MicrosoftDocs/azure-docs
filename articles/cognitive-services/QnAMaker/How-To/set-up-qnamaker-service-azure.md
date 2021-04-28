@@ -63,12 +63,12 @@ This procedure creates the Azure resources needed to manage the knowledge base c
 
 1. Sign in to the Azure portal and [create a Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) resource.
 
-2. Select Custom question answering feature to add to the Text Analytics resource. Click on 'Continue to create your resource'.
+1. Select Custom question answering feature to add to the Text Analytics resource. Click on 'Continue to create your resource'.
 
-> [!div class="mx-imgBorder"]
-> ![Add QnA to TA](../media/qnamaker-how-to-setup-service/select-qna-feature-create-flow.png)
+[!div class="mx-imgBorder"]
+![Add QnA to TA](../media/qnamaker-how-to-setup-service/select-qna-feature-create-flow.png)
 
-3. Select the appropriate tiers and regions for the resource:
+1. Select the appropriate tiers and regions for the resource:
 
 > [!div class="mx-imgBorder"]
 > ![Create a new TA service - pricing tier and regions](../media/qnamaker-how-to-setup-service/custom-qna-create-button.png)
