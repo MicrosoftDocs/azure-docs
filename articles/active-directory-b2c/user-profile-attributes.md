@@ -1,6 +1,6 @@
 ---
 title: User profile attributes in Azure Active Directory B2C
-description: Learn about the user resource type attributes that are supported by the Azure AD B2C directory user profile. Find out about built-in attributes, extensions, and how attributes map to Microsoft Graph.
+description: Learn about the user resource type attributes that are supported by the Azure AD B2C directory user profile. Find out about built-in attributes, extensions, and how attributes map to Microsoft Graph.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # User profile attributes
 
-Your Azure Active Directory (Azure AD) B2C directory user profile comes with a built-in set of attributes, such as given name, surname, city, postal code, and phone number. You can extend the user profile with your own application data without requiring an external data store. 
+Your Azure Active Directory (Azure AD) B2C directory user profile comes with a built-in set of attributes, such as given name, surname, city, postal code, and phone number. You can extend the user profile with your own application data without requiring an external data store.
 
 Most of the attributes that can be used with Azure AD B2C user profiles are also supported by Microsoft Graph. This article describes supported Azure AD B2C user profile attributes. It also notes those attributes that are not supported by Microsoft Graph, as well as Microsoft Graph attributes that should not be used with Azure AD B2C.
 
@@ -96,7 +96,7 @@ A customer account, which could be a consumer, partner, or citizen, can be assoc
 - **Local** identity - The username and password are stored locally in the Azure AD B2C directory. We often refer to these identities as "local accounts."
 - **Federated** identity - Also known as a *social* or *enterprise* accounts, the identity of the user is managed by a federated identity provider like Facebook, Microsoft, ADFS, or Salesforce.
 
-A user with a customer account can sign in with multiple identities. For example, username, email, employee ID, government ID, and others. A single account can have multiple identities, both local and social, with the same password. 
+A user with a customer account can sign in with multiple identities. For example, username, email, employee ID, government ID, and others. A single account can have multiple identities, both local and social, with the same password.
 
 In the Microsoft Graph API, both local and federated identities are stored in the user `identities` attribute, which is of type [objectIdentity](/graph/api/resources/objectidentity). The `identities` collection represents a set of identities used to sign in to a user account. This collection enables the user to sign in to the user account with any of its associated identities. The identities attribute can contain up to ten [objectIdentity](/graph/api/resources/objectidentity) objects. Each object contains the following properties:
 
@@ -106,29 +106,29 @@ In the Microsoft Graph API, both local and federated identities are stored in th
 |issuer|string|Specifies the issuer of the identity. For local accounts (where **signInType** is not `federated`), this property is the local B2C tenant default domain name, for example `contoso.onmicrosoft.com`. For social identity (where **signInType** is  `federated`) the value is the name of the issuer, for example `facebook.com`|
 |issuerAssignedId|string|Specifies the unique identifier assigned to the user by the issuer. The combination of **issuer** and **issuerAssignedId** must be unique within your tenant. For local account, when **signInType** is set to `emailAddress` or `userName`, it represents the sign-in name for the user.<br>When **signInType** is set to: <ul><li>`emailAddress` (or starts with `emailAddress` like `emailAddress1`) **issuerAssignedId** must be a valid email address</li><li>`userName` (or any other value), **issuerAssignedId** must be a valid [local part of an email address](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, **issuerAssignedId** represents the federated account unique identifier</li></ul>|
 
-The following **Identities** attribute, with a local account identity with a sign-in name, an email address as sign-in, and with a social identity. 
+The following **Identities** attribute, with a local account identity with a sign-in name, an email address as sign-in, and with a social identity.
 
- ```json
- "identities": [
-     {
-       "signInType": "userName",
-       "issuer": "contoso.onmicrosoft.com",
-       "issuerAssignedId": "johnsmith"
-     },
-     {
-       "signInType": "emailAddress",
-       "issuer": "contoso.onmicrosoft.com",
-       "issuerAssignedId": "jsmith@yahoo.com"
-     },
-     {
-       "signInType": "federated",
-       "issuer": "facebook.com",
-       "issuerAssignedId": "5eecb0cd"
-     }
-   ]
- ```
+```json
+"identities": [
+  {
+    "signInType": "userName",
+    "issuer": "contoso.onmicrosoft.com",
+    "issuerAssignedId": "johnsmith"
+  },
+  {
+    "signInType": "emailAddress",
+    "issuer": "contoso.onmicrosoft.com",
+    "issuerAssignedId": "jsmith@yahoo.com"
+  },
+  {
+    "signInType": "federated",
+    "issuer": "facebook.com",
+    "issuerAssignedId": "5eecb0cd"
+  }
+]
+```
 
-For federated identities, depending on the identity provider, the **issuerAssignedId** is a unique value for a given user per application or development account. Configure the Azure AD B2C policy with the same application ID that was previously assigned by the social provider or another application within the same development account. 
+For federated identities, depending on the identity provider, the **issuerAssignedId** is a unique value for a given user per application or development account. Configure the Azure AD B2C policy with the same application ID that was previously assigned by the social provider or another application within the same development account.
 
 ## Password profile property
 
