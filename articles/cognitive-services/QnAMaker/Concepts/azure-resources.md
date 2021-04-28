@@ -194,13 +194,13 @@ You can view and reset your authoring keys from the Azure portal, where you adde
 
 1. Go to the Text Analytics resource in the Azure portal and select the resource that has the *Cognitive Services* type:
 
-[!div class="mx-imgBorder"]
-![Custom qna (Preview) resource list](../media/qnamaker-how-to-setup-service/resources-created-question-answering.png)
+> [!div class="mx-imgBorder"]
+> ![Custom qna (Preview) resource list](../media/qnamaker-how-to-setup-service/resources-created-question-answering.png)
 
 2. Go to **Keys and Endpoint**:
 
-[!div class="mx-imgBorder"]
-![Custom qna (Preview) Subscription key](../media/qnamaker-how-to-key-management/custom-qna-keys-and-endpoint.png)
+> [!div class="mx-imgBorder"]
+> ![Custom qna (Preview) Subscription key](../media/qnamaker-how-to-key-management/custom-qna-keys-and-endpoint.png)
 
 ### Update the resources
 
@@ -249,14 +249,14 @@ The resource name for the Custom question anwering (Preview) resource, such as `
 The Azure portal create window allows you to create a QnA Maker managed (Preview) resource and select the pricing tiers for the other resources.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of Azure portal for QnA Maker managed (Preview) resource creation](../media/qnamaker-how-to-setup-service/enter-qnamaker-v2-info.png)
+> ![Screenshot of Azure portal for QnA Maker managed (Preview) resource creation](../media/qnamaker-how-to-setup-service/custom-qna-create-button.png)
 After the resources are created, they have the same name.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of Azure portal resource listing QnA Maker managed (Preview)](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
+> ![Screenshot of Azure portal resource listing QnA Maker managed (Preview)](../media/qnamaker-how-to-setup-service/resources-created-question-answering.png)
 
 > [!TIP]
-> Create a new resource group when you create a QnA Maker resource. That allows you to see all resources associated with the QnA Maker managed (Preview) resource when searching by resource group.
+> Create a new resource group when you create a Text Analytics resource. That allows you to see all resources associated with the Text Analytics (Preview) resource when searching by resource group.
 
 > [!TIP]
 > Use a naming convention to indicate pricing tiers within the name of the resource or the resource group. When you receive errors from creating a new knowledge base, or adding new documents, the Cognitive Search pricing tier limit is a common issue.
