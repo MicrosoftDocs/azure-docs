@@ -3,7 +3,7 @@ author: v-demjoh
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/15/2020
+ms.date: 04/28/2021
 ms.author: v-demjoh
 ---
 
@@ -23,9 +23,7 @@ Follow these steps to install the Speech CLI on Windows:
 Type `spx` to see help for the Speech CLI.
 
 > [!NOTE]
-> As an alternative to NuGet, you can download and extract the Speech CLI [zip archive](https://aka.ms/speech/spx-zips.zip), 
-> find and extract your platform from the `spx-zips` directory, and add the `spx` path to your system **PATH** variable.
-
+> As an alternative to NuGet, you can download and extract the Speech CLI for Windows as a [zip file](https://aka.ms/speech/spx-windows).
 
 ### Font limitations
 
@@ -57,8 +55,8 @@ Type `spx` to see help for the Speech CLI.
 
 > [!NOTE]
 > As an alternative to NuGet, 
-> you can download the binaries at [zip archive](https://aka.ms/speech/spx-zips.zip),
-> extract `spx-netcore-30-linux-x64.zip` to a new `~/spx` directory, type `sudo chmod +r+x spx` on the binary,
+> you can download the Linux binaries as a [zip file](https://aka.ms/speech/spx-linux).
+> Extract `spx-netcore-30-linux-x64.zip` to a new `~/spx` directory, type `sudo chmod +r+x spx` on the binary,
 > and add the `~/spx` path to your PATH system variable.
 
 
