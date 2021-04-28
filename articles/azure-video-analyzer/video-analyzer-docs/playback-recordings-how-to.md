@@ -336,7 +336,7 @@ With such a recording:
 * If you request a manifest where the startTime and endTime were inside the ‘hole’ in the middle – say from 8AM to 10AM UTC, then the service would return an empty result.
 
     [This is a request that gets an empty response] `GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T08:00:00.000Z,endTime=2019-12-21T10:00:00.000Z).m3u8`
-* If you request a manifest where only one of the startTime or endTime is inside the ‘hole’, then the returned manifest would only include a portion of that timespan. It would snap the startTime or endTime value to the nearest valid boundary. For example, if you asked for a 3-hr stream from 10AM to 1PM, the response would contain 1-hr worth of media for 12 noon to 1PM:
+* If you request a manifest where only one of the startTime or endTime is inside the ‘hole’, then the returned manifest would only include a portion of that timespan. It would snap the startTime or endTime value to the nearest valid boundary. For example, if you asked for a 3-hr stream from 10AM to 1PM, the response would contain 1-hr worth of media for 12 noon to 1PM.
 
     `GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T10:00:00.000Z,endTime=2019-12-21T13:00:00.000Z).m3u8`
     
