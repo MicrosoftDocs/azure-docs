@@ -190,6 +190,39 @@ To enable Diagnostic Logs for an event hub namespace, enter these commands. Repl
     ```
 ### Azure CLI
 
+Sign in to Azure CLI:
+
+```azurecli-interactive
+    az login
+```
+
+#### Log Analytics workspace
+
+To enable Diagnostic Logs for a Log Analytics workspace, enter these commands. Replace the bracketed values with your values:
+
+```azurecli-interactive
+    
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 The metrics and logs you can collect are discussed in the following sections.
 
 ## Analyzing metrics
