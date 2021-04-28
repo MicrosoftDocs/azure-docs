@@ -20,10 +20,10 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 
 ## Manage roles
 
-The REST API lets you list the roles defined in your IoT Central application. Use the following REST API to retrieve a list of role IDs from your application:
+The REST API lets you list the roles defined in your IoT Central application. Use the following request to retrieve a list of role IDs from your application:
 
 ```http
-GET https://{your app id}.azureiotcentral.com/api/v1/roles
+GET https://{your app subdomain}.azureiotcentral.com/api/v1/roles
 ```
 
 The response to this request looks like the following example that includes the three built-in roles and a custom role:
@@ -63,10 +63,10 @@ The REST API lets you:
 
 ### List users
 
-Use the following REST API to retrieve a list of users from your application:
+Use the following request to retrieve a list of users from your application:
 
 ```http
-GET https://{your app id}.azureiotcentral.com/api/v1/users
+GET https://{your app subdomain}.azureiotcentral.com/api/v1/users
 ```
 
 The response to this request looks like the following example. The role values identify the role ID the user is associated with:
@@ -120,10 +120,10 @@ The response to this request looks like the following example. The role values i
 
 ### Get a user
 
-Use the following REST API to retrieve details of an individual user from your application:
+Use the following request to retrieve details of an individual user from your application:
 
 ```http
-GET https://{your app id}.azureiotcentral.com/api/v1/users/dc1c916b-a652-49ea-b128-7c465a54c759
+GET https://{your app subdomain}.azureiotcentral.com/api/v1/users/dc1c916b-a652-49ea-b128-7c465a54c759
 ```
 
 The response to this request looks like the following example. The role value identifies the role ID the user is associated with:
@@ -143,13 +143,13 @@ The response to this request looks like the following example. The role value id
 
 ### Create a user
 
-Use the following REST API to create a user in your application. The ID and email must be unique in the application:
+Use the following request to create a user in your application. The ID and email must be unique in the application:
 
 ```http
-PUT https://{your app id}.azureiotcentral.com/api/v1/users/user-001
+PUT https://{your app subdomain}.azureiotcentral.com/api/v1/users/user-001
 ```
 
-Request body. The `role` value is for the operator role you retrieved previously:
+In the following request body, the `role` value is for the operator role you retrieved previously:
 
 ```json
 {
@@ -164,7 +164,7 @@ Request body. The `role` value is for the operator role you retrieved previously
 }
 ```
 
-The response to this request looks like the following example. The role value identifies the role ID the user is associated with:
+The response to this request looks like the following example. The role value identifies which role the user is associated with:
 
 ```json
 {
@@ -181,13 +181,13 @@ The response to this request looks like the following example. The role value id
 
 ### Change the role of a user
 
-Use the following REST API to change the role assigned to user. This example users the ID of the builder role you retrieved previously:
+Use the following request to change the role assigned to user. This example uses the ID of the builder role you retrieved previously:
 
 ```http
-PATCH https://{your app id}.azureiotcentral.com/api/v1/users/user-001
+PATCH https://{your app subdomain}.azureiotcentral.com/api/v1/users/user-001
 ```
 
-Request body. The value is for the operator role you retrieved previously:
+Request body. The value is for the builder role you retrieved previously:
 
 ```json
 {
@@ -216,10 +216,10 @@ The response to this request looks like the following example:
 
 ### Delete a user
 
-Use the following REST API to delete a user:
+Use the following request to delete a user:
 
 ```http
-DELETE https://{your app id}.azureiotcentral.com/api/v1/users/user-001
+DELETE https://{your app subdomain}.azureiotcentral.com/api/v1/users/user-001
 ```
 
 ## Next steps

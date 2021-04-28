@@ -78,7 +78,7 @@ Using the REST API:
 1. Use the REST API to retrieve a list of role IDs from your application:
 
     ```http
-    GET https://{your app id}.azureiotcentral.com/api/v1/roles
+    GET https://{your app subdomain}.azureiotcentral.com/api/v1/roles
     ```
 
     The response to this request looks like the following example:
@@ -105,7 +105,7 @@ Using the REST API:
 1. Use the REST API to create an API token for a role. For example, to create an API token called `operator-token` for the operator role:
 
     ```http
-    PUT https://{your app id}.azureiotcentral.com/api/v1/roles/operator-token
+    PUT https://{your app subdomain}.azureiotcentral.com/api/v1/roles/operator-token
     ```
 
     Request body:
@@ -120,22 +120,22 @@ Using the REST API:
     }
     ```
 
-The response to the previous command looks like the following JSON:
+    The response to the previous command looks like the following JSON:
 
-```json
-{
-  "expiry": "2022-03-22T12:01:27.889Z",
-  "id": "operator-token",
-  "roles": [
+    ```json
     {
-      "role": "ae2c9854-393b-4f97-8c42-479d70ce626e"
+      "expiry": "2022-03-22T12:01:27.889Z",
+      "id": "operator-token",
+      "roles": [
+        {
+          "role": "ae2c9854-393b-4f97-8c42-479d70ce626e"
+        }
+      ],
+      "token": "SharedAccessSignature sr=e8a...&sig=jKY8W...&skn=operator-token&se=1647950487889"
     }
-  ],
-  "token": "SharedAccessSignature sr=e8a...&sig=jKY8W...&skn=operator-token&se=1647950487889"
-}
-```
+    ```
 
-This response is the only time you have access to the API token, if you lose it you need to generate a new one.
+    This response is the only time you have access to the API token, if you lose it you need to generate a new one.
 
 You can use the REST API to list and delete API tokens in an application.
 
