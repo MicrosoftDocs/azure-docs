@@ -11,11 +11,14 @@ ms.author: ginle
 
 # FHIR Search Examples
 
-Below are some examples of using FHIR search operations, including search parameters and modifiers, chain and reverse chain search, composite search, viewing the next entry set for search results, and searching with a POST request.
+Below are some examples of using FHIR search operations, including search parameters and modifiers, chain and reverse chain search, composite search, viewing the next entry set for search results, and searching with a POST request. For more information about search, see [Overview of FHIR Search](overview-fhir-search.md).
    
 ## Search result parameters
 
 ### _include
+
+> [!NOTE]
+> **_include** and **_revinclude** is limited to 100 items.
 
 `_include` searches across resources for the ones that include the specified parameter of the resource. For example, you can search across `MedicationRequest` resources to find only the ones that include information about the prescriptions for a specific patient, which is the `reference` parameter `patient`:
 
@@ -34,14 +37,14 @@ GET [your-fhir-server]/MedicationRequest?_revinclude=DetectedIssue:patient
 ```
 ### _elements
 
-`_elements` narrows down the search result to a subset of fields to reduce the response size omitting unnecessary data. The parameter accepts a comma-separated list of base elements:
+`_elements` narrows down the search result to a subset of fields to reduce the response size by omitting unnecessary data. The parameter accepts a comma-separated list of base elements:
 
 ```rest
 GET [your-fhir-server]/Patient?_elements=identifier,active
 
 ```
 
-In this request, you'll only see the `Patient` entries and their children with the elements `identifier` and `active`. Resources in this returned response will contain a `meta.tag` value of `SUBSETTED` to indicate that they're an incomplete set of results.
+In this request, you'll get back a bundle of patients, but each resource will only include the identifier(s) and the patient's active status. Resources in this returned response will contain a `meta.tag` value of `SUBSETTED` to indicate that they're an incomplete set of results.
 
 ## Search modifiers
 
@@ -54,11 +57,11 @@ GET [your-fhir-server]/Patient?gender:not=female
 
 ```
 
-As a return value, you would get all patient entries where the gender is not female, including empty values (entries specified without gender).
+As a return value, you would get all patient entries where the gender is not female, including empty values (entries specified without gender). This is different than searching for Patients where gender is male, since that would not include the entries without a specific gender.
 
 ### :missing
 
-`:missing` returns all  resources that don't have a value for the specified element when the value is `true`, and return all the resources that contain the specified element when the value is `false`. For simple data type elements, `:missing=true` will match on all resources where the element is present with extensions but has an empty value. For example, if you want to find all `Patient` resources that are missing information on birth date, you can do:
+`:missing` returns all resources that don't have a value for the specified element when the value is `true`, and returns all the resources that contain the specified element when the value is `false`. For simple data type elements, `:missing=true` will match on all resources where the element is present with extensions but has an empty value. For example, if you want to find all `Patient` resources that are missing information on birth date, you can do:
 
 ```rest
 GET [your-fhir-server]/Patient?birthDate:missing=true
@@ -69,11 +72,11 @@ GET [your-fhir-server]/Patient?birthDate:missing=true
 `:exact` is used for `string` parameters, and returns results that match the parameter precisely, such as in casing and character concatenating.
 
 ```rest
-GET [your-fhir-server]/Patient?name:exact=John
+GET [your-fhir-server]/Patient?name:exact=Jon
 
 ```
 
-This request returns `Patient` resources that have the name exactly the same as `John`. If the resource had Patients with names such as `Jone` or `joHn`, the search would ignore and skip the resource as it does not exactly match the specified value.
+This request returns `Patient` resources that have the name exactly the same as `Jon`. If the resource had Patients with names such as `Jonathan` or `joN`, the search would ignore and skip the resource as it does not exactly match the specified value.
 
 ### :contains
 `:contains` is used for `string` parameters and searches for resources with partial matches of the specified value anywhere in the string within the field being searched. `contains` is case insensitive and allows character concatenating. For example:
@@ -103,7 +106,7 @@ GET [your-fhir-server]/Encounter?subject=Patient/78a14cbe-8968-49fd-a231-d43e661
 
 ```
 
-You can do a request as above. Using chained search, you can find all the `Encounter` resources that matches a particular piece of `Patient` information, such as the `birthdate`:
+Using chained search, you can find all the `Encounter` resources that matches a particular piece of `Patient` information, such as the `birthdate`:
 
 ```rest
 GET [your-fhir-server]/Encounter?subject:Patient.birthDate=1987-02-20
@@ -140,6 +143,9 @@ In addition, reverse chain search can have a recursive structure. For example, i
 GET [base]/Patient?_has:Observation:patient:_has:AuditEvent:entity:user=janedoe
 
 ``` 
+
+> [!NOTE]
+> In the Azure API for FHIR and the open-source FHIR server backed by Cosmos, the chained search and reverse chained search is an MVP implementation. To accomplish chained search on Cosmos DB, the implementation walks down the search expression and issues sub-queries to resolve the matched resources. This is done for each level of the expression. If any query returns more than 100 results, an error will be thrown. By default, chained search is behind a feature flag. To use the chained searching on Cosmos DB, use the header x-ms-enable-chained-search: true.
 
 ## Composite search
 
@@ -205,6 +211,7 @@ content-type: application/x-www-form-urlencoded
 name=John
 
 ```
+## Next steps
 
-
-
+>[!div class="nextstepaction"]
+>[Overview of FHIR Search](overview-fhir-search.md)
