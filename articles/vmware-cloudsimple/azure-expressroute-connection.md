@@ -2,7 +2,7 @@
 title: Azure VMware Solution by CloudSimple - Connect Private Cloud to Azure network using ExpressRoute
 description: Describes how to connect your CloudSimple Private Cloud environment to the Azure virtual network using ExpressRoute
 author: shortpatti
-author: v-patsho
+ms.author: v-patsho
 ms.date: 08/14/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

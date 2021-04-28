@@ -3,7 +3,7 @@ title: Monitor Private Cloud activity
 titleSuffix: Azure VMware Solution by CloudSimple
 description: Describes the information available on activity in the Azure VMware Solution by CloudSimple environment, including alerts, events, tasks, and audit.
 author: shortpatti 
-author: v-patsho
+ms.author: v-patsho
 ms.date: 08/13/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

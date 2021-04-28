@@ -2,7 +2,7 @@
 title: Quickstart - Create an Azure VMware VM on a Private Cloud - Azure VMware Solution by CloudSimple
 description: Learn how to create a VMware virtual machine on CloudSimple Private Cloud. Access the CloudSimple portal from the Azure portal. 
 author: shortpatti
-author: v-patsho
+ms.author: v-patsho
 ms.date: 08/16/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

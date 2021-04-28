@@ -2,7 +2,7 @@
 title: Azure VMware Solution by CloudSimple - Allocate public IP addresses
 description: Describes how to allocate public IP addresses for virtual machines in the Private Cloud environment
 author: shortpatti 
-author: v-patsho
+ms.author: v-patsho
 ms.date: 08/15/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

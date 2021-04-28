@@ -2,7 +2,7 @@
 title: View Azure VMware CloudSimple portal users - Azure VMware Solution by CloudSimple
 description: Describes how to view the list of users who have access to the CloudSimple portal through the Azure portal
 author: shortpatti 
-author: v-patsho
+ms.author: v-patsho
 ms.date: 08/14/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

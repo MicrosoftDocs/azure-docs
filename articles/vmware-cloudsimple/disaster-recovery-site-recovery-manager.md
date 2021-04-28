@@ -2,7 +2,7 @@
 title: Azure VMware Solution by CloudSimple - Set up Private Cloud as a disaster recovery site by using VMware Site Recovery Manager
 description: Describes how to set up your CloudSimple Private Cloud as a disaster recovery site by using VMware Site Recovery Manager.
 author: shortpatti
-author: v-patsho
+ms.author: v-patsho
 ms.date: 08/20/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

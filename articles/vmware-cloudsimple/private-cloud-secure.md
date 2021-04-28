@@ -2,7 +2,7 @@
 title: Azure VMware Solutions by CloudSimple - Secure Private Cloud 
 description: Describes how to secure Azure VMware Solutions by CloudSimple Private Cloud 
 author: shortpatti 
-author: v-patsho
+ms.author: v-patsho
 ms.date: 08/19/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
