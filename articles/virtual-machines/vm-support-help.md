@@ -4,13 +4,12 @@ description: How to obtain help and support for questions or problems when you c
 author: mimckitt
 ms.author: mimckitt
 ms.service: virtual-machines
-services: 
 ms.topic: conceptual
 ms.date: 4/28/2021
-
+ms.custom: support-help-page
 ---
 
-# What are the Azure Virtual Machine support and help options?
+# What are the help and support options for Azure Virtual Machine?
 
 Here are suggestions for where you can get help when developing your Azure Virtual Machines solutions.
 
@@ -20,17 +19,6 @@ Various articles explain how to determine, diagnose, and fix issues that you mig
 
 See a full list of self help content at [Azure Virtual Machine troubleshooting documentation](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
 
-
-## Create an Azure support request
-
-<div class='icon is-large'>
-    <img alt='Azure support' src='https://docs.microsoft.com/media/logos/logo_azure.svg'>
-</div>
-
-Explore the range of [Azure support options and choose the plan](https://azure.microsoft.com/support/plans) that best fits, whether you're a developer just starting your cloud journey or a large organization deploying business-critical, strategic applications. Azure customers can create and manage support requests in the Azure portal.
-
-* [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
-* [Azure portal for the United States government](https://portal.azure.us)
 
 ## Post a question on Microsoft Q&A
 
@@ -63,6 +51,16 @@ If you do submit a new question to Stack Overflow, please use one or more of the
  - [Azure](https://stackoverflow.com/questions/tagged/azure)
  - [Virtual Machine](https://stackoverflow.com/questions/tagged/virtual-machine)
 
+## Create an Azure support request
+
+<div class='icon is-large'>
+    <img alt='Azure support' src='https://docs.microsoft.com/media/logos/logo_azure.svg'>
+</div>
+
+Explore the range of [Azure support options and choose the plan](https://azure.microsoft.com/support/plans) that best fits, whether you're a developer just starting your cloud journey or a large organization deploying business-critical, strategic applications. Azure customers can create and manage support requests in the Azure portal.
+
+* [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure portal for the United States government](https://portal.azure.us)
 
 ## Submit feedback on Azure Feedback
 
