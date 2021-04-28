@@ -39,6 +39,8 @@ Every workspace comes with a pre-configured serverless SQL pool called **Built-i
     ```
 1. Click **Run**. 
 
+Data exploration is just a simplified scenario where you can find understand the basic characteristics of yur data. Learn more about data exploration and analysis in this [tutorial](sql/tutorial-data-analyst.md).
+
 ## Create data exploration database
 
 You can browse the content of the files directly via `master` database. For some simple data exploration scenarios you don't need to create a separate database.
@@ -95,6 +97,8 @@ However, as you continue data exploration, you might want to create some utility
                 FORMAT='PARQUET'
         ) AS [result]
     ```
+
+Data exploration database is just a simple placeholder where you can store your utility objects. Synapse SQL pool enables you to do much more and create a Logical Data Warehouse - a relational layer built on top of Azure data sources. Learn more about building Logical Data Warehouse in this [tutorial](sql/tutorial-data-analyst.md).
 
 ## Next steps
 
