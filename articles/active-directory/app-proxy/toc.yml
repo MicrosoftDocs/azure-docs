@@ -109,30 +109,26 @@
   - name: How-to guides
     expanded: false
     items:
-    # - name: Configure on-premises connectors
-    #   items:
     #   - name: Configure with proxy servers
     #     href: application-proxy-configure-connectors-with-proxy-servers.md
     #   - name: Register connector - silent install
     #     href: application-proxy-register-connector-powershell.md
-    # - name: Configure on-premises app access
-    #   items:
-    #   - name: Configure claims-aware apps
-    #     href: application-proxy-configure-for-claims-aware-applications.md
     #   - name: Give mobile and desktop apps access to on-premises APIs
     #     href: application-proxy-secure-api-access.md 
     #   - name: Configure mobile and desktop client apps
     #     href: application-proxy-configure-native-client-application.md
     #   - name: Configure custom home page
     #     href: application-proxy-configure-custom-home-page.md
-    #   - name: Translate inline links
-    #     href: application-proxy-configure-hard-coded-link-translation.md
     #   - name: Configure cookie settings
     #     href: application-proxy-configure-cookie-settings.md
     - name: Publish using wildcards
       href: application-proxy-wildcard.md
     - name: Configure custom domain
       href: application-proxy-configure-custom-domain.md
+    - name: Translate inline links
+      href: application-proxy-configure-hard-coded-link-translation.md
+    - name: Configure claims-aware apps
+      href: application-proxy-configure-for-claims-aware-applications.md
     #   - name: Remove personal data
     #     href: application-proxy-remove-personal-data.md
     #   - name: Secure legacy apps 

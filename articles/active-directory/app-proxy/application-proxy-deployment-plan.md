@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/27/2024
+ms.date: 04/27/2021
 ms.author: kenwith
 ---
 
@@ -54,7 +54,7 @@ The following core requirements must be met in order to configure and implement 
 
 *  **Azure onboarding**: Before deploying application proxy, user identities must be synchronized from an on-premises directory or created directly within your Azure AD tenants. Identity synchronization allows Azure AD to pre-authenticate users before granting them access to App Proxy published applications and to have the necessary user identifier information to perform single sign-on (SSO).
 
-* **Conditional Access requirements**: We do not recommend using Application Proxy for intranet access because this adds latency that will impact users. We recommend using Application Proxy with pre-authentication and Conditional Access policies for remote access from the internet.  An  approach to provide Conditional Access for intranet use is to modernize applications so they can directly authenticate with AAD. Refer to [Resources for migrating applications to AAD](./migration-resources.md) for more information.
+* **Conditional Access requirements**: We do not recommend using Application Proxy for intranet access because this adds latency that will impact users. We recommend using Application Proxy with pre-authentication and Conditional Access policies for remote access from the internet.  An  approach to provide Conditional Access for intranet use is to modernize applications so they can directly authenticate with AAD. Refer to [Resources for migrating applications to AAD](../manage-apps/migration-resources.md) for more information.
 
 * **Service limits**: To protect against overconsumption of resources by individual tenants there are throttling limits set per application and tenant. To see these limits refer to [Azure AD service limits and restrictions](../enterprise-users/directory-service-limits-restrictions.md). These throttling limits are based on a benchmark far above typical usage volume and provides ample buffer for a majority of deployments.
 
@@ -241,7 +241,7 @@ Choosing the **Passthrough** option allows users to access the published applica
 
 Performing SSO is only possible if Azure AD can identify the user requesting access to a resource, so your application must be configured to pre-authenticate users with Azure AD upon access for SSO to function, otherwise the SSO options will be disabled.
 
-Read [Single sign-on to applications in Azure AD](what-is-single-sign-on.md) to help you choose the most appropriate SSO method when configuring your applications.
+Read [Single sign-on to applications in Azure AD](../manage-apps/what-is-single-sign-on.md) to help you choose the most appropriate SSO method when configuring your applications.
 
 ###  Working with other types of applications
 
@@ -315,7 +315,7 @@ The following articles cover common scenarios that can also be used to create tr
 * [Configure single sign-on to my app](application-proxy-config-sso-how-to.md)
 * [Problem creating an app in admin portal](application-proxy-config-problem.md)
 * [Configure Kerberos Constrained Delegation](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-* [Configure with PingAccess](./application-proxy-ping-access-publishing-guide.md)
+* [Configure with PingAccess](../manage-apps/application-proxy-ping-access-publishing-guide.md)
 * [Can't Access this Corporate Application error](application-proxy-sign-in-bad-gateway-timeout-error.md)
 * [Problem installing the Application Proxy Agent Connector](application-proxy-connector-installation-problem.md)
 * [Sign-in problem](application-sign-in-problem-on-premises-application-proxy.md)

@@ -54312,12 +54312,22 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-claims-aware-apps.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-for-claims-aware-applications",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-for-claims-aware-applications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-configure-for-claims-aware-applications.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-for-claims-aware-applications",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-link-translation.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-hard-coded-link-translation",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-hard-coded-link-translation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-configure-hard-coded-link-translation.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-hard-coded-link-translation",
       "redirect_document_id": false
     },
     {

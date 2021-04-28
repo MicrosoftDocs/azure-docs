@@ -1,24 +1,19 @@
 ---
-title: Translate links and URLs Azure AD App Proxy | Microsoft Docs
-description: Learn how to redirect hard-coded links for apps published with Azure AD Application proxy.
+title: Translate links and URLs Azure Active Directory Application Proxy
+description: Learn how to redirect hard-coded links for apps published with Azure Active Directory Application Proxy.
 services: active-directory
-documentationcenter: ''
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-proxy
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 08/15/2019
+ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
 ---
 
-# Redirect hard-coded links for apps published with Azure AD Application Proxy
+# Redirect hard-coded links for apps published with Azure Active Directory Application Proxy
 
 Azure AD Application Proxy makes your on-premises apps available to users who are remote or on their own devices. Some apps, however, were developed with local links embedded in the HTML. These links don't work correctly when the app is used remotely. When you have several on-premises applications point to each other, your users expect the links to keep working when they're not at the office. 
 
