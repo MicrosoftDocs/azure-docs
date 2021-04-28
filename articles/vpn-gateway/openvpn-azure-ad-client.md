@@ -1,6 +1,7 @@
 ---
-title: 'VPN Gateway: VPN client for P2S OpenVPN protocol connections: Azure AD authentication'
+title: 'Configure VPN clients for P2S OpenVPN protocol connections: Azure AD authentication'
 description: Learn how to configure a VPN client to connect to a virtual network using VPN Gateway Point-to-Site VPN and Azure Active Directory authentication.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 
