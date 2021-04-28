@@ -38,7 +38,7 @@ If required, upgrade the Azure CLI:
 az upgrade
 ```
 
-> [IMPORTANT]
+> [!IMPORTANT]
 > The `az upgrade` command was added in version TBD. If below that version, you need to manually install a newer version.
 
 Check the extensions installed:

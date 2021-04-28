@@ -109,7 +109,7 @@ Once the job is complete, you can download the outputs:
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="download_outputs":::
 
 > [!IMPORTANT]
-> Replace "$run_id" with your run ID, which can be found in the console output or in the studio's run details page.
+> Replace `$run_id` with your run ID, which can be found in the console output or in the studio's run details page.
 
 This will download the logs and any captured artifacts locally in a directory named `$run_id`. For this example, the MLflow-logged model subdirectory will be downloaded.
 
