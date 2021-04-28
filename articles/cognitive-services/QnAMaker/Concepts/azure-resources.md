@@ -67,7 +67,7 @@ The following table gives you some high-level guidelines.
 
 Typically there are three parameters you need to consider:
 
-* **The throughput you need from the feature**:
+* **The throughput you need**:
     * Custom question answering (Preview) is a free feature, and the throughput is currently capped at 10 TPS for both management APIs and prediction APIs.
     * This should also influence your Azure **Cognitive Search** SKU selection, see more details [here](../../../search/search-sku-tier.md). Additionally, you may need to adjust Cognitive Search [capacity](../../../search/search-capacity-planning.md) with replicas.
 
@@ -180,7 +180,8 @@ Your Custom question anwering (Preview) feature deals with two kinds of keys: **
 
 Use these keys when making requests to the service through APIs.
 
-![Key management managed preview](../media/qnamaker-how-to-key-management/qnamaker-v2-key-management.png)
+> [!div class="mx-imgBorder"]
+> ![Key management managed preview](../media/qnamaker-how-to-key-management/custom-question-answering-key-management.png)
 
 |Name|Location|Purpose|
 |--|--|--|
