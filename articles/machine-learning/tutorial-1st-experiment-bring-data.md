@@ -231,7 +231,7 @@ This code will print a URL to the experiment in the Azure Machine Learning studi
 
 ### <a name="inspect-log"></a> Inspect the log file
 
-In the studio, go to the experiment run (by selecting the previous URL output) followed by **Outputs + logs**. Select the `70_driver_log.txt` file. You should see the following output:
+In the studio, go to the experiment run (by selecting the previous URL output) followed by **Outputs + logs**. Select the `70_driver_log.txt` file. Scroll down through the log file until you see the following output:
 
 ```txt
 Processing 'input'.

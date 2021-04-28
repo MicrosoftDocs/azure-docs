@@ -5,7 +5,7 @@ description: Learn how to make your Azure Machine Learning resources more resili
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr

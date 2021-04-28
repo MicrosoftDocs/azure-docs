@@ -30,7 +30,23 @@ The following Microsoft libraries support single-page apps:
 
 In an MSAL library, the application registration information is passed as configuration during the library initialization.
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (MSAL.js v2)](#tab/javascript2)
+
+```javascript
+// Configuration object constructed.
+const config = {
+    auth: {
+        clientId: 'your_client_id'
+    }
+};
+
+// create PublicClientApplication instance
+const publicClientApplication = new PublicClientApplication(config);
+```
+
+For more information on the configurable options, see [Initializing application with MSAL.js](msal-js-initializing-client-applications.md).
+
+# [JavaScript (MSAL.js v1)](#tab/javascript1)
 
 ```javascript
 // Configuration object constructed.
@@ -46,12 +62,30 @@ const userAgentApplication = new UserAgentApplication(config);
 
 For more information on the configurable options, see [Initializing application with MSAL.js](msal-js-initializing-client-applications.md).
 
-# [Angular](#tab/angular)
+# [Angular (MSAL.js v2)](#tab/angular2)
+
+```javascript
+// In app.module.ts
+import { MsalModule } from '@azure/msal-angular';
+import { PublicClientApplication } from '@azure/msal-browser';
+
+@NgModule({
+    imports: [
+        MsalModule.forRoot( new PublicClientApplication({
+            auth: {
+                clientId: 'Enter_the_Application_Id_Here',
+            }
+        }), null, null)
+    ]
+})
+export class AppModule { }
+```
+
+# [Angular (MSAL.js v1)](#tab/angular1)
 
 ```javascript
 // App.module.ts
 import { MsalModule } from '@azure/msal-angular';
-
 @NgModule({
     imports: [
         MsalModule.forRoot({
@@ -61,8 +95,34 @@ import { MsalModule } from '@azure/msal-angular';
         })
     ]
 })
-
 export class AppModule { }
+```
+
+# [React](#tab/react)
+
+```javascript
+import { PublicClientApplication } from "@azure/msal-browser";
+import { MsalProvider } from "@azure/msal-react";
+
+// Configuration object constructed.
+const config = {
+    auth: {
+        clientId: 'your_client_id'
+    }
+};
+
+// create PublicClientApplication instance
+const publicClientApplication = new PublicClientApplication(config);
+
+// Wrap your app component tree in the MsalProvider component
+ReactDOM.render(
+    <React.StrictMode>
+        <MsalProvider instance={publicClientApplication}>
+            <App />
+        </ MsalProvider>
+    </React.StrictMode>,
+    document.getElementById('root')
+);
 ```
 
 ---

@@ -38,11 +38,11 @@ On-premises application:
 
 Configure Application Proxy:
 
-- Configure Azure AD to use Application Proxy, including preparing your environment and installing the Application Proxy connector. For a tutorial, see [Add an on-premises applications for remote access through Application Proxy in Azure AD](application-proxy-add-on-premises-application.md). 
+- Configure Azure AD to use Application Proxy, including preparing your environment and installing the Application Proxy connector. For a tutorial, see [Add an on-premises applications for remote access through Application Proxy in Azure AD](../app-proxy/application-proxy-add-on-premises-application.md). 
 
 ## Add on-premises application to Azure AD
 
-Add an on-premises application to Azure AD. For a quickstart, see [Add an on-premises app to Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad). When adding the application, be sure to set the following two settings in the **Add your on-premises application** blade:
+Add an on-premises application to Azure AD. For a quickstart, see [Add an on-premises app to Azure AD](../app-proxy/application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad). When adding the application, be sure to set the following two settings in the **Add your on-premises application** blade:
 
 - **Pre Authentication**: Enter **Azure Active Directory**.
 - **Translate URLs in Application Body**: Choose **Yes**.
@@ -51,7 +51,7 @@ Those two settings are required for the application to work with MCAS.
 
 ## Test the on-premises application
 
-After adding your application to Azure AD, use the steps in [Test the application](application-proxy-add-on-premises-application.md#test-the-application) to add a user for testing, and test the sign-on. 
+After adding your application to Azure AD, use the steps in [Test the application](../app-proxy/application-proxy-add-on-premises-application.md#test-the-application) to add a user for testing, and test the sign-on. 
 
 ## Deploy Conditional Access App Control
 

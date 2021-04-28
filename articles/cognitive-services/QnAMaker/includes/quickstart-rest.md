@@ -12,7 +12,7 @@ ms.topic: quickstart
 # [QnA Maker GA (stable release)](#tab/v1)
 
 * The current version of [cURL](https://curl.haxx.se/). Several command-line switches are used in the quickstarts, which are noted in the [cURL documentation](https://curl.haxx.se/docs/manpage.html).
-* You must have a [QnA Maker resource](../How-To/set-up-qnamaker-service-azure.md), to use the key and resource name. You entered the resource **Name** during resource creation, then the key was created for you. The resource name is used as the subdomain for your endpoint. To retrieve your key and resource name, select **Quickstart** for your resource in the Azure portal. The resource name is the first subdomain of the endpoint URL:
+* You must have a [QnA Maker resource](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure?tabs=v1#create-a-new-qna-maker-service), to use the key and resource name. You entered the resource **Name** during resource creation, then the key was created for you. The resource name is used as the subdomain for your endpoint. To retrieve your key and resource name, select **Quickstart** for your resource in the Azure portal. The resource name is the first subdomain of the endpoint URL:
 
     `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0`
 
@@ -22,7 +22,7 @@ ms.topic: quickstart
 # [Custom question answering (preview release)](#tab/v2)
 
 * The current version of [cURL](https://curl.haxx.se/). Several command-line switches are used in the quickstarts, which are noted in the [cURL documentation](https://curl.haxx.se/docs/manpage.html).
-* You must have a [Text Analytics resource (Custom question answering feature enabled)](../How-To/set-up-qnamaker-service-azure.md), to use the key and resource name. You entered the resource **Name** during resource creation, then the key was created for you. The resource name is used as the subdomain for your endpoint. To retrieve your key and resource name, select **Quickstart** for your resource in the Azure portal. The resource name is the first subdomain of the endpoint URL:
+* Custom question and answering requires a [Text Analytics resource](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure?tabs=v2#create-a-new-qna-maker-service) with the custom question answering feature enabled to generate an API key and endpoint. The **Name** you chose when creating your resource is used as the subdomain for your endpoint. To retrieve the key and your resource name, select **Quickstart** for your resource in the Azure portal. The resource name is the first subdomain of the endpoint URL:
 
     `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2`
 
@@ -199,11 +199,7 @@ The response status is 204 with no results. Use the `-v` command-line parameter 
 
 # [Custom question answering (preview release)](#tab/v2)
 
-Before you query the knowledge base, you need to:
-* Publish knowledge base
-* Get the runtime endpoint key
-
-This task publishes the knowledge base. Getting the runtime endpoint key is a [separate task](#get-published-knowledge-bases-runtime-endpoint-key).
+Before you query the knowledge base, you need to Publish the knowledge base.
 
 |Information|cURL configuration|Purpose|
 |--|--|--|

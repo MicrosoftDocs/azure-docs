@@ -26,7 +26,7 @@ QnA Maker uses CMK support from Azure search. Configure [CMK in Azure Search usi
 
 # [Custom question answering (preview release)](#tab/v2)
 
-QnA Maker uses [CMK support from Azure search](../../search/search-security-manage-encryption-keys.md), and automatically associates the provided CMK to encrypt the data stored in Azure search index.
+Custom question answering uses [CMK support from Azure search](../../search/search-security-manage-encryption-keys.md), and automatically associates the provided CMK to encrypt the data stored in Azure search index.
 
 ---
 
@@ -57,15 +57,16 @@ The QnA Maker service uses CMK from the Azure Search service. Follow these steps
 
 # [Custom question answering (preview release)](#tab/v2)
 
-1.	Go to the **Encryption** tab of your Text Analytics service with Custom question answering (preview) feature.
+1.	Go to the **Encryption** tab of your Text Analytics service with Custom question answering (preview) feature enabled.
 2.	Select the **Customer Managed Keys** option. Provide the details of your [customer-managed keys](../../storage/common/customer-managed-keys-configure-key-vault.md?tabs=portal) and click on **Save**.
 
-     :::image type="content" source="../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png" alt-text="QnA Maker managed (Preview) CMK setting" lightbox="../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png":::
-
+> [!div class="mx-imgBorder"]
+> ![Question Answering CMK](media/question-answering-cmk.png)
+   
 3.	On a successful save, the CMK will be used to encrypt the data stored in the Azure Search Index.
 
 > [!IMPORTANT]
-> It is recommended to set your CMK in a fresh Azure Cognitive Search service before any knowledge bases are created. If you set CMK in a QnA Maker service with existing knowledge bases, you might lose access to them. Read more about [working with encrypted content](../../search/search-security-manage-encryption-keys.md#work-with-encrypted-content) in Azure Cognitive search.
+> It is recommended to set your CMK in a fresh Azure Cognitive Search service before any knowledge bases are created. If you set CMK in a Text Analytics service with existing knowledge bases, you might lose access to them. Read more about [working with encrypted content](../../search/search-security-manage-encryption-keys.md#work-with-encrypted-content) in Azure Cognitive search.
 
 > [!NOTE]
 > To request the ability to use customer-managed keys, fill out and submit the [Cognitive Services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk).

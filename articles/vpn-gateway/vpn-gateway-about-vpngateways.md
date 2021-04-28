@@ -81,4 +81,4 @@ Subscribe to the RSS feed and view the latest VPN Gateway feature updates on the
 
 - View the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) for additional information.
 - View the [Subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
-- Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure.
+- Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.

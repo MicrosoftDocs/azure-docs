@@ -1,12 +1,12 @@
 ---
 title: Expression and functions in Azure Data Factory 
 description: This article provides information about expressions and functions that you can use in creating data factory entities.
-author: dcstwh
-ms.author: weetok
+author: minhe-msft
+ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 04/28/2021
 ---
 
 # Expressions and functions in Azure Data Factory
@@ -174,7 +174,7 @@ Corporation
 
 ### Escaping single quote character
 
-Expression functions use single quote for string value parameters. Use two single quotes to escape a ' character in string functions. For example, expression `@concat('Baba', ''' ', 'book store')` will return below result.
+Expression functions use single quote for string value parameters. Use two single quotes to escape a ' character in string functions. For example, expression `@concat('Baba', '''s ', 'book store')` will return below result.
 
 ```
 Baba's book store

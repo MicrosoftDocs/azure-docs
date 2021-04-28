@@ -16,7 +16,7 @@ This Postman-based quickstart walks you through getting an answer from your know
 
 * Latest [**Postman**](https://www.getpostman.com/).
 * You must have
-    * A [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md)
+    * A [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md) for the GA version. You would need to create a Text Analytics resource if you want to use the Custom question answering (preview release) feature.
     * A trained and published [knowledge base with questions and answers](../Quickstarts/add-question-metadata-portal.md) built from the quickstart is configured with metadata and Chit chat.
 
 > [!NOTE]
@@ -42,7 +42,7 @@ Use this procedure to configure Postman, then read each subsequent section to co
 
 1. Open Postman and create a new basic **POST** request with your published knowledge base settings. In the following sections, alter the POST body JSON to change the query to your knowledge base.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 This quickstart uses the same settings for the Postman **POST** request then configures to POST body JSON sent to the service based on what you are trying to query for.
 
@@ -422,13 +422,51 @@ You can request a minimum threshold for the answer. If the threshold is not met,
     ```
 ## Use unstructured data sources.
     
-We now support the ability to add unstrutcured documents that can't be used to extract QnAs.The user can choose to include or exclude unstructured data sets in the GenerateAnswer API.
+We now support the ability to add unstrutcured documents that can't be used to extract QnAs.The user can choose to include or exclude unstructured data sets in the GenerateAnswer API when fetching a response to the query.
      
 # [QnA Maker GA (stable release)](#tab/v1)
 We don't support unstructured data sets in the GA service.
 
 # [Custom question answering (preview release)](#tab/v2)
 
-Set the parameter *includeUnstructuredResources* to true if you want to include unstructured data sources when evaluating the response to Generate Answer API and vice-versa.
-
+1. Set the parameter *includeUnstructuredResources* to true if you want to include unstructured data sources when evaluating the response to Generate Answer API and vice-versa.
+   ```json
+    {
+       "question": "what is Surface Headphones 2+ priced at?",
+       "includeUnstructuredSources":true,
+       "top": 2
+    }
+    ```
+2. The response includes the source of answer. 
+    ```json
+       {
+     "answers": [
+       {
+         "questions": [],
+         "answer": "Surface Headphones 2+ is priced at $299.99 USD. Business and education customers in select markets can place orders today through microsoft.com\n\nor their local authorized reseller.\n\nMicrosoft Modern USB and Wireless Headsets:\n\nCertified for Microsoft Teams, these Microsoft Modern headsets enable greater focus and call privacy, especially in shared workspaces.",
+         "score": 82.11,
+         "id": 0,
+         "source": "blogs-introducing-surface-laptop-4-and-new-access.pdf",
+         "isDocumentText": false,
+         "metadata": [],
+         "answerSpan": {
+           "text": "$299.99 USD",
+           "score": 0.0,
+           "startIndex": 34,
+           "endIndex": 45
+         }
+       },
+       {
+         "questions": [],
+         "answer": "Now certified for Microsoft Teams with the included dongle, Surface Headphones 2+ provides an even more robust meeting experience with on‐ear Teams controls and improved remote calling. Surface Headphones 2+ is priced at $299.99 USD. Business and education customers in select markets can place orders today through microsoft.com\n\nor their local authorized reseller.",
+         "score": 81.95,
+         "id": 0,
+         "source": "blogs-introducing-surface-laptop-4-and-new-access.pdf",
+         "isDocumentText": false,
+         "metadata": []
+       }
+     ],
+     "activeLearningEnabled": true
+   }
+    ```
 ---
