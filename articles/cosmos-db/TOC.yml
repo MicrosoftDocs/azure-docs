@@ -1059,7 +1059,7 @@
   items:
     - name: Overview
       items:
-        - name: What is MongoDB API in Cosmos DB?
+        - name: What is the API for MongoDB in Cosmos DB?
           href: mongodb-introduction.md
     - name: Quickstarts
       items:
@@ -1069,8 +1069,6 @@
           href: create-mongodb-java.md
         - name: Node.js
           href: create-mongodb-nodejs.md
-        - name: Python
-          href: ./mongodb-introduction.md
         - name: Xamarin
           href: create-mongodb-xamarin.md
         - name: Golang
