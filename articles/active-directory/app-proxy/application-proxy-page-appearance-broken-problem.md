@@ -1,20 +1,16 @@
 ---
-title: App page doesn't display correctly for Application Proxy app | Microsoft Docs
-description: Guidance when the page isn’t displaying correctly in an Application Proxy Application you have integrated with Azure AD
+title: App page doesn't display correctly for Application Proxy app
+description: Guidance when the page isn’t displaying correctly in an Application Proxy Application you have integrated with Azure Active Directory
 services: active-directory
-documentationcenter: ''
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-proxy
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/21/2018
+ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: asteen
-ms.collection: M365-identity-device-management
 ---
 
 # Application page does not display correctly for an Application Proxy application

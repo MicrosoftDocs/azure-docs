@@ -54442,18 +54442,33 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-page-appearance-broken-problem.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-page-appearance-broken-problem",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-page-appearance-broken-problem",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-page-appearance-broken-problem.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-page-appearance-broken-problem",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-page-links-broken-problem.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-page-links-broken-problem",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-page-links-broken-problem",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-page-links-broken-problem.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-page-links-broken-problem",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-page-load-speed-problem.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-page-load-speed-problem",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-page-load-speed-problem",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-page-load-speed-problem.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-page-load-speed-problem",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-back-end-ping-access-how-to.md",

@@ -179,12 +179,12 @@
     #     href: application-proxy-debug-connectors.md
     #   - name: Application troubleshooting flowchart
     #     href: application-proxy-debug-apps.md
-    #   - name: Problem displaying app page
-    #     href: application-proxy-page-appearance-broken-problem.md
-    #   - name: Application load is too long
-    #     href: application-proxy-page-load-speed-problem.md
-    #   - name: Links on application page not working
-    #     href: application-proxy-page-links-broken-problem.md
+      - name: Problem displaying app page
+        href: application-proxy-page-appearance-broken-problem.md
+      - name: Application load is too long
+        href: application-proxy-page-load-speed-problem.md
+      - name: Links on application page not working
+        href: application-proxy-page-links-broken-problem.md
     #   - name: No working connector in a connector group for my app
     #     href: application-proxy-connectivity-no-working-connector.md
     #   - name: Problem creating an app in admin portal

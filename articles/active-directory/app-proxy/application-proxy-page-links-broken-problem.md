@@ -1,17 +1,16 @@
 ---
-title: Links on the page don't work for an Application Proxy application
-description:  How to troubleshoot issues with broken links on Application Proxy applications you have integrated with Azure AD
+title: Links on the page don't work for an Azure Active Directory Application Proxy application
+description:  How to troubleshoot issues with broken links on Application Proxy applications you have integrated with Azure Active Directory
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/10/2018
+ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: asteen
-ms.collection: M365-identity-device-management
 ---
 
 # Links on the page don't work for an Application Proxy application
