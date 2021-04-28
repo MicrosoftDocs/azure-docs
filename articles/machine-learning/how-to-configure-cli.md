@@ -38,6 +38,9 @@ If required, upgrade the Azure CLI:
 az upgrade
 ```
 
+> [IMPORTANT]
+> The `az upgrade` command was added in version TBD. If below that version, you need to manually install a newer version.
+
 Check the extensions installed:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_extension_list":::
@@ -48,7 +51,7 @@ Ensure no conflicting `ml` extension installed, including the old `azure-cli-ml`
 
 Now, install the new Machine Learning extension:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_ml_install":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="az_ml_install":::
 
 You can upgrade the extension to newer version:
 
@@ -70,21 +73,17 @@ If you have access to multiple Azure subscriptions, you can set your active subs
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_account_set":::
 
-Export your workspace name, resource group, and Azure location:
-
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="export_variables_placeholders":::
-
 If it doesn't already exist, you can create the Azure resource group:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_group_create":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="az_group_create":::
 
 Similarly for the machine learning workspace:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_ml_workspace_create":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="az_ml_workspace_create":::
 
 Nearly all machine learning subcommands require the `--workspace/-w` and `--resource-group/-g` parameters to be specified. To avoid typing these parameters repeatedly, you may configure defaults:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_configure_defaults":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="az_configure_defaults":::
 
 Note: most code examples assume you have set a default workspace and resource group. You can override these on the command line.
 
@@ -104,31 +103,12 @@ To run hello world locally via Python, see the example in the `jobs` subdirector
 > [!IMPORTANT]
 > [Docker](https://docker.io) needs to be installed and running locally.
 
-And submit, streaming the logs to the console output:
+And submit, streaming the logs to the console output and opening the run in the studio:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="hello_world":::
 
 > [!IMPORTANT]
 > This may take a couple minutes to run the first time, as the Docker image is pulled locally and the Azure ML job is run. Subsequent runs will have the image cached locally and complete much quicker.
-
-If one isn't specified, a UUID is automatically generated for the job name. You can capture it for use in later commands with `--query`:
-
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="hello_world_output":::
-
-> [!TIP]
-> Although you can set the job name with `--name/-n`, it is not recommended as it must be unique per workspace.
-
-Then open the job's run details in the studio:
-
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="show_job_in_studio":::
-
-Or, stream the logs, which will block the console:
-
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="stream_job_logs_to_console":::
-
-Check the status:
-
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="check_job_status":::
 
 ## Next steps
 
