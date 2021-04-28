@@ -41,7 +41,7 @@ Private endpoints are provided by [Azure Private Link](../../private-link/privat
 > [!div class="mx-imgBorder"]
 > ![Text Analytics newtorking](../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoint-networking-custom-qna.png)
 
-This will establish a private endpoint connection between Text Analytics service and Azure cognitive search service instance. You can verify the Private endpoint connection on the *Networking* tab of Azure Search service instance. Once the whole operation is completed, you are good to use your Text Analytics service. 
+This will establish a private endpoint connection between Text Analytics service and Azure Cognitive Search service instance. You can verify the Private endpoint connection on the *Networking* tab of the Azure Cognitive Search service instance. Once the whole operation is completed, you are good to use your Text Analytics service. 
 
 ![Managed Networking Service](../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoint-networking-3.png)
 
