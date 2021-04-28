@@ -18,10 +18,10 @@ QnA Maker allows you to manage your knowledge bases by providing access to the k
 > * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 > * A [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
 
-# [Custom Question Answering (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 > * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-> * A [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, Text Analytics resource name you selected when you created the resource.
+> * A [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) with Custom question answering feature created in the Azure portal. Remember your Azure Active Directory ID, Subscription, Text Analytics resource name you selected when you created the resource.
 
 ---
 
@@ -61,21 +61,21 @@ QnA Maker allows you to manage your knowledge bases by providing access to the k
 
     After QnA Maker successfully creates the knowledge base, the **Knowledge base** page opens. You can edit the contents of the knowledge base on this page.
 
-# [Custom Question Answering (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 1. Sign in to the [QnAMaker.ai](https://QnAMaker.ai) portal with your Azure credentials.
 
 2. In the QnA Maker portal, select **Create a knowledge base**.
 
-3. On the **Create** page, skip **Step 1** if you already have Custom Question Answering added to a Text Analytics service.
+3. On the **Create** page, skip **Step 1** if you already have Custom question answering added to a Text Analytics service.
 
-    If you haven't created the service yet, select **Create a Text Analytics service**. You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to set up the Text Analytics service in your subscription. Add the Custom Question Answering feature to the service on creation. Remember your Azure Active Directory ID, Subscription, Text Analytics resource name you selected when you created the resource.
+    If you haven't created the service yet, select **Create a Text Analytics service**. You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to set up the Text Analytics service in your subscription. Add the Custom question answering feature to the service on creation. Remember your Azure Active Directory ID, Subscription, Text Analytics resource name you selected when you created the resource.
 
     When you are done creating the resource in the Azure portal, return to the QnA Maker portal, refresh the browser page, and continue to **Step 2**.
 
 4. In **Step 2**, select your Active directory, subscription, service (resource), and the language for all knowledge bases created in the service.
 
-    ![Screenshot of selecting a Custom Question Answering service](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
+    ![Screenshot of selecting a Custom Question Answering service](../media/qnamaker-create-publish-knowledge-base/connect-your-knowledge-base.png)
 
 5. In **Step 2**, if you are creating the first knowledge base for your service, you will have an option to make language setting specific to every knowledge base. Once the language setting has been defined for the first knowledge base, you will not be allowed to modify the settings for the service later.
 
@@ -89,7 +89,7 @@ QnA Maker allows you to manage your knowledge bases by providing access to the k
     |**Default answer text**| `Quickstart - default answer not found.`|
      |**+ Add URL**|`https://azure.microsoft.com/en-us/support/faq/`|
     |**+ Add file**|<i>\<Browse a file that has unstructured content\>|
-     |**Unstructured content**|Check this box to identify that the document has unstructured content|
+     |**Unstructured content**|Check this box to indicate that the document has unstructured content. Checking the unstructured box would mean the document will be ingested entirely into the service. If you leave this unchecked, QnA pairs will be  extracted from the file.|
     |**Chit-chat**|Select **Professional**|
 
 ---
