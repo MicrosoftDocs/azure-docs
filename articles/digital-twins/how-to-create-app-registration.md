@@ -95,7 +95,7 @@ If these values are missing, retry the steps in the [section for adding the API 
 
 It's possible that your organization requires additional actions from subscription Owners/administrators to successfully set up an app registration. The steps required may vary depending on your organization's specific settings.
 
-Here are some common potential activities that an Owner/administrator on the subscription may need to perform. These and other operations can be performed from the [*Azure AD App registrations*](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal.
+Here are some common potential activities that an Owner/administrator on the subscription may need to perform. These and other operations can be performed from the [Azure AD App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal.
 * Grant admin consent for the app registration. Your organization may have *Admin Consent Required* globally turned on in Azure AD for all app registrations within your subscription. If so, the Owner/administrator will need to select this button for your company on the app registration's *API permissions* page for the app registration to be valid:
 
     :::image type="content" source="media/how-to-create-app-registration/grant-admin-consent.png" alt-text="Portal view of the 'Grant admin consent' button under API permissions":::
@@ -106,11 +106,11 @@ Here are some common potential activities that an Owner/administrator on the sub
 * Set specific reply URLs for web and desktop access
 * Allow for implicit OAuth2 authentication flows
 
-For more information about app registration and its different setup options, see [*Register an application with the Microsoft identity platform*](/graph/auth-register-app-v2).
+For more information about app registration and its different setup options, see [Register an application with the Microsoft identity platform](/graph/auth-register-app-v2).
 
 ## Next steps
 
 In this article, you set up an Azure AD app registration that can be used to authenticate client applications with the Azure Digital Twins APIs.
 
 Next, read about authentication mechanisms, including one that uses app registrations and others that do not:
-* [*How-to: Write app authentication code*](how-to-authenticate-client.md)
+* [How-to: Write app authentication code](how-to-authenticate-client.md)

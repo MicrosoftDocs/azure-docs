@@ -55042,7 +55042,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/what-is-application-proxy.md",
-      "redirect_url": "/azure/active-directory/app-proxy/what-is-application-management",
+      "redirect_url": "/azure/active-directory/app-proxy/what-is-application-proxy",
       "redirect_document_id": false
     },
     {
