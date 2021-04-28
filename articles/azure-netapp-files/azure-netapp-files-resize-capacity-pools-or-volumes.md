@@ -31,7 +31,7 @@ You can change the capacity pool size in 1-TiB increments or decrements. However
 
     ![Screenshot that shows pool context menu.](../media/azure-netapp-files/resize-pool-context-menu.png)  
 
-    ![Screenshot that Resize pool window.](../media/azure-netapp-files/resize-pool-window.png) 
+    ![Screenshot that shows Resize pool window.](../media/azure-netapp-files/resize-pool-window.png) 
 
 ## Resize a volume using the Azure portal
 
@@ -43,7 +43,7 @@ You can change the size of a volume as necessary. A volume's capacity consumptio
 
     ![Screenshot that shows volume context menu.](../media/azure-netapp-files/resize-volume-context-menu.png) 
 
-    ![Screenshot that Update Volume Quota window.](../media/azure-netapp-files/resize-volume-quota-window.png) 
+    ![Screenshot that shows Update Volume Quota window.](../media/azure-netapp-files/resize-volume-quota-window.png) 
 
 ## Resizing the capacity pool or a volume using Azure CLI  
 
