@@ -16,19 +16,9 @@ This article explains how to access the Spring Cloud Config Server and Spring Cl
 
 ## Assign role to Azure AD user/group, MSI, or service principal
 
-To use Azure AD and RBAC you must assign the *Azure Spring Cloud Data Reader* role to a user, group, or service principal by the following procedure:
+Assign the [role-name](../role-based-access-control/built-in-roles.md#role-name) role to the [user | group | service-principal | managed-identity] at [management-group | subscription | resource-group | resource] scope.
 
-1. Go to the service overview page of your service instance.
-
-2. Click **Access Control (IAM)** to open the access control blade.
-
-3. Click the **Add** button and **Add role assignments** (Authorization may be required to add).
-
-4. Find and select *Azure Spring Cloud Data Reader* under **Role**.
-5. Assign access to `User, group, or service principal` or `User assigned managed identity` according to the user type. Search for and select user.  
-6. Click `Save`
-
-   ![assign-role](media/access-data-plane-aad-rbac/assign-data-reader-role.png)
+For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ## Access Config Server and Service Registry Endpoints
 
