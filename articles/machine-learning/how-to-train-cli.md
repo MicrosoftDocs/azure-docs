@@ -89,7 +89,7 @@ With `cpu-cluster` created, you can run the basic LightGBM on Iris job. Let's re
 
 | Key | Description |
 | --- | ----------- |
-| `$schema` | The YAML schema. You can view the [schema](https://azuremlschemas.azureedge.net/latest/commandJob.schema.json) in the above example in a browser to see all available options for a command job YAML file. If you use the Azure Machine Learning VSCode extension to author the YAML file, including this `$schema` property at the top of your file enables you to invoke schema and resource completions. |
+| `$schema` | [Optional] The YAML schema. You can view the [schema](https://azuremlschemas.azureedge.net/latest/commandJob.schema.json) in the above example in a browser to see all available options for a command job YAML file. If you use the Azure Machine Learning VSCode extension to author the YAML file, including this `$schema` property at the top of your file enables you to invoke schema and resource completions. |
 | `code.local_path` | [Optional] The local path to the source directory, relative to the YAML file, to be uploaded and used with the job. Consider using `src` in the same directory as the job file(s) for consistency. |
 | `command` | The command to execute. The `> ` convention allows for authoring readable multiline commands, folding newlines to spaces. Inputs can be written into the command or inferred from other sections, specifically `inputs` or `search_space`, using the curly braces notation. |
 | `inputs` | [Optional] A dictionary of the input data bindings, where the key is a name that you specify for the input binding. The value for each element is the input binding, which consists of `data` and `mode` fields. `data` can either be 1) a reference to an existing versioned Azure Machine Learning data asset by using the `azureml:` prefix (e.g. `azureml:iris-url:1` to point to version 1 of a data asset named "iris-url") or 2) an inline definition of the data. Data can be uploaded from the local filesystem or point to existing cloud resources. `mode` indicates how you want the data made available on the compute for the job. "mount" and "download" are the two supported options. <br><br> An input can be referred to in the command by its name like `{inputs.my_input_name}`. Azure Machine Learning will then resolve that parameterized notation in the command to the location of that data on the compute target. For example, if the data is configured to be mounted, `{inputs.my_input_name}` will resolve to the mount point. |
@@ -123,7 +123,7 @@ With a parameterized command, you can easily modify the `job.yml` into `job-swee
 
 | Key | Description |
 | --- | ----------- |
-| `$schema` | The YAML schema, which has changed and now points to the sweep job [schema](https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json). |
+| `$schema` | [Optional] The YAML schema, which has changed and now points to the sweep job [schema](https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json). |
 | `type` | The job type. |
 | `algorithm` | The sampling algorithm - "random" is often a good choice. See the schema for the enumeration of options. |
 | `trial` | The command job configuration for each trial to be run. The command (`trial.command`) has been modified from the previous example to use the `{search_space.<hyperparameter_name>}` notation to reference the hyperparameters defined in the `search_space`. Azure Machine Learning will then resolve each parameterized notation to the value for the corresponding hyperparameter that it generates for each trial. |
