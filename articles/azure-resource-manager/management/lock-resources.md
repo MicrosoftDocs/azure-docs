@@ -43,7 +43,7 @@ Applying locks can lead to unexpected results because some operations that don't
 
 * A cannot-delete lock on the **resource group** created by **Azure Backup Service** causes backups to fail. The service supports a maximum of 18 restore points. When locked, the backup service can't clean up restore points. For more information, see [Frequently asked questions-Back up Azure VMs](../../backup/backup-azure-vm-backup-faq.yml).
 
-* A cannot-delete lock on a **resource group** prevents Azure Machine Learning from autoscaling [Azure Machine Learning compute clusters](../../machine-learning/concept-compute-target.md#azure-machine-learning-compute-managed) to remove unused nodes.
+* A cannot-delete lock on a **resource group** prevents **Azure Machine Learning** from autoscaling [Azure Machine Learning compute clusters](../../machine-learning/concept-compute-target.md#azure-machine-learning-compute-managed) to remove unused nodes.
 
 * A read-only lock on a **subscription** prevents **Azure Advisor** from working correctly. Advisor is unable to store the results of its queries.
 
