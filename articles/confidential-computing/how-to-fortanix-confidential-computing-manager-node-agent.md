@@ -1,6 +1,6 @@
 ---
-title: How To - Run an application with Fortanix Confidential Computing Manager
-description: Learn how to use Fortanix Confidential Computing Manager to convert your containerized images
+title: Run an app with Fortanix Confidential Computing Manager
+description: Learn how to use Fortanix Confidential Computing Manager to convert your containerized images.
 services: virtual-machines
 author: JBCook
 ms.service: virtual-machines
@@ -10,58 +10,58 @@ ms.topic: how-to
 ms.date: 03/24/2021
 ms.author: JenCook
 ---
-# How To: Run an application with Fortanix Confidential Computing Manager
+# How to: Run an application by using Fortanix Confidential Computing Manager
 
-Start running your application in Azure confidential computing using [Fortanix Confidential Computing Manager](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.enclave_manager?tab=Overview) and [Fortanix Node Agent](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.rte_node_agent) from [Fortanix](https://www.fortanix.com/).
+Learn how to run your application in Azure confidential computing by using [Fortanix Confidential Computing Manager](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.enclave_manager?tab=Overview) and [Node Agent](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.rte_node_agent) from [Fortanix](https://www.fortanix.com/).
 
 
-Fortanix is a third-party software vendor with products and services built on top of Azure infrastructure. There are other third-party providers offering similar confidential computing services on Azure.
+Fortanix is a third-party software vendor that provides products and services that work with the Azure infrastructure. There are other third-party providers that offer similar confidential computing services for Azure.
 
 > [!Note]
-> The products referenced in this document are not under the control of Microsoft. Microsoft is providing this information to you only as a convenience, and the reference to these non-Microsoft products do not imply endorsement by Microsoft.
+> Some of the products referenced in this document aren't provided by Microsoft. Microsoft is providing this information only as a convenience. References to these non-Microsoft products doesn't imply endorsement by Microsoft.
 
-This tutorial shows you how to convert your application image to a confidential compute-protected image. This environment uses [Fortanix](https://www.fortanix.com/) software, powered by Azure's DCsv2-Series Intel SGX-enabled virtual machines. This solution orchestrates critical security policies such as identity verification and data access control.
+This tutorial shows you how to convert your application image into a confidential compute-protected image. The environment uses [Fortanix](https://www.fortanix.com/) software, powered by Azure DCsv2-series Intel SGX-enabled virtual machines. The solution orchestrates critical security policies like identity verification and data access control.
 
-For Fortanix-specific support, join the [Fortanix Slack community](https://fortanix.com/community/) and use the channel `#enclavemanager`.
+For Fortanix support, join the [Fortanix Slack community](https://fortanix.com/community/). Use the `#enclavemanager` channel.
 
 ## Prerequisites
 
-1. If you don't have a Fortanix Confidential Computing Manager account, [sign-up](https://ccm.fortanix.com/auth/sign-up) before you begin.
-1. A private [Docker](https://docs.docker.com/) registry to push converted application images.
-1. If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) before you begin.
+- If you don't have a Fortanix Confidential Computing Manager account, [sign up](https://ccm.fortanix.com/auth/sign-up) before you start.
+- You need a private [Docker](https://docs.docker.com/) registry to push converted application images.
+- If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) before you start.
 
 > [!NOTE]
-> Free trial accounts do not have access to the virtual machines used in this tutorial. Please upgrade to a Pay-As-You-Go subscription.
+> Free trial accounts don't have access to the virtual machines used in this tutorial. To complete the tutorial, you need to upgrade to a pay-as-you-go subscription.
 
 ## Add an application to Fortanix Confidential Computing Manager
 
 1. Sign in to [Fortanix Confidential Computing Manager (Fortanix CCM)](https://ccm.fortanix.com).
-1. Go to the **Accounts** page and select **ADD ACCOUNT** to create a new account.
+1. Go to the **Accounts** page and select **ADD ACCOUNT** to create a new account:
 
    :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/create-account-new.png" alt-text="Screenshot that shows how to create an account.":::
 
-1. After your account is created, hit **SELECT ACCOUNT** to select the newly created account. Now we can start enrolling compute nodes and creating applications.
-1. Go to the **Applications** tab and click **+ APPLICATION** to add an application. In this example, we will add an Enclave OS application running a Python Flask server.
+1. After your account is created, click **SELECT ACCOUNT** to select the newly created account. You can now start enrolling compute nodes and creating applications.
+1. On the **Applications** tab, select **+ APPLICATION** to add an application. In this example, we'll add an Enclave OS application that runs a Python Flask server.
 
-1. Select the **ADD** button for the Enclave OS Application.
+1. Select the **ADD** button for the **Enclave OS Application**:
 
    :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/add-enclave-application.png" alt-text="Screenshot that shows how to add an application.":::
 
    > [!NOTE]
-   > This tutorial covers adding Enclave OS Applications only. [Learn more](https://support.fortanix.com/hc/en-us/articles/360044746932-Bringing-EDP-Rust-Apps-to-Confidential-Computing-Manager) about bringing EDP Rust Applications to Fortanix Confidential Computing Manager.
+   > This tutorial covers adding only Enclave OS applications. For information about adding EDP Rust Applications, see [Bringing EDP Rust Apps to Confidential Computing Manager](https://support.fortanix.com/hc/en-us/articles/360044746932-Bringing-EDP-Rust-Apps-to-Confidential-Computing-Manager).
 
-1. In this tutorial, we'll use Fortanix's docker registry for the sample application. Fill in the details from the following information. Use your private docker registry to keep the output image.
+1. In this tutorial, we'll use the Fortanix Docker registry for the sample application. Enter the specified values for the following settings. Use your private Docker registry to store the output image.
 
     - **Application name**: Python Application Server
     - **Description**: Python Flask Server
     - **Input image name**: fortanix/python-flask
-    - **Output image name**: fortanix-private/python-flask-sgx (replace with your own registry)
+    - **Output image name**: fortanix-private/python-flask-sgx (Replace with your own registry.)
     - **ISVPRODID**: 1
     - **ISVSVM**: 1
     - **Memory size**: 1 GB
     - **Thread count**: 128
 
-    *Optional*: Run the non-converted application.
+      *Optional*: Run the non-converted application.
     - **Docker Hub**: [https://hub.docker.com/u/fortanix](https://hub.docker.com/u/fortanix)
     - **App**: fortanix/python-flask
 
@@ -71,9 +71,9 @@ For Fortanix-specific support, join the [Fortanix Slack community](https://forta
          sudo docker run fortanix/python-flask
       ```
       > [!NOTE]
-      > We recommend that you don't use your private Docker registry to store the output image.
+      > We don't recommend that you use your private Docker registry to store the output image.
 
-1. Add a certificate. Fill in the information using the details below and then select **NEXT**:
+1. Add a certificate. Enter the following values and then select **NEXT**:
     - **Domain**: myapp.domain.com
     - **Type**: Certificate Issued by Confidential Computing Manager
     - **Key path**: /run/key.pem
