@@ -24,9 +24,9 @@ This article discusses how to use Azure AD Application Proxy to enable the Power
 
 ## Prerequisites
 
-This article assumes you've already deployed Report Services and [enabled Application Proxy](application-proxy-add-on-premises-application.md).
+This article assumes you've already deployed Report Services and [enabled Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md).
 
-- Enabling Application Proxy requires installing a connector on a Windows server and completing the [prerequisites](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) so that the connector can communicate with Azure AD services.
+- Enabling Application Proxy requires installing a connector on a Windows server and completing the [prerequisites](../app-proxy/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) so that the connector can communicate with Azure AD services.
 - When publishing Power BI, we recommended you use the same internal and external domains. To learn more about custom domains, see [Working with custom domains in Application Proxy](./application-proxy-configure-custom-domain.md).
 - This integration is available for the **Power BI Mobile iOS and Android** application.
 
@@ -76,7 +76,7 @@ For more information, see [Kerberos Constrained Delegation for single sign-on to
 
 Now you're ready to configure Azure AD Application Proxy.
 
-1. Publish Report Services through Application Proxy with the following settings. For step-by-step instructions on how to publish an application through Application Proxy, see [Publishing applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
+1. Publish Report Services through Application Proxy with the following settings. For step-by-step instructions on how to publish an application through Application Proxy, see [Publishing applications using Azure AD Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
    - **Internal URL**: Enter the URL to the Report Server that the connector can reach in the corporate network. Make sure this URL is reachable from the server the connector is installed on. A best practice is using a top-level domain such as `https://servername/` to avoid issues with subpaths published through Application Proxy. For example, use `https://servername/` and not `https://servername/reports/` or `https://servername/reportserver/`.
      > [!NOTE]
      > We recommend using a secure HTTPS connection to the Report Server. See [Configure SSL connections on a native mode report server](/sql/reporting-services/security/configure-ssl-connections-on-a-native-mode-report-server) for information how to.
