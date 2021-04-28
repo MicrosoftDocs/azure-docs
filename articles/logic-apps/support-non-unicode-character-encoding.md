@@ -1,31 +1,33 @@
 ---
 title: Support non-Unicode character encoding in Logic Apps
 description: Work with non-Unicode text in Logic Apps by converting payloads to UTF-8 using Base64 encoding and Azure Functions.
-ms.date: 04/26/2021
+ms.date: 04/28/2021
 ms.topic: conceptual
 ms.reviewer: logicappspm
 ms.service: logic-apps
 ---
 # Support non-Unicode character encoding in Logic Apps
 
-When you work with text payloads in Azure Logic Apps, the service assumes the text is encoded in a Unicode format, such as UTF-8. You might have problems when you receive, send or process non-UTF-8 characters in your workflow. For example, you might experience corruption of flat files used with legacy systems that don't support Unicode.
+When you work with text payloads in Azure Logic Apps, the service assumes the text is encoded in a Unicode format, such as UTF-8. You might have problems when you receive, send, or process non-UTF-8 characters in your workflow. For example, you might experience corrupted flat files in legacy systems that don't support Unicode.
 
-You can work with text in other character encodings by Base64 encoding the non-Unicode payload. This step prevents Logic Apps from assuming the text is in UTF-8. You can then convert any .NET-supported encoding to UTF-8 using Azure Functions. 
+To work with text that has other character encoding, apply base64 encoding to the non-Unicode payload. This step prevents Logic Apps from assuming the text is in UTF-8 format. You can then convert any .NET-supported encoding to UTF-8 using Azure Functions. 
 
-You can use this solution with both **single-tenant** and **multi-tenant** workflows. You can also [use this solution with the AS2 connector](#convert-payloads-for-as2).
+This solution works with both *multi-tenant* and *single-tenant* workflows. You can also [use this solution with the AS2 connector](#convert-payloads-for-as2).
 
 ## Convert payload encoding
 
-First, as soon as you receive the non-Unicode payload, [Base64 encode](workflow-definition-language-functions-reference.md#base64) the text. This step ensures that Logic Apps no longer assumes the text is UTF-8. 
+First, check that your trigger can correctly identify the content type. If your trigger has a setting **Infer Content Type**, choose **No**. This step ensures that Logic Apps no longer assumes the text is UTF-8. If your trigger doesn't have this option, the content type is set by the incoming message. 
 
-Next, use one of the following code examples to convert any .NET-supported encoding to another .NET-supported encoding: [Azure Functions](#azure-functions-version) or [.NET version](#net-version).
+Then, as soon as you receive the non-Unicode payload, apply [base64 encoding](workflow-definition-language-functions-reference.md#base64) to the text. 
+
+Next, convert any .NET-supported encoding to another .NET-supported encoding by using one of the following code examples, either the [Azure Functions version](#azure-functions-version) or [.NET version](#net-version):
 
 > [!TIP]
-> For **single-tenant** logic apps, you can improve performance by running this conversion function locally to decrease latency.
+> For *single-tenant* logic apps, you can improve performance and decrease latency by locally running the conversion function.
 
 ### Azure Functions version
 
-The following example is for Azure Functions **version 2**: 
+The following example is for Azure Functions version 2: 
 
 ```azurecli
 using System;
@@ -149,11 +151,11 @@ The following example is for use with **.NET standard** and Azure Functions **ve
     }
 ```
 
-You can also [send a non-Unicode payload from your workflow](#send-non-unicode-payload) using these same concepts.
+Using these same concepts, you can also [send a non-Unicode payload from your workflow](#send-non-unicode-payload).
 
 ## Sample payload conversions
 
-In this example, the Base64-encoded sample input string is a personal name, *H&eacute;lo&iuml;se*, that contains accented characters.
+In this example, the base64-encoded sample input string is a personal name, *H&eacute;lo&iuml;se*, that contains accented characters.
 
 Example input:
 
@@ -175,7 +177,7 @@ Example output:
 
 ## Send non-Unicode payload
 
-If you need to send out a non-Unicode payload from your workflow, do the steps for [converting the payload to UTF-8](#convert-payload-encoding) in reverse. Keep the text in UTF-8 as long as possible within your system. Next, use the same function to convert the Base64-encoded UTF-8 characters to the required encoding. Then, Base64 decode the text and send out your payload.
+If you need to send a non-Unicode payload from your workflow, do the steps for [converting the payload to UTF-8](#convert-payload-encoding) in reverse. Keep the text in UTF-8 as long as possible within your system. Next, use the same function to convert the base64-encoded UTF-8 characters to the required encoding. Then, apply base64 decoding to the text, and send your payload.
 
 ## Convert payloads for AS2
 
