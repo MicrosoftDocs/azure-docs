@@ -82,14 +82,14 @@ To deploy a VM, you first need to create all the resources that are needed to cr
 
 1. Connect to the local Azure Resource Manager of your device. 
 1. Identify the built-in subscription on the device.
-1. Create a resource group in the built-in subscription. The resource group will contain the VM and all the related resources.
-1. Create a local storage account on the device to store the VHD that will be used to create a VM image.
-1. Upload a Windows/Linux source image into the storage account to create a managed disk.
-1. Use the managed disk to create a VM image.
+1. Bring your VM image
+    1. Create a resource group in the built-in subscription. The resource group will contain the VM and all the related resources.
+    2. Create a local storage account on the device to store the VHD that will be used to create a VM image.
+    3. Upload a Windows/Linux source image into the storage account to create a managed disk.
+    4. Use the managed disk to create a VM image.
 1. Enable compute on a device port to create a virtual switch.
-1. Create a virtual network using the virtual switch attached to the port on which you enabled compute. 
-1. In the virtual network, create one or more virtual network interfaces to communicate within the virtual network. 
-1. Create a VM using the previously created VM image, virtual network, and virtual network interface(s) and assign a public IP address to remotely access the VM. Optionally include data disks to provide more storage for your VM.
+    1. This creates a virtual network using the virtual switch attached to the port on which you enabled compute.  
+1. Create a VM using the previously created VM image, virtual network, and virtual network interface(s) to communicate within the virtual network and assign a public IP address to remotely access the VM. Optionally include data disks to provide more storage for your VM.
  
 The deployment workflow is displayed in the following diagram:
 
