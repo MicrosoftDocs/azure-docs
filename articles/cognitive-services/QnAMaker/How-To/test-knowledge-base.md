@@ -60,7 +60,7 @@ Select **Save and Train** to persist this answer. A new question-answer pair has
 > [!NOTE]
 > All edits to your knowledge base only get saved when you press the **Save and Train** button.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom Question Answering (preview release)](#tab/v2)
 
 1. Access your knowledge base by selecting its name on the **My knowledge bases** page.
 1. To access the Test slide-out panel, select **Test** in your application's top panel. 
