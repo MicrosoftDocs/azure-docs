@@ -90,7 +90,7 @@ The Attestation service will return the orchestration ID of your submission. The
 
 You can call the Monitor-Validation.ps1 script at any time to get status and results of attestation, providing the orchestration ID as an argument:  
 
-`.\Monitor-Validation.ps1 -OrchestrationId < Orchestration ID>`
+`.\Monitor-Validation.ps1 -OrchestrationId <orchestration ID>`
 
 Alternatively, you can submit HTTP post request to the attestation service endpoint:  
 
@@ -100,7 +100,7 @@ The request body should contain your Subscription ID, Tenant ID, and orchestrati
 
 ```json
 {  
-  "OrchestrationId": "< orchestration ID>",  
+  "OrchestrationId": "<orchestration ID>",  
   "ClientSubscriptionId": "<your subscription ID>",  
   "ClientTenantId": "<your tenant ID>"
 }
