@@ -72,7 +72,7 @@ Some of the scenarios that are supported use of Cloud Witness as a quorum witnes
 - Starting with Windows Server 2012 R2, it is recommended to always configure a witness as the cluster automatically 
 manages the witness vote and the nodes vote with Dynamic Quorum.
 
-#### <a name="CloudWitnessSetUp"></a> Set up a Cloud Witness for a cluster
+### <a name="CloudWitnessSetUp"></a> Set up a Cloud Witness for a cluster
 
 To set up a Cloud Witness as a quorum witness for your cluster, complete the following steps:
 1. Create an Azure Storage Account to use as a Cloud Witness
@@ -86,7 +86,7 @@ To configure Cloud Witness, you must have a valid Azure Storage account that can
 
 When you use the same Azure Storage Account for configuring Cloud Witness for multiple different clusters, a single **msft-cloud-witness** container gets created automatically. This container will contain one-blob file per cluster.
 
-#### To create an Azure storage account
+##### To create an Azure storage account
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the Hub menu, select New -> Data + Storage -> Storage account.
@@ -105,7 +105,7 @@ When you use the same Azure Storage Account for configuring Cloud Witness for mu
 
 When you create a Microsoft Azure Storage Account, it's associated with two Access Keys that are automatically generated - Primary Access key and Secondary Access key. For a first-time creation of Cloud Witness, use the **Primary Access Key**. There is no restriction regarding which key to use for Cloud Witness.
 
-#### To view and copy storage access keys
+##### To view and copy storage access keys
 
 In the Azure portal, navigate to your storage account, select **All settings** and, then  **Access Keys** to view, copy, and regenerate your account access keys. The Access Keys blade also includes pre-configured connection strings using your primary and secondary keys that you can copy to use in your applications (see figure 4).
 
@@ -121,7 +121,7 @@ Cloud Witness always uses **Blob** as the storage type. Azure uses **.core.windo
 > [!NOTE]
 > The endpoint URL is generated automatically by Cloud Witness resource and there is no extra step of configuration necessary for the URL.
 
-#### To view and copy endpoint URL links
+##### To view and copy endpoint URL links
 
 In the Azure portal, navigate to your storage account, select **All settings** and, then select **Properties** to view and copy your endpoint URLs (see figure 5).
 
@@ -230,6 +230,6 @@ When enabling or disabling a given WSFC node's vote, follow these guidelines:
 * Number of votes. If necessary, add a cloud witness, file share witness, a witness node, or a witness disk to the cluster and adjust the quorum mode to prevent possible ties in the quorum vote. It is recommended to have three or more quorum votes. 
 * Reassess vote assignments post-failover. You do not want to fail over into a cluster configuration that does not support a healthy quorum.
 
-### Next Steps
+## Next Steps
 
 After you've determined the appropriate best practices for your solution, get started by [preparing your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md) or by creating your availability group by using the [Azure portal](availability-group-azure-portal-configure.md), the [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md), or [Azure quickstart templates](availability-group-quickstart-template-configure.md).
