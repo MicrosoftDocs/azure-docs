@@ -572,9 +572,10 @@ Notice this detail:
 Invoke direct methods to first stop the stream and then delete it.
 
 ### Invoke livePipelineDeactivate
+Invoke the direct method livePipelineDeactivate by using the following payload.
 
 ```
-Invoke the direct method livePipelineDeactivate by using the following payload.
+
 {
     "@apiVersion" : "1.0",
     "name" : "mdgraph2"
@@ -613,7 +614,26 @@ Within a few seconds, you see the following response in the OUTPUT window:
   "payload": null
 }
 ```
+A status code of 200 indicates that the pipeline instance was successfully deleted.
 
+Because we also created the pipeline called Sample-Graph-2 we cannot delete the pipeline topology. 
+Invoke the direct method livePipelineDelete by using the following payload to delete the pipeline called Sample-Graph-2:
+
+```
+{
+    "@apiVersion" : "1.0",
+    "name" : "Sample-Graph-2"
+}
+```
+
+Within a few seconds, you see the following response in the OUTPUT window:
+
+```
+{
+  "status": 200,
+  "payload": null
+}
+```
 A status code of 200 indicates that the pipeline instance was successfully deleted.
 
 ### Invoke pipelineTopologyDelete
