@@ -246,41 +246,41 @@ In this step, you'll create and configure an attestation provider in Microsoft A
     };
     ```
 
-2. Import the required version of `Az.Attestation`.  
+1. Import the required version of `Az.Attestation`.  
 
-  ```powershell
-  Import-Module "Az.Attestation" -MinimumVersion "0.1.8"
-  ```
+   ```powershell
+   Import-Module "Az.Attestation" -MinimumVersion "0.1.8"
+   ```
   
-3. Create an attestation provider.
+1. Create an attestation provider.
 
-  ```powershell
-  $attestationProviderName = "<your attestation provider name>" 
-  New-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName -Location $location
-  ```
+   ```powershell
+   $attestationProviderName = "<your attestation provider name>" 
+   New-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName -Location $location
+   ```
 
-4. Configure your attestation policy.
+1. Configure your attestation policy.
   
-  ```powershell
-  $policyFile = "<the pathname of the file from step 1 in this section>"
-  $teeType = "SgxEnclave"
-  $policyFormat = "Text"
-  $policy=Get-Content -path $policyFile -Raw
-  Set-AzAttestationPolicy -Name $attestationProviderName `
+   ```powershell
+   $policyFile = "<the pathname of the file from step 1 in this section>"
+   $teeType = "SgxEnclave"
+   $policyFormat = "Text"
+   $policy=Get-Content -path $policyFile -Raw
+   Set-AzAttestationPolicy -Name $attestationProviderName `
     -ResourceGroupName $resourceGroupName `
     -Tee $teeType `
     -Policy $policy `
     -PolicyFormat  $policyFormat
-  ```
+   ```
 
-5. Retrieve the attestation URL (the Attest URI of your attestation provider).
+1. Retrieve the attestation URL (the Attest URI of your attestation provider).
 
-  ```powershell
-  $attestationUrl = (Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName).AttestUri
-  Write-Host "Your attestation URL is: $attestationUrl"
-  ```
+   ```powershell
+   $attestationUrl = (Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName).AttestUri
+   Write-Host "Your attestation URL is: $attestationUrl"
+   ```
 
-  The attestation URL should look like this: `https://myattestprovider12345.eus.attest.azure.net`
+   The attestation URL should look like this: `https://myattestprovider12345.eus.attest.azure.net`
 
 ---
 
