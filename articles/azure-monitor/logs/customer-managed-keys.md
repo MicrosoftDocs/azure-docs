@@ -4,7 +4,7 @@ description: Information and steps to configure Customer-managed key to encrypt 
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 01/10/2021
+ms.date: 04/21/2021
 
 ---
 
@@ -101,7 +101,7 @@ Authorization: Bearer <token>
 
 ## Storing encryption key (KEK)
 
-Create or use an Azure Key Vault that you already have to generate, or import a key to be used for data encryption. The Azure Key Vault must be configured as recoverable to protect your key and the access to your data in Azure Monitor. You can verify this configuration under properties in your Key Vault, both *Soft delete* and *Purge protection* should be enabled.
+Create or use existing Azure Key Vault in the region that the cluster is planed, then generate or import a key to be used for logs encryption. The Azure Key Vault must be configured as recoverable to protect your key and the access to your data in Azure Monitor. You can verify this configuration under properties in your Key Vault, both *Soft delete* and *Purge protection* should be enabled.
 
 ![Soft delete and purge protection settings](media/customer-managed-keys/soft-purge-protection.png)
 
@@ -159,14 +159,13 @@ All operations on the cluster require the `Microsoft.OperationalInsights/cluster
 
 This step updates Azure Monitor Storage with the key and version to be used for data encryption. When updated, your new key is being used to wrap and unwrap the Storage key (AEK).
 
-Select the current version of your key in Azure Key Vault to get the key identifier details.
+>[!IMPORTANT]
+>- Key rotation can be automatic or require explicit key update, see [Key rotation](#key-rotation) to determine approach that is suitable for you before updating the key identifier details in cluster.
+>- Cluster update should not include both identity and key identifier details in the same operation. If you need to update both, the update should be in two consecutive operations.
 
 ![Grant Key Vault permissions](media/customer-managed-keys/key-identifier-8bit.png)
 
 Update KeyVaultProperties in cluster with key identifier details.
-
->[!NOTE]
->Key rotation supports two modes: auto-rotation or explicit key version update, see [Key rotation](#key-rotation) to determine the best approach for you.
 
 The operation is asynchronous and can take a while to complete.
 
@@ -414,6 +413,8 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 - Cluster move to another resource group or subscription isn't supported currently.
 
 - Your Azure Key Vault, cluster and workspaces must be in the same region and in the same Azure Active Directory (Azure AD) tenant, but they can be in different subscriptions.
+
+- Cluster update should not include both identity and key identifier details in the same operation. In case you need to update both, the update should be in two consecutive operations.
 
 - Lockbox isn't available in China currently. 
 
