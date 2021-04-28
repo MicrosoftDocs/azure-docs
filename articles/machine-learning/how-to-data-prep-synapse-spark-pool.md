@@ -319,12 +319,28 @@ input1 = train_ds.as_mount()
 ```
 ## Use a `ScriptRunConfig` to submit an experiment run to a Synapse Spark pool
 
-You can also [leverage the Synapse spark cluster you attached previously](#attach-a-pool-with-the-python-sdk) as a compute target for submitting an experiment run with a [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) object.
+You can also [leverage the Synapse spark cluster you attached previously](#attach-a-pool-with-the-python-sdk) as a compute target for submitting an experiment run with a [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) object. 
+
+> [!IMPORTANT]
+> To submit a run to a Synapse Spark pool, you must use a FileDataset and employ the as_hdfs() method to make the data available to the Synapse Spark pool. 
+
+The following code, 
+* Creates the variable `input2`, which is used in the ScriptRunConfig to make the dataset available to the Synapse Spark pool as a Hadoop distributed file system (HFDS) with the `as_hdfs()` method. 
+* Creates the variable `output`. After the run is complete, the output of the run is saved and registered as a dataset in the datastore, `mydatastore` in the `test_data` directory. 
+* Configures settings the run should use in order to perform on the Synapse Spark pool. 
+* Defines the ScriptRunConfig parameters to, 
+  * Use the `dataprep.py`, for the run. 
+  * Specify which data to use as input and how to make it available to the Synapse Spark pool.
+  * Specify where to store output data, `output`.  
 
 ```Python
+from azureml.core import Dataset, HDFSOutputDatasetConfig
 from azureml.core import RunConfiguration
 from azureml.core import ScriptRunConfig 
 from azureml.core import Experiment
+
+input2 = train_ds.as_hdfs()
+output = HDFSOutputDatasetConfig(destination=(datastore,'/test_data/').register_on_complete(name="registered_dataset")
 
 run_config = RunConfiguration(framework="pyspark")
 run_config.target = synapse_compute_name
@@ -339,8 +355,7 @@ run_config.environment.python.conda_dependencies = conda_dep
 
 script_run_config = ScriptRunConfig(source_directory = './code',
                                     script= 'dataprep.py',
-                                    arguments = ["--tabular_input", input1, 
-                                                 "--file_input", input2,
+                                    arguments = ["--file_input", input2,
                                                  "--output_dir", output],
                                     run_config = run_config)
 ```
@@ -354,11 +369,14 @@ exp = Experiment(workspace=ws, name="synapse-spark")
 run = exp.submit(config=script_run_config) 
 run
 ```
-For additional details, like the `dataprep.py` script used in this example, see the [example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_session_on_synapse_spark_pool.ipynb).
+
+For additional details, like the `dataprep.py` script used in this example, see the [example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb).
 
 ## Example notebooks
 
-See this [example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_session_on_synapse_spark_pool.ipynb) for more concepts and demonstrations of the Azure Synapse Analytics and Azure Machine Learning integration capabilities.
+See the example notebooks for more concepts and demonstrations of the Azure Synapse Analytics and Azure Machine Learning integration capabilities.
+* [Run an interactive Spark session from a notebook in your Azure Machine Learning workspace](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_session_on_synapse_spark_pool.ipynb).
+* [Submit an Azure Machine Learning experiment run with a Synapse Spark pool as your compute target](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb).
 
 ## Next steps
 
