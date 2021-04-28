@@ -171,7 +171,7 @@ Connector groups are useful when you need to support the following scenarios:
 * Application segmentation/isolation
 * Publishing web apps running in the cloud or on-premises
 
-For more information about choosing where to install your connectors and optimizing your network, see [Network topology considerations when using Azure Active Directory Application Proxy](../manage-apps/application-proxy-network-topology.md).
+For more information about choosing where to install your connectors and optimizing your network, see [Network topology considerations when using Azure Active Directory Application Proxy](application-proxy-network-topology.md).
 
 ## Other use cases
 
