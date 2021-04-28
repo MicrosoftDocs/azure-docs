@@ -166,7 +166,9 @@ In this step, you will create a new Azure SQL Database logical server and a new 
   Write-Host "Fully qualified server name: $($server.FullyQualifiedDomainName)" 
   Write-Host "Database name: $databaseName"
   ```
-  
+
+---
+
 ## Step 2: Configure an attestation provider
 
 In this step, You'll create and configure an attestation provider in Microsoft Azure Attestation. This is needed to attest the secure enclave your database uses.
@@ -263,6 +265,8 @@ In this step, You'll create and configure an attestation provider in Microsoft A
   ```
 
   The attestation URL should look like this: `https://contososqlattestation.uks.attest.azure.net`
+
+---
 
 ## Step 3: Populate your database
 
