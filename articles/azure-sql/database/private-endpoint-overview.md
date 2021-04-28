@@ -54,19 +54,19 @@ leads to the Network Interface details
 
 ![Screenshot of NIC details][8]
 
-which finally leads to the IP address
+which finally leads to the IP address for the private endpoint
 
 ![Screenshot of Private IP][9]
 
 ## Test connectivity to SQL Database from an Azure VM in same virtual network
-For this scenario, assume you've created an Azure Virtual Machine (VM) running Windows Server 2016 in the same virtual network and subnet as the private endpoint.
+For this scenario, assume you've created an Azure Virtual Machine (VM) running a recent version of Windows in the same virtual network as the private endpoint.
 
 Private Endpoints support both Proxy and Redirect [connection policy](/connectivity-architecture.md#connection-policy). Ensure that you have met the following pre-requisites for outbound connectivity from the Azure VM
-- For Proxy mode, outbound traffic is allowed to the private endpoint on port 1433
-- For Redirect mode, outbound traffic is allowed to the private endpoint on port range 1472 to 65535
+- For Proxy mode, outbound traffic is allowed to the private endpoint IP address on port 1433
+- For Redirect mode, outbound traffic is allowed to the private endpoint IP address on port range 1472 to 65535
 
 > [!NOTE]
->For scenarios where the Azure VM and private endpoint are located in different subnets, ensure that the default NSG rule name AllowVnetInbound is not overwritten by another rule of lower priority.
+>For scenarios where the Azure VM and private endpoint are located in different subnets, ensure that the appropriate routes exists to allow traffic between the subnets.
 
 1. [Start a Remote Desktop (RDP) session and connect to the virtual machine](../../virtual-machines/windows/connect-logon.md#connect-to-the-virtual-machine). 
 
@@ -92,7 +92,7 @@ When Telnet connects successfully, you'll see a blank screen at the command wind
 
 ### Check Connectivity using Psping
 
-[Psping](/sysinternals/downloads/psping) can be used as follows to check that the Private endpoint connection(PEC) is listening for connections on port 1433.
+[Psping](/sysinternals/downloads/psping) can be used as follows to check that the private endpoint  is listening for connections on port 1433.
 
 Run psping as follows by providing the FQDN for logical SQL server and port 1433:
 
@@ -108,7 +108,7 @@ Connecting to 10.9.0.4:1433: from 10.6.0.4:49956: 1.43ms
 Connecting to 10.9.0.4:1433: from 10.6.0.4:49958: 2.28ms
 ```
 
-The output show that Psping could ping the private IP address associated with the PEC.
+The output show that Psping could ping the private IP address associated with the private endpoint.
 
 ### Check connectivity using Nmap
 
@@ -129,7 +129,7 @@ The result shows that one IP address is up; which corresponds to the IP address 
 > [!NOTE]
 > Use the **Fully Qualified Domain Name (FQDN)** of the server in connection strings for your clients (`<server>.database.windows.net`). Any login attempts made directly to the IP address or using the private link FQDN (`<server>.privatelink.database.windows.net`) shall fail. This behavior is by design, since private endpoint routes traffic to the SQL Gateway in the region and the correct FQDN needs to be specified for logins to succeed.
 
-Follow the steps here to use [SSMS to connect to the SQL Database](connect-query-ssms.md). After you connect to the SQL Database using SSMS, verify that you're connecting from the private IP address of the Azure VM by running the following query:
+Follow the steps here to use [SSMS to connect to the SQL Database](connect-query-ssms.md). After you connect to the SQL Database using SSMS, the following query shall reflect client_net_address that matches the private IP address of the Azure VM you are connecting from:
 
 ````
 select client_net_address from sys.dm_exec_connections 
@@ -152,7 +152,7 @@ In addition, services that are not running directly in the virtual network but a
 
 ## Data exfiltration prevention
 
-Data exfiltration in Azure SQL Database is when an authorized user, such as a database admin is able extract data from one system and move it another location or system outside the organization. For example, the user moves the data to a storage account owned by a third party.
+Data exfiltration in Azure SQL Database is when a user, such as a database admin is able extract data from one system and move it another location or system outside the organization. For example, the user moves the data to a storage account owned by a third party.
 
 Consider a scenario with a user running SQL Server Management Studio (SSMS) inside an Azure virtual machine connecting to a database in SQL Database. This database is in the West US data center. The example below shows how to limit access with public endpoints on SQL Database using network access controls.
 
@@ -165,10 +165,6 @@ Consider a scenario with a user running SQL Server Management Studio (SSMS) insi
 At the end of this setup, the Azure VM can connect only to a database in SQL Database in the West US region. However, the connectivity isn't restricted to a single database in SQL Database. The VM can still connect to any database in the West US region, including the databases that aren't part of the subscription. While we've reduced the scope of data exfiltration in the above scenario to a specific region, we haven't eliminated it altogether.
 
 With Private Link, customers can now set up network access controls like NSGs to restrict access to the private endpoint. Individual Azure PaaS resources are then mapped to specific private endpoints. A malicious insider can only access the mapped PaaS resource (for example a database in SQL Database) and no other resource. 
-
-## Limitations 
-Connections to private endpoint only support **Proxy** as the [connection policy](connectivity-architecture.md#connection-policy)
-
 
 ## Connecting from an Azure VM in Peered Virtual Network 
 
