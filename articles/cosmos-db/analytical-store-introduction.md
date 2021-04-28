@@ -112,15 +112,6 @@ The following constraints are applicable on the operational data in Azure Cosmos
 
 * Currently we do not support Azure Synapse Spark reading column names that contain blanks (white spaces).
 
-* Expect different behavior in regard to explicit `null` values:
-  * Spark pools in Azure Synapse will read these values as `0` (zero).
-  * SQL serverless pools in Azure Synapse will read these values as `NULL` if the first document of the collection has, for the same property, a value with a `non-numeric` datatype.
-  * SQL serverless pools in Azure Synapse will read these values as `0` (zero) if the first document of the collection has, for the same property, a value with a `numeric` datatype.
-
-* Expect different behavior in regard to missing columns:
-  * Spark pools in Azure Synapse will represent these columns as `undefined`.
-  * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
-
 ### Schema representation
 
 There are two modes of schema representation in the analytical store. These modes have tradeoffs between the simplicity of a columnar representation, handling the polymorphic schemas, and simplicity of query experience:
@@ -152,6 +143,14 @@ The well-defined schema representation creates a simple tabular representation o
 * Expect different behavior in regard to different types in well defined schema:
   * Spark pools in Azure Synapse will represent these values as `undefined`.
   * SQL serverless pools in Azure Synapse will represent these values as `NULL`.
+
+* Expect different behavior in regard to explicit `null` values:
+  * Spark pools in Azure Synapse will read these values as `0` (zero). And it will change to `undefined` as soon as the column has a non-null value.
+  * SQL serverless pools in Azure Synapse will read these values as `NULL`.
+    
+* Expect different behavior in regard to missing columns:
+  * Spark pools in Azure Synapse will represent these columns as `undefined`.
+  * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
 
 
 **Full fidelity schema representation**
@@ -197,6 +196,14 @@ Here is a map of all the property data types and their suffix representations in
 |ObjectId	|".objectId"	| ObjectId("5f3f7b59330ec25c132623a2")|
 |Document	|".object" |	{"a": "a"}|
 
+* Expect different behavior in regard to explicit `null` values:
+  * Spark pools in Azure Synapse will read these values as `0` (zero).
+  * SQL serverless pools in Azure Synapse will read these values as `NULL`.
+  
+* Expect different behavior in regard to missing columns:
+  * Spark pools in Azure Synapse will represent these columns as `undefined`.
+  * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
+
 ## Cost-effective archival of historical data
 
 Data tiering refers to the separation of data between storage infrastructures optimized for different scenarios. Thereby improving the overall performance and cost-effectiveness of the end-to-end data stack. With analytical store, Azure Cosmos DB now supports automatic tiering of data from the transactional store to analytical store with different data layouts. With analytical store optimized in terms of storage cost compared to the transactional store, allows you to retain much longer horizons of operational data for historical analysis.
@@ -204,7 +211,7 @@ Data tiering refers to the separation of data between storage infrastructures op
 After the analytical store is enabled, based on the data retention needs of the transactional workloads, you can configure the 'Transactional Store Time to Live (Transactional TTL)' property to have records automatically deleted from the transactional store after a certain time period. Similarly, the  'Analytical Store Time To Live (Analytical TTL)' allows you to manage the lifecycle of data retained in the analytical store independent from the transactional store. By enabling analytical store and configuring TTL properties, you can seamlessly tier and define the data retention period for the two stores.
 
 > [!NOTE]
-Currently analytical store doesn't support backup and restore. Your backup policy can't be planned relying on analytical store. For more information, check the limitations section of [this](synapse-link.md#limitations) document. It is important to note that the data in the analytical store has a different schema than what exists in the transactional store. While you can generate snapshots of your analytical store data, at no RUs costs, we cannot guarantee the use of this snapshot to backfeed the transactional store. This process is not supported.
+>Currently analytical store doesn't support backup and restore. Your backup policy can't be planned relying on analytical store. For more information, check the limitations section of [this](synapse-link.md#limitations) document. It is important to note that the data in the analytical store has a different schema than what exists in the transactional store. While you can generate snapshots of your analytical store data, at no RUs costs, we cannot guarantee the use of this snapshot to backfeed the transactional store. This process is not supported.
 
 ## Global Distribution
 
@@ -221,7 +228,7 @@ The analytical store is optimized to provide scalability, elasticity, and perfor
 By decoupling the analytical storage system from the analytical compute system, data in Azure Cosmos DB analytical store can be queried simultaneously from the different analytics runtimes supported by Azure Synapse Analytics. As of today, Azure Synapse Analytics supports Apache Spark and serverless SQL pool with Azure Cosmos DB analytical store.
 
 > [!NOTE]
-> You can only read from analytical store using Azure Synapse Analytics runtimes. And Azure Synapse Analytics runtimes can read from analytical store, that is read-only from the customer's perspective. You can write the data back to Cosmos DB transactional store using Azure Synapse Analytics Spark pool.
+> You can only read from analytical store using Azure Synapse Analytics runtimes. And the opposite is also true, Azure Synapse Analytics runtimes can only read from analytical store. Only the auto-sync process can change data in analytical store. You can write data back to Cosmos DB transactional store using Azure Synapse Analytics Spark pool, using the built-in Azure Cosmos DB OLTP SDK.
 
 ## <a id="analytical-store-pricing"></a> Pricing
 

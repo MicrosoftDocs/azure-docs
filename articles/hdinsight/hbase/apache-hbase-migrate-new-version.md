@@ -35,8 +35,6 @@ Here is an example compatibility matrix. Y indicates compatibility and N indicat
 | Dependency compatibility | N | Y | Y |
 | Operational compatibility | N | N | Y |
 
-The HBase version release notes should describe any breaking incompatibilities. Test your application in a cluster running the target version of HDInsight and HBase.
-
 For more information about HDInsight versions and compatibility, see [Azure HDInsight versions](../hdinsight-component-versioning.md).
 
 ## Upgrade the Apache HBase cluster

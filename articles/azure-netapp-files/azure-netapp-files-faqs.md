@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/22/2021
+ms.date: 04/23/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -60,6 +60,10 @@ Data traffic between NFSv3 or SMB3 clients to Azure NetApp Files volumes is not 
 ### Can the storage be encrypted at rest?
 
 All Azure NetApp Files volumes are encrypted using the FIPS 140-2 standard. All keys are managed by the Azure NetApp Files service. 
+
+### Is Azure NetApp Files cross-region replication traffic encrypted?
+
+Azure NetApp Files cross-region replication uses TLS 1.2 AES-256 GCM encryption to encrypt all data transferred between the source volume and destination volume. This encryption is in addition to the [Azure MACSec encryption](../security/fundamentals/encryption-overview.md) that is on by default for all Azure traffic, including Azure NetApp Files cross-region replication. 
 
 ### How are encryption keys managed? 
 
@@ -333,6 +337,11 @@ You can mount Azure NetApp Files NFS volumes on AVS Windows VMs or Linux VMs. Yo
 ### What regions are supported for using Azure NetApp Files NFS or SMB volumes with Azure VMware Solution (AVS)?
 
 Using Azure NetApp Files NFS or SMB volumes with AVS is supported in the following regions - East US, West US , West Europe, and Australia East.
+
+### Does Azure NetApp Files work with Azure Policy?
+
+Yes. Azure NetApp Files is a first-party service. It fully adheres to Azure Resource Provider standards. As such, Azure NetApp Files can be integrated into Azure Policy via *custom policy definitions*. For information about how to implement custom policies for Azure NetApp Files, see 
+[Azure Policy now available for Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure/azure-policy-now-available-for-azure-netapp-files/m-p/2282258) on Microsoft Tech Community. 
 
 ## Next steps  
 
