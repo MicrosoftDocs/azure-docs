@@ -74,6 +74,7 @@ Custom script extensions are available for the VMs on your device that help conf
 
 For more information, see [Deploy Custom Script Extension on VMs running on your device](azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md)
 
+You can also use GPU extensions for your VM when you want to install GPU drivers when the GPU VMs are provisioned. For more information, see [Create GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms) and [Install GPU extensions](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#install-gpu-extension).
 
 ## Create a VM
 
@@ -110,8 +111,9 @@ There are several ways to deploy a VM on your device. Your choice depends on you
 You can manage the VMs on your device via the Azure portal, via the PowerShell interface of the device, or directly through the APIs. Some typical management tasks are:
 
 - Get information about a VM.
-- Connect to a VM.
-- Make backups.
+- Connect to a VM, start, stop, delete VMs.
+- Manage disks, VM sizes, network interfaces, virtual switches
+- Back up VM disks.
 
 ### Get information about your VM
 
@@ -126,6 +128,14 @@ Depending on the OS that your VM runs, you can connect to the VM as follows:
 
 - [Connect to a Windows VM on your device](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#connect-to-windows-vm).
 - [Connect to a Linux VM on your device](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#connect-to-linux-vm).
+
+### Start, stop, delete VMs
+
+You can [turn on the VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#turn-on-the-vm), [suspend or shut down the VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#suspend-or-shut-down-the-vm). Finally, you can [delete the VMs](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#delete-the-vm) after you are done using them.
+
+### Manage network interfaces, virtual switches
+
+You can [add, modify, detach network interfaces](azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md) for your VMs. You can also [create new virtual switches](azure-stack-edge-gpu-create-virtual-switch-powershell.md) on your device to deploy VMs. 
 
 ### Back up VMs
 
