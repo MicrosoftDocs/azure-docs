@@ -198,9 +198,9 @@ You can modify the downloaded profile XML file and add the **\<dnsservers>\<dnss
 
 Split tunneling is configured by default for the VPN client.
 
-### <a name="force-tunnel"></a>How do I direct all traffic to the VPN tunnel (force tunnel)?
+### <a name="forced-tunnel"></a>How do I direct all traffic to the VPN tunnel (forced tunneling)?
 
-You can configure force tunneling using two different methods; either by advertising custom routes, or by modifying the profile XML file.    
+You can configure forced tunneling using two different methods; either by advertising custom routes, or by modifying the profile XML file.    
 
 > [!NOTE]
 > Internet connectivity is not provided through the VPN gateway. As a result, all traffic bound for the Internet is dropped.
