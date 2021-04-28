@@ -1,5 +1,5 @@
 ---
-title: Throttling Azure Cosmos DB requests in your custom application
+title: Rate Limiting Azure Cosmos DB requests in your custom application
 description: This article provides developers with a methodology to throttle requests to Cosmos to reduce errors and improve throughput.
 author: plasne
 ms.service: cosmos-db
