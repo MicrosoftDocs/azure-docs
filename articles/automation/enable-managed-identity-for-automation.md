@@ -3,7 +3,7 @@ title: Enable a managed identity for your Azure Automation account (preview)
 description: This article describes how to set up managed identity for Azure Automation accounts.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/14/2021
+ms.date: 04/28/2021
 ms.topic: conceptual
 ---
 # Enable a managed identity for your Azure Automation account (preview)
@@ -142,6 +142,8 @@ Write-Output $accessToken.access_token
 
 ## Sample runbooks using managed identity
 
+For help
+
 ### Sample runbook to access a SQL database without using Azure cmdlets
 
 Make sure you've enabled an identity before you try this script. See [Enable system-assigned identity](#enable-system-assigned-identity).
@@ -218,6 +220,8 @@ print(response.text)
 ```
 
 ## Next steps
+
+- If your runbooks aren't completing successfully, review [Troubleshoot Azure Automation managed identity issues (preview)](troubleshoot/managed-identity.md).
 
 - If you need to disable a managed identity, see [Disable your Azure Automation account managed identity (preview)](disable-managed-identity-for-automation.md).
 
