@@ -1,7 +1,7 @@
 ---
 title: Create and manage users
 description: Create and manage users of sensors and the on-premises management console. Users can be assigned the role of administrator, security analyst, or read-only user.
-ms.date: 03/03/2021
+ms.date: 04/28/2021
 ms.topic: article
 ---
 
@@ -194,7 +194,7 @@ If you are creating Active Directory groups for on-premises management console u
 
 ## Change the default password
 
-To change the default password for users, for either the sensor or the on-premises management console:
+To change the default password for users, for either the sensor, or the on-premises management console:
 
 1. Select the Users tab :::image type="icon" source="media/resources-agent-frequently-asked-questions/users-tab.png" border="false"::: from the left side toolbar.
 
