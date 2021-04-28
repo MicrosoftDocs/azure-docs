@@ -351,9 +351,9 @@ The following parameter types are available for the queue or topic message:
 These parameter types are for Azure Functions version 1.x; for 2.x and higher, use [`Message`](/dotnet/api/microsoft.azure.servicebus.message) instead of `BrokeredMessage`.
 
 ### Additional types 
-Apps using the 5.0.0 or higher version of the Event Hub extension use the `ServiceBusReceivedMessage` type in [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) instead of the one in [Microsoft.Azure.ServiceBus namespace](/dotnet/api/microsoft.azure.servicebus.message). This version drops support for the legacy `Message` type in favor of the following types:
+Apps using the 5.0.0 or higher version of the Service Bus extension use the `ServiceBusReceivedMessage` type in [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) instead of the one in [Microsoft.Azure.ServiceBus namespace](/dotnet/api/microsoft.azure.servicebus.message). This version drops support for the legacy `Message` type in favor of the following types:
 
-- [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody)
+- [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage)
 
 # [C# Script](#tab/csharp-script)
 
@@ -366,6 +366,16 @@ The following parameter types are available for the queue or topic message:
   method.
 
 These parameters are for Azure Functions version 1.x; for 2.x and higher, use [`Message`](/dotnet/api/microsoft.azure.servicebus.message) instead of `BrokeredMessage`.
+
+### Additional types 
+Apps using the 5.0.0 or higher version of the Service Bus extension use the `ServiceBusReceivedMessage` type in [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) instead of the one in [Microsoft.Azure.ServiceBus namespace](/dotnet/api/microsoft.azure.servicebus.message). This version drops support for the legacy `Message` type in favor of the following types:
+
+- [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage)
+
+### Additional types 
+Apps using the 5.0.0 or higher version of the Service Bus extension use the `ServiceBusReceivedMessage` type in [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) instead of the one in [Microsoft.Azure.ServiceBus namespace](/dotnet/api/microsoft.azure.servicebus.message). This version drops support for the legacy `Message` type in favor of the following types:
+
+- [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody)
 
 # [Java](#tab/java)
 
@@ -407,8 +417,8 @@ The Service Bus trigger provides several [metadata properties](./functions-bindi
 |`CorrelationId`|`string`|The correlation ID.|
 |`DeadLetterSource`|`string`|The dead letter source.|
 |`DeliveryCount`|`Int32`|The number of deliveries.|
-|`EnqueuedTimeUtc`|`DateTime`|The enqueued time in UTC. (For version 5.x+ of the extension, use `EnqueuedTime`.)|
-|`ExpiresAtUtc`|`DateTime`|The expiration time in UTC. (For version 5.x+ of the extension, use `ExpiresAt`.)|
+|`EnqueuedTimeUtc`|`DateTime`|The enqueued time in UTC.|
+|`ExpiresAtUtc`|`DateTime`|The expiration time in UTC.|
 |`Label`|`string`|The application-specific label.|
 |`MessageId`|`string`|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
 |`MessageReceiver`|`MessageReceiver`|Service Bus message receiver. Can be used to abandon, complete, or deadletter the message.|
@@ -416,9 +426,21 @@ The Service Bus trigger provides several [metadata properties](./functions-bindi
 |`ReplyTo`|`string`|The reply to queue address.|
 |`SequenceNumber`|`long`|The unique number assigned to a message by the Service Bus.|
 |`To`|`string`|The send to address.|
-|`UserProperties`|`IDictionary<string, object>`|Properties set by the sender.|
+|`UserProperties`|`IDictionary<string, object>`|Properties set by the sender. (For version 5.x+ of the extension, use `ExpiresAt`.)|
 
 See [code examples](#example) that use these properties earlier in this article.
+
+### Additional message metadata
+
+The below metadata properties are supported for apps using 5.0.0 of the extension or higher.
+
+|Property|Type|Description|
+|--------|----|-----------|
+|`EnqueuedTime`|`DateTime`|The enqueued time in UTC.|
+|`ExpiresAt`|`DateTime`|The expiration time in UTC.|
+|`Subject`|`DateTime`|The application-specific label which can be used in place of the `Label` metadata property.|
+|`ServiceBusMessageActions`|`ServiceBusMessageActions`|A message receiver which can be used in place of the `MessageReceiver` metadata property.|
+|`ServiceBusSessionMessageActions`|`ServiceBusSessionMessageActions`|A message receiver which can be used in place of the `MessageSession` metadata property.|
 
 ## Next steps
 

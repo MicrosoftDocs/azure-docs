@@ -346,6 +346,11 @@ When working with C# functions:
 
 * To access the session ID, bind to a [`Message`](/dotnet/api/microsoft.azure.servicebus.message) type and use the `sessionId` property.
 
+### Additional types 
+Apps using the 5.0.0 or higher version of the Service Bus extension use the `ServiceBusMessage` type in [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusmessage) instead of the one in [Microsoft.Azure.ServiceBus namespace](/dotnet/api/microsoft.azure.servicebus.message). This version drops support for the legacy `Message` type in favor of the following types:
+
+- [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage)
+
 # [C# Script](#tab/csharp-script)
 
 Use the following parameter types for the output binding:
@@ -362,6 +367,11 @@ When working with C# functions:
 * Async functions need a return value or `IAsyncCollector` instead of an `out` parameter.
 
 * To access the session ID, bind to a [`Message`](/dotnet/api/microsoft.azure.servicebus.message) type and use the `sessionId` property.
+
+### Additional types 
+Apps using the 5.0.0 or higher version of the Service Bus extension use the `ServiceBusMessage` type in [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusmessage) instead of the one in [Microsoft.Azure.ServiceBus namespace](/dotnet/api/microsoft.azure.servicebus.message). This version drops support for the legacy `Message` type in favor of the following types:
+
+- [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage)
 
 # [Java](#tab/java)
 
@@ -397,6 +407,8 @@ This section describes the global configuration settings available for this bind
 > [!NOTE]
 > For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
 
+# [Version 2.x+](#tab/2.x+)
+
 ```json
 {
     "version": "2.0",
@@ -428,6 +440,42 @@ If you have `isSessionsEnabled` set to `true`, the `sessionHandlerOptions` will 
 |autoComplete|true|Whether the trigger should automatically call complete after processing, or if the function code will manually call complete.<br><br>Setting to `false` is only supported in C#.<br><br>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br><br>When set to `false`, you are responsible for calling [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) methods to complete, abandon, or deadletter the message. If an exception is thrown (and none of the `MessageReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed.<br><br>In non-C# functions, exceptions in the function results in the runtime calls `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. |
 |maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate per scaled instance. By default, the Functions runtime processes multiple messages concurrently.|
 |maxConcurrentSessions|2000|The maximum number of sessions that can be handled concurrently per scaled instance.|
+
+# [Version 5.x+](#tab/5.x+)
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "serviceBus": {
+            "prefetchCount": 100,
+            "messageHandlerOptions": {
+                "autoComplete": true,
+                "maxConcurrentCalls": 32,
+                "maxAutoRenewDuration": "00:05:00"
+            },
+            "sessionHandlerOptions": {
+                "autoComplete": false,
+                "messageWaitTimeout": "00:00:30",
+                "maxAutoRenewDuration": "00:55:00",
+                "maxConcurrentSessions": 16
+            }
+        }
+    }
+}
+```
+
+When using service bus extension version 5.x and higher, the following global configuration settings are supported in addition to the 2.x settings in `ServiceBusOptions`.
+
+|Property  |Default | Description |
+|---------|---------|---------|
+|retryOptions|n/a||
+|transportType|AmqpTcp|The type of protocol and transport that will be used for communicating with the Service Bus service.|
+|webProxy|n/a||
+|autoCompleteMessages|true|Determines whether or not to automatically complete messages after successful execution of the function and should be used in place of the `autoComplete` configuration setting.|
+|MaxAutoLockRenewalDuration|00:05:00|This should be used in place of `maxAutoRenewDuration`|
+|maxMessages|1000|Gets or sets the maximum number of messages that will be passed to each function call. This only applies for functions that receive a batch of messages.|
+|sessionIdleTimeout|1000|Gets or sets the maximum number of messages that will be passed to each function call. This only applies for functions that receive a batch of messages.|
 
 ## Next steps
 
