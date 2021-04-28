@@ -54417,7 +54417,12 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-network-topology-considerations.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-network-topology",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-network-topology",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-network-topology-considerations.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-network-topology",
       "redirect_document_id": false
     },
     {

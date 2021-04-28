@@ -90,11 +90,10 @@
       href: application-proxy-configure-single-sign-on-with-kcd.md
     - name: Password-based SSO
       href: application-proxy-configure-single-sign-on-password-vaulting.md
+    - name: Network topology
+      href: application-proxy-network-topology.md
   #   - name: Security
   #     href: application-proxy-security.md
-  #   - name: Network topology
-  #     href: application-proxy-network-topology.md
-
   #   - name: Comparison of remote access solutions
   #     href: application-proxy-migration.md
       # - name: OIDC-based SSO
