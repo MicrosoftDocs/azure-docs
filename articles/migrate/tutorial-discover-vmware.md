@@ -314,7 +314,7 @@ To start vCenter Server discovery, in **Step 3: Provide server credentials to pe
 * [Software inventory](how-to-discover-applications.md) identifies the SQL Server instances that are running on the servers. Using the information it collects, the appliance attempts to connect to the SQL Server instances through the Windows authentication credentials or the SQL Server authentication credentials that are provided on the appliance. Then, it gathers data on SQL Server databases and their properties. The SQL Server discovery is performed once every 24 hours.
 * Discovery of installed applications might take longer than 15 minutes. The duration depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate project in the portal.
 * During software inventory, the added server credentials are iterated against servers and validated for agentless dependency analysis. When the discovery of servers is finished, in the portal, you can enable agentless dependency analysis on the servers. Only the servers on which validation succeeds can be selected to enable agentless dependency analysis.
-* SQL Server instances and databases data start appearing in the portal within 24 hours after you start discovery.
+* SQL Server instances and databases data begin to appear in the portal within 24 hours after you start discovery.
 
 ## Next steps
 
