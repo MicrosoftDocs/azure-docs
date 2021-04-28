@@ -33,8 +33,8 @@ The challenges associated with the use of on-premises user accounts are summariz
 
 | Challenge | Mitigation |
 | - | - |
-| Password management is a manual process that can lead to weaker security and service downtime.| <li>Ensure that password complexity and password change are governed by a robust process that ensures regular updates with strong password.<li>Coordinate password change with a password update on the service, which will help reduce service downtime. |
-| Identifying on-premises user accounts that are acting as service accounts can be difficult. | <li>Document and maintain records of service accounts deployed in your environment.<li>Track the account name and the resources to which they're assigned access.<li>Consider adding a prefix of "svc-" to all user accounts that are used as service accounts. |
+| Password management is a manual process that can lead to weaker security and service downtime.| <li>Make sure that password complexity and password changes are governed by a robust process that ensures regular updates with strong passwords.<li>Coordinate password changes with a password update on the service, which will help reduce service downtime. |
+| Identifying on-premises user accounts that are acting as service accounts can be difficult. | <li>Document and maintain records of service accounts that are deployed in your environment.<li>Track the account name and the resources to which they're assigned access.<li>Consider adding a prefix of "svc-" to all user accounts that are used as service accounts. |
 | | |
 
 
@@ -42,13 +42,13 @@ The challenges associated with the use of on-premises user accounts are summariz
 
 On-premises user accounts are just like any other Active Directory user account. It can be difficult to find such accounts, because no single attribute of a user account identifies it as a service account. 
 
-We recommend that you create an easily identifiable naming convention for any user account that you use as a service account. For example, you might add "svc-" (including the dash) as a prefix and name the service “svc-HRDataConnector.”
+We recommend that you create an easily identifiable naming convention for any user account that you use as a service account. For example, you might add "svc-" as a prefix and name the service “svc-HRDataConnector.”
 
-You can use some of the following criteria to find these service accounts. However, this approach might not find all such accounts.
+You can use some of the following criteria to find these service accounts. However, this approach might not find all accounts, such as:
 
-* Accounts trusted for delegation.  
+* Accounts that are trusted for delegation.  
 * Accounts with service principal names.  
-* Accounts with passwords set to never expire.
+* Accounts with passwords that are set to never expire.
 
 To find the on-premises user accounts you've created for services, you can run the PowerShell commands in the following sections.
 
