@@ -59,6 +59,8 @@ For more information about the ways workflows can access and work with apps, dat
 
   For example, you can start almost any workflow on a schedule when you use the Recurrence trigger. Or, you can have your workflow wait until called when you use the Request trigger. For more information, review [Built-in triggers and actions for Azure Logic Apps](../connectors/built-in.md).
 
+* **Logic app**: The Azure resource to create for building a workflow. Based on your scenario's needs and solution's requirements, you can create logic apps that run in either the Azure multi-tenant, single-tenant, or integration service environment. For more information, see [Host environments for logic apps](#host-environments).
+
 <a name="how-do-logic-apps-work"></a>
 
 ## How logic apps work
@@ -69,7 +71,20 @@ For example, the following workflow starts with a Dynamics trigger that has a bu
 
 ![Logic Apps Designer - example workflow](./media/logic-apps-overview/azure-logic-apps-designer.png)
 
-You can visually create workflows using the Logic Apps designer in the Azure portal, Visual Studio, or Visual Studio Code. Each workflow also has an underlying definition that's described using JavaScript Object Notation (JSON). If you prefer, you can build and customize workflows by using the code view editor in the Azure portal, Visual Studio, or Visual Studio Code. For some creation and management tasks, Logic Apps provides Azure PowerShell and Azure CLI command support. For automated deployment, Logic Apps supports Azure Resource Manager templates.
+You can visually create workflows using the Logic Apps designer in the Azure portal, Visual Studio Code, or Visual Studio. Each workflow also has an underlying definition that's described using JavaScript Object Notation (JSON). If you prefer, you can build and customize workflows by using the code view editor in the Azure portal, Visual Studio, or Visual Studio Code. For some creation and management tasks, Logic Apps provides Azure PowerShell and Azure CLI command support. For automated deployment, Logic Apps supports Azure Resource Manager templates.
+
+<a name="host-environments"></a>
+
+## Host environments for logic apps
+
+Based on your scenario's needs and solution's requirements, you can create logic apps in environments that differ based on how workflows use and share resources. The following table briefly summarizes these differences. Logic apps in different environments also have different limits. For more information, see [Limits in Logic Apps](logic-apps-limits-and-config.md) and [Limits in Logic Apps (Preview)](logic-apps-overview-preview.md#limits).
+
+| Azure environment | [Pricing model](logic-apps-pricing.md) | Description |
+|-------------------|----------------------------------------|-------------|
+| Multi-tenant | Consumption | A logic app can have only one workflow. <p><p>Workflows from different logic apps across *multiple tenants* share the same processing (compute), storage, network, and so on. |
+| [Single-tenant (Preview)](logic-apps-overview-preview.md) | Standard | A logic app can have multiple workflows. <p><p>Workflows from the *same logic app in a single tenant* share the same processing (compute), storage, network, and so on. |
+| [Integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) | Fixed | A logic app can have only one workflow. <p><p>Workflows from different logic apps in the *same environment* share the same processing (compute), storage, network, and so on. |
+||||
 
 ## Why use Logic Apps
 
@@ -83,57 +98,43 @@ To learn how other companies improved their agility and increased focus on their
 
 The following sections provide more information about the capabilities and benefits that you get with Logic Apps:
 
-#### Visually build workflows with easy-to-use tools
+#### Visually create and edit workflows with easy-to-use tools
 
-Save time and simplify complex processes with visual design tools. Build workflows from start-to-finish by using the Logic Apps Designer through your browser in the Azure portal or in Visual Studio. Start your workflow with a trigger, and add any number of actions from the [connectors gallery](../connectors/apis-list.md).
+Save time and simplify complex processes by using the visual design tools in Logic Apps. Create your workflows from start to finish by using the Logic Apps Designer in the Azure portal, Visual Studio Code, or Visual Studio. Just start your workflow with a trigger, and add any number of actions from the [connectors gallery](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
-#### Get started faster with Logic Apps templates
+If you're creating a multi-tenant logic app, get started faster when you [create a workflow from the templates gallery](../logic-apps/logic-apps-create-logic-apps-from-templates.md). These templates are available for common workflow patterns, which range from simple connectivity for Software-as-a-Service (SaaS) apps to advanced B2B solutions plus "just for fun" templates.
 
-Create commonly used solutions more quickly when you choose predefined workflows from the [template gallery](../logic-apps/logic-apps-create-logic-apps-from-templates.md). Templates range from simple connectivity for software-as-a-service (SaaS) apps to advanced B2B solutions plus "just for fun" templates. Learn how to [create logic apps from prebuilt templates](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
+#### Connect different systems across various environments
 
-#### Connect disparate systems across different environments
-
-Some patterns and processes are easy to describe but hard to implement in code. Logic Apps workflows help you seamlessly connect disparate systems across on-premises and cloud environments. For example, you can connect a cloud marketing solution to an on-premises billing system, or centralize messaging across APIs and systems with an Enterprise Service Bus. The Logic Apps platform provides a fast, reliable, and consistent way to deliver reusable and reconfigurable solutions for these scenarios.
-
-#### First-class support for enterprise integration and B2B scenarios
-
-Businesses and organizations electronically communicate with each other by using industry-standard but different message protocols and formats, such as EDIFACT, AS2, and X12. With the features in the [Enterprise Integration Pack (EIP)](../logic-apps/logic-apps-enterprise-integration-overview.md), you can build workflows that transform message formats used by your partners into formats that your organization's systems can interpret and process. Logic Apps handles these exchanges smoothly and also securely with encryption and digital signatures.
-
-Start small with your current systems and services, and grow incrementally at your own pace. When you're ready, Logic Apps and the EIP help you implement and scale up to more mature integration scenarios by providing these capabilities and more:
-
-* Build off these products and services:
-
-  * [Microsoft BizTalk Server](/biztalk/core/introducing-biztalk-server)
-  * [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
-  * [Azure Functions](../azure-functions/functions-overview.md)
-  * [Azure API Management](../api-management/api-management-key-concepts.md)
-
-* Process [XML messages](../logic-apps/logic-apps-enterprise-integration-xml.md)
-
-* Process [flat files](../logic-apps/logic-apps-enterprise-integration-flatfile.md)
-
-* Exchange messages with [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md), [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), and [X12](../logic-apps/logic-apps-enterprise-integration-x12.md) protocols
-
-* Store and manage these B2B artifacts and more in one place with [integration accounts](./logic-apps-enterprise-integration-create-integration-account.md):
-
-  * [Partners](../logic-apps/logic-apps-enterprise-integration-partners.md)
-  * [Agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md) 
-  * [XML transform maps](../logic-apps/logic-apps-enterprise-integration-maps.md)
-  * [XML validation schemas](../logic-apps/logic-apps-enterprise-integration-schemas.md)
-
-For example, if you're using Microsoft BizTalk Server, logic apps can communicate with your BizTalk Server by using the [BizTalk Server connector](../connectors/managed.md#on-premises-connectors). You can then extend or run BizTalk-like operations in your workflows by including [integration account connectors](../connectors/managed.md#integration-account-connectors), which are available with the Enterprise Integration Pack.
-
-Going in the other direction, BizTalk Server can connect to and communicate with logic apps by using the [Microsoft BizTalk Server Adapter for Logic Apps](https://www.microsoft.com/download/details.aspx?id=54287). Learn how to [set up and use the BizTalk Server Adapter](/biztalk/core/logic-app-adapter) in your BizTalk Server.
+Some patterns and processes are easy to describe but hard to implement in code. The Logic Apps platform helps you seamlessly connect disparate systems across cloud, on-premises, and hybrid environments. For example, you can connect a cloud marketing solution to an on-premises billing system, or centralize messaging across APIs and systems using Azure Service Bus. Logic Apps provides a fast, reliable, and consistent way to deliver reusable and reconfigurable solutions for these scenarios.
 
 #### Write once, reuse often
 
-Create your logic apps as Azure Resource Manager templates so that you can [automate logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) across multiple environments and regions.
+Create your logic apps as Azure Resource Manager templates so that you can [set up and automate deployments](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) across multiple environments and regions.
+
+#### First-class support for enterprise integration and B2B scenarios
+
+Businesses and organizations electronically communicate with each other by using industry-standard but different message protocols and formats, such as EDIFACT, AS2, and X12. By using the [enterprise integration capabilities](../logic-apps/logic-apps-enterprise-integration-overview.md) supported by Logic Apps, you can create workflows that transform message formats used by trading partners into formats that your organization's systems can interpret and process. Logic Apps handles these exchanges smoothly and securely with encryption and digital signatures.
+
+You can start small with your current systems and services, and then grow incrementally at your own pace. When you're ready, the Logic Apps platform helps you implement and scale up to more mature integration scenarios by providing these capabilities and more:
+
+* Integrate and build off [Microsoft BizTalk Server](/biztalk/core/introducing-biztalk-server), [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), [Azure Functions](../azure-functions/functions-overview.md), [Azure API Management](../api-management/api-management-key-concepts.md), and more.
+
+* Process [XML messages](../logic-apps/logic-apps-enterprise-integration-xml.md).
+
+* Process [flat files](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
+
+* Exchange messages using [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md), [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), and [X12](../logic-apps/logic-apps-enterprise-integration-x12.md) protocols.
+
+* Create and use an [integration account](./logic-apps-enterprise-integration-create-integration-account.md) to store and manage all your B2B artifacts such as [trading partners](../logic-apps/logic-apps-enterprise-integration-partners.md), [agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md), [XML transform maps](../logic-apps/logic-apps-enterprise-integration-maps.md), [XML validation schemas](../logic-apps/logic-apps-enterprise-integration-schemas.md), and more.
+
+For example, if you use Microsoft BizTalk Server, your workflows can communicate with your BizTalk Server using the [BizTalk Server connector](../connectors/managed.md#on-premises-connectors). You can then run or extend BizTalk-like operations in your workflows by using [integration account connectors](../connectors/managed.md#integration-account-connectors). Going in the other direction, BizTalk Server can communicate with your workflows by using the [Microsoft BizTalk Server Adapter for Logic Apps](https://www.microsoft.com/download/details.aspx?id=54287). Learn how to [set up and use the BizTalk Server Adapter](/biztalk/core/logic-app-adapter) in your BizTalk Server.
 
 #### Access resources inside Azure virtual networks
 
-Logic apps can access secured resources, such as virtual machines (VMs) and other systems or services, that are inside an [Azure virtual network](../virtual-network/virtual-networks-overview.md) when you create an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). An ISE is a dedicated instance of the Logic Apps service that uses dedicated resources and runs separately from the "global" multi-tenant Logic Apps service.
+Logic app workflows can access secured resources, such as virtual machines (VMs) and other systems or services, that are inside an [Azure virtual network](../virtual-network/virtual-networks-overview.md) when you create an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). An ISE is a dedicated instance of the Logic Apps service that uses dedicated resources and runs separately from the global multi-tenant Logic Apps service.
 
-Running logic apps in your own separate dedicated instance helps reduce the impact that other Azure tenants might have on your apps' performance, also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). An ISE also provides these benefits:
+Running logic apps in your own dedicated instance helps reduce the impact that other Azure tenants might have on app performance, also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). An ISE also provides these benefits:
 
 * Your own static IP addresses, which are separate from the static IP addresses that are shared by the logic apps in the multi-tenant service. You can also set up a single public, static, and predictable outbound IP address to communicate with destination systems. That way, you don't have to set up extra firewall openings at those destination systems for each ISE.
 
@@ -143,7 +144,7 @@ When you create an ISE, Azure *injects* or deploys that ISE into your Azure virt
 
 #### Built-in extensibility
 
-If you don't find the connector that you want to run custom code, you can extend logic apps by creating and calling your own code snippets on-demand through [Azure Functions](../azure-functions/functions-overview.md). Create your own [APIs](../logic-apps/logic-apps-create-api-app.md) and [custom connectors](../logic-apps/custom-connector-overview.md) that you can call from logic apps.
+If no suitable connector is available to run the code you want, you can create and call your own code snippets by using [Azure Functions](../azure-functions/functions-overview.md). Or, create your own [APIs](../logic-apps/logic-apps-create-api-app.md) and [custom connectors](../logic-apps/custom-connector-overview.md) that you can call from your workflows.
 
 #### Pricing options
 
@@ -159,16 +160,14 @@ Learn more about Logic Apps with these introductory videos:
 
 ## How does Logic Apps differ from Functions, WebJobs, and Power Automate?
 
-All these services help you "glue" and connect disparate systems together. Each service has their advantages and benefits, so combining their capabilities is the best way to quickly build a scalable, full-featured integration system. For more information, see [Choose between Logic Apps, Functions, WebJobs, and Power Automate](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
+All these services help you connect and bring together disparate systems. Each service has their advantages and benefits, so combining their capabilities is the best way to quickly build a scalable, full-featured integration system. For more information, see [Choose between Logic Apps, Functions, WebJobs, and Power Automate](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
 ## Get started
 
-Logic Apps is one of the many services hosted on Microsoft Azure. So before you start, you need an Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
-
-If you have an Azure subscription, try this [quickstart to create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), which monitors new content on a website through an RSS feed and sends email when new content appears.
+Before you can start with Azure Logic Apps, you need an Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). Otherwise, try this [quickstart to create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), which monitors new content on a website through an RSS feed and sends email when new content appears.
 
 ## Next steps
 
-* [Check traffic with a schedule-based logic app](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
-* Learn more about [serverless solutions with Azure](../logic-apps/logic-apps-serverless-overview.md)
-* Learn more about [B2B integration with the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
+* [Quickstart: Create your first logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Learn about [serverless solutions with Azure](../logic-apps/logic-apps-serverless-overview.md)
+* Learn about [B2B integration with the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
