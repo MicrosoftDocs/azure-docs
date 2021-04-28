@@ -19,9 +19,7 @@ Applies to the following offer type:
 
 - Dynamics 365 for Customer Engagement & Power Apps
 
-_Third-party app license management through Microsoft_ enables independent software vendors (ISVs) who build solutions using Dynamics 365 and Power BI suite of products to manage their licenses in Partner Center to monetize their apps. Managing your app licenses through Microsoft helps you to enforce licensing on your apps without having to understand the licensing stack or manage a high scale licensing solution.
-
-Previously, ISVs did not have a way to enforce restrictions on their apps to monetize them in the commercial marketplace. Some ISVs have built a custom licensing engine in-house. But custom licensing engines are difficult to manage and scale. Some ISVs used rudimentary solutions from a third-party company.
+_Third-party app license management through Microsoft_ enables independent software vendors (ISVs) who build solutions using Dynamics 365 suite of products to manage their licenses in Partner Center to monetize their apps. Managing your app licenses through Microsoft helps you to enforce licensing on your apps without having to understand the licensing stack or manage a high scale licensing solution.
 
 > [!NOTE]
 > Third-party app license management through Microsoft is only available to ISVs participating in the ISV Connect program and supports only non-transact offers.
