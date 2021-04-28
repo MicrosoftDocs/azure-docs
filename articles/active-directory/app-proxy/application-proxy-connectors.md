@@ -19,7 +19,7 @@ Connectors are what make Azure AD Application Proxy possible. They're simple, ea
 
 ## What is an Application Proxy connector?
 
-Connectors are lightweight agents that sit on-premises and facilitate the outbound connection to the Application Proxy service. Connectors must be installed on a Windows Server that has access to the backend application. You can organize connectors into connector groups, with each group handling traffic to specific applications. For more infromation on Application proxy and a diagrammatic representation of application proxy architecture see [Using Azure AD Application Proxy to publish on-premises apps for remote users](what-is-application-proxy.md#application-proxy-connectors)
+Connectors are lightweight agents that sit on-premises and facilitate the outbound connection to the Application Proxy service. Connectors must be installed on a Windows Server that has access to the backend application. You can organize connectors into connector groups, with each group handling traffic to specific applications. For more information on Application proxy and a diagrammatic representation of application proxy architecture see [Using Azure AD Application Proxy to publish on-premises apps for remote users](what-is-application-proxy.md#application-proxy-connectors)
 
 ## Requirements and deployment
 
@@ -74,7 +74,7 @@ To see information about previously released versions and what changes they incl
 
 ## Creating connector groups
 
-Connector groups enable you to assign specific connectors to serve specific applications. You can group a number of connectors together, and then assign each application to a group.
+Connector groups enable you to assign specific connectors to serve specific applications. You can group many connectors together, and then assign each application to a group.
 
 Connector groups make it easier to manage large deployments. They also improve latency for tenants that have applications hosted in different regions, because you can create location-based connector groups to serve only local applications.
 
@@ -124,7 +124,7 @@ Another factor that affects performance is the quality of the networking between
 - **The backend applications**: In some cases, there are additional proxies between the connector and the backend applications that can slow or prevent connections. To troubleshoot this scenario, open a browser from the connector server and try to access the application. If you run the connectors in Azure but the applications are on-premises, the experience might not be what your users expect.
 - **The domain controllers**: If the connectors perform single sign-on (SSO) using Kerberos Constrained Delegation, they contact the domain controllers before sending the request to the backend. The connectors have a cache of Kerberos tickets, but in a busy environment the responsiveness of the domain controllers can affect performance. This issue is more common for connectors that run in Azure but communicate with domain controllers that are on-premises.
 
-For more information about optimizing your network, see [Network topology considerations when using Azure Active Directory Application Proxy](../manage-apps/application-proxy-network-topology.md).
+For more information about optimizing your network, see [Network topology considerations when using Azure Active Directory Application Proxy](application-proxy-network-topology.md).
 
 ## Domain joining
 

@@ -38,7 +38,7 @@ Welcome to what's new in Azure Active Directory application management documenta
 - [Active Directory (Azure AD) Application Proxy frequently asked questions](../app-proxy/application-proxy-faq.yml)
 - [Troubleshoot problems signing in to an application from Azure AD My Apps](application-sign-in-other-problem-access-panel.md)
 - [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md)
-- [Optimize traffic flow with Azure Active Directory Application Proxy](application-proxy-network-topology.md)
+- [Optimize traffic flow with Azure Active Directory Application Proxy](../app-proxy/application-proxy-network-topology.md)
 - [Azure AD Application Proxy: Version release history](application-proxy-release-version-history.md)
 - [Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy](configure-authentication-for-federated-users-portal.md)
 - [Moving application authentication from Active Directory Federation Services to Azure Active Directory](migrate-adfs-apps-to-azure.md)

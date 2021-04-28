@@ -66,7 +66,7 @@ For high availability in your production environment, we recommend having more t
 
 #### Recommendations for the connector server
 
-1. Physically locate the connector server close to the application servers to optimize performance between the connector and the application. For more information, see [Optimize traffic flow with Azure Active Directory Application Proxy](../manage-apps/application-proxy-network-topology.md).
+1. Physically locate the connector server close to the application servers to optimize performance between the connector and the application. For more information, see [Optimize traffic flow with Azure Active Directory Application Proxy](application-proxy-network-topology.md).
 1. The connector server and the web applications servers should belong to the same Active Directory domain or span trusting domains. Having the servers in the same domain or trusting domains is a requirement for using single sign-on (SSO) with Integrated Windows Authentication (IWA) and Kerberos Constrained Delegation (KCD). If the connector server and web application servers are in different Active Directory domains, you need to use resource-based delegation for single sign-on. For more information, see [KCD for single sign-on with Application Proxy](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md).
 
 > [!WARNING]
@@ -161,7 +161,7 @@ If you've previously installed a connector, reinstall to get the latest version.
 
 If you choose to have more than one Windows server for your on-premises applications, you'll need to install and register the connector on each server. You can organize the connectors into connector groups. For more information, see [Connector groups](../manage-apps/application-proxy-connector-groups.md).
 
-If you have installed connectors in different regions, you can optimize traffic by selecting the closest Application Proxy cloud service region to use with each connector group, see [Optimize traffic flow with Azure Active Directory Application Proxy](../manage-apps/application-proxy-network-topology.md)
+If you have installed connectors in different regions, you can optimize traffic by selecting the closest Application Proxy cloud service region to use with each connector group, see [Optimize traffic flow with Azure Active Directory Application Proxy](application-proxy-network-topology.md)
 
 If your organization uses proxy servers to connect to the internet, you need to configure them for Application Proxy.  For more information, see [Work with existing on-premises proxy servers](../manage-apps/application-proxy-configure-connectors-with-proxy-servers.md). 
 

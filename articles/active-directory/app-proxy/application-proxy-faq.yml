@@ -109,7 +109,7 @@ sections:
       - question: |
          Does the Azure AD Application Proxy connector have to be on the same subnet as the resource?
         answer: |
-              The connector isn't required to be on the same subnet. However, it needs name resolution (DNS, hosts file) to the resource and the necessary network connectivity (routing to the resource, ports open on the resource, etc.). For recommendations, see [Network topology considerations when using Azure Active Directory Application Proxy](../manage-apps/application-proxy-network-topology.md).
+              The connector isn't required to be on the same subnet. However, it needs name resolution (DNS, hosts file) to the resource and the necessary network connectivity (routing to the resource, ports open on the resource, etc.). For recommendations, see [Network topology considerations when using Azure Active Directory Application Proxy](application-proxy-network-topology.md).
           
       - question: |
          What versions of Windows Server can I install a connector on?

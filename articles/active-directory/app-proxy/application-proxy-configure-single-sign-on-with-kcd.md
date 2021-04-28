@@ -101,7 +101,7 @@ If you configure a connector machine for SPNEGO, make sure that all other connec
 
 To enable SPNEGO:
 
-1. Open an command prompt that runs as administrator.
+1. Open a command prompt that runs as administrator.
 2. From the command prompt, run the following commands on the connector servers that need SPNEGO.
 
     ```
