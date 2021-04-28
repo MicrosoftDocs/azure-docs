@@ -44,11 +44,11 @@ In this example, you'll create a three secrets that you can use to authenticate 
 
 1. Open your GitHub repository and go to **Settings**.
 
-    :::image type="content" source="media/github-repo-settings.png" alt-text="Select Settings in the navigation.":::
+    :::image type="content" source="articles/container-instances/media/container-instances-container-scan/github-repo-settings.png" alt-text="Select Settings in the navigation.":::
 
 1. Select **Secrets** and then **New Secret**.
 
-    :::image type="content" source="media/select-secrets.png" alt-text="Choose to add a secret.":::
+    :::image type="content" source="articles/container-instances/media/container-instances-container-scan/azure-secret-add.png" alt-text="Choose to add a secret.":::
 
 1. Paste the following values for each secret created with the following values from the Azure Portal by navigating to the **Access Keys** in the Container Registry. 
 
