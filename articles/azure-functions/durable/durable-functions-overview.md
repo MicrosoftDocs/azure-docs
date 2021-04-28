@@ -396,8 +396,6 @@ main = df.Orchestrator.create(orchestrator_function)
 # [PowerShell](#tab/powershell)
 
 ```powershell
-using namespace System.Net
-
 param($Context)
 
 Write-Host 'MonitorOrchestrator: started.'
@@ -528,8 +526,6 @@ To create the durable timer, call `context.create_timer`. The notification is re
 # [PowerShell](#tab/powershell)
 
 ```powershell
-using namespace System.Net
-
 param($Context)
 
 Write-Host 'HumanInteractionOrchestrator: started.'
@@ -610,7 +606,11 @@ async def main(client: str):
 
 # [PowerShell](#tab/powershell)
 
-Human interaction is currently not supported in PowerShell.
+```powershell
+
+Send-DurableExternalEvent -InstanceId $InstanceId -EventName "ApprovalEvent" -EventData "true"
+
+``````
 
 ---
 
