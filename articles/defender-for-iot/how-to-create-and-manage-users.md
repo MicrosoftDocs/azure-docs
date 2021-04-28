@@ -192,6 +192,21 @@ If you are creating Active Directory groups for on-premises management console u
 
 2. To add a trusted server, select **Add Server** and configure another server.
 
+## Change the default password
+
+To change the default password for users, for either the sensor or the on-premises management console:
+
+1. Select the Users tab :::image type="icon" source="media/resources-agent-frequently-asked-questions/users-tab.png" border="false"::: from the left side toolbar.
+
+1. Select the edit icon :::image type="icon" source="media/resources-agent-frequently-asked-questions/pencil-icon.png" border="false"::: for the user whose password you want to change.
+
+1. In the change password fields enter a new password, and confirm the new password.
+
+> [!NOTE]
+> Passwords must be at least 16 characters, contain lowercase and uppercase alphabetic characters, numbers and one of the symbols: #%*+,-./:=?@[]^_{}~
+
+1. Select **Update**.
+
 ## Resetting passwords
 
 ### CyberX or Support user

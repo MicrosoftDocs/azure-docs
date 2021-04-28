@@ -150,7 +150,7 @@
     - name: Manage users and user access
       items:
       - name: Create and manage users
-        displayName: Active Directory, roles, permissions
+        displayName: Active Directory, roles, permissions, password, passwords, change, reset
         href: how-to-create-and-manage-users.md
       - name: Define global user access control
         href: how-to-define-global-user-access-control.md
