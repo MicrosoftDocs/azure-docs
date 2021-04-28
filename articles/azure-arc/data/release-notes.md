@@ -22,9 +22,12 @@ This article highlights capabilities, features, and enhancements recently releas
 
 ### What's new
 
+#### Platform
+A direct connected cluster can enable Azure monitor capabilities to monitor their instances via the Azure portal.
+
 #### 	Azure Arc enabled PostgreSQL Hyperscale
 
-- Azure Arc enabled PostgreSQL Hyperscale is now supported in Direct connect mode. You now can deploy Azure Arc enabled PostgreSQL Hyperscale from the Azure Market Place in the Azure Portal. 
+- Azure Arc enabled PostgreSQL Hyperscale is now supported in Direct connect mode. You now can deploy Azure Arc enabled PostgreSQL Hyperscale from the Azure Market Place in the Azure portal. 
 - Azure Arc enabled PostgreSQL Hyperscale ships with the Citus 10.0 extension which features columnar table storage
 - Azure Arc enabled PostgreSQL Hyperscale  now supports full user/role management.
 - Azure Arc enabled PostgreSQL Hyperscale  now supports additional extensions with Tdigest and  pg_partman.
