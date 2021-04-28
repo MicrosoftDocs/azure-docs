@@ -195,3 +195,16 @@ POST [your-fhir-server]/Patient/_search?_id=45
 ```
 
 This request would return all `Patient` resources with the `id` value of 45. Just as in GET requests, the server determines which of the set of resources meets the condition(s), and returns a bundle resource in the HTTP response.
+
+Another example of searching using POST where the query parameters are submitted as a form body is:
+
+```rest
+POST [your-fhir-server]/Patient/_search
+content-type: application/x-www-form-urlencoded
+
+name=John
+
+```
+
+
+

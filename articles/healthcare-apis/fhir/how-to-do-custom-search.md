@@ -94,7 +94,7 @@ To update a search parameter, use `PUT` to create a new version of the search pa
 You must include the `SearchParameter ID` in the ID field of the body of the `PUT` request and in the `PUT` call.
 
 > [!NOTE]
-> If you don't know the ID for your search parameter, you can search for it. Using `GET {fhirurl}/SearchParameter` will return all custom search parameters, and you can scroll through it to find your search parameter. You could also limit the search by name. With the example below, you could search for name using `USCoreRace: GET {fhirurl}/SearchParameter?name=USCoreRace`.
+> If you don't know the ID for your search parameter, you can search for it. Using `GET {fhirurl}/SearchParameter` will return all custom search parameters, and you can scroll through the search parameter to find the search parameter you need. You could also limit the search by name. With the example below, you could search for name using `USCoreRace: GET {fhirurl}/SearchParameter?name=USCoreRace`.
 
 ```json
 {
