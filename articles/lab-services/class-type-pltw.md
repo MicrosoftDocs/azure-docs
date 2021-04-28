@@ -78,7 +78,7 @@ The size of the virtual machine (VM) that we recommend using for PLTW classes de
 ### License server
 Most of the software that's used in the earlier-mentioned PLTW classes do *not* require access to a license server.  However, you'll need to access a license server if you plan to use the Autodesk network licensing model for the following software:
 -   Revit
--   Inventor
+-   Inventor CAD
 -   Inventor CAM
 
 To use network licensing with Autodesk software, [PLTW provides detailed steps](https://www.pltw.org/pltw-software) to install Autodesk Network License Manager on your license server.  This license server is ordinarily located in either your on-premises network or hosted on an Azure virtual machine (VM) within in Azure virtual network.

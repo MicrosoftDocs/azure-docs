@@ -9,6 +9,11 @@ ms.date: 06/26/2020
 
 Azure Lab Services enables you to quickly set up classroom lab environments in the cloud. Articles in this section provide guidance on how to set up several types of labs using Azure Lab Services.
 
+## Adobe Creative Cloud
+The [Adobe Creative Cloud](https://www.adobe.com/creativecloud.html) collection of applications are commonly used in digital arts and media classes.  
+
+For detailed information on how to set up this type of lab, see [Setup a lab for Adobe Creative Cloud](class-type-adobecreativecloud.md).
+
 ## ArcGIS
 [ArcGIS](https://www.esri.com/en-us/arcgis/products/arcgis-solutions/overview) is a type of geographic information system (GIS).  You can set up a lab that uses ArcGIS Desktop's various applications, such as [ArcMap](https://desktop.arcgis.com/en/arcmap/latest/map/main/what-is-arcmap-.htm) to make, edit, and analyze 2D maps.
 
