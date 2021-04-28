@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2021
+ms.date: 04/28/2021
 ms.author: bagol
 
 ---
@@ -22,7 +22,9 @@ ms.author: bagol
 
 This article describes Microsoft resources and recommendations for recovering from a systemic identity compromise attack against your organization, such as the [Nobelium](https://aka.ms/solorigate) attack of December 2020.
 
-The content in this article is based on guidance provided by Microsoft's Detection and Response Team (DART), which works to respond to compromises and help customers become cyber-resilient. For more guidance from the DART team, see their [Microsoft security blog series](https://www.microsoft.com/security/blog/microsoft-detection-and-response-team-dart-blog-series/). 
+The content in this article is based on guidance provided by Microsoft's Detection and Response Team (DART), which works to respond to compromises and help customers become cyber-resilient. For more guidance from the DART team, see their [Microsoft security blog series](https://www.microsoft.com/security/blog/microsoft-detection-and-response-team-dart-blog-series/).
+
+Many organizations have transitioned to a cloud-based approach for stronger security on their identity and access management. However, your organization may also have on-premises systems in place and use varying methods of hybrid architecture. This article acknowledges that systemic identity attacks affect cloud, on-premises, and hybrid systems, and provides recommendations and references for all of these environments.
 
 > [!IMPORTANT]
 > This information is provided as-is and constitutes generalized guidance; the ultimate determination about how to apply this guidance to your IT environment and tenant(s) must consider your unique environment and needs, which each Customer is in the best position to determine.
@@ -194,8 +196,6 @@ The following table describes more methods for using Azure Active directory logs
 
 ## Remediate and retain administrative control
 
-<!-- zero trust?-->
-
 If your investigation has identified that the attacker has administrative control in the organization’s cloud or on-premises environment, you must regain control in such a way that you ensure that the attacker isn't persistent.
 
 This section provides possible methods and steps to consider when building your administrative control recovery plan.
@@ -352,12 +352,7 @@ For example, an attacker who becomes aware of the detection might change techniq
 
 Make sure to remediate any persistence techniques that you've identified in earlier stages of the investigation.
 
-> [!TIP]
-> For Microsoft 365 accounts, you can automatically remediate known persistence techniques, if any are discovered, using the scripts provided. <!-- what are these?-->
-> 
 ### Remediate user and service account access
-
-<!-- zero trust?-->
 
 In addition to the recommended actions listed above, we recommend that you consider the following steps to remediate and restore user accounts:
 
