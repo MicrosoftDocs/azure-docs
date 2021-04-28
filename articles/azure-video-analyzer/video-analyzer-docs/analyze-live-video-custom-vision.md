@@ -91,7 +91,7 @@ Additional notes:
 
 After you're finished, you can export the model to a Docker container by using the **Export** button on the **Performance** tab. Ensure you choose Linux as the container platform type. This is the platform on which the container will run. The machine you download the container on could be either Windows or Linux. The instructions that follow were based on the container file downloaded onto a Windows machine.
 
-![Screen that shows Dockerfile selected.](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/custom-vision-tutorial/docker-file.png)
+![Screen that shows Dockerfile selected.](./media/custom-vision/docker-file.png)
 
 1. You should have a zip file downloaded onto your local machine named `<projectname>.DockerFile.Linux.zip`.
 2. Check if you have Docker installed. If not, install [Docker](https://docs.docker.com/get-docker/) for your Windows desktop.
@@ -155,7 +155,7 @@ After you're finished, you can export the model to a Docker container by using t
 4. Under `livePipelineDelete`, ensure `"name": "InferencingWithHttpExtension"`.
 5. Right-click the src/edge/ deployment.customvision.template.json file, and select **Generate IoT Edge Deployment Manifest**.
 
-   ![Screenshot that shows Generate IoT Edge Deployment Manifest.](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/custom-vision-tutorial/deployment-template-json.png)
+   ![Screenshot that shows Generate IoT Edge Deployment Manifest.](./media/custom-vision/deployment-template-json.png)
 
    This action should create a manifest file in the src/edge/config folder named deployment.customvision.amd64.json.
 6. Open the src/edge/ deployment.customvision.template.json file, and find the `registryCredentials` JSON block. In this block, you'll find the address of your Azure container registry along with its username and password.
@@ -178,10 +178,10 @@ After you're finished, you can export the model to a Docker container by using t
    4. You can also confirm by checking your Azure Container Registry instance in the Azure portal. Here you'll see the name of the repository along with the tag.
 8. Set the IoT Hub connection string by selecting the **More actions** icon next to the **AZURE IOT HUB** pane in the lower-left corner. You can copy the string from the appsettings.json file. (Here's another recommended approach to ensure you have the proper IoT hub configured within Visual Studio Code via the [Select IoT Hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).)
 
-   ![Screenshot that shows Set IoT Hub Connection String.](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/custom-vision-tutorial/connection-string.png)
+   ![Screenshot that shows Set IoT Hub Connection String.](./media/custom-vision/connection-string.png)
 9. Next, right-click src/edge/config/ deployment.customvision.amd64.json, and select **Create Deployment for Single Device**.
 
-   ![Screenshot that shows Create Deployment for Single Device.](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/custom-vision-tutorial/deployment-amd64-json.png)
+   ![Screenshot that shows Create Deployment for Single Device.](./media/custom-vision/deployment-amd64-json.png)
 10. You'll then be asked to select an IoT Hub device. Select **ava-sample-device** from the drop-down list.
 11. In about 30 seconds, refresh the Azure IoT hub in the lower-left section. You should have the edge device with the following modules deployed:
 
@@ -193,7 +193,7 @@ After you're finished, you can export the model to a Docker container by using t
 
 Right-click the ava-sample-device, and select **Start Monitoring Built-in Event Endpoint**. You need this step to monitor the IoT Hub events in the **OUTPUT** window of Visual Studio Code.
 
-![Screenshot that shows Start Monitoring Built-in Event Endpoint.](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/custom-vision-tutorial/start-monitoring.png)
+![Screenshot that shows Start Monitoring Built-in Event Endpoint.](./media/custom-vision/start-monitoring.png)
 
 ## Run the sample program
 
@@ -202,10 +202,10 @@ If you open the graph topology for this tutorial in a browser, you'll see that t
 1. In Visual Studio Code, open the **Extensions** tab (or select **Ctrl+Shift+X**) and search for Azure IoT Hub.
 2. Right-click and select **Extension Settings**.
 
-   ![Screenshot that shows Extension Settings.](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/run-program/extensions-tab.png)
+   ![Screenshot that shows Extension Settings.](./media/custom-vision/extensions-tab.png)
 3. Search and enable **Show Verbose Message**.
 
-   ![Screenshot that shows Show Verbose Message.](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/run-program/show-verbose-message.png)
+   ![Screenshot that shows Show Verbose Message.](./media/custom-vision/show-verbose-message.png)
 4. To start a debugging session, select the **F5** key. You see messages printed in the **TERMINAL** window.
 5. The operations.json code starts off with calls to the direct methods `livePipelineList` and `livePipelineList`. If you cleaned up resources after you completed previous quickstarts, this process will return empty lists and then pause. To continue, select the **Enter** key.
 
