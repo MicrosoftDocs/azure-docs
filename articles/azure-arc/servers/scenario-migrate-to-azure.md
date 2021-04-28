@@ -1,7 +1,7 @@
 ---
 title: Migrate Azure Arc enabled server to Azure
 description: Learn how to migrate your Azure Arc enabled servers running on-premises or other cloud environment to Azure.
-ms.date: 04/27/2021
+ms.date: 04/28/2021
 ms.topic: conceptual
 ---
 
@@ -64,3 +64,5 @@ After migration and completion of all post-migration configuration steps, you ca
 If the Log Analytics VM extension or Dependency agent VM extension was deployed using Azure Policy and the [VM insights initiative](../../azure-monitor/vm/vminsights-enable-policy.md), remove the [exclusion](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion) you created earlier. To use Azure Policy to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](../../azure-monitor/deploy-scale.md#vm-insights). 
 
 ## Next steps
+
+Troubleshooting information can be found in the [Troubleshoot Connected Machine agent](troubleshoot-agent-onboard.md) guide.
