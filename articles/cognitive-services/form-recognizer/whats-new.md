@@ -44,7 +44,7 @@ SDK preview version 3.1.0-beta.4
    **[RecognizeInvoicesOptions](/dotnet/api/azure.ai.formrecognizer.recognizeinvoicesoptions?view=azure-dotnet-preview&preserve-view=true)**</br>
    **[RecognizeReceiptsOptions](/dotnet/api/azure.ai.formrecognizer.recognizereceiptsoptions?view=azure-dotnet-preview&preserve-view=true)**</br>
 
-   The `Pages` property allows you to select individual or a range of pages for multi-page PDF and TIFF documents. For individual pages, enter the page number, for example, `3`. For a range of pages (like page 2 and pages 5-7) enter the p    age numbers and ranges separated by commas: `2, 5-7`.    
+   The `Pages` property allows you to select individual or a range of pages for multi-page PDF and TIFF documents. For individual pages, enter the page number, for example, `3`. For a range of pages (like page 2 and pages 5-7) enter the p    age numbers and ranges separated by commas: `2, 5-7`.
 
 * **New property `ReadingOrder` supported for the following class**:
 
@@ -57,8 +57,6 @@ SDK preview version 3.1.0-beta.4
 * The client defaults to the latest supported service version, which is currently **2.1-preview.3**.
 
 * **[StartRecognizeCustomForms](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient.startrecognizecustomforms?view=azure-dotnet-preview&preserve-view=true#Azure_AI_FormRecognizer_FormRecognizerClient_StartRecognizeCustomForms_System_String_System_IO_Stream_Azure_AI_FormRecognizer_RecognizeCustomFormsOptions_System_Threading_CancellationToken_)** method now throws a `RequestFailedException()` when an invalid file is passed.
-
----
 
 ### [**Java**](#tab/java)
 
@@ -98,8 +96,6 @@ SDK preview package version 3.1.0-beta.3
 
 * The client defaults to the latest supported service version, which currently is **2.1-preview.3**.
 
----
-
 ### [**JavaScript**](#tab/javascript)
 
 SDK preview package version 3.1.0-beta.3
@@ -124,8 +120,6 @@ SDK preview package version 3.1.0-beta.3
 * Split **[FormField](/javascript/api/@azure/ai-form-recognizer/formfield?view=azure-node-preview&preserve-view=true)** type into several different interfaces. This should not cause any API compatibility issues except in certain edge cases (undefined valueType).
 
 * Migrated to the **2.1-preview.3** Form Recognizer service endpoint for all REST API calls.
-
----
 
 ### [**Python**](#tab/python)
 
