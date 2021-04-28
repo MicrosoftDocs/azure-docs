@@ -115,7 +115,7 @@ This will download the logs and any captured artifacts locally in a directory na
 
 ## Sweeping hyperparameters
 
-Azure Machine Learning also enables you to more efficiently tune the hyperparameters for your machine learning models. You can configure a hyperparameter tuning job, called a sweep job, and submit it via the CLI. For more information on Azure Machine Learning's hyperparameter tuning offering, see the [conceptual documentation](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters).
+Azure Machine Learning also enables you to more efficiently tune the hyperparameters for your machine learning models. You can configure a hyperparameter tuning job, called a sweep job, and submit it via the CLI. For more information on Azure Machine Learning's hyperparameter tuning offering, see the [conceptual documentation](how-to-tune-hyperparameters.md).
 
 With a parameterized command, you can easily modify the `job.yml` into `job-sweep.yml` to sweep over hyperparameters:
 
