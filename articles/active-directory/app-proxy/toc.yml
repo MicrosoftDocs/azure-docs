@@ -115,8 +115,6 @@
     #     href: application-proxy-register-connector-powershell.md
     #   - name: Give mobile and desktop apps access to on-premises APIs
     #     href: application-proxy-secure-api-access.md 
-    #   - name: Configure mobile and desktop client apps
-    #     href: application-proxy-configure-native-client-application.md
     #   - name: Configure custom home page
     #     href: application-proxy-configure-custom-home-page.md
     #   - name: Configure cookie settings
@@ -129,6 +127,8 @@
       href: application-proxy-configure-hard-coded-link-translation.md
     - name: Configure claims-aware apps
       href: application-proxy-configure-for-claims-aware-applications.md
+    - name: Configure mobile and desktop client apps
+      href: application-proxy-configure-native-client-application.md
     #   - name: Remove personal data
     #     href: application-proxy-remove-personal-data.md
     #   - name: Secure legacy apps 
@@ -191,8 +191,8 @@
     #     href: ./application-proxy-ping-access-publishing-guide.md
     #   - name: Can't Access this Corporate Application error
     #     href: application-proxy-sign-in-bad-gateway-timeout-error.md
-    #   - name: Problem installing the Application Proxy Agent Connector
-    #     href: application-proxy-connector-installation-problem.md
+      - name: Problem installing the Application Proxy Agent Connector
+        href: application-proxy-connector-installation-problem.md
     #   - name: Sign in problem
     #     href: application-sign-in-problem-on-premises-application-proxy.md
     #   - name: CORS issues in Application Proxy

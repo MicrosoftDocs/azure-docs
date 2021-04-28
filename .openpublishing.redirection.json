@@ -54332,7 +54332,12 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-native-client.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-native-client-application",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-native-client-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-configure-native-client-application.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-native-client-application",
       "redirect_document_id": false
     },
     {
@@ -54392,8 +54397,13 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-connector-installation-problem.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-connector-installation-problem",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-connector-installation-problem",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-connector-installation-problem.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-connector-installation-problem",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-understand-connectors.md",
