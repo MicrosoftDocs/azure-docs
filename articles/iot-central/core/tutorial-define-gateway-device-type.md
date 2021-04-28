@@ -88,7 +88,7 @@ To add a new gateway device template to your application:
 
 1. Select **Save**
 
-1.Select **Publish** to publish the device template.
+1. Select **Publish** to publish the device template.
 
 
 ### Add relationships
