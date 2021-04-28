@@ -53,13 +53,11 @@ Prerequisites for this tutorial are:
   - [Set up Azure Resources](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/detect-motion-emit-events-quickstart#set-up-azure-resources)
   - [Set up your development environment](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/detect-motion-emit-events-quickstart#set-up-your-development-environment)
 
- Tip
+> [!TIP]
+> If you run into issues with Azure resources that get created, please view our **[troubleshooting guide](troubleshoot.md)** to resolve some commonly encountered issues.
 
-If you run into issues with Azure resources that get created, please view our **[troubleshooting guide](troubleshoot.md)** to resolve some commonly encountered issues.
-
- Important
-
-This Custom Vision module only supports **Intel x86 and amd64** architectures. Check the architecture of your edge device before continuing.
+> [!Important]
+> This Custom Vision module only supports **Intel x86 and amd64** architectures. Check the architecture of your edge device before continuing.
 
 ## Review the sample video
 
