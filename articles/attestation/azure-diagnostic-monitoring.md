@@ -6,7 +6,8 @@ author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
-ms.author: mbaldwin
+ms.author: mbaldwin 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Set up diagnostics with a Trusted Platform Module (TPM) endpoint of Azure Attestation

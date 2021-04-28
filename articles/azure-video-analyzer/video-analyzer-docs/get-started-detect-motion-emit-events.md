@@ -3,7 +3,7 @@ title: Get started with Azure Video Analyzer
 description: This quickstart walks you through the steps to get started with Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
-ms.date: 04/01/2021
+ms.date: 04/21/2021
 
 ---
 
@@ -32,52 +32,9 @@ After completing the setup steps, you'll be able to run a simulated live video s
 
 ## Set up Azure resources
 
-This tutorial requires the following Azure resources:
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
 
-* IoT Hub.
-* Storage account.
-* Azure Media Services account.
-* A Linux VM in Azure, with [IoT Edge runtime installed](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2018-06&preserve-view=true).
-
-For this quickstart, we recommend that you use the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy the required resources in your Azure subscription. To do so, follow these steps:
-
-1. Go to [Azure portal](https://ms.portal.azure.com/#home) and select the Cloud Shell icon.
-
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/get-started-detect-motion-emit-events/cloud-shell.png" alt-text="Cloud Shell icon":::
-1. If you're using Cloud Shell for the first time, you'll be prompted to select a subscription to create a storage account and a Microsoft Azure Files share. Select Create storage to create a storage account for your Cloud Shell session information. This storage account is separate from the account that the script will create to use with your Azure Media Services account.
-1. In the drop-down menu on the left side of the Cloud Shell window, select Bash as your environment.
-
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/get-started-detect-motion-emit-events/bash.png" alt-text="Bash env":::
-1. Run the following command.
-    
-    ```bash
-    bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
-    ```
-
-Upon successful completion of the script, you should see all of the required resources in your subscription. A total of 12 resources will be setup by the script:
-
-- **Streaming Endpoint** - This will help in the playing the recorded AMS asset.
-- **Virtual machine** - This is a virtual machine that will act as your edge device.
-- **Disk** - This is a storage disk that is attached to the virtual machine to store media and artifacts.
-- **Network security group** - This is used to filter network traffic to and from Azure resources in an Azure virtual network.
-- **Network interface** - This enables an Azure Virtual Machine to communicate with internet, Azure, and other resources.
-- **Bastion connection** - This lets you connect to your virtual machine using your browser and the Azure portal.
-- **Public IP address** - This enables Azure resources to communicate to Internet and public-facing Azure services
-- **Virtual network** - This enables many types of Azure resources, such as your virtual machine, to securely communicate with each other, the internet, and on-premises networks. Learn more about Virtual networks.
-- **IoT Hub** - This acts as a central message hub for bi-directional communication between your IoT application, IoT Edge modules and the devices it manages.
-- **Media service account** - This helps with managing and streaming media content in Azure.
-- **Storage account** - You must have one Primary storage account and you can have any number of Secondary storage accounts associated with your Media Services account. For more information, see Azure Storage accounts with Azure Media Services accounts.
-- **Container registry** - This helps in storing and managing your private Docker container images and related artifacts.
-
-In the script output, a table of resources lists the IoT hub name. Look for the resource type Microsoft.Devices/IotHubs, and note down the name. You'll need this name in the next step.
-
-> [!NOTE]
-> The script also generates a few configuration files in the ~/clouddrive/lva-sample/ directory. You'll need these files later in the quickstart.
-
-> [!TIP]
-> If you run into issues with Azure resources that get created, please view our troubleshooting guide to resolve some commonly encountered issues.
+[!INCLUDE [resources](./includes/common-includes/azure-resources.md)]
 
 ## Deploy modules on your edge device
 
@@ -123,18 +80,18 @@ If the connection succeeds, the list of edge devices appears. You should see at 
 > :::image type="content" source="./media/get-started-detect-motion-emit-events/modules-node.png" alt-text="Expand the Modules node":::
 
 > [!TIP]
-> If you have [manually deployed Azure Video Analyzer]()<!--add link--> yourselves on an edge device (such as an ARM64 device), then you will see the module show up under that device, under the Azure IoT Hub. You can select that module, and follow the rest of the steps below.
+> If you have [manually deployed Azure Video Analyzer](deploy-iot-edge-device.md) yourselves on an edge device (such as an ARM64 device), then you will see the module show up under that device, under the Azure IoT Hub. You can select that module, and follow the rest of the steps below.
 
 ## Use direct method calls
 
-You can use the module to analyze live video streams by invoking direct methods. For more information, see [Direct methods for Azure Video Analyzer]()<!--add a link-->.
+You can use the module to analyze live video streams by invoking direct methods. For more information, see [Direct methods for Azure Video Analyzer](direct-methods.md).
 
-### Invoke topologyList
+### Invoke pipelineTopologyList
 
-To enumerate all of the [pipelines]()<!-- add a link-->  in the module:
+To enumerate all of the [pipelines](pipeline.md) in the module:
 
 1. In the Visual Studio Code, right-click the **avaEdge** module and select **Invoke Module Direct Method**.
-1. In the box that appears, enter topologyList.
+1. In the box that appears, enter pipelineTopologyList.
 1. Copy the following JSON payload and then paste it in the box. Then select the Enter key.
 
 ```json
@@ -156,13 +113,13 @@ Within a few seconds, the OUTPUT window shows the following response.
 
 This response is expected because no topologies have been created.
 
-### Invoke topologySet
+### Invoke pipelineTopologySet
 
-Like we did before, you can now invoke topologySet to set a [pipeline topology]()<!-- TODO: add a link later-->. Use the following JSON as the payload.
+Like we did before, you can now invoke pipelineTopologySet to set a [pipeline topology](https://review.docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/pipeline?branch=release-azure-video-analyzer)<!-- TODO: add a link later-->. Use the following JSON as the payload.
 
 ```json
 {
-    "@apiVersion": "3.0",
+    "@apiVersion": "1.0",
     "name": "MotionDetection",
     "properties": {
         "description": "Analyzing live video to detect motion and emit events",
@@ -316,17 +273,17 @@ The returned status is 201. This status indicates that a new topology was create
 
 Try the following next steps:
 
-1. Invoke topologySet again. The returned status code is 200. This code indicates that an existing topology was successfully updated.
-1. Invoke topologySet again, but change the description string. The returned status code is 200, and the description is updated to the new value.
-1. Invoke topologyList as outlined in the previous section. Now you can see the MotionDetection topology in the returned payload.
+1. Invoke pipelineTopologySet again. The returned status code is 200. This code indicates that an existing topology was successfully updated.
+1. Invoke pipelineTopologySet again, but change the description string. The returned status code is 200, and the description is updated to the new value.
+1. Invoke pipelineTopologyList as outlined in the previous section. Now you can see the MotionDetection topology in the returned payload.
 
-### Invoke topologyGet
+### Invoke pipelineTopologyGet
 
-Invoke GraphTopologyGet by using the following payload.
+Invoke pipelineTopologyGet by using the following payload.
 
 ```
 {
-    "@apiVersion" : "3.0",
+    "@apiVersion" : "1.0",
     "name" : "MotionDetection"
 }
 ```
@@ -414,17 +371,17 @@ Within a few seconds, you see the following response in the **OUTPUT** window:
 In the response payload, notice these details:
 
 * The status code is 200, indicating success.
-* The payload includes the `created` time stamp and the `lastModified` time stamp.
+* The payload includes the `createdAt` time stamp and the `lastModifiedAt` time stamp.
 
-### Invoke streamSet
+### Invoke livePipelineSet
 
-Create a stream instance that references the preceding topology. Stream instances let you analyze live video streams from many cameras by using the same pipeline topology. For more information, see [Pipeline topologies and instances]()<!--TODO:add a link later-->.
+Create a pipeline instance that references the preceding topology. Pipeline instances let you analyze live video streams from many cameras by using the same pipeline topology. For more information, see [Pipeline topologies and instances](https://review.docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/pipeline?branch=release-azure-video-analyzer)<!--TODO:add a link later-->.
 
-Invoke the direct method `streamSet` by using the following payload.
+Invoke the direct method `livePipelineSet` by using the following payload.
 
 ```json
 {
-    "@apiVersion" : "3.0",
+    "@apiVersion" : "1.0",
     "name": "mdgraph2",
     "properties": {
         "topologyName": "MotionDetection",
@@ -451,6 +408,7 @@ Notice that this payload:
 
 * Specifies the topology name (`MotionDetection`) for which the instance needs to be created.
 * Contains a parameter value for parameters which didn't have a default value in the graph topology payload. This value is a link to the below sample video:
+* [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 
 Within few seconds, you see the following response in the **OUTPUT** window:
 
@@ -489,21 +447,21 @@ Within few seconds, you see the following response in the **OUTPUT** window:
 In the response payload, notice that:
 
 * The status code is 201, indicating a new instance was created.
-* The state is Inactive, indicating that the stream instance was created but not activated. For more information, see [Pipeline states]()<!--TODO:add a link later-->.
+* The state is Inactive, indicating that the stream instance was created but not activated. For more information, see [Pipeline states](pipeline.md#pipeline-states).
 
 Try the following next steps:
 
-1. Invoke `streamSet` again by using the same payload. Notice that the returned status code is 200.
-1. Invoke `streamSet` again, but use a different description. Notice the updated description in the response payload, indicating that the instance was successfully updated.
-1. Invoke `streamSet`, but change the name to `Sample-Graph-2`. In the response payload, notice the newly created graph instance (that is, status code 201).
+1. Invoke `livePipelineSet` again by using the same payload. Notice that the returned status code is 200.
+1. Invoke `livePipelineSet` again, but use a different description. Notice the updated description in the response payload, indicating that the instance was successfully updated.
+1. Invoke `livePipelineSet`, but change the name to `Sample-Graph-2`. In the response payload, notice the newly created graph instance (that is, status code 201).
 
-### Invoke streamStart
+### Invoke livePipelineActivate
 
-Now activate the stream to start the flow of live video through the module. Invoke the direct method streamStart by using the following payload.
+Now activate the stream to start the flow of live video through the module. Invoke the direct method livePipelineActivate by using the following payload.
 
 ```
 {
-    "@apiVersion" : "3.0",
+    "@apiVersion" : "1.0",
     "name" : "mdgraph2"
 }
 ```
@@ -519,13 +477,13 @@ Within a few seconds, you see the following response in the OUTPUT window.
 
 The status code of 200 indicates that the stream was successfully activated.
 
-### Invoke streamGet
+### Invoke livePipelineGet
 
-Now invoke the direct method streamGet by using the following payload.
+Now invoke the direct method livePipelineGet by using the following payload.
 
 ```
 {
-    "@apiVersion" : "3.0",
+    "@apiVersion" : "1.0",
     "name" : "mdgraph2"
 }
 ```
@@ -571,7 +529,7 @@ In the response payload, notice the following details:
 
 ## Observe results
 
-The stream instance that we have created and activated uses the motion detection processor node to detect motion in the incoming live video stream. It sends events to the IoT Hub sink node. These events are relayed to IoT Edge Hub.
+The pipeline instance that we have created and activated uses the motion detection processor node to detect motion in the incoming live video stream. It sends events to the IoT Hub sink node. These events are relayed to IoT Edge Hub.
 To observe the results, follow these steps.
 
 1. In Visual Studio Code, open the **Explorer** pane. In the lower-left corner, look for **Azure IoT Hub**.
@@ -613,12 +571,13 @@ Notice this detail:
 
 Invoke direct methods to first stop the stream and then delete it.
 
-### Invoke streamStop
+### Invoke livePipelineDeactivate
+Invoke the direct method livePipelineDeactivate by using the following payload.
 
 ```
-Invoke the direct method streamStop by using the following payload.
+
 {
-    "@apiVersion" : "3.0",
+    "@apiVersion" : "1.0",
     "name" : "mdgraph2"
 }
 ```
@@ -632,17 +591,17 @@ Within a few seconds, you see the following response in the **OUTPUT** window:
 }
 ```
 
-The status code of 200 indicates that the stream  was successfully stopped. 
+The status code of 200 indicates that the pipeline was successfully stopped. 
 
-Next, try to invoke streamGet as indicated previously in this article. Observe the state value.
+Next, try to invoke livePipelineGet as indicated previously in this article. Observe the state value.
 
-### Invoke streamDelete
+### Invoke livePipelineDelete
 
-Invoke the direct method streamDelete by using the following payload.
+Invoke the direct method livePipelineDelete by using the following payload.
 
 ```
 {
-    "@apiVersion" : "3.0",
+    "@apiVersion" : "1.0",
     "name" : "mdgraph2"
 }
 ```
@@ -655,16 +614,35 @@ Within a few seconds, you see the following response in the OUTPUT window:
   "payload": null
 }
 ```
+A status code of 200 indicates that the pipeline instance was successfully deleted.
 
-A status code of 200 indicates that the stream instance was successfully deleted.
-
-### Invoke topologyDelete
-
-Invoke the direct method topologyDelete by using the following payload.
+Because we also created the pipeline called Sample-Graph-2 we cannot delete the pipeline topology. 
+Invoke the direct method livePipelineDelete by using the following payload to delete the pipeline called Sample-Graph-2:
 
 ```
 {
-    "@apiVersion" : "3.0",
+    "@apiVersion" : "1.0",
+    "name" : "Sample-Graph-2"
+}
+```
+
+Within a few seconds, you see the following response in the OUTPUT window:
+
+```
+{
+  "status": 200,
+  "payload": null
+}
+```
+A status code of 200 indicates that the pipeline instance was successfully deleted.
+
+### Invoke pipelineTopologyDelete
+
+Invoke the direct method pipelineTopologyDelete by using the following payload.
+
+```
+{
+    "@apiVersion" : "1.0",
     "name" : "MotionDetection"
 }
 ```
@@ -682,8 +660,8 @@ A status code of 200 indicates that the topology was successfully deleted.
 
 Try the following next steps:
 
-1. Invoke `topologyList` and observe that the module contains no topologies.
-1. Invoke `streamList` by using the same payload as `topologyList`. Observe that no stream instances are enumerated.
+1. Invoke `pipelineTopologyList` and observe that the module contains no topologies.
+1. Invoke `livePipelineList` by using the same payload as `pipelineTopologyList`. Observe that no pipeline instances are enumerated.
 
 ## Clean up resources
 
@@ -691,5 +669,5 @@ Try the following next steps:
 
 ## Next steps
 
-* Learn how to [record video by using Live Video Analytics on IoT Edge]()<!--TODO: add a link once the topic is staged -->.
-* Learn more about [diagnostic messages]()<!--TODO: add a link once the topic is staged -->.
+* Learn how to [record video by using Live Video Analytics on IoT Edge](deploy-iot-edge-device.md) 
+* Learn more about [diagnostic messages](monitor-log-edge.md) 

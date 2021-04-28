@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page # Required
   author: ecfan #Required; your GitHub user alias, with correct capitalization.
   ms.author: estfan; logicappspm #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/18/2019 #Required; mm/dd/yyyy format.
+  ms.date: 03/24/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -27,8 +27,12 @@ landingContent:
             url: logic-apps-overview.md
       - linkListType: concept
         links:
-          - text: Connectors for Azure Logic Apps
+          - text: Connectors overview for Azure Logic Apps
             url: ../connectors/apis-list.md
+          - text: Managed connectors
+            url: ../connectors/managed.md
+          - text: Built-in triggers and actions
+            url: ../connectors/built-in.md
           - text: Schedule recurring workflows
             url: concepts-schedule-automated-recurring-tasks-workflows.md
           - text: B2B enterprise integration

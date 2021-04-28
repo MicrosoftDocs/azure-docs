@@ -13,9 +13,8 @@ In this article, you will learn how to invoke direct method calls on Azure Video
 
 ## Prerequisites
 
-* You have the Azure Video Analyzer module running on your edge device, using either the methods described in [Quickstart: Azure Video Analyzer]() or using the [portal.](./deploy-iot-edge-device.md)
-
-* You understand [Azure Video Analyzer](./overview.md) and [the pipeline concept]().
+* You have the Azure Video Analyzer module running on your edge device, using either the methods described in [Quickstart: Azure Video Analyzer](get-started-detect-motion-emit-events.md) or using the [portal.](./deploy-iot-edge-device.md)
+* You understand [Azure Video Analyzer](overview.md) and [the pipeline concept](pipeline.md).
 <!-- Above pipeline concept file needs to be created-->
 
 ## Invoking direct methods via Azure portal
@@ -63,4 +62,4 @@ More direct methods can be found on the [direct methods](./direct-methods.md) pa
 > [!NOTE]
 > A graph instance instantiates a specific topology, so please ensure you have the right topology set before creating a graph instance.
 
-[Quickstart: Detect motion emit events]() is a good reference for understanding the exact sequence of direct method calls to be made.
+[Quickstart: Detect motion emit events](detect-motion-emit-events-quickstart.md) is a good reference for understanding the exact sequence of direct method calls to be made.

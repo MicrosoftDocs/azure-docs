@@ -132,7 +132,7 @@ Migrating a database with geo-replication or BACPAC file does not copy over the 
 
 1. Target database where you are copying the LTR backups, in global Azure must exist before you start the copying the backups. It is recommended that you first migrate the source database using [active geo-replication](#migrate-sql-database-using-active-geo-replication) and then initiate the LTR backup copy. This will ensure that the database backups are copied to the correct destination database. This step is not required, if you are copying over LTR backups of a dropped database. When copying LTR backups of a dropped database, a dummy DatabaseID will be created in the target region. 
 2. Install this [PowerShell Az Module](https://www.powershellgallery.com/packages/Az.Sql/3.0.0-preview)
-3. Before you begin, ensure that required [Azure RBAC roles](https://docs.microsoft.com/azure/azure-sql/database/long-term-backup-retention-configure#azure-roles-to-manage-long-term-retention) are granted at either **subscription** or **resource group** scope. Note: To access LTR backups that belong to a dropped server, the permission must be granted in the subscription scope of that server. . 
+3. Before you begin, ensure that required [Azure RBAC roles](../azure-sql/database/long-term-backup-retention-configure.md#azure-roles-to-manage-long-term-retention) are granted at either **subscription** or **resource group** scope. Note: To access LTR backups that belong to a dropped server, the permission must be granted in the subscription scope of that server. . 
 
 
 ### Limitations  
@@ -150,7 +150,7 @@ Migrating a database with geo-replication or BACPAC file does not copy over the 
 A new PowerShell command **Copy-AzSqlDatabaseLongTermRetentionBackup** has been introduced, which can be used to copy the long-term retention backups from Azure Germany to Azure global regions. 
 
 1. **Copy LTR backup using backup name**
-Following example shows how you can copy a LTR backup from Azure Germany to Azure global region, using the backupname.
+Following example shows how you can copy a LTR backup from Azure Germany to Azure global region, using the backupname.  
 
 ```powershell
 # Source database and target database info
@@ -173,44 +173,33 @@ Copy-AzSqlDatabaseLongTermRetentionBackup
     -TargetDatabaseName $targetDatabaseName 
     -TargetSubscriptionId $targetSubscriptionId
     -TargetResourceGroupName $targetRGName
-    - TargetServerFullyQualifiedDomainName $targetServerFQDN 
+    -TargetServerFullyQualifiedDomainName $targetServerFQDN 
 ```
 
 2. **Copy LTR backup using backup resourceID**
-Following example shows how you can copy LTR backup from Azure Germany to Azure global region, using a backup resourceID.
+Following example shows how you can copy LTR backup from Azure Germany to Azure global region, using a backup resourceID. This example can be used to copy backups of a deleted database as well. 
 
 ```powershell
+$location = "<location>"
+# list LTR backups for All databases (you have option to choose All/Live/Deleted)
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $location -DatabaseState All
+
+# select the LTR backup you want to copy
+$ltrBackup = $ltrBackups[0]
+$resourceID = $ltrBackup.ResourceId
+
 # Source Database and target database info
-$resourceID = "/subscriptions/000000000-eeee-4444-9999-e9999a5555ab/resourceGroups/mysourcergname/providers/Microsoft.Sql/locations/germanynorth/longTermRetentionServers/mysourceserver/longTermRetentionDatabases/mysourcedb/longTermRetentionBackups/0e848ed8-c229-444c-a3ba-75ac0507dd31;132567894740000000"
 $targetDatabaseName = "<target database name>"
 $targetSubscriptionId = "<target subscriptionID>"
 $targetRGName = "<target resource group name>"
 $targetServerFQDN = "<targetservername.database.windows.net>"
 
-
 Copy-AzSqlDatabaseLongTermRetentionBackup 
-    -ResourceId $sourceRGName 
+    -ResourceId $resourceID 
     -TargetDatabaseName $targetDatabaseName 
     -TargetSubscriptionId $targetSubscriptionId
     -TargetResourceGroupName $targetRGName
-    - TargetServerFullyQualifiedDomainName $targetServerFQDN
-```
-
-3. **Copy LTR backup of a deleted database**
-Following example shows how to copy LTR backup of a deleted or dropped database from Azure Germany to Azure global. Note that, since this is a backup of a dropped database, the database should exist on the target server when starting the copy operation. 
-
-```powershell
-# Source Database and target database info
-$targetDatabaseName = "<target database name>"
-$targetSubscriptionId = "<target subscriptionID>"
-$targetRGName = "<target resource group name>"
-$targetServerFQDN = "<targetservername.database.windows.net>"
-
-Copy-AzSqlDatabaseLongTermRetentionBackup 
--TargetDatabaseName $targetDatabaseName 
--TargetSubscriptionId $targetSubscriptionId
--TargetResourceGroupName $targetRGName
-- TargetServerFullyQualifiedDomainName $targetServerFQDN 
+    -TargetServerFullyQualifiedDomainName $targetServerFQDN
 ```
 
 

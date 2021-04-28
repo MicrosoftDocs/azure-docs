@@ -1119,7 +1119,7 @@ Here is the parameterized sample template that's used by this topic's examples:
          "defaultValue": "",
          "metadata": {
             "description": "Name of the storage account the connector should use."
-         },
+         }
 
       },
       "azureblob_1_accountName": {
@@ -1162,7 +1162,7 @@ Here is the parameterized sample template that's used by this topic's examples:
                            "connection": {
                               "name": "@parameters('$connections')['azureblob']['connectionId']"
                            }
-                        },
+                        }
                      },
                      "method": "post",
                      "body": "@triggerBody()?['Body']",

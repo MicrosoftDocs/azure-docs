@@ -26,12 +26,12 @@ After completing the steps in this guide, you'll be able to run a simulated live
     > You will need an Azure subscription with permissions for creating service principals (owner role provides this). If you do not have the right permissions, please reach out to your account administrator to grant you the right permissions.
 * [Visual Studio Code](https://code.visualstudio.com/) on your development machine. Make sure you have the [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Make sure the network that your development machine is connected to permits Advanced Message Queueing Protocol (AMQP) over port 5671 for outbound traffic. This setup enables Azure IoT Tools to communicate with Azure IoT Hub.
-* Complete the [Analyze live video by using your own gRPC model]()<!--analyze-live-video-use-your-grpc-model-quickstart--> quickstart.
+* Complete the [Analyze live video by using your own gRPC model](analyze-live-video-use-your-grpc-model.md) quickstart.
 
 > [!TIP]
 > You might be prompted to install Docker while you're installing the Azure IoT Tools extension. Feel free to ignore the prompt.
 >
-> If you run into issues with Azure resources that get created, please view our [troubleshooting guide]()<!--/troubleshoot-how-to#common-error-resolutions--> to resolve some commonly encountered issues.
+> If you run into issues with Azure resources that get created, please view our [troubleshooting guide](troubleshoot.md#common-error-resolutions) to resolve some commonly encountered issues.
 
 ## Review the video sample
 
@@ -40,20 +40,18 @@ Open an application such as [VLC media player](https://www.videolan.org/vlc/). S
 
 <!--add a video-->
 
-Follow the guidelines in [Create and deploy the media graph]()<!--analyze-live-video-use-your-grpc-model-quickstart#create-and-deploy-the-media-graph--> section of the quickstart you just finished. Be sure to make the following adjustments as you continue with the steps. These steps help to ensure that the correct body for the direct method calls are used.
+Follow the guidelines in [Create and deploy the media graph](analyze-live-video-use-your-grpc-model.md#create-and-deploy-the-media-graph) section of the quickstart you just finished. Be sure to make the following adjustments as you continue with the steps. These steps help to ensure that the correct body for the direct method calls are used.
 
 Edit the *operations.json* file:
 
 1. Change the link to the graph topology:
    `"topologyUrl" : " https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/ai-composition/2.0/topology.json"`
-
 1. Under `GraphInstanceSet`, edit the name of the graph topology to match the value in the preceding link:
    `"topologyName" : " AIComposition"`
-
 1. Under `GraphTopologyDelete`, edit the name:
    `"name" : " AIComposition"`
     
-For details, see the [interpret the results]()<!--analyze-live-video-use-your-grpc-model-quickstart?pivots=programming-language-csharp#interpret-results--> section. In addition to the analytics events on the hub and the diagnostic events, the topology that you have used also creates a relevant video clip on the cloud that is triggered by the AI signal-based activation of the signal gate. This clip is also accompanied with [operational events]()<!--event-based-video-recording-tutorial#operational-events--> on the hub for downstream workflows to take. You can [examine and play]()<!--event-based-video-recording-tutorial#media-services-asset--> the video clip by logging into the Azure portal.
+For details, see the [interpret the results](analyze-live-video-use-your-grpc-model.md#interpret-results) section. In addition to the analytics events on the hub and the diagnostic events, the topology that you have used also creates a relevant video clip on the cloud that is triggered by the AI signal-based activation of the signal gate. This clip is also accompanied with [operational events](event-based-video-recording-tutorial.md#operational-events) on the hub for downstream workflows to take. You can [examine and play](event-based-video-recording-tutorial.md#media-services-asset) the video clip by logging into the Azure portal.
 
 ## Clean up
 
@@ -61,5 +59,5 @@ If you're not going to continue to use this application, delete the resources yo
 
 ## Next steps
 
-Learn more about [diagnostic messages]()<!--monitoring-logging-->.
+Learn more about [diagnostic messages](monitoring-logging.md).
 

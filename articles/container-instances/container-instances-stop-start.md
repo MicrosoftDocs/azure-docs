@@ -49,6 +49,6 @@ In addition to manually stopping and starting a container group with the existin
 <!-- LINKS - External -->
 
 <!-- LINKS - Internal -->
-[az-container-restart]: /cli/azure/container#az-container-restart
-[az-container-start]: /cli/azure/container#az-container-start
-[az-container-stop]: /cli/azure/container#az-container-stop
+[az-container-restart]: /cli/azure/container#az_container_restart
+[az-container-start]: /cli/azure/container#az_container_start
+[az-container-stop]: /cli/azure/container#az_container_stop

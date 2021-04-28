@@ -12,7 +12,7 @@ zone_pivot_groups: video-analyzer-programming-languages
 
 This quickstart shows you how to use Azure Video Analyzer to analyze a live video feed from a (simulated) IP camera. You'll see how to apply a computer vision model to detect objects. A subset of the frames in the live video feed is sent to an inference service. The results are sent to IoT Edge Hub.
 
-The quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream. It's based on sample code written in C#, and it builds on the [Detect motion and emit events]() <!--TODO: add a link once the topic is staged --> quickstart.
+The quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream. It's based on sample code written in C#, and it builds on the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart.
 
 ## Prerequisites
 
@@ -39,9 +39,9 @@ In this quickstart, you'll use Azure Video Analyzer to detect objects such as ve
 
 <!-- TODO: Replace the picture above -->
 
-This above diagram shows how the signals flow in this quickstart. An [edge module]() <!--TODO: add a link once the topic is staged -->  simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source node]() <!--TODO: add a link once the topic is staged -->  pulls the video feed from this server and sends video frames to the [HTTP extension processor node]() <!--TODO: add a link once the topic is staged --> .
+This above diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/azure-video-analyzer/tree/main/edge-modules/sources/rtspsim-live555)  simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source node](pipeline.md#rtsp-source)pulls the video feed from this server and sends video frames to the [HTTP extension processor node](pipeline.md#http-extension-processor).
 
-The HTTP extension node plays the role of a proxy. It samples the incoming video frames set by the samplingOptions field and converts the video frames to the specified image type. Then it relays the images over REST to another edge module that runs an AI model behind an HTTP endpoint. In this example, that edge module is built by using the YOLOv3 model, which can detect many types of objects. The HTTP extension processor node gathers the detection results and publishes events to the [IoT Hub sink node]() <!--TODO: add a link once the topic is staged --> . The node then sends those events to [IoT Edge Hub](https://docs.microsoft.com/azure/iot-fundamentals/iot-glossary?view=iotedge-2018-06&preserve-view=true#iot-edge-hub).
+The HTTP extension node plays the role of a proxy. It samples the incoming video frames set by the samplingOptions field and converts the video frames to the specified image type. Then it relays the images over REST to another edge module that runs an AI model behind an HTTP endpoint. In this example, that edge module is built by using the YOLOv3 model, which can detect many types of objects. The HTTP extension processor node gathers the detection results and publishes events to the [IoT Hub sink node](pipeline.md#iot-hub-message-sink). The node then sends those events to [IoT Edge Hub](https://docs.microsoft.com/azure/iot-fundamentals/iot-glossary?view=iotedge-2018-06&preserve-view=true#iot-edge-hub).
 
 In this quickstart, you will:
 
@@ -68,7 +68,7 @@ In this quickstart, you will:
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/analyze-live-video-use-your-model-http/generate-deployment-manifest.png" alt-text="Generate IoT Edge Deployment Manifest":::
 1. The *deployment.yolov3.amd64.json* manifest file is created in the *src/edge/config* folder.
-1. If you completed the [Detect motion and emit events]()<!--TODO: add a link once the topic is staged --> quickstart, then skip this step.
+1. If you completed the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart, then skip this step.
 
     Otherwise, near the **AZURE IOT HUB** pane in the lower-left corner, select the **More actions** icon and then select **Set IoT Hub Connection String**. You can copy the string from the *appsettings.json* file. Or, to ensure you've configured the proper IoT hub within Visual Studio Code, use the [Select IoT hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
 
