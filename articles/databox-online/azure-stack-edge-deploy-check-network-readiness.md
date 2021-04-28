@@ -105,7 +105,7 @@ To run a network readiness check, do these steps:
     WindowsUpdateServer | DnsRegistration}] [-OutputPath <string>]
     ```
    
-   To get meaningful Network Readiness Checker results that find key issues in your network setup, you need to include the following parameters: `-DnsServer`, `-DeviceFqdn`, `-TimeServer`, `-WindowsUpdateServer`, `-ComputeIPs`. Enter other parameters required for your environment (for example, a proxy server).
+   To get meaningful Network Readiness Checker results that find key issues in your network setup, you need to include all of the following parameters that apply to your environment:
 
     |Parameter|Description|
     |---------|-----------|
