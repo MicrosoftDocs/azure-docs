@@ -4,7 +4,8 @@ description: How to define storage targets so that your Azure HPC Cache can use 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/26/2021
+ms.date: 04/28/2021
+ms.custom: subject-rbac-steps
 ms.author: v-erkel
 ---
 
@@ -92,7 +93,7 @@ You can do this ahead of time, or by clicking a link on the page where you add a
     ![Add role assignment page](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
    > [!NOTE]
-   > If you can't find the HPC Cache Resource Provider, try a search for the string "storagecache" instead. Users who participated in HPC Cache previews might need to use the older name for the service principal.
+   > If you can't find the HPC Cache Resource Provider, try a search for the string "storagecache" instead. Users who participated in HPC Cache previews (before GA) might need to use the older name for the service principal.
 
 <!-- 
 Steps to add the Azure roles:
