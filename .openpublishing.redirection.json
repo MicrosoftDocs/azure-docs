@@ -54292,7 +54292,12 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-custom-domains.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-custom-domain",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-custom-domain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-configure-custom-domain.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-custom-domain",
       "redirect_document_id": false
     },
     {

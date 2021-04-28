@@ -204,8 +204,6 @@
         href: application-proxy-configure-cookie-settings.md
       - name: Remove personal data
         href: application-proxy-remove-personal-data.md
-      - name: Configure custom domain
-        href: application-proxy-configure-custom-domain.md
       - name: Secure legacy apps 
         items:
         - name: Secure hybrid access with Azure AD 
