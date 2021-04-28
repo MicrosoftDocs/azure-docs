@@ -33,9 +33,11 @@ After identifying which VM extensions are deployed, you need to remove them. If 
 
 ## Step 2: Review access rights 
 
-List role assignments for the Arc enabled servers resource, using [Azure PowerShell](../../role-based-access-control/role-assignments-list-powershell.md#list-role-assignments-for-a-resource). 
+List role assignments for the Arc enabled servers resource, using [Azure PowerShell](../../role-based-access-control/role-assignments-list-powershell.md#list-role-assignments-for-a-resource) and with additional PowerShell code, you can export the results to CSV or another format. 
 
-If you're using a managed identity for an application or process running on an Arc enabled server, you need to make sure the Azure VM has a managed identity assigned. Update role assignment with any resources accessed by the managed identity to allow the new Azure VM identity to authenticate to those services. See the following to learn [how managed identities for Azure resources work for an Azure Virtual Machine (VM)](../../active-directory/managed-identities-azure-resources/how-managed-identities-work-vm.md).
+If you're using a managed identity for an application or process running on an Arc enabled server, you need to make sure the Azure VM has a managed identity assigned. To view the role assignment for a managed identity, you can use the Azure PowerShell `Get-AzADServicePrincipal` cmdlet. For more information, see [List role assignments for a managed identity](role-based-access-control/role-assignments-list-powershell.md#list-role-assignments-for-a-managed-identity). 
+
+Update role assignment with any resources accessed by the managed identity to allow the new Azure VM identity to authenticate to those services. See the following to learn [how managed identities for Azure resources work for an Azure Virtual Machine (VM)](../../active-directory/managed-identities-azure-resources/how-managed-identities-work-vm.md).
 
 ## Step 3: Disconnect from Azure Arc and uninstall agent
 
