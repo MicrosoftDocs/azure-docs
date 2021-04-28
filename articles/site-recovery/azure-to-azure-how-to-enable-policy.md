@@ -63,7 +63,7 @@ In this section, you create a policy assignment that enables Azure Site Recovery
 
 1. On the **Assign Policy** page, set the **Scope** by selecting the ellipsis and then selecting a subscription and then a resource group. A scope determines what resources or grouping of resources the policy assignment gets enforced on. Then use the **Select** button at the bottom of the **Scope** page.
 
-1. Launch the _Policy Definition Picker_ by selecting the ellipses next to **Policy Definition**. _Search for "AzureSiteRecovery-Replication-Policy"_ and select the Policy.
+1. Launch the _Policy Definition Picker_ by selecting the ellipses next to **Policy Definition**. _Search for "Configure disaster recovery on virtual machines by enabling replication"_ and select the Policy.
 :::image type="content" source="./media/azure-to-azure-how-to-enable-policy/select-policy-definition.png" alt-text="Screenshot of selecting 'Policy Definition' from Basics page." border="true":::
 
 1. The **Assignment name** is automatically populated with the policy name you selected, but you can change it. It may be helpful if you plan to assign multiple Azure Site Recovery Policies to the same scope.
