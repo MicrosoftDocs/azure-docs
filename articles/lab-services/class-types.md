@@ -19,6 +19,11 @@ For detailed information on how to set up this type of lab, see [Setup a lab for
 
 For detailed information on how to set up this type of lab, see [Setup a lab for ArcMap\ArcGIS Desktop](class-type-arcgis.md).
 
+## AutoDesk
+[AutoDesk](https://www.autodesk.com/) offers software solutions in architecture, engineering, construction, design, manufacturing, and more.  These solutions are commonly used in engineering classes.
+
+For detailed information on how to set up this type of lab, see [AutoDesk](class-type-autodesk).
+
 ## Big data analytics
 You can set up a GPU lab to teach a big data analytics class. With this type of class, students learn how to handle large volumes of data, and apply machine and statistical learning algorithms to derive data insights. A key objective for students is to learn to use data analytics tools, such as Apache Hadoop's open-source software package which provides tools for storing, managing, and processing big data. 
 
