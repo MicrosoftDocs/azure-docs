@@ -17,7 +17,6 @@ After you fail over your virtual machines to Azure, you can fail back the virtua
 If your protected virtual machine is a Windows virtual machine, then you need a Windows master target. For a Linux virtual machine, you need a Linux master target. Read the following steps to learn how to create and install a Linux master target.
 
 > [!IMPORTANT]
-> Starting with release of the 9.10.0 master target server, the latest master target server can be only installed on an Ubuntu 16.04 server. New installations aren't allowed on  CentOS6.6 servers. However, you can continue to upgrade your old master target servers by using the 9.10.0 version.
 > Master target server on LVM is not supported.
 
 ## Overview
@@ -185,7 +184,7 @@ Azure Site Recovery master target server requires a specific version of the Ubun
 
 >[!NOTE]
 > From, version [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), Ubuntu 20.04 operating system is supported for Linux master target server.
-> If you wish to use the latest OS, upgrade the operating system to Ubuntu 20.04 before proceeding. To upgrade the operating system later, you can follow the instructions listed [here](#upgrade-OS-of-master-target-server-from-Ubuntu-16.04-to-Ubuntu-20.04).
+> If you wish to use the latest OS, upgrade the operating system to Ubuntu 20.04 before proceeding. To upgrade the operating system later, you can follow the instructions listed [here](#upgrade-os-of-master-target-server-from-ubuntu-1604-to-ubuntu-2004).
 
 ### Get the installer for setup
 
