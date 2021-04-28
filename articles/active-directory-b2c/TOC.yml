@@ -282,20 +282,16 @@
     href: age-gating.md
   - name: API connectors
     items:
-    - name: Add an API connector
+    - name: Add an API connector to a sign-up user flow
       href: add-api-connector.md
+      displayName: rest claims validation, validate
+    - name: Add an API connector to a sign-up or sign-in user flow
+      href: custom-policy-rest-api-claims-exchange.md
+      displayName: rest claims exchange
+    - name: Secure an API connector
+      href: secure-rest-api.md
   - name: Custom policy
     items:
-    - name: Add your own business logic
-      items:
-      - name: Validate user input
-        href: custom-policy-rest-api-claims-validation.md
-        displayName: rest claims validation, validate
-      - name: Obtain additional claims
-        href: custom-policy-rest-api-claims-exchange.md
-        displayName: rest claims exchange
-      - name: Secure REST API
-        href: secure-rest-api.md
     - name: Troubleshooting
       items:
       - name: Collect logs using Application Insights
