@@ -54466,6 +54466,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-deployment-plan.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-deployment-plan",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-page-load-speed-problem.md",
       "redirect_url": "/azure/active-directory/app-proxy/application-proxy-page-load-speed-problem",
       "redirect_document_id": false

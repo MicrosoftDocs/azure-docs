@@ -127,8 +127,6 @@
         href: cloud-app-security.md
     - name: Application Proxy for on-premises apps
       items:
-      - name: Planning an Application Proxy deployment
-        href: application-proxy-deployment-plan.md
       - name: Comparison of remote access solutions
         href: application-proxy-migration.md
   - name: How-to guides

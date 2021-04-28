@@ -40,7 +40,7 @@ This article is for people to publish an application with this scenario for the 
 
 If you've enabled Application Proxy enabled and installed a connector already, you can skip this section and go to [Add your application to Azure AD with Application Proxy](#add-your-application-to-azure-ad-with-application-proxy).
 
-The Application Proxy connector is a Windows Server service that directs the traffic from your remote employees to your published applications. For more detailed installation instructions, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md).
+The Application Proxy connector is a Windows Server service that directs the traffic from your remote employees to your published applications. For more detailed installation instructions, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md).
 
 1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com/) as an application administrator. The **Azure Active Directory admin center** page appears.
 1. Select **Azure Active Directory** > **Application proxy** > **Download connector service**. The **Application Proxy Connector Download** page appears.
@@ -73,7 +73,7 @@ To publish your own on-premises application:
 1. Fill out the required fields with information about your new application. Use the guidance below for the settings.
 
    > [!NOTE]
-   > For a more detailed walkthrough of this step, see [Add an on-premises app to Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
+   > For a more detailed walkthrough of this step, see [Add an on-premises app to Azure AD](../app-proxy/application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
 
    1. **Internal URL**: Normally you provide the URL that takes you to the app’s sign-in page when you’re on the corporate network. For this scenario, the connector needs to treat the PingAccess proxy as the front page of the application. Use this format: `https://<host name of your PingAccess server>:<port>`. The port is 3000 by default, but you can configure it in PingAccess.
 
