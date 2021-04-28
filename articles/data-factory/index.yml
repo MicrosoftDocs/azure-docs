@@ -124,8 +124,6 @@ landingContent:
             url: ./how-to-configure-azure-ssis-ir-custom-setup.md
           - text: Install licensed components for SSIS IR
             url: ./how-to-develop-azure-ssis-ir-licensed-components.md
-          - text: Plan and manage costs for Azure Data Factory
-            url: ./plan-manage-costs.md
   - title: Security
     linkLists:
       - linkListType: concept
