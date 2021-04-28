@@ -121,7 +121,7 @@ Cloud Witness always uses **Blob** as the storage type. Azure uses **.core.windo
 > [!NOTE]
 > The endpoint URL is generated automatically by Cloud Witness resource and there is no extra step of configuration necessary for the URL.
 
-#### To view and copy endpoint URL links
+##### To view and copy endpoint URL links
 
 In the Azure portal, navigate to your storage account, select **All settings** and, then select **Properties** to view and copy your endpoint URLs (see figure 5).
 
