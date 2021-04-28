@@ -51,15 +51,11 @@ To find services that run under the LocalSystem context, use the following Power
 Get-WmiObject win32_service | select Name, StartName | Where-Object {($_.StartName -eq "LocalSystem")}
 ```
 
-**Find computer accounts that are members of a specific group**
-
-Run the following PowerShell cmdlet:
+To find computer accounts that are members of a specific group, run the following PowerShell cmdlet:
 
 ```powershell
 Get-ADComputer -Filter {Name -Like "*"} -Properties MemberOf | Where-Object {[STRING]$_.MemberOf -like "Your_Group_Name_here*"} | Select Name, MemberOf
 ```
-
-**Find computer accounts that are members of privileged groups**
 
 To find computer accounts that are members of identity administrators groups (domain administrators, enterprise administrators, and administrators), run the following PowerShell cmdlet:
 
