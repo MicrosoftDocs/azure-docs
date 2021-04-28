@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) provides support for integrating your own RESTful service. Azure AD B2C sends data to the RESTful service in an input claims collection and receives data back in an output claims collection. For more information, see [Integrate REST API claims exchanges in your Azure AD B2C custom policy](custom-policy-rest-api-intro.md).  
+Azure Active Directory B2C (Azure AD B2C) provides support for integrating your own RESTful service. Azure AD B2C sends data to the RESTful service in an input claims collection and receives data back in an output claims collection. For more information, see [Integrate REST API claims exchanges in your Azure AD B2C custom policy](api-connectors-overview.md).  
 
 ## Protocol
 
@@ -286,7 +286,7 @@ public class ResponseContent
 
 See the following articles for examples of using a RESTful technical profile:
 
-- [Integrate REST API claims exchanges in your Azure AD B2C custom policy](custom-policy-rest-api-intro.md)
+- [Integrate REST API claims exchanges in your Azure AD B2C custom policy](api-connectors-overview.md)
 - [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as validation of user input](custom-policy-rest-api-claims-validation.md)
 - [Walkthrough: Add REST API claims exchanges to custom policies in Azure Active Directory B2C](custom-policy-rest-api-claims-validation.md)
 - [Secure your REST API services](secure-rest-api.md)
