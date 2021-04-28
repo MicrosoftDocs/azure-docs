@@ -2,7 +2,7 @@
 title: Concepts - Private clouds and clusters
 description: Learn about the key capabilities of Azure VMware Solution software-defined data centers and vSphere clusters. 
 ms.topic: conceptual
-ms.date: 04/23/2021
+ms.date: 04/27/2021
 ---
 
 #  Azure VMware Solution private cloud and cluster concepts
@@ -31,6 +31,8 @@ The diagram shows a single Azure subscription with two private clouds that repre
 ## Clusters
 
 [!INCLUDE [hosts-minimum-initial-deployment-statement](includes/hosts-minimum-initial-deployment-statement.md)]
+
+[!INCLUDE [azure-vmware-solutions-limits](includes/azure-vmware-solutions-limits.md)]
 
 ## VMware software versions
 
