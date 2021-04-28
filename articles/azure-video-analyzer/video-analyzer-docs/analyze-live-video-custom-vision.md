@@ -69,7 +69,7 @@ In this tutorial, you'll use Azure Video Analyzer on IoT Edge to detect such toy
 
 ## Overview
 
-![Diagram that shows a Custom Vision overview.](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/custom-vision-tutorial/topology-custom-vision.svg)
+![Diagram that shows a Custom Vision overview.](./media/custom-vision/topology-custom-vision.svg)
 
 This diagram shows how the signals flow in this tutorial. An [edge module](add-valid-link.md) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline.md#http-extension-processor) node.
 
