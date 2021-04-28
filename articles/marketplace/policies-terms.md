@@ -18,8 +18,8 @@ Offers on the commercial marketplace must comply with our policies and terms. We
 
 ## Publisher Agreement
 
-- [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560)
-- [Change history for Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?linkid=2159975&clcid=0x409)
+- [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement)
+- [Change history for Microsoft Publisher Agreement](/legal/marketplace/mpa-change-history)
 
 The Microsoft Publisher Agreement describes the relationship for publishing offers on the commercial marketplace. It governs your access and use of features on Partner Center related to publishing and listing offers in the commercial marketplace online stores.
 

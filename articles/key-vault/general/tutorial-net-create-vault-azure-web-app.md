@@ -171,7 +171,7 @@ The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, in t
 Now configure your web app to deploy from the `main` branch:
 
 ```azurecli-interactive
- az webapp config appsettings set -g MyResourceGroup -name "<your-webapp-name>"--settings deployment_branch=main
+ az webapp config appsettings set -g MyResourceGroup --name "<your-webapp-name>" --settings deployment_branch=main
 ```
 
 Go to your new app by using the following command. Replace `<your-webapp-name>` with your app name.

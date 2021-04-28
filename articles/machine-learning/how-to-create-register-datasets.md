@@ -5,8 +5,8 @@ description: Learn how to create Azure Machine Learning datasets to access your 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q1, data4ml
+ms.topic: how-to
+ms.custom: contperf-fy21q1, data4ml
 ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
