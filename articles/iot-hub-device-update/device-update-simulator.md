@@ -108,7 +108,7 @@ Once the Device Update Agent is running on an IoT device, the device needs to be
 
 1. From the Azure portal, launch the Device Update IoT Hub.
 2. Create a new device.
-3. On the left-hand side of the page, navigate to 'Explorers' > 'IoT Devices' > Select "New".
+3. On the left-hand side of the page, navigate to 'IoT Devices' > Select "New".
 4. Provide a name for the device under 'Device ID'--Ensure that "Autogenerate keys" is checkbox is selected.
 5. Select 'Save'.
 6. Now, you'll be returned to the 'Devices' page and the device you created should be in the list. Select that device.
@@ -143,9 +143,9 @@ Agent running. [main]
 
 1. Log into [Azure portal](https://portal.azure.com) and navigate to the IoT Hub.
 
-2. From 'IoT Devices' or 'IoT Edge' on the left navigation pane find your IoT device and navigate to the Device Twin.
+2. From 'IoT Devices' or 'IoT Edge' on the left navigation pane find your IoT device and navigate to the Device Twin or Module Twin.
 
-3. In the Device Twin, delete any existing Device Update tag value by setting them to null.
+3. In the Module Twin of the Device Update agent module, delete any existing Device Update tag value by setting them to null. If you are using Device identity with Device Update agent make these changes on the Device Twin.
 
 4. Add a new Device Update tag value as shown below.
 

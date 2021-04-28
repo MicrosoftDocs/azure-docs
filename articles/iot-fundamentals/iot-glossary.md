@@ -173,7 +173,7 @@ Device management encompasses the full lifecycle associated with managing the de
 
 ### Device model
 
-A device model is a type of [model](#model) that uses the [Digital Twins Definition Language](#digital-twins-definition-language-dtdl) to describe the capabilities of an IoT Plug and Play device. A simple device model uses a single interface to describe the device capabilities. A more complex device model includes multiple components, each of which describe a set of capabilities. To learn more, see [IoT Plug and Play components in models](../iot-pnp/concepts-components.md).
+A device model is a type of [model](#model) that uses the [Digital Twins Definition Language](#digital-twins-definition-language-dtdl) to describe the capabilities of an IoT Plug and Play device. A simple device model uses a single interface to describe the device capabilities. A more complex device model includes multiple components, each of which describe a set of capabilities. To learn more, see [IoT Plug and Play components in models](../iot-pnp/concepts-modeling-guide.md).
 
 ### Device modeling
 
@@ -430,6 +430,12 @@ In [IoT Edge](#iot-edge), a module is a Docker container that you can deploy to 
 [MQTT](https://mqtt.org/) is one of the messaging protocols that [IoT Hub](#iot-hub) supports for communicating with devices. For more information about the messaging protocols that IoT Hub supports, see [Send and receive messages with IoT Hub](../iot-hub/iot-hub-devguide-messaging.md).
 
 ## O
+
+### Ontology
+
+A set of models for a particular domain, such as real estate, smart cities, IoT systems, energy grids, and more. Ontologies are often used as schemas for knowledge graphs like the ones in [Azure Digital Twins](#azure-digital-twins), because they provide a starting point based on industry standards and best practices.
+
+For more information about ontologies, see [What is an ontology?](../digital-twins/concepts-ontologies.md)
 
 ### Operations monitoring
 

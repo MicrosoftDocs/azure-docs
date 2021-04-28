@@ -9,7 +9,7 @@ ms.subservice: service
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 04/17/2021
 ms.author: sstein
 ---
 # What's new in Azure SQL Database & SQL Managed Instance?
@@ -55,8 +55,8 @@ This table provides a quick comparison for the change in terminology:
 
 | Feature | Details |
 | ---| --- |
-| [Distributed transactions](/azure/azure-sql/database/elastic-transactions-overview) | Distributed transactions across Managed Instances. |
-| [Instance pools](/azure/sql-database/sql-database-instance-pools) | A convenient and cost-efficient way to migrate smaller SQL instances to the cloud. |
+| [Distributed transactions](./elastic-transactions-overview.md) | Distributed transactions across Managed Instances. |
+| [Instance pools](../managed-instance/instance-pools-overview.md) | A convenient and cost-efficient way to migrate smaller SQL instances to the cloud. |
 | [Instance-level Azure AD server principals (logins)](/sql/t-sql/statements/create-login-transact-sql) | Create instance-level logins using a [CREATE LOGIN FROM EXTERNAL PROVIDER](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) statement. |
 | [Transactional Replication](../managed-instance/replication-transactional-overview.md) | Replicate the changes from your tables into other databases in SQL Managed Instance, SQL Database, or SQL Server. Or update your tables when some rows are changed in other instances of SQL Managed Instance or SQL Server. For information, see [Configure replication in Azure SQL Managed Instance](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
 | Threat detection |For information, see [Configure threat detection in Azure SQL Managed Instance](../managed-instance/threat-detection-configure.md).|
@@ -89,6 +89,7 @@ The following features are enabled in the SQL Managed Instance deployment model 
 
 |Issue  |Date discovered  |Status  |Date resolved  |
 |---------|---------|---------|---------|
+|[Changing the connection type does not affect connections through the failover group endpoint](#changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint)|Jan 2021|Has Workaround||
 |[Procedure sp_send_dbmail may transiently fail when @query parameter is used](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|Jan 2021|Has Workaround||
 |[Distributed transactions can be executed after removing Managed Instance from Server Trust Group](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Oct 2020|Has Workaround||
 |[Distributed transactions cannot be executed after Managed Instance scaling operation](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Oct 2020|Has Workaround||
@@ -120,6 +121,12 @@ The following features are enabled in the SQL Managed Instance deployment model 
 |Point-in-time database restore from Business Critical tier to General Purpose tier will not succeed if source database contains in-memory OLTP objects.||Resolved|Oct 2019|
 |Database mail feature with external (non-Azure) mail servers using secure connection||Resolved|Oct 2019|
 |Contained databases not supported in SQL Managed Instance||Resolved|Aug 2019|
+
+### Changing the connection type does not affect connections through the failover group endpoint
+
+If an instance participates in an [auto-failover group](./auto-failover-group-overview.md), changing the instance's [connection type](../managed-instance/connection-types-overview.md) does not take effect for the connections established through the failover group listener endpoint.
+
+**Workaround**: Drop and recreate auto-failover group afer changing the connection type.
 
 ### Procedure sp_send_dbmail may transiently fail when @query parameter is used
 

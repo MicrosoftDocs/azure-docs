@@ -1,7 +1,7 @@
 ---
 title: Azure Certified Device program glossary
 description: A list of common terms used in the Azure Certified Device program
-author: nikuntjo
+author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: conceptual 

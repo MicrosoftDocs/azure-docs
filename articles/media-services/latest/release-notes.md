@@ -81,7 +81,7 @@ Version 3 provides:
  
 - 24x7 live event support
 - ARM REST APIs, client SDKs for .NET core, Node.js, Python, Java, Go and Ruby.
-- Customer managed keys, trusted storage integration, private link support, and [more](https://docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+- Customer managed keys, trusted storage integration, private link support, and [more](./migrate-v-2-v-3-migration-benefits.md)
 
 #### Action Required
 
@@ -131,7 +131,7 @@ See the latest samples in the **[media-services-v3-node-tutorials](https://githu
 
 Live Events now support a lower-cost billing mode for "stand-by". This allows customers to pre-allocate Live Events at a lower cost for the creation of "hot pools". Customers can then use the stand-by live events to transition to the Running state faster than starting from cold on creation.  This reduces the time to start the channel significantly and allows for fast hot-pool allocation of machines running in a lower price mode.
 See the latest pricing details [here](https://azure.microsoft.com/pricing/details/media-services).
-For more information on the StandBy state and the other states of Live Events see the article - [Live event states and billing.](./live-event-states-billing.md)
+For more information on the StandBy state and the other states of Live Events see the article - [Live event states and billing.](./live-event-states-billing-concept.md)
 
 ## December 2020
 
@@ -147,13 +147,13 @@ The Audio Analysis preset now includes a Basic mode pricing tier. The new Basic 
 
 Customers using Indexer v1 and Indexer v2 should migrate to the Basic Audio Analysis preset.
 
-For more information about the Basic Audio Analyzer mode, see [Analyzing Video and Audio files](analyze-video-audio-files-concept.md).  To learn to use the Basic Audio Analyzer mode with the REST API, see [How to Create a Basic Audio Transform](how-to-create-basic-audio-transform.md).
+For more information about the Basic Audio Analyzer mode, see [Analyzing Video and Audio files](analyze-video-audio-files-concept.md).  To learn to use the Basic Audio Analyzer mode with the REST API, see [How to Create a Basic Audio Transform](transform-create-basic-audio-how-to.md).
 
 ### Live Events
 
 Updates to most properties are now allowed when live events are stopped. In addition, users are allowed to specify a prefix for the static hostname for the live event's input and preview URLs. VanityUrl is now called `useStaticHostName` to better reflect the intent of the property.
 
-Live events now have a StandBy state.  See [Live Events and Live Outputs in Media Services](./live-events-outputs-concept.md).
+Live events now have a StandBy state.  See [Live Events and Live Outputs in Media Services](./live-event-outputs-concept.md).
 
 A live event supports receiving various input aspect ratios. Stretch mode allows customers to specify the stretching behavior for the output.
 
@@ -240,7 +240,7 @@ To see part of the header exchange in action, you can try the following steps:
 
 Live transcription is now in public preview and available for use in the West US 2 region.
 
-Live transcription is designed to work in conjunction with live events as an add-on capability.  It is supported on both pass-through and Standard or Premium encoding live events.  When this feature is enabled, the service uses the [Speech-To-Text](../../cognitive-services/speech-service/speech-to-text.md) feature of Cognitive Services to transcribe the spoken words in the incoming audio into text. This text is then made available for delivery along with video and audio in MPEG-DASH and HLS protocols. Billing is based on a new add-on meter that is additional cost to the live event when it is in the "Running" state.  For details on Live transcription and billing, see [Live transcription](live-transcription.md)
+Live transcription is designed to work in conjunction with live events as an add-on capability.  It is supported on both pass-through and Standard or Premium encoding live events.  When this feature is enabled, the service uses the [Speech-To-Text](../../cognitive-services/speech-service/speech-to-text.md) feature of Cognitive Services to transcribe the spoken words in the incoming audio into text. This text is then made available for delivery along with video and audio in MPEG-DASH and HLS protocols. Billing is based on a new add-on meter that is additional cost to the live event when it is in the "Running" state.  For details on Live transcription and billing, see [Live transcription](live-event-live-transcription-how-to.md)
 
 > [!NOTE]
 > Currently, live transcription is only available as a preview feature in the West US 2 region. It supports transcription of spoken words in English (en-us) only at this time.
@@ -321,8 +321,8 @@ This functionality works with any [Transform](/rest/api/media/transforms) that i
 
 See examples:
 
-* [Subclip a video with .NET](subclip-video-dotnet-howto.md)
-* [Subclip a video with REST](subclip-video-rest-howto.md)
+* [Subclip a video with .NET](transform-subclip-video-dotnet-how-to.md)
+* [Subclip a video with REST](transform-subclip-video-rest-how-to.md)
 
 ## May 2019
 
@@ -331,7 +331,7 @@ See examples:
 You can now use Azure Monitor to view telemetry data emitted by Media Services.
 
 * Use the Azure Monitor diagnostic logs to monitor requests sent by the Media Services Key Delivery endpoint. 
-* Monitor metrics emitted by Media Services [Streaming Endpoints](streaming-endpoint-concept.md).   
+* Monitor metrics emitted by Media Services [Streaming Endpoints](stream-streaming-endpoint-concept.md).   
 
 For details, see [Monitor Media Services metrics and diagnostic logs](monitoring/monitor-media-services-data-reference.md).
 
@@ -349,7 +349,7 @@ For more information, see [Clouds and regions in which Media Services v3 exists]
 
 Added updates that include Media Services performance improvements.
 
-* The maximum file size supported for processing was updated. See, [Quotas, and limits](limits-quotas-constraints.md).
+* The maximum file size supported for processing was updated. See, [Quotas, and limits](limits-quotas-constraints-reference.md).
 * [Encoding speeds improvements](concept-media-reserved-units.md).
 
 ## April 2019

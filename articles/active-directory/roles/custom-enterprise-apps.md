@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/04/2020
+ms.date: 04/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -107,7 +107,7 @@ $displayName = "Can manage user and group assignments for Applications"
 $templateId = (New-Guid).Guid
 
 # Set of permissions to grant
-$allowedResourceAction =@( "microsoft.directory/servicePrincipals/appRoleAssignedTo/update")
+$allowedResourceAction = @("microsoft.directory/servicePrincipals/appRoleAssignedTo/update")
 $resourceActions = @{'allowedResourceActions'= $allowedResourceAction}
 $rolePermission = @{'resourceActions' = $resourceActions}
 $rolePermissions = $rolePermission
@@ -121,24 +121,16 @@ $customRole = New-AzureADMSRoleDefinition -RolePermissions $rolePermissions -Dis
 Assign the role using this PowerShell script.
 
 ```powershell
-PowerShell
-# Basic role information
+# Get the user and role definition you want to link
+$user = Get-AzureADUser -Filter "userPrincipalName eq 'chandra@example.com'"
+$roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Manage user and group assignments'"
 
-$description = "Manage user and group assignments"
-$displayName = "Can manage user and group assignments for Applications"
-$templateId = (New-Guid).Guid
+# Get app registration and construct resource scope for assignment.
+$appRegistration = Get-AzureADApplication -Filter "displayName eq 'My Filter Photos'"
+$resourceScope = '/' + $appRegistration.objectId
 
-# Set of permissions to grant
-$allowedResourceAction =
-@(
-    "microsoft.directory/servicePrincipals/appRoleAssignedTo/update"
-)
-$resourceActions = @{'allowedResourceActions'= $allowedResourceAction}
-$rolePermission = @{'resourceActions' = $resourceActions}
-$rolePermissions = $rolePermission
-
-# Create new custom role
-$customRole = New-AzureAdRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
+# Create a scoped role assignment
+$roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
 ## Use the Microsoft Graph API

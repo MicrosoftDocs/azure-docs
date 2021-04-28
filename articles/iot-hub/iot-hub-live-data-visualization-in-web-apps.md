@@ -17,23 +17,11 @@ ms.custom: ['Role: Cloud Development', 'Role: Data Analytics', devx-track-azurec
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-## What you learn
+In this article, you learn how to visualize real-time sensor data that your IoT hub receives with a node.js web app running on your local computer. After running the web app locally, you can optionally follow steps to host the web app in Azure App Service. If you want to try to visualize the data in your IoT hub by using Power BI, see [Use Power BI to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
 
-In this tutorial, you learn how to visualize real-time sensor data that your IoT hub receives with a node.js web app running on your local computer. After running the web app locally, you can optionally follow steps to host the web app in Azure App Service. If you want to try to visualize the data in your IoT hub by using Power BI, see [Use Power BI to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
+## Prerequisites
 
-## What you do
-
-* Add a consumer group to your IoT hub that the web application will use to read sensor data
-* Download the web app code from GitHub
-* Examine the web app code
-* Configure environment variables to hold the IoT Hub artifacts needed by your web app
-* Run the web app on your development machine
-* Open a web page to see real-time temperature and humidity data from your IoT hub
-* (Optional) Use Azure CLI to host your web app in Azure App Service
-
-## What you need
-
-* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials; for example, [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md). These cover the following requirements:
+* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials. For example, you can go to [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md) or to one of the [Send telemetry](quickstart-send-telemetry-dotnet.md) quickstarts. These articles cover the following requirements:
 
   * An active Azure subscription
   * An Iot hub under your subscription

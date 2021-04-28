@@ -19,7 +19,7 @@ ms.reviewer: baanders
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) is a cloud service that helps you automate workflows across apps and services. By connecting Logic Apps to the Azure Digital Twins APIs, you can create such automated flows around Azure Digital Twins and their data.
 
-Azure Digital Twins does not currently have a certified (pre-built) connector for Logic Apps. Instead, the current process for using Logic Apps with Azure Digital Twins is to create a [**custom Logic Apps connector**](../logic-apps/custom-connector-overview.md), using a [custom Azure Digital Twins Swagger](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) that has been modified to work with Logic Apps.
+Azure Digital Twins does not currently have a certified (pre-built) connector for Logic Apps. Instead, the current process for using Logic Apps with Azure Digital Twins is to create a [custom Logic Apps connector](../logic-apps/custom-connector-overview.md), using a [custom Azure Digital Twins Swagger](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) that has been modified to work with Logic Apps.
 
 > [!NOTE]
 > There are multiple versions of the Swagger contained in the custom Swagger sample linked above. The latest version will be found in the subfolder with the most recent date, but earlier versions contained in the sample are also still supported.
@@ -43,7 +43,7 @@ You also need to complete the following items as part of prerequisite setup. The
 
 This article uses Logic Apps to update a twin in your Azure Digital Twins instance. To proceed, you should add at least one twin in your instance. 
 
-You can add twins using the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client), or the [Azure Digital Twins CLI](how-to-use-cli.md). For detailed steps on how to create twins using these methods, see [*How-to: Manage digital twins*](how-to-manage-twin.md).
+You can add twins using the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client), or the [Azure Digital Twins CLI](how-to-use-cli.md). For detailed steps on how to create twins using these methods, see [How-to: Manage digital twins](how-to-manage-twin.md).
 
 You will need the **_Twin ID_** of a twin in your instance that you've created.
 
@@ -89,9 +89,9 @@ You'll be taken to the deployment page for the connector. When it is finished de
 
 Next, you'll configure the connector you've created to reach Azure Digital Twins.
 
-First, download a custom Azure Digital Twins Swagger that has been modified to work with Logic Apps. Download the **Azure Digital Twins custom Swaggers (Logic Apps connector)** sample from [**this link**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) by hitting the *Download ZIP* button. Navigate to the downloaded *Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_.zip* folder and unzip it. 
+First, download a custom Azure Digital Twins Swagger that has been modified to work with Logic Apps. Download the [Azure Digital Twins custom Swaggers (Logic Apps connector) sample](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) by hitting the *Download ZIP* button. Navigate to the downloaded *Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_.zip* folder and unzip it. 
 
-The custom Swagger for this tutorial is located in the _**Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_\LogicApps**_ folder. This folder contains subfolders called *stable* and *preview*, both of which hold different versions of the Swagger organized by date. The folder with the most recent date will contain the latest copy of the Swagger. Whichever version you select, the Swagger file is named _**digitaltwins.json**_.
+The custom Swagger for this tutorial is located in the ***Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_\LogicApps*** folder. This folder contains subfolders called *stable* and *preview*, both of which hold different versions of the Swagger organized by date. The folder with the most recent date will contain the latest copy of the Swagger. Whichever version you select, the Swagger file is named _**digitaltwins.json**_.
 
 > [!NOTE]
 > Unless you're working with a preview feature, it's generally recommended to use the most recent *stable* version of the Swagger. However, earlier versions and preview versions of the Swagger are also still supported. 
@@ -122,7 +122,7 @@ In the Security step, hit *Edit* and configure this information:
 * **OAuth 2.0**:
     - Identity provider: Azure Active Directory
     - Client ID: The *Application (client) ID* for your Azure AD app registration
-    - Client secret: The *Client secret* you created in [*Prerequisites*](#prerequisites) for your Azure AD app registration
+    - Client secret: The *Client secret* you created in [Prerequisites](#prerequisites) for your Azure AD app registration
     - Login URL: https://login.windows.net (leave default)
     - Tenant ID: The *Directory (tenant) ID* for your Azure AD app registration
     - Resource URL: 0b07f429-9f4b-4714-9392-cc5e8e80c8b0
@@ -211,10 +211,10 @@ Now that your logic app has been created, the twin update event you defined in t
 
 You can query your twin via your method of choice (such as a [custom client app](tutorial-command-line-app.md), the [Azure Digital Twins Explorer sample app](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/), the [SDKs and APIs](how-to-use-apis-sdks.md), or the [CLI](how-to-use-cli.md)). 
 
-For more about querying your Azure Digital Twins instance, see [*How-to: Query the twin graph*](how-to-query-graph.md).
+For more about querying your Azure Digital Twins instance, see [How-to: Query the twin graph](how-to-query-graph.md).
 
 ## Next steps
 
 In this article, you created a logic app that regularly updates a twin in your Azure Digital Twins instance with a patch that you provided. You can try out selecting other APIs in the custom connector to create Logic Apps for a variety of actions on your instance.
 
-To read more about the APIs operations available and the details they require, visit [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md).
+To read more about the APIs operations available and the details they require, visit [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md).

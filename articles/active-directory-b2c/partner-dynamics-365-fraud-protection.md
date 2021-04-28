@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Tutorial: Configure Microsoft Dynamics 365 Fraud Protection with Azure Active Directory B2C
 
-In this sample tutorial, we provide guidance on how to integrate [Microsoft Dynamics 365 Fraud Protection](https://docs.microsoft.com/dynamics365/fraud-protection/overview) (DFP) with the Azure Active Directory (AD) B2C.
+In this sample tutorial, we provide guidance on how to integrate [Microsoft Dynamics 365 Fraud Protection](/dynamics365/fraud-protection/overview) (DFP) with the Azure Active Directory (AD) B2C.
 
 Microsoft DFP provides clients with the capability to assess if the risk of attempts to create new accounts and attempts to login to client's ecosystem are fraudulent. Microsoft DFP assessment can be used by the customer to block or challenge suspicious attempts to create new fake accounts or to compromise existing accounts. Account protection includes artificial intelligence empowered device fingerprinting, APIs for real-time risk assessment, rule and list experience to optimize risk strategy as per client's business needs, and a scorecard to monitor fraud protection effectiveness and trends in client's ecosystem.
 
@@ -64,7 +64,7 @@ The following architecture diagram shows the implementation.
 ## Set up the solution
 
 1. [Create a Facebook application](./identity-provider-facebook.md#create-a-facebook-application) configured to allow federation to Azure AD B2C.
-2. [Add the Facebook secret](./custom-policy-get-started.md#create-the-facebook-key) you created as an Identity Experience Framework policy key.
+2. [Add the Facebook secret](./tutorial-create-user-flows.md?pivots=b2c-custom-policy#create-the-facebook-key) you created as an Identity Experience Framework policy key.
 
 ## Configure your application under Microsoft DFP
 
@@ -96,14 +96,14 @@ Configure the application settings in the [App service in Azure](../app-service/
 
 | Application settings | Source | Notes |
 | :-------- | :------------| :-----------|
-|FraudProtectionSettings:InstanceId | Microsoft DFP Configuration |     |
-|FraudProtectionSettings:DeviceFingerprintingCustomerId | Your Microsoft device fingerprinting customer ID |     |
+| FraudProtectionSettings:InstanceId | Microsoft DFP Configuration |     |
+| FraudProtectionSettings:DeviceFingerprintingCustomerId | Your Microsoft device fingerprinting customer ID |     |
 | FraudProtectionSettings:ApiBaseUrl |  Your Base URL from Microsoft DFP Portal   | Remove '-int' to call the production API instead|
-|  TokenProviderConfig: Resource  | Your Base URL - https://api.dfp.dynamics-int.com     | Remove '-int' to call the production API instead|
-|   TokenProviderConfig:ClientId       |Your Fraud Protection merchant Azure AD client app ID      |       |
-| TokenProviderConfig:Authority | https://login.microsoftonline.com/<directory_ID> | Your Fraud Protection merchant Azure AD tenant authority |
-| TokenProviderConfig:CertificateThumbprint* | The thumbprint of the certificate to use to authenticate against your merchant Azure AD client app |
-| TokenProviderConfig:ClientSecret* | The secret for your merchant Azure AD client app | Recommended to use a secrets manager |
+| FraudProtectionSettings:TokenProviderConfig:Resource | Your Base URL - `https://api.dfp.dynamics-int.com`     | Remove '-int' to call the production API instead|
+| FraudProtectionSettings:TokenProviderConfig:ClientId |Your Fraud Protection merchant Azure AD client app ID      |       |
+| FraudProtectionSettings:TokenProviderConfig:Authority | https://login.microsoftonline.com/<directory_ID> | Your Fraud Protection merchant Azure AD tenant authority |
+| FraudProtectionSettings:TokenProviderConfig:CertificateThumbprint* | The thumbprint of the certificate to use to authenticate against your merchant Azure AD client app |
+| FraudProtectionSettings:TokenProviderConfig:ClientSecret* | The secret for your merchant Azure AD client app | Recommended to use a secrets manager |
 
 *Only set 1 of the 2 marked parameters depending on if you authenticate with a certificate or a secret such as a password.
 
@@ -122,8 +122,8 @@ In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integr
 |  {your_tenant_extensions_appid}   |  App ID of your tenant's storage application   |  01234567-89ab-cdef-0123-456789abcdef  |
 |   {your_tenant_extensions_app_objectid}  | Object ID of your tenant's storage application    | 01234567-89ab-cdef-0123-456789abcdef   |
 |   {your_app_insights_instrumentation_key}  |   Instrumentation key of your app insights instance*  |   01234567-89ab-cdef-0123-456789abcdef |
-|  {your_ui_base_url}   | Endpoint in your app service from where your UI files are served    | https://yourapp.azurewebsites.net/B2CUI/GetUIPage   |
-|   {your_app_service_url}  | URL of your app service    |  https://yourapp.azurewebsites.net  |
+|  {your_ui_base_url}   | Endpoint in your app service from where your UI files are served    | `https://yourapp.azurewebsites.net/B2CUI/GetUIPage`   |
+|   {your_app_service_url}  | URL of your app service    |  `https://yourapp.azurewebsites.net`  |
 |   {your-facebook-app-id}  |  App ID of the facebook app you configured for federation with Azure AD B2C   | 000000000000000   |
 |  {your-facebook-app-secret}   |  Name of the policy key you've saved facebook's app secret as   | B2C_1A_FacebookAppSecret   |
 
@@ -144,7 +144,7 @@ The value of the userID needs to be the same as the one in the corresponding Azu
 
 1. Go to the [Azure AD B2C policy](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/Policies) in the Policies folder.
 
-2. Follow this [document](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) to download [LocalAccounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)
+2. Follow this [document](./tutorial-create-user-flows.md?pivots=b2c-custom-policy?tabs=applications#custom-policy-starter-pack) to download [LocalAccounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)
 
 3. Configure the policy for the Azure AD B2C tenant.
 
@@ -180,4 +180,4 @@ For additional information, review the following articles:
 
 - [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)

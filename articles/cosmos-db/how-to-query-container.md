@@ -21,19 +21,19 @@ When you query data from containers, if the query has a partition key filter spe
 For example, consider the below query with an equality filter on `DeviceId`. If we run this query on a container partitioned on `DeviceId`, this query will filter to a single physical partition.
 
 ```sql
-    SELECT * FROM c WHERE c.DeviceId = 'XMS-0001'
+SELECT * FROM c WHERE c.DeviceId = 'XMS-0001'
 ```
 
 As with the earlier example,  this query will also filter to a single partition. Adding the additional filter on `Location` does not change this:
 
 ```sql
-    SELECT * FROM c WHERE c.DeviceId = 'XMS-0001' AND c.Location = 'Seattle'
+SELECT * FROM c WHERE c.DeviceId = 'XMS-0001' AND c.Location = 'Seattle'
 ```
 
 Here's a query that has a range filter on the partition key and won't be scoped to a single physical partition. In order to be an in-partition query, the query must have an equality filter that includes the partition key:
 
 ```sql
-    SELECT * FROM c WHERE c.DeviceId > 'XMS-0001'
+SELECT * FROM c WHERE c.DeviceId > 'XMS-0001'
 ```
 
 ## Cross-partition query
@@ -41,7 +41,7 @@ Here's a query that has a range filter on the partition key and won't be scoped 
 The following query doesn't have a filter on the partition key (`DeviceId`). Therefore, it must fan-out to all physical partitions where it is run against each partition's index:
 
 ```sql
-    SELECT * FROM c WHERE c.Location = 'Seattle`
+SELECT * FROM c WHERE c.Location = 'Seattle`
 ```
 
 Each physical partition has its own index. Therefore, when you run a cross-partition query on a container, you are effectively running one query *per* physical partition. Azure Cosmos DB will automatically aggregate results across different physical partitions.

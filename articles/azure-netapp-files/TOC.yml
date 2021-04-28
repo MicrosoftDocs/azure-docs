@@ -93,15 +93,17 @@
       href: azure-netapp-files-configure-nfsv41-domain.md
     - name: Configure NFSv4.1 Kerberos encryption
       href: configure-kerberos-encryption.md
+    - name: Configure ADDS LDAP with extended groups for NFS
+      href: configure-ldap-extended-groups.md
     - name: Configure an NFS client for Azure NetApp Files
       href: configure-nfs-clients.md
-    - name: Configure export policy for an NFS volume
-      href: azure-netapp-files-configure-export-policy.md
   - name: Create an SMB volume
     href: azure-netapp-files-create-volumes-smb.md
   - name: Create a dual-protocol volume 
     href: create-volumes-dual-protocol.md
-  - name: Mount or unmount a volume for Windows or Linux virtual machines
+  - name: Configure export policy for NFS or dual protocol
+    href: azure-netapp-files-configure-export-policy.md
+  - name: Mount or unmount a volume
     href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
   - name: Manage snapshots
     href: azure-netapp-files-manage-snapshots.md
@@ -139,6 +141,8 @@
       href: troubleshoot-nfsv41-kerberos-volumes.md
     - name: Troubleshoot snapshot policies
       href: troubleshoot-snapshot-policies.md
+    - name: Troubleshoot LDAP volumes
+      href: troubleshoot-ldap-volumes.md
     - name: Troubleshoot Resource Provider errors
       href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: Reference
@@ -147,6 +151,8 @@
     href: /rest/api/netapp/
   - name: Resource Manager template
     href: /azure/templates/microsoft.netapp/allversions
+  - name: Azure CLI
+    href: /cli/azure/netappfiles
   - name: Azure Application Consistent Snapshot Tool (AzAcSnap)
     items:
     - name: Release Notes for AzAcSnap

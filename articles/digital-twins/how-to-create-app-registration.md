@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Create an app registration to use with Azure Digital Twins
 
-When working with an Azure Digital Twins instance, it is common to interact with that instance through client applications, such as a custom client app or a sample like [Azure Digital Twins Explorer](quickstart-adt-explorer.md). Those applications need to authenticate with Azure Digital Twins in order to interact with it, and some of the [authentication mechanisms](how-to-authenticate-client.md) that apps can use involve an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **app registration**.
+When working with an Azure Digital Twins instance, it is common to interact with that instance through client applications, such as a custom client app or a sample like [Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md). Those applications need to authenticate with Azure Digital Twins in order to interact with it, and some of the [authentication mechanisms](how-to-authenticate-client.md) that apps can use involve an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **app registration**.
 
 This is not required for all authentication scenarios. However, if you are using an authentication strategy or code sample that does require an app registration, including a **client ID** and **tenant ID**, this article shows you how to set one up.
 
@@ -95,7 +95,7 @@ If these values are missing, retry the steps in the [section for adding the API 
 
 It's possible that your organization requires additional actions from subscription Owners/administrators to successfully set up an app registration. The steps required may vary depending on your organization's specific settings.
 
-Here are some common potential activities that an Owner/administrator on the subscription may need to perform. These and other operations can be performed from the [*Azure AD App registrations*](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal.
+Here are some common potential activities that an Owner/administrator on the subscription may need to perform. These and other operations can be performed from the [Azure AD App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal.
 * Grant admin consent for the app registration. Your organization may have *Admin Consent Required* globally turned on in Azure AD for all app registrations within your subscription. If so, the Owner/administrator will need to select this button for your company on the app registration's *API permissions* page for the app registration to be valid:
 
     :::image type="content" source="media/how-to-create-app-registration/grant-admin-consent.png" alt-text="Portal view of the 'Grant admin consent' button under API permissions":::
@@ -106,11 +106,11 @@ Here are some common potential activities that an Owner/administrator on the sub
 * Set specific reply URLs for web and desktop access
 * Allow for implicit OAuth2 authentication flows
 
-For more information about app registration and its different setup options, see [*Register an application with the Microsoft identity platform*](/graph/auth-register-app-v2).
+For more information about app registration and its different setup options, see [Register an application with the Microsoft identity platform](/graph/auth-register-app-v2).
 
 ## Next steps
 
 In this article, you set up an Azure AD app registration that can be used to authenticate client applications with the Azure Digital Twins APIs.
 
 Next, read about authentication mechanisms, including one that uses app registrations and others that do not:
-* [*How-to: Write app authentication code*](how-to-authenticate-client.md)
+* [How-to: Write app authentication code](how-to-authenticate-client.md)
