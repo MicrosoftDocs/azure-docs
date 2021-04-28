@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 04/28/2021
 ms.author: b-juche
 ---
 # Metrics for Azure NetApp Files
@@ -54,6 +54,9 @@ You can find metrics for a capacity pool or volume by selecting the **capacity p
    The size of all snapshots in a volume.  
 
 ## Performance metrics for volumes
+
+> [!NOTE] 
+> Volume latency for *Average Read Latency* and *Average Write Latency* is measured within the storage service and does not include network latency.
 
 - *Average Read Latency*   
     The average time for reads from the volume in milliseconds.

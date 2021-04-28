@@ -15,15 +15,15 @@ ms.author: mathapli
 
 
 
-# Azure Hybrid Benefit for Linux virtual machine scale set (Public Preview)
+# Azure Hybrid Benefit for Linux virtual machine scale set
 
-**Azure Hybrid Benefit for Linux virtual machine scale set is in public preview now**. AHB benefit can help you reduce the cost of running your RHEL and SLES [virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+**Azure Hybrid Benefit for Linux virtual machine scale set is in GA now**. AHB benefit can help you reduce the cost of running your RHEL and SLES [virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
 
 With this benefit, you pay for only the infrastructure cost of your scale set. The benefit is available for all RHEL and SLES Marketplace pay-as-you-go (PAYG) images.
 
 
 >[!NOTE]
-> This article describes the Azure Hybrid Benefit for Linux VMSS. There is a separate [article available [here AHB for Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux), which is already available to Azure customers since November, 2020.
+> This article describes the Azure Hybrid Benefit for Linux VMSS. There is a separate [article available [here AHB for Linux VMs](../virtual-machines/linux/azure-hybrid-benefit-linux.md), which is already available to Azure customers since November, 2020.
 
 ## Benefit description
 Azure Hybrid allows you to use the existing Cloud access licenses from Red Hat or SUSE and flexibly convert virtual machine scale set instances to bring-your-own-subscription (BYOS) billing. 
@@ -91,7 +91,7 @@ az vmss update -g myResourceGroup -n myVmName --license-type None
 ```
 
 >[!NOTE]
-> Scale sets have an ["upgrade policy"](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) that determine how VMs are brought up-to-date with the latest scale set model. 
+> Scale sets have an ["upgrade policy"](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) that determine how VMs are brought up-to-date with the latest scale set model. 
 Hence, if your VMSS have 'Automatic' upgrade policy, AHB benefit will be applied automatically as VM instances get updated. 
 If VMSS have 'Rolling' upgrade policy, based on the scheduled updates, AHB will be applied.
 In case of 'Manual' upgrade policy, you will have to perform "manual upgrade" of each existing VM.  
