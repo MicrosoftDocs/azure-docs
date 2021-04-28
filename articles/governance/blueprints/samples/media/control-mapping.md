@@ -263,7 +263,8 @@ directly to a specific control mapping. Many of the mapped controls are implemen
 - Audit the OS vulnerabilities on your virtual machine scale sets to protect them from attacks.
 
 > [!NOTE]
-> Availability of specific Azure Policy definitions may vary in Azure Government and other national clouds.
+> Availability of specific Azure Policy definitions may vary in Azure Government and other national
+> clouds.
 
 ## Next steps
 

@@ -169,7 +169,7 @@ The condition is true only if the resulted count is greater than 0.
 
 To make the condition above more generic, use parameter reference instead of a literal array:
 
-```json
+ ```json
 {
     "count": {
         "value": "[parameters('patterns')]",
