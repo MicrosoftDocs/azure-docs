@@ -35,7 +35,7 @@ Data export is available for a variety of Azure account types, including [Enterp
 - Contributor - Can create, modify, or delete their own scheduled exports. Can modify the name of scheduled exports created by others.
 - Reader - Can schedule exports that they have permission to.
 
-For more information about scopes, including access needed to configure exports for Enterprise Agreement and Microsoft Customer agreement scopes, see [Understand and work with scopes](understand-work-scopes.md).
+**For more information about scopes, including access needed to configure exports for Enterprise Agreement and Microsoft Customer agreement scopes, see [Understand and work with scopes](understand-work-scopes.md)**.
 
 For Azure Storage accounts:
 - Write permissions are required to change the configured storage account, regardless of permissions on the export.
