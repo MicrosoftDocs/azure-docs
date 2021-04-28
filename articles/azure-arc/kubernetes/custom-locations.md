@@ -99,12 +99,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
           az k8s-extension create --name <extensionInstanceName> --extension-type Microsoft.EventGrid --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName> --scope cluster --release-namespace eventgrid-ext --configuration-protected-settings-file protected-settings-extension.json --configuration-settings-file settings-extension.json
         ```
 
-    * Azure API Management on Azure Arc
-
-        ```azurecli
-        az k8s-extension create --name <extensionInstanceName> --extension-type Microsoft.ApiManagement.Gateway --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName>  --scope cluster --release-namespace {namespace} --configuration-settings gateway.endpoint='{Configuration URL}' --configuration-settings gateway.authKey='{token}' --configuration-settings service.type='NodePort'
-        ```
-        
+       
     > [!NOTE]
     > Outbound proxy without authentication and outbound proxy with basic authentication are supported by the Arc enabled Data Services cluster extension. Outbound proxy that expects trusted certificates is currently not supported.
 
