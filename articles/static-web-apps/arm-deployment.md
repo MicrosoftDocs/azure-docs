@@ -257,7 +257,10 @@ az account set --subscription <SUBSCRIPTION-ID-OR-SUBSCRIPTION-NAME>
 
 ## Create a resource group
 
-When you deploy a template, you specify a resource group that will contain the resources. Before running the deployment command, create the resource group with either Azure CLI or Azure PowerShell. Select the tabs in the following code section to choose between Azure PowerShell and Azure CLI. The CLI examples in this article are written for the Bash shell.
+When you deploy a template, you specify a resource group that contains related resources. Before running the deployment command, create the resource group with either Azure CLI or Azure PowerShell.
+
+> [!NOTE]
+> The CLI examples in this article are written for the Bash shell.
 
 # [PowerShell](#tab/azure-powershell)
 
