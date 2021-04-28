@@ -78,7 +78,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 > [!div class="mx-imgBorder"]
 > [Add QnA to TA](../media/qnamaker-how-to-setup-service/select-qna-feature-create-flow.png)
  
-    Remember your Azure Active Directory ID, Subscription, Text Analytics resource name you selected when you created the resource. When you are done creating the resource in the Azure portal, return to the QnA Maker portal, refresh the browser page, and continue to **Step 2**.
+   Remember your Azure Active Directory ID, Subscription, Text Analytics resource name you selected when you created the resource. When you are done creating the resource in the Azure portal, return to the QnA Maker portal, refresh the browser page, and continue to **Step 2**.
 
 4. In **Step 2**, select your Active directory, subscription, service (resource), and the language for all knowledge bases created in the service.
 
