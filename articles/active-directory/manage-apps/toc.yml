@@ -180,10 +180,6 @@
         href: migrate-application-authentication-to-azure-active-directory.md
       - name: Use the AD FS application activity report
         href: migrate-adfs-application-activity.md
-    - name: Configure on-premises connectors
-      items:
-      - name: Configure with proxy servers
-        href: application-proxy-configure-connectors-with-proxy-servers.md
     - name: Configure on-premises app access
       items:
       - name: Give mobile and desktop apps access to on-premises APIs
@@ -254,14 +250,8 @@
           href: application-proxy-debug-connectors.md
         - name: Application troubleshooting flowchart
           href: application-proxy-debug-apps.md
-        - name: Problem creating an app in admin portal
-          href: application-proxy-config-problem.md
         - name: Configure with PingAccess
           href: ./application-proxy-ping-access-publishing-guide.md
-        - name: Can't Access this Corporate Application error
-          href: application-proxy-sign-in-bad-gateway-timeout-error.md
-        - name: Sign in problem
-          href: application-sign-in-problem-on-premises-application-proxy.md
         - name: CORS issues in Application Proxy
           href: application-proxy-understand-cors-issues.md
   - name: Reference

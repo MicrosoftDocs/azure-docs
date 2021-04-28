@@ -109,8 +109,8 @@
   - name: How-to guides
     expanded: false
     items:
-    #   - name: Configure with proxy servers
-    #     href: application-proxy-configure-connectors-with-proxy-servers.md
+    - name: Configure with proxy servers
+      href: application-proxy-configure-connectors-with-proxy-servers.md
     #   - name: Give mobile and desktop apps access to on-premises APIs
     #     href: application-proxy-secure-api-access.md 
     #   - name: Configure custom home page
@@ -181,20 +181,20 @@
         href: application-proxy-page-load-speed-problem.md
       - name: Links on application page not working
         href: application-proxy-page-links-broken-problem.md
-    #   - name: Problem creating an app in admin portal
-    #     href: application-proxy-config-problem.md
+      - name: Problem creating an app in admin portal
+        href: application-proxy-config-problem.md
       - name: Configure Kerberos Constrained Delegation
         href: application-proxy-back-end-kerberos-constrained-delegation-how-to.md
     #   - name: Configure with PingAccess
     #     href: ./application-proxy-ping-access-publishing-guide.md
-    #   - name: Can't Access this Corporate Application error
-    #     href: application-proxy-sign-in-bad-gateway-timeout-error.md
+      - name: Can't Access this Corporate Application error
+        href: application-proxy-sign-in-bad-gateway-timeout-error.md
       - name: Problem installing the Application Proxy Agent Connector
         href: application-proxy-connector-installation-problem.md
       - name: No working connector in a connector group for my app
         href: application-proxy-connectivity-no-working-connector.md
-    #   - name: Sign in problem
-    #     href: application-sign-in-problem-on-premises-application-proxy.md
+      - name: Sign in problem
+        href: application-sign-in-problem-on-premises-application-proxy.md
     #   - name: CORS issues in Application Proxy
     #     href: application-proxy-understand-cors-issues.md
   - name: Reference

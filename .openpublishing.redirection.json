@@ -54277,8 +54277,13 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-config-problem.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-config-problem",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-config-problem",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-config-problem.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-config-problem",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-config-sso-how-to.md",
@@ -54292,7 +54297,12 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-working-with-proxy-servers.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-connectors-with-proxy-servers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-connectors-with-proxy-servers",
       "redirect_document_id": false
     },
     {
@@ -54547,8 +54557,13 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-sign-in-bad-gateway-timeout-error.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-sign-in-bad-gateway-timeout-error",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-sign-in-bad-gateway-timeout-error",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-sign-in-bad-gateway-timeout-error.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-sign-in-bad-gateway-timeout-error",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-troubleshoot.md",
@@ -54647,8 +54662,13 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-sign-in-problem-on-premises-application-proxy.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-on-premises-application-proxy",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-sign-in-problem-on-premises-application-proxy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-sign-in-problem-on-premises-application-proxy.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-sign-in-problem-on-premises-application-proxy",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-sign-in-unexpected-user-consent-error.md",

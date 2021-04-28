@@ -1,21 +1,16 @@
 ---
-title: Can't access this Corporate Application error with App Proxy app
-description: How to resolve common access issues with Azure AD Application Proxy applications.
+title: Can't access this Corporate Application error with Azure Active Directory Application Proxy app
+description: How to resolve common access issues with Azure Active Directory Application Proxy applications.
 services: active-directory
-documentationcenter: ''
 author: kenwith
-manager: daveba
-ms.assetid: 
+manager: mtillman
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-proxy
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/21/2019
+ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: asteen
-ms.collection: M365-identity-device-management
 ---
 
 # "Can't Access this Corporate Application" error when using an Application Proxy application
