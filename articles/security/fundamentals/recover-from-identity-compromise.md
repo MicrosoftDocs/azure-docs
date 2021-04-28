@@ -110,8 +110,8 @@ You'll need to balance out getting to the bottom of every anomalous behavior and
 At this point, you may want to perform a risk analysis to prioritize your actions. For more information, see:
 
 - [Datacenter threat, vulnerability, and risk assessment](/compliance/assurance/assurance-threat-vulnerability-risk-assessment)
-- [Track and respond to emerging threats with threat analytics](https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/threat-analytics)
-- [Threat and vulnerability management](https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt)
+- [Track and respond to emerging threats with threat analytics](/microsoft-365/security/defender-endpoint/threat-analytics)
+- [Threat and vulnerability management](/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt)
 
 Microsoft's security services provide extensive resources for detailed investigations. The following sections describe top recommended actions.
 
