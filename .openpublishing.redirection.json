@@ -65478,6 +65478,11 @@
       "source_path_from_root": "/articles/cognitive-services/translator/document-translation/reference/submit-batch-request.md",
       "redirect_url": "/azure/cognitive-services/translator/document-translation/reference/start-translation",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/peering-service/create-connection.md",
+      "redirect_url": "/azure/peering-service/azure-portal",
+      "redirect_document_id": false
     }
   ]
 }
