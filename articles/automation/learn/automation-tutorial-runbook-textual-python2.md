@@ -112,7 +112,7 @@ To do this, the script has to authenticate using the Run As account credentials 
 > [!NOTE]
 > The Automation account must have been created with the Run As account for there to be a Run As certificate.
 > If your Automation account was not created with the Run As account, you can authenticate as described in
-> [Authenticate with the Azure Management Libraries for Python](/azure/python/python-sdk-azure-authenticate) or [create a Run As account](create-run-as-account.md).
+> [Authenticate with the Azure Management Libraries for Python](/azure/python/python-sdk-azure-authenticate) or [create a Run As account](../create-run-as-account.md).
 
 1. Open the textual editor by clicking **Edit** on the **MyFirstRunbook-Python** pane.
 
