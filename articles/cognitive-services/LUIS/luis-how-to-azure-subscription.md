@@ -24,7 +24,7 @@ Learn more about LUIS resources [here](./luis-concept-azure-subscription.md).
 
 2. In the **Choose an authoring** window that appears, find your Azure subscription, and LUIS authoring resource. If you don't have a resource, you can create a new one.
 
-    :::image type="content" source="../media/luis-how-to-azure-subscription/choose-authoring-resource.png" alt-text="Choose a type of Language Understanding authoring resource.":::
+    :::image type="content" source="./media/luis-how-to-azure-subscription/choose-authoring-resource.png" alt-text="Choose a type of Language Understanding authoring resource.":::
     
     When you create a new authoring resource, provide the following information:
     * **Tenant name** - the tenant your Azure subscription is associated with.
