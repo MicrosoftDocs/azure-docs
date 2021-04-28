@@ -86,7 +86,7 @@ npm install @azure/cognitiveservices-qnamaker-runtime
 npm install @azure/ms-rest-js
 ```
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 Install the following NPM packages:
 
@@ -105,7 +105,7 @@ Create a file named index.js and import the following libraries:
 
 [!code-javascript[Dependencies](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=Dependencies)]
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 [!code-javascript[Dependencies](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/preview-sdk/quickstart.js?name=Dependencies)]
 
