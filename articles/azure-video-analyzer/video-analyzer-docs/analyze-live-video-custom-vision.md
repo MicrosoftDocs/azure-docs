@@ -9,7 +9,7 @@ ms.date: 04/21/2021
 
 # Tutorial: Analyze live video with Azure Video Analyzer on IoT Edge and Azure Custom Vision
 
-In this tutorial, you'll learn how to use Azure [Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) to build a containerized model that can detect a toy truck and use the [AI extensibility capability]() of Azure Video Analyzer on Azure IoT Edge to deploy the model on the edge for detecting toy trucks from a live video stream.
+In this tutorial, you'll learn how to use Azure [Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) to build a containerized model that can detect a toy truck and use the [AI extensibility capability](add-valid-link.md) of Azure Video Analyzer on Azure IoT Edge to deploy the model on the edge for detecting toy trucks from a live video stream.
 
 We'll show you how to bring together the power of Custom Vision to build and train a computer vision model by uploading and labeling a few images. You don't need any knowledge of data science, machine learning, or AI. You'll also learn about the capabilities of Azure Video Analyzer and how to easily deploy a custom model as a container on the edge and analyze a simulated live video feed.
 
@@ -47,7 +47,7 @@ Prerequisites for this tutorial are:
 > You might be prompted to install Docker. Ignore this prompt.
 
 - [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer) on your development machine.
-- [Running Azure Video Analyzer with your own model]()
+- [Running Azure Video Analyzer with your own model](add-valid-link.md)
 - Ensure you have:
 
   - [Set up Azure Resources](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/detect-motion-emit-events-quickstart#set-up-azure-resources)
@@ -71,7 +71,7 @@ In this tutorial, you'll use Azure Video Analyzer on IoT Edge to detect such toy
 
 ![Diagram that shows a Custom Vision overview.](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/custom-vision-tutorial/topology-custom-vision.svg)
 
-This diagram shows how the signals flow in this tutorial. An [edge module]() simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline.md#http-extension-processor) node.
+This diagram shows how the signals flow in this tutorial. An [edge module](add-valid-link.md) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline.md#http-extension-processor) node.
 
 The HTTP extension node plays the role of a proxy. It samples the incoming video frames set by you using the `samplingOptions` field and also converts the video frames to the specified image type. Then it relays the image to the toy truck detector model built by using Custom Vision. The HTTP extension processor node gathers the detection results and publishes events to the [Azure IoT Hub sink](pipeline.md#iot-hub-message-sink) node, which sends those events to the [IoT Edge hub](https://docs.microsoft.com/azure/iot-fundamentals/iot-glossary#iot-edge-hub).
 
