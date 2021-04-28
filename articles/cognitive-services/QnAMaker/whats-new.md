@@ -18,6 +18,12 @@ Learn what's new in the service. These items may release notes, videos, blog pos
 
 Learn what's new with QnA Maker.
 
+### May 2021
+
+* QnA Maker managed has beeb re-introduced as Custom question answering feature in Text Analytics resource.
+
+* Support for unstructured documents
+
 ### November 2020
 
 * New version of QnA Maker launched in free Public Preview. Read more [here](https://techcommunity.microsoft.com/t5/azure-ai/introducing-qna-maker-managed-now-in-public-preview/ba-p/1845575).
