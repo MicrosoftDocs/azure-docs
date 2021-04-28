@@ -105,7 +105,7 @@ assigns [Azure Policy](../../../policy/overview.md) definitions to audit use of 
 Directory authentication for SQL Servers. Using Azure Active Directory authentication simplifies
 permission management and centralizes identity management of database users and other Microsoft  
 services.
- 
+
 - External accounts with owner permissions should be removed from your subscription
 - External accounts with write permissions should be removed from your subscription
 - External accounts with read permissions should be removed from your subscription
