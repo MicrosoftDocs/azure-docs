@@ -1059,7 +1059,7 @@
   items:
     - name: Overview
       items:
-        - name: What is MongoDB API in Cosmos DB?
+        - name: What is the API for MongoDB in Cosmos DB?
           href: mongodb-introduction.md
     - name: Quickstarts
       items:
