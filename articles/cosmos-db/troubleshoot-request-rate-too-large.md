@@ -16,9 +16,9 @@ ms.reviewer: sngun
 A "Request rate too large" message or error code 429 indicates that your requests are being throttled. This article contains known causes and solutions for various 429 status code errors. 
 
 ## What is a "Request rate too large" (429) exception?
-A "Request rate too large" exception, also known as error code 429 indicates that your requests against Azure Cosmos DB are being throttled. 
+A "Request rate too large" exception, also known as error code 429 indicates that your requests against Azure Cosmos DB are being throttled. 
 
-When you use provisioned throughput, you set the throughput, measured in request units per second (RU/s) required for your workload. Database operations against the service, such as reads, writes,and queries consume some amount of request units (RUs). Learn more about [request units](request-units.md).
+When you use provisioned throughput, you set the throughput measured in request units per second (RU/s) required for your workload. Database operations against the service, such as reads, writes, and queries consume some amount of request units (RUs). Learn more about [request units](request-units.md).
 
 In a given second, if the operations consume more than the provisioned RU/s, Azure Cosmos DB will return a 429 exception. Each second, the amount of Request Units available to use reset. 
 
@@ -34,16 +34,16 @@ Determine what percent of your requests to your database or container resul
 
 // TODO: Insert image
 
-By default, the Azure Cosmos DB client SDKs and data import tools (Azure Data Factory, bulk executor library) automatically retry requests on 429s (typically up to 9 times), so while you may see 429s in the metrics, these errors may not even have been returned to your application. 
+By default, the Azure Cosmos DB client SDKs and data import tools (Azure Data Factory, bulk executor library) automatically retry requests on 429s (typically up to 9 times). As a result, while you may see 429s in the metrics, these errors may not even have been returned to your application. 
 
 #### Recommended solution
 In general, for a production workload, if you see between 1-5% of requests with 429s, and your end to end latency is acceptable, this is a healthy sign that the RU/s are being fully utilized. No action is required. Otherwise, move to the next troubleshooting steps.
 
 ### Step 2: Determine if there is a hot partition
-A hot partition arises when one or a few logical partition keys consume a disproportionate amount of the total RU/s due to higher request volume. This can be caused by a partition key design that doesn't evenly distribute requests, which results in many requests directed to a small subset of logical (and thus physical) partitions that become "hot."  Because all data for a logical partition resides on one physical partition and total RU/s is evenly distributed among the physical partitions, a hot partition can lead to 429s and inefficient use of throughput. 
+A hot partition arises when one or a few logical partition keys consume a disproportionate amount of the total RU/s due to higher request volume. This can be caused by a partition key design that doesn't evenly distribute requests, resulting in many requests directed to a small subset of logical (and thus physical) partitions that become "hot."  Because all data for a logical partition resides on one physical partition and total RU/s is evenly distributed among the physical partitions, a hot partition can lead to 429s and inefficient use of throughput. 
 
 Here are some examples of partitioning strategies that lead to hot partitions:
-- If you have a container storing IOT telemetry data that is partitioned by date, all data for a single date will reside on the same logical and physical partition. Each day, because all data being written has the same date, this would result in a hot partition. 
+- If you have a container storing IOT device data that is partitioned by date, all data for a single date will reside on the same logical and physical partition. Each day, because all data being written has the same date, this would result in a hot partition. 
     - Instead, for this scenario, a partition key like id (either a GUID or device id), or a [synthetic partition key](/synthetic-partition-keys.md) combining id and date would yield a higher cardinality of values and better distribution of request volume.
 - If you have a multi-tenant scenario with a container partitioned by tenantId, and 1 tenant is significantly more active than the others (for example, the largest tenant has 100,000 users, but most tenants have fewer than 10 users), there will be a hot partition by tenant. 
 
