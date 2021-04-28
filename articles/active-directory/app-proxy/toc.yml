@@ -195,8 +195,8 @@
         href: application-proxy-connectivity-no-working-connector.md
       - name: Sign in problem
         href: application-sign-in-problem-on-premises-application-proxy.md
-    #   - name: CORS issues in Application Proxy
-    #     href: application-proxy-understand-cors-issues.md
+      - name: CORS issues in Application Proxy
+        href: application-proxy-understand-cors-issues.md
   - name: Reference
     items:
     - name: App Proxy FAQ
