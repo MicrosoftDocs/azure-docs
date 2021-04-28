@@ -74,7 +74,7 @@ We recommend that you check the following before you start troubleshooting Micro
 
 | Error  | Possible cause | Recommended actions |
 | ---     | ---     | ---    |
-| The specified vault credential file cannot be used as it is not downloaded from the vault associated with this server. (ID: 100110) Please provide appropriate vault credentials. | The vault credential file is from a different vault than the one this server is already registered to. | Ensure that the target machine and the source machine are registered to the same Recovery Services vault. If the target server has already been registered to a different vault, use the **Register Server** option to register to the correct vault.  
+| The specified vault credential file cannot be used as it is not downloaded from the vault associated with this server. (ID: 100110) Please provide appropriate vault credentials. | The vault credential file is from a different vault than the one this server is already registered to. | Ensure that the target machine and the source machine are registered to the same Recovery Services vault. If the target server has already been registered to a different vault, use the **Register Server** option to register to the correct vault.
 
 ## Backup jobs completed with warning
 
@@ -86,7 +86,7 @@ We recommend that you check the following before you start troubleshooting Micro
   - Unsupported file attributes (for example: in a OneDrive folder, Compressed stream, reparse points). For the complete list, refer to the [support matrix](./backup-support-matrix-mars-agent.md#supported-file-types-for-backup).
   - A file system issue
   - Another process interfering (for example: antivirus software holding handles on files can prevent the MARS agent from accessing the files)
-  - Files locked by an application  
+  - Files locked by an application
 
 - The backup service will mark these files as failed in the log file, with the following naming convention: *LastBackupFailedFilesxxxx.txt* under the *C:\Program Files\Microsoft Azure Recovery Service Agent\temp* folder.
 - To resolve the issue, review the log file to understand the nature of the issue:
@@ -144,18 +144,18 @@ If scheduled backups don't get triggered automatically but manual backups work c
 
 - If the PowerShell execution policy for `LocalMachine` is set to `restricted`, the PowerShell cmdlet that triggers the backup task might fail. Run these commands in elevated mode to check and set the execution policy to either `Unrestricted` or `RemoteSigned`:
 
- ```PowerShell
- Get-ExecutionPolicy -List
+```powershell
+Get-ExecutionPolicy -List
 
 Set-ExecutionPolicy Unrestricted
- ```
+```
 
 - Ensure there are no missing or corrupt PowerShell module MSOnlineBackup files. If there are any missing or corrupt files, take these steps:
 
-  1. From any machine that has a MARS agent that's working properly, copy the MSOnlineBackup folder from C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules.
+  1. From any machine that has a MARS agent that's working properly, copy the MSOnlineBackup folder from C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules.
   1. On the problematic machine, paste the copied files at the same folder location (C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules).
 
-     If there's already an MSOnlineBackup folder on the machine, paste the files into it or replace any existing files.
+    If there's already an MSOnlineBackup folder on the machine, paste the files into it or replace any existing files.
 
 > [!TIP]
 > To ensure changes are applied consistently, restart the server after performing the preceding steps.
@@ -168,7 +168,7 @@ The current operation failed due to an internal service error "Resource not prov
 
 ## Job could not be started as another job was in progress
 
-If you notice a warning message in the **MARS console** > **Job history**, saying “Job could not be started as another job was in progress”, then this could be because of a duplicate instance of the job triggered by the Task Scheduler.
+If you notice a warning message in the **MARS console** > **Job history**, saying "Job could not be started as another job was in progress", then this could be because of a duplicate instance of the job triggered by the Task Scheduler.
 
 ![Job could not be started as another job was in progress](./media/backup-azure-mars-troubleshoot/job-could-not-be-started.png)
 
@@ -238,7 +238,7 @@ Backup operations could fail if there isn't sufficient shadow copy storage space
 
 ### Another process or antivirus software blocking access to cache folder
 
-If you have antivirus software installed on the server, add necessary exclusion rules to the antivirus scan for these files and folders:  
+If you have antivirus software installed on the server, add necessary exclusion rules to the antivirus scan for these files and folders:
 
 - The scratch folder. Its default location is `C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 - The bin folder at `C:\Program Files\Microsoft Azure Recovery Services Agent\Bin`
