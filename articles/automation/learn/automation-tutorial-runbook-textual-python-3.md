@@ -5,6 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/28/2021
 ms.topic: tutorial
+ms.custom: has-adal-ref, devx-track-python
 ---
 
 # Tutorial: Create a Python 3 runbook (preview)
@@ -239,4 +240,4 @@ except Exception as detail:
 
 - To learn about developing for Azure with Python, see [Azure for Python developers](/azure/python/).
 
-- To view sample Python 3 runbooks, see the [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python) organization.
+- To view sample Python 3 runbooks, see the [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python) repository.
