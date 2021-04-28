@@ -54462,7 +54462,12 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-publish-remote-desktop.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-integrate-with-remote-desktop-services",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-integrate-with-remote-desktop-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-integrate-with-remote-desktop-services.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-integrate-with-remote-desktop-services",
       "redirect_document_id": false
     },
     {

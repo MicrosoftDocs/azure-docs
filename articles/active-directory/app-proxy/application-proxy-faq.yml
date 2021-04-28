@@ -157,7 +157,7 @@ sections:
       - question: |
          How do I change the landing page my application loads?
         answer: |
-              From the Application Registrations page, you can change the homepage URL to the desired external URL of the landing page. The specified page will load when the application is launched from My Apps or the Office 365 Portal. For configuration steps, see [Set a custom home page for published apps by using Azure AD Application Proxy](manage-apps/application-proxy-configure-custom-home-page.md)
+              From the Application Registrations page, you can change the homepage URL to the desired external URL of the landing page. The specified page will load when the application is launched from My Apps or the Office 365 Portal. For configuration steps, see [Set a custom home page for published apps by using Azure AD Application Proxy](application-proxy-configure-custom-home-page.md)
           
       - question: |
          Can only IIS-based applications be published? What about web applications running on non-Windows web servers? Does the connector have to be installed on a server with IIS installed?

@@ -3,17 +3,17 @@ title: Publish Remote Desktop with Azure Active Directory Application Proxy
 description: Covers how to configure App Proxy with Remote Desktop Services (RDS)
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
 ---
 
-# Publish Remote Desktop with Azure AD Application Proxy
+# Publish Remote Desktop with Azure Active Directory Application Proxy
 
 Remote Desktop Service and Azure AD Application Proxy work together to improve the productivity of workers who are away from the corporate network. 
 
