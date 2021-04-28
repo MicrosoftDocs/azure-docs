@@ -7,7 +7,6 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
-ms.subservice: metrics
 ---
 
 # Advanced features of the Azure metrics explorer
@@ -75,6 +74,23 @@ To view multiple metrics on the same chart, first [create a new chart](./metrics
 To create another chart that uses a different metric, select **Add chart**.
 
 To reorder or delete multiple charts, select the ellipsis (**...**) button to open the chart menu. Then choose **Move up**, **Move down**, or **Delete**.
+
+## Time range controls
+
+In addition to changing the time range using the [time picker panel](metrics-getting-started.md#select-a-time-range), you can also pan and zoom using the controls in the chart area.
+### Pan
+
+To pan, click on the left and right arrows at the edge of the chart.  This will move the selected time range back and forward by one half the chart's time span.  For example, if you're viewing the past 24 hours, clicking on the left arrow will cause the time range to shift to span a day and a half to 12 hours ago.
+
+Most metrics support 93 days of retention but only let you view 30 days at a time.  Using the pan controls, you look at the past 30 days and then easily walk back 15 days at a time to view the rest of the retention period.
+
+![Animated gif showing the left and right pan controls.](./media/metrics-charts/metrics-pan-controls.gif)
+
+### Zoom
+
+You can click and drag on the chart to zoom into a section of a chart.  Zooming will update the chart's time range to span your selection and will select a smaller time grain if the time grain is set to "Automatic".  The new time range will apply to all charts in Metrics.
+
+![Animated gif showing the metrics zoom feature.](./media/metrics-charts/metrics-zoom-control.gif)
 
 ## Aggregation
 
@@ -258,7 +274,7 @@ By clicking on the failure option, you will be led to a custom failure blade tha
 
 ### Common problems with Drill into Logs
 
-* Log and queries are disabled - To view recommended logs and queries, you must route your diagnostic logs to Log Analytics. Read [this document](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) to learn how to do this. 
+* Log and queries are disabled - To view recommended logs and queries, you must route your diagnostic logs to Log Analytics. Read [this document](./diagnostic-settings.md) to learn how to do this. 
 * Activity logs are only provided - The Drill into Logs feature is only available for select resource providers. By default, activity logs are provided. 
 
  
@@ -275,4 +291,3 @@ If you don't see any data on your chart, review the following troubleshooting in
 ## Next steps
 
 To create actionable dashboards by using metrics, see [Creating custom KPI dashboards](../app/tutorial-app-dashboards.md).
-

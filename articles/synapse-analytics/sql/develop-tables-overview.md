@@ -16,7 +16,7 @@ ms.reviewer: jrasnick
 
 This document includes key concepts for designing tables with dedicated SQL pool and serverless SQL pool.  
 
-[Serverless SQL pool](on-demand-workspace-overview.md) is a query service over the data in your data lake. It doesn't have local storage for data ingestion. [Dedicated SQL pool](best-practices-sql-pool.md) represents a collection of analytic resources that are being provisioned when using Synapse SQL. The size of a dedicated SQL pool is determined by Data Warehousing Units (DWU).
+[Serverless SQL pool](on-demand-workspace-overview.md) is a query service over the data in your data lake. It doesn't have local storage for data ingestion. [Dedicated SQL pool](best-practices-dedicated-sql-pool.md) represents a collection of analytic resources that are being provisioned when using Synapse SQL. The size of a dedicated SQL pool is determined by Data Warehousing Units (DWU).
 
 The following table lists the topics that are relevant to dedicated SQL pool vs. serverless SQL pool:
 

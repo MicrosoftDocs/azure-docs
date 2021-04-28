@@ -10,7 +10,7 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-#As a security operator, connect all my data sources in one place so I can monitor and protect my environment
+#Customer intent: As a security operator, connect all my data sources in one place so I can monitor and protect my environment.
 ---
 # Quickstart: On-board Azure Sentinel
 

@@ -1,0 +1,7 @@
+- name: Azure
+  tocHref: /azure
+  topicHref: /azure/index
+  items: 
+  - name: Internet of Things
+    tocHref: /azure/iot-fundamentals/
+    topicHref: /azure/iot-fundamentals/index

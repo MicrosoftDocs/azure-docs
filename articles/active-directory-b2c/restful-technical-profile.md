@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) provides support for integrating your own RESTful service. Azure AD B2C sends data to the RESTful service in an input claims collection and receives data back in an output claims collection. For more information, see [Integrate REST API claims exchanges in your Azure AD B2C custom policy](custom-policy-rest-api-intro.md).  
+Azure Active Directory B2C (Azure AD B2C) provides support for integrating your own RESTful service. Azure AD B2C sends data to the RESTful service in an input claims collection and receives data back in an output claims collection. For more information, see [Integrate REST API claims exchanges in your Azure AD B2C custom policy](api-connectors-overview.md).  
 
 ## Protocol
 
@@ -222,6 +222,9 @@ If the type of authentication is set to `ApiKeyHeader`, the **CryptographicKeys*
 | --------- | -------- | ----------- |
 | The name of the HTTP header, such as `x-functions-key`, or `x-api-key`. | Yes | The key that is used to authenticate. |
 
+> [!NOTE]
+> At this time, Azure AD B2C supports only one HTTP header for authentication. If your RESTful call requires multiple headers, such as a client ID and client secret, you will need to proxy the request in some manner.
+
 ```xml
 <TechnicalProfile Id="REST-API-SignUp">
   <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
@@ -283,8 +286,7 @@ public class ResponseContent
 
 See the following articles for examples of using a RESTful technical profile:
 
-- [Integrate REST API claims exchanges in your Azure AD B2C custom policy](custom-policy-rest-api-intro.md)
+- [Integrate REST API claims exchanges in your Azure AD B2C custom policy](api-connectors-overview.md)
 - [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as validation of user input](custom-policy-rest-api-claims-validation.md)
 - [Walkthrough: Add REST API claims exchanges to custom policies in Azure Active Directory B2C](custom-policy-rest-api-claims-validation.md)
 - [Secure your REST API services](secure-rest-api.md)
-

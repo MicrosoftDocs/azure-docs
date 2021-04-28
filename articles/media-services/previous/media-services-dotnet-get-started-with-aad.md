@@ -3,18 +3,17 @@ title: Use Azure AD authentication to access Azure Media Services API with .NET 
 description: This topic shows how to use Azure Active Directory (Azure AD) authentication to access Azure Media Services (AMS) API with .NET.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.custom: "has-adal-ref, devx-track-csharp"
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.custom: has-adal-ref, devx-track-csharp
 ---
 # Use Azure AD authentication to access Azure Media Services API with .NET
 

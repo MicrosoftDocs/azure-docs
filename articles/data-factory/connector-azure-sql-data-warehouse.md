@@ -5,7 +5,7 @@ ms.author: jingwang
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 03/17/2021
 ---
 
 # Copy and transform data in Azure Synapse Analytics by using Azure Data Factory
@@ -385,6 +385,7 @@ To copy data to Azure Synapse Analytics, set the sink type in Copy Activity to *
 | preCopyScript     | Specify a SQL query for Copy Activity to run before writing data into Azure Synapse Analytics in each run. Use this property to clean up the preloaded data. | No                                            |
 | tableOption | Specifies whether to [automatically create the sink table](copy-activity-overview.md#auto-create-sink-tables) if not exists based on the source schema. Allowed values are: `none` (default), `autoCreate`. |No |
 | disableMetricsCollection | Data Factory collects metrics such as Azure Synapse Analytics DWUs for copy performance optimization and recommendations, which introduce additional master DB access. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 #### Azure Synapse Analytics sink example
 
@@ -515,7 +516,7 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
    4. `nullValue` is left as default or set to **empty string** (""), and `treatEmptyAsNull` is left as default or set to true.
    5. `encodingName` is left as default or set to **utf-8**.
    6. `quoteChar`, `escapeChar`, and `skipLineCount` aren't specified. PolyBase support skip header row, which can be configured as `firstRowAsHeader` in ADF.
-   7. `compression` can be **no compression**, **GZip**, or **Deflate**.
+   7. `compression` can be **no compression**, **``GZip``**, or **Deflate**.
 
 3. If your source is a folder, `recursive` in copy activity must be set to true.
 
@@ -610,7 +611,7 @@ To use this feature, create an [Azure Blob Storage linked service](connector-azu
 
 ### Best practices for using PolyBase
 
-The following sections provide best practices in addition to those practices mentioned in [Best practices for Azure Synapse Analytics](../synapse-analytics/sql/best-practices-sql-pool.md).
+The following sections provide best practices in addition to those practices mentioned in [Best practices for Azure Synapse Analytics](../synapse-analytics/sql/best-practices-dedicated-sql-pool.md).
 
 #### Required database permission
 
@@ -704,7 +705,7 @@ Using COPY statement supports the following configuration:
 
 2. Format settings are with the following:
 
-   1. For **Parquet**: `compression` can be **no compression**, **Snappy**, or **GZip**.
+   1. For **Parquet**: `compression` can be **no compression**, **Snappy**, or **``GZip``**.
    2. For **ORC**: `compression` can be **no compression**, **```zlib```**, or **Snappy**.
    3. For **Delimited text**:
       1. `rowDelimiter` is explicitly set as **single character** or "**\r\n**", the default value is not supported.
@@ -712,7 +713,7 @@ Using COPY statement supports the following configuration:
       3. `encodingName` is left as default or set to **utf-8 or utf-16**.
       4. `escapeChar` must be same as `quoteChar`, and is not empty.
       5. `skipLineCount` is left as default or set to 0.
-      6. `compression` can be **no compression** or **GZip**.
+      6. `compression` can be **no compression** or **``GZip``**.
 
 3. If your source is a folder, `recursive` in copy activity must be set to true, and `wildcardFilename` need to be `*`. 
 
@@ -816,7 +817,7 @@ Settings specific to Azure Synapse Analytics are available in the **Settings** t
 - Recreate: The table will get dropped and recreated. Required if creating a new table dynamically.
 - Truncate: All rows from the target table will get removed.
 
-**Enable staging:** Determines whether or not to use [PolyBase](/sql/relational-databases/polybase/polybase-guide) when writing to Azure Synapse Analytics. The staging storage is configured in [Execute Data Flow activity](control-flow-execute-data-flow-activity.md). 
+**Enable staging:** This enables loading into Azure Synapse Analytics SQL Pools using the copy command and is recommended for most Synpase sinks. The staging storage is configured in [Execute Data Flow activity](control-flow-execute-data-flow-activity.md). 
 
 - When you use managed identity authentication for your storage linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.
 - If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage).

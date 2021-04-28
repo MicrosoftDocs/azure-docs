@@ -5,7 +5,6 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/14/2021
-ms.subservice: alerts
 ---
 # Prepare your logic apps and runbooks for migration of classic alert rules
 

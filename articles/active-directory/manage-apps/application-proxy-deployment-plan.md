@@ -168,7 +168,7 @@ The steps to deploy your Application Proxy are covered in this [tutorial for add
 
 Publishing applications assumes that you have satisfied all the pre-requisites and that you have several connectors showing as registered and active in the Application Proxy page.
 
-You can also publish applications by using [PowerShell](/powershell/module/azuread/?view=azureadps-2.0-preview).
+You can also publish applications by using [PowerShell](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true).
 
 Below are some best practices to follow when publishing an application:
 
@@ -288,7 +288,7 @@ Azure AD provides additional insights into your organization’s application usa
 
 #### Application audit logs
 
-These logs provide detailed information about logins to applications configured with Application Proxy and the device and the user accessing the application. [Audit logs](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) are located in the Azure portal and in [Audit API](/graph/api/resources/directoryaudit?view=graph-rest-beta) for export. Additionally, [usage and insights reports](../reports-monitoring/concept-usage-insights-report.md?context=azure/active-directory/manage-apps/context/manage-apps-context) are also available for your application.
+These logs provide detailed information about logins to applications configured with Application Proxy and the device and the user accessing the application. [Audit logs](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) are located in the Azure portal and in [Audit API](/graph/api/resources/directoryaudit) for export. Additionally, [usage and insights reports](../reports-monitoring/concept-usage-insights-report.md?context=azure/active-directory/manage-apps/context/manage-apps-context) are also available for your application.
 
 #### Application Proxy Connector monitoring
 

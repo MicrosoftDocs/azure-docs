@@ -59,6 +59,9 @@ To use this feature, the user needs to download the extension and be logged in. 
 
 To learn more, including how to configure this option, please see the [MyApps Browser Extension](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) documentation.
 
+> [!NOTE]
+> The MyApps Browser Extension does not support link translation for wildcard URLs.
+
 ### Option 3: Link Translation Setting 
 
 When link translation is enabled, the Application Proxy service searches through HTML and CSS for published internal links and translates them so that your users get an uninterrupted experience. Using the MyApps Browser Extension is preferred to the Link Translation Setting since it gives a more performant experience to users.

@@ -75,7 +75,7 @@ SQL Agent Job steps are sequences of actions that SQL Agent should execute. Ever
 SQL Agent enables you to create different types of job steps, such as Transact-SQL job steps that execute a single Transact-SQL batch against the database, or OS command/PowerShell steps that can execute custom OS script, [SSIS job steps](../../data-factory/how-to-invoke-ssis-package-managed-instance-agent.md) that enable you to load data using SSIS runtime, or [replication](../managed-instance/replication-transactional-overview.md) steps that can publish changes from your database to other databases.
 
 > [!Note]
-> For more information on leveraging the Azure SSIS Integration Runtime with SSISDB hosted by Azure SQL Managed Instance, see [Use Azure SQL Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory](/../azure/data-factory/how-to-use-sql-managed-instance-with-ir.md).
+> For more information on leveraging the Azure SSIS Integration Runtime with SSISDB hosted by Azure SQL Managed Instance, see [Use Azure SQL Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory](../../data-factory/how-to-use-sql-managed-instance-with-ir.md).
 
 [Transactional replication](../managed-instance/replication-transactional-overview.md) can replicate the changes from your tables into other databases in Azure SQL Managed Instance, Azure SQL Database, or SQL Server. For information, see [Configure replication in Azure SQL Managed Instance](../../azure-sql/managed-instance/replication-between-two-instances-configure-tutorial.md). 
 

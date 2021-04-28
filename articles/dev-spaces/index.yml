@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Dev Spaces documentation # < 60 chars
-summary: Azure Dev Spaces is being retired and will stop working on October 31, 2023.
+summary: Azure Dev Spaces is being retired and will stop working on October 31, 2023. No new controllers may be provisioned.
 
 metadata:
   title: Azure Dev Spaces documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Dev Spaces is being retired and will stop working on October 31, 2023.
+  description: Azure Dev Spaces is being retired and will stop working on October 31, 2023. No new controllers may be provisioned.
   services: azure-dev-spaces
   ms.service: azure-dev-spaces #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required

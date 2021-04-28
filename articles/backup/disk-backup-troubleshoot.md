@@ -5,12 +5,7 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ---
 
-# Troubleshooting backup failures in Azure Disk Backup (in preview)
-
->[!IMPORTANT]
->Azure Disk Backup is in preview without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For region availability, see the [support matrix](disk-backup-support-matrix.md).
->
->[Fill out this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) to sign-up for the preview.
+# Troubleshooting backup failures in Azure Disk Backup
 
 This article provides troubleshooting information on backup and restore issues faced with Azure Disk. For more information on the [Azure Disk backup](disk-backup-overview.md) region availability, supported scenarios and limitations, see the [support matrix](disk-backup-support-matrix.md).
 
@@ -152,7 +147,7 @@ Recommended Action: Consider using another recovery point to restore. For more i
 
 Error Message: Disk Backup is not yet available in the region of the Backup Vault under which Configure Protection is being tried.
 
-Recommended Action: Backup Vault must be in a preview supported region. For region availability see the [the support matrix](disk-backup-support-matrix.md).
+Recommended Action: Backup Vault must be in a supported region. For region availability see the [the support matrix](disk-backup-support-matrix.md).
 
 ### Error Code: UserErrorDppDatasourceAlreadyHasBackupInstance
 

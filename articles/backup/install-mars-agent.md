@@ -154,7 +154,7 @@ If you've already installed the agent on any machines, make sure that you're run
 
     ![Add vault credentials by using the Register Server Wizard](./media/backup-configure-vault/register1.png)
 
-1. On the **Encryption Setting** page, specify a passphrase that will be used to encrypt and decrypt backups for the machine. [See here](backup-azure-file-folder-backup-faq.md#what-characters-are-allowed-for-the-passphrase) for more information on allowed passphrase characters.
+1. On the **Encryption Setting** page, specify a passphrase that will be used to encrypt and decrypt backups for the machine. [See here](backup-azure-file-folder-backup-faq.yml#what-characters-are-allowed-for-the-passphrase-) for more information on allowed passphrase characters.
 
     * Save the passphrase in a secure location. You need it to restore a backup.
     * If you lose or forget the passphrase, Microsoft can't help you recover the backup data.

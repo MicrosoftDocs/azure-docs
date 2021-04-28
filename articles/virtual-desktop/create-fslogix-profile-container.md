@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Create a profile container with Azure NetApp Files and AD DS
 

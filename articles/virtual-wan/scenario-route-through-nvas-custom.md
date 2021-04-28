@@ -1,12 +1,12 @@
 ---
 title: Route traffic through NVAs by using custom settings
 titleSuffix: Azure Virtual WAN
-description: This scenario helps you route traffic through NVAs by using a different NVA for internet-bound traffic.
+description: Learn about Virtual WAN routing scenarios to route traffic through Network Virtual Appliances (NVAs). In this scenario, you route traffic through NVAs by using a different NVA for internet-bound traffic and custom settings.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 02/25/2021
+ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ---
@@ -171,7 +171,7 @@ To set up routing via NVA, consider the following steps:
    >
    > * Portal users must enable ‘Propagate to default route’ on connections (VPN/ER/P2S/VNet) for the 0.0.0.0/0 route to take effect.
    > * PS/CLI/REST users must set flag ‘enableinternetsecurity’ to true for the 0.0.0.0/0 route to take effect.
-   >
+   > * Virtual Network Connection does not support ‘multiple/unique’ next hop IP to the ‘same’ network virtual appliance in a SPOKE VNet 'if' one of the routes with next hop IP is indicated to be public IP address or 0.0.0.0/0 (internet)
 
 ## Next steps
 

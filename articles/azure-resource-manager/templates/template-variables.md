@@ -15,7 +15,7 @@ Resource Manager resolves variables before starting the deployment operations. W
 
 ## Define variable
 
-When defining a variable, you don't specify a [data type](template-syntax.md#data-types) for the variable. Instead provide a value or template expression. The variable type is inferred from the resolved value. The following example sets a variable to a string.
+When defining a variable, you don't specify a [data type](data-types.md) for the variable. Instead provide a value or template expression. The variable type is inferred from the resolved value. The following example sets a variable to a string.
 
 # [JSON](#tab/json)
 

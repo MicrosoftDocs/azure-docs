@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 04/23/2021
 ---
 
 # Create stateful and stateless workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension
@@ -30,6 +30,8 @@ This article shows how to create your logic app and a workflow in Visual Studio 
 * Add a trigger and an action.
 
 * Run, test, debug, and review run history locally.
+
+* Find domain name details for firewall access.
 
 * Deploy to Azure, which includes optionally enabling Application Insights.
 
@@ -98,9 +100,9 @@ To locally build and run your logic app project in Visual Studio Code when using
 1. Save the connection string somewhere safe. After you create your logic app project in Visual Studio Code, you have to add the string to the **local.settings.json** file in your project's root level folder.
 
    > [!IMPORTANT]
-   > If you plan to deploy to a Docker container, you also need to add 
-   > this connection string to the Docker file that you use for deployment.
-
+   > If you plan to deploy to a Docker container, you also need to use this connection string with the Docker file that you use for deployment. 
+   > For production scenarios, make sure that you protect and secure such secrets and sensitive information, for example, by using a key vault.
+  
 ### Tools
 
 * [Visual Studio Code 1.30.1 (January 2019) or higher](https://code.visualstudio.com/), which is free. Also, download and install these tools for Visual Studio Code, if you don't have them already:
@@ -146,7 +148,8 @@ To locally build and run your logic app project in Visual Studio Code when using
 
 * To use the [Inline Code Operations action](../logic-apps/logic-apps-add-run-inline-code.md) that runs JavaScript, install [Node.js versions 10.x.x, 11.x.x, or 12.x.x](https://nodejs.org/en/download/releases/).
 
-  > [!TIP] For Windows, download the MSI version. If you use the ZIP version instead, you have to 
+  > [!TIP] 
+  > For Windows, download the MSI version. If you use the ZIP version instead, you have to 
   > manually make Node.js available by using a PATH environment variable for your operating system.
 
 * To locally run webhook-based triggers and actions, such as the [built-in HTTP Webhook trigger](../connectors/connectors-native-webhook.md), in Visual Studio Code, you need to [set up forwarding for the callback URL](#webhook-setup).
@@ -288,6 +291,7 @@ Before you can create your logic app, create a local project so that you can man
    1. Replace the `AzureWebJobsStorage` property value with the storage account's connection string that you saved earlier, for example:
 
       Before:
+
       ```json
       {
          "IsEncrypted": false,
@@ -299,6 +303,7 @@ Before you can create your logic app, create a local project so that you can man
       ```
 
       After:
+
       ```json
       {
          "IsEncrypted": false,
@@ -309,7 +314,29 @@ Before you can create your logic app, create a local project so that you can man
       }
       ```
 
+      > [!IMPORTANT]
+      > For production scenarios, make sure that you protect and secure such secrets and sensitive information, for example, by using a key vault.
+
    1. When you're done, make sure that you save your changes.
+
+<a name="enable-built-in-connector-authoring"></a>
+
+## Enable built-in connector authoring
+
+You can create your own built-in connectors for any service you need by using the [preview release's extensibility framework](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Similar to built-in connectors such as Azure Service Bus and SQL Server, these connectors provide higher throughput, low latency, local connectivity, and run natively in the same process as the preview runtime.
+
+The authoring capability is currently available only in Visual Studio Code, but isn't enabled by default. To create these connectors, you need to first convert your project from extension bundle-based (Node.js) to NuGet package-based (.NET).
+
+> [!IMPORTANT]
+> This action is a one-way operation that you can't undo.
+
+1. In the Explorer pane, at your project's root, move your mouse pointer over any blank area below all the other files and folders, open the shortcut menu, and select **Convert to Nuget-based Logic App project**.
+
+   ![Screenshot that shows that shows Explorer pane with the project's shortcut menu opened from a blank area in the project window.](./media/create-stateful-stateless-workflows-visual-studio-code/convert-logic-app-project.png)
+
+1. When the prompt appears, confirm the project conversion.
+
+1. To continue, review and follow the steps in the article, [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
 <a name="open-workflow-definition-designer"></a>
 
@@ -343,7 +370,7 @@ Before you can create your logic app, create a local project so that you can man
    ![Screenshot that shows Explorer pane with "Enable connectors in Azure" list open and "Use connectors from Azure" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/use-connectors-from-azure.png)
 
    > [!NOTE]
-   > Stateless workflows currently support only *actions* for [managed connectors](../connectors/apis-list.md#managed-api-connectors), 
+   > Stateless workflows currently support only *actions* for [managed connectors](../connectors/managed.md), 
    > which are deployed in Azure, and not triggers. Although you have the option to enable connectors in Azure for your stateless workflow, 
    > the designer doesn't show any managed connector triggers for you to select.
 
@@ -578,7 +605,7 @@ To add a breakpoint, follow these steps:
 
 1. To review the available information when a breakpoint hits, in the Run view, examine the **Variables** pane.
 
-1. To continue workflow execution, on the Debug toolbar, select **Continue** (play button). 
+1. To continue workflow execution, on the Debug toolbar, select **Continue** (play button).
 
 You can add and remove breakpoints at any time during the workflow run. However, if you update the **workflow.json** file after the run starts, breakpoints don't automatically update. To update the breakpoints, restart the logic app.
 
@@ -764,6 +791,55 @@ After you make updates to your logic app, you can run another test by rerunning 
    ![Screenshot that shows the status for each step in the updated workflow plus the inputs and outputs in the expanded "Response" action.](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-details-rerun.png)
 
 1. To stop the debugging session, on the **Run** menu, select **Stop Debugging** (Shift + F5).
+
+<a name="firewall-setup"></a>
+
+##  Find domain names for firewall access
+
+Before you deploy and run your logic app workflow in the Azure portal, if your environment has strict network requirements or firewalls that limit traffic, you have to set up permissions for any trigger or action connections that exist in your workflow.
+
+To find the fully qualified domain names (FQDNs) for these connections, follow these steps:
+
+1. In your logic app project, open the **connections.json** file, which is created after you add the first connection-based trigger or action to your workflow, and find the `managedApiConnections` object.
+
+1. For each connection that you created, find, copy, and save the `connectionRuntimeUrl` property value somewhere safe so that you can set up your firewall with this information.
+
+   This example **connections.json** file contains two connections, an AS2 connection and an Office 365 connection with these `connectionRuntimeUrl` values:
+
+   * AS2: `"connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/as2/11d3fec26c87435a80737460c85f42ba`
+
+   * Office 365: `"connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/office365/668073340efe481192096ac27e7d467f`
+
+   ```json
+   {
+      "managedApiConnections": {
+         "as2": {
+            "api": {
+               "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/as2"
+            },
+            "connection": {
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Web/connections/{connection-resource-name}"
+            },
+            "connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/as2/11d3fec26c87435a80737460c85f42ba,
+            "authentication": {
+               "type":"ManagedServiceIdentity"
+            }
+         },
+         "office365": {
+            "api": {
+               "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/office365"
+            },
+            "connection": {
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Web/connections/{connection-resource-name}"
+            },
+            "connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/office365/668073340efe481192096ac27e7d467f,
+            "authentication": {
+               "type":"ManagedServiceIdentity"
+            }
+         }
+      }
+   }
+   ```
 
 <a name="deploy-azure"></a>
 
@@ -985,7 +1061,12 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
 1. Open the logic app that you want to manage. From the logic app's shortcut menu, select the task that you want to perform.
 
-   For example, you can select tasks such as stopping, starting, restarting, or deleting your deployed logic app.
+   For example, you can select tasks such as stopping, starting, restarting, or deleting your deployed logic app. You can [disable or enable a workflow by using the Azure portal](create-stateful-stateless-workflows-azure-portal.md#disable-enable-workflows).
+
+   > [!NOTE]
+   > The stop logic app and delete logic app operations affect workflow instances in different ways. 
+   > For more information, review [Considerations for stopping logic apps](#considerations-stop-logic-apps) and 
+   > [Considerations for deleting logic apps](#considerations-delete-logic-apps).
 
    ![Screenshot that shows Visual Studio Code with the opened "Azure Logic Apps (Preview)" extension pane and the deployed workflow.](./media/create-stateful-stateless-workflows-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
 
@@ -1009,11 +1090,45 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
    ![Screenshot that shows the Azure portal and the search bar with search results for deployed logic app, which appears selected.](./media/create-stateful-stateless-workflows-visual-studio-code/find-deployed-workflow-azure-portal.png)
 
+<a name="considerations-stop-logic-apps"></a>
+
+### Considerations for stopping logic apps
+
+Stopping a logic app affects workflow instances in the following ways:
+
+* The Logic Apps service cancels all in-progress and pending runs immediately.
+
+* The Logic Apps service doesn't create or run new workflow instances.
+
+* Triggers won't fire the next time that their conditions are met. However, trigger states remember the points where the logic app was stopped. So, if you restart the logic app, the triggers fire for all unprocessed items since the last run.
+
+  To stop a trigger from firing on unprocessed items since the last run, clear the trigger state before you restart the logic app:
+
+  1. In Visual Studio Code, on the left toolbar, select the Azure icon. 
+  1. In the **Azure: Logic Apps (Preview)** pane, expand your subscription, which shows all the deployed logic apps for that subscription.
+  1. Expand your logic app, and then expand the **Workflows** node.
+  1. Open a workflow, and edit any part of that workflow's trigger.
+  1. Save your changes. This step resets the trigger's current state.
+  1. Repeat for each workflow.
+  1. When you're done, restart your logic app.
+
+<a name="considerations-delete-logic-apps"></a>
+
+### Considerations for deleting logic apps
+
+Deleting a logic app affects workflow instances in the following ways:
+
+* The Logic Apps service cancels in-progress and pending runs immediately, but doesn't run cleanup tasks on the storage used by the app.
+
+* The Logic Apps service doesn't create or run new workflow instances.
+
+* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. You have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
+
 <a name="manage-deployed-apps-portal"></a>
 
 ## Manage deployed logic apps in the portal
 
-In the Azure portal, you can view all the deployed logic apps that are in your Azure subscription, whether they are the original **Logic Apps** resource type or the **Logic App (Preview)** resource type. Currently, each resource type is organized and managed as separate categories in Azure. To find logic apps that have the **Logic App (Preview)** resource type, follow these steps:
+After you deploy a logic app to the Azure portal from Visual Studio Code, you can view all the deployed logic apps that are in your Azure subscription, whether they are the original **Logic Apps** resource type or the **Logic App (Preview)** resource type. Currently, each resource type is organized and managed as separate categories in Azure. To find logic apps that have the **Logic App (Preview)** resource type, follow these steps:
 
 1. In the Azure portal search box, enter `logic app preview`. When the results list appears, under **Services**, select **Logic App (Preview)**.
 
@@ -1165,7 +1280,12 @@ If you're not familiar with Docker, review these topics:
 
 * A Docker file for the workflow that you use when building your Docker container
 
-  For example, this sample Docker file deploys a logic app. The specifies the connection string that contains the access key for the Azure Storage account that was used for publishing the logic app to the Azure portal. To find this string, see [Get storage account connection string](#find-storage-account-connection-string).
+  For example, this sample Docker file deploys a logic app and specifies the connection string that contains the access key for the Azure Storage account that was used for publishing the logic app to the Azure portal. To find this string, see [Get storage account connection string](#find-storage-account-connection-string). For more information, review [Best practices for writing Docker files](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
+  
+  > [!IMPORTANT]
+  > For production scenarios, make sure that you protect and secure such secrets and sensitive information, for example, by using a key vault. 
+  > For Docker files specifically, review [Build images with BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) 
+  > and [Manage sensitive data with Docker Secrets](https://docs.docker.com/engine/swarm/secrets/).
 
    ```text
    FROM mcr.microsoft.com/azure-functions/node:3.0
@@ -1179,8 +1299,6 @@ If you're not familiar with Docker, review these topics:
 
    RUN cd /home/site/wwwroot
    ```
-
-   For more information, see [Best practices for writing Docker files](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
 <a name="find-storage-account-connection-string"></a>
 
@@ -1384,6 +1502,7 @@ When you try to start a debugging session, you get the error, **"Error exists af
 1. In the following task, delete the line, `"dependsOn: "generateDebugSymbols"`, along with the comma that ends the preceding line, for example:
 
    Before:
+
    ```json
     {
       "type": "func",
@@ -1395,6 +1514,7 @@ When you try to start a debugging session, you get the error, **"Error exists af
    ```
 
    After:
+
    ```json
     {
       "type": "func",

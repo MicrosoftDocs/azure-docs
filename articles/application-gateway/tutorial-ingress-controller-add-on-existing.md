@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 ## Create a resource group
 
-In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named *myResourceGroup* in the *canadacentral* location (region). 
+In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *canadacentral* location (region). 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location canadacentral
@@ -47,7 +47,7 @@ In the following example, you'll be deploying a new AKS cluster named *myCluster
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity 
 ```
 
-To configure additional parameters for the `az aks create` command, visit references [here](/cli/azure/aks#az-aks-create). 
+To configure additional parameters for the `az aks create` command, visit references [here](/cli/azure/aks#az_aks_create). 
 
 ## Deploy a new Application Gateway 
 
@@ -77,7 +77,7 @@ az aks enable-addons -n myCluster -g myResourceGroup -a ingress-appgw --appgw-id
 
 If you'd like to use Azure portal to enable AGIC add-on, go to [(https://aka.ms/azure/portal/aks/agic)](https://aka.ms/azure/portal/aks/agic) and navigate to your AKS cluster through the Portal link. From there, go to the Networking tab within your AKS cluster. You'll see an Application Gateway ingress controller section, which allows you to enable/disable the ingress controller add-on using the Portal UI. Check the box next to "Enable ingress controller", and select the Application Gateway you created, *myApplicationGateway* from the dropdown menu. 
 
-![Application Gateway Ingress Controller Portal](./media/tutorial-ingress-controller-add-on-existing/portal_ingress_controller_addon.png)
+![Application Gateway Ingress Controller Portal](./media/tutorial-ingress-controller-add-on-existing/portal-ingress-controller-add-on.png)
 
 ## Peer the two virtual networks together
 

@@ -1,11 +1,10 @@
 ---
 title: Collect Windows and Linux performance data sources with Log Analytics agent in Azure Monitor
 description: Performance counters are collected by Azure Monitor to analyze performance on Windows and Linux agents.  This article describes how to configure collection of Performance counters for both Windows and Linux agents, details of they are stored in the workspace, and how to analyze them in the Azure portal.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/21/2020
+ms.date: 02/26/2021
 
 ---
 
@@ -18,7 +17,7 @@ Performance counters in Windows and Linux provide insight into the performance o
 ![Performance counters](media/data-sources-performance-counters/overview.png)
 
 ## Configuring Performance counters
-Configure Performance counters from the [Data menu in Advanced Settings](../agents/agent-data-sources.md#configuring-data-sources) for the Log Analytics workspace.
+Configure Performance counters from the [Agents configuration menu](../agents/agent-data-sources.md#configuring-data-sources) for the Log Analytics workspace.
 
 When you first configure Windows or Linux Performance counters for a new workspace, you are given the option to quickly create several common counters.  They are listed with a checkbox next to each.  Ensure that any counters you want to initially create are checked and then click **Add the selected performance counters**.
 
@@ -32,28 +31,28 @@ For Windows performance counters, you can choose a specific instance for each pe
 
 ### Windows performance counters
 
-![Configure Windows Performance counters](media/data-sources-performance-counters/configure-windows.png)
+[![Configure Windows Performance counters](media/data-sources-performance-counters/configure-windows.png)](media/data-sources-performance-counters/configure-windows.png#lightbox)
 
 Follow this procedure to add a new Windows performance counter to collect. Please note that V2 Windows Performance Counters are not supported.
 
-1. Type the name of the counter in the text box in the format *object(instance)\counter*.  When you start typing, you are presented with a matching list of common counters.  You can either select a counter from the list or type in one of your own.  You can also return all instances for a particular counter by specifying *object\counter*.  
+1. Click **Add performance counter**.
+2. Type the name of the counter in the text box in the format *object(instance)\counter*.  When you start typing, you are presented with a matching list of common counters.  You can either select a counter from the list or type in one of your own.  You can also return all instances for a particular counter by specifying *object\counter*.  
 
     When collecting SQL Server performance counters from named instances, all named instance counters start with *MSSQL$* and followed by the name of the instance.  For example, to collect the Log Cache Hit Ratio counter for all databases from the Database performance object for named SQL instance INST2, specify `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`.
 
-2. Click **+** or press **Enter** to add the counter to the list.
-3. When you add a counter, it uses the default of 10 seconds for its **Sample Interval**.  You can change this to a higher value of up to 1800 seconds (30 minutes) if you want to reduce the storage requirements of the collected performance data.
-4. When you're done adding counters, click the **Save** button at the top of the screen to save the configuration.
+4. When you add a counter, it uses the default of 10 seconds for its **Sample Interval**.  You can change this to a higher value of up to 1800 seconds (30 minutes) if you want to reduce the storage requirements of the collected performance data.
+5. When you're done adding counters, click the **Apply** button at the top of the screen to save the configuration.
 
 ### Linux performance counters
 
-![Configure Linux Performance counters](media/data-sources-performance-counters/configure-linux-1.png)
+[![Configure Linux Performance counters](media/data-sources-performance-counters/configure-linux.png)](media/data-sources-performance-counters/configure-linux.png#lightbox)
 
 Follow this procedure to add a new Linux performance counter to collect.
 
+1. Click **Add performance counter**.
 1. Type the name of the counter in the text box in the format *object(instance)\counter*.  When you start typing, you are presented with a matching list of common counters.  You can either select a counter from the list or type in one of your own.  
-1. Click **+** or press **Enter** to add the counter to the list of other counters for the object.
 1. All counters for an object use the same **Sample Interval**.  The default is 10 seconds.  You change this to a higher value of up to 1800 seconds (30 minutes) if you want to reduce the storage requirements of the collected performance data.
-1. When you're done adding counters, click the **Save** button at the top of the screen to save the configuration.
+1. When you're done adding counters, click the **Apply** button at the top of the screen to save the configuration.
 
 #### Configure Linux performance counters in configuration file
 Instead of configuring Linux performance counters using the Azure portal, you have the option of editing configuration files on the Linux agent.  Performance metrics to collect are controlled by the configuration in **/etc/opt/microsoft/omsagent/\<workspace id\>/conf/omsagent.conf**.

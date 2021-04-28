@@ -267,8 +267,6 @@ For more information, see [Access Azure Storage as a network share from a contai
 
 ## Configure language stack settings
 
-For Linux apps, see:
-
 - [ASP.NET Core](configure-language-dotnetcore.md)
 - [Node.js](configure-language-nodejs.md)
 - [PHP](configure-language-php.md)

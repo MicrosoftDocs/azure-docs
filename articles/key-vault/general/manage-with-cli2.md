@@ -3,7 +3,6 @@ title: Manage Azure Key Vault using CLI - Azure Key Vault | Microsoft Docs
 description: Use this article to automate common tasks in Key Vault by using the Azure CLI 
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 
 ms.service: key-vault
 ms.subservice: general
@@ -144,7 +143,7 @@ If you have an existing key in a .pem file, you can upload it to Azure Key Vault
 az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
-You can now reference the key that you created or uploaded to Azure Key Vault, by using its URI. Use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** to always get the current version. Use https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] to get this specific version. For example, **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**. 
+You can now reference the key that you created or uploaded to Azure Key Vault, by using its URI. Use `https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey` to always get the current version. Use https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] to get this specific version. For example, `https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87`. 
 
 Add a secret to the vault, which is a password named SQLPassword, and that has the value of "hVFkk965BuUv" to Azure Key Vaults. 
 
@@ -218,7 +217,7 @@ az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec
 
 ## <a name="bkmk_KVperCLI"></a> Setting key vault advanced access policies
 
-Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable advanced policies for the key vault.
+Use [az keyvault update](/cli/azure/keyvault#az_keyvault_update) to enable advanced policies for the key vault.
 
  Enable Key Vault for deployment: Allows virtual machines to retrieve certificates stored as secrets from the vault.
 

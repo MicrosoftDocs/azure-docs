@@ -89,7 +89,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 # [Java SE](#tab/javase)
 
 1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number print in the line start.
-1. When prompted with **Web App** option, accept the defaut option `<create>` by pressing enter or select an existing app.
+1. When prompted with **Web App** option, accept the default option `<create>` by pressing enter or select an existing app.
 1. When prompted with **OS** option, select **Windows** by entering `3`.
 1. When prompted with **Pricing Tier** option, select **B2** by entering `2`.
 1. Use the default Java version, **Java 8**, by pressing enter.
@@ -121,7 +121,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 # [Tomcat](#tab/tomcat)
 
 1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number print in the line start.
-1. When prompted with **Web App** option, accept the defaut option `<create>` by pressing enter or select an existing app.
+1. When prompted with **Web App** option, accept the default option `<create>` by pressing enter or select an existing app.
 1. When prompted with **OS** option, select **Windows** by entering `3`.
 1. When prompted with **Pricing Tier** option, select **B2** by entering `2`.
 1. Use the default Java version, **Java 8**, by pressing enter.
@@ -159,7 +159,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 ### [Java SE](#tab/javase)
 
 1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number print in the line start.
-1. When prompted with **Web App** option, accept the defaut option `<create>` by pressing enter or select an existing app.
+1. When prompted with **Web App** option, accept the default option `<create>` by pressing enter or select an existing app.
 1. When prompted with **OS** option, select **Linux** by pressing enter.
 1. When prompted with **Pricing Tier** option, select **B2** by entering `2`.
 1. Use the default Java version, **Java 8**, by pressing enter.
@@ -188,7 +188,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 ### [Tomcat](#tab/tomcat)
 
 1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number print in the line start.
-1. When prompted with **Web App** option, accept the defaut option `<create>` by pressing enter or select an existing app.
+1. When prompted with **Web App** option, accept the default option `<create>` by pressing enter or select an existing app.
 1. When prompted with **OS** option, select **Linux** by pressing enter.
 1. When prompted with **Pricing Tier** option, select **B2** by entering `2`.
 1. Use the default Java version, **Java 8**, by pressing enter.
@@ -224,7 +224,7 @@ You can modify the configurations for App Service directly in your `pom.xml` if 
 Property | Required | Description | Version
 ---|---|---|---
 `<schemaVersion>` | false | Specify the version of the configuration schema. Supported values are: `v1`, `v2`. | 1.5.2
-`<subscriptionId>` | false | Specify the subscription id. | 0.1.0+
+`<subscriptionId>` | false | Specify the subscription ID. | 0.1.0+
 `<resourceGroup>` | true | Azure <abbr title="A logical container for related Azure resources that you can manage as a unit.">resource group</abbr> for your Web App. | 0.1.0+
 `<appName>` | true | The name of your Web App. | 0.1.0+
 `<region>` | true | Specifies the region where your Web App will be hosted; the default value is **westeurope**. All valid regions at [Supported Regions](https://azure.microsoft.com/global-infrastructure/services/?products=app-service) section. | 0.1.0+

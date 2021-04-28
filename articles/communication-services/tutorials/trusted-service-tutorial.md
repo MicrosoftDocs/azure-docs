@@ -7,7 +7,7 @@ manager: nimag
 services: azure-communication-services
 
 ms.author: dademath
-ms.date: 07/28/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---

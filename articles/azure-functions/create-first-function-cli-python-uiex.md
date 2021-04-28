@@ -3,7 +3,7 @@ title: Create a Python function from the command line for Azure Functions
 description: Learn how to create a Python function from the command line and publish the local project to serverless hosting in Azure Functions.
 ms.date: 11/03/2020
 ms.topic: quickstart
-ms.custom: [devx-track-python, devx-track-azurecli] 
+ms.custom: [devx-track-powershell, devx-track-azurecli, devx-track-azurepowershell]
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
@@ -55,7 +55,7 @@ Verify your prerequisites, which depend on whether you are using the Azure CLI o
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 3.x.
++ In a terminal or command window, run `func --version` to check that the <abbr title="The set of command line tools for working with Azure Functions on your local computer.">Azure Functions Core Tools</abbr> are version 3.x.
 
 + Run `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later. 
 
@@ -232,7 +232,7 @@ Before you can deploy your function code to Azure, you need to create a <abbr ti
     az login
     ```
 
-    The [az login](/cli/azure/reference-index#az-login) command signs you into your Azure account.
+    The [az login](/cli/azure/reference-index#az_login) command signs you into your Azure account.
 
     # [Azure PowerShell](#tab/azure-powershell) 
     ```azurepowershell
@@ -251,7 +251,7 @@ Before you can deploy your function code to Azure, you need to create a <abbr ti
     az group create --name AzureFunctionsQuickstart-rg --location westeurope
     ```
  
-    The [az group create](/cli/azure/group#az-group-create) command creates a resource group. You generally create your resource group and resources in a <abbr title="A geographical reference to a specific Azure datacenter in which resources are allocated.">region</abbr> near you, using an available region returned from the `az account list-locations` command.
+    The [az group create](/cli/azure/group#az_group_create) command creates a resource group. You generally create your resource group and resources in a <abbr title="A geographical reference to a specific Azure datacenter in which resources are allocated.">region</abbr> near you, using an available region returned from the `az account list-locations` command.
 
     # [Azure PowerShell](#tab/azure-powershell)
 
@@ -273,7 +273,7 @@ Before you can deploy your function code to Azure, you need to create a <abbr ti
     az storage account create --name <STORAGE_NAME> --location westeurope --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
     ```
 
-    The [az storage account create](/cli/azure/storage/account#az-storage-account-create) command creates the storage account. 
+    The [az storage account create](/cli/azure/storage/account#az_storage_account_create) command creates the storage account. 
 
     # [Azure PowerShell](#tab/azure-powershell)
 
@@ -285,7 +285,7 @@ Before you can deploy your function code to Azure, you need to create a <abbr ti
 
     ---
 
-    Replace `<STORAGE_NAME>` with a name that is appropriate to you and <abbr title="The name must be unique across all storage accounts used by all Azure customers globally. For example, you can use a combination of your personal or company name, application name, and a numeric identifier, as in contosobizappstorage20">unique in Azure Storage</abbr>. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account, which is [supported by Functions](storage-considerations.md#storage-account-requirements).
+    Replace `<STORAGE_NAME>` with a name that is appropriate to you and <abbr title="The name must be unique across all storage accounts used by all Azure customers globally. For example, you can use a combination of your personal or company name, application name, and a numeric identifier, as in contosobizappstorage20.">unique in Azure Storage</abbr>. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account, which is [supported by Functions](storage-considerations.md#storage-account-requirements).
     
     The storage account incurs only a few cents (USD) for this quickstart.
 

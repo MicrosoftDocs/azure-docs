@@ -53,7 +53,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
     The name for your data factory must be _globally unique_. You might receive the following error message:
 
-   ![New data factory error message](./media/doc-common-process/name-not-available-error.png)
+   :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="New data factory error message for duplicate name.":::
 
    If you receive an error message about the name value, enter a different name for the data factory. For example, use the name _**yourname**_**ADFTutorialDataFactory**. For the naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 3. Select the Azure **subscription** in which to create the new data factory.
@@ -71,8 +71,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
 8. After creation is finished, the **Data Factory** home page is displayed.
 9. To launch the Azure Data Factory user interface (UI) in a separate tab, select the **Author & Monitor** tile.
 
-    ![Data factory home page](./media/doc-common-process/data-factory-home-page.png)
-
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Author & Monitor tile.":::
 
 ## Use the Copy Data tool to create a pipeline
 

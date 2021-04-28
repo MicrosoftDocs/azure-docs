@@ -2,12 +2,12 @@
 title: Analyze schema with arrays and nested structures
 description: How to analyze arrays and nested structures with Apache Spark and SQL
 services: synapse-analytics 
-author: ArnoMicrosoft
+author: Rodrigossz
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.subservice: spark
 ms.date: 06/15/2020
-ms.author: acomet
+ms.author: rosouz
 ms.reviewer: jrasnick
 ---
 

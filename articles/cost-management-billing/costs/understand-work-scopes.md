@@ -37,7 +37,7 @@ Azure supports three scopes for resource management. Each scope supports managin
 
 - [**Management groups**](../../governance/management-groups/overview.md) - Hierarchical containers, up to eight levels, to organize Azure subscriptions.
 
-    Resource type: [Microsoft.Management/managementGroups](/rest/api/resources/managementgroups)
+    Resource type: [Microsoft.Management/managementGroups](/rest/api/managementgroups/)
 
 - **Subscriptions** - Primary containers for Azure resources.
 
