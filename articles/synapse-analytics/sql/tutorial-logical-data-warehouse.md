@@ -17,9 +17,9 @@ In this tutorial, you will learn how to create a Logical Data Warehouse (LDW) on
 
 LDW is a relational layer built on top of Azure data sources such as Azure Data Lake storage (ADLS), Azure Cosmos DB analytical storage, or Azure Blob storage.
 
-## Create a LDW database
+## Create an LDW database
 
-You need to create a custom database where you will store your external tables and view that are referencing external data sources.
+You need to create a custom database where you will store your external tables and views that are referencing external data sources.
 
 ```sql
 CREATE DATABASE Ldw
@@ -31,11 +31,11 @@ make sure that you specify this collation in the column definition.
 
 ## Configure data sources and formats
 
-As a first step you need to configure data source and specify file format of remotely stored data.
+As a first step, you need to configure data source and specify file format of remotely stored data.
 
 ### Create data source
 
-Data sources represent connection string information that describe where you data is placed and how to authenticate to your data source.
+Data sources represent connection string information that describes where your data is placed and how to authenticate to your data source.
 
 One example of data source definition that references public Azure Open Data Set is shown in the following example:
 
@@ -57,7 +57,7 @@ As a prerequisite, you will need to create a master key in the database:
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Setup you password - you need to create master key only once';
 ```
 
-In the following example is defined that Synapse SQL pool should use a managed identity of the workspace to access data in the storage.
+In the following external data source, Synapse SQL pool should use a managed identity of the workspace to access data in the storage.
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL WorkspaceIdentity
@@ -78,8 +78,7 @@ WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 's5zarR2pT0JWH9k8roipnWxUYBe
 
 ### Define external file formats
 
-External file formats define the structure of the files stored on external data source.
-In the following examples is shown how to define Parquet and CSV external file formats:
+External file formats define the structure of the files stored on external data source. You can define Parquet and CSV external file formats:
 
 ```sql
 CREATE EXTERNAL FILE FORMAT ParquetFormat WITH (  FORMAT_TYPE = PARQUET );
@@ -89,7 +88,7 @@ CREATE EXTERNAL FILE FORMAT CsvFormat WITH (  FORMAT_TYPE = CSV );
 
 ## Explore your data
 
-Once you setup you data sources, you can use the `OPENROWSET` function to explore your data. The [OPENROWSET](develop-openrowset.md) function 
+Once you set up your data sources, you can use the `OPENROWSET` function to explore your data. The [OPENROWSET](develop-openrowset.md) function 
 reads content of a remote data source (for example file) and returns the content as a set of rows.
 
 ```sql
@@ -104,7 +103,7 @@ your external tables and views.
 
 ## Create external tables on Azure storage
 
-Once you discover the schema you can create external tables and views on top of yu=our external data sources. The good practice is to organize
+Once you discover the schema, you can create external tables and views on top of yu=our external data sources. The good practice is to organize
 your tables and views in databases schemas. In the following query you can create a schema where you will place all objects that are accessing
 ECDC COVID data set in Azure data Lake storage:
 
@@ -115,7 +114,7 @@ create schema ecdc_adls;
 The database schemas are useful for grouping the objects and defining permissions per schema. 
 
 Once you define the schemas, you can create external tables that are referencing the files.
-In the following example is shown a definition of external table that is referencing the ECDC COVID parquet file in Azure storage:
+The following external table is referencing the ECDC COVID parquet file placed in the Azure storage:
 
 ```sql
 create external table ecdc_adls.cases (
