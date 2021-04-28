@@ -114,7 +114,7 @@ To run a network readiness check, do these steps:
    |`-DeviceFqdn`|Fully qualified domain name (FQDN) that you plan to use for the Azure Stack Edge device.|
    |`-TimeServer`|FQDN of one or more Network Time Protocol (NTP) servers. (Recommended)|
    |`-Proxy`|URI for the proxy server, if you're using a proxy server. (Optional)|
-   |`-ProxyCredential`|Username and password used on the proxy server. (Required if proxy server requires user authentication)<!--Format of proxy username, password entry?-->|
+   |`-ProxyCredential`|Username and password used on the proxy server. (Required if proxy server requires user authentication) *FORMAT OF PROXY USERNAME, PASSWORD?*|
    |`-WindowsUpdateServer`|URIs for one or more Windows Update Servers or Windows Update for Business Servers. (Optional)|
    |`-ComputeIPs`|The Compute IP range to be used by Kubernetes. Specify the Start IP and End IP separated by a hyphen.|
    |`-CustomUrl`|Lists other URLs that you want to test HTTP access to. (Optional)|
