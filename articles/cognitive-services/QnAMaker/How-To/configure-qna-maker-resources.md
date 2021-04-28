@@ -55,14 +55,14 @@ Learn more about how to configure the App Service [Application settings](../../.
 
 If you create a Text Analytics resource and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the Text Analytics resource. After these resources are created, you can update the Search resource in the **Features** tab.
 
-1. Go to your Text Analytics resource in the Azure portal.
+1.  Go to your Text Analytics resource in the Azure portal.
 
-1. Select **Features** and select the Azure Cognitive Search service you want to link with your Text Analytics resource.
+2.  Select **Features** and select the Azure Cognitive Search service you want to link with your Text Analytics resource.
 
 > [!div class="mx-imgBorder"]
 > ![Add QnA to TA](../media/qnamaker-how-to-upgrade-qnamaker/update-custom-qna-feature.png)
 
-1. Click **Save**.
+3.  Click **Save**.
 
 ---
 
