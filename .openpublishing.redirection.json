@@ -54567,12 +54567,17 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-back-end-ping-access-how-to.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-ping-access-publishing-guide",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-back-end-ping-access-how-to.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-ping-access-publishing-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/application-proxy-ping-access-publishing-guide.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-ping-access-publishing-guide",
       "redirect_document_id": false
     },
     {
@@ -54602,8 +54607,13 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-gdpr.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-remove-personal-data",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-remove-personal-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-remove-personal-data.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-remove-personal-data",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-security-considerations.md",
@@ -65477,6 +65487,11 @@
     {
       "source_path_from_root": "/articles/cognitive-services/translator/document-translation/reference/submit-batch-request.md",
       "redirect_url": "/azure/cognitive-services/translator/document-translation/reference/start-translation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/peering-service/create-connection.md",
+      "redirect_url": "/azure/peering-service/azure-portal",
       "redirect_document_id": false
     }
   ]
