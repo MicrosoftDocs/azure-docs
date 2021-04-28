@@ -101,8 +101,6 @@
         href: configure-oidc-single-sign-on.md
       - name: SAML-based SSO
         href: configure-saml-single-sign-on.md
-      - name: SAML-based SSO (on-prem apps)
-        href: application-proxy-configure-single-sign-on-on-premises-apps.md
       - name: Password-based SSO
         href: configure-password-single-sign-on-non-gallery-applications.md
       - name: Linked-based SSO
@@ -131,8 +129,6 @@
       items:
       - name: Planning an Application Proxy deployment
         href: application-proxy-deployment-plan.md
-      - name: Security
-        href: application-proxy-security.md
       - name: Comparison of remote access solutions
         href: application-proxy-migration.md
   - name: How-to guides

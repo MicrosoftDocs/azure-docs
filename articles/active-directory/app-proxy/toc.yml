@@ -84,6 +84,8 @@
       href: application-proxy-connector-groups.md
     - name: High availability and load balancing
       href: application-proxy-high-availability-load-balancing.md
+    - name: SAML-based SSO (on-prem apps)
+      href: application-proxy-configure-single-sign-on-on-premises-apps.md
     - name: Header-based SSO
       href: application-proxy-configure-single-sign-on-with-headers.md
     - name: Kerberos-based SSO
@@ -92,16 +94,14 @@
       href: application-proxy-configure-single-sign-on-password-vaulting.md
     - name: Network topology
       href: application-proxy-network-topology.md
-  #   - name: Security
-  #     href: application-proxy-security.md
+    - name: Security
+      href: application-proxy-security.md
   #   - name: Comparison of remote access solutions
   #     href: application-proxy-migration.md
       # - name: OIDC-based SSO
       #   href: configure-oidc-single-sign-on.md
       # - name: SAML-based SSO
       #   href: configure-saml-single-sign-on.md
-      # - name: SAML-based SSO (on-prem apps)
-      #   href: application-proxy-configure-single-sign-on-on-premises-apps.md
       # - name: Password-based SSO
       #   href: configure-password-single-sign-on-non-gallery-applications.md
       # - name: Linked-based SSO

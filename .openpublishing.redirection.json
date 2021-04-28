@@ -54426,6 +54426,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-configure-single-sign-on-on-premises-apps.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-single-sign-on-on-premises-apps",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/application-proxy-page-appearance-broken-problem.md",
       "redirect_url": "/azure/active-directory/manage-apps/application-proxy-page-appearance-broken-problem",
       "redirect_document_id": true
@@ -54472,7 +54477,12 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-security-considerations.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-security",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-security.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-security",
       "redirect_document_id": false
     },
     {
