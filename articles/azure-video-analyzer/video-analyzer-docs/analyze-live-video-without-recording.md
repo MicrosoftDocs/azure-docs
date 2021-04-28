@@ -29,7 +29,7 @@ The pipeline topology shown below consists of an [RTSP source](pipeline.md#rtsp-
 The pipeline topology shown below enables you to analyze a live video stream using a custom vision model packaged in a separate module. The JSON representation of the graph topology of such a [pipeline topology can be found here](https://github.com/Azure/azure-video-analyzer/blob/master/pipeline-topologies/live/httpExtension/topology.json). You can see some [examples here](https://github.com/Azure/azure-video-analyzer/tree/master/utilities/video-analysis) on wrapping models into IoT Edge modules that run as an inference service.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/analyze-live-video/motion-detected-frames.svg" alt-text="Live video analysis using an external inferencing module":::
+> :::image type="content" source="./media/analyze-live-video-use-your-model-http/overview.png" alt-text="Live video analysis using an external inferencing module":::
 
 In this pipeline topology, the video input from the RTSP source is sent to an [HTTP extension processor](pipeline.md#http-extension-processor) node, which sends image frames (in JPEG, BMP, or PNG formats) to an external inference service over REST. The results from the external inference service are retrieved by the HTTP extension node, and relayed to the IoT Edge hub via IoT Hub message sink node. This type of pipeline topology can be used to build solutions for a variety of scenarios, such as understanding the time-series distribution of vehicles at an intersection, understanding the consumer traffic pattern in a retail store, and so on.
 
