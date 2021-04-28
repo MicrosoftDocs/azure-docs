@@ -30,7 +30,7 @@ The Azure Stack Network Readiness Checker can check whether a network meets the 
 - The Domain Name System (DNS) server is available and functioning.
 
 - The Network Time Protocol (NTP) server is available and functioning.
- 
+
 - Azure endpoints are available and respond on HTTP, with or without a proxy server.
 
 - The Windows Update server - either the customer-provided Windows Server Update services (WSUS) server or the public Windows Update server - is available and functioning.
@@ -45,15 +45,15 @@ The tool saves a report, AzsReadinessCheckerReport.json, with detailed diagnosti
 
 For example, the report provides:
 
- * A list of network adapters on the machine used to run the tests, with the driver version, MAC address, and connection state for each network adapter
+- A list of network adapters on the machine used to run the tests, with the driver version, MAC address, and connection state for each network adapter
 
- * IP configuration of the machine used to run the tests
+- IP configuration of the machine used to run the tests
 
- * Detailed DNS response properties that the DNS server returned for each test
+- Detailed DNS response properties that the DNS server returned for each test
 
- * Detailed HTTP response for each test of a URL
+- Detailed HTTP response for each test of a URL
 
- * Network route trace for each test
+- Network route trace for each test
 
 ## Prerequisites
 
@@ -107,19 +107,19 @@ To run a network readiness check, do these steps:
    
    To get meaningful Network Readiness Checker results that find key issues in your network setup, you need to include all of the following parameters that apply to your environment:
 
-    |Parameter|Description|
-    |---------|-----------|
-    |`-DnsServer`|IP addresses of the DNS servers (for example, your primary and secondary DNS servers).|
-    |`-DeviceFqdn`|Fully qualified domain name (FQDN) that you plan to use for the Azure Stack Edge device.|
-    |`-TimeServer`|FQDN of one or more Network Time Protocol (NTP) servers. (Recommended)|
-    |`-Proxy`|URI for the proxy server, if you're using a proxy server. (Optional)|
-    |`-ProxyCredential`|Username and password used on the proxy server. (Required if proxy server requires user authentication)|<!--What format are the proxy server username and password entered in? Not clear in format line.-->
-    |`-WindowsUpdateServer`|URIs for one or more Windows Update Servers or Windows Update for Business Servers. (Optional)|
-    |`-ComputeIPs`|The Compute IP range to be used by Kubernetes. Specify the Start IP and End IP separated by a hyphen.|
-    |`-CustomUrl`|Lists other URLs that you want to test HTTP access to. (Optional)|
-    |`-AzureEnvironment`|Indicates the Azure environment. Required if the device is deployed to an environment other than the Azure public cloud (Azure Cloud).| 
-    |`-SkipTests`|Can be used to exclude tests. (Optional)<br>Separate test names with a comma.|
-    |`-OutputPath`|Tells where to store the log file and report from the tests. (Optional)<br>If you don't use this path, the files are stored in the following path: C:\Users\<username>\AppData\Local\Temp\1\AzsReadinessChecker\AzsReadinessChecker.logs <br>Each run of the Network Readiness Checker overwrites the existing log and report.|
+   |Parameter|Description|
+   |---------|-----------|
+   |`-DnsServer`|IP addresses of the DNS servers (for example, your primary and secondary DNS servers).|
+   |`-DeviceFqdn`|Fully qualified domain name (FQDN) that you plan to use for the Azure Stack Edge device.|
+   |`-TimeServer`|FQDN of one or more Network Time Protocol (NTP) servers. (Recommended)|
+   |`-Proxy`|URI for the proxy server, if you're using a proxy server. (Optional)|
+   |`-ProxyCredential`|Username and password used on the proxy server. (Required if proxy server requires user authentication)<!--Format of proxy username, password entry?-->|
+   |`-WindowsUpdateServer`|URIs for one or more Windows Update Servers or Windows Update for Business Servers. (Optional)|
+   |`-ComputeIPs`|The Compute IP range to be used by Kubernetes. Specify the Start IP and End IP separated by a hyphen.|
+   |`-CustomUrl`|Lists other URLs that you want to test HTTP access to. (Optional)|
+   |`-AzureEnvironment`|Indicates the Azure environment. Required if the device is deployed to an environment other than the Azure public cloud (Azure Cloud).|
+   |`-SkipTests`|Can be used to exclude tests. (Optional)<br>Separate test names with a comma.|
+   |`-OutputPath`|Tells where to store the log file and report from the tests. (Optional)<br>If you don't use this path, the files are stored in the following path: C:\Users\<username>\AppData\Local\Temp\1\AzsReadinessChecker\AzsReadinessChecker.logs<br>Each run of the Network Readiness Checker overwrites the existing log and report.|
  
 
 ## Sample output: Success
