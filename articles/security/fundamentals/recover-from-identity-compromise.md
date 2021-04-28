@@ -152,7 +152,7 @@ Review administrative rights in both your cloud and on-premises environments. Fo
 |**All cloud environments**    |       - Review any privileged access rights in the cloud and remove any unnecessary permissions. <br>    - Implement Privileged Identity Management (PIM)<br>    - Set up Conditional Access policies to limit administrative access during hardening      |
 |**All on-premises environments**     |       - Review privileged access on-premise and remove unnecessary permissions.<br>   - Reduce membership of built-in groups<br>    - Verify Active Directory delegations<br>    - Harden your Tier 0 environment, and limit who has access to Tier 0 assets      |
 |**All Enterprise applications**     | Review for delegated permissions and consent grants that allow any of the following actions: <br><br>  Modifying privileged users and roles <br>- Reading or accessing all mailboxes <br>- Sending or forwarding email on behalf of other users <br>- Accessing all OneDrive or SharePoint site content <br>- Adding service principals that can read/write to the directory      |
-|**Office 365 environments**     |Review access and configuration settings for your Office 365 environment, including: <br>- SharePoint Online Sharing <br>- Microsoft Teams <br>- PowerApps <br>- Microsoft OneDrive for Business          |
+|**Microsoft 365 environments**     |Review access and configuration settings for your Microsoft 365 environment, including: <br>- SharePoint Online Sharing <br>- Microsoft Teams <br>- PowerApps <br>- Microsoft OneDrive for Business          |
 | **Review user accounts in your environments**   |- Review and remove guest user accounts that are no longer needed. <br>- Review email configurations for delegates, mailbox folder permissions, ActiveSync mobile device registrations, Inbox rules, and Outlook on the Web options <br>- Validate that both MFA and self-service password reset (SSPR) contact information for all users is correct.         |
 |     |         |
 
@@ -187,7 +187,7 @@ The following table describes more methods for using Azure Active directory logs
 |**Analyze risky sign-in events**     |  Azure Active Directory and its Identity Protection platform may generate risk events associated with the use of attacker-generated SAML tokens. <br><br>These events might be labeled as *unfamiliar properties*, *anonymous IP address*, *impossible travel*, and so on. <br><br>We recommend that you closely analyze all risk events associated with accounts that have administrative privileges, including any that may have been automatically been dismissed or remediated. For example, a risk event or an anonymous IP address might be automatically remediated because the user passed MFA. |
 |**Detect domain authentication properties**     |  Any attempt by the attacker to manipulate domain authentication policies will be recorded in the Azure Active Directory Audit logs, and reflected in the Unified Audit log. <br><br> For example, review any events associated with **Set domain authentication** in the Unified Audit Log, Azure AD Audit logs, and / or your SIEM environment to verify that all activities listed were expected and planned.   |
 |**Detect credentials for OAuth applications**     |  Attackers who have gained control of a privileged account may search for an application with the ability to access any user's email in the organization, and then add attacker-controlled credentials to that application. <br><br>For example, you may want to search for any of the following activities, which would be consistent with attacker behavior: <br>- Adding or updating service principal credentials <br>- Updating application certificates and secrets <br>- Adding an app role assignment grant to a user <br>- Adding Oauth2PermissionGrant |
-|**Detect e-mail access by applications**     |  Search for access to email by applications in your environment. For example, use the [Office 365 Advanced Auditing features](/microsoft-365/compliance/mailitemsaccessed-forensics-investigations) to investigate compromised accounts. |
+|**Detect e-mail access by applications**     |  Search for access to email by applications in your environment. For example, use the [Microsoft 365 Advanced Auditing features](/microsoft-365/compliance/mailitemsaccessed-forensics-investigations) to investigate compromised accounts. |
 |**Detect non-interactive sign-ins to service principals**     | The Azure Active Directory sign-in reports provide details about any non-interactive sign-ins that used service principal credentials.  For example, you can use the sign-in reports to find valuable data for your investigation, such as an IP address used by the attacker to access email applications.        |
 |     |         |
 
@@ -326,7 +326,7 @@ In addition to the recommendations listed earlier in this article, we also recom
 |**Reset passwords**     |   Reset passwords on any [break-glass accounts](/azure/active-directory/roles/security-emergency-access) and reduce the number of break-glass accounts to the absolute minimum required.    |
 |**Restrict privileged access accounts**     |    Ensure that service and user accounts with privileged access are cloud-only accounts, and do not use on-premise accounts that are synced or federated to Azure Active Directory.  |
 |**Enforce MFA**     | Enforce Multi-Factor Authentication (MFA) across all elevated users in the tenant. We recommend enforcing MFA across all users in the tenant.       |
-|**Limit administrative access**     |    Implement [Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure) (PIM) and conditional access to limit administrative access.  <br><br>For Office 365 users, implement [Privileged Access Management](https://techcommunity.microsoft.com/t5/microsoft-security-and/privileged-access-management-in-office-365-is-now-generally/ba-p/261751) (PAM) to limit access to sensitive abilities, such as eDiscovery, Global Admin, Account Administration, and more.    |
+|**Limit administrative access**     |    Implement [Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure) (PIM) and conditional access to limit administrative access.  <br><br>For Microsoft 365 users, implement [Privileged Access Management](https://techcommunity.microsoft.com/t5/microsoft-security-and/privileged-access-management-in-office-365-is-now-generally/ba-p/261751) (PAM) to limit access to sensitive abilities, such as eDiscovery, Global Admin, Account Administration, and more.    |
 |**Review / reduce delegated permissions and consent grants**     |  Review and reduce all Enterprise Applications delegated permissions or [consent grants](/graph/auth-limit-mailbox-access) that allow any of the following functionalities: <br><br>- Modification of privileged users and roles. <br>- Reading, sending email, or accessing all mailboxes. <br>- Accessing OneDrive, Teams, or SharePoint content. <br>- Adding Service Principals that can read/write to the directory. <br>- Application Permissions versus Delegated Access.       |
 |     |         |
 
@@ -353,7 +353,7 @@ For example, an attacker who becomes aware of the detection might change techniq
 Make sure to remediate any persistence techniques that you've identified in earlier stages of the investigation.
 
 > [!TIP]
-> For Office 365 accounts, you can automatically remediate known persistence techniques, if any are discovered, using the scripts provided. <!-- what are these?-->
+> For Microsoft 365 accounts, you can automatically remediate known persistence techniques, if any are discovered, using the scripts provided. <!-- what are these?-->
 > 
 ### Remediate user and service account access
 
@@ -435,7 +435,7 @@ stream the Windows Firewall logs to a SIEM for historical and proactive monitori
 
 ## Next steps
 
-- **Get help from inside Microsoft products**, including the Microsoft 365 security center, Office 365 Security & Compliance center, and Microsoft Defender Security Center by selecting the **Help** (**?**) button in the top navigation bar.
+- **Get help from inside Microsoft products**, including the Microsoft 365 security center, Microsoft 365 Security & Compliance center, and Microsoft Defender Security Center by selecting the **Help** (**?**) button in the top navigation bar.
 
 - **For deployment assistance**, contact us at [FastTrack](https://fasttrack.microsoft.com)
 
