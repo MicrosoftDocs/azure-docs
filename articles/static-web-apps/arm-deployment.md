@@ -250,7 +250,7 @@ Set-AzContext <SUBSCRIPTION-ID-OR-SUBSCRIPTION-NAME>
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az account set --subscription [SubscriptionID/SubscriptionName]
+az account set --subscription <SUBSCRIPTION-ID-OR-SUBSCRIPTION-NAME>
 ```
 
 ---
