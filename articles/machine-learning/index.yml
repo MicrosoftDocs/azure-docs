@@ -63,7 +63,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
         - text: Deploy your model to the cloud
-          url: how-to-deploy-existing-model.md  
+          url: how-to-deploy-and-where.md  
         - text: Track MLflow models
           url: how-to-use-mlflow.md
  

@@ -145,7 +145,7 @@ az monitor log-analytics workspace data-export create --resource-group resourceG
 Use the following command to create a data export rule to a specific event hub using CLI. All tables are exported to the provided event hub name. 
 
 ```azurecli
-$eventHubResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name/eventHubName/eventhub-name'
+$eventHubResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name/eventhubs/eventhub-name'
 az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubResourceId
 ```
 

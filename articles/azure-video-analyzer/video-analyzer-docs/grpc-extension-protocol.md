@@ -8,7 +8,7 @@ ms.date: 03/30/2021
 
 # Use the gRPC extension protocol 
 
-Azure Video Analyzer allows you to extend the pipeline processing capabilities through a [pipeline extension node]()<!--add a  link-->. If you use the gRPC extension processor as the extension node, then the communication between Azure Video Analyzer module and your AI or CV module is over gRPC based, highly performant structured protocol.
+Azure Video Analyzer allows you to extend the pipeline processing capabilities through a [pipeline extension node](pipeline-extension.md). If you use the gRPC extension processor as the extension node, then the communication between Azure Video Analyzer module and your AI or CV module is over gRPC based, highly performant structured protocol.
 
 In this article, you will learn about using gRPC extension protocol to send messages between Azure Video Analyzer module and your AI or CV custom extension.
 gRPC is a modern, open-source, high-performance RPC framework that runs in any environment and support cross platform and cross language communication. The gRPC transport service uses HTTP/2 bidirectional streaming between:
@@ -19,7 +19,7 @@ gRPC is a modern, open-source, high-performance RPC framework that runs in any e
 A gRPC session is a single connection from the gRPC client to the gRPC server over the TCP/TLS port.
 In a single session: The client sends a media stream descriptor followed by video frames to the server as a [protobuf](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc) message over the gRPC stream session. The server validates the stream descriptor, analyses the video frame, and returns inference results as a protobuf message.
 
-It is highly recommended that responses are returned using valid JSON documents following the pre-established schema defined as per the [inference metadata schema object model]()<!--add a link-->. This will better ensure interoperability with other components and possible future capabilities added to the Azure Video Analyzer module.
+It is highly recommended that responses are returned using valid JSON documents following the pre-established schema defined as per the [inference metadata schema object model](inference-metadata-schema.md). This will better ensure interoperability with other components and possible future capabilities added to the Azure Video Analyzer module.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/grpc-extension-protocol/ava-module.png" alt-text="Azure Video Analyzer module" lightbox="./media/grpc-extension-protocol/ava-module.png":::
@@ -153,7 +153,7 @@ Here's what this might look like in the device twin using the first option from 
 }
 ```
 
-For more information on IPC modes, see [https://docs.docker.com/engine/reference/run/#ipc-settings---ipc]().
+For more information on IPC modes, see [https://docs.docker.com/engine/reference/run/#ipc-settings---ipc](add-valid-link.md).
 
 ## Video Analyzer gRPC extension contract definitions
 
@@ -230,5 +230,5 @@ The IgnoreHostname and IgnoreSignature verification options are not supported by
 
 ## Next steps
 
-Learn about the [Inference Metadata Schema]()
+Learn about the [Inference metadata schema](inference-metadata-schema.md)
 

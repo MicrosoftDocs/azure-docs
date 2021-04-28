@@ -473,6 +473,10 @@
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
+    items:
+    - name: MongoDB API
+      tocHref: /azure/cosmos-db/mongodb/
+      topicHref: /azure/cosmos-db/mongodb/
   - name: Managed Instance for Apache Cassandra
     tocHref: /azure/managed-instance-apache-cassandra/
     topicHref: /azure/managed-instance-apache-cassandra/
@@ -980,12 +984,12 @@
     topicHref: /azure/purview/
   - name: Azure Video Analyzer 
     tocHref: /azure/azure-video-analyzer/
-    topicHref: /azure/azure-video-analyzer/ 
+    topicHref: /azure/azure-video-analyzer/
     items:
-    - name: Azure Video Analyzer
+    - name: Analyze videos with Video Analyzer
       tocHref: /azure/azure-video-analyzer/video-analyzer-docs/
-      topicHref: /azure/azure-video-analyzer/video-analyzer-docs/
-    - name: Azure Video Analyzer for Media
+      topicHref: /azure/azure-video-analyzer/video-analyzer-docs/    
+    - name: Extract insights with Video Analyzer for Media
       tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
       topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
     

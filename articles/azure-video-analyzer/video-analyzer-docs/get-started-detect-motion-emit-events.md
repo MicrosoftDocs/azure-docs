@@ -80,7 +80,7 @@ If the connection succeeds, the list of edge devices appears. You should see at 
 > :::image type="content" source="./media/get-started-detect-motion-emit-events/modules-node.png" alt-text="Expand the Modules node":::
 
 > [!TIP]
-> If you have [manually deployed Azure Video Analyzer]()<!--add link--> yourselves on an edge device (such as an ARM64 device), then you will see the module show up under that device, under the Azure IoT Hub. You can select that module, and follow the rest of the steps below.
+> If you have [manually deployed Azure Video Analyzer](deploy-iot-edge-device.md) yourselves on an edge device (such as an ARM64 device), then you will see the module show up under that device, under the Azure IoT Hub. You can select that module, and follow the rest of the steps below.
 
 ## Use direct method calls
 
@@ -91,8 +91,8 @@ You can use the module to analyze live video streams by invoking direct methods.
 To enumerate all of the [pipelines](https://review.docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/pipeline?branch=release-azure-video-analyzer)<!-- add a link-->  in the module:
 
 1. In the Visual Studio Code, right-click the **avaEdge** module and select **Invoke Module Direct Method**.
-1. In the box that appears, enter pipelineTopologyList.
-1. Copy the following JSON payload and then paste it in the box. Then select the Enter key.
+2. In the box that appears, enter pipelineTopologyList.
+3. Copy the following JSON payload and then paste it in the box. Then select the Enter key.
 
 ```json
 {
@@ -283,7 +283,7 @@ Invoke pipelineTopologyGet by using the following payload.
 
 ```
 {
-    "@apiVersion" : "3.0",
+    "@apiVersion" : "1.0",
     "name" : "MotionDetection"
 }
 ```
@@ -371,7 +371,7 @@ Within a few seconds, you see the following response in the **OUTPUT** window:
 In the response payload, notice these details:
 
 * The status code is 200, indicating success.
-* The payload includes the `created` time stamp and the `lastModified` time stamp.
+* The payload includes the `createdAt` time stamp and the `lastModifiedAt` time stamp.
 
 ### Invoke livePipelineSet
 
@@ -410,6 +410,7 @@ Notice that this payload:
 * Contains a parameter value for parameters which didn't have a default value in the graph topology payload. This value is a link to the below sample video:
 * [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LTY4]
 
+
 Within few seconds, you see the following response in the **OUTPUT** window:
 
 ```
@@ -447,7 +448,7 @@ Within few seconds, you see the following response in the **OUTPUT** window:
 In the response payload, notice that:
 
 * The status code is 201, indicating a new instance was created.
-* The state is Inactive, indicating that the stream instance was created but not activated. For more information, see [Pipeline states]()<!--TODO:add a link later-->.
+* The state is Inactive, indicating that the stream instance was created but not activated. For more information, see [Pipeline states](pipeline.md#pipeline-states).
 
 Try the following next steps:
 
@@ -614,7 +615,26 @@ Within a few seconds, you see the following response in the OUTPUT window:
   "payload": null
 }
 ```
+A status code of 200 indicates that the pipeline instance was successfully deleted.
 
+Because we also created the pipeline called Sample-Graph-2 we cannot delete the pipeline topology. 
+Invoke the direct method livePipelineDelete by using the following payload to delete the pipeline called Sample-Graph-2:
+
+```
+{
+    "@apiVersion" : "1.0",
+    "name" : "Sample-Graph-2"
+}
+```
+
+Within a few seconds, you see the following response in the OUTPUT window:
+
+```
+{
+  "status": 200,
+  "payload": null
+}
+```
 A status code of 200 indicates that the pipeline instance was successfully deleted.
 
 ### Invoke pipelineTopologyDelete
@@ -650,5 +670,5 @@ Try the following next steps:
 
 ## Next steps
 
-* Learn how to [record video by using Live Video Analytics on IoT Edge]()<!--TODO: add a link once the topic is staged -->.
-* Learn more about [diagnostic messages]()<!--TODO: add a link once the topic is staged -->.
+* Learn how to [record video by using Live Video Analytics on IoT Edge](deploy-iot-edge-device.md) 
+* Learn more about [diagnostic messages](monitor-log-edge.md) 
