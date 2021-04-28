@@ -329,7 +329,7 @@ The following table explains the binding configuration properties that you set i
 |**queueName**|**QueueName**|Name of the queue to monitor.  Set only if monitoring a queue, not for a topic.
 |**topicName**|**TopicName**|Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
 |**subscriptionName**|**SubscriptionName**|Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
-|**connection**|**Connection**|The name of an app setting that contains the Service Bus connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name. For example, if you set `connection` to "MyServiceBus", the Functions runtime looks for an app setting that is named "AzureWebJobsMyServiceBus". If you leave `connection` empty, the Functions runtime uses the default Service Bus connection string in the app setting that is named "AzureWebJobsServiceBus".<br><br>To obtain a connection string, follow the steps shown at [Get the management credentials](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. <br><br>If you are using [version 5.x or higher of the extension](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher), instead of a connection string, you can provide a reference to a configuration section which defines the connection. See Connections.|
+|**connection**|**Connection**|The name of an app setting that contains the Service Bus connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name. For example, if you set `connection` to "MyServiceBus", the Functions runtime looks for an app setting that is named "AzureWebJobsMyServiceBus". If you leave `connection` empty, the Functions runtime uses the default Service Bus connection string in the app setting that is named "AzureWebJobsServiceBus".<br><br>To obtain a connection string, follow the steps shown at [Get the management credentials](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. <br><br>If you are using [version 5.x or higher of the extension](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher), instead of a connection string, you can provide a reference to a configuration section which defines the connection. See [Connections](./functions-reference.md#connections)|
 |**accessRights**|**Access**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
 |**isSessionsEnabled**|**IsSessionsEnabled**|`true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
 
@@ -426,7 +426,7 @@ The Service Bus trigger provides several [metadata properties](./functions-bindi
 |`ReplyTo`|`string`|The reply to queue address.|
 |`SequenceNumber`|`long`|The unique number assigned to a message by the Service Bus.|
 |`To`|`string`|The send to address.|
-|`UserProperties`|`IDictionary<string, object>`|Properties set by the sender. (For version 5.x+ of the extension, use `ExpiresAt`.)|
+|`UserProperties`|`IDictionary<string, object>`|Properties set by the sender. (For version 5.x+ of the extension this is not supported, please use `ApplicationProperties`.)|
 
 See [code examples](#example) that use these properties earlier in this article.
 
@@ -436,11 +436,12 @@ The below metadata properties are supported for apps using 5.0.0 of the extensio
 
 |Property|Type|Description|
 |--------|----|-----------|
+|`ApplicationProperties`|`ApplicationProperties`|Properties set by the sender. Use this in place of the `UserProperties` metadata property.|
 |`EnqueuedTime`|`DateTime`|The enqueued time in UTC.|
 |`ExpiresAt`|`DateTime`|The expiration time in UTC.|
 |`Subject`|`DateTime`|The application-specific label which can be used in place of the `Label` metadata property.|
-|`ServiceBusMessageActions`|`ServiceBusMessageActions`|A message receiver which can be used in place of the `MessageReceiver` metadata property.|
-|`ServiceBusSessionMessageActions`|`ServiceBusSessionMessageActions`|A message receiver which can be used in place of the `MessageSession` metadata property.|
+|`MessageActions`|`ServiceBusMessageActions`|The set of actions which can be performed on a `ServiceBusReceivedMessage`. This can be used in place of the `MessageReceiver` metadata property.
+|`SessionActions`|`ServiceBusSessionMessageActions`|The set of actions that can be performed on a session and a `ServiceBusReceivedMessage`. This can be used in place of the `MessageSession` metadata property.|
 
 ## Next steps
 
