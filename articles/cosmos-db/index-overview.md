@@ -237,9 +237,9 @@ Example items:
     }
 ```
 
-Azure Cosmos DB uses an inverted index. The index works by mapping each JSON path to the set of items that contain that value. The item id mapping is represented across many different index pages for the container. Here is a sample diagram of an inverted index for a container that includes the two example items:
+Azure Cosmos DB uses an inverted index. The index works by mapping each JSON path to the set of items that contain that value. The item ID mapping is represented across many different index pages for the container. Here is a sample diagram of an inverted index for a container that includes the two example items:
 
-| Path                    | Value   | List of item ids   |
+| Path                    | Value   | List of item IDs   |
 | ----------------------- | ------- | ---------- |
 | /locations/0/country    | Germany | 1          |
 | /locations/0/country    | Ireland | 2          |
