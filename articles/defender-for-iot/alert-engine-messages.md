@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Alert types and descriptions
 
-This article provides information on the alert types, descriptions, and severity that may be generated from the Defender for IoT engines. This information can be used to map alerts into playbooks, define forwarding rules, exclusion rules, and custom alerts as well as define the appropriate rules within a SIEM. Alerts appear in the Alerts window, which allows you to manage the alert event. 
+This article provides information on the alert types, descriptions, and severity that may be generated from the Defender for IoT engines. This information can be used to help map alerts into playbooks, define forwarding rules, exclusion rules, and custom alerts as well as define the appropriate rules within a SIEM. Alerts appear in the Alerts window, which allows you to manage the alert event. 
 
 ## Policy engine alerts
 
