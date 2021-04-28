@@ -5,7 +5,7 @@ author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 04/20/2021
+ms.date: 04/28/2021
 ms.author: dech
 
 ---
