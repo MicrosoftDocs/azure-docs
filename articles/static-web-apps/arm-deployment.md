@@ -244,7 +244,7 @@ If you have multiple Azure subscriptions, select the subscription you want to us
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Set-AzContext [SubscriptionID/SubscriptionName]
+Set-AzContext <SUBSCRIPTION-ID-OR-SUBSCRIPTION-NAME>
 ```
 
 # [Azure CLI](#tab/azure-cli)
