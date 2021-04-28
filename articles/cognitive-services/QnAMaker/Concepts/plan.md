@@ -24,11 +24,12 @@ Each [Azure resource](azure-resources.md#resource-purposes) created with QnA Mak
 | [App Service resource and App Plan Service](azure-resources.md#app-service-and-app-service-plan) resource | Query prediction endpoint |
 | [Application Insights](azure-resources.md#application-insights) resource | Query prediction telemetry |
 
-# [QnA Maker managed (preview release)](#tab/v2)
+
+# [Custom question answering (preview release)](#tab/v2)
 
 | Resource | Purpose |
 |--|--|
-| [QnA Maker](azure-resources.md#qna-maker-resource) resource | Authoring, query prediction endpoint and telemetry|
+| [Text Analytics](azure-resources.md#qna-maker-resource) resource | Authoring, query prediction endpoint and telemetry|
 | [Cognitive Search](azure-resources.md#cognitive-search-resource) resource | Data storage and search |
 
 ---
@@ -36,9 +37,9 @@ Each [Azure resource](azure-resources.md#resource-purposes) created with QnA Mak
 
 The free tier, `F0`, of each resource works and can provide both the authoring and query prediction experience. You can use this tier to learn authoring and query prediction. When you move to a production or live scenario, reevaluate your resource selection.
 
-#### QnA Maker resource
+#### Text Analytics resource
 
-A single QnA Maker resource can host more than one knowledge base. The number of knowledge bases is determined by the Cognitive Search pricing tier's quantity of supported indexes. Learn more about the [relationship of indexes to knowledge bases](azure-resources.md#index-usage).
+A single Text Analytics resource with Custom question answering feature enabled can host more than one knowledge base. The number of knowledge bases is determined by the Cognitive Search pricing tier's quantity of supported indexes. Learn more about the [relationship of indexes to knowledge bases](azure-resources.md#index-usage).
 
 #### Knowledge base size and throughput
 
@@ -76,9 +77,9 @@ The first knowledge base created on your QnA Maker resource sets the language fo
 
 You can structure your QnA Maker resources by language or you can use [Translator](../../translator/translator-info-overview.md) to change a query from another language into the knowledge base's language before sending the query to the query prediction endpoint.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
-You can now have knowledge bases in different languages within the same QnA Maker resource. When you create the first knowledge base, you can choose whether you want to use the resource for knowledge bases in a single language or multiple languages.
+You can now have knowledge bases in different languages within the same Text Analytics resource which has a Custom question answering feature enabled. When you create the first knowledge base, you can choose whether you want to use the resource for knowledge bases in a single language or multiple languages.
 
 ![QnA Maker managed (Preview) multi-lingual knowledge base selection](../media/concept-plan-your-knowledge-base/qnamaker-v2-select-multilanguage-knowledge-base.png)
 
@@ -174,7 +175,7 @@ There's a [two-phase answer ranking](query-knowledge-base.md#how-qna-maker-proce
 
 Apply the [latest runtime updates](../how-to/configure-QnA-Maker-resources.md#get-the-latest-runtime-updates) to automatically manage service updates.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 In QnA Maker managed (Preview), the runtime is managed by the QnA Maker service itself. So service updates are not applicable.
 
@@ -190,7 +191,7 @@ Scaling, throughput, and resiliency are determined by the [Azure resources](../h
 
 All queries to your knowledge base are stored in Application Insights. Use our [top queries](../how-to/get-analytics-knowledge-base.md) to understand your metrics.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 In the managed deployment, telemetry is offered through the [Azure Monitor service](../../../azure-monitor/index.yml). Use our [top queries](../how-to/get-analytics-knowledge-base.md) to understand your metrics.
 
