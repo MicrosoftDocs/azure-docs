@@ -44,15 +44,9 @@ To step through the features covered in this tutorial:
 
 To open the resource health page for a resource:
 
-1. You can reach the resource health page from everywhere in the portal where it's possible to select a resource. For example:
+1. Select any resource from the [asset inventory page](asset-inventory.md).
 
-    - Select the affected resource in the alerts details pane.
-
-        :::image type="content" source="media/investigate-resource-health/alert-details-select-affected-resource.png" alt-text="Select the affected resource from the alerts details pane to view the resource health page." lightbox="./media/investigate-resource-health/alert-details-select-affected-resource.png":::
-
-    - Select any resource from the [asset inventory page](asset-inventory.md).
-
-        :::image type="content" source="media/investigate-resource-health/inventory-select-resource.png" alt-text="Select a resource from the asset inventory to view the resource health page." lightbox="./media/investigate-resource-health/inventory-select-resource.png":::
+    :::image type="content" source="media/investigate-resource-health/inventory-select-resource.png" alt-text="Select a resource from the asset inventory to view the resource health page." lightbox="./media/investigate-resource-health/inventory-select-resource.png":::
 
 1. Use the left pane of the resource health page for an overview of the subscription, status, and monitoring information about the resource. You can also see whether Azure Defender is enabled for the resource:
 
