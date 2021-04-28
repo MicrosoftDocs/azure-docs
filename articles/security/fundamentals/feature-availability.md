@@ -169,9 +169,7 @@ The following tables display the current Azure Sentinel feature availability in 
 Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office 365 GCC High and Office 365 DoD are paired with Azure AD in Azure Government.
 
 > [!TIP]
-> Make sure to pay attention to the Azure environment to understand where [interoperability is possible](#microsoft-365-integration).
->
-> In the following table, interoperability that is *not* possible is marked with a dash (-) to indicate that support is not applicable.
+> Make sure to pay attention to the Azure environment to understand where [interoperability is possible](#microsoft-365-integration). In the following table, interoperability that is *not* possible is marked with a dash (-) to indicate that support is not relevant.
 >
 
 | Connector | Azure  | Azure Government  |
