@@ -75,9 +75,9 @@ You can visually create workflows using the Logic Apps designer in the Azure por
 
 <a name="host-environments"></a>
 
-## Host environments for logic apps
+## Azure hosting environments
 
-Based on your scenario's needs and solution's requirements, you can create logic apps in environments that differ based on how workflows use and share resources. The following table briefly summarizes these differences. Logic apps in different environments also have different limits. For more information, see [Limits in Logic Apps](logic-apps-limits-and-config.md) and [Limits in Logic Apps (Preview)](logic-apps-overview-preview.md#limits).
+Based on your scenario's needs and solution's requirements, you can create logic apps in different Azure hosting environments based on how workflows use and share resources. The following table briefly summarizes these differences. Logic apps in different environments also have different limits. For more information, see [Limits in Logic Apps](logic-apps-limits-and-config.md) and [Limits in Logic Apps (Preview)](logic-apps-overview-preview.md#limits).
 
 | Azure environment | [Pricing model](logic-apps-pricing.md) | Description |
 |-------------------|----------------------------------------|-------------|
