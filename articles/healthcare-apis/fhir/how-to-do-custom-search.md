@@ -154,4 +154,7 @@ If you need to delete a search parameter, use the following:
 
 ## Next Steps
 
-Now that you’ve created a search parameter, the next step action should be to go to the Reindex page.  
+In this article, you’ve learned how to create a search parameter. To learn how to how to reindex a job, see
+
+>[!div class="nextstepaction"]
+>[How to run a reindex job](how-to-run-a-reindex.md)

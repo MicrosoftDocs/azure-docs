@@ -219,7 +219,10 @@ If you want to use any of the parameters above, you can pass them into the Param
 
 ## Next Steps
 
-In this article, you’ve learned how to start a reindex job. To learn how to define new search parameters that require the reindex job, see [Defining custom search parameters](how-to-do-custom-search.md). 
+In this article, you’ve learned how to start a reindex job. To learn how to define new search parameters that require the reindex job, see 
+
+>[!div class="nextstepaction"]
+>[Defining custom search parameters](how-to-do-custom-search.md)
 
          
      

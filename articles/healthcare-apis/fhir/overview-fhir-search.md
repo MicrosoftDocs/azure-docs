@@ -158,5 +158,7 @@ Currently, the Azure API for FHIR only supports the next link in bundles, and it
 
 ## Next Steps
 
-Now that you've learned about the basics of search, see the search samples page for examples of how to search on the Azure API for FHIR. 
+Now that you've learned about the basics of search, see the search samples page for details about how to search using different search parameters, modifiers, and other FHIR search tools.
 
+>[!div class="nextstepaction"]
+>[FHIR Search Examples](fhir-search-samples.md)
