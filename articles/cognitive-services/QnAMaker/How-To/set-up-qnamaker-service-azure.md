@@ -91,8 +91,8 @@ This procedure creates the Azure resources needed to manage the knowledge base c
 
 5. After deployment is completed, you'll see the following resources created in your subscription:
 
-  > [!div class="mx-imgBorder"]
-    ![Resource created a new QnA Maker managed (Preview) service](../media/qnamaker-how-to-setup-service/resources-created-question-answering.png)
+> [!div class="mx-imgBorder"]
+> ![Resource created a new QnA Maker managed (Preview) service](../media/qnamaker-how-to-setup-service/resources-created-question-answering.png)
 
    The resource with the _Cognitive Services_ type has your _subscription_ keys.
 
