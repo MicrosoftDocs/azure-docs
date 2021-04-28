@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Deploy & configure Azure Firewall using the Azure portal'
-description: In this tutorial, you learn how to deploy and configure Azure Firewall using the Azure portal. 
+title: 'Tutorial: Deploy & configure Azure Firewall and policy using the Azure portal'
+description: In this tutorial, you learn how to deploy and configure Azure Firewall and policy using the Azure portal. 
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -11,11 +11,11 @@ ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
 ---
 
-# Tutorial: Deploy and configure Azure Firewall using the Azure portal
+# Tutorial: Deploy and configure Azure Firewall and policy using the Azure portal
 
 Controlling outbound network access is an important part of an overall network security plan. For example, you may want to limit access to web sites. Or, you may want to limit the outbound IP addresses and ports that can be accessed.
 
-One way you can control outbound network access from an Azure subnet is with Azure Firewall. With Azure Firewall, you can configure:
+One way you can control outbound network access from an Azure subnet is with Azure Firewall and Firewall Policy. With Azure Firewall and Firewall Policy, you can configure:
 
 * Application rules that define fully qualified domain names (FQDNs) that can be accessed from a subnet.
 * Network rules that define source address, protocol, destination port, and destination address.
@@ -35,17 +35,13 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Set up a test network environment
-> * Deploy a firewall
+> * Deploy a firewall and firewall policy
 > * Create a default route
 > * Configure an application rule to allow access to www.google.com
 > * Configure a network rule to allow access to external DNS servers
 > * Configure a NAT rule to allow a remote desktop to the test server
 > * Test the firewall
 
-> [!NOTE]
-> This tutorial uses classic Firewall rules to manage the firewall. The preferred method is to use [Firewall Policy](../firewall-manager/policy-overview.md). To complete this tutorial using Firewall Policy, see [Tutorial: Deploy and configure Azure Firewall and policy using the Azure portal](tutorial-firewall-deploy-portal-policy.md)
-
-If you prefer, you can complete this tutorial using [Azure PowerShell](deploy-ps.md).
 
 ## Prerequisites
 
@@ -63,7 +59,7 @@ The resource group contains all the resources for the tutorial.
 2. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups* from any page. Then select **Add**.
 4. For **Subscription**, select your subscription.
 1. For **Resource group name**, enter *Test-FW-RG*.
-1. For **Resource group location**, select a location. All other resources that you create must be in the same location.
+1. For **Region**, select a region. All other resources that you create must be in the same region.
 1. Select **Review + create**.
 1. Select **Create**.
 
@@ -75,16 +71,17 @@ This VNet will have three subnets.
 > The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
-1. Select **Networking** > **Virtual network**.
+1. Select **Networking**.
+1. Search for **Virtual network** and select it.
 1. Select **Create**.
 1. For **Subscription**, select your subscription.
 1. For **Resource group**, select **Test-FW-RG**.
 1. For **Name**, type **Test-FW-VN**.
 1. For **Region**, select the same location that you used previously.
 1. Select **Next: IP addresses**.
-1. For **IPv4 Address space**, type **10.0.0.0/16**.
+1. For **IPv4 Address space**, accept the default **10.0.0.0/16**.
 1. Under **Subnet**, select **default**.
-1. For **Subnet name** type **AzureFirewallSubnet**. The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
+1. For **Subnet name** change the name to **AzureFirewallSubnet**. The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
 1. For **Address range**, type **10.0.1.0/26**.
 1. Select **Save**.
 
@@ -122,10 +119,9 @@ Now create the workload virtual machine, and place it in the **Workload-SN** sub
 11. Accept the other defaults and select **Next: Management**.
 12. Select **Disable** to disable boot diagnostics. Accept the other defaults and select **Review + create**.
 13. Review the settings on the summary page, and then select **Create**.
+1. After the deployment completes, select the **Srv-Work** resource and note the private IP address for later use.
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
-
-## Deploy the firewall
+## Deploy the firewall and policy
 
 Deploy the firewall into the VNet.
 
@@ -140,9 +136,10 @@ Deploy the firewall into the VNet.
    |Resource group     |**Test-FW-RG** |
    |Name     |**Test-FW01**|
    |Region     |Select the same location that you used previously|
-   |Firewall management|**Use Firewall rules (classic) to manage this firewall**|
+   |Firewall management|**Use a Firewall Policy to manage this firewall**|
+   |Firewall policy|**Add new**:<br>**fw-test-pol**<br>your selected region 
    |Choose a virtual network     |**Use existing**: **Test-FW-VN**|
-   |Public IP address     |**Add new**<br>**Name**:  **fw-pip**|
+   |Public IP address     |**Add new**:<br>**Name**:  **fw-pip**|
 
 5. Accept the other default values, then select **Review + create**.
 6. Review the summary, and then select **Create** to create the firewall.
@@ -185,19 +182,19 @@ After deployment completes, select **Go to resource**.
 
 This is the application rule that allows outbound access to `www.google.com`.
 
-1. Open the **Test-FW-RG**, and select the **Test-FW01** firewall.
-2. On the **Test-FW01** page, under **Settings**, select **Rules (classic)**.
-3. Select the **Application rule collection** tab.
-4. Select **Add application rule collection**.
-5. For **Name**, type **App-Coll01**.
-6. For **Priority**, type **200**.
-7. For **Action**, select **Allow**.
-8. Under **Rules**, **Target FQDNs**, for **Name**, type **Allow-Google**.
-9. For **Source type**, select **IP address**.
-10. For **Source**, type **10.0.2.0/24**.
-11. For **Protocol:port**, type **http, https**.
-12. For **Target FQDNS**, type **`www.google.com`**
-13. Select **Add**.
+1. Open the **Test-FW-RG**, and select the **fw-test-pol** firewall policy.
+1. Select **Application rules**.
+1. Select **Add a rule collection**.
+1. For **Name**, type **App-Coll01**.
+1. For **Priority**, type **200**.
+1. For **Rule collection action**, select **Allow**.
+1. Under **Rules**, for **Name**, type **Allow-Google**.
+1. For **Source type**, select **IP address**.
+1. For **Source**, type **10.0.2.0/24**.
+1. For **Protocol:port**, type **http, https**.
+1. For **Destination Type**, select **FQDN**.
+1. For **Destination**, type **`www.google.com`**
+1. Select **Add**.
 
 Azure Firewall includes a built-in rule collection for infrastructure FQDNs that are allowed by default. These FQDNs are specific for the platform and can't be used for other purposes. For more information, see [Infrastructure FQDNs](infrastructure-fqdns.md).
 
@@ -205,39 +202,40 @@ Azure Firewall includes a built-in rule collection for infrastructure FQDNs that
 
 This is the network rule that allows outbound access to two IP addresses at port 53 (DNS).
 
-1. Select the **Network rule collection** tab.
-2. Select **Add network rule collection**.
+1. Select **Network rules**.
+2. Select **Add a rule collection**.
 3. For **Name**, type **Net-Coll01**.
 4. For **Priority**, type **200**.
-5. For **Action**, select **Allow**.
-6. Under **Rules**, **IP addresses**, for **Name**, type **Allow-DNS**.
-7. For **Protocol**, select **UDP**.
-9. For **Source type**, select **IP address**.
+5. For **Rule collection action**, select **Allow**.
+1. For **Rule collection group**, select **DefaultNetworkRuleCollectionGroup**.
+1. Under **Rules**, for **Name**, type **Allow-DNS**.
+1. For **Source type**, select **IP Address**.
 1. For **Source**, type **10.0.2.0/24**.
-2. For **Destination type** select **IP address**.
-3. For **Destination address**, type **209.244.0.3,209.244.0.4**
-
-   These are public DNS servers operated by CenturyLink.
+1. For **Protocol**, select **UDP**.
 1. For **Destination Ports**, type **53**.
+1. For **Destination type** select **IP address**.
+1. For **Destination**, type **209.244.0.3,209.244.0.4**.<br>These are public DNS servers operated by CenturyLink.
 2. Select **Add**.
 
 ## Configure a DNAT rule
 
 This rule allows you to connect a remote desktop to the Srv-Work virtual machine through the firewall.
 
-1. Select the **NAT rule collection** tab.
-2. Select **Add NAT rule collection**.
+1. Select the **DNAT rules**.
+2. Select **Add a rule collection**.
 3. For **Name**, type **rdp**.
-4. For **Priority**, type **200**.
-5. Under **Rules**, for **Name**, type **rdp-nat**.
-6. For **Protocol**, select **TCP**.
-7. For **Source type**, select **IP address**.
-8. For **Source**, type **\***.
-9. For **Destination address**, type the firewall public IP address.
-10. For **Destination Ports**, type **3389**.
-11. For **Translated address**, type the **Srv-work** private IP address.
-12. For **Translated port**, type **3389**.
-13. Select **Add**.
+1. For **Priority**, type **200**.
+1. For **Rule collection group**, select **DefaultDnatRuleCollectionGroup**.
+1. Under **Rules**, for **Name**, type **rdp-nat**.
+1. For **Source type**, select **IP address**.
+1. For **Source**, type **\***.
+1. For **Protocol**, select **TCP**.
+1. For **Destination Ports**, type **3389**.
+1. For **Destination Type**, select **IP Address**.
+1. For **Destination**, type the firewall public IP address.
+1. For **Translated address**, type the **Srv-work** private IP address.
+1. For **Translated port**, type **3389**.
+1. Select **Add**.
 
 
 ### Change the primary and secondary DNS address for the **Srv-Work** network interface
