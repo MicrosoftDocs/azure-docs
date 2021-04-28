@@ -21,12 +21,14 @@ PostgreSQL is at its best when you use it with extensions. In fact, a key elemen
 
 ## Supported extensions
 The standard [`contrib`](https://www.postgresql.org/docs/12/contrib.html) extensions and the following extensions are already deployed in the containers of your Azure Arc enabled PostgreSQL Hyperscale server group:
-- [`citus`](https://github.com/citusdata/citus), v: 9.4. The Citus extension by [Citus Data](https://www.citusdata.com/) is loaded by default as it brings the Hyperscale capability to the PostgreSQL engine. Dropping the Citus extension from your Azure Arc PostgreSQL Hyperscale server group is not supported.
-- [`pg_cron`](https://github.com/citusdata/pg_cron), v: 1.2
-- [`pgaudit`](https://www.pgaudit.org/), v: 1.4
+- ['citus'](https://github.com/citusdata/citus), v: 10.0. The Citus extension by [Citus Data](https://www.citusdata.com/) is loaded by default as it brings the Hyperscale capability to the PostgreSQL engine. Dropping the Citus extension from your Azure Arc PostgreSQL Hyperscale server group is not supported.
+- ['pg_cron'](https://github.com/citusdata/pg_cron), v: 1.3
+- ['pgaudit'](https://www.pgaudit.org/), v: 1.4
 - plpgsql, v: 1.0
-- [`postgis`](https://postgis.net), v: 3.0.2
-- [`plv8`](https://plv8.github.io/), v: 2.3.14
+- ['postgis'](https://postgis.net), v: 3.0.2
+- ['plv8'](https://plv8.github.io/), v: 2.3.14
+- ['pg_partman'](https://github.com/pgpartman/pg_partman), v: 4.4.1/
+- ['tdigest'](https://github.com/tvondra/tdigest), v: 1.0.1
 
 Updates to this list will be posted as it evolves over time.
 
