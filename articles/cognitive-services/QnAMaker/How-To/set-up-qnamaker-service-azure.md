@@ -76,7 +76,7 @@ This procedure creates the Azure resources needed to manage the knowledge base c
    * Choose the **Subscription** under which the Text Analytics resource will be deployed.
    * Create a new **Resource group** (recommended) or use an existing one in which to deploy this Text Analytics resource. Enabling custom question answering with Text Analytics resource creates few Azure resources. When you create a resource group to hold these resources, you can easily find, manage, and delete these resources by the resource group name.
    * In the **Name** field, enter a unique name to identify this Text Analytics service. 
-   * Choose the **Location** where you want the Text Analytics service to be deployed. The management APIs and service endpoint will be hosted in this location. 
+   * Choose the **Location** where you want the Text Analytics resource to be deployed. The management APIs and service endpoint will be hosted in this location. 
    * Select the **Pricing tier** for the Text Analytics service. See [more details about SKU pricing](https://aka.ms/qnamaker-pricing).
    * Choose the **Search location** where you want Azure Cognitive Search indexes to be deployed. Restrictions on where customer data must be stored will help determine the location you choose for Azure Cognitive Search.
    * Choose the **Search pricing tier** of the Azure Cognitive Search service. If the Free tier option is unavailable (appears dimmed), it means you already have a free service deployed through your subscription. In that case, you'll need to start with the Basic tier. See [Azure Cognitive Search pricing details](https://azure.microsoft.com/pricing/details/search/).
