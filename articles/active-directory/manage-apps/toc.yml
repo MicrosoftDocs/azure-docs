@@ -272,8 +272,6 @@
           href: application-proxy-page-links-broken-problem.md
         - name: No working connector in a connector group for my app
           href: application-proxy-connectivity-no-working-connector.md
-        - name: Configure in admin portal
-          href: application-proxy-config-how-to.md
         - name: Problem creating an app in admin portal
           href: application-proxy-config-problem.md
         - name: Configure with PingAccess

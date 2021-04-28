@@ -1,21 +1,16 @@
 ---
-title: How to configure an Application Proxy application | Microsoft Docs
-description: Learn how to create and configure an APplication Proxy application in a few simple steps  
+title: How to configure an Azure Active Directory Application Proxy application
+description: Learn how to create and configure an Azure Active Directory Application Proxy application in a few simple steps  
 services: active-directory
-documentationcenter: ''
 author: kenwith
-manager: daveba
-ms.assetid: 
+manager: mtillman
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-proxy
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/18/2018
+ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: asteen
-ms.collection: M365-identity-device-management
 ---
 
 # How to configure an Application Proxy application

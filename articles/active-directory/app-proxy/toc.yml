@@ -173,6 +173,8 @@
       items:
       - name: Application Proxy troubleshooting
         href: application-proxy-troubleshoot.md
+      - name: Configure in admin portal
+        href: application-proxy-config-how-to.md
     #   - name: Connector troubleshooting flowchart
     #     href: application-proxy-debug-connectors.md
     #   - name: Application troubleshooting flowchart
@@ -185,8 +187,6 @@
     #     href: application-proxy-page-links-broken-problem.md
     #   - name: No working connector in a connector group for my app
     #     href: application-proxy-connectivity-no-working-connector.md
-    #   - name: Configure in admin portal
-    #     href: application-proxy-config-how-to.md
     #   - name: Problem creating an app in admin portal
     #     href: application-proxy-config-problem.md
       - name: Configure Kerberos Constrained Delegation
