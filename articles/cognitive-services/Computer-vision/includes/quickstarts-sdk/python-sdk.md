@@ -135,10 +135,10 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-In this quickstart, you learned how to use the OCR library for Python to do basis tasks. Next, explore the reference documentation to learn more about the library.
+In this quickstart, you learned how to install the OCR client library and use the Read API. Next, learn more about the Read API features.
 
 > [!div class="nextstepaction"]
->[OCR API reference (Python)](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
+>[Call the Read API](../../Vision-API-How-to-Topics/call-read-api.md)
 
 * [OCR overview](../../overview-ocr.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py).

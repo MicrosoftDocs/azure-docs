@@ -4,6 +4,7 @@ description: Get started with Azure App Service by deploying your first Python a
 ms.topic: quickstart
 ms.date: 04/01/2021
 ms.custom: devx-track-python
+robots: noindex
 ---
 
 # Quickstart: Create a Python app using Azure App Service on Linux (Azure portal)

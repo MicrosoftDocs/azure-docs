@@ -20,7 +20,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 - This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-If you have multiple subscriptions, choose the subscription that contains the resource or the subscription in which you are billed. To select a specific subscription ID in your account, use the [az account set](/cli/azure/account#az-account-set) command:
+If you have multiple subscriptions, choose the subscription that contains the resource or the subscription in which you are billed. To select a specific subscription ID in your account, use the [az account set](/cli/azure/account#az_account_set) command:
 
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
@@ -28,7 +28,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 
 ## Create a resource group
 
-Create an [Azure resource group](../azure-resource-manager/management/overview.md) by using the [az group create](/cli/azure/group#az-group-create) command. A resource group is a logical container in which Azure resources are deployed and managed as a group.
+Create an [Azure resource group](../azure-resource-manager/management/overview.md) by using the [az group create](/cli/azure/group#az_group_create) command. A resource group is a logical container in which Azure resources are deployed and managed as a group.
 
 The following example creates a resource group named `myresourcegroup` in the `westus` location:
 
@@ -38,7 +38,7 @@ az group create --name myresourcegroup --location westus
 
 ## Create an Azure Database for MariaDB server
 
-Create an Azure Database for MariaDB server by using the [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create) command. A server can manage multiple databases. Typically, a separate database is used for each project or for each user.
+Create an Azure Database for MariaDB server by using the [az mariadb server create](/cli/azure/mariadb/server#az_mariadb_server_create) command. A server can manage multiple databases. Typically, a separate database is used for each project or for each user.
 
 Setting | Sample value | Description
 ---|---|---
@@ -72,7 +72,7 @@ az mariadb server create --resource-group myresourcegroup --name mydemoserver  -
 
 ## Configure a firewall rule
 
-Create an Azure Database for MariaDB server-level firewall rule by using the [az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create) command. A server-level firewall rule allows an external application like the mysql command-line tool or MySQL Workbench to connect to your server through the Azure Database for MariaDB service firewall.
+Create an Azure Database for MariaDB server-level firewall rule by using the [az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az_mariadb_server_firewall_rule_create) command. A server-level firewall rule allows an external application like the mysql command-line tool or MySQL Workbench to connect to your server through the Azure Database for MariaDB service firewall.
 
 The following example creates a firewall rule called `AllowMyIP` that allows connections from a specific IP address, 192.168.0.1. Substitute an IP address or range of IP addresses that corresponds to the location you connect from.
 
@@ -226,7 +226,7 @@ If you don't need the resources that you used in this quickstart for another qui
 az group delete --name myresourcegroup
 ```
 
-If you want to delete only the server that you created in this quickstart, run the [az mariadb server delete](/cli/azure/mariadb/server#az-mariadb-server-delete) command:
+If you want to delete only the server that you created in this quickstart, run the [az mariadb server delete](/cli/azure/mariadb/server#az_mariadb_server_delete) command:
 
 ```azurecli-interactive
 az mariadb server delete --resource-group myresourcegroup --name mydemoserver

@@ -63,7 +63,7 @@ VM Generation Support: Generation 1<br>
 
  Xilinx has created the following marketplace images to simplify the deployment of these VMs. 
 
-[Xilinx Alveo U250 Deployment VM – Ubuntu18.04](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/xilinx.xilinx_alveo_u250_deployment_vm_ubuntu1804_032321/)
+[Xilinx Alveo U250 Deployment VM – Ubuntu18.04](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/xilinx.xilinx_alveo_u250_deployment_vm_ubuntu1804_032321)
 
 [Xilinx Alveo U250 Deployment VM – CentOS7.8](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/xilinx.xilinx_alveo_u250_deployment_vm_centos78_032321)
 
@@ -130,6 +130,15 @@ To disable Host_Mem(SB): sudo xbutil host_mem --disable
 **Q:** How can I query the PLP information? 
 
 **A:** Need to run xbutil query and look at the lower portion. 
+
+**Q:** If I create my own VM and deploy XRT manually, what additional changes do I need to do? 
+
+**A:** In the  /opt/xilinx/xrt/setup.sh add an entry for XRT_INI_PATH  pointing to  /opt/xilinx/xrt/xrt.ini
+
+ 
+The content of /opt/xilinx/xrt/xrt.ini should contain: <br>
+[Runtime]<br>
+ert=false <br>
 
 ## Other sizes
 

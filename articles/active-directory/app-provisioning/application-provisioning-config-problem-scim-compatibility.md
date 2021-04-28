@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/05/2020
+ms.date: 04/07/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -46,7 +46,7 @@ Use the flags below in the tenant URL of your application in order to change the
 :::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="SCIM flags to later behavior.":::
 
 * Use the following URL to update PATCH behavior and ensure SCIM compliance (e.g. active as boolean and proper group membership removals). This behavior is currently only available when using the flag, but will become the default behavior over the next few months. Note this preview flag currently does not work with on-demand provisioning. 
-  * **URL (SCIM Compliant):** AzureAdScimPatch062020
+  * **URL (SCIM Compliant):** aadOptscim062020
   * **SCIM RFC references:** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2
   * **Behavior:**
