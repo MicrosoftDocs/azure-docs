@@ -24,7 +24,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
 > [!div class="checklist"]
 > * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-> * A [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) with Custom question answering feature created in the Azure portal. Remember your Azure Active Directory ID, Subscription, Text Analytics resource name you selected when you created the resource.
+> * A [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) with Custom question answering feature enabled. Remember your Azure Active Directory ID, Subscription, Text Analytics resource name you selected when you created the resource.
 
 ---
 
@@ -71,15 +71,20 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
 3. On the **Create** page, skip **Step 1** if you already have Custom question answering added to a Text Analytics service.
 
-    If you haven't created the service yet, select **Create a Text Analytics service**. You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to set up the Text Analytics service in your subscription. You should add the Custom question answering feature to the service on creation. Remember your Azure Active Directory ID, Subscription, Text Analytics resource name you selected when you created the resource.
-
-    When you are done creating the resource in the Azure portal, return to the QnA Maker portal, refresh the browser page, and continue to **Step 2**.
+    If you haven't created the service yet, select **Create a Text Analytics service**. 
+    
+    You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to set up the Text Analytics service in your subscription. You should add the Custom question answering feature to the service on creation. 
+    
+> [!div class="mx-imgBorder"]
+> [Add QnA to TA](../media/qnamaker-how-to-setup-service/select-qna-feature-create-flow.png)
+ 
+    Remember your Azure Active Directory ID, Subscription, Text Analytics resource name you selected when you created the resource. When you are done creating the resource in the Azure portal, return to the QnA Maker portal, refresh the browser page, and continue to **Step 2**.
 
 4. In **Step 2**, select your Active directory, subscription, service (resource), and the language for all knowledge bases created in the service.
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/connect-your-knowledge-base.png" alt-text="Screenshot of selecting a QnA Maker service knowledge base managed preview":::
 
-5. In **Step 2**, if you are creating the first knowledge base for your service, you will have an option to make language setting specific to every knowledge base. Once the language setting has been defined for the first knowledge base, you will not be allowed to modify the settings for the service later.
+5. In **Step 2**, if you are creating the first knowledge base for your service, you can check/uncheck "Add knowledge bases in multiple languages to this service" property to specify if you want to assign different languages to knowledge bases within the service. You won't be able to modify this later.
 
 6. In **Step 3**, name your knowledge base **My Sample QnA KB**. 
 
