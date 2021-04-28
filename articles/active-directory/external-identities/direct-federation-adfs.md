@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 07/01/2019
+ms.date: 04/27/2021
 
 ms.author: mimart
 author: msmimart
@@ -132,7 +132,7 @@ An AD FS server must already be set up and functioning before you begin this pro
 1. In the **Edit Claim Rules** wizard, select **Add Rule**. In **Choose Rule Type**, select **Send Claims Using a Custom Rule**. Select *Next*. 
 1. In **Configure Claim Rule**, specify the following values:
 
-   - **Claim rule name**: Issue Immutable Id  
+   - **Claim rule name**: Issue Immutable ID  
    - **Custom rule**: `c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] => issue(store = "Active Directory", types = ("http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID"), query = "samAccountName={0};objectGUID;{1}", param = regexreplace(c.Value, "(?<domain>[^\\]+)\\(?<user>.+)", "${user}"), param = c.Value);`
 
 1. Select **Finish**. 
@@ -150,4 +150,4 @@ An AD FS server must already be set up and functioning before you begin this pro
 1.	Click **OK**. The AD FS server is now configured for direct federation using WS-Fed.
 
 ## Next steps
-Next, you'll [configure direct federation in Azure AD](direct-federation.md#step-2-configure-direct-federation-in-azure-ad) either in the Azure AD portal or by using PowerShell. 
+Next, you'll [configure direct federation in Azure AD](direct-federation.md#step-3-configure-direct-federation-in-azure-ad) either in the Azure AD portal or by using PowerShell. 
