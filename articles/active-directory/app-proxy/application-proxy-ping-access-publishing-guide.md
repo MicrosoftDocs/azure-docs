@@ -226,5 +226,5 @@ When you've completed all these steps, your application should be up and running
 ## Next steps
 
 - [Configure PingAccess for Azure AD to protect applications published using Microsoft Azure AD Application Proxy](https://docs.pingidentity.com/bundle/pingaccess-60/page/jep1564006742933.html)
-- [Single sign-on to applications in Azure Active Directory](what-is-single-sign-on.md)
+- [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 - [Troubleshoot Application Proxy problems and error messages](application-proxy-troubleshoot.md)

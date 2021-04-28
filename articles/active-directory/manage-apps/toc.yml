@@ -230,8 +230,6 @@
           href: application-sign-in-problem-first-party-microsoft.md
       - name: Troubleshoot on-premises apps
         items:
-        - name: Configure with PingAccess
-          href: ./application-proxy-ping-access-publishing-guide.md
         - name: CORS issues in Application Proxy
           href: application-proxy-understand-cors-issues.md
   - name: Reference
