@@ -16,7 +16,7 @@ In this article, you:
 * Inventory Azure Arc enabled servers supported VM extensions installed.
 * Uninstall all VM extensions from the Arc enabled server.
 * Identify Azure services configured to authenticate with your Arc enabled server managed identity and prepare to update those services to use the Azure VM identity after migration.
-* Review Azure role-based access control (Azure RBAC) access rights granted to the Arc enabled server resource to maintain who has access to the resource after it has been migrated to an Azure VM. Identify 
+* Review Azure role-based access control (Azure RBAC) access rights granted to the Arc enabled server resource to maintain who has access to the resource after it has been migrated to an Azure VM. 
 * Delete the Arc enabled server resource identity from Azure and remove the Arc enabled server agent.
 * Install the Azure guest agent.
 * Migrate the server or VM to Azure.
