@@ -51,13 +51,25 @@ Potential security issues and mitigations for using gMSAs are shown in the follo
 
 | Security issue| Mitigation |
 | - | - |
-| gMSA is a member of privileged groups. | Do one of the following:<li>Review your group memberships. To do so, you create a PowerShell script to enumerate all group memberships. You can then filter a resultant CSV file by the names of your gMSA files.<li>Remove the gMSA from privileged groups.<li>Grant the gMSA only the rights and permissions it requires to run its service (consult with your service vendor). 
-| gMSA has read/write access to sensitive resources. | Do one of the following:<li>Audit access to sensitive resources.<li>Archive audit logs to a SIEM, such as Azure Log Analytics or Azure Sentinel, for analysis.<li>Remove unnecessary resource permissions if you detect an undesirable level of access. |
+| gMSA is a member of privileged groups. | <li>Review your group memberships. To do so, you create a PowerShell script to enumerate all group memberships. You can then filter a resultant CSV file by the names of your gMSA files.<li>Remove the gMSA from privileged groups.<li>Grant the gMSA only the rights and permissions it requires to run its service (consult with your service vendor). 
+| gMSA has read/write access to sensitive resources. | <li>Audit access to sensitive resources.<li>Archive audit logs to a SIEM, such as Azure Log Analytics or Azure Sentinel, for analysis.<li>Remove unnecessary resource permissions if you detect an undesirable level of access. |
+| | |
 
 
 ## Find gMSAs
 
-Your organization might already have created gMSAs. To retrieve these accounts, run the following PowerShell cmdlet:
+Your organization might already have created gMSAs. To retrieve these accounts, run the following PowerShell cmdlets:
+
+```powershell
+Get-ADServiceAccount 
+Install-ADServiceAccount 
+New-ADServiceAccount 
+Remove-ADServiceAccount 
+Set-ADServiceAccount 
+Test-ADServiceAccount 
+Uninstall-ADServiceAccount
+```
+
 
 To work effectively, gMSAs must be in the managed service accounts organizational unit (OU).
 
@@ -129,7 +141,6 @@ gMSA accounts are the most secure type of service account for on-premises needs.
 To learn more about securing service accounts, see the following articles:
 
 * [Introduction to on-premises service accounts](service-accounts-on-premises.md)  
-* [Secure group managed service accounts](service-accounts-group-managed.md)  
 * [Secure standalone managed service accounts](service-accounts-standalone-managed.md)  
 * [Secure computer accounts](service-accounts-computer.md)  
 * [Secure user accounts](service-accounts-user-on-premises.md)  
