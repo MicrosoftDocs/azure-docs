@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 04/09/2021
+ms.date: 04/30/2021
 ms.topic: conceptual
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc enabled data services so that I can leverage the capability of the feature.
 ---
@@ -18,11 +18,41 @@ This article highlights capabilities, features, and enhancements recently releas
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
+## April 2021
+
+### What's new
+
+### Breaking changes
+
+### Resolved issues
+
+### Known issues
+
+- You can create a data controller in direct connect mode with the Azure portal. Deployment with other Azure Arc enabled data services tools are not supported. Specifically, you can't deploy a data controller in direct connect mode with any of the following tools during this release.
+   - Azure Data Studio
+   - Azure Data CLI (`azdata`)
+   - Kubernetes native tools (`kubectl`)
+
+   [Deploy Azure Arc data controller | Direct connect mode](deploy-data-controller-direct-mode.md) explains how to create the data controller in the portal. 
+
+- In direct connected mode, upload of usage, metrics, and logs using `azdata arc dc upload` is currently blocked. Usage is automatically uploaded. Upload for data controller created in indirect connected mode should continue to work.
+- Automatic upload of usage data in direct connectivity mode will not succeed if using proxy via `–proxy-cert <path-t-cert-file>`.
+- Azure Arc enabled SQL Managed instance and Azure Arc enabled PostgreSQL Hyperscale are not GB18030 certified.
+
+#### Azure Arc enabled SQL Managed Instance
+
+- Deployment of Azure Arc enabled SQL Managed Instance in direct mode can only be done from the Azure portal, and not available from tools such as azdata, Azure Data Studio, or kubectl.
+
+#### Azure Arc enabled PostgreSQL Hyperscale
+
+- It is not supported to deploy an Azure Arc enabled Postgres Hyperscale server group in an Arc data controller enabled for direct connect mode.
+- Passing  an invalid value to the `--extensions` parameter when editing the configuration of a server group to enable additional extensions incorrectly resets the list of enabled extensions to what it was at the create time of the server group and prevents user from creating additional extensions. The only workaround available when that happens is to delete the server group and redeploy it.
+
+
+
 ## March 2021
 
 The March 2021 release was initially introduced on April 5th 2021, and the final stages of release were completed April 9th 2021.
-
-Review limitations of this release in [Known issues - Azure Arc enabled data services (Preview)](known-issues.md).
 
 Azure Data CLI (`azdata`) version number: 20.3.2. You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
 
@@ -48,15 +78,6 @@ You will delete the previous CRDs as you cleanup past installations. See [Cleanu
 - You can now restore a database to SQL Managed Instance with 3 replicas and it will be automatically added to the availability group. 
 
 - You can now connect to a secondary read-only endpoint on SQL Managed Instances deployed with 3 replicas. Use `azdata arc sql endpoint list` to see the secondary read-only connection endpoint.
-
-### Known issues
-
-- In direct connected mode, upload of usage, metrics, and logs using `azdata arc dc upload` is currently blocked. Usage is automatically uploaded. Upload for data controller created in indirect connected mode should continue to work.
-- Deployment of data controller in direct mode can only be done from the Azure portal, and not available from client tools such as azdata, Azure Data Studio, or kubectl.
-- Deployment of Azure Arc enabled SQL Managed Instance in direct mode can only be done from the Azure portal, and not available from tools such as azdata, Azure Data Studio, or kubectl.
-- Deployment of Azure Arc enabled PostgeSQL Hyperscale in direct mode is currently not available.
-- Automatic upload of usage data in direct connectivity mode will not succeed if using proxy via `–proxy-cert <path-t-cert-file>`.
-- Azure Arc enabled SQL Managed instance and Azure Arc enabled PostgreSQL Hyperscale are not GB18030 certified.
 
 ## February 2021
 
@@ -146,23 +167,6 @@ You can specify direct connectivity when you create the data controller. The fol
 ```console
 azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription <subscription id> --resource-group my-resource-group --location eastus --connectivity-mode direct
 ```
-
-### Known issues
-
-- On Azure Kubernetes Service (AKS), Kubernetes version 1.19.x is not supported.
-- On Kubernetes 1.19 `containerd` is not supported.
-- The data controller resource in Azure is currently an Azure resource. Any updates such as delete is not propagated back to the kubernetes cluster.
-- Instance names can't be greater than 13 characters
-- No in-place upgrade for the Azure Arc data controller or database instances.
-- Arc enabled data services container images are not signed.  You may need to configure your Kubernetes nodes to allow unsigned container images to be pulled.  For example, if you are using Docker as the container runtime, you can set the DOCKER_CONTENT_TRUST=0 environment variable and restart.  Other container runtimes have similar options such as in [OpenShift](https://docs.openshift.com/container-platform/4.5/openshift_images/image-configuration.html#images-configuration-file_image-configuration).
-- Cannot create Azure Arc enabled SQL Managed instances or PostgreSQL Hyperscale server groups from the Azure portal.
-- For now, if you are using NFS, you need to set `allowRunAsRoot` to `true` in your deployment profile file before creating the Azure Arc data controller.
-- SQL and PostgreSQL login authentication only.  No support for Azure Active Directory or Active Directory.
-- Creating a data controller on OpenShift requires relaxed security constraints.  See documentation for details.
-- If you are using Azure Kubernetes Service (AKS) Engine on Azure Stack Hub with Azure Arc data controller and database instances, upgrading to a newer Kubernetes version is not supported. Uninstall Azure Arc data controller and all the database instances before upgrading the Kubernetes cluster.
-- AKS clusters that span [multiple availability zones](../../aks/availability-zones.md) are not currently supported for Azure Arc enabled data services. To avoid this issue, when you create the AKS cluster in Azure portal, if you select a region where zones are available, clear all the zones from the selection control. See the following image:
-
-   :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Clear the checkboxes for each zone to specify none.":::
 
 ## October 2020 
 
