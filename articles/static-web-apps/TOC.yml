@@ -58,6 +58,9 @@
       displayName: Application Insights
     - name: Reset deployment tokens
       href: deployment-token-management.md
+    - name: Troubleshooting errors
+      href: troubleshooting.md
+      displayName: deployment, runtime, errors
 - name: Tutorials
   items:
     - name: Publish from a static site generator
