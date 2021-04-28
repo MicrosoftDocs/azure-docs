@@ -100,7 +100,7 @@ In this step, you will create a new Azure SQL Database logical server and a new 
 1. Back on the **Basics** tab, verify **Compute + storage** is set to **General Purpose**, **DC, 2 vCores, 32 GB storage**.
 1. Select **Next: Networking** at the bottom of the page.
 
-   ![New SQL database - networking](./media/always-encrypted-enclaves/portal-configre-dc-series-database-basics.png)
+   ![configure DC-series database - basics](./media/always-encrypted-enclaves/portal-configre-dc-series-database-basics.png)
 
 1. On the **Networking** tab, for **Connectivity method**, select **Public endpoint**.
 1. For **Firewall rules**, set **Add current client IP address** to **Yes**. Leave **Allow Azure services and resources to access this server** set to **No**.
@@ -117,8 +117,8 @@ In this step, you will create a new Azure SQL Database logical server and a new 
   ```PowerShell
   Import-Module "Az" -MinimumVersion "5.6.0"
   ```
-  
-1. Sign into Azure. If needed, [switch to the subscription](/powershell/azure/manage-subscriptions-azureps) you are using for this tutorial.
+
+2. Sign into Azure. If needed, [switch to the subscription](/powershell/azure/manage-subscriptions-azureps) you are using for this tutorial.
 
   ```PowerShell
   Connect-AzAccount
@@ -126,7 +126,7 @@ In this step, you will create a new Azure SQL Database logical server and a new 
   Set-AzContext -Subscription $subscriptionId
   ```
 
-1. Create a new resource group.
+3. Create a new resource group.
 
   > [!IMPORTANT]
   > You need to create your resource group in a region (location) that supports both the DC-series hardware generation and Microsoft Azure Attestation. For the list of regions supporting DC-series, see [DC-series availability](service-tiers-vcore.md#dc-series-1). [Here](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) is the regional availability of Microsoft Azure Attestation.
@@ -137,14 +137,14 @@ In this step, you will create a new Azure SQL Database logical server and a new 
   New-AzResourceGroup -Name $resourceGroupName -Location $location
   ```
 
-1. Create an Azure SQL logical server. When prompted, enter the server administrator name and a password. Make sure you remember the admin name and the password - you will need them later to connect to the server.
+4. Create an Azure SQL logical server. When prompted, enter the server administrator name and a password. Make sure you remember the admin name and the password - you will need them later to connect to the server.
 
   ```powershell
   $serverName = "<your server name>" 
   New-AzSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName -Location $location 
   ```
 
-1. Create a server firewall rule that allows access from the specified IP range.
+5. Create a server firewall rule that allows access from the specified IP range.
   
   ```powershell
   $startIp = "<start of IP range>"
@@ -154,7 +154,7 @@ In this step, you will create a new Azure SQL Database logical server and a new 
     -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
   ```
 
-1. Create a DC-series database.
+6. Create a DC-series database.
 
   ```powershell
   $databaseName = "ContosoHR"
@@ -169,7 +169,7 @@ In this step, you will create a new Azure SQL Database logical server and a new 
     -ComputeGeneration $generation
   ```
 
-1. Retrieve and save the information about your server and the database. You will need this information, as well as the admin name and the password from step 4 in this section, in later sections.
+7. Retrieve and save the information about your server and the database. You will need this information, as well as the admin name and the password from step 4 in this section, in later sections.
 
   ```powershell
   Write-Host 
@@ -246,20 +246,20 @@ In this step, you'll create and configure an attestation provider in Microsoft A
     };
     ```
 
-1. Import the required version of `Az.Attestation`.  
+2. Import the required version of `Az.Attestation`.  
 
   ```powershell
   Import-Module "Az.Attestation" -MinimumVersion "0.1.8"
   ```
   
-1. Create an attestation provider. 
+3. Create an attestation provider.
 
   ```powershell
   $attestationProviderName = "<your attestation provider name>" 
   New-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName -Location $location
   ```
 
-1. Configure your attestation policy.
+4. Configure your attestation policy.
   
   ```powershell
   $policyFile = "<the pathname of the file from step 1 in this section>"
@@ -273,7 +273,7 @@ In this step, you'll create and configure an attestation provider in Microsoft A
     -PolicyFormat  $policyFormat
   ```
 
-1. Retrieve the attestation URL (the Attest URI of your attestation provider).
+5. Retrieve the attestation URL (the Attest URI of your attestation provider).
 
   ```powershell
   $attestationUrl = (Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName).AttestUri
