@@ -105,7 +105,7 @@ When you use the same Azure Storage Account for configuring Cloud Witness for mu
 
 When you create a Microsoft Azure Storage Account, it's associated with two Access Keys that are automatically generated - Primary Access key and Secondary Access key. For a first-time creation of Cloud Witness, use the **Primary Access Key**. There is no restriction regarding which key to use for Cloud Witness.
 
-#### To view and copy storage access keys
+##### To view and copy storage access keys
 
 In the Azure portal, navigate to your storage account, select **All settings** and, then  **Access Keys** to view, copy, and regenerate your account access keys. The Access Keys blade also includes pre-configured connection strings using your primary and secondary keys that you can copy to use in your applications (see figure 4).
 
