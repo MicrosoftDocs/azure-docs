@@ -54382,8 +54382,13 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-connectivity-no-working-connector.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-connectivity-no-working-connector",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-connectivity-no-working-connector",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-connectivity-no-working-connector.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-connectivity-no-working-connector",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-connectors-azure-portal.md",
@@ -54517,7 +54522,12 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-silent-installation.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-register-connector-powershell",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-register-connector-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-register-connector-powershell.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-register-connector-powershell",
       "redirect_document_id": false
     },
     {
