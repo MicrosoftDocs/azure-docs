@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Send telemetry to Azure IoT Hub quickstart (C) | Microsoft Docs
+title: Quickstart - Send telemetry to Azure IoT Hub quickstart (C - Windows) | Microsoft Docs
 description: In this quickstart, you run two sample C applications in Windows to send simulated telemetry to an IoT hub and to read telemetry from the IoT hub for processing in the cloud.
 author: wesmc7777
 manager: philmea
