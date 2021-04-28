@@ -45,7 +45,7 @@ Below is a table showing some of the defining differences between an MCU and an 
 |**Deterministic**| Yes | No - with exceptions |
 |**Device Size**| Smaller | Larger |
 
-# Next steps
+## Next steps
 The IoT device type that you choose directly impacts how the device is connected to Azure IoT.
 
 Browse the different [Azure IoT SDKs](about-iot-sdks.md) to find the one that best suits your device needs.
