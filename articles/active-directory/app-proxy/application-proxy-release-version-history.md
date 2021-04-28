@@ -3,13 +3,12 @@ title: 'Azure Active Directory Application Proxy: Version release history'
 description: This article lists all releases of Azure Active Directory Application Proxy and describes new features and fixed issues.
 services: active-directory
 author: kenwith
-manager: daveba
-ms.assetid: 
+manager: mtillman
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 02/17/2021
-ms.subservice: app-mgmt
+ms.date: 04/27/2021
+ms.subservice: app-proxy
 ms.author: kenwith
 ms.reviewer: japere
 ---

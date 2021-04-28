@@ -54326,6 +54326,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-release-version-history.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-release-version-history",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/active-directory-app-proxy-protect-ndes.md",
+      "redirect_url": "/azure/active-directory/app-proxy/active-directory-app-proxy-protect-ndes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-secure-api-access.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-secure-api-access",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-debug-apps.md",
       "redirect_url": "/azure/active-directory/app-proxy/application-proxy-debug-apps",
       "redirect_document_id": false

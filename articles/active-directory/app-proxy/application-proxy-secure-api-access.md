@@ -1,18 +1,18 @@
 ---
-title: Access on-premises APIs with Azure AD Application Proxy
+title: Access on-premises APIs with Azure Active Directory Application Proxy
 description: Azure Active Directory's Application Proxy lets native apps securely access APIs and business logic you host on-premises or on cloud VMs.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/12/2020
+ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
 ---
-# Secure access to on-premises APIs with Azure AD Application Proxy
+# Secure access to on-premises APIs with Azure Active Directory Application Proxy
 
 You may have business logic APIs running on-premises, or hosted on virtual machines in the cloud. Your native Android, iOS, Mac, or Windows apps need to interact with the API endpoints to use data or provide user interaction. Azure AD Application Proxy and the [Microsoft Authentication Library (MSAL)](../azuread-dev/active-directory-authentication-libraries.md) let your native apps securely access your on-premises APIs. Azure Active Directory Application Proxy is a faster and more secure solution than opening firewall ports and controlling authentication and authorization at the app layer.
 

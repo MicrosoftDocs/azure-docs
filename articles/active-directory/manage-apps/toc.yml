@@ -182,8 +182,6 @@
         href: migrate-adfs-application-activity.md
     - name: Configure on-premises app access
       items:
-      - name: Give mobile and desktop apps access to on-premises APIs
-        href: application-proxy-secure-api-access.md 
       - name: Configure cookie settings
         href: application-proxy-configure-cookie-settings.md
       - name: Remove personal data
@@ -200,8 +198,6 @@
           href: f5-aad-password-less-vpn.md
       - name: Publishing walkthroughs
         items:
-        - name: Integrate with Application Proxy on an NDES server
-          href: active-directory-app-proxy-protect-ndes.md 
         - name: Integrate with Application Proxy using PingAccess
           href: application-proxy-ping-access-publishing-guide.md
         - name: Integrate with Azure AD Domain Services
@@ -252,8 +248,6 @@
     items:
     - name: App Management certificates FAQ
       href: application-management-certs-faq.md
-    - name: Application Proxy version history
-      href: application-proxy-release-version-history.md
     - name: Reasons apps appear in Enterprise Applications
       href: application-types.md
     - name: Reasons users are assigned to an app

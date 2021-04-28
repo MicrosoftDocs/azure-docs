@@ -111,8 +111,8 @@
     items:
     - name: Configure with proxy servers
       href: application-proxy-configure-connectors-with-proxy-servers.md
-    #   - name: Give mobile and desktop apps access to on-premises APIs
-    #     href: application-proxy-secure-api-access.md 
+    - name: Give mobile and desktop apps access to on-premises APIs
+      href: application-proxy-secure-api-access.md 
     - name: Configure custom home page
       href: application-proxy-configure-custom-home-page.md
     #   - name: Configure cookie settings
@@ -141,10 +141,10 @@
     #       href: f5-bigip-deployment-guide.md
     #     - name: F5 Big-IP with Azure AD for passwordless VPN
     #       href: f5-aad-password-less-vpn.md
-    #   - name: Publishing walkthroughs
-    #     items:
-    #     - name: Integrate with Application Proxy on an NDES server
-    #       href: active-directory-app-proxy-protect-ndes.md
+    - name: Publishing walkthroughs
+      items:
+      - name: Integrate with Application Proxy on an NDES server
+        href: active-directory-app-proxy-protect-ndes.md
     #     - name: Integrate with Application Proxy using PingAccess
     #       href: application-proxy-ping-access-publishing-guide.md
     #     - name: Integrate with Azure AD Domain Services
@@ -201,8 +201,8 @@
     items:
     - name: App Proxy FAQ
       href: application-proxy-faq.yml
-    # - name: Application Proxy version history
-    #   href: application-proxy-release-version-history.md
+    - name: Application Proxy version history
+      href: application-proxy-release-version-history.md
   - name: Resources
     items:
         # - name: Support and help options for developers
