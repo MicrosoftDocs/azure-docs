@@ -99,6 +99,6 @@
         - name: Create and publish a static web app with Blazor
           href: /learn/modules/publish-app-service-static-web-app-api-dotnet
     - name: Pricing
-      href: pricing.md
+      href: https://azure.microsoft.com/pricing/details/app-service/static/
     - name: Quotas
       href: quotas.md
