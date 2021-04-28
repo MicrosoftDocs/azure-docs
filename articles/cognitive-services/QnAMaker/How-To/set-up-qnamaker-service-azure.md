@@ -87,7 +87,7 @@ This procedure creates the Azure resources needed to manage the knowledge base c
 1. After all the fields are validated, select **Review + Create**. The process can take a few minutes to complete.
 
 > [!div class="mx-imgBorder"]
-> ![Add QnA to TA](../media/qnamaker-how-to-setup-service/custom-qna-review-resource.png)
+> ![Review TA resource](../media/qnamaker-how-to-setup-service/custom-qna-review-resource.png)
 
 1. After deployment is completed, you'll see the following resources created in your subscription:
 
