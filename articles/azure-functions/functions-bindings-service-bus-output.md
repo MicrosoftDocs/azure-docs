@@ -347,6 +347,7 @@ When working with C# functions:
 * To access the session ID, bind to a [`Message`](/dotnet/api/microsoft.azure.servicebus.message) type and use the `sessionId` property.
 
 ### Additional types 
+
 Apps using the 5.0.0 or higher version of the Service Bus extension use the `ServiceBusMessage` type in [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusmessage) instead of the one in [Microsoft.Azure.ServiceBus namespace](/dotnet/api/microsoft.azure.servicebus.message). This version drops support for the legacy `Message` type in favor of the following types:
 
 - [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage)

@@ -346,7 +346,7 @@ The following parameter types are available for the queue or topic message:
 * A custom type - If the message contains JSON, Azure Functions tries to deserialize the JSON data.
 * `BrokeredMessage` - Gives you the deserialized message with the [BrokeredMessage.GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
   method.
-* [`MessageReceiver`](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) - Used to receive and acknowledge messages from the message container (required when [`autoComplete`](functions-bindings-service-bus-output.md#hostjson-settings) is set to `false`)
+* [`MessageReceiver`](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) - Used to receive and acknowledge messages from the message container (required when [`autoComplete`](functions-bindings-service-bus.md#hostjson-settings) is set to `false`)
 
 These parameter types are for Azure Functions version 1.x; for 2.x and higher, use [`Message`](/dotnet/api/microsoft.azure.servicebus.message) instead of `BrokeredMessage`.
 
