@@ -62,6 +62,7 @@ The following are known scenarios that will impact Gmail users:
 - Windows apps that use the [WebView](https://docs.microsoft.com/en-us/windows/communitytoolkit/controls/wpf-winforms/webview) control, [WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2/), or the older WebBrowser control, for authentication. These apps should migrate to using the Web Account Manager (WAM) flow.
 - Android applications using the WebView UI element 
 - iOS applications using the UIWebView/WKWebview 
+- Apps using ADAL
 
 This change does not affect:
 
