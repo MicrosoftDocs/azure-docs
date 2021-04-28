@@ -28,6 +28,7 @@ This guide uses the agent-based migration approach of Azure Migrate, which treat
 
 ## Prerequisites
 
+
 Before you begin this tutorial, you should complete the following prerequisites:
 
 1. An Azure subscription. Create a [free account](https://azure.microsoft.com/pricing/free-trial/), if necessary. 
