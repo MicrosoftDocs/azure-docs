@@ -13,13 +13,14 @@ ms.date: 4/28/2021
 ms.author: rambala
 
 ---
-# Using ExpressRoute for Routing Microsoft 365 Traffic
+# Using ExpressRoute for routing Microsoft 365 traffic
 
 An ExpressRoute circuit provides private connectivity to Microsoft backbone network. 
 * It offers *Private peering* to connect to private endpoints of your IaaS deployment in Azure regions 
 * Also, it offers *Microsoft peering* to connect to public endpoints of IaaS, PaaS, and SaaS services in Microsoft network. 
 
 For more information about ExpressRoute, see the [Introduction to ExpressRoute][ExR-Intro] article.
+
 
 Often there's a confusion whether ExpressRoute can be used or not for routing Microsoft 365 SaaS traffic. 
 
@@ -33,10 +34,10 @@ The goals of this article are:
 * to provide technical reasoning for the arguments, and 
 * objectively discuss when to use ExpressRoute for routing Microsoft 365 traffic and when not to use it.
 
-## Network Requirements of Microsoft 365 Traffic
+## Network requirements of Microsoft 365 traffic
 Microsoft 365 service often includes real-time traffic such as voice & video calls, online meetings, and real-time collaboration. This real-time traffic has stringent network performance requirements in terms of latency and jitter. Within certain limits of network latency, jitter can be effectively handled using buffer at the client device. Network latency is a function of physical distance traffic need to travel, link bandwidth, and network processing latency. 
 
-## Network Optimization Features of Microsoft 365 
+## Network optimization features of Microsoft 365 
 
 Microsoft strives to optimize network performance of all the cloud applications both in terms of architecture and features. To begin with, Microsoft owns one of the largest global networks, which is optimized to achieve the core objective of offering best network performance. Microsoft network is software defined, and it's a "Cold Potato" network. "Cold Potato" network in the sense, it attracts and egress traffic as close as possible to client-device/customer-network. Besides, Microsoft network is highly redundant and highly available. For more information about architecture optimization, see [How Microsoft builds its fast and reliable global network][MGN].
 
@@ -46,7 +47,7 @@ To address the stringent network latency requirements, Microsoft 365 shortens ro
 
 The Microsoft 365 entry points are serviced by Azure Front Door (AFD). AFD is a widely distributed service present at Microsoft global edge network and it helps to create fast, secure, and highly scalable SaaS applications. To further understand how AFD accelerates web application performance, see [What is Azure Front Door?][AFD]. While choosing the nearest Microsoft 365 data center, Microsoft does take into consideration data sovereignty regulations within the geo-political region.
 
-## What is Geo-Pinning Connections?
+## What is geo-pinning connections?
 
 Between a client-server when you force the traffic to flow through certain network device(s) located in a geographical location, then it's referred to as geo-pinning the network connections. Traditional network architecture, with the underlying design principle that the clients-servers are statically located, commonly geo-pins the connections.
 For example, when you force your enterprise Internet connections traverse through your corporate network, and egress from a central location (typically via a set of proxy-servers or firewalls), you're geo-pinning the Internet connections.  
@@ -74,7 +75,7 @@ The following are some of the reasons why you may want to use ExpressRoute for r
 
 While you use ExpressRoute, you can apply the route filter associated with Microsoft peering of ExpressRoute to route only a subset of Microsoft 365 services and/or Azure PaaS services over the ExpressRoute circuit. For more information, see [Tutorial: Configure route filters for Microsoft peering][ExRRF].
 
-## Next Steps
+## Next steps
 
 * To understand how Microsoft Teams calls flow and how to optimize the network connectivity in different scenarios including while using Express Route for best results, see [Microsoft Teams call flows][Teams].
 * If you want to test to understand Microsoft 365 connectivity issues for individual office locations, see [Microsoft 365 network connectivity test][Microsoft 365-Test].
