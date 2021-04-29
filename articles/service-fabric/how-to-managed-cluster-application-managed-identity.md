@@ -28,7 +28,7 @@ JSON snippet showing SystemAssigned type applied to an application. Possible typ
 
 Sample templates are available that include this specification: [Service Fabric managed cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 
-## How to deploy Service Fabric application with a User-Assigned Managed Identity
+## How to deploy Service Fabric application with Managed Identity
 
 To deploy a Service Fabric application with managed identity, the application needs to be deployed through Azure Resource Manager, typically with an Azure Resource Manager template. For more information on how to deploy Service Fabric application through Azure Resource Manager, see [Manage applications and services as Azure Resource Manager resources](service-fabric-application-arm-resource.md).
 
@@ -121,7 +121,7 @@ In the example above the resource name of the user assigned identity is being us
 
 
 
-## How to deploy Service Fabric application with a System-assigned managed identity
+## System-assigned managed identity
 
 ### Application template
 
