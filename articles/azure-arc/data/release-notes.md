@@ -20,7 +20,7 @@ This article highlights capabilities, features, and enhancements recently releas
 
 ## April 2021
 
-Released on April 28, 2021.
+Released on April 29, 2021.
 
 ### What's new
 
