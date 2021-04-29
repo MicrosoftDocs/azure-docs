@@ -84,17 +84,20 @@ Use the **Sites and Sensors** edit options to edit the sensor name and zone.
 **To edit:**
 
 1. Select the **ellipsis** (**...**) for the sensor you want to edit.
+
 1. Select **Edit**.
+
 1. Update the sensor zone, or create a new zone.
 
 ### Delete a sensor
 
 If you delete a cloud-connected sensor, information won't be sent to the IoT hub. Delete locally connected sensors when you're no longer working with them.
 
-To delete a sensor:
+**To delete a sensor:**
 
 1. Select the ellipsis (**...**) for the sensor you want to delete.
-1. Confirm the deletion.
+
+1. Select **delete sensor**.
 
 ### Reactivate a sensor 
 
@@ -112,9 +115,9 @@ You may need to reactivate your sensor because you want to:
 
 1. Select the sensor for which you want to upload a new activation file.
 
-1. Select the **three dot button**, and then select **delete sensor**.
+1. Select the **ellipsis** (**...**), and then select **delete sensor**.
 
-    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/delete-a-sensor.png" alt-text="Select the three dot button and then delete sensor.":::
+    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/delete-a-sensor.png" alt-text="Select the ellipsis and then delete sensor.":::
 
 1. [Onboard the sensor](#onboard-sensors) again in the new mode, or with a new IoT hub by selecting **Onboard a sensor** from the Getting Started page.
 
