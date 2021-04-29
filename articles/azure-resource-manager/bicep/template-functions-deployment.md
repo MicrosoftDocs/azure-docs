@@ -597,4 +597,4 @@ For more information about using variables, see [Variables in ARM template](temp
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).

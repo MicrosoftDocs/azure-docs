@@ -16,9 +16,9 @@ In this tutorial, you learn how to return a value from your deployment. You use 
 
 ## Prerequisites
 
-We recommend that you complete the [tutorial about variables](bicep-tutorial-add-variables.md), but it's not required.
+We recommend that you complete the [tutorial about variables](./tutorial-add-variables.md), but it's not required.
 
-You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](bicep-tutorial-create-first-bicep.md#get-tools).
+You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](./tutorial-create-first-bicep.md#get-tools).
 
 ## Review Bicep file
 
@@ -48,7 +48,7 @@ To get the `primaryEndpoints` property from the storage account, you use the sto
 
 You're ready to deploy the Bicep file and look at the returned value.
 
-If you haven't created the resource group, see [Create resource group](bicep-tutorial-create-first-bicep.md#create-resource-group). The example assumes you've set the `bicepFile` variable to the path to the Bicep file, as shown in the [first tutorial](bicep-tutorial-create-first-bicep.md#deploy-bicep-file).
+If you haven't created the resource group, see [Create resource group](./tutorial-create-first-bicep.md#create-resource-group). The example assumes you've set the `bicepFile` variable to the path to the Bicep file, as shown in the [first tutorial](./tutorial-create-first-bicep.md#deploy-bicep-file).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -137,4 +137,4 @@ If you're stopping now, you might want to clean up the resources you deployed by
 In this tutorial, you added a return value to the Bicep file. In the next tutorial, you'll learn how to export a JSON template and use parts of that exported template in your Bicep file.
 
 > [!div class="nextstepaction"]
-> [Use exported template](bicep-tutorial-export-template.md)
+> [Use exported template](./tutorial-export-template.md)

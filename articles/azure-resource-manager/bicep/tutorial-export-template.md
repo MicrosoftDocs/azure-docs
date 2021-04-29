@@ -15,9 +15,9 @@ In this tutorial series, you've created a Bicep file to deploy an Azure storage 
 
 ## Prerequisites
 
-We recommend that you complete the [tutorial about outputs](bicep-tutorial-add-outputs.md), but it's not required.
+We recommend that you complete the [tutorial about outputs](./tutorial-add-outputs.md), but it's not required.
 
-You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](bicep-tutorial-create-first-bicep.md#get-tools).
+You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](./tutorial-create-first-bicep.md#get-tools).
 
 ## Review Bicep file
 
@@ -84,7 +84,7 @@ Copy the whole file and replace your Bicep file with its contents.
 
 Use either Azure CLI or Azure PowerShell to deploy a Bicep file.
 
-If you haven't created the resource group, see [Create resource group](bicep-tutorial-create-first-bicep.md#create-resource-group). The example assumes you've set the `bicepFile` variable to the path to the Bicep file, as shown in the [first tutorial](bicep-tutorial-create-first-bicep.md#deploy-bicep-file).
+If you haven't created the resource group, see [Create resource group](./tutorial-create-first-bicep.md#create-resource-group). The example assumes you've set the `bicepFile` variable to the path to the Bicep file, as shown in the [first tutorial](./tutorial-create-first-bicep.md#deploy-bicep-file).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -141,4 +141,4 @@ If you're stopping now, you might want to clean up the resources you deployed by
 You learned how to export a JSON template from the Azure portal, how to convert the JSON template to a Bicep file, and how to use the exported template for your Bicep development. You can also use the Azure Quickstart templates to simplify Bicep development.
 
 > [!div class="nextstepaction"]
-> [Use Azure Quickstart templates](bicep-tutorial-quickstart-template.md)
+> [Use Azure Quickstart templates](./tutorial-quickstart-template.md)

@@ -157,7 +157,7 @@ For more information, see [Output iteration in ARM templates](copy-outputs.md).
 
 ## Linked templates
 
-In JSON templates, you can deploy related templates by using [linked templates](linked-templates.md). To retrieve the output value from a linked template, use the [reference](template-functions-resource.md#reference) function in the parent template. The syntax in the parent template is:
+In JSON templates, you can deploy related templates by using [linked templates](../templates/linked-templates.md). To retrieve the output value from a linked template, use the [reference](template-functions-resource.md#reference) function in the parent template. The syntax in the parent template is:
 
 ```json
 "[reference('<deploymentName>').outputs.<propertyName>.value]"
@@ -179,7 +179,7 @@ If the property name has a hyphen, use brackets around the name instead of dot n
 }
 ```
 
-You can't use the `reference` function in the outputs section of a [nested template](linked-templates.md#nested-template). To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
+You can't use the `reference` function in the outputs section of a [nested template](../templates/linked-templates.md#nested-template). To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
 
 The [Public IP address template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) creates a public IP address and outputs the resource ID. The [Load balancer template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) links to the preceding template. It uses the resource ID in the output when creating the load balancer.
 
@@ -242,4 +242,4 @@ az deployment group show \
 
 ## Next steps
 
-* To learn about the available properties for outputs, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* To learn about the available properties for outputs, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).

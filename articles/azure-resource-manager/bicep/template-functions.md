@@ -8,9 +8,9 @@ ms.date: 10/12/2020
 ---
 # ARM template functions
 
-This article describes all the functions you can use in an Azure Resource Manager template (ARM template). For information about using functions in your template, see [template syntax](template-expressions.md).
+This article describes all the functions you can use in an Azure Resource Manager template (ARM template). For information about using functions in your template, see [template syntax](../templates/template-expressions.md).
 
-To create your own functions, see [User-defined functions](template-syntax.md#functions).
+To create your own functions, see [User-defined functions](../templates/template-syntax.md#functions).
 
 Most functions work the same when deployed to a resource group, subscription, management group, or tenant. A few functions can't be used in all scopes. They're noted in the lists below.
 
@@ -249,7 +249,7 @@ Resource Manager provides the following functions for working with strings:
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
-* To merge multiple templates, see [Using linked and nested templates when deploying Azure resources](linked-templates.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).
+* To merge multiple templates, see [Using linked and nested templates when deploying Azure resources](../templates/linked-templates.md).
 * To iterate a specified number of times when creating a type of resource, see [Resource iteration in ARM templates](copy-resources.md).
 * To see how to deploy the template you've created, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).

@@ -16,9 +16,9 @@ In this tutorial, you learn how to add a variable to your Bicep file. Variables 
 
 ## Prerequisites
 
-We recommend that you complete the [tutorial about functions](bicep-tutorial-add-functions.md), but it's not required.
+We recommend that you complete the [tutorial about functions](./tutorial-add-functions.md), but it's not required.
 
-You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](bicep-tutorial-create-first-bicep.md#get-tools).
+You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](./tutorial-create-first-bicep.md#get-tools).
 
 ## Review Bicep file
 
@@ -50,7 +50,7 @@ Finally, notice that the storage name is now set to the variable instead of a pa
 
 Let's deploy the Bicep file. Deploying this Bicep file is easier than the previous Bicep files because you provide just the prefix for the storage name.
 
-If you haven't created the resource group, see [Create resource group](bicep-tutorial-create-first-bicep.md#create-resource-group). The example assumes you've set the `bicepFile` variable to the path to the Bicep file, as shown in the [first tutorial](bicep-tutorial-create-first-bicep.md#deploy-bicep-file).
+If you haven't created the resource group, see [Create resource group](./tutorial-create-first-bicep.md#create-resource-group). The example assumes you've set the `bicepFile` variable to the path to the Bicep file, as shown in the [first tutorial](./tutorial-create-first-bicep.md#deploy-bicep-file).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -107,4 +107,4 @@ If you're stopping now, you might want to clean up the resources you deployed by
 In this tutorial, you added a variable that creates a unique name for a storage account. In the next tutorial, you return a value from the deployed storage account.
 
 > [!div class="nextstepaction"]
-> [Add outputs](bicep-tutorial-add-outputs.md)
+> [Add outputs](./tutorial-add-outputs.md)

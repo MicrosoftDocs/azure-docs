@@ -16,9 +16,9 @@ ms.custom:
 
 ## Prerequisites
 
-We recommend that you complete the [tutorial about exported templates](bicep-tutorial-export-template.md), but it's not required.
+We recommend that you complete the [tutorial about exported templates](./tutorial-export-template.md), but it's not required.
 
-You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](bicep-tutorial-create-first-bicep.md#get-tools).
+You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](./tutorial-create-first-bicep.md#get-tools).
 
 ## Review Bicep file
 
@@ -61,7 +61,7 @@ The web app name needs to be unique across Azure. To prevent having duplicate na
 
 Use either Azure CLI or Azure PowerShell to deploy a Bicep template.
 
-If you haven't created the resource group, see [Create resource group](bicep-tutorial-create-first-bicep.md#create-resource-group). The example assumes you've set the **bicepFile** variable to the path to the Bicep file, as shown in the [first tutorial](bicep-tutorial-create-first-bicep.md#deploy-bicep-file).
+If you haven't created the resource group, see [Create resource group](./tutorial-create-first-bicep.md#create-resource-group). The example assumes you've set the **bicepFile** variable to the path to the Bicep file, as shown in the [first tutorial](./tutorial-create-first-bicep.md#deploy-bicep-file).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -110,4 +110,4 @@ If you're stopping now, you might want to clean up the resources you deployed by
 You learned how to use a quickstart template for your Bicep development. In the next tutorial, you add tags to the resources.
 
 > [!div class="nextstepaction"]
-> [Add tags](bicep-tutorial-add-tags.md)
+> [Add tags](./tutorial-add-tags.md)

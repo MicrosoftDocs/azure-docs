@@ -74,7 +74,7 @@ Okay, you're ready to start learning about Bicep.
     The resource declaration has four components:
 
     - **resource**: keyword.
-    - **symbolic name** (stg): A symbolic name is an identifier for referencing the resource throughout your bicep file. It is not what the name of the resource will be when it's deployed. The name of the resource is defined by the **name** property.  See the fourth component in this list. To make the tutorials easy to follow, **stg** is used as the symbolic name for the storage account resource in this tutorial series. To see how to use the symbolic name to get a full list of the object properties, see [Add outputs](./bicep-tutorial-add-outputs.md).
+    - **symbolic name** (stg): A symbolic name is an identifier for referencing the resource throughout your bicep file. It is not what the name of the resource will be when it's deployed. The name of the resource is defined by the **name** property.  See the fourth component in this list. To make the tutorials easy to follow, **stg** is used as the symbolic name for the storage account resource in this tutorial series. To see how to use the symbolic name to get a full list of the object properties, see [Add outputs](./tutorial-add-outputs.md).
     - **resource type** (Microsoft.Storage/storageAccounts@2019-06-01): It is composed of the resource provider (Microsoft.Storage), resource type (storageAccounts), and apiVersion (2019-06-01). Each resource provider publishes its own API versions, so this value is specific to the type. You can find more types and apiVersions for various Azure resources from [ARM template reference](/azure/templates/).
     - **properties** (everything inside = {...}): These are the specific properties you would like to specify for the given resource type. These are exactly the same properties available to you in an ARM Template. Every resource has a `name` property. Most resources also have a `location` property, which sets the region where the resource is deployed. The other properties vary by resource type and API version. It's important to understand the connection between the API version and the available properties, so let's jump into more detail.
 
@@ -230,4 +230,4 @@ If you're stopping now, you might want to delete the resource group.
 You created a simple Bicep file to deploy to Azure.  In the later tutorials, you learn how to add parameters, variables, outputs, and modules to a Bicep file. These features are the building blocks for much more complex Bicep files.
 
 > [!div class="nextstepaction"]
-> [Add parameters](bicep-tutorial-add-parameters.md)
+> [Add parameters](./tutorial-add-parameters.md)

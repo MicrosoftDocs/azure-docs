@@ -16,9 +16,9 @@ In this tutorial, you learn how to add [template functions](template-functions.m
 
 ## Prerequisites
 
-We recommend that you complete the [tutorial about parameters](bicep-tutorial-add-parameters.md), but it's not required.
+We recommend that you complete the [tutorial about parameters](./tutorial-add-parameters.md), but it's not required.
 
-You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](bicep-tutorial-create-first-bicep.md#get-tools).
+You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](./tutorial-create-first-bicep.md#get-tools).
 
 ## Review Bicep file
 
@@ -42,7 +42,7 @@ Copy the whole file and replace your Bicep file with its contents.
 
 In the previous tutorials, you created a storage account in East US, but your resource group was created in Central US. For this tutorial, your storage account is created in the same region as the resource group. Use the default value for location, so you don't need to provide that parameter value. You must provide a new name for the storage account because you're creating a storage account in a different location. For example, use **store2** as the prefix instead of **store1**.
 
-If you haven't created the resource group, see [Create resource group](bicep-tutorial-create-first-bicep.md#create-resource-group). The example assumes you've set the `bicepFile` variable to the path to the Bicep file, as shown in the [first tutorial](bicep-tutorial-create-first-bicep.md#deploy-bicep-file).
+If you haven't created the resource group, see [Create resource group](./tutorial-create-first-bicep.md#create-resource-group). The example assumes you've set the `bicepFile` variable to the path to the Bicep file, as shown in the [first tutorial](./tutorial-create-first-bicep.md#deploy-bicep-file).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -98,4 +98,4 @@ If you're stopping now, you might want to clean up the resources you deployed by
 In this tutorial, you used a function when defining the default value for a parameter. In this tutorial series, you'll continue using functions. By the end of the series, you'll add functions to every section of the Bicep file.
 
 > [!div class="nextstepaction"]
-> [Add variables](bicep-tutorial-add-variables.md)
+> [Add variables](./tutorial-add-variables.md)

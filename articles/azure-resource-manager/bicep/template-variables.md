@@ -155,6 +155,6 @@ You can define variables that hold related values for configuring an environment
 
 ## Next steps
 
-* To learn about the available properties for variables, see [Understand the structure and syntax of ARM templates](template-syntax.md).
-* For recommendations about creating variables, see [Best practices - variables](template-best-practices.md#variables).
+* To learn about the available properties for variables, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).
+* For recommendations about creating variables, see [Best practices - variables](../templates/template-best-practices.md#variables).
 * For an example template that assigns security rules to a network security group, see [network security rules](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) and [parameter file](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json).

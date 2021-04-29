@@ -413,7 +413,7 @@ For more information about linking template specs, see [Tutorial: Deploy a templ
 
 ## Next steps
 
-* To create and deploy a template spec, see [Quickstart: Create and deploy template spec](quickstart-create-template-specs.md).
+* To create and deploy a template spec, see [Quickstart: Create and deploy template spec](../templates/quickstart-create-template-specs.md).
 
 * For more information about linking templates in template specs, see [Tutorial: Create a template spec with linked templates](template-specs-create-linked.md).
 

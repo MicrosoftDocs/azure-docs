@@ -15,9 +15,9 @@ In this tutorial, you learn how to use [parameter files](parameter-files.md) to 
 
 ## Prerequisites
 
-We recommend that you complete the [tutorial about tags](bicep-tutorial-add-tags.md), but it's not required.
+We recommend that you complete the [tutorial about tags](./tutorial-add-tags.md), but it's not required.
 
-You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](bicep-tutorial-create-first-bicep.md#get-tools).
+You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](./tutorial-create-first-bicep.md#get-tools).
 
 ## Review Bicep file
 
@@ -151,4 +151,4 @@ You can verify the deployment by exploring the resource groups from the Azure po
 In this tutorial, you use a parameter file to deploy your Bicep file. In the next tutorial, you'll learn how to modularize your Bicep files.
 
 > [!div class="nextstepaction"]
-> [Add modules](./bicep-tutorial-add-modules.md)
+> [Add modules](./tutorial-add-modules.md)

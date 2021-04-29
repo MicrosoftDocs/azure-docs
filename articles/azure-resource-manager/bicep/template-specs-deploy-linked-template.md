@@ -10,7 +10,7 @@ ms.date: 11/17/2020
 
 # Tutorial: Deploy a template spec as a linked template (Preview)
 
-Learn how to deploy an existing [template spec](template-specs.md) by using a [linked deployment](linked-templates.md#linked-template). You use template specs to share ARM templates with other users in your organization. After you have created a template spec, you can deploy the template spec by using Azure PowerShell or Azure CLI. You can also deploy the template spec as a part of your solution by using a linked template.
+Learn how to deploy an existing [template spec](template-specs.md) by using a [linked deployment](../templates/linked-templates.md#linked-template). You use template specs to share ARM templates with other users in your organization. After you have created a template spec, you can deploy the template spec by using Azure PowerShell or Azure CLI. You can also deploy the template spec as a part of your solution by using a linked template.
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ An Azure account with an active subscription. [Create an account for free](https
 
 ## Create a template spec
 
-Follow [Quickstart: Create and deploy template spec](quickstart-create-template-specs.md) to create a template spec for deploying a storage account. You need the resource group name of the template spec, template spec name, and template spec version in the next section.
+Follow [Quickstart: Create and deploy template spec](../templates/quickstart-create-template-specs.md) to create a template spec for deploying a storage account. You need the resource group name of the template spec, template spec name, and template spec version in the next section.
 
 ## Create the main template
 

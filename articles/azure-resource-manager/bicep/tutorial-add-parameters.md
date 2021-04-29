@@ -9,15 +9,15 @@ ms.author: jgao
 
 # Tutorial: Add parameters to Azure Resource Manager Bicep file
 
-In the [previous tutorial](bicep-tutorial-create-first-bicep.md), you learned how to deploy a storage account. In this tutorial, you learn how to improve the Bicep file by adding parameters. This tutorial takes about **14 minutes** to complete.
+In the [previous tutorial](./tutorial-create-first-bicep.md), you learned how to deploy a storage account. In this tutorial, you learn how to improve the Bicep file by adding parameters. This tutorial takes about **14 minutes** to complete.
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## Prerequisites
 
-We recommend that you complete the [create first Bicep file](bicep-tutorial-create-first-bicep.md), but it's not required.
+We recommend that you complete the [create first Bicep file](./tutorial-create-first-bicep.md), but it's not required.
 
-You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](bicep-tutorial-create-first-bicep.md#get-tools).
+You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](./tutorial-create-first-bicep.md#get-tools).
 
 ## Review Bicep file
 
@@ -41,7 +41,7 @@ Notice the parameters can be referenced directly by using their names in Bicep, 
 
 Let's deploy the Bicep file. The following example deploys the Bicep file with Azure CLI or PowerShell. Notice that you provide the storage account name as one of the values in the deployment command. For the storage account name, provide the same name you used in the previous tutorial.
 
-If you haven't created the resource group, see [Create resource group](bicep-tutorial-create-first-bicep.md#create-resource-group). The example assumes you've set the `bicepFile` variable to the path to the Bicep file, as shown in the [first tutorial](bicep-tutorial-create-first-bicep.md#deploy-bicep-file).
+If you haven't created the resource group, see [Create resource group](./tutorial-create-first-bicep.md#create-resource-group). The example assumes you've set the `bicepFile` variable to the path to the Bicep file, as shown in the [first tutorial](./tutorial-create-first-bicep.md#deploy-bicep-file).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -181,7 +181,7 @@ If you're stopping now, you might want to clean up the resources you deployed by
 
 ## Next steps
 
-You improved the Bicep file created in the [first tutorial](bicep-tutorial-create-first-bicep.md) by adding parameters. In the next tutorial, you'll learn about Bicep functions.
+You improved the Bicep file created in the [first tutorial](./tutorial-create-first-bicep.md) by adding parameters. In the next tutorial, you'll learn about Bicep functions.
 
 > [!div class="nextstepaction"]
-> [Add functions](bicep-tutorial-add-functions.md)
+> [Add functions](./tutorial-add-functions.md)

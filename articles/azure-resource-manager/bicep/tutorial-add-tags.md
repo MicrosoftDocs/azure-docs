@@ -16,9 +16,9 @@ In this tutorial, you learn how to add tags to resources in your Bicep files. [T
 
 ## Prerequisites
 
-We recommend that you complete the [tutorial about Quickstart templates](bicep-tutorial-quickstart-template.md), but it's not required.
+We recommend that you complete the [tutorial about Quickstart templates](./tutorial-quickstart-template.md), but it's not required.
 
-You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](bicep-tutorial-create-first-bicep.md#get-tools).
+You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](./tutorial-create-first-bicep.md#get-tools).
 
 ## Review Bicep file
 
@@ -40,7 +40,7 @@ The following example shows the changes to the Bicep file. Copy the whole file a
 
 It's time to deploy the Bicep file and look at the results.
 
-If you haven't created the resource group, see [Create resource group](bicep-tutorial-create-first-bicep.md#create-resource-group). The example assumes you've set the `bicepFile` variable to the path to the Bicep file, as shown in the [first tutorial](bicep-tutorial-create-first-bicep.md#deploy-bicep-file).
+If you haven't created the resource group, see [Create resource group](./tutorial-create-first-bicep.md#create-resource-group). The example assumes you've set the `bicepFile` variable to the path to the Bicep file, as shown in the [first tutorial](./tutorial-create-first-bicep.md#deploy-bicep-file).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -100,4 +100,4 @@ If you're stopping now, you might want to clean up the resources you deployed by
 In this tutorial, you added tags to the resources. In the next tutorial, you'll learn how to use parameter files to simplify passing in values to the deployment.
 
 > [!div class="nextstepaction"]
-> [Use parameter file](bicep-tutorial-use-parameter-file.md)
+> [Use parameter file](./tutorial-use-parameter-file.md)

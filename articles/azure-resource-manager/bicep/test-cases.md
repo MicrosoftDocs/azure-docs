@@ -231,7 +231,7 @@ However, if the preceding example is used as a linked template, the test **fails
 
 Test name: **Resources Should Have Location**
 
-The location for a resource should be set to a [template expression](template-expressions.md) or `global`. The template expression would typically use the location parameter described in the previous test.
+The location for a resource should be set to a [template expression](../templates/template-expressions.md) or `global`. The template expression would typically use the location parameter described in the previous test.
 
 The following example **fails** this test because the location isn't an expression or `global`.
 
@@ -570,7 +570,7 @@ The next example **passes** this test.
 
 Test name: **Deployment Resources Must Not Be Debug**
 
-When you define a [nested or linked template](linked-templates.md) with the **Microsoft.Resources/deployments** resource type, you can enable debugging for that template. Debugging is fine when you need to test that template but should be turned when you're ready to use the template in production.
+When you define a [nested or linked template](../templates/linked-templates.md) with the **Microsoft.Resources/deployments** resource type, you can enable debugging for that template. Debugging is fine when you need to test that template but should be turned when you're ready to use the template in production.
 
 ## Admin user names can't be literal value
 
