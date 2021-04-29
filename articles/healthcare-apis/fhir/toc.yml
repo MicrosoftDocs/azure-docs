@@ -86,9 +86,9 @@
       href: configure-export-data.md
     - name: Configure Private Link
       href: configure-private-link.md
-    - name: Search
-      expand: false
-      items:
+  - name: Search
+    expand: false
+    items:
       - name: Overview of FHIR search
         href: overview-of-search.md
       - name: Defining custom search parameters
