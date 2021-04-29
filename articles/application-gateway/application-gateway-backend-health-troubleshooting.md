@@ -6,7 +6,8 @@ author: surajmb
 ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
-ms.author: surmb
+ms.author: surmb 
+ms.custom: devx-track-azurepowershell
 ---
 
 Troubleshoot backend health issues in Application Gateway
