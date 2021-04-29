@@ -37,7 +37,7 @@ Configure **Virtual machine size** and **Virtual machine image** settings as sho
 | Virtual machine size | <p>The size you pick here depends on the workload you want to run:</p><ul><li>Small or Medium – good for a basic setup of accessing Jupyter Notebooks</li><li>Small GPU (Compute) – best suited for compute-intensive and network-intensive applications like Artificial Intelligence and Deep Learning</li></ul> | 
 | Virtual machine image | <p>Choose one of the following images based on your operating system needs:</p><ul><li>[Data Science Virtual Machine – Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019)</li><li>[Data Science Virtual Machine – Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview)</li></ul> |
 
-When you create a lab with the **Small GPU (Compute)** size, you have the option to [Install GPU drivers](./how-to-setup-lab-gpu.md#ensure-that-the-appropriate-gpu-drivers-are-installed).  This option installs recent Compute Unified Device Architecture (CUDA) drivers and toolkit which are required to enable high-performance computing with the GPU.  For more information, see the article [Set up a lab with GPU virtual machines](./how-to-setup-lab-gpu.md).
+When you create a lab with the **Small GPU (Compute)** size, you have the option to [Install GPU drivers](./how-to-setup-lab-gpu.md#ensure-that-the-appropriate-gpu-drivers-are-installed).  This option installs recent NVIDIA drivers and Compute Unified Device Architecture (CUDA) toolkit which are required to enable high-performance computing with the GPU.  For more information, see the article [Set up a lab with GPU virtual machines](./how-to-setup-lab-gpu.md).
 
 ### Template virtual machine
 Once you create a lab, a template VM will be created based on the virtual machine size and image you chose. You configure the template VM with everything you want to provide to your students for this class. To learn more, see [how to manage the template virtual machine](how-to-create-manage-template.md). 
@@ -171,7 +171,6 @@ Now, to connect to the VM, follow these steps:
     ![X2Go client](./media/class-type-jupyter-notebook/x2go-client.png)
 2. Enter the password to connect to the VM. (You may have to give X2Go permission to bypass your firewall to finish connecting.)
 3.	You should now see the graphical interface for your Ubuntu Data Science VM.
-
 
 #### SSH tunnel to Jupyter server on the VM
 Some students may want to connect directly from their local computer directly to the Jupyter server inside their VMs. The SSH protocol enables port forwarding between the local computer and a remote server (in our case, the student’s lab VM), so that an application running on a certain port on the server is **tunneled** to the mapping port on the local computer. Students should follow these steps to SSH tunnel to the Jupyter server on their lab VMs:
