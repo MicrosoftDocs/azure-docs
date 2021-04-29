@@ -409,7 +409,7 @@ Notice that this payload:
 * Specifies the topology name (`MotionDetection`) for which the instance needs to be created.
 * Contains a parameter value for parameters which didn't have a default value in the graph topology payload. This value is a link to the below sample video:
 
-    [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LTY4]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LTY4]
 
 
 Within few seconds, you see the following response in the **OUTPUT** window:
