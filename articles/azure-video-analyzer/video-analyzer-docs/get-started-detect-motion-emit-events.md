@@ -115,7 +115,7 @@ This response is expected because no topologies have been created.
 
 ### Invoke pipelineTopologySet
 
-Like we did before, you can now invoke pipelineTopologySet to set a [pipeline topology](https://review.docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/pipeline?branch=release-azure-video-analyzer)<!-- TODO: add a link later-->. Use the following JSON as the payload.
+Like we did before, you can now invoke pipelineTopologySet to set a [pipeline topology](pipeline.md). Use the following JSON as the payload.
 
 ```json
 {
@@ -375,7 +375,7 @@ In the response payload, notice these details:
 
 ### Invoke livePipelineSet
 
-Create a pipeline instance that references the preceding topology. Pipeline instances let you analyze live video streams from many cameras by using the same pipeline topology. For more information, see [Pipeline topologies and instances](https://review.docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/pipeline?branch=release-azure-video-analyzer)<!--TODO:add a link later-->.
+Create a pipeline instance that references the preceding topology. Pipeline instances let you analyze live video streams from many cameras by using the same pipeline topology. For more information, see [Pipeline topologies and instances](pipeline.md).
 
 Invoke the direct method `livePipelineSet` by using the following payload.
 
