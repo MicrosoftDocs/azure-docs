@@ -53,7 +53,7 @@ The key benefits of giving your devices an Azure AD identity:
 
 Video:  [Conditional access with device controls](https://youtu.be/NcONUf-jeS4)
 
-FAQs: [Azure AD device management FAQ](faq.yml)  and [Settings and data roaming FAQ](enterprise-state-roaming-faqs.md) 
+FAQs: [Azure AD device management FAQ](faq.yml)  and [Settings and data roaming FAQ](enterprise-state-roaming-faqs.yml) 
 
 ## Plan the deployment project
 
