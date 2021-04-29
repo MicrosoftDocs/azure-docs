@@ -51,8 +51,8 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 3. Save the **Token** and the **SCIM base URL**. These values will be entered in the Tenant URL and Secret Token field in the Provisioning tab of your AuditBoard application in the Azure portal.
 
-> [!NOTE]
-> Generating a new token will invalidate the previous token.
+   > [!NOTE]
+   > Generating a new token will invalidate the previous token.
 
 4. The AuditBoard instance will require the following user permissions to be set on the SCIM user role (System Admin by default). Please connect with AuditBoard support to confirm this is set correctly
 `user:action.administer must be set to allow` and
