@@ -5,7 +5,6 @@ author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
 ms.date: 02/14/2021
-ms.subservice: alerts
 ---
 
 # Create Metric Alerts for Logs in Azure Monitor

@@ -160,7 +160,7 @@ steps:
 
 ## Next steps
 
-* Use [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines.md) to build container images for different architectures.
+* Use [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) to build container images for different architectures.
 * Learn about building multi-platform images using the experimental Docker [buildx](https://docs.docker.com/buildx/working-with-buildx/) plug-in.
 
 <!-- LINKS - external -->

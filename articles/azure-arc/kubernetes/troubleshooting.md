@@ -42,7 +42,7 @@ REVISION: 5
 TEST SUITE: None
 ```
 
-If the Helm release isn't found or missing, try [connecting the cluster to Azure Arc](./connect-cluster.md) again.
+If the Helm release isn't found or missing, try [connecting the cluster to Azure Arc](./quickstart-connect-cluster.md) again.
 
 If the Helm release is present with `STATUS: deployed`, check the status of the agents using `kubectl`:
 

@@ -149,6 +149,9 @@ SMB Signing has a deleterious effect upon SMB performance. Among other potential
 
 ![Chart that shows SMB Signing performance impact.](../media/azure-netapp-files/azure-netapp-files-smb-signing-performance.png)
 
+## What is the anticipated impact of SMB encryption on client workloads?
+
+See [SMB encryption FAQs](azure-netapp-files-faqs.md#smb_encryption_impact).
 
 ## Next steps  
 

@@ -4,7 +4,6 @@ description: Use Azure Monitor to perform cross-product queries between Azure Da
 author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
-ms.subservice: logs
 ms.topic: conceptual
 ms.date: 12/02/2020
 
@@ -33,6 +32,7 @@ adx('https://help.kusto.windows.net/Samples').StormEvents
 > [!NOTE]
 >* Database names are case sensitive.
 >* Cross-resource query as an alert is not supported.
+>* Identifying the Timestamp column in the cluster is not supported, Log Analytics query API will not pass along the time filter
 
 ## Combine Azure Data Explorer cluster tables with a Log Analytics workspace
 

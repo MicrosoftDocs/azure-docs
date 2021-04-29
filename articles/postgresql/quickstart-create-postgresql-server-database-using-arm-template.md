@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Create an Azure DB for PostgreSQL - ARM template'
 description: In this quickstart, learn how to create an Azure Database for PostgreSQL single server by using an Azure Resource Manager template.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: quickstart
 ms.custom: subject-armqs

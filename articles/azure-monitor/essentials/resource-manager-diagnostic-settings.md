@@ -1,7 +1,6 @@
 ---
 title: Resource Manager template samples for diagnostic settings
 description: Sample Azure Resource Manager templates to apply Azure Monitor diagnostic settings to an Azure resource.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren

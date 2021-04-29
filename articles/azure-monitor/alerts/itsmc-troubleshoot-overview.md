@@ -1,7 +1,6 @@
 ---
 title: Troubleshoot problems in ITSMC 
 description: Learn how to resolve common problems in IT Service Management Connector.  
-ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
 ms.author: nolavime

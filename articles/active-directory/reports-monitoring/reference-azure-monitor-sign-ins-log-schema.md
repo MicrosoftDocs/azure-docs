@@ -14,9 +14,9 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 03/12/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
 ---
@@ -140,29 +140,31 @@ This article describes the Azure Active Directory (Azure AD) sign-in log schema 
 
 ## Field descriptions
 
-| Field name | Description |
-|------------|-------------|
-| Time | The date and time, in UTC. |
-| ResourceId | This value is unmapped, and you can safely ignore this field.  |
-| OperationName | For sign-ins, this value is always *Sign-in activity*. |
-| OperationVersion | The REST API version that's requested by the client. |
-| Category | For sign-ins, this value is always *SignIn*. | 
-| TenantId | The tenant GUID that's associated with the logs. |
-| ResultType | The result of the sign-in operation can be *Success* or *Failure*. | 
-| ResultSignature | Contains the error code, if any, for the sign-in operation. |
-| ResultDescription | Provides the error description for the sign-in operation. |
+| Field name | Key | Description |
+| --- | --- | --- | 
+| Time |  - | The date and time, in UTC. |
+| ResourceId | - | This value is unmapped, and you can safely ignore this field.  |
+| OperationName | - | For sign-ins, this value is always *Sign-in activity*. |
+| OperationVersion | - | The REST API version that's requested by the client. |
+| Category | - | For sign-ins, this value is always *SignIn*. | 
+| TenantId | - | The tenant GUID that's associated with the logs. |
+| ResultType | - | The result of the sign-in operation can be *Success* or *Failure*. | 
+| ResultSignature | - | Contains the error code, if any, for the sign-in operation. |
+| ResultDescription | N/A or blank | Provides the error description for the sign-in operation. |
 | riskDetail | riskDetail | Provides the 'reason' behind a specific state of a risky user, sign-in or a risk detection. The possible values are: `none`, `adminGeneratedTemporaryPassword`, `userPerformedSecuredPasswordChange`, `userPerformedSecuredPasswordReset`, `adminConfirmedSigninSafe`, `aiConfirmedSigninSafe`, `userPassedMFADrivenByRiskBasedPolicy`, `adminDismissedAllRiskForUser`, `adminConfirmedSigninCompromised`, `unknownFutureValue`. The value `none` means that no action has been performed on the user or sign-in so far. <br>**Note:** Details for this property require an Azure AD Premium P2 license. Other licenses return the value `hidden`. |
 | riskEventTypes | riskEventTypes | Risk detection types associated with the sign-in. The possible values are: `unlikelyTravel`, `anonymizedIPAddress`, `maliciousIPAddress`, `unfamiliarFeatures`, `malwareInfectedIPAddress`, `suspiciousIPAddress`, `leakedCredentials`, `investigationsThreatIntelligence`,  `generic`, and `unknownFutureValue`. |
+| authProcessingDetails	| Azure AD app authentication library | Contains Family, Library, and Platform information in format: "Family: ADAL Library: ADAL.JS 1.0.0 Platform: JS" |
+| authProcessingDetails	| IsCAEToken | Values are True or False |
 | riskLevelAggregated | riskLevel | Aggregated risk level. The possible values are: `none`, `low`, `medium`, `high`, `hidden`, and `unknownFutureValue`. The value `hidden` means the user or sign-in was not enabled for Azure AD Identity Protection. **Note:** Details for this property are only available for Azure AD Premium P2 customers. All other customers will be returned `hidden`. |
 | riskLevelDuringSignIn | riskLevel | Risk level during sign-in. The possible values are: `none`, `low`, `medium`, `high`, `hidden`, and `unknownFutureValue`. The value `hidden` means the user or sign-in was not enabled for Azure AD Identity Protection. **Note:** Details for this property are only available for Azure AD Premium P2 customers. All other customers will be returned `hidden`. |
 | riskState | riskState | Reports status of the risky user, sign-in, or a risk detection. The possible values are: `none`, `confirmedSafe`, `remediated`, `dismissed`, `atRisk`, `confirmedCompromised`, `unknownFutureValue`. |
-| DurationMs |  This value is unmapped, and you can safely ignore this field. |
-| CallerIpAddress | The IP address of the client that made the request. | 
-| CorrelationId | The optional GUID that's passed by the client. This value can help correlate client-side operations with server-side operations, and it's useful when you're tracking logs that span services. |
-| Identity | The identity from the token that was presented when you made the request. It can be a user account, system account, or service principal. |
-| Level | Provides the type of message. For audit, it's always *Informational*. |
-| Location | Provides the location of the sign-in activity. |
-| Properties | Lists all the properties that are associated with sign-ins. For more information, see [Microsoft Graph API Reference](/graph/api/resources/signin?view=graph-rest-beta). This schema uses the same attribute names as the sign-in resource, for readability.
+| DurationMs | - | This value is unmapped, and you can safely ignore this field. |
+| CallerIpAddress | - | The IP address of the client that made the request. | 
+| CorrelationId | - | The optional GUID that's passed by the client. This value can help correlate client-side operations with server-side operations, and it's useful when you're tracking logs that span services. |
+| Identity | - | The identity from the token that was presented when you made the request. It can be a user account, system account, or service principal. |
+| Level | - | Provides the type of message. For audit, it's always *Informational*. |
+| Location | - | Provides the location of the sign-in activity. |
+| Properties | - | Lists all the properties that are associated with sign-ins.|
 
 ## Next steps
 

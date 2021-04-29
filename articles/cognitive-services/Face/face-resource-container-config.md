@@ -62,7 +62,7 @@ The configuration settings in the `CloudAI` section provide container-specific o
 
 ### Storage scenario settings
 
-The Face container stores blob, cache, metadata, and queue data, depending on what's being stored. For example, training indexes and results for a large person group are stored as blob data. The Face container provides two different storage scenarios when interacting with and storing these types of data:
+The Face container stores blob, cache, metadata, and queue data, depending on what's being stored. For example, training indexes and results for a **LargePersonGroup** are stored as blob data. The Face container provides two different storage scenarios when interacting with and storing these types of data:
 
 * Memory  
   All four types of data are stored in memory. They're not distributed, nor are they persistent. If the Face container is stopped or removed, all of the data in storage for that container is destroyed.  

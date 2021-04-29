@@ -1,27 +1,27 @@
 ---
-title: Discover GCP VM instances with Azure Migrate Server Assessment 
-description: Learn how to discover GCP VM instances with Azure Migrate Server Assessment.
+title: Discover servers on  GCP instances with Azure Migrate Discovery and assessment 
+description: Learn how to discover servers on GCP with Azure Migrate Discovery and assessment.
 author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.date: 03/13/2021
 ms.custom: mvc
 #Customer intent: As a server admin I want to discover my GCP instances.
 ---
 
-# Tutorial: Discover Google Cloud Platform (GCP) instances with Server Assessment
+# Tutorial: Discover Google Cloud Platform (GCP) instances with Azure Migrate: Discovery and assessment
 
 As part of your migration journey to Azure, you discover your servers for assessment and migration.
 
-This tutorial shows you how to discover Google Cloud Platform (GCP) instances with the Azure Migrate: Server Assessment tool, using a lightweight Azure Migrate appliance. You deploy the appliance on a GCP VM instance, to continuously discover machine and performance metadata.
+This tutorial shows you how to discover Google Cloud Platform (GCP) instances with the Azure Migrate: Discovery and assessment tool, using a lightweight Azure Migrate appliance. You deploy the appliance on a server on GCP, to continuously discover machine and performance metadata.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Set up an Azure account.
-> * Prepare GCP VM instances for discovery.
-> * Create an Azure Migrate project.
+> * Prepare server on GCP for discovery.
+> * Create a project.
 > * Set up the Azure Migrate appliance.
 > * Start continuous discovery.
 
@@ -36,15 +36,16 @@ Before you start this tutorial, check you have these prerequisites in place.
 
 **Requirement** | **Details**
 --- | ---
-**Appliance** | You need a GCP VM instance on which to run the Azure Migrate appliance. The machine should have:<br/><br/> - Windows Server 2016 installed.<br/> _Running the appliance on a machine with Windows Server 2019 isn't supported_.<br/><br/> - 16 GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/><br/> - A static or dynamic IP address, with internet access, either directly or through a proxy.
-**Windows VM instances** | Allow inbound connections on WinRM port 5985 (HTTP), so that the appliance can pull configuration and performance metadata.
-**Linux VM instances** | Allow inbound connections on port 22 (TCP).
+**Appliance** | You need a server on GCP on which to run the Azure Migrate appliance. The machine should have:<br/><br/> - Windows Server 2016 installed.<br/> _Running the appliance on a machine with Windows Server 2019 isn't supported_.<br/><br/> - 16-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/><br/> - A static or dynamic IP address, with internet access, either directly or through a proxy.
+**Windows server instances** | Allow inbound connections on WinRM port 5985 (HTTP), so that the appliance can pull configuration and performance metadata.
+**Linux server instances** | Allow inbound connections on port 22 (TCP).
 
 ## Prepare an Azure user account
 
-To create an Azure Migrate project and register the Azure Migrate appliance, you need an account with:
-- Contributor or Owner permissions on an Azure subscription.
-- Permissions to register Azure Active Directory (AAD) apps.
+To create a project and register the Azure Migrate appliance, you need an account with:
+
+* Contributor or Owner permissions on an Azure subscription.
+* Permissions to register Azure Active Directory (AAD) apps.
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner to assign the permissions as follows:
 
@@ -52,7 +53,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Search box to search for the Azure subscription](./media/tutorial-discover-gcp/search-subscription.png)
 
-2. In the **Subscriptions** page, select the subscription in which you want to create an Azure Migrate project. 
+2. In the **Subscriptions** page, select the subscription in which you want to create a project.
 3. In the subscription, select **Access control (IAM)** > **Check access**.
 4. In **Check access**, search for the relevant user account.
 5. In **Add a role assignment**, click **Add**.
@@ -73,21 +74,21 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 ## Prepare GCP instances
 
-Set up an account that the appliance can use to access GCP VM instances.
+Set up an account that the appliance can use to access servers on  GCP.
 
-- For **Windows servers**:
-    - Set up a local user account on non-domain joined machines, and a domain account on non-domain joined machines that you want to include in the discovery. Add the user account to the following groups: 
-        - Remote Management Users
-        - Performance Monitor Users
-        - Performance Log users.
-- For **Linux servers**:
-    - You need a root account on the Linux servers that you want to discover. If you are not able to provide a root account, refer to the instructions in the [support matrix](migrate-support-matrix-physical.md#physical-server-requirements) for an alternative.
-    - Azure Migrate uses password authentication when discovering AWS instances. AWS instances don't support password authentication by default. Before you can discover instance, you need to enable password authentication.
+* For **Windows servers**:
+    * Set up a local user account on non-domain joined servers, and a domain account on domain joined servers that you want to include in the discovery. Add the user account to the following groups: 
+        * Remote Management Users
+        * Performance Monitor Users
+        * Performance Log users.
+* For **Linux servers**:
+    * You need a root account on the Linux servers that you want to discover. If you are not able to provide a root account, refer to the instructions in the [support matrix](migrate-support-matrix-physical.md#physical-server-requirements) for an alternative.
+    * Azure Migrate uses password authentication when discovering AWS instances. AWS instances don't support password authentication by default. Before you can discover instance, you need to enable password authentication.
         1. Sign into each Linux  machine.
         2. Open the sshd_config file : vi /etc/ssh/sshd_config
         3. In the file, locate the **PasswordAuthentication** line, and change the value to **yes**.
         4. Save the file and close it. Restart the ssh service.
-    - If you are using a root user to discover your Linux VMs, ensure root login is allowed on the VMs.
+    * If you are using a root user to discover your Linux servers, ensure root login is allowed on the servers.
         1. Sign into each Linux machine
         2. Open the sshd_config file : vi /etc/ssh/sshd_config
         3. In the file, locate the **PermitRootLogin** line, and change the value to **yes**.
@@ -95,18 +96,18 @@ Set up an account that the appliance can use to access GCP VM instances.
 
 ## Set up a project
 
-Set up a new Azure Migrate project.
+Set up a new project.
 
 1. In the Azure portal > **All services**, search for **Azure Migrate**.
 2. Under **Services**, select **Azure Migrate**.
 3. In **Overview**, select **Create project**.
-5. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
-6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
+4. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
+5. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
 
    ![Boxes for project name and region](./media/tutorial-discover-gcp/new-project.png)
 
-7. Select **Create**.
-8. Wait a few minutes for the Azure Migrate project to deploy.The **Azure Migrate: Server Assessment** tool is added by default to the new project.
+6. Select **Create**.
+7. Wait a few minutes for the project to deploy. The **Azure Migrate: Discovery and assessment** tool is added by default to the new project.
 
 ![Page showing Server Assessment tool added by default](./media/tutorial-discover-gcp/added-tool.png)
 
@@ -115,27 +116,28 @@ Set up a new Azure Migrate project.
 
 ## Set up the appliance
 
-The Azure Migrate appliance is a lightweight appliance, used by Azure Migrate Server Assessment to do the following:
+The Azure Migrate appliance is a lightweight appliance, used by Azure Migrate: Discovery and assessment to do the following:
 
-- Discover on-premises servers.
-- Send metadata and performance data for discovered servers to Azure Migrate Server Assessment.
+* Discover on-premises servers.
+* Send metadata and performance data for discovered servers to Azure Migrate: Discovery and assessment.
 
 [Learn more](migrate-appliance.md) about the Azure Migrate appliance.
 
 To set up the appliance you:
-1. Provide an appliance name and generate an Azure Migrate project key in the portal.
+
+1. Provide an appliance name and generate a project key in the portal.
 1. Download a zipped file with Azure Migrate installer script from the Azure portal.
 1. Extract the contents from the zipped file. Launch the PowerShell console with administrative privileges.
 1. Execute the PowerShell script to launch the appliance web application.
-1. Configure the appliance for the first time, and register it with the Azure Migrate project using the Azure Migrate project key.
+1. Configure the appliance for the first time, and register it with the project using the project key.
 
-### 1. Generate the Azure Migrate project key
+### 1. Generate the project key
 
-1. In **Migration Goals** > **Servers** > **Azure Migrate: Server Assessment**, select **Discover**.
-2. In **Discover machines** > **Are your machines virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
-3. In **1:Generate Azure Migrate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of your GCP virtual servers. The name should be alphanumeric with 14 characters or fewer.
-4. Click on **Generate key** to start the creation of the required Azure resources. Do not close the Discover machines page during the creation of resources.
-5. After the successful creation of the Azure resources, an **Azure Migrate project key** is generated.
+1. In **Migration Goals** > **Windows, Linux and SQL Servers** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+2. In **Discover servers** > **Are your servers virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
+3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of your GCP virtual servers. The name should be alphanumeric with 14 characters or fewer.
+4. Click on **Generate key** to start the creation of the required Azure resources. Do not close the Discover servers page during the creation of resources.
+5. After the successful creation of the Azure resources, a **project key** is generated.
 6. Copy the key as you will need it to complete the registration of the appliance during its configuration.
 
 ### 2. Download the installer script
@@ -196,7 +198,7 @@ If you come across any issues, you can access the script logs at C:\ProgramData\
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance VM can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
+Make sure that the appliance can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
 
 ### 4. Configure the appliance
 
@@ -208,22 +210,22 @@ Set up the appliance for the first time.
 2. Accept the **license terms**, and read the third-party information.
 1. In the web app > **Set up prerequisites**, do the following:
     - **Connectivity**: The app checks that the server has internet access. If the server uses a proxy:
-        - Click on **Set up proxy** to and specify the proxy address (in the form http://ProxyIPAddress or http://ProxyFQDN) and listening port.
+        - Click on **Setup proxy** to and specify the proxy address (in the form http://ProxyIPAddress or http://ProxyFQDN) and listening port.
         - Specify credentials if the proxy needs authentication.
         - Only HTTP proxy is supported.
         - If you have added proxy details or disabled the proxy and/or authentication, click on **Save** to trigger connectivity check again.
     - **Time sync**: Time is verified. The time on the appliance should be in sync with internet time for server discovery to work properly.
-    - **Install updates**: Azure Migrate Server Assessment checks that the appliance has the latest updates installed.After the check completes, you can click on **View appliance services** to see the status and versions of the components running on the appliance.
+    - **Install updates**: Azure Migrate: Discovery and assessment checks that the appliance has the latest updates installed. After the check completes, you can click on **View appliance services** to see the status and versions of the components running on the appliance.
 
 ### Register the appliance with Azure Migrate
 
-1. Paste the **Azure Migrate project key** copied from the portal. If you do not have the key, go to **Server Assessment> Discover> Manage existing appliances**, select the appliance name you provided at the time of key generation and copy the corresponding key.
+1. Paste the **project key** copied from the portal. If you do not have the key, go to **Azure Migrate: Discovery and assessment> Discover> Manage existing appliances**, select the appliance name you provided at the time of key generation and copy the corresponding key.
 1. You will need a device code to authenticate with Azure. Clicking on **Login** will open a modal with the device code as shown below.
 
     ![Modal showing the device code](./media/tutorial-discover-vmware/device-code.png)
 
 1. Click on **Copy code & Login** to copy the device code and open an Azure Login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
-1. On the new tab, paste the device code and sign in by using your Azure username and password.
+1. On the new tab, paste the device code and sign-in by using your Azure username and password.
    
    Sign-in with a PIN isn't supported.
 3. In case you close the login tab accidentally without logging in, you need to refresh the browser tab of the appliance configuration manager to enable the Login button again.
@@ -236,12 +238,12 @@ Set up the appliance for the first time.
 Now, connect from the appliance to the GCP servers to be discovered, and start the discovery.
 
 1. In **Step 1: Provide credentials for discovery of Windows and Linux physical or virtual servers​**, click on **Add credentials**.
-1. For Windows server, select the source type as **Windows Server**, specify a friendly name for credentials, add the username and password.Click on **Save**.
-1. If you are using password-based authentication for Linux server, select the source type as **Linux Server (Password-based)**, specify a friendly name for credentials, add the username and password.Click on **Save**.
+1. For Windows server, select the source type as **Windows Server**, specify a friendly name for credentials, add the username and password. Click on **Save**.
+1. If you are using password-based authentication for Linux server, select the source type as **Linux Server (Password-based)**, specify a friendly name for credentials, add the username and password. Click on **Save**.
 1. If you are using SSH key-based authentication for Linux server, you can select source type as **Linux Server (SSH key-based)**, specify a friendly name for credentials, add the username, browse and select the SSH private key file. Click on **Save**.
 
-    - Azure Migrate supports the SSH private key generated by ssh-keygen command using RSA, DSA, ECDSA and ed25519 algorithms.
-    - Currently Azure Migrate does not support passphrase based SSH key. Please use an SSH key without a passphrase.
+    - Azure Migrate supports the SSH private key generated by ssh-keygen command using RSA, DSA, ECDSA, and ed25519 algorithms.
+    - Currently Azure Migrate does not support passphrase-based SSH key. Use an SSH key without a passphrase.
     - Currently Azure Migrate does not support SSH private key file generated by PuTTY.
     - Azure Migrate supports OpenSSH format of the SSH private key file as shown below:
     
@@ -253,13 +255,13 @@ Now, connect from the appliance to the GCP servers to be discovered, and start t
 4. You can either **Add single item** at a time or **Add multiple items** in one go. There is also an option to provide server details through **Import CSV**.
 
     - If you choose **Add single item**, you can choose the OS type, specify friendly name for credentials, add server **IP address/FQDN** and click on **Save**.
-    - If you choose **Add multiple items**, you can add multiple records at once by specifying server **IP address/FQDN** with the friendly name for credentials in the text box.**Verify** the added records and click on **Save**.
+    - If you choose **Add multiple items**, you can add multiple records at once by specifying server **IP address/FQDN** with the friendly name for credentials in the text box. Verify** the added records and click on **Save**.
     - If you choose **Import CSV** _(selected by default)_, you can download a CSV template file, populate the file with the server **IP address/FQDN** and friendly name for credentials. You then import the file into the appliance, **verify** the records in the file and click on **Save**.
 
 5. On clicking Save, appliance will try validating the connection to the servers added and show the **Validation status** in the table against each server.
     - If validation fails for a server, review the error by clicking on **Validation failed** in the Status column of the table. Fix the issue, and validate again.
     - To remove a server, click on **Delete**.
-6. You can **revalidate** the connectivity to servers any time before starting the discovery.
+6. You can **revalidate** the connectivity to servers anytime before starting the discovery.
 7. Click on **Start discovery**, to kick off discovery of the successfully validated servers. After the discovery has been successfully initiated, you can check the discovery status against each server in the table.
 
 
@@ -270,9 +272,9 @@ This starts discovery. It takes approximately 2 minutes per server for metadata 
 After discovery finishes, you can verify that the servers appear in the portal.
 
 1. Open the Azure Migrate dashboard.
-2. In **Azure Migrate - Servers** > **Azure Migrate: Server Assessment** page, click the icon that displays the count for **Discovered servers**.
+2. In **Azure Migrate - Windows, Linux and SQL Servers** > **Azure Migrate: Discovery and assessment** page, click the icon that displays the count for **Discovered servers**.
 
 ## Next steps
 
-- [Assess GCP servers](tutorial-assess-gcp.md) for migration to Azure VMs.
-- [Review the data](migrate-appliance.md#collected-data---physical) that the appliance collects during discovery.
+* [Assess GCP servers](tutorial-assess-gcp.md) for migration to Azure VMs.
+* [Review the data](migrate-appliance.md#collected-data---physical) that the appliance collects during discovery.

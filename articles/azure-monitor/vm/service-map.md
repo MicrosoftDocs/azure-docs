@@ -1,7 +1,6 @@
 ---
 title: Using Service Map solution in Azure | Microsoft Docs
 description: Service Map is a solution in Azure that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details for deploying Service Map in your environment and using it in a variety of scenarios.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -22,7 +21,7 @@ This article describes the details of onboarding and using Service Map. The prer
 * The [Dependency agent](vminsights-enable-overview.md#agents) installed on the Windows computer or Linux server.
 
 >[!NOTE]
->If you have already deployed Service Map, you can now also view your maps in Azure Monitor for VMs, which includes additional features to monitor VM health and performance. To learn more, see [Azure Monitor for VMs overview](../vm/vminsights-overview.md). To learn about the differences between the Service Map solution and Azure Monitor for VMs Map feature, see the following [FAQ](../faq.md#azure-monitor-for-vms).
+>If you have already deployed Service Map, you can now also view your maps in VM insights, which includes additional features to monitor VM health and performance. To learn more, see [VM insights overview](../vm/vminsights-overview.md). To learn about the differences between the Service Map solution and VM insights Map feature, see the following [FAQ](../faq.md#vm-insights).
 
 ## Sign in to Azure
 

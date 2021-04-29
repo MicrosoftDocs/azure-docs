@@ -6,7 +6,6 @@ documentationcenter: ''
 author: mathapli
 manager: rochakm
 ms.service: virtual-machine-scale-sets
-ms.subservice: linux
 ms.collection: linux
 ms.topic: conceptual
 ms.workload: infrastructure-services
@@ -24,7 +23,7 @@ With this benefit, you pay for only the infrastructure cost of your scale set. T
 
 
 >[!NOTE]
-> This article describes the Azure Hybrid Benefit for Linux VMSS. There is a separate [article available [here AHB for Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux), which is already available to Azure customers since November, 2020.
+> This article describes the Azure Hybrid Benefit for Linux VMSS. There is a separate [article available [here AHB for Linux VMs](../virtual-machines/linux/azure-hybrid-benefit-linux.md), which is already available to Azure customers since November, 2020.
 
 ## Benefit description
 Azure Hybrid allows you to use the existing Cloud access licenses from Red Hat or SUSE and flexibly convert virtual machine scale set instances to bring-your-own-subscription (BYOS) billing. 
@@ -108,7 +107,7 @@ az vmss update -g myResourceGroup -n myVmName --license-type None
 ```
 
 >[!NOTE]
-> Scale sets have an ["upgrade policy"](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) that determine how VMs are brought up-to-date with the latest scale set model. 
+> Scale sets have an ["upgrade policy"](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) that determine how VMs are brought up-to-date with the latest scale set model. 
 Hence, if your VMSS have 'Automatic' upgrade policy, AHB benefit will be applied automatically as VM instances get updated. 
 If VMSS have 'Rolling' upgrade policy, based on the scheduled updates, AHB will be applied.
 In case of 'Manual' upgrade policy, you will have to perform "manual upgrade" of each existing VM.  

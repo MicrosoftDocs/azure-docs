@@ -5,7 +5,7 @@ services: virtual-machines
 documentationcenter: ''
 author: mimckitt
 ms.author: mimckitt
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services

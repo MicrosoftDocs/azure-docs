@@ -5,6 +5,7 @@ ms.devlang: r
 ms.topic: tutorial
 ms.date: 10/08/2020
 ms.custom: mvc
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Run a parallel R simulation with Azure Batch

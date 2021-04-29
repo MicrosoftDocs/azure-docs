@@ -3,11 +3,13 @@ title: 'Quickstart: Create an Azure Firewall and a firewall policy - Resource Ma
 description: In this quickstart, you deploy an Azure Firewall and a firewall policy.
 services: firewall-manager
 author: vhorne
-ms.service: firewall-manager
-ms.topic: quickstart
-ms.custom: subject-armqs
-ms.date: 02/17/2021
 ms.author: victorh
+ms.date: 02/17/2021
+ms.topic: quickstart
+ms.service: firewall-manager
+ms.custom:
+  - subject-armqs
+  - mode-arm
 ---
 
 # Quickstart: Create an Azure Firewall and a firewall policy - ARM template

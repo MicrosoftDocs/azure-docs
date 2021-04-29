@@ -44,6 +44,7 @@ Azure Data Factory is a multitenant service that has the following default limit
 | Concurrent number of data flows per integration runtime | 50 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Concurrent number of data flow debug sessions per user per factory | 3 | 3 |
 | Data Flow Azure IR TTL limit | 4 hrs |  4 hrs |
+| Meta Data Entity Size limit in a factory | 2 GB | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 
 <sup>1</sup> The data integration unit (DIU) is used in a cloud-to-cloud copy operation, learn more from [Data integration units (version 2)](../articles/data-factory/copy-activity-performance.md#data-integration-units). For information on billing, see [Azure Data Factory pricing](https://azure.microsoft.com/pricing/details/data-factory/).
 
@@ -51,9 +52,9 @@ Azure Data Factory is a multitenant service that has the following default limit
 
 | Region group | Regions |
 | -------- | ------ |
-| Region group 1 | Central US, East US, East US2, North Europe, West Europe, West US, West US 2 |
-| Region group 2 | Australia East, Australia Southeast, Brazil South, Central India, Japan East, Northcentral US, Southcentral US, Southeast Asia, West Central US |
-| Region group 3 | Canada Central, East Asia, France Central, Korea Central, UK South |
+| Region group 1 | Central US, East US, East US 2, North Europe, West Europe, West US, West US 2 |
+| Region group 2 | Australia East, Australia Southeast, Brazil South, Central India, Japan East, North Central US, South Central US, Southeast Asia, West Central US |
+| Region group 3 | Other regions |
 
 <sup>3</sup> Pipeline, data set, and linked service objects represent a logical grouping of your workload. Limits for these objects don't relate to the amount of data you can move and process with Azure Data Factory. Data Factory is designed to scale to handle petabytes of data.
 

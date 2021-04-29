@@ -66,7 +66,7 @@ To complete this tutorial, you need to:
 
   * Install and run the CLI locally. CLI 2.0 is the command-line tool for managing Azure resources.
 
-       To download the CLI, follow the instructions in the article [Install Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest). The article also lists the platforms that support CLI 2.0.
+       To download the CLI, follow the instructions in the article [Install Azure CLI 2.0](/cli/azure/install-azure-cli). The article also lists the platforms that support CLI 2.0.
 
        To set up Windows Subsystem for Linux (WSL), follow the instructions in the [Windows 10 Installation Guide](/windows/wsl/install-win10)
 
@@ -150,7 +150,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 
 6. If there are ENUM data type in any tables, it's recommended that you temporarily update it to a ‘character varying’ datatype in the target table. After data replication is done, revert the datatype to ENUM.
 
-## Provisioning an instance of DMS using the CLI
+## Provisioning an instance of DMS using the Azure CLI
 
 1. Install the dms sync extension:
    * Sign in to Azure by running the following command:

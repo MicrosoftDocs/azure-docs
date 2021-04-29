@@ -1,7 +1,7 @@
 ---
 title: Deploy CAF Foundation blueprint sample
 description: Deploy steps for the CAF Foundation blueprint sample including blueprint artifact parameter details.
-ms.date: 05/06/2020
+ms.date: 03/12/2021
 ms.topic: sample
 ---
 # Deploy the Microsoft Cloud Adoption Framework for Azure Foundation blueprint sample

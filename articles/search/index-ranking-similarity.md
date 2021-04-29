@@ -1,35 +1,38 @@
 ---
-title: Configure ranking Similarity Algorithm
+title: Configure the similarity algorithm
 titleSuffix: Azure Cognitive Search
-description: How to set the similarity algorithm to try new similarity algorithm for ranking
-
+description: Learn how to enable BM25 on older search services, and how BM25 parameters can be modified to better accommodate the content of your indexes.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/12/2021
 ---
 
-# Configure ranking algorithms in Azure Cognitive Search
+# Configure the similarity ranking algorithm in Azure Cognitive Search
 
 Azure Cognitive Search supports two similarity ranking algorithms:
 
 + A *classic similarity* algorithm, used by all search services up until July 15, 2020.
 + An implementation of the *Okapi BM25* algorithm, used in all search services created after July 15.
 
-BM25 ranking is the new default because it tends to produce search rankings that align better with user expectations. It also enables configuration options for tuning results based on factors such as document size. For new services created after July 15, 2020, BM25 is used automatically and is the sole similarity algorithm. If you try to set similarity to ClassicSimilarity on a new service, an HTTP 400 error will be returned because that algorithm is not supported by the service.
+BM25 ranking is the new default because it tends to produce search rankings that align better with user expectations. It comes with [parameters](#set-bm25-parameters) for tuning results based on factors such as document size. 
 
-For older services created before July 15, 2020, classic similarity remains the default algorithm. Older services can set properties on a search index to invoke BM25, as explained below. If you are switching from classic to BM25, you can expect to see some differences how search results are ordered.
+For new services created after July 15, 2020, BM25 is used automatically and is the sole similarity algorithm. If you try to set similarity to ClassicSimilarity on a new service, an HTTP 400 error will be returned because that algorithm is not supported by the service.
+
+For older services created before July 15, 2020, classic similarity remains the default algorithm. Older services can upgrade to BM25 on a per-index basis, as explained below. If you are switching from classic to BM25, you can expect to see some differences how search results are ordered.
 
 > [!NOTE]
-> Semantic search is an additional semantic re-ranking algorithm that narrows the gap between expectations and results even more. Unlike the other algorithms, it is an add-on feature that iterates over an existing result set. To use the preview semantic search algorithm, you must create a new service, and you must specify a [semantic query type](semantic-how-to-query-request.md). For more information, see [Semantic search overview](semantic-search-overview.md).
+> Semantic ranking, currently in preview for standard services in selected regions, is an additional step forward in producing more relevant results. Unlike the other algorithms, it is an add-on feature that iterates over an existing result set. For more information, see [Semantic search overview](semantic-search-overview.md) and [Semantic ranking](semantic-ranking.md).
 
-## Create a search index for BM25 scoring
+## Enable BM25 scoring on older services
 
-If you are running a search service that was created prior to July 15, 2020, you can set the similarity property to either BM25Similarity or ClassicSimilarity in the index definition. If the similarity property is omitted or set to null, the index uses the Classic algorithm.
+If you are running a search service that was created prior to July 15, 2020, you can enable BM25 by setting a Similarity property on new indexes. The property is only exposed on new indexes, so if want BM25 on an existing index, you must drop and [rebuild the index](search-howto-reindex.md) with a new Similarity property set to "Microsoft.Azure.Search.BM25Similarity".
 
-The similarity algorithm can only be set at index creation time. However, once an index is created with BM25, you can update the existing index to set or modify the BM25 parameters.
+Once an index exists with a Similarity property, you can switch between BM25Similarity or ClassicSimilarity. 
+
+The following links describe the Similarity property in the Azure SDKs. 
 
 | Client library | Similarity property |
 |----------------|---------------------|
@@ -66,7 +69,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 }
 ```
 
-## BM25 similarity parameters
+## Set BM25 parameters
 
 BM25 similarity adds two user customizable parameters to control the calculated relevance score. You can set BM25 parameters during index creation, or as an index update if the BM25 algorithm was specified during index creation.
 

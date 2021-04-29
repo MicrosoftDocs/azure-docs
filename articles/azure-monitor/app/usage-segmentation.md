@@ -59,5 +59,4 @@ The **Meet your users** section shows information about five sample users matche
     - [Retention](usage-retention.md)
     - [User Flows](usage-flows.md)
     - [Workbooks](../visualize/workbooks-overview.md)
-    - [Add user context](usage-send-user-context.md)
-
+    - [Add user context](./usage-overview.md)

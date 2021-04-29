@@ -53,7 +53,7 @@ All the terms of the Microsoft Azure Marketplace agreements and policies apply t
 
 To publish an IoT Edge module to the Azure Marketplace, you need to meet the following prerequisites:
 
-- Access to the Partner Center. For more information, see [Create a commercial marketplace account in Partner Center](partner-center-portal/create-account.md).
+- Access to the Partner Center. For more information, see [Create a commercial marketplace account in Partner Center](create-account.md).
 - Host your IoT Edge module in an Azure Container Registry.
 - Have your IoT Edge module metadata ready such as (non-exhaustive list):
     - A title

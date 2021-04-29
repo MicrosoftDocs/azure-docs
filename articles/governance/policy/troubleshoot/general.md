@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot problems with creating policy definitions, the various SDKs, and the add-on for Kubernetes.
-ms.date: 01/26/2021
+ms.date: 04/19/2021
 ms.topic: troubleshooting
 ---
 # Troubleshoot errors with using Azure Policy
@@ -162,6 +162,28 @@ IDs. If the error information in the message is missed, it's also available in t
 [Activity log](../../../azure-monitor/essentials/activity-log.md#view-the-activity-log). Use this
 information to get more details to understand the resource restrictions and adjust the resource
 properties in your request to match allowed values.
+
+### Scenario: Definition targets multiple resource types
+
+#### Issue
+
+A policy definition that includes multiple resource types fails validation during creation or update
+with the following error:
+
+```error
+The policy definition '{0}' targets multiple resource types, but the policy rule is authored in a way that makes the policy not applicable to the target resource types '{1}'.
+```
+
+#### Cause
+
+The policy definition rule has one or more conditions that don't get evaluated by the target
+resource types.
+
+#### Resolution
+
+If an alias is used, make sure that the alias gets evaluated against only the resource type it
+belongs to by adding a type condition before it. An alternative is to split the policy definition
+into multiple definitions to avoid targeting multiple resource types.
 
 ## Template errors
 

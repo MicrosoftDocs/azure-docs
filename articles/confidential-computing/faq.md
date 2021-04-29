@@ -5,7 +5,7 @@ author: JBCook
 ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.date: 4/17/2020
 ms.author: jencook
 ---
@@ -27,7 +27,7 @@ Here are some ways you can deploy a DCsv2 VM:
 
 **Will all OS images work with Azure confidential computing?**
 
-No. The virtual machines can only be deployed on Generation 2 operating machines with Ubuntu Server 18.04, Ubuntu Server 16.04, Windows Server 2019 Datacenter, and Windows Server 2016 Datacenter. Read more about Gen 2 VMs on [Linux](../virtual-machines/generation-2.md) and [Windows](../virtual-machines/generation-2.md)
+No. The virtual machines can only be deployed on Generation 2 operating machines with Ubuntu Server 18.04, Ubuntu Server 20.04, Windows Server 2019 Datacenter, and Windows Server 2016 Datacenter. Read more about Gen 2 VMs on [Linux](../virtual-machines/generation-2.md) and [Windows](../virtual-machines/generation-2.md)
 
 **DCsv2 virtual machines are grayed out in the portal and I can't select one**
 
@@ -71,4 +71,3 @@ For instructions on how to install the OE SDK on an Azure or on-premise Machine,
 You can also look into the Open Enclave SDK GitHub for OS-specific installation instructions:
    - [Install the OE SDK on Windows](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Windows.md)
    - [Install the OE SDK on Ubuntu 18.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md)
-   - [Install the OE SDK on Ubuntu 16.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_16.04.md)

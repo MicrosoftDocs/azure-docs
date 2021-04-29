@@ -2,7 +2,6 @@
 title: Archive data from Log Analytics workspace to Azure storage using Logic App
 description: Describes a method to use Azure Logic Apps to query data from a Log Analytics workspace and send to Azure Storage.
 ms.service:  azure-monitor
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

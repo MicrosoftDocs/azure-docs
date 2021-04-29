@@ -22,7 +22,7 @@ This article assumes you already have an Azure file share backed up by [Azure Ba
 
 ## Monitor jobs
 
-When you trigger backup or restore operations, the backup service creates a job for tracking. To monitor completed or currently running jobs, use the [az backup job list](/cli/azure/backup/job#az-backup-job-list) cmdlet. With the CLI, you also can [suspend a currently running job](/cli/azure/backup/job#az-backup-job-stop) or [wait until a job finishes](/cli/azure/backup/job#az-backup-job-wait).
+When you trigger backup or restore operations, the backup service creates a job for tracking. To monitor completed or currently running jobs, use the [az backup job list](/cli/azure/backup/job#az_backup_job_list) cmdlet. With the CLI, you also can [suspend a currently running job](/cli/azure/backup/job#az_backup_job_stop) or [wait until a job finishes](/cli/azure/backup/job#az_backup_job_wait).
 
 The following example displays the status of backup jobs for the *azurefilesvault* Recovery Services vault:
 
@@ -87,13 +87,13 @@ az backup job list --resource-group azurefiles --vault-name azurefilesvault
 
 ## Modify policy
 
-You can modify a backup policy to change backup frequency or retention range by using [az backup item set-policy](/cli/azure/backup/item#az-backup-item-set-policy).
+You can modify a backup policy to change backup frequency or retention range by using [az backup item set-policy](/cli/azure/backup/item#az_backup_item_set_policy).
 
 To change the policy, define the following parameters:
 
-* **--container-name**: The name of the storage account that hosts the file share. To retrieve the **name** or **friendly name** of your container, use the [az backup container list](/cli/azure/backup/container#az-backup-container-list) command.
-* **--name**: The name of the file share for which you want to change the policy. To retrieve the **name** or **friendly name** of your backed-up item, use the [az backup item list](/cli/azure/backup/item#az-backup-item-list) command.
-* **--policy-name**: The name of the backup policy you want to set for your file share. You can use [az backup policy list](/cli/azure/backup/policy#az-backup-policy-list) to view all the policies for your vault.
+* **--container-name**: The name of the storage account that hosts the file share. To retrieve the **name** or **friendly name** of your container, use the [az backup container list](/cli/azure/backup/container#az_backup_container_list) command.
+* **--name**: The name of the file share for which you want to change the policy. To retrieve the **name** or **friendly name** of your backed-up item, use the [az backup item list](/cli/azure/backup/item#az_backup_item_list) command.
+* **--policy-name**: The name of the backup policy you want to set for your file share. You can use [az backup policy list](/cli/azure/backup/policy#az_backup_policy_list) to view all the policies for your vault.
 
 The following example sets the *schedule2* backup policy for the *azurefiles* file share present in the *afsaccount* storage account.
 
@@ -116,7 +116,7 @@ Name                                  ResourceGroup
 fec6f004-0e35-407f-9928-10a163f123e5  azurefiles
 ```
 
-The **Name** attribute in the output corresponds to the name of the job that's created by the backup service for your change policy operation. To track the status of the job, use the [az backup job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
+The **Name** attribute in the output corresponds to the name of the job that's created by the backup service for your change policy operation. To track the status of the job, use the [az backup job show](/cli/azure/backup/job#az_backup_job_show) cmdlet.
 
 ## Stop protection on a file share
 
@@ -129,12 +129,12 @@ There might be a cost associated with leaving the recovery points in storage, be
 
 To stop protection for the file share, define the following parameters:
 
-* **--container-name**: The name of the storage account that hosts the file share. To retrieve the **name** or **friendly name** of your container, use the [az backup container list](/cli/azure/backup/container#az-backup-container-list) command.
-* **--item-name**: The name of the file share for which you want to stop protection. To retrieve the **name** or **friendly name** of your backed-up item, use the [az backup item list](/cli/azure/backup/item#az-backup-item-list) command.
+* **--container-name**: The name of the storage account that hosts the file share. To retrieve the **name** or **friendly name** of your container, use the [az backup container list](/cli/azure/backup/container#az_backup_container_list) command.
+* **--item-name**: The name of the file share for which you want to stop protection. To retrieve the **name** or **friendly name** of your backed-up item, use the [az backup item list](/cli/azure/backup/item#az_backup_item_list) command.
 
 ### Stop protection and retain recovery points
 
-To stop protection while retaining data, use the [az backup protection disable](/cli/azure/backup/protection#az-backup-protection-disable) cmdlet.
+To stop protection while retaining data, use the [az backup protection disable](/cli/azure/backup/protection#az_backup_protection_disable) cmdlet.
 
 The following example stops protection for the *azurefiles* file share but retains all recovery points.
 
@@ -157,11 +157,11 @@ Name                                  ResourceGroup
 fec6f004-0e35-407f-9928-10a163f123e5  azurefiles
 ```
 
-The **Name** attribute in the output corresponds to the name of the job that's created by the backup service for your stop protection operation. To track the status of the job, use the [az backup job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
+The **Name** attribute in the output corresponds to the name of the job that's created by the backup service for your stop protection operation. To track the status of the job, use the [az backup job show](/cli/azure/backup/job#az_backup_job_show) cmdlet.
 
 ### Stop protection without retaining recovery points
 
-To stop protection without retaining recovery points, use the [az backup protection disable](/cli/azure/backup/protection#az-backup-protection-disable) cmdlet with the **delete-backup-data** option set to **true**.
+To stop protection without retaining recovery points, use the [az backup protection disable](/cli/azure/backup/protection#az_backup_protection_disable) cmdlet with the **delete-backup-data** option set to **true**.
 
 The following example stops protection for the *azurefiles* file share without retaining recovery points.
 
@@ -184,11 +184,11 @@ If you stopped protection for an Azure file share but retained recovery points, 
 
 To resume protection for the file share, define the following parameters:
 
-* **--container-name**: The name of the storage account that hosts the file share. To retrieve the **name** or **friendly name** of your container, use the [az backup container list](/cli/azure/backup/container#az-backup-container-list) command.
-* **--item-name**: The name of the file share for which you want to resume protection. To retrieve the **name** or **friendly name** of your backed-up item, use the [az backup item list](/cli/azure/backup/item#az-backup-item-list) command.
+* **--container-name**: The name of the storage account that hosts the file share. To retrieve the **name** or **friendly name** of your container, use the [az backup container list](/cli/azure/backup/container#az_backup_container_list) command.
+* **--item-name**: The name of the file share for which you want to resume protection. To retrieve the **name** or **friendly name** of your backed-up item, use the [az backup item list](/cli/azure/backup/item#az_backup_item_list) command.
 * **--policy-name**: The name of the backup policy for which you want to resume the protection for the file share.
 
-The following example uses the [az backup protection resume](/cli/azure/backup/protection#az-backup-protection-resume) cmdlet to resume protection for the *azurefiles* file share by using the *schedule1* backup policy.
+The following example uses the [az backup protection resume](/cli/azure/backup/protection#az_backup_protection_resume) cmdlet to resume protection for the *azurefiles* file share by using the *schedule1* backup policy.
 
 ```azurecli-interactive
 az backup protection resume --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --policy-name schedule2 --out table
@@ -209,15 +209,15 @@ Name                                  ResourceGroup
 75115ab0-43b0-4065-8698-55022a234b7f  azurefiles
 ```
 
-The **Name** attribute in the output corresponds to the name of the job that's created by the backup service for your resume protection operation. To track the status of the job, use the [az backup job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
+The **Name** attribute in the output corresponds to the name of the job that's created by the backup service for your resume protection operation. To track the status of the job, use the [az backup job show](/cli/azure/backup/job#az_backup_job_show) cmdlet.
 
 ## Unregister a storage account
 
 If you want to protect your file shares in a particular storage account by using a different Recovery Services vault, first [stop protection for all file shares](#stop-protection-on-a-file-share) in that storage account. Then unregister the account from the Recovery Services vault currently used for protection.
 
-You need to provide a container name to unregister the storage account. To retrieve the **name** or the **friendly name** of your container, use the [az backup container list](/cli/azure/backup/container#az-backup-container-list) command.
+You need to provide a container name to unregister the storage account. To retrieve the **name** or the **friendly name** of your container, use the [az backup container list](/cli/azure/backup/container#az_backup_container_list) command.
 
-The following example unregisters the *afsaccount* storage account from *azurefilesvault* by using the [az backup container unregister](/cli/azure/backup/container#az-backup-container-unregister) cmdlet.
+The following example unregisters the *afsaccount* storage account from *azurefilesvault* by using the [az backup container unregister](/cli/azure/backup/container#az_backup_container_unregister) cmdlet.
 
 ```azurecli-interactive
 az backup container unregister --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --out table

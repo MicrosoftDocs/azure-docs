@@ -209,4 +209,4 @@ You can configure a geo-filtering policy for your Front Door by using [Azure Pow
 ## Next steps
 
 - Learn how to [create a Front Door](quickstart-create-front-door.md).
-- Learn hot to [set up a geo-filtering WAF policy](front-door-tutorial-geo-filtering.md).
+- Learn how to [set up a geo-filtering WAF policy](front-door-tutorial-geo-filtering.md).

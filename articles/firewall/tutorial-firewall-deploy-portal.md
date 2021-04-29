@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 02/19/2021
+ms.date: 04/08/2021
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -107,7 +107,7 @@ Now create the workload virtual machine, and place it in the **Workload-SN** sub
    |Resource group     |**Test-FW-RG**|
    |Virtual machine name     |**Srv-Work**|
    |Region     |Same as previous|
-   |Image|Windows Server 2019 Datacenter|
+   |Image|Windows Server 2016 Datacenter|
    |Administrator user name     |Type a user name|
    |Password     |Type a password|
 
@@ -119,6 +119,8 @@ Now create the workload virtual machine, and place it in the **Workload-SN** sub
 11. Accept the other defaults and select **Next: Management**.
 12. Select **Disable** to disable boot diagnostics. Accept the other defaults and select **Review + create**.
 13. Review the settings on the summary page, and then select **Create**.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Deploy the firewall
 
