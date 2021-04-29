@@ -5,7 +5,6 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
-ms.custom: mvc
 ms.custom: contperf-fy21q4
 ms.date: 04/28/2021
 
@@ -14,15 +13,15 @@ ms.date: 04/28/2021
 
 # Quickstart: Create an integration workflow using Azure Logic Apps in the Azure portal
 
-This quickstart shows how to create an example automated workflow that integrates two services, an RSS feed for a website and an email account, when you use [Azure Logic Apps](logic-apps-overview.md). While this example is cloud-based, you can create automated workflows that connect apps, data, services, and systems across cloud, on premises, and hybrid environments.
+This quickstart shows how to create an example automated workflow that integrates two services, an RSS feed for a website and an email account, when you use [Azure Logic Apps](logic-apps-overview.md). While this example is cloud-based, Logic Apps supports workflows that connect apps, data, services, and systems across cloud, on premises, and hybrid environments.
 
-In this example, you create a workflow that uses the RSS connector and the Office 365 Outlook connector. The RSS connector has a trigger that checks an RSS feed, based on a schedule. The Office 365 Outlook connector has an action that sends an email for each new item. The connectors in this example are only two among [hundreds of connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use in a workflow.
+In this example, you create a workflow that uses the RSS connector and the Office 365 Outlook connector. The RSS connector has a trigger that checks an RSS feed, based on a schedule. The Office 365 Outlook connector has an action that sends an email for each new item. The connectors in this example are only two among the [hundreds of connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use in a workflow.
 
-The following screenshot shows the high-level workflow:
+The following screenshot shows the high-level example workflow:
 
 ![Screenshot showing the example workflow with the RSS trigger, "When a feed item is published" and the Outlook action, "Send an email".](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-As you complete the steps in this quickstart, you'll learn these basic concepts:
+As you progress through this quickstart, you'll learn these basic steps:
 
 * Create a logic app resource that runs in the multi-tenant Logic Apps service environment.
 * Select the blank logic app template.
@@ -32,8 +31,8 @@ As you complete the steps in this quickstart, you'll learn these basic concepts:
 
 To create and manage a logic app using other tools, review these other Logic Apps quickstarts:
 
-* [Create and manage logic apps in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
 * [Create and manage logic apps in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
+* [Create and manage logic apps in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
 * [Create and manage logic apps using the Azure Command-Line Interface (Azure CLI)](quickstart-logic-apps-azure-cli.md)
 
 <a name="prerequisites"></a>
@@ -42,7 +41,7 @@ To create and manage a logic app using other tools, review these other Logic App
 
 * If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* An email account from a service that's supported by Azure Logic Apps, such as Office 365 Outlook or Outlook.com. For other supported email providers, review [Connectors for Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
+* An email account from a service that works with Azure Logic Apps, such as Office 365 Outlook or Outlook.com. For other supported email providers, review [Connectors for Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
   > [!NOTE]
   > If you want to use the [Gmail connector](/connectors/gmail/), only G Suite accounts can use this connector without restriction in Azure 
@@ -54,7 +53,7 @@ To create and manage a logic app using other tools, review these other Logic App
 
   This example also uses the RSS and Office 365 Outlook connectors [managed by Microsoft](/connectors/managed.md). These connectors require that you set up your firewall to allow access for *all* the [managed connector outbound IP addresses](logic-apps-limits-and-config.md#outbound) in the logic app's Azure region.
 
-<a name="create-logic-app"></a>
+<a name="create-logic-app-resource"></a>
 
 ## Create a logic app resource
 
