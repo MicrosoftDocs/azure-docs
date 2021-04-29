@@ -53,7 +53,7 @@ Each row in the following tables provides prescriptive guidance to aid you in de
 | Control ID and subpart| Customer responsibilities and guidance |
 | - | - |
 | PS-04<br>PS-04(2)| **Automatically notify personnel responsible for disabling access to the system.** <p>Disable accounts and revoke all associated authenticators and credentials within 8 hours. <p>Configure provisioning (including disablement upon termination) of accounts in Azure AD from external HR systems, on-premises Active Directory, or directly in the cloud. Terminate all system access by revoking existing sessions. <p>Account Provisioning<li> See detailed guidance in AC-02. <p>Revoke all Associated Authenticators. <li> [Revoke user access in an emergency in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/enterprise-users/users-revoke-access) |
-| - |
+
 
 ## System & Information Integrity
 
@@ -61,7 +61,7 @@ Each row in the following tables provides prescriptive guidance to aid you in de
 
  Control ID and subpart| Customer responsibilities and guidance |
 | - | - |
-| SI-04<br>SI-04(1)| **Implement Information System wide monitoring & Intrusion Detection System **<p>Include all Azure AD logs (Audit, Sign-in, Identity Protection) within the information system monitoring solution. <p>Stream Azure AD logs into a SIEM solution (See IA-04). |
+| SI-04<br>SI-04(1)| **Implement Information System wide monitoring & Intrusion Detection System**<p>Include all Azure AD logs (Audit, Sign-in, Identity Protection) within the information system monitoring solution. <p>Stream Azure AD logs into a SIEM solution (See IA-04). |
 
 ## Next steps
 

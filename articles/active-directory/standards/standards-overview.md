@@ -26,11 +26,12 @@ Compliance frameworks can be extremely complex. Microsoft engages with governmen
 Compliance is a shared responsibility among Microsoft, Cloud service providers (CSPs), and organizations. You can rely on Azure's compliance certifications as a basis for your compliance, and then configure Azure Active Directory to meet identity standards.
 
 Cloud service providers (CSPs), governmental agencies, and those who work with them must often meet stringent standards for one or more governments such as
-* The [European Union General Data Protection Regulation (GDPR)](https://docs.microsoft.com/azure/compliance/offerings/offering-eu-gdpr)
 * [US Federal Risk and Authorization Management Program (FedRAMP)](https://docs.microsoft.com/azure/compliance/offerings/offering-fedramp)
 * [National Institute of Standards and Technologies (NIST)](https://docs.microsoft.com/azure/compliance/offerings/offering-nist-800-53).
 
-CSPs and organizations in industries such as healthcare and finance must also meet industry standards such as [HIPPA](https://docs.microsoft.com/azure/compliance/offerings/offering-hipaa-us) or [Sorbanes-Oxley (Sox)](https://docs.microsoft.com/azure/compliance/offerings/offering-sox-us).
+CSPs and organizations in industries such as healthcare and finance must also meet industry standards such as 
+* [HIPPA](https://docs.microsoft.com/azure/compliance/offerings/offering-hipaa-us)
+* [Sorbanes-Oxley (Sox)](https://docs.microsoft.com/azure/compliance/offerings/offering-sox-us).
 
 To learn more about supported compliance frameworks, see [Azure compliance offerings](https://docs.microsoft.com/azure/compliance/offerings/).
 
