@@ -4,7 +4,7 @@ description: Learn to use Azure file shares with Windows and Windows Server. Use
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
@@ -43,7 +43,7 @@ Ensure port 445 is open: The SMB protocol requires TCP port 445 to be open; conn
 ## Using an Azure file share with Windows
 To use an Azure file share with Windows, you must either mount it, which means assigning it a drive letter or mount point path, or access it via its [UNC path](/windows/win32/fileio/naming-a-file). 
 
-This article uses the storage account key to access the file share. A storage account key is an administrator key for a storage account, including administrator permissions to all files and folders within the file share you're accessing, and for all file shares and other storage resources (blobs, queues, tables, etc.) contained within your storage account. If this is not sufficient for your workload, [Azure File Sync](storage-sync-files-planning.md) may be used, or you may use [identity-based authentication over SMB](storage-files-active-directory-overview.md).
+This article uses the storage account key to access the file share. A storage account key is an administrator key for a storage account, including administrator permissions to all files and folders within the file share you're accessing, and for all file shares and other storage resources (blobs, queues, tables, etc.) contained within your storage account. If this is not sufficient for your workload, [Azure File Sync](../file-sync/file-sync-planning.md) may be used, or you may use [identity-based authentication over SMB](storage-files-active-directory-overview.md).
 
 A common pattern for lifting and shifting line-of-business (LOB) applications that expect an SMB file share to Azure is to use an Azure file share as an alternative for running a dedicated Windows file server in an Azure VM. One important consideration for successfully migrating a line-of-business application to use an Azure file share is that many line-of-business applications run under the context of a dedicated service account with limited system permissions rather than the VM's administrative account. Therefore, you must ensure that you mount/save the credentials for the Azure file share from the context of the service account rather than your administrative account.
 
@@ -58,7 +58,7 @@ To get this script:
 1. Select **File shares**.
 1. Select the file share you'd like to mount.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="example":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="Screenshot of file shares blade, file share is highlighted.":::
 
 1. Select **Connect**.
 
@@ -67,7 +67,7 @@ To get this script:
 1. Select the drive letter to mount the share to.
 1. Copy the provided script.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Example text":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Screenshot of connect blade, copy button on script is highlighted.":::
 
 1. Paste the script into a shell on the host you'd like to mount the file share to, and run it.
 

@@ -449,7 +449,7 @@ FOR_EACH filter IN (a, b, c)
 ```
 
 ## StringIn
-The **StringIn** operator checks whether the **key** value **exactly matches** one of the specified **filter** values. In the following example, it checks whether the value of the `key1` attribute in the `data` section is `exact` or `string` or `matches`. 
+The **StringIn** operator checks whether the **key** value **exactly matches** one of the specified **filter** values. In the following example, it checks whether the value of the `key1` attribute in the `data` section is `contoso` or `fabrikam` or `factory`. 
 
 ```json
 "advancedFilters": [{

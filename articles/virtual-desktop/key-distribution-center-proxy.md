@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/20/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Configure a Kerberos Key Distribution Center proxy (preview)
 
@@ -23,15 +23,15 @@ There are two components to the Windows Virtual Desktop service that need to be 
 - The feed in the Windows Virtual Desktop client that gives users a list of available desktops or applications they have access to. This authentication process happens in Azure Active Directory, which means this component isn't the focus of this article.
 - The RDP session that results from a user selecting one of those available resources. This component uses Kerberos authentication and requires a KDC proxy for remote users.
 
-This article will show you how to configure the feed in the Windows Virtual Desktop client in the Azure portal. If you want to learn how to configure the RD Gateway role, see [Deploy the RD Gateway role](/windows-server/remote/rd-gateway-role).
+This article will show you how to configure the feed in the Windows Virtual Desktop client in the Azure portal. If you want to learn how to configure the RD Gateway role, see [Deploy the RD Gateway role](/windows-server/remote/remote-desktop-services/remote-desktop-gateway-role).
 
 ## Requirements
 
 To configure a Windows Virtual Desktop session host with a KDC proxy, you'll need the following things:
 
 - Access to the Azure portal and an Azure administrator account.
-- The remote client machines must be running either Windows 10 or Windows 7 and have the [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) installed.
-- You must have a KDC proxy already installed on your machine. To learn how to do that, see [Set up the RD Gateway role for Windows Virtual Desktop](rd-gateway-role.md).
+- The remote client machines must be running either Windows 10 or Windows 7 and have the [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) installed. Currently, the web client is not supported.
+- You must have a KDC proxy already installed on your machine. To learn how to do that, see [Set up the RD Gateway role for Windows Virtual Desktop](/windows-server/remote/remote-desktop-services/remote-desktop-gateway-role).
 - The machine's OS must be Windows Server 2016 or later.
 
 Once you've made sure you meet these requirements, you're ready to get started.
@@ -64,6 +64,6 @@ To configure the KDC proxy:
 
 ## Next steps
 
-To learn how to manage the Remote Desktop Services side of the KDC proxy and assign the RD Gateway role, see [Deploy the RD Gateway role](rd-gateway-role.md).
+To learn how to manage the Remote Desktop Services side of the KDC proxy and assign the RD Gateway role, see [Deploy the RD Gateway role](/windows-server/remote/remote-desktop-services/remote-desktop-gateway-role).
 
 If you're interested in scaling your KDC proxy servers, learn how to set up high availability for KDC proxy at [Add high availability to the RD Web and Gateway web front](/windows-server/remote/remote-desktop-services/rds-rdweb-gateway-ha).

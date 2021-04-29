@@ -23,8 +23,8 @@ ms.custom: contperf-fy21q2
 This article covers the steps to **set up a new Azure Digital Twins instance**, including creating the instance and setting up authentication. After completing this article, you will have an Azure Digital Twins instance ready to start programming against.
 
 This version of this article goes through these steps manually, one by one, using the Azure portal. The Azure portal is a web-based, unified console that provides an alternative to command-line tools.
-* To go through these steps manually using the CLI, see the CLI version of this article: [*How-to: Set up an instance and authentication (CLI)*](how-to-set-up-instance-cli.md).
-* To run through an automated setup using a deployment script sample, see the scripted version of this article: [*How-to: Set up an instance and authentication (scripted)*](how-to-set-up-instance-scripted.md).
+* To go through these steps manually using the CLI, see the CLI version of this article: [How-to: Set up an instance and authentication (CLI)](how-to-set-up-instance-cli.md).
+* To run through an automated setup using a deployment script sample, see the scripted version of this article: [How-to: Set up an instance and authentication (scripted)](how-to-set-up-instance-scripted.md).
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 [!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
@@ -44,7 +44,7 @@ Search for *Azure Digital Twins* in the search box, and choose the **Azure Digit
 On the following **Create Resource** page, fill in the values given below:
 * **Subscription**: The Azure subscription you're using
   - **Resource group**: A resource group in which to deploy the instance. If you don't already have an existing resource group in mind, you can create one here by selecting the *Create new* link and entering a name for a new resource group
-* **Location**: An Azure Digital Twins-enabled region for the deployment. For more details on regional support, visit [*Azure products available by region (Azure Digital Twins)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
+* **Location**: An Azure Digital Twins-enabled region for the deployment. For more details on regional support, visit [Azure products available by region (Azure Digital Twins)](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 * **Resource name**: A name for your Azure Digital Twins instance. If your subscription has another Azure Digital Twins instance in the region that's
   already using the specified name, you'll be asked to pick a different name.
 
@@ -58,9 +58,9 @@ If you do want to configure more details for your instance, the next section des
 
 Here are the additional options you can configure during setup, using the other tabs in the **Create Resource** process.
 
-* **Networking**: In this tab, you can enable private endpoints with [Azure Private Link](../private-link/private-link-overview.md) to eliminate public network exposure to your instance. For instructions, see [*How-to: Enable private access with Private Link (preview)*](./how-to-enable-private-link-portal.md#add-a-private-endpoint-during-instance-creation).
-* **Advanced**: In this tab, you can enable a [system-managed identity](../active-directory/managed-identities-azure-resources/overview.md) for your instance that can be used when forwarding events to [endpoints](concepts-route-events.md). For instructions, see [*How-to: Enable managed identities for routing events (preview)*](./how-to-enable-managed-identities-portal.md#add-a-system-managed-identity-during-instance-creation).
-* **Tags**: In this tab, you can add tags to your instance to help you organize it among your Azure resources. For more about Azure resource tags, see [*Tag resources, resource groups, and subscriptions for logical organization*](../azure-resource-manager/management/tag-resources.md).
+* **Networking**: In this tab, you can enable private endpoints with [Azure Private Link](../private-link/private-link-overview.md) to eliminate public network exposure to your instance. For instructions, see [How-to: Enable private access with Private Link (preview)](./how-to-enable-private-link-portal.md#add-a-private-endpoint-during-instance-creation).
+* **Advanced**: In this tab, you can enable a [system-managed identity](../active-directory/managed-identities-azure-resources/overview.md) for your instance that can be used when forwarding events to [endpoints](concepts-route-events.md). For instructions, see [How-to: Enable managed identities for routing events (preview)](./how-to-enable-managed-identities-portal.md#add-a-system-managed-identity-during-instance-creation).
+* **Tags**: In this tab, you can add tags to your instance to help you organize it among your Azure resources. For more about Azure resource tags, see [Tag resources, resource groups, and subscriptions for logical organization](../azure-resource-manager/management/tag-resources.md).
 
 ### Verify success and collect important values
 
@@ -113,8 +113,8 @@ You now have an Azure Digital Twins instance ready to go, and have assigned perm
 ## Next steps
 
 Test out individual REST API calls on your instance using the Azure Digital Twins CLI commands: 
-* [az dt reference](/cli/azure/ext/azure-iot/dt)
-* [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md)
+* [az dt reference](/cli/azure/dt)
+* [How-to: Use the Azure Digital Twins CLI](how-to-use-cli.md)
 
 Or, see how to connect a client application to your instance with authentication code:
-* [*How-to: Write app authentication code*](how-to-authenticate-client.md)
+* [How-to: Write app authentication code](how-to-authenticate-client.md)

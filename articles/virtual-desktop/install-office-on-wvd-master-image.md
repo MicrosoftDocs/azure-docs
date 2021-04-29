@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Install Office on a master VHD image
 

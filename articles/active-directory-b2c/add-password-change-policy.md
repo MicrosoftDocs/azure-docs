@@ -39,7 +39,7 @@ In Azure Active Directory B2C (Azure AD B2C), you can enable users who are signe
 
 ## Prerequisites
 
-* Complete the steps in [Get started with custom policies in Active Directory B2C](custom-policy-get-started.md).
+* Complete the steps in [Get started with custom policies in Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 * If you haven't already done so, [register a web application in Azure Active Directory B2C](tutorial-register-applications.md).
 
 ## Add the elements

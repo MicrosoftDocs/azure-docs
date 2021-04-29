@@ -2,12 +2,14 @@
 title: Quickstart - Create an Azure confidential computing virtual machine in the Azure portal
 description: Get started with your deployments by learning how to quickly create a confidential computing virtual machine in the Azure portal.
 author: JBCook
+ms.author: JenCook
+ms.date: 04/23/2020
+ms.topic: quickstart
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
-ms.topic: quickstart
-ms.date: 04/23/2020
-ms.author: JenCook
+ms.custom:
+  - mode-portal
 ---
 
 
@@ -56,7 +58,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 
 1. Configure the operating system image that you would like to use for your virtual machine.
 
-    * **Choose Image**: For this tutorial, select Ubuntu 18.04 LTS. You may also select Windows Server 2019, Windows Server 2016, or and Ubuntu 16.04 LTS. If you choose to do so, you'll be redirected in this tutorial accordingly.
+    * **Choose Image**: For this tutorial, select Ubuntu 18.04 LTS. You may also select Windows Server 2019, Windows Server 2016, or and Ubuntu 20.04 LTS. If you choose to do so, you'll be redirected in this tutorial accordingly.
     
     * **Toggle the image for Gen 2**: Confidential compute virtual machines only run on [Generation 2](../virtual-machines/generation-2.md) images. Ensure the image you select is a Gen 2 image. Click the **Advanced** tab above where you're configuring the virtual machine. Scroll down until you find the section labeled "VM Generation". Select Gen 2 and then go back to the **Basics** tab.
     
@@ -73,7 +75,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
     ![DCsv2-Series VMs](media/quick-create-portal/dcsv2-virtual-machines.png)
 
     > [!TIP]
-    > You should see sizes **DC1s_v2**, **DC2s_v2**, **DC4s_V2**, and **DC8_v2**. These are the only virtual machine sizes that currently support confidential computing. [Learn more](virtual-machine-solutions.md).
+    > You should see sizes **DC1s_v2**, **DC2s_v2**, **DC4s_V2**, and **DC8_v2**. These are the only virtual machine sizes that currently support Intel SGX confidential computing. [Learn more](virtual-machine-solutions.md).
 
 1. Fill in the following information:
 
@@ -144,7 +146,7 @@ For more information about connecting to Linux VMs, see [Create a Linux VM on Az
 
 Follow the step-by-step instructions to install the [OE SDK](https://github.com/openenclave/openenclave) on your DCsv2-Series virtual machine running an Ubuntu 18.04 LTS Gen 2 image. 
 
-If your virtual machine runs on Ubuntu 16.04 LTS Gen 2, you'll need to follow [installation instructions for Ubuntu 16.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_16.04.md).
+If your virtual machine runs on Ubuntu 18.04 LTS Gen 2, you'll need to follow [installation instructions for Ubuntu 18.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md).
 
 #### 1. Configure the Intel and Microsoft APT Repositories
 
@@ -160,11 +162,18 @@ wget -qO - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add 
 ```
 
 #### 2. Install the Intel SGX DCAP Driver
+Some versions of Ubuntu may already have the Intel SGX driver installed. Check using the following command: 
+
+```bash
+dmesg | grep -i sgx
+[  106.775199] sgx: intel_sgx: Intel SGX DCAP Driver {version}
+``` 
+If the output is blank, install the driver: 
 
 ```bash
 sudo apt update
 sudo apt -y install dkms
-wget https://download.01.org/intel-sgx/sgx-dcap/1.9/linux/distro/ubuntu18.04-server/sgx_linux_x64_driver_1.36.2.bin -O sgx_linux_x64_driver.bin
+wget https://download.01.org/intel-sgx/sgx-dcap/1.7/linux/distro/ubuntu18.04-server/sgx_linux_x64_driver_1.35.bin -O sgx_linux_x64_driver.bin
 chmod +x sgx_linux_x64_driver.bin
 sudo ./sgx_linux_x64_driver.bin
 ```
@@ -174,8 +183,9 @@ sudo ./sgx_linux_x64_driver.bin
 
 #### 3. Install the Intel and Open Enclave packages and dependencies
 
+
 ```bash
-sudo apt -y install clang-7 libssl-dev gdb libsgx-enclave-common libsgx-enclave-common-dev libprotobuf10 libsgx-dcap-ql libsgx-dcap-ql-dev az-dcap-client open-enclave
+sudo apt -y install clang-8 libssl-dev gdb libsgx-enclave-common libprotobuf10 libsgx-dcap-ql libsgx-dcap-ql-dev az-dcap-client open-enclave
 ```
 
 > [!NOTE] 

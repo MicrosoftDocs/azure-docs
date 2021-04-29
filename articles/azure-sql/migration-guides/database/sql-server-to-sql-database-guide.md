@@ -14,7 +14,7 @@ ms.date: 03/19/2021
 # Migration guide: SQL Server to Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
-This guide helps you migrate your SQL Server instance to Azure SQL Database. 
+In this guide, you learn [how to migrate](https://azure.microsoft.com/migration/migration-journey) your SQL Server instance to Azure SQL Database. 
 
 You can migrate SQL Server running on-premises or on: 
 
@@ -24,13 +24,13 @@ You can migrate SQL Server running on-premises or on:
 - Compute Engine (Google Cloud Platform - GCP)  
 - Cloud SQL for SQL Server (Google Cloud Platform – GCP) 
 
-For more migration information, see the [migration overview](sql-server-to-sql-database-overview.md). For other migration guides, see [Database Migration](https://docs.microsoft.com/data-migration). 
+For more migration information, see the [migration overview](sql-server-to-sql-database-overview.md). For other migration guides, see [Database Migration](/data-migration). 
 
 :::image type="content" source="media/sql-server-to-database-overview/migration-process-flow-small.png" alt-text="Migration process flow":::
 
 ## Prerequisites 
 
-To migrate your SQL Server to Azure SQL Database, make sure you have the following prerequisites: 
+For your [SQL Server migration](https://azure.microsoft.com/en-us/migration/sql-server/) to Azure SQL Database, make sure you have the following prerequisites: 
 
 - A chosen [migration method](sql-server-to-sql-database-overview.md#compare-migration-options) and corresponding tools .
 - [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) installed on a machine that can connect to your source SQL Server.
@@ -41,7 +41,7 @@ To migrate your SQL Server to Azure SQL Database, make sure you have the followi
 
 ## Pre-migration
 
-After you've verified that your source environment is supported, start with the pre-migration stage. Discover all of the existing data sources, assess migration feasibility, and identify any blocking issues that might prevent your migration. 
+After you've verified that your source environment is supported, start with the pre-migration stage. Discover all of the existing data sources, assess migration feasibility, and identify any blocking issues that might prevent your [Azure cloud migration](https://azure.microsoft.com/migration).
 
 ### Discover
 
@@ -194,6 +194,10 @@ To learn more, see [managing Azure SQL Database after migration](../../database/
 
 - For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see [Service and tools for data migration](../../../dms/dms-tools-matrix.md).
 
+
+- To learn more about [Azure Migrate](https://azure.microsoft.com/services/azure-migrate) see
+   - [Azure Migrate](../../../migrate/migrate-services-overview.md)
+
 - To learn more about SQL Database see:
 	- [An Overview of Azure SQL Database](../../database/sql-database-paas-overview.md)
    - [Azure total Cost of Ownership Calculator](https://azure.microsoft.com/pricing/tco/calculator/) 
@@ -201,7 +205,8 @@ To learn more, see [managing Azure SQL Database after migration](../../database/
 
 - To learn more about the framework and adoption cycle for Cloud migrations, see
    -  [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
-   -  [Best practices for costing and sizing workloads migrate to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Best practices for costing and sizing workloads for migration to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Cloud Migration Resources](https://azure.microsoft.com/migration/resources)
 
 - To assess the Application access layer, see [Data Access Migration Toolkit (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
 - For details on how to perform Data Access Layer A/B testing see [Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-overview).

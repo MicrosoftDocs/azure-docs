@@ -18,7 +18,7 @@ Create a VM from a [specialized image version](./shared-image-galleries.md#gener
 
 Replace resource names as needed in this example. 
 
-List the image definitions in a gallery using [az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list) to see the name and ID of the definitions.
+List the image definitions in a gallery using [az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list) to see the name and ID of the definitions.
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -30,7 +30,7 @@ az sig image-definition list \
    --output tsv
 ```
 
-Create the VM using [az vm create](/cli/azure/vm#az-vm-create) using the --specialized parameter to indicate the the image is a specialized image. 
+Create the VM using [az vm create](/cli/azure/vm#az_vm_create) using the --specialized parameter to indicate the the image is a specialized image. 
 
 Use the image definition ID for `--image` to create the VM from the latest version of the image that is available. You can also create the VM from a specific version by supplying the image version ID for `--image`. 
 
