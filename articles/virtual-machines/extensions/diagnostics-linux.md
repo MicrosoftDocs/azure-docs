@@ -22,8 +22,8 @@ This document describes the latest versions of the Linux diagnostic extension (L
 
 the Linux diagnostic extension helps a user monitor the health of a Linux VM running on Microsoft Azure. It has the following collection and capabilities:
 
-| Data Source | Customization | Requred Destinations | Optional Destinations |
-| ----------- | ------------- | -------------------- | --------------------- |
+| Data Source | Customization Options | Requred Destinations | Optional Destinations |
+| ----------- | --------------------- | -------------------- | --------------------- |
 | Metrics     | [Counter, Aggregation, Sample Rate, Specifiers](#performancecounters) | Azure Table Storage | EventHub, Azure Blob Storage (JSON format), Azure Monitor<sup>1</sup> |
 | Syslog      | [Facility, Severity Level](#syslogevents) | Azure Table Storage | EventHub, Azure Blob Storage (JSON Format)
 | Files       | [Log Path, Destination Table](#filelogs) | Azure Table Storage | EventHub, Azure Blob Storage (JSON Format)
@@ -445,12 +445,12 @@ Element | Value
 sinks | (Optional) A comma-separated list of names of sinks to which LAD sends aggregated metric results. All aggregated metrics are published to each listed sink. Example: `"MyEventHubSink, MyJsonSink, MyAzMonSink"`. For more information, see [`sinksConfig` (protected settings)](#sinksconfig) and [`sinksConfig` (public settings)](#sinksconfig-1).
 type | Identifies the actual provider of the metric.
 class | Together with `"counter"`, identifies the specific metric within the provider's namespace.
-counter | Together with `"class"`, identifies the specific metric within the provider's namespace.
+counter | Together with `"class"`, identifies the specific metric within the provider's namespace. See a list of available counters [below](#metrics-supported-by-the-builtin-provider).
 counterSpecifier | Identifies the specific metric within the Azure Monitor Metrics namespace.
 condition | (Optional) Selects an instance of the object to which the metric applies. Or selects the aggregation across all instances of that object.
 sampleRate | The IS 8601 interval that sets the rate at which raw samples for this metric are collected. If the value isn't set, the collection interval is set by the value of [`sampleRateInSeconds`](#ladcfg). The shortest supported sample rate is 15 seconds (PT15S).
 unit | Defines the unit for the metric. Should be one of these strings: `"Count"`, `"Bytes"`, `"Seconds"`, `"Percent"`, `"CountPerSecond"`, `"BytesPerSecond"`, `"Millisecond"`. Consumers of the collected data expect the collected data values to match this unit. LAD ignores this field.
-displayName | The label to be attached to the data in Azure Monitor Metrics when viewing in the `Guest (classic)` metrics namespace. This label is in the language specified by the associated locale setting. LAD ignores this field. **Note**: if viewing the same metric in the `azure.vm.linux.guestmetrics` Metrics Namespace (available if `AzMonSink` is configured) the display name depends entirely on the counter. See the [tables below](#metrics-supported-by-the-builtin-provider) to find the mapping between counters and names.
+displayName | The label to be attached to the data in Azure Monitor Metrics when viewing in the `Guest (classic)` metrics namespace. This label is in the language specified by the associated locale setting. LAD ignores this field.<br/>**Note**: if viewing the same metric in the `azure.vm.linux.guestmetrics` Metrics Namespace (available if `AzMonSink` is configured) the display name depends entirely on the counter. See the [tables below](#metrics-supported-by-the-builtin-provider) to find the mapping between counters and names.
 
 The `counterSpecifier` is an arbitrary identifier. Consumers of metrics, like the Azure portal charting and alerting feature, use `counterSpecifier` as the "key" that identifies a metric or an instance of a metric.
 
@@ -565,7 +565,7 @@ Either `"table"` or `"sinks"` or both must be specified.
 > [!NOTE]
 > The display names for each metric will differ depending on the metrics namespace to which it belongs:
 > * `Guest (classic)` (populated from your storage account): the specified `displayName` in the `performanceCounters` section, or the default display name as seen in Azure Portal (VM > Diagnostic settings > Metrics > Custom).
-> * `azure.vm.linux.guestmetrics` (populated from `AzMonSink` if configured): the "`azure.vm.linux.guestmetrics` Name" specified in the below tables
+> * `azure.vm.linux.guestmetrics` (populated from `AzMonSink` if configured): the "`azure.vm.linux.guestmetrics` Name" specified in the tables below.
 >
 > Due to implementation details, the metric values between `Guest (classic)` and `azure.vm.linux.guestmetrics` versions will differ. While the classic metrics had certain aggregations applied in the agent, the new metrics are unaggregated counters, giving customers the flexibility to aggregate as desired at viewing/alerting time.
 
@@ -583,7 +583,7 @@ The Processor class of metrics provides information about processor usage in the
 
 In a two-vCPU VM, if one vCPU is 100 percent busy and the other is 100 percent idle, the reported `PercentIdleTime` is 50. If each vCPU is 50 percent busy for the same period, the reported result is also 50. In a four-vCPU VM, when one vCPU is 100 percent busy and the others are idle, the reported `PercentIdleTime` is 75.
 
-`counter` | `azure.vm.linux.guestmetrics` Name | Meaning
+Counter | `azure.vm.linux.guestmetrics` Display Name | Meaning
 --------- | ---------------------------------- | -------
 `PercentIdleTime` | `cpu/usage_idle` | Percentage of time during the aggregation window that processors ran the kernel idle loop
 `PercentProcessorTime` |  `cpu/usage_active` | Percentage of time running a non-idle thread
@@ -599,7 +599,7 @@ The first four counters should sum to 100 percent. The last three counters also 
 
 The Memory class of metrics provides information about memory use, paging, and swapping.
 
-`counter` | `azure.vm.linux.guestmetrics` Name | Meaning
+Counter | `azure.vm.linux.guestmetrics` Display Name | Meaning
 --------- | ---------------------------------- | -------
 `AvailableMemory` | `mem/available` | Available physical memory in MiB
 `PercentAvailableMemory` | `mem/available_percent` | Available physical memory as a percentage of total memory
@@ -621,7 +621,7 @@ The Network class of metrics provides information about network activity on an i
 
 LAD doesn't expose bandwidth metrics. You can get these metrics from host metrics.
 
-`counter` | `azure.vm.linux.guestmetrics` Name | Meaning
+Counter | `azure.vm.linux.guestmetrics` Display Name | Meaning
 --------- | ---------------------------------- | -------
 `BytesTransmitted` | `net/bytes_sent` | Total bytes sent since startup
 `BytesReceived` | `net/bytes_recv` | Total bytes received since startup
@@ -636,7 +636,7 @@ LAD doesn't expose bandwidth metrics. You can get these metrics from host metric
 
 The File system class of metrics provides information about file system usage. Absolute and percentage values are reported as they would be displayed to an ordinary user (not root).
 
-`counter` | `azure.vm.linux.guestmetrics` Name | Meaning
+Counter | `azure.vm.linux.guestmetrics` Display Name | Meaning
 --------- | ---------------------------------- | -------
 `FreeSpace` | `disk/free` | Available disk space in bytes
 `UsedSpace` | `disk/used` | Used disk space in bytes
@@ -657,7 +657,7 @@ The Disk class of metrics provides information about disk device usage. These st
 
 When a device has multiple file systems, the counters for that device are, effectively, aggregated across all file systems.
 
-`counter` | `azure.vm.linux.guestmetrics` Name | Meaning
+Counter | `azure.vm.linux.guestmetrics` Display Name | Meaning
 --------- | ---------------------------------- | -------
 `ReadsPerSecond` | `diskio/reads` | Read operations per second
 `WritesPerSecond` | `diskio/writes` | Write operations per second
