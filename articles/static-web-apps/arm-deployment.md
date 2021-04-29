@@ -56,15 +56,17 @@ The following steps demonstrate how to create a new repository for a static web 
 > [!NOTE]
 > If you want to use an existing code repository you can skip this section.
 
-1. Log on to [Github](https://github.com) using your GitHub account credentials
+1. Log on to [Github](https://github.com) using your GitHub account credentials.
 
-1. **Create a new Repository** with a name "myfirstswadeployment"
+1. Create a new repository with named **myfirstswadeployment**.
 
 1. Define your GitHub repo as **Public**.
 
-1. **Select** to add a Readme file.
+1. Select the checkbox next to **Add a Readme file**.
 
-1. Once the repository is created, click **Add File** / **Create New file**
+1. Select **Create repository**.
+
+1. Once the repository is created, select **Add File**.
 
 1. Select **Create New file** and provide **index.html** as file name.
 
