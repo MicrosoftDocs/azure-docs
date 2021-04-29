@@ -305,7 +305,7 @@ The following code example,
 * Assumes you already created a datastore that connects to the storage service where you saved your prepared data.  
 * Gets that existing datastore, `mydatastore`, from the workspace, `ws` with the get() method.
 * Creates a [FileDataset](how-to-create-register-datasets.md#filedataset), `train_ds`, that references the prepared data files located in the `training_data` directory in `mydatastore`.  
-* Creates the variable `input1`, which can be used at a later time to make the data files of the `train_ds` dataset available to a compute target.
+* Creates the variable `input1`, which can be used at a later time to make the data files of the `train_ds` dataset available to a compute target for your training tasks.
 
 ```python
 from azureml.core import Datastore, Dataset
@@ -317,16 +317,22 @@ train_ds = Dataset.File.from_files(path=datastore_paths, validate=True)
 input1 = train_ds.as_mount()
 
 ```
+
 ## Use a `ScriptRunConfig` to submit an experiment run to a Synapse Spark pool
 
-You can also [leverage the Synapse spark cluster you attached previously](#attach-a-pool-with-the-python-sdk) as a compute target for submitting an experiment run with a [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) object. 
+If you are ready to automate and productionize your data wrangling tasks, you can submit an experiment run to [the Synapse Spark pool you attached previously](#attach-a-pool-with-the-python-sdk)  with the [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) object.  
 
-> [!IMPORTANT]
-> To submit a run to a Synapse Spark pool, you must use a FileDataset and employ the as_hdfs() method to make the data available to the Synapse Spark pool. 
+Similarly, if you have an Azure Machine Learning pipeline, you can use the [SynapseSparkStep to specify your Synapse Spark pool as the compute target for the data preparation step in your pipeline](how-to-use-synapsesparkstep.md).
+
+Making your data available to the Synapse Spark pool depends on your dataset type. 
+
+* For a FileDataset, you can use the [`as_hdfs()`](/python/api/azureml-core/azureml.data.filedataset#as-hdfs--) method. When the run is submitted, the dataset is made available to the Synapse Spark pool as a Hadoop distributed file system (HFDS). 
+* For a [TabularDataset](how-to-create-register-datasets.md#tabulardataset), you can use the [`as_named_input()`](/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset#as-named-input-name-) method. 
 
 The following code, 
-* Creates the variable `input2`, which is used in the ScriptRunConfig to make the dataset available to the Synapse Spark pool as a Hadoop distributed file system (HFDS) with the `as_hdfs()` method. 
-* Creates the variable `output`. After the run is complete, the output of the run is saved and registered as a dataset in the datastore, `mydatastore` in the `test_data` directory. 
+
+* Creates the variable `input2` from the FileDataset `train_ds` that was created in the previous code example.
+* Creates the variable `output` with the HDFSOutputDatasetConfiguration class. After the run is complete, this class allows us to save the output of the run as the dataset,`test` in the datastore, `mydatastore`. In the Azure Machine Learning workspace, the `test` dataset is registered under the name `registered_dataset`. 
 * Configures settings the run should use in order to perform on the Synapse Spark pool. 
 * Defines the ScriptRunConfig parameters to, 
   * Use the `dataprep.py`, for the run. 
@@ -340,7 +346,7 @@ from azureml.core import ScriptRunConfig
 from azureml.core import Experiment
 
 input2 = train_ds.as_hdfs()
-output = HDFSOutputDatasetConfig(destination=(datastore,'/test_data/').register_on_complete(name="registered_dataset")
+output = HDFSOutputDatasetConfig(destination=(datastore, "test").register_on_complete(name="registered_dataset")
 
 run_config = RunConfiguration(framework="pyspark")
 run_config.target = synapse_compute_name
