@@ -119,8 +119,6 @@ To update sensor network configuration parameters:
 
 For users with versions prior to 10.0, your license may expire, and the following alert will be displayed. 
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/activation-popup.png" alt-text="test test test.":::
-
 :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/activation-popup.png" alt-text="When your license expires you will need to update your license through the activation file.":::
 
 To activate your license:
