@@ -63,6 +63,10 @@ The Azure Cosmos DB Java SDK v4 for Core (SQL) combines an Async API and a Sync 
 | **Minimum supported runtime**|[JDK 8](/java/azure/jdk/) | 
 | **Azure Cosmos DB workshops and labs** |[Cosmos DB workshops home page](https://aka.ms/cosmosworkshop)
 
+> [!IMPORTANT]
+> * 4.13.0 RELEASE - UPDATES `reactor-core` and `reactor-netty` MAJOR VERSIONS TO `2020.0.4 (Europium)` RELEASE TRAIN.
+> * 4.7.0 RELEASE - WE STRONGLY RECOMMEND OUR CUSTOMERS TO USE VERSION 4.7.0 AND ABOVE.
+
 [!INCLUDE[Release notes](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-cosmos/CHANGELOG.md)]
 
 ## FAQ
