@@ -102,8 +102,6 @@ Create a CNAME record to point to your host name. A CNAME record is a type of Do
    > [!NOTE]
    > This option does not appear in accounts that have the hierarchical namespace feature enabled. For those accounts, use either PowerShell or the Azure CLI to complete this step.
 
-   ![custom domain option](./media/storage-custom-domain-name/custom-domain-button.png "custom domain")
-
 3. In the **Domain name** text box, enter the name of your custom domain, including the subdomain.  
    
    For example, if your domain is *contoso.com* and your subdomain alias is *www*, enter `www.contoso.com`. If your subdomain is *photos*, enter `photos.contoso.com`.
