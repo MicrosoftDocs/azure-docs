@@ -9,7 +9,7 @@ manager: tracsman
 ms.service: expressroute
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 4/27/2021
+ms.date: 4/28/2021
 ms.author: rambala
 
 ---
@@ -24,11 +24,10 @@ For more information about ExpressRoute, see the [Introduction to ExpressRoute][
 
 Often there's a confusion whether ExpressRoute can be used or not for routing Microsoft 365 SaaS traffic. 
 
-* One side argument is: ExpressRoute does offer Microsoft peering, using which you can reach most of the public endpoints in Microsoft network. 
+* One side argument: ExpressRoute does offer Microsoft peering, using which you can reach most of the public endpoints in Microsoft network. 
 In fact, using a *Route Filter* you can select Microsoft 365 service prefixes that need to be advertised via Microsoft peering to your on-premises network. 
 These routes advertisement enables routing Microsoft 365 service traffic over the ExpressRoute circuit. 
-
-* The counter argument is: Microsoft 365 is a distributed service. It is designed to enable customers all over the world to connect to the service using the Internet. 
+* The counter argument: Microsoft 365 is a distributed service. It is designed to enable customers all over the world to connect to the service using the Internet. 
 So, it's recommended not to use ExpressRoute for Microsoft 365.
 
 The goals of this article are: 
