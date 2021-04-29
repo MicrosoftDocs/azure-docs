@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot CI-CD, Azure DevOps and GitHub issues in ADF
+title: Troubleshoot CI-CD, Azure DevOps, and GitHub issues in ADF
 description: Use different methods to troubleshoot CI-CD issues in ADF. 
 author: ssabat
 ms.author: susabat
@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 ms.date: 04/27/2021
 ---
 
-# Troubleshoot CI-CD, Azure DevOps and GitHub issues in ADF 
+# Troubleshoot CI-CD, Azure DevOps, and GitHub issues in ADF 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
