@@ -29,6 +29,23 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 - [Azure Policy-based data connectors](#azure-policy-based-data-connectors)
 - [Incident timeline (Public preview)](#incident-timeline-public-preview)
+- [Zero Trust (TIC3.0) workbook](#zero-trust-tic30-workbook)
+
+### Zero Trust (TIC3.0) workbook
+
+The new, Azure Sentinel Zero Trust (TIC3.0) workbook provides an automated visualization of [Zero Trust](/security/zero-trust/) principles, cross-walked to the [Trusted Internet Connections](https://www.cisa.gov/trusted-internet-connections) (TIC) framework.
+
+We know that compliance isn’t just an annual requirement, and organizations must monitor configurations over time like a muscle. Azure Sentinel's Zero Trust workbook uses the full breadth of Microsoft security offerings across Azure, Office 365, Teams, Intune, Windows Virtual Desktop, and many more.
+
+**The Zero Trust workbook**:
+
+- Enables Implementers, SecOps Analysts, Assessors, Security and Compliance Decision Makers, MSSPs, and others to gain situational awareness for cloud workloads' security posture.
+- Features over 75 control cards, aligned to the TIC 3.0 security capabilities, with selectable GUI buttons for navigation.
+- Is designed to augment staffing through automation, artificial intelligence, machine learning, query/alerting generation, visualizations, tailored recommendations, and respective documentation references.
+
+For more information, see [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md).
+
+
 
 ### Azure Policy-based data connectors
 
