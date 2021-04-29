@@ -51,7 +51,7 @@ The training code is taken from [this introductory example](https://pytorch.org/
 
 3. Next, define the training script. This script downloads the CIFAR10 dataset by using PyTorch `torchvision.dataset` APIs, sets up the network defined in *model.py*, and trains it for two epochs by using standard SGD and cross-entropy loss.
 
-  Create a *train.py* script in the **src** subfolder:
+    Create a *train.py* script in the **src** subfolder:
 
      ```python
     import torch
