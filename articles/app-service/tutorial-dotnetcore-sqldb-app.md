@@ -146,7 +146,7 @@ Create a database with an [S0 performance level](../azure-sql/database/service-t
 az sql db create --resource-group myResourceGroup --server <server-name> --name coreDB --service-objective S0
 ```
 
-### Create connection string
+### Retrieve connection string
 
 Get the connection string using the [`az sql db show-connection-string`](/cli/azure/sql/db#az_sql_db_show_connection_string) command.
 
