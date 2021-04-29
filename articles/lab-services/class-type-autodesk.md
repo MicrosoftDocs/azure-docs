@@ -13,7 +13,7 @@ This article describes how to set up Autodesk Inventor and Autodesk Revit softwa
 - [Inventor computer-aided design (CAD)](https://www.autodesk.com/products/inventor/new-features) and [computer-aided manufacturing (CAM)](https://www.autodesk.com/products/inventor-cam/overview) provide 3D modeling and are used in engineering design.
 - [Revit](https://www.autodesk.com/products/revit/overview) is used in architecture design for 3D building information modeling (BIM).
 
-Autodesk is commonly used in both universities and K-12 schools.
+Autodesk is commonly used in both universities and K-12 schools.  For example, in K-12, AutoDesk is included in the [Project Lead the Way (PLTW)](./class-type-pltw.md) curriculum.
 
 ## Lab configuration
 
@@ -30,12 +30,12 @@ Enable your lab account settings as described in the following table. For more i
 ### Lab settings
 The size of the virtual machine (VM) that we recommend depends on the types of workloads that your students need to do.  We recommend using the Small GPU (Visualization) size.
 
-| Lab setting | Value and description
+| Lab setting | Value and description |
 | ------------ | ------------------ |
-| Virtual Machine Size | **Small GPU (Visualization)**<br>Best suited for remote visualization, streaming, gaming, and encoding with frameworks such as OpenGL and DirectX. | We recommend using this size for the following PLTW classes: Civil Engineering and Architecture, Digital Electronics, Computer Integrated Manufacturing, and Engineering Design and Development.
+| Virtual Machine Size | **Small GPU (Visualization)**<br>Best suited for remote visualization, streaming, gaming, and encoding with frameworks such as OpenGL and DirectX. | 
 
 >[!NOTE]
-The **Small GPU (Visualization)** virtual machine size is configured to enable a high-performing graphics experience. For more information about this virtual machine size, see the article on [how to set up a lab with GPUs](https://docs.microsoft.com/azure/lab-services/how-to-setup-lab-gpu).
+The **Small GPU (Visualization)** virtual machine size is configured to enable a high-performing graphics experience. For more information about this virtual machine size, see the article on [how to set up a lab with GPUs](./how-to-setup-lab-gpu.md).
 
 ### License server
 You will need to access a license server if you plan to use the Autodesk network licensing model.  Read AutoDesk's article on [Network License Administration](https://knowledge.autodesk.com/customer-service/network-license-administration/network-deployment/preparing-for-deployment/determining-installation-type) for more information.
@@ -52,7 +52,7 @@ Autodesk-generated license files embed the MAC address of the license server.  I
 For more information, see [Set up a license server as a shared resource](./how-to-create-a-lab-with-shared-resource.md).
 
 >[!WARNING]
-Don’t forget to [peer the virtual network](https://docs.microsoft.com/en-us/azure/lab-services/how-to-connect-peer-virtual-network) for the lab account to the virtual network for the license server **before** creating the lab.
+Don’t forget to [peer the virtual network](./how-to-connect-peer-virtual-network.md) for the lab account to the virtual network for the license server **before** creating the lab.
 
 ### Template machine
 The steps in this section show how to set up the template VM:
@@ -64,11 +64,9 @@ The steps in this section show how to set up the template VM:
 1.  Finally, publish the template VM to create the students’ VMs.
 
 ## Cost
-Let’s cover an example cost estimate for this class.  This estimate doesn’t include the cost of running a license server. Suppose you have a class of 25 students, each of whom has 20 hours of scheduled class time.  Each student also has an additional 10 quota hours for homework or assignments outside of scheduled class time.  Here are the estimated costs:
+Let’s cover an example cost estimate for this class.  This estimate doesn’t include the cost of running a license server. Suppose you have a class of 25 students, each of whom has 20 hours of scheduled class time.  Each student also has an additional 10 quota hours for homework or assignments outside of scheduled class time.  The virtual machine size we chose was **Small GPU (Visualization)**, which is 160 lab units.
 
-- **Small GPU (visualization)**
-
-    25 students &times; (20 scheduled hours + 10 quota hours) &times; 160 Lab Units &times; USD0.01 per hour = USD1200.00
+- 25 students &times; (20 scheduled hours + 10 quota hours) &times; 160 Lab Units &times; USD0.01 per hour = USD1200.00
 
 > [!IMPORTANT] 
 > The cost estimate is for example purposes only.  For current pricing information, see [Azure Lab Services pricing](https://azure.microsoft.com/pricing/details/lab-services/).
