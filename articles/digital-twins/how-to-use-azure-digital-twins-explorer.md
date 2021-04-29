@@ -189,8 +189,6 @@ You can use this panel to directly edit writeable properties. Update their value
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties-save.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The center of the screen displays a Path Information modal showing JSON Patch code." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties-save.png":::
 
-<More about improved property editing for twins and complex properties?>
-
 ### Delete twins and relationships
 
 To delete a twin or a relationship, right-click it in the **TWIN GRAPH** window. This will bring up a menu with an option to delete the element.
@@ -468,10 +466,6 @@ Clicking the settings cog in the top right corner allows the configuration of th
     :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/panels.png" alt-text="Screenshot of Azure Digital Twins Explorer. The names of the QUERY EXPLORER, MODELS, TWIN GRAPH, and MODEL GRAPH panels are highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/panels.png":::
 
     The panel positions will be reset upon refresh of the browser window.
-
-## Known limitations
-
-<Probably a new set of limitations for the hosted version?>
 
 ## Next steps 
 
