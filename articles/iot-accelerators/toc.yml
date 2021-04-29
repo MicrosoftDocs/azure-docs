@@ -19,14 +19,9 @@
       href: iot-accelerators-connected-factory-features.md
 - name: Quickstarts
   items:
-  - name: Deploy the device simulation solution accelerator
-    href: https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md
   - name: Try a connected factory solution
     href: quickstart-connected-factory-deploy.md
   expanded: true
-- name: Tutorials
-  items:
-  - name: Device simulation
 - name: Concepts
   items:
   - name: Industrial IoT
@@ -71,7 +66,6 @@
         href: howto-opc-publisher-configure.md
       - name: Run OPC Publisher
         href: howto-opc-publisher-run.md
-  - name: Device simulation
 - name: Resources
   items:
   - name: Support and help options
@@ -106,12 +100,6 @@
     items:
     - name: GitHub repository
       href: https://github.com/Azure/azure-iot-connected-factory
-  - name: Device simulation
-    items:
-    - name: Developer reference guide
-      href: https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide
-    - name: GitHub repository
-      href: https://github.com/Azure/azure-iot-pcs-device-simulation
   - name: Reference Architecture
     href: /azure/architecture/reference-architectures/iot
     items:
