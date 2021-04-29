@@ -206,10 +206,10 @@ To recover the Deleted Data Factory which has Source Control refer the steps bel
 
  * If customer had a Self-hosted Integration Runtime in deleted ADF, they will have to create a new instance in new ADF, also uninstall and reinstall the instance on their On-prem machine/VM with the new key obtained. After setup of IR is completed, customer will have to change the Linked Service to point to new IR and test the connection or it will fail with error **invalid reference.**
 
-### Cannot deploy to different stage using automatic pubish method
+### Cannot deploy to different stage using automatic publish method
 
 #### Issue
-Customer followed all necessary steps like installing NPM package and setting up a higher stage using Azure DevOps and ADF. But, dpeloyment is not happening.
+Customer followed all necessary steps like installing NPM package and setting up a higher stage using Azure DevOps and ADF. But, deployment is not happening.
 
 #### Cause
 
@@ -217,7 +217,8 @@ While npm packages can be consumed in various ways, one of the primary benefits 
 
 
 #### Resolution
-Following section is not valid because cusotmer forgot to replace with valid package.json folder.
+
+Following section is not valid because package.json folder is not valid.
 
 ```
 - task: Npm@1
@@ -227,7 +228,7 @@ Following section is not valid because cusotmer forgot to replace with valid pac
     customCommand: 'run build validate $(Build.Repository.LocalPath) /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName'
   displayName: 'Validate'
 ```
-It should have DataFactory included in customCommand like *'run build validate $(Build.Repository.LocalPath)/DataFactory/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName'*. Make sure the generated YAML file for higher stage should have required JSON artifcats.
+It should have DataFactory included in customCommand like *'run build validate $(Build.Repository.LocalPath)/DataFactory/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName'*. Make sure the generated YAML file for higher stage should have required JSON artifacts.
 
 
 ## Next steps
