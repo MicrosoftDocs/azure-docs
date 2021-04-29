@@ -6,8 +6,8 @@ author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.date: 04/12/2021
+ms.topic: how-to
+ms.date: 04/29/2021
 ms.custom: data4ml
 ---
 

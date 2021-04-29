@@ -43,7 +43,7 @@ In this tutorial, you'll learn how to:
    ```
 
 > [!NOTE] 
-> For more information about the commands used in this tutorial, see [Azure CLI reference for Front Door](/cli/azure/ext/front-door).
+> For more information about the commands used in this tutorial, see [Azure CLI reference for Front Door](/cli/azure/).
 
 ## Create an Azure Front Door resource
 

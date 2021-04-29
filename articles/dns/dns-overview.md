@@ -4,7 +4,7 @@ description: Overview of DNS hosting service on Microsoft Azure. Host your domai
 author: rohinkoul
 ms.service: dns
 ms.topic: overview
-ms.date: 4/20/2021
+ms.date: 4/22/2021
 ms.author: rohink
 #Customer intent: As an administrator, I want to evaluate Azure DNS so I can determine if I want to use it instead of my current DNS service.
 ---
