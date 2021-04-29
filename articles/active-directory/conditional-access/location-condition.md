@@ -187,5 +187,4 @@ A preview version of the Graph API for named locations is available, for more in
 
 ## Next steps
 
-- [Create named locations](howto-configure-named-locations.md)
 - Configure a Conditional Access policy using location, see the article [Conditional Access: Block access by location](howto-conditional-access-policy-location.md).

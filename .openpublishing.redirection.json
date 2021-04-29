@@ -50933,7 +50933,7 @@
     {
       "source_path_from_root": "/articles/active-directory/active-directory-conditional-access-locations.md",
       "redirect_url": "/azure/active-directory/conditional-access/location-condition",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-conditional-access-azure-portal.md",
