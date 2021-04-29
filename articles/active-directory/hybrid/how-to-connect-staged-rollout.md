@@ -6,7 +6,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -172,15 +172,6 @@ Do the following:
 
    For example, if you want to enable *Option A*, slide the **Password Hash Sync** and **Seamless single sign-on** controls to **On**, as shown in the following images.
 
-<<<<<<< HEAD
-   ![The Azure AD Connect page](./media/how-to-connect-staged-rollout/staged-4.png)
-
-   ![The "Enable staged rollout features (Preview)" page](./media/how-to-connect-staged-rollout/staged-5.png)
-
-3. Add the groups to the feature to enable *pass-through authentication* and *seamless SSO*. To avoid a UX time-out, ensure that the security groups contain no more than 200 members initially.
-
-   ![The "Manage groups for Password Hash Sync (Preview)" page](./media/how-to-connect-staged-rollout/staged-6.png)
-=======
    
 
   
@@ -188,7 +179,6 @@ Do the following:
 3. Add the groups to the feature to enable *pass-through authentication* and *seamless SSO*. To avoid a UX time-out, ensure that the security groups contain no more than 200 members initially.
 
    
->>>>>>> 984850e03dacac6a79e2fae620959e6345c88c59
 
    >[!NOTE]
    >The members in a group are automatically enabled for staged rollout. Nested and dynamic groups are not supported for staged rollout.
