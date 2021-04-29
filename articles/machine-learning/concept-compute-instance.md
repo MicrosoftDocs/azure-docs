@@ -95,7 +95,7 @@ You can also clone the latest Azure Machine Learning samples to your folder unde
 
 Writing small files can be slower on network drives than writing to the compute instance local disk itself.  If you are writing many small files, try using a directory directly on the compute instance, such as a `/tmp` directory. Note these files will not be accessible from other compute instances. 
 
-You can use the `/tmp` directory on the compute instance for your temporary data.  However, do not write large files of data on the OS disk of the compute instance.  Use [datastores](concept-azure-machine-learning-architecture.md#datasets-and-datastores) instead. If you have installed JupyterLab git extension, it can also lead to slow down in compute instance performance.
+You can use the `/tmp` directory on the compute instance for your temporary data.  However, do not write very large files of data on the OS disk of the compute instance. OS disk on compute instance has 128 GB capacity. Use [datastores and datasets](concept-azure-machine-learning-architecture.md#datasets-and-datastores) instead. Do not store training data on notebooks file share. If you have installed JupyterLab git extension, it can also lead to slow down in compute instance performance.
 
 ## Managing a compute instance
 
