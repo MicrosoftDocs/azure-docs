@@ -50,7 +50,7 @@
       href: dynamic-dictionary.md
     - name: Translate behind firewalls
       href: firewalls.md
-   - name: Use the Translator container
+    - name: Use the Translator container
       items:
       - name: Containers overview
         href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/translator/context/context
