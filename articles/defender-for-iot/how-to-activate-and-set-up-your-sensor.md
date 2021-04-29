@@ -1,7 +1,7 @@
 ---
 title: Activate and set up your sensor
 description: This article describes how to sign in and activate a sensor console.
-ms.date: 04/28/2021
+ms.date: 04/29/2021
 ms.topic: how-to
 ---
 
