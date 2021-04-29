@@ -212,4 +212,6 @@ sections:
           One way to view the retention settings for your backups, is to navigate to the backup item [dashboard](./backup-azure-manage-vms.md#view-vms-on-the-dashboard) for your VM, in the Azure portal. Selecting the link to its backup policy helps you view the retention duration of all the daily, weekly, monthly and yearly retention points associated with the VM.
           
           You can also use [Backup Explorer](./monitor-azure-backup-with-backup-explorer.md) to view the retention settings for all your VMs within a single pane of glass. Navigate to Backup Explorer from any Recovery Services vault, go to the **Backup Items** tab and select the Advanced View to see detailed retention information for each VM.
+      - question: When the snapshot is moved from a storage account to a vault, how is encryption in the transit managed?
+        answer: Azure VM Backup uses HTTPS communication for encryption in transit. For VM backups, which doesn’t need the Internet access, the data transfer uses Azure fabric, and not public endpoints.
           
