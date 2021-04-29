@@ -19,7 +19,7 @@ Activation and setup of the on-premises management console ensures that:
 
 ## Sign in for the first time
 
-To sign in to the management console:
+**To sign in to the management console:**
 
 1. Navigate to the IP address you received for the on-premises management console during the system installation.
  
@@ -32,7 +32,7 @@ If you forgot your password, select the **Recover Password**  option, and see [P
 
 After you sign in for the first time, you will need to activate the on-premises management console by getting, and uploading an activation file. 
 
-To activate the on-premises management console:
+**To activate the on-premises management console:**
 
 1. Sign in to the on-premises management console.
 
@@ -62,9 +62,9 @@ For users with versions prior to 10.0, your license may expire, and the followin
 
 :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/activation-popup.png" alt-text="When your license expires you will need to update your license through the activation file.":::
 
-To activate your license:
+**To activate your license:**
 
-1. Open a case with support.
+1. Open a case with [support](https://ms.portal.azure.com/?passwordRecovery=true&Microsoft_Azure_IoT_Defender=canary#create/Microsoft.Support)..
 
 1. Supply support with your Activation ID number.
 
@@ -85,6 +85,7 @@ After you install the management console, a local self-signed certificate is gen
 Two levels of security are available:
 
 - Meet specific certificate and encryption requirements requested by your organization by uploading the CA-signed certificate.
+
 - Allow validation between the management console and connected sensors. Validation is evaluated against a certificate revocation list and the certificate expiration date. *If validation fails, communication between the management console and the sensor is halted and a validation error is presented in the console.* This option is enabled by default after installation.  
 
 The console supports the following types of certificates:
@@ -98,7 +99,7 @@ The console supports the following types of certificates:
   > [!IMPORTANT]
   > We recommend that you don't use a self-signed certificate. The certificate is not secure and should be used for test environments only. The owner of the certificate can't be validated, and the security of your system can't be maintained. Never use this option for production networks.
 
-To upload a certificate:
+**To upload a certificate:**
 
 1. When you're prompted after sign-in, define a certificate name.
 
@@ -108,7 +109,7 @@ To upload a certificate:
 
 You may need to refresh your screen after you upload the CA-signed certificate.
 
-To disable validation between the management console and connected sensors:
+**To disable validation between the management console and connected sensors:**
 
 1. Select **Next**.
 
@@ -130,7 +131,7 @@ After connecting, you must set up a site with these sensors.
 
 ### Connect sensors to the on-premises management console from the sensor console
 
-You can connect sensors to the on-premises management console from the sensor console:
+**To connect sensors to the on-premises management console from the sensor console:**
 
 1. On the on-premises management console, select **System Settings**.
 
@@ -152,7 +153,7 @@ Enable a secured tunneling connection between organizational sensors and the on-
 
 Using tunneling allows you to connect to the on-premises management console from its IP address and a single port (that is, 9000) to any sensor.
 
-To set up tunneling at the on-premises management console:
+**To set up tunneling at the on-premises management console:**
 
 - Sign in to the on-premises management console and run the following commands:
 
@@ -163,7 +164,7 @@ To set up tunneling at the on-premises management console:
   service apache2 reload
   ```
 
-To set up tunneling on the sensor:
+**To set up tunneling on the sensor:**
 
 1. Open TCP port 9000 on the sensor (network.properties) manually. If the port is not open, the sensor will reject the connection from the on-premises management console.
 
@@ -201,7 +202,7 @@ Using the Enterprise View, you can edit your sites directly. When you select a s
 
 :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/console-map-with-data-overlay-v2.png" alt-text="Screenshot of an on-premises management console map with Berlin data overlay.":::
 
-To set up a site:
+**To set up a site:**
 
 1. Add new business units to reflect your organization's logical structure.
 
@@ -239,7 +240,7 @@ To set up a site:
 
 If you no longer need a site, you can delete it from your on-premises management console.
 
-To delete a site:
+**To delete a site:**
 
 1. In the **Site Management** window, select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: from the bar that contains the site name, and then select **Delete Site**. The confirmation box appears, verifying that you want to delete the site.
 
@@ -272,7 +273,7 @@ The following table describes the parameters in the **Site Management** window.
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/number-of-alerts-icon.png" border="false"::: | Indicates the number of alerts sent by sensors that are assigned to the zone. |
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/unassign-sensor-icon.png" border="false"::: | Unassigns sensors from zones. |
 
-To add a zone to a site:
+**To add a zone to a site:**
 
 1. In the **Site Management** window, select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: from the bar that contains the site name, and then select **Add Zone**. The **Create New Zone** dialog box appears.
 
@@ -284,7 +285,7 @@ To add a zone to a site:
 
 1. Select **SAVE**. The new zone appears in the **Site Management** window under the site that this zone belongs to.
 
-To edit a zone:
+**To edit a zone:**
 
 1. In the **Site Management** window, select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: from the bar that contains the zone name, and then select **Edit Zone**. The **Edit Zone** dialog box appears.
 
@@ -292,13 +293,13 @@ To edit a zone:
 
 1. Edit the zone parameters and select **SAVE**.
 
-To delete a zone:
+**To delete a zone:**
 
 1. In the **Site Management** window, select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: from the bar that contains the zone name, and then select **Delete Zone**.
 
 1. In the confirmation box, select **YES**.
 
-To filter according to the connectivity status:
+**To filter according to the connectivity status:**
 
 - From the upper-left corner, select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/down-pointing-icon.png" border="false"::: next to **Connectivity**, and then select one of the following options:
 
@@ -308,7 +309,7 @@ To filter according to the connectivity status:
 
   - **Disconnected**: Presents only disconnected sensors.
 
-To filter according to the upgrade status:
+**To filter according to the upgrade status:**
 
 - From the upper-left corner, select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/down-pointing-icon.png" border="false"::: next to **Upgrade Status** and select one of the following options:
 
@@ -324,7 +325,7 @@ To filter according to the upgrade status:
 
 For each zone, you need to assign sensors that perform local traffic analysis and alerting. You can assign only the sensors that are connected to the on-premises management console.
 
-To assign a sensor:
+**To assign a sensor:**
 
 1. Select **Site Management**. The unassigned sensors appear in the upper-left corner of the dialog box.
 
@@ -340,7 +341,7 @@ To assign a sensor:
 
 1. Select **ASSIGN**.
 
-To unassign and delete a sensor:
+**To unassign and delete a sensor:**
 
 1. Disconnect the sensor from the on-premises management console. See [Connect sensors to the on-premises management console](#connect-sensors-to-the-on-premises-management-console) for details.
 

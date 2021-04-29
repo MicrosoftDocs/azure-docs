@@ -66,7 +66,7 @@ The console supports the following certificate types:
 
 ### Sign in and activate the sensor
 
-To sign in and activate:
+**To sign in and activate:**
 
 1. Go to the sensor console from your browser by using the IP defined during the installation. The sign-in dialog box opens.
 
@@ -107,7 +107,7 @@ The sensor network configuration parameters were defined during the software ins
 
 You might want to update this information before activating the sensor. For example, you might need to change the preconfigured parameters defined by Arrow. You can also define proxy settings before activating your sensor.
 
-To update sensor network configuration parameters:
+**To update sensor network configuration parameters:**
 
 1. Select the **Sensor Network Configuration** link form the **Activation** dialog box.
 
@@ -121,9 +121,9 @@ For users with versions prior to 10.0, your license may expire, and the followin
 
 :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/activation-popup.png" alt-text="When your license expires you will need to update your license through the activation file.":::
 
-To activate your license:
+**To activate your license:**
 
-1. Open a case with support.
+1. Open a case with [support](https://ms.portal.azure.com/?passwordRecovery=true&Microsoft_Azure_IoT_Defender=canary#create/Microsoft.Support).
 
 1. Supply support with your Activation ID number.
 
@@ -173,7 +173,7 @@ After adjusting the system settings, you can let the Azure Defender for IoT sens
 
 The learning mode should run for about 2 to 6 weeks, depending on your network size and complexity. After you disable learning mode, any activity that differs from your baseline activity will trigger an alert.
 
-To disable learning mode:
+**To disable learning mode:**
 
 - Select **System Settings** and turn off the **Learning** option.
 
