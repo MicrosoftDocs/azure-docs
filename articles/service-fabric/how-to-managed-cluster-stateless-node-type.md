@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 04/21/2021
 ---
 # Deploy an Azure Service Fabric managed cluster with stateless-only node types
-Service Fabric node types come with an inherent assumption that at some point of time, stateful services might be placed on the nodes. Stateless node types relax this assumption for a node type. This enables node stateless node types to benefit from faster scale out operations by removing some of the restrictions on repair and maintenance operations.
+Service Fabric node types come with an inherent assumption that at some point of time, stateful services might be placed on the nodes. Stateless node types relax this assumption for a node type. Relaxing this assumption enables node stateless node types to benefit from faster scale-out operations by removing some of the restrictions on repair and maintenance operations.
 
 * Primary node types cannot be configured to be stateless
 * Stateless node types require an API version of **2021-05-01** or later
@@ -43,7 +43,7 @@ To set one or more node types as stateless in a node type resource, set the **is
 ```
 
 ## Configuring Stateless node types with multiple Availability Zones
-To, configure a Stateless node type spanning across multiple availability zones follow the documentation [here](https://docs.microsoft.com/azure/service-fabric/how-to-managed-cluster-availability-zones.md). 
+To configure a Stateless node type spanning across multiple availability zones follow the documentation [here](https://docs.microsoft.com/azure/service-fabric/how-to-managed-cluster-availability-zones.md). 
 
 >[!NOTE]
 > The zonal resiliency property must be set at the cluster level, and this property cannot be changed in place.
