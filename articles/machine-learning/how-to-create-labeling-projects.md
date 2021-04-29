@@ -75,7 +75,7 @@ To create a project, select **Add project**. Give the project an appropriate nam
 
     :::image type="content" source="media/how-to-create-labeling-projects/text-labeling-creation-wizard.png" alt-text="Labeling project creation for text labeling":::
 
-    * Choose **Text Classification Multi-class (Preview)** for projects when you want to apply only a *single label* from a set of labels to eqch piece of text.
+    * Choose **Text Classification Multi-class (Preview)** for projects when you want to apply only a *single label* from a set of labels to each piece of text.
     * Choose **Text Classification Multi-label (Preview)** for projects when you want to apply *one or more* labels from a set of labels to each piece of text.
 
 * Select **Next** when you're ready to continue.
