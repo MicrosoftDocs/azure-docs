@@ -6,7 +6,7 @@ ms.author: evanhi
 ms.date: 09/22/2020
 ms.topic: quickstart
 ms.devlang: azurepowershell
-ms.custom:
+ms.custom: devx-track-azurepowershell
   - devx-track-azurepowershell
   - mode-api
 ---
