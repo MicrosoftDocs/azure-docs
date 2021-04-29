@@ -157,7 +157,7 @@ The snippet uses the [Room.json](https://github.com/Azure-Samples/digital-twins-
 
 Before you run the sample, do the following:
 1. Download the model files, place them in your project, and replace the `<path-to>` placeholders in the code below to tell your program where to find them.
-2. Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's hostname.
+2. Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's host name.
 3. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client), the second provides tools to help with authentication against Azure.
 
       ```cmd/sh
@@ -196,7 +196,7 @@ Consider the following data table, describing a set of digital twins 
 
 One way to get this data into Azure Digital Twins is to convert the table to a CSV file and write code to interpret the file into commands to create twins and relationships. The following code sample illustrates reading the data from the CSV file and creating a twin graph in Azure Digital Twins.
 
-In the code below, the CSV file is called *data.csv*, and there is a placeholder representing the **hostname** of your Azure Digital Twins instance. The sample also makes use of several packages that you can add to your project to help with this process.
+In the code below, the CSV file is called *data.csv*, and there is a placeholder representing the **host name** of your Azure Digital Twins instance. The sample also makes use of several packages that you can add to your project to help with this process.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graphFromCSV.cs":::
 

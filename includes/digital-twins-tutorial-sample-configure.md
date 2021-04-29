@@ -17,11 +17,11 @@ Once inside the folder, navigate into _AdtSampleApp_. Open _**AdtE2ESample.sln**
 
 In Visual Studio, select the _SampleClientApp > **appsettings.json**_ file to open it in the editing window. This will serve as a pre-set JSON file with the necessary configuration variables to run the project.
 
-In the file body, change the `instanceUrl` to your Azure Digital Twins instance *hostName URL* (by adding **_https://_** in front of the *hostName*, as shown below).
+In the file body, change the `instanceUrl` to your Azure Digital Twins instance *host name URL* (by adding **_https://_** in front of the *host name*, as shown below).
 
 ```json
 {
-  "instanceUrl": "https://<your-Azure-Digital-Twins-instance-hostName>"
+  "instanceUrl": "https://<your-Azure-Digital-Twins-instance-host-name>"
 }
 ```
 

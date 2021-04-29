@@ -97,10 +97,10 @@ Next, you'll add code to this file to fill out some functionality.
 
 The first thing your app will need to do is authenticate against the Azure Digital Twins service. Then, you can create a service client class to access the SDK functions.
 
-In order to authenticate, you need the *hostName* of your Azure Digital Twins instance.
+In order to authenticate, you need the *host name* of your Azure Digital Twins instance.
 
 In *Program.cs*, paste the following code below the "Hello, World!" printout line in the `Main` method. 
-Set the value of `adtInstanceUrl` to your Azure Digital Twins instance *hostName*.
+Set the value of `adtInstanceUrl` to your Azure Digital Twins instance *host name*.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Authentication_code":::
 

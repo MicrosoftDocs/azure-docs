@@ -227,7 +227,7 @@ The snippet uses the [Room.json](https://github.com/Azure-Samples/digital-twins-
 
 Before you run the sample, do the following:
 1. Download the model file, place it in your project, and replace the `<path-to>` placeholder in the code below to tell your program where to find it.
-2. Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's hostname.
+2. Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's host name.
 3. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client), the second provides tools to help with authentication against Azure.
 
       ```cmd/sh
