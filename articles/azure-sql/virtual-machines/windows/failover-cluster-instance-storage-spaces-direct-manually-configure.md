@@ -142,10 +142,10 @@ For more information, see [Failover cluster: Cluster Network Object](https://blo
 
 ## Configure quorum
 
-Configure the quorum solution that best suits your business needs. You can configure a [cloud witness](/windows-server/failover-clustering/deploy-cloud-witness), or a [file share witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum). For more information, see [Quorum with SQL Server VMs](hadr-cluster-best-practices.md#quorum). 
+If you have an even number of votes in the cluster, configure the [quorum solution](hadr-cluster-quorum-configure-how-to.md) that best suits your business needs. For more information, see [Quorum with SQL Server VMs](hadr-cluster-best-practices.md#quorum). 
 
 > [!NOTE]
-> A disk witness is not currently supported with failover cluster instances using Storage Spaces Direct as the shared storage solution. Use a cloud witness or file share witness instaed. 
+> A disk witness is not currently supported with failover cluster instances using Storage Spaces Direct as the shared storage solution. Use a cloud witness or file share witness instead. 
 
 ## Add storage
 
