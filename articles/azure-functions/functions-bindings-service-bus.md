@@ -101,6 +101,35 @@ If you have `isSessionsEnabled` set to `true`, the `sessionHandlerOptions` will 
 
 ### Additional settings for version 5.x+
 
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "serviceBus": {
+            "serviceBusOptions": {
+                "retryOptions":{
+                    "mode": "exponential",
+                    "tryTimeout": "00:00:10",
+                    "delay": "00:00:00.80",
+                    "maxDelay": "00:01:00",
+                    "maxRetries": 4
+                },
+                "prefetchCount": 100,
+                "autoCompleteMessages": true,
+                "maxAutoLockRenewalDuration": "00:05:00",
+                "maxConcurrentCalls": 32,
+                "maxConcurrentSessions": 10,
+                "maxMessages": 2000,
+                "sessionIdleTimeout": "00:01:00",
+                "maxAutoLockRenewalDuration": "00:05:00",
+                "transportType": "AmqpWebSockets",
+                "webProxy": "AmqpWebSockets",
+            }
+        }
+    }
+}
+```
+
 When using service bus extension version 5.x and higher, the following global configuration settings are supported in addition to the 2.x settings in `ServiceBusOptions`.
 
 |Property  |Default | Description |
