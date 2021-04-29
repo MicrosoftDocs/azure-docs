@@ -147,7 +147,7 @@ To restore the backup data as files instead of a database, choose **Restore as F
     ![Select restore point](media/sap-hana-db-restore/select-restore-point.png)
 
 1. All the backup files associated with the selected restore point are dumped into the destination path.
-1. Based on the type of restore point chosen (**Point in time** or **Full & Differential**), you'll see one or more folders created in the destination path. One of the folders named `Data_<date and time of restore>` contains the full backups, and the other folder named `Log` contains the log backups and other backups (such as differential and incremental).
+1. Based on the type of restore point chosen (**Point in time** or **Full & Differential**), you'll see one or more folders created in the destination path. One of the folders named `Data_<date and time of restore>` contains the full backups, and the other folder named `Log` contains the log backups and other backups (such as differential, and incremental).
 1. Move these restored files to the SAP HANA server where you want to restore them as a database.
 1. Then follow these steps:
     1. Set permissions on the folder / directory where the backup files are stored using the following command:
