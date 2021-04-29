@@ -17,7 +17,7 @@ Each lab uses single public IP address and multiple ports.  All VMs, both the te
 >Each lab will have a different public IP address.
 
 > [!NOTE]
-> If your school needs to perform content filtering, such as for compliance with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act), read guidance on [content filtering for Lab Services](./classroom-labs-fundamentals.md#content-filtering).
+> If your school needs to perform content filtering, such as for compliance with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act), read guidance on [content filtering with Lab Services](./classroom-labs-fundamentals.md#content-filtering).
 
 ## Find public IP for a lab
 

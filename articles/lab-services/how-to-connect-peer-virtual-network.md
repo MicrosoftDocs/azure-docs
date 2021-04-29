@@ -24,7 +24,7 @@ Certain on-premises networks are connected to Azure Virtual Network either throu
 > When creating a Azure Virtual Network that will be peered with a lab account, it's important to understand how the virtual network's region impacts where labs are created.  For more information, see the administrator guide's section on [regions\locations](./administrator-guide.md#regionslocations).
 
 > [!NOTE]
-> If your school needs to perform content filtering, such as for compliance with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act), read guidance on [content filtering for Lab Services](./classroom-labs-fundamentals.md#content-filtering).
+> If your school needs to perform content filtering, such as for compliance with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act), read guidance on [content filtering with Lab Services](./classroom-labs-fundamentals.md#content-filtering).
 
 ## Configure at the time of lab account creation
 
