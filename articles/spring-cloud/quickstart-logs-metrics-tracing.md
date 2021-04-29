@@ -135,7 +135,26 @@ You will see logs like this:
 > [!TIP]
 > Use `az spring-cloud app logs -h` to explore more parameters and log stream functionalities.
 
-#### [Portal](#tab/Azure-portal)
+#### [IntelliJ](#tab/IntelliJ)
+
+To get the logs using Azure Toolkit for IntelliJ:
+
+1. Select **Azure Explorer**, then **Spring Cloud**.
+
+1. Right-click the running app.
+
+1. Select **Streaming Logs** from the drop-down list.
+
+   ![Select streaming logs](media/spring-cloud-intellij-howto/streaming-logs.png)
+    
+1. Select **Instance**.
+
+   ![Select instance](media/spring-cloud-intellij-howto/select-instance.png)
+    
+1. The streaming log will be visible in the output window.
+
+   ![Streaming log output](media/spring-cloud-intellij-howto/streaming-log-output.png)
+
 
 ## Log Analytics
 
@@ -199,70 +218,6 @@ Navigate to the `Failures/Exceptions` blade - you can see a collection of except
 
 Click on an exception to see the end-to-end transaction and stacktrace in context:
 [ ![Stacktrace end-to-end](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/end-to-end-transaction-details.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/end-to-end-transaction-details.jpg#lightbox)
-
-#### [IntelliJ](#tab/IntelliJ)
-
-To get the logs using Azure Toolkit for IntelliJ:
-
-1. Select **Azure Explorer**, then **Spring Cloud**.
-
-1. Right-click the running app.
-
-1. Select **Streaming Logs** from the drop-down list.
-
-   ![Select streaming logs](media/spring-cloud-intellij-howto/streaming-logs.png)
-    
-1. Select **Instance**.
-
-   ![Select instance](media/spring-cloud-intellij-howto/select-instance.png)
-    
-1. The streaming log will be visible in the output window.
-
-   ![Streaming log output](media/spring-cloud-intellij-howto/streaming-log-output.png)
-
-## Log Analytics
-
-1. Go to the **service | Overview** page and select **Logs** in the **Monitoring** section. Click **Run** on one of the sample queries for Azure Spring Cloud. 
-
-   [ ![Logs Analytics entry IntelliJ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
-    
-1. Then you will see filtered logs. See [Azure Log Analytics docs](../azure-monitor/logs/get-started-queries.md) for more guidance on writing queries.
-
-   [ ![Logs Analytics query IntelliJ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png#lightbox)
-
-1. To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, check out [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/query-monitor-data).
-
-## Metrics
-
-1. Go to the **service | Overview** page and select **Metrics** in the **Monitoring** section. Add your first metric by selecting `system.cpu.usage` for **Metric** and `Avg` for **Aggregation** to see the timeline for overall CPU usage.
-
-   [ ![Metrics entry](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu.png#lightbox)
-    
-1. Click **Add filter** in the toolbar above, select `App=Gateway` to see CPU usage only for the **gateway** app.
-
-   [ ![Use filter in metrics](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter.png#lightbox)
-
-1. Dismiss the filter created above, click **Apply Splitting** and select `App` for **Values** to see CPU usage by different apps.
-
-   [ ![Apply splitting in metrics](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split.png#lightbox)
-
-## Distributed tracing
-
-1. Go to the **service | Overview** page and select **Distributed tracing** in the **Monitoring** section. Then click the **View application map** tab on the right.
-
-   [ ![Distributed Tracing entry](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png#lightbox)
-
-1. You can now see the status of calls between apps. 
-
-   [ ![Distributed tracing overview](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-overview.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-overview.png#lightbox)
-    
-1. Click the link between **gateway** and **account-service** to see more details like slowest calls by HTTP methods.
-
-   [ ![Distributed tracing](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-call.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-call.png#lightbox)
-    
-1. Finally, click **Investigate Performance** to explore more powerful built-in performance analysis.
-
-   [ ![Distributed tracing performance](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-performance.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-performance.png#lightbox)
 
 ::: zone-end
 
