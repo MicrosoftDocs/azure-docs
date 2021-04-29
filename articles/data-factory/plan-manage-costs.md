@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 04/28/2021
 ---
 
-# Plan and manage costs for Azure Data Factory
+# Plan to manage costs for Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -22,7 +22,7 @@ Cost analysis in Cost Management supports most Azure account types, but not all 
 
 ## Estimate costs before using Azure Data Factory
  
-- Use the [ADF pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=data-factory) to get an estimate of the cost of running your ETL workload in Azure Data Factory.  To use the calculator, you have to input details such as number of activity runs, number of data integration unit hours, type of compute used for Data Flow, core count, instance count, execution duration, and so on.
+Use the [ADF pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=data-factory) to get an estimate of the cost of running your ETL workload in Azure Data Factory.  To use the calculator, you have to input details such as number of activity runs, number of data integration unit hours, type of compute used for Data Flow, core count, instance count, execution duration, and so on.
 
 One of the commonly asked questions for the pricing calculator is what values should be used as inputs.  During the proof-of-concept phase, you can conduct trial runs using sample datasets to understand the consumption for various ADF meters.  Then based on the consumption for the sample dataset, you can project out the consumption for the full dataset and operationalization schedule.
 
@@ -33,11 +33,11 @@ For example, let’s say you need to move 1 TB of data daily from AWS S3 to Azur
 
 Here is a sample copy activity run detail (your actual mileage will vary based on the shape of your specific dataset, network speeds, egress limits on S3 account, ingress limits on ADLS Gen2, and other factors).
 
-![S3 copy run](media/plan-manage-costs/s3-copy-run-details.png)
+:::image type="content" source="media/plan-manage-costs/s3-copy-run-details.png" alt-text="S3 copy run":::
 
 By leveraging the [consumption monitoring at pipeline-run level](#monitor-consumption-at-pipeline-run-level), you can see the corresponding data movement meter consumption quantities:
 
-![S3 copy pipeline consumption](media/plan-manage-costs/s3-copy-pipeline-consumption.png)
+:::image type="content" source="media/plan-manage-costs/s3-copy-pipeline-consumption.png" alt-text="S3 copy pipeline consumption":::
 
 Therefore, the total number of DIU-hours it takes to move 1 TB per day for the entire month is:
 
@@ -45,7 +45,7 @@ Therefore, the total number of DIU-hours it takes to move 1 TB per day for the e
 
 Now you can plug 30 activity runs and 380 DIU-hours into ADF pricing calculator to get an estimate of your monthly bill:
 
-![S3 copy pricing calculator](media/plan-manage-costs/s3-copy-pricing-calculator.png)
+:::image type="content" source="media/plan-manage-costs/s3-copy-pricing-calculator.png" alt-text="S3 copy pricing calculator":::
 
 ## Understand the full billing model for Azure Data Factory
 
@@ -57,29 +57,21 @@ Azure Data Factory is a serverless and elastic data integration service built fo
 
 When you create or use Azure Data Factory resources, you might get charged for the following meters:
 
-- Activity Runs - You're charged for it based on the number of activity runs.
-- Execution Hours - You're charged for it based on the number of vCore hours of execution time.
-- Data Integration Unit (DIU) Hours - You're charged for it based on the number of hours of data movement activities.
+- Orchestration Activity Runs - You are charged for it based on the number of activity runs orchestrate.
+- Data Integration Unit (DIU) Hours – For copy activities run on Azure Integration Runtime, you are charged based on number of DIU used and execution duration.
+- vCore Hours – for data flow execution and debugging, you are charged for based on compute type, number of vCores, and execution duration.
+
 
 At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Data Factory costs. There's a separate line item for each meter.
 
 ### Other costs that might accrue with Azure Data Factory
 
-<!--Note to Azure service writer: Include any costs that aren't obvious, hidden, or otherwise might not be present in the pricing calculator or resource creation experience in the Azure portal. You might need to sync with your product team to identify hidden costs. If you're certain that costs accrue only for your service and no others, then omit this section. -->
-
 When you create resources for Azure Data Factory, resources for other Azure services are also created. They include:
 
-- <OtherAzureService1>
-- <OtherAzureService2>
-
-### Costs might accrue after resource deletion
-
-<!--Note to Azure service writer: You might need to sync with your product team to identify resources that continue to exist after those ones for your service are deleted. If you're certain that no resources can exist after those for your service are deleted, then omit this section. -->
-
-After you delete Azure Data Factory resources, the following resources might continue to exist. They continue to accrue costs until you delete them.
-
-- <OtherServiceResource1>
-- <OtherServiceResource2>
+- Pipeline Activity execution
+- External Pipeline Activity execution
+- Creation/editing/retrieving/monitoring of data factory artifacts
+- SSIS Integration Runtime duration based on instance type and duration
 
 ### Using Azure Prepayment with Azure Data Factory
 
@@ -103,13 +95,13 @@ To view Data Factory costs in cost analysis:
 
 Actual monthly costs are shown when you initially open cost analysis. Here's an example showing all monthly usage costs.
 
-![Example showing accumulated costs for a subscription](media/all-costs.png)
+:::image type="content" source="media/all-costs.png" alt-text="Example showing accumulated costs for a subscription":::
 
 - To narrow costs for a single service, like Data Factory, select **Add filter** and then select **Service name**. Then, select **Azure Data Factory v2**.
 
 Here's an example showing costs for just Data Factory.
 
-![Example showing accumulated costs for ServiceName](media/service-specific-cost.png)
+:::image type="content" source="media/service-specific-cost.png" alt-text="Example showing accumulated costs for ServiceName":::
 
 In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and Data Factory costs by resource group are also shown. From here, you can explore costs on your own.
 
@@ -121,9 +113,9 @@ You can view the amount of consumption for different meters for individual pipel
 
 Clicking the **Consumption** button next to the pipeline name will display a pop-up window showing you the consumption for your pipeline run aggregated across all of the activities within the pipeline.
 
-![Pipeline run consumption](media/plan-manage-costs/pipeline-run-consumption.png)
+:::image type="content" source="media/plan-manage-costs/pipeline-run-consumption.png" alt-text="Pipeline run consumption":::
 
-![Pipeline consumption details](media/plan-manage-costs/pipeline-consumption-details.png)
+:::image type="content" source="media/plan-manage-costs/pipeline-consumption-details.png" alt-text="Pipeline consumption details":::
 
 The pipeline run consumption view shows you the amount consumed for each ADF meter for the specific pipeline run, but it does not show the actual price charged, because the amount billed to you is dependent on the type of Azure account you have and the type of currency used.  To view the full list of supported account types, see [Understand Cost Management data](../cost-management-billing/costs/understand-cost-mgt-data.md).
 
@@ -134,11 +126,11 @@ To see the consumption at activity-run level, go to your data factory **Author &
 
 Here is a sample out from a copy activity run:
 
-![Copy output](media/plan-manage-costs/copy-output.png)
+:::image type="content" source="media/plan-manage-costs/copy-output.png" alt-text="Copy output":::
 
 And here is a sample out from a Mapping Data Flow activity run:
 
-![Dataflow output](media/plan-manage-costs/dataflow-output.png)
+:::image type="content" source="media/plan-manage-costs/dataflow-output.png" alt-text="Dataflow output":::
 
 ## Create budgets
 
@@ -150,15 +142,6 @@ Budgets can be created with filters for specific resources or services in Azure 
 
 You can also [export your cost data](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do additional data analysis for costs. For example, a finance teams can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
 
-## Other ways to manage and reduce costs for <ServiceName>
-
-<!-- Note to Azure service writer: This is an optional section. Other than using the Cost Management methods above, there are probably ways to minimize costs for your service that are specific to your service. Because customers only pay for what they use and when they use less of a resource, the result is a smaller bill. You might already have published cost-saving content. For example, you might have best practice advice or specific ways to reduce costs that are specific to your service. If so, try to add that guidance here or at least summarize key points. Try to be as prescriptive as possible. If you have more comprehensive content, add links to your other published articles or sections here. 
-
-Add a statement that discusses any recommended settings for your service that might help keep the charges minimal if a service isn't being actively used by the customer. For example: Will turning off a VM help to get no charges for the specific VM resource?
-
-If your team has no cost-saving recommendations or best practice advice to reduce costs, then cut this section.
--->
-
 ## Next steps
 
 - Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
@@ -168,5 +151,3 @@ If your team has no cost-saving recommendations or best practice advice to reduc
 - [Azure Data Factory pricing page](https://azure.microsoft.com/pricing/details/data-factory/ssis/)
 - [Understanding Azure Data Factory through examples](./pricing-concepts.md)
 - [Azure Data Factory pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=data-factory)
-
-Create a table of contents entry for the article in the How-to guides section where appropriate. -->
