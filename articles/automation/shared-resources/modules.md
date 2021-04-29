@@ -4,7 +4,8 @@ description: This article tells how to use PowerShell modules to enable cmdlets 
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 02/01/2021
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage modules in Azure Automation

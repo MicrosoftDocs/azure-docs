@@ -16,7 +16,7 @@ zone_pivot_groups: programming-languages-set-twenty-two
 
 # Use codec compressed audio input with the Speech SDK
 
-The Speech service SDK **Compressed Audio Input Stream** API provides a way to stream compressed audio to the Speech service using either a `PullStream` or `PushStream`.
+The Speech service SDK can accept compressed audio formats. It decoompresses the audio before it sends it over the wire to the Speech service as raw PCM.
 
 Platform | Languages | Supported GStreamer version
 | :--- | ---: | :---:

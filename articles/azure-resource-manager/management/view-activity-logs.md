@@ -134,7 +134,7 @@ You can use Resource Graph to see the change history for a resource. For more in
 
 ## Azure CLI
 
-To retrieve log entries, run the [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) command with an offset to indicate the time span.
+To retrieve log entries, run the [az monitor activity-log list](/cli/azure/monitor/activity-log#az_monitor_activity_log_list) command with an offset to indicate the time span.
 
 ```azurecli-interactive
 az monitor activity-log list --resource-group ExampleGroup --offset 7d

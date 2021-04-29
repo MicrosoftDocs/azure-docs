@@ -66,7 +66,7 @@
         displayName: regulatory, compliance, standards, domains
         href: ./database/security-controls-policy.md
       - name: Security baseline
-        href: database/security-baseline.md
+        href: /security/benchmark/azure/baselines/sql-database-security-baseline?toc=/azure/azure-sql/toc.json
       - name: Always Encrypted
         href: database/always-encrypted-landing.yml
       - name: Azure Defender for SQL
@@ -299,7 +299,7 @@
       - name: Hyperscale
         href: database/service-tier-hyperscale.md
       - name: Hyperscale FAQ
-        href: database/service-tier-hyperscale-frequently-asked-questions-faq.md
+        href: database/service-tier-hyperscale-frequently-asked-questions-faq.yml
     - name: Plan and manage costs 
       href: database/cost-management.md
 

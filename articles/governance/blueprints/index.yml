@@ -102,7 +102,7 @@ landingContent:
           - text: PowerShell module (PSGallery)
             url: https://www.powershellgallery.com/packages/Az.Blueprint
           - text: Azure CLI
-            url: /cli/azure/ext/blueprint/blueprint
+            url: /cli/azure/blueprint
           - text: Azure PowerShell
             url: /powershell/module/az.blueprint/#blueprint
           - text: Azure SDK for .NET
