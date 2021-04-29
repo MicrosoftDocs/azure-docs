@@ -342,7 +342,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ::: zone target="docs"
 
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
+[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload.md)]
 
 ::: zone-end
 -->
@@ -382,6 +382,6 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ## Verify data upload to Azure
 
-[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]<!--Different Include file from the rest. Is this overriding the Includes in all zones?-->
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
 
 ::: zone-end

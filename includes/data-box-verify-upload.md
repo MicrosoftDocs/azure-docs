@@ -21,7 +21,7 @@ After 14 days, the upload will be completed automatically. By acting on the noti
 
 To review non-retryable errors and proceed with an upload, do the following:
 
-1. Open your order in the Azure portal.
+1. Open your order in the Azure portal.  
 
    If any non-retryable errors prevented files from uploading, you'll see the following notification. The order status will be **Copy errors.**
 
