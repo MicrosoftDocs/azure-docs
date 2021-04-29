@@ -234,12 +234,12 @@ For cosmos DB, the underlying format of each document is a JSON object which is 
 
 ###  Why an user is unable to use data preview in the data flows?	
 
-You should check permissions for custom role. There are multiple actions involved in the dataflow data preview. You start by checking network traffic while debugging on your browser. Please follow all of the actions, for details, please refer to  [Resource provider.](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations#microsoftdatafactory)
+You should check permissions for custom role. There are multiple actions involved in the dataflow data preview. You start by checking network traffic while debugging on your browser. Please follow all of the actions, for details, please refer to  [Resource provider.](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdatafactory)
 
 ### Does the data flow compute engine serve multiple tenants?	
 
 This troubleshooting document may help to resolve your issue:
-[Multiple tenants.](https://docs.microsoft.com/en-us/azure/data-factory/frequently-asked-questions#does-the-data-flow-compute-engine-serve-multiple-tenants)
+[Multiple tenants.](https://docs.microsoft.com/azure/data-factory/frequently-asked-questions#does-the-data-flow-compute-engine-serve-multiple-tenants)
 
 
 ###  In ADF, can I calculate value for a new column from existing column from mapping?	
