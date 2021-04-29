@@ -295,7 +295,7 @@ In this example, the following steps facilitated the customization of an exporte
     4. Create a new workbook object, `updatedWorkbookData`, that contains `updatedItems` and the `version`/`isLocked` data from the original parsed data, as well as a corrected set of `fallbackResourceIds`.
     5. Serialize the new JSON content back into a new string variable, `reserializedData`.
 3. Use the new `reserializedData` variable in place of the original `serializedData` property.
-4. Deploy the new Workbook resource using the updated ARM template.
+4. Deploy the new Workbook resource using the updated Azure Resource Manager  template.
 
 ### Limitations
 For a technical reason, this mechanism cannot be used to create workbook instances in the _Workbooks_ gallery of Application Insights. We are working on addressing this limitation. In the meanwhile, we recommend that you use the Troubleshooting Guide gallery (workbookType: `tsg`) to deploy Application Insights related workbooks.
