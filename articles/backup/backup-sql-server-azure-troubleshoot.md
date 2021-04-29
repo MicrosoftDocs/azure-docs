@@ -111,7 +111,7 @@ If you'd like to trigger a restore on the healthy SQL instances, do the followin
 
 | Error message | Possible causes | Recommended actions |
 |---|---|---|
-| Backup, file manipulation operations (such as ALTER DATABASE ADD FILE) and encryption changes on a database must be serialized. | You may get this error when the triggered adhoc  or the scheduled backup job is conflicting with an already running backup operation triggered by Azure Backup extension on the same database.<br> The following are the cases where this error code might surface:<br><ul><li>Full backup is running on the database and another Full backup is triggered.</li><li>Diff backup is running on the database and another Diff backup is triggered.</li><li>Log backup is running on the database and another Log backup is triggered.</li></ul>| After the conflicting operation fails, restart the operation.
+| Backup, file manipulation operations (such as ALTER DATABASE ADD FILE) and encryption changes on a database must be serialized. | You may get this error when the triggered on-demand, or the scheduled backup job has conflicts with an already running backup operation triggered by Azure Backup extension on the same database.<br> The following are the scenarios when this error code might display:<br><ul><li>Full backup is running on the database and another Full backup is triggered.</li><li>Diff backup is running on the database and another Diff backup is triggered.</li><li>Log backup is running on the database and another Log backup is triggered.</li></ul>| After the conflicting operation fails, restart the operation.
 
 
 ### UserErrorSQLPODoesNotExist
