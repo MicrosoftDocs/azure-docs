@@ -323,6 +323,8 @@
         href: azure-stack-edge-gpu-enable-azure-monitor.md
     - name: Troubleshoot
       items:
+      - name: Network readiness 
+        href: azure-stack-edge-deploy-check-network-readiness.md
       - name: Device issues 
         href: azure-stack-edge-gpu-troubleshoot.md
       - name: Ordering issues
