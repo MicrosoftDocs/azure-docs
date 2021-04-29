@@ -8,7 +8,7 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 09/09/2020
 
-#customer intent: As a developer for Apache Spark and Apache Spark in Azure HDInsight, I want to learn how to manage my Spark application dependencies and install packages on my HDInsight cluster.
+# Customer intent: As a developer for Apache Spark and Apache Spark in Azure HDInsight, I want to learn how to manage my Spark application dependencies and install packages on my HDInsight cluster.
 ---
 
 # Manage Spark application dependencies

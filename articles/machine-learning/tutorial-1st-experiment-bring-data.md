@@ -10,7 +10,7 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 02/11/2021
-ms.custom: tracking-python
+ms.custom: tracking-python, contperf-fy21q3
 ---
 
 # Tutorial: Use your own data (part 4 of 4)
@@ -231,7 +231,7 @@ This code will print a URL to the experiment in the Azure Machine Learning studi
 
 ### <a name="inspect-log"></a> Inspect the log file
 
-In the studio, go to the experiment run (by selecting the previous URL output) followed by **Outputs + logs**. Select the `70_driver_log.txt` file. You should see the following output:
+In the studio, go to the experiment run (by selecting the previous URL output) followed by **Outputs + logs**. Select the `70_driver_log.txt` file. Scroll down through the log file until you see the following output:
 
 ```txt
 Processing 'input'.

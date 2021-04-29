@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 > * Create an application gateway
 > * Create virtual machines for backend servers
 > * Create backend pools with the backend servers
-> * Create backend listeners
+> * Create listeners
 > * Create routing rules
 > * Edit Hosts file for name resolution
 

@@ -7,7 +7,7 @@ author: rdhillon
 manager: ''
 editor: ''
 tags: azure-resource-manager
-Customer intent: I want only specific Azure Storage account to be allowed access from a virtual network subnet.
+# Customer intent: I want only specific Azure Storage account to be allowed access from a virtual network subnet.
 
 ms.assetid: 
 ms.service: virtual-network

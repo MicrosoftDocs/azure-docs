@@ -3,7 +3,7 @@ title: Troubleshoot pipeline orchestration and triggers in Azure Data Factory
 description: Use different methods to troubleshoot pipeline trigger issues in Azure Data Factory. 
 author: ssabat
 ms.service: data-factory
-ms.date: 03/13/2021
+ms.date: 04/01/2021
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
@@ -78,7 +78,26 @@ You've reached the integration runtime's capacity limit. You might be running a 
 - Run your pipelines at different trigger times.
 - Create a new integration runtime, and split your pipelines across multiple integration runtimes.
 
-### How to perform activity-level errors and failures in pipelines
+### A pipeline run error while invoking REST api in a Web activity
+
+**Issue**
+
+Error message:
+
+`
+Operation on target Cancel failed: {“error”:{“code”:”AuthorizationFailed”,”message”:”The client ‘<client>’ with object id ‘<object>’ does not have authorization to perform action ‘Microsoft.DataFactory/factories/pipelineruns/cancel/action’ over scope ‘/subscriptions/<subscription>/resourceGroups/<resource group>/providers/Microsoft.DataFactory/factories/<data factory name>/pipelineruns/<pipeline run id>’ or the scope is invalid. If access was recently granted, please refresh your credentials.”}}
+`
+
+**Cause**
+
+Pipelines may use the Web activity to call ADF REST API methods if and only if the Azure Data Factory member is assigned the Contributor role. You must first configure add the Azure Data Factory managed identity to the Contributor security role. 
+
+**Resolution**
+
+Before using the Azure Data Factory’s REST API in a Web activity’s Settings tab, security must be configured. Azure Data Factory pipelines may use the Web activity to call ADF REST API methods if and only if the Azure Data Factory managed identity is assigned the *Contributor*  role. Begin by opening the Azure portal and clicking the **All resources** link on the left menu. Select **Azure Data Factory**  to add ADF managed identity with Contributor role by clicking the **Add** button in the *Add a role assignment* box.
+
+
+### How to check and branch on activity-level success and failure in pipelines
 
 **Cause**
 
@@ -110,7 +129,7 @@ The degree of parallelism in *ForEach* is actually max degree of parallelism. We
 
 Known Facts about *ForEach*
  * Foreach has a property called batch count(n) where default value is 20 and the max is 50.
- * The batch count, n, is used to construct n queues. Later we will discuss some details on how these queues are constructed.
+ * The batch count, n, is used to construct n queues. 
  * Every queue runs sequentially, but you can have several queues running in parallel.
  * The queues are pre-created. This means there is no rebalancing of the queues during the runtime.
  * At any time, you have at most one item being process per queue. This means at most n items being processed at any given time.
@@ -119,7 +138,8 @@ Known Facts about *ForEach*
 **Resolution**
 
  * You should not use *SetVariable* activity inside *For Each* that runs in parallel.
- * Taking in consideration the way the queues are constructed, customer can improve the foreach performance by setting multiple *foreaches* where each foreach will have items with similar processing time. This will ensure that long runs are processed in parallel rather sequentially.
+ * Taking in consideration the way the queues are constructed, customer can improve the foreach performance by setting multiples of *foreach* where each *foreach* will have items with similar processing time. 
+ * This will ensure that long runs are processed in parallel rather sequentially.
 
  ### Pipeline status is queued or stuck for a long time
  

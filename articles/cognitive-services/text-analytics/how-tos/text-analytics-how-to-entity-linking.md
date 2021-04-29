@@ -202,7 +202,7 @@ Version 3.0 only includes synchronous operation. The following JSON is an exampl
 
 ## Post the request
 
-Analysis is performed upon receipt of the request. See the [data limits](../overview.md#data-limits) section in the overview for information on the size and number of requests you can send per minute and second.
+Analysis is performed upon receipt of the request. See the [data limits](../overview.md#data-limits) article for information on the size and number of requests you can send per minute and second.
 
 The Text Analytics API is stateless. No data is stored in your account, and results are returned immediately in the response.
 

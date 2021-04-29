@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 09/14/2019
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Customize the feed for Windows Virtual Desktop users
 

@@ -48,8 +48,8 @@ You are charged based on number of minutes the Media Reserved Units are provisio
 
 ## Next step
 [Scale Media Reserved Units with CLI](media-reserved-units-cli-how-to.md)
-[Analyze videos](analyze-videos-tutorial-with-api.md)
+[Analyze videos](analyze-videos-tutorial.md)
 
 ## See also
 
-* [Quotas and limits](limits-quotas-constraints.md)
+* [Quotas and limits](limits-quotas-constraints-reference.md)

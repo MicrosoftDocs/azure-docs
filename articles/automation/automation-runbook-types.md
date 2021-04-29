@@ -4,7 +4,8 @@ description: This article describes the types of runbooks that you can use in Az
 services: automation
 ms.subservice: process-automation
 ms.date: 02/17/2021
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure Automation runbook types

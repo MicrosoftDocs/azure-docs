@@ -8,9 +8,9 @@ ms.subservice: core
 ms.author: laobri
 author: lobrien
 ms.date: 02/26/2021
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
-# As a data scientist using Python, I want to get data into my pipeline and flowing between steps
+ms.topic: how-to
+ms.custom: contperf-fy20q4, devx-track-python, data4ml
+#Customer intent: As a data scientist using Python, I want to get data into my pipeline and flowing between steps.
 ---
 
 # Moving data into and between ML pipeline steps (Python)

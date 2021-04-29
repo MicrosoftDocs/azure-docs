@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a management group with Go"
 description: In this quickstart, you use Go to create a management group to organize your resources into a resource hierarchy.
-ms.date: 09/30/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ---
@@ -75,8 +75,8 @@ can be used, including [bash on Windows 10](/windows/wsl/install-win10) or local
 
 ## Application setup
 
-With the Go packages added to your environment of choice, it's time to setup the Go application that
-can create a management group.
+With the Go packages added to your environment of choice, it's time to set up the Go application
+that can create a management group.
 
 1. Create the Go application and save the following source as `mgCreate.go`:
 

@@ -8,7 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/26/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Supported authentication methods
 

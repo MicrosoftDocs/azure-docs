@@ -53,6 +53,9 @@ Cloud Services (extended support) deployment only supports the Stopped- Allocate
 ###	Do Cloud Services (extended support) deployments support scaling across clusters, availability zones, and regions?
 Cloud Services (extended support) deployments cannot scale across multiple clusters, availability zones and regions. 
 
+### How can I get the deployment ID for my Cloud Service (extended support)
+Deployment ID aka Private ID can be accessed using the [CloudServiceInstanceView](https://docs.microsoft.com/rest/api/compute/cloudservices/getinstanceview#cloudserviceinstanceview) API. It is also available on the Azure portal under the Role and Instances blade of the Cloud Service (extended support)
+
 ### Are there any pricing differences between Cloud Services (classic) and Cloud Services (extended support)?
 Cloud Services (extended support) uses Azure Key Vault and Basic (ARM) Public IP addresses. Customers requiring certificates need to use Azure Key Vault for certificate management ([learn more](https://azure.microsoft.com/pricing/details/key-vault/) about Azure Key Vault pricing.)  Each Public IP address for Cloud Services (extended support) is charged separately ([learn more](https://azure.microsoft.com/pricing/details/ip-addresses/) about Public IP Address pricing.) 
 ## Resources 

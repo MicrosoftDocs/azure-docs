@@ -1,6 +1,6 @@
 ﻿---
 title: 'Partner VPN device configurations for connecting to Azure VPN gateways'
-description: This article provides an overview of partner VPN device configurations for connecting to Azure VPN gateways.
+description: Learn about partner VPN device configurations for connecting to Azure VPN gateways.
 services: vpn-gateway
 author: yushwang
 

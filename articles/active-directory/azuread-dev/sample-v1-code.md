@@ -59,8 +59,8 @@ The following samples illustrate Web applications signing users. Some of these a
 
 The following samples show how to implement role-based access control (RBAC). RBAC is used to restrict the permissions of certain features in a web application to certain users. The users are authorized depending on whether they belong to an **Azure AD group** or have a given application **role**.
 
-| Platform | Sample |
-|--|--|
+| Platform | Sample | Description |
+|--|--|--|
 | ![This image shows the ASP.NET Framework logo](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) </p>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | A .NET 4.5 MVC web app that uses Azure AD **roles** for authorization |
 
 ## Desktop and mobile public client applications calling Microsoft Graph or a Web API
