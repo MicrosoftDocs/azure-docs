@@ -289,7 +289,7 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
                 <version>1.3.0</version>
                 <configuration>
                     <subscriptionId>bb881e62-cf77-4d5d-89fb-29d71e930b66</subscriptionId>
-                    <clusterName>v-gedo-spr-cld</clusterName>
+                    <clusterName>v-spr-cld</clusterName>
                     <appName>customers-service</appName>
     
     ```

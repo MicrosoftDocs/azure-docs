@@ -147,7 +147,7 @@ The following procedure uses the Azure CLI extension to provision an instance of
 
     ```azurecli 
     az group create --name <resource group name>
-    az spring-cloud create -n <service instance name> -g <resource group name> 
+    az spring-cloud create -n <service instance name> -g <resource group name> --enable-java-agent
     ```
 
     Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).
@@ -155,7 +155,7 @@ The following procedure uses the Azure CLI extension to provision an instance of
 1. Set your default resource group name and Spring Cloud service name using the following command:
 
     ```azurecli
-    az configure --defaults group=<resource group name> spring-cloud=<service name> --enable-java-agent
+    az configure --defaults group=<resource group name> spring-cloud=<service name>
     ```
 ---
 ::: zone-end
