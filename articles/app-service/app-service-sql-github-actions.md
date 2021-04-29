@@ -33,10 +33,11 @@ To complete this tutorial:
 
 ## Download the sample
 
-1. [Fork the sample project](https://github.com/Azure-Samples/dotnetcore-containerized-sqldb-ghactions/).
+1. [Fork the sample project](https://github.com/Azure-Samples/dotnetcore-containerized-sqldb-ghactions/) in the Azure Samples repo.
 
-1. [Create a new GitHub repository](https://docs.github.com/en/github/getting-started-with-github/create-a-repo) with the sample project code. 
-
+    ```
+    https://github.com/Azure-Samples/dotnetcore-containerized-sqldb-ghactions/
+    ```
 
 ## Create the target resource group
 
@@ -108,10 +109,6 @@ To run the create Azure resourcse workflow:
 1. Go to **Access keys** and copy the username and password values. 
 
 1. Create new GitHub secrets for `ACR_USERNAME` and `ACR_PASSWORD` password in your repository. 
-
-
- ACR_USERNAME: ${{ secrets.ACR_USERNAME }} # user name for accessing Azure Container Registry
-  ACR_PASSWORD: ${{ secrets.ACR_PASSWORD }} # password for accesing the Azure Container Registry
 
 1. In the Azure Portal, open your Azure SQL database. Open **Connection strings** and copy the value. 
 
