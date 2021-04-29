@@ -1,17 +1,17 @@
 ---
-title: Create a managed image in Azure 
-description: Create a managed image of a generalized VM or VHD in Azure. Images can be used to create multiple VMs that use managed disks. 
+title: Create an image of a VM using the portal
+description: Create an image of a VM using the Azure portal. 
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 09/27/2018
+ms.date: 04/29/2021
 ms.author: cynthn
-ms.custom: legacy
+ms.custom: portal
 
 ---
-# Create a managed image of a generalized VM in Azure
+# Create an image from the portal
 
 A managed image resource can be created from a generalized virtual machine (VM) that is stored as either a managed disk or an unmanaged disk in a storage account. The image can then be used to create multiple VMs. For information on how managed images are billed, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
