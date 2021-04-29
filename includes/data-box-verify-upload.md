@@ -3,7 +3,7 @@ author: alkohli
 ms.service: databox  
 ms.subservice: pod
 ms.topic: include
-ms.date: 04/28/2021
+ms.date: 04/29/2021
 ms.author: alkohli
 ---
 
@@ -25,7 +25,7 @@ To review non-retryable errors and proceed with an upload, do the following:
 
    If any non-retryable errors prevented files from uploading, you'll see the following notification. The order status will be **Copy errors.**
 
-   ![Notification for copy errors during an upload in the Azure portal](media/data-box-verify-upload/upload-paused-01.png)<!--Generalize screen.-->
+   ![Notification for copy errors during an upload in the Azure portal](media/data-box-verify-upload/upload-paused-01.png)
 
 2. Select **Review** to open a panel for managing your review.
 
