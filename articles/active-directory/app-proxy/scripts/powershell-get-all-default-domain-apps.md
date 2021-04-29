@@ -1,14 +1,14 @@
 ---
-title: PowerShell sample - Application Proxy apps using default domain
+title: PowerShell sample - Azure Active Directory Application Proxy apps using default domain
 description: PowerShell example that lists all Azure Active Directory (Azure AD) Application Proxy applications that are using default domains (.msappproxy.net).
 services: active-directory
 author: kenwith
 manager: mtillman
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: sample
-ms.date: 12/05/2019
+ms.date: 04/29/2021
 ms.author: kenwith
 ms.reviewer: japere
 ---
