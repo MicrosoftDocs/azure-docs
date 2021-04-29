@@ -368,7 +368,7 @@ If you're using Data Box in US Government, Japan, Singapore, Korea, India, South
 
 ## Verify data upload to Azure
 
-[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+PLACE INCLUDE HERE.
 
 ## Erasure of data from Data Box
  
