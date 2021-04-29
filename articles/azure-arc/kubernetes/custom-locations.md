@@ -22,7 +22,7 @@ A conceptual overview of this feature is available in [Custom locations - Azure 
 
 ## Prerequisites
 
-- [Install or upgrade Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) to version >= 2.16.0.
+- [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0.
 
 - `connectedk8s` (version >= 1.1.0), `k8s-extension` (version >= 0.2.0) and `customlocation` (version >= 0.1.0) Azure CLI extensions. Install these Azure CLI extensions by running the following commands:
   

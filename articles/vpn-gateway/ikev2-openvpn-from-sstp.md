@@ -1,6 +1,7 @@
 ---
-title: 'Transition to OpenVPN or IKEv2 from SSTP | Azure VPN Gateway'
-description: This article helps you understand the ways to overcome the 128 concurrent connection limit of SSTP.
+title: 'How to transition to OpenVPN or IKEv2 from SSTP'
+titleSuffix: Azure VPN Gateway
+description: Learn how to transition to OpenVPN protocol or IKEv2 from SSTP to overcome the 128 concurrent connection SSTP limit.
 services: vpn-gateway
 author: cherylmc
 

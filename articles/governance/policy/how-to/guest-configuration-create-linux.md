@@ -9,7 +9,7 @@ ms.custom: devx-track-azurepowershell
 
 Before creating custom policies, read the overview information at
 [Azure Policy Guest Configuration](../concepts/guest-configuration.md).
- 
+
 To learn about creating Guest Configuration policies for Windows, see the page
 [How to create Guest Configuration policies for Windows](./guest-configuration-create.md)
 
@@ -306,17 +306,17 @@ Publish-GuestConfigurationPolicy `
   -Path './policies'
 ```
 
- The `Publish-GuestConfigurationPolicy` cmdlet accepts the path from the PowerShell pipeline. This
- feature means you can create the policy files and publish them in a single set of piped commands.
+The `Publish-GuestConfigurationPolicy` cmdlet accepts the path from the PowerShell pipeline. This
+feature means you can create the policy files and publish them in a single set of piped commands.
 
- ```azurepowershell-interactive
- New-GuestConfigurationPolicy `
+```azurepowershell-interactive
+New-GuestConfigurationPolicy `
   -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditFilePathExists.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
   -DisplayName 'Audit Linux file path.' `
   -Description 'Audit that a file path exists on a Linux machine.' `
   -Path './policies' `
- | Publish-GuestConfigurationPolicy
- ```
+| Publish-GuestConfigurationPolicy
+```
 
 With the policy created in Azure, the last step is to assign the definition. See how to assign the
 definition with [Portal](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md), and
