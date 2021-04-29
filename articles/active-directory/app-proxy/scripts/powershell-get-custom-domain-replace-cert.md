@@ -1,19 +1,19 @@
 ---
-title: PowerShell sample - Replace certificate in Application Proxy apps
+title: PowerShell sample - Replace certificate in Azure Active Directory Application Proxy apps
 description: PowerShell example that bulk replaces a certificate across Azure Active Directory (Azure AD) Application Proxy applications.
 services: active-directory
 author: kenwith
 manager: mtillman
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: sample
-ms.date: 12/05/2019
+ms.date: 04/29/2021
 ms.author: kenwith
 ms.reviewer: japere
 ---
 
-# Get all Application Proxy applications published with the identical certificate and replace it
+# Get all Azure Active Directory Application Proxy applications published with the identical certificate and replace it
 
 This PowerShell script example allows you to replace the certificate in bulk for all the Azure Active Directory (Azure AD) Application Proxy applications that are published with the identical certificate.
 
