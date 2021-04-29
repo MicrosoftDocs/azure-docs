@@ -60,7 +60,10 @@ Create a *compute instance* to use this development environment for the rest of 
  
 In about two minutes, you'll see the **State** of the compute instance change from *Creating* to *Running*.  It's now ready to go.  
 
-## Create compute clusters
+> [!div class="nextstepaction"]
+> [I created a workspace](?success=create-workspace#cluster) [I ran into an issue](https://www.research.net/r/7C8Z3DN?issue=create-workspace)
+
+## <a name="cluster"></a> Create compute clusters
 
 Next you'll create a compute cluster.  Clusters allow you to distribute a training or batch inference process across a cluster of CPU or GPU compute nodes in the cloud.
 
@@ -80,11 +83,14 @@ In less than a minute, the **State** of the cluster will change from *Creating* 
 > [!NOTE]
 > When the cluster is created, it will have 0 nodes provisioned. The cluster *does not* incur costs until you submit a job. This cluster will scale down when it has been idle for 2,400 seconds (40 minutes).  This will give you time to use it in a few tutorials if you wish without waiting for it to scale back up.
 
-## Clean up resources
+> [!div class="nextstepaction"]
+> [I created a compute cluster](?success=create-compute-cluster#clean-up) [I ran into an issue](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)
+
+## <a name="clean-up"></a>Clean up resources
 
 ### Stop compute instance
 
-If you plan to continue now to the next tutorial, leave the compute instance running.  If you plan come back later to move on to another tutorial, stop the compute instance:
+If you plan to continue now to the next tutorial, leave the compute instance running.  But if you're done for now, stop the compute instance:
 
 1. In the studio, on the left, select **Compute**.
 1. In the top tabs, select **Compute instances**
@@ -104,6 +110,6 @@ You now have an Azure Machine Learning workspace that contains:
 Use these resources to get started with Azure Machine Learning in these tutorials:  
 
 > [!div class="nextstepaction"]
-> [Use Python scripts to learn more about Azure Machine Learning](tutorial-1st-experiment-hello-world.md)
+> [Learn more about Azure Machine Learning and train a model with Python scripts](tutorial-1st-experiment-hello-world.md)
 >
 > [Use a Jupyter notebook to train image classification models](tutorial-train-models-with-aml.md)

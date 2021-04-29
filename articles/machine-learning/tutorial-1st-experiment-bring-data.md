@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Use your own data"
 titleSuffix: Azure Machine Learning
-description: Part 4 of the Azure Machine Learning get-started series shows how to use your own data in a remote training run.
+description: Part 3 of the Azure Machine Learning get-started series shows how to use your own data in a remote training run.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,17 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 02/11/2021
+ms.date: 04/29/2021
 ms.custom: tracking-python, contperf-fy21q3
 ---
 
-# Tutorial: Use your own data (part 4 of 4)
+# Tutorial: Use your own data (part 3 of 3)
 
 This tutorial shows you how to upload and use your own data to train machine learning models in Azure Machine Learning.
 
-This tutorial is *part 4 of a four-part tutorial series* in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. This tutorial builds on the work you completed in [Part 1: Set up](tutorial-1st-experiment-sdk-setup-local.md), [Part 2: Run "Hello World!"](tutorial-1st-experiment-hello-world.md), and [Part 3: Train a model](tutorial-1st-experiment-sdk-train.md).
+This tutorial is *part 3 of a three-part tutorial series* in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. This tutorial builds on the work you completed in [Part 1: Run "Hello World!"](tutorial-1st-experiment-hello-world.md), and [Part 2: Train a model](tutorial-1st-experiment-sdk-train.md).
 
-In [Part 3: Train a model](tutorial-1st-experiment-sdk-train.md), data was downloaded through the inbuilt `torchvision.datasets.CIFAR10` method in the PyTorch API. However, in many cases you'll want to use your own data in a remote training run. This article shows the workflow that you can use to work with your own data in Azure Machine Learning.
+In [Part 2: Train a model](tutorial-1st-experiment-sdk-train.md), data was downloaded through the inbuilt `torchvision.datasets.CIFAR10` method in the PyTorch API. However, in many cases you'll want to use your own data in a remote training run. This article shows the workflow that you can use to work with your own data in Azure Machine Learning.
 
 In this tutorial, you:
 
@@ -36,21 +36,23 @@ In this tutorial, you:
 
 You'll need the data and an updated version of the pytorch environment created in the previous tutorial.  Make sure you have completed these steps:
 
-1. [Create the training script](tutorial-1st-experiment-sdk-train.md#create-training-scripts)
-1. [Create a new Python environment](tutorial-1st-experiment-sdk-train.md#environment)
-1. [Test locally](tutorial-1st-experiment-sdk-train.md#test-local)
-1. [Update the Conda environment file](tutorial-1st-experiment-sdk-train.md#update-the-conda-environment-file)
+1. [Create the training script](tutorial-1st-experiment-sdk-train.md#create-training-scripts).  
+1. [Test locally](tutorial-1st-experiment-sdk-train.md#test-local) to download the data you need for this tutorial.
 
 ## Adjust the training script
 
-By now you have your training script (tutorial/src/train.py) running in Azure Machine Learning, and you can monitor the model performance. Let's parameterize the training script by introducing arguments. Using arguments will allow you to easily compare different hyperparameters.
+By now you have your training script (getting-started/src/train.py) running in Azure Machine Learning, and you can monitor the model performance. Let's parameterize the training script by introducing arguments. Using arguments will allow you to easily compare different hyperparameters.
 
-Our training script is now set to download the CIFAR10 dataset on each run. The following Python code has been adjusted to read the data from a directory.
+Our training script is currently set to download the CIFAR10 dataset on each run. The following Python code has been adjusted to read the data from a directory.
 
 >[!NOTE] 
 > The use of `argparse` parameterizes the script.
 
-:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/code/pytorch-cifar10-your-data/train.py":::
+1. Open *train.py* and replace it with this code:
+
+  :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/code/pytorch-cifar10-your-data/train.py":::
+
+1. **Save** the file.  Close the tab if you wish.
 
 ### Understanding the code changes
 
@@ -77,41 +79,8 @@ optimizer = optim.SGD(
 ```
 
 > [!div class="nextstepaction"]
-> [I adjusted the training script](?success=adjust-training-script#test-locally) [I ran into an issue](https://www.research.net/r/7C6W7BQ?issue=adjust-training-script)
+> [I adjusted the training script](?success=adjust-training-script#upload) [I ran into an issue](https://www.research.net/r/7C6W7BQ?issue=adjust-training-script)
 
-## <a name="test-locally"></a> Test the script locally
-
-Your script now accepts _data path_ as an argument. To start with, test it
-locally. Add to your tutorial directory structure a folder called `data`. Your directory structure should look like:
-
-:::image type="content" source="media/tutorial-1st-experiment-bring-data/directory-structure.png" alt-text="Directory structure shows .azureml, data, and src sub-directories":::
-
-1. Exit the current environment.
-
-    ```bash
-    conda deactivate
-
-1. Now create and activate the new environment.  This will rebuild the pytorch-aml-env with the [updated environment file](tutorial-1st-experiment-sdk-train.md#update-the-conda-environment-file)
-
-
-    ```bash
-    conda env create -f .azureml/pytorch-env.yml    # create the new conda environment with updated dependencies
-    ```
-
-    ```bash
-    conda activate pytorch-aml-env			# activate new conda environment
-    ```
-
-1. Finally, run the modified training script locally.
-
-    ```bash
-    python src/train.py --data_path ./data --learning_rate 0.003 --momentum 0.92
-    ```
-
-You avoid having to download the CIFAR10 dataset by passing in a local path to the data. You can also experiment with different values for _learning rate_ and _momentum_ hyperparameters without having to hard-code them in the training script.
-
-> [!div class="nextstepaction"]
-> [I tested the script locally](?success=test-locally#upload) [I ran into an issue](https://www.research.net/r/7C6W7BQ?issue=test-locally)
 
 ## <a name="upload"></a> Upload the data to Azure
 
@@ -120,42 +89,38 @@ To run this script in Azure Machine Learning, you need to make your training dat
 >[!NOTE] 
 > Azure Machine Learning allows you to connect other cloud-based datastores that store your data. For more details, see the [datastores documentation](./concept-data.md).  
 
-Create a new Python control script called `05-upload-data.py` in the `tutorial` directory:
+1. Create a new Python control script called *upload-data.py* in the **getting-started** folder:
 
-:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/05-upload-data.py":::
+    :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/05-upload-data.py":::
 
-The `target_path` value specifies the path on the datastore where the CIFAR10 data will be uploaded.
+    The `target_path` value specifies the path on the datastore where the CIFAR10 data will be uploaded.
 
->[!TIP] 
-> While you're using Azure Machine Learning to upload the data, you can use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload ad hoc files. If you need an ETL tool, you can use [Azure Data Factory](../data-factory/introduction.md) to ingest your data into Azure.
+    >[!TIP] 
+    > While you're using Azure Machine Learning to upload the data, you can use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload ad hoc files. If you need an ETL tool, you can use [Azure Data Factory](../data-factory/introduction.md) to ingest your data into Azure.
 
-In the window that has the activated *tutorial1* conda environment, run the Python file to upload the data. (The upload should be quick, less than 60 seconds.)
+2. Select **Save and run script in terminal** to run the *upload-data.py* script.
 
-```bash
-python 05-upload-data.py
-```
+    You should see the following standard output:
 
-You should see the following standard output:
-
-```txt
-Uploading ./data\cifar-10-batches-py\data_batch_2
-Uploaded ./data\cifar-10-batches-py\data_batch_2, 4 files out of an estimated total of 9
-.
-.
-Uploading ./data\cifar-10-batches-py\data_batch_5
-Uploaded ./data\cifar-10-batches-py\data_batch_5, 9 files out of an estimated total of 9
-Uploaded 9 files
-```
+    ```txt
+    Uploading ./data\cifar-10-batches-py\data_batch_2
+    Uploaded ./data\cifar-10-batches-py\data_batch_2, 4 files out of an estimated total of 9
+    .
+    .
+    Uploading ./data\cifar-10-batches-py\data_batch_5
+    Uploaded ./data\cifar-10-batches-py\data_batch_5, 9 files out of an estimated total of 9
+    Uploaded 9 files
+    ```
 
 > [!div class="nextstepaction"]
 > [I uploaded the data](?success=upload-data#control-script) [I ran into an issue](https://www.research.net/r/7C6W7BQ?issue=upload-data)
 
 ## <a name="control-script"></a> Create a control script
 
-As you've done previously, create a new Python control script called `06-run-pytorch-data.py`:
+As you've done previously, create a new Python control script called `run-pytorch-data.py`:
 
 ```python
-# 06-run-pytorch-data.py
+# run-pytorch-data.py
 from azureml.core import Workspace
 from azureml.core import Experiment
 from azureml.core import Environment
@@ -178,11 +143,9 @@ if __name__ == "__main__":
             '--learning_rate', 0.003,
             '--momentum', 0.92],
     )
-    # set up pytorch environment
-    env = Environment.from_conda_specification(
-        name='pytorch-env',
-        file_path='./.azureml/pytorch-env.yml'
-    )
+
+    # use curated pytorch environment 
+    env = ws.environments['AzureML-PyTorch-1.6-CPU']
     config.run_config.environment = env
 
     run = experiment.submit(config)
@@ -218,11 +181,7 @@ The control script is similar to the one from [part 3 of this series](tutorial-1
 
 ## <a name="submit-to-cloud"></a> Submit the run to Azure Machine Learning
 
-Now resubmit the run to use the new configuration:
-
-```bash
-python 06-run-pytorch-data.py
-```
+Select **Save and run script in terminal** to train the model on the compute cluster using the data you uploaded.
 
 This code will print a URL to the experiment in the Azure Machine Learning studio. If you go to that link, you'll be able to see your code running.
 
@@ -274,6 +233,15 @@ Notice:
 > [I inspected the log file](?success=inspect-log#clean-up-resources) [I ran into an issue](https://www.research.net/r/7C6W7BQ?issue=inspect-log)
 
 ## Clean up resources
+
+If you plan to continue now to the another tutorial, leave the compute instance running.  But if you're done for now, stop the compute instance:
+
+1. In the studio, on the left, select **Compute**.
+1. In the top tabs, select **Compute instances**
+1. Select the compute instance in the list.
+1. On the top toolbar, select **Stop**.
+
+### Delete all resources
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
