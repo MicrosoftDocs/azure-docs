@@ -182,8 +182,6 @@
         href: migrate-adfs-application-activity.md
     - name: Configure on-premises app access
       items:
-      - name: Configure cookie settings
-        href: application-proxy-configure-cookie-settings.md
       - name: Secure legacy apps 
         items:
         - name: Secure hybrid access with Azure AD 
@@ -194,18 +192,6 @@
           href: f5-bigip-deployment-guide.md
         - name: F5 Big-IP with Azure AD for passwordless VPN
           href: f5-aad-password-less-vpn.md
-      - name: Publishing walkthroughs
-        items:
-        - name: Integrate with Azure AD Domain Services
-          href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
-        - name: Integrate with Power BI
-          href: application-proxy-integrate-with-power-bi.md
-        - name: Integrate with Cloud App Security
-          href: application-proxy-integrate-with-microsoft-cloud-application-security.md
-        - name: Integrate with Teams
-          href: application-proxy-integrate-with-teams.md
-        - name: Integrate with Tableau
-          href: application-proxy-integrate-with-tableau.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot password-based single sign-on
@@ -226,10 +212,6 @@
           href: application-sign-in-problem-application-error.md
         - name: Problem signing into a Microsoft app
           href: application-sign-in-problem-first-party-microsoft.md
-      - name: Troubleshoot on-premises apps
-        items:
-        - name: CORS issues in Application Proxy
-          href: application-proxy-understand-cors-issues.md
   - name: Reference
     items:
     - name: App Management certificates FAQ
