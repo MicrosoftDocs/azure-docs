@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 04/28/2021
+ms.date: 04/29/2021
 ms.author: alkohli
 ---
 
@@ -40,7 +40,7 @@ The following non-retryable errors result in a pause in an upload and a notifica
 
 |Error category                    |Error code |Error message                                                                             |
 |----------------------------------|-----------|------------------------------------------------------------------------------------------|
-|UploadErrorCloudHttp              |400        |Bad Request (File property failure for Azure Files) [Learn more](#bad-request-file-property-failure-for-azure-files).|
+|UploadErrorCloudHttp              |400        |Bad Request (Invalid file name) [Learn more](#bad-request-invalid-file-name).|
 |UploadErrorCloudHttp              |400        |The value for one of the HTTP headers is not in the correct format. [Learn more](#the-value-for-one-of-the-http-headers-is-not-in-the-correct-format).|
 |UploadErrorCloudHttp              |409        |This operation is not permitted as the blob is immutable due to a policy. [Learn more](#this-operation-is-not-permitted-as-the-blob-is-immutable-due-to-policy).|
 |UploadErrorCloudHttp              |409        |The total provisioned capacity of the shares cannot exceed the account maximum size limit. [Learn more](#the-total-provisioned-capacity-of-the-shares-cannot-exceed-the-account-maximum-size-limit).|
