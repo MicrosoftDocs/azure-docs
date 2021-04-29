@@ -20,6 +20,8 @@ This article lists the steps that will help you deploy Azure Video Analyzer on y
 * [Create and setup IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
 * [Register IoT Edge device](../../iot-edge/how-to-register-device.md)
 * [Install the Azure IoT Edge runtime on Debian-based Linux systems](../../iot-edge/how-to-install-iot-edge.md)
+* [Create an Azure Video Analyzer account](create-video-analyzer-account.md)
+
 
     * Use one of these regions: East US 2, East US, Central US, North Central US, Japan East, West US, West US 2, West Central US, Canada East, UK South, France Central, France South, Switzerland North, Switzerland West, and Japan West.
     * It is recommended that you use General-purpose v2 (GPv2) Storage accounts
@@ -43,7 +45,6 @@ Click the **Deploy to Azure** button
 1. On the final page, click **Create**
 
 It may take a few moments for the Azure resources to be created and the edge modules to be deployed.
-
 
 ### Verify your deployment
 
@@ -87,7 +88,7 @@ Next, lets test the sample by invoking a direct method. Read [direct methods for
 
 ## Next steps
 
-Try [Quickstart: Get started - Azure Video Analyzer]()
+Try [Quickstart: Get started - Azure Video Analyzer](get-started-detect-motion-emit-events.md)
 
 > [!TIP]
 > If you proceed with the above quickstart, when invoking the direct methods using Visual Studio Code, you will use the device that was added to the IoT Hub via this article, instead of the default `avasample-iot-edge-device`.

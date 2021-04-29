@@ -19,6 +19,9 @@ ms.collection: M365-identity-device-management
 
 With the location condition in Conditional Access, you can control access to your cloud apps based on the network location of a user. The location condition is commonly used to block access from countries/regions where your organization knows traffic should not come from.
 
+> [!NOTE]
+> Conditional Access policies are enforced after first-factor authentication is completed. Conditional Access isn't intended to be an organization's first line of defense for scenarios like denial-of-service (DoS) attacks, but it can use signals from these events to determine access.
+
 ## Define locations
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
