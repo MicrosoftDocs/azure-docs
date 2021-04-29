@@ -83,11 +83,11 @@ If the connection succeeds, the list of edge devices appears. You should see at 
 
 ## Use direct method calls
 
-You can use the module to analyze live video streams by invoking direct methods. For more information, see [Direct methods for Azure Video Analyzer](direct-methods.md).
+You can use the module to analyze live video streams by invoking direct methods. For more information, see [Direct methods for Azure Video Analyzer](https://review.docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/direct-methods?branch=release-azure-video-analyzer)<!--add a link-->.
 
 ### Invoke pipelineTopologyList
 
-To enumerate all of the [pipelines](pipeline.md) in the module:
+To enumerate all of the [pipelines](https://review.docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/pipeline?branch=release-azure-video-analyzer)<!-- add a link-->  in the module:
 
 1. In the Visual Studio Code, right-click the **avaEdge** module and select **Invoke Module Direct Method**.
 1. In the box that appears, enter `pipelineTopologyList`.
@@ -114,7 +114,7 @@ This response is expected because no topologies have been created.
 
 ### Invoke pipelineTopologySet
 
-Like we did before, you can now invoke `pipelineTopologySet` to set a [pipeline topology](https://review.docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/pipeline?branch=release-azure-video-analyzer)<!-- TODO: add a link later-->. Use the following JSON as the payload.
+Like we did before, you can now invoke `pipelineTopologySet` to set a [pipeline topology](pipeline.md). Use the following JSON as the payload.
 
 ```json
 {
@@ -374,7 +374,7 @@ In the response payload, notice these details:
 
 ### Invoke livePipelineSet
 
-Create a live pipeline that references the preceding topology. Live pipelines let you analyze live video streams from many cameras with the same pipeline topology. For more information, see [Pipeline topologies and instances]()<!--TODO:add a link later-->.
+Create a live pipeline that references the preceding topology. Live pipelines let you analyze live video streams from many cameras by using the same pipeline topology. For more information, see [Pipelines](pipeline.md).
 
 Invoke the direct method `livePipelineSet` by using the following payload.
 
@@ -405,9 +405,11 @@ Invoke the direct method `livePipelineSet` by using the following payload.
 
 Notice that this payload:
 
-* Specifies the topology name (`MotionDetection`) for which the instance needs to be created.
+* Specifies the topology name (`MotionDetection`) for which the live pipeline is created from.
 * Contains a parameter value for parameters which didn't have a default value in the graph topology payload. This value is a link to the below sample video:
-* [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
+
+    [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LTY4]
+
 
 Within few seconds, you see the following response in the **OUTPUT** window:
 
@@ -445,13 +447,13 @@ Within few seconds, you see the following response in the **OUTPUT** window:
 
 In the response payload, notice that:
 
-* The status code is 201, indicating a new instance was created.
+* The status code is 201, indicating a new live pipeline was created.
 * The state is Inactive, indicating that the live pipeline was created but not activated. For more information, see [Pipeline states]()<!--TODO:add a link later-->.
 
 Try the following next steps:
 
 1. Invoke `livePipelineSet` again by using the same payload. Notice that the returned status code is 200.
-1. Invoke `livePipelineSet` again, but use a different description. Notice the updated description in the response payload, indicating that the instance was successfully updated.
+1. Invoke `livePipelineSet` again, but use a different description. Notice the updated description in the response payload, indicating that the live pipeline was successfully updated.
 1. Invoke `livePipelineSet`, but change the name to `mdpipeline2`. In the response payload, notice the newly created live pipeline (that is, status code 201).
 
 ### Invoke livePipelineActivate
@@ -524,7 +526,7 @@ Within a few seconds, you see the following response in the OUTPUT window.
 In the response payload, notice the following details:
 
 * The status code is 200, indicating success.
-* The state is `Active`, indicating the live pipeline instance is now active.
+* The state is `Active`, indicating the live pipeline is now active.
 
 ## Observe results
 
@@ -614,7 +616,7 @@ Within a few seconds, you see the following response in the **OUTPUT** window:
   "payload": null
 }
 ```
-A status code of 200 indicates that the pipeline instance was successfully deleted.
+A status code of 200 indicates that the live pipeline was successfully deleted.
 
 Because we also created the pipeline called Sample-Graph-2 we cannot delete the pipeline topology. 
 Invoke the direct method livePipelineDelete by using the following payload to delete the pipeline called Sample-Graph-2:

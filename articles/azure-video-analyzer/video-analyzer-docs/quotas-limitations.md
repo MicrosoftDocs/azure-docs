@@ -12,7 +12,7 @@ This article describes Azure Video Analyzer quotas and limitations.
 
 ## Quotas and limitations - Edge module
 
-This section enumerates the quotas and limitations of the Azure Video Analyzer on IoT Edge module.
+This section enumerates the quotas and limitations of the Video Analyzer on IoT Edge module.
 
 ### Maximum period of disconnected use
 
@@ -57,14 +57,23 @@ The extension nodes (HTTP or gRPC extension processors) only support sending of 
 
 ## Quotas and limitations - Service
 
-This section enumerates the quotas and limitations of the Azure Video Analyzer service.
+This section enumerates the quotas and limitations of the Video Analyzer account.
 
 ### Limitations on service operations at preview
 
-At the time of the preview release, the Azure Video Analyzer service does not support the following:
+At the time of the preview release, the Video Analyzer service does not support the following:
 
 * The ability to migrate the account from one subscription to another without an interruption.
 * The ability to use more than one Storage account with the account.
+
+### Limits on video resources
+At the time of the preview release, each Video Analyzer account can have at most 10,000 video resources. If you have a business need for a higher limit, open a support ticket in the Azure portal.
+
+### Limits on access policies
+At the time of the preview release, each Video Analyzer account can have at most 20 access policies.
+
+### Limits on registered edge modules
+At the time of the preview release, each Video Analyzer account can have at most 1,000 edge modules registered with it. If you have a business need for a higher limit, open a support ticket in the Azure portal.
 
 ### Limits on Client API calls
 Following limits apply to the Client APIs at preview release:
