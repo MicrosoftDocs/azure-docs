@@ -1,6 +1,8 @@
 ---
 title: Bicep logical operators
 description: Describes Bicep logical operators that evaluate conditions.
+author: mumian
+ms.author: jgao
 ms.topic: conceptual
 ms.date: 04/07/2021
 ---

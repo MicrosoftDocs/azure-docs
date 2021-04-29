@@ -1,6 +1,8 @@
 ---
 title: Compare syntax for Azure Resource Manager templates in JSON and Bicep
 description: Compares Azure Resource Manager templates developed with JSON and Bicep, and shows how to convert between the languages.
+author: mumian
+ms.author: jgao
 ms.topic: conceptual
 ms.date: 03/12/2021
 ---
@@ -130,12 +132,12 @@ resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
 ```
 
 ```json
-"resources": [ 
-  { 
-    "type": "Microsoft.Compute/virtualMachines", 
-    "apiVersion": "2020-06-01", 
-    ... 
-  } 
+"resources": [
+  {
+    "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2020-06-01",
+    ...
+  }
 ]
 ```
 
@@ -148,13 +150,13 @@ resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = if(deployVM) {
 ```
 
 ```json
-"resources": [ 
+"resources": [
   {
     "condition": "[parameters('deployVM')]",
-    "type": "Microsoft.Compute/virtualMachines", 
-    "apiVersion": "2020-06-01", 
-    ... 
-  } 
+    "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2020-06-01",
+    ...
+  }
 ]
 ```
 
@@ -259,8 +261,8 @@ output hostname string = publicIP.properties.dnsSettings.fqdn
 
 To separate a solution into multiple files:
 
-* For Bicep, use [modules](bicep-tutorial-add-modules.md).
-* For JSON, use [linked templates](linked-templates.md).
+* For Bicep, use [modules](tutorial-add-modules.md).
+* For JSON, use [linked templates](../templates/linked-templates.md).
 
 ## Recommendations
 
@@ -271,5 +273,5 @@ To separate a solution into multiple files:
 
 ## Next steps
 
-* For information about the Bicep, see [Bicep tutorial](./bicep-tutorial-create-first-bicep.md).
-* To learn about converting templates between the languages, see [Converting ARM templates between JSON and Bicep](bicep-decompile.md).
+* For information about the Bicep, see [Bicep tutorial](./tutorial-create-first-bicep.md).
+* To learn about converting templates between the languages, see [Converting ARM templates between JSON and Bicep](decompile.md).

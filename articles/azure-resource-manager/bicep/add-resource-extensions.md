@@ -25,10 +25,10 @@ To find out the available extensions, browse to the [template reference](/azure/
 
 To learn how to use these extensions, see:
 
-- [Tutorial: Deploy virtual machine extensions with ARM templates](template-tutorial-deploy-vm-extensions.md).
-- [Tutorial: Import SQL BACPAC files with ARM templates](template-tutorial-deploy-sql-extensions-bacpac.md)
+- [Tutorial: Deploy virtual machine extensions with ARM templates](../templates/template-tutorial-deploy-vm-extensions.md).
+- [Tutorial: Import SQL BACPAC files with ARM templates](../templates/template-tutorial-deploy-sql-extensions-bacpac.md)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Deploy virtual machine extensions with ARM templates](template-tutorial-deploy-vm-extensions.md)
+> [Tutorial: Deploy virtual machine extensions with ARM templates](../templates/template-tutorial-deploy-vm-extensions.md)

@@ -1,6 +1,8 @@
 ---
 title: Template functions - logical
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to determine logical values.
+author: mumian
+ms.author: jgao
 ms.topic: conceptual
 ms.date: 11/18/2020
 ---

@@ -1,6 +1,8 @@
 ---
 title: Template functions - date
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with dates.
+author: mumian
+ms.author: jgao
 ms.topic: conceptual
 ms.date: 11/18/2020
 ---

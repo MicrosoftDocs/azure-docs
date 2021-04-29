@@ -1,9 +1,10 @@
 ---
 title: Template resource location
 description: Describes how to set resource location in an Azure Resource Manager template (ARM template).
+author: mumian
+ms.author: jgao
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.custom:
 ---
 
 # Set resource location in ARM template

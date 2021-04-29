@@ -1,6 +1,8 @@
 ---
 title: Deploy resources to resource groups
 description: Describes how to deploy resources in an Azure Resource Manager template. It shows how to target more than one resource group.
+author: mumian
+ms.author: jgao
 ms.topic: conceptual
 ms.date: 01/13/2021
 ---

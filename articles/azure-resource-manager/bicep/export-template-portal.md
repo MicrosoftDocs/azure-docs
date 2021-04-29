@@ -1,6 +1,8 @@
 ---
 title: Export template in Azure portal
 description: Use Azure portal to export an Azure Resource Manager template from resources in your subscription.
+author: mumian
+ms.author: jgao
 ms.topic: conceptual
 ms.date: 07/29/2020
 ---

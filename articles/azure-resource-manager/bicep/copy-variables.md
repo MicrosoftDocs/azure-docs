@@ -1,6 +1,9 @@
 ---
 title: Define multiple instances of a variable
 description: Use copy operation in an Azure Resource Manager template (ARM template) to iterate multiple times when creating a variable.
+
+author: mumian
+ms.author: jgao
 ms.topic: conceptual
 ms.date: 02/13/2020
 ---

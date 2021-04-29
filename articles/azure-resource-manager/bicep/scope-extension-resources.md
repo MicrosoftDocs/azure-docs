@@ -1,6 +1,8 @@
 ---
 title: Scope on extension resource types
 description: Describes how to use the scope property when deploying extension resource types.
+author: mumian
+ms.author: jgao
 ms.topic: conceptual
 ms.date: 01/13/2021
 ---

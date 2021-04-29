@@ -1,6 +1,8 @@
 ---
 title: Template functions
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values, work with strings and numerics, and retrieve deployment information.
+author: mumian
+ms.author: jgao
 ms.topic: conceptual
 ms.date: 10/12/2020
 ---

@@ -1,7 +1,9 @@
 ---
 title: CI/CD with Azure Pipelines and templates
 description: Describes how to configure continuous integration in Azure Pipelines by using Azure Resource Manager templates. It shows how to use a PowerShell script, or copy files to a staging location and deploy from there.
+author: mumian
 ms.topic: conceptual
+ms.author: jgao
 ms.date: 03/09/2021
 ---
 # Integrate ARM templates with Azure Pipelines
@@ -16,7 +18,7 @@ Before proceeding with this article, let's consider the different options for de
 
 * **Add task that runs an Azure PowerShell script**. This option has the advantage of providing consistency throughout the development life cycle because you can use the same script that you used when running local tests. Your script deploys the template but can also perform other operations such as getting values to use as parameters. This option is shown in this article. See [Azure PowerShell task](#azure-powershell-task).
 
-   Visual Studio provides the [Azure Resource Group project](create-visual-studio-deployment-project.md) that includes a PowerShell script. The script stages artifacts from your project to a storage account that Resource Manager can access. Artifacts are items in your project such as linked templates, scripts, and application binaries. If you want to continue using the script from the project, use the PowerShell script task shown in this article.
+   Visual Studio provides the [Azure Resource Group project](../templates/create-visual-studio-deployment-project.md) that includes a PowerShell script. The script stages artifacts from your project to a storage account that Resource Manager can access. Artifacts are items in your project such as linked templates, scripts, and application binaries. If you want to continue using the script from the project, use the PowerShell script task shown in this article.
 
 * **Add tasks to copy and deploy tasks**. This option offers a convenient alternative to the project script. You configure two tasks in the pipeline. One task stages the artifacts to an accessible location. The other task deploys the template from that location. This option is shown in this article. See [Copy and deploy tasks](#copy-and-deploy-tasks).
 
@@ -26,7 +28,7 @@ This article assumes your ARM template and Azure DevOps organization are ready f
 
 * You have an Azure DevOps organization. If you don't have one, [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up). If your team already has an Azure DevOps organization, make sure you're an administrator of the Azure DevOps project that you want to use.
 
-* You've configured a [service connection](/azure/devops/pipelines/library/connect-to-azure) to your Azure subscription. The tasks in the pipeline execute under the identity of the service principal. For steps to create the connection, see [Create a DevOps project](deployment-tutorial-pipeline.md#create-a-devops-project).
+* You've configured a [service connection](/azure/devops/pipelines/library/connect-to-azure) to your Azure subscription. The tasks in the pipeline execute under the identity of the service principal. For steps to create the connection, see [Create a DevOps project](../templates/deployment-tutorial-pipeline.md#create-a-devops-project).
 
 * You have an [ARM template](quickstart-create-templates-use-visual-studio-code.md) that defines the infrastructure for your project.
 

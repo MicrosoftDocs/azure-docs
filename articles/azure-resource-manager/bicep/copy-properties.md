@@ -1,6 +1,9 @@
 ---
 title: Define multiple instances of a property
 description: Use copy operation in an Azure Resource Manager template (ARM template) to iterate multiple times when creating a property on a resource.
+
+author: mumian
+ms.author: jgao
 ms.topic: conceptual
 ms.date: 04/01/2021
 ---

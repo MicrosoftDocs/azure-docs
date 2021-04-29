@@ -1,6 +1,8 @@
 ---
 title: Deploy resources to management group
 description: Describes how to deploy resources at the management group scope in an Azure Resource Manager template.
+author: mumian
+ms.author: jgao
 ms.topic: conceptual
 ms.date: 03/18/2021
 ---

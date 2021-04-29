@@ -1,6 +1,8 @@
 ---
 title: Deploy to Azure button
 description: Use button to deploy Azure Resource Manager templates from a GitHub repository.
+author: mumian
+ms.author: jgao
 ms.topic: conceptual
 ms.date: 03/25/2021
 ---

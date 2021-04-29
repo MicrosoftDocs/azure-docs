@@ -1,6 +1,8 @@
 ---
 title: Bicep modules
 description: Describes how to define and consume a module, and how to use module scopes.
+author: mumian
+ms.author: jgao
 ms.topic: conceptual
 ms.date: 03/30/2021
 ---

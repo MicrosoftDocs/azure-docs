@@ -1,6 +1,8 @@
 ---
 title: Bicep operators
 description: Describes the Bicep operators available for Azure Resource Manager deployments.
+author: mumian
+ms.author: jgao
 ms.topic: conceptual
 ms.date: 04/15/2021
 ---

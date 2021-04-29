@@ -1,6 +1,8 @@
 ---
 title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
+author: mumian
+ms.author: jgao
 ms.topic: conceptual
 ms.date: 03/31/2021
 ---

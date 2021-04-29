@@ -1,6 +1,8 @@
 ---
 title: Key Vault secret with template
 description: Shows how to pass a secret from a key vault as a parameter during deployment.
+author: mumian
+ms.author: jgao
 ms.topic: conceptual
 ms.date: 04/23/2021
 ---

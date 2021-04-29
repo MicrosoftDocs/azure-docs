@@ -1,6 +1,8 @@
 ---
 title: Set up Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
+author: mumian
+ms.author: jgao
 ms.topic: conceptual
 ms.date: 03/26/2021
 ---

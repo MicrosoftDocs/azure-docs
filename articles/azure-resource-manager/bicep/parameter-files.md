@@ -1,6 +1,8 @@
 ---
 title: Create parameter file
 description: Create parameter file for passing in values during deployment of an Azure Resource Manager template
+author: mumian
+ms.author: jgao
 ms.topic: conceptual
 ms.date: 04/15/2021
 ---

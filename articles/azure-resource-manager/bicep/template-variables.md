@@ -1,6 +1,8 @@
 ---
 title: Variables in templates
 description: Describes how to define variables in an Azure Resource Manager template (ARM template) and Bicep file.
+author: mumian
+ms.author: jgao
 ms.topic: conceptual
 ms.date: 02/19/2021
 ---

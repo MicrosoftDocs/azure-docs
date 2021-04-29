@@ -1,6 +1,9 @@
 ---
 title: Conditional deployment with templates
 description: Describes how to conditionally deploy a resource in an Azure Resource Manager template (ARM template).
+
+author: mumian
+ms.author: jgao
 ms.topic: conceptual
 ms.date: 03/02/2021
 ---

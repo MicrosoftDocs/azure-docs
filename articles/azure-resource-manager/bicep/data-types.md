@@ -2,8 +2,9 @@
 title: Data types in templates
 description: Describes the data types that are available in Azure Resource Manager templates.
 ms.topic: conceptual
-ms.author: tomfitz
-author: tfitzmac
+author: mumian
+ms.author: jgao
+
 ms.date: 03/04/2021
 ---
 
