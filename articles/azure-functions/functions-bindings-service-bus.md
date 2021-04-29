@@ -101,6 +101,8 @@ If you have `isSessionsEnabled` set to `true`, the `sessionHandlerOptions` will 
 
 ### Additional settings for version 5.x+
 
+The example host.json file below contains only the settings for version 5.0.0 and higher of the Service Bus extension.
+
 ```json
 {
     "version": "2.0",
