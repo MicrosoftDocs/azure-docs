@@ -54556,6 +54556,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/powershell-display-users-group-of-app.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-display-users-group-of-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-tableau.md",
       "redirect_url": "/azure/active-directory/app-proxy/application-proxy-integrate-with-tableau",
       "redirect_document_id": false
