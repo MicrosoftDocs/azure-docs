@@ -68,6 +68,9 @@
     href: security-center-compliance-dashboard.md
   - name: Manage security policies
     href: tutorial-security-policy.md
+  - name: Investigate the health of your resources
+    href: investigate-resource-health.md
+
 
 - name: Concepts
   items:
