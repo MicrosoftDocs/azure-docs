@@ -17,7 +17,7 @@ metadata:
 
 landingContent:
   # Card
-  - title: COnnect with the Windows Desktop client
+  - title: Connect with the Windows Desktop client
     linkLists:
       - linkListType: how-to-guide
         links:
