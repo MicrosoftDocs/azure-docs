@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot paused uploads from Azure Data Box, Azure Data Box Heavy devices
+title: Troubleshoot uploads from Azure Data Box, Azure Data Box Heavy devices
 description: Describes how to troubleshoot non-retryable errors that pause a data upload to Azure from an Azure Data Box or Azure Data Box Heavy device.
 services: databox
 author: v-dalc
