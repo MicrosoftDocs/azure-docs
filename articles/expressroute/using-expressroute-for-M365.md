@@ -21,7 +21,6 @@ An ExpressRoute circuit provides private connectivity to Microsoft backbone netw
 
 For more information about ExpressRoute, see the [Introduction to ExpressRoute][ExR-Intro] article.
 
-
 Often there's a confusion whether ExpressRoute can be used or not for routing Microsoft 365 SaaS traffic. 
 
 * One side argument: ExpressRoute does offer Microsoft peering, using which you can reach most of the public endpoints in Microsoft network. 
