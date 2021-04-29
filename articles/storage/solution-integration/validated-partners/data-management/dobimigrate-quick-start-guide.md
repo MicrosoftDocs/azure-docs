@@ -1,5 +1,6 @@
 ---
-title: Migrate your data with DobiMigrate
+title: Migrate your file data to Azure with Datadobi DobiMigrate
+titleSuffix: Azure Storage
 description: Provides getting started guide to implement Datadobi DobiMigrate, and migrate your data to Azure Files, Azure NetApp Files, or ISV NAS solution 
 author: dukicn
 ms.author: nikoduki
@@ -9,7 +10,7 @@ ms.service: storage
 ms.subservice: partner
 ---
 
-# Data migration to Azure with Datadobi DobiMigrate
+# Migrate data to Azure with Datadobi DobiMigrate
 
 This article helps you integrate the Datadobi DobiMigrate infrastructure with Azure storage. It includes prerequisites, considerations, implementation, and operational guidance.
 
@@ -33,7 +34,7 @@ Microsoft offers a framework to follow to get you started with Azure. The [Cloud
 
 ### Considerations for migrations
 
-Several aspects are important when considering migrations of file data to Azure. Before proceeding check out:
+Several aspects are important when considering migrations of file data to Azure. Before proceeding learn more:
 
 - [storage migration overview](/azure/storage/common/storage-migration-overview)
 - latest supported features by DobiMigrate in [migration tools comparison matrix](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison).
@@ -67,7 +68,7 @@ This section provides a brief guide for how to add Azure Files share to an on-pr
 
     You can also click on the default  **Storage accounts**  icon.
 
-    :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-portal.png" alt-text="Shows adding a storage accounts in the Azure portal.":::
+    :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-portal.png" alt-text="Shows adding a storage account in the Azure portal.":::
 
 2. Select  **Create**  to add an account:
    1. Select existing resource group or **Create new**
@@ -100,7 +101,7 @@ This section provides a brief guide for how to add Azure Files share to an on-pr
  
    1. Configure role-based access to limit who can make changes to your storage account. For more information, see [Built-in roles for management operations](/azure/storage/common/authorization-resource-provider#built-in-roles-for-management-operations).
  
-   2.  Restrict access to the account to specific network segments with [storage firewall settings](/azure/storage/common/storage-network-security). Setup firewall settings to prevent access from outside of your corporate network.
+   2.  Restrict access to the account to specific network segments with [storage firewall settings](/azure/storage/common/storage-network-security). Configure firewall settings to prevent access from outside of your corporate network.
 
        :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-storage-firewall.png" alt-text="Shows storage firewall settings in the portal.":::
 
