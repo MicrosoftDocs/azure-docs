@@ -80,10 +80,10 @@ You'll see the output of the script in the terminal window that opens.
 
 A *control script* allows you to run your `hello.py` script on different compute resources. You use the control script to control how and where your machine learning code is run.  
 
-In your **get-started** folder, create a new Python file called `03-run-hello.py` and copy/paste the following code into that file:
+In your **get-started** folder, create a new Python file called *run-hello.py* and copy/paste the following code into that file:
 
 ```python
-# tutorial/03-run-hello.py
+# tutorial/run-hello.py
 from azureml.core import Workspace, Experiment, Environment, ScriptRunConfig
 
 ws = Workspace.from_config()
