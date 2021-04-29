@@ -51,7 +51,7 @@ Go to the [Power Automate site](https://preview.flow.microsoft.com/), and login.
 > :::image type="content" source="../media/tutorials/excel/flow-creation.png" alt-text="The flow creation screen.":::
 
 
-On the **Build a scheduled flow** page, initialize your flow with the following fields:
+On the **Build a scheduled cloud flow** page, initialize your flow with the following fields:
 
 |Field |Value  |
 |---------|---------|
@@ -78,8 +78,7 @@ Add the following information to the variables you created. They represent the c
 | Initialize variable 3 | var_plumbing | String | plumbing |
 | Initialize variable 4 | var_other | String | other | 
 
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="information contained in the flow variables":::
+:::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="information contained in the flow variables" lightbox="../media/tutorials/excel/flow-variables.png":::
 
 ## Read the excel file
 
