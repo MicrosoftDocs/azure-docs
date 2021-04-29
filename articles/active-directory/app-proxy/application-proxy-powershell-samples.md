@@ -1,20 +1,19 @@
 ---
-title: PowerShell samples for Azure AD Application Proxy
-description: Use these PowerShell samples for Azure AD Application Proxy to get information about Application Proxy apps and connectors in your directory, assign users and groups to apps, and get certificate information.
+title: PowerShell samples for Azure Active Directory Application Proxy
+description: Use these PowerShell samples for Azure Active Directory Application Proxy to get information about Application Proxy apps and connectors in your directory, assign users and groups to apps, and get certificate information.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: sample
-ms.date: 12/05/2019
+ms.date: 04/29/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
 ---
 
-# Azure AD PowerShell examples for Azure AD Application Proxy
+# Azure Active Directory Application Proxy PowerShell examples
 
 The following table includes links to PowerShell script examples for Azure AD Application Proxy. These samples require either the [AzureAD V2 PowerShell for Graph module](/powershell/azure/active-directory/install-adv2) or the [AzureAD V2 PowerShell for Graph module preview version](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true), unless otherwise noted.
 
