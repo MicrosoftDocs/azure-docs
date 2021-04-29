@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 04/26/2021
+ms.date: 04/28/2021
 ms.author: alkohli
 ---
 
@@ -263,15 +263,17 @@ The `copylog` specifies the old and the new blob or file name and the path in Az
 ```
 
 
-### Upload paused
+### Copy errors during upload
 
-When non-retryable errors cause the upload of some files to fail, the upload is paused and you're notified to review the errors before proceeding. You'll see the following notification in the Azure portal.
+When non-retryable errors cause the upload of some files to fail, you're notified to review the errors before proceeding. You'll see the following notification in the Azure portal.
 
 ![Notification for a paused upload in the Azure portal](media/data-box-troubleshoot-data-upload/upload-paused-01.png)
 
-You should review the errors in the data copy log. You can't fix these errors. The upload will complete with errors, and the data will then be secure erased from the device. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
+The errors are listed in the data copy log. You should review the errors and make sure you have backup copies of the files that failed to upload.
 
-To resume the upload, you should confirm that you've reviewed the errors and want to proceed. For more information, see [Return Azure Data Box and verify data upload to Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8).
+You can't fix these errors. The upload will complete with errors, and the data will then be secure erased from the device. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
+
+To proceed, you'll need to confirm that you've reviewed the errors and are ready to proceed. For more information, see [Return Azure Data Box and verify data upload to Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8).
 
 After 14 days, the upload will be completed automatically. By acting on the notification, you can move things along more quickly.
 
