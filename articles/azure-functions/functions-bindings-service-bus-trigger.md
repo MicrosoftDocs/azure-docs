@@ -437,8 +437,6 @@ The below metadata properties are supported for apps using 5.0.0 of the extensio
 |Property|Type|Description|
 |--------|----|-----------|
 |`ApplicationProperties`|`ApplicationProperties`|Properties set by the sender. Use this in place of the `UserProperties` metadata property.|
-|`EnqueuedTime`|`DateTime`|The enqueued time in UTC.|
-|`ExpiresAt`|`DateTime`|The expiration time in UTC.|
 |`Subject`|`string`|The application-specific label which can be used in place of the `Label` metadata property.|
 |`MessageActions`|`ServiceBusMessageActions`|The set of actions which can be performed on a `ServiceBusReceivedMessage`. This can be used in place of the `MessageReceiver` metadata property.
 |`SessionActions`|`ServiceBusSessionMessageActions`|The set of actions that can be performed on a session and a `ServiceBusReceivedMessage`. This can be used in place of the `MessageSession` metadata property.|

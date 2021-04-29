@@ -123,9 +123,7 @@ The example host.json file below contains only the settings for version 5.0.0 an
                 "maxConcurrentSessions": 10,
                 "maxMessages": 2000,
                 "sessionIdleTimeout": "00:01:00",
-                "maxAutoLockRenewalDuration": "00:05:00",
-                "transportType": "AmqpWebSockets",
-                "webProxy": "AmqpWebSockets",
+                "maxAutoLockRenewalDuration": "00:05:00"
             }
         }
     }
@@ -143,8 +141,6 @@ When using service bus extension version 5.x and higher, the following global co
 |maxConcurrentSessions|8|The maximum number of sessions that can be handled concurrently per scaled instance.|
 |maxMessages|1000|The maximum number of messages that will be passed to each function call. This only applies for functions that receive a batch of messages.|
 |sessionIdleTimeout|n/a|The maximum amount of time to wait for a message to be received for the currently active session. After this time has elapsed, the processor will close the session and attempt to process another session.|
-|transportType|AmqpTcp|The type of protocol and transport that will be used for communicating with the Service Bus service.|
-|webProxy|n/a|The proxy to use for communication over web sockets. A proxy cannot be used for communication over TCP; if web sockets are not in use, specifying a proxy is an invalid option.|
 
 ### Retry settings
 
