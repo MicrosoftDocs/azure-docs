@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure Resource Manager template (ARM templat
 ms.date: 02/10/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.custom:
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Deploy a local ARM template
