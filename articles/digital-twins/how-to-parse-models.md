@@ -38,7 +38,7 @@ After you have built a self-contained package and added the executable to your p
 DTDLValidator
 ```
 
-With the default options, the sample will search for `*.json` files in the current directory and all subdirectories. You can also add the following option to have the sample search in the indicated directory and all subdirectories for files with the extension *.dtdl*:
+With the default options, the sample will search for `*.json` files in the current directory and all subdirectories. You can also add the following option to have the sample search in the indicated directory and all subdirectories for files with the extension .dtdl:
 
 ```cmd/sh
 DTDLValidator -d C:\Work\DTDL -e dtdl 

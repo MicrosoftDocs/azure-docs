@@ -122,7 +122,7 @@ Azure Digital Twins has no intrinsic domain vocabulary. The types of elements in
 
 The first step in creating an Azure Digital Twins solution is defining at least one model in a DTDL file.
 
-In the directory where you created your project, create a new *.json* file called *SampleModel.json*. Paste in the following file body: 
+In the directory where you created your project, create a new .json file called *SampleModel.json*. Paste in the following file body: 
 
 :::code language="json" source="~/digital-twins-docs-samples/models/SampleModel.json":::
 

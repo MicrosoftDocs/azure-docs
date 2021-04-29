@@ -123,7 +123,7 @@ Here's how to download your chosen collection to your machine so that you can im
 1. Select the **Raw** button to open the raw text of the file.
     :::image type="content" source="media/how-to-use-postman/swagger-raw.png" alt-text="Screenshot of the data plane digitaltwins.json file in GitHub. There is a highlight around the Raw button." lightbox="media/how-to-use-postman/swagger-raw.png":::
 1. Copy the text from the window, and paste it into a new file on your machine.
-1. Save the file with a *.json* extension (the file name can be whatever you want, as long as you can remember it to find the file later).
+1. Save the file with a .json extension (the file name can be whatever you want, as long as you can remember it to find the file later).
 
 ### Import the collection
 
