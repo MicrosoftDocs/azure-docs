@@ -23,7 +23,6 @@ As we're adding additional integrations, the auto-instrumentation capability mat
 |---------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
 |Azure App Service on Windows           | GA, OnBD*       | GA, opt-in      | In progress     | In progress     | Not supported   |
 |Azure App Service on Linux             | N/A             | Not supported   | In progress     | Public Preview  | Not supported   |
-|Azure App Service on AKS               | N/A             | In design       | In design       | In design       | Not supported   |
 |Azure Functions - basic                | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       |
 |Azure Functions Windows - dependencies | Not supported   | Not supported   | Public Preview  | Not supported   | Not supported   |
 |Azure Kubernetes Service               | N/A             | In design       | Through agent   | In design       | Not supported   |
