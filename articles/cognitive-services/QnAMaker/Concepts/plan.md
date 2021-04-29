@@ -79,7 +79,7 @@ You can structure your QnA Maker resources by language or you can use [Translato
 
 # [Custom question answering (preview release)](#tab/v2)
 
-You can now have knowledge bases in different languages within the same Text Analytics resource which has a Custom question answering feature enabled. When you create the first knowledge base, you can choose whether you want to use the resource for knowledge bases in a single language or multiple languages.
+You can now have knowledge bases in different languages within the same Text Analytics resource where the custom question answering feature is enabled. When you create the first knowledge base, you can choose whether you want to use the resource for knowledge bases in a single language or multiple languages.
 
 ![QnA Maker managed (Preview) multi-lingual knowledge base selection](../media/concept-plan-your-knowledge-base/qnamaker-v2-select-multilanguage-knowledge-base.png)
 
