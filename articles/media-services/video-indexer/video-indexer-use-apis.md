@@ -34,18 +34,19 @@ This article shows how the developers can take advantage of the [Video Indexer A
    > * You must use the same provider you used when you signed up for Video Indexer.
    > * Personal Google and Microsoft (Outlook/Live) accounts can only be used for trial accounts. Accounts connected to Azure require Azure AD.
    > * There can be only one active account per email. If a user tries to sign in with user@gmail.com for LinkedIn and later with user@gmail.com for Google, the latter will display an error page, saying the user already exists.
+
 2. Subscribe.
 
-	Select the [Products](https://api-portal.videoindexer.ai/products) tab. Then, select Authorization and subscribe.
+   Select the [Products](https://api-portal.videoindexer.ai/products) tab. Then, select Authorization and subscribe.
 	
-	![Products tab in Video Indexer Developer Portal](./media/video-indexer-use-apis/authorization.png)
+   ![Products tab in Video Indexer Developer Portal](./media/video-indexer-use-apis/authorization.png)
 
-    > [!NOTE]
-    > New users are automatically subscribed to Authorization.
+   > [!NOTE]
+   > New users are automatically subscribed to Authorization.
 	
-	After you subscribe, you can find your subscription under **Products** -> **Authorization**. In the subscription page, you will find the primary and secondary keys. The keys should be protected. The keys should only be used by your server code. They shouldn't be available on the client side (.js, .html, and so on).
+   After you subscribe, you can find your subscription under **Products** -> **Authorization**. In the subscription page, you will find the primary and secondary keys. The keys should be protected. The keys should only be used by your server code. They shouldn't be available on the client side (.js, .html, and so on).
 
-	![Subscription and keys in Video Indexer Developer Portal](./media/video-indexer-use-apis/subscriptions.png)
+   ![Subscription and keys in Video Indexer Developer Portal](./media/video-indexer-use-apis/subscriptions.png)
 
 > [!TIP]
 > Video Indexer user can use a single subscription key to connect to multiple Video Indexer accounts. You can then link these Video Indexer accounts to different Media Services accounts.
@@ -60,7 +61,10 @@ Each call to the Operations API should be associated with an access token, match
 - Account level: Account level access tokens let you perform operations on the **account** level or the **video** level. For example, upload video, list all videos, get video insights, and so on.
 - Video level: Video level access tokens let you perform operations on a specific **video**. For example, get video insights, download captions, get widgets, and so on.
 
-You can control whether these tokens are read-only or if they allow editing by specifying **allowEdit=true/false**.
+You can control the permission level of tokens in two ways:
+
+* For **Account** tokens, you can use the **Get Account Access Token With Permission** API and specify the permission type (**Reader**/**Contributor**/**MyAccessManager**/**Owner**).
+* For all types of tokens (including **Account** tokens), you can specify **allowEdit=true/false**. **false** is the equivalent of a **Reader** permission (read-only) and **true** is the equivalent of a **Contributor** permission (read-write).
 
 For most server-to-server scenarios, you'll probably use the same **account** token since it covers both **account** operations and **video** operations. However, if you're planning to make client side calls to Video Indexer (for example, from JavaScript), you would want to use a **video** access token to prevent clients from getting access to the entire account. That's also the reason that when embedding Video Indexer client code in your client (for example, using **Get Insights Widget** or **Get Player Widget**), you must provide a **video** access token.
 

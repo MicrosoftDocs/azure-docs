@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 03/01/2021
+ms.date: 04/29/2021
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator, I want to deploy and configure Azure Firewall DNAT so that I can control inbound Internet access to resources located in a subnet.
@@ -23,6 +23,9 @@ In this tutorial, you learn how to:
 > * Create a default route
 > * Configure a DNAT rule
 > * Test the firewall
+
+> [!NOTE]
+> This tutorial uses classic Firewall rules to manage the firewall. The preferred method is to use [Firewall Policy](../firewall-manager/policy-overview.md). To complete this tutorial using Firewall Policy, see [Tutorial: Filter inbound Internet traffic with Azure Firewall policy DNAT using the Azure portal](tutorial-firewall-dnat-policy.md)
 
 ## Prerequisites
 
@@ -218,15 +221,6 @@ For the **SN-Workload** subnet, you configure the outbound default route to go t
 You can keep your firewall resources for the next tutorial, or if no longer needed, delete the **RG-DNAT-Test** resource group to delete all firewall-related resources.
 
 ## Next steps
-
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Set up a test network environment
-> * Deploy a firewall
-> * Create a default route
-> * Configure a DNAT rule
-> * Test the firewall
 
 Next, you can monitor the Azure Firewall logs.
 

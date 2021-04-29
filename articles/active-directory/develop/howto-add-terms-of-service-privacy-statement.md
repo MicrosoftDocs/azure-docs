@@ -17,17 +17,17 @@ ms.custom: aaddev
 
 # How to: Configure terms of service and privacy statement for an app
 
-Developers who build and manage apps that integrate with Azure Active Directory (Azure AD) and Microsoft accounts should include links to the app's terms of service and privacy statement. The terms of service and privacy statement are surfaced to users through the user consent experience. They help your users know that they can trust your app. The terms of service and privacy statement are especially critical for user-facing multi-tenant apps--apps that are used by multiple directories or are available to any Microsoft account.
+Developers who build and manage multi-tenant apps that integrate with Azure Active Directory (Azure AD) and Microsoft accounts should include links to the app's terms of service and privacy statement. The terms of service and privacy statement are surfaced to users through the user consent experience. They help your users know that they can trust your app. The terms of service and privacy statement are especially critical for user-facing multi-tenant apps--apps that are used by multiple directories or are available to any Microsoft account.
 
 You are responsible for creating the terms of service and privacy statement documents for your app, and for providing the URLs to these documents. For multi-tenant apps that fail to provide these links, the user consent experience for your app will show an alert, which may discourage users from consenting to your app.
 
 > [!NOTE]
-> * Single-tenant apps will not show an alert.
+> * The terms of service and privacy statement links are not applicable to single-tenant apps
 > * If one or both of the two links are missing, your app will show an alert.
 
 ## User consent experience
 
-The following examples show the user consent experience when the terms of service and privacy statement are configured and when these links are not configured.
+The following example shows the user consent experience for a multi-tenant app when the terms of service and privacy statement are configured and when these links are not configured.
 
 ![Screenshots with and without a privacy statement and terms of service provided](./media/howto-add-terms-of-service-privacy-statement/user-consent-exp-privacy-statement-terms-service.png)
 

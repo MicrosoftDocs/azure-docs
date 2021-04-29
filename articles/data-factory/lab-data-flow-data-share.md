@@ -6,7 +6,7 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/14/2021
+ms.date: 04/16/2021
 ---
 
 # Data integration using Azure Data Factory and Azure Data Share
@@ -95,7 +95,7 @@ To turn on debug, click the **Data flow debug** slider in the top bar of data fl
 
 ![Portal configure 10](media/lab-data-flow-data-share/configure10.png)
 
-![Portal configure 11](media/lab-data-flow-data-share/configure11.png)
+![Screenshot that shows where is the Data flow debug slider.](media/lab-data-flow-data-share/configure-11.png)
 
 ## Ingest data using the copy activity
 

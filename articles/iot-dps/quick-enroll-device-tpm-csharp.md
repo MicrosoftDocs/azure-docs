@@ -21,7 +21,7 @@ This article shows how to programmatically create an individual enrollment for a
 
 1. Verify you have [Visual Studio 2019](https://www.visualstudio.com/vs/) installed on your computer.
 
-1. Verify you have the [.NET Core SDK](https://www.microsoft.com/net/download/windows) installed on your computer.
+1. Verify you have the [.NET Core SDK](https://dotnet.microsoft.com/download) installed on your computer.
 
 1. Complete the steps in [Set up the IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you continue.
 

@@ -11,7 +11,8 @@ editor: ''
 ms.service: api-management
 ms.topic: how-to
 ms.date: 04/12/2021
-ms.author: apimpm
+ms.author: apimpm 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Using Azure API Management service with an internal virtual network
