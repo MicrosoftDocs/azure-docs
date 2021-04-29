@@ -1,6 +1,6 @@
 ---
 title: Azure VPN Gateway FAQ
-description: The VPN Gateway FAQ. FAQ for Microsoft Azure Virtual Network cross-premises connections, hybrid configuration connections, and VPN Gateways.
+description: Learn about frequently asked questions for VPN Gateway cross-premises connections, hybrid configuration connections, and virtual network gateways. This FAQ contains comprehensive information about point-to-site, site-to-site, and VNet-to-VNet configuration settings.
 services: vpn-gateway
 author: yushwang
 
@@ -253,7 +253,7 @@ No. Only the traffic that has a destination IP that is contained in the virtual 
 
 ## <a name="faq"></a>Virtual Network FAQ
 
-You view additional virtual network information in the [Virtual Network FAQ](../virtual-network/virtual-networks-faq.md).
+You can view additional virtual network information in the [Virtual Network FAQ](../virtual-network/virtual-networks-faq.md).
 
 ## Next steps
 

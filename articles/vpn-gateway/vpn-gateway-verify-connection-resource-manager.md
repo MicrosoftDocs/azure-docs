@@ -1,12 +1,13 @@
 ---
-title: 'Azure VPN Gateway: Verify a gateway connection'
-description: This article shows you how to verify a virtual network VPN Gateway connection.
+title: 'Verify a gateway connection'
+titleSuffix: Azure VPN Gateway
+description: Learn how to verify a virtual network VPN Gateway connection.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
 
 ---
