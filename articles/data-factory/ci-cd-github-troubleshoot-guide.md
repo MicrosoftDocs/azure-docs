@@ -52,7 +52,7 @@ CI/CD Pipeline fails with the following error:
 
 #### Recommendation
 
-The error occurs because we often delete a trigger, which is parameterized, therefore, the parameters will not be available in the ARM template (because the trigger does not exist anymore). Since the parameter is not in the ARM template anymore, we have to update the overridden parameters in the DevOps pipeline. Otherwise, each time the parameters in the ARM template change, they must update the overridden parameters in the DevOps pipeline (in the deployment task).
+The error occurs because we often delete a trigger, which is parameterized, therefore, the parameters will not be available in the Azure Resource Manager (ARM) template (because the trigger does not exist anymore). Since the parameter is not in the ARM template anymore, we have to update the overridden parameters in the DevOps pipeline. Otherwise, each time the parameters in the ARM template change, they must update the overridden parameters in the DevOps pipeline (in the deployment task).
 
 ### Updating property type is not supported
 
@@ -152,7 +152,7 @@ Until recently, only way to publish ADF pipeline for deployments was using ADF P
 
 #### Resolution
 
-CI/CD process has been enhanced. The **Automated** publish feature takes, validates, and exports all Azure Resource Manager (ARM) template features from the ADF UX. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This method allows you to programmatically trigger these actions instead of having to go to the ADF UI and do a button click. This method gives  your CI/CD pipelines a **true** continuous integration experience. Please follow [ADF CI/CD Publishing Improvements](./continuous-integration-deployment-improvements.md) for details. 
+CI/CD process has been enhanced. The **Automated** publish feature takes, validates, and exports all ARM template features from the ADF UX. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This method allows you to programmatically trigger these actions instead of having to go to the ADF UI and do a button click. This method gives  your CI/CD pipelines a **true** continuous integration experience. Please follow [ADF CI/CD Publishing Improvements](./continuous-integration-deployment-improvements.md) for details. 
 
 ###  Cannot publish because of 4 MB ARM template limit  
 
