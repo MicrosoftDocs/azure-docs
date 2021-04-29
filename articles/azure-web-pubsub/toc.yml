@@ -48,7 +48,7 @@
 - name: Reference 
   items:
   - name: REST API
-    href: https://docs.microsoft.com/en-us/rest/api/webpubsub
+    href: https://docs.microsoft.com/rest/api/webpubsub
   - name: PubSub WebSocket Subprotocol
     href: https://azure.github.io/azure-webpubsub/references/pubsub-websocket-subprotocol
   - name: Web PubSub CloudEvents 
