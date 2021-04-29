@@ -38,12 +38,12 @@ To enable sign-in for users with an eBay account in Azure Active Directory B2C (
 To create an eBay application, follow these steps:
 
 1. Sign in to the eBay developer console's [Application Keys](https://developer.ebay.com/my/keys) with your eBay developer account credentials.
-1. Enter **Application Title**.
+1. Enter an **Application Title**.
 1. Under the **Production**, select **Create a keyset**. 
 1. In the **Confirm the Primary Contact for this Account** page, provide your account details. To complete the registration process, select **Continue to Create Keys**.
 1. Copy the values of **App ID (Client ID)** and **App ID (Client ID)**. You need both to add the identity provider to your tenant.
-1. Select **User Tokens**, the select **Get a Token from eBay via Your Application**.
-1. Select **You have no Redirect URLs. Click here to add one.**.
+1. Select **User Tokens**, then select **Get a Token from eBay via Your Application**.
+1. Select **Add eBay Redirect URL**.
     1. Enter a valid URL for the **Your privacy policy URL**, for example `https://www.contoso.com/privacy`. The policy URL is a page you maintain to provide privacy information for your application.
     1. In the **Your auth accepted URL**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-name` with the name of your tenant, and `your-domain-name` with your custom domain.
 1. Select **Save**.
@@ -94,7 +94,7 @@ You can define a eBay account as a claims provider by adding it to the **ClaimsP
               <Item Key="scope">https://api.ebay.com/oauth/api_scope/commerce.identity.readonly</Item>
               <Item Key="UsePolicyInRedirectUri">0</Item>
               <!-- Update the Client ID below to the Application ID -->
-            <Item Key="client_id">Your eBay app ID</Item>
+              <Item Key="client_id">Your eBay app ID</Item>
             </Metadata>
             <CryptographicKeys>
               <Key Id="client_secret" StorageReferenceId="eBaySecret"/>
