@@ -297,10 +297,10 @@ Sample desired property payload:
   "thermostat1": {
     "__t": "c",
     "targetTemperature": 21.3,
-    "targetHumidity": 80
+    "targetHumidity": 80,
+    "$version" : 3
   }
-},
-"$version" : 3
+}
 ```
 
 Sample reported property first payload:
