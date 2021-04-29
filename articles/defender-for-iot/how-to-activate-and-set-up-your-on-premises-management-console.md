@@ -56,11 +56,11 @@ To activate the on-premises management console:
 
 After initial activation, the number of monitored devices can exceed the number of committed devices defined during onboarding. This occurs if you connect more sensors to the management console. If there's a discrepancy between the number of monitored devices, and the number of committed devices, a warning will appear on the management console. If this happens, upload a new activation file.
 
-### Activate an expired license (legacy)
+### Activate an expired license (versions under 10.0)
 
 For users with versions prior to 10.0, your license may expire, and the following alert will be displayed. 
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/activation-popup.png" alt-text="When youer license expires you will need to update your license throught the activation file.":::
+:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/activation-popup.png" alt-text="When your license expires you will need to update your license through the activation file.":::
 
 To activate your license:
 
@@ -118,7 +118,7 @@ For information about uploading a new certificate, supported certificate files, 
 
 ## Connect sensors to the on-premises management console
 
-You must ensure that sensors send information to the on-premises management console, and that the on-premises management console can perform backups, manage alerts, and carry out other activity on the sensors. To do that, use the following procedures to verify that you make an initial connection between sensors and the on-premises management console.
+Ensure that sensors send information to the on-premises management console, and that the on-premises management console can perform backups, manage alerts, and carry out other activity on the sensors. To do that, use the following procedures to verify that you make an initial connection between sensors and the on-premises management console.
 
 Two options are available for connecting Azure Defender for IoT sensors to the on-premises management console:
 
@@ -193,7 +193,7 @@ Access groups enable better control over where users manage and analyze devices 
 
 You can define a business unit, and a region for each site in your organization. You can then add zones, which are logical entities that exist in your network. 
 
-You should assign at least one sensor per zone. The five-level model provides the flexibility and granularity required to deliver the protection system that reflects the structure of your organization.
+Assign at least one sensor per zone. The five-level model provides the flexibility and granularity required to deliver the protection system that reflects the structure of your organization.
 
 :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/diagram-of-sensor-showing-relationships.png" alt-text="Diagram showing sensors and regional relationship.":::
 
@@ -211,7 +211,7 @@ To set up a site:
 
    1. Enter the new business unit name and select **ADD**.
 
-1. Add a new regions to reflect your organization's regions.
+1. Add new regions to reflect your organization's regions.
 
    1. From the Enterprise View, select **All Regions** > **Manage Regions**.
 
