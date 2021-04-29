@@ -34,11 +34,11 @@ The size of the virtual machine (VM) that we recommend depends on the types of w
 | ------------ | ------------------ |
 | Virtual Machine Size | **Small GPU (Visualization)**<br>Best suited for remote visualization, streaming, gaming, and encoding with frameworks such as OpenGL and DirectX. | 
 
->[!NOTE]
-The **Small GPU (Visualization)** virtual machine size is configured to enable a high-performing graphics experience. For more information about this virtual machine size, see the article on [how to set up a lab with GPUs](./how-to-setup-lab-gpu.md).
+> [!NOTE]
+> The **Small GPU (Visualization)** virtual machine size is configured to enable a high-performing graphics experience. For more information about this virtual machine size, see the article on [how to set up a lab with GPUs](./how-to-setup-lab-gpu.md).
 
 ### License server
-You will need to access a license server if you plan to use the Autodesk network licensing model.  Read AutoDesk's article on [Network License Administration](https://knowledge.autodesk.com/customer-service/network-license-administration/network-deployment/preparing-for-deployment/determining-installation-type) for more information.
+You will need to access a license server if you plan to use the Autodesk network licensing model.  Read Autodesk's article on [Network License Administration](https://knowledge.autodesk.com/customer-service/network-license-administration/network-deployment/preparing-for-deployment/determining-installation-type) for more information.
 
 To use network licensing with Autodesk software, [AutoDesk provides detailed steps](https://knowledge.autodesk.com/customer-service/network-license-administration/install-and-configure-network-license) to install Autodesk Network License Manager on your license server.  This license server is ordinarily located in either your on-premises network or hosted on an Azure virtual machine (VM) within in Azure virtual network.
 
@@ -51,8 +51,8 @@ Autodesk-generated license files embed the MAC address of the license server.  I
 
 For more information, see [Set up a license server as a shared resource](./how-to-create-a-lab-with-shared-resource.md).
 
->[!WARNING]
-Don’t forget to [peer the virtual network](./how-to-connect-peer-virtual-network.md) for the lab account to the virtual network for the license server **before** creating the lab.
+> [!WARNING]
+> Don’t forget to [peer the virtual network](./how-to-connect-peer-virtual-network.md) for the lab account   to the virtual network for the license server **before** creating the lab.
 
 ### Template machine
 The steps in this section show how to set up the template VM:

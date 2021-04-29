@@ -8,15 +8,15 @@ ms.author: nicolela
 ---
 
 # Set up a lab for Adobe Creative Cloud
-[Adobe Creative Cloud](https://www.adobe.com/creativecloud.html) is a collection of desktop applications and web services used for photography, design, video, web, user experience (UX), and more.  Universities and K-12 schools use Creative Cloud in digital arts and media classes.  Some of Creative Cloud’s media processes may require more computational and visualization (GPU) power than a typical tablet, laptop, or workstation support.  With Azure Lab Services, you have flexibility to choose from a variety of virtual machine (VM) sizes, including GPU sizes.
+[Adobe Creative Cloud](https://www.adobe.com/creativecloud.html) is a collection of desktop applications and web services used for photography, design, video, web, user experience (UX), and more.  Universities and K-12 schools use Creative Cloud in digital arts and media classes.  Some of Creative Cloud’s media processes may require more computational and visualization (GPU) power than a typical tablet, laptop, or workstation support.  With Azure Lab Services, you have flexibility to choose from various virtual machine (VM) sizes, including GPU sizes.
 
 In this article, we’ll show how to set up a class that uses Creative Cloud.
 
 ## Licensing
-To use Creative Cloud on a lab VM, you must use [Named User Licensing](https://helpx.adobe.com/enterprise/kb/technical-support-boundaries-virtualized-server-based.html#main_Licensing_considerations) which is the only type of licensing that supports deployment on a virtual machine.  Each lab VM has internet access so that your students can activate Creative Cloud apps by signing into the software.  Once a student signs in, their authentication token is cached in the user profile so that they don’t have to sign-in again on their VM.  Read [Adobe’s article on licensing](https://helpx.adobe.com/enterprise/using/licensing.html) for more details.
+To use Creative Cloud on a lab VM, you must use [Named User Licensing](https://helpx.adobe.com/enterprise/kb/technical-support-boundaries-virtualized-server-based.html#main_Licensing_considerations), which is the only type of licensing that supports deployment on a virtual machine.  Each lab VM has internet access so that your students can activate Creative Cloud apps by signing into the software.  Once a student signs in, their authentication token is cached in the user profile so that they don’t have to sign in again on their VM.  Read [Adobe’s article on licensing](https://helpx.adobe.com/enterprise/using/licensing.html) for more details.
 
 ## Lab configuration
-To set up this lab, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Once you get an Azure subscription, you can create a new lab account in Azure Lab Services. For more information about creating a new lab account, see the tutorial on [how to setup a lab account](./tutorial-setup-lab-account.md). You can also use an existing lab account.
+To set up this lab, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Once you get an Azure subscription, you can create a new lab account in Azure Lab Services. For more information about creating a new lab account, see the tutorial on [how to set up a lab account](./tutorial-setup-lab-account.md). You can also use an existing lab account.
 
 ### Lab account settings
 
@@ -42,8 +42,8 @@ The size of VM that you need to use for your lab depends on the types of project
 
 ### Creative Cloud deployment package
 Installing Creative Cloud requires the use of a deployment package. Typically, the deployment package is created by your IT department using Adobe’s Admin Console.  When IT creates the deployment package, they also have the option to enable self-service.  There are a few ways to enable self-service for the deployment package:
-1. Create a self-service package.
-1. Create a managed package with self-service elevated privileges turned on.
+-    Create a self-service package.
+-    Create a managed package with self-service elevated privileges turned on.
 
 With self-service enabled, you don’t install the entire Creative Cloud collection of apps.  Instead, students can install apps themselves using the Creative Cloud desktop app.  Here are some key benefits with this approach:
 - The entire Creative Cloud install is about 25 GB.  If students install only the apps they need on-demand, this helps optimize disk space. Lab VMs have a disk size of 128 GB.
@@ -60,7 +60,7 @@ After the template machine is created, follow the steps below to set up your lab
 1. To install Creative Cloud, download the deployment package given to you by IT or directly from [Adobe’s Admin Console](https://adminconsole.adobe.com/).
 1. Run the deployment package file.  Depending on whether self-service is enabled or disabled, this will install Creative Cloud desktop app and\or the specified Creative Cloud apps.
 Read [Adobe’s deployment steps](https://helpx.adobe.com/enterprise/admin-guide.html/enterprise/using/deploy-packages.ug.html) for more information.
-1. Once the template VM is setup, [publish the template VM’s image](how-to-create-manage-template.md) which is used to create all of the students’ VMs in the lab.
+1. Once the template VM is set up, [publish the template VM’s image](how-to-create-manage-template.md) which is used to create all of the students’ VMs in the lab.
 
 ### Storage
 As mentioned earlier, Azure Lab VMs have a disk size of 128 GB.  If your students need additional storage for saving large media assets or they need to access shared media assets, you should consider using external file storage.  For more information, read the following articles:
