@@ -1,5 +1,5 @@
 ---
-title:  How-to do custom search
+title:  How to do custom search in Azure API for FHIR 
 description: This article describes how you can define your own custom search parameters to be used in the database. 
 author: stevewohl
 ms.service: healthcare-apis
@@ -152,7 +152,7 @@ If you need to delete a search parameter, use the following:
 > [!Warning]
 > Be careful when deleting SearchParameters that have already been indexed in your database. Changing an existing SearchParameter’s behavior could have impacts on the expected behavior.
 
-## Next Steps
+## Next steps
 
 In this article, you’ve learned how to create a search parameter. To learn how to how to reindex a job, see
 

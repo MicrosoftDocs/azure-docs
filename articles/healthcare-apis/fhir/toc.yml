@@ -111,18 +111,18 @@
     href: get-healthcare-apis-access-token-cli.md
   - name: Troubleshoot failures in Azure IoT Connector for FHIR (preview)
     href: iot-troubleshoot-guide.md
-  - name: Overview of FHIR Search
+  - name: Overview of FHIR search
     expanded: false
-    href: overview-fhir-search.md
+    href: overview-of-search.md
   - name: Defining custom search parameters
     expanded: false
     href: how-to-do-custom-search.md
-  - name: How-to run a reindex job
+  - name: How to run a reindex job
     expanded: false
     href: how-to-run-a-reindex.md
   - name: Search examples for Azure API for FHIR
     expanded: false
-    href: fhir-search-samples.md
+    href: search-samples.md
 - name: Concepts
   expanded: false
   items:

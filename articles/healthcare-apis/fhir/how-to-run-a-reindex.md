@@ -1,5 +1,5 @@
 ---
-title:  How-to run a reindex job
+title:  How to run a reindex job in Azure API for FHIR 
 description: This article describes how to run a reindex job to index any search or sort parameters that have not yet been indexed in your database.   
 author: stevewohl
 ms.service: healthcare-apis
@@ -175,7 +175,7 @@ If you need to cancel a reindex job, use a delete call and specify the reindex j
 
 `Delete {{FHIR URL}}/_operations/reindex/{{reindexJobId}`
 
-## Performance Considerations
+## Performance considerations
 
 A reindex job can be quite performance intensive. We’ve implemented some throttling controls to help you manage how a reindex job will run on your database.
 
@@ -217,7 +217,7 @@ If you want to use any of the parameters above, you can pass them into the Param
 }
 ```
 
-## Next Steps
+## Next steps
 
 In this article, you’ve learned how to start a reindex job. To learn how to define new search parameters that require the reindex job, see 
 

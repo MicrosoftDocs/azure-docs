@@ -8,7 +8,7 @@ ms.topic: reference
 ms.date: 4/21/2021
 ms.author: cavoeg
 ---
-# Overview of FHIR Search
+# Overview of FHIR search
 
 The FHIR specification defines the fundamentals of search for FHIR resources. This article will guide you through some key aspects to searching resources in FHIR. For complete details about searching FHIR resources, refer to [Search](https://www.hl7.org/fhir/search.html) in the HL7 FHIR Specification.
 
@@ -22,7 +22,7 @@ If the search request is successful, you’ll receive a FHIR bundle response wit
 
 In the following sections, we’ll cover the various aspects involved in searching. Once you’ve reviewed these details, refer to our **Samples page** that has examples of searches that you can make in the Azure API for FHIR.
 
-## Search Parameters
+## Search parameters
 
 When you do a search, consider searching based on various attributes of the resource.  These attributes are called search parameters. Each resource has a set of defined search parameters. The search parameter must be defined and indexed in the database for you to successfully search against it.
 
@@ -77,7 +77,7 @@ To see the search parameters in the capability statement, navigate to `Capabilit
 > [!NOTE]
 > The Azure API for FHIR does not automatically create or index any support search parameters that are not defined by the FHIR specification. However, we do provide support for you to to define your own search parameters.
 
-### Composite Search Parameters
+### Composite search parameters
 
 With the Azure API for FHIR, we support the following search parameter type pairings:
 
@@ -93,7 +93,7 @@ For more information, see the HL7 [Composite Search Parameters](https://www.hl7.
 > [!NOTE]
 > Composite search parameters do not support modifiers per the FHIR specification.
 
- ### Modifiers & Prefixes
+ ### Modifiers & prefixes
 
 [Modifiers](https://www.hl7.org/fhir/search.html#modifiers) allow you to modify the search parameter. Below is an overview of all the FHIR modifiers and the support in the Azure API for FHIR. 
 
@@ -136,13 +136,13 @@ To help manage the returned resources, there are other search result parameters 
 By default, the Azure API for FHIR is set to lenient handling. This means that the server will ignore any unknown or unsupported parameters. If you want to use strict handling, you can use the **Prefer** header and set `handling=strict`.
 
 
- ## Chained & Reverse Chained Searching
+ ## Chained & reverse chained searching
 
 A [chained search](https://www.hl7.org/fhir/search.html#chaining) allows you to search using a search parameter on a resource referenced by another resource. For example, if you want to find encounters where the patient’s name is Jane, use:
 
 `GET {{FHIR URL}}/Encounter?subject:Patient.name=Jane`
 
-Similarly, you can do a reverse chained search. This allows you to get resources where you specify criteria on other resources that refer to them. For more examples of chained and reverse chaining, refer to the [FHIR Search Examples](fhir-search-samples.md) page. 
+Similarly, you can do a reverse chained search. This allows you to get resources where you specify criteria on other resources that refer to them. For more examples of chained and reverse chaining, refer to the [FHIR search examples](search-samples.md) page. 
 
 **Note**: In the Azure API for FHIR and the open source backed by Cosmos DB, there's a limitation where each subquery required for the chained and reverse chained searches will only return 100 items. If there are more than 100 items found, you’ll receive the following error message:
 
@@ -156,9 +156,9 @@ As mentioned above, the results from a search will be a paged bundle. By default
 
 Currently, the Azure API for FHIR only supports the next link in bundles, and it doesn’t support first, last, or previous links.
 
-## Next Steps
+## Next steps
 
 Now that you've learned about the basics of search, see the search samples page for details about how to search using different search parameters, modifiers, and other FHIR search tools.
 
 >[!div class="nextstepaction"]
->[FHIR Search Examples](fhir-search-samples.md)
+>[FHIR search examples](search-samples.md)
