@@ -59,7 +59,7 @@ For more information about the ways workflows can access and work with apps, dat
 
   For example, you can start almost any workflow on a schedule when you use the Recurrence trigger. Or, you can have your workflow wait until called when you use the Request trigger. For more information, review [Built-in triggers and actions for Azure Logic Apps](../connectors/built-in.md).
 
-* **Logic app**: The Azure resource to create for building a workflow. Based on your scenario's needs and solution's requirements, you can create logic apps that run in either the Azure multi-tenant, single-tenant, or integration service environment. For more information, review [Azure host environments for logic apps](#host-environments).
+* **Logic app**: The Azure resource to create for building a workflow. Based on your scenario's needs and solution's requirements, you can create logic apps that run in either the multi-tenant or single-tenant Logic Apps service environment or that run in an integration service environment. For more information, review [Host environments for logic apps](#host-environments).
 
 <a name="how-do-logic-apps-work"></a>
 
@@ -82,7 +82,7 @@ Based on your scenario and solution requirements, you can create logic apps that
 | Environment | [Pricing model](logic-apps-pricing.md) | Description |
 |-------------|----------------------------------------|-------------|
 | Azure Logic Apps (multi-tenant) | Consumption | A logic app can have only one workflow. <p><p>Workflows from different logic apps across *multiple tenants* share the same processing (compute), storage, network, and so on. |
-| Azure Logic Apps ([single-tenant (Preview)])(logic-apps-overview-preview.md) | [Preview](logic-apps-overview-preview.md#pricing-model) | A logic app can have multiple workflows. <p><p>Workflows from the *same logic app in a single tenant* share the same processing (compute), storage, network, and so on. |
+| Azure Logic Apps ([single-tenant (Preview)](logic-apps-overview-preview.md)) | [Preview](logic-apps-overview-preview.md#pricing-model) | A logic app can have multiple workflows. <p><p>Workflows from the *same logic app in a single tenant* share the same processing (compute), storage, network, and so on. |
 | [Integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) | Fixed | A logic app can have only one workflow. <p><p>Workflows from different logic apps in the *same environment* share the same processing (compute), storage, network, and so on. |
 ||||
 
