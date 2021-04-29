@@ -31,11 +31,11 @@ This version of this article completes these steps by running an [automated depl
 
 ## Prerequisites: Download the script
 
-The sample script is written in PowerShell. It is part of the [Azure Digital Twins end-to-end samples](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), which you can download to your machine by navigating to that sample link and selecting the *Browse code* button underneath the title. This will take you to the GitHub repo for the samples, which you can download as a *.ZIP* by selecting the *Code* button and *Download ZIP*.
+The sample script is written in PowerShell. It is part of the [Azure Digital Twins end-to-end samples](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), which you can download to your machine by navigating to that sample link and selecting the *Browse code* button underneath the title. This will take you to the GitHub repo for the samples, which you can download as a .zip by selecting the *Code* button and *Download ZIP*.
 
 :::image type="content" source="media/includes/download-repo-zip.png" alt-text="View of the digital-twins-samples repo on GitHub. The Code button is selected, producing a small dialog box where the Download ZIP button is highlighted." lightbox="media/includes/download-repo-zip.png":::
 
-This will download a *.ZIP* folder to your machine as **digital-twins-samples-master.zip**. Navigate to the folder on your machine and unzip it to extract the files.
+This will download a .zip folder to your machine as **digital-twins-samples-master.zip**. Navigate to the folder on your machine and unzip it to extract the files.
 
 In the unzipped folder, the deployment script is located at _digital-twins-samples-master > scripts > **deploy.ps1**_.
 
