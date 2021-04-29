@@ -34,7 +34,10 @@ Microsoft offers a framework to follow to get you started with Azure. The [Cloud
 
 ### Considerations for migrations
 
-Several aspects are important when considering migrations of file data to Azure. Before proceeding check out our [storage migration overview](/azure/storage/common/storage-migration-overview) and latest supported features by DobiMigrate in our [migration tools comparison matrix](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison).
+Several aspects are important when considering migrations of file data to Azure. Before proceeding check out:
+
+- [storage migration overview](/azure/storage/common/storage-migration-overview)
+- latest supported features by DobiMigrate in [migration tools comparison matrix](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison).
 
 Remember, you'll require enough network capacity to support migrations without impacting production applications. This section outlines the tools and techniques that are available to assess your network needs.
 
@@ -49,7 +52,7 @@ Use the following methods to identify the bandwidth headroom to Azure that is fr
 
 - If you're an existing Azure ExpressRoute customer, view your [circuit usage](../../../../expressroute/expressroute-monitoring-metrics-alerts.md#circuits-metrics) in the Azure portal.
 - Contact your ISP and request reports to show your existing daily and monthly utilization.
-- There are several tools that can measure utilization by monitoring your network traffic at the router/switch level. These include:
+- There are several tools that can measure utilization by monitoring your network traffic at the router/switch level:
   - [Solarwinds Bandwidth Analyzer Pack](https://www.solarwinds.com/network-bandwidth-analyzer-pack?CMP=ORG-BLG-DNS)
   - [Paessler PRTG](https://www.paessler.com/bandwidth_monitoring)
   - [Cisco Network Assistant](https://www.cisco.com/c/en/us/products/cloud-systems-management/network-assistant/index.html)
@@ -98,7 +101,7 @@ This section provides a brief guide for how to add Azure Files share to an on-pr
  
 9. Configure role-based access to limit who can make changes to your storage account. For more information, see [Built-in roles for management operations](/azure/storage/common/authorization-resource-provider#built-in-roles-for-management-operations).
  
-10. Restrict access to the account to specific network segments with [storage firewall settings](/azure/storage/common/storage-network-security). This prevents access attempts from outside of your corporate network.
+10. Restrict access to the account to specific network segments with [storage firewall settings](/azure/storage/common/storage-network-security). Setup firewall settings to prevent access from outside of your corporate network.
 
    ![Shows storage firewall settings in the portal.](./media/dobimigrate-quick-start-guide/azure-storage-firewall.png)
 
