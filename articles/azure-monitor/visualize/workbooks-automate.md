@@ -203,9 +203,9 @@ Workbook types specify which workbook gallery type the new workbook instance wil
 
 ### Working with JSON formatted Workbook data in the serializedData Template parameter
 
-When exporting an ARM template for an Azure Workbook, there are often fixed resource links embedded within the exported `serializedData` template parameter. These include potentially sensitive values such as Subscription ID and Resource Group name, and other types of resource IDs.
+When exporting an Azure Resource Manager template for an Azure Workbook, there are often fixed resource links embedded within the exported `serializedData` template parameter. These include potentially sensitive values such as Subscription ID and Resource Group name, and other types of resource IDs.
 
-The example below demonstrates the customization of an exported Workbook ARM Template, without resorting to string manipulation. The pattern shown in this example is intended to work with the unaltered data as exported from the Azure portal. It is also a best practice to mask out any embedded sensitive values when managing workbooks programmatically, therefore the Subscription ID and Resource Group have been masked here. No other modifications were made to the raw incoming `serializedData` value.
+The example below demonstrates the customization of an exported Workbook Azure Resource Manager Template, without resorting to string manipulation. The pattern shown in this example is intended to work with the unaltered data as exported from the Azure portal. It is also a best practice to mask out any embedded sensitive values when managing workbooks programmatically, therefore the Subscription ID and Resource Group have been masked here. No other modifications were made to the raw incoming `serializedData` value.
 
 ```json
 {
@@ -224,7 +224,7 @@ The example below demonstrates the customization of an exported Workbook ARM Tem
     }
   },
   "variables": {
-    // original exported ARM template serializedData
+    // serializedData from original exported Azure Resource Manager template
     "serializedData": "{\"version\":\"Notebook/1.0\",\"items\":[{\"type\":1,\"content\":{\"json\":\"Replace with Title\"},\"name\":\"text - 0\"},{\"type\":3,\"content\":{\"version\":\"KqlItem/1.0\",\"query\":\"{\\\"version\\\":\\\"ARMEndpoint/1.0\\\",\\\"data\\\":null,\\\"headers\\\":[],\\\"method\\\":\\\"GET\\\",\\\"path\\\":\\\"/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups\\\",\\\"urlParams\\\":[{\\\"key\\\":\\\"api-version\\\",\\\"value\\\":\\\"2019-06-01\\\"}],\\\"batchDisabled\\\":false,\\\"transformers\\\":[{\\\"type\\\":\\\"jsonpath\\\",\\\"settings\\\":{\\\"tablePath\\\":\\\"$..*\\\",\\\"columns\\\":[]}}]}\",\"size\":0,\"queryType\":12,\"visualization\":\"map\",\"tileSettings\":{\"showBorder\":false},\"graphSettings\":{\"type\":0},\"mapSettings\":{\"locInfo\":\"AzureLoc\",\"locInfoColumn\":\"location\",\"sizeSettings\":\"location\",\"sizeAggregation\":\"Count\",\"opacity\":0.5,\"legendAggregation\":\"Count\",\"itemColorSettings\":null}},\"name\":\"query - 1\"}],\"isLocked\":false,\"fallbackResourceIds\":[\"/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/XXXXXXX\"]}",
 
     // parse the original into a JSON object, so that it can be manipulated
@@ -286,7 +286,7 @@ The example below demonstrates the customization of an exported Workbook ARM Tem
 }
 ```
 
-In this example, the following steps facilitated the customization of an exported ARM template:
+In this example, the following steps facilitated the customization of an exported Azure Resource Manager template:
 1. Export the Workbook as an Azure Resource Manager template as explained in the above section
 2. In the template's `variables` section:
     1. Parse the `serializedData` value into a JSON object variable, which creates a JSON structure including an array of items that represent the content of the Workbook.
