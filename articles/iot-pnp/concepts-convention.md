@@ -213,9 +213,9 @@ Sample desired property payload:
 "desired" :
 {
   "targetTemperature" : 21.3,
-  "targetHumidity" : 80
-},
-"$version" : 3
+  "targetHumidity" : 80,
+  "$version" : 3
+}
 ```
 
 Sample reported property first payload:
