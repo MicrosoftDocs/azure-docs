@@ -5,7 +5,7 @@ author: dcstwh
 ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 04/29/2021
 ---
 
 # Azure Data Factory FAQ
@@ -226,6 +226,27 @@ Self-hosted IR is an ADF pipeline construct that you can use with the Copy Activ
 ### Does the data flow compute engine serve multiple tenants?
 
 Clusters are never shared. We guarantee isolation for each job run in production runs. In case of debug scenario one person gets one cluster, and all debugs will go to that cluster which are initiated by that user.
+### Is there a way to write attributes in cosmos db in the same order as specified in the sink in ADF data flow?	
+For cosmos DB, the underlying format of each document is a JSON object which is an unordered set of name/value pairs, so the order cannot be reserved. Data flow spins up a cluster even on integration runtime with 15 min TTL configuration dataflow advisory about TTL and costs	This troubleshoot document [Data flow performance.](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance#time-to-live)
+
+
+###  Why an user is unable to use data preview in the data flows?	
+You should check permissions for custom role. There are multiple actions involved in the dataflow data preview. You start by checking network traffic while debugging on your browser. Please follow all of the actions, for details, please refer to  [Resource provider.](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations#microsoftdatafactory)
+
+### Does the data flow compute engine serve multiple tenants?	
+This troubleshooting document may help to resolve your issue:
+[Multiple enanats.](https://docs.microsoft.com/en-us/azure/data-factory/frequently-asked-questions#does-the-data-flow-compute-engine-serve-multiple-tenants)
+
+
+###  In ADF, can I calculate value for a new column from existing column from mapping?	
+You can use derive transformation in mapping data flow to create a new column on the logic you want. When creating a derived column, you can either generate a new column or update an existing one. In the Column textbox, enter in the column you are creating. To override an existing column in your schema, you can use the column dropdown. To build the derived column's expression, click on the Enter expression textbox. You can either start typing your expression or open up the expression builder to construct your logic.
+
+### Why mapping data flow preview failing with Gateway timeout?	
+Please try to use larger cluster and leverage the row limits in debug settings to a smaller value to reduce the size of debug output.
+### How to parameterize column name in dataflow?
+Column name can be parameterized similar to other properties. Like in derived column customer can use $ColumnNameParam = toString(byName($myColumnNameParamInData)). These parameters can be passed from pipeline execution down to Data flows.
+
+
 
 ## Wrangling data flows
 
