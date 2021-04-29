@@ -123,6 +123,7 @@ Response:
       }
 ```
 >[!TIP]
+>* You can use the [following automatic portal](https://docs.microsoft.com/rest/api/loganalytics/tables/update) to enable/disable TroubleshootingLogs
 >* You can use any REST API tool to run the commands. [Read More](https://docs.microsoft.com/rest/api/azure/)
 >* You need to use the Bearer token for authentication. [Read More](https://social.technet.microsoft.com/wiki/contents/articles/51140.azure-rest-management-api-the-quickest-way-to-get-your-bearer-token.aspx)
 
@@ -133,7 +134,7 @@ Response:
 >* Currently this is supported only for tables under (some other SKUs will also be supported in the future) - [Read more about pricing](https://docs.microsoft.com/services-hub/health/azure_pricing).
 
 ## Schema for Container logs (ContainerLogV2)
-As part of Troubleshooting Logs, Azure Monitor for containers is now in Private Preview of new schema for Container logs called ContainerLogV2. As part of this schema, there new fields to make common queries to view AKS (Azure Kubernetes Service) data.
+As part of Troubleshooting Logs, Azure Monitor for containers is now in Private Preview of new schema for Container logs called ContainerLogV2. As part of this schema, there are new fields to make common queries to view AKS (Azure Kubernetes Service) data.
 
 >[!NOTE]
 >The new fields are:
