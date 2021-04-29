@@ -1,6 +1,6 @@
 ---
 title: Create Dynamics 365 for Customer Engagement & Power Apps plans on Microsoft AppSource (Azure Marketplace).
-description: Configure Dynamics 365 for Customer Engagement & PowerApps offer plans if you chose to enable your offer for third-party app managment.
+description: Configure Dynamics 365 for Customer Engagement & PowerApps offer plans if you chose to enable your offer for third-party app management.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -32,7 +32,7 @@ On the **Plan listing** tab, you can define the plan name and description as you
 1. In the **Plan description** box, explain what makes this software plan unique and any differences from other plans within your offer. This description may contain up to 500 characters.
 1. Select **Save draft**, and then in the top-left, select **Plan overview**.
 
-    :::image type="content" source="./media/third-party-license/bronze-plan.png" alt-text="Alt text here.":::
+    :::image type="content" source="./media/third-party-license/bronze-plan.png" alt-text="Screenshot shows the Plan overview link on the Plan listing page of an offer in Partner Center.":::
 
 1. To create another plan for this offer, at the top of the **Plan overview** page, select **+ Create new plan**. Then repeat the steps in the [Create a plan](#create-a-plan) section. Otherwise, if you're done creating plans, go to the next section: Copy the Service IDs.
 
