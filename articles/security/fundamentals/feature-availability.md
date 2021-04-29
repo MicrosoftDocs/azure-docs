@@ -1,5 +1,5 @@
 ---
-title: Azure service cloud feature availability for US Government customers
+title: Azure service cloud feature availability for US government customers
 description: Lists feature availability for Azure security services, such as Azure Sentinel for US government customers
 author: batami
 ms.author: bagol
@@ -223,4 +223,3 @@ Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office
 - Understand the [Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) capabilities and the trustworthy design and security used to support compliance applicable to federal, state, and local government organizations and their partners.
 - Understand the [Office 365 Government plan](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/office-365-us-government#about-office-365-government-environments).
 - Understand [compliance in Azure](/azure/compliance/) for legal and regulatory standards.
-
