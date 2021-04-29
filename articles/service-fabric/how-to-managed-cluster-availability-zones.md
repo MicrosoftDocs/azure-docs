@@ -1,6 +1,6 @@
 ---
 title: Deploy a Service Fabric managed cluster across Availability Zones
-description: Learn how to deploy Service Fabric managed cluster across Availability Zones and how to configure in an arm template.
+description: Learn how to deploy Service Fabric managed cluster across Availability Zones and how to configure in an ARM template.
 ms.topic: how-to
 ms.date: 04/22/2021
 ---
