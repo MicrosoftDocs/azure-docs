@@ -128,7 +128,7 @@ You can request billing ownership of the subscription types listed below.
 
 ## Additional information
 
-The following section provides additional information about transferring subscriptions.
+The following sections provide additional information about transferring subscriptions.
 
 ### Cancel a prior support plan
 
