@@ -6,7 +6,7 @@ keywords: data science tools, data science virtual machine, tools for data scien
 services: machine-learning
 ms.service: data-science-vm
 
-author: tklimmer
+author: timoklimmer
 ms.author: tklimmer
 ms.topic: conceptual
 ms.date: 04/29/2021
