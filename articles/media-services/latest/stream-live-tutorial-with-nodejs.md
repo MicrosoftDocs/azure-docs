@@ -149,8 +149,8 @@ You might want to specify the following things when you're creating the live eve
 * **IP restrictions on the ingest and preview**. You can define the IP addresses that are allowed to ingest a video to this live event. Allowed IP addresses can be specified as one of these choices:
 
   * A single IP address (for example, `10.0.0.1`)
-  * An IP range that uses an IP address and a CIDR subnet mask (for example, `10.0.0.1/22`)
-  * An IP range that uses an IP address and a dotted decimal subnet mask (for example, `10.0.0.1(255.255.252.0)`).
+  * An IP range that uses an IP address and a Classless Inter-Domain Routing (CIDR) subnet mask (for example, `10.0.0.1/22`)
+  * An IP range that uses an IP address and a dotted decimal subnet mask (for example, `10.0.0.1(255.255.252.0)`)
 
   If no IP addresses are specified and there's no rule definition, then no IP address will be allowed. To allow any IP address, create a rule and set `0.0.0.0/0`. The IP addresses have to be in one of the following formats: IPv4 address with four numbers or a CIDR address range.
 * **Autostart on an event as you create it**. When autostart is set to `true`, the live event will start after creation. That means the billing starts as soon as the live event starts running. You must explicitly call `Stop` on the live event resource to halt further billing. For more information, see [Live event states and billing](live-event-states-billing-concept.md).
