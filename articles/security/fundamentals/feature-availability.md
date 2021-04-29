@@ -89,7 +89,7 @@ The following tables display the current Azure Sentinel feature availability in 
 | - [Windows Firewall](/azure/sentinel/connect-windows-firewall)                                 |     GA         |   GA           |
 | - [Windows Security Events](/azure/sentinel/connect-windows-security-events)                                  |      GA        |         GA     |
 | **External connectors**| | |
-| - [Agari Phising Defense and Brand Protection](/azure/sentinel/connect-agari-phishing-defense)       | Public Preview | Public Preview |
+| - [Agari Phishing Defense and Brand Protection](/azure/sentinel/connect-agari-phishing-defense)       | Public Preview | Public Preview |
 | - [AI Analyst Darktrace](/azure/sentinel/connect-data-sources)                            | Public Preview | Public Preview |
 | - [AI Vectra Detect](/azure/sentinel/connect-ai-vectra-detect)                                 | Public Preview | Public Preview |
 | - [Akamai Security Events](/azure/sentinel/connect-akamai-security-events)                           | Public Preview | Public Preview |
