@@ -31,7 +31,7 @@ A portion of the hierarchy looks like the diagram below.
 
 :::image type="content" source="media/concepts-ontologies-extend/real-estate-core-original.png" alt-text="Flow diagram illustrating part of the RealEstateCore space hierarchy. At the top level, there's an element called Space; it is connected by an 'extends' arrow down a level to Room; Room is connected by two 'extends' arrows down a level to ConferenceRoom and Office."::: 
 
-For more information about the RealEstateCore ontology, see [*Concepts: Adopting industry-standard ontologies*](concepts-ontologies-adopt.md#realestatecore-smart-building-ontology).
+For more information about the RealEstateCore ontology, see [Concepts: Adopting industry-standard ontologies](concepts-ontologies-adopt.md#realestatecore-smart-building-ontology).
 
 ## Extending the RealEstateCore space hierarchy 
 
@@ -163,4 +163,4 @@ The DTDL for the extended interfaces, limited to the portion discussed above, wo
 
 ## Next steps
 
-Continue on the path for developing models based on ontologies: [*Using ontology strategies in a model development path*](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).
+Continue on the path for developing models based on ontologies: [Using ontology strategies in a model development path](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).

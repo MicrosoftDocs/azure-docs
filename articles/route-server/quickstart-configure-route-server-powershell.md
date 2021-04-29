@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create and configure a Route S
 services: route-server
 author: duongau
 ms.author: duau
-ms.date: 03/02/2021
+ms.date: 04/23/2021
 ms.topic: quickstart
 ms.service: route-server
 ms.custom:
@@ -14,6 +14,8 @@ ms.custom:
 # Quickstart: Create and configure Route Server using Azure PowerShell
 
 This article helps you configure Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using PowerShell. Azure Route Server will learn routes from the NVA and program them on the virtual machines in the virtual network. Azure Route Server will also advertise the virtual network routes to the NVA. For more information, read [Azure Route Server](overview.md).
+
+:::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure PowerShell." border="false":::
 
 > [!IMPORTANT]
 > Azure Route Server (Preview) is currently in public preview.

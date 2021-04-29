@@ -4,7 +4,8 @@ description: This article describes how to run runbooks on machines in your loca
 services: automation
 ms.subservice: process-automation
 ms.date: 03/10/2021
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Run runbooks on a Hybrid Runbook Worker
@@ -241,6 +242,9 @@ Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
 When a runbook has been signed, you must import it into your Automation account and publish it with the signature block. To learn how to import runbooks, see [Import a runbook](manage-runbooks.md#import-a-runbook).
+
+>[!NOTE]
+>Use only plaintext characters in your runbook code, including comments. Using characters with diacritical marks, like á or ñ, will result in an error. When Azure Automation downloads your code, the characters will be replaced by a question mark and the signing will fail with a "signature hash validation failure" message.
 
 ## Work with signed runbooks on a Linux Hybrid Runbook Worker
 

@@ -153,6 +153,9 @@
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.addomainservices/
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
 - name: Resources
   items:
     - name: FAQs
