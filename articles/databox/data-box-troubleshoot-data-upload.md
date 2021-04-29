@@ -24,7 +24,7 @@ When data is uploaded to Azure from your device, some file uploads might fail be
 
 You'll see the following notification in the Azure portal.
 
-![Notification of errors during upload](media/data-box-troubleshoot-data-upload/upload-paused-01.png)<!--Remove personal info from screen.-->
+![Notification of errors during upload](media/data-box-troubleshoot-data-upload/upload-paused-01.png)
 
 The errors are listed in the data copy log. You should review the errors and make sure you have backup copies of the files that failed to upload.
 
@@ -47,7 +47,7 @@ The following non-retryable errors result in a pause in an upload and a notifica
 |UploadErrorCloudHttp              |409        |The blob type is invalid for this operation. [Learn more](#the-blob-type-is-invalid-for-this-operation).|
 |UploadErrorCloudHttp              |409        |There is currently a lease on the blob and no lease ID was specified in the request. [Learn more](#there-is-currently-a-lease-on-the-blob-and-no-lease-id-was-specified-in-the-request).|
 |UploadErrorManagedConversionError |409        |The size of the blob being imported is invalid. The blob size is `<blob-size>` bytes. Supported sizes are between 20971520 Bytes and 8192 GiB. [Learn more](#the-size-of-the-blob-being-imported-is-invalid-the-blob-size-is-blob-size-bytes-supported-sizes-are-between-20971520-bytes-and-8192-gib)|
-<!--Temporarily removed from table while product team investigates: Bad Request (file property failure for Azure Files)-->
+<!--Temporarily removed from table: Bad Request (file property failure for Azure Files)-->
 
 For more information about the data log's contents, see [Tracking and event logging for your Azure Data Box and Azure Data Box Heavy import order](data-box-logs.md).
 
@@ -143,7 +143,7 @@ For more information about the data log's contents, see [Tracking and event logg
 
 **Error description:** The listed page blobs failed to upload because they are not a size that can be converted to a Managed Disk. To be converted to a Managed Disk, a page blob must be from 20 MB (20,971,520 Bytes) to 8192 GiB in size.
 
-**Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, make sure each listed blob is from 20971520 Bytes to 8192 GiB in size.
+**Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, make sure each listed blob is from 20 MB Bytes to 8192 GiB in size.
 
 
 ## Next steps

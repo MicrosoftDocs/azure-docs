@@ -26,11 +26,11 @@ To review non-retryable errors and proceed with your order, do the following:
 
    If any non-retryable errors prevented files from uploading, you'll see the following notification. The order status will be **Copy errors**.
 
-   ![Notification for copy errors during an upload in the Azure portal](media/data-box-verify-upload/upload-paused-01.png)
+   ![Notification for copy errors during an upload in the Azure portal](media/data-box-verify-upload-return/copy-errors-in-upload-01.png)
 
 2. Select **Review** to open a review panel.
 
-   ![Review and proceed panel for upload errors in the Azure portal](media/data-box-verify-upload/upload-paused-02.png)
+   ![Review and proceed panel for upload errors in the Azure portal](media/data-box-verify-upload-return/copy-errors-in-upload-02.png)
 
 3. Review the errors in the data copy log using the path in **DATA COPY DETAILS**.
 
@@ -42,7 +42,7 @@ To review non-retryable errors and proceed with your order, do the following:
 
 5. When you're ready, select **Proceed**.
 
-   ![Confirm you've reviewed the errors and are ready to proceed](media/data-box-verify-upload/upload-paused-03.png)
+   ![Confirm you've reviewed the errors and are ready to proceed](media/data-box-verify-upload-return/copy-errors-in-upload-03.png)
 
    If you don't take any action, the order completes automatically after 14 days.
 
