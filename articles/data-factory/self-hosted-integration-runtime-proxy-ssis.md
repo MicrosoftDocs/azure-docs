@@ -74,7 +74,7 @@ Having prepared your self-hosted IR and Azure Blob Storage linked service for st
 
 1. In the **Integration runtime setup** pane, skip past the **General settings** and **Deployment settings** pages by selecting the **Continue** button. 
 
-1. In the **Advanced settings** section, do the following:
+1. On the **Advanced settings** page, do the following:
 
    1. Select the **Set up Self-Hosted Integration Runtime as a proxy for your Azure-SSIS Integration Runtime** check box. 
 
