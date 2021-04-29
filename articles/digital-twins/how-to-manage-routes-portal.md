@@ -130,7 +130,7 @@ From the instance menu, select _Event routes_. Then from the *Event routes* page
 
 On the *Create an event route* page that opens up, choose at minimum:
 * A name for your route in the _Name_ field
-* The _Endpoint_ you would like to use to create the route 
+* The _Endpoint_ you want to use to create the route 
 
 For the route to be enabled, you must also **Add an event route filter** of at least `true`. (Leaving the default value of `false` will create the route, but no events will be sent to it.) To do this, toggle the switch for the _Advanced editor_ to enable it, and write `true` in the *Filter* box.
 
@@ -160,7 +160,7 @@ You can either select from some basic common filter options, or use the advanced
 
 #### Use the basic filters
 
-To use the basic filters, expand the _Event types_ option and select the checkboxes corresponding to the events you'd like to send to your endpoint. 
+To use the basic filters, expand the _Event types_ option and select the checkboxes corresponding to the events you want to send to your endpoint. 
 
 :::row:::
     :::column:::

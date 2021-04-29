@@ -59,7 +59,7 @@ Select *Certificates and secrets* from the registration's menu, and then select 
 
 :::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Portal view of an Azure AD app registration. There's a highlight around 'Certificates and secrets' in the resource menu, and a highlight on the page around 'New client secret'":::
 
-Enter whatever values you would like for *Description* and *Expires*, and select *Add*.
+Enter whatever values you want for *Description* and *Expires*, and select *Add*.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Add client secret":::
 
@@ -108,7 +108,7 @@ In the *Edit Logic Apps Custom Connector* page that follows, configure this info
 * **General information**
     - Icon: Upload an icon that you like
     - Icon background color: Enter hexadecimal code in the format '#xxxxxx' for your color.
-    - Description: Fill whatever values you would like.
+    - Description: Fill whatever values you want.
     - Scheme: HTTPS (leave default)
     - Host: The *host name* of your Azure Digital Twins instance.
     - Base URL: / (leave default)
@@ -195,7 +195,7 @@ Select it to display the list of APIs contained in that connector. Use the searc
 You may be asked to sign in with your Azure credentials to connect to the connector. If you get a *Permissions requested* dialogue, follow the prompts to grant consent for your app and accept.
 
 In the new *DigitalTwinsAdd* box, fill the fields as follows:
-* _id_: Fill the *Twin ID* of the digital twin in your instance that you'd like the Logic App to update.
+* _id_: Fill the *Twin ID* of the digital twin in your instance that you want the Logic App to update.
 * _twin_: This field is where you'll enter the body that the chosen API request requires. For *DigitalTwinsUpdate*, this body is in the form of JSON Patch code. For more about structuring a JSON Patch to update your twin, see the [Update a digital twin](how-to-manage-twin.md#update-a-digital-twin) section of *How-to: Manage digital twins*.
 * _api-version_: The latest API version. Currently, this value is *2020-10-31*.
 

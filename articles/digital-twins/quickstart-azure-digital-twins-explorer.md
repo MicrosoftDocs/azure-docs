@@ -314,7 +314,7 @@ In this quickstart, you made the temperature update manually. It's common in Azu
 
 To wrap up the work for this quickstart, first end the running console app. This action shuts off the connection to the Azure Digital Twins Explorer app in the browser. You'll no longer be able to view live data in the browser. You can close the browser tab.
 
-Then, you can choose which resources you'd like to remove, depending on what you'd like to do next.
+Then, you can choose which resources you want to remove, depending on what you want to do next.
 
 * **If you plan to continue to the Azure Digital Twins tutorials**, you can reuse the instance in this quickstart for those articles, and you don't need to remove it.
 
