@@ -142,7 +142,10 @@ For more information, see [Failover cluster: Cluster Network Object](https://blo
 
 ## Configure quorum
 
-Configure the quorum solution that best suits your business needs. You can configure a [Disk Witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum), a [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness), or a [File Share Witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum). For more information, see [Quorum with SQL Server VMs](hadr-cluster-best-practices.md#quorum). 
+Configure the quorum solution that best suits your business needs. You can configure a [cloud witness](/windows-server/failover-clustering/deploy-cloud-witness), or a [file share witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum). For more information, see [Quorum with SQL Server VMs](hadr-cluster-best-practices.md#quorum). 
+
+> [!NOTE]
+> A disk witness is not currently supported with failover cluster instances using Storage Spaces Direct as the shared storage solution. Use a cloud witness or file share witness instaed. 
 
 ## Add storage
 
@@ -236,6 +239,7 @@ You can configure a virtual network name, or a distributed network name for a fa
 - Azure virtual machines support Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on CSVs and a [standard load balancer](../../../load-balancer/load-balancer-overview.md).
 - Disks that have been attached as NTFS-formatted disks can be used with Storage Spaces Direct only if the disk eligibility option is unchecked, or cleared, when storage is being added to the cluster. 
 - Only registering with the SQL IaaS Agent extension in [lightweight management mode](sql-server-iaas-agent-extension-automate-management.md#management-modes) is supported.
+- Failover cluster instances using Storage Spaces Direct as the shared storage do not support using a disk witness for the quorum of the cluster. Use a cloud witness instead. 
 
 ## Next steps
 

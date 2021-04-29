@@ -1192,8 +1192,8 @@
           href: virtual-machines/windows/move-sql-vm-different-region.md
       - name: Business continuity
         items:
-        - name: Create cluster
-          href: virtual-machines/windows/hadr-create-cluster-how-to.md
+        - name: Configure quorum 
+          href: virtual-machines/windows/hadr-configure-cluster-quorum-how-to.md
         - name: Backup and restore
           items:
           - name: Automated backup (SQL 2016+)

@@ -1,6 +1,6 @@
 ---
-title: Create Quorum for Windows Server Failover Cluster - SQL Server on Azure VMs
-description: "Create supported quorums configurations when you configure Windows Server Failover Cluster for SQL Server on Azure Virtual Machines." 
+title: Configure quorum 
+description: "Learn how to configure a disk witness, cloud witness, and file share witness as quorum for a Windows Server Failover Cluster on SQL Server on Azure VMs. " 
 services: virtual-machines
 documentationCenter: na
 author: cawrites
@@ -16,31 +16,30 @@ ms.author: chadam
 
 ---
 
-# Quorum configuration options (SQL Server on Azure VMs)
+# Configure quorum - SQL Server on Azure VMs. 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article provides quorum configuration practices for both [failover cluster instances (FCIs)](failover-cluster-instance-overview.md) and [availability groups](availability-group-overview.md) when you use them with SQL Server on Azure VMs. The quorum for a cluster is determined by the number of voting elements that must be part of active cluster membership for that cluster to start properly or continue running.
+This article teaches you to configure one of the three quorum options for a Windows Server Failover Cluster running on SQL Server on Azure VMs - a disk witness, a cloud witness, and a file share witness.
+
 
 ## Overview
 
-Configuring a quorum resource will allow the cluster to continue online with only one node online.
+The quorum for a cluster is determined by the number of voting elements that must be part of active cluster membership for the cluster to start properly or continue running. Configuring a quorum resource allows a two-node cluster to continue with only one node online. The Windows Server Failover Cluster is the underlying technology for the SQL Server on Azure VMs high availablity options: [failover cluster instances (FCIs)](failover-cluster-instance-overview.md) and [availability groups](availability-group-overview.md). 
 
-The following quorum options available are recommended to use with an Azure VM, with the disk witness being the preferred choice:
+The following quorum options are available to use with an SQL Server on Azure VMs, with the disk witness being the preferred choice:
 
-||[Disk witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Cloud witness](/windows-server/failover-clustering/deploy-cloud-witness)  |[File share witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
+||[Disk witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)|[Cloud witness](/windows-server/failover-clustering/deploy-cloud-witness)  |[File share witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
-|**Supported OS**| All |Windows Server 2016+| All|
+|**Supported OS**| All<sup>1</sup>   |Windows Server 2016+| All|
+
+<sup>1</sup> A disk witness is not supported if you're using the Storage Spaces Direct shared-storage solution for your failover cluster instance. Configure a cloud witness instead. 
+
+
+
 
 ## Disk Witness
 
-A disk witness is a small clustered disk in the Cluster Available 
-Storage group. This disk is highly available and can fail over 
-between nodes. It contains a copy of the cluster database, with a 
-default size that's less than 1 GB. The disk witness is the
-preferred quorum option for any cluster that uses Azure Shared 
-Disks (or any shared-disk solution like shared SCSI, iSCSI, or 
-fiber channel SAN).  A Clustered Shared Volume cannot be used as a 
-disk witness. Configure an Azure shared disk as the disk witness. 
+A disk witness is a small clustered disk in the Cluster Available Storage group. This disk is highly available and can fail over between nodes. 
 
 The following table provides additional information and considerations about the quorum disk witness.
 
@@ -50,27 +49,12 @@ The following table provides additional information and considerations about the
 
 ## Cloud Witness
 
-A cloud witness is a type of failover cluster quorum witness that 
-uses Microsoft Azure to provide a vote on cluster quorum. The default 
-size is about 1 MB and contains just the time stamp. A cloud witness 
-is ideal for deployments in multiple sites, multiple zones, and 
-multiple regions.
+A cloud witness is a type of failover cluster quorum witness that uses Microsoft Azure to provide a vote on cluster quorum. The default size is about 1 MB and contains just the time stamp. A cloud witness is ideal for deployments in multiple sites, multiple zones, and multiple regions.
 
 **Supported OS**: Windows Server 2016 and later   
 
 
-If you have a Failover Cluster deployment, where all nodes can reach the internet (by extension of Azure) it's recommended that you configure a Cloud Witness as your quorum witness resource.
 
-Some of the scenarios that are supported use of Cloud Witness as a quorum witness are as follows:
-
-- Disaster recovery stretched multi-site clusters (see figure 2).
-- Failover Clusters without shared storage (SQL Always On etc.).
-- Failover Clusters running inside Guest OS hosted in Microsoft Azure Virtual Machine Role (or any other public cloud).
-- Failover Clusters running inside Guest OS of Virtual Machines hosted in private clouds.
-- Storage clusters with or without shared storage, such as Scale-out File Server clusters.
-- Small branch-office clusters (even two-node clusters)
-- Starting with Windows Server 2012 R2, it is recommended to always configure a witness as the cluster automatically 
-manages the witness vote and the nodes vote with Dynamic Quorum.
 
 ### <a name="CloudWitnessSetUp"></a> Set up a Cloud Witness for a cluster
 
