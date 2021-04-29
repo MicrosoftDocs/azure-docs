@@ -141,7 +141,7 @@ With this update, the following event-related scenarios will now be included in 
 
 These results will show contextual and relevant details about the event and actions to take to resolve these problems. Also, for scenarios where we don't have deep contextual diagnostics, Sign-in Diagnostic will present more descriptive content about the error event.
 
-For more information, see [What is sign-in diagnostic in Azure AD?](../active-directory/reports-monitoring/overview-sign-in-diagnostics.md)
+For more information, see [What is sign-in diagnostic in Azure AD?](../reports-monitoring/overview-sign-in-diagnostics.md)
  
 ---
 
@@ -883,9 +883,6 @@ Azure Active Directory will deprecate the following protocols in Azure Active Di
 Affected environments are:
 - Azure Commercial Cloud
 - Office 365 GCC and WW
-
-Related announcement 
-All client-server and browser-server combinations should use TLS 1.2 and modern cipher suites to maintain a secure connection to Azure Active Directory for Azure, Office 365, and Microsoft 365 services. This is change is related to [Azure Active Directory TLS 1.0 & 1.1, and 3DES Cipher Suite Deprecation in US Gov Cloud](whats-new.md#azure-active-directory-tls-10-tls-11-and-3des-deprecation-in-us-gov-cloud).
 
 For guidance to remove deprecating protocols dependencies, please refer to [Enable support for TLS 1.2 in your environment for Azure AD TLS 1.1 and 1.0 deprecation](/troubleshoot/azure/active-directory/enable-support-tls-environment).
 
