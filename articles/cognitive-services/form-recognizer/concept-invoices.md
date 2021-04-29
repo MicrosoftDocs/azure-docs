@@ -38,6 +38,11 @@ You will need an Azure subscription ([create one for free](https://azure.microso
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
+## Supported locales 
+
+**Pre-built Receipt v2.0** (GA) and **Pre-built Receipt v2.1-preview.3** (preview) support invoices in the EN-US locale.
+
+
 ## The Analyze Invoice operation
 
 The [Analyze Invoice](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5ed8c9843c2794cbb1a96291) operation takes an image or PDF of an invoice as the input and extracts the values of interest. The call returns a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Result ID to be used in the next step.
