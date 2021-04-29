@@ -6,7 +6,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/03/2020
+ms.date: 04/29/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -95,11 +95,11 @@ For information about which PowerShell cmdlets to use, see [Azure AD 2.0 preview
 
 1. Enable *password hash sync* from the [Optional features](how-to-connect-install-custom.md#optional-features) page in Azure AD Connect. 
 
-   ![Screenshot of the "Optional features" page in Azure Active Directory Connect](media/how-to-connect-staged-rollout/sr1.png)
+   ![Screenshot of the "Optional features" page in Azure Active Directory Connect](media/how-to-connect-staged-rollout/staged-1.png)
 
 1. Ensure that a full *password hash sync* cycle has run so that all the users' password hashes have been synchronized to Azure AD. To check the status of *password hash sync*, you can use the PowerShell diagnostics in [Troubleshoot password hash sync with Azure AD Connect sync](tshoot-connect-password-hash-synchronization.md).
 
-   ![Screenshot of the AADConnect Troubleshooting log](./media/how-to-connect-staged-rollout/sr2.png)
+   ![Screenshot of the AADConnect Troubleshooting log](./media/how-to-connect-staged-rollout/staged-2.png)
 
 If you want to test *pass-through authentication* sign-in by using staged rollout, enable it by following the pre-work instructions in the next section.
 
@@ -135,7 +135,7 @@ Enable *seamless SSO* by doing the following:
 
 5. Call `Get-AzureADSSOStatus | ConvertFrom-Json`. This command displays a list of Active Directory forests (see the "Domains" list) on which this feature has been enabled. By default, it is set to false at the tenant level.
 
-   ![Example of the Windows PowerShell output](./media/how-to-connect-staged-rollout/sr3.png)
+   ![Example of the Windows PowerShell output](./media/how-to-connect-staged-rollout/staged-3.png)
 
 6. Call `$creds = Get-Credential`. At the prompt, enter the domain administrator credentials for the intended Active Directory forest.
 
@@ -165,13 +165,13 @@ Do the following:
 
    For example, if you want to enable *Option A*, slide the **Password Hash Sync** and **Seamless single sign-on** controls to **On**, as shown in the following images.
 
-   ![The Azure AD Connect page](./media/how-to-connect-staged-rollout/sr4.png)
+   ![The Azure AD Connect page](./media/how-to-connect-staged-rollout/staged-4.png)
 
-   ![The "Enable staged rollout features (Preview)" page](./media/how-to-connect-staged-rollout/sr5.png)
+   ![The "Enable staged rollout features (Preview)" page](./media/how-to-connect-staged-rollout/staged-5.png)
 
 3. Add the groups to the feature to enable *pass-through authentication* and *seamless SSO*. To avoid a UX time-out, ensure that the security groups contain no more than 200 members initially.
 
-   ![The "Manage groups for Password Hash Sync (Preview)" page](./media/how-to-connect-staged-rollout/sr6.png)
+   ![The "Manage groups for Password Hash Sync (Preview)" page](./media/how-to-connect-staged-rollout/staged-6.png)
 
    >[!NOTE]
    >The members in a group are automatically enabled for staged rollout. Nested and dynamic groups are not supported for staged rollout.
@@ -188,24 +188,24 @@ We've enabled audit events for the various actions we perform for staged rollout
   >[!NOTE]
   >An audit event is logged when *seamless SSO* is turned on by using staged rollout.
 
-  ![The "Create rollout policy for feature" pane - Activity tab](./media/how-to-connect-staged-rollout/sr7.png)
+  ![The "Create rollout policy for feature" pane - Activity tab](./media/how-to-connect-staged-rollout/staged-7.png)
 
-  ![The "Create rollout policy for feature" pane - Modified Properties tab](./media/how-to-connect-staged-rollout/sr8.png)
+  ![The "Create rollout policy for feature" pane - Modified Properties tab](./media/how-to-connect-staged-rollout/staged-8.png)
 
 - Audit event when a group is added to *password hash sync*, *pass-through authentication*, or *seamless SSO*.
 
   >[!NOTE]
   >An audit event is logged when a group is added to *password hash sync* for staged rollout.
 
-  ![The "Add a group to feature rollout" pane - Activity tab](./media/how-to-connect-staged-rollout/sr9.png)
+  ![The "Add a group to feature rollout" pane - Activity tab](./media/how-to-connect-staged-rollout/staged-9.png)
 
-  ![The "Add a group to feature rollout" pane - Modified Properties tab](./media/how-to-connect-staged-rollout/sr10.png)
+  ![The "Add a group to feature rollout" pane - Modified Properties tab](./media/how-to-connect-staged-rollout/staged-10.png)
 
 - Audit event when a user who was added to the group is enabled for staged rollout.
 
-  ![The "Add user to feature rollout" pane - Activity tab](media/how-to-connect-staged-rollout/sr11.png)
+  ![The "Add user to feature rollout" pane - Activity tab](media/how-to-connect-staged-rollout/staged-11.png)
 
-  ![The "Add user to feature rollout" pane - Target(s) tab](./media/how-to-connect-staged-rollout/sr12.png)
+  ![The "Add user to feature rollout" pane - Target(s) tab](./media/how-to-connect-staged-rollout/staged-12.png)
 
 ## Validation
 
@@ -226,6 +226,11 @@ To test sign-in with *seamless SSO*:
 1. Ensure that the sign-in successfully appears in the [Azure AD sign-in activity report](../reports-monitoring/concept-sign-ins.md) by filtering with the UserPrincipalName.
 
    To track user sign-ins that still occur on Active Directory Federation Services (AD FS) for selected staged rollout users, follow the instructions at [AD FS troubleshooting: Events and logging](/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Check vendor documentation about how to check this on third-party federation providers.
+
+## Monitoring
+You can monitor the users and groups added or removed from staged rollout and users sign-ins while in staged rollout, using the new Hybrid Auth workbooks in the Azure portal.
+
+ ![Hybrid Auth workbooks](./media/how-to-connect-staged-rollout/staged-13.png)
 
 ## Remove a user from staged rollout
 
