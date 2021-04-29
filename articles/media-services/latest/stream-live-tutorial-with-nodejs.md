@@ -1,5 +1,5 @@
 ---
-title: Stream live with Media Services v3 by using Node.js
+title: Stream live with Media Services by using Node.js and TypeScript
 titleSuffix: Azure Media Services
 description: Learn how to stream live events by using Node.js, TypeScript, and OBS Studio.
 services: media-services
@@ -19,11 +19,11 @@ ms.author: inhenkel
 
 ---
 
-# Tutorial: Stream live with Media Services v3 by using Node.js
+# Tutorial: Stream live with Media Services by using Node.js and TypeScript
 
 In Azure Media Services, [live events](/rest/api/media/liveevents) are responsible for processing live streaming content. A live event provides an input endpoint (ingest URL) that you then provide to a live encoder. The live event receives input streams from the live encoder and makes them available for streaming through one or more [streaming endpoints](/rest/api/media/streamingendpoints). Live events also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery. 
 
-This tutorial shows how to use Node.js to create a *pass-through* type of a live event and broadcast a live stream to it by using [OBS Studio](https://obsproject.com/download).
+This tutorial shows how to use Node.js and TypeScript to create a *pass-through* type of a live event and broadcast a live stream to it by using [OBS Studio](https://obsproject.com/download).
 
 In this tutorial, you will:
 
