@@ -82,7 +82,7 @@ When connections start inside SQL Managed Instance (as with backups and audit lo
 
 To address customer security and manageability requirements, SQL Managed Instance is transitioning from manual to service-aided subnet configuration.
 
-With service-aided subnet configuration, the user is in full control of data (TDS) traffic, while SQL Managed Instance takes responsibility to ensure uninterrupted flow of management traffic in order to fulfill an SLA.
+With service-aided subnet configuration, the customer is in full control of data (TDS) traffic, while SQL Managed Instance control plane takes responsibility to ensure uninterrupted flow of management traffic in order to fulfill an SLA.
 
 Service-aided subnet configuration builds on top of the virtual network [subnet delegation](../../virtual-network/subnet-delegation-overview.md) feature to provide automatic network configuration management and enable service endpoints. 
 

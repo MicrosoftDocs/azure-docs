@@ -50,7 +50,7 @@ In Azure AD, you can set up certificate signing options and the certificate sign
 
 ## I need to replace the certificate for Azure AD Application Proxy applications and need more instructions.
 
-To replace certificates for Azure AD Application Proxy applications, see [PowerShell sample - Replace certificate in Application Proxy apps](scripts/powershell-get-custom-domain-replace-cert.md).
+To replace certificates for Azure AD Application Proxy applications, see [PowerShell sample - Replace certificate in Application Proxy apps](../app-proxy/scripts/powershell-get-custom-domain-replace-cert.md).
 
 ## How do I manage certificates for custom domains in Azure AD Application Proxy?
 
