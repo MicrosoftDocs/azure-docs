@@ -73,7 +73,7 @@ The current security groups and Microsoft 365 groups settings are being deprecat
 | Users can create security groups in Azure portals | Users can create security groups in Azure portals, PowerShell, or API |
 | Users can create Microsoft 365 groups in Azure portals | Users can create Microsoft 365 groups in Azure portals, PowerShell, or API |
 
-Until the current setting is fully deprecated, both settings will appear in the Azure portals. You should configure this new setting before the end of **May 2021**. To configure these settings, you must be assigned the Global Administrator or Privileged Role Administrator role.
+Until the current setting is fully deprecated, both settings will appear in the Azure portals. You should configure this new setting before the end of **May 2021**. To configure the security groups settings, you must be assigned the Global Administrator or Privileged Role Administrator role.
 
 ![Azure Active Directory security groups setting change](./media/groups-self-service-management/security-groups-setting.png)
 
