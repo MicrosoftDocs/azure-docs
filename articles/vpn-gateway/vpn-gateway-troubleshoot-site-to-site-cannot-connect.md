@@ -1,6 +1,6 @@
 ---
-title: 'Troubleshoot an Azure site-to-site VPN connection that cannot connect
-titleSuffix: Azure VPN Gateway'
+title: 'Troubleshoot an Azure site-to-site VPN connection that cannot connect'
+titleSuffix: Azure VPN Gateway
 description: Learn how to troubleshoot a site-to-site VPN connection that suddenly stops working and cannot be reconnected. 
 services: vpn-gateway
 author: chadmath

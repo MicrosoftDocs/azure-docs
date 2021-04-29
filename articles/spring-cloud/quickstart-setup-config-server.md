@@ -6,7 +6,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, fasttrack-edit
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
@@ -73,7 +73,7 @@ The following procedure uses the Azure CLI to set up the config server to deploy
 Set up your config-server with the location of the git repository for the project:
 
 ```azurecli
-az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/piggymetrics-config
+az spring-cloud config-server git set -n <service instance name> -g <resource group name> --uri https://github.com/Azure-Samples/piggymetrics-config
 ```
 ---
 ::: zone-end
