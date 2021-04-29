@@ -94,6 +94,7 @@ Now that you've given the Purview Managed Identity permissions to connect to the
     > [!Note]
     > * Switching the configuration of a scan to include or exclude a personal workspace will trigger a full scan of PowerBI source
     > * The scan name must be between 3-63 characters long and must contain only letters, numbers, underscores, and hyphens. Spaces aren't allowed.
+    > * Schema is unavailable in the schema tab.
 
 5. Set up a scan trigger. Your options are **Once**, **Every 7 days**, and **Every 30 days**.
 
