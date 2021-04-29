@@ -86,7 +86,7 @@ Of interest in this tutorial are the files:
 
 You'll need the files for these steps:
 
-1. Clone the repo from the GitHub link https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp <!--TODO: replace this -->.
+1. Clone the repo from the GitHub link https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp <!--TODO: replace this -->
 1. Start Visual Studio Code, and open the folder where you downloaded the repo.
 1. In Visual Studio Code, browse to the src/cloud-to-device-console-app folder and create a file named **appsettings.json**. This file contains the settings needed to run the program.
 1. Copy the contents from the arm-template/appsettings.json file. The text should look like: <!--TODO: replace this -->
