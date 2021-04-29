@@ -54566,6 +54566,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/powershell-get-all-wildcard-apps.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-get-all-wildcard-apps",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/powershell-display-users-group-of-app.md",
       "redirect_url": "/azure/active-directory/app-proxy/powershell-display-users-group-of-app",
       "redirect_document_id": false
