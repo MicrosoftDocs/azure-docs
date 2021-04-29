@@ -162,7 +162,7 @@ You cannot deploy because you hit Azure Resource Manager limit of 4 MB total tem
 
 #### Cause
 
-Azure Resource Manager restricts template size to be 4mb. Limit the size of your template to 4 MB, and each parameter file to 64 KB. The 4 MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. But, you have crossed the limit. 
+Azure Resource Manager restricts template size to be 4 MB. Limit the size of your template to 4 MB, and each parameter file to 64 KB. The 4 MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. But, you have crossed the limit. 
 
 #### Resolution
 
