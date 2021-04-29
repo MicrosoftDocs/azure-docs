@@ -164,13 +164,13 @@
   - name: Azure PowerShell
     href: /powershell/module/az.datalakestore
   - name: .NET
-    href: /dotnet/api/overview/azure/data-lake-store?view=azure-dotnet
+    href: /dotnet/api/overview/azure/data-lake-store
   - name: Java
-    href: /java/api/overview/azure/datalake?view=azure-java-stable
+    href: /java/api/overview/azure/datalake
   - name: Node.js
     href: https://www.npmjs.com/package/azure-arm-datalake-store
   - name: Python (Account Mgmt.)
-    href: /python/api/azure-mgmt-datalake-store/azure.mgmt.datalake.store?view=azure-python
+    href: /python/api/azure-mgmt-datalake-store/azure.mgmt.datalake.store
   - name: Python (Filesystem Mgmt.)
     href: /python/api/azure-mgmt-datalake-store/azure.mgmt.datalake.store
   - name: REST

@@ -1,7 +1,6 @@
 ---
 title: Collect resource logs from an Azure Resource and analyze with Azure Monitor
 description: Tutorial to configure diagnostic settings to collect resource logs from an Azure resource into a Log Analytics workspace where they can be analyzed with a log query.
-ms.subservice: 
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
@@ -88,7 +87,7 @@ Data is retrieved from a Log Analytics workspace using a log query written in Ku
 
 
 5. Type in a query and click **Run** to inspect results. 
-6. See [Get started with log queries in Azure Monitor](../log-query/get-started-queries.md) for a tutorial on writing log queries.
+6. See [Get started with log queries in Azure Monitor](../logs/get-started-queries.md) for a tutorial on writing log queries.
 
     ![Log query](media/tutorial-resource-logs/log-query-1.png)
 
@@ -99,4 +98,4 @@ Data is retrieved from a Log Analytics workspace using a log query written in Ku
 Now that you've learned how to collect resource logs into a Log Analytics workspace, complete a tutorial on writing log queries to analyze this data.
 
 > [!div class="nextstepaction"]
-> [Get started with log queries in Azure Monitor](../log-query/get-started-queries.md)
+> [Get started with log queries in Azure Monitor](../logs/get-started-queries.md)

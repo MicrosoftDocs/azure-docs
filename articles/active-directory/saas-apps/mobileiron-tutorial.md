@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/12/2021
+ms.date: 02/15/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with MobileIron
@@ -22,16 +22,16 @@ ms.author: jeedes
 
 ## Prerequisites
 
-To configure Azure AD integration with MobileIron, you need the following items:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* MobileIron single sign-on enabled subscription
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* MobileIron single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* MobileIron supports **SP and IDP** initiated SSO
+* MobileIron supports **SP and IDP** initiated SSO.
 
 ## Add MobileIron from the gallery
 
@@ -128,7 +128,7 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
     ![Configure Single Sign-On admin metadata button](./media/MobileIron-tutorial/tutorial_MobileIron_adminmetadata.png)
 
 
-##  Create MobileIron test user
+### Create MobileIron test user
 
 To enable Azure AD users to log in to MobileIron, they must be provisioned into MobileIron.  
 In the case of MobileIron, provisioning is a manual task.
@@ -154,15 +154,16 @@ In the case of MobileIron, provisioning is a manual task.
     d. Click **Done**.
 
 ## Test SSO
+
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-## SP initiated:
+### SP initiated:
 
 * Click on **Test this application** in Azure portal. This will redirect to MobileIron Sign on URL where you can initiate the login flow.  
 
 * Go to MobileIron Sign-on URL directly and initiate the login flow from there.
 
-##  IDP initiated:
+### IDP initiated:
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the MobileIron for which you set up the SSO.
 

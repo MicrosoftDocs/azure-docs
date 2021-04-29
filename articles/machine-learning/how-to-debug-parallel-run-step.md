@@ -8,8 +8,8 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting
 ms.reviewer: larryfr, vaidyas, laobri, tracych
-ms.author: trmccorm
-author: tmccrmck
+ms.author: pansav
+author: psavdekar
 ms.date: 09/23/2020
 #Customer intent: As a data scientist, I want to figure out why my ParallelRunStep doesn't run so that I can fix it.
 
@@ -17,7 +17,7 @@ ms.date: 09/23/2020
 
 # Troubleshooting the ParallelRunStep
 
-In this article, you learn how to troubleshoot when you get errors using the [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?preserve-view=true&view=azure-ml-py) class from the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
+In this article, you learn how to troubleshoot when you get errors using the [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep) class from the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro).
 
 For general tips on troubleshooting a pipeline, see [Troubleshooting machine learning pipelines](how-to-debug-pipelines.md).
 
@@ -93,6 +93,9 @@ file_path = os.path.join(script_dir, "<file_name>")
 - `mini_batch_size`: The size of the mini-batch passed to a single `run()` call. (optional; the default value is `10` files for `FileDataset` and `1MB` for `TabularDataset`.)
     - For `FileDataset`, it's the number of files with a minimum value of `1`. You can combine multiple files into one mini-batch.
     - For `TabularDataset`, it's the size of data. Example values are `1024`, `1024KB`, `10MB`, and `1GB`. The recommended value is `1MB`. The mini-batch from `TabularDataset` will never cross file boundaries. For example, if you have .csv files with various sizes, the smallest file is 100 KB and the largest is 10 MB. If you set `mini_batch_size = 1MB`, then files with a size smaller than 1 MB will be treated as one mini-batch. Files with a size larger than 1 MB will be split into multiple mini-batches.
+        > [!NOTE]
+        > TabularDatasets backed by SQL cannot be partitioned. 
+
 - `error_threshold`: The number of record failures for `TabularDataset` and file failures for `FileDataset` that should be ignored during processing. If the error count for the entire input goes above this value, the job will be aborted. The error threshold is for the entire input and not for individual mini-batch sent to the `run()` method. The range is `[-1, int.max]`. The `-1` part indicates ignoring all failures during processing.
 - `output_action`: One of the following values indicates how the output will be organized:
     - `summary_only`: The user script will store the output. `ParallelRunStep` will use the output only for the error threshold calculation.
@@ -107,7 +110,7 @@ file_path = os.path.join(script_dir, "<file_name>")
 - `run_invocation_timeout`: The `run()` method invocation timeout in seconds. (optional; default value is `60`)
 - `run_max_try`: Maximum try count of `run()` for a mini-batch. A `run()` is failed if an exception is thrown, or nothing is returned when `run_invocation_timeout` is reached (optional; default value is `3`). 
 
-You can specify `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout`, and `run_max_try` as `PipelineParameter`, so that when you resubmit a pipeline run, you can fine-tune the parameter values. In this example, you use `PipelineParameter` for `mini_batch_size` and `Process_count_per_node` and you will change these values when resubmit a run later. 
+You can specify `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout`, and `run_max_try` as `PipelineParameter`, so that when you resubmit a pipeline run, you can fine-tune the parameter values. In this example, you use `PipelineParameter` for `mini_batch_size` and `Process_count_per_node` and you will change these values when you resubmit another run. 
 
 ### Parameters for creating the ParallelRunStep
 
@@ -116,7 +119,7 @@ Create the ParallelRunStep by using the script, environment configuration, and p
 - `parallel_run_config`: A `ParallelRunConfig` object, as defined earlier.
 - `inputs`: One or more single-typed Azure Machine Learning datasets to be partitioned for parallel processing.
 - `side_inputs`: One or more reference data or datasets used as side inputs without need to be partitioned.
-- `output`: A `PipelineData` object that corresponds to the output directory.
+- `output`: An `OutputFileDatasetConfig` object that represents the directory path at which the output data will be stored.
 - `arguments`: A list of arguments passed to the user script. Use unknown_args to retrieve them in your entry script (optional).
 - `allow_reuse`: Whether the step should reuse previous results when run with the same settings/inputs. If this parameter is `False`, a new run will always be generated for this step during pipeline execution. (optional; the default value is `True`.)
 
@@ -146,11 +149,11 @@ Because of the distributed nature of ParallelRunStep jobs, there are logs from s
 
 Logs generated from entry script using EntryScript helper and print statements will be found in following files:
 
-- `~/logs/user/entry_script_log/<ip_address>/<process_name>.log.txt`: These files are the logs written from entry_script using EntryScript helper.
+- `~/logs/user/entry_script_log/<node_id>/<process_name>.log.txt`: These files are the logs written from entry_script using EntryScript helper.
 
-- `~/logs/user/stdout/<ip_address>/<process_name>.stdout.txt`: These files are the logs from stdout (e.g. print statement) of entry_script.
+- `~/logs/user/stdout/<node_id>/<process_name>.stdout.txt`: These files are the logs from stdout (for example, print statement) of entry_script.
 
-- `~/logs/user/stderr/<ip_address>/<process_name>.stderr.txt`: These files are the logs from stderr of entry_script.
+- `~/logs/user/stderr/<node_id>/<process_name>.stderr.txt`: These files are the logs from stderr of entry_script.
 
 For a concise understanding of errors in your script there is:
 
@@ -162,7 +165,7 @@ For more information on errors in your script, there is:
 
 When you need a full understanding of how each node executed the score script, look at the individual process logs for each node. The process logs can be found in the `sys/node` folder, grouped by worker nodes:
 
-- `~/logs/sys/node/<ip_address>/<process_name>.txt`: This file provides detailed info about each mini-batch as it's picked up or completed by a worker. For each mini-batch, this file includes:
+- `~/logs/sys/node/<node_id>/<process_name>.txt`: This file provides detailed info about each mini-batch as it's picked up or completed by a worker. For each mini-batch, this file includes:
 
     - The IP address and the PID of the worker process. 
     - The total number of items, successfully processed items count, and failed item count.
@@ -170,7 +173,7 @@ When you need a full understanding of how each node executed the score script, l
 
 You can also view the results of periodical checks of the resource usage for each node. The log files and setup files are in this folder:
 
-- `~/logs/perf`: Set `--resource_monitor_interval` to change the checking interval in seconds. The default interval is `600`, which is approximately 10 minutes. To stop the monitoring, set the value to `0`. Each `<ip_address>` folder includes:
+- `~/logs/perf`: Set `--resource_monitor_interval` to change the checking interval in seconds. The default interval is `600`, which is approximately 10 minutes. To stop the monitoring, set the value to `0`. Each `<node_id>` folder includes:
 
     - `os/`: Information about all running processes in the node. One check runs an operating system command and saves the result to a file. On Linux, the command is `ps`. On Windows, use `tasklist`.
         - `%Y%m%d%H`: The sub folder name is the time to hour.
@@ -188,14 +191,14 @@ ParallelRunStep may run multiple processes on one node based on process_count_pe
 from azureml_user.parallel_run import EntryScript
 
 def init():
-    """ Initialize the node."""
+    """Init once in a worker process."""
     entry_script = EntryScript()
     logger = entry_script.logger
     logger.debug("This will show up in files under logs/user on the Azure portal.")
 
 
 def run(mini_batch):
-    """ Accept and return the list back."""
+    """Call once for a mini batch. Accept and return the list back."""
     # This class is in singleton pattern and will return same instance as the one in init()
     entry_script = EntryScript()
     logger = entry_script.logger
@@ -205,14 +208,38 @@ def run(mini_batch):
     return mini_batch
 ```
 
+### Where does the message from Python `logging` sink to?
+ParallelRunStep sets a handler on the root logger, which sinks the message to `logs/user/stdout/<node_id>/processNNN.stdout.txt`.
+
+`logging` defaults to `WARNING` level. By default, levels below `WARNING` won't show up, such as `INFO` or `DEBUG`.
+
+### Where is the message from subprocess created with Popen()?
+If no `stdout` or `stderr` specified, a subprocess will inherit the setting of the worker process.
+
+`stdout` will write to `logs/sys/node/<node_id>/processNNN.stdout.txt` and `stderr` to `logs/sys/node/<node_id>/processNNN.stderr.txt`.
+
+### How could I write to a file to show up in the portal?
+Files in `logs` folder will be uploaded and show up in the portal.
+You can get the folder `logs/user/entry_script_log/<node_id>` like below and compose your file path to write:
+```python
+from pathlib import Path
+def init():
+    """Init once in a worker process."""
+    entry_script = EntryScript()
+    folder = entry_script.log_dir
+
+    fil_path = Path(folder) / "<file_name>"
+```
+
 ### How could I pass a side input such as, a file or file(s) containing a lookup table, to all my workers?
 
 User can pass reference data to script using side_inputs parameter of ParalleRunStep. All datasets provided as side_inputs will be mounted on each worker node. User can get the location of mount by passing argument.
 
-Construct a [Dataset](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py) containing the reference data and register it with your workspace. Pass it to the `side_inputs` parameter of your `ParallelRunStep`. Additionally, you can add its path in the `arguments` section to easily access its mounted path:
+Construct a [Dataset](/python/api/azureml-core/azureml.core.dataset.dataset) containing the reference data, specify a local mount path and register it with your workspace. Pass it to the `side_inputs` parameter of your `ParallelRunStep`. Additionally, you can add its path in the `arguments` section to easily access its mounted path:
 
 ```python
-label_config = label_ds.as_named_input("labels_input")
+local_path = "/tmp/{}".format(str(uuid.uuid4()))
+label_config = label_ds.as_named_input("labels_input").as_mount(local_path)
 batch_score_step = ParallelRunStep(
     name=parallel_step_name,
     inputs=[input_images.as_named_input("input_images")],
@@ -259,6 +286,6 @@ registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 
 * See these [Jupyter notebooks demonstrating Azure Machine Learning pipelines](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 
-* See the SDK reference for help with the [azureml-pipeline-steps](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?preserve-view=true&view=azure-ml-py) package. View reference [documentation](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?preserve-view=true&view=azure-ml-py) for ParallelRunStep class.
+* See the SDK reference for help with the [azureml-pipeline-steps](/python/api/azureml-pipeline-steps/azureml.pipeline.steps) package. View reference [documentation](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep) for ParallelRunStep class.
 
 * Follow the [advanced tutorial](tutorial-pipeline-batch-scoring-classification.md) on using pipelines with ParallelRunStep. The tutorial shows how to pass another file as a side input.

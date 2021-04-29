@@ -113,19 +113,19 @@ This section guides you through the steps to configure the Azure AD provisioning
    |name.givenName|String|
    |name.familyName|String|
    |name.honorificSuffix|String|
-   |phoneNumbers[type eq"work"].value|String|
-   |phoneNumbers[type eq"home"].value|String|
-   |phoneNumbers[type eq"other"].value|String|
-   |phoneNumbers[type eq"pager"].value|String|
-   |phoneNumbers[type eq"mobile"].value|String|
-   |phoneNumbers[type eq"fax"].value|String|
-   |addresses[type eq"other"].formatted|String|
-   |addresses[type eq"work"].formatted|String|
-   |addresses[type eq"work"].streetAddress|String|
-   |addresses[type eq"work"].locality|String|
-   |addresses[type eq"work"].region|String|
-   |addresses[type eq"work"].postalCode|String|
-   |addresses[type eq"work"].country|String|
+   |phoneNumbers[type eq "work"].value|String|
+   |phoneNumbers[type eq "home"].value|String|
+   |phoneNumbers[type eq "other"].value|String|
+   |phoneNumbers[type eq "pager"].value|String|
+   |phoneNumbers[type eq "mobile"].value|String|
+   |phoneNumbers[type eq "fax"].value|String|
+   |addresses[type eq "other"].formatted|String|
+   |addresses[type eq "work"].formatted|String|
+   |addresses[type eq "work"].streetAddress|String|
+   |addresses[type eq "work"].locality|String|
+   |addresses[type eq "work"].region|String|
+   |addresses[type eq "work"].postalCode|String|
+   |addresses[type eq "work"].country|String|
    |title|String|
    |emails[type eq "work"].value|String|
    |emails[type eq "home"].value|String|

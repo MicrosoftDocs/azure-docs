@@ -31,14 +31,12 @@ Synapse team brought the new notebooks component into Synapse Studio to provide 
 |Feature|Classical Notebook|Preview Notebook|
 |--|--|--|
 |%run| Not supported | &#9745;|
-|%history| Not supported |&#9745;
+|%history| Not supported |&#9745;|
 |%load| Not supported |&#9745;|
 |%%html| Not supported |&#9745;|
 |Drag and drop to move a cell| Not supported |&#9745;|
-|Persistent Display() output|&#9745;| Not available |
-|Cancel all| &#9745;| Not available|
-|Run all cells above|&#9745;| Not available |
-|Run all cells below|&#9745;| Not available |
+|Outline (Table of Content)| Not supported |&#9745;|
+|Variable explorer| Not supported |&#9745;|
 |Format text cell with toolbar buttons|&#9745;| Not available |
 |Undo cell operation| &#9745;| Not available |
 
@@ -149,6 +147,18 @@ The IntelliSense features are at different levels of maturity for different lang
 |SparkSQL|Yes|Yes|-|-|-|-|-|-|
 |.NET for Spark (C#)|Yes|-|-|-|-|-|-|-|
 
+
+
+### Code Snippets
+
+Azure Synapse Studio notebooks provide code snippets that make it easier to enter common used code patterns, such as configuring your Spark session, reading data as a Spark DataFrame, or drawing charts with matplotlib etc.
+
+Snippets appear in [IntelliSense](#ide-style-intellisense) mixed with other suggestions. The code snippets contents align with the code cell language. You can see available snippets by typing **Snippet** or any keywords appear in the snippet title in the code cell editor. For example, by typing **read** you can see the list of snippets to read data from various data sources.
+
+![Synapse code snippets](./media/apache-spark-development-using-notebooks/synapse-code-snippets.gif#lightbox)
+
+
+
 ### Format text cell with toolbar buttons
 
 # [Classical Notebook](#tab/classical)
@@ -180,7 +190,7 @@ Undo cell operation is not available for the preview notebook experience yet.
 
 # [Classical Notebook](#tab/classical)
 
-Select the ellipses (...) to access the additional cell actions menu at the far right. Then select **Move cell up** or **Move cell down** to move the current cell. 
+Select the ellipses (...) to access the other cell actions menu at the far right. Then select **Move cell up** or **Move cell down** to move the current cell. 
 
 You can also use [shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **Ctrl+Alt+↑** to move up the current cell. Press **Ctrl+Alt+↓** to move the current cell down.
 
@@ -197,7 +207,7 @@ Click on the left-hand side of a cell and drag it to the desired position.
 
 # [Classical Notebook](#tab/classical)
 
-To delete a cell, select the ellipses (...) to access the additional cell actions menu at the far right then select **Delete cell**. 
+To delete a cell, select the ellipses (...) to access the other cell actions menu at the far right then select **Delete cell**. 
 
 You can also use [shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **D,D** to delete the current cell.
   
@@ -246,6 +256,20 @@ Select the **More commands** ellipses (...) on the cell toolbar and **output** t
 
 ---
 
+### Notebook outline
+
+# [Classical Notebook](#tab/classical)
+
+Not supported.
+
+# [Preview Notebook](#tab/preview)
+
+The Outlines (Table of Contents) presents the first markdown header of any markdown cell in a sidebar window for quick navigation. The Outlines sidebar is resizable and collapsible to fit the screen in the best ways possible. You can select the **Outline** button on the notebook command bar to open or hide sidebar
+
+![azure-notebook-outline](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-outline.png)
+---
+
+
 ## Run notebooks
 
 You can run the code cells in your notebook individually or all at once. The status and progress of each cell is represented in the notebook.
@@ -268,28 +292,38 @@ Select the **Run All** button to run all the cells in current notebook in sequen
    ![run-all-cells](./media/apache-spark-development-using-notebooks/synapse-run-all.png)
 
 
-# [Classical Notebook](#tab/classical)
-
 ### Run all cells above or below
 
-To Access the additional cell actions menu at the far right, select the ellipses (**...**). Then, select **Run cells above** to run all the cells above the current in sequence. Select **Run cells below** to run all the cells below the current in sequence.
+# [Classical Notebook](#tab/classical)
+
+To Access the other cell actions menu at the far right, select the ellipses (**...**). Then, select **Run cells above** to run all the cells above the current in sequence. Select **Run cells below** to run all the cells below the current in sequence.
 
    ![run-cells-above-or-below](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
+# [Preview Notebook](#tab/preview)
+
+Expand the dropdown list from **Run all** button, then select **Run cells above** to run all the cells above the current in sequence. Select **Run cells below** to run all the cells below the current in sequence.
+
+   ![azure-notebook-run-cells-above-or-below](./media/apache-spark-development-using-notebooks/synapse-aznb-run-cells-above-or-below.png)
+
+---
 
 ### Cancel all running cells
+
+# [Classical Notebook](#tab/classical)
 Select the **Cancel All** button to cancel the running cells or cells waiting in the queue. 
    ![cancel-all-cells](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
 
 # [Preview Notebook](#tab/preview)
 
-Cancel all running cells is not available for the preview notebook experience yet. 
+Select the **Cancel All** button to cancel the running cells or cells waiting in the queue. 
+   ![azure-notebook-cancel-all-cells](./media/apache-spark-development-using-notebooks/synapse-aznb-cancel-all.png) 
 
 ---
 
 
 
-### Reference notebook
+### Notebook reference
 
 # [Classical Notebook](#tab/classical)
 
@@ -301,8 +335,29 @@ You can use ```%run <notebook path>``` magic command to reference another notebo
 
 Example: ``` %run /path/notebookA ```.
 
+> [!NOTE]
+> Notebook reference is not supported in Synapse pipeline.
+>
+>
+
 ---
 
+### Variable explorer
+
+# [Classical Notebook](#tab/classical)
+
+Not supported.
+
+# [Preview Notebook](#tab/preview)
+
+Synapse notebook provides a built-in variables explorer for you to see the list of the variables name, type, length, and value in the current Spark session for PySpark (Python) cells. More variables will show up automatically as they are defined in the code cells. Clicking on each column header will sort the variables in the table.
+
+You can select the **Variables** button on the notebook command bar to open or hide the variable explorer.
+
+![azure-notebook-variable-explorer](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-variable-explorer.png)
+
+
+---
 
 ### Cell status indicator
 
@@ -341,7 +396,10 @@ You can also specify spark session settings via a magic command **%%configure**.
     }
 }
 ```
-
+> [!NOTE]
+> Spark session config magic command is not supported in Synapse pipeline.
+>
+>
 
 ## Bring data to a notebook
 
@@ -415,6 +473,11 @@ In the notebook properties, you can configure whether to include the cell output
 ## Magic commands
 You can use familiar Jupyter magic commands in Azure Synapse Studio notebooks. Review the following list as the current available magic commands. Tell us [your use cases on GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) so that we can continue to build out more magic commands to meet your needs.
 
+> [!NOTE]
+> Only following magic commands are supported in Synapse pipeline : %%pyspark, %%spark, %%csharp, %%sql. 
+>
+>
+
 # [Classical Notebook](#tab/classical)
 
 Available line magics:
@@ -428,7 +491,7 @@ Available cell magics:
 # [Preview Notebook](#tab/preview)
 
 Available line magics:
-[%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%history](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [%run](#reference-notebook), [%load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
+[%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%history](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [%run](#notebook-reference), [%load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
 
 Available cell magics:
 [%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages), [%%html](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-html), [%%configure](#spark-session-config-magic-command)
@@ -447,7 +510,7 @@ Select the **Add to pipeline** button on the upper right corner to add a noteboo
 
 # [Classical Notebook](#tab/classical)
 
-To parameterize your notebook, select the ellipses (...) to access the additional cell actions menu at the far right. Then select **Toggle parameter cell** to designate the cell as the parameters cell.
+To parameterize your notebook, select the ellipses (...) to access the other cell actions menu at the far right. Then select **Toggle parameter cell** to designate the cell as the parameters cell.
 
 ![toggle-parameter](./media/apache-spark-development-using-notebooks/toggle-parameter-cell.png)
 
@@ -553,5 +616,5 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 - [Quickstart: Create an Apache Spark pool in Azure Synapse Analytics using web tools](../quickstart-apache-spark-notebook.md)
 - [What is Apache Spark in Azure Synapse Analytics](apache-spark-overview.md)
 - [Use .NET for Apache Spark with Azure Synapse Analytics](spark-dotnet.md)
-- [.NET for Apache Spark documentation](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [.NET for Apache Spark documentation](/dotnet/spark)
 - [Azure Synapse Analytics](../index.yml)

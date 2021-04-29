@@ -67,12 +67,56 @@ Interactive authoring capabilities is used for functionalities like test connect
 
 ![Interactive authoring](./media/managed-vnet/interactive-authoring.png)
 
+## Create managed virtual network via Azure PowerShell
+```powershell
+$subscriptionId = ""
+$resourceGroupName = ""
+$factoryName = ""
+$managedPrivateEndpointName = ""
+$integrationRuntimeName = ""
+$apiVersion = "2018-06-01"
+$privateLinkResourceId = ""
+
+$vnetResourceId = "subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/managedVirtualNetworks/default"
+$privateEndpointResourceId = "subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/managedVirtualNetworks/default/managedprivateendpoints/${managedPrivateEndpointName}"
+$integrationRuntimeResourceId = "subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/integrationRuntimes/${integrationRuntimeName}"
+
+# Create managed Virtual Network resource
+New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${vnetResourceId}"
+
+# Create managed private endpoint resource
+New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${privateEndpointResourceId}" -Properties @{
+        privateLinkResourceId = "${privateLinkResourceId}"
+        groupId = "blob"
+    }
+
+# Create integration runtime resource enabled with VNET
+New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeResourceId}" -Properties @{
+        type = "Managed"
+        typeProperties = @{
+            computeProperties = @{
+                location = "AutoResolve"
+                dataFlowProperties = @{
+                    computeType = "General"
+                    coreCount = 8
+                    timeToLive = 0
+                }
+            }
+        }
+        managedVirtualNetwork = @{
+            type = "ManagedVirtualNetworkReference"
+            referenceName = "default"
+        }
+    }
+
+```
+
 ## Limitations and known issues
 ### Supported Data Sources
 Below data sources are supported to connect through private link from ADF Managed Virtual Network.
-- Azure Blob Storage
-- Azure Table Storage
-- Azure Files
+- Azure Blob Storage (not including Storage account V1)
+- Azure Table Storage (not including Storage account V1)
+- Azure Files (not including Storage account V1)
 - Azure Data Lake Gen2
 - Azure SQL Database (not including Azure SQL Managed Instance)
 - Azure Synapse Analytics
@@ -85,27 +129,43 @@ Below data sources are supported to connect through private link from ADF Manage
 - Azure Database for MariaDB
 
 ### Azure Data Factory Managed Virtual Network is available in the following Azure regions:
-- East US
-- East US 2
-- West Central US
-- West US
-- West US 2
-- South Central US
-- Central US
-- North Europe
-- West Europe
-- UK South
-- Southeast Asia
 - Australia East
 - Australia Southeast
+- Brazil South
+- Canada Central
+- Canada East
+- Central India
+- Central US
+- East US
+- East US2
+- France Central
+- Japan East
+- Japan West
+- Korea Central
+- North Europe
+- Norway East
+- South Africa North
+- South Central US
+- South East Asia
+- Switzerland North
+- UAE North
+- UK South
+- UK West
+- West Central US
+- West Europe
+- West US
+- West US2
+
 
 ### Outbound communications through public endpoint from ADF Managed Virtual Network
-- Only port 443 is opened for outbound communications.
+- All ports are opened for outbound communications.
 - Azure Storage and Azure Data Lake Gen2 are not supported to be connected through public endpoint from ADF Managed Virtual Network.
 
 ### Linked Service creation of Azure Key Vault 
 - When you create a Linked Service for Azure Key Vault, there is no Azure Integration Runtime reference. So you can't create Private Endpoint during Linked Service creation of Azure Key Vault. But when you create Linked Service for data stores which references Azure Key Vault Linked Service and this Linked Service references Azure Integration Runtime with Managed Virtual Network enabled, then you are able to create a Private Endpoint for the Azure Key Vault Linked Service during the creation. 
 - **Test connection** operation for Linked Service of Azure Key Vault only validates the URL format, but doesn't do any network operation.
+- The column **Using private endpoint** is always shown as blank even if you create Private Endpoint for Azure Key Vault.
+![Private Endpoint for AKV](./media/managed-vnet/akv-pe.png)
 
 ## Next steps
 

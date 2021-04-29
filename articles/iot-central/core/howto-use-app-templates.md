@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-# As a solution manager, I want to have one or more application templates available in my library that I can use when deploying to new organizations.
+#Customer intent: As a solution manager, I want to have one or more application templates available in my library that I can use when deploying to new organizations.
 ---
 
 # Export your application

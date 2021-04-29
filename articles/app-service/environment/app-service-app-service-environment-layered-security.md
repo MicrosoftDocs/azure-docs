@@ -62,7 +62,7 @@ Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecur
 -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 ```
 
-Rinse and repeat for the second and third upstream App Service Environments ("fe2ase"and "fe3ase").
+Rinse and repeat for the second and third upstream App Service Environments ("fe2ase" and "fe3ase").
 
 ```azurepowershell-interactive
 #Grant access to requests from the second upstream web front-end

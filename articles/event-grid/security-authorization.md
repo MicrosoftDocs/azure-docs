@@ -26,80 +26,23 @@ The following operations return potentially secret information, which gets filte
 
 
 ## Built-in roles
+Event Grid provides the following three built-in roles. 
 
-Event Grid provides two built-in roles for managing event subscriptions. They're important when implementing [event domains](event-domains.md) because they give users the permissions they need to subscribe to topics in your event domain. These roles are focused on event subscriptions and don't grant access for actions such as creating topics.
+The Event Grid Subscription Reader and Event Grid Subscription Contributor roles are for managing event subscriptions. They're important when implementing [event domains](event-domains.md) because they give users the permissions they need to subscribe to topics in your event domain. These roles are focused on event subscriptions and don't grant access for actions such as creating topics.
 
-You can [assign these roles to a user or group](../role-based-access-control/quickstart-assign-role-user-portal.md).
+The Event Grid Contributor role allows you to create and manage Event Grid resources. 
 
-**EventGrid EventSubscription Contributor**: manage Event Grid subscription operations
 
-```json
-[
-  {
-    "Description": "Lets you manage EventGrid event subscription operations.",
-    "IsBuiltIn": true,
-    "Id": "428e0ff05e574d9ca2212c70d0e0a443",
-    "Name": "EventGrid EventSubscription Contributor",
-    "IsServiceRole": false,
-    "Permissions": [
-      {
-        "Actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.EventGrid/eventSubscriptions/*",
-          "Microsoft.EventGrid/systemtopics/eventsubscriptions/*",
-          "Microsoft.EventGrid/partnertopics/eventsubscriptions/*",
-          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
-          "Microsoft.Insights/alertRules/*",
-          "Microsoft.Resources/deployments/*",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Support/*"
-        ],
-        "NotActions": [],
-        "DataActions": [],
-        "NotDataActions": [],
-        "Condition": null
-      }
-    ],
-    "Scopes": [
-      "/"
-    ]
-  }
-]
-```
+| Role | Description |
+| ---- | ----------- | 
+| [Event Grid Subscription Reader](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-reader) | Lets you manage Event Grid event subscription operations. |
+| [Event Grid Subscription Contributor](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-contributor) | Lets you read Event Grid event subscriptions. |
+| [Event Grid Contributor](../role-based-access-control/built-in-roles.md#eventgrid-contributor) | Lets you create and manage Event Grid resources. |
 
-**EventGrid EventSubscription Reader**: read Event Grid subscriptions
 
-```json
-[
-  {
-    "Description": "Lets you read EventGrid event subscriptions.",
-    "IsBuiltIn": true,
-    "Id": "2414bbcf64974faf8c65045460748405",
-    "Name": "EventGrid EventSubscription Reader",
-    "IsServiceRole": false,
-    "Permissions": [
-      {
-        "Actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.EventGrid/eventSubscriptions/read",
-          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
-          "Microsoft.Resources/subscriptions/resourceGroups/read"
-        ],
-        "NotActions": [],
-        "DataActions": [],
-        "NotDataActions": []
-       }
-    ],
-    "Scopes": [
-      "/"
-    ]
-  }
-]
-```
+> [!NOTE]
+> Select links in the first column to navigate to an article that provides more details about the role. For instructions on how to assign users or groups to RBAC roles, see [this article](../role-based-access-control/quickstart-assign-role-user-portal.md).
+
 
 ## Custom roles
 

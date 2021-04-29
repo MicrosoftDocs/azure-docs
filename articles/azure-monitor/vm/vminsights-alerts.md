@@ -1,7 +1,6 @@
 ---
-title: Alerts from Azure Monitor for VMs
-description: Describes how to create alert rules from performance data collected by Azure Monitor for VMs.
-ms.subservice: 
+title: Alerts from VM insights
+description: Describes how to create alert rules from performance data collected by VM insights.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -9,24 +8,24 @@ ms.date: 11/10/2020
 
 ---
 
-# How to create alerts from Azure Monitor for VMs
-[Alerts in Azure Monitor](../platform/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. Azure Monitor for VMs does not include pre-configured alert rules, but you can create your own based on data that it collects. This article provides guidance on creating alert rules, including a set of sample queries.
+# How to create alerts from VM insights
+[Alerts in Azure Monitor](../alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. VM insights does not include pre-configured alert rules, but you can create your own based on data that it collects. This article provides guidance on creating alert rules, including a set of sample queries.
 
 > [!IMPORTANT]
-> The alerts described in this article are based on log queries from data collected Azure Monitor for VMs. This is different than the alerts created by [Azure Monitor for VM guest health](vminsights-health-overview.md) which is a feature currently in public preview. As this feature nears general availability, guidance for alerting will be consolidated.
+> The alerts described in this article are based on log queries from data collected VM insights. This is different than the alerts created by [Azure Monitor for VM guest health](vminsights-health-overview.md) which is a feature currently in public preview. As this feature nears general availability, guidance for alerting will be consolidated.
 
 
 ## Alert rule types
-Azure Monitor has [different types of alert rules](../platform/alerts-overview.md#what-you-can-alert-on) based on the data being used to create the alert. All data collected by Azure Monitor for VMs is stored in Azure Monitor Logs which supports [log alerts](../alerts/alerts-log.md). You cannot currently use [metric alerts](../alerts/alerts-log.md) with performance data collected from Azure Monitor for VMs because the data is not collected into Azure Monitor Metrics. To collect data for metric alerts, install the [diagnostics extension](../agents/diagnostics-extension-overview.md) for Windows VMs or the [Telegraf agent](../platform/collect-custom-metrics-linux-telegraf.md) for Linux VMs to collect performance data into Metrics.
+Azure Monitor has [different types of alert rules](../alerts/alerts-overview.md#what-you-can-alert-on) based on the data being used to create the alert. All data collected by VM insights is stored in Azure Monitor Logs which supports [log alerts](../alerts/alerts-log.md). You cannot currently use [metric alerts](../alerts/alerts-log.md) with performance data collected from VM insights because the data is not collected into Azure Monitor Metrics. To collect data for metric alerts, install the [diagnostics extension](../agents/diagnostics-extension-overview.md) for Windows VMs or the [Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md) for Linux VMs to collect performance data into Metrics.
 
 There are two types of log alerts in Azure Monitor:
 
 - [Number of results alerts](../alerts/alerts-unified-log.md#count-of-the-results-table-rows) create a single alert when a query returns at least a specified number of records. These are ideal for non-numeric data such and Windows and Syslog events collected by the [Log Analytics agent](../agents/log-analytics-agent.md) or for analyzing performance trends across multiple computers.
-- [Metric measurement alerts](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) create a separate alert for each record in a query that has a value that exceeds a threshold defined in the alert rule. These alert rules are ideal for performance data collected by Azure Monitor for VMs since they can create individual alerts for each computer.
+- [Metric measurement alerts](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) create a separate alert for each record in a query that has a value that exceeds a threshold defined in the alert rule. These alert rules are ideal for performance data collected by VM insights since they can create individual alerts for each computer.
 
 
 ## Alert rule walkthrough
-This section walks through the creation of a metric measurement alert rule using performance data from Azure Monitor for VMs. You can use this basic process with a variety of log queries to alert on different performance counters.
+This section walks through the creation of a metric measurement alert rule using performance data from VM insights. You can use this basic process with a variety of log queries to alert on different performance counters.
 
 Start by creating a new alert rule following the procedure in [Create, view, and manage log alerts using Azure Monitor](../alerts/alerts-log.md). For the **Resource**, select the Log Analytics workspace that Azure Monitor VMs uses in your subscription. Since the target resource for log alert rules is always a Log Analytics workspace, the log query must include any filter for particular virtual machines or virtual machine scale sets. 
 
@@ -40,7 +39,7 @@ The **Evaluated based on** section defines how often the query is run and the ti
 ![Metric measurement alert rule](media/vminsights-alerts/metric-measurement-alert.png)
 
 ## Sample alert queries
-The following queries can be used with a metric measurement alert rule using performance data collected by Azure Monitor for VMs. Each summarizes data by computer so that an alert is created for each computer with a value that exceeds the threshold.
+The following queries can be used with a metric measurement alert rule using performance data collected by VM insights. Each summarizes data by computer so that an alert is created for each computer with a value that exceeds the threshold.
 
 ### CPU utilization
 
@@ -196,5 +195,5 @@ or _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/r
 
 ## Next steps
 
-- Learn more about [alerts in Azure Monitor](../platform/alerts-overview.md).
-- Learn more about [log queries using data from Azure Monitor for VMs](vminsights-log-search.md).
+- Learn more about [alerts in Azure Monitor](../alerts/alerts-overview.md).
+- Learn more about [log queries using data from VM insights](vminsights-log-search.md).

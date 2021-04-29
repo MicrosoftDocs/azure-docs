@@ -65,7 +65,7 @@ The **API permissions** pane now shows that your registered Azure AD application
 
 ### Create a client secret
 
-The application needs a client secret to prove its identity when requesting a token. To add the client secret, follow these steps:
+The application needs a client secret to prove its identity when requesting a token. For security reasons, Microsoft limits creation of client secrets longer than 24 months and strongly recommends that you set this to a value less than 12 months. To add the client secret, follow these steps:
 
 1. Navigate to your app registration in the Azure portal.
 1. Select the **Certificates & secrets** setting.
@@ -262,7 +262,7 @@ Update the *appsettings.json* file with your own values, as follows:
     "Domain": "<azure-ad-domain-name>.onmicrosoft.com",
     "TenantId": "<tenant-id>",
     "ClientId": "<client-id>",
-    "ClientSecret": "<client-secret>"
+    "ClientSecret": "<client-secret>",
     "ClientCertificates": [
     ],
     "CallbackPath": "/signin-oidc"

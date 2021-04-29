@@ -3,10 +3,11 @@ title: Create a Windows VM with Azure Image Builder using PowerShell
 description: Create a Windows VM with the Azure Image Builder PowerShell module.
 author: cynthn
 ms.author: cynthn
-ms.date: 06/17/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.service: virtual-machines-windows
-ms.subservice: imaging 
+ms.service: virtual-machines
+ms.subervice: image-builder
+ms.colletion: windows
 ms.custom: devx-track-azurepowershell
 ---
 # Preview: Create a Windows VM with Azure Image Builder using PowerShell
@@ -76,10 +77,11 @@ aren't already registered.
 - Microsoft.Compute
 - Microsoft.KeyVault
 - Microsoft.Storage
+- Microsoft.Network
 - Microsoft.VirtualMachineImages
 
 ```azurepowershell-interactive
-Get-AzResourceProvider -ProviderNamespace Microsoft.Compute, Microsoft.KeyVault, Microsoft.Storage, Microsoft.VirtualMachineImages |
+Get-AzResourceProvider -ProviderNamespace Microsoft.Compute, Microsoft.KeyVault, Microsoft.Storage, Microsoft.VirtualMachineImages, Microsoft.Network |
   Where-Object RegistrationState -ne Registered |
     Register-AzResourceProvider
 ```
@@ -157,7 +159,7 @@ $identityNamePrincipalId = (Get-AzUserAssignedIdentity -ResourceGroupName $image
 Download .json config file and modify it based on the settings defined in this article.
 
 ```azurepowershell-interactive
-$myRoleImageCreationUrl = 'https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json'
+$myRoleImageCreationUrl = 'https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json'
 $myRoleImageCreationPath = "$env:TEMP\myRoleImageCreation.json"
 
 Invoke-WebRequest -Uri $myRoleImageCreationUrl -OutFile $myRoleImageCreationPath -UseBasicParsing
@@ -269,7 +271,7 @@ $ImgCustomParams02 = @{
   FileCustomizer = $true
   CustomizerName = 'downloadBuildArtifacts'
   Destination = 'c:\\buildArtifacts\\index.html'
-  SourceUri = 'https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html'
+  SourceUri = 'https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html'
 }
 $Customizer02 = New-AzImageBuilderCustomizerObject @ImgCustomParams02
 ```

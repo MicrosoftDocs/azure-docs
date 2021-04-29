@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Tutorial: Coding with the Azure Digital Twins APIs
 
-It is common for developers working with Azure Digital Twins to write a client application for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the [Azure Digital Twins SDK for .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). It walks you through writing a C# console client app step by step, starting from scratch.
+It is common for developers working with Azure Digital Twins to write a client application for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the [Azure Digital Twins SDK for .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client). It walks you through writing a C# console client app step by step, starting from scratch.
 
 > [!div class="checklist"]
 > * Set up project
@@ -58,7 +58,7 @@ This will create several files inside your directory, including one called *Prog
 
 Keep the command window open, as you'll continue to use it throughout the tutorial.
 
-Next, **add two dependencies to your project** that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), the second provides tools to help with authentication against Azure.
+Next, **add two dependencies to your project** that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client), the second provides tools to help with authentication against Azure.
 
 ```cmd/sh
 dotnet add package Azure.DigitalTwins.Core
@@ -130,7 +130,7 @@ In the directory where you created your project, create a new *.json* file calle
 > If you're using Visual Studio for this tutorial, you may want to select the newly-created JSON file and set the *Copy to Output Directory* property in the Property inspector to *Copy if Newer* or *Copy Always*. This will enable Visual Studio to find the JSON file with the default path when you run the program with **F5** during the rest of the tutorial.
 
 > [!TIP] 
-> There is a language-agnostic [DTDL Validator sample](/samples/azure-samples/dtdl-validator/dtdl-validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [*How-to: Parse and validate models*](how-to-parse-models.md).
+> There is a language-agnostic [DTDL Validator sample](/samples/azure-samples/dtdl-validator/dtdl-validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [How-to: Parse and validate models](how-to-parse-models.md).
 
 Next, add some more code to *Program.cs* to upload the model you've just created into your Azure Digital Twins instance.
 
@@ -273,4 +273,4 @@ In this tutorial, you created a .NET console client application from scratch. Yo
 Continue to the next tutorial to explore the things you can do with such a sample client app: 
 
 > [!div class="nextstepaction"]
-> [*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md)
+> [Tutorial: Explore the basics with a sample client app](tutorial-command-line-app.md)

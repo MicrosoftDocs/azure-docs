@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 02/09/2021
+ms.date: 03/10/2021
 ms.reviewer: sngun
 ---
 
@@ -60,19 +60,19 @@ The `FeedIterator` comes in two flavors. In addition to the examples below that 
 Here's an example for obtaining a `FeedIterator` that returns entity objects, in this case a `User` object:
 
 ```csharp
-FeedIterator<User> InteratorWithPOCOS = container.GetChangeFeedIterator<User>(ChangeFeedMode.Incremental, ChangeFeedStartFrom.Beginning());
+FeedIterator<User> InteratorWithPOCOS = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(), ChangeFeedMode.Incremental);
 ```
 
 Here's an example for obtaining a `FeedIterator` that returns a `Stream`:
 
 ```csharp
-FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator<User>(ChangeFeedMode.Incremental, ChangeFeedStartFrom.Beginning());
+FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator<User>(ChangeFeedStartFrom.Beginning(), ChangeFeedMode.Incremental);
 ```
 
 If you don't supply a `FeedRange` to a `FeedIterator`, you can process an entire container's change feed at your own pace. Here's an example which starts reading all changes starting at the current time:
 
 ```csharp
-FeedIterator iteratorForTheEntireContainer = container.GetChangeFeedStreamIterator<User>(ChangeFeedMode.Incremental, ChangeFeedStartFrom.Now());
+FeedIterator iteratorForTheEntireContainer = container.GetChangeFeedStreamIterator<User>(ChangeFeedStartFrom.Now(), ChangeFeedMode.Incremental);
 
 while (iteratorForTheEntireContainer.HasMoreResults)
 {
@@ -86,7 +86,7 @@ while (iteratorForTheEntireContainer.HasMoreResults)
     }
     catch {
         Console.WriteLine($"No new changes");
-        Thread.Sleep(5000);
+        await Task.Delay(TimeSpan.FromSeconds(5));
     }
 }
 ```
@@ -99,8 +99,7 @@ In some cases, you may only want to process a specific partition key's changes. 
 
 ```csharp
 FeedIterator<User> iteratorForPartitionKey = container.GetChangeFeedIterator<User>(
-    ChangeFeedMode.Incremental, 
-    ChangeFeedStartFrom.Beginning(FeedRange.FromPartitionKey(new PartitionKey("PartitionKeyValue"))));
+    ChangeFeedStartFrom.Beginning(FeedRange.FromPartitionKey(new PartitionKey("PartitionKeyValue")), ChangeFeedMode.Incremental));
 
 while (iteratorForThePartitionKey.HasMoreResults)
 {
@@ -115,7 +114,7 @@ while (iteratorForThePartitionKey.HasMoreResults)
     catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
     {
         Console.WriteLine($"No new changes");
-        Thread.Sleep(5000);
+        await Task.Delay(TimeSpan.FromSeconds(5));
     }
 }
 ```
@@ -144,7 +143,7 @@ Here's a sample that shows how to read from the beginning of the container's cha
 Machine 1:
 
 ```csharp
-FeedIterator<User> iteratorA = container.GetChangeFeedIterator<User>(ChangeFeedMode.Incremental, ChangeFeedStartFrom.Beginning(ranges[0]));
+FeedIterator<User> iteratorA = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[0]), ChangeFeedMode.Incremental);
 while (iteratorA.HasMoreResults)
 {
     try {
@@ -158,7 +157,7 @@ while (iteratorA.HasMoreResults)
     catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
     {
         Console.WriteLine($"No new changes");
-        Thread.Sleep(5000);
+        await Task.Delay(TimeSpan.FromSeconds(5));
     }
 }
 ```
@@ -166,7 +165,7 @@ while (iteratorA.HasMoreResults)
 Machine 2:
 
 ```csharp
-FeedIterator<User> iteratorB = container.GetChangeFeedIterator<User>(ChangeFeedMode.Incremental, ChangeFeedStartFrom.Beginning(ranges[1]));
+FeedIterator<User> iteratorB = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[1]), ChangeFeedMode.Incremental);
 while (iteratorB.HasMoreResults)
 {
     try {
@@ -180,7 +179,7 @@ while (iteratorB.HasMoreResults)
     catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
     {
         Console.WriteLine($"No new changes");
-        Thread.Sleep(5000);
+        await Task.Delay(TimeSpan.FromSeconds(5));
     }
 }
 ```
@@ -190,7 +189,7 @@ while (iteratorB.HasMoreResults)
 You can save the position of your `FeedIterator` by creating a continuation token. A continuation token is a string value that keeps of track of your FeedIterator's last processed changes. This allows the `FeedIterator` to resume at this point later. The following code will read through the change feed since container creation. After no more changes are available, it will persist a continuation token so that change feed consumption can be later resumed.
 
 ```csharp
-FeedIterator<User> iterator = container.GetChangeFeedIterator<User>(ChangeFeedMode.Incremental, ChangeFeedStartFrom.Beginning());
+FeedIterator<User> iterator = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(), ChangeFeedMode.Incremental);
 
 string continuation = null;
 
@@ -208,12 +207,12 @@ while (iterator.HasMoreResults)
     catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
     {
         Console.WriteLine($"No new changes");
-        Thread.Sleep(5000);
+        await Task.Delay(TimeSpan.FromSeconds(5));
     }   
 }
 
 // Some time later
-FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(ChangeFeedMode.Incremental, ChangeFeedStartFrom.ContinuationToken(continuation));
+FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.ContinuationToken(continuation), ChangeFeedMode.Incremental);
 ```
 
 As long as the Cosmos container still exists, a FeedIterator's continuation token never expires.

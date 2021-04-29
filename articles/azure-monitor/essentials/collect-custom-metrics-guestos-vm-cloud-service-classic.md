@@ -7,13 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
-ms.subservice: metrics
 ---
 # Send Guest OS metrics to the Azure Monitor metric store classic Cloud Services 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-With the Azure Monitor [Diagnostics extension](../agents/diagnostics-extension-overview.md), you can collect metrics and logs from the guest operating system (Guest OS) running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to [many different locations.](../platform/data-platform.md?toc=/azure/azure-monitor/toc.json)
+With the Azure Monitor [Diagnostics extension](../agents/diagnostics-extension-overview.md), you can collect metrics and logs from the guest operating system (Guest OS) running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to [many different locations.](../data-platform.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 
 This article describes the process for sending Guest OS performance metrics for Azure classic Cloud Services to the Azure Monitor metric store. Starting with Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. 
 
@@ -29,7 +28,7 @@ The process that's outlined in this article works only for performance counters 
 
 - You need to have either [Azure PowerShell](/powershell/azure) or [Azure Cloud Shell](../../cloud-shell/overview.md) installed.
 
-- Your Cloud Service must be in a [region that supports custom metrics](../platform/metrics-custom-overview.md#supported-regions).
+- Your Cloud Service must be in a [region that supports custom metrics](./metrics-custom-overview.md#supported-regions).
 
 ## Provision a cloud service and storage account 
 
@@ -186,4 +185,4 @@ You use the dimension filtering and splitting capabilities to view the total mem
 
 ## Next steps
 
-- Learn more about [custom metrics](../platform/metrics-custom-overview.md).
+- Learn more about [custom metrics](./metrics-custom-overview.md).

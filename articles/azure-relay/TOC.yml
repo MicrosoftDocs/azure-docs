@@ -37,7 +37,7 @@
     - name: Authentication and authorization
       href: relay-authentication-and-authorization.md
     - name: Built-in security controls
-      href: service-bus-relay-security-controls.md
+      href: /security/benchmark/azure/baselines/service-bus-messaging-security-baseline?toc=/azure/azure-relay/TOC.json
     - name: Network security
       href: network-security.md      
   - name: Hybrid Connections protocol
@@ -83,6 +83,8 @@
       href: /dotnet/api/microsoft.azure.relay
     - name: Microsoft.ServiceBus
       href: /dotnet/api/Microsoft.ServiceBus
+  - name: Azure CLI
+    href: /cli/azure/relay
   - name: Exceptions
     href: relay-exceptions.md
   - name: Port settings
@@ -92,7 +94,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
   - name: FAQ
-    href: relay-faq.md
+    href: relay-faq.yml
   - name: Blog
     href: /archive/blogs/servicebus/
   - name: Pricing

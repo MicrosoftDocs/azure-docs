@@ -1,15 +1,15 @@
 ---
-author: PatrickFarley
+author: laujan
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 11/14/2019
-ms.author: pafarley
+ms.date: 03/15/2021
+ms.author: lajanuar
 ---
 
 ## Analyze forms for key-value pairs and tables
 
-Next, you'll use your newly trained model to analyze a document and extract key-value pairs and tables from it. Call the **[Analyze Form](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)** API by running the following code in a new Python script. Before you run the script, make these changes:
+Next, you'll use your newly trained model to analyze a document and extract key-value pairs and tables from it. Call the **[Analyze Form](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)** API by running the following code in a new Python script. Before you run the script, make these changes:
 
 1. Replace `<file path>` with the file path of your form (for example, C:\temp\file.pdf). This can also be the URL of a remote file. For this quickstart, you can use the files under the **Test** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
 1. Replace `<model_id>` with the model ID you received in the previous section.
@@ -29,7 +29,7 @@ Next, you'll use your newly trained model to analyze a document and extract key-
     endpoint = r"<endpoint>"
     apim_key = "<subsription key>"
     model_id = "<model_id>"
-    post_url = endpoint + "/formrecognizer/v2.1-preview.2/custom/models/%s/analyze" % model_id
+    post_url = endpoint + "/formrecognizer/v2.1-preview.3/custom/models/%s/analyze" % model_id
     source = r"<file path>"
     params = {
         "includeTextDetails": True

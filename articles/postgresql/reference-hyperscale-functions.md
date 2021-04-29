@@ -6,15 +6,14 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
-ms.date: 08/10/2020
+ms.date: 04/07/2021
 ---
 
 # Functions in the Hyperscale (Citus) SQL API
 
 This section contains reference information for the user-defined functions
-provided by Hyperscale (Citus). These functions help in providing additional
-distributed functionality to Hyperscale (Citus) other than the standard SQL
-commands.
+provided by Hyperscale (Citus). These functions help in providing
+distributed functionality to Hyperscale (Citus).
 
 > [!NOTE]
 >
@@ -244,6 +243,61 @@ SELECT create_distributed_function(
 );
 ```
 
+### alter_columnar_table_set
+
+The alter_columnar_table_set() function changes settings on a [columnar
+table](concepts-hyperscale-columnar.md). Calling this function on a
+non-columnar table gives an error. All arguments except the table name are
+optional.
+
+To view current options for all columnar tables, consult this table:
+
+```postgresql
+SELECT * FROM columnar.options;
+```
+
+The default values for columnar settings for newly created tables can be
+overridden with these GUCs:
+
+* columnar.compression
+* columnar.compression_level
+* columnar.stripe_row_count
+* columnar.chunk_row_count
+
+#### Arguments
+
+**table_name:** Name of the columnar table.
+
+**chunk_row_count:** (Optional) The maximum number of rows per chunk for
+newly inserted data. Existing chunks of data will not be changed and may have
+more rows than this maximum value. The default value is 10000.
+
+**stripe_row_count:** (Optional) The maximum number of rows per stripe for
+newly inserted data. Existing stripes of data will not be changed and may have
+more rows than this maximum value. The default value is 150000.
+
+**compression:** (Optional) `[none|pglz|zstd|lz4|lz4hc]` The compression type
+for newly inserted data. Existing data will not be recompressed or
+decompressed. The default and suggested value is zstd (if support has
+been compiled in).
+
+**compression_level:** (Optional) Valid settings are from 1 through 19. If the
+compression method does not support the level chosen, the closest level will be
+selected instead.
+
+#### Return value
+
+N/A
+
+#### Example
+
+```postgresql
+SELECT alter_columnar_table_set(
+  'my_columnar_table',
+  compression => 'none',
+  stripe_row_count => 10000);
+```
+
 ## Metadata / Configuration Information
 
 ### master\_get\_table\_metadata
@@ -304,7 +358,7 @@ distribution. In most cases, the precise mapping is a low-level detail that the
 database administrator can ignore. However it can be useful to determine a
 row's shard, either for manual database maintenance tasks or just to satisfy
 curiosity. The `get_shard_id_for_distribution_column` function provides this
-info for hash- and range-distributed tables as well as reference tables. It
+info for hash-distributed, range-distributed, and reference tables. It
 does not work for the append distribution.
 
 #### Arguments

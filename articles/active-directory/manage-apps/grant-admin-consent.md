@@ -2,14 +2,14 @@
 title: Grant tenant-wide admin consent to an application - Azure AD
 description: Learn how to grant tenant-wide consent to an application so that end-users are not prompted for consent when signing in to an application.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 11/04/2019
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
 ---
@@ -92,4 +92,4 @@ As always, carefully review the permissions an application requests before grant
 
 [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
 
-[Azure AD on Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+[Azure AD on Microsoft Q&A](/answers/topics/azure-active-directory.html)

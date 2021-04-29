@@ -14,7 +14,7 @@ ms.custom:
 > [!IMPORTANT]
 > [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
 
-See [Azure Diagnostics Overview](../azure-diagnostics.md) for a background on Azure Diagnostics.
+See [Azure Diagnostics Overview](../azure-monitor/agents/diagnostics-extension-overview.md) for a background on Azure Diagnostics.
 
 ## How to Enable Diagnostics in a Worker Role
 This walkthrough describes how to implement an Azure worker role that emits telemetry data using the .NET EventSource class. Azure Diagnostics is used to collect the telemetry data and store it in an Azure storage account. When creating a worker role, Visual Studio automatically enables Diagnostics 1.0 as part of the solution in Azure SDKs for .NET 2.4 and earlier. The following instructions describe the process for creating the worker role, disabling Diagnostics 1.0 from the solution, and deploying Diagnostics 1.2 or 1.3 to your worker role.

@@ -4,6 +4,7 @@ description: Learn how to use Azure Spot Virtual Machines to save on costs.
 author: JagVeerappan
 ms.author: jagaveer
 ms.service: virtual-machines
+ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/05/2020
@@ -20,7 +21,7 @@ The amount of available capacity can vary based on size, region, time of day, an
 
 ## Eviction policy
 
-VMs can be evicted based on capacity or the max price you set. When creating a Azure Spot Virtual Machine, you can set the eviction policy to *Deallocate* (default) or *Delete*. 
+VMs can be evicted based on capacity or the max price you set. When creating an Azure Spot Virtual Machine, you can set the eviction policy to *Deallocate* (default) or *Delete*. 
 
 The *Deallocate* policy moves your VM to the stopped-deallocated state, allowing you to redeploy it later. However, there is no guarantee that the allocation will succeed. The deallocated VMs will count against your quota and you will be charged storage costs for the underlying disks. 
 
@@ -53,9 +54,9 @@ Azure Spot Virtual Machines can be deployed to any region, except Microsoft Azur
 
 The following [offer types](https://azure.microsoft.com/support/legal/offer-details/) are currently supported:
 
--	Enterprise Agreement
--	Pay-as-you-go offer code 003P
--	Sponsored
+-	Enterprise Agreement 
+-	Pay-as-you-go offer code (003P)
+-	Sponsored (0036P and 0136P)
 - For Cloud Service Provider (CSP), contact your partner
 
 

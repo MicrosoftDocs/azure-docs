@@ -4,7 +4,7 @@ description: Understand how to develop functions by using JavaScript.
 
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 03/07/2021
 ms.custom: devx-track-js
 ---
 # Azure Functions JavaScript developer guide
@@ -502,20 +502,20 @@ The following table shows current supported Node.js versions for each major vers
 
 | Functions version | Node version (Windows) | Node Version (Linux) |
 |---|---| --- |
+| 3.x (recommended) | `~14` (recommended)<br/>`~12`<br/>`~10` | `node|14` (recommended)<br/>`node|12`<br/>`node|10` |
+| 2.x  | `~12`<br/>`~10`<br/>`~8` | `node|10`<br/>`node|8`  |
 | 1.x | 6.11.2 (locked by the runtime) | n/a |
-| 2.x  | `~8`<br/>`~10` (recommended)<br/>`~12` | `node|8`<br/>`node|10` (recommended)  |
-| 3.x | `~10`<br/>`~12` (recommended)<br/>`~14` (preview)  | `node|10`<br/>`node|12` (recommended)<br/>`node|14` (preview) |
 
 You can see the current version that the runtime is using by logging `process.version` from any function.
 
 ### Setting the Node version
 
-For Windows function apps, target the version in Azure by setting the `WEBSITE_NODE_DEFAULT_VERSION` [app setting](functions-how-to-use-azure-function-app-settings.md#settings) to a supported LTS version, such as `~12`.
+For Windows function apps, target the version in Azure by setting the `WEBSITE_NODE_DEFAULT_VERSION` [app setting](functions-how-to-use-azure-function-app-settings.md#settings) to a supported LTS version, such as `~14`.
 
 For Linux function apps, run the following Azure CLI command to update the Node version.
 
 ```bash
-az functionapp config set --linux-fx-version "node|12" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
+az functionapp config set --linux-fx-version "node|14" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
 ```
 
 ## Dependency management
@@ -592,6 +592,23 @@ module.exports = async function (context, myTimer) {
 
     context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
     context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
+};
+```
+
+## <a name="ecmascript-modules"></a>ECMAScript modules (preview)
+
+> [!NOTE]
+> As ECMAScript modules are currently labeled *experimental* in Node.js 14, they're available as a preview feature in Node.js 14 Azure Functions. Until Node.js 14 support for ECMAScript modules becomes *stable*, expect possible changes to its API or behavior.
+
+[ECMAScript modules](https://nodejs.org/docs/latest-v14.x/api/esm.html#esm_modules_ecmascript_modules) (ES modules) are the new official standard module system for Node.js. So far, the code samples in this article use the CommonJS syntax. When running Azure Functions in Node.js 14, you can choose to write your functions using ES modules syntax.
+
+To use ES modules in a function, change its filename to use a `.mjs` extension. The following *index.mjs* file example is an HTTP triggered function that uses ES modules syntax to import the `uuid` library and return a value.
+
+```js
+import { v4 as uuidv4 } from 'uuid';
+
+export default async function (context, req) {
+    context.res.body = uuidv4();
 };
 ```
 

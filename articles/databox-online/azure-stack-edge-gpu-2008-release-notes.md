@@ -7,17 +7,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 09/07/2020
+ms.date: 03/05/2021
 ms.author: alkohli
 ---
 
 # Azure Stack Edge Pro with GPU Preview release notes
 
+[!INCLUDE [applies-to-Pro-GPU-sku](../../includes/azure-stack-edge-applies-to-gpu-sku.md)]
+
 The following release notes identify the critical open issues and the resolved issues for 2008 preview release for your Azure Stack Edge Pro devices with GPU.
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your Azure Stack Edge Pro device, carefully review the information contained in the release notes.
 
-This article applies to the following software release - **Azure Stack Edge Pro 2008**. 
+This article applies to the following software release - **Azure Stack Edge Pro 2008**.
 
 <!--- **2.1.1328.1904**-->
 
@@ -47,7 +49,7 @@ The following table provides a summary of known issues for the Azure Stack Edge 
 |**10.**|Kubernetes |Port 31000 is reserved for Kubernetes Dashboard. Similarly, in the default configuration, the IP addresses 172.28.0.1 and 172.28.0.10, are reserved for Kubernetes service and Core DNS service respectively.|Do not use reserved IPs.|
 |**11.**|Kubernetes |Kubernetes does not currently allow multi-protocol LoadBalancer services. For example, a DNS service that would have to listen on both TCP and UDP. |To work around this limitation of Kubernetes with MetalLB, two services (one for TCP, one for UDP) can be created on the same pod selector. These services use the same sharing key and spec.loadBalancerIP to share the same IP address. IPs can also be shared if you have more services than available IP addresses. <br> For more information, see [IP address sharing](https://metallb.universe.tf/usage/#ip-address-sharing).|
 |**12.**|Kubernetes cluster|Existing Azure IoT Edge marketplace modules will not run on the Kubernetes cluster as the hosting platform for IoT Edge on Azure Stack Edge device.|The modules will need to be modified before these are deployed on the Azure Stack Edge device. For more information, see Modify Azure IoT Edge modules from marketplace to run on Azure Stack Edge device.<!-- insert link-->|
-|**13.**|Kubernetes |File-based bind mounts are not supported with Azure IoT Edge on Kubernetes on Azure Stack Edge device.|IoT Edge uses a translation layer to translate `ContainerCreate` options to Kubernetes constructs. Creating `Binds` maps to hostpath directory or create and thus file-based bind mounts cannot be bound to paths in IoT Edge containers.|
+|**13.**|Kubernetes |File-based bind mounts are not supported with Azure IoT Edge on Kubernetes on Azure Stack Edge device.|IoT Edge uses a translation layer to translate `ContainerCreate` options to Kubernetes constructs. Creating `Binds` maps to `hostpath` directory or create and thus file-based bind mounts cannot be bound to paths in IoT Edge containers.|
 |**14.**|Kubernetes |If you bring your own certificates for IoT Edge and add those on your Azure Stack Edge device, the new certificates are not picked up as part of the Helm charts update.|To workaround this problem, [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md). Restart `iotedged` and `edgehub` pods.|
 |**15.**|Certificates |In certain instances, certificate state in the local UI may take several seconds to update. |The following scenarios in the local UI may be affected.<ul><li>**Status** column in **Certificates** page.</li><li>**Security** tile in **Get started** page.</li><li>**Configuration** tile in **Overview** page.</li></ul>  |
 

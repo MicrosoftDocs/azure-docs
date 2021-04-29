@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 11/05/2020
+ms.date: 04/27/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -24,7 +24,7 @@ Consider this example: Contoso has hired people across geographies to manage and
 
 ## How this feature works
 
-Create a new Microsoft 365 or security group with the ‘isAssignableToRole’ property set to ‘true’. You could also enable this property when creating a group in the Azure portal by turning on **Azure AD roles can be assigned to the group**. Either way, you can then assign the group to one or more Azure AD roles in the same way as you assign roles to users. A maximum of 250 role-assignable groups can be created in a single Azure AD organization (tenant).
+Create a new Microsoft 365 or security group with the ‘isAssignableToRole’ property set to ‘true’. You could also enable this property when creating a group in the Azure portal by turning on **Azure AD roles can be assigned to the group**. Either way, you can then assign the group to one or more Azure AD roles in the same way as you assign roles to users. A maximum of 300 role-assignable groups can be created in a single Azure AD organization (tenant).
 
 If you do not want members of the group to have standing access to the role, you can use Azure AD Privileged Identity Management. Assign a group as an eligible member of an Azure AD role. Each member of the group is then eligible to have their assignment activated for the role that the group is assigned to. They can then activate their role assignment for a fixed time duration.
 
@@ -52,13 +52,14 @@ The following scenarios are not supported right now:
 
 ## Known issues
 
-- The **Enable staged rollout for managed user sign-in** feature doesn't support assignment via group.
 - *Azure AD P2 licensed customers only*: Don't assign a group as Active to a role through both Azure AD and Privileged Identity Management (PIM). Specifically, don't assign a role to a role-assignable group when it's being created *and* assign a role to the group using PIM later. This will lead to issues where users can’t see their active role assignments in the PIM as well as the inability to remove that PIM assignment. Eligible assignments are not affected in this scenario. If you do attempt to make this assignment, you might see unexpected behavior such as:
   - End time for the role assignment might display incorrectly.
   - In the PIM portal, **My Roles** can show only one role assignment regardless of how many methods by which the assignment is granted (through one or more groups and directly).
 - *Azure AD P2 licensed customers only* Even after deleting the group, it is still shown an eligible member of the role in PIM UI. Functionally there's no problem; it's just a cache issue in the Azure portal.  
 - Use the new [Exchange Admin Center](https://admin.exchange.microsoft.com/) for role assignments via group membership. The old Exchange Admin Center doesn’t support this feature yet. Exchange PowerShell cmdlets will work as expected.
 - Azure Information Protection Portal (the classic portal) doesn't recognize role membership via group yet. You can [migrate to the unified sensitivity labeling platform](/azure/information-protection/configure-policy-migrate-labels) and then use the Office 365 Security & Compliance center to use group assignments to manage roles.
+- [Apps Admin Center](https://config.office.com/) doesn't support this feature yet. Assign users directly to Office Apps Administrator role.
+- [M365 Compliance Center](https://compliance.microsoft.com/) doesn't support this feature yet. Assign users directly to appropriate Azure AD roles to use this portal.
 
 We are fixing these issues.
 

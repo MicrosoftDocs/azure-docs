@@ -82,35 +82,35 @@ The *function.json* file in the *HttpExample* folder declares an HTTP trigger fu
 
 1. In *handler.go*, add the following code and save the file. This is your Go custom handler.
 
-	```go
-	package main
-
-	import (
-		"fmt"
-		"log"
-		"net/http"
-		"os"
-	)
-
-	func helloHandler(w http.ResponseWriter, r *http.Request) {
-		message := "This HTTP triggered function executed successfully. Pass a name in the query string for a personalized response.\n"
-		name := r.URL.Query().Get("name")
-		if name != "" {
-			message = fmt.Sprintf("Hello, %s. This HTTP triggered function executed successfully.\n", name)
-		}
-		fmt.Fprint(w, message)
-	}
-
-	func main() {
-		listenAddr := ":8080"
-		if val, ok := os.LookupEnv("FUNCTIONS_CUSTOMHANDLER_PORT"); ok {
-			listenAddr = ":" + val
-		}
-		http.HandleFunc("/api/HttpExample", helloHandler)
-		log.Printf("About to listen on %s. Go to https://127.0.0.1%s/", listenAddr, listenAddr)
-		log.Fatal(http.ListenAndServe(listenAddr, nil))
-	}
-	```
+    ```go
+    package main
+    
+    import (
+        "fmt"
+        "log"
+        "net/http"
+        "os"
+    )
+    
+    func helloHandler(w http.ResponseWriter, r *http.Request) {
+        message := "This HTTP triggered function executed successfully. Pass a name in the query string for a personalized response.\n"
+        name := r.URL.Query().Get("name")
+        if name != "" {
+            message = fmt.Sprintf("Hello, %s. This HTTP triggered function executed successfully.\n", name)
+        }
+        fmt.Fprint(w, message)
+    }
+    
+    func main() {
+        listenAddr := ":8080"
+        if val, ok := os.LookupEnv("FUNCTIONS_CUSTOMHANDLER_PORT"); ok {
+            listenAddr = ":" + val
+        }
+        http.HandleFunc("/api/HttpExample", helloHandler)
+        log.Printf("About to listen on %s. Go to https://127.0.0.1%s/", listenAddr, listenAddr)
+        log.Fatal(http.ListenAndServe(listenAddr, nil))
+    }
+    ```
 
 1. Press <kbd>Ctrl + Shift + `</kbd> or select *New Terminal* from the *Terminal* menu to open a new integrated terminal in VS Code.
 
@@ -136,8 +136,8 @@ The *function.json* file in the *HttpExample* folder declares an HTTP trigger fu
 
     ```toml
     [dependencies]
-    warp = "0.2"
-    tokio = { version = "0.2", features = ["full"] }
+    warp = "0.3"
+    tokio = { version = "1", features = ["rt", "macros", "rt-multi-thread"] }
     ```
 
 1. In *src/main.rs*, add the following code and save the file. This is your Rust custom handler.

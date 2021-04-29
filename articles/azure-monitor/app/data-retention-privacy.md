@@ -290,6 +290,10 @@ You can [switch off some of the data by editing ApplicationInsights.config][conf
 > [!NOTE]
 > Client IP is used to infer geographic location, but by default IP data is no longer stored and all zeroes are written to the associated field. To understand more about personal data handling we recommend this [article](../logs/personal-data-mgmt.md#application-data). If you need to store IP address data our [IP address collection article](./ip-collection.md) will walk you through your options.
 
+## Can I modify or update data after it has been collected?
+
+No, data is read-only, and can only be deleted via the purge functionality. To learn more visit [Guidance for personal data stored in Log Analytics and Application Insights](../logs/personal-data-mgmt.md#delete).
+
 ## Credits
 This product includes GeoLite2 data created by MaxMind, available from [https://www.maxmind.com](https://www.maxmind.com).
 

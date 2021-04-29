@@ -6,12 +6,12 @@ author: nabhishek
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 11/09/2020
+ms.date: 02/18/2021
 ---
 
 # Copy data from a SQL Server database to Azure Blob storage
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In this tutorial, you use the Azure Data Factory user interface (UI) to create a data factory pipeline that copies data from a SQL Server database to Azure Blob storage. You create and use a self-hosted integration runtime, which moves data between on-premises and cloud data stores.
 
@@ -109,7 +109,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
    The name of the data factory must be *globally unique*. If you see the following error message for the name field, change the name of the data factory (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 
-   ![New data factory name](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="New data factory error message for duplicate name.":::
 
 1. Select the Azure **subscription** in which you want to create the data factory.
 1. For **Resource Group**, take one of the following steps:
@@ -125,7 +125,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
 1. After the creation is finished, you see the **Data Factory** page as shown in the image:
 
-    ![Data factory home page](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Author & Monitor tile.":::
 1. Select the **Author & Monitor** tile to launch the Data Factory UI in a separate tab.
 
 

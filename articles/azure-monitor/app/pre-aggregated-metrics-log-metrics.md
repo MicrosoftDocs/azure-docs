@@ -44,8 +44,10 @@ It is worth mentioning that the collection endpoint pre-aggregates events before
 | .NET Core and .NET Framework | Supported (V2.13.1+)| Supported via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Supported (V2.7.2+) via [GetMetric](get-metric.md) |
 | Java                         | Not Supported       | Supported via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Not Supported                           |
 | Node.js                      | Not Supported       | Supported via  [TrackMetric](api-custom-events-metrics.md#trackmetric)| Not Supported                           |
-| Python                       | Not Supported       | Supported                                 | Supported via [OpenCensus.stats](opencensus-python.md#metrics) |  
+| Python                       | Not Supported       | Supported                                 | Partially supported via [OpenCensus.stats](opencensus-python.md#metrics) |  
 
+> [!NOTE]
+>  The metrics implementation for Python using OpenCensus.stats is different from GetMetric. For details see [the Python documentation on metrics](./opencensus-python.md#metrics).
 
 ### Codeless supported pre-aggregated metrics table
 

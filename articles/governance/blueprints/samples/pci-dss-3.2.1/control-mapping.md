@@ -1,7 +1,7 @@
 ---
 title: PCI-DSS v3.2.1 blueprint sample controls
 description: Control mapping of the Payment Card Industry Data Security Standard v3.2.1 blueprint sample to Azure Policy and Azure RBAC.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
 ---
 # Control mapping of the PCI-DSS v3.2.1 blueprint sample
@@ -105,7 +105,7 @@ assigns [Azure Policy](../../../policy/overview.md) definitions to audit use of 
 Directory authentication for SQL Servers. Using Azure Active Directory authentication simplifies
 permission management and centralizes identity management of database users and other Microsoft  
 services.
- 
+
 - External accounts with owner permissions should be removed from your subscription
 - External accounts with write permissions should be removed from your subscription
 - External accounts with read permissions should be removed from your subscription

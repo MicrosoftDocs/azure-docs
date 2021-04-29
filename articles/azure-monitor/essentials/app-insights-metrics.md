@@ -7,7 +7,6 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
-ms.subservice: application-insights
 ---
 
 # Application Insights log-based metrics
@@ -17,13 +16,13 @@ Application Insights log-based metrics let you analyze the health of your monito
 * [Log-based metrics](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) behind the scene are translated into [Kusto queries](/azure/kusto/query/) from stored events.
 * [Standard metrics](../app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) are stored as pre-aggregated time series.
 
-Since *standard metrics* are pre-aggregated during collection, they have better performance at query time. This makes them a better choice for dashboarding and in real-time alerting. The *log-based metrics* have more dimensions, which makes them the superior option for data analysis and ad-hoc diagnostics. Use the [namespace selector](../platform/metrics-getting-started.md#create-your-first-metric-chart) to switch between log-based and standard metrics in [metrics explorer](../platform/metrics-getting-started.md).
+Since *standard metrics* are pre-aggregated during collection, they have better performance at query time. This makes them a better choice for dashboarding and in real-time alerting. The *log-based metrics* have more dimensions, which makes them the superior option for data analysis and ad-hoc diagnostics. Use the [namespace selector](./metrics-getting-started.md#create-your-first-metric-chart) to switch between log-based and standard metrics in [metrics explorer](./metrics-getting-started.md).
 
 ## Interpret and use queries from this article
 
 This article lists metrics with supported aggregations and dimensions. The details about log-based metrics include the underlying Kusto query statements. For convenience, each query uses defaults for time granularity, chart type, and sometimes splitting dimension which simplifies using the query in Log Analytics without any need for modification.
 
-When you plot the same metric in [metrics explorer](../platform/metrics-getting-started.md), there are no defaults - the query is dynamically adjusted based on your chart settings:
+When you plot the same metric in [metrics explorer](./metrics-getting-started.md), there are no defaults - the query is dynamically adjusted based on your chart settings:
 
 - The selected **Time range** is translated into an additional *where timestamp...* clause to only pick the events from selected time range. For example, a chart showing data for the most recent 24 hours, the query includes *| where timestamp > ago(24 h)*.
 
@@ -34,7 +33,7 @@ When you plot the same metric in [metrics explorer](../platform/metrics-getting-
 - The selected **Split chart** dimension is translated into an extra summarize property. For example, if you split your chart by *location*, and plot using a 5-minute time granularity, the *summarize* clause is summarized *... by bin(timestamp, 5 m), location*.
 
 > [!NOTE]
-> If you're new to the Kusto query language, you start by copying and pasting Kusto statements into the Log Analytics query pane without making any modifications. Click **Run** to see basic chart. As you begin to understand the syntax of query language, you can start making small modifications and see the impact of your change. Exploring your own data is a great way to start realizing the full power of [Log Analytics](../log-query/log-analytics-tutorial.md) and [Azure Monitor](../overview.md).
+> If you're new to the Kusto query language, you start by copying and pasting Kusto statements into the Log Analytics query pane without making any modifications. Click **Run** to see basic chart. As you begin to understand the syntax of query language, you can start making small modifications and see the impact of your change. Exploring your own data is a great way to start realizing the full power of [Log Analytics](../logs/log-analytics-tutorial.md) and [Azure Monitor](../overview.md).
 
 ## Availability metrics
 
@@ -92,6 +91,8 @@ Browser metrics are collected by the Application Insights JavaScript SDK from re
 
 ### Browser page load time (browserTimings/totalDuration)
 
+Time from user request until DOM, stylesheets, scripts and images are loaded.
+
 |Unit of measure|Supported aggregations|Pre-aggregated dimensions|
 |---|---|---|
 |Milliseconds|Average, Min, Max|None|
@@ -107,6 +108,8 @@ browserTimings
 ```
 
 ### Client processing time (browserTiming/processingDuration)
+
+Time between receiving the last byte of a document until the DOM is loaded. Async requests may still be processing.
 
 |Unit of measure|Supported aggregations|Pre-aggregated dimensions|
 |---|---|---|
@@ -124,6 +127,8 @@ browserTimings
 
 ### Page load network connect time (browserTimings/networkDuration)
 
+Time between user request and network connection. Includes DNS lookup and transport connection.
+
 |Unit of measure|Supported aggregations|Pre-aggregated dimensions|
 |---|---|---|
 |Milliseconds|Average, Min, Max|None|
@@ -140,6 +145,8 @@ browserTimings
 
 ### Receiving response time (browserTimings/receiveDuration)
 
+Time between the first and last bytes, or until disconnection.
+
 |Unit of measure|Supported aggregations|Pre-aggregated dimensions|
 |---|---|---|
 |Milliseconds|Average, Min, Max|None|
@@ -155,6 +162,8 @@ browserTimings
 ```
 
 ### Send request time (browserTimings/sendDuration)
+
+Time between network connection and receiving the first byte.
 
 |Unit of measure|Supported aggregations|Pre-aggregated dimensions|
 |---|---|---|

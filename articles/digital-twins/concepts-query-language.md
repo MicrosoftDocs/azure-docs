@@ -22,7 +22,7 @@ Recall that the center of Azure Digital Twins is the [twin graph](concepts-twins
 
 This graph can be queried to get information about the digital twins and relationships it contains. These queries are written in a custom SQL-like query language, referred to as the **Azure Digital Twins query language**. This is similar to the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md) with many comparable features.
 
-This article describes the basics of the query language and its capabilities. For more detailed examples of query syntax and how to run query requests, see [*How-to: Query the twin graph*](how-to-query-graph.md).
+This article describes the basics of the query language and its capabilities. For more detailed examples of query syntax and how to run query requests, see [How-to: Query the twin graph](how-to-query-graph.md).
 
 ## About the queries
 
@@ -32,14 +32,19 @@ You can use the Azure Digital Twins query language to retrieve digital twins acc
 * relationships
   - properties of the relationships
 
-To submit a query to the service from a client app, you will use the Azure Digital Twins [**Query API**](/rest/api/digital-twins/dataplane/query). One way to use the API is through one of the [SDKs](how-to-use-apis-sdks.md#overview-data-plane-apis) for Azure Digital Twins.
+To submit a query to the service from a client app, you will use the Azure Digital Twins [Query API](/rest/api/digital-twins/dataplane/query). One way to use the API is through one of the [SDKs](how-to-use-apis-sdks.md#overview-data-plane-apis) for Azure Digital Twins.
+
+### Considerations for querying
+
+When writing queries for Azure Digital Twins, keep the following considerations in mind:
+* **Remember case sensitivity**: All Azure Digital Twins query operations are case-sensitive, so take care to use the exact names defined in the models. If property names are misspelled or incorrectly cased, the result set is empty with no errors returned.
+* **Escape single quotes**: If your query text includes a single quote character in the data, the quote will need to be escaped with the `\` character. Here is an example that deals with a property value of *D'Souza*:
+
+  :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="EscapedSingleQuote":::
 
 ## Reference: Expressions and conditions
 
-This section describes the operators and functions that are available to write Azure Digital Twins queries. For example queries that illustrate use of these features, see [*How-to: Query the twin graph*](how-to-query-graph.md).
-
-> [!NOTE]
-> All Azure Digital Twins query operations are case-sensitive, so take care to use the exact names defined in the models. If property names are misspelled or incorrectly cased, the result set is empty with no errors returned.
+This section describes the operators and functions that are available to write Azure Digital Twins queries. For example queries that illustrate use of these features, see [How-to: Query the twin graph](how-to-query-graph.md).
 
 ### Operators
 
@@ -81,8 +86,8 @@ This section describes limitations of the query language.
 * No subqueries are supported within the `FROM` statement.
 * `OUTER JOIN` semantics are not supported, meaning if the relationship has a rank of zero, then the entire "row" is eliminated from the output result set.
 * Graph traversal depth is restricted to five `JOIN` levels per query.
-* The source for `JOIN` operations is restricted: the query must declare the twins where the query begins.
+* Relationships in Azure Digital Twins can't be queried as independent entities; you also need to provide information about the source twin that the relationship comes from. This means that there are some restrictions on the `JOIN` operation, which is used to query relationships, to make sure that the query declares the twin(s) where the query begins. For examples of this, see [Query by relationship](how-to-query-graph.md#query-by-relationship) in the *How-to: Query the twin graph* article.
 
 ## Next steps
 
-Learn how to write queries and see client code examples in [*How-to: Query the twin graph*](how-to-query-graph.md).
+Learn how to write queries and see client code examples in [How-to: Query the twin graph](how-to-query-graph.md).

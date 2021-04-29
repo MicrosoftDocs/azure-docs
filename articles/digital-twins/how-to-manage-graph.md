@@ -19,9 +19,9 @@ ms.service: digital-twins
 
 The heart of Azure Digital Twins is the [twin graph](concepts-twins-graph.md) representing your whole environment. The twin graph is made  of individual digital twins connected via **relationships**. 
 
-Once you have a working [Azure Digital Twins instance](how-to-set-up-instance-portal.md) and have set up [authentication](how-to-authenticate-client.md) code in your client app, you can use the [**DigitalTwins APIs**](/rest/api/digital-twins/dataplane/twins) to create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. You can also use the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), or the [Azure Digital Twins CLI](how-to-use-cli.md).
+Once you have a working [Azure Digital Twins instance](how-to-set-up-instance-portal.md) and have set up [authentication](how-to-authenticate-client.md) code in your client app, you can use the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins) to create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. You can also use the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client), or the [Azure Digital Twins CLI](how-to-use-cli.md).
 
-This article focuses on managing relationships and the graph as a whole; to work with individual digital twins, see [*How-to: Manage digital twins*](how-to-manage-twin.md).
+This article focuses on managing relationships and the graph as a whole; to work with individual digital twins, see [How-to: Manage digital twins](how-to-manage-twin.md).
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ This article focuses on managing relationships and the graph as a whole; to work
 
 [!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
-You can also make changes to your graph using the Azure Digital Twins (ADT) Explorer sample, which allows you to visualize your twins and graph, and makes use of the SDK behind the scenes. The next section describes this sample in detail.
+You can also make changes to your graph using the Azure Digital Twins Explorer sample, which allows you to visualize your twins and graph, and makes use of the SDK behind the scenes. The next section describes this sample in detail.
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
@@ -60,7 +60,7 @@ This custom function can now be called to create a _contains_ relationship like 
 
 If you wish to create multiple relationships, you can repeat calls to the same method, passing different relationship types into the argument. 
 
-For more information on the helper class `BasicRelationship`, see [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md#serialization-helpers).
+For more information on the helper class `BasicRelationship`, see [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md#serialization-helpers).
 
 ### Create multiple relationships between twins
 
@@ -98,7 +98,7 @@ You can use the retrieved relationships to navigate to other twins in your graph
 Azure Digital Twins also has an API to find all **incoming** relationships to a given twin. This is often useful for reverse navigation, or when deleting a twin.
 
 >[!NOTE]
-> `IncomingRelationship` calls don't return the full body of the relationship. For more information on the `IncomingRelationship` class, see its [reference documentation](/dotnet/api/azure.digitaltwins.core.incomingrelationship?view=azure-dotnet&preserve-view=true).
+> `IncomingRelationship` calls don't return the full body of the relationship. For more information on the `IncomingRelationship` class, see its [reference documentation](/dotnet/api/azure.digitaltwins.core.incomingrelationship).
 
 The code sample in the previous section focused on finding outgoing relationships from a twin. The following example is structured similarly, but finds *incoming* relationships to the twin instead. This example also uses the SDK call (highlighted) inside a custom method that might appear in the context of a larger program.
 
@@ -153,12 +153,12 @@ The following runnable code snippet uses the relationship operations from this a
 
 ### Set up the runnable sample
 
-The snippet uses the [*Room.json*](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) and [*Floor.json*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) model definitions from [*Tutorial: Explore Azure Digital Twins with a sample client app*](tutorial-command-line-app.md). You can use these links to go directly to the files, or download them as part of the full end-to-end sample project [here](/samples/azure-samples/digital-twins-samples/digital-twins-samples/). 
+The snippet uses the [Room.json](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) and [Floor.json](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) model definitions from [Tutorial: Explore Azure Digital Twins with a sample client app](tutorial-command-line-app.md). You can use these links to go directly to the files, or download them as part of the [full end-to-end sample project](/samples/azure-samples/digital-twins-samples/digital-twins-samples/). 
 
 Before you run the sample, do the following:
 1. Download the model files, place them in your project, and replace the `<path-to>` placeholders in the code below to tell your program where to find them.
 2. Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's hostname.
-3. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), the second provides tools to help with authentication against Azure.
+3. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client), the second provides tools to help with authentication against Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core
@@ -179,7 +179,7 @@ Here is the console output of the above program:
 :::image type="content" source="./media/how-to-manage-graph/console-output-twin-graph.png" alt-text="Console output showing the twin details, incoming and outgoing relationships of the twins." lightbox="./media/how-to-manage-graph/console-output-twin-graph.png":::
 
 > [!TIP]
-> The twin graph is a concept of creating relationships between twins. If you want to view the visual representation of the twin graph, see the [*Visualization*](how-to-manage-graph.md#visualization) section of this article. 
+> The twin graph is a concept of creating relationships between twins. If you want to view the visual representation of the twin graph, see the [Visualization](how-to-manage-graph.md#visualization) section of this article. 
 
 ## Create graph from a CSV file
 
@@ -203,5 +203,5 @@ In the code below, the CSV file is called *data.csv*, and there is a placeholder
 ## Next steps
 
 Learn about querying an Azure Digital Twins twin graph:
-* [*Concepts: Query language*](concepts-query-language.md)
-* [*How-to: Query the twin graph*](how-to-query-graph.md)
+* [Concepts: Query language](concepts-query-language.md)
+* [How-to: Query the twin graph](how-to-query-graph.md)

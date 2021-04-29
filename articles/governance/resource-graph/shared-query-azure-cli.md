@@ -70,7 +70,7 @@ _location_.
    ```
 
 1. Create the Azure Resource Graph shared query using the `graph` extension and
-   [az graph shared-query create](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_create)
+   [az graph shared-query create](/cli/azure/graph/shared-query#az_graph_shared_query_create)
    command:
 
    ```azurecli-interactive
@@ -82,7 +82,7 @@ _location_.
    ```
 
 1. List the shared queries in the new resource group. The
-   [az graph shared-query list](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_list)
+   [az graph shared-query list](/cli/azure/graph/shared-query#az_graph_shared_query_list)
    command returns an array of values.
 
    ```azurecli-interactive
@@ -91,7 +91,7 @@ _location_.
    ```
 
 1. To get just a single shared query result, use the
-   [az graph shared-query show](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_show)
+   [az graph shared-query show](/cli/azure/graph/shared-query#az_graph_shared_query_show)
    command.
 
    ```azurecli-interactive
@@ -101,7 +101,7 @@ _location_.
    ```
 
 1. Run the shared query in Azure CLI with the `{{shared-query-uri}}` syntax in an
-   [az graph query](/cli/azure/ext/resource-graph/graph#ext_resource_graph_az_graph_query) command.
+   [az graph query](/cli/azure/graph#az_graph_query) command.
    First, copy the `id` field from the result of the previous `show` command. Replace
    `shared-query-uri` text in the example with the value from the `id` field, but leave the
    surrounding `{{` and `}}` characters.
@@ -124,7 +124,7 @@ page, the **Query** tab displays the saved query. The **Edit** button opens it i
 If you wish to remove the Resource Graph shared query, resource group, and extension from your Azure
 CLI environment, you can do so by using the following commands:
 
-- [az graph shared-query delete](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_delete)
+- [az graph shared-query delete](/cli/azure/graph/shared-query#az_graph_shared_query_delete)
 - [az group delete](/cli/azure/group#az_group_delete)
 - [az extension remove](/cli/azure/extension#az_extension_remove)
 

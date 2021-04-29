@@ -1,7 +1,6 @@
 ---
 title: Connect Cherwell with IT Service Management Connector
 description: This article provides information about how to Cherwell with the IT Service Management Connector (ITSMC) in Azure Monitor to centrally monitor and manage the ITSM work items.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
@@ -34,7 +33,7 @@ Use the following procedure to create a Cherwell connection:
 1. In Azure portal, go to **All Resources** and look for **ServiceDesk(YourWorkspaceName)**
 
 2. Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
-	![New connection](/media/itsmc-overview/add-new-itsm-connection.png)
+	![New connection](/azure/azure-monitor/alerts/media/itsmc-connections-scsm/add-new-itsm-connection.png)
 
 3. At the top of the right pane, click **Add**.
 

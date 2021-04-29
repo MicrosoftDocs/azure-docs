@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
+ms.date: 04/06/2021
 ms.author: duau
 ---
 
@@ -35,8 +35,8 @@ When you combine these global and regional services, your application will benef
 
 ## Global load balancing
 **Traffic Manager** provides global DNS load balancing. It looks at incoming DNS requests and responds with a healthy backend, following the routing policy the customer has selected. Options for routing methods are:
-- **Performance routing sends requests to the closest backend with the least latency.
-- **Priority routing** direct all traffic to a backend, with other backends as backup.
+- **Performance routing** sends requests to the closest backend with the least latency.
+- **Priority routing** directs all traffic to a backend, with other backends as backup.
 - **Weighted round-robin routing** distributes traffic based on the weighting that is assigned to each backend.
 - **Geographic routing** ensures requests that get sourced from specific geographical regions get handled by backends mapped for those regions. (For example, all requests from Spain should be directed to the France Central Azure region)
 - **Subnet routing** allows you to map IP address ranges to backends, so that incoming requests for those IPs will be sent to the specific backend. (For example, any users that connect from your corporate HQ’s IP address range should get different web content than the general users)

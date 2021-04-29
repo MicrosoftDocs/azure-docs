@@ -94,7 +94,7 @@ This step is optional. If you're interested to learn how the code creates the da
 * Insert user entities by using the IMapper object with a new session that connects to the uprofile keyspace.
 
     ```csharp
-    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
+    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
     ```
     
 * Query to get all user's information.
