@@ -11,7 +11,8 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: justinha
+ms.author: justinha 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Enable security audits for Azure Active Directory Domain Services
