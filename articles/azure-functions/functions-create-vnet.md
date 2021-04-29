@@ -183,13 +183,10 @@ Create the private endpoints for Azure Files storage and Azure Blob Storage by u
     | **Name** | blob-endpoint | The name of the private endpoint for blobs from your storage account. |
     | **Resource** | mysecurestorage | The storage account you created. |
     | **Target sub-resource** | blob | The private endpoint that will be used for blobs from the storage account. |
-1. After the private endpoints are created, return to the **Firewalls and virtual networks** section of your storage account.  Ensure **Selected networks** is selected.  Select **+ Add existing virtual network** to add the recently created virtual network.  On the **Add networks** tab, use the network settings from the following table:
+1. After the private endpoints are created, return to the **Firewalls and virtual networks** section of your storage account.  
+1. Ensure **Selected networks** is selected.  It's not necessary to add an existing virtual network.
 
-    | Setting | Suggested value | Description|
-    |---------|-----------------|------------|
-    | **Subscription** | Your subscription | The subscription under which your resources are created. |
-    | **Virtual networks** | myVirtualNet | The name of the virtual network to which your function app will connect. |
-    | **Subnets** | functions | The name of the subnet to which your function app will connect. |
+Resources in the virtual network can now communicate with the storage account using the private endpoint.
 ## Lock down your Service Bus
 
 Create the private endpoint to lock down your Service Bus:
@@ -221,7 +218,10 @@ Create the private endpoint to lock down your Service Bus:
 1. On the **Configuration** tab, for the **Subnet** setting, choose **default**.
 
 1. Select **Review + create**. After validation finishes, select **Create**. 
-1. After the private endpoint is created, return to the **Firewalls and virtual networks** section of your Service Bus namespace.  Ensure **Selected networks** is selected.  Select **+ Add existing virtual network** to add the recently created virtual network.  On the **Add networks** tab, use the network settings from the following table:
+1. After the private endpoint is created, return to the **Firewalls and virtual networks** section of your Service Bus namespace.
+1. Ensure **Selected networks** is selected.
+1. Select **+ Add existing virtual network** to add the recently created virtual network.
+1. On the **Add networks** tab, use the network settings from the following table:
 
     | Setting | Suggested value | Description|
     |---------|-----------------|------------|
@@ -236,7 +236,7 @@ Create the private endpoint to lock down your Service Bus:
 1. Select **Add** to add the selected virtual network and subnet to the firewall rules for the Service Bus.
 1. Select **Save** to save the updated firewall rules.
 
-Resources in the virtual network can now communicate with the Service Bus.
+Resources in the virtual network can now communicate with the Service Bus using the private endpoint.
 
 ## Create a file share
 
