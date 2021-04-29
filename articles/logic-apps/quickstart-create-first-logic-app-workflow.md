@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Create an integration workflow in Azure portal
-description: Build an automated integration workflow using Azure Logic Apps in the Azure portal to integrate services, systems, apps, and data for enterprise application integration (EAI) solutions.
+description: Create your first automated integration workflow by using Azure Logic Apps in the Azure portal.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
@@ -11,20 +11,26 @@ ms.date: 04/01/2021
 # Customer intent: As a developer, I want to create my first automated integration workflow by using Azure Logic Apps in the Azure portal
 ---
 
-# Quickstart: Create an automated integration workflow using Azure Logic Apps - Azure portal
+# Quickstart: Create an integration workflow using Azure Logic Apps in the Azure portal
 
-[Azure Logic Apps](logic-apps-overview.md) is a cloud-based platform you use to build automated workflows that integrate apps, data, services, and systems, whether in the cloud, on premises, or hybrid environments. Using the Azure portal, this quickstart shows how to perform the following tasks and introduces basic Logic Apps concepts along the way:
+This quickstart shows how to create an example automated workflow that integrates two services, an RSS feed for a website and an email account, by using [Azure Logic Apps](logic-apps-overview.md). While this example is entirely cloud-based, you can create automated workflows that connect apps, data, services, and systems across cloud, on premises, and hybrid environments.
 
-* Create a blank logic app workflow.
-* Add a trigger that specifies when to start the workflow.
-* Add an action that performs a task in response.
-* Test your workflow
+In this example, you create a workflow that uses the RSS connector and the Office 365 Outlook connector. The RSS connector has a trigger that checks an RSS feed, based on a schedule. The Office 365 Outlook connector has an action that sends an email for each new item. The connectors in this example are only two among [hundreds of connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use in a workflow.
 
-The Logic Apps service includes [hundreds of connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use in your workflow. For this example, you create a workflow that regularly checks an RSS feed, based on a set schedule, and sends an email for each new item. The following screenshot shows the high-level workflow:
+The following screenshot shows the high-level workflow:
 
 ![Screenshot that shows the example workflow with the RSS trigger, "When a feed item is published" and the Outlook action, "Send an email".](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-To create and manage a logic app using other tools, see these other Logic Apps quickstarts:
+As you complete the steps in this quickstart, you'll learn these basic concepts:
+
+* Create a logic app resource that runs in the global multi-tenant Azure environment.
+* Select the blank logic app template.
+* Add a trigger that specifies when to run the workflow.
+* Add an action that performs a task after the trigger fires.
+* Run your workflow.
+
+
+To create and manage a logic app using other tools, review these other Logic Apps quickstarts:
 
 * [Create and manage logic apps in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 * [Create and manage logic apps in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
@@ -36,7 +42,7 @@ To create and manage a logic app using other tools, see these other Logic Apps q
 
 * If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* An email account from a service that's supported by Azure Logic Apps, such as Office 365 Outlook or Outlook.com. For other supported email providers, review the [Logic Apps connectors list](/connectors/connector-reference/connector-reference-logicapps-connectors).
+* An email account from a service that's supported by Azure Logic Apps, such as Office 365 Outlook or Outlook.com. For other supported email providers, review [Connectors for Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
   > [!NOTE]
   > If you want to use the [Gmail connector](/connectors/gmail/), only G Suite accounts can use this connector without restriction in Azure 
@@ -44,11 +50,13 @@ To create and manage a logic app using other tools, see these other Logic Apps q
   > [create a Google client app to use for authentication with your Gmail connector](/connectors/gmail/#authentication-and-bring-your-own-application). 
   > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-* If you have a firewall that limits traffic to specific IP addresses, set up your firewall to allow access for *both* the [inbound](logic-apps-limits-and-config.md#inbound) and [outbound](logic-apps-limits-and-config.md#outbound) IP addresses used by the Logic Apps service in the Azure region where your logic app exists. If your logic app also uses [managed connectors](../connectors/apis-list.md#managed-api-connectors), such as the Office 365 Outlook connector or SQL connector, or uses [custom connectors](/connectors/custom-connectors/), the firewall also needs to allow access for *all* the [managed connector outbound IP addresses](logic-apps-limits-and-config.md#outbound) in your logic app's Azure region.
+* If you have a firewall that limits traffic to specific IP addresses, set up your firewall to allow access for *both* the [inbound](logic-apps-limits-and-config.md#inbound) and [outbound](logic-apps-limits-and-config.md#outbound) IP addresses used by the Logic Apps service in the Azure region where your logic app exists.
+
+  This example also uses the RSS and Office 365 Outlook connectors [managed by Microsoft](/connectors/managed.md). These connectors require that you set up your firewall to allow access for *all* the [managed connector outbound IP addresses](logic-apps-limits-and-config.md#outbound) in the logic app's Azure region.
 
 <a name="create-logic-app"></a>
 
-## Create a blank workflow
+## Create a logic app resource
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
@@ -57,6 +65,8 @@ To create and manage a logic app using other tools, see these other Logic Apps q
    ![Screenshot that shows Azure portal search box with "logic apps" as the search term and "Logic Apps" as the selected result.](./media/quickstart-create-first-logic-app-workflow/find-select-logic-apps.png)
 
 1. On the **Logic Apps** page, select **Add** > **Consumption**.
+
+   This step creates a logic app resource that runs in the global multi-tenant Azure environment and uses a [consumption pricing model](logic-apps-pricing.md).
 
    ![Screenshot that shows Azure portal and Logic Apps service page with logic apps list, "Add" menu opened, and "Consumption" selected.](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
@@ -76,23 +86,29 @@ To create and manage a logic app using other tools, see these other Logic Apps q
 
 1. When you're ready, select **Review + Create**. On the validation page, confirm the details that you provided, and select **Create**.
 
-1. After Azure successfully deploys your app, select **Go to resource**. Or, you can find and select your logic app by typing the name in the search box.
+## Select the blank template
+
+1. After Azure successfully deploys your app, select **Go to resource**. Or, find and select your logic app by typing the name in the Azure search box.
 
    ![Screenshot of resource deployment page, showing selected button, "Go to resource".](./media/quickstart-create-first-logic-app-workflow/go-to-new-logic-app-resource.png)
 
-   The Logic Apps Designer opens and shows a page with an introduction video and commonly used triggers. Under **Templates**, select **Blank Logic App**.
+   The Logic Apps Designer opens and shows a page with an introduction video and commonly used triggers.
 
-   ![Screenshot of Logic Apps Designer, showing template gallery and selected template, "Blank Logic App".](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
+1. Under **Templates**, select **Blank Logic App**.
 
-Next, add a trigger to your logic app.
+   ![Screenshot that shows the Logic Apps Designer template gallery and selected template, "Blank Logic App".](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
+
+   After you select the template, the designer now shows an empty workflow surface.
 
 <a name="add-rss-trigger"></a>
 
 ## Add the trigger
 
-Every workflow always starts with a [trigger](../logic-apps/logic-apps-overview.md#how-do-logic-apps-work), which fires when a specified event happens or when a specified condition is met. Each time the trigger fires, the Logic Apps engine creates and runs a workflow instance. If the trigger doesn't fire, no instance is created nor run.
+A workflow always starts with a [trigger](../logic-apps/logic-apps-overview.md#how-do-logic-apps-work), which specifies the condition to meet before running any actions in the workflow. Each time the trigger fires, the Logic Apps service creates and runs a workflow instance. If the trigger doesn't fire, no instance is created nor run.
 
-To start your workflow, you can choose from many triggers, for example, the generic Recurrence trigger in the tutorial, [Create schedule-based and recurring workflows](tutorial-build-schedule-recurring-logic-app-workflow.md) or the service-specific Outlook trigger in the tutorial, [Create automated approval-based workflows](tutorial-process-mailing-list-subscriptions-workflow.md). This example uses the RSS trigger, **When a feed item is published**, which checks an RSS feed based on a schedule and fires when new items exist.
+This example uses an RSS trigger that checks an RSS feed based on a schedule. If new items exist, the trigger fires, and the workflow starts to run.
+
+To start your workflow, you can choose from many triggers, for example, the generic Recurrence trigger in the tutorial, [Create schedule-based and recurring workflows](tutorial-build-schedule-recurring-logic-app-workflow.md) or the service-specific Outlook trigger in the tutorial, [Create automated approval-based workflows](tutorial-process-mailing-list-subscriptions-workflow.md). 
 
 1. In the **Logic Apps Designer**, under the search box, select **All**.
 
@@ -104,9 +120,9 @@ To start your workflow, you can choose from many triggers, for example, the gene
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **The RSS feed URL** | Yes | <*RSS-feed-URL*> | The RSS feed URL to monitor. <p><p>This example uses the Wall Street Journal's RSS feed at `https://feeds.a.dj.com/rss/RSSMarketsMain.xml`. However, for the purposes of this example, you can use any RSS feed that doesn't require HTTP authorization. Choose an RSS feed that publishes frequently, so you can test your logic app easily later. |
-   | **Chosen property will be used to determine** | No | PublishDate | The property to use for determining which items are new. |
-   | **Interval** | Yes | 1 | The number of intervals to wait between RSS feed checks. <p><p>This example uses `1` as the interval. |
+   | **The RSS feed URL** | Yes | <*RSS-feed-URL*> | The RSS feed URL to monitor. <p><p>This example uses the Wall Street Journal's RSS feed at `https://feeds.a.dj.com/rss/RSSMarketsMain.xml`. However, you can use any RSS feed that doesn't require HTTP authorization. Choose an RSS feed that publishes frequently, so you can easily test your workflow. |
+   | **Chosen property will be used to determine** | No | PublishDate | The property that determines which items are new. |
+   | **Interval** | Yes | 1 | The number of intervals to wait between feed checks. <p><p>This example uses `1` as the interval. |
    | **Frequency** | Yes | Minute | The unit of frequency to use for every interval. <p><p>This example uses `Minute` as the frequency. |
    |||||
 
@@ -118,7 +134,7 @@ To start your workflow, you can choose from many triggers, for example, the gene
 
 1. When you're done, save your logic app, which instantly goes live in the Azure portal. On the designer toolbar, select **Save**.
 
-   The trigger won't do anything other than check the RSS feed. So, [add an action](#add-email-action) to define what happens when the trigger fires.
+   The trigger won't do anything other than check the RSS feed. So, you need to add an action that defines what happens when the trigger fires.
 
 <a name="add-email-action"></a>
 
@@ -146,13 +162,13 @@ To have your workflow respond to the triggered event or condition and perform a 
 
    ![Screenshot that shows filtered actions for the email service, "Office 365 Outlook".](./media/quickstart-create-first-logic-app-workflow/filtered-actions-list.png)
 
-1. If your selected email service prompts you to sign in and authenticate your identity, complete that step now. This example requires that you create a connection between your logic app and your email service before you can continue.
+1. If your selected email service prompts you to sign in and authenticate your identity, complete that step now. This example requires that you create a connection between your workflow and your email service before you can continue.
 
    ![Screenshot that shows sign-in prompt for Office 365 Outlook.](./media/quickstart-create-first-logic-app-workflow/email-service-authentication.png)
 
    > [!NOTE]
    > This example shows manual authentication for connecting to Office 365 Outlook. However, other services might 
-   > support or use different authentication types. Based on your scenario, you can handle logic app authentication 
+   > support or use different authentication types. Based on your scenario, you can handle connection authentication 
    > in various ways. 
    > 
    > For example, if you use use Azure Resource Manager templates for deployment, you can increase security on inputs 
@@ -210,15 +226,13 @@ To have your workflow respond to the triggered event or condition and perform a 
 
 1. Save your logic app. Select **Save** in the designer menu.
 
-Next, [test that your logic app works](#test-logic-app).
+<a name="run-workflow"></a>
 
-<a name="test-logic-app"></a>
+## Run your workflow
 
-## Run your logic app
+To check that the workflow runs correctly, you can wait for the trigger to check the RSS feed based on the set schedule. Or, you can manually run the workflow by selecting **Run** on the Logic Apps Designer toolbar, as show in the following screenshot. 
 
-After creating your example logic app, confirm that your workflow is configured correctly. You can wait for the logic app to check your RSS feed based on the specified schedule. Or, you can manually run your logic app by selecting **Run** on the Logic Apps Designer toolbar, as show in the following screenshot. 
-
-If the RSS feed has new items, your logic app sends an email for each new item. Otherwise, your logic app waits until the next interval to check the RSS feed again. 
+If the RSS feed has new items, your workflow sends an email for each new item. Otherwise, your workflow waits until the next interval to check the RSS feed again. 
 
 ![Screenshot of the Logic Apps Designer, showing the "Run" button selected on the designer toolbar.](./media/quickstart-create-first-logic-app-workflow/run-logic-app-test.png)
 
@@ -226,7 +240,7 @@ The following screenshot shows a sample email notification from this example log
 
 ![Screenshot of Outlook, showing sample email message received when new RSS feed item appears with item title, date published and link.](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
-If you're not receiving notification emails from the logic app as expected:
+If you're not receiving notification emails from the workflow as expected:
 
 * Check your email account's junk or spam folder, in case the message was incorrectly filtered.
 * Make sure the RSS feed you're using has published items since the last scheduled or manual check.
@@ -253,9 +267,7 @@ When you're done testing this sample logic app, clean up the logic app and any r
 
 ## Next steps
 
-In this quickstart, you created your first logic app in the Azure portal to check an RSS feed for updates on a schedule, and send an email notification about each new feed item. 
-
-To learn how to create more advanced schedule-based workflows in Logic Apps, see the following tutorial:
+In this quickstart, you created your first logic app workflow in the Azure portal to check an RSS feed, and send an email for each new item. To learn more about advanced scheduled workflows, see the following tutorial:
 
 > [!div class="nextstepaction"]
 > [Check traffic with a scheduled-based logic app](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
