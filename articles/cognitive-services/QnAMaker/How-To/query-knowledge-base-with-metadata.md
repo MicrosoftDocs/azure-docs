@@ -39,11 +39,30 @@ Consider the user question "When does this hotel close?", where the intent is im
 
 Because results are required only for the restaurant "Paradise", you can set a filter in the GenerateAnswer call on the metadata "Restaurant Name". The following example shows this:
 
+# [QnA Maker GA (stable release)](#tab/v1)
+
 ```json
 {
     "question": "When does this hotel close?",
     "top": 1,
     "strictFilters": [ { "name": "restaurant", "value": "paradise"}]
+}
+```
+
+# [Custom question answering (preview release)](#tab/v2)
+
+With custom question answering, you can additionally provide a filter criteria to either include or exclude unstructured sources in the GenerateAnswer call by using the `includeUnstructuredSources` property.
+
+This parameter is optional and by default has a value set to `true`.
+
+In the below example we set the value of `includeUnstructuredSources` property to `false` to exclude all unstructured sources from the GenerateAnswer call.
+
+```json
+{
+    "question": "When does this hotel close?",
+    "top": 1,
+    "strictFilters": [ { "name": "restaurant", "value": "paradise"}],
+    "includeUnstructuredSources": false
 }
 ```
 
