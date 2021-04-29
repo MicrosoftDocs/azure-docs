@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/29/2017
+ms.date: 04/29/2021
 ms.author: rohink
 ---
 
@@ -19,24 +19,24 @@ ms.author: rohink
 
 This article explains how to configure reverse DNS lookups for services hosted in Azure.
 
-Services in Azure use IP addresses assigned by Azure and owned by Microsoft. These reverse DNS records (PTR records) must be created in the corresponding Microsoft-owned reverse DNS lookup zones. This article explains how to do this.
+Services in Azure use IP addresses assigned by Azure and owned by Microsoft. These reverse DNS records (PTR records) must be created in the corresponding Microsoft-owned reverse DNS lookup zones.
 
-This scenario should not be confused with the ability to [host the reverse DNS lookup zones for your assigned IP ranges in Azure DNS](dns-reverse-dns-hosting.md). In this case, the IP ranges represented by the reverse lookup zone must be assigned to your organization, typically by your ISP.
+This scenario differs than ability to [host the reverse DNS lookup zones](dns-reverse-dns-hosting.md) for your assigned IP ranges in Azure DNS. In this case, the IP ranges represented by the reverse lookup zone must be assigned to your organization, typically by your ISP.
 
-Before reading this article, you should be familiar with this [Overview of reverse DNS and support in Azure](dns-reverse-dns-overview.md).
+Before reading this article, you should familiarize yourself with [reverse DNS in Azure DNS](dns-reverse-dns-overview.md).
 
-In Azure DNS, compute resources (such as virtual machines, virtual machine scale sets, or Service Fabric clusters) are exposed via a PublicIpAddress resource. Reverse DNS lookups are configured using the 'ReverseFqdn' property of the PublicIpAddress.
+In Azure DNS, compute resources such as virtual machines, virtual machine scale sets, and Service Fabric clusters have Public IP addresses. Reverse DNS lookups are configured using the 'ReverseFqdn' property of the Public IP address.
 
-
-Reverse DNS is not currently supported for the Azure App Service and Application Gateway.
+Reverse DNS is currently not supported for the Azure App Service and Application Gateway.
 
 ## Validation of reverse DNS records
 
-A third party should not be able to create reverse DNS records for their Azure service mapping to your DNS domains. To prevent this, Azure only allows the creation of a reverse DNS record where domain name specified in the reverse DNS record is the same as, or resolves to, the DNS name or IP address of a PublicIpAddress or Cloud Service in the same Azure subscription.
+A third party shouldn't have access to create reverse DNS records for Azure service mapping to your DNS domains. That's why Azure only allows you to create a reverse DNS record if domain name is the same or resolves to a Public IP address in the same subscription. This restriction also applies to Cloud Service.
 
-This validation is only performed when the reverse DNS record is set or modified. Periodic re-validation is not performed.
+This validation is only done when the reverse DNS record is set or modified. Periodic revalidation isn't done.
 
 For example: suppose the PublicIpAddress resource has the DNS name contosoapp1.northus.cloudapp.azure.com and IP address 23.96.52.53. The ReverseFqdn for the PublicIpAddress can be specified as:
+
 * The DNS name for the PublicIpAddress, contosoapp1.northus.cloudapp.azure.com
 * The DNS name for a different PublicIpAddress in the same subscription, such as contosoapp2.westus.cloudapp.azure.com
 * A vanity DNS name, such as app1.contoso.com, so long as this name is *first* configured as a CNAME to contosoapp1.northus.cloudapp.azure.com, or to a different PublicIpAddress in the same subscription.
