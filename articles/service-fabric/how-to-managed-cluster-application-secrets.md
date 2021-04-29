@@ -28,7 +28,7 @@ For an example on how to implement applications secrets, see [Manage application
 Alternatively, we also support [KeyVaultReference](service-fabric-keyvault-references.md). Service Fabric KeyVaultReference support makes it easy to deploy secrets to your applications simply by referencing the URL of the secret that is stored in Key Vault
 
 ## Create a data encipherment certificate
-To create your own key vault and setup certificates, follow the instructions from Azure Key Vault by using the [Azure CLI, Powershell, Portal, and more][key-vault-certs].
+To create your own key vault and setup certificates, follow the instructions from Azure Key Vault by using the [Azure CLI, PowerShell, Portal, and more][key-vault-certs].
 
 >[!NOTE]
 > The key vault must be [enabled for template deployment](https://docs.microsoft.com/azure/key-vault/general/manage-with-cli2#bkmk_KVperCLI) to allow the compute resource provider to get certificates from it and install it on cluster nodes.
@@ -53,7 +53,7 @@ Insert values from above in to this area:
 
 ![portal secrets input][sfmc-secrets]
 
-2. ARM during create or anytime
+2. Azure Resource Manager during create or anytime
 
 ```json
 {
