@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 04/23/2021
 ---
 
 # Create stateful and stateless workflows in the Azure portal with Azure Logic Apps Preview
@@ -366,9 +366,9 @@ For a stateful workflow, after each workflow run, you can view the run history, 
    | **Cancelled** | ![Icon for "Cancelled" action status][cancelled-icon] | The action was running but received a cancel request. |
    | **Failed** | ![Icon for "Failed" action status][failed-icon] | The action failed. |
    | **Running** | ![Icon for "Running" action status][running-icon] | The action is currently running. |
-   | **Skipped** | ![Icon for "Skipped" action status][skipped-icon] | The action was skipped because the immediately preceding action failed. An action has a `runAfter` condition that requires that the preceding action finishes successfully before the current action can run. |
+   | **Skipped** | ![Icon for "Skipped" action status][skipped-icon] | The action was skipped because its `runAfter` conditions weren't met, for example, a preceding action failed. Each action has a `runAfter` object where you can set up conditions that must be met before the current action can run. |
    | **Succeeded** | ![Icon for "Succeeded" action status][succeeded-icon] | The action succeeded. |
-   | **Succeeded with retries** | ![Icon for "Succeeded with retries" action status][succeeded-with-retries-icon] | The action succeeded but only after one or more retries. To review the retry history, in the run history details view, select that action so that you can view the inputs and outputs. |
+   | **Succeeded with retries** | ![Icon for "Succeeded with retries" action status][succeeded-with-retries-icon] | The action succeeded but only after a single or multiple retries. To review the retry history, in the run history details view, select that action so that you can view the inputs and outputs. |
    | **Timed out** | ![Icon for "Timed out" action status][timed-out-icon] | The action stopped due to the timeout limit specified by that action's settings. |
    | **Waiting** | ![Icon for "Waiting" action status][waiting-icon] | Applies to a webhook action that's waiting for an inbound request from a caller. |
    ||||
@@ -465,8 +465,157 @@ To delete an item in your workflow from the designer, follow any of these steps:
   ![Screenshot that shows a selected item on designer with the opened details pane plus the selected ellipses button and "Delete" command.](./media/create-stateful-stateless-workflows-azure-portal/delete-item-from-designer.png)
 
   > [!TIP]
-  > If the ellipses menu isn't visible, expand your browser window wide enough so that the details 
-  > pane shows the ellipses (**...**) button in the upper right corner.
+  > If the ellipses menu isn't visible, expand your browser window wide enough so that 
+  > the details pane shows the ellipses (**...**) button in the upper right corner.
+
+<a name="restart-stop-start"></a>
+
+## Restart, stop, or start logic apps
+
+You can stop or start a [single logic app](#restart-stop-start-single-logic-app) or [multiple logic apps at the same time](#stop-start-multiple-logic-apps). You can also restart a single logic app without first stopping. Your single-tenant logic app can include multiple workflows, so you can either stop the entire logic app or [disable only workflows](#disable-enable-workflows).
+
+> [!NOTE]
+> The stop logic app and disable workflow operations have different effects. For more information, review 
+> [Considerations for stopping logic apps](#considerations-stop-logic-apps) and [considerations for disabling workflows](#disable-enable-workflows).
+
+<a name="considerations-stop-logic-apps"></a>
+
+### Considerations for stopping logic apps
+
+Stopping a logic app affects workflow instances in the following ways:
+
+* The Logic Apps service cancels all in-progress and pending runs immediately.
+
+* The Logic Apps service doesn't create or run new workflow instances.
+
+* Triggers won't fire the next time that their conditions are met. However, trigger states remember the points where the logic app was stopped. So, if you restart the logic app, the triggers fire for all unprocessed items since the last run.
+
+  To stop each workflow from triggering on unprocessed items since the last run, clear the trigger state before you restart the logic app by following these steps:
+
+  1. In the Azure portal, find and open your logic app.
+  1. On the logic app menu, under **Workflows**, select **Workflows**.
+  1. Open a workflow, and edit any part of that workflow's trigger.
+  1. Save your changes. This step resets the trigger's current state.
+  1. Repeat for each workflow.
+  1. When you're done, [restart your logic app](#restart-stop-start-single-logic-app).
+
+<a name="restart-stop-start-single-logic-app"></a>
+
+### Restart, stop, or start a single logic app
+
+1. In the Azure portal, find and open your logic app.
+
+1. On the logic app menu, select **Overview**.
+
+   * To restart a logic app without stopping, on the Overview pane toolbar, select **Restart**.
+   * To stop a running logic app, on the Overview pane toolbar, select **Stop**. Confirm your selection.
+   * To start a stopped logic app, on the Overview pane toolbar, select **Start**.
+
+   > [!NOTE]
+   > If your logic app is already stopped, you only see the **Start** option. 
+   > If your logic app is already running, you only see the **Stop** option.
+   > You can restart your logic app anytime.
+
+1. To confirm whether your operation succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
+
+<a name="stop-start-multiple-logic-apps"></a>
+
+### Stop or start multiple logic apps
+
+You can stop or start multiple logic apps at the same time, but you can't restart multiple logic apps without stopping them first.
+
+1. In the Azure portal's main search box, enter `logic apps`, and select **Logic apps**.
+
+1. On the **Logic apps** page, review the logic app's **Status** column.
+
+1. In the checkbox column, select the logic apps that you want to stop or start.
+
+   * To stop the selected running logic apps, on the Overview pane toolbar, select **Disable/Stop**. Confirm your selection.
+   * To start the selected stopped logic apps, on the Overview pane toolbar, select **Enable/Start**.
+
+1. To confirm whether your operation succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
+
+<a name="disable-enable-workflows"></a>
+
+## Disable or enable workflows
+
+To stop the trigger from firing the next time when the trigger condition is met, disable your workflow. You can disable or enable a single workflow, but you can't disable or enable multiple workflows at the same time. Disabling a workflow affects workflow instances in the following ways:
+
+* The Logic Apps services continues all in-progress and pending runs until they finish. Based on the volume or backlog, this process might take time to complete.
+
+* The Logic Apps service doesn't create or run new workflow instances.
+
+* The trigger won't fire the next time that its conditions are met. However, the trigger state remembers the point at which the workflow was disabled. So, if you re-enable the workflow, the trigger fires for all the unprocessed items since the last run.
+
+  To stop the trigger from firing on unprocessed items since the last run, clear the trigger's state before you reactivate the workflow:
+
+  1. In the workflow, edit any part of the workflow's trigger.
+  1. Save your changes. This step resets your trigger's current state.
+  1. [Reactivate your workflow](#disable-enable-workflows).
+
+> [!NOTE]
+> The disable workflow and stop logic app operations have different effects. For more information, review 
+> [Considerations for stopping logic apps](#considerations-stop-logic-apps).
+
+<a name="disable-workflow"></a>
+
+### Disable workflow
+
+1. On the logic app menu, under **Workflows**, select **Workflows**. In the checkbox column, select the workflow to disable.
+
+1. On the Workflows pane toolbar, select **Disable**.
+
+1. To confirm whether your operation succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
+
+<a name="enable-workflow"></a>
+
+### Enable workflow
+
+1. On the logic app menu, under **Workflows**, select **Workflows**. In the checkbox column, select the workflow to enable.
+
+1. On the Workflows pane toolbar, select **Enable**.
+
+1. To confirm whether your operation succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
+
+<a name="delete"></a>
+
+## Delete logic apps or workflows
+
+You can [delete a single or multiple logic apps at the same time](#delete-logic-apps). Your single-tenant logic app can include multiple workflows, so you can either delete the entire logic app or [delete only workflows](#delete-workflows).
+
+<a name="delete-logic-apps"></a>
+
+### Delete logic apps
+
+Deleting a logic app cancels in-progress and pending runs immediately, but doesn't run cleanup tasks on the storage used by the app.
+
+1. In the Azure portal's main search box, enter `logic apps`, and select **Logic apps**.
+
+1. From the **Logic apps** list, in the checkbox column, select a single or multiple logic apps to delete. On the toolbar, select **Delete**.
+
+1. When the confirmation box appears, enter `yes`, and select **Delete**.
+
+1. To confirm whether your operation succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
+
+<a name="delete-workflows"></a>
+
+### Delete workflows
+
+Deleting a workflow affects workflow instances in the following ways:
+
+* The Logic Apps service cancels in-progress and pending runs immediately, but runs cleanup tasks on the storage used by the workflow.
+
+* The Logic Apps service doesn't create or run new workflow instances.
+
+* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. You have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
+
+1. In the Azure portal, find and open your logic app.
+
+1. On the logic app menu, under **Workflows**, select **Workflows**. In the checkbox column, select a single or multiple workflows to delete.
+
+1. On the toolbar, select **Delete**.
+
+1. To confirm whether your operation succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
 
 <a name="troubleshoot"></a>
 
