@@ -54801,11 +54801,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-faq.md",
-      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-faq",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-faq.yml",
       "redirect_url": "/azure/active-directory/app-proxy/application-proxy-faq",
       "redirect_document_id": false
