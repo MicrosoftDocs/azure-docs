@@ -53,7 +53,7 @@ Here are some examples of partitioning strategies that lead to hot partitions:
 
 To verify if there is a hot partition, navigate to **Insights** > **Throughput** > **Normalized RU Consumption (%) By PartitionKeyRangeID**. Filter to a specific database and container. 
 
-Each PartitionKeyRangeId maps to a one physical partition. If there is one PartitionKeyRangeId that has significantly higher Normalized RU consumption than others (for example, one is consistently at 100%, but others are at 30% or less), this can be a sign of a hot partition. 
+Each PartitionKeyRangeId maps to a one physical partition. If there is one PartitionKeyRangeId that has significantly higher Normalized RU consumption than others (for example, one is consistently at 100%, but others are at 30% or less), this can be a sign of a hot partition. Learn more about the [Normalized RU Consumption metric](monitor-normalized-request-units.md)
 
 :::image type="content" source="media/troubleshoot-request-rate-too-large/split-norm-util-by-pkrange-hot-partition.png" alt-text="Normalized RU Consumption by PartitionKeyRangeId chart with a hot partition":::
 
@@ -110,7 +110,7 @@ Metadata throttling can occur when you are performing a high volume of metadata 
 - List databases or containers in a Cosmos account
 - Query for offers to see the current provisioned throughput 
 
-There is a system-reserved RU limit for these operations, so increasing the provisioned RU/s of the database or container will have no impact and is not recommended. 
+There is a system-reserved RU limit for these operations, so increasing the provisioned RU/s of the database or container will have no impact and is not recommended. See [limits on metadata operations](concepts-limits.md#metadata-request-limits).
 
 #### How to investigate
 Navigate to **Insights** > **System** > **Metadata Requests By Status Code**. Filter to a specific database and container if desired. 
