@@ -34,6 +34,9 @@ With attribute mapping, you control how attributes are populated in Azure AD. Az
 
 Along with these basic types, custom attribute mappings support the concept of an optional *default* value assignment. The default value assignment ensures that a target attribute is populated with a value if Azure AD or the target object doesn't have a value. The most common configuration is to leave this blank.
 
+## Refreshing the schema in cloud sync
+Periodically additonal attributes and mappings will be added to cloud sync.
+
 ## Understand properties of attribute mappings
 
 Along with the type property, attribute mappings support certain attributes.  These attributes will depend on the type of mapping you have selected.  The following sections describe the supported attribute mappings for each of the individual types
@@ -128,8 +131,10 @@ To test your attribute mapping, you can use [on-demand provisioning](how-to-on-d
 
    ![Screenshot that shows success and export details.](media/how-to-attribute-mapping/mapping-5.png)
 
+
 ## Next steps
 
 - [What is Azure AD Connect cloud sync?](what-is-cloud-sync.md)
 - [Writing expressions for attribute mappings](reference-expressions.md)
+- [How to use expression builder with cloud sync](how-to-expression-builder.md)
 - [Attributes synchronized to Azure Active Directory](../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context/hybrid/reference-connect-sync-attributes-synchronized.md)
