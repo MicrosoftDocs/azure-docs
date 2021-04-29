@@ -13,11 +13,11 @@ ms.custom:
 
 # Tutorial: Create and deploy first Azure Resource Manager Bicep file
 
-This tutorial introduces you to [Bicep](./bicep-overview.md). It shows you how to create a starter Bicep file and deploy it to Azure. You'll learn about the structure of the Bicep file and the tools you'll need for working with Bicep files. It takes about **12 minutes** to complete this tutorial, but the actual time will vary based on how many tools you need to install.
+This tutorial introduces you to [Bicep](./overview.md). It shows you how to create a starter Bicep file and deploy it to Azure. You'll learn about the structure of the Bicep file and the tools you'll need for working with Bicep files. It takes about **12 minutes** to complete this tutorial, but the actual time will vary based on how many tools you need to install.
 
 This tutorial is the first of a series. As you progress through the series, you modify the starting Bicep file step by step until you've explored all of the core parts of a Bicep file. These elements are the building blocks for much more complex Bicep files. We hope by the end of the series you're confident creating your own Bicep files and ready to automate your deployments with Bicep files.
 
-If you want to learn about the benefits of using Bicep and why you should automate deployment with Bicep files, see [Bicep](./bicep-overview.md).
+If you want to learn about the benefits of using Bicep and why you should automate deployment with Bicep files, see [Bicep](./overview.md).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -29,7 +29,7 @@ Let's start by making sure you have the tools you need to create and deploy Bice
 
 ### Editor
 
-To create Bicep files, you need a good editor. We recommend Visual Studio Code with the Bicep extension. If you need to install these tools, see [Configure Bicep development environment](./bicep-install.md#development-environment).
+To create Bicep files, you need a good editor. We recommend Visual Studio Code with the Bicep extension. If you need to install these tools, see [Configure Bicep development environment](./install.md#development-environment).
 
 ### Command-line deployment
 
@@ -84,7 +84,7 @@ Okay, you're ready to start learning about Bicep.
 
         If you decide to change the API version for a resource, make sure you evaluate the properties for that version and adjust your Bicep file appropriately.
 
-    For more information, see [Bicep structure](./bicep-file.md).
+    For more information, see [Bicep structure](./file.md).
 
     There is a comment for the name property.  Use `//` for single-line comments or `/* ... */` for multi-line comments
 

@@ -123,4 +123,4 @@ Congratulations, you've finished this introduction to deploying Bicep files to A
 The next tutorial series goes into more detail about deploying templates.
 
 > [!div class="nextstepaction"]
-> [Deploy a local template](./deployment-tutorial-local-template.md)
+> [Deploy a local template](../templates/deployment-tutorial-local-template.md)

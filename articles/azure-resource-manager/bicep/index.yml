@@ -59,7 +59,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Advanced templates
-            url: template-tutorial-use-template-reference.md
+            url: ../templates/template-tutorial-use-template-reference.md
           - text: Template specs
             url: template-specs-create-linked.md
       - linkListType: how-to-guide
@@ -71,14 +71,14 @@ landingContent:
           - text: Define variables
             url: template-variables.md
           - text: Define resources
-            url: template-syntax.md#resources
+            url: ../templates/template-syntax.md#resources
           - text: Define outputs
             url: template-outputs.md
 
       - linkListType: reference
         links:
           - text: Template file syntax
-            url: template-syntax.md
+            url: ../templates/template-syntax.md
           - text: Azure Quickstart templates
             url: https://azure.microsoft.com/resources/templates/
   # Card
@@ -87,7 +87,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Deployment
-            url: deployment-tutorial-local-template.md
+            url: ../templates/deployment-tutorial-local-template.md
       - linkListType: how-to-guide
         links:
           - text: PowerShell
@@ -157,4 +157,4 @@ landingContent:
           - text: CI/CD
             url: add-template-to-azure-pipelines.md
           - text: View deployment history
-            url: deployment-history.md
+            url: ../templates/deployment-history.md
