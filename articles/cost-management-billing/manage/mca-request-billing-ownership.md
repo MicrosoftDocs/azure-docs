@@ -14,8 +14,7 @@ ms.author: banders
 
 You will need to transfer billing ownership for your Azure subscriptions when:
 - You want to move billing responsibilities for the subscriptions to a different billing owner.
-- You are transferring your Azure subscriptions from one licensing agreement to another. For example, from an Enterprise Agreement or a Microsoft Online Subscription Agreement (MOSA) to a Microsoft Customer Agreement.  
-    [Check if you have access to a Microsoft Customer Agreement](#check-for-access).
+- You are transferring your Azure subscriptions from one licensing agreement to another. For example, from an Enterprise Agreement or a Microsoft Online Subscription Agreement (MOSA) to a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-for-access).
 
 The person that you're requesting billing ownership from must have one of the following roles:
 - For a Microsoft Customer Agreement, the person must have an owner or contributor role for the billing account or for the relevant billing profile or invoice section. For more information, see [billing roles and tasks](understand-mca-roles.md#invoice-section-roles-and-tasks).
