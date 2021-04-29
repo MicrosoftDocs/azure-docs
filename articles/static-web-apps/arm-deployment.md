@@ -183,7 +183,7 @@ With the prerequisites in place, the next step is to define the ARM deployment t
                 "value": "Free"
             },
             "repositoryUrl": {
-                "value": "https://github.com/<updatewithyourgithubname>/<updatewithyourreponame>"
+                "value": "https://github.com/<YOUR-GITHUB-USER-NAME>/<YOUR-GITHUB-REPOSITORY-NAME>"
             },
             "branch": {
                 "value": "main"
