@@ -282,17 +282,28 @@ For troubleshooting information for these errors, see [Troubleshoot paused data 
 Here is an example of a non-retryable error that causes an upload to pause:
 
 ```xml
-<ErroredEntity Path="myblobcontainer01\myblob01.vhd">
-  <Category>UploadErrorCloudHttp</Category>
-  <ErrorCode>409</ErrorCode>
-  <ErrorMessage>>The size of the blob being imported is invalid. The blob size is `<blob-size>` bytes. Supported sizes are between 20971520 Bytes and 8192 GiB.</ErrorMessage>
-  <Type>File</Type>
-</ErroredEntity><CopyLog Summary="Summary">
-  <Status>Failed</Status> 
-  <TotalFiles_Blobs>8</TotalFiles_Blobs> 
-  <FilesErrored>1</FilesErrored> 
-</CopyLog>
+<ErroredEntity Path="myblobcontainer01\myblob01"> 
+  <Category>UploadErrorCloudHttp</Category> 
+  <ErrorCode>400</ErrorCode> 
+  <ErrorMessage>The value for one of the HTTP headers is not in the correct format.</ErrorMessage> 
+  <Type>File</Type> 
+</ErroredEntity><ErroredEntity Path="myblobcontainer01\myblob02"> 
+  <Category>UploadErrorCloudHttp</Category> 
+  <ErrorCode>400</ErrorCode> 
+  <ErrorMessage>The value for one of the HTTP headers is not in the correct format.</ErrorMessage> 
+  <Type>File</Type> 
+</ErroredEntity><ErroredEntity Path="myblobcontainer01\myblob03"> 
+  <Category>UploadErrorCloudHttp</Category> 
+  <ErrorCode>400</ErrorCode> 
+  <ErrorMessage>The value for one of the HTTP headers is not in the correct format.</ErrorMessage> 
+  <Type>File</Type> 
+</ErroredEntity><CopyLog Summary="Summary"> 
+  <Status>Failed</Status> 
+  <TotalFiles_Blobs>5</TotalFiles_Blobs> 
+  <FilesErrored>5</FilesErrored> 
+</CopyLog> 
 ```
+<!--Veda's new errors substituted. Verify: 3 blob errors can result in 5 files failing to upload?-->
 
 ### Upload completed with errors
 
