@@ -8,30 +8,36 @@ ms.author: alkohli
 ---
 
 When the Data Box device is connected to the Azure datacenter network, the data upload to Azure starts automatically.
- 
+
+
 **Upload completed with errors**
+
 
 When files fail to upload because of an un-retryable error, you're notified to review the errors before proceeding. 
 
+
 The errors are listed in the data copy log. You should review the errors and make sure you have backup copies of the files that failed to upload.
+
 
 You can't fix these errors. The upload will complete with errors, and the data will then be secure erased from the device. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
 
+
 After 14 days, the upload will be completed automatically. By acting on the notification, you can move things along more quickly.
+
 
 To review non-retryable errors and proceed with an upload, do the following:
 
-1. Open your order in the Azure portal.  
+1. Open your order in the Azure portal.<br>  
 
-   If any non-retryable errors prevented files from uploading, you'll see the following notification. The order status will be **Copy errors.**
+   If any non-retryable errors prevented files from uploading, you'll see the following notification. The order status will be **Copy errors.**<br>
 
-   ![Notification for copy errors during an upload in the Azure portal](media/data-box-verify-upload/upload-paused-01.png)
+   ![Notification for copy errors during an upload in the Azure portal](media/data-box-verify-upload/upload-paused-01.png)<br>
 
-2. Select **Review** to open a panel for managing your review.
+2. Select **Review** to open a panel for managing your review.<br>
 
-   ![Review and proceed panel for upload errors in the Azure portal](media/data-box-verify-upload/upload-paused-02.png)
+   ![Review and proceed panel for upload errors in the Azure portal](media/data-box-verify-upload/upload-paused-02.png)<br>
 
-3. Review the errors in the data copy log using the path in **DATA COPY DETAILS**. 
+3. Review the errors in the data copy log using the path in **DATA COPY DETAILS**.<br>
 
    - Make sure you have backup copies of the files that failed to upload. After the upload completes, the data will be secure erased from the Data Box.
 
