@@ -1,6 +1,6 @@
 ---
-title: Operating system backup and restore of SAP HANA on Azure (Large Instances) type II SKUs| Microsoft Docs
-description: Perform Operating system backup and restore for SAP HANA on Azure (Large Instances) Type II SKUs
+title: Operating system backup and restore of SAP HANA on Azure (Large Instances) | Microsoft Docs
+description: Perform Operating system backup and restore for SAP HANA on Azure (Large Instances)
 services: virtual-machines-linux
 documentationcenter:
 author: saghorpa
@@ -15,9 +15,13 @@ ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
 ---
-# OS backup and restore for Type II SKUs of Revision 3 stamps
+# OS backup and restore
 
-This document describes the steps to perform an operating system file level backup and restore for the **Type II  SKUs** of the HANA Large Instances of Revision 3. 
+This document describes the steps to perform an operating system file level backup and restore. The procedure differs based on certain parameters, like Type I or Type II, Revision 3 or above, location, etc. Please check with Microsoft operations to get accurate values for these parameters for your resources.
+
+## OS backup and restore for Type II SKUs of Revision 3 stamps
+
+The information below describes the steps to perform an operating system file level backup and restore for the **Type II  SKUs** of the HANA Large Instances of Revision 3.
 
 >[!Important]
 > **This article does not apply to Type II SKU deployments in Revision 4 HANA Large Instance stamps.** Boot LUNS of Type II HANA Large Instance units which are deployed in Revision 4 HANA Large Instance stamps can be backed up with storage snapshots as this is the case with Type I SKUs already in Revision 3 stamps
@@ -34,7 +38,7 @@ You can change the backup schedule anytime using the following command:
 ```
 #crontab -e
 ```
-## How to take a manual backup?
+### How to take a manual backup?
 
 The OS file system backup is scheduled using a **cron job** already. However, you can perform the operating system file level backup manually as well. To perform a manual backup, run the following command:
 
@@ -46,7 +50,7 @@ The following screen show shows the sample manual backup:
 ![how](media/HowToHLI/OSBackupTypeIISKUs/HowtoTakeManualBackup.PNG)
 
 
-## How to restore a backup?
+### How to restore a backup?
 
 You can restore a full backup or an individual file from the backup. To restore, use the following command:
 
@@ -66,7 +70,7 @@ The following screenshot shows the restore of a complete backup:
 
 ![Screenshot shows a command prompt window with the restore.](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
 
-## How to install the ReaR tool and change the configuration? 
+### How to install the ReaR tool and change the configuration? 
 
 The Relax-and-Recover (ReaR) packages are **pre-installed** in the **Type II SKUs** of HANA Large Instances, and no action needed from you. You can directly start using the ReaR for the operating system backup.
 However, in the circumstances where you need to install the packages in your own, you can follow the listed steps to install and configure the ReaR tool.
@@ -96,3 +100,46 @@ BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/cra
 
 The following screenshot shows the restore of a complete backup:
 ![Screenshot shows a command prompt window with the restore using the ReaR tool.](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)
+
+
+## OS backup and restore for all other SKUs
+
+The information below describes the steps to perform an operating system file level backup and restore for all SKUs of all Revisions except **Type II  SKUs** of the HANA Large Instances of Revision 3.
+
+### How to take a manual backup?
+
+Get the latest Microsoft Snapshot Tools for SAP HANA from [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md) and configure them to run regularly via `crontab` with `--type=boot` flag. This will ensure regular OS backups. The following example shows a cron schedule in `/etc/crontab` for a Type-I SKU OS backup:
+
+```
+30 00 * * *  ./azure_hana_backup --type=boot --boottype=TypeI --prefix=dailyboot --frequncy=15min --retention=28
+```
+
+The following example shows a cron schedule in `/etc/crontab` for a Type-II SKU OS backup:
+
+```
+30 00 * * *  ./azure_hana_backup --type=boot --boottype=TypeII --prefix=dailyboot --frequency=15min --retention=28
+```
+
+Additional references -
+- [Set up storage snapshots](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore#set-up-storage-snapshots)
+- Microsoft Snapshot Tools for SAP HANA guide on [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md).
+
+### How to restore a backup?
+
+Restore operation cannot be done from the OS itself. Please raise a support ticket with Microsoft operations for this. The restore operation requires the HLI instance to be in powered off state, so please schedule accordingly.
+
+### Managed OS Snapshots
+
+Azure can automatically take OS backups for your HLI resources. These backups are taken once daily, and Azure retains upto the latest three such backups. This is enabled by default for all customers in the following regions -
+- West US
+- Australia East
+- Australia Southeast
+- South Central US
+- East US 2
+
+This facility is partially available in the following regions -
+- East US
+- North Europe
+- West Europe
+
+The frequency or retention period of the backups taken by this facility cannot be altered. In case a different OS backup strategy is needed for your HLI resources, you may choose to opt out of this facility by raising a support ticket with Microsoft operations and then configure Microsoft Snapshot Tools for SAP HANA to take OS backups using the instructions provided in the previous section of this document.
