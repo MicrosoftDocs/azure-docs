@@ -154,7 +154,7 @@ To get the logs using Azure Toolkit for IntelliJ:
 1. The streaming log will be visible in the output window.
 
    ![Streaming log output](media/spring-cloud-intellij-howto/streaming-log-output.png)
-
+---
 
 ## Log Analytics
 
