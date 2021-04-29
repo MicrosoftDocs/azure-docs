@@ -20,10 +20,15 @@ This article highlights capabilities, features, and enhancements recently releas
 
 ## April 2021
 
+Released on April 28, 2021.
+
 ### What's new
 
+This section describes the new features introduced or enabled for this release. 
+
 #### Platform
-A direct connected cluster can enable Azure monitor capabilities to monitor their instances via the Azure portal.
+
+- Direct connected clusters going forward will upload telemetry information automatically to the Azure portal. 
 
 #### 	Azure Arc enabled PostgreSQL Hyperscale
 
@@ -32,17 +37,12 @@ A direct connected cluster can enable Azure monitor capabilities to monitor thei
 - Azure Arc enabled PostgreSQL Hyperscale  now supports full user/role management.
 - Azure Arc enabled PostgreSQL Hyperscale  now supports additional extensions with `Tdigest` and  `pg_partman`.
 - Azure Arc enabled PostgreSQL Hyperscale  now supports configuring vCore and memory settings per role of the PostgreSQL instance in the server group.
-Azure Arc enabled PostgreSQL Hyperscale  now supports configuring database engine/server settings per role of the PostgreSQL instance in the server group.
+- Azure Arc enabled PostgreSQL Hyperscale  now supports configuring database engine/server settings per role of the PostgreSQL instance in the server group.
 
 #### Azure Arc enabled SQL Managed Instance
 
 - Restore a database to SQL Managed Instance with three replicas and it will be automatically added to the availability group. 
 - Connect to a secondary read-only endpoint on SQL Managed Instances deployed with three replicas. Use `azdata arc sql endpoint list` to see the secondary read-only connection endpoint.
-
-
-### Breaking changes
-
-### Resolved issues
 
 ### Known issues
 
@@ -83,7 +83,6 @@ Azure Arc enabled PostgreSQL Hyperscale  now supports configuring database engin
    If you execute the second command before the restart has completed it will fail. If that is the case, simply wait for a few more moments and execute the second command again.
 
 - Passing  an invalid value to the `--extensions` parameter when editing the configuration of a server group to enable additional extensions incorrectly resets the list of enabled extensions to what it was at the create time of the server group and prevents user from creating additional extensions. The only workaround available when that happens is to delete the server group and redeploy it.
-
 
 ## March 2021
 
