@@ -36,7 +36,7 @@ For a list of how resource types handle deletion, see [Deletion of Azure resourc
 If the resource group is [locked](../management/lock-resources.md), complete mode doesn't delete the resources.
 
 > [!NOTE]
-> Only root-level templates support the complete deployment mode. For [linked or nested templates](linked-templates.md), you must use incremental mode.
+> Only root-level templates support the complete deployment mode. For [linked or nested templates](../templates/linked-templates.md), you must use incremental mode.
 >
 > [Subscription level deployments](deploy-to-subscription.md) don't support complete mode.
 >
@@ -122,6 +122,6 @@ The following example shows a linked template set to incremental deployment mode
 
 ## Next steps
 
-* To learn about creating Resource Manager templates, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* To learn about creating Resource Manager templates, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).
 * To learn about deploying resources, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).
 * To view the operations for a resource provider, see [Azure REST API](/rest/api/).

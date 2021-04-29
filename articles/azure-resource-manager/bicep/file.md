@@ -11,7 +11,7 @@ ms.date: 03/31/2021
 
 This article describes the structure of a Bicep file. It presents the different sections of the file and the properties that are available in those sections.
 
-This article is intended for users who have some familiarity with Bicep files. It provides detailed information about the structure of the template. For a step-by-step tutorial that guides you through the process of creating a Bicep file, see [Tutorial: Create and deploy first Azure Resource Manager Bicep file](bicep-tutorial-create-first-bicep.md).
+This article is intended for users who have some familiarity with Bicep files. It provides detailed information about the structure of the template. For a step-by-step tutorial that guides you through the process of creating a Bicep file, see [Tutorial: Create and deploy first Azure Resource Manager Bicep file](./tutorial-create-first-bicep.md).
 
 ## Template format
 
@@ -240,7 +240,7 @@ The symbolic name enables you to reference the module from somewhere else in the
 
 Like resources, you can conditionally or iteratively deploy a module. The syntax is the same for modules as resources.
 
-For more information, see [Use Bicep modules](bicep-modules.md).
+For more information, see [Use Bicep modules](./modules.md).
 
 ## Resource and module decorators
 
@@ -320,4 +320,4 @@ The preceding example is equivalent to the following JSON.
 
 ## Next steps
 
-For an introduction to Bicep, see [What is Bicep?](bicep-overview.md).
+For an introduction to Bicep, see [What is Bicep?](./overview.md).

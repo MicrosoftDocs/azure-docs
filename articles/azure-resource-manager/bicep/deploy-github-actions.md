@@ -154,7 +154,7 @@ When your resource group and repository are no longer needed, clean up the resou
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create your first ARM template](./template-tutorial-create-first-template.md)
+> [Create your first ARM template](../templates/template-tutorial-create-first-template.md)
 
 > [!div class="nextstepaction"]
 > [Learn module: Automate the deployment of ARM templates by using GitHub Actions](/learn/modules/deploy-templates-command-line-github-actions/)

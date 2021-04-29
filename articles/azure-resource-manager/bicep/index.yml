@@ -24,13 +24,9 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Bicep?
-            url: bicep-overview.md
+            url: overview.md
       - linkListType: concept
         links:
-          - text: Best practices
-            url: template-best-practices.md
-          - text: Frequently asked questions
-            url: frequently-asked-questions.md
           - text: Template specs
             url: template-specs.md
           - text: Deployment modes

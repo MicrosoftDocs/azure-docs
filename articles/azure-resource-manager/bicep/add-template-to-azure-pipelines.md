@@ -30,7 +30,7 @@ This article assumes your ARM template and Azure DevOps organization are ready f
 
 * You've configured a [service connection](/azure/devops/pipelines/library/connect-to-azure) to your Azure subscription. The tasks in the pipeline execute under the identity of the service principal. For steps to create the connection, see [Create a DevOps project](../templates/deployment-tutorial-pipeline.md#create-a-devops-project).
 
-* You have an [ARM template](quickstart-create-templates-use-visual-studio-code.md) that defines the infrastructure for your project.
+* You have an [ARM template](../templates/quickstart-create-templates-use-visual-studio-code.md) that defines the infrastructure for your project.
 
 ## Create pipeline
 

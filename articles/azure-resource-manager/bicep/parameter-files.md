@@ -229,7 +229,7 @@ For more information, see [Deploy resources with ARM templates and Azure PowerSh
 > It's not possible to use a parameter file with the custom template blade in the portal.
 
 > [!TIP]
-> If you're using the [Azure Resource Group project in Visual Studio](create-visual-studio-deployment-project.md), make sure the parameter file has its **Build Action** set to **Content**.
+> If you're using the [Azure Resource Group project in Visual Studio](../templates/create-visual-studio-deployment-project.md), make sure the parameter file has its **Build Action** set to **Content**.
 
 ## File name
 

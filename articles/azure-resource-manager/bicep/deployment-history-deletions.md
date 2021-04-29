@@ -30,7 +30,7 @@ Deployments are deleted from your history when you exceed 775 deployments. Azure
 
 In addition to deployments, you also trigger deletions when you run the [what-if operation](template-deploy-what-if.md) or validate a deployment.
 
-When you give a deployment the same name as one in the history, you reset its place in the history. The deployment moves to the most recent place in the history. You also reset a deployment's place when you [roll back to that deployment](rollback-on-error.md) after an error.
+When you give a deployment the same name as one in the history, you reset its place in the history. The deployment moves to the most recent place in the history. You also reset a deployment's place when you [roll back to that deployment](../templates/rollback-on-error.md) after an error.
 
 ## Remove locks that block deletions
 
@@ -122,4 +122,4 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Micro
 
 ## Next steps
 
-* To learn about viewing the deployment history, see [View deployment history with Azure Resource Manager](deployment-history.md).
+* To learn about viewing the deployment history, see [View deployment history with Azure Resource Manager](../templates/deployment-history.md).

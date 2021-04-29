@@ -76,7 +76,7 @@ The count can't be a negative number. It can be zero if you deploy the template 
 - Azure PowerShell **2.6** or later
 - Azure CLI **2.0.74** or later
 - REST API version **2019-05-10** or later
-- [Linked deployments](linked-templates.md) must use API version **2019-05-10** or later for the deployment resource type
+- [Linked deployments](../templates/linked-templates.md) must use API version **2019-05-10** or later for the deployment resource type
 
 Earlier versions of PowerShell, CLI, and the REST API don't support zero for count.
 
@@ -272,7 +272,7 @@ The `mode` property also accepts **parallel**, which is the default value.
 
 # [Bicep](#tab/bicep)
 
-To serially deploy more than one instance of a resource, set the `batchSize` [decorator](./bicep-file.md#resource-and-module-decorators) to the number of instances to deploy at a time. With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
+To serially deploy more than one instance of a resource, set the `batchSize` [decorator](./file.md#resource-and-module-decorators) to the number of instances to deploy at a time. With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
 
 ```bicep
 @batchSize(2)
@@ -371,10 +371,10 @@ The following examples show common scenarios for creating more than one instance
 ## Next steps
 
 - To set dependencies on resources that are created in a copy loop, see [Define the order for deploying resources in ARM templates](define-resource-dependency.md).
-- To go through a tutorial, see [Tutorial: Create multiple resource instances with ARM templates](template-tutorial-create-multiple-instances.md).
+- To go through a tutorial, see [Tutorial: Create multiple resource instances with ARM templates](../templates/template-tutorial-create-multiple-instances.md).
 - For a Microsoft Learn module that covers resource copy, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
 - For other uses of the copy loop, see:
   - [Property iteration in ARM templates](copy-properties.md)
   - [Variable iteration in ARM templates](copy-variables.md)
   - [Output iteration in ARM templates](copy-outputs.md)
-- For information about using copy with nested templates, see [Using copy](linked-templates.md#using-copy).
+- For information about using copy with nested templates, see [Using copy](../templates/linked-templates.md#using-copy).

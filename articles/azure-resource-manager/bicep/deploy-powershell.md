@@ -9,7 +9,7 @@ ms.date: 03/25/2021
 
 # Deploy resources with ARM templates and Azure PowerShell
 
-This article explains how to use Azure PowerShell with Azure Resource Manager templates (ARM templates) or Bicep files to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [template deployment overview](overview.md) or [Bicep overview](bicep-overview.md).
+This article explains how to use Azure PowerShell with Azure Resource Manager templates (ARM templates) or Bicep files to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [Bicep overview](overview.md).
 
 To deploy Bicep files, you need [Azure PowerShell version 5.6.0 or later](/powershell/azure/install-az-ps).
 
@@ -112,7 +112,7 @@ The deployment can take several minutes to complete.
 ## Deploy remote template
 
 > [!NOTE]
-> Currently, Azure PowerShell doesn't support deploying remote Bicep files. Use [Bicep CLI](./bicep-install.md#development-environment) to compile the Bicep file to a JSON template, and then load the JSON file to the remote location.
+> Currently, Azure PowerShell doesn't support deploying remote Bicep files. Use [Bicep CLI](./install.md#development-environment) to compile the Bicep file to a JSON template, and then load the JSON file to the remote location.
 
 Instead of storing ARM templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization.
 
@@ -145,7 +145,7 @@ New-AzResourceGroupDeployment `
   -QueryString $sasToken
 ```
 
-For more information, see [Use relative path for linked templates](./linked-templates.md#linked-template).
+For more information, see [Use relative path for linked templates](../templates/linked-templates.md#linked-template).
 
 ## Deploy template spec
 
@@ -245,7 +245,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
 
 ## Next steps
 
-- To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](rollback-on-error.md).
+- To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](../templates/rollback-on-error.md).
 - To specify how to handle resources that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](deployment-modes.md).
-- To understand how to define parameters in your template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
-- For information about deploying a template that requires a SAS token, see [Deploy private ARM template with SAS token](secure-template-with-sas-token.md).
+- To understand how to define parameters in your template, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).
+- For information about deploying a template that requires a SAS token, see [Deploy private ARM template with SAS token](../templates/secure-template-with-sas-token.md).

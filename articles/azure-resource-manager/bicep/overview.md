@@ -21,13 +21,13 @@ To learn about Bicep, see the following video.
 
 ## Get started
 
-To start with Bicep, [install the tools](bicep-install.md).
+To start with Bicep, [install the tools](./install.md).
 
-After installing the tools, try the [Bicep tutorial](./bicep-tutorial-create-first-bicep.md). The tutorial series walks you through the structure and capabilities of Bicep. You deploy Bicep files, and convert an ARM template into the equivalent Bicep file.
+After installing the tools, try the [Bicep tutorial](./tutorial-create-first-bicep.md). The tutorial series walks you through the structure and capabilities of Bicep. You deploy Bicep files, and convert an ARM template into the equivalent Bicep file.
 
 To view equivalent JSON and Bicep files side by side, see the [Bicep Playground](https://aka.ms/bicepdemo).
 
-If you have an existing ARM template that you would like to convert to Bicep, see [Converting ARM templates between JSON and Bicep](bicep-decompile.md).
+If you have an existing ARM template that you would like to convert to Bicep, see [Converting ARM templates between JSON and Bicep](./decompile.md).
 
 ## Benefits of Bicep versus other tools
 
@@ -35,7 +35,7 @@ Bicep provides the following advantages over other options:
 
 * **Support for all resource types and API versions**: Bicep immediately supports all preview and GA versions for Azure services. As soon as a resource provider introduces new resources types and API versions, you can use them in your Bicep file. You don't have to wait for tools to be updated before using the new services.
 * **Authoring experience**: When you use VS Code to create your Bicep files, you get a first-class authoring experience. The editor provides rich type-safety, intellisense, and syntax validation.
-* **Modularity**: You can break your Bicep code into manageable parts by using [modules](bicep-modules.md). The module deploys a set of related resources. Modules enable you to reuse code and simplify development. Add the module to a Bicep file anytime you need to deploy those resources.
+* **Modularity**: You can break your Bicep code into manageable parts by using [modules](./modules.md). The module deploys a set of related resources. Modules enable you to reuse code and simplify development. Add the module to a Bicep file anytime you need to deploy those resources.
 * **Integration with Azure services**: Bicep is integrated with Azure services such as Azure Policy, template specs, and Blueprints.
 * **No state or state files to manage**: All state is stored in Azure. Users can collaborate and have confidence their updates are handled as expected. Use the [what-if operation](template-deploy-what-if.md) to preview changes before deploying your template.
 * **No cost and open source**: Bicep is completely free. You don't have to pay for premium capabilities. It's also supported by Microsoft support.
@@ -99,8 +99,8 @@ Bicep is a DSL focused on deploying complete solutions to Azure. Meeting that go
 
 They continue to function exactly as they always have. You don't need to make any changes. We'll continue to support the underlying ARM template JSON language. Bicep files compile to JSON, and that JSON is sent to Azure for deployment.
 
-When you're ready, you can [convert the JSON files to Bicep](bicep-decompile.md).
+When you're ready, you can [convert the JSON files to Bicep](./decompile.md).
 
 ## Next steps
 
-Get started with the [Bicep tutorial](./bicep-tutorial-create-first-bicep.md).
+Get started with the [Bicep tutorial](./tutorial-create-first-bicep.md).

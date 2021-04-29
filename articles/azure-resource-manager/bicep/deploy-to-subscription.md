@@ -251,7 +251,7 @@ Use the [copy element](copy-resources.md) with resource groups to create more th
 }
 ```
 
-For information about resource iteration, see [Resource iteration in ARM templates](./copy-resources.md), and [Tutorial: Create multiple resource instances with ARM templates](./template-tutorial-create-multiple-instances.md).
+For information about resource iteration, see [Resource iteration in ARM templates](./copy-resources.md), and [Tutorial: Create multiple resource instances with ARM templates](../templates/template-tutorial-create-multiple-instances.md).
 
 ### Create resource group and resources
 

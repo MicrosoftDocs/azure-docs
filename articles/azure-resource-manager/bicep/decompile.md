@@ -10,7 +10,7 @@ ms.date: 03/12/2021
 
 This article describes how you convert Azure Resource Manager templates (ARM templates) from JSON to Bicep and from Bicep to JSON.
 
-You must have the [Bicep CLI installed](bicep-install.md) to run the conversion commands.
+You must have the [Bicep CLI installed](./install.md) to run the conversion commands.
 
 The conversion commands produce templates that are functionally equivalent. However, they might not be exactly the same in implementation. Converting a template from JSON to Bicep and then back to JSON probably results in a template with different syntax than the original template. When deployed, the converted templates produce the same results.
 
@@ -64,4 +64,4 @@ The [Bicep playground](https://aka.ms/bicepdemo) enables you to view equivalent 
 
 ## Next steps
 
-For information about the Bicep, see [Bicep tutorial](./bicep-tutorial-create-first-bicep.md).
+For information about the Bicep, see [Bicep tutorial](./tutorial-create-first-bicep.md).

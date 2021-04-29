@@ -460,4 +460,4 @@ After the script is tested successfully, you can use it as a deployment script i
 In this article, you learned how to use deployment scripts. To walk through a deployment script tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Use deployment scripts in ARM templates](./template-tutorial-deployment-script.md)
+> [Tutorial: Use deployment scripts in ARM templates](../templates/template-tutorial-deployment-script.md)

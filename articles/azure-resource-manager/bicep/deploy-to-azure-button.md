@@ -119,4 +119,4 @@ The portal displays a pane that allows you to easily provide parameter values. T
 
 ## Next steps
 
-- To learn more about templates, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+- To learn more about templates, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).

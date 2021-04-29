@@ -12,7 +12,7 @@ ms.author: jgao
 
 # Quickstart: Create Bicep files with Visual Studio Code
 
-The Bicep extension for Visual Studio Code provides language support and resource autocompletion. These tools help create and validate [Bicep](./bicep-overview.md) files. In this quickstart, you use the extension to create a Bicep file from scratch. While doing so you experience the extensions capabilities such as validation, and completions.
+The Bicep extension for Visual Studio Code provides language support and resource autocompletion. These tools help create and validate [Bicep](./overview.md) files. In this quickstart, you use the extension to create a Bicep file from scratch. While doing so you experience the extensions capabilities such as validation, and completions.
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
@@ -50,7 +50,7 @@ The resource declaration has four components:
 - **resource type** (Microsoft.Storage/storageAccounts@2019-06-01): It is composed of the resource provider (Microsoft.Storage), resource type (storageAccounts), and apiVersion (2019-06-01). Each resource provider publishes its own API versions, so this value is specific to the type. You can find more types and apiVersions for various Azure resources from [ARM template reference](/azure/templates/).
 - **properties** (everything inside = {...}): Specify the properties for the resource type. Every resource has a `name` property. Most resources also have a `location` property, which sets the region where the resource is deployed. The other properties vary by resource type and API version.
 
-For more information, see [Bicep structure](./bicep-file.md).
+For more information, see [Bicep structure](./file.md).
 
 There is a comment for the name property.  Use `//` for single-line comments or `/* ... */` for multi-line comments
 
@@ -128,4 +128,4 @@ Remove-AzResourceGroup -Name arm-vscode
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Beginner Bicep tutorials](./bicep-tutorial-create-first-bicep.md)
+> [Beginner Bicep tutorials](./tutorial-create-first-bicep.md)
