@@ -17,8 +17,8 @@ A Data Box or Data Box Heavy import order goes through the following steps: orde
 
 The following table shows a summary of the Data Box or Data Box Heavy import order steps and the tools available to track and audit the order during each step.
 
-| Data Box import order stage       | Tool to track and audit                                                                        |
-|----------------------------|------------------------------------------------------------------------------------------------|
+| Data Box import order stage| Tool to track and audit|
+|----------------------------|------------------------|
 | Create order               | [Set up access control on the order via Azure RBAC](#set-up-access-control-on-the-order)                                                    |
 | Order processed            | [Track the order](#track-the-order) through <ul><li> Azure portal </li><li> Shipping carrier website </li><li>Email notifications</ul> |
 | Set up device              | Device credentials access logged in [Activity logs](#query-activity-logs-during-setup)                                              |
