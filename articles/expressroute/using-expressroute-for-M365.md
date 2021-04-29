@@ -9,21 +9,27 @@ manager: tracsman
 ms.service: expressroute
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 4/28/2021
+ms.date: 4/27/2021
 ms.author: rambala
 
 ---
 # Using ExpressRoute for Routing Microsoft 365 Traffic
 
 An ExpressRoute circuit provides private connectivity to Microsoft backbone network. 
-It offers *Private peering* to connect to private endpoints of your IaaS deployment in Azure regions and *Microsoft peering* to connect to public endpoints of IaaS, PaaS, and SaaS services in Microsoft network. 
+* It offers *Private peering* to connect to private endpoints of your IaaS deployment in Azure regions 
+* Also, it offers *Microsoft peering* to connect to public endpoints of IaaS, PaaS, and SaaS services in Microsoft network. 
+
 For more information about ExpressRoute, see the [Introduction to ExpressRoute][ExR-Intro] article.
 
 
 Often there's a confusion whether ExpressRoute can be used or not for routing Microsoft 365 SaaS traffic. 
-The argument is: ExpressRoute does offer Microsoft peering, using which you can reach most of the public endpoints in Microsoft network. 
-In fact you can select BGP communities corresponding to Microsoft 365 services in a *Route Filter* associated with a Microsoft Peering to receive prefixes belonging to Microsoft 365 services and thereby you can route Microsoft 365 service traffic over an ExpressRoute circuit. 
-The against argument is: Microsoft 365 is a distributed service and designed to enable customers all over the world to connect to the service using an Internet connection; so, it's recommended not to use ExpressRoute for Microsoft 365.
+
+* One side argument is: ExpressRoute does offer Microsoft peering, using which you can reach most of the public endpoints in Microsoft network. 
+In fact, using a *Route Filter* you can select Microsoft 365 service prefixes that need to be advertised via Microsoft peering to your on-premises network. 
+These routes advertisement enables routing Microsoft 365 service traffic over the ExpressRoute circuit. 
+
+* The counter argument is: Microsoft 365 is a distributed service and designed to enable customers all over the world to connect to the service using the Internet. 
+So, it's recommended not to use ExpressRoute for Microsoft 365.
 
 The objective of this article is to provide technical reasoning and objectively discuss when to use ExpressRoute for routing Microsoft 365 traffic and when not to use it.
 
@@ -50,7 +56,7 @@ Similarly, in SaaS application architecture if you force route the traffic throu
 ## When not to use ExpressRoute for Microsoft 365?
 
 Because of its ability to dynamically shorten the route length and dynamically choose the closest server datacenter depending on the location of the clients, Microsoft 365 is said to be designed for the Internet. 
-Besides there are certain Microsoft 365 traffic that are routed only through the Internet.
+Besides, certain Microsoft 365 traffic is routed only through the Internet.
 When you have your SaaS clients widely distributed across a region or globally, and if you geo-pin the connections to a particular location then you are forcing the clients further away from the geo-pined location to experience higher network latency. 
 Higher network latency results in suboptimal network performance and poor application performance.
 
@@ -66,7 +72,7 @@ The following are some of the reasons why you may want to use ExpressRoute for r
 * You're required to route all the SaaS traffic to a geo-pinned centralized location (be it a private or a public datacenter) and the optimal way to connect the centralized location to the Microsoft global network is via ExpressRoute
 * For some of your static SaaS clients only ExpressRoute provides optimal connectivity, while for the other clients you use Internet
 
-While you use ExpressRoute, you can leverage the route filter associated with Microsoft peering of ExpressRoute to route only a subset of Microsoft 365 services and/or Azure PaaS services over the ExpressRoute circuit. For more information, see [Tutorial: Configure route filters for Microsoft peering][ExRRF].
+While you use ExpressRoute, you can apply the route filter associated with Microsoft peering of ExpressRoute to route only a subset of Microsoft 365 services and/or Azure PaaS services over the ExpressRoute circuit. For more information, see [Tutorial: Configure route filters for Microsoft peering][ExRRF].
 
 ## Next Steps
 
