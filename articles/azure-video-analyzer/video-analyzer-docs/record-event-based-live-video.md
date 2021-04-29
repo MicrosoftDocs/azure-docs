@@ -188,7 +188,7 @@ When you use the Azure Video Analyzer on IoT Edge module to record the live vide
 
     `"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/azure-video-analyzer/master/pipelines/live/topologies/evr-hubMessage-videos/topology.json" `
     
-1. Next, under the **GraphInstanceSet** and **GraphTopologyDelete** nodes, ensure that the value of **topologyName** matches the value of the **name** property in the above pipeline topology:
+1. Next, under the **livePipelineSet** and **pipelineTopologyDelete** nodes, ensure that the value of **topologyName** matches the value of the **name** property in the above pipeline topology:
 
     `"topologyName" : "EVRtoVideosOnObjDetect"`
 1. Open the [pipeline topology](https://raw.githubusercontent.com/Azure/azure-video-analyzer/master/pipelines/live/topologies/evr-video/topology.json) in a browser, and look at videoName - it is hard-coded to `sample-evr-video`. This is acceptable for a tutorial. In production, you would take care to ensure that each unique RTSP camera is recorded to a video resource with a unique name.
@@ -219,7 +219,7 @@ When you use the Azure Video Analyzer on IoT Edge module to record the live vide
           "name": "Sample-Pipeline-1",
           "properties": {
             "topologyName": "EVRtoVideosOnObjDetect",
-            "description": "Sample graph description",
+            "description": "Sample topology description",
             "parameters": [
               {
                 "name": "rtspUrl",
@@ -272,8 +272,8 @@ When the live pipeline is activated, the RTSP source node attempts to connect to
   },
   "applicationProperties": {
     "dataVersion": "1.0",
-    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/videoanalyzers/hubname",
-    "subject": "/livePipelines/Sample-Pipeline-1/sources/rtspSource",
+    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoanalyzers/{ava-account-name}",
+    "subject": "/edgeModules/avaedge/livePipelines/Sample-Pipeline-1/sources/rtspSource",
     "eventType": "Microsoft.VideoAnalyzers.Diagnostics.MediaSessionEstablished",
     "eventTime": "2021-04-09T09:42:18.1280000Z"
   }
@@ -320,7 +320,7 @@ Almost immediately after the Object Counter sends the event, you'll see an event
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoanalyzers/{ava-account-name}",
-    "subject": "/livePipelines/Sample-Pipeline-1/sinks/videoSink",
+    "subject": "/edgeModules/avaedge/livePipelines/Sample-Pipeline-1/sinks/videoSink",
     "eventType": "Microsoft.VideoAnalyzers.Pipeline.Operational.RecordingStarted",
     "eventTime": "2021-04-09T09:42:38.1280000Z",
     "dataVersion": "1.0"
@@ -328,7 +328,7 @@ Almost immediately after the Object Counter sends the event, you'll see an event
 }
 ```
 
-The subject section in applicationProperties references the video sink node in the graph, which generated this message. The body section contains information about the output location. In this case, it's the name of the Azure Video Analyzer video resource into which video is recorded.
+The subject section in applicationProperties references the video sink node in the live pipeline, which generated this message. The body section contains information about the output location. In this case, it's the name of the Azure Video Analyzer video resource into which video is recorded.
 
 ### RecordingAvailable event
 
@@ -343,7 +343,7 @@ As the name suggests, the RecordingStarted event is sent when recording has star
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoanalyzers/{ava-account-name}",
-    "subject": "/livePipelines/Sample-Pipeline-1/sinks/videoSink",
+    "subject": "/edgeModules/avaedge/livePipelines/Sample-Pipeline-1/sinks/videoSink",
     "eventType": "Microsoft.VideoAnalyzers.Pipeline.Operational.RecordingAvailable",
     "eventTime": "2021-04-09T09:43:38.1280000Z",
     "dataVersion": "1.0"
@@ -351,7 +351,7 @@ As the name suggests, the RecordingStarted event is sent when recording has star
 }
 ```
 
-This event indicates that enough data was written to the video resource for players or clients to start playback of the video. The subject section in applicationProperties references the video sink node in the graph, which generated this message. The body section contains information about the output location. In this case, it's the name of the Azure Video Analyzer resource into which video is recorded.
+This event indicates that enough data was written to the video resource for players or clients to start playback of the video. The subject section in applicationProperties references the video sink node in the live pipeline, which generated this message. The body section contains information about the output location. In this case, it's the name of the Azure Video Analyzer resource into which video is recorded.
 
 ### RecordingStopped event
 
