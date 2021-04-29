@@ -73,7 +73,7 @@ Next, run your logic app workflow for testing.
 
 ## Test your logic app
 
-To manually start your workflow, on the designer toolbar, select **Run**. Or, you can wait for the trigger to fire. In both cases, the workflow should send an SMS message to your specified destination phone number. For more information, review [how to run your workflow](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#run-your-logic-app).
+To manually start your workflow, on the designer toolbar, select **Run**. Or, you can wait for the trigger to fire. In both cases, the workflow should send an SMS message to your specified destination phone number. For more information, review [how to run your workflow](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#run-workflow).
 
 ## Clean up resources
 
