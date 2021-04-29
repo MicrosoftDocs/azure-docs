@@ -96,16 +96,8 @@
       href: application-proxy-network-topology.md
     - name: Security
       href: application-proxy-security.md
-  #   - name: Comparison of remote access solutions
-  #     href: application-proxy-migration.md
-      # - name: OIDC-based SSO
-      #   href: configure-oidc-single-sign-on.md
-      # - name: SAML-based SSO
-      #   href: configure-saml-single-sign-on.md
-      # - name: Password-based SSO
-      #   href: configure-password-single-sign-on-non-gallery-applications.md
-      # - name: Linked-based SSO
-      #   href: configure-linked-sign-on.md
+    - name: Comparison of remote access solutions
+      href: application-proxy-migration.md
   - name: How-to guides
     expanded: true
     items:
