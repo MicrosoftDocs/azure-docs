@@ -40816,7 +40816,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/virtual-machines/workloads/sap/os-backup-type-ii-skus.md",
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/os-backup-type-ii-skus.md",
       "redirect_url": "/azure/virtual-machines/workloads/sap/large-instance-os-backup",
       "redirect_document_id": false
     },
