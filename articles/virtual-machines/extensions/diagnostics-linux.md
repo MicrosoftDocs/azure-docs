@@ -32,9 +32,9 @@ the Linux diagnostic extension helps a user monitor the health of a Linux VM run
 
 This extension works with both Azure deployment models (Azure Resource Manager and classic).
 
-## Install the extension on a VM or VMSS
+## Install the extension
 
-You can enable this extension by using the Azure PowerShell cmdlets, Azure CLI scripts, Azure Resource Manager templates (ARM templates), or the Azure portal. For more information, see [Extensions and features](features-linux.md).
+You can enable this extension for your VM and VMSS by using the Azure PowerShell cmdlets, Azure CLI scripts, Azure Resource Manager templates (ARM templates), or the Azure portal. For more information, see [Extensions and features](features-linux.md).
 
 >[!NOTE]
 >Some components of the Linux Diagnostic VM extension are also shipped in the [Log Analytics VM extension](./oms-linux.md). Because of this architecture, conflicts can arise if both extensions are instantiated in the same ARM template.
@@ -98,6 +98,32 @@ The `python2` executable file must be aliased to *python*. Here's one way to ach
     ```
     sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
     ```
+
+### Installation
+
+You can install and configure LAD 4.0 in the Azure CLI or in PowerShell.
+
+# [Azure CLI](#tab/azcli)
+
+If your protected settings are in the file *ProtectedSettings.json* and your public configuration information is in *PublicSettings.json*, run this command:
+
+```azurecli
+az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 4.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
+```
+
+The command assumes you're using the Azure Resource Management mode of the Azure CLI. To configure LAD for classic deployment model VMs, switch to "asm" mode (`azure config mode asm`) and omit the resource group name in the command.
+
+For more information, see the [cross-platform CLI documentation](/cli/azure/authenticate-azure-cli).
+
+# [PowerShell](#tab/powershell)
+
+If your protected settings are in the `$protectedSettings` variable and your public configuration information is in the `$publicSettings` variable, run this command:
+
+```powershell
+Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Location <vm_location> -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 4.0
+```
+
+---
 
 ### Sample installation
 
@@ -565,7 +591,7 @@ Either `"table"` or `"sinks"` or both must be specified.
 > [!NOTE]
 > The display names for each metric will differ depending on the metrics namespace to which it belongs:
 > * `Guest (classic)` (populated from your storage account): the specified `displayName` in the `performanceCounters` section, or the default display name as seen in Azure Portal (VM > Diagnostic settings > Metrics > Custom).
-> * `azure.vm.linux.guestmetrics` (populated from `AzMonSink` if configured): the "`azure.vm.linux.guestmetrics` Name" specified in the tables below.
+> * `azure.vm.linux.guestmetrics` (populated from `AzMonSink` if configured): the "`azure.vm.linux.guestmetrics` Display Name" specified in the tables below.
 >
 > Due to implementation details, the metric values between `Guest (classic)` and `azure.vm.linux.guestmetrics` versions will differ. While the classic metrics had certain aggregations applied in the agent, the new metrics are unaggregated counters, giving customers the flexibility to aggregate as desired at viewing/alerting time.
 
@@ -669,32 +695,6 @@ Counter | `azure.vm.linux.guestmetrics` Display Name | Meaning
 `ReadBytesPerSecond` | `diskio/read_bytes` | Number of bytes read per second
 `WriteBytesPerSecond` | `diskio/write_bytes` | Number of bytes written per second
 `BytesPerSecond` | `diskio/total_bytes` | Number of bytes read or written per second
-
-## Install and configure LAD 4.0
-
-You can install and configure LAD 4.0 in the Azure CLI or in PowerShell.
-
-# [Azure CLI](#tab/azcli)
-
-If your protected settings are in the file *ProtectedSettings.json* and your public configuration information is in *PublicSettings.json*, run this command:
-
-```azurecli
-az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 4.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
-```
-
-The command assumes you're using the Azure Resource Management mode of the Azure CLI. To configure LAD for classic deployment model VMs, switch to "asm" mode (`azure config mode asm`) and omit the resource group name in the command.
-
-For more information, see the [cross-platform CLI documentation](/cli/azure/authenticate-azure-cli).
-
-# [PowerShell](#tab/powershell)
-
-If your protected settings are in the `$protectedSettings` variable and your public configuration information is in the `$publicSettings` variable, run this command:
-
-```powershell
-Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Location <vm_location> -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 4.0
-```
-
----
 
 ## Example LAD 4.0 configuration
 
