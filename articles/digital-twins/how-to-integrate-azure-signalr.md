@@ -112,13 +112,13 @@ In the [Azure portal](https://portal.azure.com/), navigate to your event grid to
 On the *Create Event Subscription* page, fill in the fields as follows (fields filled by default are not mentioned):
 * *EVENT SUBSCRIPTION DETAILS* > **Name**: Give a name to your event subscription.
 * *ENDPOINT DETAILS* > **Endpoint Type**: Select *Azure Function* from the menu options.
-* *ENDPOINT DETAILS* > **Endpoint**: Hit the *Select an endpoint* link. This will open a *Select Azure Function* window:
+* *ENDPOINT DETAILS* > **Endpoint**: Select the *Select an endpoint* link. This will open a *Select Azure Function* window:
     - Fill in your **Subscription**, **Resource group**, **Function app** and **Function** (*broadcast*). Some of these may auto-populate after selecting the subscription.
-    - Hit **Confirm Selection**.
+    - Select **Confirm Selection**.
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/create-event-subscription.png" alt-text="Azure portal view of creating an event subscription. The fields above are filled in, and the 'Confirm Selection' and 'Create' buttons are highlighted.":::
 
-Back on the *Create Event Subscription* page, hit **Create**.
+Back on the *Create Event Subscription* page, select **Create**.
 
 At this point, you should see two event subscriptions in the *Event Grid Topic* page.
 
@@ -136,7 +136,7 @@ Next, you'll configure the sample client web app. Start by gathering the **HTTP 
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Azure portal view of the function app, with 'Functions' highlighted in the menu. The list of functions is shown on the page, and the 'negotiate' function is also highlighted.":::
 
-1. Hit *Get function URL* and copy the value **up through _/api_ (don't include the last _/negotiate?_)**. You'll use this in the next step.
+1. Select *Get function URL* and copy the value **up through _/api_ (don't include the last _/negotiate?_)**. You'll use this in the next step.
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Azure portal view of the 'negotiate' function. The 'Get function URL' button is highlighted, and the portion of the URL from the beginning through '/api'":::
 
@@ -158,7 +158,7 @@ Next, you'll configure the sample client web app. Start by gathering the **HTTP 
 Next, set permissions in your function app in the Azure portal:
 1. In the Azure portal's [Function apps](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) page, select your function app instance.
 
-1. Scroll down in the instance menu and select *CORS*. On the CORS page, add `http://localhost:3000` as an allowed origin by entering it into the empty box. Check the box for *Enable Access-Control-Allow-Credentials* and hit *Save*.
+1. Scroll down in the instance menu and select *CORS*. On the CORS page, add `http://localhost:3000` as an allowed origin by entering it into the empty box. Check the box for *Enable Access-Control-Allow-Credentials* and select *Save*.
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/cors-setting-azure-function.png" alt-text="CORS Setting in Azure Function":::
 

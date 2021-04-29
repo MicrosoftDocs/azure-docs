@@ -112,7 +112,7 @@ In the *Solution Explorer* pane, expand _**SampleFunctionsApp** > Dependencies_.
 
 :::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Visual Studio: Manage NuGet Packages for the SampleFunctionsApp project" border="false":::
 
-This will open the NuGet Package Manager. Select the *Updates* tab and if there are any packages to be updated, check the box to *Select all packages*. Then hit *Update*.
+This will open the NuGet Package Manager. Select the *Updates* tab and if there are any packages to be updated, check the box to *Select all packages*. Then select *Update*.
 
 :::image type="content" source="media/tutorial-end-to-end/update-dependencies-2.png" alt-text="Visual Studio: Selecting to update all packages in the NuGet Package Manager":::
 
@@ -218,12 +218,12 @@ Fill in the fields as follows (fields filled by default are not mentioned):
 * *TOPIC DETAILS* > **System Topic Name**: Give a name to use for the system topic. 
 * *EVENT TYPES* > **Filter to Event Types**: Select *Device Telemetry* from the menu options.
 * *ENDPOINT DETAILS* > **Endpoint Type**: Select *Azure Function* from the menu options.
-* *ENDPOINT DETAILS* > **Endpoint**: Hit the *Select an endpoint* link. This will open a *Select Azure Function* window:
+* *ENDPOINT DETAILS* > **Endpoint**: Select the *Select an endpoint* link. This will open a *Select Azure Function* window:
     :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Azure portal event subscription: select Azure function" border="false":::
     - Fill in your **Subscription**, **Resource group**, **Function app** and **Function** (*ProcessHubToDTEvents*). Some of these may auto-populate after selecting the subscription.
-    - Hit **Confirm Selection**.
+    - Select **Confirm Selection**.
 
-Back on the *Create Event Subscription* page, hit **Create**.
+Back on the *Create Event Subscription* page, select **Create**.
 
 ### Register the simulated device with IoT Hub 
 
@@ -382,11 +382,11 @@ The steps to create this event subscription are similar to when you subscribed t
 On the *Create Event Subscription* page, fill in the fields as follows (fields filled by default are not mentioned):
 * *EVENT SUBSCRIPTION DETAILS* > **Name**: Give a name to your event subscription.
 * *ENDPOINT DETAILS* > **Endpoint Type**: Select *Azure Function* from the menu options.
-* *ENDPOINT DETAILS* > **Endpoint**: Hit the *Select an endpoint* link. This will open a *Select Azure Function* window:
+* *ENDPOINT DETAILS* > **Endpoint**: Select the *Select an endpoint* link. This will open a *Select Azure Function* window:
     - Fill in your **Subscription**, **Resource group**, **Function app** and **Function** (*ProcessDTRoutedData*). Some of these may auto-populate after selecting the subscription.
-    - Hit **Confirm Selection**.
+    - Select **Confirm Selection**.
 
-Back on the *Create Event Subscription* page, hit **Create**.
+Back on the *Create Event Subscription* page, select **Create**.
 
 ### Run the simulation and see the results
 

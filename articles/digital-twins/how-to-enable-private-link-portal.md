@@ -64,7 +64,7 @@ This will open a page to enter the details of a new private endpoint.
 
 1. Lastly, select whether to **Integrate with private DNS zone**. You can use the default of **Yes** or, for help with this option, you can follow the link in the portal to [learn more about private DNS integration](../private-link/private-endpoint-overview.md#dns-configuration).
 
-After filling out the configuration options, Hit **OK** to finish.
+After filling out the configuration options, select **OK** to finish.
 
 This will return you to the **Networking** tab of the Azure Digital Twins instance setup, where your new endpoint should be visible under **Private endpoint connections.
 

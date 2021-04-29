@@ -273,9 +273,9 @@ Now, data should be flowing into your Time Series Insights instance, ready to be
 
     :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Screenshot of the Azure portal to select the Time Series Insights explorer URL in the overview tab of your Time Series Insights environment." lightbox="media/how-to-integrate-time-series-insights/view-environment.png":::
 
-2. In the explorer, you will see the twins in the Azure Digital Twins instance shown on the left. Select the *thermostat67* twin, choose the property *Temperature*, and hit **Add**.
+2. In the explorer, you will see the twins in the Azure Digital Twins instance shown on the left. Select the *thermostat67* twin, choose the property *Temperature*, and select **Add**.
 
-    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Screenshot of the Time Series Insights explorer to select thermostat67, select the property temperature, and hit add." lightbox="media/how-to-integrate-time-series-insights/add-data.png":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Screenshot of the Time Series Insights explorer to select thermostat67, select the property temperature, and select add." lightbox="media/how-to-integrate-time-series-insights/add-data.png":::
 
 3. You should now see the initial temperature readings from your thermostat, as shown below. 
 

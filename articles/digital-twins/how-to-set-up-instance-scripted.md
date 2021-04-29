@@ -60,7 +60,7 @@ Here are the steps to run the deployment script in Cloud Shell.
 
     :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell window showing selection of the Upload icon":::
 
-    Navigate to the _**deploy.ps1**_ file on your machine (in _digital-twins-samples-master > scripts > **deploy.ps1**_) and hit "Open." This will upload the file to Cloud Shell so that you can run it in the Cloud Shell window.
+    Navigate to the _**deploy.ps1**_ file on your machine (in _digital-twins-samples-master > scripts > **deploy.ps1**_) and select "Open." This will upload the file to Cloud Shell so that you can run it in the Cloud Shell window.
 
 4. Run the script by sending the `./deploy.ps1` command in the Cloud Shell window. You can copy the command below (recall that to paste into Cloud Shell, you can use **Ctrl+Shift+V** on Windows and Linux, or **Cmd+Shift+V** on macOS. You can also use the right-click menu).
 
