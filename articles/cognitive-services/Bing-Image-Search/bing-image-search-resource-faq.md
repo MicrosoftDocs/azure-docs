@@ -19,7 +19,7 @@ ms.author: aahi
 > Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
 > For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-Find answers to commonly asked questions about concepts, code, and scenarios related to the Bing Image Search API for Microsoft Cognitive Services on Azure.
+Find answers to commonly asked questions about concepts, code, and scenarios related to the Bing Image Search API for Azure Cognitive Services on Azure.
 
 ## Response headers in JavaScript
 
