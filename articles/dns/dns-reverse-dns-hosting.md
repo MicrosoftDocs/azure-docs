@@ -60,19 +60,19 @@ The following examples show how to complete this task using Azure PowerShell and
 #### PowerShell
 
 ```azurepowershell-interactive
-New-AzDnsZone -Name 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup
+New-AzDnsZone -Name 2.0.192.in-addr.arpa -ResourceGroupName mydnsresourcegroup
 ```
 
 #### Azure classic CLI
 
 ```azurecli
-azure network dns zone create MyResourceGroup 2.0.192.in-addr.arpa
+azure network dns zone create mydnsresourcegroup 2.0.192.in-addr.arpa
 ```
 
 #### Azure CLI
 
 ```azurecli-interactive
-az network dns zone create -g MyResourceGroup -n 2.0.192.in-addr.arpa
+az network dns zone create -g mydnsresourcegroup -n 2.0.192.in-addr.arpa
 ```
 
 ### IPv6
@@ -90,19 +90,19 @@ The following examples show how to complete this task using Azure PowerShell and
 #### PowerShell
 
 ```powershell
-New-AzDnsZone -Name 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup
+New-AzDnsZone -Name 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName mydnsresourcegroup
 ```
 
 #### Azure classic CLI
 
 ```azurecli
-azure network dns zone create MyResourceGroup 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa
+azure network dns zone create mydnsresourcegroup 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa
 ```
 
 #### Azure CLI
 
 ```azurecli
-az network dns zone create -g MyResourceGroup -n 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa
+az network dns zone create -g mydnsresourcegroup -n 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa
 ```
 
 ## Delegate a reverse DNS lookup zone
@@ -138,18 +138,18 @@ The following examples show how to complete this task by using Azure PowerShell 
 #### PowerShell
 
 ```azurepowershell-interactive
-New-AzDnsRecordSet -Name 15 -RecordType PTR -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Ptrdname "dc1.contoso.com")
+New-AzDnsRecordSet -Name 15 -RecordType PTR -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName mydnsresourcegroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Ptrdname "dc1.contoso.com")
 ```
 #### Azure classic CLI
 
 ```azurecli
-azure network dns record-set add-record MyResourceGroup 2.0.192.in-addr.arpa 15 PTR --ptrdname dc1.contoso.com  
+azure network dns record-set add-record mydnsresourcegroup 2.0.192.in-addr.arpa 15 PTR --ptrdname dc1.contoso.com  
 ```
 
 #### Azure CLI
 
 ```azurecli-interactive
-az network dns record-set ptr add-record -g MyResourceGroup -z 2.0.192.in-addr.arpa -n 15 --ptrdname dc1.contoso.com
+az network dns record-set ptr add-record -g mydnsresourcegroup -z 2.0.192.in-addr.arpa -n 15 --ptrdname dc1.contoso.com
 ```
 
 ### IPv6
@@ -177,19 +177,19 @@ The following examples show how to complete this task by using PowerShell or Azu
 #### PowerShell
 
 ```azurepowershell-interactive
-New-AzDnsRecordSet -Name "e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f" -RecordType PTR -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Ptrdname "dc2.contoso.com")
+New-AzDnsRecordSet -Name "e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f" -RecordType PTR -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName mydnsresourcegroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Ptrdname "dc2.contoso.com")
 ```
 
 #### Azure classic CLI
 
 ```azurecli
-azure network dns record-set add-record MyResourceGroup 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f PTR --ptrdname dc2.contoso.com 
+azure network dns record-set add-record mydnsresourcegroup 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f PTR --ptrdname dc2.contoso.com 
 ```
  
 #### Azure CLI
 
 ```azurecli-interactive
-az network dns record-set ptr add-record -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -n e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f --ptrdname dc2.contoso.com
+az network dns record-set ptr add-record -g mydnsresourcegroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -n e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f --ptrdname dc2.contoso.com
 ```
 
 ## View records
@@ -198,7 +198,7 @@ To view the records that you created, browse to your DNS zone in the Azure porta
 
 ### IPv4
 
-The **DNS zone** pane shows the IPv4 PTR records:
+The **DNS zone** page will show the IPv4 PTR record:
 
 :::image type="content" source="./media/dns-reverse-dns-hosting/view-ipv4-ptr-record.png" alt-text="Screenshot of IPv4 pointer record on overview page." lightbox="./media/dns-reverse-dns-hosting/view-ipv4-ptr-record-expanded.png":::
 
@@ -207,24 +207,24 @@ The following examples show how to view the PTR records by using Azure PowerShel
 #### PowerShell
 
 ```azurepowershell-interactive
-Get-AzDnsRecordSet -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup
+Get-AzDnsRecordSet -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName mydnsresourcegroup
 ```
 
 #### Azure classic CLI
 
 ```azurecli
-azure network dns record-set list MyResourceGroup 2.0.192.in-addr.arpa
+azure network dns record-set list mydnsresourcegroup 2.0.192.in-addr.arpa
 ```
 
 #### Azure CLI
 
 ```azurecli-interactive
-az network dns record-set list -g MyResourceGroup -z 2.0.192.in-addr.arpa
+az network dns record-set list -g mydnsresourcegroup -z 2.0.192.in-addr.arpa
 ```
 
 ### IPv6
 
-The **DNS zone** pane shows the IPv6 PTR records:
+The **DNS zone** page shows the IPv6 PTR record:
 
 :::image type="content" source="./media/dns-reverse-dns-hosting/view-ipv6-ptr-record.png" alt-text="Screenshot of IPv6 pointer record on overview page." lightbox="./media/dns-reverse-dns-hosting/view-ipv6-ptr-record-expanded.png":::
 
@@ -233,19 +233,19 @@ The following examples show how to view the records by using PowerShell or Azure
 #### PowerShell
 
 ```powershell
-Get-AzDnsRecordSet -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup
+Get-AzDnsRecordSet -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName mydnsresourcegroup
 ```
 
 #### Azure classic CLI
 
 ```azurecli
-azure network dns record-set list MyResourceGroup 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa
+azure network dns record-set list mydnsresourcegroup 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa
 ```
 
 #### Azure CLI
 
 ```azurecli
-az network dns record-set list -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa
+az network dns record-set list -g mydnsresourcegroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa
 ```
 
 ## FAQ
