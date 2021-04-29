@@ -23,6 +23,10 @@ This article answers commonly asked questions about Azure Video Analyzer.
 
 Note: System.DateTime and System.PreciseDateTime cannot be used as part of the name of an Azure Video Analyzer video resource, in a video sink node. These variables can be used in a file sink node, for naming the file.
 
+**What is the privacy policy for Video Analyzer?**
+
+Video Analyzer is covered by the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement). The privacy statement explains the personal data Microsoft processes, how Microsoft processes it, and for what purposes Microsoft processes it. To learn more about privacy, visit the [Microsoft Trust Center](https://www.microsoft.com/trustcenter).
+
 ## Configuration and deployment
 
 **Can I deploy the edge module to a Windows 10 device?**
