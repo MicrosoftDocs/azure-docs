@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: overview
 ms.workload: identity
-ms.date: 04/24/2021
+ms.date: 04/29/2021
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn how to constrain access within a role assignment by using conditions.
@@ -89,7 +89,7 @@ Here is what the condition looks like in code:
     (
         !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}
         AND
-        SubOperationMatches{'Blobs.Read.WithTagConditions'})
+        @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blobs.Read.WithTagConditions'})
     )
     OR
     (
