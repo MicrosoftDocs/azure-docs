@@ -147,22 +147,22 @@
         href: active-directory-app-proxy-protect-ndes.md
       - name: Integrate with Application Proxy using PingAccess
         href: application-proxy-ping-access-publishing-guide.md
-    #     - name: Integrate with Azure AD Domain Services
-    #       href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
-    #     - name: Integrate with Power BI
-    #       href: application-proxy-integrate-with-power-bi.md
-    #     - name: Integrate with Cloud App Security
-    #       href: application-proxy-integrate-with-microsoft-cloud-application-security.md
+      - name: Integrate with Azure AD Domain Services
+        href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=%2fazure%2factive-directory%2fapp-proxy%2fcontext%2fapp-proxy-context
+      - name: Integrate with Power BI
+        href: application-proxy-integrate-with-power-bi.md
+      - name: Integrate with Cloud App Security
+        href: application-proxy-integrate-with-microsoft-cloud-application-security.md
       - name: Integrate with Remote Desktop
         href: application-proxy-integrate-with-remote-desktop-services.md
       - name: Integrate with SharePoint (Kerberos)
         href: application-proxy-integrate-with-sharepoint-server.md
       - name: Integrate with SharePoint (SAML)
         href: application-proxy-integrate-with-sharepoint-server-saml.md
-    #     - name: Integrate with Teams
-    #       href: application-proxy-integrate-with-teams.md
-    #     - name: Integrate with Tableau
-    #       href: application-proxy-integrate-with-tableau.md
+      - name: Integrate with Teams
+        href: application-proxy-integrate-with-teams.md
+      - name: Integrate with Tableau
+        href: application-proxy-integrate-with-tableau.md
       - name: Integrate with Qlik
         href: application-proxy-qlik.md
     - name: Troubleshoot

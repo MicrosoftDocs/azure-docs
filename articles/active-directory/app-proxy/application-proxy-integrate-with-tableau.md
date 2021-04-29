@@ -1,18 +1,16 @@
 ---
-title: Azure Active Directory Application Proxy and Tableau | Microsoft Docs
+title: Azure Active Directory Application Proxy and Tableau
 description: Learn how to use Azure Active Directory (Azure AD) Application Proxy to provide remote access for your Tableau deployment.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/20/2018
+ms.date: 04/28/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory Application Proxy and Tableau 
