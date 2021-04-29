@@ -87,7 +87,7 @@ QnA Maker allows you to manage your knowledge bases by providing access to the k
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files.**|Checked|
     |**Default answer text**| `Quickstart - default answer not found.`|
-     |**+ Add URL**|`https://azure.microsoft.com/en-us/support/faq/`|
+     |**+ Add URL**|`https://azure.microsoft.com/support/faq/`|
     |**+ Add file**|<i>\<Browse a file that has unstructured content\>|
      |**Unstructured content**|Check this box to indicate that the document has unstructured content. Checking the unstructured box would mean the document will be ingested entirely into the service. If you leave this unchecked, QnA pairs will be  extracted from the file.|
     |**Chit-chat**|Select **Professional**|
