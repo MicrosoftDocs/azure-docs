@@ -35,7 +35,7 @@ Azure Arc allows you to manage your hybrid IT estate with a single pane of glass
 2. [Use this article](https://docs.microsoft.com/azure/migrate/create-manage-projects) to set up a new Azure Migrate project with the Azure Migrate: Discovery and assessment tool added to it.  
 
     > [!Note]
-    > You can also use an existing Migrate project and onboard the discovered servers inventory to Azure Arc. To do so, launch the appliance configuration manager from your appliance server and make sure the services are updated to their latest versions. [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-upgrades) <br/> <br/> Next, [follow these instructions](#onboard-to-Azure-Arc) to onboard your servers.  
+    > You can also use an existing Migrate project and onboard the discovered servers inventory to Azure Arc. To do so, launch the appliance configuration manager from your appliance server and make sure the services are updated to their latest versions. [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-upgrades) <br/> <br/> Next, [follow these instructions](#onboard-to-azure-arc) to onboard your servers.  
 
 ## Deploy and register the Azure Migrate appliance 
 
