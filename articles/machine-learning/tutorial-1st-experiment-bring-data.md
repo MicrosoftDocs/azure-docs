@@ -41,7 +41,7 @@ You'll need the data and an updated version of the pytorch environment created i
 
 ## Adjust the training script
 
-By now you have your training script (getting-started/src/train.py) running in Azure Machine Learning, and you can monitor the model performance. Let's parameterize the training script by introducing arguments. Using arguments will allow you to easily compare different hyperparameters.
+By now you have your training script (get-started/src/train.py) running in Azure Machine Learning, and you can monitor the model performance. Let's parameterize the training script by introducing arguments. Using arguments will allow you to easily compare different hyperparameters.
 
 Our training script is currently set to download the CIFAR10 dataset on each run. The following Python code has been adjusted to read the data from a directory.
 
@@ -89,7 +89,7 @@ To run this script in Azure Machine Learning, you need to make your training dat
 >[!NOTE] 
 > Azure Machine Learning allows you to connect other cloud-based datastores that store your data. For more details, see the [datastores documentation](./concept-data.md).  
 
-1. Create a new Python control script called *upload-data.py* in the **getting-started** folder:
+1. Create a new Python control script called *upload-data.py* in the **get-started** folder:
 
     :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/05-upload-data.py":::
 

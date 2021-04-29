@@ -121,7 +121,7 @@ The training code is taken from [this introductory example](https://pytorch.org/
 
 Select **Save and run script in terminal** to run the script directly on the compute instance.
 
-After you run this script, select **Refresh** above the file folders. You'll see the new data folder called **getting-started/data** Expand this folder to view the downloaded data.  
+After you run this script, select **Refresh** above the file folders. You'll see the new data folder called **get-started/data** Expand this folder to view the downloaded data.  
 
 > [!div class="nextstepaction"]
 > [I ran the code locally](?success=test-local#create-local) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=test-local)
@@ -131,7 +131,7 @@ After you run this script, select **Refresh** above the file folders. You'll see
 
 The difference between the following control script and the one that you used to submit "Hello world!" is that you add a couple of extra lines to set the environment.
 
-Create a new Python file in the **getting-started** folder called `run-pytorch.py`:
+Create a new Python file in the **get-started** folder called `run-pytorch.py`:
 
 ```python
 # run-pytorch.py
@@ -215,7 +215,7 @@ Finished Training
 > [!WARNING]
 > If you see an error `Your total snapshot size exceeds the limit`, the **data** folder is located in the `source_directory` value used in `ScriptRunConfig`.
 >
-> Select the **...** at the end of the folder, then select **Move** to move **data** to the **getting-started** folder.  
+> Select the **...** at the end of the folder, then select **Move** to move **data** to the **get-started** folder.  
 
 
 

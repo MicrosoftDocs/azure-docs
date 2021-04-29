@@ -40,8 +40,8 @@ This tutorial will use the compute instance as your development computer.  First
 1. On the left, select **Notebooks**
 1. In the **Files** toolbar, select **+**, then select **Create new folder**.
   :::image type="content" source="media/tutorial-1st-experiment-hello-world/create-folder.png" alt-text="Screenshot shows create a new folder tool in toolbar.":::
-1. Name the folder **getting-started**.
-1. To the right of the folder name, use the **...** to create another folder under **getting-started**.
+1. Name the folder **get-started**.
+1. To the right of the folder name, use the **...** to create another folder under **get-started**.
   :::image type="content" source="media/tutorial-1st-experiment-hello-world/create-sub-folder.png" alt-text="Screenshot shows create a subfolder menu.":::
 1. Name the new folder **src**.  Use the **Edit location** link if the file location is not correct.
 1. To the right of the **src** folder, use the **...** to create a new file in the **src** folder. 
@@ -80,7 +80,7 @@ You'll see the output of the script in the terminal window that opens.
 
 A *control script* allows you to run your `hello.py` script on different compute resources. You use the control script to control how and where your machine learning code is run.  
 
-In your **getting-started** folder, create a new Python file called `03-run-hello.py` and copy/paste the following code into that file:
+In your **get-started** folder, create a new Python file called `03-run-hello.py` and copy/paste the following code into that file:
 
 ```python
 # tutorial/03-run-hello.py
