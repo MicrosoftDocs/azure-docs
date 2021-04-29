@@ -102,7 +102,7 @@ When creation finishes, a notification appears with a link to the new Azure HPC 
 > [!NOTE]
 > The Azure CLI currently does not support creating a cache with customer-managed encryption keys. Use the Azure portal.
 
-Use the [az hpc-cache create](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-create) command to create a new Azure HPC Cache.
+Use the [az hpc-cache create](/cli/azure/hpc-cache#az_hpc_cache_create) command to create a new Azure HPC Cache.
 
 Supply these values:
 
@@ -121,7 +121,7 @@ nets/<cache_subnet_name>"``
   * The cache size (in GB)
   * The SKU of the virtual machines used in the cache infrastructure
 
-  [az hpc-cache skus list](/cli/azure/ext/hpc-cache/hpc-cache/skus) shows the available SKUs and the valid cache size options for each one. Cache size options range from 3 TB to 48 TB, but only some values are supported.
+  [az hpc-cache skus list](/cli/azure/hpc-cache/skus) shows the available SKUs and the valid cache size options for each one. Cache size options range from 3 TB to 48 TB, but only some values are supported.
 
   This chart shows which cache size and SKU combinations are valid at the time this document is being prepared (July 2020).
 

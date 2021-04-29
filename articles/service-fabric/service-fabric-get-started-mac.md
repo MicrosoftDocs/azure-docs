@@ -196,7 +196,7 @@ After you create and build your Service Fabric application, you can deploy your 
 
 ## Set up .NET Core 3.1 development
 
-Install the [.NET Core 3.1 SDK for Mac](https://www.microsoft.com/net/core#macos) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). Packages for .NET Core Service Fabric applications are hosted on NuGet.org.
+Install the [.NET Core 3.1 SDK for Mac](https://dotnet.microsoft.com/download?initial-os=macos) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). Packages for .NET Core Service Fabric applications are hosted on NuGet.org.
 
 ## Install the Service Fabric plug-in for Eclipse on your Mac
 

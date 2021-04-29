@@ -149,11 +149,11 @@ Because of the distributed nature of ParallelRunStep jobs, there are logs from s
 
 Logs generated from entry script using EntryScript helper and print statements will be found in following files:
 
-- `~/logs/user/entry_script_log/<ip_address>/<process_name>.log.txt`: These files are the logs written from entry_script using EntryScript helper.
+- `~/logs/user/entry_script_log/<node_id>/<process_name>.log.txt`: These files are the logs written from entry_script using EntryScript helper.
 
-- `~/logs/user/stdout/<ip_address>/<process_name>.stdout.txt`: These files are the logs from stdout (for example, print statement) of entry_script.
+- `~/logs/user/stdout/<node_id>/<process_name>.stdout.txt`: These files are the logs from stdout (for example, print statement) of entry_script.
 
-- `~/logs/user/stderr/<ip_address>/<process_name>.stderr.txt`: These files are the logs from stderr of entry_script.
+- `~/logs/user/stderr/<node_id>/<process_name>.stderr.txt`: These files are the logs from stderr of entry_script.
 
 For a concise understanding of errors in your script there is:
 
@@ -165,7 +165,7 @@ For more information on errors in your script, there is:
 
 When you need a full understanding of how each node executed the score script, look at the individual process logs for each node. The process logs can be found in the `sys/node` folder, grouped by worker nodes:
 
-- `~/logs/sys/node/<ip_address>/<process_name>.txt`: This file provides detailed info about each mini-batch as it's picked up or completed by a worker. For each mini-batch, this file includes:
+- `~/logs/sys/node/<node_id>/<process_name>.txt`: This file provides detailed info about each mini-batch as it's picked up or completed by a worker. For each mini-batch, this file includes:
 
     - The IP address and the PID of the worker process. 
     - The total number of items, successfully processed items count, and failed item count.
@@ -173,7 +173,7 @@ When you need a full understanding of how each node executed the score script, l
 
 You can also view the results of periodical checks of the resource usage for each node. The log files and setup files are in this folder:
 
-- `~/logs/perf`: Set `--resource_monitor_interval` to change the checking interval in seconds. The default interval is `600`, which is approximately 10 minutes. To stop the monitoring, set the value to `0`. Each `<ip_address>` folder includes:
+- `~/logs/perf`: Set `--resource_monitor_interval` to change the checking interval in seconds. The default interval is `600`, which is approximately 10 minutes. To stop the monitoring, set the value to `0`. Each `<node_id>` folder includes:
 
     - `os/`: Information about all running processes in the node. One check runs an operating system command and saves the result to a file. On Linux, the command is `ps`. On Windows, use `tasklist`.
         - `%Y%m%d%H`: The sub folder name is the time to hour.
@@ -191,14 +191,14 @@ ParallelRunStep may run multiple processes on one node based on process_count_pe
 from azureml_user.parallel_run import EntryScript
 
 def init():
-    """ Initialize the node."""
+    """Init once in a worker process."""
     entry_script = EntryScript()
     logger = entry_script.logger
     logger.debug("This will show up in files under logs/user on the Azure portal.")
 
 
 def run(mini_batch):
-    """ Accept and return the list back."""
+    """Call once for a mini batch. Accept and return the list back."""
     # This class is in singleton pattern and will return same instance as the one in init()
     entry_script = EntryScript()
     logger = entry_script.logger
@@ -206,6 +206,29 @@ def run(mini_batch):
     ...
 
     return mini_batch
+```
+
+### Where does the message from Python `logging` sink to?
+ParallelRunStep sets a handler on the root logger, which sinks the message to `logs/user/stdout/<node_id>/processNNN.stdout.txt`.
+
+`logging` defaults to `WARNING` level. By default, levels below `WARNING` won't show up, such as `INFO` or `DEBUG`.
+
+### Where is the message from subprocess created with Popen()?
+If no `stdout` or `stderr` specified, a subprocess will inherit the setting of the worker process.
+
+`stdout` will write to `logs/sys/node/<node_id>/processNNN.stdout.txt` and `stderr` to `logs/sys/node/<node_id>/processNNN.stderr.txt`.
+
+### How could I write to a file to show up in the portal?
+Files in `logs` folder will be uploaded and show up in the portal.
+You can get the folder `logs/user/entry_script_log/<node_id>` like below and compose your file path to write:
+```python
+from pathlib import Path
+def init():
+    """Init once in a worker process."""
+    entry_script = EntryScript()
+    folder = entry_script.log_dir
+
+    fil_path = Path(folder) / "<file_name>"
 ```
 
 ### How could I pass a side input such as, a file or file(s) containing a lookup table, to all my workers?

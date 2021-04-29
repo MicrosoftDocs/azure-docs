@@ -130,9 +130,9 @@ The following table includes a list of known limitations when using private endp
 
 
 ## Next steps
-- [Create a Private Endpoint for SQL Database using the portal](create-private-endpoint-portal.md)
-- [Create a Private Endpoint for SQL Database using PowerShell](create-private-endpoint-powershell.md)
-- [Create a Private Endpoint for SQL Database using CLI](create-private-endpoint-cli.md)
+- [Create a Private Endpoint for Azure Web Apps using the portal](create-private-endpoint-portal.md)
+- [Create a Private Endpoint for Azure Web Apps using PowerShell](create-private-endpoint-powershell.md)
+- [Create a Private Endpoint for Azure Web Apps using CLI](create-private-endpoint-cli.md)
 - [Create a Private Endpoint for Storage account using the portal](./tutorial-private-endpoint-storage-portal.md)
 - [Create a Private Endpoint for Azure Cosmos account using the portal](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Create your own Private Link service using Azure PowerShell](create-private-link-service-powershell.md)

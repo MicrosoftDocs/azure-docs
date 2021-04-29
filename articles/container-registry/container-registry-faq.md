@@ -270,6 +270,7 @@ You may disable anonymous pull access at any time by setting `--anonymous-pull-e
 > * Before attempting an anonymous pull operation, run `docker logout` to ensure that you clear any existing Docker credentials.
 > * Only data-plane operations are available to unauthenticated clients.
 > * The registry may throttle a high rate of unauthenticated requests.
+> * Currently, anonymous pull access isn't supported in [geo-replicated](container-registry-geo-replication.md) registry regions.
 
 > [!WARNING]
 > Anonymous pull access currently applies to all repositories in the registry. If you manage repository access using [repository-scoped tokens](container-registry-repository-scoped-permissions.md), be aware that all users may pull from those repositories in a registry enabled for anonymous pull. We recommend deleting tokens when anonymous pull access is enabled.
