@@ -115,8 +115,8 @@
       href: application-proxy-secure-api-access.md 
     - name: Configure custom home page
       href: application-proxy-configure-custom-home-page.md
-    #   - name: Configure cookie settings
-    #     href: application-proxy-configure-cookie-settings.md
+    - name: Configure cookie settings
+      href: application-proxy-configure-cookie-settings.md
     - name: Publish using wildcards
       href: application-proxy-wildcard.md
     - name: Configure custom domain
@@ -129,8 +129,8 @@
       href: application-proxy-configure-native-client-application.md
     - name: Register connector - silent install
       href: application-proxy-register-connector-powershell.md
-    #   - name: Remove personal data
-    #     href: application-proxy-remove-personal-data.md
+    - name: Remove personal data
+      href: application-proxy-remove-personal-data.md
     #   - name: Secure legacy apps 
     #     items:
     #     - name: Secure hybrid access with Azure AD 
@@ -147,22 +147,22 @@
         href: active-directory-app-proxy-protect-ndes.md
       - name: Integrate with Application Proxy using PingAccess
         href: application-proxy-ping-access-publishing-guide.md
-    #     - name: Integrate with Azure AD Domain Services
-    #       href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
-    #     - name: Integrate with Power BI
-    #       href: application-proxy-integrate-with-power-bi.md
-    #     - name: Integrate with Cloud App Security
-    #       href: application-proxy-integrate-with-microsoft-cloud-application-security.md
+      - name: Integrate with Azure AD Domain Services
+        href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=%2fazure%2factive-directory%2fapp-proxy%2fcontext%2fapp-proxy-context
+      - name: Integrate with Power BI
+        href: application-proxy-integrate-with-power-bi.md
+      - name: Integrate with Cloud App Security
+        href: application-proxy-integrate-with-microsoft-cloud-application-security.md
       - name: Integrate with Remote Desktop
         href: application-proxy-integrate-with-remote-desktop-services.md
       - name: Integrate with SharePoint (Kerberos)
         href: application-proxy-integrate-with-sharepoint-server.md
       - name: Integrate with SharePoint (SAML)
         href: application-proxy-integrate-with-sharepoint-server-saml.md
-    #     - name: Integrate with Teams
-    #       href: application-proxy-integrate-with-teams.md
-    #     - name: Integrate with Tableau
-    #       href: application-proxy-integrate-with-tableau.md
+      - name: Integrate with Teams
+        href: application-proxy-integrate-with-teams.md
+      - name: Integrate with Tableau
+        href: application-proxy-integrate-with-tableau.md
       - name: Integrate with Qlik
         href: application-proxy-qlik.md
     - name: Troubleshoot
@@ -195,8 +195,8 @@
         href: application-proxy-connectivity-no-working-connector.md
       - name: Sign in problem
         href: application-sign-in-problem-on-premises-application-proxy.md
-    #   - name: CORS issues in Application Proxy
-    #     href: application-proxy-understand-cors-issues.md
+      - name: CORS issues in Application Proxy
+        href: application-proxy-understand-cors-issues.md
   - name: Reference
     items:
     - name: App Proxy FAQ
