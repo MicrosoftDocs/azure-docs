@@ -8,9 +8,6 @@ ms.date: 02/15/2021
 
 In this guide, you'll learn how to enable disk encryption on Service Fabric managed cluster nodes in Windows using the [Azure Disk Encryption](../virtual-machines/windows/disk-encryption-overview.md) capability for [virtual machine scale sets](../virtual-machine-scale-sets/disk-encryption-azure-resource-manager.md) through Azure Resource Manager (ARM) templates.
 
-> [!IMPORTANT]
-> The virtual machine scale set disk encryption preview does not yet support image upgrade or reimage. Do not use if you'll need to upgrade your OS image.
-
 ## Register for Azure Disk Encryption
 
 The disk encryption preview for the virtual machine scale set requires self-registration. Run the following command:
@@ -112,7 +109,7 @@ The following step will walk you through the required template changes to enable
             "properties": { 
                 "publisher": "Microsoft.Azure.Security", 
                 "type": "AzureDiskEncryption", 
-                "typeHandlerVersion": "2.1", 
+                "typeHandlerVersion": "2.2", 
                 "autoUpgradeMinorVersion": true, 
                 "settings": {                     
                     "EncryptionOperation": "EnableEncryption", 

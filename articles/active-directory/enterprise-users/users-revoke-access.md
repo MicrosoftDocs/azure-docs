@@ -33,7 +33,7 @@ Access tokens and refresh tokens are frequently used with thick client applicati
 
 Azure AD then reevaluates its authorization policies. If the user is still authorized, Azure AD issues a new access token and refreshes token.
 
-Access tokens can be a security concern if access must be revoked within a time that is shorter than the lifetime of the token, which is usually around an hour. For this reason, Microsoft is actively working to bring [continuous access evaluation](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-continuous-access-evaluation) to Office 365 applications, which helps ensure invalidation of access tokens in near real time.  
+Access tokens can be a security concern if access must be revoked within a time that is shorter than the lifetime of the token, which is usually around an hour. For this reason, Microsoft is actively working to bring [continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md) to Office 365 applications, which helps ensure invalidation of access tokens in near real time.  
 
 ## Session tokens (cookies)
 
@@ -49,7 +49,7 @@ Most browser-based applications use session tokens instead of access and refresh
 
 ## Revoke access for a user in the hybrid environment
 
-For a hybrid environment with on-premises Active Directory synchronized with Azure Active Directory, Microsoft recommends IT admins to take the following actions.  
+For a hybrid environment with on-premises Active Directory synchronized with Azure Active Directory, Microsoft recommends IT admins to take the following actions. If you have an **Azure AD only environment**, you may skip the [On-premises Active Directory environment](https://docs.microsoft.com/azure/active-directory/enterprise-users/users-revoke-access#on-premises-active-directory-environment) section.
 
 ### On-premises Active Directory environment
 
@@ -78,19 +78,19 @@ As an admin in the Active Directory, connect to your on-premises network, open P
 
 As an administrator in Azure Active Directory, open PowerShell, run ``Connect-AzureAD``, and take the following actions:
 
-1. Disable the user in Azure AD. Refer to [Set-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0).
+1. Disable the user in Azure AD. Refer to [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0).
 
     ```PowerShell
     Set-AzureADUser -ObjectId johndoe@contoso.com -AccountEnabled $false
     ```
 
-2. Revoke the user’s Azure AD refresh tokens. Refer to [Revoke-AzureADUserAllRefreshToken](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
+2. Revoke the user’s Azure AD refresh tokens. Refer to [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
 
     ```PowerShell
     Revoke-AzureADUserAllRefreshToken -ObjectId johndoe@contoso.com
     ```
 
-3. Disable the user’s devices. Refer to [Get-AzureADUserRegisteredDevice](https://docs.microsoft.com/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0).
+3. Disable the user’s devices. Refer to [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0).
 
     ```PowerShell
     Get-AzureADUserRegisteredDevice -ObjectId johndoe@contoso.com | Set-AzureADDevice -AccountEnabled $false
@@ -107,21 +107,22 @@ Once admins have taken the above steps, the user can't gain new tokens for any a
 
 - Deploy an automated provisioning and deprovisioning solution. Deprovisioning users from applications is an effective way of revoking access, especially for applications that use sessions tokens. Develop a process to deprovision users to apps that don’t support automatic provisioning and deprovisioning. Ensure applications revoke their own session tokens and stop accepting Azure AD access tokens even if they’re still valid.
 
-  - Use [Azure AD SaaS App Provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning). Azure AD SaaS App Provisioning typically runs automatically every 20-40 minutes. [Configure Azure AD provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) to deprovision or deactivate disabled users in applications.
+  - Use [Azure AD SaaS App Provisioning](../app-provisioning/user-provisioning.md). Azure AD SaaS App Provisioning typically runs automatically every 20-40 minutes. [Configure Azure AD provisioning](../saas-apps/tutorial-list.md) to deprovision or deactivate disabled users in applications.
   
-  - For applications that don’t use Azure AD SaaS App Provisioning, use [Identity Manager (MIM)](https://docs.microsoft.com/microsoft-identity-manager/mim-how-provision-users-adds) or a 3rd party solution to automate the deprovisioning of users.  
+  - For applications that don’t use Azure AD SaaS App Provisioning, use [Identity Manager (MIM)](/microsoft-identity-manager/mim-how-provision-users-adds) or a 3rd party solution to automate the deprovisioning of users.  
   - Identify and develop a process for applications that requires manual deprovisioning. Ensure admins can quickly run the required manual tasks to deprovision the user from these apps when needed.
   
-- [Manage your devices and applications with Microsoft Intune](https://docs.microsoft.com/mem/intune/remote-actions/device-management). Intune-managed [devices can be reset to factory settings](https://docs.microsoft.com/mem/intune/remote-actions/devices-wipe). If the device is unmanaged, you can [wipe the corporate data from managed apps](https://docs.microsoft.com/mem/intune/apps/apps-selective-wipe). These processes are effective for removing potentially sensitive data from end users’ devices. However, for either process to be triggered, the device must be connected to the internet. If the device is offline, the device will still have access to any locally stored data.
+- [Manage your devices and applications with Microsoft Intune](/mem/intune/remote-actions/device-management). Intune-managed [devices can be reset to factory settings](/mem/intune/remote-actions/devices-wipe). If the device is unmanaged, you can [wipe the corporate data from managed apps](/mem/intune/apps/apps-selective-wipe). These processes are effective for removing potentially sensitive data from end users’ devices. However, for either process to be triggered, the device must be connected to the internet. If the device is offline, the device will still have access to any locally stored data.
 
 > [!NOTE]
 > Data on the device cannot be recovered after a wipe.
 
-- Use [Microsoft Cloud App Security (MCAS) to block data download](https://docs.microsoft.com/cloud-app-security/use-case-proxy-block-session-aad) when appropriate. If the data can only be accessed online, organizations can monitor sessions and achieve real-time policy enforcement.
+- Use [Microsoft Cloud App Security (MCAS) to block data download](/cloud-app-security/use-case-proxy-block-session-aad) when appropriate. If the data can only be accessed online, organizations can monitor sessions and achieve real-time policy enforcement.
 
-- Enable [Continuous Access Evaluation (CAE) in Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation). CAE allows admins to revoke the session tokens and access tokens for applications that are CAE capable.  
+- Enable [Continuous Access Evaluation (CAE) in Azure AD](../conditional-access/concept-continuous-access-evaluation.md). CAE allows admins to revoke the session tokens and access tokens for applications that are CAE capable.  
 
 ## Next steps
 
-- [Secure access practices for Azure AD administrators](https://docs.microsoft.com/azure/active-directory/roles/security-planning)
+- [Secure access practices for Azure AD administrators](../roles/security-planning.md)
 - [Add or update user profile information](../fundamentals/active-directory-users-profile-azure-portal.md)
+- [Remove or Delete a former employee](https://docs.microsoft.com/microsoft-365/admin/add-users/remove-former-employee?view=o365-worldwide)
