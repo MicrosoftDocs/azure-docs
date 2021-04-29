@@ -52,7 +52,7 @@ Below is an example of a semi-structured doc, without an index:
 
 ### Unstructured document support
 
-Custom question answering now supports unstructured documents. A  document that does not have its content organised in a well defined heirarchical manner, is missing a set structure or has its content free flowing can be considered as an unstructured document.
+Custom question answering now supports unstructured documents. A  document that does not have its content organized in a well defined hierarchical manner, is missing a set structure or has its content free flowing can be considered as an unstructured document.
 
 Below is an example of an unstructured PDF document:
 
