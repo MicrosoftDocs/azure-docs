@@ -5,7 +5,7 @@ author: batami
 ms.author: bagol
 ms.service: security
 ms.topic: reference
-ms.date: 04/28/2021
+ms.date: 04/29/2021
 ---
 
 
@@ -14,6 +14,10 @@ ms.date: 04/28/2021
 This article describes feature availability in the Microsoft Azure and Azure Government clouds for the following security services:
 
 - Azure Sentinel
+
+> [!NOTE]
+> Additional security services will be added to this article soon.
+> 
 
 ## Azure Government
 
