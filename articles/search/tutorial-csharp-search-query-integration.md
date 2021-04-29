@@ -80,7 +80,7 @@ Th Suggest function API is called in the React app at `\src\components\SearchBar
 
 ## Azure Function: Get specific document 
 
-The `Lookup` [API](https://github.com/Azure-Samples/azure-search-dotent-samples/blob/master/search-website/api/Lookup.cs) takes a ID and returns the document object from the Search Index. 
+The `Lookup` [API](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/search-website/api/Lookup.cs) takes a ID and returns the document object from the Search Index. 
 
 :::code language="csharp" source="~/azure-search-dotnet-samples/search-website/api/Lookup.cs" highlight="19-21, 42" :::
 

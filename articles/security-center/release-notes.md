@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/27/2021
+ms.date: 04/29/2021
 ms.author: memildin
 
 ---
@@ -24,19 +24,40 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 ## April 2021
 
 Updates in April include:
-- [Recently pulled container registry images are now rescanned weekly (General Availability)](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
-- [Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (preview)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
-- [Recommendations to enable Azure Defender for DNS and Resource Manager (preview)](#recommendations-to-enable-azure-defender-for-dns-and-resource-manager-preview)
+- [Refreshed resource health page (in preview)](#refreshed-resource-health-page-in-preview)
+- [Container registry images that have been recently pulled are now rescanned weekly (released for General Availability (GA))](#container-registry-images-that-have-been-recently-pulled-are-now-rescanned-weekly-released-for-general-availability-ga)
+- [Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (in preview)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-in-preview)
+- [Microsoft Defender for Endpoint integration with Azure Defender now supports Windows Server 2019 and Windows 10 Virtual Desktop (WVD) released for General Availability (GA)](#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-released-for-general-availability-ga)
+- [Recommendations to enable Azure Defender for DNS and Resource Manager (in preview)](#recommendations-to-enable-azure-defender-for-dns-and-resource-manager-in-preview)
 - [Three regulatory compliance standards added: Azure CIS 1.3.0, CMMC Level 3, and New Zealand ISM Restricted](#three-regulatory-compliance-standards-added-azure-cis-130-cmmc-level-3-and-new-zealand-ism-restricted)
-- [Four new recommendations related to guest configuration (preview)](#four-new-recommendations-related-to-guest-configuration-preview)
+- [Four new recommendations related to guest configuration (in preview)](#four-new-recommendations-related-to-guest-configuration-in-preview)
 - [CMK recommendations moved to best practices security control](#cmk-recommendations-moved-to-best-practices-security-control)
 - [11 Azure Defender alerts deprecated](#11-azure-defender-alerts-deprecated)
 - [Two recommendations from "Apply system updates" security control were deprecated](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
 - [Azure Defender for SQL on machine tile removed from Azure Defender dashboard](#azure-defender-for-sql-on-machine-tile-removed-from-azure-defender-dashboard)
 - [21 recommendations moved between security controls](#21-recommendations-moved-between-security-controls)
 
+### Refreshed resource health page (in preview)
 
-### Recently pulled container registry images are now rescanned weekly (General Availability)
+Security Center's resource health has been expanded, enhanced, and improved to provide a snapshot view of the overall health of a single resource. 
+
+You can review detailed information about the resource and all recommendations that apply to that resource. Also, if you're using [Azure Defender](azure-defender.md), you can see outstanding security alerts for that specific resource too.
+
+To open the resource health page for a resource, select any resource from the [asset inventory page](asset-inventory.md).
+
+This preview page in Security Center's portal pages shows:
+
+1. **Resource information** - The resource group and subscription it's attached to, the geographic location, and more.
+1. **Applied security feature** - Whether Azure Defender is enabled for the resource.
+1. **Counts of outstanding recommendations and alerts** - The number of outstanding security recommendations and Azure Defender alerts.
+1. **Actionable recommendations and alerts** - Two tabs list the recommendations and alerts that apply to the resource.
+
+:::image type="content" source="media/investigate-resource-health/resource-health-page-virtual-machine.gif" alt-text="Azure Security Center's resource health page showing the health information for a virtual machine":::
+
+Learn more in [Tutorial: Investigate the health of your resources](investigate-resource-health.md).
+
+
+### Container registry images that have been recently pulled are now rescanned weekly (released for General Availability (GA))
 
 Azure Defender for container registries includes a built-in vulnerability scanner. This scanner immediately scans any image you push to your registry and any image pulled within the last 30 days.
 
@@ -47,7 +68,7 @@ Scanning is charged on a per image basis, so there's no additional charge for th
 Learn more about this scanner in [Use Azure Defender for container registries to scan your images for vulnerabilities](defender-for-container-registries-usage.md).
 
 
-### Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (preview)
+### Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (in preview)
 
 Azure Defender for Kubernetes is expanding its threat protection capabilities to defend your clusters wherever they're deployed. This has been enabled by integrating with [Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md) and its new [extensions capabilities](../azure-arc/kubernetes/extensions.md). 
 
@@ -68,7 +89,19 @@ Learn more in [Use Azure Defender for Kubernetes with your on-premises and multi
 :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Security Center's recommendation for deploying the Azure Defender extension for Azure Arc enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
 
-### Recommendations to enable Azure Defender for DNS and Resource Manager (preview)
+### Microsoft Defender for Endpoint integration with Azure Defender now supports Windows Server 2019 and Windows 10 Virtual Desktop (WVD) released for General Availability (GA)
+
+Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security solution. It provides risk-based vulnerability management and assessment as well as endpoint detection and response (EDR). For a full list of the benefits of using Defender for Endpoint together with Azure Security Center, see [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](security-center-wdatp.md).
+
+When you enable Azure Defender for servers on a Windows server, a license for Defender for Endpoint is included with the plan. If you've already enabled Azure Defender for servers and you have Windows 2019 servers in your subscription, they'll automatically receive Defender for Endpoint with this update. No manual action is required. 
+
+Support has now been expanded to include Windows Server 2019 and [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md).
+
+> [!NOTE]
+> If you're enabling Defender for Endpoint on a Windows Server 2019 machine, ensure it meets the prerequisites described in [Enable the Microsoft Defender for Endpoint integration](security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration).
+
+
+### Recommendations to enable Azure Defender for DNS and Resource Manager (in preview)
 
 Two new recommendations have been added to simplify the process of enabling [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) and [Azure Defender for DNS](defender-for-dns-introduction.md):
 
@@ -98,7 +131,7 @@ Learn more in:
 - [Tutorial: Improve your regulatory compliance](security-center-compliance-dashboard.md)
 - [FAQ - Regulatory compliance dashboard](security-center-compliance-dashboard.md#faq---regulatory-compliance-dashboard)
 
-### Four new recommendations related to guest configuration (preview)
+### Four new recommendations related to guest configuration (in preview)
 
 Azure's [Guest Configuration extension](../governance/policy/concepts/guest-configuration.md) reports to Security Center to help ensure your virtual machines' in-guest settings are hardened. The extension isn't required for Arc enabled servers because it's included in the Arc Connected Machine agent. The extension requires a system-managed identity on the machine.
 

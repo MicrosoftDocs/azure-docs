@@ -38,7 +38,7 @@
   - name: Use the Face container
     items:
     - name: Containers overview
-      href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/face/context/context
+      href: ../cognitive-services-container-support.md?context=%2fazure%2fcognitive-services%2fface%2fcontext%2fcontext
     - name: Install and run containers
       href: face-how-to-install-containers.md
     - name: Configure containers
@@ -93,7 +93,7 @@
     - name: Compliance and certification
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Learn modules
-    href: https://docs.microsoft.com/learn/modules/detect-analyze-faces/
+    href: /learn/modules/detect-analyze-faces/
   - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/face/context/context
   - name: Azure updates

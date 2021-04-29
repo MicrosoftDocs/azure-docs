@@ -89,7 +89,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/migrate-security-baseline?toc=/azure/migrate/toc.json
+      href: /security/benchmark/azure/baselines/migrate-security-baseline?context=/azure/migrate/context/migrate-context
   - name: Discover
     items:
     - name: VMware discovery support
@@ -216,6 +216,8 @@
       href: how-to-delete-project.md
     - name: Work with previous version of Azure Migrate
       href: migrate-v1.md
+    - name: Onboard on-premises servers in VMware virtual environment to Azure Arc   
+      href: onboard-to-azure-arc-with-azure-migrate.md
     - name: Manage migration projects with Azure Lighthouse
       href: ../lighthouse/how-to/migration-at-scale.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
 - name: Troubleshoot

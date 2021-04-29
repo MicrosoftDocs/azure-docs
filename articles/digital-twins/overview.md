@@ -31,7 +31,7 @@ Here's a summary of the features provided by Azure Digital Twins.
 
 ### Open modeling language
 
-In Azure Digital Twins, you define the digital entities that represent the people, places, and things in your physical environment using custom twin types called [**models**](concepts-models.md). 
+In Azure Digital Twins, you define the digital entities that represent the people, places, and things in your physical environment using custom twin types called [models](concepts-models.md). 
 
 You can think of these model definitions as a specialized vocabulary to describe your business. For a building management solution, for example, you might define models such as "building", "floor", and "elevator". You can then create **digital twins** based on these models to represent your specific environment.
 
@@ -47,7 +47,7 @@ DTDL is used for data models throughout other Azure IoT services, including [IoT
 
 Digital models in Azure Digital Twins are live, up-to-date representations of the real world. Using the relationships in your custom DTDL models, you'll connect twins into a **live graph** representing your environment.
 
-You can view a visualization of your Azure Digital Twins graph through the help of a sample application, [**Azure Digital Twins explorer**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
+You can view a visualization of your Azure Digital Twins graph through the help of a sample application, [Azure Digital Twins explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
 
 Here's a view of what the sample visualization looks like:
 
@@ -103,6 +103,6 @@ You can view a list of **common IoT terms** and their uses across the Azure IoT 
 
 ## Next steps
 
-* Dive into working with Azure Digital Twins in the quickstart: [*Quickstart: Explore a sample scenario*](quickstart-azure-digital-twins-explorer.md).
+* Dive into working with Azure Digital Twins in the quickstart: [Quickstart: Explore a sample scenario](quickstart-azure-digital-twins-explorer.md).
 
-* Or, start reading about Azure Digital Twins concepts with [*Concepts: Custom models*](concepts-models.md).
+* Or, start reading about Azure Digital Twins concepts with [Concepts: Custom models](concepts-models.md).
