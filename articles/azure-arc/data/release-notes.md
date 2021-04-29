@@ -28,7 +28,7 @@ This section describes the new features introduced or enabled for this release.
 
 #### Platform
 
-- Direct connected clusters going forward will upload telemetry information automatically to the Azure portal. 
+- Direct connected clusters automatically upload telemetry information automatically Azure. 
 
 #### 	Azure Arc enabled PostgreSQL Hyperscale
 
