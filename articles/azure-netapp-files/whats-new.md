@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/19/2021
+ms.date: 04/21/2021
 ms.author: b-juche
 ---
 
@@ -22,6 +22,10 @@ ms.author: b-juche
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
 ## April 2021
+
+* [SMB Continuous Availability (CA) shares support for FSLogix user profile containers](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (Preview)  
+
+    [FSLogix](/fslogix/overview) is a set of solutions that enhance, enable, and simplify non-persistent Windows computing environments. FSLogix solutions are appropriate for virtual environments in both public and private clouds. FSLogix solutions can also be used to create more portable computing sessions when you use physical devices. FSLogix can be used to provide dynamic access to persistent user profile containers stored on SMB shared networked storage, including Azure NetApp Files. To further enhance FSLogix resiliency to storage service maintenance events, Azure NetApp Files has extended support for SMB Transparent Failover via [SMB Continuous Availability (CA) shares on Azure NetApp Files](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) for user profile containers. See Azure NetApp Files [Windows Virtual Desktop solutions](azure-netapp-files-solution-architectures.md#windows-virtual-desktop) for additional information.  
 
 * [SMB3 Protocol Encryption](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (Preview) 
 

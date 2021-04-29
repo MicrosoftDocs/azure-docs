@@ -9,31 +9,39 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 04/28/2021
 ms.author: mimart
 ms.subservice: B2C
+zone_pivot_groups: b2c-policy-type
 ---
 
-# Secure your RESTful services 
+# Secure your API Connector 
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-When integrating a REST API within an Azure AD B2C user journey, you must protect your REST API endpoint with authentication. This ensures that only services that have proper credentials, such as Azure AD B2C, can make calls to your REST API endpoint.
-
-Learn how to integrate a REST API within your Azure AD B2C user journey in the [validate user input](custom-policy-rest-api-claims-validation.md) and [Add REST API claims exchanges to custom policies](custom-policy-rest-api-claims-exchange.md) articles.
-
-This article will explore how to secure your REST API with either HTTP basic, client certificate or OAuth2 authentication. 
+When integrating a REST API within an Azure AD B2C user flow, you must protect your REST API endpoint with authentication. The REST API authentication ensures that only services that have proper credentials, such as Azure AD B2C, can make calls to your endpoint. This article will explore how to secure REST API. 
 
 ## Prerequisites
 
-Complete the steps in one of the following 'How to' guides:
-
-- [Integrate REST API claims exchanges in your Azure AD B2C user journey to validate user input](custom-policy-rest-api-claims-validation.md).
-- [Add REST API claims exchanges to custom policies](custom-policy-rest-api-claims-exchange.md)
+Complete the steps in the [Walkthrough: Add an API connector to a sign-up user flow](add-api-connector.md) guide.
 
 ## HTTP basic authentication
 
 HTTP basic authentication is defined in [RFC 2617](https://tools.ietf.org/html/rfc2617). Basic authentication works as follows: Azure AD B2C sends an HTTP request with the client credentials in the Authorization header. The credentials are formatted as the base64-encoded string "name:password".  
+
+::: zone pivot="b2c-user-flow"
+
+To configure an API Connector with HTTP basic authentication, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Under **Azure services**, select **Azure AD B2C**.
+1. Select **API connectors (Preview)**, and then select the **API Connector** you want to configure.
+1. For the **Authentication type**, select **Basic**.
+1. Provide the **Username**, and **Password** of your REST API endpoint.
+1. Select **Save**.
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 ### Add REST API username and password policy keys
 
@@ -76,7 +84,7 @@ After creating the necessary keys, configure your REST API technical profile met
     </CryptographicKeys>
     ```
 
-The following is an example of a RESTful technical profile configured with HTTP basic authentication:
+The following XML snippet is an example of a RESTful technical profile configured with HTTP basic authentication:
 
 ```xml
 <ClaimsProvider>
@@ -100,6 +108,7 @@ The following is an example of a RESTful technical profile configured with HTTP 
   </TechnicalProfiles>
 </ClaimsProvider>
 ```
+::: zone-end
 
 ## HTTPS client certificate authentication
 
@@ -107,24 +116,25 @@ Client certificate authentication is a mutual certificate-based authentication, 
 
 ### Prepare a self-signed certificate (optional)
 
-For non-production environments, if you don't already have a certificate, you can use a self-signed certificate. On Windows, you can use PowerShell's [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet to generate a certificate.
+[!INCLUDE [active-directory-b2c-create-self-signed-certificate](../../includes/active-directory-b2c-create-self-signed-certificate.md)]
 
-1. Execute this PowerShell command to generate a self-signed certificate. Modify the `-Subject` argument as appropriate for your application and Azure AD B2C tenant name. You can also adjust the `-NotAfter` date to specify a different expiration for the certificate.
-    ```powershell
-    New-SelfSignedCertificate `
-        -KeyExportPolicy Exportable `
-        -Subject "CN=yourappname.yourtenant.onmicrosoft.com" `
-        -KeyAlgorithm RSA `
-        -KeyLength 2048 `
-        -KeyUsage DigitalSignature `
-        -NotAfter (Get-Date).AddMonths(12) `
-        -CertStoreLocation "Cert:\CurrentUser\My"
-    ```    
-1. Open **Manage user certificates** > **Current User** > **Personal** > **Certificates** > *yourappname.yourtenant.onmicrosoft.com*.
-1. Select the certificate > **Action** > **All Tasks** > **Export**.
-1. Select **Yes** > **Next** > **Yes, export the private key** > **Next**.
-1. Accept the defaults for **Export File Format**.
-1. Provide a password for the certificate.
+::: zone pivot="b2c-user-flow"
+
+### Configure your API Connector
+
+To configure an API Connector with client certificate authentication, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Under **Azure services**, select **Azure AD B2C**.
+1. Select **API connectors (Preview)**, and then select the **API Connector** you want to configure.
+1. For the **Authentication type**, select **Certificate**.
+1. In the **Upload certificate** box, select your certificate's .pfx file with a private key.
+1. In the **Enter Password** box, type the certificate's password.
+1. Select **Save**.
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 ### Add a client certificate policy key
 
@@ -156,7 +166,7 @@ After creating the necessary key, configure your REST API technical profile meta
     </CryptographicKeys>
     ```
 
-The following is an example of a RESTful technical profile configured with an HTTP client certificate:
+The following XML snippet is an example of a RESTful technical profile configured with an HTTP client certificate:
 
 ```xml
 <ClaimsProvider>
@@ -232,10 +242,10 @@ You can obtain an access token in one of several ways: by obtaining it [from a f
 
 The following example uses a REST API technical profile to make a request to the Azure AD token endpoint using the client credentials passed as HTTP basic authentication. For more information, see [Microsoft identity platform and the OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). 
 
-To acquire an Azure AD access token, create an application in your Azure AD tenant:
+Before the technical profile can interact with Azure AD to obtain an access token, you need to register an application. Azure AD B2C relies the Azure AD platform. You can create the app in your Azure AD B2C tenant, or in any Azure AD tenant you manage. To register an application:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD tenant.
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD, or Azure AD B2C tenant.
 1. In the left menu, select **Azure Active Directory**. Or, select **All services** and search for and select **Azure Active Directory**.
 1. Select **App registrations**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *Client_Credentials_Auth_app*.
@@ -246,7 +256,7 @@ To acquire an Azure AD access token, create an application in your Azure AD tena
 
 For a client credentials flow, you need to create an application secret. The client secret is also known as an application password. The secret will be used by your application to acquire an access token.
 
-1. In the **Azure AD B2C - App registrations** page, select the application you created, for example *Client_Credentials_Auth_app*.
+1. In the **Azure AD - App registrations** page, select the application you created, for example *Client_Credentials_Auth_app*.
 1. In the left menu, under **Manage**, select **Certificates & secrets**.
 1. Select **New client secret**.
 1. Enter a description for the client secret in the **Description** box. For example, *clientsecret1*.
@@ -266,7 +276,7 @@ You need to store the client ID and the client secret that you previously record
 7. Enter a **Name** for the policy key, `SecureRESTClientId`. The prefix `B2C_1A_` is added automatically to the name of your key.
 8. In **Secret**, enter your client ID that you previously recorded.
 9. For **Key usage**, select `Signature`.
-10. Click **Create**.
+10. Select **Create**.
 11. Create another policy key with the following settings:
     -   **Name**: `SecureRESTClientSecret`.
     -   **Secret**: enter your client secret that you previously recorded
@@ -274,7 +284,7 @@ You need to store the client ID and the client secret that you previously record
 For the ServiceUrl, replace your-tenant-name with the name of your Azure AD tenant. See the [RESTful technical profile](restful-technical-profile.md) reference for all options available.
 
 ```xml
-<TechnicalProfile Id="SecureREST-AccessToken">
+<TechnicalProfile Id="REST-AcquireAccessToken">
   <DisplayName></DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
   <Metadata>
@@ -308,7 +318,7 @@ To support bearer token authentication in your custom policy, modify the REST AP
     ```xml
     <Item Key="AuthenticationType">Bearer</Item>
     ```
-1. Change or add the *UseClaimAsBearerToken* to *bearerToken*, as follows. The *bearerToken* is the name of the claim that the bearer token will be retrieved from (the output claim from `SecureREST-AccessToken`).
+1. Change or add the *UseClaimAsBearerToken* to *bearerToken*, as follows. The *bearerToken* is the name of the claim that the bearer token will be retrieved from (the output claim from `REST-AcquireAccessToken`).
 
     ```xml
     <Item Key="UseClaimAsBearerToken">bearerToken</Item>
@@ -378,7 +388,7 @@ After creating the necessary key, configure your REST API technical profile meta
     </CryptographicKeys>
     ```
 
-The following is an example of a RESTful technical profile configured with bearer token authentication:
+The following XML snippet is an example of a RESTful technical profile configured with bearer token authentication:
 
 ```xml
 <ClaimsProvider>
@@ -441,7 +451,7 @@ After creating the necessary key, configure your REST API technical profile meta
 
 The **Id** of the cryptographic key defines the HTTP header. In this example, the API key is sent as **x-functions-key**.
 
-The following is an example of a RESTful technical profile configured to call an Azure Function with API key authentication:
+The following XML snippet is an example of a RESTful technical profile configured to call an Azure Function with API key authentication:
 
 ```xml
 <ClaimsProvider>
@@ -467,4 +477,6 @@ The following is an example of a RESTful technical profile configured to call an
 
 ## Next steps
 
-- Learn more about the [Restful technical profile](restful-technical-profile.md) element in the IEF reference.
+- Learn more about the [Restful technical profile](restful-technical-profile.md) element in the custom policy reference.
+
+::: zone-end

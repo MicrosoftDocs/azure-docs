@@ -149,6 +149,6 @@ Learn how to [troubleshoot common container and deployment issues](container-ins
 Learn how to send log and event data for container groups to [Azure Monitor logs](container-instances-log-analytics.md).
 
 <!-- LINKS - Internal -->
-[az-container-attach]: /cli/azure/container#az-container-attach
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
+[az-container-attach]: /cli/azure/container#az_container_attach
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show

@@ -2,7 +2,7 @@
 title: Create Azure Advisor alerts for new recommendations using Resource Manager template
 description: Learn how to set up an alert for new recommendations from Azure Advisor using an Azure Resource Manager template (ARM template).
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 06/29/2020
 ---
 

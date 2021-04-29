@@ -23,7 +23,7 @@ If you want to skip straight to the code, see the [.NET Framework quickstart](ht
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/)
-- [.NET Framework 4 or higher](https://www.microsoft.com/net/download/dotnet-framework-runtime), which is required by the StackExchange.Redis client.
+- [.NET Framework 4 or higher](https://dotnet.microsoft.com/download/dotnet-framework), which is required by the StackExchange.Redis client.
 
 ## Create a cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
