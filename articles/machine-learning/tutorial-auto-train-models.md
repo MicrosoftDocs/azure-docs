@@ -35,8 +35,11 @@ Also try automated machine learning for these other model types:
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version](https://aka.ms/AMLFree) of Azure Machine Learning today.
 
-* Complete the [setup tutorial](tutorial-1st-experiment-sdk-setup.md) if you don't already have an Azure Machine Learning workspace or notebook virtual machine.
-* After you complete the setup tutorial, open the *tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb* notebook using the same notebook server.
+* Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) if you don't already have an Azure Machine Learning workspace or a compute instance.
+* After you complete the quickstart:
+    1. Select **Notebooks** in the studio.
+    1. Select the **Samples** tab.
+    1. Open the *tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb* notebook.
 
 This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to run it in your own [local environment](how-to-configure-environment.md#local). 
 To get the required packages, 

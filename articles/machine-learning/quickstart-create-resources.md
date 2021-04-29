@@ -13,9 +13,9 @@ adobe-target: true
 # Customer intent: As a data scientist, I want to create a workspace so that I can start to use Azure Machine Learning.
 ---
 
-# Quickstart: Get started with Azure Machine Learning
+# Quickstart: Create resources you'll need to get started with Azure Machine Learning
 
-In this quickstart, you'll complete the steps to get started with Azure Machine Learning by creating an Azure Machine Learning workspace, then add compute resources to the workspace. 
+In this quickstart, you'll create an Azure Machine Learning workspace, then add compute resources to the workspace. This will give you everything you need to start training machine learning models.  
 
 The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning.
 

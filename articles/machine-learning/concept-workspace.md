@@ -132,7 +132,6 @@ To get started with Azure Machine Learning, see:
 
 + [Azure Machine Learning overview](overview-what-is-azure-ml.md)
 + [Create and manage a workspace](how-to-manage-workspace.md)
-+ [Tutorial: Get started with Azure Machine Learning in your development environment](tutorial-1st-experiment-sdk-setup-local.md)
-+ [Tutorial: Get started creating your first ML experiment on a compute instance](tutorial-1st-experiment-sdk-setup.md)
++ [Tutorial: Get started with Azure Machine Learning](quickstart-create-resources.md)
 + [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md) 
 + [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)

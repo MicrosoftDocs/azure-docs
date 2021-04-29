@@ -42,10 +42,9 @@ If you don't have an Azure subscription, create a free account before you begin.
     * Create a cloud-based compute instance to use for your development environment.
     * Create a cloud-based compute cluster to use for training your model.
 
-## Clone the tutorials folder
-## <a name="azure"></a>Run a notebook in your workspace
+## <a name="azure"></a>Run a notebook from your workspace
 
-Azure Machine Learning includes a cloud notebook server in your workspace for an install-free and preconfigured experience. Use [your own environment](tutorial-1st-experiment-sdk-setup-local.md) if you prefer to have control over your environment, packages, and dependencies.
+Azure Machine Learning includes a cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment.md#local) if you prefer to have control over your environment, packages, and dependencies.
 
  Follow along with this video or use the detailed steps to clone and run the tutorial notebook from your workspace.
 

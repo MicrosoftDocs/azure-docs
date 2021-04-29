@@ -26,7 +26,7 @@ In this tutorial, you:
 
 This tutorial prepares you to run Jupyter notebooks on a compute resource in your workspace.  
 
-Another great way to start with Azure Machine learning is by submitting batch jobs.  See [Tutorial: Get started with Azure Machine Learning in your development environment](tutorial-1st-experiment-sdk-setup-local.md).
+Another great way to start with Azure Machine learning is by submitting batch jobs.  See [Tutorial: Run a "Hello world!" Python script (part 1 of 3)](tutorial-1st-experiment-hello-world.md).
 
 ## Prerequisites
 
