@@ -1,7 +1,7 @@
 ---
 title: Support non-Unicode character encoding in Logic Apps
 description: Work with non-Unicode text in Logic Apps by converting payloads to UTF-8 using Base64 encoding and Azure Functions.
-ms.date: 04/28/2021
+ms.date: 04/29/2021
 ms.topic: conceptual
 ms.reviewer: logicappspm
 ms.service: logic-apps
@@ -16,9 +16,29 @@ This solution works with both *multi-tenant* and *single-tenant* workflows. You 
 
 ## Convert payload encoding
 
-First, check that your trigger can correctly identify the content type. If your trigger has a setting **Infer Content Type**, choose **No**. This step ensures that Logic Apps no longer assumes the text is UTF-8. If your trigger doesn't have this option, the content type is set by the incoming message. 
+First, check that your trigger can correctly identify the content type. This step ensures that Logic Apps no longer assumes the text is UTF-8. 
 
-Then, as soon as you receive the non-Unicode payload, apply [base64 encoding](workflow-definition-language-functions-reference.md#base64) to the text. 
+If your trigger has a setting **Infer Content Type**, choose **No**. If your trigger doesn't have this option, the content type is set by the incoming message. 
+
+If you're using the HTTP request trigger for `text/plain` content, you must set the `charset` parameter in the `Content-Type` header of the call. Characters might become corrupted if you don't set the `charset` parameter, or the parameter doesn't match the payload's encoding format. For more information, see [how to handle the `text/plain` content type](logic-apps-content-type.md#text-plain).
+
+For example, the HTTP trigger converts the incoming content to UTF-8 when the `Content-Type` header is set with the correct `charset` parameter:
+
+```json
+{
+    "headers": {
+        <...>
+        "Content-Type": "text/plain; charset=windows-1250"
+        },
+        "body": "non UTF-8 text content"
+}
+```
+
+If you set the `Content-Type` header to `application/octet-stream`, you also might receive characters that aren't UTF-8. For mroe information, see [how to handle the `application/octet-stream` content type](logic-apps-content-type.md#applicationxml-and-applicationoctet-stream)
+
+## Base64 encode content
+
+Before you [base64 encode](workflow-definition-language-functions-reference.md#base64) content, make sure you've [converted the text to UTF-8](#convert-payload-encoding). If you base64 decode the content to a string before converting the text to UTF-8, characters might return corrupted.
 
 Next, convert any .NET-supported encoding to another .NET-supported encoding by using one of the following code examples, either the [Azure Functions version](#azure-functions-version) or [.NET version](#net-version):
 
@@ -29,7 +49,7 @@ Next, convert any .NET-supported encoding to another .NET-supported encoding by 
 
 The following example is for Azure Functions version 2: 
 
-```azurecli
+```csharp
 using System;
 using System.IO;
 using System.Text;
@@ -87,7 +107,7 @@ public static class ConversionFunctionv2 {
 
 The following example is for use with **.NET standard** and Azure Functions **version 2**:
 
-```azurecli
+```csharp
     using System;
     using System.IO;
     using System.Text;
@@ -159,7 +179,7 @@ In this example, the base64-encoded sample input string is a personal name, *H&e
 
 Example input:
 
-```azurecli
+```json
 {  
     "text": "SMOpbG/Dr3Nl",
     "encodingInput": "utf-8",
@@ -169,7 +189,7 @@ Example input:
 
 Example output:
 
-```azurecli
+```json
 {
     "text": "U01PcGJHL0RyM05s"
 }
