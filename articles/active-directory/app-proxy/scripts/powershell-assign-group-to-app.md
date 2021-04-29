@@ -1,21 +1,21 @@
 ---
-title: PowerShell sample - List all Application Proxy connector groups
-description: PowerShell example that lists all Azure Active Directory (Azure AD) Application Proxy connector groups and connectors in your directory.
+title: PowerShell sample - Assign group to an Azure Active Directory Application Proxy app
+description: PowerShell example that assigns a group to an Azure Active Directory (Azure AD) Application Proxy application.
 services: active-directory
 author: kenwith
 manager: mtillman
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: sample
-ms.date: 12/05/2019
+ms.date: 04/29/2021
 ms.author: kenwith
 ms.reviewer: japere
 ---
 
-# Get all connector groups and connectors in the directory
+# Assign a group to a specific Azure AD Application Proxy application
 
-This PowerShell script example lists all Azure Active Directory (Azure AD) Application Proxy connector groups and connectors in your directory.
+This PowerShell script example allows you to assign a specific group to an Azure Active Directory (Azure AD) Application Proxy application.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -27,14 +27,13 @@ This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/az
 
 ## Sample script
 
-[!code-azurepowershell[main](~/powershell_scripts/application-proxy/get-all-connectors.ps1 "Get all connector groups and connectors in the directory")]
+[!code-azurepowershell[main](~/powershell_scripts/application-proxy/assign-group-to-app.ps1 "Assign a group to a specific Azure AD Application Proxy application")]
 
 ## Script explanation
 
 | Command | Notes |
 |---|---|
-| [Get-AzureADApplicationProxyConnectorGroup](/powershell/module/azuread/get-azureadapplicationproxyconnectorgroup) | Retrieves a list of all connector groups, or if specified, details of the specified connector group. |
-| [Get-AzureADApplicationProxyConnectorGroupMembers](/powershell/module/azuread/get-azureadapplicationproxyconnectorgroupmembers) | Gets all Application Proxy connectors associated with each connector group.|
+| [New-AzureADGroupAppRoleAssignment](/powershell/module/AzureAD/New-azureadgroupapproleassignment) | Assigns a group to an application role. |
 
 ## Next steps
 

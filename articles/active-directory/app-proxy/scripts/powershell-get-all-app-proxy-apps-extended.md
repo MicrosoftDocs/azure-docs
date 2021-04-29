@@ -1,21 +1,23 @@
 ---
-title: PowerShell sample - Application Proxy apps with identical certs
-description: PowerShell example that lists all Azure Active Directory (Azure AD) Application Proxy applications that are published with the identical certificate.
+title: PowerShell sample - List extended info for Azure Active Directory Application Proxy apps
+description: PowerShell example that lists all Azure Active Directory (Azure AD) Application Proxy applications along with the application ID (AppId), name (DisplayName), external URL (ExternalUrl), internal URL (InternalUrl), and authentication type (ExternalAuthenticationType).
 services: active-directory
 author: kenwith
 manager: mtillman
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: sample
-ms.date: 12/05/2019
+ms.date: 04/29/2021
 ms.author: kenwith
 ms.reviewer: japere
 ---
 
-# Get all Application Proxy apps that are published with the identical certificate
+# Get all Application Proxy apps and list extended information
 
-This PowerShell script example lists all Azure Active Directory (Azure AD) Application Proxy applications that are published with the identical certificate.
+This PowerShell script example lists information about all Azure Active Directory (Azure AD) Application Proxy applications, including the application ID (AppId), name (DisplayName), external URL (ExternalUrl), internal URL (InternalUrl), authentication type (ExternalAuthenticationType), SSO mode and further settings.
+
+Changing the value of the $ssoMode variable enables a filtered output by SSO mode. Further details are documented in the script.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -23,11 +25,11 @@ This PowerShell script example lists all Azure Active Directory (Azure AD) Appli
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/azure/active-directory/install-adv2) (AzureAD) or the [AzureAD V2 PowerShell for Graph module preview version](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true) (AzureADPreview).
+This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/azure/active-directory/install-adv2) (AzureAD).
 
 ## Sample script
 
-[!code-azurepowershell[main](~/powershell_scripts/application-proxy/get-custom-domain-identical-cert.ps1 "Get all Azure AD Proxy application apps published with the identical certificate")]
+[!code-azurepowershell[main](~/powershell_scripts/application-proxy/get-all-appproxy-apps-extended.ps1 "Get all Application Proxy apps")]
 
 ## Script explanation
 

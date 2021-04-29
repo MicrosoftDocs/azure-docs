@@ -1,21 +1,21 @@
 ---
-title: PowerShell sample - Move Application Proxy apps to another group
-description: Azure Active Directory (Azure AD) Application Proxy PowerShell example used to move all applications currently assigned to a connector group to a different connector group.
+title: PowerShell sample - Replace certificate in Azure Active Directory Application Proxy apps
+description: PowerShell example that bulk replaces a certificate across Azure Active Directory (Azure AD) Application Proxy applications.
 services: active-directory
 author: kenwith
 manager: mtillman
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: sample
-ms.date: 12/05/2019
+ms.date: 04/29/2021
 ms.author: kenwith
 ms.reviewer: japere
 ---
 
-# Move all apps assigned to a connector group to another connector group
+# Get all Azure Active Directory Application Proxy applications published with the identical certificate and replace it
 
-This PowerShell script example moves all Azure Active Directory (Azure AD) Application Proxy applications currently assigned to a connector group to a different connector group.
+This PowerShell script example allows you to replace the certificate in bulk for all the Azure Active Directory (Azure AD) Application Proxy applications that are published with the identical certificate.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -27,7 +27,7 @@ This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/az
 
 ## Sample script
 
-[!code-azurepowershell[main](~/powershell_scripts/application-proxy/move-all-apps-to-a-connector-group.ps1 "Move all apps assigned to a connector group to another connector group")]
+[!code-azurepowershell[main](~/powershell_scripts/application-proxy/get-custom-domain-replace-cert.ps1 "Get all Application Proxy applications published with the identical certificate and replace it")]
 
 ## Script explanation
 
@@ -35,8 +35,8 @@ This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/az
 |---|---|
 |[Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) | Gets a service principal. |
 |[Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) | Gets an Azure AD application. |
-| [Get-AzureADApplicationProxyConnectorGroup](/powershell/module/azuread/get-azureadapplicationproxyconnectorgroup) | Retrieves a list of all connector groups, or if specified, details of the specified connector group. |
-| [Set-AzureADApplicationProxyConnectorGroup](/powershell/module/azuread/set-azureadapplicationproxyapplicationconnectorgroup) | Assigns the given connector group to a specified application.|
+|[Get-AzureADApplicationProxyApplication](/powershell/module/azuread/get-azureadapplicationproxyapplication) | Retrieves an application configured for Application Proxy in Azure AD. |
+|[Set-AzureADApplicationProxyApplicationCustomDomainCertificate](/powershell/module/azuread/set-azureadapplicationproxyapplicationcustomdomaincertificate) | Assigns a certificate to an application configured for Application Proxy in Azure AD. This command uploads the certificate and allows the application to use Custom Domains. |
 
 ## Next steps
 

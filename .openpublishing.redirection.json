@@ -54516,6 +54516,86 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-powershell-samples.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-powershell-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/powershell-get-all-app-proxy-apps-basic.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-get-all-app-proxy-apps-basic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/powershell-get-all-app-proxy-apps-by-connector-group.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-get-all-app-proxy-apps-by-connector-group",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/powershell-get-all-app-proxy-apps-extended.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-get-all-app-proxy-apps-extended",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/powershell-get-all-app-proxy-apps-with-policy.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-get-all-app-proxy-apps-with-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/powershell-get-all-connectors.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-get-all-connectors",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/powershell-get-all-custom-domain-no-cert.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-get-all-custom-domain-no-cert",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/powershell-assign-group-to-app.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-assign-group-to-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/powershell-assign-user-to-app.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-assign-user-to-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/powershell-get-all-custom-domains-and-certs.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-get-all-custom-domains-and-certs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/powershell-get-all-default-domain-apps.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-get-all-default-domain-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/powershell-get-all-wildcard-apps.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-get-all-wildcard-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/powershell-get-custom-domain-identical-cert.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-get-custom-domain-identical-cert",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/powershell-get-custom-domain-replace-cert.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-get-custom-domain-replace-cert",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/powershell-move-all-apps-to-connector-group.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-move-all-apps-to-connector-group",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/powershell-display-users-group-of-app.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-display-users-group-of-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-tableau.md",
       "redirect_url": "/azure/active-directory/app-proxy/application-proxy-integrate-with-tableau",
       "redirect_document_id": false

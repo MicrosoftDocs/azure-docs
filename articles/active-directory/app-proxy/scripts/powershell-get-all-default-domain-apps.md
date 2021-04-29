@@ -1,21 +1,21 @@
 ---
-title: PowerShell sample - Assign group to an Application Proxy app
-description: PowerShell example that assigns a group to an Azure Active Directory (Azure AD) Application Proxy application.
+title: PowerShell sample - Azure Active Directory Application Proxy apps using default domain
+description: PowerShell example that lists all Azure Active Directory (Azure AD) Application Proxy applications that are using default domains (.msappproxy.net).
 services: active-directory
 author: kenwith
 manager: mtillman
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: sample
-ms.date: 12/05/2019
+ms.date: 04/29/2021
 ms.author: kenwith
 ms.reviewer: japere
 ---
 
-# Assign a group to a specific Azure AD Application Proxy application
+# Get all Application Proxy apps using default domains (.msappproxy.net)
 
-This PowerShell script example allows you to assign a specific group to an Azure Active Directory (Azure AD) Application Proxy application.
+This PowerShell script example lists all the Azure Active Directory (Azure AD) Application Proxy applications that are using default domains (.msappproxy.net).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -27,13 +27,15 @@ This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/az
 
 ## Sample script
 
-[!code-azurepowershell[main](~/powershell_scripts/application-proxy/assign-group-to-app.ps1 "Assign a group to a specific Azure AD Application Proxy application")]
+[!code-azurepowershell[main](~/powershell_scripts/application-proxy/get-all-default-domain-apps.ps1 "Get all Application Proxy apps using default domains (.msappproxy.net)")]
 
 ## Script explanation
 
 | Command | Notes |
 |---|---|
-| [New-AzureADGroupAppRoleAssignment](/powershell/module/AzureAD/New-azureadgroupapproleassignment) | Assigns a group to an application role. |
+|[Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) | Gets a service principal. |
+|[Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) | Gets an Azure AD application. |
+|[Get-AzureADApplicationProxyApplication](/powershell/module/azuread/get-azureadapplicationproxyapplication) | Retrieves an application configured for Application Proxy in Azure AD. |
 
 ## Next steps
 

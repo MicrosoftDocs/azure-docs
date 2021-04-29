@@ -1,21 +1,21 @@
 ---
-title: PowerShell sample - Application Proxy apps using custom domains
-description: PowerShell example that lists all Azure Active Directory (Azure AD) Application Proxy applications that are using custom domains and certificate information.
+title: List Azure Active Directory Application Proxy connector groups for apps
+description: PowerShell example that lists all Azure Active Directory (Azure AD) Application Proxy Connector groups with the assigned applications.
 services: active-directory
 author: kenwith
 manager: mtillman
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: sample
-ms.date: 12/05/2019
+ms.date: 04/29/2021
 ms.author: kenwith
 ms.reviewer: japere
 ---
 
-# Get all Application Proxy apps using custom domains and certificate information
+# Get all Application Proxy apps and list by connector group
 
-This PowerShell script example lists all Azure Active Directory (Azure AD) Application Proxy applications that are using custom domains and lists the certificate information associated with the custom domains.
+This PowerShell script example lists information about all Azure Active Directory (Azure AD) Application Proxy Connector groups with the assigned applications.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -27,7 +27,7 @@ This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/az
 
 ## Sample script
 
-[!code-azurepowershell[main](~/powershell_scripts/application-proxy/get-all-custom-domains-and-certs.ps1 "Get all Application Proxy apps using custom domains and certificate information")]
+[!code-azurepowershell[main](~/powershell_scripts/application-proxy/get-all-appproxy-apps-by-connectorgroup.ps1 "Get all Application Proxy Connector groups with the assigned applications")]
 
 ## Script explanation
 
@@ -36,6 +36,8 @@ This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/az
 |[Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) | Gets a service principal. |
 |[Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) | Gets an Azure AD application. |
 |[Get-AzureADApplicationProxyApplication](/powershell/module/azuread/get-azureadapplicationproxyapplication) | Retrieves an application configured for Application Proxy in Azure AD. |
+| [Get-AzureADApplicationProxyConnectorGroup](/powershell/module/azuread/get-azureadapplicationproxyconnectorgroup) | Retrieves a list of all connector groups, or if specified, details of the specified connector group. |
+
 
 ## Next steps
 
