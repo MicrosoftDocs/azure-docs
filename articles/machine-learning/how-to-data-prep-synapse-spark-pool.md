@@ -18,7 +18,7 @@ ms.custom: devx-track-python, data4ml, synapse-azureml
 
 # Attach Apache Spark pools (powered by Azure Synapse Analytics) for data wrangling (preview)
 
-In this article, you learn how to attach an Apache Spark pool powered by [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) to your Azure Machine learning workspace, so you can launch it and perform data wrangling at scale. 
+In this article, you learn how to attach an Apache Spark pool powered by [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) to your [Azure Machine learning workspace](concept-workspace.md), so you can launch it and perform data wrangling at scale. 
 
 This article contains guidance for performing data wrangling tasks interactively within a dedicated Synapse session in a Jupyter notebook using the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/). If you prefer to use Azure Machine Learning pipelines, see [How to use Apache Spark (powered by Azure Synapse Analytics) in your machine learning pipeline (preview)](how-to-use-synapsesparkstep.md).
 
@@ -377,6 +377,8 @@ run
 ```
 
 For additional details, like the `dataprep.py` script used in this example, see the [example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb).
+
+After your data is prepared, you can then use it as input for your training jobs. In the aforementioned code example, the `registered_dataset` is what you would specify as your input data for training jobs. 
 
 ## Example notebooks
 
