@@ -84,15 +84,15 @@ If the connection succeeds, the list of edge devices appears. You should see at 
 
 ## Use direct method calls
 
-You can use the module to analyze live video streams by invoking direct methods. For more information, see [Direct methods for Azure Video Analyzer](direct-methods.md).
+You can use the module to analyze live video streams by invoking direct methods. For more information, see [Direct methods for Azure Video Analyzer](https://review.docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/direct-methods?branch=release-azure-video-analyzer)<!--add a link-->.
 
 ### Invoke pipelineTopologyList
 
-To enumerate all of the [pipelines](pipeline.md) in the module:
+To enumerate all of the [pipelines](https://review.docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/pipeline?branch=release-azure-video-analyzer)<!-- add a link-->  in the module:
 
 1. In the Visual Studio Code, right-click the **avaEdge** module and select **Invoke Module Direct Method**.
-1. In the box that appears, enter pipelineTopologyList.
-1. Copy the following JSON payload and then paste it in the box. Then select the Enter key.
+2. In the box that appears, enter pipelineTopologyList.
+3. Copy the following JSON payload and then paste it in the box. Then select the Enter key.
 
 ```json
 {
@@ -408,7 +408,9 @@ Notice that this payload:
 
 * Specifies the topology name (`MotionDetection`) for which the instance needs to be created.
 * Contains a parameter value for parameters which didn't have a default value in the graph topology payload. This value is a link to the below sample video:
-* [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
+
+    [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LTY4]
+
 
 Within few seconds, you see the following response in the **OUTPUT** window:
 
