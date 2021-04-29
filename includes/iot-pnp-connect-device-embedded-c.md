@@ -1,27 +1,29 @@
 ---
-title: Use IoT Plug and Play on constrained devices | Microsoft Docs
-description: Learn how you can implement IoT Plug and Play on constrained devices using either the SDK for Embedded C or Azure RTOS.
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/23/2020
-ms.topic: how-to
 ms.service: iot-pnp
-services: iot-pnp
-
-#Customer intent: As a device builder, I want to know about the options for implementing IoT Plug and Play on constrained devices.
+ms.topic: include
+ms.date: 04/28/2021
 ---
 
-# Implement IoT Plug and Play on constrained devices
+If you're developing for *constrained devices*, you can use IoT Plug and Play with:
 
-If you're developing for *constrained devices*, you can use IoT Plug and Play with the [Azure SDK for Embedded C IoT client libraries](https://aka.ms/embeddedcsdk) or with [Azure RTOS](/azure/rtos/overview-rtos). This article includes links and resources for these constrained scenarios.
+- The [Azure SDK for Embedded C IoT client libraries](https://aka.ms/embeddedcsdk).
+- [Azure RTOS](/azure/rtos/overview-rtos).
+
+This article includes links and resources for these constrained scenarios.
+
+## Prerequisites
+
+Many of the samples below require a specific hardware device and the prerequisites are different for each of the samples. Follow the link to the relevant sample for detailed prerequisites, configuration, and build instructions.
 
 ## Use the SDK for Embedded C
 
-The SDK for Embedded C offers a lightweight solution to connect constrained devices to Azure IoT services, including using the [IoT Plug and Play conventions](concepts-convention.md). The following links include samples for real device and for educational and debugging purposes.
+The SDK for Embedded C offers a lightweight solution to connect constrained devices to Azure IoT services, including using the [IoT Plug and Play conventions](../articles/iot-pnp/concepts-convention.md). The following links include samples for MCU-based devices and for educational and debugging purposes.
 
-### Use a real device
+### Use an MCU-based device
 
-For a complete end-to-end tutorial using the SDK for Embedded C, the Device Provisioning Service, and IoT Plug and Play on a real device, see [Repurpose PIC-IoT Wx Development Board to Connect to Azure through IoT Hub Device Provisioning Service](https://github.com/Azure-Samples/Microchip-PIC-IoT-Wx).
+For a complete end-to-end tutorial using the SDK for Embedded C, the Device Provisioning Service, and IoT Plug and Play on an MCU, see [Repurpose PIC-IoT Wx Development Board to Connect to Azure through IoT Hub Device Provisioning Service](https://github.com/Azure-Samples/Microchip-PIC-IoT-Wx).
 
 ### Introductory samples
 
@@ -40,17 +42,17 @@ Azure RTOS includes a lightweight layer that adds native connectivity to Azure I
 
 ### Toolchains
 
-The Azure RTOS samples are provided with different kinds of of IDE and toolchain combinations, such as:
+The Azure RTOS samples are provided with different kinds of IDE and toolchain combinations, such as:
 
 - IAR: IAR's [Embedded Workbench](https://www.iar.com/iar-embedded-workbench/) IDE
-- GCC/CMake: Build on top of the open source [CMake](https://cmake.org/) build system and [GNU Arm Embedded toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm).
+- GCC/CMake: Build on top of the open-source [CMake](https://cmake.org/) build system and [GNU Arm Embedded toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm).
 - MCUExpresso: NXP's [MCUXpresso IDE](https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-integrated-development-environment-ide:MCUXpresso-IDE)
-- STM32Cube: STMicroelectronic's [STM32Cube IDE](https://www.st.com/en/development-tools/stm32cubeide.html)
+- STM32Cube: STMicroelectronics's [STM32Cube IDE](https://www.st.com/en/development-tools/stm32cubeide.html)
 - MPLAB: Microchip's [MPLAB X IDE](https://www.microchip.com/mplab/mplab-x-ide)
 
 ### Samples
 
-For samples that show you how to get started on different devices with Azure RTOS and IoT Plug and Play, see the following table:
+The following table lists samples that show you how to get started on different devices with Azure RTOS and IoT Plug and Play:
 
 Manufacturer | Device | Samples |
 | --- | --- | --- |
@@ -60,7 +62,3 @@ Manufacturer | Device | Samples |
 | STMicroelectronics | [32F746GDISCOVERY](https://www.st.com/en/evaluation-tools/32f746gdiscovery.html) | [IAR](https://aka.ms/azrtos-sample/f746g-iar) • [STM32Cube](https://aka.ms/azrtos-sample/f746g-cubeide)
 | STMicroelectronics | [B-L475E-IOT01](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) | [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/STM32L4_L4%2B) • [IAR](https://aka.ms/azrtos-sample/l4s5-iar) • [STM32Cube](https://aka.ms/azrtos-sample/l4s5-cubeide)
 | STMicroelectronics | [B-L4S5I-IOT01](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html) | [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/STM32L4_L4%2B) • [IAR](https://aka.ms/azrtos-sample/l4s5-iar) • [STM32Cube](https://aka.ms/azrtos-sample/l4s5-cubeide)
-
-## Next steps
-
-Now that you've learned about the options for implementing IoT Plug and Play on constrained devices, a suggested next step is to learn about the [IoT Plug and Play conventions](concepts-convention.md).
