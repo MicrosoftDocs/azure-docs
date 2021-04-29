@@ -35,7 +35,7 @@ vSAN data-at-rest encryption, by default, is enabled and is used to provide vSAN
 
 ## Host and software lifecycle maintenance
 
-Regular upgrades of the Azure VMware Solution private cloud and VMware software ensure the latest security, stability, and feature sets are running in your private clouds. For more information, see [Private cloud updates and upgrades](concepts-upgrades.md).
+Regular upgrades of the Azure VMware Solution private cloud and VMware software ensure the latest security, stability, and feature sets are running in your private clouds. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
 
 ## Monitoring your private cloud
 

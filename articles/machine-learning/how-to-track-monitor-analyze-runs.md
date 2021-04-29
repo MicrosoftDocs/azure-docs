@@ -9,8 +9,8 @@ author: swinner95
 ms.author: shwinne
 ms.reviewer: sgilley
 ms.date: 04/19/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, devx-track-azurecli
+ms.topic: how-to
+ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 # Start, monitor, and track run history

@@ -8,8 +8,8 @@ ms.subservice: core
 ms.author: jordane
 author: jpe316
 ms.date: 09/28/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.topic: how-to
+ms.custom: devx-track-python
 
 #Customer intent: As a Python scikit-learn developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my machine learning models at scale.
 ---

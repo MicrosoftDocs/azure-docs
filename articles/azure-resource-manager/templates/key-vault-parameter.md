@@ -2,19 +2,21 @@
 title: Key Vault secret with template
 description: Shows how to pass a secret from a key vault as a parameter during deployment.
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 04/23/2021
 ---
+
 # Use Azure Key Vault to pass secure parameter value during deployment
 
 Instead of putting a secure value (like a password) directly in your template or parameter file, you can retrieve the value from an [Azure Key Vault](../../key-vault/general/overview.md) during a deployment. You retrieve the value by referencing the key vault and secret in your parameter file. The value is never exposed because you only reference its key vault ID. The key vault can exist in a different subscription than the resource group you're deploying to.
 
-This article focuses on the scenario of passing a sensitive value in as a template parameter. It doesn't cover the scenario of setting a virtual machine property to the URL of a certificate in a Key Vault. For a quickstart template of that scenario, see [Install a certificate from Azure Key Vault on a Virtual Machine](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows).
+This article's focus is how to pass a sensitive value as a template parameter. The article doesn't cover how to set a virtual machine property to a certificate's URL in a key vault.
+For a quickstart template of that scenario, see [Install a certificate from Azure Key Vault on a Virtual Machine](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows).
 
 ## Deploy key vaults and secrets
 
 To access a key vault during template deployment, set `enabledForTemplateDeployment` on the key vault to `true`.
 
-If you already have a Key Vault, make sure it allows template deployments.
+If you already have a key vault, make sure it allows template deployments.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -30,7 +32,7 @@ Set-AzKeyVaultAccessPolicy -VaultName ExampleVault -EnabledForTemplateDeployment
 
 ---
 
-To create a new Key Vault and add a secret, use:
+To create a new key vault and add a secret, use:
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -59,7 +61,7 @@ $secret = Set-AzKeyVaultSecret -VaultName ExampleVault -Name 'ExamplePassword' -
 
 ---
 
-As the owner of the key vault, you automatically have access to creating secrets. If the user working with secrets isn't the owner of the key vault, grant access with:
+As the owner of the key vault, you automatically have access to create secrets. If the user working with secrets isn't the owner of the key vault, grant access with:
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -93,9 +95,9 @@ For more information about creating key vaults and adding secrets, see:
 
 ## Grant access to the secrets
 
-The user who deploys the template must have the `Microsoft.KeyVault/vaults/deploy/action` permission for the scope of the resource group and key vault. The [Owner](../../role-based-access-control/built-in-roles.md#owner) and [Contributor](../../role-based-access-control/built-in-roles.md#contributor) roles both grant this access. If you created the key vault, you're the owner so you have the permission.
+The user who deploys the template must have the `Microsoft.KeyVault/vaults/deploy/action` permission for the scope of the resource group and key vault. The [Owner](../../role-based-access-control/built-in-roles.md#owner) and [Contributor](../../role-based-access-control/built-in-roles.md#contributor) roles both grant this access. If you created the key vault, you're the owner and have the permission.
 
-The following procedure shows how to create a role with the minimum permission, and how to assign the user
+The following procedure shows how to create a role with the minimum permission, and how to assign the user.
 
 1. Create a custom role definition JSON file:
 
@@ -115,6 +117,7 @@ The following procedure shows how to create a role with the minimum permission, 
       ]
     }
     ```
+
     Replace "00000000-0000-0000-0000-000000000000" with the subscription ID.
 
 2. Create the new role using the JSON file:
@@ -143,7 +146,7 @@ The following procedure shows how to create a role with the minimum permission, 
 
     The samples assign the custom role to the user on the resource group level.
 
-When using a Key Vault with the template for a [Managed Application](../managed-applications/overview.md), you must grant access to the **Appliance Resource Provider** service principal. For more information, see [Access Key Vault secret when deploying Azure Managed Applications](../managed-applications/key-vault-access.md).
+When using a key vault with the template for a [Managed Application](../managed-applications/overview.md), you must grant access to the **Appliance Resource Provider** service principal. For more information, see [Access Key Vault secret when deploying Azure Managed Applications](../managed-applications/key-vault-access.md).
 
 ## Reference secrets with static ID
 
@@ -153,7 +156,9 @@ With this approach, you reference the key vault in the parameter file, not the t
 
 [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./template-tutorial-use-key-vault.md) uses this method.
 
-The following template deploys a SQL server that includes an administrator password. The password parameter is set to a secure string. But, the template doesn't specify where that value comes from.
+The following template deploys a SQL server that includes an administrator password. The password parameter is set to a secure string. But the template doesn't specify where that value comes from.
+
+# [JSON](#tab/json)
 
 ```json
 {
@@ -189,6 +194,29 @@ The following template deploys a SQL server that includes an administrator passw
 }
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+param adminLogin string
+
+@secure()
+param adminPassword string
+
+param sqlServerName string
+
+resource sqlServer 'Microsoft.Sql/servers@2020-11-01-preview' = {
+  name: sqlServerName
+  location: resourceGroup().location
+  properties: {
+    administratorLogin: adminLogin
+    administratorLoginPassword: adminPassword
+    version: '12.0'
+  }
+}
+```
+
+---
+
 Now, create a parameter file for the preceding template. In the parameter file, specify a parameter that matches the name of the parameter in the template. For the parameter value, reference the secret from the key vault. You reference the secret by passing the resource identifier of the key vault and the name of the secret:
 
 In the following parameter file, the key vault secret must already exist, and you provide a static value for its resource ID.
@@ -198,25 +226,25 @@ In the following parameter file, the key vault secret must already exist, and yo
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "adminLogin": {
-        "value": "exampleadmin"
-      },
-      "adminPassword": {
-        "reference": {
-          "keyVault": {
+    "adminLogin": {
+      "value": "exampleadmin"
+    },
+    "adminPassword": {
+      "reference": {
+        "keyVault": {
           "id": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.KeyVault/vaults/<vault-name>"
-          },
-          "secretName": "ExamplePassword"
-        }
-      },
-      "sqlServerName": {
-        "value": "<your-server-name>"
+        },
+        "secretName": "ExamplePassword"
       }
+    },
+    "sqlServerName": {
+      "value": "<your-server-name>"
+    }
   }
 }
 ```
 
-If you need to use a version of the secret other than the current version, use the `secretVersion` property.
+If you need to use a version of the secret other than the current version, include the `secretVersion` property.
 
 ```json
 "secretName": "ExamplePassword",
@@ -249,7 +277,7 @@ New-AzResourceGroupDeployment `
 
 ## Reference secrets with dynamic ID
 
-The previous section showed how to pass a static resource ID for the key vault secret from the parameter. However, in some scenarios, you need to reference a key vault secret that varies based on the current deployment. Or, you may want to pass parameter values to the template rather than create a reference parameter in the parameter file. In either case, you can dynamically generate the resource ID for a key vault secret by using a linked template.
+The previous section showed how to pass a static resource ID for the key vault secret from the parameter. In some scenarios, you need to reference a key vault secret that varies based on the current deployment. Or you may want to pass parameter values to the template rather than create a reference parameter in the parameter file. The solution is to dynamically generate the resource ID for a key vault secret by using a linked template.
 
 You can't dynamically generate the resource ID in the parameters file because template expressions aren't allowed in the parameters file.
 
@@ -367,8 +395,11 @@ The following template dynamically creates the key vault ID and passes it as a p
 }
 ```
 
+> [!NOTE]
+> As of Bicep version 0.3.255, a parameter file is needed to retrieve a key vault secret because the `reference` keyword isn't supported. There's work in progress to add support and for more information, see [GitHub issue 1028](https://github.com/Azure/bicep/issues/1028).
+
 ## Next steps
 
-- For general information about key vaults, see [What is Azure Key Vault?](../../key-vault/general/overview.md).
-- For complete examples of referencing key secrets, see [Key Vault examples](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+- For general information about key vaults, see [What is Azure Key Vault?](../../key-vault/general/overview.md)
+- For complete examples of referencing key secrets, see [key vault examples](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples) on GitHub.
 - For a Microsoft Learn module that covers passing a secure value from a key vault, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).

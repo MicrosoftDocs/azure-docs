@@ -9,8 +9,8 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 04/19/2021
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
+
 ---
 
 # Log & view metrics and log files

@@ -153,7 +153,7 @@ Site Recovery can create app-consistent recovery points with a minimum frequency
 
 ### Can I enable app-consistent replication for Linux VMs?
 
-Yes. The Mobility agent for Linux support custom scripts for app-consistency. A custom script with pre and post-options is used by the agent. [Learn more](site-recovery-faq.md#can-i-enable-replication-with-app-consistency-in-linux-servers)
+Yes. The Mobility agent for Linux support custom scripts for app-consistency. A custom script with pre and post-options is used by the agent. [Learn more](site-recovery-faq.yml)
 
 ### How are recovery points generated and saved?
 

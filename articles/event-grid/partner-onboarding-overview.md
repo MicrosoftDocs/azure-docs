@@ -148,7 +148,7 @@ After posting to the partner namespace endpoint, you receive a response. The res
   * [ARM template](/azure/templates/microsoft.eventgrid/allversions)
   * [ARM template schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
   * [REST APIs](/azure/templates/microsoft.eventgrid/2020-04-01-preview/partnernamespaces)
-  * [CLI extension](/cli/azure/)
+  * [CLI extension](/cli/azure/eventgrid)
 
 ### SDKs
   * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/5.3.1-preview)
