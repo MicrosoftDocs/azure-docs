@@ -78,7 +78,7 @@ Add the following information to the variables you created. They represent the c
 | Initialize variable 3 | var_plumbing | String | plumbing |
 | Initialize variable 4 | var_other | String | other | 
 
-:::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="information contained in the flow variables" lightbox="../media/tutorials/excel/flow-variables.png":::
+:::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="information contained in the flow variables":::
 
 ## Read the excel file
 
