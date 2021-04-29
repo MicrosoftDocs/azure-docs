@@ -67,13 +67,13 @@ At the time of the preview release, the Video Analyzer service does not support 
 * The ability to use more than one Storage account with the account.
 
 ### Limits on video resources
-At the time of the preview release, each Video Analyzer account can have at most 10000 video resources. Please open a support ticket via Azure Portal if you have a business need for a higher limit.
+At the time of the preview release, each Video Analyzer account can have at most 10,000 video resources. If you have a business need for a higher limit, open a support ticket in the Azure portal.
 
 ### Limits on access policies
 At the time of the preview release, each Video Analyzer account can have at most 20 access policies.
 
 ### Limits on registered edge modules
-At the time of the preview release, each Video Analyzer account can have at most 1000 edge modules registered with it. Please open a support ticket via Azure Portal if you have a business need for a higher limit.
+At the time of the preview release, each Video Analyzer account can have at most 1,000 edge modules registered with it. If you have a business need for a higher limit, open a support ticket in the Azure portal.
 
 ### Limits on Client API calls
 Following limits apply to the Client APIs at preview release:
