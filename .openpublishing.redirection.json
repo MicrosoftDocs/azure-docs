@@ -6,6 +6,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/api-management/import-api-app-as-api.md",
+      "redirect_url": "/azure/api-management/import-app-service-as-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/copy-vm.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/copy-vm",
       "redirect_document_id": false
@@ -14071,6 +14076,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/connectors/connectors-create-api-excel.md",
+      "redirect_url": "/connectors/excelonlinebusiness/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service-logic/app-service-logic-connector-http.md",
       "redirect_url": "/azure/connectors/connectors-native-http",
       "redirect_document_id": false
@@ -24709,6 +24719,11 @@
       "source_path_from_root": "/articles/iot-pnp/howto-certify-device.md",
       "redirect_url": "/azure/certification/program-requirements-pnp",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-pnp/howto-use-embedded-c.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device?pivots=programming-language-embedded-c",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/container-instances/container-instances-jenkins.md",
@@ -54497,13 +54512,23 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-tableau.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-integrate-with-tableau",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-integrate-with-tableau",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-integrate-with-tableau.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-integrate-with-tableau",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-teams.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-integrate-with-teams",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-integrate-with-teams",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-integrate-with-teams.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-integrate-with-teams",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-transition-from-uag-tmg.md",
@@ -54562,12 +54587,17 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-back-end-ping-access-how-to.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-ping-access-publishing-guide",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-back-end-ping-access-how-to.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-ping-access-publishing-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/application-proxy-ping-access-publishing-guide.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-ping-access-publishing-guide",
       "redirect_document_id": false
     },
     {
@@ -54597,12 +54627,37 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-gdpr.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-remove-personal-data",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-remove-personal-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-remove-personal-data.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-remove-personal-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-understand-cors-issues.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-understand-cors-issues",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-configure-cookie-settings.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-configure-cookie-settings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-integrate-with-power-bi.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-integrate-with-power-bi",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-security-considerations.md",
       "redirect_url": "/azure/active-directory/app-proxy/application-proxy-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-integrate-with-microsoft-cloud-application-security.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-integrate-with-microsoft-cloud-application-security",
       "redirect_document_id": false
     },
     {
@@ -55042,7 +55097,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/what-is-application-proxy.md",
-      "redirect_url": "/azure/active-directory/app-proxy/what-is-application-management",
+      "redirect_url": "/azure/active-directory/app-proxy/what-is-application-proxy",
       "redirect_document_id": false
     },
     {
@@ -65472,6 +65527,11 @@
     {
       "source_path_from_root": "/articles/cognitive-services/translator/document-translation/reference/submit-batch-request.md",
       "redirect_url": "/azure/cognitive-services/translator/document-translation/reference/start-translation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/peering-service/create-connection.md",
+      "redirect_url": "/azure/peering-service/azure-portal",
       "redirect_document_id": false
     }
   ]

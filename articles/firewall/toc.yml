@@ -18,14 +18,19 @@
     href: deploy-template.md
 - name: Tutorials
   items:
-  - name: Deploy and configure
+  - name: Deploy and configure - classic
     href: tutorial-firewall-deploy-portal.md
+  - name: Deploy and configure - policy
+    href: tutorial-firewall-deploy-portal-policy.md
   - name: Deploy in hybrid network - classic
     href: tutorial-hybrid-portal.md
   - name: Deploy in hybrid network - policy
     href: tutorial-hybrid-portal-policy.md
-  - name: Filter inbound traffic with DNAT
+  - name: Filter inbound traffic with DNAT - classic
     href: tutorial-firewall-dnat.md
+  - name: Filter inbound traffic with DNAT - policy
+    href: tutorial-firewall-dnat-policy.md
+
 - name: Samples
   items:
   - name: Azure PowerShell

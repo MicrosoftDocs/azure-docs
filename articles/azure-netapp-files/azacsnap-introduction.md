@@ -45,7 +45,7 @@ AzAcSnap leverages the volume snapshot and replication functionalities in Azure 
 - **Support for disaster recovery**
     AzAcSnap leverages storage volume replication to provide options for recovering replicated application-consistent snapshots at a remote site.
 
-AzAcSnap is a single binary.  It does not need additional agents or plug-ins to interact with the database or the storage (Azure NetApp Files via Azure Resource Manager, and Azure Large Instance via SSH).  AzAcSnap must be installed on a system that has connectivity to the database and the storage.  However, the flexibility of installation and configuration allows for either a single centralized installation or a fully distributed installation with copies installed on each database installation.
+AzAcSnap is a single binary.  It does not need additional agents or plug-ins to interact with the database or the storage (Azure NetApp Files via Azure Resource Manager, and Azure Large Instance via SSH).  AzAcSnap must be installed on a system that has connectivity to the database and the storage.  However, the flexibility of installation and configuration allows for either a single centralized installation (Azure NetApp Files only) or a fully distributed installation (Azure NetApp Files and Azure Large Instance) with copies installed on each database installation.
 
 ## Architecture overview
 
