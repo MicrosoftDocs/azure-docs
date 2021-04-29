@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
+ms.custom: contperf-fy21q4
 ms.date: 04/01/2021
 
 # Customer intent: As a developer, I want to create my first automated integration workflow by using Azure Logic Apps in the Azure portal
@@ -31,8 +32,8 @@ As you complete the steps in this quickstart, you'll learn these basic concepts:
 
 To create and manage a logic app using other tools, review these other Logic Apps quickstarts:
 
-* [Create and manage logic apps in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 * [Create and manage logic apps in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
+* [Create and manage logic apps in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 * [Create and manage logic apps using the Azure Command-Line Interface (Azure CLI)](quickstart-logic-apps-azure-cli.md)
 
 <a name="prerequisites"></a>
