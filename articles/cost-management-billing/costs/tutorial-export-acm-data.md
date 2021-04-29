@@ -259,6 +259,8 @@ Exports for management groups of other subscription types aren't supported.
 
 If you have a Microsoft Customer Agreement or a Microsoft Partner Agreement, you can enable Exports to chunk your file into multiple smaller file partitions to help with data ingestion. When you initially configure your export, set the **File Partitioning** setting to **On**. The setting is **Off** by default.
 
+:::image type="content" source="./media/tutorial-export-acm-data/file-partition.png" alt-text="Screenshot showing File Partitioning option." lightbox="./media/tutorial-export-acm-data/file-partition.png" :::
+
 #### Update existing exports to use file partitioning
 
 If you have existing exports and you want to set up file partitioning, create a new export. File partitioning is only available with the latest Exports version. There may be minor changes to some of the fields in the usage files that get created.
