@@ -90,7 +90,7 @@ If you want to execute a deployment but not use any of the templates in the Mark
 
     This tutorial provides the instruction for loading a quickstart template.
 
-1. Under **Load a GitHub quickstart template**, type or select **101-storage-account-create**.
+1. Under **Load a GitHub quickstart template**, type or select **storage-account-create**.
 
     You have two options:
 
