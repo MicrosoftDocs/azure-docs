@@ -40,9 +40,10 @@ You can change the size of a volume as necessary. A volume's capacity consumptio
 
 1. From the NetApp Account view, go to **Volumes**, and click the volume that you want to resize.
 2. Right-click the volume name or click the "…" icon at the end of the volume's row to display the context menu. Click **Resize**.
-3. In the Update volume quota window, specify the quota for the volume. Click **OK**.   
 
     ![Screenshot that shows volume context menu.](../media/azure-netapp-files/resize-volume-context-menu.png) 
+    
+3. In the Update volume quota window, specify the quota for the volume. Click **OK**.   
 
     ![Screenshot that shows Update Volume Quota window.](../media/azure-netapp-files/resize-volume-quota-window.png) 
 
