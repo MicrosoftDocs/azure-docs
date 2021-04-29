@@ -37,7 +37,7 @@ If you don't have a reference on Application Insights SDK yet:
   * [ASP.NET Core project](./asp-net-core.md)
   * [Java project](./java-get-started.md)
   * [Node.js project](./nodejs.md)
-  * [JavaScript in each webpage](./javascript.md) 
+  * [JavaScript in each webpage](./javascript.md)
 * In your device or web server code, include:
 
     *C#:* `using Microsoft.ApplicationInsights;`
@@ -61,6 +61,7 @@ If you use AzureFunctions v2+ or Azure WebJobs v3+ - follow this document: https
 ```csharp
 private TelemetryClient telemetry = new TelemetryClient();
 ```
+
 For anyone seeing this method is obsolete messages please visit [microsoft/ApplicationInsights-dotnet#1152](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1152) for further details.
 
 *Visual Basic*
@@ -73,7 +74,7 @@ Private Dim telemetry As New TelemetryClient
 
 ```java
 private TelemetryClient telemetry = new TelemetryClient();
-``` 
+```
 
 *Node.js*
 
@@ -143,8 +144,6 @@ telemetry.trackEvent({name: "WinGame"});
 
 The telemetry is available in the `customEvents` table in [Application Insights Logs tab](../logs/log-query-overview.md) or [Usage Experience](usage-overview.md). Events may come from `trackEvent(..)` or [Click Analytics Auto-collection Plugin](javascript-click-analytics-plugin.md).
 
- 
-
 If [sampling](./sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackEvent(), the sampling process only transmitted one of them. To get a correct count of custom events, you should therefore use code such as `customEvents | summarize sum(itemCount)`.
 
 ## GetMetric
@@ -174,9 +173,9 @@ To send a single metric value:
 
 *JavaScript*
 
- ```javascript
+```javascript
 appInsights.trackMetric("queueLength", 42.0);
- ```
+```
 
 *C#*
 
@@ -195,9 +194,9 @@ telemetry.trackMetric("queueLength", 42.0);
 
 *Node.js*
 
- ```javascript
+```javascript
 telemetry.trackMetric({name: "queueLength", value: 42.0});
- ```
+```
 
 ### Custom metrics in Analytics
 
@@ -501,7 +500,7 @@ Log a diagnostic event such as entering or leaving a method.
 You can search on message content, but (unlike property values) you can't filter on it.
 
 The size limit on `message` is much higher than the limit on properties.
-An advantage of TrackTrace is that you can put relatively long data in the message. For example, you can encode POST data there.  
+An advantage of TrackTrace is that you can put relatively long data in the message. For example, you can encode POST data there.
 
 In addition, you can add a severity level to your message. And, like other telemetry, you can add property values to help you filter or search for different sets of traces. For example:
 
@@ -598,7 +597,7 @@ finally
 }
 ```
 
-Remember that the server SDKs include a [dependency module](./asp-net-dependencies.md) that discovers and tracks certain dependency calls automatically--for example, to databases and REST APIs. You have to install an agent on your server to make the module work. 
+Remember that the server SDKs include a [dependency module](./asp-net-dependencies.md) that discovers and tracks certain dependency calls automatically--for example, to databases and REST APIs. You have to install an agent on your server to make the module work.
 
 In Java, certain dependency calls can be automatically tracked using [Java Agent](./java-agent.md).
 
@@ -630,7 +629,7 @@ Normally, the SDK sends data at fixed intervals (typically 30 secs) or whenever 
 
 *C#*
 
- ```csharp
+```csharp
 telemetry.Flush();
 // Allow some time for flushing before shutdown.
 System.Threading.Thread.Sleep(5000);
@@ -795,8 +794,6 @@ telemetry.trackEvent("WinGame", properties, metrics);
 
 > [!NOTE]
 > Take care not to log personally identifiable information in properties.
->
->
 
 ### Alternative way to set properties and metrics
 
@@ -817,8 +814,6 @@ telemetry.TrackEvent(event);
 
 > [!WARNING]
 > Don't reuse the same telemetry item instance (`event` in this example) to call Track*() multiple times. This may cause telemetry to be sent with incorrect configuration.
->
->
 
 ### Custom measurements and properties in Analytics
 
@@ -909,7 +904,6 @@ gameTelemetry.TrackEvent("WinGame")
 import com.microsoft.applicationinsights.TelemetryClient;
 import com.microsoft.applicationinsights.TelemetryContext;
 ...
-
 
 TelemetryClient gameTelemetry = new TelemetryClient();
 TelemetryContext context = gameTelemetry.getContext();
