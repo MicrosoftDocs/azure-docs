@@ -13,7 +13,7 @@ ms.custom: mvc, devcenter
 
 > [!IMPORTANT]
 > The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
-> 
+>
 > For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 This tutorial is part three of a series and shows you how to publish an Azure Service Fabric Mesh web application directly from Visual Studio.
@@ -72,13 +72,13 @@ Back in the **Publish Service Fabric Application** dialog, under **Azure Contain
 
 If you get an error that a resource provider has not been registered for your subscription, you can register it. First see if the resource provider is available for your subscription:
 
-```Powershell
+```powershell
 Get-AzureRmResourceProvider -ListAvailable
 ```
 
 If the container registry provider (`Microsoft.ContainerRegistry`) is available, register it from Powershell:
 
-```Powershell
+```powershell
 Connect-AzureRmAccount
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ContainerRegistry
 ```
@@ -104,7 +104,7 @@ You can use the Azure Cloud Shell or a local installation of the Azure CLI for t
 
 ## Check application deployment status
 
-At this point, your application has been deployed. You can check to see its status by using the `app show` command. 
+At this point, your application has been deployed. You can check to see its status by using the `app show` command.
 
 The application name for the tutorial app is `todolistapp`. Gather the details on the application with the following command:
 
@@ -115,7 +115,7 @@ az mesh app show --resource-group $rg --name todolistapp
 ## Get the IP address of your deployment
 
 If you want to get the IP address for your application, use the following command:
-  
+
 ```azurecli-interactive
 az mesh gateway show --resource-group myResourceGroup --name todolistappGateway
 ```
