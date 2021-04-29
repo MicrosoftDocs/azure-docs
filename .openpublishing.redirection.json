@@ -7,7 +7,7 @@
     },
     {
       "source_path": "articles/api-management/import-api-app-as-api.md",
-      "redirect_url": "/api-management/import-app-service-as-api",
+      "redirect_url": "/azure/api-management/import-app-service-as-api",
       "redirect_document_id": false
     },
     {
