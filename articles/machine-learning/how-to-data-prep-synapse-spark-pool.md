@@ -320,7 +320,7 @@ input1 = train_ds.as_mount()
 
 ## Use a `ScriptRunConfig` to submit an experiment run to a Synapse Spark pool
 
-If you are ready to automate and productionize your data wrangling tasks, you can submit an experiment run to [the Synapse Spark pool you attached previously](#attach-a-pool-with-the-python-sdk)  with the [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) object.  
+If you are ready to automate and productionize your data wrangling tasks, you can submit an experiment run to [the Synapse Spark pool you attached previously](#attach-a-pool-with-the-python-sdk) with the [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) object.  
 
 Similarly, if you have an Azure Machine Learning pipeline, you can use the [SynapseSparkStep to specify your Synapse Spark pool as the compute target for the data preparation step in your pipeline](how-to-use-synapsesparkstep.md).
 
@@ -332,7 +332,7 @@ Making your data available to the Synapse Spark pool depends on your dataset typ
 The following code, 
 
 * Creates the variable `input2` from the FileDataset `train_ds` that was created in the previous code example.
-* Creates the variable `output` with the HDFSOutputDatasetConfiguration class. After the run is complete, this class allows us to save the output of the run as the dataset,`test` in the datastore, `mydatastore`. In the Azure Machine Learning workspace, the `test` dataset is registered under the name `registered_dataset`. 
+* Creates the variable `output` with the HDFSOutputDatasetConfiguration class. After the run is complete, this class allows us to save the output of the run as the dataset, `test` in the datastore, `mydatastore`. In the Azure Machine Learning workspace, the `test` dataset is registered under the name `registered_dataset`. 
 * Configures settings the run should use in order to perform on the Synapse Spark pool. 
 * Defines the ScriptRunConfig parameters to, 
   * Use the `dataprep.py`, for the run. 
