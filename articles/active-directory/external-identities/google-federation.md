@@ -29,7 +29,7 @@ After you've added Google as one of your application's sign-in options, on the *
 > Google federation is designed specifically for Gmail users. To federate with G Suite domains, use [direct federation](direct-federation.md).
 
 > [!IMPORTANT]
-> **Starting in the second half of 2021**, Google is [deprecating web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If you’re using Google federation for B2B invitations or [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), or if you're using self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](#deprecation-of-webview-sign-in-support).
+> **Starting in the second half of 2021**, Google is [deprecating web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If you’re using Google federation for B2B invitations or [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), or if you're using self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](#deprecation-of-web-view-sign-in-support).
 
 ## What is the experience for the Google user?
 
@@ -54,12 +54,12 @@ Google guest users can also use application endpoints that include your tenant i
 
 You can also give Google guest users a direct link to an application or resource by including your tenant information, for example `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`.
 
-## Deprecation of embedded web-view sign-in support
+## Deprecation of web-view sign-in support
 
 Starting in the second half of 2021, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If you’re using Google federation for B2B or [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), or if you're using [self-service sign-up with Gmail](identity-providers.md), you should test your line-of-business native applications for compatibility. If your apps authenticate users with an embedded web-view, Google Gmail users won't be able to authenticate.
 
 The following are known scenarios that will impact Gmail users:
-- Windows apps that use the [WebView](https://docs.microsoft.com/en-us/windows/communitytoolkit/controls/wpf-winforms/webview) control, [WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2/), or the older WebBrowser control, for authentication. These apps should migrate to using the Web Account Manager (WAM) flow.
+- Windows apps that use the [WebView](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/webview) control, [WebView2](https://docs.microsoft.com/microsoft-edge/webview2/), or the older WebBrowser control, for authentication. These apps should migrate to using the Web Account Manager (WAM) flow.
 - Android applications using the WebView UI element 
 - iOS applications using UIWebView/WKWebview 
 - Apps using ADAL
@@ -76,7 +76,7 @@ We’re confirming with Google whether this change affects the following:
 
 We’re continuing to test various platforms and scenarios, and will update this article accordingly.
 ### Action needed for embedded web-views
-Modify your apps to use the system browser for sign-in. For details, see [Embedded vs System Web UI](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-net-web-browsers#embedded-vs-system-web-ui) in the MSAL.NET documentation. All MSAL SDKs use the system web-view by default.
+Modify your apps to use the system browser for sign-in. For details, see [Embedded vs System Web UI](https://docs.microsoft.com/azure/active-directory/develop/msal-net-web-browsers#embedded-vs-system-web-ui) in the MSAL.NET documentation. All MSAL SDKs use the system web-view by default.
 ### What to expect
 Before Google puts these changes into place in the second half of 2021, Microsoft will deploy a workaround for apps still using embedded web-views to ensure that authentication isn't blocked.
 
