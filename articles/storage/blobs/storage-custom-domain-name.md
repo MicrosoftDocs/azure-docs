@@ -95,7 +95,7 @@ Create a CNAME record to point to your host name. A CNAME record is a type of Do
 
 1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 
-2. In the menu pane, under **Blob Service**, select **Networking**.
+2. In the menu pane, under **Settings**, select **Networking**.
 
 3. In the **Networking** page, choose the **Custom domain** tab.
 
@@ -231,7 +231,7 @@ When you pre-register your custom domain with Azure, you permit Azure to recogni
 
 1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 
-2. In the menu pane, under **Blob Service**, select **Networking**.
+2. In the menu pane, under **Settings**, select **Networking**.
 
 3. In the **Networking** page, choose the **Custom domain** tab.
 
@@ -322,7 +322,7 @@ To remove a custom domain mapping, deregister the custom domain. Use one of the 
 
 1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 
-2. In the menu pane, under **Blob Service**, select **Networking**.
+2. In the menu pane, under **Settings**, select **Networking**.
 
 3. In the **Networking** page, choose the **Custom domain** tab.
 
