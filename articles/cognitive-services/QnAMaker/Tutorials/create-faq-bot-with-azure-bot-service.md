@@ -80,7 +80,6 @@ When you make changes to the knowledge base and republish, you don't need to tak
 1. Light up the Bot in additional [supported channels](/azure/bot-service/bot-service-manage-channels).
 
 
-    - Click on Channels in the Bot service resource.
+    - Click on Channels in the Bot Service resource.
 
     ![Screenshot of connecting a bot to a channel](../media/qnamaker-tutorial-updates/connect-with-teams.png)
-
