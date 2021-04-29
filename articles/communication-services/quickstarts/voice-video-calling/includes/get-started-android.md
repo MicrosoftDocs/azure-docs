@@ -258,7 +258,7 @@ The following classes and interfaces handle some of the major features of the Az
 | ------------------------------------- | ------------------------------------------------------------ |
 | CallClient| The CallClient is the main entry point to the Calling SDK.|
 | CallAgent | The CallAgent is used to start and manage calls. |
-| CommunicationUserCredential | The CommunicationUserCredential is used as the token credential to instantiate the CallAgent.|
+| CommunicationTokenCredential | The CommunicationTokenCredential is used as the token credential to instantiate the CallAgent.|
 | CommunicationIdentifier | The CommunicationIdentifier is used as different type of participant that would could be part of a call.|
 
 ## Create an agent from the user access token
