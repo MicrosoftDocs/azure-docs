@@ -173,6 +173,15 @@ To turn this on set the following:
 ## Azure PowerShell deployment
 > [!WARNING]
 > PowerShell clients often add `\` to `"` in the settings.json which will cause akvvm_service fails with error: `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`
+> The extra `\` and `"` characters will be visible in the portal, under "Extensions", in the "Settings" box. To avoid this behavior initialize `$settings` as a PowerShell `HashTable`:
+> ```powershell
+> $settings = @{
+>     "secretsManagementSettings" = @{ 
+>         "pollingIntervalInS"       = "<pollingInterval>"; 
+>         "certificateStoreName"     = "<certStoreName>"; 
+>         "certificateStoreLocation" = "<certStoreLoc>"; 
+>         "observedCertificates"     = @("<observedCert1>", "<observedCert2>") } }
+> ```
 
 The Azure PowerShell can be used to deploy the Key Vault VM extension to an existing virtual machine or virtual machine scale set. 
 
