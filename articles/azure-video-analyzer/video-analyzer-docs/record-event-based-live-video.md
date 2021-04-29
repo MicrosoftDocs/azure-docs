@@ -136,7 +136,7 @@ The deployment manifest defines what modules are deployed to an edge device and 
 1. Start Visual Studio Code.
 1. Set the IoT Hub connection string by selecting the **More actions** icon next to the **AZURE IOT HUB** pane in the lower-left corner. Copy the string from the src/cloud-to-device-console-app/appsettings.json file. 
 
-    ![Set IoT Hub connection string]()<!--./media/quickstarts/set-iotconnection-string.png-->
+    <!--TODO: add image -- ![Set IoT Hub connection string]() ./media/quickstarts/set-iotconnection-string.png -->
     > [!NOTE]
     > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
         ```
@@ -145,16 +145,16 @@ The deployment manifest defines what modules are deployed to an edge device and 
 
 1. Right-click the src/edge/deployment.template.json file, and select **Generate IoT Edge Deployment Manifest**. Visual Studio Code uses the values from the .env file to replace the variables found in the deployment template file. This action creates a manifest file in the src/edge/config folder named **deployment.amd64.json**.
 
-   ![Generate IoT Edge deployment manifest]()<!--./media/quickstarts/generate-iot-edge-deployment-manifest.png-->
+   <!--TODO: add image -- ![Generate IoT Edge deployment manifest]() ./media/quickstarts/generate-iot-edge-deployment-manifest.png -->
 1. Right-click the src/edge/config/deployment.amd64.json file, and select **Create Deployment for Single Device**.
 
-   ![Create Deployment for Single Device]()<!--./media/quickstarts/create-deployment-single-device.png-->
+   <!--TODO: add image -- ![Create Deployment for Single Device]() ./media/quickstarts/create-deployment-single-device.png -->
 1. You're then asked to **Select an IoT Hub device**. Select ava-sample-device from the drop-down list.
 1. In about 30 seconds, refresh Azure IoT Hub in the lower-left section. You should see the edge device has the following modules deployed:
     * Azure Video Analyzer on IoT Edge (module name **avaedge**)
     * RTSP simulator (module name **rtspsim**)
  
-    ![IoT Hub]()<!--./media/event-based-video-recording-tutorial/iot-hub.png-->
+    <!--TODO: add image -- ![IoT Hub]() ./media/event-based-video-recording-tutorial/iot-hub.png -->
 
 ## Prepare for monitoring events
 
@@ -164,7 +164,7 @@ When you use the Azure Video Analyzer on IoT Edge module to record the live vide
 1. Expand the **Devices** node.
 1. Right-click the ava-sample-device file, and select **Start Monitoring Built-in Event Endpoint**.
 
-    ![Start Monitoring Built-in Event Endpoint]()<!--./media/quickstarts/start-monitoring-iothub-events.png-->
+    <!--TODO: add image -- ![Start Monitoring Built-in Event Endpoint]() ./media/quickstarts/start-monitoring-iothub-events.png -->
 
     > [!NOTE]
     > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
@@ -383,12 +383,12 @@ You can examine the Video Analyzer video resource that was created by the live p
 1. Locate your Video Analyzer account among the resources you have in your subscription, and open the account pane.
 1. Select **Videos** in the **Video Analyzers** list.
 
-    ![Video Analyzers videos]()<!--./media/event-based-video-recording-tutorial/videos.png-->
+    <!--TODO: add image -- ![Video Analyzers videos]() ./media/event-based-video-recording-tutorial/videos.png -->
 1. You'll find a video listed with the name `sample-evr-video`. This is the name chosen in your pipeline topology file.
 1. Select the video.
 1. On the video details page, select playback option <!-- TODO: fix this-->
 
-    ![Video playback]()<!--TODO: new screenshot is needed here-->
+    <!--TODO: add image -- ![Video playback]() TODO: new screenshot is needed here -->
 
 1. For more information on scrubbing the video to see the entire recording, see [video playback]()<!--video-playback-concept.md-->.
 
