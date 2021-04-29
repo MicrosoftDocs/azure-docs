@@ -359,7 +359,7 @@ This Azure Resource Manager template example demonstrates configuring an **Respo
 
 > [!NOTE]
 > "id" property should change according to the specific detector configured. The value must be one of:
-
+>
 > - **FailureAnomaliesDetector**
 > - **RequestPerformanceDegradationDetector**
 > - **DependencyPerformanceDegradationDetector**
