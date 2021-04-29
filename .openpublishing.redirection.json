@@ -54511,6 +54511,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-powershell-samples.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-powershell-samples",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-tableau.md",
       "redirect_url": "/azure/active-directory/app-proxy/application-proxy-integrate-with-tableau",
       "redirect_document_id": false
