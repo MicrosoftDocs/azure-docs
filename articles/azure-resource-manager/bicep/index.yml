@@ -23,8 +23,6 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What are templates?
-            url: overview.md
           - text: What is Bicep?
             url: bicep-overview.md
       - linkListType: concept
