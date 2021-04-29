@@ -52,6 +52,13 @@ So our expression, basically says, replace the mail attribute on user objects th
 
 For more information on supported expressions, see [Writing expressions for attribute mappings in Azure Active Directory](reference-expressions.md)
 
+### Information on expression builder input boxes
+Depending on which function you have selected, the boxes provided by expression builder, will accept muliple values.  For example, the JOIN function will accept strings or the value that is associated with a given attribute.  For example, we can use the value contained in the attribute value of [givenName] and join this with a string value of "@contoso.com" to create an email address.
+
+  ![Build an expression with Azure](media/how-to-expression-builder/expression-8.png)
+
+For more information on acceptable values and how to write expressions, see [Writing expressions for attribute mappings in Azure Active Directory](reference-expressions.md).
+
 ## Test an expression
 In this section, you can test your expressions.  From the drop-down, select the **mail** attribute.  Fill in the value with **@fabrikam.com** and now click **Test expression**.  
 
@@ -70,6 +77,8 @@ This will add the expression to the agent configuration.
 To set an attributes value to NULL.  You can use an expression with the value of `""`.  This will flow the NULL value to the target attribute.
 
 ![NULL value](media/how-to-expression-builder/expression-7.png)
+
+
 
 ## Next steps 
 

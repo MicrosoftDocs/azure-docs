@@ -62,7 +62,7 @@ The following are the attributes supported by a constant mapping:
  ![Screenshot for constant](media/how-to-attribute-mapping/mapping-9.png)
 
 ### Expression mapping attributes
-The following are the attributes supported by a direct mapping:
+The following are the attributes supported by an expression mapping:
 
 - **Expression**: This is the expression that is going to be applied to the target attribute.  For more information, see [Expression Builder](how-to-expression-builder.md) and [Writing expressions for attribute mappings in Azure Active Directory](reference-expressions.md).
 -  **Default value if null (optional)**: The value that will be passed to the target system if the source attribute is null. This value will be provisioned only when a user is created. It won't be provisioned when you're updating an existing user. 
