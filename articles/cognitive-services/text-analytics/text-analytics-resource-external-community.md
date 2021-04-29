@@ -22,7 +22,7 @@ ms.author: aahi
 
 + [Using Text Analytics Key Phrase Cognitive Services API from PowerShell (AutomationNext blog)](https://automationnext.wordpress.com/tag/text-analytics/)
 
-+ [R Quick tip: Microsoft Cognitive Services’ Text Analytics API (R Bloggers)](https://www.r-bloggers.com/r-quick-tip-microsoft-cognitive-services-text-analytics-api/)
++ [R Quick tip: Azure Cognitive Services’ Text Analytics API (R Bloggers)](https://www.r-bloggers.com/r-quick-tip-microsoft-cognitive-services-text-analytics-api/)
 
 + [Sentiment analysis in Logic App using SQL Server data (TechNet blog)](https://social.technet.microsoft.com/wiki/contents/articles/36074.logic-apps-with-azure-cognitive-service.aspx)
 
@@ -38,9 +38,9 @@ ms.author: aahi
 
 + [Logic App to detect sentiment and extract key phrases from your text](https://www.youtube.com/watch?v=jVN9NObAzgk)
 
-+ [Sentiment Analysis using Power BI and Microsoft Cognitive Services](https://www.youtube.com/watch?v=gJ1j3N7Y75k)
++ [Sentiment Analysis using Power BI and Azure Cognitive Services](https://www.youtube.com/watch?v=gJ1j3N7Y75k)
 
-+ [Text analytics extract key phrases using Power BI and Microsoft Cognitive Services](https://www.youtube.com/watch?v=R_-1TB2BF14)
++ [Text analytics extract key phrases using Power BI and Azure Cognitive Services](https://www.youtube.com/watch?v=R_-1TB2BF14)
 
 ## Next steps
 
