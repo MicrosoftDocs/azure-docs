@@ -15,9 +15,12 @@ ms.author: jeffme
 
 Azure Applied AI Services reduce the time developers need to modernize business processes from months to days. These services help you accelerate time to value for specific business scenarios through a combination of Azure Cognitive Services, task-specific AI, and business logic.  ​
 
-## Time to Value
 
- ​​
+## Benefits: ​​
+•	Modernize business process – Use task specific AI to solve your scenario
+•	Accelerate development – Go live with your AI solutions quickly
+•	Run responsibly anywhere – Enterprise-grade responsible and secure services on the cloud and to the edge 
+ 
 
 ## What is the difference between Applied AI Services and  Cognitive Services? 
  
