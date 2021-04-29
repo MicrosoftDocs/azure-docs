@@ -135,6 +135,8 @@ You will see logs like this:
 > [!TIP]
 > Use `az spring-cloud app logs -h` to explore more parameters and log stream functionalities.
 
+To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, check out [Azure Data Explorer](/azure/data-explorer/query-monitor-data).
+
 #### [IntelliJ](#tab/IntelliJ)
 
 To get the logs using Azure Toolkit for IntelliJ:
