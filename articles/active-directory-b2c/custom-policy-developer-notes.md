@@ -17,13 +17,13 @@ ms.subservice: B2C
 
 # Developer notes for Azure Active Directory B2C
 
-Azure Active Directory B2C [user flow and custom policy](user-flow-overview.md) are generally available. Azure AD B2C capabilities are under constant development. While most of the features are generally available, some of features are at different stages in the software lifecycle. This article discusses cumulative improvements in Azure AD B2C, and the specifies the level of availability.
+Azure Active Directory B2C [user flows and custom policies](user-flow-overview.md) are generally available. Azure AD B2C capabilities are under continual development, so although most features are generally available, some features are at different stages in the software release cycle. This article discusses cumulative improvements in Azure AD B2C and specifies feature availability.
 
 ## Terms for features in public preview
 
-- We encourage you to use the public preview features for evaluation purposes only.
-- Service level agreements (SLAs) do not apply to the public preview features.
-- Support requests for public preview features can be filed through regular support channels.
+- We encourage you to use public preview features for evaluation purposes only.
+- Service level agreements (SLAs) don't apply to public preview features.
+- Support requests for public preview features can be submitted through regular support channels.
 
 ## User flows
 
@@ -43,11 +43,11 @@ Azure Active Directory B2C [user flow and custom policy](user-flow-overview.md) 
 | [Multi-language support](localization.md)| GA | GA | |
 | [Custom email verification](custom-email-mailjet.md) | NA | GA| |
 | [Customize the user interface with built-in templates](customize-ui.md) | GA| GA| |
-| [Customize the user interface with custom templates](customize-ui-with-html.md) | GA| GA| HTML templates. |
+| [Customize the user interface with custom templates](customize-ui-with-html.md) | GA| GA| By using HTML templates. |
 | [JavaScript](javascript-and-page-layout.md) | GA | GA | |
 | [Embedded sign-in experience](embedded-login.md) | NA |  Preview| By using the inline frame element `<iframe>`. |
 | [Password complexity](password-complexity.md) | GA | GA | |
-| [Disable email verification](disable-email-verification.md) | GA|  GA| Shouldn't use in production environments. Disabling email verification in the sign-up process may lead to spam. |
+| [Disable email verification](disable-email-verification.md) | GA|  GA| Not recommended for production environments. Disabling email verification in the sign-up process may lead to spam. |
 
 
 ## Protocols and authorization flows
@@ -63,7 +63,7 @@ Azure Active Directory B2C [user flow and custom policy](user-flow-overview.md) 
 |[SAML2](saml-service-provider.md) | NA | GA | POST and Redirect bindings. |
 | WSFED | NA | NA | Not supported. |
 
-## Identify providers
+## Identity providers
 
 |Feature  |User flow  |Custom policy  |Notes  |
 |---------|:---------:|:---------:|---------|
@@ -87,31 +87,31 @@ Azure Active Directory B2C [user flow and custom policy](user-flow-overview.md) 
 |[WeChat](identity-provider-wechat.md) | Preview | GA | |
 |[Weibo](identity-provider-weibo.md) | Preview | GA | |
 
-## Generic identify providers
+## Generic identity providers
 
 |Feature  |User flow  |Custom policy  |Notes  |
 |---------|:---------:|:---------:|---------|
-|[OAuth2](oauth2-technical-profile.md) | NA | GA | For example,[Google](identity-provider-google.md), [GitHub](identity-provider-github.md), and [Facebook](identity-provider-facebook.md).|
+|[OAuth2](oauth2-technical-profile.md) | NA | GA | For example, [Google](identity-provider-google.md), [GitHub](identity-provider-github.md), and [Facebook](identity-provider-facebook.md).|
 |[OAuth1](oauth1-technical-profile.md) | NA | GA | For example, [Twitter](identity-provider-twitter.md). |
 |[OpenID Connect](openid-connect-technical-profile.md) | GA | GA | For example, [Azure AD](identity-provider-azure-ad-single-tenant.md).  |
-|[SAML2](identity-provider-generic-saml.md) | NA | GA | For example, [Salesforce](identity-provider-salesforce-saml.md), and [AD-FS].(identity-provider-adfs.md) |
+|[SAML2](identity-provider-generic-saml.md) | NA | GA | For example, [Salesforce](identity-provider-salesforce-saml.md) and [AD-FS].(identity-provider-adfs.md) |
 | WSFED | NA | NA | |
 
-### API Connectors
+### API connectors
 
 |Feature  |User flow  |Custom policy  |Notes  |
 |---------|:---------:|:---------:|---------|
-|[API Connectors](api-connectors-overview.md) | Preview | GA | |
-|[Secure with basic auth](secure-rest-api.md#http-basic-authentication) | Preview | GA | |
-|[Secure with client certificate auth](secure-rest-api.md#https-client-certificate-authentication) | Preview | GA | |
-|[Secure with OAuth2 bearer auth](secure-rest-api.md#oauth2-bearer-authentication) | NA | GA | |
+|[API connectors](api-connectors-overview.md) | Preview | GA | |
+|[Secure with basic authentication](secure-rest-api.md#http-basic-authentication) | Preview | GA | |
+|[Secure with client certificate authentication](secure-rest-api.md#https-client-certificate-authentication) | Preview | GA | |
+|[Secure with OAuth2 bearer authentication](secure-rest-api.md#oauth2-bearer-authentication) | NA | GA | |
 |[Secure API key authentication](secure-rest-api.md#api-key-authentication) | NA | GA | |
 
 ### Application and Azure AD B2C integration
 
 |Feature  |User flow  |Custom policy  |Notes  |
 |---------|:---------:|:---------:|---------|
-| [Redirect sign-in to a social provider](direct-signin.md#redirect-sign-in-to-a-social-provider) | GA | GA | Query string parameter `domain_hint` |
+| [Redirect sign-in to a social provider](direct-signin.md#redirect-sign-in-to-a-social-provider) | GA | GA | Query string parameter `domain_hint`. |
 | [Prepopulate the sign-in name](direct-signin.md#prepopulate-the-sign-in-name) | GA | GA | Query string parameter `login_hint`. |
 | Insert JSON into user journey via `client_assertion`| NA| Deprecated |  |
 | Insert JSON into user journey as [id_token_hint](id-token-hint.md) | NA | GA | |
@@ -120,14 +120,14 @@ Azure Active Directory B2C [user flow and custom policy](user-flow-overview.md) 
 
 ## Custom policy features
 
-### Session Management
+### Session management
 
 | Feature |  Custom policy | Notes |
 | ------- | :--: | ----- |
 | [Default SSO session provider](custom-policy-reference-sso.md#defaultssosessionprovider) | GA |  |
 | [External login session provider](custom-policy-reference-sso.md#externalloginssosessionprovider) | GA |  |
 | [SAML SSO session provider](custom-policy-reference-sso.md#samlssosessionprovider) | GA |  |
-| [OAuthSSOSessionProvider](custom-policy-reference-sso.md#oauthssosessionprovider)  | GA|  |
+| [OAuth SSO Session Provider](custom-policy-reference-sso.md#oauthssosessionprovider)  | GA|  |
 | [Single sign-out](session-behavior.md#sign-out)  |  Preview |  |
 
 ### Components
