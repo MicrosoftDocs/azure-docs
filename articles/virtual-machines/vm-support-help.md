@@ -25,34 +25,25 @@ See a full list of self help content at [Azure Virtual Machine troubleshooting d
 
 ## Post a question on Microsoft Q&A
 
+<div class='icon is-large'>
+    <img alt='Microsoft Q&A' src='./media/common/question-mark-icon.png'>
+</div>   
+
 For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](/answers/products/azure), Azure’s preferred destination for community support. 
 
 If you can't find an answer to your problem using search, submit a new question to Microsoft Q&A. Use one of the following tags when you ask your question:
-
-- [Azure Virtual Machines](/answers/topics/azure-virtual-machines.html)
-- [Azure SQL Virtual Machines](/answers/topics/azure-sql-virtual-machines.html)
-- [Azure Virtual Machine backup](/answers/topics/azure-virtual-machine-backup.html)
-- [Azure Virtual Machine extensions](/answers/topics/azure-virtual-machine-extensions.html)
-- [Azure Virtual Machine Images](/answers/topics/azure-virtual-machine-images.html)
-- [Azure Virtual Machine migration](/answers/topics/azure-virtual-machine-migration.html)
-- [Azure Virtual Machine monitoring](/answers/topics/azure-virtual-machine-monitoring.html)
-- [Azure Virtual Machine networking](/answers/topics/azure-virtual-machine-networking.html)
-- [Azure Virtual Machine storage](/answers/topics/azure-virtual-machine-storage.html)
-- [Azure Virtual Machine Scale Sets](/answers/topics/azure-virtual-machine-scale-sets.html)
-
-## Post a question on Stack Overflow
-
-<div class='icon is-large'>
-    <img alt='Stack Overflow' src='https://docs.microsoft.com/media/logos/logo_stackoverflow.svg'>
-</div>
-
-For answers on your developer questions from the largest community developer ecosystem, ask your question on Stack Overflow.
-
-If you do submit a new question to Stack Overflow, please use one or more of the following tags when you create the question:
-
- - [Azure Virtual Machines](https://stackoverflow.com/questions/tagged/azure-virtual-machine)
- - [Azure](https://stackoverflow.com/questions/tagged/azure)
- - [Virtual Machine](https://stackoverflow.com/questions/tagged/virtual-machine)
+| Area | Tag
+|---|---|
+| Azure Virtual Machines | [azure-virtual-machines](/answers/topics/azure-virtual-machines.html) | 
+| Azure SQL Virtual Machines | [azure-sql-virtual-machines](/answers/topics/azure-sql-virtual-machines.html)| 
+| Azure Virtual Machine backup | [azure-virtual-machine-backup](/answers/topics/azure-virtual-machine-backup.html) | 
+| Azure Virtual Machine extension | [azure-virtual-machine-extension](/answers/topics/azure-virtual-machine-extension.html)| 
+| Azure Virtual Machine Images | [azure-virtual-machine-images](/answers/topics/azure-virtual-machine-images.html) | 
+| Azure Virtual Machine migration | [azure-virtual-machine-migration](/answers/topics/azure-virtual-machine-migration.html) | 
+| Azure Virtual Machine monitoring | [azure-virtual-machine-monitoring](/answers/topics/azure-virtual-machine-monitoring.html) |
+| Azure Virtual Machine networking | [azure-virtual-machine-networking](/answers/topics/azure-virtual-machine-networking.html) | 
+| Azure Virtual Machine storage | [azure-virtual-machine-storage](/answers/topics/azure-virtual-machine-storage.html) | 
+| Azure Virtual Machine Scale Sets | [azure-virtual-machine-scale-set](/answers/topics/azure-virtual-machine-scale-set.html) | 
 
 ## Create an Azure support request
 
@@ -62,8 +53,31 @@ If you do submit a new question to Stack Overflow, please use one or more of the
 
 Explore the range of [Azure support options and choose the plan](https://azure.microsoft.com/support/plans) that best fits, whether you're a developer just starting your cloud journey or a large organization deploying business-critical, strategic applications. Azure customers can create and manage support requests in the Azure portal.
 
-* [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
-* [Azure portal for the United States government](https://portal.azure.us)
+- If you already have an Azure Support Plan, [open a support request here](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+- If you're not an Azure customer, you can open a support request with [Microsoft Support for business](https://support.serviceshub.microsoft.com/supportforbusiness).
+
+
+## Create a GitHub issue
+
+<div class='icon is-large'>
+    <img alt='GitHub-image' src='./media/common/github.svg'>
+</div>
+
+If you need help with one of the Microsoft Authentication Libraries (MSAL), open an issue in its repository on GitHub.
+
+| MSAL Library | GitHub issues URL|
+| --- | --- |
+| MSAL for Android | https://github.com/AzureAD/microsoft-authentication-library-for-android/issues |
+| MSAL Angular | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
+| MSAL for iOS and macOS| https://github.com/AzureAD/microsoft-authentication-library-for-objc/issues |
+| MSAL Java | https://github.com/AzureAD/microsoft-authentication-library-for-java/issues |
+| MSAL.js | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
+|MSAL.NET| https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues |
+| MSAL Node | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
+| MSAL Python | https://github.com/AzureAD/microsoft-authentication-library-for-python/issues |
+| MSAL React | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
+
 
 ## Submit feedback on Azure Feedback
 
