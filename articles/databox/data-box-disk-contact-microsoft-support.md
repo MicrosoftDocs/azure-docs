@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 04/29/2021
 ms.author: alkohli
 ---
 # Open a support ticket for Azure Data Box
@@ -80,6 +80,6 @@ Learn how to [Troubleshoot issues related to Data Box Disk](data-box-disk-troubl
 
 Learn how to [Troubleshoot issues related to a Data Box](data-box-troubleshoot.md).
 
-Learn how to [Troubleshoot data uploads from a Data Box or Data Box Disk device](data-box-troubleshoot-data-upload.md)
+Learn how to [Troubleshoot data uploads from a Data Box or Data Box Disk device](data-box-troubleshoot-data-upload.md).
 
 Learn how to [Troubleshoot issues related to Data Box Blob storage](data-box-troubleshoot-rest.md).
