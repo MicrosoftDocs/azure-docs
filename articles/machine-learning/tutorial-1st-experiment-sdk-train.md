@@ -39,15 +39,19 @@ In this tutorial, you:
 
 ## Create training scripts
 
-First you define the neural network architecture in a `model.py` file. All your training code will go into the `src` subdirectory, including `model.py`.
+First you define the neural network architecture in a *model.py* file. All your training code will go into the `src` subdirectory, including *model.py*.
 
-The following code is taken from [this introductory example](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html) from PyTorch. Note that the Azure Machine Learning concepts apply to any machine learning code, not just PyTorch.
+The training code is taken from [this introductory example](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html) from PyTorch. Note that the Azure Machine Learning concepts apply to any machine learning code, not just PyTorch.
+
+Create a *model.py* file in the **src** subfolder. Copy this code into the file:
 
 :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/src/model.py":::
 
-Next you define the training script. This script downloads the CIFAR10 dataset by using PyTorch `torchvision.dataset` APIs, sets up the network defined in `model.py`, and trains it for two epochs by using standard SGD and cross-entropy loss.
+On the toolbar, select **Save** to save the file.  Close the tab if you wish.
 
-Create a `train.py` script in the `src` subdirectory:
+Next, define the training script. This script downloads the CIFAR10 dataset by using PyTorch `torchvision.dataset` APIs, sets up the network defined in *model.py*, and trains it for two epochs by using standard SGD and cross-entropy loss.
+
+Create a *train.py* script in the **src** subfolder:
 
 ```python
 import torch
@@ -104,9 +108,9 @@ if __name__ == "__main__":
     print("Finished Training")
 ```
 
-You now have the following directory structure:
+You now have the following folder structure:
 
-:::image type="content" source="media/tutorial-1st-experiment-sdk-train/directory-structure.png" alt-text="Directory structure shows train.py in src subdirectory":::
+:::image type="content" source="media/tutorial-1st-experiment-sdk-train/folder-structure.png" alt-text="Directory structure shows train.py in src subdirectory":::
 
 
 > [!div class="nextstepaction"]
@@ -117,14 +121,14 @@ You now have the following directory structure:
 
 Select **Save and run script in terminal** to run the script.
 
-After you run this script, select **Refresh** above the file folders. You'll see the new data folder called `tutorial/data`. Expand this folder to view the downloaded data.  
+After you run this script, select **Refresh** above the file folders. You'll see the new data folder called **getting-started/data** Expand this folder to view the downloaded data.  
 
 > [!div class="nextstepaction"]
 > [I ran the code locally](?success=test-local#create-local) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=test-local)
 
 ## <a name="environment"></a> Create a new Python environment
 
-To prepare for submitting this code to your compute cluster, you'll create an environment file. Create a file called `pytorch-env.yml` in the `.azureml` hidden directory:
+To prepare for submitting this code to your compute cluster, you'll create an environment file. Create a folder called **.azureml**.  Then create a file called *pytorch-env.yml* in the **.azureml** folder:
 
 :::code language="yml" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/environments/pytorch-env.yml":::
 
@@ -137,10 +141,10 @@ This environment has all the dependencies that your model and training script re
 
 The difference between the following control script and the one that you used to submit "Hello world!" is that you add a couple of extra lines to set the environment.
 
-Create a new Python file in the `tutorial` directory called `04-run-pytorch.py`:
+Create a new Python file in the **getting-started** folder called `run-pytorch.py`:
 
 ```python
-# 04-run-pytorch.py
+# run-pytorch.py
 from azureml.core import Workspace
 from azureml.core import Experiment
 from azureml.core import Environment
@@ -191,7 +195,7 @@ if __name__ == "__main__":
 
 ## <a name="submit"></a> Submit the run to Azure Machine Learning
 
-Select **Save and run script in terminal** to run the 04-run-pytorch.py script.
+Select **Save and run script in terminal** to run the run-pytorch.py script.
 
 >[!NOTE] 
 > The first time you run this script, Azure Machine Learning will build a new Docker image from your PyTorch environment. The whole run might take 5 to 10 minutes to complete. 
@@ -222,9 +226,9 @@ Finished Training
 ```
 
 > [!WARNING]
-> If you see an error `Your total snapshot size exceeds the limit`, the `data` directory is located in the `source_directory` value used in `ScriptRunConfig`.
+> If you see an error `Your total snapshot size exceeds the limit`, the **data** folder is located in the `source_directory` value used in `ScriptRunConfig`.
 >
-> Select the **...** at the end of the directory, then select **Move** to move `data` to the **tutorial** folder.  
+> Select the **...** at the end of the folder, then select **Move** to move **data** to the **getting-started** folder.  
 
 Environments can be registered to a workspace with `env.register(ws)`. They can then be easily shared, reused, and versioned. Environments make it easy to reproduce previous results and to collaborate with your team.
 
@@ -241,9 +245,9 @@ Now that you have a model training in Azure Machine Learning, start tracking som
 
 The current training script prints metrics to the terminal. Azure Machine Learning provides a mechanism for logging metrics with more functionality. By adding a few lines of code, you gain the ability to visualize metrics in the studio and to compare metrics between multiple runs.
 
-### Modify `train.py` to include logging
+### Modify *train.py* to include logging
 
-Modify your `train.py` script to include two more lines of code:
+Modify your *train.py* script to include two more lines of code:
 
 :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/code/pytorch-cifar10-train-with-logging/train.py":::
 
@@ -251,7 +255,7 @@ Modify your `train.py` script to include two more lines of code:
 
 #### Understand the additional two lines of code
 
-In `train.py`, you access the run object from _within_ the training script itself by using the `Run.get_context()` method and use it to log metrics:
+In *train.py*, you access the run object from _within_ the training script itself by using the `Run.get_context()` method and use it to log metrics:
 
 ```python
 # in train.py
@@ -274,7 +278,7 @@ compare metrics.
 
 ### Update the Conda environment file
 
-The `train.py` script just took a new dependency on `azureml.core`. Update `pytorch-env.yml` to reflect this change:
+The *train.py* script just took a new dependency on `azureml.core`. Update *pytorch-env.yml* to reflect this change:
 
 :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/configuration/pytorch-aml-env.yml":::
 
@@ -285,7 +289,7 @@ The `train.py` script just took a new dependency on `azureml.core`. Update `pyto
 
 ### <a name="submit-again"></a> Submit the run to Azure Machine Learning
 
-Select the tab for 04-run-pytorch.py script, then select **Save and run script in terminal** to re-run the 04-run-pytorch.py script.
+Select the tab for the *run-pytorch.py* script, then select **Save and run script in terminal** to re-run the *run-pytorch.py* script. Since you updated the conda file, you'll again have to wait 5 to 10 minutes for the new Docker image to build.
 
 This time when you visit the studio, go to the **Metrics** tab where you can now see live updates on the model training loss!
 

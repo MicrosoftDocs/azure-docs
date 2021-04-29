@@ -39,10 +39,12 @@ This tutorial will use the compute instance as your development computer.  First
 1. Sign in to the [Azure Machine Learning studio](https://ml.azure.com) and select your workspace if prompted.
 1. On the left, select **Notebooks**
 1. In the **Files** toolbar, select **+**, then select **Create new folder**.
-1. Name the folder **tutorial**.
-1. To the right of the folder name, use the **...** to create another folder under **tutorial**.
+  :::image type="content" source="media/tutorial-1st-experiment-hello-world/create-folder.png" alt-text="Screenshot shows create a new folder tool in toolbar.":::
+1. Name the folder **getting-started**.
+1. To the right of the folder name, use the **...** to create another folder under **getting-started**.
+  :::image type="content" source="media/tutorial-1st-experiment-hello-world/create-sub-folder.png" alt-text="Screenshot shows create a subfolder menu.":::
 1. Name the new folder **src**.  Use the **Edit location** link if the file location is not correct.
-1. To the right of the **src** folder, use the **...** to create a new file in the **src** directory. 
+1. To the right of the **src** folder, use the **...** to create a new file in the **src** folder. 
 1. Name your file *hello.py*.  Switch the **File type** to *Python (*.py)*.
 
 Copy this code into your file:
@@ -52,25 +54,22 @@ Copy this code into your file:
 print("Hello world!")
 ```
 
-Your project directory structure will now look like: (NEEDS NEW IMAGE)
+Your project folder structure will now look like: 
 
-:::image type="content" source="media/tutorial-1st-experiment-hello-world/directory-structure.png" alt-text="Directory structure shows hello.py in src subdirectory":::
+:::image type="content" source="media/tutorial-1st-experiment-hello-world/directory-structure.png" alt-text="Folder structure shows hello.py in src subfolder.":::
 
 
 ### <a name="test"></a>Test your script
 
 You can run your code locally, which in this case means on the compute instance. Running code locally has the benefit of interactive debugging of code.  
 
-If you have previously stopped your compute instance, start it now with the **Start compute** tool to the right of the compute dropdown. Wait about a minute for its state to change to *Running*.
+If you have previously stopped your compute instance, start it now with the **Start compute** tool to the right of the compute dropdown. Wait about a minute for state to change to  *Running*.
 
-NEEDS AN IMAGE
+:::image type="content" source="media/tutorial-1st-experiment-hello-world/start-compute.png" alt-text="Screenshot shows starting the compute instance if it is stopped":::
 
 Select **Save and run script in terminal** to run the script.
 
-```bash
-cd <path/to/tutorial>
-python ./src/hello.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-hello-world/save-run-in-terminal.png" alt-text="Screenshot shows save and run script in terminal tool in the toolbar":::
 
 You'll see the output of the script in the terminal window that opens.
 
@@ -81,7 +80,7 @@ You'll see the output of the script in the terminal window that opens.
 
 A *control script* allows you to run your `hello.py` script on different compute resources. You use the control script to control how and where your machine learning code is run.  
 
-In your **tutorial** directory, create a new Python file called `03-run-hello.py` and copy/paste the following code into that file:
+In your **getting-started** folder, create a new Python file called `03-run-hello.py` and copy/paste the following code into that file:
 
 ```python
 # tutorial/03-run-hello.py
