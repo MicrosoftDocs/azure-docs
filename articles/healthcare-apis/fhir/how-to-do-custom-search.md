@@ -81,7 +81,7 @@ Important field descriptions:
 * **expression**: When describing a search parameter, you must include the expression, even though it is technically not required by the specification. This is because you need either the expression or the xpath syntax and the Azure API for FHIR ignores the xpath syntax right now. This describes how to find the value for the search. 
 
 > [!NOTE]
-> “Type” is limited by the support for the Azure API for FHIR. This means that you cannot define a search parameter of type Special or define a [composite search parameter](overview-fhir-search.md) unless it is of a type that we support.
+> “Type” is limited by the support for the Azure API for FHIR. This means that you cannot define a search parameter of type Special or define a [composite search parameter](overview-of-search.md) unless it is of a type that we support.
 
 Once you’ve added your search parameters, run or schedule your reindex job so the search parameters can be used in the FHIR server.
 

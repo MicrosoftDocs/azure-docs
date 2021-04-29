@@ -35,7 +35,7 @@ Previous versions also currently supported include: `3.0.2`
 | history                        | Yes       | Yes       | Yes       |                                                     |
 | create                         | Yes       | Yes       | Yes       | Support both POST/PUT                               |
 | create (conditional)           | Yes       | Yes       | Yes       | Issue [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
-| search                         | Partial   | Partial   | Partial   | See [Overview of FHIR Search](overview-fhir-search.md).                           |
+| search                         | Partial   | Partial   | Partial   | See [Overview of FHIR Search](overview-of-search.md).                           |
 | chained search                 | Partial       | Yes       | Partial   | See Note 2 below.                                   |
 | reverse chained search         | Partial       | Yes       | Partial   | See Note 2 below.                                   |
 | capabilities                   | Yes       | Yes       | Yes       |                                                     |
