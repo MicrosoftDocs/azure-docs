@@ -11,7 +11,7 @@ ms.custom: references_regions
 Each node type in a Service Fabric managed cluster is backed by a virtual machine scale set. To allow managed identities to be used with a managed cluster node type, a property `vmManagedIdentity` has been added to node type definitions containing a list of identities that may be used, `userAssignedIdentities`. Functionality mirrors how managed identities can be used in non-managed clusters, such as using a managed identity with the [Azure Key Vault virtual machine scale set extension](../virtual-machines/extensions/key-vault-windows.md).
 
 
-For an example of a Service Fabric managed cluster deployment that makes use of managed identity on a node type, see [this template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-MI). For a list of supported regions, see the [managed cluster FAQ](./faq-managed-cluster.md#what-regions-are-supported-in-the-preview).
+For an example of a Service Fabric managed cluster deployment that makes use of managed identity on a node type, see [this template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-MI). For a list of supported regions, see the [managed cluster FAQ](./faq-managed-cluster.md#what-regions-are-supported).
 
 > [!NOTE]
 > Only user-assigned identities are currently supported for this feature.
@@ -39,8 +39,8 @@ A user-assigned managed identity can be defined in the resources section of an A
 or created via PowerShell:
 
 ```powershell
-az group create --name <resourceGroupName> --location <location>
-az identity create --name <userAssignedIdentityName> --resource-group <resourceGroupName>
+az group create --name <resourceGroupName> --location <location>
+az identity create --name <userAssignedIdentityName> --resource-group <resourceGroupName>
 ```
 
 ## Add a role assignment with Service Fabric Resource Provider
@@ -83,13 +83,13 @@ This role assignment can be defined in the resources section using the Object ID
 or created via PowerShell using either the application ID and role definition ID:
 
 ```powershell
-New-AzRoleAssignment -ApplicationId 74cb6831-0dbb-4be1-8206-fd4df301cdc2 -RoleDefinitionName "Managed Identity Operator" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<userAssignedIdentityName>"
+New-AzRoleAssignment -ApplicationId 74cb6831-0dbb-4be1-8206-fd4df301cdc2 -RoleDefinitionName "Managed Identity Operator" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<userAssignedIdentityName>"
 ```
 
 or object ID and role definition ID:
 
 ```powershell
-New-AzRoleAssignment -PrincipalId fbc587f2-66f5-4459-a027-bcd908b9d278 -RoleDefinitionName "Managed Identity Operator" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<userAssignedIdentityName>"
+New-AzRoleAssignment -PrincipalId fbc587f2-66f5-4459-a027-bcd908b9d278 -RoleDefinitionName "Managed Identity Operator" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<userAssignedIdentityName>"
 ```
 
 ## Add managed identity properties to node type definition
