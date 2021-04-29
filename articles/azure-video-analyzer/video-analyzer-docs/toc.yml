@@ -135,7 +135,7 @@
   - name: Azure roadmap
     href: https://azure.microsoft.com/updates/?category=media
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/media-services/
+    href: https://azure.microsoft.com/services/media-services/live-video-analytics/
   - name: Azure Video Analyzer player
     href: player.md #404
   - name: FAQs
