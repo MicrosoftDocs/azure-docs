@@ -19,8 +19,7 @@ DobiMigrate enables file and object migrations between storage platforms. It mig
 
 The following diagram provides a reference architecture for on-premises to Azure and in-Azure deployments.
 
-[!div class="mx-imgBorder"]
-![Reference architecture describes basic setup for DobiMigrate](./media/dobimigrate-quick-start-guide/dobimigrate-reference-architecture.png)
+:::image type="content" source="./media/dobimigrate-quick-start-guide/dobimigrate-reference-architecture.png" alt-text="Reference architecture describes basic setup for DobiMigrate":::
 
 Your existing DobiMigrate deployment can easily integrate with Azure by adding and configuring an Azure connection.
 
@@ -64,11 +63,11 @@ This section provides a brief guide for how to add Azure Files share to an on-pr
 
 1. Open the Azure portal, and search for  **storage accounts**. 
 
-    ![Shows where you've typed storage in the search box of the Azure portal.](./media/dobimigrate-quick-start-guide/azure-locate-storage-account.png)
+    :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-locate-storage-account.png" alt-text="Shows where you've typed storage in the search box of the Azure portal.":::
 
     You can also click on the default  **Storage accounts**  icon.
 
-    ![Shows adding a storage accounts in the Azure portal.](./media/dobimigrate-quick-start-guide/azure-portal.png)
+    :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-portal.png" alt-text="Shows adding a storage accounts in the Azure portal.":::
 
 2. Select  **Create**  to add an account:
    1. Select existing resource group or **Create new**
@@ -77,61 +76,61 @@ This section provides a brief guide for how to add Azure Files share to an on-pr
    4. Select  **Standard**  or **Premium** performance, depending on your needs. If you select **Premium**, select **File shares** under **Premium account type**.
    5. Choose the **[Redundancy](/azure/storage/common/storage-redundancy)** that meets your data protection requirements
    
-   ![Shows storage account settings in the portal](./media/dobimigrate-quick-start-guide/azure-account-create-1.png)
+   :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-account-create-1.png" alt-text="Shows storage account settings in the portal.":::
 
 3. Next, we recommend the default settings from the **Advanced** screen. If you are migrating to Azure Files, we recommend enabling **Large file shares** if available.
 
-   ![Shows Advanced settings tab in the portal.](./media/dobimigrate-quick-start-guide/azure-account-create-2.png)
+   :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-account-create-2.png" alt-text="Shows Advanced settings tab in the portal.":::
 
 4. Keep the default networking options for now and move on to  **Data protection**. You can choose to enable soft delete, which allows you to recover an accidentally deleted data within the defined retention period. Soft delete offers protection against accidental or malicious deletion.
 
-   ![Shows the Data Protection settings in the portal.](./media/dobimigrate-quick-start-guide/azure-account-create-3.png)
+   :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-account-create-3.png" alt-text="Shows the Data Protection settings in the portal.":::
 
 5. Add tags for organization if you use tagging and **Create** your account.
  
 6. Two quick steps are all that are now required before you can add the account to your DobiMigrate environment. Navigate to the account you created in the Azure portal and select File shares under the File service menu. Add a File share and choose a meaningful name. Then, navigate to the Access keys item under Settings and copy the Storage account name and one of the two access keys.
 
-   ![Shows access key settings in the portal.](./media/dobimigrate-quick-start-guide/azure-access-key.png)
+   :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-access-key.png" alt-text="Shows access key settings in the portal.":::
 
 7. Navigate to the properties of the Azure File share and take the URL address, it will be required to add the Azure connection into the DobiMigrate:
 
-   ![Azure portal: get Azure files endpoint](./media/dobimigrate-quick-start-guide/azure-files-endpoint.png)
+   :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-files-endpoint.png" alt-text="Find Azure files endpoint.":::
 
 8. (_Optional_) You can add extra layers of security to your deployment.
  
-9. Configure role-based access to limit who can make changes to your storage account. For more information, see [Built-in roles for management operations](/azure/storage/common/authorization-resource-provider#built-in-roles-for-management-operations).
+   1. Configure role-based access to limit who can make changes to your storage account. For more information, see [Built-in roles for management operations](/azure/storage/common/authorization-resource-provider#built-in-roles-for-management-operations).
  
-10. Restrict access to the account to specific network segments with [storage firewall settings](/azure/storage/common/storage-network-security). Setup firewall settings to prevent access from outside of your corporate network.
+   2.  Restrict access to the account to specific network segments with [storage firewall settings](/azure/storage/common/storage-network-security). Setup firewall settings to prevent access from outside of your corporate network.
 
-   ![Shows storage firewall settings in the portal.](./media/dobimigrate-quick-start-guide/azure-storage-firewall.png)
+       :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-storage-firewall.png" alt-text="Shows storage firewall settings in the portal.":::
 
-11. Set a [delete lock](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) on the account to prevent accidental deletion of the storage account.
+   3.  Set a [delete lock](/azure/azure-resource-manager/management/lock-resources) on the account to prevent accidental deletion of the storage account.
 
-   ![Shows setting a delete lock in the portal.](./media/dobimigrate-quick-start-guide/azure-resource-lock.png)
+       :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-resource-lock.png" alt-text="Shows setting a delete lock in the portal.":::
 
-12. Configure extra [security best practices](/azure/storage/blobs/security-recommendations).
+   4.  Configure extra [security best practices](/azure/storage/blobs/security-recommendations).
 
-13. In DobiMigrate, navigate to Configuration -> File Servers. Click **Add** to add Microsoft Azure Files as a file server type:
+9.  In DobiMigrate, navigate to Configuration -> File Servers. Click **Add** to add Microsoft Azure Files as a file server type:
 
-   ![Add Microsoft Azure Files as server type](./media/dobimigrate-quick-start-guide/dobimigrate-server-type.png)
+    :::image type="content" source="./media/dobimigrate-quick-start-guide/dobimigrate-server-type.png" alt-text="Add Microsoft Azure Files as server type.":::
 
-14. Specify the Name, Azure Files connection details, and the storage account credentials:
+10. Specify the Name, Azure Files connection details, and the storage account credentials:
  
-   ![Configure Azure Files connection details](./media/dobimigrate-quick-start-guide/dobimigrate-connection-details.png)
+    :::image type="content" source="./media/dobimigrate-quick-start-guide/dobimigrate-connection-details.png" alt-text="Configure Azure Files connection details.":::
 
-15. Assign the proxies to the Azure Files connection and click **Test connection**; to confirm that the proxies can communicate with Azure Files:
+11. Assign the proxies to the Azure Files connection and click **Test connection**; to confirm that the proxies can communicate with Azure Files:
  
-   ![Test connection details](./media/dobimigrate-quick-start-guide/dobimigrate-test-connection.png)
+    :::image type="content" source="./media/dobimigrate-quick-start-guide/dobimigrate-test-connection.png" alt-text="Test connection details.":::
 
     The connection test results are displayed:
 
-   ![Show results of test connections](./media/dobimigrate-quick-start-guide/dobimigrate-test-results.png)
+    :::image type="content" source="./media/dobimigrate-quick-start-guide/dobimigrate-test-results.png" alt-text="Show results of test connections.":::
 
-16. Under **SMB Migration Shares**, you see all the Azure File shares that are provisioned under this storage account. Set **Mapping** to **Manual** for the shares that are in your migration scope, for example:
+12. Under **SMB Migration Shares**, you see all the Azure File shares that are provisioned under this storage account. Set **Mapping** to **Manual** for the shares that are in your migration scope, for example:
  
-   ![Show available shares](./media/dobimigrate-quick-start-guide/dobiprotect-azure-files-shares.png)
+    :::image type="content" source="./media/dobimigrate-quick-start-guide/dobiprotect-azure-files-shares.png" alt-text="Show available shares.":::
 
-17. Click **Finish** to complete the Azure Files configuration. You can then initiate a new migration task.
+13. Click **Finish** to complete the Azure Files configuration. You can then initiate a new migration task.
 
 ## Support 
 
