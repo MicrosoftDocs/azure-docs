@@ -1,6 +1,6 @@
 ---
 title: 'Using ExpressRoute for Microsoft 365 Services | Microsoft Docs'
-description: This document discusses objectively on using ExpressRoute circuit for Microsoft 365 SaaS services.
+description: This document discusses objectively using ExpressRoute circuit for Microsoft 365 SaaS services.
 documentationcenter: na
 services: expressroute
 author: rambk
@@ -9,10 +9,11 @@ manager: tracsman
 ms.service: expressroute
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 4/28/2021
+ms.date: 4/29/2021
 ms.author: rambala
 
 ---
+
 # Using ExpressRoute for routing Microsoft 365 traffic
 
 An ExpressRoute circuit provides private connectivity to Microsoft backbone network. 
