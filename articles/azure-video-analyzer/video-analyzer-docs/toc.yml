@@ -105,7 +105,7 @@
   - name: Use widgets
     href: use-widgets.md #404
   - name: Monitor and logging
-    href: monitor-logging-edge.md 
+    href: monitor-log-edge.md 
   - name: Troubleshoot
     href: troubleshoot.md
 - name: Reference 
