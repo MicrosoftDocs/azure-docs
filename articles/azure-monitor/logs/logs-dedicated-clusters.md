@@ -4,7 +4,8 @@ description: Customers who ingest more than 1 TB a day of monitoring data may us
 ms.topic: conceptual
 author: rboucher
 ms.author: robb
-ms.date: 09/16/2020
+ms.date: 09/16/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure Monitor Logs Dedicated Clusters
