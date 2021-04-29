@@ -158,7 +158,7 @@ The following considerations apply:
 - End users can register and manage these passwordless authentication methods in their account portal
 - End users can sign in with these passwordless authentication methods:
    - Microsoft Authenticator App: Works in scenarios where Azure AD authentication is used, including across all browsers, during Windows 10 setup, and with integrated mobile apps on any operating system.
-   - Security keys: Work on lock screen for Windows 10 and the web in supported browsers like Microsoft Edge (both legacy and new Edge).
+   - Security keys: Work in Windows 10 setup in OOBE with or without Windows Autopilot, on lock screen for Windows 10 and the web in supported browsers like Microsoft Edge (both legacy and new Edge).
 
 ## Choose a passwordless method
 
