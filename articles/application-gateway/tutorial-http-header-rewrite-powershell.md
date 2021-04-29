@@ -12,7 +12,7 @@ ms.author: absha
 # Create an application gateway and rewrite HTTP headers
 
 You can use Azure PowerShell to
-configure [rules to rewrite HTTP request and response headers](rewrite-http-headers.md) when you create the new [autoscaling and zone-redundant application gateway SKU](./application-gateway-autoscaling-zone-redundant.md)
+configure [rules to rewrite HTTP request and response headers](./rewrite-http-headers-url.md) when you create the new [autoscaling and zone-redundant application gateway SKU](./application-gateway-autoscaling-zone-redundant.md)
 
 In this article, you learn how to:
 

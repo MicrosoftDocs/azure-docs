@@ -1,16 +1,17 @@
 ---
-title: Analyzing live video without any recording - Azure
+title: Analyzing live video without recording - Azure
 description: A pipeline topology can be used to just extract analytics from a live video stream, without having to record it on the edge or in the cloud. This article discusses this concept.
 ms.topic: conceptual
 ms.date: 03/27/2021
 
 ---
-# Analyzing live videos without any recording
+# Analyzing live videos without recording
 
 ## Suggested pre-reading 
 
-* [Pipeline topology concept](pipeline.md)
-* [Event-based video recording](event-based-video-recording-concept.md)
+* [Pipeline concept](pipeline.md)
+* [Pipeline extension concept](pipeline-extension.md)
+* [Event-based video recording concept](event-based-video-recording-concept.md)
 
 ## Overview  
 
@@ -42,4 +43,4 @@ An enhancement to this example is to use a motion detector processor ahead of th
 
 ## Next steps
 
-[Continuous video recording](continuous-video-recording.md)
+[Quickstart: Analyze live video with your own model - HTTP](analyze-live-video-use-your-model-http.md)
