@@ -211,7 +211,7 @@ With the prerequisites in place, the next step is to define the ARM deployment t
     }
 ```
 
-1. Update the following parameters
+1. Update the following parameters.
 
     | Parameter | Expected value |
     | --- | --- |
