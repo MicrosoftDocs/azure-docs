@@ -256,28 +256,14 @@ Column name can be parameterized similar to other properties. Like in derived co
 
 
 
-## Wrangling data flows
+## Wrangling data flow (Data flow power query)
 
 ### What are the supported regions for wrangling data flow?
 
-Wrangling data flow is currently supported in data factories created in following regions:
+Data factory is available in folliwng [regions.](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory)
+Power query fetaure is being rolled out to all regions. If the fetaure is not available in your region, please check with support.
 
-* Australia East
-* Canada Central
-* Central India
-* East US
-* East US 2
-* Japan East
-* North Europe
-* Southeast Asia
-* South Central US
-* UK South
-* West Central US
-* West Europe
-* West US
-* West US 2
-
-### What are the limitations and constraints with wrangling data flow?
+### What are the limitations and constraints with wrangling data flow ?
 
 Dataset names can only contain alpha-numeric characters. The following data stores are supported:
 
@@ -328,8 +314,6 @@ Wrangling data flow supports the following data types in SQL. You will get a val
 * timestamp
 * uniqueidentifier
 * xml
-
-Other data types will be supported in the future.
 
 
 ## Next steps
