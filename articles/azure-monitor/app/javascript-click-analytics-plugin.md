@@ -19,7 +19,7 @@ This plugin automatically tracks click events on web pages and uses data-* attri
 
 Users can set up the Click Analytics Auto-collection plugin via npm.
 
-### npm setup
+### NPM setup
 
 Install npm package:
 
@@ -48,6 +48,38 @@ const configObj = {
 
 const appInsights = new ApplicationInsights({ config: configObj });
 appInsights.loadAppInsights();
+```
+
+## Snippet Setup (ignore if using NPM setup)
+
+```html
+<script type="text/javascript" src="https://js.monitor.azure.com/scripts/b/ext/ai.clck.2.6.2.min.js"></script>
+<script type="text/javascript">
+  var clickPluginInstance = new Microsoft.ApplicationInsights.ClickAnalyticsPlugin();
+  // Click Analytics configuration
+  var clickPluginConfig = {
+    autoCapture : true,
+    dataTags: {
+      useDefaultContentNameOrId: true
+    }
+  }
+  // Application Insights Configuration
+  var configObj = {
+    instrumentationKey: "YOUR INSTRUMENTATION KEY",
+    extensions: [
+      clickPluginInstance
+    ],
+    extensionConfig: {
+      [clickPluginInstance.identifier] : clickPluginConfig
+    },
+  };
+  // Application Insights Snippet code
+  !function(T,l,y){<!-- Removed the Snippet code for brevity -->}(window,document,{
+    src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
+    crossOrigin: "anonymous",
+    cfg: configObj
+  });
+</script>
 ```
 
 ## How to effectively use the plugin
