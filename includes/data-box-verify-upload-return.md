@@ -47,7 +47,7 @@ To review non-retryable errors and proceed with your order, do the following:
    If you don't take any action, the order completes automatically after 14 days.
 
 
-## Verify the completed data upload
+### Verify data in completed upload
 
 Once the data upload is complete, order status updates to **Completed**.
 
