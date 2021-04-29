@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Filter inbound Internet traffic with Azure Firewall DNAT using the portal'
-description: In this tutorial, you learn how to deploy and configure Azure Firewall DNAT using the Azure portal. 
+title: 'Tutorial: Filter inbound Internet traffic with Azure Firewall DNAT policy using the portal'
+description: In this tutorial, you learn how to deploy and configure Azure Firewall policy DNAT using the Azure portal. 
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,24 +8,21 @@ ms.topic: tutorial
 ms.date: 04/29/2021
 ms.author: victorh
 ms.custom: mvc
-#Customer intent: As an administrator, I want to deploy and configure Azure Firewall DNAT so that I can control inbound Internet access to resources located in a subnet.
+#Customer intent: As an administrator, I want to deploy and configure Azure Firewall policy DNAT so that I can control inbound Internet access to resources located in a subnet.
 ---
 
-# Tutorial: Filter inbound Internet traffic with Azure Firewall DNAT using the Azure portal
+# Tutorial: Filter inbound Internet traffic with Azure Firewall policy DNAT using the Azure portal
 
-You can configure Azure Firewall Destination Network Address Translation (DNAT) to translate and filter inbound Internet traffic to your subnets. When you configure DNAT, the NAT rule collection action is set to **Dnat**. Each rule in the NAT rule collection can then be used to translate your firewall public IP address and port to a private IP address and port. DNAT rules implicitly add a corresponding network rule to allow the translated traffic. For security reasons, the recommended approach is to add a specific Internet source to allow DNAT access to the network and avoid using wildcards. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](rule-processing.md).
+You can configure Azure Firewall policy Destination Network Address Translation (DNAT) to translate and filter inbound Internet traffic to your subnets. When you configure DNAT, the *rule collection action* is set to **DNAT**. Each rule in the NAT rule collection can then be used to translate your firewall public IP address and port to a private IP address and port. DNAT rules implicitly add a corresponding network rule to allow the translated traffic. For security reasons, the recommended approach is to add a specific Internet source to allow DNAT access to the network and avoid using wildcards. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](rule-processing.md).
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Set up a test network environment
-> * Deploy a firewall
+> * Deploy a firewall and policy
 > * Create a default route
 > * Configure a DNAT rule
 > * Test the firewall
-
-> [!NOTE]
-> This tutorial uses classic Firewall rules to manage the firewall. The preferred method is to use [Firewall Policy](../firewall-manager/policy-overview.md). To complete this tutorial using Firewall Policy, see [Tutorial: Filter inbound Internet traffic with Azure Firewall policy DNAT using the Azure portal](tutorial-firewall-dnat-policy.md)
 
 ## Prerequisites
 
@@ -62,7 +59,7 @@ First, create the VNets and then peer them.
 1. For **Region**, select the same region that you used before.
 1. Select **Next: IP Addresses**.
 1. For **IPv4 Address space**, accept the default **10.0.0.0/16**.
-1. Under **Subnet name**, select default.
+1. Under **Subnet name**, select **default**.
 1. Edit the **Subnet name** and type **AzureFirewallSubnet**.
 
      The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
@@ -141,9 +138,7 @@ Review the summary, and then select **Create**. This will take a few minutes to 
 
 After deployment finishes, note the private IP address for the virtual machine. It will be used later when you configure the firewall. Select the virtual machine name, and under **Settings**, select **Networking** to find the private IP address.
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
-
-## Deploy the firewall
+## Deploy the firewall and policy
 
 1. From the portal home page, select **Create a resource**.
 1. Search for **Firewall**, and then select **Firewall**.
@@ -156,14 +151,15 @@ After deployment finishes, note the private IP address for the virtual machine. 
    |Resource group     |Select **RG-DNAT-Test** |
    |Name     |**FW-DNAT-test**|
    |Region     |Select the same location that you used previously|
-   |Firewall management|**Use Firewall rules (classic) to manage this firewall**|
+   |Firewall management|**Use a Firewall Policy to manage this firewall**|
+   |Firewall policy|**Add new**:<br>**fw-dnat-pol**<br>your selected region 
    |Choose a virtual network     |**Use existing**: VN-Hub|
    |Public IP address     |**Add new**, Name: **fw-pip**.|
 
 5. Accept the other defaults, and then select **Review + create**.
 6. Review the summary, and then select **Create** to create the firewall.
 
-   This will take a few minutes to deploy.
+   This takes a few minutes to deploy.
 7. After deployment completes, go to the **RG-DNAT-Test** resource group, and select the **FW-DNAT-test** firewall.
 8. Note the firewall's private and public IP addresses. You'll use them later when you create the default route and NAT rule.
 
@@ -177,7 +173,7 @@ For the **SN-Workload** subnet, you configure the outbound default route to go t
 5. For **Subscription**, select your subscription.
 1. For **Resource group**, select **RG-DNAT-Test**.
 1. For **Region**, select the same region that you used previously.
-1. For **Name**, type **RT-FWroute**.
+1. For **Name**, type **RT-FW-route**.
 1. Select **Review + create**.
 1. Select **Create**.
 1. Select **Go to resource**.
@@ -186,7 +182,7 @@ For the **SN-Workload** subnet, you configure the outbound default route to go t
 1. For **Subnet**, select **SN-Workload**.
 1. Select **OK**.
 1. Select **Routes**, and then select **Add**.
-1. For **Route name**, type **FW-DG**.
+1. For **Route name**, type **fw-dg**.
 1. For **Address prefix**, type **0.0.0.0/0**.
 1. For **Next hop type**, select **Virtual appliance**.
 
@@ -196,20 +192,25 @@ For the **SN-Workload** subnet, you configure the outbound default route to go t
 
 ## Configure a NAT rule
 
-1. Open the **RG-DNAT-Test** resource group, and select the **FW-DNAT-test** firewall. 
-2. On the **FW-DNAT-test** page, under **Settings**, select **Rules (classic)**. 
-3. Select **Add NAT rule collection**. 
-4. For **Name**, type **RC-DNAT-01**. 
-5. For **Priority**, type **200**. 
-6. Under **Rules**, for **Name**, type **RL-01**.
-7. For **Protocol**, select **TCP**.
+This rule allows you to connect a remote desktop to the Srv-Workload virtual machine through the firewall.
+
+1. Open the **RG-DNAT-Test** resource group, and select the **fw-dnat-pol** firewall policy. 
+1. Under **Settings**, select **DNAT rules**.
+2. Select **Add a rule collection**.
+3. For **Name**, type **rdp**.
+1. For **Priority**, type **200**.
+1. For **Rule collection group**, select **DefaultDnatRuleCollectionGroup**.
+1. Under **Rules**, for **Name**, type **rdp-nat**.
 1. For **Source type**, select **IP address**.
-1. For **Source**, type *. 
-1. For **Destination Addresses**, type the firewall's public IP address. 
-1. For **Destination ports**, type **3389**. 
-1. For **Translated Address** type the private IP address for the Srv-Workload virtual machine. 
-1. For **Translated port**, type **3389**. 
-1. Select **Add**. This will take a few minutes to complete.
+1. For **Source**, type **\***.
+1. For **Protocol**, select **TCP**.
+1. For **Destination Ports**, type **3389**.
+1. For **Destination Type**, select **IP Address**.
+1. For **Destination**, type the firewall public IP address.
+1. For **Translated address**, type the **Srv-Workload** private IP address.
+1. For **Translated port**, type **3389**.
+1. Select **Add**.
+
 
 ## Test the firewall
 
