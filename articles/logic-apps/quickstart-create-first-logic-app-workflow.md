@@ -14,7 +14,7 @@ ms.date: 04/28/2021
 
 # Quickstart: Create an integration workflow using Azure Logic Apps in the Azure portal
 
-This quickstart shows how to create an example automated workflow that integrates two services, an RSS feed for a website and an email account, by using [Azure Logic Apps](logic-apps-overview.md). While this example is entirely cloud-based, you can create automated workflows that connect apps, data, services, and systems across cloud, on premises, and hybrid environments.
+This quickstart shows how to create an example automated workflow that integrates two services, an RSS feed for a website and an email account, when you use [Azure Logic Apps](logic-apps-overview.md). While this example is cloud-based, you can create automated workflows that connect apps, data, services, and systems across cloud, on premises, and hybrid environments.
 
 In this example, you create a workflow that uses the RSS connector and the Office 365 Outlook connector. The RSS connector has a trigger that checks an RSS feed, based on a schedule. The Office 365 Outlook connector has an action that sends an email for each new item. The connectors in this example are only two among [hundreds of connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use in a workflow.
 
@@ -243,7 +243,7 @@ To check that the workflow runs correctly, you can wait for the trigger to check
 
 If the RSS feed has new items, your workflow sends an email for each new item. Otherwise, your workflow waits until the next interval to check the RSS feed again. 
 
-The following screenshot shows a sample email that's sent by the example workflow. The email includes the details from each trigger output that you selected, as well as the descriptive text that you included for each item.
+The following screenshot shows a sample email that's sent by the example workflow. The email includes the details from each trigger output that you selected plus the descriptive text that you included for each item.
 
 ![Screenshot showing Outlook and a sample email received for a new RSS feed item, along with item title, date published, and link.](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
