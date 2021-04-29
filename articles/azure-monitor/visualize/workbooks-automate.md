@@ -287,7 +287,7 @@ The example below demonstrates the customization of an exported Workbook ARM Tem
 ```
 
 In this example, the following steps facilitated the customization of an exported ARM template:
-1. Export the Workbook as an ARM template as explained in the above section
+1. Export the Workbook as an Azure Resource Manager template as explained in the above section
 2. In the template's `variables` section:
     1. Parse the `serializedData` value into a JSON object variable, which creates a JSON structure including an array of items that represent the content of the Workbook.
     2. Create new JSON objects that represent only the items/properties to be modified.
