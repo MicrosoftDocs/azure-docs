@@ -3,6 +3,8 @@
   items:
 - name: About the commercial marketplace
   href: overview.md
+- name: What's new
+  href: what-is-new.md  
 - name: Account management
   items:
   - name: General account management
