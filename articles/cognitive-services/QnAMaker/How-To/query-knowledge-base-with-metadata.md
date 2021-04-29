@@ -51,7 +51,7 @@ Because results are required only for the restaurant "Paradise", you can set a f
 
 # [Custom question answering (preview release)](#tab/v2)
 
-With Custom Question Answering, you can additionally provide a filter criteria to either include or exclude unstructured sources in the GenerateAnswer call by using the `includeUnstructuredSources` property.
+With custom question answering, you can additionally provide a filter criteria to either include or exclude unstructured sources in the GenerateAnswer call by using the `includeUnstructuredSources` property.
 
 This parameter is optional and by default has a value set to `true`.
 
