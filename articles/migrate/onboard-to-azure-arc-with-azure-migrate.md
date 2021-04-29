@@ -5,7 +5,7 @@ author: deseelam
 ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
-ms.date: 04/27/2020
+ms.date: 04/27/2021
 ---
 
 # Onboard on-premises servers in VMware virtual environment to Azure Arc   
@@ -125,7 +125,9 @@ Either the [prerequisites](https://go.microsoft.com/fwlink/?linkid=2134728) to c
 
 **Recommended actions**   
 - Ensure that the server meets the prerequisites for discovery and assessment as documented [here](https://go.microsoft.com/fwlink/?linkid=2134728). 
-- Ensure that you have chosen the correct authentication method on the appliance to connect to the server. (Note: Azure Migrate supports both password-based and SSH key based authentication for Linux servers).
+- Ensure that you have chosen the correct authentication method on the appliance to connect to the server. 
+   > [!Note] 
+   > Azure Migrate supports both password-based and SSH key based authentication for Linux servers.
 - If the issue persists, submit a Microsoft support case, providing the appliance machine ID (available in the footer of the appliance configuration manager).    
 
 ### Error 60002 - InvalidServerCredentials  
@@ -190,4 +192,3 @@ Unable to connect to server. Either you have provided incorrect credentials on t
 
 **Recommended actions**  
 - Retry the operation after some time. If the issue persists, contact support and provide the appliance machine ID (available in the **footer** of the appliance configuration manager).
-
