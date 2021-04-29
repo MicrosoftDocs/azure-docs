@@ -61,8 +61,8 @@
       #   href: ./scripts/powershell-get-all-default-domain-apps.md
       # - name: List apps using wildcard publishing
       #   href: ./scripts/powershell-get-all-wildcard-apps.md
-      # - name: List all custom domains and certs
-      #   href: ./scripts/powershell-get-all-custom-domains-and-certs.md
+      - name: List all custom domains and certs
+        href: ./scripts/powershell-get-all-custom-domains-and-certs.md
       - name: List apps without certs
         href: ./scripts/powershell-get-all-custom-domain-no-cert.md
       # - name: List apps with identical certs
