@@ -72,6 +72,8 @@
               href: enable-managed-identity-for-automation.md
             - name: Disable managed identity
               href: disable-managed-identity-for-automation.md
+            - name: Troubleshoot managed identity
+              href: troubleshoot/managed-identity.md
         - name: Run As account
           items:
             - name: Create Run As account
