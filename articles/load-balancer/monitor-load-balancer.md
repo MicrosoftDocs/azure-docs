@@ -268,11 +268,10 @@ The metrics and logs you can collect are discussed in the following sections.
 
 ## Analyzing metrics
 
-
 You can analyze metrics for *Load Balancer* with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool. 
 
 <!-- Point to the list of metrics available in your monitor-service-reference article. -->
-For a list of the platform metrics collected for Load Balancer, see [Monitoring *Load Balancer* data reference metrics](monitor-service-reference.md#metrics)  
+For a list of the platform metrics collected for Load Balancer, see [Monitoring *Load Balancer* data reference metrics](monitor-load-balancer-reference.md#metrics)  
 
 For reference, you can see a list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
@@ -283,7 +282,7 @@ If you don't support resource logs, say so. Some services may be only onboarded 
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema) The schema for [service name] resource logs is found in the [Load Balancer Data Reference](monitor-service-reference.md#schemas) 
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema) The schema for [service name] resource logs is found in the [Load Balancer Data Reference](monitor-load-balancer-reference.md#schemas) 
 
 The [Activity log](/azure/azure-monitor/platform/activity-log) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
