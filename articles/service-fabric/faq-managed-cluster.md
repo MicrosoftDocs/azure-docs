@@ -54,11 +54,11 @@ Autoscaling is not currently supported.
 
 ### Can I deploy my cluster across availability zones?
 
-Yes, Service Fabric managed clusters which span availability zones are supported in Azure regions which support availability zones. For more information, see [Service Fabric managed clusters across availability zones](https://docs.microsoft.com/azure/service-fabric/how-to-managed-cluster-availability-zones.md).
+Yes, Service Fabric managed clusters which span availability zones are supported in Azure regions which support availability zones. For more information, see [Service Fabric managed clusters across availability zones](.\service-fabric-cross-availability-zones.md).
 
 ### Can I deploy stateless node types on a Service Fabric managed cluster? 
 
-Yes, Service Fabric managed clusters support stateless node types for any secondary node types. For more information, see [Service Fabirc managed cluster stateless node types](https://docs.microsoft.com/azure/service-fabric/how-to-managed-cluster-stateless-node-type.md)
+Yes, Service Fabric managed clusters support stateless node types for any secondary node types. For more information, see [Service Fabric managed cluster stateless node types](./how-to-managed-cluster-stateless-node-type.md)
 
 ### Can I select between automatic and manual upgrades for my cluster runtime?
 
@@ -76,4 +76,4 @@ Yes. Support has been added to deploy applications as an Azure Resource Manager 
 
 ### Can I deploy applications with managed identities?
 
- Yes, applications with managed identities can be deployed to a Service Fabric managed cluster. For more information see, [Application managed identities](https://docs.microsoft.com/azure/service-fabric/how-to-managed-cluster-application-managed-identity).
+ Yes, applications with managed identities can be deployed to a Service Fabric managed cluster. For more information see, [Application managed identities](.\concepts-managed-identity).
