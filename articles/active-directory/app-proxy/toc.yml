@@ -43,8 +43,8 @@
         href: ./scripts/powershell-get-all-app-proxy-apps-basic.md
       # - name: List extended info about apps
       #   href: ./scripts/powershell-get-all-app-proxy-apps-extended.md
-      # - name: List apps by connector group
-      #   href: ./scripts/powershell-get-all-app-proxy-apps-by-connector-group.md
+      - name: List apps by connector group
+        href: ./scripts/powershell-get-all-app-proxy-apps-by-connector-group.md
       # - name: List apps with token lifetime policy
       #   href: ./scripts/powershell-get-all-app-proxy-apps-with-policy.md
       # - name: List connector groups and connectors
