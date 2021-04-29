@@ -66,7 +66,7 @@ The following steps demonstrate how to create a new repository for a static web 
 
 1. Once the repository is created, click **Add File** / **Create New file**
 
-1. Provide **index.html** as file name.
+1. Select **Create New file** and provide **index.html** as file name.
 
 1. Paste the following snippet of code in the **Edit new file** pane
 
