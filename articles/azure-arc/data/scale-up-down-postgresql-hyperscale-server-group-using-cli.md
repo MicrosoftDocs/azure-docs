@@ -94,6 +94,11 @@ How do you indicate what role does the setting apply to?
 - to configure the setting for the coordinator role, specify coordinator=<value>
 - to configure the setting for the worker role (the specified setting will be set to the same value on all workers), specific worker=<value>
 
+
+> [!CAUTION]
+> With Kubernetes, configuring a limit setting without configuring the corresponding request setting forces the request value to be the same value as the limit. This could potentially lead to the unavailability of your server group as its pods may not be rescheduled if there isn't a Kubernetes node available with sufficient resources. As such, to avoid this situation, the below examples show how to set both the request and the limit settings.
+
+
 **The general syntax of the commands are:**
 ```console
 azdata arc postgres server edit -n <servergroup name> --memory-limit/memory-request/cores-request/cores-limit <coordinator=val1,worker=val2>
@@ -103,12 +108,19 @@ To indicate a number of cores, you just pass a number without unit.
 
 ### Examples using the azdata CLI
 
-Configure the coordinator role to not exceed 2 cores and the worker role to not exceed 4 cores:
+
+
+
+
+**Configure the coordinator role to not exceed 2 cores and the worker role to not exceed 4 cores:**
 ```console
- azdata arc postgres server edit -n postgres01 --cores-limit coordinator=2
+ azdata arc postgres server edit -n postgres01 --cores-request coordinator=1, --cores-limit coordinator=2
+ azdata arc postgres server edit -n postgres01 --cores-request worker=1, --cores-limit worker=4
 ```
+
+or
 ```console
- azdata arc postgres server edit -n postgres01 --cores-limit worker=4
+azdata arc postgres server edit -n postgres01 --cores-request coordinator=1,worker=1 --cores-limit coordinator=4,worker=4
 ```
 
 > [!NOTE]
@@ -169,24 +181,15 @@ If you are not familiar with the vi editor, see a description of the commands yo
 ## Reset to default values
 To reset core/memory limits/requests parameters to their default values, edit them and pass an empty string instead of an actual value. For example, if you want to reset the core limit parameter, run the following commands:
 
-- on a Linux client:
 ```console
-    azdata arc postgres server edit -n postgres01 --cores-limit coordinator=""
-```
-or 
-```console
-azdata arc postgres server edit -n postgres01 --memory-limit coordinator="",worker=""
+azdata arc postgres server edit -n postgres01 --cores-request coordinator='',worker=''
+azdata arc postgres server edit -n postgres01 --cores-limit coordinator='',worker=''
 ```
 
-- on a Windows client: 
-```console
-    azdata arc postgres server edit -n postgres01 --cores-limit coordinator='""'
-```
 or 
 ```console
-azdata arc postgres server edit -n postgres01 --memory-limit coordinator='""',worker='""'
+azdata arc postgres server edit -n postgres01 --cores-request coordinator='',worker='' --cores-limit coordinator='',worker=''
 ```
-
 
 ## Next steps
 
