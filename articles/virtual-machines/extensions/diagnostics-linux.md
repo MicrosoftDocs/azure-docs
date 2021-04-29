@@ -22,7 +22,7 @@ This document describes the latest versions of the Linux diagnostic extension (L
 
 the Linux diagnostic extension helps a user monitor the health of a Linux VM running on Microsoft Azure. It has the following collection and capabilities:
 
-| Data Source | Customization Options | Requred Destinations | Optional Destinations |
+| Data source | Customization options | Required destinations | Optional destinations |
 | ----------- | --------------------- | -------------------- | --------------------- |
 | Metrics     | [Counter, Aggregation, Sample Rate, Specifiers](#performancecounters) | Azure Table Storage | EventHub, Azure Blob Storage (JSON format), Azure Monitor<sup>1</sup> |
 | Syslog      | [Facility, Severity Level](#syslogevents) | Azure Table Storage | EventHub, Azure Blob Storage (JSON Format)
@@ -34,7 +34,7 @@ This extension works with both Azure deployment models (Azure Resource Manager a
 
 ## Install the extension
 
-You can enable this extension for your VM and VMSS by using the Azure PowerShell cmdlets, Azure CLI scripts, Azure Resource Manager templates (ARM templates), or the Azure portal. For more information, see [Extensions and features](features-linux.md).
+You can enable this extension for your VM and virtual machine scale set by using the Azure PowerShell cmdlets, Azure CLI scripts, Azure Resource Manager templates (ARM templates), or the Azure portal. For more information, see [Extensions and features](features-linux.md).
 
 >[!NOTE]
 >Some components of the Linux Diagnostic VM extension are also shipped in the [Log Analytics VM extension](./oms-linux.md). Because of this architecture, conflicts can arise if both extensions are instantiated in the same ARM template.
@@ -111,7 +111,7 @@ If your protected settings are in the file *ProtectedSettings.json* and your pub
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 4.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-The command assumes you're using the Azure Resource Management mode of the Azure CLI. To configure LAD for classic deployment model VMs, switch to "asm" mode (`azure config mode asm`) and omit the resource group name in the command.
+The command assumes you're using the Azure Resource Management mode of the Azure CLI. To configure LAD for classic deployment model VMs, switch to ASM mode (`azure config mode asm`) and omit the resource group name in the command.
 
 For more information, see the [cross-platform CLI documentation](/cli/azure/authenticate-azure-cli).
 
@@ -209,7 +209,7 @@ Set-AzVMExtension -ResourceGroupName $VMresourceGroup -VMName $vmName -Location 
 
 ---
 
-#### Installation Sample for VMSS - Azure CLI
+#### Installation Sample for virtual machine scale sets - Azure CLI
 
 ```azurecli
 # Set your Azure virtual machine scale set diagnostic variables.
@@ -255,7 +255,7 @@ The latest version of the extension is 4.0, *which is currently in public previe
 
 When you install the new extension, enable automatic minor version upgrades:
 * On Azure Resource Manager deployment model VMs, include `"autoUpgradeMinorVersion": true` in the VM deployment template.
-* On classic deployment model VMs, specify version `4.*` if you're installing the extension through the Azure Xplat CLI or PowerShell.
+* On classic deployment model VMs, specify version `4.*` if you're installing the extension through the Azure CLI or PowerShell.
 
 You can use the same storage account you used for LAD 3.x.
 
