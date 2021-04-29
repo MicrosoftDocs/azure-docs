@@ -28,10 +28,12 @@ Often there's a confusion whether ExpressRoute can be used or not for routing Mi
 In fact, using a *Route Filter* you can select Microsoft 365 service prefixes that need to be advertised via Microsoft peering to your on-premises network. 
 These routes advertisement enables routing Microsoft 365 service traffic over the ExpressRoute circuit. 
 
-* The counter argument is: Microsoft 365 is a distributed service and designed to enable customers all over the world to connect to the service using the Internet. 
+* The counter argument is: Microsoft 365 is a distributed service. It is designed to enable customers all over the world to connect to the service using the Internet. 
 So, it's recommended not to use ExpressRoute for Microsoft 365.
 
-The objective of this article is to provide technical reasoning and objectively discuss when to use ExpressRoute for routing Microsoft 365 traffic and when not to use it.
+The goals of this article are: 
+* to provide technical reasoning for the arguments, and 
+* objectively discuss when to use ExpressRoute for routing Microsoft 365 traffic and when not to use it.
 
 ## Network Requirements of Microsoft 365 Traffic
 Microsoft 365 service often includes real-time traffic such as voice & video calls, online meetings, and real-time collaboration. This real-time traffic has stringent network performance requirements in terms of latency and jitter. Within certain limits of network latency, jitter can be effectively handled using buffer at the client device. Network latency is a function of physical distance traffic need to travel, link bandwidth, and network processing latency. 
@@ -48,8 +50,8 @@ The Microsoft 365 entry points are serviced by Azure Front Door (AFD). AFD is a 
 
 ## What is Geo-Pinning Connections?
 
-Between a client-server when you force the traffic to flow through one or more network devices located in certain geographical location, then it's referred to as geo-pinning the network connections. Traditional network architecture, with the underlying design principle that the clients-servers are statically located, commonly geo-pins the connections.
-For example, when you force your enterprise Internet connections traverse through your corporate network, and egress from a central location (typically via a set of proxy-servers/firewalls), you're geo-pinning the Internet connections.  
+Between a client-server when you force the traffic to flow through certain network device(s) located in a geographical location, then it's referred to as geo-pinning the network connections. Traditional network architecture, with the underlying design principle that the clients-servers are statically located, commonly geo-pins the connections.
+For example, when you force your enterprise Internet connections traverse through your corporate network, and egress from a central location (typically via a set of proxy-servers or firewalls), you're geo-pinning the Internet connections.  
 
 Similarly, in SaaS application architecture if you force route the traffic through an intermediate datacenter (for example, cloud security) in a region or via one or more intermediate network devices (for example, ExpressRoute) in a specific location then you're geo-pinning the SaaS connections.
 
