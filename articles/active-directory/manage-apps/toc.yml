@@ -44,10 +44,6 @@
         href: ./scripts/powershell-export-apps-with-expriring-secrets.md
       - name: Export secrets and certs expiring beyond required date
         href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
-    - name: App Proxy PowerShell samples
-      items:
-      - name: Move apps between connector groups
-        href: ./scripts/powershell-move-all-apps-to-connector-group.md
   - name: Concepts
     expanded: true
     items: 

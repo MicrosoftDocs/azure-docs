@@ -54581,6 +54581,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/powershell-move-all-apps-to-connector-group.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-move-all-apps-to-connector-group",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/powershell-display-users-group-of-app.md",
       "redirect_url": "/azure/active-directory/app-proxy/powershell-display-users-group-of-app",
       "redirect_document_id": false
