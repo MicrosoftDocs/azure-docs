@@ -11,7 +11,8 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 03/08/2021
-ms.author: justinha
+ms.author: justinha 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Disable weak ciphers and password hash synchronization to secure an Azure Active Directory Domain Services managed domain
