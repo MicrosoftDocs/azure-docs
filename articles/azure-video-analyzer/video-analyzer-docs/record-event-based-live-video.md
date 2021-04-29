@@ -40,7 +40,7 @@ Prerequisites for this tutorial are:
     > [!TIP]
     > You might be prompted to install Docker. Ignore this prompt.
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer) on your development machine.
-* Run the [Azure Video Analyzer deployment template]()<!--https://github.com/Azure/azure-video-analyzer/tree/master/setup/deploy.json-->.
+* Run the [Azure Video Analyzer deployment template](set-up-dev-environment.md)<!--https://github.com/Azure/azure-video-analyzer/tree/master/setup/deploy.json-->.
 
 At the end of these steps, you'll have relevant Azure resources deployed in your Azure subscription:
 
@@ -89,7 +89,7 @@ You'll need the files for these steps:
 1. Clone the repo from the GitHub link https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp <!--TODO: replace this -->
 1. Start Visual Studio Code, and open the folder where you downloaded the repo.
 1. In Visual Studio Code, browse to the src/cloud-to-device-console-app folder and create a file named **appsettings.json**. This file contains the settings needed to run the program.
-1. Copy the contents from the arm-template/appsettings.json file. The text should look like: <!--TODO: replace this -->
+1. Copy and paste the text that you obtained previously (from the third bullet in [Prerequisites](#prerequisites) under **app-settings** on the **Deployment Outputs** page of the Portal) into the **appsettings.json** file in Visual Studio Code. The text should look like: 
     ```
     {  
         "IoThubConnectionString" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",  
