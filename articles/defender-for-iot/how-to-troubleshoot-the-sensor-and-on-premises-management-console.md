@@ -121,7 +121,7 @@ When devices shown on the map appear not connected to each other, something migh
 
 :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/broadcasting-devices.png" alt-text="View your broadcasting devices.":::
 
-In such a case, you need to validate that you can see only the broadcast traffic. Then ask the network engineer to fix the SPAN port configuration so that you can see the unicast traffic.
+In such a case, validate that you only the broadcast traffic and then ask the network engineer to fix the SPAN port configuration so that you can see the unicast traffic as well.
 
 To validate that you're seeing only the broadcast traffic:
 

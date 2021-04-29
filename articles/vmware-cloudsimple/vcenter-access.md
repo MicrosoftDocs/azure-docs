@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Access vSphere client
 description: Describes how to access vCenter of your Private Cloud.
-author: Ajayan1008 
-ms.author: v-hborys 
+author: shortpatti 
+ms.author: v-patsho
 ms.date: 08/30/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
