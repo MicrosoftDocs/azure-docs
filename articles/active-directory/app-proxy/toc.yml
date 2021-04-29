@@ -9,9 +9,9 @@
     #   href: what-is-single-sign-on.md
     # - name: What's new in docs?
     #   href: whats-new-docs.md
-  - name: Quickstarts
-    expanded: false
-    items:
+  # - name: Quickstarts
+  #   expanded: false
+  #   items:
     # - name: View your apps
     #   href: view-applications-portal.md
     # - name: Add an app
@@ -27,7 +27,7 @@
     # - name: Delete an app
     #   href: delete-application-portal.md
   - name: Tutorials
-    expanded: false
+    expanded: true
     items:
     - name: List of app integration tutorials
       href: /azure/active-directory/saas-apps/
@@ -70,7 +70,7 @@
       # - name: Replace identical certs
       #   href: ./scripts/powershell-get-custom-domain-replace-cert.md
   - name: Concepts
-    expanded: false
+    expanded: true
     items: 
     - name: Application Proxy
       href: application-proxy.md
@@ -107,7 +107,7 @@
       # - name: Linked-based SSO
       #   href: configure-linked-sign-on.md
   - name: How-to guides
-    expanded: false
+    expanded: true
     items:
     - name: Configure with proxy servers
       href: application-proxy-configure-connectors-with-proxy-servers.md
@@ -129,8 +129,8 @@
       href: application-proxy-configure-native-client-application.md
     - name: Register connector - silent install
       href: application-proxy-register-connector-powershell.md
-    #   - name: Remove personal data
-    #     href: application-proxy-remove-personal-data.md
+    - name: Remove personal data
+      href: application-proxy-remove-personal-data.md
     #   - name: Secure legacy apps 
     #     items:
     #     - name: Secure hybrid access with Azure AD 
@@ -145,8 +145,8 @@
       items:
       - name: Integrate with Application Proxy on an NDES server
         href: active-directory-app-proxy-protect-ndes.md
-    #     - name: Integrate with Application Proxy using PingAccess
-    #       href: application-proxy-ping-access-publishing-guide.md
+      - name: Integrate with Application Proxy using PingAccess
+        href: application-proxy-ping-access-publishing-guide.md
     #     - name: Integrate with Azure AD Domain Services
     #       href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
     #     - name: Integrate with Power BI
@@ -205,17 +205,17 @@
       href: application-proxy-release-version-history.md
   - name: Resources
     items:
-        # - name: Support and help options for developers
-        #   href: ../develop/developer-support-help-options.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
-        # - name: Azure feedback forum
-        #   href: https://feedback.azure.com/forums/169401-azure-active-directory
-        # - name: Microsoft Q&A question page
-        #   href: /answers/topics/azure-active-directory.html
-        # - name: Pricing
-        #   href: https://azure.microsoft.com/pricing/details/active-directory
-        # - name: Service updates
-        #   href: https://azure.microsoft.com/updates/?product=active-directory
-        # - name: Stack Overflow
-        #   href: https://stackoverflow.com/questions/tagged/azure-active-directory
-        # - name: Videos
-        #   href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
+    - name: Support and help options for developers
+      href: ../develop/developer-support-help-options.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
+    - name: Azure feedback forum
+      href: https://feedback.azure.com/forums/169401-azure-active-directory
+    - name: Microsoft Q&A question page
+      href: /answers/topics/azure-active-directory.html
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/active-directory
+    - name: Service updates
+      href: https://azure.microsoft.com/updates/?product=active-directory
+    - name: Stack Overflow
+      href: https://stackoverflow.com/questions/tagged/azure-active-directory
+    - name: Videos
+      href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
