@@ -189,7 +189,7 @@ With the prerequisites in place, the next step is to define the ARM deployment t
                 "value": "main"
             },
             "repositoryToken": {
-                "value": "<updatewithyourGitHubPAT>" 
+                "value": "<YOUR-GITHUB-PAT>" 
             },
             "appLocation": {
                 "value": "/"
