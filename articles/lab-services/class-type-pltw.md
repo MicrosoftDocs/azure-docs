@@ -119,7 +119,7 @@ As you follow this recommendation, note the major tasks for setting up a lab:
 1.  Finally, publish the template VM to create the students’ VMs.
 
 > [!NOTE]
-> If your school needs to perform content filtering to comply with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act), read guidance on [content filtering with Lab Services](./classroom-labs-fundamentals.md#content-filtering).
+> If your school needs to perform content filtering, such as for compliance with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act), you will need to use 3rd party software.  For more information, read guidance on [content filtering with Lab Services](./classroom-labs-fundamentals.md#content-filtering).
 
 ## Student devices
 Students can connect to their lab VMs from Windows computers, Mac, and Chromebook. For instructions, see:
