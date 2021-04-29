@@ -8,6 +8,11 @@ ms.date: 02/07/2019
 
 # Smart Detection in Application Insights
 
+>>[!NOTE]
+>>You can migrate Smart Detection on your Application Insights resource to be based on alerts. The migration creates alert rules for the different Smart Detection modules. Once created, you can manage and configure these rules just like any other Azure Monitor alert rules. You can also configure action groups for these rules, thus enabling multiple methods of taking actions or triggering notification on new detections.
+>>
+>> See [Smart Detection Alerts migration](../alerts/alerts-smart-detections-migration.md) for more details on the migration process and the behavior of Smart Detection after the migration.
+
 Smart Detection automatically warns you of potential performance problems and failure anomalies in your web application. It performs proactive analysis of the telemetry that your app sends to [Application Insights](./app-insights-overview.md). If there is a sudden rise in failure rates, or abnormal patterns in client or server performance, you get an alert. This feature needs no configuration. It operates if your application sends enough telemetry.
 
 You can access the detections issued by Smart Detection both from the emails you receive, and from the Smart Detection blade.
@@ -47,11 +52,7 @@ Alternatively, you can change the configuration using Azure Resource Manager tem
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## Smart Detection migration to alerts (preview)
 
-You can migrate Smart Detection on your Application Insights resource to be based on alerts. The migration creates alert rules for the different Smart Detection modules. Once created, you can manage and configure these rules just like any other Azure Monitor alert rules. You can also configure action groups for these rules, thus enabling multiple methods of taking actions or triggering notification on new detections.
-
-See [Smart Detection Alerts migration](../alerts/alerts-smart-detections-migration.md) for more details on the migration process and the behavior of Smart Detection after the migration.
 
 ## Next steps
 These diagnostic tools help you inspect the telemetry from your app:
