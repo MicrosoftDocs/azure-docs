@@ -8,7 +8,6 @@ ms.author: alkohli
 ---
 
 When the Data Box device is connected to the Azure datacenter network, the data upload to Azure starts automatically. 
-
 #### Upload completed with errors
 
 When files fail to upload because of an un-retryable error, you're notified to review the errors before proceeding. 
@@ -45,7 +44,7 @@ To review non-retryable errors and proceed with an upload, do the following:
 
    If you don't take any action, the upload will be completed automatically after 14 days.
 
-#### Verify completed data upload
+## Verify completed data upload
 
 After the copy completes, the Azure Data Box service notifies you that the data copy is complete via the Azure portal.
 
