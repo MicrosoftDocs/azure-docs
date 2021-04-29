@@ -36,11 +36,15 @@ zone_pivot_groups: programming-languages-set-twenty-seven
 
 [!INCLUDE [iot-pnp-connect-device-c](../../includes/iot-pnp-connect-device-c.md)]
 
+[!INCLUDE [iot-pnp-clean-resources-short](../../includes/iot-pnp-clean-resources-short.md)]
+
 :::zone-end
 
 :::zone pivot="programming-language-csharp"
 
 [!INCLUDE [iot-pnp-connect-device-csharp](../../includes/iot-pnp-connect-device-csharp.md)]
+
+[!INCLUDE [iot-pnp-clean-resources-short](../../includes/iot-pnp-clean-resources-short.md)]
 
 :::zone-end
 
@@ -48,17 +52,23 @@ zone_pivot_groups: programming-languages-set-twenty-seven
 
 [!INCLUDE [iot-pnp-connect-device-java](../../includes/iot-pnp-connect-device-java.md)]
 
+[!INCLUDE [iot-pnp-clean-resources-short](../../includes/iot-pnp-clean-resources-short.md)]
+
 :::zone-end
 
 :::zone pivot="programming-language-javascript"
 
 [!INCLUDE [iot-pnp-connect-device-node](../../includes/iot-pnp-connect-device-node.md)]
 
+[!INCLUDE [iot-pnp-clean-resources-short](../../includes/iot-pnp-clean-resources-short.md)]
+
 :::zone-end
 
 :::zone pivot="programming-language-python"
 
 [!INCLUDE [iot-pnp-connect-device-python](../../includes/iot-pnp-connect-device-python.md)]
+
+[!INCLUDE [iot-pnp-clean-resources-short](../../includes/iot-pnp-clean-resources-short.md)]
 
 :::zone-end
 
@@ -67,10 +77,6 @@ zone_pivot_groups: programming-languages-set-twenty-seven
 [!INCLUDE [iot-pnp-connect-device-embedded-c](../../includes/iot-pnp-connect-device-embedded-c.md)]
 
 :::zone-end
-
-## Clean up resources
-
-If you've finished with the quickstarts and tutorials, see [Clean up resources](set-up-environment.md#clean-up-resources).
 
 ## Next steps
 
