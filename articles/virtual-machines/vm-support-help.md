@@ -26,7 +26,7 @@ See a full list of self help content at [Azure Virtual Machine troubleshooting d
 ## Post a question on Microsoft Q&A
 
 <div class='icon is-large'>
-    <img alt='Microsoft Q&A' src='./media/common/question-mark-icon.png'>
+    <img alt='Microsoft Q&A' src='../active-directory/develop/media/common/question-mark-icon.png'>
 </div>   
 
 For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](/answers/products/azure), Azure’s preferred destination for community support. 
@@ -61,7 +61,7 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 ## Create a GitHub issue
 
 <div class='icon is-large'>
-    <img alt='GitHub-image' src='./media/common/github.svg'>
+    <img alt='GitHub-image' src='../active-directory/develop/media/common/github.svg'>
 </div>
 
 If you need help with one of the Microsoft Authentication Libraries (MSAL), open an issue in its repository on GitHub.
