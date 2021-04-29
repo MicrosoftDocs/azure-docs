@@ -8,8 +8,8 @@ ms.subservice: core
 ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperf-fy21q2
+ms.topic: how-to
+ms.custom: devx-track-python, contperf-fy21q2
 
 ---
 

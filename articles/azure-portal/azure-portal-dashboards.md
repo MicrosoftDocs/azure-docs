@@ -3,38 +3,41 @@ title: Create a dashboard in the Azure portal
 description: This article describes how to create and customize a dashboard in the Azure portal.
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 04/15/2021
 ---
 
 # Create a dashboard in the Azure portal
 
 Dashboards are a focused and organized view of your cloud resources in the Azure portal. Use dashboards as a workspace where you can monitor resources and quickly launch tasks for day-to-day operations. Build custom dashboards based on projects, tasks, or user roles, for example.
 
-The Azure portal provides a default dashboard as a starting point. You can edit the default dashboard and create and customize additional dashboards. This article describes how to create a new dashboard and customize it. For information on sharing dashboards, see [Share Azure dashboards by using Azure role-based access control](azure-portal-dashboard-share-access.md).
+The Azure portal provides a default dashboard as a starting point. You can edit the default dashboard and create and customize additional dashboards.
+
+> [!NOTE]
+> Each user can create up to 100 private dashboards. If you [publish and share the dashboard](azure-portal-dashboard-share-access.md), it will be implemented as an Azure resource in your subscription and won’t count towards this limit.
+
+This article describes how to create a new dashboard and customize it. For information on sharing dashboards, see [Share Azure dashboards by using Azure role-based access control](azure-portal-dashboard-share-access.md).
 
 ## Create a new dashboard
 
-In this example, we create a new private dashboard and assign a name. Follow these steps to get started:
+This example shows how to create a new private dashboard with an assigned name. All dashboards are private when created, although you can choose to publish and share your dashboard with other users in your organization if you'd like.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. From the Azure portal menu, select **Dashboard**. Your default view might already be set to dashboard.
 
-    ![Open the dashboard](./media/azure-portal-dashboards/portal-menu-dashboard.png)
+    ![Screenshot of the Azure portal with Dashboard selected.](./media/azure-portal-dashboards/portal-menu-dashboard.png)
 
 1. Select **New dashboard** then **Blank dashboard**.
 
-    ![Screenshot of new dashboard](./media/azure-portal-dashboards/create-new-dashboard.png)
+    ![Screenshot of the New dashboard options.](./media/azure-portal-dashboards/create-new-dashboard.png)
 
-    This action opens the **Tile Gallery**, from which you'll select tiles, and an empty grid where you'll arrange the tiles.
+    This action opens the **Tile Gallery**, from which you can select tiles, and an empty grid where you'll arrange the tiles.
 
 1. Select the **My Dashboard** text in the dashboard label and enter a name that will help you easily identify the custom dashboard.
 
-    ![Screenshot of tile gallery and empty grid](./media/azure-portal-dashboards/dashboard-name.png)
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-name.png" alt-text="Screenshot of an empty grid with the Tile Gallery.":::
 
-1. In the page header select **Done customizing** to exit edit mode, then select **Save**.
-
-    :::image type="content" source="media/azure-portal-dashboards/dashboard-save.png" alt-text="Screenshot of dashboard save process":::
+1. To save the dashboard as is, select **Done customizing** in the page header. Or, continue to the next section to add tiles and save your dashboard.
 
 The dashboard view now shows your new dashboard. Select the arrow next to the dashboard name to see dashboards available to you. The list might include dashboards that other users have created and shared.
 
@@ -42,15 +45,17 @@ The dashboard view now shows your new dashboard. Select the arrow next to the da
 
 Now, let's edit the dashboard to add, resize, and arrange tiles that represent your Azure resources.
 
-### Add tiles from the tile gallery
+### Add tiles from the Tile Gallery
 
 To add tiles to a dashboard, follow these steps:
 
-1. Select ![edit icon](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Edit** from the page header.
+1. Select ![edit icon](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Edit** from the dashboard's page header.
 
-    ![Screenshot of dashboard highlighting edit](./media/azure-portal-dashboards/dashboard-edit.png)
+    ![Screenshot of dashboard highlighting the Edit option.](./media/azure-portal-dashboards/dashboard-edit.png)
 
-1. Browse the **Tile Gallery** or use the search field to find the tile you want.
+1. Browse the **Tile Gallery** or use the search field to find a certain tile. Select the tile you want to add to your dashboard.
+
+   :::image type="content" source="media/azure-portal-dashboards/dashboard-tile-gallery.png" alt-text="Screenshot of the Tile Gallery.":::
 
 1. Select **Add** to add the tile to the dashboard with a default size and location. Or, drag the tile to the grid and place it where you want. Add any tiles you want, but here are a couple of ideas:
 
@@ -58,13 +63,21 @@ To add tiles to a dashboard, follow these steps:
 
     - If you work with more than one organization, add the **Organization identity** tile to your dashboard to clearly show which organization the resources belong to.
 
-1. In the page header select **Save**.
+1. If desired, resize the tile by dragging and dropping the lower right hand corner of the tile.
 
-### Add tiles from a resource page
+1. To save your changes, select **Save** in the page header. You can also preview the changes without saving by selecting **Preview** in the page header. From the preview screen, you can select **Save** to keep the changes, **Discard** to remove them, or **Edit** to go back to the editing options and make further changes.
 
-There is an alternative way to add tiles to your dashboard. Many resource pages include a pushpin icon in the command bar. If you select the icon, a tile representing the source page is pinned to the dashboard that is currently active. 
+   :::image type="content" source="media/azure-portal-dashboards/dashboard-save.png" alt-text="Screenshot of the Preview, Save, and Discard options.":::
+
+### Pin content from a resource page
+
+Another way to add tiles to your dashboard is directly from a resource page.
+
+Many resource pages include a pin icon in the command bar. If you select this icon, you can pin a tile representing the source page to an existing dashboard, or to a new dashboard that you create.
 
 ![Screenshot of page command bar with pin icon](./media/azure-portal-dashboards/dashboard-pin-blade.png)
+
+In some cases, a pin icon may also appear by specific content within a page, which means you can pin a tile for that specific content rather than the entire page.
 
 ### Resize or rearrange tiles
 
@@ -74,7 +87,7 @@ To change the size of a tile or to rearrange the tiles on a dashboard, follow th
 
 1. Select the context menu in the upper right corner of a tile. Then, choose a tile size. Tiles that support any size also include a "handle" in the lower right corner that lets you drag the tile to the size you want.
 
-    ![Screenshot of dashboard with tile size menu open](./media/azure-portal-dashboards/dashboard-tile-resize.png)
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-tile-resize.png" alt-text="Screenshot of dashboard with tile size menu open.":::
 
 1. Select a tile and drag it to a new location on the grid to arrange your dashboard.
 
@@ -99,11 +112,11 @@ Data on the dashboard automatically shows activity for the past 24 hours. To sho
 
 1. Select **Customize tile data** from the context menu or from the ![filter icon](./media/azure-portal-dashboards/dashboard-filter.png) filter in the upper left corner of the tile.
 
-    ![Screenshot of tile context menu](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
+    ![Screenshot of tile context menu.](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
 
 1. Select the checkbox to **Override the dashboard time settings at the tile level**.
 
-    ![Screenshot of dialog to configure tile time settings](./media/azure-portal-dashboards/dashboard-override-time-settings.png)
+    ![Screenshot of dialog to configure tile time settings.](./media/azure-portal-dashboards/dashboard-override-time-settings.png)
 
 1. Choose the time span to show for this tile. You can choose from the past 30 minutes to the past 30 days or define a custom range.
 
@@ -113,13 +126,13 @@ Data on the dashboard automatically shows activity for the past 24 hours. To sho
 
 ## Delete a tile
 
-To remove a tile from a dashboard, follow these steps:
+To remove a tile from a dashboard, do one of the following:
 
-* Select the context menu in the upper right corner of the tile, then select **Remove from dashboard**. Or,
+- Select the context menu in the upper right corner of the tile, then select **Remove from dashboard**.
 
-* Select ![edit icon](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Edit** to enter customization mode. Hover in the upper right corner of the tile, then select the ![delete icon](./media/azure-portal-dashboards/dashboard-delete-icon.png) delete icon to remove the tile from the dashboard.
+- Select ![edit icon](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Edit** to enter customization mode. Hover in the upper right corner of the tile, then select the ![delete icon](./media/azure-portal-dashboards/dashboard-delete-icon.png) delete icon to remove the tile from the dashboard.
 
-   ![Screenshot showing how to remove tile from dashboard](./media/azure-portal-dashboards/dashboard-delete-tile.png)
+   ![Screenshot showing how to remove tile from dashboard.](./media/azure-portal-dashboards/dashboard-delete-tile.png)
 
 ## Clone a dashboard
 
@@ -165,13 +178,13 @@ To permanently delete a private or shared dashboard, follow these steps:
 
 1. For a private dashboard, select **OK** on the confirmation dialog to remove the dashboard. For a shared dashboard, on the confirmation dialog, select the checkbox to confirm that the published dashboard will no longer be viewable by others. Then, select **OK**.
 
-    ![Screenshot of delete confirmation](./media/azure-portal-dashboards/dashboard-delete-dash.png)
+    ![Screenshot of delete confirmation.](./media/azure-portal-dashboards/dashboard-delete-dash.png)
 
 ## Recover a deleted dashboard
 
-If you're in the global Azure cloud, and you delete a _published_ dashboard in the Azure portal, you can recover that dashboard within 14 days of the delete. For information, see [Recover a deleted dashboard in the Azure portal](recover-shared-deleted-dashboard.md).
+If you're in the global Azure cloud, and you delete a _published_ dashboard in the Azure portal, you can recover that dashboard within 14 days of the delete. For more information, see [Recover a deleted dashboard in the Azure portal](recover-shared-deleted-dashboard.md).
 
 ## Next steps
 
-* [Share Azure dashboards by using Azure role-based access control](azure-portal-dashboard-share-access.md)
-* [Programmatically create Azure dashboards](azure-portal-dashboards-create-programmatically.md)
+- [Share Azure dashboards by using Azure role-based access control](azure-portal-dashboard-share-access.md)
+- [Programmatically create Azure dashboards](azure-portal-dashboards-create-programmatically.md)

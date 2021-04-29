@@ -17,7 +17,7 @@ manager: corywink
 
 Use the Azure CLI IoT extension to see messages your devices are sending to IoT Central and observe changes in the device twin. You can use this tool to debug and observe device connectivity and diagnose issues of device messages not reaching the cloud or devices not responding to twin changes.
 
-[Visit the Azure CLI extensions reference for more details](/cli/azure/ext/azure-iot/iot/central)
+[Visit the Azure CLI extensions reference for more details](/cli/azure/iot/central)
 
 ## Prerequisites
 

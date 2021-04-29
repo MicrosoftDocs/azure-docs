@@ -31,13 +31,13 @@ When working through this article, replace the resource names where needed.
 
 ## Find the snapshot or Managed Disk 
 
-You can see a list of snapshots that are available in a resource group using [az snapshot list](/cli/azure/snapshot#az-snapshot-list). 
+You can see a list of snapshots that are available in a resource group using [az snapshot list](/cli/azure/snapshot#az_snapshot_list). 
 
 ```azurecli-interactive
 az snapshot list --query "[].[name, id]" -o tsv
 ```
 
-You can also use a Managed Disk instead of a snapshot. To get a Managed Disk, use [az disk list](/cli/azure/disk#az-disk-list). 
+You can also use a Managed Disk instead of a snapshot. To get a Managed Disk, use [az disk list](/cli/azure/disk#az_disk_list). 
 
 ```azurecli-interactive
 az disk list --query "[].[name, id]" -o tsv
@@ -52,7 +52,7 @@ You can use the same process to get any data disks that you want to include in y
 
 You will need information about the image gallery in order to create the image definition.
 
-List information about the available image galleries using [az sig list](/cli/azure/sig#az-sig-list). Note the gallery name which resource group the gallery is in to use later.
+List information about the available image galleries using [az sig list](/cli/azure/sig#az_sig_list). Note the gallery name which resource group the gallery is in to use later.
 
 ```azurecli-interactive 
 az sig list -o table
@@ -67,7 +67,7 @@ When making your image definition, make sure is has all of the correct informati
 
 For more information about the values you can specify for an image definition, see [Image definitions](./shared-image-galleries.md#image-definitions).
 
-Create an image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
+Create an image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az_sig_image_definition_create).
 
 In this example, the image definition is named *myImageDefinition*, and is for a [specialized](./shared-image-galleries.md#generalized-and-specialized-images) Linux OS image. To create a definition for images using a Windows OS, use `--os-type Windows`. 
 
@@ -91,7 +91,7 @@ az sig image-definition create \
 
 ## Create the image version
 
-Create an image version using [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create). 
+Create an image version using [az image gallery create-image-version](/cli/azure/sig/image-version#az_sig_image_version_create). 
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 

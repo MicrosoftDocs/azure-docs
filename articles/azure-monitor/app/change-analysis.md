@@ -55,14 +55,19 @@ Change Analysis captures the deployment and configuration state of an applicatio
 ![Screenshot of the "Scan changes now" button](./media/change-analysis/scan-changes.png)
 
 Currently all text-based files under site root **wwwroot** with the following extensions are supported:
-- *.config
-- *.xml
 - *.json
-- *.gem
-- *.yml
-- *.txt
+- *.xml
 - *.ini
-- *.env
+- *.yml
+- *.config
+- *.properties
+- *.html
+- *.cshtml
+- *.js
+- requirements.txt
+- Gemfile
+- Gemfile.lock
+- config.gemspec
 
 ### Dependency changes
 

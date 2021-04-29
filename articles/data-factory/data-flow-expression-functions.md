@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/26/2021
+ms.date: 04/01/2021
 ---
 
 # Data transformation expressions in mapping data flow
@@ -175,12 +175,6 @@ Concatenates a variable number of strings together with a separator. The first p
 * ``concatWS(' ', 'dataflow', 'is', 'awesome') -> 'dataflow is awesome'``  
 * ``isNull(concatWS(null, 'dataflow', 'is', 'awesome')) -> true``  
 * ``concatWS(' is ', 'dataflow', 'awesome') -> 'dataflow is awesome'``  
-___
-### <code>contains</code>
-<code><b>contains(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => boolean</b></code><br/><br/>
-Returns true if any element in the provided array evaluates as true in the provided predicate. Contains expects a reference to one element in the predicate function as #item.  
-* ``contains([1, 2, 3, 4], #item == 3) -> true``  
-* ``contains([1, 2, 3, 4], #item > 5) -> false``  
 ___
 ### <code>cos</code>
 <code><b>cos(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -354,12 +348,6 @@ Checks if the first parameter is null. If not null, the first parameter is retur
 * ``iifNull(null, 20, 40) -> 20``  
 * ``iifNull('azure', 'data', 'factory') -> 'factory'``  
 * ``iifNull(null, 'data', 'factory') -> 'data'``  
-___
-### <code>in</code>
-<code><b>in(<i>&lt;array of items&gt;</i> : array, <i>&lt;item to find&gt;</i> : any) => boolean</b></code><br/><br/>
-Checks if an item is in the array.  
-* ``in([10, 20, 30], 10) -> true``  
-* ``in(['good', 'kid'], 'bad') -> false``  
 ___
 ### <code>initCap</code>
 <code><b>initCap(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
@@ -1075,6 +1063,12 @@ Creates an array of items. All items should be of the same type. If no items are
 * ``['Seattle', 'Washington'][1]``
 * ``'Washington'``
 ___
+### <code>contains</code>
+<code><b>contains(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => boolean</b></code><br/><br/>
+Returns true if any element in the provided array evaluates as true in the provided predicate. Contains expects a reference to one element in the predicate function as #item.  
+* ``contains([1, 2, 3, 4], #item == 3) -> true``  
+* ``contains([1, 2, 3, 4], #item > 5) -> false``  
+___
 ### <code>filter</code>
 <code><b>filter(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => array</b></code><br/><br/>
 Filters elements out of the array that do not meet the provided predicate. Filter expects a reference to one element in the predicate function as #item.  
@@ -1113,6 +1107,12 @@ Find the first item from an array that match the condition. It takes a filter fu
                  ]
     )
   ``  
+___
+### <code>in</code>
+<code><b>in(<i>&lt;array of items&gt;</i> : array, <i>&lt;item to find&gt;</i> : any) => boolean</b></code><br/><br/>
+Checks if an item is in the array.  
+* ``in([10, 20, 30], 10) -> true``  
+* ``in(['good', 'kid'], 'bad') -> false``  
 ___
 ### <code>map</code>
 <code><b>map(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => any</b></code><br/><br/>

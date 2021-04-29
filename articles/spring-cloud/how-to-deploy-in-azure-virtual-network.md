@@ -6,19 +6,19 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/21/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Deploy Azure Spring Cloud in a virtual network
 
-**This article applies to:** ✔️ Java ✔️ C#
+**This article applies to:** âœ”ï¸ Java âœ”ï¸ C#
 
 This tutorial explains how to deploy an Azure Spring Cloud instance in your virtual network. This deployment is sometimes called VNet injection.
 
 The deployment enables:
 
-* Isolation of Azure Spring Cloud apps and service runtime from the internet​ on your corporate network​.
-* Azure Spring Cloud interaction with systems in ​on-premises data centers ​or Azure services in other virtual networks.
+* Isolation of Azure Spring Cloud apps and service runtime from the internetâ€‹ on your corporate networkâ€‹.
+* Azure Spring Cloud interaction with systems in â€‹on-premises data centers â€‹or Azure services in other virtual networks.
 * Empowerment of customers to control inbound and outbound network communications for Azure Spring Cloud.
 
 > [!Note]

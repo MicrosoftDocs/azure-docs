@@ -38,10 +38,17 @@ VM Generation Support: Generation 1<br>
 
 **A:** Xilinx recommends [Vitis 2020.2](https://www.xilinx.com/products/design-tools/vitis/vitis-platform.html)
 
-
 **Q:** Do I need to use NP VMs to develop my solution? 
 
-**A:** No, you can develop on-premise and deploy to the cloud! Please make sure to follow the attestation documentation to deploy on NP VMs. 
+**A:** No, you can develop on-premise and deploy to the cloud! Please make sure to follow the [attestation documentation](https://docs.microsoft.com/azure/virtual-machines/field-programmable-gate-arrays-attestation) to deploy on NP VMs. 
+
+**Q:** Which file returned from attestation should I use when programming my FPGA in an NP VM?
+
+**A:** Attestation returns two xclbins, **design.bit.xclbin** and **design.azure.xclbin**. Please use **design.azure.xclbin**.
+
+**Q:** Where should I get all the XRT/Platform files?
+
+**A:** Please visit Xilinx's [Microsoft-Azure](https://www.xilinx.com/microsoft-azure.html) site for all files.
 
 **Q:** What Version of XRT should I use?
 
@@ -63,7 +70,7 @@ VM Generation Support: Generation 1<br>
 
  Xilinx has created the following marketplace images to simplify the deployment of these VMs. 
 
-[Xilinx Alveo U250 Deployment VM – Ubuntu18.04](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/xilinx.xilinx_alveo_u250_deployment_vm_ubuntu1804_032321/)
+[Xilinx Alveo U250 Deployment VM – Ubuntu18.04](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/xilinx.xilinx_alveo_u250_deployment_vm_ubuntu1804_032321)
 
 [Xilinx Alveo U250 Deployment VM – CentOS7.8](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/xilinx.xilinx_alveo_u250_deployment_vm_centos78_032321)
 
@@ -130,6 +137,15 @@ To disable Host_Mem(SB): sudo xbutil host_mem --disable
 **Q:** How can I query the PLP information? 
 
 **A:** Need to run xbutil query and look at the lower portion. 
+
+**Q:** If I create my own VM and deploy XRT manually, what additional changes do I need to do? 
+
+**A:** In the  /opt/xilinx/xrt/setup.sh add an entry for XRT_INI_PATH  pointing to  /opt/xilinx/xrt/xrt.ini
+
+ 
+The content of /opt/xilinx/xrt/xrt.ini should contain: <br>
+[Runtime]<br>
+ert=false <br>
 
 ## Other sizes
 
