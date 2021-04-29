@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 04/28/2021
+ms.date: 04/29/2021
 ms.author: alkohli
 ---
 
@@ -24,7 +24,7 @@ The following table shows a summary of the Data Box or Data Box Heavy import ord
 | Set up device              | Device credentials access logged in [Activity logs](#query-activity-logs-during-setup)                                              |
 | Data copy to device        | [View *error.xml* files](#view-error-log-during-data-copy) for data copy                                                             |
 | Prepare to ship            | [Inspect the BOM files](#inspect-bom-during-prepare-to-ship) or the manifest files on the device                                      |
-| Data upload to Azure<!--Update for ICM-->       | [Review copy logs](#review-copy-log-during-upload-to-azure) for errors during data upload at Azure datacenter                         |
+| Data upload to Azure       | [Review copy logs](#review-copy-log-during-upload-to-azure) for errors during data upload at Azure datacenter                         |
 | Data erasure from device   | [View chain of custody logs](#get-chain-of-custody-logs-after-data-erasure) including audit logs and order history                |
 
 This article describes in detail the various mechanisms or tools available to track and audit Data Box or Data Box Heavy import order. The information in this article applies to both, Data Box and Data Box Heavy import orders. In the subsequent sections, any references to Data Box also apply to Data Box Heavy.
@@ -195,7 +195,7 @@ During the data upload to Azure, a copy log is created.
 
 ### Copy log
 
-For each order that is processed, the Data Box service creates copy log in the associated storage account. The copy log has the total number of files that were uploaded and the number of files that errored out during the data copy from Data Box to your Azure storage account.
+For each order that is processed, the Data Box service creates a copy log in the associated storage account. The copy log has the total number of files that were uploaded and the number of files that errored out during the data copy from Data Box to your Azure storage account.
 
 A Cyclic Redundancy Check (CRC) computation is done during the upload to Azure. The CRCs from the data copy and after the data upload are compared. A CRC mismatch indicates that the corresponding files failed to upload.
 
@@ -207,7 +207,7 @@ The copy log path is also displayed on the **Overview** blade for the portal.
 
 ![Path to copy log in Overview blade when completed](media/data-box-logs/copy-log-path-1.png)
 
-### Upload completed successfully 
+### Upload completed successfully
 
 The following sample describes the general format of a copy log for a Data Box upload that completed successfully:
 
@@ -262,24 +262,19 @@ The `copylog` specifies the old and the new blob or file name and the path in Az
 </ErroredEntity>
 ```
 
-
 ### Copy errors during upload
 
-When non-retryable errors cause the upload of some files to fail, you're notified to review the errors before proceeding. You'll see the following notification in the Azure portal.
+The following notification in the Azure portal indicates that non-retryable errors caused the upload of some files to fail. To move the order forward, you'll need to review the errors in the copy log and verify you want to proceed. For more information, see [Return Data Box and verify upload to Azure](data-box-deploy-picked-up.md).
 
 ![Notification for a paused upload in the Azure portal](media/data-box-troubleshoot-data-upload/upload-paused-01.png)
 
-The errors are listed in the data copy log. You should review the errors and make sure you have backup copies of the files that failed to upload.
+You can't fix these errors. The upload will complete with errors, and the data will then be secure erased from the device. If you don't take action, the order will complete automatically after 14 days.
 
-You can't fix these errors. The upload will complete with errors, and the data will then be secure erased from the device. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
+The notification gives you time to make sure you have backup copies of the files that didn't upload and can fix any configuration issues for a future order or network transfer.
 
-To proceed, you'll need to confirm that you've reviewed the errors and are ready to proceed. For more information, see [Return Azure Data Box and verify data upload to Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8).
+For information about these errors, see [Troubleshoot paused data uploads from Azure Data Box and Azure Data Box Heavy devices](data-box-troubleshoot-data-upload.md).
 
-After 14 days, the upload will be completed automatically. By acting on the notification, you can move things along more quickly.
-
-For troubleshooting information for these errors, see [Troubleshoot paused data uploads from Azure Data Box and Azure Data Box Heavy devices](data-box-troubleshoot-data-upload.md). For the steps to confirm your error review and continue the upload, see [Return Data Box and verify upload to Azure](data-box-deploy-picked-up.md).
-
-Here is an example of a non-retryable error that causes an upload to pause:
+Here is an example of non-retryables errors in a copy log:
 
 ```xml
 <ErroredEntity Path="myblobcontainer01\myblob01"> 
@@ -299,11 +294,10 @@ Here is an example of a non-retryable error that causes an upload to pause:
   <Type>File</Type> 
 </ErroredEntity><CopyLog Summary="Summary"> 
   <Status>Failed</Status> 
-  <TotalFiles_Blobs>5</TotalFiles_Blobs> 
-  <FilesErrored>5</FilesErrored> 
+  <TotalFiles_Blobs>3</TotalFiles_Blobs> 
+  <FilesErrored>3</FilesErrored> 
 </CopyLog> 
 ```
-<!--Veda's new errors substituted. Verify: 3 blob errors can result in 5 files failing to upload?-->
 
 ### Upload completed with errors
 
