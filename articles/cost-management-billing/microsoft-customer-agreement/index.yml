@@ -33,7 +33,7 @@ landingContent:
       links:
 #      - text: Access subscriptions (placeholder)
 #        url: ../manage/create-subscription.md
-      - text: Transfer billing ownership from PAYG to MCA
+      - text: Transfer billing ownership from MOSA to MCA
         url: ../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
       - text: Transfer billing ownership from EA to MCA
         url: ../manage/mca-setup-account.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
