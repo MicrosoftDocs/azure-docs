@@ -186,6 +186,7 @@ The `Scope` for a resource needs to be a full resource ID, such as */subscriptio
 
 > [!NOTE]
 > If you have removed the Contributor role assignment from the node resource group, the operations below may fail.
+> Permission grants to clusters using System Managed Identity may take up 60 minutes to populate.
 
 The following sections detail common delegations that you may need to make.
 
