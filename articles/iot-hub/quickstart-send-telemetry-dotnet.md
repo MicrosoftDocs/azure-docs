@@ -1,5 +1,5 @@
 ---
-title: Send telemetry to Azure IoT Hub quickstart (C#) | Microsoft Docs
+title: Quickstart - Send telemetry to Azure IoT Hub quickstart (C#) | Microsoft Docs
 description: In this quickstart, you run two sample C# applications to send simulated telemetry to an IoT hub and to read telemetry from the IoT hub for processing in the cloud.
 author: robinsh
 manager: philmea
@@ -10,7 +10,7 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: [mvc, mqtt, 'Role: Cloud Development', devx-track-azurecli]
 ms.date: 06/01/2020
-# As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a service application.
+#Customer intent: As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a service application.
 ---
 
 # Quickstart: Send telemetry from a device to an IoT hub and read it with a service application (.NET)
@@ -27,7 +27,7 @@ The quickstart uses two pre-written C# applications, one to send the telemetry a
 
 * The two sample applications you run in this quickstart are written using C#. You need the .NET Core SDK 3.1 or greater on your development machine.
 
-    You can download the .NET Core SDK for multiple platforms from [.NET](https://www.microsoft.com/net/download/all).
+    You can download the .NET Core SDK for multiple platforms from [.NET](https://dotnet.microsoft.com/download).
 
     You can verify the current version of C# on your development machine using the following command:
 
@@ -70,7 +70,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
    **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
     ```
 
     Make a note of the device connection string, which looks like:

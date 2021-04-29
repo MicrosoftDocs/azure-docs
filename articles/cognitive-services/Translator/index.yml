@@ -14,6 +14,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/14/2019
   ms.author: erhopf
+  ms.custom: contperf-fy21q2
 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -25,8 +26,10 @@ landingContent:
         links:
           - text: Translator
             url: translator-info-overview.md
+          - text: Document Translation
+            url:  document-translation/overview.md  
           - text: Custom Translator
-            url: translator-info-overview.md
+            url: custom-translator/overview.md
           - text: Pricing
             url: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
           - text: Compliance
@@ -55,8 +58,7 @@ landingContent:
             url: request-limits.md
           - text: Language support
             url: language-support.md
-
-  - title: Custom Translator
+  - title: Custom Translation
     linkLists:
       - linkListType: quickstart
         links:
@@ -86,8 +88,8 @@ landingContent:
         links:
           - text: Language support
             url: language-support.md
-          - text: Glossary
-            url: custom-translator/glossary.md
+          - text: Terminology
+            url: custom-translator/terminology.md
   - title: Resources
     linkLists:
       - linkListType: reference

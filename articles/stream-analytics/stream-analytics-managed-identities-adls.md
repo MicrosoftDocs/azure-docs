@@ -1,15 +1,15 @@
 ---
 title: Authenticate Azure Stream Analytics to Azure Data Lake Storage Gen1
-description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to Azure Data Lake Storage Gen1 output.
-author: mamccrea
-ms.author: mamccrea
+description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to Azure Data Lake Storage Gen1 output. 
+author: enkrumah
+ms.author: ebnkruma 
 ms.service: stream-analytics
-ms.topic: how-to
-ms.date: 04/08/2019
+ms.topic: how-to 
+ms.date: 03/16/2021
 ms.custom: seodec18
 ---
 
-# Authenticate Stream Analytics to Azure Data Lake Storage Gen1 using managed identities (preview)
+# Authenticate Stream Analytics to Azure Data Lake Storage Gen1 using managed identities
 
 Azure Stream Analytics supports managed identity authentication with Azure Data Lake Storage (ADLS) Gen1 output. The identity is a managed application registered in Azure Active Directory that represents a given Stream Analytics job, and can be used to authenticate to a targeted resource. Managed identities eliminate the limitations of user-based authentication methods, like needing to reauthenticate due to password changes or user token expirations that occur every 90 days. Additionally, managed identities help with the automation of Stream Analytics job deployments that output to Azure Data Lake Storage Gen1.
 
@@ -31,7 +31,7 @@ This article shows you three ways to enable managed identity for an Azure Stream
  
    The service principal has the same name as the Stream Analytics job. For example, if the name of your job is **MyASAJob**, the name of the service principal created is also **MyASAJob**.
 
-3. In the output properties window of the ADLS Gen1 output sink, click the Authentication mode drop-down and select **Managed Identity **.
+3. In the output properties window of the ADLS Gen1 output sink, click the Authentication mode drop-down and select **Managed Identity**.
 
 4. Fill out the rest of the properties. To learn more about creating an ADLS output, see [Create a Data lake Store output with stream analytics](../data-lake-store/data-lake-store-stream-analytics.md). When you are finished, click **Save**.
 
@@ -65,7 +65,7 @@ This article shows you three ways to enable managed identity for an Azure Stream
 
    ![Stream Analytics job config managed identities](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
 
-2. In the output properties window of the ADLS Gen1 output sink, click the Authentication mode drop-down and select **Managed Identity **.
+2. In the output properties window of the ADLS Gen1 output sink, click the Authentication mode drop-down and select **Managed Identity**.
 
    ![ADLS output managed identities](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
 

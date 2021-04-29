@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2019
+ms.date: 02/03/2021
 ms.author: terrylan
 
 ---
@@ -46,4 +46,4 @@ The following diagram shows a traditional approach where many security responsib
 In the cloud-enabled approach, you are also able to leverage cloud-based security capabilities for more effectiveness and use cloud intelligence to improve your threat detection and response time. By shifting responsibilities to the cloud provider, organizations can get more security coverage, which enables them to reallocate security resources and budget to other business priorities.
 
 ## Next steps
-For more information on the division of responsibility between you and Microsoft in a SaaS, PaaS, and IaaS deployment, see [Shared responsibilities for cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
+For more information on the division of responsibility between you and Microsoft in a SaaS, PaaS, and IaaS deployment, see [Shared responsibilities for cloud computing](https://azure.microsoft.com/resources/shared-responsibility-for-cloud-computing/).

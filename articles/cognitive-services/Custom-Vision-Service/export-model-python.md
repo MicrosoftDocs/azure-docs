@@ -25,7 +25,7 @@ After you have [exported your TensorFlow model](./export-your-model.md) from the
 
 To use the tutorial, you need to do the following:
 
-- Install either Python 2.7+ or Python 3.5+.
+- Install either Python 2.7+ or Python 3.6+.
 - Install pip.
 
 Next, you'll need to install the following packages:

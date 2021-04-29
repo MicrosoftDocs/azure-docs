@@ -51,7 +51,7 @@ A host-side migration allows setting up of 8000 series independently and copying
 | Migration can be approached in a phased manner on a volume-by-volume basis.                                               | Previous backups (taken on 5000/7000 series) will not be available on the 8000 series device.                                                                                                       |
 | Allows for consolidation of data into one storage account on Azure.                                                       | First backup to the cloud on 8000 series will take a longer time as all the data on 8000 series needs to be backed up to Azure.                                                                     |
 | Following a successful migration, all the data is local on the appliance. There are no latencies when accessing the data. | Azure storage consumption will increase until the data is deleted from the 5000/7000 device.                                                                                                        |
-|                                                                                                                           | If the 7000/5000 series device has a large amount of data, during migration this data needs to be downloaded from azure which will incur costs and latencies related to downloading data from Azure |
+|                                                                                                                           | If the 7000/5000 series device has a large amount of data, during migration this data needs to be downloaded from Azure which will incur costs and latencies related to downloading data from Azure |
 
 This article focuses only on the migration feature from 5000/7000 to 8000 series device. For more information on host-side migration, go to [Migration from other storage devices](https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating%20Data%20to%20StorSimple%20Volumes_09-02-15.pdf).
 
@@ -146,4 +146,4 @@ Perform the following steps to install StorSimple Migration tool on your compute
   
 
 ## Next steps
-Download the step-by-step instructions on how to [Migrate data from a StorSimple 5000-7000 series to an 8000 series device](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b).
+Download the step-by-step instructions on how to [Migrate data from a StorSimple 5000-7000 series to an 8000 series device](https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_Migration_Guide_20171115.pdf).

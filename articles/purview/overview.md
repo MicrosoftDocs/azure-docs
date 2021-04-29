@@ -1,7 +1,7 @@
 ---
 title: Introduction to Azure Purview (preview)
 description: This article provides an overview of Azure Purview, including its features and the problems it addresses. Azure Purview enables any user to register, discover, understand, and consume data sources.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
@@ -64,6 +64,9 @@ After you register a data source, you can then enrich its metadata. Either the u
 Discovering and understanding data sources and their use is the primary purpose of registering the sources. Enterprise users might need data for business intelligence, application development, data science, or any other task where the right data is required. They use the data catalog discovery experience to quickly find data that matches their needs, understand the data to evaluate its fitness for the purpose, and consume the data by opening the data source in their tool of choice.
 
 At the same time, users can contribute to the catalog by tagging, documenting, and annotating data sources that have already been registered. They can also register new data sources, which are then discovered, understood, and consumed by the community of catalog users.
+
+## In-region data residency
+Azure Purview does not move or store customer data out of the region in which it is deployed.
 
 ## Next steps
 

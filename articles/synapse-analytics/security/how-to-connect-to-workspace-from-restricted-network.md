@@ -35,7 +35,7 @@ The following screenshot shows details for the Azure Resource Manager outbound r
 
 When you're creating the other three rules, replace the value of **Destination service tag** with **AzureFrontDoor.Frontend**, **AzureActiveDirectory**, or **AzureMonitor** from the list.
 
-For more information, see [Service tags overview](/azure/virtual-network/service-tags-overview).
+For more information, see [Service tags overview](../../virtual-network/service-tags-overview.md).
 
 ## Step 2: Create private link hubs
 
@@ -69,7 +69,7 @@ After the private link endpoint is created, you can access the sign-in page of t
 
 To access the resources inside your Azure Synapse Analytics Studio workspace resource, you need to create the following:
 
-- At least one private link endpoint with a **Dev** type of **Target sub-resource**.
+- At least one private link endpoint with a **Target sub-resource** type of **Dev**.
 - Two other optional private link endpoints with types of **Sql** or **SqlOnDemand**, depending on what resources in the workspace you want to access.
 
 Creating these is similar to how you create the endpoint in the previous step.  

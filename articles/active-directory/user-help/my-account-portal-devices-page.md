@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/29/2020
+ms.date: 01/19/2021
 ms.author: curtand
 ---
 
@@ -23,7 +23,12 @@ The **Devices** page of the **My Account** portal helps you to manage the device
 - Disable any devices you no longer own, have lost, or that have been stolen.
 
 >[!Important]
->This article is intended for users trying to update the device info connected to a work or school account. If you're an administrator looking for information about device management for your employees and other uses, see the [Device Identities Documentation](../devices/index.yml).
+>This article is intended for users trying to update the device info connected to a work or school account. If you see an error while signing in with a personal Microsoft account, you can still sign in by using the domain name for your organization (such as contoso.com) or the **Tenant ID** of your organization from your administrator in one of the following URLs:
+>
+>   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+>   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
+>
+>If you're an administrator looking for information about device management for your employees and other uses, see the [Device Identities Documentation](../devices/index.yml).
 
 ## View your connected devices
 
@@ -58,7 +63,7 @@ If you're locked out of your device or have a fatal error, you can go to another
 
     ![Device page with BitLocker key option](media/my-account-portal/my-account-portal-devices-bitlocker.png)
 
-2. Select **View Bitlocker Keys** for the locked out device and write down the BitLocker key for your locked device.
+2. Select **View BitLocker Keys** for the locked out device and write down the BitLocker key for your locked device.
 
 ## Next steps
 

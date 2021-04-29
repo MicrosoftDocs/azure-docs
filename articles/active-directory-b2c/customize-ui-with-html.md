@@ -1,7 +1,7 @@
 ---
-title: Customize the user interface
+title: Customize the user interface with HTML templates
 titleSuffix: Azure AD B2C
-description: Learn how to customize the user interface for your applications that use Azure Active Directory B2C.
+description: Learn how to customize the user interface with HTML templates for your applications that use Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -9,25 +9,23 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 04/19/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Customize the user interface in Azure Active Directory B2C
+# Customize the user interface with HTML templates in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 Branding and customizing the user interface that Azure Active Directory B2C (Azure AD B2C) displays to your customers helps provide a seamless user experience in your application. These experiences include signing up, signing in, profile editing, and password resetting. This article introduces the methods of user interface (UI) customization. 
 
 > [!TIP]
-> If you want to modify only the banner logo, background image, and background color of your user flow pages, you can try the [Company branding](company-branding.md) feature.
-
+> If you want to modify only the banner logo, background image, and background color of your user flow pages, you can try the [Company branding](customize-ui.md) feature.
 
 ## Custom HTML and CSS overview
-
 
 Azure AD B2C runs code in your customer's browser by using [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). At runtime, content is loaded from a URL you specify in your user flow or custom policy. Each page in the user experience loads its content from the URL you specify for that page. After content is loaded from your URL, it's merged with an HTML fragment inserted by Azure AD B2C, and then the page is displayed to your customer.
 
@@ -72,7 +70,7 @@ When using your own HTML and CSS files to customize the UI, host your UI content
 ## Guidelines for using custom page content
 
 - Use an absolute URL when you include external resources like media, CSS, and JavaScript files in your HTML file.
-- Using [page layout version](page-layout.md) 1.2.0 and above, you can add the `data-preload="true"` attribute in your HTML tags to control the load order for CSS and JavaScript. With `data-preload=true`, the page is constructed before being shown to the user. This attribute helps prevent the page from "flickering" by preloading the CSS file, without the un-styled HTML being shown to the user. The following HTML code snippet shows the use of the `data-preload` tag.
+- Using [page layout version](page-layout.md) 1.2.0 and above, you can add the `data-preload="true"` attribute in your HTML tags to control the load order for CSS and JavaScript. With `data-preload="true"`, the page is constructed before being shown to the user. This attribute helps prevent the page from "flickering" by preloading the CSS file, without the un-styled HTML being shown to the user. The following HTML code snippet shows the use of the `data-preload` tag.
   ```HTML
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```
@@ -117,7 +115,6 @@ Here's an overview of the process:
 ## Prerequisites
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
-
 
 ### 1. Create your HTML content
 
@@ -232,7 +229,6 @@ Validate that you're ready by performing the following steps:
     The result should be `XHR status: 200`. 
     If you receive an error, make sure that your CORS settings are correct. You might also need to clear your browser cache or open an in-private browsing session by pressing Ctrl+Shift+P.
 
-
 ::: zone pivot="b2c-user-flow"
 
 ### 4. Update the user flow
@@ -261,7 +257,7 @@ You should see a page similar to the following example with the elements centere
 
 To configure UI customization, copy the **ContentDefinition** and its child elements from the base file to the extensions file.
 
-1. Open the base file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>. This base file is one of the policy files included in the custom policy starter pack, which you should have obtained in the prerequisite, [Get started with custom policies](./custom-policy-get-started.md).
+1. Open the base file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>. This base file is one of the policy files included in the custom policy starter pack, which you should have obtained in the prerequisite, [Get started with custom policies](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 1. Search for and copy the entire contents of the **ContentDefinitions** element.
 1. Open the extension file. For example, *TrustFrameworkExtensions.xml*. Search for the **BuildingBlocks** element. If the element doesn't exist, add it.
 1. Paste the entire contents of the **ContentDefinitions** element that you copied as a child of the **BuildingBlocks** element.
@@ -363,34 +359,44 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 You can find sample templates for UI customization here:
 
 ```bash
-git clone https://github.com/Azure-Samples/Azure-AD-B2C-page-templates
+git clone https://github.com/azure-ad-b2c/html-templates
 ```
 
 This project contains the following templates:
-- [Ocean Blue](https://github.com/Azure-Samples/Azure-AD-B2C-page-templates/tree/master/ocean_blue)
-- [Slate Gray](https://github.com/Azure-Samples/Azure-AD-B2C-page-templates/tree/master/slate_gray)
+- [Ocean Blue](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/AzureBlue)
+- [Slate Gray](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/MSA)
+- [Classic](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/classic)
+- [Template resources](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/src)
 
 To use the sample:
 
-1. Clone the repo on your local machine. Choose a template folder `/ocean_blue` or `/slate_gray`.
-1. Upload all the files under the template folder and the `/assets` folder, to Blob storage as described in the previous sections.
-1. Next, open each `\*.html` file in the root of either `/ocean_blue` or `/slate_gray`, replace all instances of relative URLs with the URLs of the css, images, and fonts files you uploaded in step 2. For example:
+1. Clone the repo on your local machine. Choose a template folder `/AzureBlue`, `/MSA`, or `/classic`.
+1. Upload all the files under the template folder and the `/src` folder, to Blob storage as described in the previous sections.
+1. Next, open each `\*.html` file in the template folder. Then replace all instances of `https://login.microsoftonline.com` URLs, with the URL you uploaded in step 2. For example:
+    
+    From:
     ```html
-    <link href="./css/assets.css" rel="stylesheet" type="text/css" />
+    https://login.microsoftonline.com/templates/src/fonts/segoeui.WOFF
     ```
 
-    To
+    To:
     ```html
-    <link href="https://your-storage-account.blob.core.windows.net/your-container/css/assets.css" rel="stylesheet" type="text/css" />
+    https://your-storage-account.blob.core.windows.net/your-container/templates/src/fonts/segoeui.WOFF
     ```
-1. Save the `\*.html` files and upload them to Blob storage.
+    
+1. Save the `\*.html` files and upload them to the Blob storage.
 1. Now modify the policy, pointing to your HTML file, as mentioned previously.
-1. If you see missing fonts, images, or CSS, check your references in the extensions policy and the \*.html files.
+1. If you see missing fonts, images, or CSS, check your references in the extensions policy and the `\*.html` files.
 
+## Use company branding assets in custom HTML
+
+To use [company branding](customize-ui.md#configure-company-branding) assets in a custom HTML, add the following tags outside the `<div id="api">` tag. The image source is replaced with that of the background image and banner logo.
+
+```HTML
+<img data-tenant-branding-background="true" />
+<img data-tenant-branding-logo="true" alt="Company Logo" />
+```
 
 ## Next steps
 
 Learn how to enable [client-side JavaScript code](javascript-and-page-layout.md).
-
-
-

@@ -51,7 +51,7 @@ Then, refresh the project dependencies to get the binaries downloaded.
         <artifactId>applicationinsights-web-auto</artifactId>
         <!-- or applicationinsights-web for manual web filter registration -->
         <!-- or applicationinsights-core for bare API -->
-        <version>2.5.0</version>
+        <version>2.6.2</version>
       </dependency>
     </dependencies>
 ```
@@ -64,15 +64,11 @@ Then refresh the project dependencies to get the binaries downloaded.
 
 ```gradle
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web-auto', version: '2.5.0'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web-auto', version: '2.6.2'
       // or applicationinsights-web for manual web filter registration
       // or applicationinsights-core for bare API
     }
 ```
-
-# [Other types](#tab/other)
-
-Download the [latest version](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) and copy the necessary files into your project, replacing any previous versions.
 
 ---
 
@@ -85,10 +81,7 @@ Download the [latest version](https://github.com/Microsoft/ApplicationInsights-J
   * `applicationinsights-core` gives you just the bare API, for example, if your application isn't servlet-based.
   
 * *How should I update the SDK to the latest version?*
-  * If you're using Gradle or Maven...
-    * Update your build file to specify the latest version.
-  * If you're manually managing dependencies...
-    * Download the latest [Application Insights SDK for Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) and replace the old ones. Changes are described in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
+  * As of November 2020, for monitoring Java applications we recommend auto-instrumentation using the Azure Monitor Application Insights Java 3.0 agent. For more information on how to get started, see [Application Insights Java 3.0 agent](./java-in-process-agent.md).
 
 ## Add an *ApplicationInsights.xml* file
 Add *ApplicationInsights.xml* to the resources folder in your project, or make sure it's added to your project's deployment class path. Copy the following XML into it.
@@ -167,17 +160,13 @@ Click through any chart to see more detailed aggregated metrics.
 
 ![Application Insights failures pane with charts](./media/java-get-started/006-barcharts.png)
 
-<!--
-[TODO update image with 2.5.0 operation naming provided by agent]
--->
-
 ### Instance data
 Click through a specific request type to see individual instances.
 
 ![Drill into a specific sample view](./media/java-get-started/007-instance.png)
 
 ### Analytics: Powerful query language
-As you accumulate more data, you can run queries both to aggregate data and to find individual instances.  [Analytics](../log-query/log-query-overview.md) is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
+As you accumulate more data, you can run queries both to aggregate data and to find individual instances.  [Analytics](../logs/log-query-overview.md) is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
 
 ![Example of Analytics](./media/java-get-started/0025.png)
 
@@ -301,7 +290,7 @@ Application Insights can test your website at regular intervals to check that it
 * [Monitor Unix performance counters](java-collectd.md)
 * Add [monitoring to your web pages](javascript.md) to monitor page load times, AJAX calls, browser exceptions.
 * Write [custom telemetry](./api-custom-events-metrics.md) to track usage in the browser or at the server.
-* Use  [Analytics](../log-query/log-query-overview.md) for powerful queries over telemetry from your app
+* Use  [Analytics](../logs/log-query-overview.md) for powerful queries over telemetry from your app
 * For more information, visit [Azure for Java developers](/java/azure).
 
 <!--Link references-->
@@ -311,5 +300,5 @@ Application Insights can test your website at regular intervals to check that it
 [availability]: ./monitor-web-app-availability.md
 [diagnostic]: ./diagnostic-search.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../platform/metrics-charts.md
+[metrics]: ../essentials/metrics-charts.md
 [usage]: javascript.md

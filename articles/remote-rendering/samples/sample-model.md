@@ -21,7 +21,7 @@ Model statistics:
 
 | Name | Value |
 |-----------|:-----------|
-| [Required server size](../how-tos/session-rest-api.md#create-a-session) | standard |
+| [Required server size](../reference/vm-sizes.md) | standard |
 | Number of triangles | 18.7 Million |
 | Number of movable parts | 2073 |
 | Number of materials | 94 |

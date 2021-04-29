@@ -80,7 +80,7 @@ Loading data into a non-empty table with a clustered index can often contain a m
 
 ## Optimizing deletes
 
-DELETE is a fully logged operation.  If you need to delete a large amount of data in a table or a partition, it often makes more sense to `SELECT` the data you wish to keep, which can be run as a minimally logged operation.  To select the data, create a new table with [CTAS](sql-data-warehouse-develop-ctas.md).  Once created, use [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) to swap out your old table with the newly created table.
+DELETE is a fully logged operation.  If you need to delete a large amount of data in a table or a partition, it often makes more sense to `SELECT` the data you wish to keep, which can be run as a minimally logged operation.  To select the data, create a new table with [CTAS](sql-data-warehouse-develop-ctas.md).  Once created, use [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to swap out your old table with the newly created table.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -112,7 +112,7 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 
 ## Optimizing updates
 
-UPDATE is a fully logged operation.  If you need to update a large number of rows in a table or a partition, it can often be far more efficient to use a minimally logged operation such as [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) to do so.
+UPDATE is a fully logged operation.  If you need to update a large number of rows in a table or a partition, it can often be far more efficient to use a minimally logged operation such as [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to do so.
 
 In the example below a full table update has been converted to a CTAS so that minimal logging is possible.
 
@@ -409,9 +409,9 @@ Dedicated SQL pool lets you [pause, resume, and scale](sql-data-warehouse-manage
 
 The best scenario is to let in flight data modification transactions complete prior to pausing or scaling a dedicated SQL pool. However, this scenario might not always be practical. To mitigate the risk of a long rollback, consider one of the following options:
 
-* Rewrite long running operations using [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* Rewrite long running operations using [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 * Break the operation into chunks; operating on a subset of the rows
 
 ## Next steps
 
-See [Transactions in dedicated SQL pool](sql-data-warehouse-develop-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [Dedicated SQL pool best practices](sql-data-warehouse-best-practices.md).
+See [Transactions in dedicated SQL pool](sql-data-warehouse-develop-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [Dedicated SQL pool best practices](../sql/best-practices-dedicated-sql-pool.md).

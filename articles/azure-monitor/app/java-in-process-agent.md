@@ -30,11 +30,11 @@ The 3.0 agent supports Java 8 and above.
 > Please review all the [configuration options](./java-standalone-config.md) carefully,
 > as the json structure has completely changed, in addition to the file name itself which went all lowercase.
 
-Download [applicationinsights-agent-3.0.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0/applicationinsights-agent-3.0.0.jar)
+Download [applicationinsights-agent-3.0.3.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.3/applicationinsights-agent-3.0.3.jar)
 
 **2. Point the JVM to the agent**
 
-Add `-javaagent:path/to/applicationinsights-agent-3.0.0.jar` to your application's JVM args
+Add `-javaagent:path/to/applicationinsights-agent-3.0.3.jar` to your application's JVM args
 
 Typical JVM args include `-Xmx512m` and `-XX:+UseG1GC`. So if you know where to add these, then you already know where to add this.
 
@@ -50,7 +50,7 @@ Point the agent to your Application Insights resource, either by setting an envi
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
-Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.0.0.jar`, with the following content:
+Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.0.3.jar`, with the following content:
 
 ```json
 {
@@ -126,6 +126,47 @@ See [configuration options](./java-standalone-config.md) for full details.
 * Micrometer (including Spring Boot Actuator metrics)
 * JMX Metrics
 
+### Azure SDKs (preview)
+
+See the [configuration options](./java-standalone-config.md#auto-collected-azure-sdk-telemetry-preview)
+to enable this preview feature and capture the telemetry emitted by these Azure SDKs:
+
+* [App Configuration](/java/api/overview/azure/data-appconfiguration-readme) 1.1.10+
+* [Cognitive Search](/java/api/overview/azure/search-documents-readme) 11.3.0+
+* [Communication Chat](/java/api/overview/azure/communication-chat-readme) 1.0.0+
+* [Communication Common](/java/api/overview/azure/communication-common-readme) 1.0.0+
+* [Communication Identity](/java/api/overview/azure/communication-identity-readme) 1.0.0+
+* [Communication Sms](/java/api/overview/azure/communication-sms-readme) 1.0.0+
+* [Cosmos DB](/java/api/overview/azure/cosmos-readme) 4.13.0+
+* [Event Grid](/java/api/overview/azure/messaging-eventgrid-readme) 4.0.0+
+* [Event Hubs](/java/api/overview/azure/messaging-eventhubs-readme) 5.6.0+
+* [Event Hubs - Azure Blob Storage Checkpoint Store](/java/api/overview/azure/messaging-eventhubs-checkpointstore-blob-readme) 1.5.1+
+* [Form Recognizer](/java/api/overview/azure/ai-formrecognizer-readme) 3.0.6+
+* [Identity](/java/api/overview/azure/identity-readme) 1.2.4+
+* [Key Vault - Certificates](/java/api/overview/azure/security-keyvault-certificates-readme) 4.1.6+
+* [Key Vault - Keys](/java/api/overview/azure/security-keyvault-keys-readme) 4.2.6+
+* [Key Vault - Secrets](/java/api/overview/azure/security-keyvault-secrets-readme) 4.2.6+
+* [Service Bus](/java/api/overview/azure/messaging-servicebus-readme) 7.1.0+
+* [Text Analytics](/java/api/overview/azure/ai-textanalytics-readme) 5.0.4+
+
+[//]: # "the above names and links scraped from https://azure.github.io/azure-sdk/releases/latest/java.html"
+[//]: # "and version sync'd manually against the oldest version in maven central built on azure-core 1.14.0"
+[//]: # ""
+[//]: # "var table = document.querySelector('#tg-sb-content > div > table')"
+[//]: # "var str = ''"
+[//]: # "for (var i = 1, row; row = table.rows[i]; i++) {"
+[//]: # "  var name = row.cells[0].getElementsByTagName('div')[0].textContent.trim()"
+[//]: # "  var stableRow = row.cells[1]"
+[//]: # "  var versionBadge = stableRow.querySelector('.badge')"
+[//]: # "  if (!versionBadge) {"
+[//]: # "    continue"
+[//]: # "  }"
+[//]: # "  var version = versionBadge.textContent.trim()"
+[//]: # "  var link = stableRow.querySelectorAll('a')[2].href"
+[//]: # "  str += '* [' + name + '](' + link + ') ' + version"
+[//]: # "}"
+[//]: # "console.log(str)"
+
 ## Send custom telemetry from your application
 
 Our goal in 3.0+ is to allow you to send your custom telemetry using standard APIs.
@@ -136,7 +177,7 @@ and correlates it with auto-collected telemetry.
 
 ### Supported custom telemetry
 
-The table below represents currently supported custom telemetry types that you can enable to supplement the Java 3.0 agent. To summarize, custom metrics are supported through micrometer, custom exceptions and traces can be enabled through logging frameworks, and any type of the custom telemetry is supported through the [Application Insights Java 2.x SDK](#send-custom-telemetry-using-application-insights-java-2x-sdk).
+The table below represents currently supported custom telemetry types that you can enable to supplement the Java 3.0 agent. To summarize, custom metrics are supported through micrometer, custom exceptions and traces can be enabled through logging frameworks, and any type of the custom telemetry is supported through the [Application Insights Java 2.x SDK](#send-custom-telemetry-using-the-2x-sdk).
 
 |                     | Micrometer | Log4j, logback, JUL | 2.x SDK |
 |---------------------|------------|---------------------|---------|
@@ -185,21 +226,21 @@ By default, logging is only collected when that logging is performed at the INFO
 See the [configuration options](./java-standalone-config.md#auto-collected-logging) for how to change this level.
 
 If you want to attach custom dimensions to your logs, you can use
-[Log4j 1 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html),
+[Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html),
 [Log4j 2 MDC](https://logging.apache.org/log4j/2.x/manual/thread-context.html),
 or [Logback MDC](http://logback.qos.ch/manual/mdc.html),
 and Application Insights Java 3.0 will automatically capture those MDC properties as custom dimensions
 on your trace and exception telemetry.
 
-### Send custom telemetry using Application Insights Java 2.x SDK
+### Send custom telemetry using the 2.x SDK
 
-Add `applicationinsights-core-2.6.0.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
+Add `applicationinsights-core-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
 
 ```xml
 <dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>applicationinsights-core</artifactId>
-  <version>2.6.0</version>
+  <version>2.6.2</version>
 </dependency>
 ```
 
@@ -233,6 +274,7 @@ try {
 } finally {
     long endTime = System.currentTimeMillis();
     RemoteDependencyTelemetry telemetry = new RemoteDependencyTelemetry();
+    telemetry.setSuccess(success);
     telemetry.setTimestamp(new Date(startTime));
     telemetry.setDuration(new Duration(endTime - startTime));
     telemetryClient.trackDependency(telemetry);
@@ -253,4 +295,101 @@ try {
 } catch (Exception e) {
     telemetryClient.trackException(e);
 }
+```
+
+### Add request custom dimensions using the 2.x SDK
+
+> [!NOTE]
+> This feature is only in 3.0.2 and later
+
+Add `applicationinsights-web-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.2</version>
+</dependency>
+```
+
+and add custom dimensions in your code:
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+requestTelemetry.getProperties().put("mydimension", "myvalue");
+```
+
+### Set the request telemetry user_Id using the 2.x SDK
+
+> [!NOTE]
+> This feature is only in 3.0.2 and later
+
+Add `applicationinsights-web-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.2</version>
+</dependency>
+```
+
+and set the `user_Id` in your code:
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+requestTelemetry.getContext().getUser().setId("myuser");
+```
+
+### Override the request telemetry name using the 2.x SDK
+
+> [!NOTE]
+> This feature is only in 3.0.2 and later
+
+Add `applicationinsights-web-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.2</version>
+</dependency>
+```
+
+and set the name in your code:
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+requestTelemetry.setName("myname");
+```
+
+### Get the request telemetry id and the operation id using the 2.x SDK
+
+> [!NOTE]
+> This feature is only in 3.0.3 and later
+
+Add `applicationinsights-web-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.2</version>
+</dependency>
+```
+
+and get the request telemetry id and the operation id in your code:
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+String requestId = requestTelemetry.getId();
+String operationId = requestTelemetry.getContext().getOperation().getId();
 ```

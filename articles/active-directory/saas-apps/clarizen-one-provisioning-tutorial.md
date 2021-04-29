@@ -74,27 +74,27 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise applications** > **All applications**.
 
-	![Screenshot that shows the Enterprise applications pane.](common/enterprise-applications.png)
+      ![Screenshot that shows the Enterprise applications pane.](common/enterprise-applications.png)
 
 1. In the applications list, select **Clarizen One**.
 
-	![Screenshot that shows the Clarizen One link in the Applications list.](common/all-applications.png)
+      ![Screenshot that shows the Clarizen One link in the Applications list.](common/all-applications.png)
 
 1. Select the **Provisioning** tab.
 
-	![Screenshot that shows the Provisioning tab.](common/provisioning.png)
+      ![Screenshot that shows the Provisioning tab.](common/provisioning.png)
 
 1. Set **Provisioning Mode** to **Automatic**.
 
-	![Screenshot that shows the Provisioning tab Automatic option.](common/provisioning-automatic.png)
+      ![Screenshot that shows the Provisioning tab Automatic option.](common/provisioning-automatic.png)
 
 1. Under the **Admin Credentials** section, input your Clarizen One **Tenant URL** and **Secret Token**. Select **Test Connection** to ensure Azure AD can connect to Clarizen One. If the connection fails, ensure your Clarizen One account has admin permissions and try again.
 
- 	![Screenshot that shows the Secret Token box.](common/provisioning-testconnection-tenanturltoken.png)
+    ![Screenshot that shows the Secret Token box.](common/provisioning-testconnection-tenanturltoken.png)
 
 1. In the **Notification Email** box, enter the email address of a person or group who should receive the provisioning error notifications. Select the **Send an email notification when a failure occurs** check box.
 
-	![Screenshot that shows the Notification Email box.](common/provisioning-notification-email.png)
+    ![Screenshot that shows the Notification Email box.](common/provisioning-notification-email.png)
 
 1. Select **Save**.
 
@@ -133,8 +133,8 @@ This section guides you through the steps to configure the Azure AD provisioning
    |externalId|String|
    |nickName|String|
    |locale|String|
-   |roles[primary eq"True".type]|String|
-   |roles[primary eq"True".value]|String|
+   |roles[primary eq "True".type]|String|
+   |roles[primary eq "True".value]|String|
    |timezone|String|
    |userType|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
@@ -158,15 +158,15 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. To enable the Azure AD provisioning service for Clarizen One, change **Provisioning Status** to **On** in the **Settings** section.
 
-	![Screenshot that shows the Provisioning Status toggled On.](common/provisioning-toggle-on.png)
+      ![Screenshot that shows the Provisioning Status toggled On.](common/provisioning-toggle-on.png)
 
 1. Define the users or groups that you want to provision to Clarizen One by selecting the desired values in **Scope** in the **Settings** section.
 
-	![Screenshot that shows the provisioning Scope.](common/provisioning-scope.png)
+      ![Screenshot that shows the provisioning Scope.](common/provisioning-scope.png)
 
 1. When you're ready to provision, select **Save**.
 
-	![Screenshot that shows saving the provisioning configuration.](common/provisioning-configuration-save.png)
+      ![Screenshot that shows saving the provisioning configuration.](common/provisioning-configuration-save.png)
 
 This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running.
 

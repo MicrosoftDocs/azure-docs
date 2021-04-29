@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 04/12/2021
 ms.author: alkohli
 ---
 
@@ -19,10 +19,14 @@ The hardware components of your Azure Stack Edge Pro with an onboard Graphics Pr
 
 The Azure Stack Edge Pro device has the following specifications for compute and memory:
 
-| Specification           | Value                  |
-|-------------------------|----------------------------|
-| CPU                     | 2 X Intel Xeon Silver 4214 (Cascade Lake) CPU            |
-| Memory                  | 128 (8x16 GB) GB RAM                     |
+| Specification  | Value                                                                       |
+|----------------|-----------------------------------------------------------------------------|
+| CPU type       | Dual Intel Xeon Silver 4214 (Cascade Lake) CPU                              |
+| CPU: raw       | 24 total cores, 48 total vCPUs                                              |
+| CPU: usable    | 40 vCPUs                                                                    |
+| Memory type    | Dell Compatible 16 GB PC4-23400 DDR4-2933Mhz 2Rx8 1.2v ECC Registered RDIMM |
+| Memory: raw    | 128 GB RAM (8 x 16 GB)                                                      |
+| Memory: usable | 102 GB RAM                                                                  |
 
 
 ## Compute acceleration specifications
@@ -40,7 +44,7 @@ The Azure Stack Edge Pro device has two 100-240 V power supply units (PSUs) with
 
 | Specification           | 750 W PSU                  |
 |-------------------------|----------------------------|
-| Maximum output power    | 750 W                     |
+| Maximum output power    | 750 W                      |
 | Frequency               | 50/60 Hz                   |
 | Voltage range selection | Auto ranging: 100-240 V AC |
 | Hot pluggable           | Yes                        |
@@ -52,11 +56,11 @@ Your Azure Stack Edge Pro device has six network interfaces, PORT1- PORT6.
 
 | Specification           | Description                 |
 |-------------------------|----------------------------|
-|  Network interfaces    | **2 X 1 GbE interfaces** – 1 management interface Port 1 is used for initial setup and is static by default. After the initial setup is complete, you can use the interface for data with any IP address. However, on reset, the interface reverts back to static IP. <br>The other interface Port 2 is user configurable, can be used for data transfer, and is DHCP by default. <br>**4 X 25 GbE interfaces** – These data interfaces, Port 3 through Port 6, can be configured by user as DHCP (default) or static. These can also operate as 10 GbE interfaces.  | 
+|  Network interfaces    | **2 X 1 GbE interfaces** – 1 management interface Port 1 is used for initial setup and is static by default. After the initial setup is complete, you can use the interface for data with any IP address. However, on reset, the interface reverts back to static IP. <br>The other interface Port 2 is user configurable, can be used for data transfer, and is DHCP by default. <br>**4 X 25-GbE interfaces** – These data interfaces, Port 3 through Port 6, can be configured by user as DHCP (default) or static. They can also operate as 10-GbE interfaces.  | 
 
 Your Azure Stack Edge Pro device has the following network hardware:
 
-* **Custom Microsoft Qlogic Cavium 25G NDC adapter** - Port 1 through port 4.
+* **Custom Microsoft `Qlogic` Cavium 25G NDC adapter** - Port 1 through port 4.
 * **Mellanox dual port 25G ConnectX-4 channel network adapter** - Port 5 and port 6.
 
 Here are the details for the Mellanox card:
@@ -64,13 +68,13 @@ Here are the details for the Mellanox card:
 | Parameter           | Description                 |
 |-------------------------|----------------------------|
 | Model    | ConnectX®-4 Lx EN network interface card                      |
-| Model Description               | 25GbE dual-port SFP28; PCIe3.0 x8; ROHS R6                    |
+| Model Description               | 25 GbE dual-port SFP28; PCIe3.0 x8; ROHS R6                    |
 | Device Part Number (R640) | MCX4121A-ACAT  |
 | PSID (R640)           | MT_2420110034                         |
 
 For a full list of supported cables, switches, and transceivers for these network cards, go to:
 
-- [Qlogic Cavium 25G NDC adapter interoperability matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
+- [`Qlogic` Cavium 25G NDC adapter interoperability matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
 - [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).  
 
 ## Storage specifications
@@ -84,11 +88,9 @@ The Azure Stack Edge Pro devices have five 2.5" NVMe DC P4610 SSDs, each with a 
 |    Boot SATA solid-state drives (SSD)      |    1                  |
 |    Boot SSD capacity                       |    240 GB             |
 |    Total capacity                          |    8.0 TB             |
-|    Total usable capacity*                  |    ~ 4.19 TB          |
+|    Total usable capacity                   |    ~ 4.19 TB          |
+|    RAID configuration                      |    Storage Spaces Direct with a combination of mirroring and parity  |
 |    SAS controller                          |    HBA330 12 Gbps     |
-
-
-**After parity resiliency and reserving space for internal use.*
 
 <!--Remove based on feedback from Ravi
 ## Other hardware specifications
@@ -146,7 +148,8 @@ This section lists the specifications related to the enclosure environment such 
 |     Enclosure                           |     Operational specifications                                                                                                                                                                                         |
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    Airflow                              |    System airflow is front to rear. System must be operated with a low-pressure, rear-exhaust installation. <!--Back pressure created by rack doors and obstacles should not exceed 5 pascals (0.5 mm water gauge).-->    |
-|    Maximum altitude, operational        |    3048 meters (10,000 feet) with maximum operating temperature   de-rated determined by [Operating temperature de-rating specifications](#operating-temperature-de-rating-specifications).                                                                                |
+| Ingress protection (IP)                 |    This type of rack-mounted equipment for indoor use typically isn't tested for ingress protection (protection against solids and liquids for an electrical enclosure). Manufacturer's safety assessment shows IPXO (no ingress protection).  |
+|    Maximum altitude, operational        |    3048 meters (10,000 feet) with maximum operating temperature de-rated determined by [Operating temperature de-rating specifications](#operating-temperature-de-rating-specifications).                                                                                |
 |    Maximum altitude, non-operational    |    12,000 meters (39,370 feet)                                                                                                                                                                                         |
 |    Shock, operational                   |    6 G for 11 milliseconds in 6   orientations                                                                                                                                                                         |
 |    Shock, non-operational               |    71 G for 2 milliseconds in 6 orientations                                                                                                                                                                           |

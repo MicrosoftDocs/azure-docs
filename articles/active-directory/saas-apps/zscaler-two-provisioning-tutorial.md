@@ -70,6 +70,9 @@ This section guides you through the steps for configuring the Azure AD provision
 > [!TIP]
 > You might also want to enable SAML-based single sign-on for Zscaler Two. If you do, follow the instructions in the [Zscaler Two single sign-on tutorial](zscaler-two-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, but the two features complement each other.
 
+> [!NOTE]
+> When users and groups are provisioned or de-provisioned we recommend to periodically restart provisioning to ensure that group memberships are properly updated. Doing a restart will force our service to re-evaluate all the groups and update the memberships. 
+
 1. Sign in to the [Azure portal](https://portal.azure.com) and select **Enterprise applications** > **All applications** > **Zscaler Two**:
 
 	![Enterprise applications](common/enterprise-applications.png)

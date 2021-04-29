@@ -6,20 +6,20 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 01/07/2021
 ms.author: duau
 
 ---
 # Router configuration samples to set up and manage NAT
 
-This page provides NAT configuration samples for Cisco ASA and Juniper SRX series routers when working with ExpressRoute. These are intended to be samples for guidance only and must not be used as is. You can work with your vendor to come up with appropriate configurations for your network.
+This article provides NAT configuration samples for Cisco ASA and Juniper SRX series routers when working with ExpressRoute. These router configurations are intended to be samples for guidance only and must not be used as is. You'll need to work with your vendor to come up with appropriate configurations for your network.
 
 > [!IMPORTANT]
 > Samples in this page are intended to be purely for guidance. You must work with your vendor's sales / technical team and your networking team to come up with appropriate configurations to meet your needs. Microsoft will not support issues related to configurations listed in this page. You must contact your device vendor for support issues.
 > 
 > 
 
-* Router configuration samples below apply to Azure Public and Microsoft peerings. You must not configure NAT for Azure private peering. Review [ExpressRoute peerings](expressroute-circuit-peerings.md) and [ExpressRoute NAT requirements](expressroute-nat.md) for more details.
+* Router configuration samples below apply to Azure Public and Microsoft peerings. You don't configure NAT for Azure private peering. Review [ExpressRoute peerings](expressroute-circuit-peerings.md) and [ExpressRoute NAT requirements](expressroute-nat.md) for more details.
 
 * You MUST use separate NAT IP pools for connectivity to the internet and ExpressRoute. Using the same NAT IP pool across the internet and ExpressRoute will result in asymmetric routing and loss of connectivity.
 
@@ -358,5 +358,5 @@ Refer to samples in [Routing configuration samples](expressroute-config-samples-
 ```
 
 ## Next steps
-See the [ExpressRoute FAQ](expressroute-faqs.md) for more details.
+For more information, see [ExpressRoute FAQ](expressroute-faqs.md).
 

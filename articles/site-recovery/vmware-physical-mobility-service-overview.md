@@ -223,7 +223,7 @@ Installer file | Operating system (64-bit only)
 As a **prerequisite to update or protect SUSE Linux Enterprise Server 11 SP3 machines** from 9.36 version onwards:
 
 1. Ensure latest mobility agent installer is downloaded from Microsoft Download Center and placed in push installer repository on configuration server and all scale out process servers
-2. [Download](site-recovery-whats-new.md) latest SUSE Linux Enterprise Server 11 SP3 agent installer. The latest mobility agent version is [9.37](https://support.microsoft.com/help/4582666/)
+2. [Download](site-recovery-whats-new.md) the latest SUSE Linux Enterprise Server 11 SP3 agent installer.
 3. Navigate to Configuration server, copy the SUSE Linux Enterprise Server 11 SP3 agent installer on the path - INSTALL_DIR\home\svsystems\pushinstallsvc\repository
 1. After copying the latest installer, restart InMage PushInstall service. 
 1. Now, navigate to associated scale-out process servers, repeat step 3 and step 4.
@@ -235,7 +235,7 @@ As a **prerequisite to update or protect SUSE Linux Enterprise Server 11 SP3 mac
 As a **prerequisite to update or protect RHEL 5 machines** from 9.36 version onwards:
 
 1. Ensure latest mobility agent installer is downloaded from Microsoft Download Center and placed in push installer repository on configuration server and all scale out process servers
-2. [Download](site-recovery-whats-new.md) latest RHEL 5 or CentOS 5 agent installer. The latest mobility agent version is [9.37](https://support.microsoft.com/help/4582666/)
+2. [Download](site-recovery-whats-new.md) the latest RHEL 5 or CentOS 5 agent installer. 
 3. Navigate to Configuration server, copy the RHEL 5 or CentOS 5 agent installer on the path - INSTALL_DIR\home\svsystems\pushinstallsvc\repository
 1. After copying the latest installer, restart InMage PushInstall service. 
 1. Now, navigate to associated scale-out process servers, repeat step 3 and step 4.
@@ -247,7 +247,7 @@ As a **prerequisite to update or protect RHEL 5 machines** from 9.36 version onw
 As a **prerequisite to update or protect Debian 7 machines** from 9.36 version onwards:
 
 1. Ensure latest mobility agent installer is downloaded from Microsoft Download Center and placed in push installer repository on configuration server and all scale out process servers
-2. [Download](site-recovery-whats-new.md) latest Debian 7 agent installer. The latest mobility agent version is [9.37](https://support.microsoft.com/help/4582666/)
+2. [Download](site-recovery-whats-new.md) the latest Debian 7 agent installer.
 3. Navigate to Configuration server, copy the Debian 7 agent installer on the path - INSTALL_DIR\home\svsystems\pushinstallsvc\repository
 1. After copying the latest installer, restart InMage PushInstall service. 
 1. Now, navigate to associated scale-out process servers, repeat step 3 and step 4.

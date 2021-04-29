@@ -1,16 +1,12 @@
 ---
 title: Copy and transform data in Azure Database for PostgreSQL
 description: Learn how to copy and transform data in Azure Database for PostgreSQL by using Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/08/2020
+ms.date: 02/25/2021
 ---
 
 # Copy and transform data in Azure Database for PostgreSQL by using Azure Data Factory
@@ -28,6 +24,8 @@ This Azure Database for PostgreSQL connector is supported for the following acti
 - [Copy activity](copy-activity-overview.md) with a [supported source/sink matrix](copy-activity-overview.md)
 - [Mapping data flow](concepts-data-flow-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
+
+Currently, data flow supports Azure database for PostgreSQL Single Server but not Flexible Server or Hyperscale (Citus).
 
 ## Getting started
 
@@ -170,8 +168,9 @@ To copy data to Azure Database for PostgreSQL, the following properties are supp
 |:--- |:--- |:--- |
 | type | The type property of the copy activity sink must be set to **AzurePostgreSQLSink**. | Yes |
 | preCopyScript | Specify a SQL query for the copy activity to execute before you write data into Azure Database for PostgreSQL in each run. You can use this property to clean up the preloaded data. | No |
-| writeBatchSize | Inserts data into the Azure Database for PostgreSQL table when the buffer size reaches writeBatchSize.<br>Allowed value is an integer that represents the number of rows. | No (default is 10,000) |
-| writeBatchTimeout | Wait time for the batch insert operation to complete before it times out.<br>Allowed values are Timespan strings. An example is 00:30:00 (30 minutes). | No (default is 00:00:30) |
+| writeMethod | The method used to write data into Azure Database for PostgreSQL.<br>Allowed values are: **CopyCommand** (preview, which is more performant), **BulkInsert** (default). | No |
+| writeBatchSize | The number of rows loaded into Azure Database for PostgreSQL per batch.<br>Allowed value is an integer that represents the number of rows. | No (default is 1,000,000) |
+| writeBatchTimeout | Wait time for the batch insert operation to complete before it times out.<br>Allowed values are Timespan strings. An example is 00:30:00 (30 minutes). | No (default is 00:30:00) |
 
 **Example**:
 
@@ -199,7 +198,8 @@ To copy data to Azure Database for PostgreSQL, the following properties are supp
             "sink": {
                 "type": "AzurePostgreSQLSink",
                 "preCopyScript": "<custom SQL script>",
-                "writeBatchSize": 100000
+                "writeMethod": "CopyCommand",
+                "writeBatchSize": 1000000
             }
         }
     }

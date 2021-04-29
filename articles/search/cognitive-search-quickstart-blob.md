@@ -8,17 +8,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/25/2020
+ms.date: 03/21/2021
 ---
 # Quickstart: Create an Azure Cognitive Search cognitive skillset in the Azure portal
 
-A skillset is an AI-based feature that extracts information and structure from large undifferentiated text or image files, and makes the content both indexable and searchable in Azure Cognitive Search. 
+This quickstart demonstrates skillset support in the portal, showing how Optical Character Recognition (OCR) and entity recognition can be used to create searchable text content from images and application files.
 
-In this quickstart, you'll combine services and data in the Azure cloud to create the skillset. Once everything is in place, you'll run the **Import data** wizard in the Azure portal to pull it all together. The end result is a searchable index populated with data created by AI processing that you can query in the portal ([Search explorer](search-explorer.md)).
+To prepare, you'll create a few resources and upload sample images and application content files. Once everything is in place, you'll run the **Import data** wizard in the Azure portal to pull it all together. The end result is a searchable index populated with data created by AI processing that you can query in the portal ([Search explorer](search-explorer.md)).
+
+Prefer to start with code? See [Tutorial: Use REST and AI to generate searchable content from Azure blobs](cognitive-search-tutorial-blob.md) or an [Tutorial: Use .NET and AI to generate searchable content from Azure blobs](cognitive-search-tutorial-blob-dotnet.md) instead.
 
 ## Prerequisites
 
-Before you begin, you must have the following:
+Before you begin, have the following prerequisites in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
@@ -39,11 +41,11 @@ In the following steps, set up a blob container in Azure Storage to store hetero
 
    + Choose the same region as Azure Cognitive Search to avoid bandwidth charges. 
 
-   + Choose the StorageV2 (general purpose V2) account type if you want to try out the knowledge store feature later, in another walkthrough. Otherwise, choose any type.
+   + Choose the StorageV2 (general purpose V2).
 
 1. Open the Blob services pages and create a container. You can use the default public access level. 
 
-1. In container, click **Upload** to upload the sample files you downloaded in the first step. Notice that you have a wide range of content types, including images and application files that are not full text searchable in their native formats.
+1. In Container, click **Upload** to upload the sample files you downloaded in the first step. Notice that you have a wide range of content types, including images and application files that are not full text searchable in their native formats.
 
    :::image type="content" source="media/cognitive-search-quickstart-blob/sample-data.png" alt-text="Source files in Azure blob storage" border="false":::
 

@@ -34,7 +34,7 @@ Also, Data Lake Storage Gen2 is very cost effective because it is built on top o
 
 ## Key features of Data Lake Storage Gen2
 
--   **Hadoop compatible access**: Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](data-lake-storage-abfs-driver.md) (used to access data) is available within all Apache Hadoop environments. These environments include [Azure HDInsight](../../hdinsight/index.yml)*,* [Azure Databricks](/azure/databricks/), and [Azure Synapse Analytics](/azure/synapse-analytics).
+-   **Hadoop compatible access**: Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](data-lake-storage-abfs-driver.md) (used to access data) is available within all Apache Hadoop environments. These environments include [Azure HDInsight](../../hdinsight/index.yml)*,* [Azure Databricks](/azure/databricks/), and [Azure Synapse Analytics](../../synapse-analytics/index.yml).
 
 -   **A superset of POSIX permissions**: The security model for Data Lake Gen2 supports ACL and POSIX permissions along with some extra granularity specific to Data Lake Storage Gen2. Settings may be configured through Storage Explorer or through frameworks like Hive and Spark.
 

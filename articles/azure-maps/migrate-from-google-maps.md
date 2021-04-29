@@ -11,17 +11,17 @@ manager: cpendle
 ms.custom: 
 ---
 
-# Tutorial - Migrate from Google Maps to Azure Maps
+# Tutorial: Migrate from Google Maps to Azure Maps
 
 This article provides insights on how to migrate web, mobile and server-based applications from Google Maps to the Microsoft Azure Maps platform. This tutorial includes comparative code samples, migration suggestions, and best practices for migrating to Azure Maps. In this tutorial, you will learn:
 
 > [!div class="checklist"]
-> * High-level comparison for equivalent Google Maps features available in Azure Maps
-> * What licensing differences to take into consideration
-> * How to plan your migration
+> * High-level comparison for equivalent Google Maps features available in Azure Maps.
+> * What licensing differences to take into consideration.
+> * How to plan your migration.
 > * Where to find technical resources and support.
 
-## Prerequisites 
+## Prerequisites
 
 1. Sign in to the [Azure portal](https://portal.azure.com). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 2. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
@@ -43,7 +43,7 @@ The table provides a high-level list of Azure Maps features, which correspond to
 | REST Service APIs           | ✓                                      |
 | Directions (Routing)        | ✓                                      |
 | Distance Matrix             | ✓                                      |
-| Elevation                   | Planned                                |
+| Elevation                   | ✓ (Preview)                            |
 | Geocoding (Forward/Reverse) | ✓                                      |
 | Geolocation                 | N/A                                    |
 | Nearest Roads               | ✓                                      |
@@ -65,17 +65,17 @@ Google Maps provides basic key-based authentication. Azure Maps provides both ba
 
 When migrating to Azure Maps from Google Maps, consider the following points about licensing.
 
-- Azure Maps charges for the usage of interactive maps, which is based on the number of loaded map tiles. On the other hand, Google Maps charges for loading the map control. In the interactive Azure Maps SDKs, map tiles are automatically cached to reduce the development cost. One Azure Maps transaction is generated for every 15 map tiles that are loaded. The interactive Azure Maps SDKs uses 512-pixel tiles, and on average, it generates one or less transactions per page view.
-- Often, its more cost effective to replace static map images from Google Maps web services with the Azure Maps Web SDK. The Azure Maps Web SDK uses map tiles. Unless the user pans and zooms the map, the service often generates only a fraction of a transaction per map load. The Azure Maps web SDK has options for disabling panning and zooming, if desired. Additionally, the Azure Maps web SDK provides a lot more visualization options than the static map web service.
-- Azure Maps allows data from its platform to be stored in Azure. Also, data can be cached elsewhere for up to six months as per the [terms of use](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46).
+* Azure Maps charges for the usage of interactive maps, which is based on the number of loaded map tiles. On the other hand, Google Maps charges for loading the map control. In the interactive Azure Maps SDKs, map tiles are automatically cached to reduce the development cost. One Azure Maps transaction is generated for every 15 map tiles that are loaded. The interactive Azure Maps SDKs uses 512-pixel tiles, and on average, it generates one or less transactions per page view.
+* Often, its more cost effective to replace static map images from Google Maps web services with the Azure Maps Web SDK. The Azure Maps Web SDK uses map tiles. Unless the user pans and zooms the map, the service often generates only a fraction of a transaction per map load. The Azure Maps web SDK has options for disabling panning and zooming, if desired. Additionally, the Azure Maps web SDK provides a lot more visualization options than the static map web service.
+* Azure Maps allows data from its platform to be stored in Azure. Also, data can be cached elsewhere for up to six months as per the [terms of use](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46).
 
 Here are some related resources for Azure Maps:
 
-- [Azure Maps pricing page](https://azure.microsoft.com/pricing/details/azure-maps/)
-- [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=azure-maps)
-- [Azure Maps term of use](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46)
+* [Azure Maps pricing page](https://azure.microsoft.com/pricing/details/azure-maps/)
+* [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=azure-maps)
+* [Azure Maps term of use](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46)
     (included in the Microsoft Online Services Terms)
-- [Choose the right pricing tier in Azure Maps](./choose-pricing-tier.md)
+* [Choose the right pricing tier in Azure Maps](./choose-pricing-tier.md)
 
 ## Suggested migration plan
 
@@ -115,15 +115,13 @@ Here is a list of useful technical resources for Azure Maps.
 
 Developers can seek migration support through the [forums](/answers/topics/azure-maps.html) or through one of the many Azure support options: [https://azure.microsoft.com/support/options](https://azure.microsoft.com/support/options)
 
+## Clean up resources
+
+No resources to be cleaned up.
+
 ## Next steps
 
 Learn the details of how to migrate your Google Maps application with these articles:
 
 > [!div class="nextstepaction"]
 > [Migrate a web app](migrate-from-google-maps-web-app.md)
-
-> [!div class="nextstepaction"]
-> [Migrate a web service](migrate-from-google-maps-web-services.md) 
-
-> [!div class="nextstepaction"]
-> [Migrate an Android app](migrate-from-google-maps-android-app.md) 

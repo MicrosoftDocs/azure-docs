@@ -18,7 +18,7 @@ ms.custom: mvc
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-The Azure Maps [Elevation service](https://docs.microsoft.com/rest/api/maps/elevation) provides APIs to query elevation data anywhere on the Earth's surface. You can request sampled elevation data along paths, within a defined bounding box, or at specific coordinates. Also, you can use the [Render V2 - Get Map Tile API](https://docs.microsoft.com/rest/api/maps/renderv2) to retrieve elevation data in tile format. The tiles are delivered in GeoTIFF raster format. This article shows you how to use Azure Maps Elevation service and the Get Map Tile API to request elevation data. The elevation data can be requested in both GeoJSON and GeoTiff formats.
+The Azure Maps [Elevation service](/rest/api/maps/elevation) provides APIs to query elevation data anywhere on the Earth's surface. You can request sampled elevation data along paths, within a defined bounding box, or at specific coordinates. Also, you can use the [Render V2 - Get Map Tile API](/rest/api/maps/renderv2) to retrieve elevation data in tile format. The tiles are delivered in GeoTIFF raster format. This article shows you how to use Azure Maps Elevation service and the Get Map Tile API to request elevation data. The elevation data can be requested in both GeoJSON and GeoTiff formats.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ This article uses the [Postman](https://www.postman.com/) application, but you m
 
 ## Request elevation data in raster tiled format
 
-To request elevation data in raster tile format, use the [Render V2 - Get Map Tile API](https://docs.microsoft.com/rest/api/maps/renderv2). If the tile can be found, the API returns the tile as a GeoTIFF. Otherwise, the API returns 0. All raster DEM tiles are using the geoid (sea level) Earth mode. In this example, we'll request elevation data for Mt. Everest.
+To request elevation data in raster tile format, use the [Render V2 - Get Map Tile API](/rest/api/maps/renderv2). If the tile can be found, the API returns the tile as a GeoTIFF. Otherwise, the API returns 0. All raster DEM tiles are using the geoid (sea level) Earth mode. In this example, we'll request elevation data for Mt. Everest.
 
 >[!TIP]
 >To retrieve a tile at a specific area on the world map, you'll need to find the correct tile at the appropriate zoom level. Note also that, WorldDEM covers the entire global landmass but does not cover oceans.  For more information, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
@@ -54,9 +54,9 @@ Use the Elevation service (Preview) APIs to request elevation data in GeoJSON fo
 
 * [Get Data for Points](/rest/api/maps/elevation/getdataforpoints)
 * [Post Data for Points](/rest/api/maps/elevation/postdataforpoints)
-* [Get Data for Polyline](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
-* [Post Data for Polyline](https://docs.microsoft.com/rest/api/maps/elevation/postdataforpolyline)
-* [Get Data for Bounding Box](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
+* [Get Data for Polyline](/rest/api/maps/elevation/getdataforpolyline)
+* [Post Data for Polyline](/rest/api/maps/elevation/postdataforpolyline)
+* [Get Data for Bounding Box](/rest/api/maps/elevation/getdataforboundingbox)
 
 >[!IMPORTANT]
 > When no data can be returned, all APIs return `0`.
@@ -122,11 +122,11 @@ In this example, we'll use the [Get Data for Points API](/rest/api/maps/elevatio
 
 ### Request elevation data samples along a Polyline
 
-In this example, we'll use the [Get Data for Polyline](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline) to request five equally spaced samples of elevation data along a straight line between coordinates at Mt. Everest and Chamlang mountains. Both coordinates must be defined in Long/Lat format. If you don't specify a value for the `samples` parameter, the number of samples defaults to 10. The maximum number of samples is 2,000.
+In this example, we'll use the [Get Data for Polyline](/rest/api/maps/elevation/getdataforpolyline) to request five equally spaced samples of elevation data along a straight line between coordinates at Mt. Everest and Chamlang mountains. Both coordinates must be defined in Long/Lat format. If you don't specify a value for the `samples` parameter, the number of samples defaults to 10. The maximum number of samples is 2,000.
 
 Then, we'll use the Get Data for Polyline to request three equally spaced samples of elevation data along a path. We'll define the precise location for the samples by passing in three Long/Lat coordinate pairs.
 
-Finally, we'll use the [Post Data For Polyline API](https://docs.microsoft.com/rest/api/maps/elevation/postdataforpolyline) to request elevation data at the same three equally spaced samples.
+Finally, we'll use the [Post Data For Polyline API](/rest/api/maps/elevation/postdataforpolyline) to request elevation data at the same three equally spaced samples.
 
 Latitudes and longitudes in the URL are expected to be in WGS84 (World Geodetic System) decimal degree.
 
@@ -225,7 +225,7 @@ Latitudes and longitudes in the URL are expected to be in WGS84 (World Geodetic 
     }
     ```
 
-7. Now, we'll call the [Post Data For Polyline API](https://docs.microsoft.com/rest/api/maps/elevation/postdataforpolyline) to get elevation data for the same three points. Select the **POST** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+7. Now, we'll call the [Post Data For Polyline API](/rest/api/maps/elevation/postdataforpolyline) to get elevation data for the same three points. Select the **POST** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
     ```http
     https://atlas.microsoft.com/elevation/line/json?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&samples=5
@@ -252,7 +252,7 @@ Latitudes and longitudes in the URL are expected to be in WGS84 (World Geodetic 
 
 ### Request elevation data by Bounding Box
 
-Now we'll use the [Get Data for Bounding Box](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox) to request elevation data near Mt. Rainier, WA. The elevation data will be returned at equally spaced locations within a bounding box. The bounding area defined by (2) sets of lat/long coordinates (south latitude, west longitude | north latitude, east longitude) is divided into rows and columns. The edges of the bounding box account for two (2) of the rows and two (2) of the columns. Elevations are returned for the grid vertices created at row and column intersections. Up to 2000 elevations can be returned in a single request.
+Now we'll use the [Get Data for Bounding Box](/rest/api/maps/elevation/getdataforboundingbox) to request elevation data near Mt. Rainier, WA. The elevation data will be returned at equally spaced locations within a bounding box. The bounding area defined by (2) sets of lat/long coordinates (south latitude, west longitude | north latitude, east longitude) is divided into rows and columns. The edges of the bounding box account for two (2) of the rows and two (2) of the columns. Elevations are returned for the grid vertices created at row and column intersections. Up to 2000 elevations can be returned in a single request.
 
 In this example, we'll specify rows=3 and columns=6. 18 elevation values are returned in the response. In the following diagram, the elevation values are ordered starting with the southwest corner, and then continue west to east and south to north.  The elevation points are numbered in the order that they're returned.
 
@@ -467,9 +467,9 @@ The following sample web page shows you how to use the map control to display el
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-### Get elevation data by PolyLine path
+### Get elevation data by Polyline path
 
-The following sample web page shows you how to use the map control to display elevation data along a path. The user defines the path by clicking on the `PolyLine` icon in the upper-left hand corner, and drawing the PolyLine on the map. The map control then renders the elevation data in colors that are specified in the key located in the upper-right hand corner.
+The following sample web page shows you how to use the map control to display elevation data along a path. The user defines the path by clicking on the `Polyline` icon in the upper-left hand corner, and drawing the Polyline on the map. The map control then renders the elevation data in colors that are specified in the key located in the upper-right hand corner.
 
 <br/>
 
@@ -487,15 +487,15 @@ To further explore the Azure Maps Elevation (Preview) APIs, see:
 > [Elevation (Preview) - Get Data for Lat Long Coordinates](/rest/api/maps/elevation/getdataforpoints)
 
 > [!div class="nextstepaction"]
-> [Elevation (Preview) - Get Data for Bounding Box](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
+> [Elevation (Preview) - Get Data for Bounding Box](/rest/api/maps/elevation/getdataforboundingbox)
 
 > [!div class="nextstepaction"]
-> [Elevation (Preview) - Get Data for Polyline](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
+> [Elevation (Preview) - Get Data for Polyline](/rest/api/maps/elevation/getdataforpolyline)
 
 > [!div class="nextstepaction"]
-> [Render V2 – Get Map Tile](https://docs.microsoft.com/rest/api/maps/renderv2)
+> [Render V2 – Get Map Tile](/rest/api/maps/renderv2)
 
 For a complete list of Azure Maps REST APIs, see:
 
 > [!div class="nextstepaction"]
-> [Azure Maps REST APIs](https://docs.microsoft.com/rest/api/maps/)
+> [Azure Maps REST APIs](/rest/api/maps/)

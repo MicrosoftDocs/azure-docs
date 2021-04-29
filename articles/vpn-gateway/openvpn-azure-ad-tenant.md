@@ -1,12 +1,13 @@
 ---
-title: 'VPN Gateway: Azure AD tenant for P2S VPN connections: Azure AD authentication'
+title: 'Create an Azure AD tenant for P2S VPN connections: Azure AD authentication'
+titleSuffix: Azure VPN Gateway
 description: Learn how to set up an Azure AD tenant for P2S Open VPN authentication.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
 
 ---
@@ -113,4 +114,4 @@ Use the steps in [Add or delete users - Azure Active Directory](../active-direct
 
 ## Next steps
 
-To to your virtual network, you must create and configure a VPN client profile. See [Configure a VPN client for P2S VPN connections](openvpn-azure-ad-client.md).
+Create and configure a VPN client profile. See [Configure a VPN client for P2S VPN connections](openvpn-azure-ad-client.md).

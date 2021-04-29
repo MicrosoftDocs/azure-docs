@@ -26,12 +26,12 @@ At the same time, collecting a complete set of events may be impractical (or eve
 
 ## Pre-aggregated metrics
 
-In addition to log-based metrics, in late 2018, the Application Insights team shipped a public preview of metrics that are stored in a specialized repository that is optimized for time series. The new metrics are no longer kept as individual events with lots of properties. Instead, they are stored as pre-aggregated time series, and only with key dimensions. This makes the new metrics superior at query time: retrieving data happens much faster and requires less compute power. This consequently enables new scenarios such as [near real-time alerting on dimensions of metrics](../platform/alerts-metric-near-real-time.md), more responsive [dashboards](./overview-dashboard.md), and more.
+In addition to log-based metrics, in late 2018, the Application Insights team shipped a public preview of metrics that are stored in a specialized repository that is optimized for time series. The new metrics are no longer kept as individual events with lots of properties. Instead, they are stored as pre-aggregated time series, and only with key dimensions. This makes the new metrics superior at query time: retrieving data happens much faster and requires less compute power. This consequently enables new scenarios such as [near real-time alerting on dimensions of metrics](../alerts/alerts-metric-near-real-time.md), more responsive [dashboards](./overview-dashboard.md), and more.
 
 > [!IMPORTANT]
 > Both, log-based and pre-aggregated metrics coexist in Application Insights. To differentiate the two, in the Application Insights UX the pre-aggregated metrics are now called "Standard metrics (preview)", while the traditional metrics from the events were renamed to "Log-based metrics".
 
-The newer SDKs ([Application Insights 2.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) SDK or later for .NET) pre-aggregate metrics during collection. This applies to  [standard metrics sent by default](../platform/metrics-supported.md#microsoftinsightscomponents) so the accuracy isn't affected by sampling or filtering. It also applies to custom metrics sent using [GetMetric](./api-custom-events-metrics.md#getmetric) resulting in less data ingestion and lower cost.
+The newer SDKs ([Application Insights 2.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) SDK or later for .NET) pre-aggregate metrics during collection. This applies to  [standard metrics sent by default](../essentials/metrics-supported.md#microsoftinsightscomponents) so the accuracy isn't affected by sampling or filtering. It also applies to custom metrics sent using [GetMetric](./api-custom-events-metrics.md#getmetric) resulting in less data ingestion and lower cost.
 
 For the SDKs that don't implement pre-aggregation (that is, older versions of Application Insights SDKs or for browser instrumentation) the Application Insights backend still populates the new metrics by aggregating the events received by the Application Insights event collection endpoint. This means that while you don't benefit from the reduced volume of data transmitted over the wire, you can still use the pre-aggregated metrics and experience better performance and support of the near real-time dimensional alerting with SDKs that don't pre-aggregate metrics during collection.
 
@@ -44,8 +44,10 @@ It is worth mentioning that the collection endpoint pre-aggregates events before
 | .NET Core and .NET Framework | Supported (V2.13.1+)| Supported via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Supported (V2.7.2+) via [GetMetric](get-metric.md) |
 | Java                         | Not Supported       | Supported via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Not Supported                           |
 | Node.js                      | Not Supported       | Supported via  [TrackMetric](api-custom-events-metrics.md#trackmetric)| Not Supported                           |
-| Python                       | Not Supported       | Supported                                 | Supported via [OpenCensus.stats](opencensus-python.md#metrics) |  
+| Python                       | Not Supported       | Supported                                 | Partially supported via [OpenCensus.stats](opencensus-python.md#metrics) |  
 
+> [!NOTE]
+>  The metrics implementation for Python using OpenCensus.stats is different from GetMetric. For details see [the Python documentation on metrics](./opencensus-python.md#metrics).
 
 ### Codeless supported pre-aggregated metrics table
 
@@ -77,7 +79,7 @@ The collection of custom metrics dimensions is turned off by default because in 
 
 ## Creating charts and exploring log-based and standard pre-aggregated metrics
 
-Use [Azure Monitor Metrics Explorer](../platform/metrics-getting-started.md) to plot charts from pre-aggregated and log-based metrics, and to author dashboards with charts. After selecting the desired Application Insights resource, use the namespace picker to switch between standard (preview) and log-based metrics, or select a custom metric namespace:
+Use [Azure Monitor Metrics Explorer](../essentials/metrics-getting-started.md) to plot charts from pre-aggregated and log-based metrics, and to author dashboards with charts. After selecting the desired Application Insights resource, use the namespace picker to switch between standard (preview) and log-based metrics, or select a custom metric namespace:
 
 ![Metric namespace](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 
@@ -89,5 +91,5 @@ Selecting the [Enable alerting on custom metric dimensions](#custom-metrics-dime
 
 ## Next steps
 
-* [Near real-time alerting](../platform/alerts-metric-near-real-time.md)
+* [Near real-time alerting](../alerts/alerts-metric-near-real-time.md)
 * [GetMetric and TrackValue](./api-custom-events-metrics.md#getmetric)

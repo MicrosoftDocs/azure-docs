@@ -1,0 +1,24 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Active Directory
+    tocHref: /azure/active-directory/manage-apps/
+    topicHref: /azure/active-directory/index
+    items:
+    - name: Cloud sync
+      tocHref: /azure/active-directory/manage-apps/
+      topicHref: /azure/active-directory/cloud-sync/index
+  
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:  
+  - name: Active Directory
+    tocHref: /azure/active-directory/hybrid/
+    topicHref: /azure/active-directory/index
+    items:
+    - name: Cloud sync
+      tocHref: /azure/active-directory/hybrid/
+      topicHref: /azure/active-directory/cloud-sync/index
+

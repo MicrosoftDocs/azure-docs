@@ -1,8 +1,8 @@
 ---
 title: 'Register and scan Azure Data Lake Storage (ADLS) Gen1'
 description: This tutorial describes how to scan data from Azure Data Lake Storage Gen1 into Azure Purview. 
-author: kchandra
-ms.author: kchandra
+author: shsandeep123
+ms.author: sandeepshah
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to

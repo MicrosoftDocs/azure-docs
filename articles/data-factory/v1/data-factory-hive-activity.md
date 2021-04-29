@@ -1,15 +1,10 @@
 ---
 title: Transform data using Hive Activity - Azure 
 description: Learn how you can use the Hive Activity in Azure Data Factory v1 to run Hive queries on an on-demand/your own HDInsight cluster.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
-ms.reviewer: maghan
-ms.assetid: 80083218-743e-4da8-bdd2-60d1c77b1227
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ---
@@ -132,38 +127,39 @@ To execute this Hive script in a Data Factory pipeline, you need to do the follo
    > 
 5. Create a pipeline with the HDInsightHive activity. The activity processes/transforms the data.
 
-	```JSON   
-	{	
-		"name": "HiveActivitySamplePipeline",
-	   	"properties": {
-		"activities": [
-			{
-				"name": "HiveActivitySample",
-				"type": "HDInsightHive",
-				"inputs": [
-				{
-					"name": "HiveSampleIn"
-				}
-				],
-	         	"outputs": [
-	           	{
-	            	"name": "HiveSampleOut"
-	           	}
-	         	],
-	         	"linkedServiceName": "HDInsightLinkedService",
-	         	"typeproperties": {
-	           		"scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
-	           		"scriptLinkedService": "StorageLinkedService"
-         		},
-            	"scheduler": {
-					"frequency": "Hour",
-	               	"interval": 1
-	         	}
-	       	}
-			]
-		}
-	}
-    ```
+  ```json
+  {
+    "name": "HiveActivitySamplePipeline",
+       "properties": {
+    "activities": [
+      {
+        "name": "HiveActivitySample",
+        "type": "HDInsightHive",
+        "inputs": [
+        {
+          "name": "HiveSampleIn"
+        }
+        ],
+             "outputs": [
+               {
+                "name": "HiveSampleOut"
+               }
+             ],
+             "linkedServiceName": "HDInsightLinkedService",
+             "typeproperties": {
+                 "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
+                 "scriptLinkedService": "StorageLinkedService"
+             },
+              "scheduler": {
+          "frequency": "Hour",
+                   "interval": 1
+             }
+           }
+      ]
+    }
+  }
+  ```
+
 6. Deploy the pipeline. See [Creating pipelines](data-factory-create-pipelines.md) article for details. 
 7. Monitor the pipeline using the data factory monitoring and management views. See [Monitoring and manage Data Factory pipelines](data-factory-monitor-manage-pipelines.md) article for details. 
 
@@ -174,7 +170,7 @@ To use parameterized Hive script, do the following
 
 * Define the parameters in **defines**.
 
-	```JSON  
+  ```JSON  
     {
         "name": "HiveActivitySamplePipeline",
           "properties": {

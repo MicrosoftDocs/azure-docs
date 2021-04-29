@@ -4,6 +4,7 @@ description: This article walks through the platform-supported migration of reso
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
+ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/06/2020

@@ -46,7 +46,7 @@ To create an app in an ASE:
     > Linux apps and Windows apps can't be in the same App Service plan, but they can be in the same App Service Environment.
     >
 
-1. Select ** Next: Monitoring**  If you want to enable App Insights with your app, you can do it here during the creation flow. 
+1. Select **Next: Monitoring**  If you want to enable App Insights with your app, you can do it here during the creation flow. 
 
 1.  Select **Next: Tags** Add any tags you want to the app  
 
@@ -73,13 +73,20 @@ The SCM URL is used to access the Kudu console or for publishing your app by usi
 
 ### DNS configuration 
 
-The ASE uses private endpoints for inbound traffic and is automatically configured with Azure DNS private zones. If you want to use your own DNS server, you need to add the following records:
+The ASE uses private endpoints for inbound traffic. It is not automatically configured with Azure DNS private zones. If you want to use your own DNS server, you need to add the following records:
 
 1. create a zone for &lt;ASE name&gt;.appserviceenvironment.net
 1. create an A record in that zone that points * to the inbound IP address used by your ASE private endpoint
 1. create an A record in that zone that points @ to the inbound IP address used by your ASE private endpoint
 1. create a zone in &lt;ASE name&gt;.appserviceenvironment.net named scm
 1. create an A record in the scm zone that points * to the IP address used by your ASE private endpoint
+
+To configure DNS in Azure DNS Private zones:
+
+1. create an Azure DNS private zone named <ASE name>.appserviceenvironment.net
+1. create an A record in that zone that points * to the ILB IP address
+1. create an A record in that zone that points @ to the ILB IP address
+1. create an A record in that zone that points *.scm to the ILB IP address
 
 The DNS settings for your ASE default domain suffix don't restrict your apps to only being accessible by those names. You can set a custom domain name without any validation on your apps in an ASE. If you then want to create a zone named *contoso.net*, you could do so and point it to the inbound IP address. The custom domain name works for app requests but doesn't for the scm site. The scm site is only available at *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*. 
 
@@ -131,7 +138,7 @@ If you integrate with Log Analytics, you can see the logs by selecting **Logs** 
 
 **Creating an alert**
 
-To create an alert against your logs, follow the instructions in [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/platform/alerts-log.md). In brief:
+To create an alert against your logs, follow the instructions in [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/alerts/alerts-log.md). In brief:
 
 * Open the Alerts page in your ASE portal
 * Select **New alert rule**
@@ -194,4 +201,4 @@ To delete an ASE:
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
-[logalerts]: ../../azure-monitor/platform/alerts-log.md
+[logalerts]: ../../azure-monitor/alerts/alerts-log.md

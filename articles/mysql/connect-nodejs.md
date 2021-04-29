@@ -7,7 +7,7 @@ ms.service: mysql
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 5/26/2020
+ms.date: 12/11/2020
 ---
 # Quickstart: Use Node.js to connect and query data in Azure Database for MySQL
 
@@ -47,7 +47,13 @@ Depending on your platform, follow the instructions in the appropriate section t
 1. Run the following commands to install **Node.js** and **npm** the package manager for Node.js.
 
    ```bash
-   sudo apt-get install -y nodejs npm
+    # Using Ubuntu
+    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+
+    # Using Debian, as root
+    curl -sL https://deb.nodesource.com/setup_14.x | bash -
+    apt-get install -y nodejs
    ```
 
 2. Run the following commands to create a project folder `mysqlnodejs` and install the mysql package into that folder.
@@ -62,12 +68,8 @@ Depending on your platform, follow the instructions in the appropriate section t
 
 ### macOS
 
-1. Enter the following commands to install **brew**, an easy-to-use package manager for macOS and **Node.js**.
+1. Visit the [Node.js downloads page](https://nodejs.org/en/download/), and then select your macOS installer.
 
-   ```bash
-   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-   brew install node
-   ```
 2. Run the following commands to create a project folder `mysqlnodejs` and install the mysql package into that folder.
 
    ```bash
@@ -109,58 +111,58 @@ const mysql = require('mysql');
 
 var config =
 {
-	host: 'mydemoserver.mysql.database.azure.com',
-	user: 'myadmin@mydemoserver',
-	password: 'your_password',
-	database: 'quickstartdb',
-	port: 3306,
-	ssl: true
+    host: 'mydemoserver.mysql.database.azure.com',
+    user: 'myadmin@mydemoserver',
+    password: 'your_password',
+    database: 'quickstartdb',
+    port: 3306,
+    ssl: true
 };
 
 const conn = new mysql.createConnection(config);
 
 conn.connect(
-	function (err) { 
-	if (err) { 
-		console.log("!!! Cannot connect !!! Error:");
-		throw err;
-	}
-	else
-	{
-	   console.log("Connection established.");
+    function (err) { 
+    if (err) { 
+        console.log("!!! Cannot connect !!! Error:");
+        throw err;
+    }
+    else
+    {
+       console.log("Connection established.");
            queryDatabase();
-	}	
+    }
 });
 
 function queryDatabase(){
-	   conn.query('DROP TABLE IF EXISTS inventory;', function (err, results, fields) { 
-			if (err) throw err; 
-			console.log('Dropped inventory table if existed.');
-		})
-  	   conn.query('CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);', 
-	      	function (err, results, fields) {
-      			if (err) throw err;
-			console.log('Created inventory table.');
-		})
-	   conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['banana', 150], 
-      		function (err, results, fields) {
-      			if (err) throw err;
-			else console.log('Inserted ' + results.affectedRows + ' row(s).');
-	   	})
-	   conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['orange', 154], 
-      		function (err, results, fields) {
-      			if (err) throw err;
-			console.log('Inserted ' + results.affectedRows + ' row(s).');
-	   	})
-	   conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['apple', 100], 
-		function (err, results, fields) {
-      			if (err) throw err;
-			console.log('Inserted ' + results.affectedRows + ' row(s).');
-	   	})
-	   conn.end(function (err) { 
-		if (err) throw err;
-		else  console.log('Done.') 
-		});
+    conn.query('DROP TABLE IF EXISTS inventory;', function (err, results, fields) { 
+        if (err) throw err; 
+        console.log('Dropped inventory table if existed.');
+    })
+        conn.query('CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);', 
+            function (err, results, fields) {
+                if (err) throw err;
+        console.log('Created inventory table.');
+    })
+    conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['banana', 150], 
+            function (err, results, fields) {
+                if (err) throw err;
+        else console.log('Inserted ' + results.affectedRows + ' row(s).');
+        })
+    conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['orange', 154], 
+            function (err, results, fields) {
+                if (err) throw err;
+        console.log('Inserted ' + results.affectedRows + ' row(s).');
+        })
+    conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['apple', 100], 
+    function (err, results, fields) {
+                if (err) throw err;
+        console.log('Inserted ' + results.affectedRows + ' row(s).');
+        })
+    conn.end(function (err) { 
+    if (err) throw err;
+    else  console.log('Done.') 
+    });
 };
 ```
 
@@ -177,43 +179,43 @@ const mysql = require('mysql');
 
 var config =
 {
-	host: 'mydemoserver.mysql.database.azure.com',
-	user: 'myadmin@mydemoserver',
-	password: 'your_password',
-	database: 'quickstartdb',
-	port: 3306,
-	ssl: true
+    host: 'mydemoserver.mysql.database.azure.com',
+    user: 'myadmin@mydemoserver',
+    password: 'your_password',
+    database: 'quickstartdb',
+    port: 3306,
+    ssl: true
 };
 
 const conn = new mysql.createConnection(config);
 
 conn.connect(
-	function (err) { 
-		if (err) { 
-			console.log("!!! Cannot connect !!! Error:");
-			throw err;
-		}
-		else {
-			console.log("Connection established.");
-			readData();
-		}	
-	});
+    function (err) { 
+        if (err) { 
+            console.log("!!! Cannot connect !!! Error:");
+            throw err;
+        }
+        else {
+            console.log("Connection established.");
+            readData();
+        }
+    });
 
 function readData(){
-		conn.query('SELECT * FROM inventory', 
-			function (err, results, fields) {
-				if (err) throw err;
-				else console.log('Selected ' + results.length + ' row(s).');
-				for (i = 0; i < results.length; i++) {
-					console.log('Row: ' + JSON.stringify(results[i]));
-				}
-				console.log('Done.');
-			})
-	   conn.end(
-		   function (err) { 
-				if (err) throw err;
-				else  console.log('Closing connection.') 
-		});
+    conn.query('SELECT * FROM inventory', 
+        function (err, results, fields) {
+            if (err) throw err;
+            else console.log('Selected ' + results.length + ' row(s).');
+            for (i = 0; i < results.length; i++) {
+                console.log('Row: ' + JSON.stringify(results[i]));
+            }
+            console.log('Done.');
+        })
+    conn.end(
+        function (err) { 
+            if (err) throw err;
+            else  console.log('Closing connection.') 
+    });
 };
 ```
 
@@ -230,39 +232,39 @@ const mysql = require('mysql');
 
 var config =
 {
-	host: 'mydemoserver.mysql.database.azure.com',
-	user: 'myadmin@mydemoserver',
-	password: 'your_password',
-	database: 'quickstartdb',
-	port: 3306,
-	ssl: true
+    host: 'mydemoserver.mysql.database.azure.com',
+    user: 'myadmin@mydemoserver',
+    password: 'your_password',
+    database: 'quickstartdb',
+    port: 3306,
+    ssl: true
 };
 
 const conn = new mysql.createConnection(config);
 
 conn.connect(
-	function (err) { 
-		if (err) { 
-			console.log("!!! Cannot connect !!! Error:");
-			throw err;
-		}
-		else {
-			console.log("Connection established.");
-			updateData();
-		}	
-	});
+    function (err) { 
+        if (err) { 
+            console.log("!!! Cannot connect !!! Error:");
+            throw err;
+        }
+        else {
+            console.log("Connection established.");
+            updateData();
+        }
+    });
 
 function updateData(){
-	   conn.query('UPDATE inventory SET quantity = ? WHERE name = ?', [200, 'banana'], 
-			function (err, results, fields) {
-				if (err) throw err;
-				else console.log('Updated ' + results.affectedRows + ' row(s).');
-	   	})
-	   conn.end(
-		   function (err) { 
-				if (err) throw err;
-				else  console.log('Done.') 
-		});
+       conn.query('UPDATE inventory SET quantity = ? WHERE name = ?', [200, 'banana'], 
+            function (err, results, fields) {
+                if (err) throw err;
+                else console.log('Updated ' + results.affectedRows + ' row(s).');
+           })
+       conn.end(
+           function (err) { 
+                if (err) throw err;
+                else  console.log('Done.') 
+        });
 };
 ```
 
@@ -279,39 +281,39 @@ const mysql = require('mysql');
 
 var config =
 {
-	host: 'mydemoserver.mysql.database.azure.com',
-	user: 'myadmin@mydemoserver',
-	password: 'your_password',
-	database: 'quickstartdb',
-	port: 3306,
-	ssl: true
+    host: 'mydemoserver.mysql.database.azure.com',
+    user: 'myadmin@mydemoserver',
+    password: 'your_password',
+    database: 'quickstartdb',
+    port: 3306,
+    ssl: true
 };
 
 const conn = new mysql.createConnection(config);
 
 conn.connect(
-	function (err) { 
-		if (err) { 
-			console.log("!!! Cannot connect !!! Error:");
-			throw err;
-		}
-		else {
-			console.log("Connection established.");
-			deleteData();
-		}	
-	});
+    function (err) { 
+        if (err) { 
+            console.log("!!! Cannot connect !!! Error:");
+            throw err;
+        }
+        else {
+            console.log("Connection established.");
+            deleteData();
+        }
+    });
 
 function deleteData(){
-	   conn.query('DELETE FROM inventory WHERE name = ?', ['orange'], 
-			function (err, results, fields) {
-				if (err) throw err;
-				else console.log('Deleted ' + results.affectedRows + ' row(s).');
-	   	})
-	   conn.end(
-		   function (err) { 
-				if (err) throw err;
-				else  console.log('Done.') 
-		});
+       conn.query('DELETE FROM inventory WHERE name = ?', ['orange'], 
+            function (err, results, fields) {
+                if (err) throw err;
+                else console.log('Deleted ' + results.affectedRows + ' row(s).');
+           })
+       conn.end(
+           function (err) { 
+                if (err) throw err;
+                else  console.log('Done.') 
+        });
 };
 ```
 

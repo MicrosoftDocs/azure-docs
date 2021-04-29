@@ -3,15 +3,14 @@ title: Generate a thumbnail sprite with Azure Media Services | Microsoft Docs
 description: This topic shows how to generate a thumbnail sprite with Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 08/31/2020
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 
 # Generate a thumbnail sprite

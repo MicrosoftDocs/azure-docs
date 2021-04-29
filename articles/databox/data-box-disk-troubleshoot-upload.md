@@ -113,39 +113,39 @@ The error file in this case has a `Summary` section and another section that con
 The `Summary` contains the `ValidationErrors` and the `CopyErrors`. In this case, 8 files or folders were uploaded to Azure and there were no validation errors. When the data was copied to Azure Storage account, 5 files or folders uploaded successfully. The remaining 3 files or folders were renamed as per the Azure container naming conventions and then uploaded successfully to Azure.
 
 The file level status are in `BlobStatus` that describes any actions taken to upload the blobs. In this case, three containers are renamed because the folders to which the data was copied did not conform with the Azure naming conventions for containers. For the blobs uploaded in those containers, the new container name, path of the blob in Azure, original invalid file path, and the blob size are included.
-	
+  
 ```xml
  <?xml version="1.0" encoding="utf-8"?>
-	<DriveLog Version="2018-10-01">
-	  <DriveId>18041C582D7E</DriveId>
-	  <Summary>
+  <DriveLog Version="2018-10-01">
+    <DriveId>18041C582D7E</DriveId>
+    <Summary>
      <!--Summary for validation and data copy to Azure -->
-	    <ValidationErrors>
-	      <None Count="8" />
-	    </ValidationErrors>
-	    <CopyErrors>
-	      <Completed Count="5" Description="No errors encountered" />
-	      <ContainerRenamed Count="3" Description="Renamed the container as the original container name does not follow Azure conventions." />
-	    </CopyErrors>
-	  </Summary>
+      <ValidationErrors>
+        <None Count="8" />
+      </ValidationErrors>
+      <CopyErrors>
+        <Completed Count="5" Description="No errors encountered" />
+        <ContainerRenamed Count="3" Description="Renamed the container as the original container name does not follow Azure conventions." />
+      </CopyErrors>
+    </Summary>
     <!--List of renamed containers with the new names, new file path in Azure, original invalid file path, and size -->
-	  <Blob Status="ContainerRenamed">
-	    <BlobPath>databox-c2073fd1cc379d83e03d6b7acce23a6cf29d1eef/private.vhd</BlobPath>
-	    <OriginalFilePath>\PageBlob\pageblob test\private.vhd</OriginalFilePath>
-	    <SizeInBytes>10490880</SizeInBytes>
-	  </Blob>
-	  <Blob Status="ContainerRenamed">
-	    <BlobPath>databox-c2073fd1cc379d83e03d6b7acce23a6cf29d1eef/resource.vhd</BlobPath>
-	    <OriginalFilePath>\PageBlob\pageblob test\resource.vhd</OriginalFilePath>
-	    <SizeInBytes>71528448</SizeInBytes>
-	  </Blob>
-	  <Blob Status="ContainerRenamed">
-	    <BlobPath>databox-c2073fd1cc379d83e03d6b7acce23a6cf29d1eef/role.vhd</BlobPath>
-	    <OriginalFilePath>\PageBlob\pageblob test\role.vhd</OriginalFilePath>
-	    <SizeInBytes>10490880</SizeInBytes>
-	  </Blob>
-	  <Status>CompletedWithErrors</Status>
-	</DriveLog>
+    <Blob Status="ContainerRenamed">
+      <BlobPath>databox-c2073fd1cc379d83e03d6b7acce23a6cf29d1eef/private.vhd</BlobPath>
+      <OriginalFilePath>\PageBlob\pageblob test\private.vhd</OriginalFilePath>
+      <SizeInBytes>10490880</SizeInBytes>
+    </Blob>
+    <Blob Status="ContainerRenamed">
+      <BlobPath>databox-c2073fd1cc379d83e03d6b7acce23a6cf29d1eef/resource.vhd</BlobPath>
+      <OriginalFilePath>\PageBlob\pageblob test\resource.vhd</OriginalFilePath>
+      <SizeInBytes>71528448</SizeInBytes>
+    </Blob>
+    <Blob Status="ContainerRenamed">
+      <BlobPath>databox-c2073fd1cc379d83e03d6b7acce23a6cf29d1eef/role.vhd</BlobPath>
+      <OriginalFilePath>\PageBlob\pageblob test\role.vhd</OriginalFilePath>
+      <SizeInBytes>10490880</SizeInBytes>
+    </Blob>
+    <Status>CompletedWithErrors</Status>
+  </DriveLog>
 ```
 
 ## Data upload errors

@@ -13,7 +13,7 @@ ms.date: 09/01/2019
 ms.author: juliako
 ---
 
-# Automatically identify and transcribe multi-language content (preview)
+# Automatically identify and transcribe multi-language content
 
 Video Indexer supports automatic language identification and transcription in multi-language content. This process involves automatically identifying the spoken language in different segments from audio, sending each segment of the media file to be transcribed and combine the transcription back to one unified transcription. 
 
@@ -35,7 +35,7 @@ You can choose **multi-language detection** when uploading and indexing your vid
 
 ## Choosing multilingual identification on indexing with API
 
-When indexing or [reindexing](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) a video using the API, choose the `multi-language detection` option in the `sourceLanguage` parameter.
+When indexing or [reindexing](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) a video using the API, choose the `multi-language detection` option in the `sourceLanguage` parameter.
 
 ### Model output
 

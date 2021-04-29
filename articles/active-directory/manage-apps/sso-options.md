@@ -2,14 +2,14 @@
 title: Single sign-on options in Azure AD
 description: Learn about the options available for single sign-on (SSO) in Azure Active Directory.
 services: active-directory
-author: kenwith
-manager: celestedg
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: arvindh, japere
 ---
 
@@ -81,13 +81,12 @@ With password-based sign-on, users sign on to the application with a username an
 
 Password-based single sign-on uses the existing authentication process provided by the application. When you enable password single sign-on for an application, Azure AD collects and securely stores user names and passwords for the application. User credentials are stored in an encrypted state in the directory.
 
+Additionaly, Administrator can enable Azure AD conditional access policies or multi-factor authentication for password-based SSO.
+
 Choose password-based single sign-on when:
 
 - An application doesn't support SAML single sign-on protocol.
 - An application authenticates with a username and password instead of access tokens and headers.
-
->[!NOTE]
->You cannot apply conditional access policies or multi-factor authentication for password-based SSO.
 
 Password-based single sign-on is supported for any cloud-based application that has an HTML-based sign-in page. The user can use any of the following browsers:
 
@@ -162,7 +161,7 @@ To configure an on-premises app for IWA, see [Kerberos Constrained Delegation fo
 ### How single sign-on with KCD works
 This diagram explains the flow when a user accesses an on-premises application that uses IWA.
 
-![Microsoft Azure AD authentication flow diagram](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
+![Microsoft Azure AD authentication flow diagram](../app-proxy/media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
 1. The user enters the URL to access the on premises application through Application Proxy.
 1. Application Proxy redirects the request to Azure AD authentication services to preauthenticate. At this point, Azure AD applies any applicable authentication and authorization policies, such as multifactor authentication. If the user is validated, Azure AD creates a token and sends it to the user.

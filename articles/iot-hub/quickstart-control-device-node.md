@@ -10,7 +10,7 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: [mvc, seo-javascript-september2019, seo-javascript-october2019, mqtt, 'Role: Cloud Development', devx-track-js, devx-track-azurecli]
 ms.date: 06/21/2019
-# As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
+#Customer intent: As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
 ---
 
 # Quickstart: Use Node.js to control a device connected to an Azure IoT hub
@@ -67,7 +67,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
     **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string \
+    az iot hub device-identity connection-string show \
       --hub-name {YourIoTHubName} \
       --device-id MyNodeDevice \
       --output table
@@ -84,7 +84,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
     **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub show-connection-string \
+    az iot hub connection-string show \
       --policy-name service --name {YourIoTHubName} --output table
 
     ```

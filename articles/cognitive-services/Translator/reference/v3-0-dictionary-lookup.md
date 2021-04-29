@@ -3,14 +3,14 @@ title: Translator Dictionary Lookup Method
 titleSuffix: Azure Cognitive Services
 description: The Dictionary Lookup method provides alternative translations for a word and a small number of idiomatic phrases.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
-ms.author: swmachan
+ms.author: lajanuar
 ---
 
 # Translator 3.0: Dictionary Lookup

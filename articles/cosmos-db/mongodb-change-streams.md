@@ -5,7 +5,7 @@ author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 06/04/2020
+ms.date: 03/02/2021
 ms.author: rosouz
 ms.custom: devx-track-js, devx-track-csharp
 ---
@@ -16,7 +16,7 @@ ms.custom: devx-track-js, devx-track-csharp
 [Change feed](change-feed.md) support in Azure Cosmos DB’s API for MongoDB is available by using the change streams API. By using the change streams API, your applications can get the changes made to the collection or to the items in a single shard. Later you can take further actions based on the results. Changes to the items in the collection are captured in the order of their modification time and the sort order is guaranteed per shard key.
 
 > [!NOTE]
-> To use change streams, create the account with version 3.6 of Azure Cosmos DB's API for MongoDB, or a later version. If you run the change stream examples against an earlier version, you might see the `Unrecognized pipeline stage name: $changeStream` error.
+> To use change streams, create the Azure Cosmos DB's API for MongoDB account with server version 3.6 or higher. If you run the change stream examples against an earlier version, you might see the *Unrecognized pipeline stage name: $changeStream* error.
 
 ## Examples
 
@@ -62,7 +62,7 @@ enumerator.Dispose();
 
 # [Java](#tab/java)
 
-The following example shows how to use change stream functionality in Java, for the complete example, see this [GitHub repo](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-changestream/blob/master/mongostream/src/main/java/com/azure/cosmos/mongostream/App.java). This example also shows how to use the `resumeAfter` method to seek all the changes from last read. 
+The following example shows how to use change stream functionality in Java, for the complete example, see this [GitHub repo](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-changestream/blob/main/mongostream/src/main/java/com/azure/cosmos/mongostream/App.java). This example also shows how to use the `resumeAfter` method to seek all the changes from last read. 
 
 ```java
 Bson match = Aggregates.match(Filters.in("operationType", asList("update", "replace", "insert")));

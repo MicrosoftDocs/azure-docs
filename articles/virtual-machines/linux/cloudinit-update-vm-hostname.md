@@ -2,7 +2,8 @@
 title: Use cloud-init to set hostname for a Linux VM
 description: How to use cloud-init to customize a Linux VM during creation with the Azure CLI
 author: rickstercdn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 11/29/2017
 ms.author: rclaus

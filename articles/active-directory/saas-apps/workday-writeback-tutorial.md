@@ -170,6 +170,7 @@ Once the Workday provisioning app configurations have been completed, you can tu
 
 ## Next steps
 
+* [Learn more about Azure AD and Workday integration scenarios and web service calls](../app-provisioning/workday-integration-reference.md)
 * [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
 * [Learn how to configure single sign-on between Workday and Azure Active Directory](workday-tutorial.md)
 * [Learn how to integrate other SaaS applications with Azure Active Directory](tutorial-list.md)

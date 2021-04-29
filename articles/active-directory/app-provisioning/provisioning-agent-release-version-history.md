@@ -3,7 +3,7 @@ title: 'Azure AD Connect Provisioning Agent: Version release history | Microsoft
 description: This article lists all releases of Azure AD Connect Provisioning Agent and describes new features and fixed issues
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity

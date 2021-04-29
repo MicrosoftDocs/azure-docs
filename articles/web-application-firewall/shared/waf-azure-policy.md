@@ -42,7 +42,7 @@ There are several built-in Azure Policy definitions to manage WAF resources. A b
     2.	**Exclusions**: Select any resources from the scope to exclude from the policy assignment.
     3.	**Policy Definition**: Select the policy definition to apply to the scope with exclusions. Type "Web Application Firewall" in the search bar to choose the relevant Web Application Firewall Azure Policy.
 
-:::image type="content" source="../media/waf-azure-policy/policy-listing.png" alt-text="Basics tab on the Assign Policy page":::
+:::image type="content" source="../media/waf-azure-policy/policy-listing.png" alt-text="Screenshot that shows the 'Policy Definitions' tab on the 'Available Definitions' page.":::
 
 5.	Select the **Parameters** tab and update the policy assignment parameters. To further clarify what the parameter does, hover over the info icon next to the parameter name for further clarification.
 

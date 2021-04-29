@@ -3,7 +3,7 @@ title: 'ML Studio (classic): Application lifecycle management - Azure'
 description: Apply Application Lifecycle Management best practices in Azure Machine Learning Studio (classic)
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: likebupt

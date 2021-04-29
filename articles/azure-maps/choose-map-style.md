@@ -24,9 +24,9 @@ Style options can be set during web control initialization. Or, you can update s
 var map = new atlas.Map('map', {
     renderWorldCopies: false,
     showBuildingModels: false,
-    showLogo = true,
-    showFeedbackLink = true,
-    style='road'
+    showLogo: true,
+    showFeedbackLink: true,
+    style: 'road'
 
     //Additional map options.
 };
@@ -35,8 +35,8 @@ var map = new atlas.Map('map', {
 map.setStyle({
     renderWorldCopies: true,
     showBuildingModels: true,
-    showLogo = false,
-    showFeedbackLink = false
+    showLogo: false,
+    showFeedbackLink: false
 });
 ```
 
@@ -125,10 +125,13 @@ To learn more about the classes and methods used in this article:
 > [!div class="nextstepaction"]
 > [StyleControlOptions](/javascript/api/azure-maps-control/atlas.stylecontroloptions)
 
-Add controls to your maps:
+See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
 > [Add map controls](map-add-controls.md)
 
 > [!div class="nextstepaction"]
-> [Add a pin](map-add-pin.md)
+> [Add a symbol layer](map-add-pin.md)
+
+> [!div class="nextstepaction"]
+> [Add a bubble layer](map-add-bubble-layer.md)

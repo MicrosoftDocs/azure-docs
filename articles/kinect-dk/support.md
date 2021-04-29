@@ -52,6 +52,8 @@ You may also want to check out our [known issues and troubleshooting](troublesho
 
 For more information on support offerings, learn more at [Microsoft support for business](https://support.microsoft.com/help/4341255/support-for-business).
 
+EU Declarations of Conformity for Microsoft hardware products is [here](https://www.microsoft.com/en-us/eu-declarations-compliance?activetab=pivot1:primaryr3)
+
 ## Next steps
 
 [Azure Kinect troubleshooting](troubleshooting.md)

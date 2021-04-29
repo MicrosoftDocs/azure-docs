@@ -1,15 +1,10 @@
 ---
 title: Create a shared self-hosted integration runtime with PowerShell
 description: Learn how to create a shared self-hosted integration runtime in Azure Data Factory, so multiple data factories can access the integration runtime.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
-
 ms.topic: conceptual
 ms.author: abnarain
 author: nabhishek
-manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
 ---
@@ -19,6 +14,19 @@ ms.date: 06/10/2020
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This guide shows you how to create a shared self-hosted integration runtime in Azure Data Factory. Then you can use the shared self-hosted integration runtime in another data factory.
+
+## Create a shared self-hosted integration runtime in Azure Data Factory
+
+You can reuse an existing self-hosted integration runtime infrastructure that you already set up in a data factory. This reuse lets you create a linked self-hosted integration runtime in a different data factory by referencing an existing shared self-hosted IR.
+
+To see an introduction and demonstration of this feature, watch the following 12-minute video:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
+
+### Terminology
+
+- **Shared IR**: An original self-hosted IR that runs on a physical infrastructure.  
+- **Linked IR**: An IR that references another shared IR. The linked IR is a logical IR and uses the infrastructure of another shared self-hosted IR.
 
 ## Create a shared self-hosted IR using Azure Data Factory UI
 
@@ -209,6 +217,37 @@ Remove-AzDataFactoryV2IntegrationRuntime `
     -Links `
     -LinkedDataFactoryName $LinkedDataFactoryName
 ```
+
+### Monitoring
+
+#### Shared IR
+
+![Selections to find a shared integration runtime](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
+
+![Monitor a shared integration runtime](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
+
+#### Linked IR
+
+![Selections to find a linked integration runtime](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
+
+![Monitor a linked integration runtime](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
+
+
+### Known limitations of self-hosted IR sharing
+
+* The data factory in which a linked IR is created must have an [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md). By default, the data factories created in the Azure portal or PowerShell cmdlets have an implicitly created Managed Identity. But when a data factory is created through an Azure Resource Manager template or SDK, you must set the **Identity** property explicitly. This setting ensures that Resource Manager creates a data factory that contains a Managed Identity.
+
+* The Data Factory .NET SDK that supports this feature must be version 1.1.0 or later.
+
+* To grant permission, you need the Owner role or the inherited Owner role in the data factory where the shared IR exists.
+
+* The sharing feature works only for data factories within the same Azure AD tenant.
+
+* For Azure AD [guest users](../active-directory/governance/manage-guest-access-with-access-reviews.md), the search functionality in the UI, which lists all data factories by using a search keyword, doesn't work. But as long as the guest user is the owner of the data factory, you can share the IR without the search functionality. For the Managed Identity of the data factory that needs to share the IR, enter that Managed Identity in the **Assign Permission** box and select **Add** in the Data Factory UI.
+
+  > [!NOTE]
+  > This feature is available only in Data Factory V2.
+
 
 ### Next steps
 

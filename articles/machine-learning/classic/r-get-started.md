@@ -3,7 +3,7 @@ title: Use R with Machine Learning Studio (classic) - Azure
 description: Use this R programming tutorial to get started with Azure Machine Learning Studio (classic) in R to create a forecasting solution.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: likebupt

@@ -18,7 +18,7 @@ ms.date: 02/20/2020
 
 If you use SQL Server Integration Services (SSIS) and want to migrate your SSIS projects/packages from the source SSISDB hosted by SQL Server to the destination SSISDB hosted by Azure SQL Database, you can redeploy them using the Integration Services Deployment Wizard. You can launch the wizard from within SQL Server Management Studio (SSMS).
 
-If the version of SSIS you use is earlier than 2012, before redeploying your SSIS projects/packages into the project deployment model, you first need to convert them by using the Integration Services Project Conversion Wizard, which can also be launched from SSMS. For more information, see the article [Converting projects to the project deployment model](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-2017#convert).
+If the version of SSIS you use is earlier than 2012, before redeploying your SSIS projects/packages into the project deployment model, you first need to convert them by using the Integration Services Project Conversion Wizard, which can also be launched from SSMS. For more information, see the article [Converting projects to the project deployment model](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#convert).
 
 > [!NOTE]
 > The Azure Database Migration Service (DMS) currently does not support the migration of a source SSISDB to Azure SQL Database, but you can redeploy your SSIS projects/packages using the following process.
@@ -34,7 +34,7 @@ In this article, you learn how to:
 To complete these steps, you need:
 
 * SSMS version 17.2 or later.
-* An instance of your target database server to host SSISDB. If you don’t already have one, create a [logical SQL server](../azure-sql/database/logical-servers.md) (without a database) using the Azure portal by navigating to the SQL Server (logical server only) [form](https://ms.portal.azure.com/#create/Microsoft.SQLServer).
+* An instance of your target database server to host SSISDB. If you don't already have one, create a [logical SQL server](../azure-sql/database/logical-servers.md) (without a database) using the Azure portal by navigating to the SQL Server (logical server only) [form](https://ms.portal.azure.com/#create/Microsoft.SQLServer).
 * SSIS must be provisioned in Azure Data Factory (ADF) containing Azure-SSIS Integration Runtime (IR) with the destination SSISDB hosted by SQL Database (as described in the article [Provision the Azure-SSIS Integration Runtime in Azure Data Factory](../data-factory/tutorial-deploy-ssis-packages-azure.md)).
 
 ## Assess source SSIS projects/packages

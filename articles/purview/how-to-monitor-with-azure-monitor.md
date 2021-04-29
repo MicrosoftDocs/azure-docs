@@ -18,7 +18,7 @@ Azure Purview admins can use Azure Monitor to track the operational state of Pur
 
 ## Aggregated metrics
 
-The metrics can be accessed from the Azure portal for a Purview account. Access to the metrics are controlled by the role assignment of Purview account. Users need to be part of the "Monitoring Reader" role in Azure Purview to see the metrics. Check out [Monitoring Reader Role permissions](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles) to learn more about the roles access levels.
+The metrics can be accessed from the Azure portal for a Purview account. Access to the metrics are controlled by the role assignment of Purview account. Users need to be part of the "Monitoring Reader" role in Azure Purview to see the metrics. Check out [Monitoring Reader Role permissions](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles) to learn more about the roles access levels.
 
 The person who created the Purview account automatically gets permissions to view metrics. If anyone else wants to see metrics, add them to the **Monitoring Reader** role, by following these steps:
 
@@ -52,7 +52,7 @@ Azure Purview users can also access the metrics page directly from the managemen
 
 ### Available metrics
 
-To get familiarized with how to use the metric section in the Azure portal pre read the following two documents. [Getting started with Metric Explorer](../azure-monitor/platform/metrics-getting-started.md) and [Advanced features of Metric Explorer](../azure-monitor/platform/metrics-charts.md).
+To get familiarized with how to use the metric section in the Azure portal pre read the following two documents. [Getting started with Metric Explorer](../azure-monitor/essentials/metrics-getting-started.md) and [Advanced features of Metric Explorer](../azure-monitor/essentials/metrics-charts.md).
 
 The following table contains the list of metrics available to explore in the Azure portal:
 
@@ -69,15 +69,15 @@ Raw telemetry events are emitted to Azure Monitor. Events can be logged to a cus
 
 Follow the steps to create a Diagnostic setting for your Azure Purview account.
 
-1. Create a new diagnostic setting to collect platform logs and metrics by following this article: [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/platform/diagnostic-settings.md). Select the destination only as Azure storage account.
+1. Create a new diagnostic setting to collect platform logs and metrics by following this article: [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md). Select the destination only as Azure storage account.
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png" alt-text="Screenshot showing creating diagnostic log." lightbox="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png":::
 
-2. Log the events to a storage account. A dedicated storage account is recommended for archiving the diagnostic logs. Following this article to [Create a storage account](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
+2. Log the events to a storage account. A dedicated storage account is recommended for archiving the diagnostic logs. Following this article to [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal).
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png" alt-text="Screenshot showing assigning storage account for diagnostic log." lightbox="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png":::
 
-Allow up to 15 minutes to start receiving logs in the newly created storage account. [See data retention and schema of resource logs in Azure Storage account](../azure-monitor/platform/resource-logs-collect-storage.md). Once the diagnostic logs are configured, the events flow to the storage account.
+Allow up to 15 minutes to start receiving logs in the newly created storage account. [See data retention and schema of resource logs in Azure Storage account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage). Once the diagnostic logs are configured, the events flow to the storage account.
 
 ### ScanStatusLogEvent
 

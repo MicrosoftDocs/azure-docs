@@ -31,8 +31,8 @@ Known issues and limitations associated with online migrations from PostgreSQL t
   2. Add the IP address to the pg_hba.conf file as shown:
 
       ```
-          host	all		172.16.136.18/10	md5
-          host	replication	postgres	172.16.136.18/10	md5
+          host    all    172.16.136.18/10    md5
+          host    replication postgres    172.16.136.18/10     md5
       ```
 
 - The user must have the REPLICATION role on the server hosting the source database.
@@ -40,7 +40,7 @@ Known issues and limitations associated with online migrations from PostgreSQL t
 - The schema in the target Azure Database for PostgreSQL-Single server must not have foreign keys. Use the following query to drop foreign keys:
 
     ```
-    							SELECT Queries.tablename
+                  SELECT Queries.tablename
            ,concat('alter table ', Queries.tablename, ' ', STRING_AGG(concat('DROP CONSTRAINT ', Queries.foreignkey), ',')) as DropQuery
                 ,concat('alter table ', Queries.tablename, ' ', 
                                                 STRING_AGG(concat('ADD CONSTRAINT ', Queries.foreignkey, ' FOREIGN KEY (', column_name, ')', 'REFERENCES ', foreign_table_name, '(', foreign_column_name, ')' ), ',')) as AddQuery
@@ -116,3 +116,4 @@ When you try to perform an online migration from AWS RDS PostgreSQL to Azure Dat
 - Migration of multiple tables with the same name but a different case (e.g. table1, TABLE1, and Table1) may cause unpredictable behavior and is therefore not supported.
 - Change processing of [CREATE | ALTER | DROP | TRUNCATE] table DDLs isn't supported.
 - In Azure Database Migration Service, a single migration activity can only accommodate up to four databases.
+- Migration of the pg_largeobject table is not supported. 

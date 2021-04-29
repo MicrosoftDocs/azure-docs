@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Build policies to enforce compliance"
 description: In this tutorial, you use policies to enforce standards, control costs, maintain security, and impose enterprise wide design principles.
-ms.date: 10/05/2020
+ms.date: 01/29/2021
 ms.topic: tutorial
 ---
 # Tutorial: Create and manage policies to enforce compliance
@@ -94,6 +94,12 @@ resources missing the tag.
    [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md)
    and
    [how remediation security works](../how-to/remediate-resources.md#how-remediation-security-works).
+
+1. Select the **Non-compliance messages** tab at the top of the wizard.
+
+1. Set the **Non-compliance message** to _This resource doesn't have the required tag_. This custom
+   message is displayed when a resource is denied or for non-compliant resources during regular
+   evaluation.
 
 1. Select the **Review + create** tab at the top of the wizard.
 

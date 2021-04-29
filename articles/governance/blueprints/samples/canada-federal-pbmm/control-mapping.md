@@ -1,7 +1,7 @@
 ---
 title: Canada Federal PBMM blueprint sample controls
 description: Control mapping of the Canada Federal PBMM blueprint samples. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 11/05/2020
+ms.date: 02/05/2021
 ms.topic: sample
 ---
 # Control mapping of the Canada Federal PBMM blueprint sample

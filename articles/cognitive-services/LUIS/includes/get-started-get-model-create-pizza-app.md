@@ -2,14 +2,15 @@
 title: include file
 description: include file
 services: cognitive-services
-author: roy-har
-manager: diberry
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.date: 06/04/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
-ms.author: roy-har
+ms.author: aahi
+ms.reviewer: roy-har
 ---
 Create the pizza app.
 

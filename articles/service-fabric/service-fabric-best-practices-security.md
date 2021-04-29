@@ -51,7 +51,7 @@ To deploy certificates from a co-located keyvault to a Virtual Machine Scale Set
 
 ## Apply an Access Control List (ACL) to your certificate for your Service Fabric cluster
 
-[Virtual Machine Scale Set extensions](/cli/azure/vmss/extension?view=azure-cli-latest) publisher Microsoft.Azure.ServiceFabric is used to configure your Nodes Security.
+[Virtual Machine Scale Set extensions](/cli/azure/vmss/extension) publisher Microsoft.Azure.ServiceFabric is used to configure your Nodes Security.
 To apply an ACL to your certificates for your Service Fabric Cluster processes, use the following Resource Manager template properties:
 
 ```json

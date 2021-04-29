@@ -2,7 +2,7 @@
 title: Deploy resources to resource groups
 description: Describes how to deploy resources in an Azure Resource Manager template. It shows how to target more than one resource group.
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 01/13/2021
 ---
 
 # Resource group deployments with ARM templates
@@ -80,7 +80,8 @@ When deploying to a resource group, you can deploy resources to:
 * other resource groups in the same subscription or other subscriptions
 * any subscription in the tenant
 * the tenant for the resource group
-* [extension resources](scope-extension-resources.md) can be applied to resources
+
+An [extension resource](scope-extension-resources.md) can be scoped to a target that is different than the deployment target.
 
 The user deploying the template must have access to the specified scope.
 
@@ -122,9 +123,9 @@ For an example template, see [Create resource group](#create-resource-group).
 
 ### Scope to tenant
 
-You can create resources at the tenant by setting the `scope` set to `/`. The user deploying the template must have the [required access to deploy at the tenant](deploy-to-tenant.md#required-access).
+To create resources at the tenant, set the `scope` to `/`. The user deploying the template must have the [required access to deploy at the tenant](deploy-to-tenant.md#required-access).
 
-You can use a nested deployment with `scope` and `location` set.
+To use a nested deployment, set `scope` and `location`.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-tenant.json" highlight="9,10,14":::
 
@@ -132,9 +133,11 @@ Or, you can set the scope to `/` for some resource types, like management groups
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-create-mg.json" highlight="12,15":::
 
+For more information, see [Management group](deploy-to-management-group.md#management-group).
+
 ## Deploy to target resource group
 
-To deploy resources in the target resource group, define those resources in the **resources** section of the template. The following template creates a storage account in the resource group that is specified in the deployment operation.
+To deploy resources in the target resource group, define those resources in the `resources` section of the template. The following template creates a storage account in the resource group that is specified in the deployment operation.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
 
@@ -293,7 +296,7 @@ From a resource group deployment, you can switch to the level of a subscription 
                     "resources": [
                         {
                             "type": "Microsoft.Resources/resourceGroups",
-                            "apiVersion": "2020-06-01",
+                            "apiVersion": "2020-10-01",
                             "name": "[parameters('newResourceGroupName')]",
                             "location": "[parameters('location')]",
                             "properties": {}

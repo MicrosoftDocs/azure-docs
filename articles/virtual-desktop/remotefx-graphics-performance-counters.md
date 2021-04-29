@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 
 # Diagnose graphics performance issues in Remote Desktop

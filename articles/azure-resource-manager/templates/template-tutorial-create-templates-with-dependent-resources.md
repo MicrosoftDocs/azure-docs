@@ -24,6 +24,8 @@ This tutorial covers the following tasks:
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
+For a Microsoft Learn module that covers resource dependencies, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
+
 ## Prerequisites
 
 To complete this article, you need:
@@ -41,7 +43,7 @@ To complete this article, you need:
 
 Azure Quickstart Templates is a repository for ARM templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this tutorial is called [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-1. From Visual Studio Code, select **File**>**Open File**.
+1. From Visual Studio Code, select **File** > **Open File**.
 2. In **File name**, paste the following URL:
 
     ```url
@@ -49,18 +51,18 @@ Azure Quickstart Templates is a repository for ARM templates. Instead of creatin
     ```
 
 3. Select **Open** to open the file.
-4. Select **File**>**Save As** to save a copy of the file to your local computer with the name **azuredeploy.json**.
+4. Select **File** > **Save As** to save a copy of the file to your local computer with the name _azuredeploy.json_.
 
 ## Explore the template
 
 When you explore the template in this section, try to answer these questions:
 
 * How many Azure resources defined in this template?
-* One of the resources is an Azure storage account.  Does the definition look like the one used in the last tutorial?
+* One of the resources is an Azure storage account. Does the definition look like the one used in the last tutorial?
 * Can you find the template references for the resources defined in this template?
 * Can you find the dependencies of the resources?
 
-1. From Visual Studio Code, collapse the elements until you only see the first-level elements and the second-level elements inside **resources**:
+1. From Visual Studio Code, collapse the elements until you only see the first-level elements and the second-level elements inside `resources`:
 
     ![Visual Studio Code ARM templates](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
@@ -73,9 +75,9 @@ When you explore the template in this section, try to answer these questions:
    * [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
    * [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines).
 
-     It is helpful to review the template reference before customizing a template.
+     It's helpful to review the template reference before customizing a template.
 
-1. Expand the first resource. It is a storage account. Compare the resource definition to the [template reference](/azure/templates/Microsoft.Storage/storageAccounts).
+1. Expand the first resource. It's a storage account. Compare the resource definition to the [template reference](/azure/templates/Microsoft.Storage/storageAccounts).
 
     ![Visual Studio Code ARM templates storage account definition](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
 
@@ -91,7 +93,7 @@ When you explore the template in this section, try to answer these questions:
 
     ![Visual Studio Code ARM templates virtual network dependsOn](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
 
-    The dependsOn element enables you to define one resource as a dependent on one or more resources. This resource depends on one other resource:
+    The `dependsOn` element enables you to define one resource as a dependent on one or more resources. This resource depends on one other resource:
 
     * `Microsoft.Network/networkSecurityGroups`
 
@@ -119,7 +121,7 @@ By specifying the dependencies, Resource Manager efficiently deploys the solutio
 
     ![Azure portal Cloud Shell upload file](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Select **Upload/download files**, and then select **Upload**. See the previous screenshot. Select the file you saved earlier. After uploading the file, you can use the **ls** command and the **cat** command to verify the file is uploaded successfully.
+1. Select **Upload/download files**, and then select **Upload**. See the previous screenshot. Select the file you saved earlier. After uploading the file, you can use the `ls` command and the `cat` command to verify the file was uploaded successfully.
 
 1. Run the following PowerShell script to deploy the template.
 

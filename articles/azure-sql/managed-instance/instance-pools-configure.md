@@ -160,7 +160,7 @@ $databases = Get-AzSqlInstanceDatabase -InstanceName "pool-mi-001" -ResourceGrou
 
 
 > [!NOTE]
-> There is a limit of 100 databases per pool (not per instance).
+> For checking limits on number of databases per instance pool and managed instance deployed inside the pool visit [Instance pool resource limits](instance-pools-overview.md#resource-limitations) section.
 
 
 ## Scale 

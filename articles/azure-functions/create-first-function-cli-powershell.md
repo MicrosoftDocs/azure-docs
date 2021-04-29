@@ -3,7 +3,7 @@ title: Create a PowerShell function from the command line - Azure Functions
 description: Learn how to create a PowerShell function from the command line, then publish the local project to serverless hosting in Azure Functions.
 ms.date: 11/03/2020
 ms.topic: quickstart
-ms.custom: [devx-track-powershell, devx-track-azurecli]
+ms.custom: [devx-track-powershell, devx-track-azurecli, devx-track-azurepowershell]
 ---
 
 # Quickstart: Create a PowerShell function in Azure from the command line
@@ -30,7 +30,7 @@ Before you begin, you must have the following:
 
     + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
-+ The [.NET Core SDK 3.1](https://www.microsoft.com/net/download)
++ The [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
 
 ### Prerequisite check
 
@@ -126,7 +126,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
     
     In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app. 
     
-    This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](functions-scale.md#consumption-plan), which is free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
+    This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](consumption-plan.md), which is free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 

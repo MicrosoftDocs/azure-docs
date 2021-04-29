@@ -1,5 +1,5 @@
 ---
-title: Building retail solutions with Azure IoT Central | Microsoft Docs
+title: What are the Azure IoT Central retail solutions | Microsoft Docs
 description: Learn about using Azure IoT Central application templates to build connected logistics, digital distribution center, in-store analytics, condition monitoring, checkout, smart inventory management, and retail solutions.
 author: avneet723
 ms.author: avneets 
@@ -10,7 +10,7 @@ ms.subservice: iot-central-retail
 services: iot-central
 ---
 
-# Building retail solutions with Azure IoT Central
+# What are the IoT Central retail solutions?
 
 Azure IoT Central is an IoT app platform that reduces the burden and cost associated with developing, managing, and maintaining enterprise-grade IoT solutions. Choosing to build with Azure IoT Central gives you the opportunity to focus your time, money, and energy on transforming your business with IoT data, rather than just maintaining and updating a complex and continually evolving IoT infrastructure.
 
@@ -175,9 +175,5 @@ To learn how to deploy the solution, see the [Create a video analytics applicati
 To get started building a retail solution:
 
 * Get started with the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) tutorial that walks you through how to build a solution with one of the in-store analytics application templates.
-* [Deploy and walk through a connected logistics application template](./tutorial-iot-central-connected-logistics.md).
-* [Deploy and walk through a digital distribution center application template](./tutorial-iot-central-digital-distribution-center.md).
-* [Deploy and walk through a smart inventory management application template](./tutorial-iot-central-smart-inventory-management.md).
-* [Deploy and walk through the micro-fulfillment center application template](./tutorial-micro-fulfillment-center.md).
 * [Deploy and walk through the video analytics application template](./tutorial-video-analytics-deploy.md).
-* Learn more about IoT Central in the [IoT Central overview](../core/overview-iot-central.md).
+* [Deploy and walk through a connected logistics application template](./tutorial-iot-central-connected-logistics.md).

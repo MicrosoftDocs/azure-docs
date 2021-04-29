@@ -6,7 +6,7 @@ ms.author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/01/2020
+ms.date: 03/22/2021
 ---
 
 # Managing public network access for your IoT hub
@@ -23,7 +23,17 @@ To restrict access to only [private endpoint for your IoT hub in your VNet](virt
 
 :::image type="content" source="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png" alt-text="Image showing Azure portal where to turn off public network access" lightbox="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png":::
 
-To turn on public network access, selected **Enabled**, then **Save**.
+To turn on public network access, selected **All networks**, then **Save**.
+
+## Accessing the IoT Hub after disabling public network access
+
+After public network access is disabled, the IoT Hub is only accessible through [its VNet private endpoint using Azure private link](virtual-network-support.md). This restriction includes accessing through Azure portal, because API calls to the IoT Hub service are made directly using your browser with your credentials.
+
+## IoT Hub endpoint, IP address, and ports after disabling public network access
+
+IoT Hub is a multi-tenant Platform-as-a-Service (PaaS), so different customers share the same pool of compute, networking, and storage hardware resources. IoT Hub's hostnames map to a public endpoint with a publicly routable IP address over the internet. Different customers share this IoT Hub public endpoint, and IoT devices in over wide-area networks and on-premises networks can all access it. 
+
+Disabling public network access is enforced on a specific IoT hub resource, ensuring isolation. To keep the service active for other customer resources using the public path, its public endpoint remains resolvable, IP addresses discoverable, and ports remain open. This is not a cause for concern as Microsoft integrates multiple layers of security to ensure complete isolation between tenants. To learn more, see [Isolation in the Azure Public Cloud](../security/fundamentals/isolation-choices.md#tenant-level-isolation).
 
 ## IP Filter 
 

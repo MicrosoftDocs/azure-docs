@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.custom: azureday1
+ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell
 #Customer intent: As an application developer, I want to learn how to access Azure Storage for an app by using managed identities.
 ---
 

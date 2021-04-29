@@ -1,5 +1,6 @@
 ---
-title: Move web app that signs in users to production - Microsoft identity platform | Azure
+title: Move web app that signs in users to production | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to build a web app that signs in users (move to production)
 services: active-directory
 author: jmprieur
@@ -12,23 +13,19 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a web app that signs in users by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a web app that signs in users by using the Microsoft identity platform.
 ---
 
 # Web app that signs in users: Move to production
 
-Now that you know how to get a token to call web APIs, learn how to move it to production.
+Now that you know how to get a token to call web APIs, here are some things to consider when moving your application to production.
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## Troubleshooting
-
-> [!NOTE]
-> When users sign-in to the web application for the first time, they will need to consent. However, in some organizations, users can see a message like the following:
->
-> *AppName needs permissions to access resources in your organization that only an admin can grant. Please ask an admin to grant permission to this app before you can use it.*
->
-> This is because your tenant administrator has **disabled** the ability for users to consent. In that case, you need to contact your tenant administrators so that they do an admin-consent for the scopes required by the application.
+When users sign-in to the web application for the first time, they will need to consent. However, in some organizations, users can see a message like the following:
+*AppName needs permissions to access resources in your organization that only an admin can grant. Please ask an admin to grant permission to this app before you can use it.*
+This is because your tenant administrator has **disabled** the ability for users to consent. In that case, contact your tenant administrators so that they do an admin-consent for the scopes required by the application.
 
 ## Same site
 
@@ -50,6 +47,12 @@ This progressive tutorial has production-ready code for a web app, including how
 - Work or school accounts, or personal Microsoft accounts
 - [Azure AD B2C](../../active-directory-b2c/overview.md)
 - National clouds
+
+## Tutorial: Node.js web app
+
+Learn more about the Node.js web in this tutorial:
+
+[Tutorial: Sign-in users in a Node.js & Express web app](./tutorial-v2-nodejs-webapp-msal.md)
 
 ## Sample code: Java web app
 
