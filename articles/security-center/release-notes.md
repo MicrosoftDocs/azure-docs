@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/27/2021
+ms.date: 04/29/2021
 ms.author: memildin
 
 ---
@@ -24,6 +24,7 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 ## April 2021
 
 Updates in April include:
+- [Refreshed resource health page](#refreshed-resource-health-page)
 - [Recently pulled container registry images are now rescanned weekly (General Availability)](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
 - [Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (preview)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
 - [Recommendations to enable Azure Defender for DNS and Resource Manager (preview)](#recommendations-to-enable-azure-defender-for-dns-and-resource-manager-preview)
@@ -34,6 +35,25 @@ Updates in April include:
 - [Two recommendations from "Apply system updates" security control were deprecated](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
 - [Azure Defender for SQL on machine tile removed from Azure Defender dashboard](#azure-defender-for-sql-on-machine-tile-removed-from-azure-defender-dashboard)
 - [21 recommendations moved between security controls](#21-recommendations-moved-between-security-controls)
+
+### Refreshed resource health page
+
+Security Center's resource health has been expanded, enhanced, and improved to provide a snapshot view of the overall health of a single resource. 
+
+You can review detailed information about the resource and all recommendations that apply to that resource. Also, if you're using [Azure Defender](azure-defender.md), you can see outstanding security alerts for that specific resource too.
+
+To open the resource health page for a resource, select any resource from the [asset inventory page](asset-inventory.md).
+
+This single page in Security Center's portal pages shows:
+
+1. **Resource information** - The resource group and subscription it's attached to, the geographic location, and more.
+1. **Applied security feature** - Whether Azure Defender is enabled for the resource.
+1. **Counts of outstanding recommendations and alerts** - The number of outstanding security recommendations and Azure Defender alerts.
+1. **Actionable recommendations and alerts** - Two tabs list the recommendations and alerts that apply to the resource.
+
+:::image type="content" source="media/investigate-resource-health/resource-health-page-virtual-machine.gif" alt-text="Azure Security Center's resource health page showing the health information for a virtual machine":::
+
+Learn more in [Tutorial: Investigate the health of your resources](investigate-resource-health.md).
 
 
 ### Recently pulled container registry images are now rescanned weekly (General Availability)
