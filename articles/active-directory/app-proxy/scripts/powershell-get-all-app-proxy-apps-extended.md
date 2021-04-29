@@ -1,14 +1,14 @@
 ---
-title: PowerShell sample - List extended info for Application Proxy apps
+title: PowerShell sample - List extended info for Azure Active Directory Application Proxy apps
 description: PowerShell example that lists all Azure Active Directory (Azure AD) Application Proxy applications along with the application ID (AppId), name (DisplayName), external URL (ExternalUrl), internal URL (InternalUrl), and authentication type (ExternalAuthenticationType).
 services: active-directory
 author: kenwith
 manager: mtillman
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: sample
-ms.date: 12/05/2019
+ms.date: 04/29/2021
 ms.author: kenwith
 ms.reviewer: japere
 ---

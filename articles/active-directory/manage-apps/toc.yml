@@ -46,8 +46,6 @@
         href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
     - name: App Proxy PowerShell samples
       items:
-      - name: List extended info about apps
-        href: ./scripts/powershell-get-all-app-proxy-apps-extended.md
       - name: List apps with token lifetime policy
         href: ./scripts/powershell-get-all-app-proxy-apps-with-policy.md
       - name: List connector groups and connectors
