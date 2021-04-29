@@ -40,7 +40,7 @@ This article will demonstrate individual enrollments.
     git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     ```
 
-1. Make sure you have the [.NET Core 3.0.0 SDK or later](https://www.microsoft.com/net/download/windows) installed on your machine. You can use the following command to check your version.
+1. Make sure you have the [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download) installed on your machine. You can use the following command to check your version.
 
     ```bash
     dotnet --info
@@ -164,7 +164,6 @@ You will use sample code from the [X509Sample](https://github.com/Azure-Samples/
 If you plan to continue working on and exploring the device client sample, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart.
 
 1. Close the device client sample output window on your machine.
-1. Close the TPM simulator window on your machine.
 1. From the left-hand menu in the Azure portal, select **All resources** and then select your Device Provisioning service. At the top of the **Overview** blade, press **Delete** at the top of the pane.  
 1. From the left-hand menu in the Azure portal, select **All resources** and then select your IoT hub. At the top of the **Overview** blade, press **Delete** at the top of the pane.  
 

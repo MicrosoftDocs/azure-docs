@@ -130,7 +130,6 @@ In this section, you'll create a load balancer rule:
     | Port | Enter **80**.|
     | Backend port | Enter **80**. |
     | Backend pool | Select **myBackendPool**.|
-    | Health probe | Select **myHealthProbe**. |
     | Idle timeout (minutes) | Move slider to **15**. |
     | TCP reset | Select **Enabled**. |
 

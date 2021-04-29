@@ -47,12 +47,6 @@ When creating a new [Transform](/rest/api/media/transforms), you need to specify
 
 When creating a [Transform](/rest/api/media/transforms), you should first check if one already exists using the **Get** method, as shown in the code that follows. In Media Services v3, **Get** methods on entities return **null** if the entity doesn't exist (a case-insensitive check on the name).
 
-### Example
-
-The following example defines a set of outputs that we want to be generated when this Transform is used. We first add an AacAudio layer for the audio encoding and two H264Video layers for the video encoding. In the video layers, we assign labels so that they can be used in the output file names. Next, we want the output to also include thumbnails. In the example below we specify images in PNG format, generated at 50% of the resolution of the input video, and at three timestamps - {25%, 50%, 75%} of the length of the input video. Lastly, we specify the format for the output files - one for video + audio, and another for the thumbnails. Since we have multiple H264Layers, we have to use macros that produce unique names per layer. We can either use a `{Label}` or `{Bitrate}` macro, the example shows the former.
-
-[!code-csharp[Main](../../../media-services-v3-dotnet/VideoEncoding/EncodingWithMESCustomPreset_H264/Program.cs#EnsureTransformExists)]
-
 ## Next steps
 
 [Streaming files](stream-files-tutorial-with-api.md) 

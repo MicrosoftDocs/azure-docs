@@ -3,8 +3,9 @@ title: Start a runbook in Azure Automation
 description: This article tells how to start a runbook in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/16/2018
-ms.topic: conceptual
+ms.date: 04/28/2021
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 # Start a runbook in Azure Automation
 
@@ -20,7 +21,7 @@ The following table helps you determine the method to start a runbook in Azure A
 | [Schedule](./shared-resources/schedules.md) |<li>Automatically start runbook on hourly, daily, weekly, or monthly schedule.<br> <li>Manipulate schedule through Azure portal, PowerShell cmdlets, or Azure API.<br> <li>Provide parameter values to be used with schedule. |
 | [From Another Runbook](automation-child-runbooks.md) |<li>Use a runbook as an activity in another runbook.<br> <li>Useful for functionality used by multiple runbooks.<br> <li>Provide parameter values to child runbook and use output in parent runbook. |
 
-The following image illustrates detailed step-by-step process in the life cycle of a runbook. It includes different ways a runbook starts in Azure Automation, which components required for Hybrid Runbook Worker to execute Azure Automation runbooks and interactions between different components. To learn about executing Automation runbooks in your datacenter, refer to [hybrid runbook workers](automation-hybrid-runbook-worker.md)
+The following image illustrates detailed step-by-step process in the life cycle of a runbook. It includes different ways a runbook starts in Azure Automation, which components required for Hybrid Runbook Worker to execute Azure Automation runbooks, and interactions between different components. To learn about executing Automation runbooks in your datacenter, refer to [hybrid runbook workers](automation-hybrid-runbook-worker.md)
 
 ![Runbook Architecture](media/automation-starting-runbook/runbooks-architecture.png)
 
@@ -28,7 +29,7 @@ The following image illustrates detailed step-by-step process in the life cycle 
 
 When you start a runbook from the Azure portal or Windows PowerShell, the instruction is sent through the Azure Automation web service. This service doesn't support parameters with complex data types. If you need to provide a value for a complex parameter, then you must call it inline from another runbook as described in [Child runbooks in Azure Automation](automation-child-runbooks.md).
 
-The Azure Automation web service provides special functionality for parameters using certain data types as described in the following sections:
+The Azure Automation web service provides special functionality for parameters using certain data types as described in the following sections.
 
 ### Named values
 
@@ -131,11 +132,11 @@ jsmith
 
 ## Start a runbook with the Azure portal
 
-1. In the Azure portal, select **Automation** and then click the name of an Automation account.
-2. On the Hub menu, select **Runbooks**.
-3. On the Runbooks page, select a runbook, and then click **Start**.
+1. In the Azure portal, select **Automation** and then select the name of an Automation account.
+2. From the left-hand pane, select **Runbooks**.
+3. On the **Runbooks** page, select a runbook, and then click **Start**.
 4. If the runbook has parameters, you're prompted to provide values with a text box for each parameter. For more information on parameters, see [Runbook Parameters](#work-with-runbook-parameters).
-5. On the Job pane, you can view the status of the runbook job.
+5. On the **Job** pane, you can view the status of the runbook job.
 
 ## Start a runbook with PowerShell
 

@@ -148,7 +148,7 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), there are thre
     ```
 
     > [!NOTE]
-    > For performing updates on the linked Storage Accounts to your Application Insights resource, refer to the [Application Insights CLI documentation](/cli/azure/ext/application-insights/monitor/app-insights/component/linked-storage).
+    > For performing updates on the linked Storage Accounts to your Application Insights resource, refer to the [Application Insights CLI documentation](/cli/azure/monitor/app-insights/component/linked-storage).
 
 #### Configure using Azure Resource Manager template
 

@@ -5,7 +5,7 @@ author: sabbour
 ms.author: asabbour
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 4/5/2020
+ms.date: 4/5/2021
 keywords: aro, openshift, red hat, serverless
 ---
 
@@ -56,7 +56,7 @@ https://console-openshift-console.apps.wzy5hg7x.eastus.aroapp.io/
 
 Launch the console URL in a browser and login using the `kubeadmin` credentials.
 
-![Azure Red Hat OpenShift login screen](media/aro4-login-3.png)
+:::image type="content" source="media/login.png" alt-text="Azure Red Hat OpenShift login screen":::
 
 ## Install the OpenShift Serverless operator
 
