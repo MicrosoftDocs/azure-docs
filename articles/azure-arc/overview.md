@@ -11,7 +11,12 @@ Today, companies struggle to control and govern increasingly complex environment
 
 In parallel, new DevOps and ITOps operational models are hard to implement, as existing tools fail to provide support for new cloud native patterns.
 
-Azure Arc simplifies governance and management by delivering a consistent multi-cloud and on-premises management platform. Azure Arc enables you to manage your entire environment, with a single pane of glass, by projecting your existing resources into Azure Resource Manager. You can now manage virtual machines, Kubernetes clusters, and databases as if they are running in Azure. Regardless of where they live, you can use familiar Azure services and management capabilities. Azure Arc enables you to continue using traditional ITOps, while introducing DevOps practices to support new cloud native patterns in your environment.
+Azure Arc simplifies governance and management by delivering a consistent multi-cloud and on-premises management platform. Azure Arc enables you to:
+* Manage your entire environment, with a single pane of glass, by projecting your existing resources into Azure Resource Manager. 
+* Manage virtual machines, Kubernetes clusters, and databases as if they are running in Azure. 
+* Use familiar Azure services and management capabilities, regardless of where they live. 
+* Continue using traditional ITOps, while introducing DevOps practices to support new cloud native patterns in your environment.
+* Configure Custom Locations as an abstraction layer on top of Azure Arc enabled Kubernetes cluster, cluster connect, and cluster extensions.  
 
 :::image type="content" source="./media/overview/azure-arc-control-plane.png" alt-text="Azure Arc management control plane diagram" border="false":::
 
@@ -35,7 +40,9 @@ Key features of Azure Arc include:
 
 *  Zero-touch compliance and configuration for your Kubernetes clusters using Azure Policy.
 
-* Run Azure data services on any Kubernetes environment as if it runs in Azure (specifically Azure SQL Managed Instance and Azure Database for PostgreSQL Hyperscale, with benefits such as upgrades, updates, security, and monitoring). Use elastic scale and apply updates without any application downtime, even without continuous connection to Azure
+* Run Azure data services on any Kubernetes environment as if it runs in Azure (specifically Azure SQL Managed Instance and Azure Database for PostgreSQL Hyperscale, with benefits such as upgrades, updates, security, and monitoring). Use elastic scale and apply updates without any application downtime, even without continuous connection to Azure.
+
+* Create [custom locations](./kubernetes/custom-locations.md) on top of your [Azure Arc enabled Kubernetes](./kubernetes/overview.md) clusters, using them as target locations for deploying Azure services instances. 
 
 * A unified experience viewing your Azure Arc enabled resources whether you are using the Azure portal, the Azure CLI, Azure PowerShell, or Azure REST API.
 
@@ -55,7 +62,7 @@ The following Azure Arc control plane functionality is offered at no ex
 
 * Environments and automation through templates and extensions.
 
-* Update management
+* Update management.
 
 Any Azure service that is used on Arc enabled servers, for example Azure Security Center or Azure Monitor, will be charged as per the pricing for that service. For more information, see the [Azure pricing page](https://azure.microsoft.com/pricing/).
 
