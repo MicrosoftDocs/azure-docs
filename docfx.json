@@ -1099,6 +1099,7 @@
           "articles/mysql/howto-troubleshoot-replication-latency.md",
           "articles/role-based-access-control/resource-provider-operations.md",
           "articles/site-recovery/**/*.md",
+          "articles/storsimple/storsimple-configure-mpio-on-linux.md",
           "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md",
           "articles/virtual-machines/workloads/sap/dbms-guide-ha-ibm.md",
           "articles/virtual-machines/workloads/sap/hana-vm-troubleshoot-scale-out-ha-on-sles.md",
