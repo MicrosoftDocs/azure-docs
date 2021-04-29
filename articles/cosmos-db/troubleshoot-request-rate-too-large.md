@@ -27,20 +27,21 @@ Before taking any action to change the RU/s, it's important to understand th
 ## Error message: Request rate is large. More Request Units may be needed, so no changes were made. 
 
 ### Step 1: Check the metrics to determine percent of requests with 429 error
-Getting 429s in and of itself doesn't necessarily mean there is a problem with your database or container.
+Seeing 429s in and of itself doesn't necessarily mean there is a problem with your database or container.
 
 #### How to investigate
-Determine what percent of your requests to your database or container resulted in 429s, compared to the overall count of successful requests. Use the **TotalRequestsMetric** in [Azure Cosmos DB monitor metrics](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) to see the total requests split by status code. 
-
-// TODO: Insert image
+Determine what percent of your requests to your database or container resulted in 429s, compared to the overall count of successful requests. From the Cosmos account, navigate to **Insights** > **Requests** > **Total Requests by Status Code**. Filter to a specific database and container. 
 
 By default, the Azure Cosmos DB client SDKs and data import tools (Azure Data Factory, bulk executor library) automatically retry requests on 429s (typically up to 9 times). As a result, while you may see 429s in the metrics, these errors may not even have been returned to your application. 
+
+:::image type="content" source="media/troubleshoot-request-rate-too-large/insights-429-requests.png" alt-text="Total Requests by Status Code chart that shows number of 429 and 2xx requests":::
+
 
 #### Recommended solution
 In general, for a production workload, if you see between 1-5% of requests with 429s, and your end to end latency is acceptable, this is a healthy sign that the RU/s are being fully utilized. No action is required. Otherwise, move to the next troubleshooting steps.
 
 ### Step 2: Determine if there is a hot partition
-A hot partition arises when one or a few logical partition keys consume a disproportionate amount of the total RU/s due to higher request volume. This can be caused by a partition key design that doesn't evenly distribute requests, resulting in many requests directed to a small subset of logical (and thus physical) partitions that become "hot."  Because all data for a logical partition resides on one physical partition and total RU/s is evenly distributed among the physical partitions, a hot partition can lead to 429s and inefficient use of throughput. 
+A hot partition arises when one or a few logical partition keys consume a disproportionate amount of the total RU/s due to higher request volume. This can be caused by a partition key design that doesn't evenly distribute requests, resulting in many requests directed to a small subset of logical (and thus physical) partitions that become "hot." Because all data for a logical partition resides on one physical partition and total RU/s is evenly distributed among the physical partitions, a hot partition can lead to 429s and inefficient use of throughput. 
 
 Here are some examples of partitioning strategies that lead to hot partitions:
 - If you have a container storing IOT device data that is partitioned by date, all data for a single date will reside on the same logical and physical partition. Each day, because all data being written has the same date, this would result in a hot partition. 
@@ -49,8 +50,12 @@ Here are some examples of partitioning strategies that lead to hot partitions:
     - Instead, for this scenario, consider having a dedicated container for the largest tenant, partitioned by a more granular property, e.g. UserId. 
 
 #### How to investigate
-To verify if there is a hot partition, use the **Normalized RU Consumption** metric and split by **PartitionKeyRangeId**. Each PartitionKeyRangeId maps to a one physical partition. If there is one PartitionKeyRangeId that has significantly higher Normalized RU consumption than others (e.g. one is consistently at 100%, but others are at 30% or less), this can be a sign of a hot partition. 
-//TODO: Insert image
+
+To verify if there is a hot partition, navigate to **Insights** > **Throughput** > **Normalized RU Consumption (%) By PartitionKeyRangeID**. Filter to a specific database and container. 
+
+Each PartitionKeyRangeId maps to a one physical partition. If there is one PartitionKeyRangeId that has significantly higher Normalized RU consumption than others (for example, one is consistently at 100%, but others are at 30% or less), this can be a sign of a hot partition. 
+
+:::image type="content" source="media/troubleshoot-request-rate-too-large/split-norm-util-by-pkrange-hot-partition.png" alt-text="Normalized RU Consumption by PartitionKeyRangeId chart with a hot partition":::
 
 > [!TIP]
 > In any workload, there will be natural variation in request volume across logical partitions. You should determine if the hot partition is caused by a fundamental skewness due to choice of partition key (which may require changing the key) or temporary spike due to natural variation in workload patterns.
@@ -69,6 +74,8 @@ If there is high percent of throttled requests and there is an underlying hot pa
 >  When you increase the throughput, the scale-up operation can either be instantaneous or asynchronous, depending on the RU/s provisioned. If you want to know the highest RU/s you can set without triggering the asynchronous scale-up operation (which requires Azure Cosmos DB to provision more physical partitions), multiply the number of distinct PartitionKeyRangeIds by 10,0000 RU/s. For example, if you have 30,000 RU/s provisioned and 5 physical partitions (6000 RU/s allocated per physical partition), you can increase to 50,000 RU/s (10,000 RU/s per physical partition) in an instantaneous scale-up operation. Increasing to >50,000 RU/s would require an asynchronous scale-up operation.
 
 ### Step 3: Determine what requests are returning 429s
+
+#### How to investigate
 Use [Azure Diagnostic Logs](cosmosdb-monitor-resource-logs.md) to identify which requests are returning 429s and how many RUs they consumed. This sample query aggregates at the minute level. 
 
 > [!IMPORTANT]
@@ -104,6 +111,11 @@ Metadata throttling can occur when you are performing a high volume of metadata 
 - Query for offers to see the current provisioned throughput 
 
 There is a system-reserved RU limit for these operations, so increasing the provisioned RU/s of the database or container will have no impact and is not recommended. 
+
+#### How to investigate
+Navigate to **Insights** > **System** > **Metadata Requests By Status Code**. Filter to a specific database and container if desired. 
+
+:::image type="content" source="media/troubleshoot-request-rate-too-large/metadata-throttling-insights.png" alt-text="Metadata requests by status code chart in Insights":::
 
 #### Recommended solution
 - If your application needs to perform metadata operations, consider implementing a backoff policy to send these requests at a lower rate. 
