@@ -9,19 +9,23 @@ manager: tracsman
 ms.service: expressroute
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 4/27/2021
+ms.date: 4/28/2021
 ms.author: rambala
 
 ---
 # Using ExpressRoute for Routing Microsoft 365 Traffic
-Often there's a confusion whether ExpressRoute can be used or not for routing Microsoft 365 SaaS traffic. The for argument is: ExpressRoute does offer *Microsoft peering*, using which you can reach most of the public endpoints in Microsoft network, and in fact you can select BGP communities corresponding to Microsoft 365 services in a *Route Filter* associated with a Microsoft Peering to receive prefixes belonging to Microsoft 365 services and thereby you can route Microsoft 365 service traffic over an ExpressRoute circuit. The against argument is: Microsoft 365 is a distributed service and designed to enable customers all over the world to connect to the service using an Internet connection; so, it's recommended not to use ExpressRoute for Microsoft 365.
+
+An ExpressRoute circuit provides private connectivity to Microsoft backbone network. 
+It offers *Private peering* to connect to private endpoints of your IaaS deployment in Azure regions and *Microsoft peering* to connect to public endpoints of IaaS, PaaS, and SaaS services in Microsoft network. 
+For more information about ExpressRoute, see the [Introduction to ExpressRoute][ExR-Intro] article.
+
+
+Often there's a confusion whether ExpressRoute can be used or not for routing Microsoft 365 SaaS traffic. 
+The argument is: ExpressRoute does offer Microsoft peering, using which you can reach most of the public endpoints in Microsoft network. 
+In fact you can select BGP communities corresponding to Microsoft 365 services in a *Route Filter* associated with a Microsoft Peering to receive prefixes belonging to Microsoft 365 services and thereby you can route Microsoft 365 service traffic over an ExpressRoute circuit. 
+The against argument is: Microsoft 365 is a distributed service and designed to enable customers all over the world to connect to the service using an Internet connection; so, it's recommended not to use ExpressRoute for Microsoft 365.
 
 The objective of this article is to provide technical reasoning and objectively discuss when to use ExpressRoute for routing Microsoft 365 traffic and when not to use it.
-## What is ExpressRoute?
-
-An ExpressRoute circuit provides private connectivity to Microsoft backbone network. It offers private peering to connect to private endpoints of your IaaS deployment in Azure regions and Microsoft peering to connect to public endpoints of IaaS, PaaS, and SaaS services in Microsoft network.
-
-For more information about ExpressRoute, see the [Introduction to ExpressRoute][ExR-Intro] article.
 
 ## Network Requirements of Microsoft 365 Traffic
 Microsoft 365 service often includes real-time traffic such as voice & video calls, online meetings, and real-time collaboration. This real-time traffic has stringent network performance requirements in terms of latency and jitter. Within certain limits of network latency, jitter can be effectively handled using buffer at the client device. Network latency is a function of physical distance traffic need to travel, link bandwidth, and network processing latency. 
@@ -45,7 +49,10 @@ Similarly, in SaaS application architecture if you force route the traffic throu
 
 ## When not to use ExpressRoute for Microsoft 365?
 
-Because of its ability to dynamically shorten the route length and dynamically choose the closest server datacenter depending on the location of the clients, Microsoft 365 is said to be designed for the Internet. When you have your SaaS clients widely distributed across a region or globally, and if you geo-pin the connections to a particular location then you are forcing the clients further away from the geo-pined location to experience higher network latency. Higher network latency results in suboptimal network performance and poor application performance.
+Because of its ability to dynamically shorten the route length and dynamically choose the closest server datacenter depending on the location of the clients, Microsoft 365 is said to be designed for the Internet. 
+Besides there are certain Microsoft 365 traffic that are routed only through the Internet.
+When you have your SaaS clients widely distributed across a region or globally, and if you geo-pin the connections to a particular location then you are forcing the clients further away from the geo-pined location to experience higher network latency. 
+Higher network latency results in suboptimal network performance and poor application performance.
 
 Therefore, in scenarios where you have widely distributed SaaS clients or clients that are highly mobile, you don't want to geo-pin connections by any means including forcing the traffic through an ExpressRoute circuit in a specific peering location.
 
