@@ -32,8 +32,10 @@ See a full list of self help content at [Azure Virtual Machine troubleshooting d
 For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](/answers/products/azure), Azure’s preferred destination for community support. 
 
 If you can't find an answer to your problem using search, submit a new question to Microsoft Q&A. Use one of the following tags when you ask your question:
-| Area | Tag
-|---|---|
+
+
+| Area | Tag |
+|-------|----------------------|
 | Azure Virtual Machines | [azure-virtual-machines](/answers/topics/azure-virtual-machines.html) | 
 | Azure SQL Virtual Machines | [azure-sql-virtual-machines](/answers/topics/azure-sql-virtual-machines.html)| 
 | Azure Virtual Machine backup | [azure-virtual-machine-backup](/answers/topics/azure-virtual-machine-backup.html) | 
