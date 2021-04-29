@@ -135,7 +135,7 @@ You can use any one of the following methods to verify the DNS zone after you've
     ]
     ```
 
- Use Windows CMD to query the "www" record with the `nslookup` command.
+    Use Windows Command Prompt to query the "www" record with the `nslookup` command.
 
     ```cmd
     nslookup www.contoso.com ns1-03.azure-dns.com
