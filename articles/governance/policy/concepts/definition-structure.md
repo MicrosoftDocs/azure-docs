@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 02/17/2021
+ms.date: 04/29/2021
 ms.topic: conceptual
 ---
 # Azure Policy definition structure
@@ -975,36 +975,41 @@ The following functions are only available in policy rules:
   - **dateTime**: [Required] string - String in the Universal ISO 8601 DateTime format
     'yyyy-MM-ddTHH:mm:ss.FFFFFFFZ'
   - **numberOfDaysToAdd**: [Required] integer - Number of days to add
+
 - `field(fieldName)`
   - **fieldName**: [Required] string - Name of the [field](#fields) to retrieve
   - Returns the value of that field from the resource that is being evaluated by the If condition.
   - `field` is primarily used with **AuditIfNotExists** and **DeployIfNotExists** to reference
     fields on the resource that are being evaluated. An example of this use can be seen in the
     [DeployIfNotExists example](effects.md#deployifnotexists-example).
+
 - `requestContext().apiVersion`
   - Returns the API version of the request that triggered policy evaluation (example: `2019-09-01`).
     This value is the API version that was used in the PUT/PATCH request for evaluations on resource
     creation/update. The latest API version is always used during compliance evaluation on existing
     resources.
+
 - `policy()`
   - Returns the following information about the policy that is being evaluated. Properties can be
     accessed from the returned object (example: `[policy().assignmentId]`).
   
-  ```json
-  {
-    "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",
-    "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
-    "setDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42a694ed-f65e-42b2-aa9e-8052e9740a92",
-    "definitionReferenceId": "StorageAccountNetworkACLs"
-  }
-  ```
+    ```json
+    {
+      "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",
+      "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
+      "setDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42a694ed-f65e-42b2-aa9e-8052e9740a92",
+      "definitionReferenceId": "StorageAccountNetworkACLs"
+    }
+    ```
 
 - `ipRangeContains(range, targetRange)`
-  - **range**: [Required] string - String specifying a range of IP addresses.
-  - **targetRange**: [Required] string - String specifying a range of IP addresses.
-
-  Returns whether the given IP address range contains the target IP address range. Empty ranges, or
-  mixing between IP families isn't allowed and results in evaluation failure.
+  - **range**: [Required] string - String specifying a range of IP addresses to check if the
+    _targetRange_ is within.
+  - **targetRange**: [Required] string - String specifying a range of IP addresses to validate as
+    included within the _range_.
+  - Returns a _boolean_ for whether the _range_ IP address range contains the _targetRange_ IP
+    address range. Empty ranges, or mixing between IP families isn't allowed and results in
+    evaluation failure.
 
   Supported formats:
   - Single IP address (examples: `10.0.0.0`, `2001:0DB8::3:FFFE`)
