@@ -50,7 +50,7 @@ Our training script is currently set to download the CIFAR10 dataset on each run
 
 1. Open *train.py* and replace it with this code:
 
-  :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/code/pytorch-cifar10-your-data/train.py":::
+    :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/code/pytorch-cifar10-your-data/train.py":::
 
 1. **Save** the file.  Close the tab if you wish.
 
@@ -117,7 +117,7 @@ To run this script in Azure Machine Learning, you need to make your training dat
 
 ## <a name="control-script"></a> Create a control script
 
-As you've done previously, create a new Python control script called `run-pytorch-data.py`:
+As you've done previously, create a new Python control script called *run-pytorch-data.py* in the **get-started** folder:
 
 ```python
 # run-pytorch-data.py

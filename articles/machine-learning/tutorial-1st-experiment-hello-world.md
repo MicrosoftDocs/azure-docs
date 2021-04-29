@@ -71,7 +71,7 @@ Select **Save and run script in terminal** to run the script.
 
 :::image type="content" source="media/tutorial-1st-experiment-hello-world/save-run-in-terminal.png" alt-text="Screenshot shows save and run script in terminal tool in the toolbar":::
 
-You'll see the output of the script in the terminal window that opens.
+You'll see the output of the script in the terminal window that opens. Close the tab and select **Terminate** to close the session.
 
 > [!div class="nextstepaction"]
 > [I ran the script locally](?success=run-local#control-script) [I ran into an issue](https://www.research.net/r/7C2NTH7?issue=run-local)
@@ -80,10 +80,10 @@ You'll see the output of the script in the terminal window that opens.
 
 A *control script* allows you to run your `hello.py` script on different compute resources. You use the control script to control how and where your machine learning code is run.  
 
-In your **get-started** folder, create a new Python file called *run-hello.py* and copy/paste the following code into that file:
+Select the **...** at the end of **get-started** folder to create a new file.  Create a Python file called *run-hello.py* and copy/paste the following code into that file:
 
 ```python
-# tutorial/run-hello.py
+# get-started/run-hello.py
 from azureml.core import Workspace, Experiment, Environment, ScriptRunConfig
 
 ws = Workspace.from_config()
@@ -149,7 +149,7 @@ Here's a description of how the control script works:
 
 ## <a name="submit"></a> Submit and run your code in the cloud
 
-Run your control script, which in turn runs `hello.py` on the compute cluster that you created in the [setup tutorial](quickstart-create-resources.md).
+Select **Save and run script in terminal** to run your control script, which in turn runs `hello.py` on the compute cluster that you created in the [setup tutorial](quickstart-create-resources.md).
 
 In the terminal, you may be asked to sign in to authenticate.  Copy the code and follow the link to complete this step.
 
@@ -161,7 +161,7 @@ In the terminal, you may be asked to sign in to authenticate.  Copy the code and
 The output from your script will contain a link to the studio that looks something like this:
 `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`.
 
-Follow the link.  At first, you'll see a status of **Preparing**.  The very first run will take 5-10 minutes to complete. This is because the following occurs:
+Follow the link.  At first, you'll see a status of **Queued** or **Preparing**.  The very first run will take 5-10 minutes to complete. This is because the following occurs:
 
 * A docker image is built in the cloud
 * The compute cluster is resized from 0 to 1 node
@@ -169,7 +169,7 @@ Follow the link.  At first, you'll see a status of **Preparing**.  The very firs
 
 Subsequent runs are much quicker (~15 seconds) as the docker image is cached on the compute. You can test this by resubmitting the code below after the first run has completed.
 
-Wait about 10 minutes.  Then use **Refresh** to see the status change to *Completed*.  Once the job completes, go to the **Outputs + logs** tab. There you can see a `70_driver_log.txt` file that looks like this:
+Wait about 10 minutes.  You'll see a message that the run has completed. Then use **Refresh** to see the status change to *Completed*.  Once the job completes, go to the **Outputs + logs** tab. There you can see a `70_driver_log.txt` file that looks like this:
 
 ```txt
  1: [2020-08-04T22:15:44.407305] Entering context manager injector.

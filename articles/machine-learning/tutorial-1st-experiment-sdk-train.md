@@ -45,11 +45,11 @@ The training code is taken from [this introductory example](https://pytorch.org/
 
 1. Create a *model.py* file in the **src** subfolder. Copy this code into the file:
 
-  :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/src/model.py":::
+    :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/src/model.py":::
 
 1. On the toolbar, select **Save** to save the file.  Close the tab if you wish.
 
-3. Next, define the training script. This script downloads the CIFAR10 dataset by using PyTorch `torchvision.dataset` APIs, sets up the network defined in *model.py*, and trains it for two epochs by using standard SGD and cross-entropy loss.
+1. Next, define the training script, also in the**src** subfolder. This script downloads the CIFAR10 dataset by using PyTorch `torchvision.dataset` APIs, sets up the network defined in *model.py*, and trains it for two epochs by using standard SGD and cross-entropy loss.
 
     Create a *train.py* script in the **src** subfolder:
 
@@ -119,9 +119,11 @@ The training code is taken from [this introductory example](https://pytorch.org/
 
 ## <a name="test-local"></a> Test locally
 
-Select **Save and run script in terminal** to run the script directly on the compute instance.
+Select **Save and run script in terminal** to run the *train.py* script directly on the compute instance.
 
-After you run this script, select **Refresh** above the file folders. You'll see the new data folder called **get-started/data** Expand this folder to view the downloaded data.  
+After the script completes, select **Refresh** above the file folders. You'll see the new data folder called **get-started/data** Expand this folder to view the downloaded data.  
+
+:::image type="content" source="media/tutorial-1st-experiment-hello-world/directory-with-data.png" alt-text="Screenshot of folders shows new data folder created by running the file locally.":::
 
 > [!div class="nextstepaction"]
 > [I ran the code locally](?success=test-local#create-local) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=test-local)
