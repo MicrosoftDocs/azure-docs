@@ -64,8 +64,6 @@
     href: pipeline.md
   - name: Video recording
     href: video-recording.md
-  - name: AI composition overview
-    href: ai-composition-overview.md
   - name: Widgets
     href: widgets.md #404
   - name: Scenarios 
@@ -92,8 +90,6 @@
     href: develop-deploy-grpc-inference-srv.md
   - name: Manage recording policy
     href: manage-retention-policy-how-to.md
-  - name: AI Composition
-    href: ai-composition.md
   - name: Deploy to an IoT Edge device
     href: deploy-iot-edge-device.md
   - name: Invoke direct methods with the portal
