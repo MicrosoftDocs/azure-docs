@@ -126,13 +126,6 @@ After you run this script, select **Refresh** above the file folders. You'll see
 > [!div class="nextstepaction"]
 > [I ran the code locally](?success=test-local#create-local) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=test-local)
 
-## <a name="environment"></a> Create a new Python environment
-
-To prepare for submitting this code to your compute cluster, you'll create an environment file. Create a folder called **.azureml**.  Then create a file called *pytorch-env.yml* in the **.azureml** folder:
-
-:::code language="yml" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/environments/pytorch-env.yml":::
-
-This environment has all the dependencies that your model and training script require. Notice there's no dependency on the Azure Machine Learning SDK for Python.
 
 > [!div class="nextstepaction"]
 > [I created the environment file](?success=create-env-file#test-local) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=create-env-file)
@@ -157,11 +150,9 @@ if __name__ == "__main__":
                              script='train.py',
                              compute_target='cpu-cluster')
 
-    # set up pytorch environment
-    env = Environment.from_conda_specification(
-        name='pytorch-env',
-        file_path='./.azureml/pytorch-env.yml'
-    )
+    # use curated pytorch environment 
+    env = ws.environments['AzureML-PyTorch-1.6-CPU']
+    config.run_config.environment = env
     config.run_config.environment = env
 
     run = experiment.submit(config)
@@ -177,7 +168,7 @@ if __name__ == "__main__":
       `env = ...`
    :::column-end:::
    :::column span="2":::
-      Azure Machine Learning provides the concept of an [environment](/python/api/azureml-core/azureml.core.environment.environment) to represent a reproducible, versioned Python environment for running experiments. It's easy to create an environment from a local Conda or pip environment.
+      Azure Machine Learning provides the concept of an [environment](/python/api/azureml-core/azureml.core.environment.environment) to represent a reproducible, versioned Python environment for running experiments. Here you use one of the [curated environments](how-to-use-environments#use-a-curated-environment).  It's also easy to create an environment from a local Conda or pip environment. 
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -195,10 +186,10 @@ if __name__ == "__main__":
 
 ## <a name="submit"></a> Submit the run to Azure Machine Learning
 
-Select **Save and run script in terminal** to run the run-pytorch.py script.
+Select **Save and run script in terminal** to run the *run-pytorch.py* script.
 
 >[!NOTE] 
-> The first time you run this script, Azure Machine Learning will build a new Docker image from your PyTorch environment. The whole run might take 5 to 10 minutes to complete. 
+> The first time you run this script, Azure Machine Learning will build a new Docker image from your PyTorch environment. The whole run might take 1 to 2 minutes to complete. 
 >
 > You can see the Docker build logs in the Azure Machine Learning studio. Follow the link to the studio, select the **Outputs + logs** tab, and then select `20_image_build_log.txt`.
 >
@@ -230,11 +221,7 @@ Finished Training
 >
 > Select the **...** at the end of the folder, then select **Move** to move **data** to the **getting-started** folder.  
 
-Environments can be registered to a workspace with `env.register(ws)`. They can then be easily shared, reused, and versioned. Environments make it easy to reproduce previous results and to collaborate with your team.
 
-Azure Machine Learning also maintains a collection of curated environments. These environments cover common machine learning scenarios and are backed by cached Docker images. Cached Docker images make the first remote run faster.
-
-In short, using registered environments can save you time! Read [How to use environments](./how-to-use-environments.md) for more information.
 
 > [!div class="nextstepaction"]
 > [I submitted the run](?success=test-w-environment#log) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=test-w-environment)
@@ -276,20 +263,10 @@ compare metrics.
 > [!div class="nextstepaction"]
 > [I modified train.py ](?success=modify-train#log) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=modify-train)
 
-### Update the Conda environment file
-
-The *train.py* script just took a new dependency on `azureml.core`. Update *pytorch-env.yml* to reflect this change:
-
-:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/configuration/pytorch-aml-env.yml":::
-
-> [!div class="nextstepaction"]
-> [I updated the environment file](?success=update-environment#submit-again) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=update-environment)
-
-**Save** this file, then close the tab if you wish.
 
 ### <a name="submit-again"></a> Submit the run to Azure Machine Learning
 
-Select the tab for the *run-pytorch.py* script, then select **Save and run script in terminal** to re-run the *run-pytorch.py* script. Since you updated the conda file, you'll again have to wait 5 to 10 minutes for the new Docker image to build.
+Select the tab for the *run-pytorch.py* script, then select **Save and run script in terminal** to re-run the *run-pytorch.py* script. 
 
 This time when you visit the studio, go to the **Metrics** tab where you can now see live updates on the model training loss!
 
