@@ -47,7 +47,7 @@ The Azure RTOS samples are provided with different kinds of IDE and toolchain co
 - IAR: IAR's [Embedded Workbench](https://www.iar.com/iar-embedded-workbench/) IDE
 - GCC/CMake: Build on top of the open-source [CMake](https://cmake.org/) build system and [GNU Arm Embedded toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm).
 - MCUExpresso: NXP's [MCUXpresso IDE](https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-integrated-development-environment-ide:MCUXpresso-IDE)
-- STM32Cube: STMicroelectronic's [STM32Cube IDE](https://www.st.com/en/development-tools/stm32cubeide.html)
+- STM32Cube: STMicroelectronics's [STM32Cube IDE](https://www.st.com/en/development-tools/stm32cubeide.html)
 - MPLAB: Microchip's [MPLAB X IDE](https://www.microchip.com/mplab/mplab-x-ide)
 
 ### Samples
