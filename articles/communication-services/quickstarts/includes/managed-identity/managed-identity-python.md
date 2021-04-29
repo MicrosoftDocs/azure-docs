@@ -1,6 +1,6 @@
 ## Setting up
 
-## Create a new Python application
+### Create a new Python application
 
 Open your terminal or command window create a new directory for your app, and navigate to it.
 
