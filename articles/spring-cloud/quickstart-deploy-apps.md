@@ -227,7 +227,7 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
     ```txt
         Name               Location    ResourceGroup    Production Deployment    Public Url                                           Provisioning Status    CPU    Memory    Running Instance    Registered Instance    Persistent Storage
     -----------------  ----------  ---------------  -----------------------  ---------------------------------------------------  ---------------------  -----  --------  ------------------  ---------------------  --------------------
-    api-gateway        eastus      yuchensp         default                  https://<service name>-api-gateway.azuremicroservices.io   Succeeded              1      2         1/1                 1/1                    -     
+    api-gateway        eastus      xxxxxx-sp         default                  https://<service name>-api-gateway.azuremicroservices.io   Succeeded              1      2         1/1                 1/1                    -     
     customers-service  eastus      <service name>         default                                                                       Succeeded              1      2         1/1                 1/1                    -     
     ```
 
@@ -288,7 +288,7 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
                 <artifactId>azure-spring-cloud-maven-plugin</artifactId>
                 <version>1.3.0</version>
                 <configuration>
-                    <subscriptionId>bb881e62-cf77-4d5d-89fb-29d71e930b66</subscriptionId>
+                    <subscriptionId>xxxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx</subscriptionId>
                     <clusterName>v-spr-cld</clusterName>
                     <appName>customers-service</appName>
     
