@@ -157,7 +157,8 @@ To get the logs using Azure Toolkit for IntelliJ:
 
    ![Streaming log output](media/spring-cloud-intellij-howto/streaming-log-output.png)
 
-To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, check out [Azure Data Explorer](/azure/data-explorer/query-monitor-data).
+ To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, check out [Azure Data Explorer](/azure/data-explorer/query-monitor-data).
+
 ---
 
 ## Log Analytics
