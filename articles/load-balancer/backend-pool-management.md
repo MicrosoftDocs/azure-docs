@@ -319,4 +319,4 @@ In this article, you learned about Azure Load Balancer backend pool management a
 
 Learn more about [Azure Load Balancer](load-balancer-overview.md).
 
-Review the [REST API](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerbackendaddresspools/createorupdate) for IP based backendpool management.
+Review the [REST API](/rest/api/load-balancer/loadbalancerbackendaddresspools/createorupdate) for IP based backendpool management.
