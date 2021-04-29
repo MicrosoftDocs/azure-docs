@@ -43,92 +43,89 @@ First you define the neural network architecture in a *model.py* file. All your 
 
 The training code is taken from [this introductory example](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html) from PyTorch. Note that the Azure Machine Learning concepts apply to any machine learning code, not just PyTorch.
 
-Create a *model.py* file in the **src** subfolder. Copy this code into the file:
+1. Create a *model.py* file in the **src** subfolder. Copy this code into the file:
 
-:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/src/model.py":::
+  :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/src/model.py":::
 
-On the toolbar, select **Save** to save the file.  Close the tab if you wish.
+1. On the toolbar, select **Save** to save the file.  Close the tab if you wish.
 
-Next, define the training script. This script downloads the CIFAR10 dataset by using PyTorch `torchvision.dataset` APIs, sets up the network defined in *model.py*, and trains it for two epochs by using standard SGD and cross-entropy loss.
+3. Next, define the training script. This script downloads the CIFAR10 dataset by using PyTorch `torchvision.dataset` APIs, sets up the network defined in *model.py*, and trains it for two epochs by using standard SGD and cross-entropy loss.
 
-Create a *train.py* script in the **src** subfolder:
+  Create a *train.py* script in the **src** subfolder:
 
-```python
-import torch
-import torch.optim as optim
-import torchvision
-import torchvision.transforms as transforms
+     ```python
+    import torch
+    import torch.optim as optim
+    import torchvision
+    import torchvision.transforms as transforms
+    
+    from model import Net
+    
+    # download CIFAR 10 data
+    trainset = torchvision.datasets.CIFAR10(
+        root="../data",
+        train=True,
+        download=True,
+        transform=torchvision.transforms.ToTensor(),
+    )
+    trainloader = torch.utils.data.DataLoader(
+        trainset, batch_size=4, shuffle=True, num_workers=2
+    )
+    
+    if __name__ == "__main__":
+    
+        # define convolutional network
+        net = Net()
+    
+        # set up pytorch loss /  optimizer
+        criterion = torch.nn.CrossEntropyLoss()
+        optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
+    
+        # train the network
+        for epoch in range(2):
+    
+            running_loss = 0.0
+            for i, data in enumerate(trainloader, 0):
+                # unpack the data
+                inputs, labels = data
+    
+                # zero the parameter gradients
+                optimizer.zero_grad()
+    
+                # forward + backward + optimize
+                outputs = net(inputs)
+                loss = criterion(outputs, labels)
+                loss.backward()
+                optimizer.step()
+    
+                # print statistics
+                running_loss += loss.item()
+                if i % 2000 == 1999:
+                    loss = running_loss / 2000
+                    print(f"epoch={epoch + 1}, batch={i + 1:5}: loss {loss:.2f}")
+                    running_loss = 0.0
+    
+        print("Finished Training")
+    ```
 
-from model import Net
+1. You now have the following folder structure:
 
-# download CIFAR 10 data
-trainset = torchvision.datasets.CIFAR10(
-    root="../data",
-    train=True,
-    download=True,
-    transform=torchvision.transforms.ToTensor(),
-)
-trainloader = torch.utils.data.DataLoader(
-    trainset, batch_size=4, shuffle=True, num_workers=2
-)
-
-if __name__ == "__main__":
-
-    # define convolutional network
-    net = Net()
-
-    # set up pytorch loss /  optimizer
-    criterion = torch.nn.CrossEntropyLoss()
-    optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
-
-    # train the network
-    for epoch in range(2):
-
-        running_loss = 0.0
-        for i, data in enumerate(trainloader, 0):
-            # unpack the data
-            inputs, labels = data
-
-            # zero the parameter gradients
-            optimizer.zero_grad()
-
-            # forward + backward + optimize
-            outputs = net(inputs)
-            loss = criterion(outputs, labels)
-            loss.backward()
-            optimizer.step()
-
-            # print statistics
-            running_loss += loss.item()
-            if i % 2000 == 1999:
-                loss = running_loss / 2000
-                print(f"epoch={epoch + 1}, batch={i + 1:5}: loss {loss:.2f}")
-                running_loss = 0.0
-
-    print("Finished Training")
-```
-
-You now have the following folder structure:
-
-:::image type="content" source="media/tutorial-1st-experiment-sdk-train/folder-structure.png" alt-text="Directory structure shows train.py in src subdirectory":::
-
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-train/directory-structure.png" alt-text="Directory structure shows train.py in src subdirectory":::
+    
 
 > [!div class="nextstepaction"]
-> [I created the training scripts](?success=create-scripts#environment) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=create-scripts)
+> [I created the training scripts](?success=create-scripts#test-local) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=create-scripts)
 
 
 ## <a name="test-local"></a> Test locally
 
-Select **Save and run script in terminal** to run the script.
+Select **Save and run script in terminal** to run the script directly on the compute instance.
 
 After you run this script, select **Refresh** above the file folders. You'll see the new data folder called **getting-started/data** Expand this folder to view the downloaded data.  
 
 > [!div class="nextstepaction"]
 > [I ran the code locally](?success=test-local#create-local) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=test-local)
 
-
-> [!div class="nextstepaction"]
-> [I created the environment file](?success=create-env-file#test-local) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=create-env-file)
 
 ## <a name="create-local"></a> Create the control script
 
@@ -168,7 +165,7 @@ if __name__ == "__main__":
       `env = ...`
    :::column-end:::
    :::column span="2":::
-      Azure Machine Learning provides the concept of an [environment](/python/api/azureml-core/azureml.core.environment.environment) to represent a reproducible, versioned Python environment for running experiments. Here you use one of the [curated environments](how-to-use-environments#use-a-curated-environment).  It's also easy to create an environment from a local Conda or pip environment. 
+      Azure Machine Learning provides the concept of an [environment](/python/api/azureml-core/azureml.core.environment.environment) to represent a reproducible, versioned Python environment for running experiments. Here you use one of the [curated environments](how-to-use-environments.md#use-a-curated-environment).  It's also easy to create an environment from a local Conda or pip environment.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -189,7 +186,7 @@ if __name__ == "__main__":
 Select **Save and run script in terminal** to run the *run-pytorch.py* script.
 
 >[!NOTE] 
-> The first time you run this script, Azure Machine Learning will build a new Docker image from your PyTorch environment. The whole run might take 1 to 2 minutes to complete. 
+> The first time you run this script, Azure Machine Learning will build a new Docker image from your PyTorch environment. The whole run might take 3 to 4 minutes to complete. 
 >
 > You can see the Docker build logs in the Azure Machine Learning studio. Follow the link to the studio, select the **Outputs + logs** tab, and then select `20_image_build_log.txt`.
 >
@@ -234,11 +231,11 @@ The current training script prints metrics to the terminal. Azure Machine Learni
 
 ### Modify *train.py* to include logging
 
-Modify your *train.py* script to include two more lines of code:
+1. Modify your *train.py* script to include two more lines of code:
 
-:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/code/pytorch-cifar10-train-with-logging/train.py":::
+  :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/code/pytorch-cifar10-train-with-logging/train.py":::
 
-**Save** this file, then close the tab if you wish.
+2. **Save** this file, then close the tab if you wish.
 
 #### Understand the additional two lines of code
 
@@ -268,7 +265,7 @@ compare metrics.
 
 Select the tab for the *run-pytorch.py* script, then select **Save and run script in terminal** to re-run the *run-pytorch.py* script. 
 
-This time when you visit the studio, go to the **Metrics** tab where you can now see live updates on the model training loss!
+This time when you visit the studio, go to the **Metrics** tab where you can now see live updates on the model training loss! It may take a 1 to 2  minutes before the training begins.  
 
 :::image type="content" source="media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Training loss graph on the Metrics tab.":::
 
