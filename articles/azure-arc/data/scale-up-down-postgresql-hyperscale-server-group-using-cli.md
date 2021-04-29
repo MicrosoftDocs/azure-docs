@@ -85,7 +85,7 @@ Scaling down refers to decreasing the values for the vCores and/or memory settin
 The settings you are about to set have to be considered within the configuration you set for your Kubernetes cluster. Make sure you are not setting values that your Kubernetes cluster won't be able to satisfy. That could lead to errors or unpredictable behavior like unavailability of the database instance. As an example, if the status of your server group stays in status _updating_ for a long time after you change the configuration, it may be an indication that you set the below parameters to values that your Kubernetes cluster cannot satisfy. If that is the case, revert the change or read the _troubleshooting_section.
 
 What settings should you set?
-- To set minumum vCore, set `--cores-request`.
+- To set minimum vCore, set `--cores-request`.
 - To set maximum vCore, set `--cores-limit`.
 - To set minimum memory, set `--memory-request`
 - To set maximum memory, set `--memory-limit`
