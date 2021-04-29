@@ -84,7 +84,7 @@ Having prepared your self-hosted IR and Azure Blob Storage linked service for st
 
    1. In the **Staging path** box, specify a blob container in your selected Azure Storage account or leave it empty to use a default one for staging.
 
-   1. Select **Continue**.
+   1. Select the **Continue** button.
 
    ![Advanced settings with a self-hosted IR](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-shir.png)
 
