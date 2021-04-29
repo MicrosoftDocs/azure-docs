@@ -75,18 +75,18 @@ You can visually create workflows using the Logic Apps designer in the Azure por
 
 <a name="host-environments"></a>
 
-## Azure host environments
+## Host environments
 
-Based on your scenario and solution requirements, you can create logic apps that differ in their Azure hosting environment and how workflows use and share resources. The following table briefly summarizes these differences.
+Based on your scenario and solution requirements, you can create logic apps that differ in the Logic Apps service environment where they run and how workflows use resources. The following table briefly summarizes these differences.
 
-| Azure environment | [Pricing model](logic-apps-pricing.md) | Description |
-|-------------------|----------------------------------------|-------------|
-| Multi-tenant | Consumption | A logic app can have only one workflow. <p><p>Workflows from different logic apps across *multiple tenants* share the same processing (compute), storage, network, and so on. |
-| [Single-tenant (Preview)](logic-apps-overview-preview.md) | Standard | A logic app can have multiple workflows. <p><p>Workflows from the *same logic app in a single tenant* share the same processing (compute), storage, network, and so on. |
+| Environment | [Pricing model](logic-apps-pricing.md) | Description |
+|-------------|----------------------------------------|-------------|
+| Azure Logic Apps (multi-tenant) | Consumption | A logic app can have only one workflow. <p><p>Workflows from different logic apps across *multiple tenants* share the same processing (compute), storage, network, and so on. |
+| Azure Logic Apps ([single-tenant (Preview)])(logic-apps-overview-preview.md) | [Preview](logic-apps-overview-preview.md#pricing-model) | A logic app can have multiple workflows. <p><p>Workflows from the *same logic app in a single tenant* share the same processing (compute), storage, network, and so on. |
 | [Integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) | Fixed | A logic app can have only one workflow. <p><p>Workflows from different logic apps in the *same environment* share the same processing (compute), storage, network, and so on. |
 ||||
 
-Logic apps running in different Azure environments also have different limits. For more information, review [Limits in Logic Apps](logic-apps-limits-and-config.md) and [Limits in Logic Apps (Preview)](logic-apps-overview-preview.md#limits).
+Logic apps hosted in Logic Apps service environments also have different limits. For more information, review [Limits in Logic Apps](logic-apps-limits-and-config.md) and [Limits in Logic Apps (Preview)](logic-apps-overview-preview.md#limits).
 
 ## Why use Logic Apps
 
