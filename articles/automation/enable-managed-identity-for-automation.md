@@ -142,8 +142,6 @@ Write-Output $accessToken.access_token
 
 ## Sample runbooks using managed identity
 
-For help
-
 ### Sample runbook to access a SQL database without using Azure cmdlets
 
 Make sure you've enabled an identity before you try this script. See [Enable system-assigned identity](#enable-system-assigned-identity).
