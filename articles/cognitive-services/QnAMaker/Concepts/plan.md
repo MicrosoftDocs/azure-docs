@@ -39,7 +39,7 @@ The free tier, `F0`, of each resource works and can provide both the authoring a
 
 #### Text Analytics resource
 
-A single Text Analytics resource with Custom question answering feature enabled can host more than one knowledge base. The number of knowledge bases is determined by the Cognitive Search pricing tier's quantity of supported indexes. Learn more about the [relationship of indexes to knowledge bases](azure-resources.md#index-usage).
+A single Text Analytics resource with the custom question answering feature enabled can host more than one knowledge base. The number of knowledge bases is determined by the Cognitive Search pricing tier's quantity of supported indexes. Learn more about the [relationship of indexes to knowledge bases](azure-resources.md#index-usage).
 
 #### Knowledge base size and throughput
 
