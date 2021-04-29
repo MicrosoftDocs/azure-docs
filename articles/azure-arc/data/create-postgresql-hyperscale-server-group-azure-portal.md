@@ -33,7 +33,7 @@ If you prefer to try out things without provisioning a full environment yourself
 ## Deploy an Arc data controller configured to use the Direct connectivity mode
 
 Requirement: before you deploy an Azure Arc enabled PostgreSQL Hyperscale server group that you operate from the Azure Portal you must first deploy an Azure Arc data controller configured to use the *Direct* connectivity mode.
-To deploy such this Arc data controller please follow the steps [here](https://docs.microsoft.com/en-us/azure/azure-arc/data/deploy-data-controller-direct-mode-prerequisites) and then [here](https://docs.microsoft.com/en-us/azure/azure-arc/data/deploy-data-controller-direct-mode-prerequisites).
+To deploy such this Arc data controller please complete the prerequisites in [Deploy data controller - direct connect mode (prerequisites)](deploy-data-controller-direct-mode-prerequisites.md) and then [Deploy Azure Arc data controller | Direct connect mode](deploy-data-controller-direct-mode.md).
 
 
 ## Preliminary and temporary step for OpenShift users only
@@ -67,7 +67,7 @@ After you deployed an Arc data controller enabled for Direct connectivity mode:
 
 ## Next steps
 
-- Connect to your Azure Arc enabled PostgreSQL Hyperscale: read [Get Connection Endpoints And Connection Strings](https://docs.microsoft.com/en-us/azure/azure-arc/data/get-connection-endpoints-and-connection-strings-postgres-hyperscale)
+- Connect to your Azure Arc enabled PostgreSQL Hyperscale: read [Get Connection Endpoints And Connection Strings](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md)
 - Read the concepts and How-to guides of Azure Database for PostgreSQL Hyperscale to distribute your data across multiple PostgreSQL Hyperscale nodes and to benefit from better performances potentially:
     * [Nodes and tables](../../postgresql/concepts-hyperscale-nodes.md)
     * [Determine application type](../../postgresql/concepts-hyperscale-app-type.md)

@@ -229,7 +229,7 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 
 ## Next steps
 
-- Connect to your Azure Arc enabled PostgreSQL Hyperscale: read [Get Connection Endpoints And Connection Strings](https://docs.microsoft.com/en-us/azure/azure-arc/data/get-connection-endpoints-and-connection-strings-postgres-hyperscale)
+- Connect to your Azure Arc enabled PostgreSQL Hyperscale: read [Get Connection Endpoints And Connection Strings](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md)
 - Read the concepts and How-to guides of Azure Database for PostgreSQL Hyperscale to distribute your data across multiple PostgreSQL Hyperscale nodes and to benefit from better performances potentially:
     * [Nodes and tables](../../postgresql/concepts-hyperscale-nodes.md)
     * [Determine application type](../../postgresql/concepts-hyperscale-app-type.md)
