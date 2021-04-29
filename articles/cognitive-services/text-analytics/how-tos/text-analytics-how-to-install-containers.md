@@ -45,7 +45,7 @@ You must meet the following prerequisites before using Text Analytics containers
 
 [!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
 
-If you're using the Text Analytics for health container, the [responsible AI](https://docs.microsoft.com/legal/cognitive-services/text-analytics/transparency-note-health)  (RAI) acknowledgment must also be present with a value of `accept`.
+If you're using the Text Analytics for health container, the [responsible AI](/legal/cognitive-services/text-analytics/transparency-note-health)  (RAI) acknowledgment must also be present with a value of `accept`.
 
 ## The host computer
 
