@@ -213,7 +213,7 @@
     - name: Restore
       items:
       - name: Overview
-        href: restore-files-and-folders-overview-mars.md
+        href: restore-files-folders-mars.md
       - name: Recover files from Azure to Windows Server
         href: backup-azure-restore-windows-server.md
       - name: Restore all files in a volume
