@@ -28,7 +28,7 @@
     href: tutorial-hybrid-portal-policy.md
   - name: Filter inbound traffic with DNAT - classic
     href: tutorial-firewall-dnat.md
-  - name: Filter inbound traffic with DNAT -policy
+  - name: Filter inbound traffic with DNAT - policy
     href: tutorial-firewall-dnat-policy.md
 
 - name: Samples
