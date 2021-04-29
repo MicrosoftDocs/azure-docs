@@ -42,6 +42,8 @@ If you attempt to use the authorization code flow and see this error:
 
 Then, visit your app registration and update the redirect URI for your app to type `spa`.
 
+Applications cannot use a `spa` redirect URI with non-SPA flows, for example native applications or client credential flows. To ensure security, Azure AD will return an error if you attempt to use use a `spa` redirect URI in these scenarios, e.g. from a native app that doesn't send an`Origin` header. 
+
 ## Request an authorization code
 
 The authorization code flow begins with the client directing the user to the `/authorize` endpoint. In this request, the client requests the `openid`, `offline_access`, and `https://graph.microsoft.com/mail.read ` permissions from the user.  Some permissions are admin-restricted, for example writing data to an organization's directory by using `Directory.ReadWrite.All`. If your application requests access to one of these permissions from an organizational user, the user receives an error message that says they're not authorized to consent to your app's permissions. To request access to admin-restricted scopes, you should request them directly from a Global Administrator.  For more information, read [Admin-restricted permissions](v2-permissions-and-consent.md#admin-restricted-permissions).
