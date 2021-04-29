@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/31/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # How to resolve Azure Advisor recommendations
 

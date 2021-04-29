@@ -1,8 +1,8 @@
 ---
 title: 'Azure Data Factory: Frequently asked questions '
 description: Get answers to frequently asked questions about Azure Data Factory.
-author: dcstwh
-ms.author: weetok
+author: ssabat
+ms.author: susabat
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/29/2021
@@ -221,7 +221,7 @@ Use the Copy activity to stage data from any of the other connectors, and then e
 
 ### Is the self-hosted integration runtime available for data flows?
 
-Self-hosted IR is an ADF pipeline construct that you can use with the Copy Activity to acquire or move data to and from on-prem or VM-based data sources and sinks. Stage the data first with a Copy, then Data Flow for transformation, and then a subsequent copy if you need to move that transformed data back to the on-prem store.
+Self-hosted IR is an ADF pipeline construct that you can use with the Copy Activity to acquire or move data to and from on-prem or VM-based data sources and sinks. The virtual machines that you use for a self-hosted IR can also be placed inside of the same VNET as your protected data stores for access to those data stores from ADF. With data flows, you'll achieve these same end-results using the Azure IR with managed VNET instead.
 
 ### Does the data flow compute engine serve multiple tenants?
 
@@ -330,6 +330,7 @@ Wrangling data flow supports the following data types in SQL. You will get a val
 * xml
 
 Other data types will be supported in the future.
+
 
 ## Next steps
 

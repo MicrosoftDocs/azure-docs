@@ -2,11 +2,13 @@
 title: Use preview JavaScript azure/service-bus with topics and subscriptions
 description: Learn how to write a JavaScript program that uses the latest preview version of @azure/service-bus package to send messages to a Service Bus topic and receive messages from a subscription to the topic.
 author: spelluru
-ms.devlang: nodejs
-ms.topic: quickstart
-ms.date: 11/09/2020
 ms.author: spelluru
-ms.custom: devx-track-js
+ms.date: 11/09/2020
+ms.topic: quickstart
+ms.devlang: nodejs
+ms.custom:
+  - devx-track-js
+  - mode-api
 ---
 
 # Quickstart: Service Bus topics and subscriptions with Node.js and the preview azure/service-bus package

@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 1/30/2021
+ms.date: 4/15/2021
 ms.author: cavoeg
 ---
 
@@ -36,8 +36,8 @@ Previous versions also currently supported include: `3.0.2`
 | create                         | Yes       | Yes       | Yes       | Support both POST/PUT                               |
 | create (conditional)           | Yes       | Yes       | Yes       | Issue [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
 | search                         | Partial   | Partial   | Partial   | See Search section below.                           |
-| chained search                 | Yes       | Yes       | Partial   | See Note 2 below.                                   |
-| reverse chained search         | Yes       | Yes       | Partial   | See Note 2 below.                                   |
+| chained search                 | Partial       | Yes       | Partial   | See Note 2 below.                                   |
+| reverse chained search         | Partial       | Yes       | Partial   | See Note 2 below.                                   |
 | capabilities                   | Yes       | Yes       | Yes       |                                                     |
 | batch                          | Yes       | Yes       | Yes       |                                                     |
 | transaction                    | No        | Yes       | No        |                                                     |
@@ -141,7 +141,7 @@ Currently, the allowed actions for a given role are applied *globally* on the AP
 
 ## Service limits
 
-* [**Request Units (RUs)**](../../cosmos-db/concepts-limits.md) - You can configure up to 10,000 RUs in the portal for Azure API for FHIR. You will need a minimum of 400 RUs or 10 RUs/GB, whichever is larger. If you need more than 10,000 RUs, you can put in a support ticket to have this increased. The maximum available is 1,000,000.
+* [**Request Units (RUs)**](../../cosmos-db/concepts-limits.md) - You can configure up to 10,000 RUs in the portal for Azure API for FHIR. You will need a minimum of 400 RUs or 40 RUs/GB, whichever is larger. If you need more than 10,000 RUs, you can put in a support ticket to have this increased. The maximum available is 1,000,000.
 
 * **Concurrent connections** and **Instances** - By default, you have five concurrent connections on two instances in the cluster (for a total of 10 concurrent requests). If you believe you need more concurrent requests, open a support ticket with details on your needs.
 
@@ -155,12 +155,12 @@ The performance of the system is dependent on the number of RUs, concurrent conn
 
 | # of RUs | Resources/sec |    Max Storage (GB)*    |
 |----------|---------------|--------|                 
-| 400      | 5-10          |     40   |
-| 1,000    | 100-150       |      100  |
-| 10,000   | 225-400       |      1,000  |
-| 100,000  | 2,500-4,000   |      10,000  |
+| 400      | 5-10          |     10   |
+| 1,000    | 100-150       |      25  |
+| 10,000   | 225-400       |      250  |
+| 100,000  | 2,500-4,000   |      2,500  |
 
-Note: Per Cosmos DB requirement, there is a requirement of a minimum throughput of 10 RU/s per GB of storage. For more information, check out [Cosmos DB service quotas](../../cosmos-db/concepts-limits.md).
+Note: Per Cosmos DB requirement, there is a requirement of a minimum throughput of 40 RU/s per GB of storage. 
 
 ## Next steps
 

@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 02/19/2021
+ms.date: 04/28/2021
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -41,6 +41,9 @@ In this tutorial, you learn how to:
 > * Configure a network rule to allow access to external DNS servers
 > * Configure a NAT rule to allow a remote desktop to the test server
 > * Test the firewall
+
+> [!NOTE]
+> This tutorial uses classic Firewall rules to manage the firewall. The preferred method is to use [Firewall Policy](../firewall-manager/policy-overview.md). To complete this tutorial using Firewall Policy, see [Tutorial: Deploy and configure Azure Firewall and policy using the Azure portal](tutorial-firewall-deploy-portal-policy.md)
 
 If you prefer, you can complete this tutorial using [Azure PowerShell](deploy-ps.md).
 
@@ -107,7 +110,7 @@ Now create the workload virtual machine, and place it in the **Workload-SN** sub
    |Resource group     |**Test-FW-RG**|
    |Virtual machine name     |**Srv-Work**|
    |Region     |Same as previous|
-   |Image|Windows Server 2019 Datacenter|
+   |Image|Windows Server 2016 Datacenter|
    |Administrator user name     |Type a user name|
    |Password     |Type a password|
 
@@ -119,6 +122,8 @@ Now create the workload virtual machine, and place it in the **Workload-SN** sub
 11. Accept the other defaults and select **Next: Management**.
 12. Select **Disable** to disable boot diagnostics. Accept the other defaults and select **Review + create**.
 13. Review the settings on the summary page, and then select **Create**.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Deploy the firewall
 

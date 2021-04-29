@@ -36,7 +36,7 @@ This guide will show you how to successfully update your dev kit's operating sys
 
 1. [7-Zip](https://www.7-zip.org/). This software will be used for extracting the raw image file from its XZ compressed file. Download and install the appropriate .exe file.
 
-1. [Download the update files](https://go.microsoft.com/fwlink/?linkid=2155734).
+1. [Download the update files](https://go.microsoft.com/fwlink/?linkid=2155734). They are all contained in a zip file that you will extract in the next section.
 
 1. Ensure all three build artifacts are present:
     - Azure-Percept-DK-*&lt;version number&gt;*.raw.xz
@@ -49,9 +49,7 @@ This guide will show you how to successfully update your dev kit's operating sys
 
 1. Copy the UUU tool (**uuu.exe** or **uuu**) to the new folder.
 
-1. Extract the **Azure-Percept-DK-*&lt;version number&gt;*.raw** file from the compressed file by right clicking on **Azure-Percept-DK-*&lt;version number&gt;*.raw.xz** and selecting **7-Zip** &gt; **Extract Here**.
-
-1. Move the extracted **Azure-Percept-DK-*&lt;version number&gt;*.raw** file, **fast-hab-fw.raw**, and **emmc_full.txt** to the folder containing the UUU tool.
+1. Extract the previously downloaded update files to the new folder that contains the UUU tool.
 
 ## Update your device
 

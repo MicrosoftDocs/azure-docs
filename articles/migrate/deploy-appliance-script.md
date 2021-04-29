@@ -30,7 +30,7 @@ Scenario | Requirements
 VMware | Windows Server 2016, with 32 GB of memory, eight vCPUs, around 80 GB of disk storage
 Hyper-V | Windows Server 2016, with 16 GB of memory, eight vCPUs, around 80 GB of disk storage
 
-- The server also needs an external virtual switch. It requires a static or dynamic IP address, and access to the internet.
+- The server also needs an external virtual switch. It requires a static or dynamic IP address. 
 - Before you deploy the appliance, review detailed appliance requirements for [servers on VMware](migrate-appliance.md#appliance---vmware), [on Hyper-V](migrate-appliance.md#appliance---hyper-v).
 - Don't run the script on an existing Azure Migrate appliance.
 
