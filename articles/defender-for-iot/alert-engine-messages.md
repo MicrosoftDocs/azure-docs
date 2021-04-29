@@ -13,6 +13,9 @@ This article describes all of the alert types, that may be generated from the De
 
 Policy engine alerts describe detected deviations from learned baseline behavior.
 
+>[!NOTE]
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+
 | Title  | Description | Severity |
 |--|--|--|
 | Abnormal usage of MAC Addresses | A new source device was detected on the network but has not been authorized. | Minor |
