@@ -47,7 +47,7 @@ Before you complete the instructions in this article, you should already have:
 1. Use Remote Desktop Protocol (RDP) to connect to the SQL Server VM with the account that your SQL Server FCI will use for the service account.
 1. Open an administrative PowerShell command console.
 1. Run the commands that you saved earlier when you were working in the portal.
-1. Go to the share by using either File Explorer or the **Run** dialog box (select Windows + R). Use the network path `\\storageaccountname.file.core.windows.net\filesharename`. For example, `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
+1. Go to the share by using either File Explorer or the **Run** dialog box (Windows + R on your keyboard). Use the network path `\\storageaccountname.file.core.windows.net\filesharename`. For example, `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
 
 1. Create at least one folder on the newly connected file share to place your SQL data files into.
 1. Repeat these steps on each SQL Server VM that will participate in the cluster.

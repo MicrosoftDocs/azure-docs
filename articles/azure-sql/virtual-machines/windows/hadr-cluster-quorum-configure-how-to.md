@@ -26,12 +26,11 @@ This article teaches you to configure one of the three quorum options for a Wind
 
 The quorum for a cluster is determined by the number of voting elements that must be part of active cluster membership for the cluster to start properly or continue running. Configuring a quorum resource allows a two-node cluster to continue with only one node online. The Windows Server Failover Cluster is the underlying technology for the SQL Server on Azure VMs high availability options: [failover cluster instances (FCIs)](failover-cluster-instance-overview.md) and [availability groups (AGs)](availability-group-overview.md). 
 
-The following quorum options are available to use with an SQL Server on Azure VMs, with the disk witness being the preferred choice:
+The following quorum options are available to use for SQL Server on Azure VMs, with the disk witness being the preferred choice:
 
 ||[Disk witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)|[Cloud witness](/windows-server/failover-clustering/deploy-cloud-witness)  |[File share witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
 |**Supported OS**| All   |Windows Server 2016+| All|
-
 
 To learn more about quorum, see the [Windows Server Failover Cluster overview](hadr-windows-server-failover-cluster-overview.md). 
 
@@ -50,7 +49,7 @@ The following table provides additional information and considerations about the
 
 To use an Azure Shared drive for the disk witness, you must first create the file share in your storage account and mount it on each node of the cluster. To mount the storage, follow these steps: 
 
-1. Sign in to the [Azure portal](https://portal.azure.com). and go to your storage account.
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to your storage account.
 1. Go to **File Shares** under **File service**, and then select the standard file share you want to use for your disk witness. 
 1. Select **Connect** to bring up the connection string for your file share.
 1. In the drop-down list, select the drive letter you want to use, and then copy both code blocks to Notepad.
@@ -60,7 +59,7 @@ To use an Azure Shared drive for the disk witness, you must first create the fil
 1. Use Remote Desktop Protocol (RDP) to connect to the SQL Server VM with the account that your SQL Server service will use for the service account.
 1. Open an administrative PowerShell command console.
 1. Run the commands that you saved earlier when you were working in the portal.
-1. Go to the share by using either File Explorer or the **Run** dialog box (select Windows + R). Use the network path `\\storageaccountname.file.core.windows.net\filesharename`. For example, `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
+1. Go to the share by using either File Explorer or the **Run** dialog box (Windows +  R on your keyboard). Use the network path `\\storageaccountname.file.core.windows.net\filesharename`. For example, `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
 1. Create at least one folder on the newly connected file share to place your cluster quorum on. 
 1. Repeat these steps on each SQL Server VM that will participate in the cluster.
 
