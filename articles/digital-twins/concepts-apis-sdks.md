@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Use the Azure Digital Twins APIs and SDKs
+title: Azure Digital Twins APIs and SDKs
 titleSuffix: Azure Digital Twins
-description: See how to work with the Azure Digital Twins APIs, including via SDK.
+description: Understand the Azure Digital Twins API and SDK options.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 06/04/2020
+ms.date: 04/30/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Use the Azure Digital Twins APIs and SDKs
+# Azure Digital Twins APIs and SDKs
 
 Azure Digital Twins comes equipped with both **control plane APIs** and **data plane APIs** for managing your instance and its elements. 
 * The control plane APIs are [Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md) APIs, and cover resource management operations like creating and deleting your instance. 

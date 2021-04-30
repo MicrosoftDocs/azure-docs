@@ -284,7 +284,7 @@ The properties in this list are editable. Select the temperature value of **70**
     :::column-end:::
 :::row-end:::
 
-Now, you'll see a **Patch Information** window where the patch code appears that was used behind the scenes with the Azure Digital Twins [APIs](how-to-use-apis-sdks.md) to make the update. Select **Close**.
+Now, you'll see a **Patch Information** window where the patch code appears that was used behind the scenes with the Azure Digital Twins [APIs](concepts-apis-sdks.md) to make the update. Select **Close**.
 
 ### Query to see the result
 

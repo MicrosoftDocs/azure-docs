@@ -75,7 +75,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Use the Azure Digital Twins APIs and SDKs 
-            url: how-to-use-apis-sdks.md
+            url: concepts-apis-sdks.md
       - linkListType: how-to-guide
         links:
           - text: Make requests with Postman 
@@ -83,7 +83,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create custom SDKs with AutoRest
-            url: ./how-to-use-apis-sdks.md
+            url: ./concepts-apis-sdks.md
 
   - title: Explore code samples
     linkLists:

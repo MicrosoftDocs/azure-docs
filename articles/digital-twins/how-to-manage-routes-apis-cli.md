@@ -89,7 +89,7 @@ az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoin
 
 When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as **dead-lettering**.
 
-Endpoints with dead-lettering enabled can be set up with the Azure Digital Twins [CLI](how-to-use-cli.md) or [control plane APIs](how-to-use-apis-sdks.md#overview-control-plane-apis).
+Endpoints with dead-lettering enabled can be set up with the Azure Digital Twins [CLI](how-to-use-cli.md) or [control plane APIs](concepts-apis-sdks.md#overview-control-plane-apis).
 
 To learn more about dead-lettering, see [Concepts: Event routes](concepts-route-events.md#dead-letter-events). For instructions on how to set up an endpoint with dead-lettering, continue through the rest of this section.
 
@@ -130,7 +130,7 @@ The value for the parameter is the **dead letter SAS URI** made up of the storag
 
 Add this parameter to the end of the endpoint creation commands from the [Create the endpoint](#create-the-endpoint) section earlier to create an endpoint of your desired type that has dead-lettering enabled.
 
-Alternatively, you can create dead letter endpoints using the [Azure Digital Twins control plane APIs](how-to-use-apis-sdks.md#overview-control-plane-apis) instead of the CLI. To do this, view the [DigitalTwinsEndpoint documentation](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to see how to structure the request and add the dead letter parameters.
+Alternatively, you can create dead letter endpoints using the [Azure Digital Twins control plane APIs](concepts-apis-sdks.md#overview-control-plane-apis) instead of the CLI. To do this, view the [DigitalTwinsEndpoint documentation](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to see how to structure the request and add the dead letter parameters.
 
 #### Create a dead-letter endpoint with identity-based authentication
 
@@ -211,7 +211,7 @@ Event routes can be created with the Azure Digital Twins [EventRoutes data plane
 
 ### Create routes with the APIs and C# SDK
 
-One way to define event routes is with the [data plane APIs](how-to-use-apis-sdks.md#overview-data-plane-apis). The samples in this section use the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client).
+One way to define event routes is with the [data plane APIs](concepts-apis-sdks.md#overview-data-plane-apis). The samples in this section use the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client).
 
 `CreateOrReplaceEventRouteAsync` is the SDK call that is used to add an event route. Here is an example of its usage:
 

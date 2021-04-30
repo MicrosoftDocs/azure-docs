@@ -23,7 +23,7 @@ In Azure Digital Twins, you can route [event notifications](concepts-event-notif
 
 This article walks you through the process of creating endpoints and routes using the [Azure portal](https://portal.azure.com).
 
-Alternatively, you can also manage endpoints and routes with the [Event Routes APIs](/rest/api/digital-twins/dataplane/eventroutes), the [SDKs](how-to-use-apis-sdks.md#overview-data-plane-apis), or the [Azure Digital Twins CLI](how-to-use-cli.md). For a version of this article that uses these mechanisms instead of the portal, see [How-to: Manage endpoints and routes (APIs and CLI)](how-to-manage-routes-apis-cli.md).
+Alternatively, you can also manage endpoints and routes with the [Event Routes APIs](/rest/api/digital-twins/dataplane/eventroutes), the [SDKs](concepts-apis-sdks.md#overview-data-plane-apis), or the [Azure Digital Twins CLI](how-to-use-cli.md). For a version of this article that uses these mechanisms instead of the portal, see [How-to: Manage endpoints and routes (APIs and CLI)](how-to-manage-routes-apis-cli.md).
 
 ## Prerequisites
 
