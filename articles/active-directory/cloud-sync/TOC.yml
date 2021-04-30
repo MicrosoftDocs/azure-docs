@@ -42,6 +42,8 @@
       href: how-to-prerequisites.md
     - name: Install the Azure AD Connect cloud provisioning agent
       href: how-to-install.md
+    - name: Install the provisioning agent using CLI and PowerShell
+      href: how-to-install-pshell.md
     - name: Cloud sync configuration
       href: how-to-configure.md
     - name: On-demand provisioning
@@ -66,8 +68,6 @@
       href: how-to-manage-registry-options.md
     - name: Agent gMSA PowerShell cmdlets
       href: how-to-gmsa-cmdlets.md
-    - name: Install the provisioning agent using PowerShell
-      href: how-to-install-pshell.md
     - name: How to map usertype with cloud sync
       href: how-to-map-usertype.md
   - name: Develop
