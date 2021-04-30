@@ -34,8 +34,22 @@ With attribute mapping, you control how attributes are populated in Azure AD. Az
 
 Along with these basic types, custom attribute mappings support the concept of an optional *default* value assignment. The default value assignment ensures that a target attribute is populated with a value if Azure AD or the target object doesn't have a value. The most common configuration is to leave this blank.
 
-## Refreshing the schema in cloud sync
-Periodically additonal attributes and mappings will be added to cloud sync.
+## Schema updates and mappings
+Cloud sync will occasionally update the schema and the list of default attributes that are [synchronized](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized?context=/azure/active-directory/cloud-provisioning/context/cp-context).  These default attribute mappings will be available for new installations but will not automatically be added to existing installations.  To add these mappings you can do the following:
+
+
+  1. Click on “add attribute mapping”
+  2. Select the Target attribute dropdown
+  3. You should see the new attributes that are available here.
+
+The following is a list of new mappings that were added.
+
+Attribute Added | Mapping Type | Added with Agent Version
+| ----- | -----| -----|
+|preferredDatalocation|Direct|1.1.xxx.x|
+|EmployeeNumber|Direct|1.1.xxx.x|
+|UserType|Direct|1.1.xxx.1|
+
 
 ## Understand properties of attribute mappings
 
@@ -131,21 +145,7 @@ To test your attribute mapping, you can use [on-demand provisioning](how-to-on-d
 
    ![Screenshot that shows success and export details.](media/how-to-attribute-mapping/mapping-5.png)
 
-## Schema updates
-Cloud sync will occasionally update the schema and the list of default attributes that are [synchronized](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized?context=/azure/active-directory/cloud-provisioning/context/cp-context).  These default attribute mappings will be available for new installations but will not automatically be added to existing installations.  To add these mappings you can do the following:
 
-
-  1. Click on “add attribute mapping”
-  2. Select the Target attribute dropdown
-  3. You should see the new attributes that are available here.
-
-The following is a list of new mappings that were added.
-
-Attribute Added | Mapping Type | Added with Agent Version
-| ----- | -----| -----|
-|preferredDatalocation|Direct|1.1.xxx.x|
-|EmployeeNumber|Direct|1.1.xxx.x|
-|UserType|Direct|1.1.xxx.1|
 
 
 
