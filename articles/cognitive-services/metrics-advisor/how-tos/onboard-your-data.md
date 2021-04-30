@@ -45,17 +45,17 @@ After signing into your Metrics Advisor portal and choosing your workspace, clic
 
 ### Add connection settings
 
-#### 1.Basic settings
+#### 1. Basic settings
 Next you'll input a set of parameters to connect your time-series data source. 
 * **Source Type**: The type of data source where your time series data is stored.
 * **Granularity**: The interval between consecutive data points in your time series data. Currently Metrics Advisor supports: Yearly, Monthly, Weekly, Daily, Hourly, and Custom. The lowest interval the customization option supports is 300 seconds.
   * **Seconds**: The number of seconds when *granularityName* is set to *Customize*.
 * **Ingest data since (UTC)**: The baseline start time for data ingestion. *startOffsetInSeconds* is often used to add an offset to help with data consistency.
 
-#### 2.Specify connection string
+#### 2. Specify connection string
 Next, you'll need to specify the connection information for the data source. For details on the other fields and connecting different types of data sources, see [How-to: Connect different data sources](../data-feeds-from-different-sources.md).
 
-#### 3.Specify query for a single timestamp
+#### 3. Specify query for a single timestamp
 <!-- Next, you'll need to specify a query to convert the data into the required schema, see [how to write a valid query](../tutorial/write-a-valid-query.md) for more information.  -->
 
 For details of different types of data sources, see [How-to: Connect different data sources](../data-feeds-from-different-sources.md).
