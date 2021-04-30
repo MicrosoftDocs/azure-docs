@@ -106,7 +106,7 @@ This table compares the capabilities of Gen1 to that of Gen2.
 
 Choose a migration pattern, and then modify that pattern as needed.
 
-|||
+|Migration pattern | Details |
 |---|---|
 |**Lift and Shift**|The simplest pattern. Ideal if your data pipelines can afford downtime.|
 |**Incremental copy**|Similar to *lift and shift*, but with less downtime. Ideal for large amounts of data that take longer to copy.|

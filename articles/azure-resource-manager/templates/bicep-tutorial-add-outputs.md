@@ -2,7 +2,7 @@
 title: Tutorial - add outputs to Azure Resource Manager Bicep file
 description: Add outputs to your Bicep file to simplify the syntax.
 author: mumian
-ms.date: 03/10/2021
+ms.date: 03/17/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom:

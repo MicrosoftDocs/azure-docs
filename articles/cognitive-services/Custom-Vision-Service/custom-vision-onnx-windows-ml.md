@@ -11,7 +11,7 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: pafarley
-# As a developer, I want to use a custom vision model with Windows ML.
+#Customer intent: As a developer, I want to use a custom vision model with Windows ML.
 ---
 
 # Use an ONNX model from Custom Vision with Windows ML (preview)

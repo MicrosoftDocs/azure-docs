@@ -26,11 +26,13 @@ GPU optimized VM sizes are specialized virtual machines available with single, m
 
 To take advantage of the GPU capabilities of Azure N-series VMs, NVIDIA or AMD GPU drivers must be installed.
 
-- For VMs backed by NVIDIA GPUs, the [NVIDIA GPU Driver Extension](./extensions/hpccompute-gpu-windows.md) installs appropriate NVIDIA CUDA or GRID drivers. Install or manage the extension using the Azure portal or tools such as Azure PowerShell or Azure Resource Manager templates. See the [NVIDIA GPU Driver Extension documentation](./extensions/hpccompute-gpu-windows.md) for supported operating systems and deployment steps. For general information about VM extensions, see [Azure virtual machine extensions and features](./extensions/overview.md).   
+- For VMs backed by NVIDIA GPUs, the [NVIDIA GPU Driver Extension](./extensions/hpccompute-gpu-windows.md) installs appropriate NVIDIA CUDA or GRID drivers. Install or manage the extension using the Azure portal or tools such as Azure PowerShell or Azure Resource Manager templates. See the [NVIDIA GPU Driver Extension documentation](./extensions/hpccompute-gpu-windows.md) for supported operating systems and deployment steps. For general information about VM extensions, see [Azure virtual machine extensions and features](./extensions/overview.md).
 
    Alternatively, you may install NVIDIA GPU drivers manually. See [Install NVIDIA GPU drivers on N-series VMs running Windows](./windows/n-series-driver-setup.md) or [Install NVIDIA GPU drivers on N-series VMs running Linux](./linux/n-series-driver-setup.md) for supported operating systems, drivers, installation, and verification steps.
 
-- For VMs backed by AMD GPUs, see [Install AMD GPU drivers on N-series VMs running Windows](./windows/n-series-amd-driver-setup.md) for supported operating systems, drivers, installation, and verification steps.
+- For VMs backed by AMD GPUs, the [AMD GPU driver extension](./extensions/hpccompute-amd-gpu-windows.md) installs appropriate AMD drivers. Install or manage the extension using the Azure portal or tools such as Azure PowerShell or Azure Resource Manager templates. For general information about VM extensions, see [Azure virtual machine extensions and features](./extensions/overview.md).
+
+   Alternatively, you may install AMD GPU drivers manually. See [Install AMD GPU drivers on N-series VMs running Windows](./windows/n-series-amd-driver-setup.md) for supported operating systems, drivers, installation, and verification steps.
 
 ## Deployment considerations
 

@@ -7,7 +7,7 @@ ms.service: app-service
 ms.topic: "include"
 ms.date: 04/22/2020
 ms.author: cephalin
-ms.custom: "include file"
+ms.custom: "include file, devx-track-azurecli"
 ---
 
 Create a [web app](../articles/app-service/overview.md#app-service-on-linux) in the `myAppServicePlan` App Service plan. 
@@ -39,7 +39,7 @@ Local git is configured with url of 'https://<username>@<app-name>.scm.azurewebs
 }
 </pre>
 
-You’ve created an empty web app in a Linux container, with git deployment enabled.
+Youâ€™ve created an empty web app in a Linux container, with git deployment enabled.
 
 > [!NOTE]
 > The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Save this URL as you need it later.

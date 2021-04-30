@@ -21,7 +21,7 @@ In Media Services v3, when you submit Jobs to process your videos, you have to t
 
 ## Prerequisites
 
-* [Create a Media Services account](./create-account-howto.md).
+* [Create a Media Services account](./account-create-how-to.md).
 
 ## .NET sample
 

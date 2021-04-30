@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
+ms.custom: fasttrack-edit
 
 ---
 
@@ -156,7 +157,7 @@ You can save any of the above example templates locally as `azuredeploy.json`. U
 
 To deploy the template, run the following command in PowerShell.
 ```azurepowershell
-$context = Get-AzSubscription -SubscriptionId 56acfbd6-vc72-43e9-831f-bcdb6f2c5505
+$context = Get-AzSubscription -SubscriptionId <SubscriptionId>
 Set-AzContext $context
 New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatcherRG `
     -TemplateFile "C:\MyTemplates\azuredeploy.json"

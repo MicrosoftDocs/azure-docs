@@ -3,7 +3,7 @@ title: Azure DDoS Protection simulation testing
 description: Learn about how to test through simulations
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article

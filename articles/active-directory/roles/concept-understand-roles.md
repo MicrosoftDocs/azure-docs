@@ -64,4 +64,4 @@ Service-specific roles | Azure DevOps Administrator<br>Azure Information Protect
 
 - [Overview of Azure AD role-based access control](custom-overview.md)
 - Create role assignments using [the Azure portal, Azure AD PowerShell, and Graph API](custom-create.md)
-- [View the assignments for a role](custom-view-assignments.md)
+- [List role assignments](view-assignments.md)

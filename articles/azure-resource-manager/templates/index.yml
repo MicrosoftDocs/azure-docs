@@ -49,12 +49,12 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create JSON templates - portal
-            url: quickstart-create-templates-use-the-portal.md
           - text: Create JSON templates - VS Code
             url: quickstart-create-templates-use-visual-studio-code.md
           - text: Create Bicep templates - VS Code
             url: quickstart-create-bicep-use-visual-studio-code.md
+          - text: Create JSON templates - portal
+            url: quickstart-create-templates-use-the-portal.md
           - text: Create & deploy template specs
             url: quickstart-create-template-specs.md
 

@@ -52,7 +52,7 @@
 				<title>Nothing to see here.</title>
 				<rect x="0" y="0.499976" width="684" height="1044" class="st1"/>
 			</g>
-			<a xlink:href="https://docs.microsoft.com/azure/media-services/latest/manage-assets-quickstart" target="__blank">
+			<a xlink:href="https://docs.microsoft.com/azure/media-services/latest/asset-create-asset-upload-portal-quickstart" target="__blank">
 				<g id="shape129-4" transform="translate(268.144,-720)">
 					<title>See uploading content documentation</title>
 					<desc>Upload content</desc>
@@ -147,7 +147,7 @@
 					<rect x="0" y="996.44" width="196.313" height="48.06" class="st16"/>
 					<text x="37.15" y="1011.24" class="st12">AMS Resource group</text>				</g>
 				<g id="shape98-55" transform="translate(27,-7.875)">
-					<title>You will use the resource group name for both the tranform and the job</title>
+					<title>You will use the resource group name for both the  and the job</title>
 					<desc>Resource group name</desc>
 					<rect x="0" y="1026.5" width="144" height="18" class="st17"/>
 					<text x="12.63" y="1039.1" class="st15">Resource group name</text>				</g>

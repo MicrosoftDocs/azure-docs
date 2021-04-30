@@ -20,7 +20,7 @@ As a prerequisite, you'll need a Log Analytics Workspace to store the collected 
 
 From the HDInsight cluster resource page in the portal, select **Azure Monitor**. Then, select **enable** and select your Log Analytics workspace from the drop-down.
 
-![HDInsight Operations Management Suite](media/cluster-availability-monitor-logs/azure-portal-monitoring.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/azure-portal-monitoring.png" alt-text="HDInsight Operations Management Suite":::
 
 By default, this installs the OMS agent on all of the cluster nodes except for edge nodes. Because no OMS agent is installed on cluster edge nodes, there is no telemetry on edge nodes present in Log Analytics by default.
 
@@ -28,7 +28,7 @@ By default, this installs the OMS agent on all of the cluster nodes except for e
 
 Once Azure Monitor log integration is enabled (this may take a few minutes), navigate to your **Log Analytics Workspace** resource and select **Logs**.
 
-![Log Analytics workspace logs](media/cluster-availability-monitor-logs/hdinsight-portal-logs.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/hdinsight-portal-logs.png" alt-text="Log Analytics workspace logs":::
 
 Logs list a number of sample queries, such as:
 
@@ -42,7 +42,7 @@ Logs list a number of sample queries, such as:
 
 As an example, run the **Availability rate** sample query by selecting **Run** on that query, as shown in the screenshot above. This will show the availability rate of each node in your cluster as a percentage. If you have enabled multiple HDInsight clusters to send metrics to the same Log Analytics workspace, you'll see the availability rate for all nodes (excluding edge nodes) in those clusters displayed.
 
-![Log Analytics workspace logs 'availability rate' sample query](media/cluster-availability-monitor-logs/portal-availability-rate.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-availability-rate.png" alt-text="Log Analytics workspace logs 'availability rate' sample query":::
 
 > [!NOTE]  
 > Availability rate is measured over a 24-hour period, so your cluster will need to run for at least 24 hours before you see accurate availability rates.
@@ -55,16 +55,16 @@ You can also set up Azure Monitor alerts that will trigger when the value of a m
 
 From **Logs**, run the **Unavailable computers** sample query by selecting **Run** on that query, as shown below.
 
-![Log Analytics workspace logs 'unavailable computers' sample](media/cluster-availability-monitor-logs/portal-unavailable-computers.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-unavailable-computers.png" alt-text="Log Analytics workspace logs 'unavailable computers' sample":::
 
 If all nodes are available, this query should return zero results for now. Click **New alert rule** to begin configuring your alert for this query.
 
-![Log Analytics workspace new alert rule](media/cluster-availability-monitor-logs/portal-logs-new-alert-rule.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-logs-new-alert-rule.png" alt-text="Log Analytics workspace new alert rule":::
 
 There are three components to an alert: the *resource* for which to create the rule (the Log Analytics workspace in this case), the *condition* to trigger the alert, and the *action groups* that determine what will happen when the alert is triggered.
 Click the **condition title**, as shown below, to finish configuring the signal logic.
 
-![Portal alert create rule condition](media/cluster-availability-monitor-logs/portal-condition-title.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-condition-title.png" alt-text="Portal alert create rule condition":::
 
 This will open **Configure signal logic**.
 
@@ -80,11 +80,11 @@ For the purpose of this alert, you want to make sure **Period=Frequency.** More 
 
 Select **Done** when you're finished configuring the signal logic.
 
-![Alert rule configures signal logic](media/cluster-availability-monitor-logs/portal-configure-signal-logic.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-configure-signal-logic.png" alt-text="Alert rule configures signal logic":::
 
 If you don't already have an existing action group, click **Create New** under the **Action Groups** section.
 
-![Alert rule creates new action group](media/cluster-availability-monitor-logs/portal-create-new-action-group.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-create-new-action-group.png" alt-text="Alert rule creates new action group":::
 
 This will open **Add action group**. Choose an **Action group name**, **Short name**, **Subscription**, and **Resource group.** Under the **Actions** section, choose an **Action Name** and select **Email/SMS/Push/Voice** as the **Action Type.**
 
@@ -93,26 +93,26 @@ This will open **Add action group**. Choose an **Action group name**, **Short na
 
 This will open **Email/SMS/Push/Voice**. Choose a **Name** for the recipient, **check** the **Email** box, and type an email address to which you want the alert sent. Select **OK** in  **Email/SMS/Push/Voice**, then in **Add action group** to finish configuring your action group.
 
-![Alert rule creates add action group](media/cluster-availability-monitor-logs/portal-add-action-group.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-add-action-group.png" alt-text="Alert rule creates add action group":::
 
 After these blades close, you should see your action group listed under the **Action Groups** section. Finally, complete the **Alert Details** section by typing an **Alert Rule Name** and **Description** and choosing a **Severity**. Click **Create Alert Rule** to finish.
 
-![Portal creates alert rule finish](media/cluster-availability-monitor-logs/portal-create-alert-rule-finish.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-create-alert-rule-finish.png" alt-text="Portal creates alert rule finish":::
 
 > [!TIP]
 > The ability to specify **Severity** is a powerful tool that can be used when creating multiple alerts. For example, you could create one alert to raise a Warning (Sev 1) if a single head node goes down and another alert that raises Critical (Sev 0) in the unlikely event that both head nodes go down.
 
 When the condition for this alert is met, the alert will fire and you'll receive an email with the alert details like this:
 
-![Azure Monitor alert email example](media/cluster-availability-monitor-logs/portal-oms-alert-email.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-oms-alert-email.png" alt-text="Azure Monitor alert email example":::
 
 You can also view all alerts that have fired, grouped by severity, by going to **Alerts** in your **Log Analytics Workspace**.
 
-![Log Analytics workspace alerts](media/cluster-availability-monitor-logs/hdi-portal-oms-alerts.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/hdi-portal-oms-alerts.png" alt-text="Log Analytics workspace alerts":::
 
 Selecting on a severity grouping (i.e. **Sev 1,** as highlighted above) will show records for all alerts of that severity that have fired like below:
 
-![Log Analytics workspace sev one alert](media/cluster-availability-monitor-logs/portal-oms-alerts-sev1.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-oms-alerts-sev1.png" alt-text="Log Analytics workspace sev one alert":::
 
 ## Next steps
 

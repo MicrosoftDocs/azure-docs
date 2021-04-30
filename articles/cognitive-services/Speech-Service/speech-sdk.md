@@ -62,17 +62,17 @@ The Speech SDK exposes many features from the Speech service, but not all of the
   - Java/Windows & Linux & macOS & Android (Speech Devices SDK)
   - Go
 
-#### Keyword spotting
+#### Keyword recognition
 
-The concept of [keyword spotting](./custom-keyword-basics.md) is supported in the Speech SDK. Keyword spotting is the act of identifying a keyword in speech, followed by an action upon hearing the keyword. For example, "Hey Cortana" would activate the Cortana assistant.
+The concept of [keyword recognition](./custom-keyword-basics.md) is supported in the Speech SDK. Keyword recognition is the act of identifying a keyword in speech, followed by an action upon hearing the keyword. For example, "Hey Cortana" would activate the Cortana assistant.
 
-**Keyword Spotting (KWS)** is available on the following platforms:
+**Keyword recognition** is available on the following platforms:
 
   - C++/Windows & Linux
   - C#/Windows & Linux
   - Python/Windows & Linux
   - Java/Windows & Linux & Android (Speech Devices SDK)
-  - Keyword spotting (KWS) functionality might work with any microphone type, official KWS support, however, is currently limited to the microphone arrays found in the Azure Kinect DK hardware or the Speech Devices SDK
+  - Keyword recognition functionality might work with any microphone type, official keyword recognition support, however, is currently limited to the microphone arrays found in the Azure Kinect DK hardware or the Speech Devices SDK
 
 ### Meeting scenarios
 
@@ -109,7 +109,7 @@ The Speech SDK can be used for transcribing call center scenarios, where telepho
 
 ### Codec compressed audio input
 
-Several of the Speech SDK programming languages support codec compressed audio input streams. For more information, see <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">use compressed audio input formats </a>.
+Several of the Speech SDK programming languages support codec compressed audio input streams. For more information, see <a href="/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">use compressed audio input formats </a>.
 
 **Codec compressed audio input** is available on the following platforms:
 

@@ -139,16 +139,18 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
     `contoso.azure-devices.net/MyDevice01/?api-version=2018-06-30`
 
+    It's strongly recommended to include api-version in the field. Otherwise it could cause unexpected behaviors. 
+    
 * For the **Password** field, use a SAS token. The format of the SAS token is the same as for both the HTTPS and AMQP protocols:
 
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
 
   > [!NOTE]
-  > If you use X.509 certificate authentication, SAS token passwords are not required. For more information, see [Set up X.509 security in your Azure IoT Hub](iot-hub-security-x509-get-started.md) and follow code instructions in the [TLS/SSL configuration section](#tlsssl-configuration).
+  > If you use X.509 certificate authentication, SAS token passwords are not required. For more information, see [Set up X.509 security in your Azure IoT Hub](./tutorial-x509-scripts.md) and follow code instructions in the [TLS/SSL configuration section](#tlsssl-configuration).
 
   For more information about how to generate SAS tokens, see the device section of [Using IoT Hub security tokens](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
 
-  When testing, you can also use the cross-platform [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or the CLI extension command [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-generate-sas-token) to quickly generate a SAS token that you can copy and paste into your own code.
+  When testing, you can also use the cross-platform [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or the CLI extension command [az iot hub generate-sas-token](/cli/azure/iot/hub#az_iot_hub_generate_sas_token) to quickly generate a SAS token that you can copy and paste into your own code.
 
 ### For Azure IoT Tools
 
@@ -436,7 +438,7 @@ To learn more about the MQTT protocol, see the [MQTT documentation](https://mqtt
 
 To learn more about planning your IoT Hub deployment, see:
 
-* [Azure Certified for IoT device catalog](https://catalog.azureiotsolutions.com/)
+* [Azure Certified for IoT device catalog](https://devicecatalog.azure.com/)
 * [Support additional protocols](iot-hub-protocol-gateway.md)
 * [Compare with Event Hubs](iot-hub-compare-event-hubs.md)
 * [Scaling, HA, and DR](iot-hub-scaling.md)

@@ -56,10 +56,6 @@ Often, when doing interactive data analysis or machine learning, you may find th
 
 Session-scoped packages allow users to define package dependencies at the start of their session. When you install a session-scoped package, only the current session has access to the specified packages. As a result, these session-scoped packages will not impact other sessions or jobs using the same Apache Spark pool. In addition, these libraries are installed on top of the base runtime and pool level packages. 
 
-These packages are added automatically to your Python environment. The packages must not be mentioned in your *requirements.txt* file.
-
-Note that this method currently suports only `*.whl` files. Do not add any `*.tar.gz` files to the container.
-
 To learn more about how to manage session-scoped packages, visit the following how-to guides:
 
 - [Python session packages (preview): ](./apache-spark-manage-python-packages.md) At the start of a session, provide a Conda *environment.yml* to install additional Python packages from popular repositories. 

@@ -1,7 +1,7 @@
 ---
-title: Build an enrollment app for Android with React
+title: Build a React app to add users to a Face service
 titleSuffix: Azure Cognitive Services
-description: Learn how to set up your development environment and deploy a Face enrollment app to get consent from customers.
+description: Learn how to set up your development environment and deploy a Face app to get consent from customers.
 author: PatrickFarley
 manager: nitinme
 
@@ -12,13 +12,13 @@ ms.date: 11/17/2020
 ms.author: pafarley
 ---
 
-# Build an enrollment app for Android with React
+# Build a React app to add users to a Face service
 
-This guide will show you how to get started with the sample Face enrollment application. The app demonstrates best practices for obtaining meaningful consent to enroll users into a face recognition service and acquire high-accuracy face data. An integrated system could use an enrollment app like this to provide touchless access control, identity verification, attendance tracking, personalization kiosk, or identity verification, based on their face data.
+This guide will show you how to get started with the sample Face enrollment application. The app demonstrates best practices for obtaining meaningful consent to add users into a face recognition service and acquire high-accuracy face data. An integrated system could use an app like this to provide touchless access control, identity verification, attendance tracking, personalization kiosk, or identity verification, based on their face data.
 
 When launched, the application shows users a detailed consent screen. If the user gives consent, the app prompts for a username and password and then captures a high-quality face image using the device's camera.
 
-The sample enrollment app is written using JavaScript and the React Native framework. It can currently be deployed on Android devices; more deployment options are coming in the future.
+The sample app is written using JavaScript and the React Native framework. It can currently be deployed on Android devices; more deployment options are coming in the future.
 
 ## Prerequisites 
 
@@ -32,22 +32,22 @@ The sample enrollment app is written using JavaScript and the React Native frame
 
 ## Set up the development environment
 
-1. Clone the git repository for the [sample enrollment app](https://github.com/azure-samples/cognitive-services-FaceAPIEnrollmentSample).
+1. Clone the git repository for the [sample app](https://github.com/azure-samples/cognitive-services-FaceAPIEnrollmentSample).
 1. To set up your development environment, follow the <a href="https://reactnative.dev/docs/environment-setup"  title="React Native documentation"  target="_blank">React Native documentation </a>. Select **React Native CLI Quickstart** as your development OS and select **Android** as the target OS. Complete the sections **Installing dependencies** and **Android development environment**.
 1. Open the env.json file in your preferred text editor, such as [Visual Studio Code](https://code.visualstudio.com/), and add your endpoint and key. You can get your endpoint and key in the Azure portal under the **Overview** tab of your resource. This step is only for local testing purposes&mdash;don't check in your Face API key to your remote repository.
 1. Run the app using either the Android Virtual Device emulator from Android Studio, or your own Android device. To test your app on a physical device, follow the relevant <a href="https://reactnative.dev/docs/running-on-device"  title="React Native documentation"  target="_blank">React Native documentation </a>.  
 
 
-## Create an enrollment experience  
+## Create a user add experience  
 
-Now that you have set up the sample enrollment app, you can tailor it to your own enrollment experience needs.
+Now that you have set up the sample app, you can tailor it to your own needs.
 
 For example, you may want to add situation-specific information on your consent page:
 
 > [!div class="mx-imgBorder"]
 > ![app consent page](./media/enrollment-app/1-consent-1.jpg)
 
-The service provides image quality checks to help you make the choice of whether the image is of sufficient quality to enroll the customer or attempt face recognition. This app demonstrates how to access frames from the device's camera, select the highest-quality frames, and enroll the detected face into the Face API service. 
+The service provides image quality checks to help you make the choice of whether the image is of sufficient quality to add the customer or attempt face recognition. This app demonstrates how to access frames from the device's camera, select the highest-quality frames, and add the detected face into the Face API service. 
 
 Many face recognition issues are caused by low-quality reference images. Some factors that can degrade model performance are:
 * Face size (faces that are distant from the camera)
@@ -59,14 +59,14 @@ Many face recognition issues are caused by low-quality reference images. Some fa
 > [!div class="mx-imgBorder"]
 > ![app image capture instruction page](./media/enrollment-app/4-instruction.jpg)
 
-Notice the app also offers functionality for deleting the user's enrollment and the option to re-enroll.
+Notice the app also offers functionality for deleting the user's information and the option to re-add.
 
 > [!div class="mx-imgBorder"]
 > ![profile management page](./media/enrollment-app/10-manage-2.jpg)
 
-To extend the app's functionality to cover the full enrollment experience, read the [overview](enrollment-overview.md) for additional features to implement and best practices.
+To extend the app's functionality to cover the full experience, read the [overview](enrollment-overview.md) for additional features to implement and best practices.
 
-## Deploy the enrollment app
+## Deploy the app
 
 ### Android
 
@@ -80,4 +80,4 @@ Once you've created a signed APK, see the <a href="https://developer.android.com
 
 ## Next steps  
 
-In this guide, you learned how to set up your development environment and get started with the sample enrollment app. If you're new to React Native, you can read their [getting started docs](https://reactnative.dev/docs/getting-started) to learn more background information. It also may be helpful to familiarize yourself with [Face API](Overview.md). Read the other sections on enrollment app documentation before you begin development.
+In this guide, you learned how to set up your development environment and get started with the sample app. If you're new to React Native, you can read their [getting started docs](https://reactnative.dev/docs/getting-started) to learn more background information. It also may be helpful to familiarize yourself with [Face API](Overview.md). Read the other sections on adding users before you begin development.

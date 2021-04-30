@@ -1,18 +1,8 @@
 ---
 title: Service overview
 description: Learn more about Defender for IoT features and services, and understand how Defender for IoT provides comprehensive IoT security.
-services: defender-for-iot
-ms.service: azure
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/09/2020
-
 ---
 
 # Welcome to Azure Defender for IoT

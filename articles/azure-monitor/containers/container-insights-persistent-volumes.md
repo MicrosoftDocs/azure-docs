@@ -12,10 +12,11 @@ Starting with agent version *ciprod10052020*, Azure Monitor for containers integ
 
 Container insights automatically starts monitoring PV usage by collecting the following metrics at 60 -sec intervals and storing them in the **InsightMetrics** table.
 
-|Metric name |Metric Dimension (tags) | Metric Description |
-| `pvUsedBytes`|podUID, podName, pvcName, pvcNamespace, capacityBytes, clusterId, clusterName|Used space in bytes for a specific persistent volume with a claim used by a specific pod. `capacityBytes` is folded in as a dimension in the Tags field to reduce data ingestion cost and to simplify queries.|
+| Metric name | Metric Dimension (tags) | Metric Description |
+|-----|-----------|----------|
+| `pvUsedBytes`| podUID, podName, pvcName, pvcNamespace, capacityBytes, clusterId, clusterName| Used space in bytes for a specific persistent volume with a claim used by a specific pod. `capacityBytes` is folded in as a dimension in the Tags field to reduce data ingestion cost and to simplify queries.|
 
-Learn more about configuring collected PV metrics [here](https://aka.ms/ci/pvconfig).
+Learn more about configuring collected PV metrics [here](./container-insights-agent-config.md).
 
 ## PV inventory
 
@@ -23,7 +24,7 @@ Azure Monitor for containers automatically starts monitoring PVs by collecting t
 
 |Data |Data Source| Data Type| Fields|
 |-----|-----------|----------|-------|
-|Inventory of persistent volumes in a Kubernetes cluster |Kube API |`KubePVInventory` |	PVName, PVCapacityBytes, PVCName, PVCNamespace, PVStatus, PVAccessModes, PVType, PVTypeInfo, PVStorageClassName, PVCreationTimestamp, TimeGenerated, ClusterId, ClusterName, _ResourceId |
+|Inventory of persistent volumes in a Kubernetes cluster |Kube API |`KubePVInventory` |    PVName, PVCapacityBytes, PVCName, PVCNamespace, PVStatus, PVAccessModes, PVType, PVTypeInfo, PVStorageClassName, PVCreationTimestamp, TimeGenerated, ClusterId, ClusterName, _ResourceId |
 
 ## Monitor Persistent Volumes
 
@@ -44,7 +45,7 @@ You can find an overview of persistent volume inventory in the **Persistent Volu
 :::image type="content" source="./media/container-insights-persistent-volumes/pv-details-workbook-example.PNG" alt-text="Azure Monitor PV details workbook example":::
 
 ### Persistent Volume Usage Recommended Alert
-You can enable a recommended alert to alert you when average PV usage for a pod is above 80%. Learn more about alerting [here](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-metric-alerts) and how to override the default threshold [here](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-metric-alerts#configure-alertable-metrics-in-configmaps).
+You can enable a recommended alert to alert you when average PV usage for a pod is above 80%. Learn more about alerting [here](./container-insights-metric-alerts.md) and how to override the default threshold [here](./container-insights-metric-alerts.md#configure-alertable-metrics-in-configmaps).
 ## Next steps
 
 - Learn more about collected PV metrics [here](./container-insights-agent-config.md).

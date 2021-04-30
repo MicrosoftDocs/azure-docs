@@ -32,9 +32,9 @@ Follow these steps to set MySQL server minimum TLS version:
 
     :::image type="content" source="./media/howto-tls-configurations/setting-tls-value.png" alt-text="Azure Database for MySQL TLS configuration":::
 
-1. Click **Save** to save the changes.
+1. Click **Save** to save the changes. 
 
-1. A notification will confirm that connection security setting was successfully enabled.
+1. A notification will confirm that connection security setting was successfully enabled and in effect immediately. There is **no restart** of the server required or performed. After the changes are saved, all new connections to the server are accepted only if the TLS version is greater than or equal to the minimum TLS version set on the portal.
 
     :::image type="content" source="./media/howto-tls-configurations/setting-tls-value-success.png" alt-text="Azure Database for MySQL TLS configuration success":::
 

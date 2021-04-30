@@ -57,4 +57,4 @@ All images will be accessible in [Custom Vision](https://www.customvision.ai/).
 
 ## Next steps
 
-[Test and retrain your no-code vision model](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/test-your-model).
+[Test and retrain your no-code vision model](../cognitive-services/custom-vision-service/test-your-model.md).

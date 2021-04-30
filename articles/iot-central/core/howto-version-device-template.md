@@ -81,7 +81,7 @@ To version a device template:
 
 ## Version an interface
 
-Versioning an interface allows you to add, update, and remove the capabilities inside the interface you had already created.
+Versioning an interface allows you to add and update capabilities inside the interface you had already created.
 
 To version an interface:
 

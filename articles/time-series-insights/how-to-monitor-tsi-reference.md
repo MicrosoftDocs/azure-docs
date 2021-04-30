@@ -2,7 +2,7 @@
 title: 'Monitoring Azure Time Series Insights data reference | Microsoft Docs'
 description: Reference documentation for monitoring Azure Time Series Insights.
 author: deepakpalled
-ms.author: lyhughes
+ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
@@ -18,12 +18,12 @@ Learn about the data and resources collected by Azure Monitor from your Azure Ti
 
 ## Metrics
 
-This section lists all the automatically collected platform metrics collected for Azure Time Series Insights. For a list of all Azure Monitor support metrics (including Azure Time Series Insights), see [Azure Monitor supported metrics](../azure-monitor/essentials/metrics-supported.md). 
+This section lists all the automatically collected platform metrics collected for Azure Time Series Insights. For a list of all Azure Monitor support metrics (including Azure Time Series Insights), see [Azure Monitor supported metrics](../azure-monitor/essentials/metrics-supported.md).
 The resource provider for these metrics is [Microsoft.TimeSeriesInsights/environments/eventsources](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironmentseventsources) and [Microsoft.TimeSeriesInsights/environments](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironments).
 
 
 ### Ingress
- 
+
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
 |IngressReceivedBytes|Ingress Received Bytes|Bytes|Total|Count of bytes read from the event source|

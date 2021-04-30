@@ -2,13 +2,13 @@
 title: Disaster recovery guidance for Azure Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the copy model API to back up your Form Recognizer resources.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 05/27/2020
-ms.author: pafarley
+ms.date: 03/15/2021
+ms.author: lajanuar
 ---
 
 # Back up and recover your Form Recognizer models
@@ -34,9 +34,6 @@ The process for copying a custom model consists of the following steps:
 1. First you issue a copy authorization request to the target resource&mdash;that is, the resource that will receive the copied model. You get back the URL of the newly created target model, which will receive the copied data.
 1. Next you send the copy request to the source resource&mdash;the resource that contains the model to be copied. You'll get back a URL that you can query to track the progress of the operation.
 1. You'll use your source resource credentials to query the progress URL until the operation is a success. You can also query the new model ID in the target resource to get the status of the new model.
-
-> [!CAUTION]
-> The Copy API currently does not support model IDs for [composed custom models](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/Compose). Model compose is a preview feature in v2.1-preview.2 preview. 
 
 ## Generate Copy authorization request
 
@@ -160,4 +157,4 @@ curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v
 ## Next steps
 
 In this guide, you learned how to use the Copy API to back up your custom models to a secondary Form Recognizer resource. Next, explore the API reference docs to see what else you can do with Form Recognizer.
-* [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)
+* [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)

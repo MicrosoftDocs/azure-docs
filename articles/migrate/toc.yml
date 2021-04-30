@@ -16,6 +16,10 @@
       href: common-questions-discovery-assessment.md
     - name: Server Migration tool
       href: common-questions-server-migration.md
+- name: Quickstarts
+  items:
+  - name: Create a project - ARM template
+    href: quickstart-create-migrate-project.md
 - name: Tutorials
   items:
   - name: Discover
@@ -73,7 +77,7 @@
   - name: Containerize
     items:
     - name: Containerize ASP.NET apps and migrate to AKS
-      href: tutorial-containerize-aspnet-kubernetes.md
+      href: tutorial-app-containerization-aspnet-kubernetes.md
     - name: Containerize Java web apps and migrate to AKS
       href: tutorial-containerize-java-kubernetes.md
 - name: Concepts
@@ -85,7 +89,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/migrate-security-baseline?context=/azure/migrate/context/migrate-context
   - name: Discover
     items:
     - name: VMware discovery support
@@ -130,6 +134,8 @@
   items:
   - name: Create and manage Azure Migrate projects
     href: create-manage-projects.md
+  - name: Use Azure Migrate with private link
+    href: how-to-use-azure-migrate-with-private-endpoints.md
   - name: Prepare to work with ISV tools/Movere
     href: prepare-isv-movere.md
   - name: Discover
@@ -167,7 +173,7 @@
     - name: Create an Azure VM assessment
       href: how-to-create-assessment.md
     - name: Create an Azure SQL assessment
-      href: how-to-create-azure-sql-assessment.md 
+      href: how-to-create-azure-sql-assessment.md
     - name: Create an AVS assessment
       href: how-to-create-azure-vmware-solution-assessment.md
     - name: Assess a SQL Server database
@@ -210,6 +216,8 @@
       href: how-to-delete-project.md
     - name: Work with previous version of Azure Migrate
       href: migrate-v1.md
+    - name: Onboard on-premises servers in VMware virtual environment to Azure Arc   
+      href: onboard-to-azure-arc-with-azure-migrate.md
     - name: Manage migration projects with Azure Lighthouse
       href: ../lighthouse/how-to/migration-at-scale.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
 - name: Troubleshoot
@@ -234,8 +242,13 @@
       href: troubleshoot-changed-block-tracking-replication.md
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/offazure
   - name: Azure PowerShell
     href: /powershell/module/az.migrate/
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Migration in the Cloud Adoption Framework

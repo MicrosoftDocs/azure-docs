@@ -257,7 +257,7 @@ We'll create a script that automatically creates a remote entity, adds a cut pla
     {
         public Color SliceColor = new Color(0.5f, 0f, 0f, .5f);
         public float FadeLength = 0.01f;
-        public Axis SliceNormal = Axis.Y_Neg;
+        public Axis SliceNormal = Axis.NegativeY;
 
         public bool AutomaticallyCreate = true;
 

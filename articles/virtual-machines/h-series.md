@@ -1,7 +1,7 @@
 ---
 title: H-series - Azure Virtual Machines
 description: Specifications for the H-series VMs.
-author: ju-shim
+author: vermagit
 ms.service: virtual-machines
 ms.subservice: vm-sizes-hpc
 ms.topic: conceptual
@@ -35,10 +35,21 @@ H-series VMs are optimized for applications driven by high CPU frequencies or la
 
 <sup>1</sup> For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network.
 
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
-
 > [!NOTE]
-> Among the [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), the H-series are not-SR-IOV enabled. Therefore, the supported [VM Images](./workloads/hpc/configure.md#vm-images), [InfiniBand driver](./workloads/hpc/enable-infiniband.md) requirements and supported [MPI libraries](./workloads/hpc/setup-mpi.md) are different from the SR-IOV enabled VMs.
+> Among the [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), the H-series are not SR-IOV enabled. Therefore, the supported [VM Images](./workloads/hpc/configure.md#vm-images), [InfiniBand driver](./workloads/hpc/enable-infiniband.md) requirements and supported [MPI libraries](./workloads/hpc/setup-mpi.md) are different from the SR-IOV enabled VMs.
+
+## Software specifications
+
+| Software Specifications     |HC-series VM           |
+|-----------------------------|-----------------------|
+| Max MPI Job Size            | 4800 cores (300 VMs in a single virtual machine scale set with singlePlacementGroup=true)  |
+| MPI Support                 | Intel MPI 5.x, MS-MPI  |
+| OS Support for non-SRIOV RDMA   | CentOS/RHEL 6.5 - 7.4, SLES 12 SP4+, WinServer 2012 - 2016  |
+| Orchestrator Support        | CycleCloud, Batch, AKS  |
+
+[!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## Other sizes
 
@@ -51,7 +62,6 @@ H-series VMs are optimized for applications driven by high CPU frequencies or la
 
 ## Next steps
 
-- Learn more about [configuring your VMs](./workloads/hpc/configure.md), [enabling InfiniBand](./workloads/hpc/enable-infiniband.md), [setting up MPI](./workloads/hpc/setup-mpi.md) and optimizing HPC applications for Azure at [HPC Workloads](./workloads/hpc/overview.md).
-- Read about the latest announcements and some HPC examples and results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).
 - Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.

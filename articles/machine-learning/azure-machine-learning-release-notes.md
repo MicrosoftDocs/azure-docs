@@ -19,10 +19,124 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
 
+## 2021-04-19
+
+### Azure Machine Learning SDK for Python v1.27.0
++ **Bug fixes and improvements**
+  + **azureml-core**
+    + Added the ability to override the default timeout value for artifact uploading via the "AZUREML_ARTIFACTS_DEFAULT_TIMEOUT" environment variable.
+    + Fixed a bug where docker settings in Environment object on ScriptRunConfig are not respected.
+    + Allow partitioning a dataset when copying it to a destination.
+    + Added a custom mode to the OutputDatasetConfig to enable passing created Datasets in pipelines through a link function. These support enhancements made to enable Tabular Partitioning for PRS.
+    + Added a new KubernetesCompute compute type to azureml-core.
+  + **azureml-pipeline-core**
+    + Adding a custom mode to the OutputDatasetConfig and enabling a user to pass through created Datasets in pipelines through a link function. File path destinations support placeholders. These support the enhancements made to enable Tabular Partitioning for PRS.
+    + Addition of new KubernetesCompute compute type to azureml-core.
+  + **azureml-pipeline-steps**
+    + Addition of new KubernetesCompute compute type to azureml-core.
+  + **azureml-synapse**
+    + Update spark UI url in widget of azureml synapse
+  + **azureml-train-automl-client**
+    + The STL featurizer for the forecasting task now uses a more robust seasonality detection based on the frequency of the time series.
+  + **azureml-train-core**
+    + Fixed bug where docker settings in Environment object are not respected.
+    + Addition of new KubernetesCompute compute type to azureml-core.
+
+
+## 2021-04-05
+
+### Azure Machine Learning SDK for Python v1.26.0
++ **Bug fixes and improvements**
+  + **azureml-automl-core**
+    + Fixed an issue where Naive models would be recommended in AutoMLStep runs and fail with lag or rolling window features. These models will not be recommended when target         lags or target rolling window size are set.
+    +  Changed console output when submitting an AutoML run to show a portal link to the run.
+  + **azureml-core**
+    + Added HDFS mode in documentation.
+    + Added support to understand File Dataset partitions based on glob structure.
+    + Added support for update container registry associated with AzureML Workspace.
+    + Deprecated Environment attributes under the DockerSection - "enabled", "shared_volume" and "arguments" are a part of DockerConfiguration in RunConfiguration now.
+    + Updated Pipeline CLI clone documentation
+    + Updated portal URIs to include tenant for authentication
+    + Removed experiment name from run URIs to avoid redirects 
+    + Updated experiment URO to use experiment ID.
+    + Bug fixes for attaching remote compute with AzureML CLI.
+    + Updated portal URIs to include tenant for authentication.
+    + Updated experiment URI to use experiment Id.
+  + **azureml-interpret**
+    + azureml-interpret updated to use interpret-community 0.17.0
+  + **azureml-opendatasets**
+    + Input start date and end date type validation and error indication if it's not datetime type.
+  + **azureml-parallel-run**
+    + [Experimental feature] Add `partition_keys` parameter to ParallelRunConfig, if specified, the input dataset(s) would be partitioned into mini-batches by the keys specified by it. It requires all input datasets to be partitioned dataset.
+  + **azureml-pipeline-steps**
+    + Bugfix - supporting path_on_compute while passing dataset configuration as download.
+    + Deprecate RScriptStep in favor of using CommandStep for running R scripts in pipelines. 
+    + Deprecate EstimatorStep in favor of using CommandStep for running ML training (including distributed training) in pipelines.
+  + **azureml-sdk**
+    + Update python_requires to < 3.9 for azureml-sdk
+  + **azureml-train-automl-client**
+    +  Changed console output when submitting an AutoML run to show a portal link to the run.
+  + **azureml-train-core**
+    + Deprecated DockerSection's 'enabled', 'shared_volume', and 'arguments' attributes in favor of using DockerConfiguration with ScriptRunConfig.
+    +  Use Azure Open Datasets for MNIST dataset
+    + Hyperdrive error messages have been updated.
+
+
+## 2021-03-22
+
+### Azure Machine Learning SDK for Python v1.25.0
++ **Bug fixes and improvements**
+  + **azureml-automl-core**
+    +  Changed console output when submitting an AutoML run to show a portal link to the run.
+  + **azureml-core**
+    + Starts to support updating container registry for workspace in SDK and CLI
+    + Deprecated DockerSection's 'enabled', 'shared_volume', and 'arguments' attributes in favor of using DockerConfiguration with ScriptRunConfig.
+    + Updated Pipeline CLI clone documentation
+    + Updated portal URIs to include tenant for authentication
+    + Removed experiment name from run URIs to avoid redirects
+    + Updated experiment URO to use experiment ID.
+    + Bug fixes for attaching remote compute using az cli
+    + Updated portal URIs to include tenant for authentication.
+    + Added support to understand File Dataset partitions based on glob structure.
+  + **azureml-interpret**
+    + azureml-interpret updated to use interpret-community 0.17.0
+  + **azureml-opendatasets**
+    + Input start date and end date type validation and error indication if it's not datetime type.
+  + **azureml-pipeline-core**
+    + Bugfix - supporting path_on_compute while passing dataset configuration as download.
+  + **azureml-pipeline-steps**
+    + Bugfix - supporting path_on_compute while passing dataset configuration as download.
+    + Deprecate RScriptStep in favor of using CommandStep for running R scripts in pipelines. 
+    + Deprecate EstimatorStep in favor of using CommandStep for running ML training (including distributed training) in pipelines.
+  + **azureml-train-automl-runtime**
+    +  Changed console output when submitting an AutoML run to show a portal link to the run.
+  + **azureml-train-core**
+    + Deprecated DockerSection's 'enabled', 'shared_volume', and 'arguments' attributes in favor of using DockerConfiguration with ScriptRunConfig.
+    + Use Azure Open Datasets for MNIST dataset
+    + Hyperdrive error messages have been updated.
+
+
+## 2021-03-31
+### Azure Machine Learning Studio Notebooks Experience (March Update)
++ **New features**
+  + Render CSV/TSV. Users will be able to render and TSV/CSV file in a grid format for easier data analysis. 
+  + SSO Authentication for Compute Instance. Users can now easily authenticate any new compute instances directly in the Notebook UI, making it easier to authenticate and use Azure SDKs directly in AzureML. 
+  + Compute Instance Metrics. Users will be able to view compute metrics like CPU usage and memory via terminal.
+  + File Details. Users can now see file details including the last modified time, and file size by clicking the 3 dots beside a file.
+
++ **Bug fixes and improvements**
+  + Improved page load times.
+  + Improved performance.
+  + Improved speed and kernel reliability.
+  + Gain vertical real estate by permanently moving Notebook file pane up
+  + Links are now clickable in Terminal
+  + Improved Intellisense performance
+
+
 ## 2021-03-08
 
 ### Azure Machine Learning SDK for Python v1.24.0
-+ **New features**
++ **Bug fixes and improvements**
   + **azureml-automl-core**
     + Removed backwards compatible imports from `azureml.automl.core.shared`. Module not found errors in the `azureml.automl.core.shared` namespace can be resolved by importing from `azureml.automl.runtime.shared`.
   + **azureml-contrib-automl-dnn-vision**
@@ -31,8 +145,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Added functionality to filter Tabular Datasets by column values and File Datasets by metadata.
   + **azureml-contrib-fairness**
     + Include JSON schema in wheel for `azureml-contrib-fairness`
-  + **azureml-contrib-k8s**
-    + Must now provide resource_id to attach instead of resource group and cluster name.
   + **azureml-contrib-mir**
     + With setting show_output to True when deploy models, inference configuration and deployment configuration will be replayed before sending the request to server.
   + **azureml-core**
@@ -52,9 +164,9 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ## 2021-02-28
 ### Azure Machine Learning Studio Notebooks Experience (February Update)
 + **New features**
-  + [Native Terminal (GA)](https://docs.microsoft.com/azure/machine-learning/how-to-access-terminal). Users will now have access to an integrated terminal as well as Git operation via the integrated terminal.
-  + [Notebook Snippets (preview)](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets). Common Azure ML code excerpts are now available at your fingertips. Navigate to the code snippets panel, accessible via the toolbar, or activate the in-code snippets menu using Ctrl + Space.  
-  + [Keyboard Shortcuts](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#shortcut-keys). Full parity with keyboard shortcuts available in Jupyter. 
+  + [Native Terminal (GA)](./how-to-access-terminal.md). Users will now have access to an integrated terminal as well as Git operation via the integrated terminal.
+  + Notebook Snippets (preview). Common Azure ML code excerpts are now available at your fingertips. Navigate to the code snippets panel, accessible via the toolbar, or activate the in-code snippets menu using Ctrl + Space.  
+  + [Keyboard Shortcuts](./how-to-run-jupyter-notebooks.md#useful-keyboard-shortcuts). Full parity with keyboard shortcuts available in Jupyter. 
   + Indicate Cell parameters. Shows users which cells in a notebook are parameter cells and can run parameterized notebooks via [Papermill](https://github.com/nteract/papermill) on the Compute Instance.
   + Terminal and Kernel session manager: Users will be able to manage all kernels and terminal sessions running on their compute.
   + Sharing Button. Users can now share any file in the Notebook file explorer by right-clicking the file and using the share button.
@@ -64,18 +176,18 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + Improved page load times
   + Improved performance 
   + Improved speed and kernel reliability
-  + Added spinning wheel to show progress for all ongoing [Compute Instance operations](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#status-indicators).
+  + Added spinning wheel to show progress for all ongoing [Compute Instance operations](./how-to-run-jupyter-notebooks.md#status-indicators).
   + Right click in File Explorer. Right-clicking any file will now open file operations. 
 
 
 ## 2021-02-16
 
 ### Azure Machine Learning SDK for Python v1.23.0
-+ **New features**
++ **Bug fixes and improvements**
   + **azureml-core**
     + [Experimental feature] Add support to link synapse workspace into AML as an linked service
     + [Experimental feature] Add support to attach synapse spark pool into AML as a compute
-    + [Experimental feature] Add support for identity based data access. Users can register datastore or datasets without providing credentials. In such case, users' AAD token or managed identity of compute target will be used for authentication. Learn more [here](https://aka.ms/data-access).
+    + [Experimental feature] Add support for identity based data access. Users can register datastore or datasets without providing credentials. In such case, users' AAD token or managed identity of compute target will be used for authentication. Learn more [here](./how-to-identity-based-data-access.md).
   + **azureml-pipeline-steps**
     + [Experimental feature] Add support for [SynapseSparkStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.synapsesparkstep)
   + **azureml-synapse**
@@ -324,7 +436,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 The image instance segmentation (polygon annotations) project type in data labeling is available now, so users can draw and annotate with polygons around the contour of the objects in the images. Users will be able assign a class and a polygon to each object which of interest within an image.
 
-Learn more about [image instance segmentation labeling](how-to-label-images.md).
+Learn more about [image instance segmentation labeling](how-to-label-data.md).
 
 
 

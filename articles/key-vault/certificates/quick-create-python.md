@@ -20,14 +20,14 @@ Get started with the Azure Key Vault certificate client library for Python. Foll
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python 2.7+ or 3.5.3+](/azure/developer/python/configure-local-development-environment)
+- [Python 2.7+ or 3.6+](/azure/developer/python/configure-local-development-environment)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
 This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli) in a Linux terminal window.
 
 ## Set up your local environment
 
-This quickstart is using Azure Identity library with Azure CLI to authenticate user to Azure Services. Developers can also use Visual Studio or Visual Studio Code to authenticate their calls, for more information, see [Authenticate the client with Azure Identity client library](/java/api/overview/azure/identity-readme)
+This quickstart is using Azure Identity library with Azure CLI to authenticate user to Azure Services. Developers can also use Visual Studio or Visual Studio Code to authenticate their calls, for more information, see [Authenticate the client with Azure Identity client library](/python/api/overview/azure/identity-readme)
 
 ### Sign in to Azure
 
@@ -180,7 +180,7 @@ To read a certificate from Key Vault, use the [get_certificate](/python/api/azur
 retrieved_certificate = client.get_certificate(certificateName)
  ```
 
-You can also verify that the certificate has been set with the Azure CLI command [az keyvault certificate show](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show).
+You can also verify that the certificate has been set with the Azure CLI command [az keyvault certificate show](/cli/azure/keyvault/certificate?#az_keyvault_certificate_show).
 
 ### Delete a certificate
 
@@ -193,7 +193,7 @@ deleted_certificate = poller.result()
 
 The `begin_delete_certificate` method is asynchronous and returns a poller object. Calling the poller's `result` method waits for its completion.
 
-You can verify that the certificate is deleted with the Azure CLI command [az keyvault certificate show](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show).
+You can verify that the certificate is deleted with the Azure CLI command [az keyvault certificate show](/cli/azure/keyvault/certificate?#az_keyvault_certificate_show).
 
 Once deleted, a certificate remains in a deleted but recoverable state for a time. If you run the code again, use a different certificate name.
 
@@ -210,7 +210,7 @@ az group delete --resource-group KeyVault-PythonQS-rg
 ## Next steps
 
 - [Overview of Azure Key Vault](../general/overview.md)
-- [Secure access to a key vault](../general/secure-your-key-vault.md)
+- [Secure access to a key vault](../general/security-features.md)
 - [Azure Key Vault developer's guide](../general/developers-guide.md)
-- [Key Vault security overview](../general/security-overview.md)
+- [Key Vault security overview](../general/security-features.md)
 - [Authenticate with Key Vault](../general/authentication.md)

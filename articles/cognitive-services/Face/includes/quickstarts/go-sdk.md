@@ -16,7 +16,7 @@ Use the Face service client library for Go to:
 
 * [Detect faces in an image](#detect-faces-in-an-image)
 * [Find similar faces](#find-similar-faces)
-* [Create and train a person group](#create-and-train-a-person-group)
+* [Create and train a PersonGroup](#create-and-train-a-persongroup)
 * [Identify a face](#identify-a-face)
 
 [Reference documentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face) | [Library source code](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face) | [SDK download](https://github.com/Azure/azure-sdk-for-go)
@@ -100,7 +100,7 @@ These code samples show you how to complete basic tasks using the Face service c
 * [Authenticate the client](#authenticate-the-client)
 * [Detect faces in an image](#detect-faces-in-an-image)
 * [Find similar faces](#find-similar-faces)
-* [Create and train a person group](#create-and-train-a-person-group)
+* [Create and train a PersonGroup](#create-and-train-a-persongroup)
 * [Identify a face](#identify-a-face)
 
 ## Authenticate the client
@@ -155,7 +155,7 @@ The following code prints the match details to the console.
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar_print)]
 
 
-## Create and train a person group
+## Create and train a PersonGroup
 
 To step through this scenario, you need to save the following images to the root directory of your project: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
 
@@ -196,11 +196,11 @@ Once you've assigned faces, you train the **PersonGroup** so it can identify the
 The Identify operation takes an image of a person (or multiple people) and looks to find the identity of each face in the image (facial recognition search). It compares each detected face to a **PersonGroup**, a database of different **Person** objects whose facial features are known.
 
 > [!IMPORTANT]
-> In order to run this example, you must first run the code in [Create and train a person group](#create-and-train-a-person-group).
+> In order to run this example, you must first run the code in [Create and train a PersonGroup](#create-and-train-a-persongroup).
 
 ### Get a test image
 
-The following code looks in the root of your project for an image _test-image-person-group.jpg_ and loads it into program memory. You can find this image in the same repo as the images used in [Create and train a person group](#create-and-train-a-person-group): https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
+The following code looks in the root of your project for an image _test-image-person-group.jpg_ and loads it into program memory. You can find this image in the same repo as the images used in [Create and train a PersonGroup](#create-and-train-a-persongroup): https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id_source_get)]
 

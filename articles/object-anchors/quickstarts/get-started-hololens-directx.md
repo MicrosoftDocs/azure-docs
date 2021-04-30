@@ -32,7 +32,7 @@ To complete this quickstart, make sure you have:
 * A Windows machine with the following installed:
   * <a href="https://git-scm.com" target="_blank">Git for Windows</a>
   * <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> with the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.18362.0 or newer)** component
-* A HoloLens 2 device that is up to date and has [developer mode](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio#enabling-developer-mode) enabled.
+* A HoloLens 2 device that is up to date and has [developer mode](/windows/mixed-reality/using-visual-studio#enabling-developer-mode) enabled.
   * To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, and then select **Check for updates**.
 
 ## Open the sample project

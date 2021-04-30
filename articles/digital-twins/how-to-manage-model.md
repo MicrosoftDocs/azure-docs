@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to create, edit, and delete a model within Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 3/12/2020
+ms.date: 4/07/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Manage Azure Digital Twins models
 
-You can manage the [models](concepts-models.md) that your Azure Digital Twins instance knows about using the [**DigitalTwinModels APIs**](/rest/api/digital-twins/dataplane/models), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client), or the [Azure Digital Twins CLI](how-to-use-cli.md). 
+You can manage the [models](concepts-models.md) of your Azure Digital Twins instance using the [DigitalTwinModels APIs](/rest/api/digital-twins/dataplane/models), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client), or the [Azure Digital Twins CLI](how-to-use-cli.md). 
 
 Management operations include upload, validation, retrieval, and deletion of models. 
 
@@ -121,7 +121,7 @@ When you create a new twin, since the new model version and the old model versio
 
 This also means that uploading a new version of a model does not automatically affect existing twins. The existing twins will simply remain instances of the old model version.
 
-You can update these existing twins to the new model version by patching them, as described in the [*Update a digital twin's model*](how-to-manage-twin.md#update-a-digital-twins-model) section of *How-to: Manage digital twins*. Within the same patch, you must update both the **model ID** (to the new version) and **any fields that must be altered on the twin to make it conform to the new model**.
+You can update these existing twins to the new model version by patching them, as described in the [Update a digital twin's model](how-to-manage-twin.md#update-a-digital-twins-model) section of *How-to: Manage digital twins*. Within the same patch, you must update both the **model ID** (to the new version) and **any fields that must be altered on the twin to make it conform to the new model**.
 
 ## Remove models
 
@@ -143,7 +143,7 @@ A model's decommissioning status is included in the `ModelData` records returned
 
 You can delete all models in your instance at once, or you can do it on an individual basis.
 
-For an example of how to delete all models, download the sample app used in the [*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md). The *CommandLoop.cs* file does this in a `CommandDeleteAllModels` function.
+For an example of how to delete all models, download the sample app used in the [Tutorial: Explore the basics with a sample client app](tutorial-command-line-app.md). The *CommandLoop.cs* file does this in a `CommandDeleteAllModels` function.
 
 The rest of this section breaks down model deletion into closer detail, and shows how to do it for an individual model.
 
@@ -180,7 +180,7 @@ Things you **can** do:
 * Read properties
 * Read outgoing relationships
 * Add and delete incoming relationships (as in, other twins can still form relationships *to* this twin)
-  - The `target` in the relationship definition can still reflect the DTMI of the deleted model. A relationship with no defined target can also work here.
+  - The `target` in the relationship definition can still reflect the DTMI of the deleted model. A relationship with no defined target can also work here.      
 * Delete relationships
 * Delete the twin
 
@@ -199,4 +199,4 @@ Azure Digital Twins does not prevent this state, so be careful to patch twins ap
 ## Next steps
 
 See how to create and manage digital twins based on your models:
-* [*How-to: Manage digital twins*](how-to-manage-twin.md)
+* [How-to: Manage digital twins](how-to-manage-twin.md)

@@ -95,15 +95,15 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
 Task hub names must start with a letter and consist of only letters and numbers. If not specified, the default task hub name for a function app is **DurableFunctionsHub**. For  more information, see [Task hubs](../articles/azure-functions/durable/durable-functions-task-hubs.md).
 
 |Property  |Default | Description |
-|---------|---------|---------|
+|---------|---------|----------|
 |hubName|DurableFunctionsHub|Alternate [task hub](../articles/azure-functions/durable/durable-functions-task-hubs.md) names can be used to isolate multiple Durable Functions applications from each other, even if they're using the same storage backend.|
 |controlQueueBatchSize|32|The number of messages to pull from the control queue at a time.|
-|controlQueueBufferThreshold|256|The number of control queue messages that can be buffered in memory at a time, at which point the dispatcher will wait before dequeuing any additional messages.|
+|controlQueueBufferThreshold| **Consumption plan**: 32 <br> **Dedicated/Premium plan**: 256 |The number of control queue messages that can be buffered in memory at a time, at which point the dispatcher will wait before dequeuing any additional messages.|
 |partitionCount |4|The partition count for the control queue. May be a positive integer between 1 and 16.|
 |controlQueueVisibilityTimeout |5 minutes|The visibility timeout of dequeued control queue messages.|
 |workItemQueueVisibilityTimeout |5 minutes|The visibility timeout of dequeued work item  queue messages.|
-|maxConcurrentActivityFunctions |10X the number of processors on the current machine|The maximum number of activity functions that can be processed concurrently on a single host instance.|
-|maxConcurrentOrchestratorFunctions |10X the number of processors on the current machine|The maximum number of orchestrator functions that can be processed concurrently on a single host instance.|
+|maxConcurrentActivityFunctions | **Consumption plan**: 10 <br> **Dedicated/Premium plan**: 10X the number of processors on the current machine|The maximum number of activity functions that can be processed concurrently on a single host instance.|
+|maxConcurrentOrchestratorFunctions | **Consumption plan**: 5 <br> **Dedicated/Premium plan**: 10X the number of processors on the current machine |The maximum number of orchestrator functions that can be processed concurrently on a single host instance.|
 |maxQueuePollingInterval|30 seconds|The maximum control and work-item queue polling interval in the *hh:mm:ss* format. Higher values can result in higher message processing latencies. Lower values can result in higher storage costs because of increased storage transactions.|
 |azureStorageConnectionStringName |AzureWebJobsStorage|The name of the app setting that has the Azure Storage connection string used to manage the underlying Azure Storage resources.|
 |trackingStoreConnectionStringName||The name of a connection string to use for the History and Instances tables. If not specified, the `connectionStringName` (Durable 2.x) or `azureStorageConnectionStringName` (Durable 1.x) connection is used.|
@@ -116,7 +116,7 @@ Task hub names must start with a letter and consist of only letters and numbers.
 |eventGridPublishRetryInterval|5 minutes|The Event Grid publishes retry interval in the *hh:mm:ss* format.|
 |eventGridPublishEventTypes||A list of event types to publish to Event Grid. If not specified, all event types will be published. Allowed values include `Started`, `Completed`, `Failed`, `Terminated`.|
 |useAppLease|true|When set to `true`, apps will require acquiring an app-level blob lease before processing task hub messages. For more information, see the [disaster recovery and geo-distribution](../articles/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md) documentation. Available starting in v2.3.0.
-|useLegacyPartitionManagement|true|When set to `false`, uses a partition management algorithm that reduces the possibility of duplicate function execution when scaling out.  Available starting in v2.3.0. The default will be changed to `false` in a future release.|
+|useLegacyPartitionManagement|false|When set to `false`, uses a partition management algorithm that reduces the possibility of duplicate function execution when scaling out.  Available starting in v2.3.0.|
 |useGracefulShutdown|false|(Preview) Enable gracefully shutting down to reduce the chance of host shutdowns failing in-process function executions.|
 
 Many of these settings are for optimizing performance. For more information, see [Performance and scale](../articles/azure-functions/durable/durable-functions-perf-and-scale.md).

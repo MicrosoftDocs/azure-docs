@@ -309,7 +309,7 @@ Then run a failover as follows:
 
 ### Fail back to Azure Stack
 
-When your primary site is up and running again, you can fail back from Azure to Azure Stack. To do this, follow the steps listed out [here](/azure-stack/operator/site-recovery-failback?view=azs-2005).
+When your primary site is up and running again, you can fail back from Azure to Azure Stack. To do this, follow the steps listed out [here](/azure-stack/operator/site-recovery-failback).
 
 ## Conclusion
 

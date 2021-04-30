@@ -35,7 +35,7 @@ Devices using the [Device Provisioning Service (DPS)](../articles/iot-dps/about-
 
 ## Implement telemetry, properties, and commands
 
-As described in [Understand components in IoT Plug and Play models](../articles/iot-pnp/concepts-components.md), device builders must decide if they want to use components to describe their devices. When using components, devices must follow the rules described in this section.
+As described in [Understand components in IoT Plug and Play models](../articles/iot-pnp/concepts-modeling-guide.md), device builders must decide if they want to use components to describe their devices. When using components, devices must follow the rules described in this section.
 
 ### Telemetry
 

@@ -34,7 +34,7 @@ The rights are granted automatically if the assignment is done through the porta
 assignment is done through the REST API, granting the rights needs to be done with a separate API
 call. The Azure Blueprints AppId is `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`, but the service
 principal varies by tenant. Use
-[Azure Active Directory Graph API](../../../active-directory/develop/active-directory-graph-api.md)
+[Azure Active Directory Graph API](/graph/migrate-azure-ad-graph-planning-checklist)
 and REST endpoint [servicePrincipals](/graph/api/resources/serviceprincipal) to get the service
 principal. Then, grant the Azure Blueprints the _Owner_ role through the
 [Portal](../../../role-based-access-control/role-assignments-portal.md),

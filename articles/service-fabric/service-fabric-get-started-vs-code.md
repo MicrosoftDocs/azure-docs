@@ -44,7 +44,7 @@ The following prerequisites must be installed for Java development:
 
 The following prerequisites must be installed for .NET Core/C# development:
 
-* [.NET Core](https://www.microsoft.com/net/learn/get-started) (version 2.0.0 or later)
+* [.NET Core](https://dotnet.microsoft.com/download) (version 2.0.0 or later)
 * [C# for Visual Studio Code (powered by OmniSharp) VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) Needed to debug C# services. You can install either by clicking the Extensions icon in the **Activity Bar** in VS Code and searching for the extension, or from the VS Code Marketplace.
 
 ## Setup

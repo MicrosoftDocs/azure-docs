@@ -23,7 +23,7 @@ To deploy a VM from the Shared Image Gallery image:
 1. Click Review + create. Once validation is passed, click Create
 
 > [!NOTE]
-> If you need to create a VM from a vhd file, follow the instructions in the following articles, [Prepare an Azure Resource Manager template](https://docs.microsoft.com/azure/marketplace/azure-vm-image-test#prepare-an-azure-resource-manager-template) or [Deploy an Azure VM using PowerShell](https://docs.microsoft.com/azure/marketplace/azure-vm-image-test#deploy-an-azure-vm-using-powershell).
+> If you need to create a VM from a vhd file, follow the instructions in the following articles, [Prepare an Azure Resource Manager template](#connect-the-certification-tool-to-a-vm-image) or [Deploy an Azure VM using PowerShell](#how-to-use-powershell-to-consume-the-self-test-api).
 
 This article describes how to test and submit a virtual machine (VM) image in the commercial marketplace to ensure it meets the latest Azure Marketplace publishing requirements.
 
