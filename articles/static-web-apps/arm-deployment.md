@@ -91,7 +91,7 @@ The following steps demonstrate how to create a new repository for a static web 
     </html>
     ```
     
-1. Scroll down and **Click Commit New File** to save the file.
+1. Scroll down and select **Commit new file** to save the file.
 
 ## Create the ARM Template
 
