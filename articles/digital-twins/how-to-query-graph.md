@@ -18,12 +18,14 @@ ms.custom: contperf-fy21q2
 
 # Query the Azure Digital Twins twin graph
 
-This article offers query examples and more detailed instructions for using the **Azure Digital Twins query language** to query your [twin graph](concepts-twins-graph.md) for information. (For an introduction to the query language and a full list of its features, see [Concepts: Query language](concepts-query-language.md).)
+This article offers query examples and instructions for using the **Azure Digital Twins query language** to query your [twin graph](concepts-twins-graph.md) for information. (For an introduction to the query language, see [Concepts: Query language](concepts-query-language.md).)
 
-This article begins with sample queries that illustrate the query language structure and common query operations for digital twins. It then describes how to run your queries after you've written them, using the Azure Digital Twins [Query API](/rest/api/digital-twins/dataplane/query) or an [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis).
+It contains sample queries that illustrate the query language structure and common query operations for digital twins. It also describes how to run your queries after you've written them, using the Azure Digital Twins [Query API](/rest/api/digital-twins/dataplane/query) or an [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis).
 
 > [!NOTE]
 > If you're running the sample queries below with an API or SDK call, you'll need to condense the query text into a single line.
+
+[!INCLUDE [digital-twins-query-reference.md](../../includes/digital-twins-query-reference.md)]
 
 ## Show all digital twins
 
