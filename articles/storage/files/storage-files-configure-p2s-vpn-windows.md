@@ -26,7 +26,7 @@ The article details the steps to configure a Point-to-Site VPN on Windows (Windo
 ## Collect environment information
 In order to set up the point-to-site VPN, we first need to collect some information about your environment for use throughout the guide. See the [prerequisites](#prerequisites) section if you have not already created a storage account, virtual network, and/or private endpoints.
 
-Remember to replace `<resource-group>`, `<vnet-name>`, and `<storage-account-name>` with the appropriate values for your environment.
+Remember to replace `<resource-group>`, `<vnet-name>`, `<subnet-name>`, and `<storage-account-name>` with the appropriate values for your environment.
 
 ```PowerShell
 $resourceGroupName = "<resource-group-name>" 
