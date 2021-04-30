@@ -77,7 +77,7 @@ Basic SKU addresses:
 >[!IMPORTANT]
 > Matching SKUs are required for load balancer and public IP resources. You can't have a mixture of basic SKU resources and standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.  New designs should consider using Standard SKU resources.  Please review [Standard Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for details.
 
-## Allocation method (IP Address assignment)
+## IP address assignment
 
 Standard and Basic public IPv4 addresses and Standard public IPv6 addresses support **static** assignment.  The resource is assigned an IP address at the time it's created. The IP address is released when the resource is deleted.  
 
