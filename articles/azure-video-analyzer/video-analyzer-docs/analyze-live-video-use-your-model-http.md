@@ -41,7 +41,7 @@ In this quickstart, you'll use Azure Video Analyzer to detect objects such as ve
 
 This above diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/azure-video-analyzer/tree/main/edge-modules/sources/rtspsim-live555)  simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source node](pipeline.md#rtsp-source)pulls the video feed from this server and sends video frames to the [HTTP extension processor node](pipeline.md#http-extension-processor).
 
-The HTTP extension node plays the role of a proxy. It samples the incoming video frames set by the samplingOptions field and converts the video frames to the specified image type. Then it relays the images over REST to another edge module that runs an AI model behind an HTTP endpoint. In this example, that edge module is built by using the YOLOv3 model, which can detect many types of objects. The HTTP extension processor node gathers the detection results and publishes events to the [IoT Hub sink node](pipeline.md#iot-hub-message-sink). The node then sends those events to [IoT Edge Hub](https://docs.microsoft.com/azure/iot-fundamentals/iot-glossary?view=iotedge-2018-06&preserve-view=true#iot-edge-hub).
+The HTTP extension node plays the role of a proxy. It samples the incoming video frames set by the samplingOptions field and converts the video frames to the specified image type. Then it relays the images over REST to another edge module that runs an AI model behind an HTTP endpoint. In this example, that edge module is built by using the YOLOv3 model, which can detect many types of objects. The HTTP extension processor node gathers the detection results and publishes events to the [IoT Hub message sink node](pipeline.md#iot-hub-message-sink). The node then sends those events to [IoT Edge Hub](https://docs.microsoft.com/azure/iot-fundamentals/iot-glossary?view=iotedge-2018-06&preserve-view=true#iot-edge-hub).
 
 In this quickstart, you will:
 
@@ -93,10 +93,10 @@ In this quickstart, you will:
     > The above steps assume you are using the virtual machine created by the setup script. If you are using your own edge device instead, go to your edge device and run the following commands with **admin rights**, to pull and store the sample video file used for this quickstart:
     
     ```
-    mkdir /home/lvaedgeuser/samples
-    mkdir /home/lvaedgeuser/samples/input    
-    curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaedgeuser/samples/input/camera-300s.mkv  
-    chown -R lvalvaedgeuser:localusergroup /home/lvaedgeuser/samples/  
+    mkdir /home/localedgeuser/samples
+    mkdir /home/localedgeuser/samples/input    
+    curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lcoaledgeuser/samples/input/camera-300s.mkv  
+    chown -R localedgeuser:localusergroup /home/localedgeuser/samples/  
     ```
     * The yolov3 module, which is the YoloV3 object detection model that applies computer vision to the images and returns multiple classes of object types
 
@@ -145,16 +145,16 @@ In this quickstart, you will:
     ```    
 1. The **TERMINAL** window shows the next set of direct method calls:
     
-    * A call to pipelineTopologySet that uses the preceding topologyUrl.
+    * A call to pipelineTopologySet that uses the preceding pipelineTopologyUrl.
     * A call to livePipelineSet that uses the following body:
         
         ```
         {
           "@apiVersion": "1.0",
-          "name": "Sample-Graph-1",
+          "name": "Sample-Pipeline-1",
           "properties": {
             "topologyName": "InferencingWithHttpExtension",
-            "description": "Sample graph description",
+            "description": "Sample pipeline description",
             "parameters": [
               {
                 "name": "rtspUrl",
@@ -187,7 +187,7 @@ In this quickstart, you will:
     
 ### Interpret results
 
-When you run the live pipeline, the results from the HTTP extension processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a body section and an applicationProperties section. For more information, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+When you run the live pipeline, the results from the HTTP extension processor node pass through the IoT Hub message sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a body section and an applicationProperties section. For more information, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
 
 In the following messages, the Azure Video Analyzer module defines the application properties and the content of the body.
 
@@ -203,7 +203,7 @@ When a pipeline is instantiated, the RTSP source node attempts to connect to the
   },
   "applicationProperties": {
     "dataVersion": "1.0",
-    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/mediaservices/hubname",
+    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoAnalyzers/{ava-account-name}/edgeModules/avaedge",
     "subject": "/livePipelines/LIVEPIPELINENAMEHERE/sources/rtspSource",
     "eventType": "Microsoft.VideoAnalyzer.Diagnostics.MediaSessionEstablished",
     "eventTime": "2020-04-09T16:42:18.1280000Z"
@@ -221,7 +221,7 @@ In this message, notice these details:
 
 ### Inference event
 
-The HTTP extension processor node receives inference results from the yolov3 module. It then emits the results through the IoT Hub sink node as inference events.
+The HTTP extension processor node receives inference results from the yolov3 module. It then emits the results through the IoT Hub message sink node as inference events.
 
 In these events, the type is set to entity to indicate it's an entity, such as a car or truck. The eventTime value is the UTC time when the object was detected.
 
@@ -323,8 +323,6 @@ In the messages, notice the following details:
 [!INCLUDE [prerequisites](./includes/common-includes/clean-up-resources.md)]
 
 ## Next steps
-
-* Try a [secured version of the YoloV3 model](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/tls-yolov3-onnx/readme.md) and deploy it to the IoT Edge device.
 
 Review additional challenges for advanced users:
 
