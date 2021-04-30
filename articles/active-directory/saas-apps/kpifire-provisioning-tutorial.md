@@ -50,7 +50,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Sign in to https://app.kpifire.com with admin rights
 1. Navigate to **Settings->API Settings->Add New Token** to generate the SCIM token.
 
-	![kpifire token generation](media/kpifire-provisioning-tutorial/kpifire-token-generation.png)
+	[ ![kpifire token generation](media/kpifire-provisioning-tutorial/kpifire-token-generation.png) ](media/kpifire-provisioning-tutorial/kpifire-token-generation.png#lightbox)
 
 1. Copy and save the SCIM token. This value will be entered in the **Secret Token** field in the Provisioning tab of your kpifire application in the Azure portal. 
 
