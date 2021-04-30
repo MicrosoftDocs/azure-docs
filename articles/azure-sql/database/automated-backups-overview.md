@@ -62,6 +62,23 @@ To perform a restore, see [Restore database from backups](recovery-using-backups
 > [!NOTE]
 > In Azure Storage, the term *replication* refers to copying blobs from one location to another. In SQL, *database replication* refers to various technologies used to keep multiple secondary databases synchronized with a primary database.
 
+The below table summarizes the capabilities of backups point in time restore (PiTR), [geo-restore](recovery-using-backups.md#geo-restore), and [long-term retention backups](long-term-retention-overview.md).
+
+| **Backup Properties** | Point in time recovery (PiTR) | Geo-restore | Long term backup restore |           
+|----|--|--|--|
+| **Types of SQL backup** | Full, Differential, Log | Replicated copies of PiTR backups | Only the Full PiTR backups | 
+| **Recovery Point Objective (RPO)** |  5-10 minutes, based on compute size and amount of database activity |    Up to 1 hour, based on geo-replication*  |  1 week |
+| **Recovery Time Objective (RTO)** |  5-10 minutes, based on compute size and amount of database activity        | Up to 12 hours | Dependent on computer size and size of backup | 
+| **Retention** | 7 days by default, Up to 35 days |  Not enabled by default, same as source | Not enabled by default, Retention Up to 10 years |     
+| **Azure storage**  |  RA-GRS | RA-GRS |  RA-GRS | 
+| **Use to create new database in same region** | Supported | Supported | Supported |
+| **Use to create new database in another region** | Not Supported | Supported in paired region | Supported |
+| **Restore via Azure Portal**| Yes  | Yes| Yes|
+| **Restore via PowerShell** | Yes  | Yes| Yes| 
+| | | | |
+
+\* For business-critical applications that require large databases and must ensure business continuity, use [Auto-failover groups](auto-failover-group-overview.md). 
+
 You can try backup configuration and restore operations using the following examples:
 
 | Operation | Azure portal | Azure PowerShell |
@@ -71,6 +88,7 @@ You can try backup configuration and restore operations using the following exam
 | **Restore a database from a point in time** | [SQL Database](recovery-using-backups.md#point-in-time-restore)<br>[SQL Managed Instance](../managed-instance/point-in-time-restore.md) | [SQL Database](/powershell/module/az.sql/restore-azsqldatabase) <br/> [SQL Managed Instance](/powershell/module/az.sql/restore-azsqlinstancedatabase) |
 | **Restore a deleted database** | [SQL Database](recovery-using-backups.md)<br>[SQL Managed Instance](../managed-instance/point-in-time-restore.md#restore-a-deleted-database) | [SQL Database](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [SQL Managed Instance](/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
 | **Restore a database from Azure Blob storage** | SQL Database - N/A <br/>SQL Managed Instance - N/A  | SQL Database - N/A <br/>[SQL Managed Instance](../managed-instance/restore-sample-database-quickstart.md) |
+
 
 ## Backup scheduling
 
