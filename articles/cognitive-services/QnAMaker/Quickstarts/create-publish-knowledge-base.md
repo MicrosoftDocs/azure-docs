@@ -82,8 +82,6 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
 4. In **Step 2**, select your Active directory, subscription, service (resource), and the language for all knowledge bases created in the service.
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/connect-your-knowledge-base.png" alt-text="Screenshot of selecting a QnA Maker service knowledge base managed preview":::
-
 > [!div class="mx-imgBorder"]
 > ![Create KB](../media/qnamaker-create-publish-knowledge-base/connect-knowledgebase-custom-qna.png) 
 
