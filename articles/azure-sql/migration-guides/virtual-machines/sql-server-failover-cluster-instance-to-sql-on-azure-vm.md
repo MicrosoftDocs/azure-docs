@@ -32,7 +32,7 @@ Before you begin this tutorial, you should:
 
 1. An Azure subscription. Create a [free account](https://azure.microsoft.com/pricing/free-trial/), if necessary. 
 1. Install the [Azure PowerShell `Az` module](/powershell/azure/install-az-ps). 
-1. Download the [PowerShell samples scripts](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate) from the GitHub repository.
+1. Download the [PowerShell samples scripts](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/SQL%20Migration) from the GitHub repository.
 
 ## Prepare Azure
 
