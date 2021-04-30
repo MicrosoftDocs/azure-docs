@@ -125,6 +125,11 @@ az sql db delete -g MyResourceGroup -s MyServer -n WideWorldImporters_NR
 > [!NOTE]
 > Named replicas will also be removed when the primary replica from which they have been created is deleted.
 
+### Known Issues
+
+#### Partially incorrect data returned from sys.databases
+During Public Preview, row values returned from `sys.databases`, for named replicas, in columns other than `name` and `database_id`, may be inconsistent and incorrect. For example the `compatibility_level` column for a named replica could be reported as 140 even if the primary database from which the named replicas has been created is set to 150. A workaround, when possible, is to get the same data using the system function `databasepropertyex`, that will return the correct data instead. 
+
 ### Frequently Asked Questions
 #### Can a named replica be used as a failover target?
 No, named replicas cannot be used as failover targets. Use HA replicas for that purpose.
