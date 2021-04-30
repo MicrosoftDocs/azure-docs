@@ -33,7 +33,7 @@ For more information, see [Private Link Documentation](../../private-link/index.
 
 Creating a private endpoint for your FHIR resource doesn't automatically disable public traffic to it. To do this, you'll have to update your FHIR resource to set a new “Public access” property from “Enabled” to “Disabled”. Be careful when disabling public network access as all requests to your FHIR service that are not coming from a properly configured private endpoint will be denied. Only traffic from your private endpoints will be allowed.
 
-![Disable Public Network Access](media/private-link/private-link-disable.png)
+:::image type="content" source="media/private-link/private-link-disable.png" alt-text="Disable Public Network Access.":::
 
 ## Create private endpoint
 
