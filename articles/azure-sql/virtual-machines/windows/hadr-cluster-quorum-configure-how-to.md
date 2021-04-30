@@ -30,9 +30,8 @@ The following quorum options are available to use with an SQL Server on Azure VM
 
 ||[Disk witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)|[Cloud witness](/windows-server/failover-clustering/deploy-cloud-witness)  |[File share witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
-|**Supported OS**| All<sup>1</sup>   |Windows Server 2016+| All|
+|**Supported OS**| All   |Windows Server 2016+| All|
 
-<sup>1</sup> A disk witness is not supported if you're using the Storage Spaces Direct shared-storage solution for your failover cluster instance. Configure a cloud witness instead. 
 
 To learn more about quorum, see the [Windows Server Failover Cluster overview](hadr-windows-server-failover-cluster-overview.md). 
 
@@ -71,7 +70,7 @@ After your file share is mounted, configure quorum following these steps:
 
 The existing Set-ClusterQuorum PowerShell command has new parameters corresponding to Cloud Witness.
 
-You can configure disk witness with the cmdlet [`Set-ClusterQuorum`](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum) using the PowerShell command:
+Use the path for the file share as the parameter for the disk witness when using the  PowerShell cmdlet [`Set-ClusterQuorum`](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum):
 
 ```PowerShell
 Set-ClusterQuorum -NodeAndDiskMajority "\\storageaccountname.file.core.windows.net\filesharename"
