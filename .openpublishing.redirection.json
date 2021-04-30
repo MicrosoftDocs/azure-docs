@@ -65803,6 +65803,11 @@
       "source_path_from_root": "/articles/peering-service/create-connection.md",
       "redirect_url": "/azure/peering-service/azure-portal",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-fabric-mesh/index.yml",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-overview",
+      "redirect_document_id": false
     }
   ]
 }
