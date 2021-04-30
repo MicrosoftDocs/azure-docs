@@ -96,6 +96,6 @@ For conditions on the source blob, `@Resource` conditions on the `Microsoft.Stor
 ## See also
 
 - [Authorize access to blobs using Azure role assignment conditions (Preview)](storage-auth-abac.md)
-- [Attributes and operations supported for Azure role assignment conditions in Azure Storage (preview)](storage-auth-abac-attributes.md)
+- [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](storage-auth-abac-attributes.md)
 - [What is Azure attribute-based access control (Azure ABAC)? (Preview)](../../role-based-access-control/conditions-overview.md)
 

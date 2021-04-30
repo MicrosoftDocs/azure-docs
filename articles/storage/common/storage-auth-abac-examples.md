@@ -610,5 +610,5 @@ $content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "logs/Alp
 ## Next steps
 
 - [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (Preview)](storage-auth-abac-portal.md)
-- [Attributes and operations supported for Azure role assignment conditions in Azure Storage (preview)](storage-auth-abac-attributes.md)
+- [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](storage-auth-abac-attributes.md)
 - [Azure role assignment condition format and syntax (Preview)](../../role-based-access-control/conditions-format.md)

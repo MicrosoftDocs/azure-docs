@@ -1,7 +1,7 @@
 ---
-title: Attributes and operations supported for Azure role assignment conditions in Azure Storage (preview)
+title: Actions and attributes for Azure role assignment conditions in Azure Storage (preview)
 titleSuffix: Azure Storage
-description: Supported attributes and operations for Azure role assignment conditions and Azure attribute-based access control (Azure ABAC) in Azure Storage. 
+description: Supported actions and attributes for Azure role assignment conditions and Azure attribute-based access control (Azure ABAC) in Azure Storage. 
 services: storage
 author: santoshc
 
@@ -13,7 +13,7 @@ ms.reviewer: jiacfan
 ms.subservice: common
 ---
 
-# Attributes and operations supported for Azure role assignment conditions in Azure Storage (preview)
+# Actions and attributes for Azure role assignment conditions in Azure Storage (preview)
 
 > [!IMPORTANT]
 > Azure ABAC and Azure role assignment conditions are currently in preview.

@@ -346,5 +346,5 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
 ## Next steps
 
 - [Example Azure role assignment conditions](storage-auth-abac-examples.md)
-- [Attributes and operations supported for Azure role assignment conditions in Azure Storage (preview)](storage-auth-abac-attributes.md)
+- [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](storage-auth-abac-attributes.md)
 - [Azure role assignment condition format and syntax](../../role-based-access-control/conditions-format.md)

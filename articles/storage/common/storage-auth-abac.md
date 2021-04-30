@@ -38,10 +38,10 @@ In this preview, you can add conditions to built-in roles for accessing Blob dat
 
 The [Azure role assignment condition format](../../role-based-access-control/conditions-format.md) allows use of `@Resource` or `@Request` attributes in the conditions. A `@Resource` attribute refers to an existing attribute of a storage resource that is being accessed, such as a storage account, a container, or a blob. A `@Request` attribute refers to an attribute included in a storage operation request.
 
-Azure Storage supports a select set of request or resource attributes that may be used in conditions on role assignments for each DataAction. For the full list of attributes supported for each DataAction, please see the [Attributes and Operations supported for ABAC](storage-auth-abac-attributes.md).
+Azure Storage supports a select set of request or resource attributes that may be used in conditions on role assignments for each DataAction. For the full list of attributes supported for each DataAction, please see the [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](storage-auth-abac-attributes.md).
 
 ## See also
 
 - [Security considerations for Azure role assignment conditions in Azure Storage (preview)](storage-auth-abac-security.md)
-- [Attributes and operations supported for Azure role assignment conditions in Azure Storage (preview)](storage-auth-abac-attributes.md)
+- [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](storage-auth-abac-attributes.md)
 - [What is Azure attribute-based access control (Azure ABAC)? (Preview)](../../role-based-access-control/conditions-overview.md)
