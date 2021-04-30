@@ -140,17 +140,32 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Ally.io SSO
 
-To configure single sign-on on **Ally.io** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Ally.io support team](mailto:contact@ally.io). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on Ally.io side, you need to copy the Certificate (Base64) and appropriate URLs from Azure portal and add them in Ally.io.
 
-### Create Ally.io test user
+Login to Ally.io using an Admin account
+Using the navigation bar on the left of the screen select **Admin** followed by **Integrations**
+Scroll to the **Authentication** section and select **Single Sign-On** and click Enable
 
-In this section, a user called B.Simon is created in Ally.io. Ally.io supports just-in-time provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Ally.io, a new one is created when you attempt to access Ally.io.
+![image](https://user-images.githubusercontent.com/22195205/116699753-95278e80-a9e3-11eb-8987-dac3c3688b92.png)
+
+After you have selected Enable, a new screen will appear where you can configure the certificate and the copied URLs from your Azure portal.
+
+![image](https://user-images.githubusercontent.com/22195205/116699882-bd16f200-a9e3-11eb-90d3-bb65068fb328.png)
+
+Fill in the SSO Configuration by following the mapping 
+
+**Ally : Azure AD**
+* SAML 2.0 Endpoint URL : Login URL
+* Identity Provider Issuer URL : Azure AD Identifier
+* Public(X.509) Certificate: Certificate (base 64)
 
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Ally.io tile in the Access Panel, you should be automatically signed in to the Ally.io for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+
+A user called B.Simon is created in Ally.io. Ally.io supports just-in-time provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Ally.io, a new one is created when you attempt to access Ally.io.
 
 ## Additional resources
 
