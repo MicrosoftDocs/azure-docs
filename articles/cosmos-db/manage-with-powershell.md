@@ -5,7 +5,7 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 04/25/2021
 ms.author: mjbrown
 ms.custom: seodec18
 ---
@@ -115,6 +115,8 @@ This command allows you to update your Azure Cosmos DB database account properti
 > You cannot simultaneously add or remove regions (`locations`) and change other properties for an Azure Cosmos account. Modifying regions must be performed as a separate operation from any other change to the account.
 > [!NOTE]
 > This command allows you to add and remove regions but does not allow you to modify failover priorities or trigger a manual failover. See [Modify failover priority](#modify-failover-priority) and [Trigger manual failover](#trigger-manual-failover).
+> [!TIP]
+> When a new region is added, all data must be fully replicated and committed into the new region before the region is marked as available. The amount of time this operation takes will depend upon how much data is stored within the account.
 
 ```azurepowershell-interactive
 # Create account with two regions
