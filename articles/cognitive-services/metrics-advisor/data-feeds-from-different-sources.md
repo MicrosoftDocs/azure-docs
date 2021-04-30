@@ -48,12 +48,12 @@ You can create a **credential entity** to store credential related information, 
 
 | Data sources | Authentication Types |
 |-------------| ---------------------|
-|[**Azure Application Insights**](#appinsights)|  Basic |
+|[**Azure Application Insights**](#appinsights) | Basic |
 |[**Azure Blob Storage (JSON)**](#blob) | Basic<br>ManagedIdentity |
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | Basic |
 |[**Azure Data Explorer (Kusto)**](#kusto) | Basic<br>Managed Identity<br>Service principal<br>Service principal from key vault |
 |[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>Data Lake Gen2 Shared Key<br>Service principal<br>Service principal from key vault |
-|[**Azure Log Analytics**](#log)| Basic<br>Service principal<br>Service principal from key vault |
+|[**Azure Log Analytics**](#log) | Basic<br>Service principal<br>Service principal from key vault |
 |[**Azure SQL Database / SQL Server**](#sql) | Basic<br>Managed Identity<br>Service principal<br>Service principal from key vault<br>Azure SQL Connection String |
 |[**Azure Table Storage**](#table) | Basic | 
 |[**ElasticSearch**](#es) | Basic |
@@ -61,8 +61,8 @@ You can create a **credential entity** to store credential related information, 
 |[**InfluxDB (InfluxQL)**](#influxdb) | Basic |
 |[**MongoDB**](#mongodb) | Basic |
 |[**MySQL**](#mysql) | Basic |
-|[**PostgreSQL**](#pgsql)| Basic|
-|[**Local files(CSV)**](#csv)| Basic|
+|[**PostgreSQL**](#pgsql) | Basic|
+|[**Local files(CSV)**](#csv) | Basic|
 
 The following sections specify the parameters required for all authentication types within different data source scenarios. 
 
@@ -72,7 +72,7 @@ The following sections specify the parameters required for all authentication ty
 
    1. From your Application Insights resource, click API Access.
    
-      ![Get application ID from your Application Insights resource](media/portal-app-insights-appid.png)
+      ![Get application ID from your Application Insights resource](media/portal-app-insights-app-id.png)
 
    2. Copy the Application ID generated into **Application ID** field in Metrics Advisor. 
 
@@ -84,7 +84,7 @@ The following sections specify the parameters required for all authentication ty
 
    3. Enter a short description, check the **Read telemetry** option, and click the **Generate key** button.
 
-      ![Get API key in Azure portal](media/portal-app-insights-appid-apikey.png)
+      ![Get API key in Azure portal](media/portal-app-insights-app-id-api-key.png)
 
        > [!WARNING]
        > Copy this **API key** and save it because this key will never be shown to you again. If you lose this key, you have to create a new one.
@@ -110,7 +110,7 @@ The following sections specify the parameters required for all authentication ty
     
     You can create a managed identity in Azure portal for your Azure Blob Storage resource, and choose **role assignments** in **Access Control(IAM)** section, then click **add** to create. A suggested role type is: Storage Blob Data Reader.
     
-    ![MI blob](media/MI-blob.png)
+    ![MI blob](media/managed-identity-blob.png)
     
 
 * **Container**: Metrics Advisor expects time series data stored as Blob files (one Blob per timestamp) under a single container. This is the container name field.
@@ -202,7 +202,7 @@ The following sections specify the parameters required for all authentication ty
     
         You can create a managed identity in Azure portal for your Azure Data Explorer (Kusto), choose **Permissions** section, and click **add** to create. The suggested role type is: admin / viewer.
         
-        ![MI kusto](media/MI-kusto.png)
+        ![MI kusto](media/managed-identity-kusto.png)
 
         Here's an example of connection string: 
         ```
@@ -257,9 +257,9 @@ The following sections specify the parameters required for all authentication ty
        * `%h` is the hour formatted as `HH`
        * `%M` is the minute formatted as `mm`
 
-       Query sample for a daily metric: `%Y/%m/%d`.
+   Query sample for a daily metric: `%Y/%m/%d`.
 
-       Query sample for an hourly metric: `%Y/%m/%d/%h`.
+   Query sample for an hourly metric: `%Y/%m/%d/%h`.
     
 
 
@@ -299,6 +299,7 @@ The timestamp field must match one of these two formats:
 -->
 
 ## <span id="log">Azure Log Analytics</span>
+
 There are three authentication types for Azure Log Analytics, they are **Basic**, **Service Principal** and **Service Principal From KeyVault**.
 * **Basic**: You need to fill in **Tenant ID**, **Client ID**, **Client Secret**, **Workspace ID**.
    To get **Tenant ID**, **Client ID**, **Client Secret**, see [Register app or web API](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
@@ -343,33 +344,35 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
         ```
     
     * **Managed Identity**: Managed identity for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. 
-    To enable your managed entity, you can refer to following steps:
+    
+     To enable your managed entity, you can refer to following steps:
       1. Enabling a system-assigned managed identity is a one-click experience. In Azure portal for your Metrics Advisor workspace, set the status as **on** in **RESOURCE MANAGEMENT > Identity**.
       2. In the Azure portal for your data source, click **set admin** in **Settings > Active Directory admin**, this is to give the managed identity access to specified users, and the suggested role type is: admin / viewer.
       3. Then you should create a contained user in database. First, start SQL Server Management Studio, in the **Connect to Server** dialog, Enter your **server name** in the Server name field. Then in the Authentication field, select **Active Directory - Universal with MFA support**. In the User name field, enter the name of the Azure AD account that you set as the server administrator, then click **Options**. In the Connect to database field, enter the name of the non-system database you want to configure. Then click **Connect**, and finally complete the sign-in process.
       4. The last step is to enable managed identity(MI) in Metrics Advisor. In the **Object Explorer**, expand the **Databases** folder. Right-click on a user database and click **New query**. In the query window, you should enter the following line, and click Execute in the toolbar:
     
-       ``` SQL
-       CREATE USER [MI Name] FROM EXTERNAL PROVIDER
-       ALTER ROLE db_datareader ADD MEMBER [MI Name]
-       ```
+          ```
+          CREATE USER [MI Name] FROM EXTERNAL PROVIDER
+          ALTER ROLE db_datareader ADD MEMBER [MI Name]
+          ```
        
      Note: The [MI Name] is the workspace name in Metrics Advisor. Also, you can learn more detail in this document: [Authorize with a managed identity](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). 
         
-   Here's an example of connection string: 
-
-   ```
-   Data Source=<Server>;Initial Catalog=<Database>
-   ```
+        Here's an example of connection string: 
+        
+        ```
+        Data Source=<Server>;Initial Catalog=<Database>
+        ```
     
     * **Azure SQL Connection String**: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. A service principal is created in each tenant where the application is used and references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
-    You can go through [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md) to know about Service Principal and create one. Also, your connection string could be found in Azure SQL Server resource in **Settings > Connection strings** section.
+      
+        You can go through [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md) to know about Service Principal and create one. Also, your connection string could be found in Azure SQL Server resource in **Settings > Connection strings** section.
 
-    Here's an example of connection string: 
+        Here's an example of connection string: 
         
-    ```
-    Data Source=<Server>;Initial Catalog=<Database>
-    ```
+        ```
+        Data Source=<Server>;Initial Catalog=<Database>
+        ```
   
 
     * **Service Principal**: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. A service principal is created in each tenant where the application is used and references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
