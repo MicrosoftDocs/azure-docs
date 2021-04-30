@@ -79,4 +79,4 @@ This gets a starting topology up and running on your edge device.  If you have t
 
 ## Next steps
 
-* Learn more about the various functions of the [Azure Video Analytics Visual Studio Code extension](./vs-code-extension).
+* Learn more about the various functions of the [Azure Video Analytics Visual Studio Code extension](./vs-code-extension.md).
