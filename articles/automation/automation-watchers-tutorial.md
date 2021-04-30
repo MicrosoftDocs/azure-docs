@@ -42,12 +42,15 @@ This article uses a watcher runbook called **Watcher runbook that looks for new 
 You can import this runbook into your Automation account from the portal using the following steps.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select **Automation Accounts** and then the name of your Automation account.
-1. On the Automation account page, select **Runbooks gallery** on the left.
+1. Search for and select **Automation Accounts**. 
+1. On the **Automation Accounts** page, select the name of your Automation account from the list.
+1. In the left pane, select **Runbooks gallery** under **Process Automation**.
 1. Make sure **GitHub** is selected in the **Source** drop-down list.
-1. Search for **Watcher runbook**, select **Watcher runbook that looks for new files in a directory**, and click **Import** on the runbook details page.
+1. Search for **Watcher runbook**.
+1. Select **Watcher runbook that looks for new files in a directory**, and select **Import** on the details page.
 1. Give the runbook a name and optionally a description and click **OK** to import the runbook into your Automation account. You should see an **Import successful** message in a pane at the upper right of your window.
-1. Go to your Automation Account page, and click on **Runbooks** on the left. Your new runbook should be listed under the name you gave it in the previous step. Click on the runbook, and on the runbook details page, select **Edit** and then click **Publish**. When prompted, click **Yes** to publish the runbook.
+1. The imported runbook appears in the list under the name you gave it when you select Runbooks from the left-hand pane.
+1. Click on the runbook, and on the runbook details page, select **Edit** and then click **Publish**. When prompted, click **Yes** to publish the runbook.
 
 You can also download the runbook from the [Azure Automation GitHub organization](https://github.com/azureautomation).
 
@@ -61,7 +64,7 @@ An [Automation variable](./shared-resources/variables.md) is used to store the t
 
 1. Select **Variables** under **Shared Resources** and click **+ Add a variable**.
 1. Enter **Watch-NewFileTimestamp** for the name.
-1. Select **DateTime** for the type. It will default to the current date and time. If you need more information on encrypted variables, see [Assets](/automation-managing-data#assets).
+1. Select **DateTime** for the type. It will default to the current date and time.
 
    :::image type="content" source="./media/automation-watchers-tutorial/create-new-variable.png" alt-text="Create new variable blade.":::
 
@@ -74,11 +77,12 @@ An action runbook is used in a watcher task to act on the data passed to it from
 You can import this runbook into your Automation account from the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select **Automation Accounts** and then the name of your Automation account.
-1. On the Automation account page, select **Runbooks gallery** on the left.
+1. Search for and select **Automation Accounts**. 
+1. On the **Automation Accounts** page, select the name of your Automation account from the list.
+1. In the left pane, select **Runbooks gallery** under **Process Automation**.
 1. Make sure **GitHub** is selected in the **Source** drop-down list.
 1. Search for **Watcher action**, select **Watcher action that processes events triggered by a watcher runbook**, and click **Import**.
-1. Give the runbook a name and optionally a description and click **OK** to import the runbook into your Automation account. You should see an **Import successful** message in a pane at the upper right of your window.
+1. Optionally, change the name of the runbook on the import page, and then click **OK** to import the runbook. You should see an **Import successful** message in the notification pane in the upper right-hand side of the browser.
 1. Go to your Automation Account page, and click on **Runbooks** on the left. Your new runbook should be listed under the name you gave it in the previous step. Click on the runbook, and on the runbook details page, select **Edit** and then click **Publish**. When prompted, click **Yes** to publish the runbook.
 
 To create an action runbook by downloading it from the [Azure Automation GitHub organization](https://github.com/azureautomation):
