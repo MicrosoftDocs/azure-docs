@@ -85,7 +85,7 @@ You now have an Azure Digital Twins instance ready to go. Next, you'll give the 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
 There are two ways to create a role assignment for a user in Azure Digital Twins:
-1. [During Azure Digital Twins instance resource creation](#assign-the-role-during-instance-creation)
+1. [During Azure Digital Twins instance creation](#assign-the-role-during-instance-creation)
 1. [Using Azure Identity Management (IAM)](#assign-the-role-using-azure-identity-management-iam)
 
 ### Assign the role during instance creation
