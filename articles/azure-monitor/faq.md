@@ -132,7 +132,8 @@ An agent is only required to collect data from the operating system and workload
 
 
 ### What's the difference between the Azure Monitor agents?
-Azure Diagnostic extension is for Azure virtual machines and collects data to Azure Monitor Metrics, Azure Storage, and Azure Event Hubs. The Log Analytics agent is for virtual machines in Azure, another cloud environment, or on-premises and collects data to Azure Monitor Logs. The Dependency agent requires the Log Analytics agent and collected process details and dependencies. See [Overview of the Azure Monitor agents](agents/agents-overview.md).
+Azure Diagnostic extension is for Azure virtual machines and collects data to Azure Monitor Metrics, Azure Storage, and Azure Event Hubs. The Log Analytics agent is for virtual machines in Azure, another cloud environment, or on-premises and collects data to Azure Monitor Logs. The Dependency agent requires the Log Analytics agent and collected process details and dependencies.  
+The **new** Azure Monitor Agent (currently in preview) is meant to consolidate the capabilities of existing agents so you can use a single agent for collecting guest OS telemetry to Azure Monitor Metrics and Logs.  See [Overview of the Azure Monitor agents](agents/agents-overview.md).
 
 
 ### Does my agent traffic use my ExpressRoute connection?
@@ -185,6 +186,81 @@ Specify an existing or new [Action Group](alerts/action-groups.md) so that when 
 
 ### What are the firewall requirements for Azure Monitor agents?
 See [Network firewall requirements](agents/log-analytics-agent.md#network-requirements)for details on firewall requirements.
+
+
+## Azure Monitor Agent (preview)
+
+### What is the upgrade path from Log Analytics agents to Azure Monitor Agent? How do we migrate?
+There’s currently no “auto-update” path since this involves complete uninstallation of existing agents on your machines and installing the new agent. As such we expect customers to plan for migration at the most suitable time based on feature parity.
+The more important reason is that with the new agent, data collection setup is much simpler, centralized, and configurable for subsets of machines connected to same or multiple destinations **using the power of Data Collection Rules, which overcomes a lot of limitations of existing Log Analytics agent setup**.
+
+**As such, we recommend looking at your data collection needs holistically, and creating the right DCRs first, and then performing the agent update to go along with this new setup**. To do so, you can follow the guidance on how to deploy at scale. 
+
+
+### What’s the upgrade path from Log Analytics Agent (MMA) to Azure Monitor Agent (AMA) for monitoring SCOM? Can we use AMA for SCOM scenarios?
+Here's how AMA impacts the two SCOM related monitor scenarios:
+- **Scenario 1**: For monitoring the Windows operating system of SCOM, the upgrade path is same as any other machine, wherein you can migrate from MMA (versions 2016, 2019) to AMA as soon as your required parity features are available on AMA.
+- **Scenario 2**: For onboarding/connecting SCOM to Log Analytics workspaces, since this is enabled via a SCOM connector for Log Analytics/Azure Monitor, neither MMA nor AMA is required to be installed on the SCOM management server. As such there is no impact to this use case from AMA perspective. 
+*Note: You can run both scenarios above with MMA and AMA side-by-side without any impact*
+
+
+### Will the new Azure Monitor agent support data collection for the various Log Analytics solutions?
+What you’re familiar as solutions or management packs, now become VM extensions that use the Azure Monitor Agent extension to send data to Azure Monitor. When you enable a solution on AMA, you hence see an additional VM extension installed, when applicable.
+Over time, AMA will be the only agent that uploads data to Azure Monitor (or additional supported destinations). 
+The solution specific VM extensions exist to collect scenario specific data or perform transformation/processing as required, and then use AMA to route the final data to Azure Monitor. 
+
+Here’s a diagram explaining the **new extensibility architecture**:
+
+![Extensions architecture](agents/media/azure-monitor-agent/extensibility-arch.png)
+
+
+### Which Log Analytics solutions are supported or planned to be supported on the new Azure Monitor Agent?
+Log Analytics solutions can be enabled using the new Azure Monitor Agent either as natively supported or by installing the additional VM extension for the solution.
+
+| Solution (VM extension) | Availability on Azure Monitor Agent (AMA) |
+|:---|:---|
+| **Azure Security Centre** | Private preview on AMA: [Sign up link](https://aka.ms/AMAgent) |
+| Sentinel | Private preview on AMA for Windows Events: [sign up link](https://aka.ms/AMAgent) |
+| Change Tracking | Supported as File Integrity Monitoring (FIM) in ASC on AMA private preview : [Sign up link](https://aka.ms/AMAgent) |
+| Update Management | New version that doesn’t need any agent is in private preview: [Sign up link](https://www.yammer.com/azureadvisors/threads/1064001355087872) |
+| VM Insights guest health <sup>NEW</sup> | Public preview: [VM insights guest health (preview)](https://docs.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-health-overview) |
+| SQL Monitoring (new) | Private preview on AMA only |
+| VM Insights with metrics support | *Private preview coming soon* |
+
+
+### Can the new Azure Monitor Agent and Log Analytics Agent co-exist side-by-side?
+Yes they can, but with certain considerations. Read more [here](https://docs.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-overview#coexistence-with-other-agents).
+
+### Is the new Azure Monitor Agent at parity with existing agents?
+It does not have full parity yet with existing agents. Here are some high-level gaps:
+
+- **Comparison with Log Analytics Agents (MMA/OMS)**
+	-	Not all Log Analytics Solutions are supported today. See table above
+	-	No support for Private Links - This will be available as part of GA launch
+	-	No support for proxy servers or Log Analytics (OMS) gateway
+	-	No support for collecting custom logs or IIS logs
+	-	No support for Hybrid Runbook workers
+
+- **Comparison with Azure Diagnostic Extensions (WAD/LAD)**
+	-	No support for Event Hubs and Storage accounts as destinations
+
+
+### Does the new Azure Monitor Agent support non-Azure environments (other clouds, on-prem)?
+Both on-prem machines and machines connected to other clouds are supported for servers today, once you have the Azure ARC agent installed. For purposes of running AMA and DCR, the ARC requirement comes at **no additional cost or resource consumption**, since the ARC agent is only used an installation mechanism and isn’t performing any operations unless you enable them
+
+
+### What types of machines does the new Azure Monitor Agent support?
+You can directly install them on Virtual Machines, Virtual Machines Scale Sets, and ARC enabled Servers only. 
+
+
+### Can we filter events using event Id, i.e. more granular event filtering using the new Azure Monitor Agent?
+Yes. You can use **Xpath queries** for filtering events on Windows machines. [Learn more](https://docs.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent#limit-data-collection-with-custom-xpath-queries)  
+For performance counters, you can specify specific counters you wish to collect, and exclude ones you don’t need.
+For syslog on Linux, you can choose Facilities and log level for each facility to collect.
+
+
+### Does the new Azure Monitor agent support sending data to EventHubs and Azure Storage Accounts?
+Not today, but the new agent along with Data Collection Rules will support sending data to both Event Hubs as well as Azure Storage accounts in future. Watch out for announcements in Azure Updates or join the [Teams channel](https://teams.microsoft.com/l/team/19%3af3f168b782f64561b52abe75e59e83bc%40thread.tacv2/conversations?groupId=770d6aa5-c2f7-4794-98a0-84fd6ae7f193&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47) for frequent updates, support, news and more!
 
 
 ## Visualizations
