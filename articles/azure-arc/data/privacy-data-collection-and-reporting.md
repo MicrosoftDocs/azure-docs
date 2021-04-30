@@ -11,7 +11,7 @@ ms.date: 04/27/2021
 ms.custom: template-concept 
 ---
 
-# Azure Arc data services data collection and repriting
+# Azure Arc data services data collection and reporting
 
 This article describes the data that Azure Arc enabled data services transmits to Microsoft. 
 
@@ -48,7 +48,7 @@ When a cluster is configured to be directly connected to Azure some data is auto
 
 ## Indirectly connected
 
-When a cluster not configured to be directly connected to Azure, data is not automatically tran transmitted to Microsoft. To transmit data to Microsoft, you need to configure the export. The following list describes the type of data and 
+When a cluster not configured to be directly connected to Azure, it does not automatically transmit operational, or billing and inventory data to Microsoft. To transmit data to Microsoft, you need to configure the export. The following list describes the type of data and 
 
 - **Operational data**
    - Required: No
