@@ -55,7 +55,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Install the aks-preview CLI extension
 
-You also need the *aks-preview* Azure CLI extension version 0.5.10 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. If you already have the extension installed, update to the latest available version by using the [az extension update][az-extension-update] command.
+You also need the *aks-preview* Azure CLI extension version 0.5.9 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. If you already have the extension installed, update to the latest available version by using the [az extension update][az-extension-update] command.
 
 ```azurecli-interactive
 # Install the aks-preview extension
