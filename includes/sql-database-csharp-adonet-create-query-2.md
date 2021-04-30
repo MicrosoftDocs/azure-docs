@@ -1,9 +1,9 @@
 ---
-author: MightyPen
+author: rothja
+ms.author: jroth
 ms.service: sql-database
 ms.topic: include
 ms.date: 12/10/2018	
-ms.author: genemi
 ---
 
 ## C# program example

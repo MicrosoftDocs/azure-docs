@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Identify and diagnose issues in Windows Virtual Desktop (classic)
 

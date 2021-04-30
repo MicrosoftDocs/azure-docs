@@ -55,7 +55,7 @@ The application claims are values that are returned to the application. Update y
 1. Select **Page layouts**.
 1. Select **Local account sign-up page**.
 1. Under **User attributes**, select **City**.
-    1. In the **User input type** drop-down, select **DropdownSingleSelect**.
+    1. In the **User input type** drop-down, select **DropdownSingleSelect**. Optional: Use the "Move up/down" buttons to arrange the text order on the sign-up page.
     1. In the **Optional** drop-down, select **No**.
 1. Select **Save**. 
 

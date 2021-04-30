@@ -40,6 +40,10 @@
       items:
       - name: Class types overview
         href: class-types.md
+      - name: Adobe Creative Cloud
+        href: class-type-adobe-creative-cloud.md
+      - name: Autodesk
+        href: class-type-autodesk.md
       - name: Deep learning in natural language processing
         href: class-type-deep-learning-natural-language-processing.md
       - name: Shell scripting on Linux
@@ -137,6 +141,8 @@
       href: how-to-setup-lab-gpu.md
     - name: Prepare a Windows template VM
       href: how-to-prepare-windows-template.md
+    - name: Use external file storage
+      href: how-to-attach-external-storage.md
     - name: Control Windows shutdown behavior
       href: how-to-windows-shutdown.md
     - name: View support information (educator)
@@ -178,6 +184,8 @@
     href: /rest/api/labservices/
   - name: Az.LabServices PowerShell module (preview)
     href: reference-powershell-module.md
+  - name: Azure CLI
+    href: /cli/azure/hack
 - name: Resources
   items:
   - name: Azure Lab Services Blog

@@ -35,13 +35,13 @@ In this tutorial, you learn how to:
 
 ## Create VM
 
-To see diagnostics and metrics in action, you need a VM. First, create a resource group with [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named *myResourceGroupMonitor* in the *eastus* location.
+To see diagnostics and metrics in action, you need a VM. First, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroupMonitor* in the *eastus* location.
 
 ```azurecli-interactive
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-Now create a VM with [az vm create](/cli/azure/vm#az-vm-create). The following example creates a VM named *myVM* and generates SSH keys if they do not already exist in *~/.ssh/*:
+Now create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVM* and generates SSH keys if they do not already exist in *~/.ssh/*:
 
 ```azurecli-interactive
 az vm create \
@@ -166,7 +166,7 @@ After the solution has been enabled, it may take some time while inventory is be
 
 On your VM, select **Change Tracking** under **OPERATIONS**. Select **Edit Settings**, the **Change Tracking** page is displayed. Select the type of setting you want to track and then select **+ Add** to configure the settings. The available option Linux is **Linux Files**
 
-For detailed information on Change Tracking see, [Troubleshoot changes on a VM](../../automation/automation-tutorial-troubleshoot-changes.md)
+For detailed information on Change Tracking see, [Troubleshoot changes on a VM](../../automation/troubleshoot/change-tracking.md)
 
 ### View inventory
 

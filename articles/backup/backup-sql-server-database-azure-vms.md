@@ -2,7 +2,7 @@
 title: Back up multiple SQL Server VMs from the vault
 description: In this article, learn how to back up SQL Server databases on Azure virtual machines with Azure Backup from the Recovery Services vault
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 04/07/2021
 ---
 # Back up multiple SQL Server VMs from the Recovery Services vault
 
@@ -17,10 +17,6 @@ In this article, you'll learn how to:
 > * Create and configure a vault.
 > * Discover databases and set up backups.
 > * Set up auto-protection for databases.
-
->[!NOTE]
->**Soft delete for SQL server in Azure VM and soft delete for SAP HANA in Azure VM workloads** is now available in preview.<br>
->To sign up for the preview, write to us at AskAzureBackupTeam@microsoft.com
 
 ## Prerequisites
 

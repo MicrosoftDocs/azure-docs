@@ -2,7 +2,8 @@
 title: Deployment history deletions
 description: Describes how Azure Resource Manager automatically deletes deployments from the deployment history. Deployments are deleted when the history is close to exceeding the limit of 800.
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 03/23/2021 
+ms.custom: devx-track-azurepowershell
 ---
 # Automatic deletions from deployment history
 
@@ -78,7 +79,7 @@ To reenable automatic deletions, use Azure REST API or Azure CLI.
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az feature register](/cli/azure/feature#az-feature-register).
+For Azure CLI, use [az feature register](/cli/azure/feature#az_feature_register).
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Resources --name DisableDeploymentGrooming
@@ -90,7 +91,7 @@ To see the current status of your subscription, use:
 az feature show --namespace Microsoft.Resources --name DisableDeploymentGrooming
 ```
 
-To reenable automatic deletions, use [az feature unregister](/cli/azure/feature#az-feature-unregister).
+To reenable automatic deletions, use [az feature unregister](/cli/azure/feature#az_feature_unregister).
 
 ```azurecli-interactive
 az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGrooming
@@ -98,7 +99,7 @@ az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGr
 
 # [REST](#tab/rest)
 
-For REST API, use [Features - Register](/rest/api/resources/features/features/register).
+For REST API, use [Features - Register](/rest/api/resources/features/register).
 
 ```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/register?api-version=2015-12-01
@@ -110,7 +111,7 @@ To see the current status of your subscription, use:
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/register?api-version=2015-12-01
 ```
 
-To reenable automatic deletions, use [Features - Unregister](/rest/api/resources/features/features/unregister)
+To reenable automatic deletions, use [Features - Unregister](/rest/api/resources/features/unregister)
 
 ```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/unregister?api-version=2015-12-01

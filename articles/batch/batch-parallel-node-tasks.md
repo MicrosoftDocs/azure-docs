@@ -2,7 +2,7 @@
 title: Run tasks concurrently to maximize usage of Batch compute nodes
 description: Increase efficiency and lower costs by using fewer compute nodes and running tasks in parallel on each node in an Azure Batch pool
 ms.topic: how-to
-ms.date: 03/25/2021
+ms.date: 04/13/2021
 ms.custom: "H1Hack27Feb2017, devx-track-csharp"
 ---
 # Run tasks concurrently to maximize usage of Batch compute nodes
@@ -71,7 +71,13 @@ CloudPool pool =
         poolId: "mypool",
         targetDedicatedComputeNodes: 4
         virtualMachineSize: "standard_d1_v2",
-        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
+        VirtualMachineConfiguration: new VirtualMachineConfiguration(
+            imageReference: new ImageReference(
+                                publisher: "MicrosoftWindowsServer",
+                                offer: "WindowsServer",
+                                sku: "2019-datacenter-core",
+                                version: "latest"),
+            nodeAgentSkuId: "batch.node.windows amd64");
 
 pool.TaskSlotsPerNode = 4;
 pool.TaskSchedulingPolicy = new TaskSchedulingPolicy(ComputeNodeFillType.Pack);
@@ -132,9 +138,13 @@ For more information on adding pools by using the REST API, see [Add a pool to a
   "odata.metadata":"https://myaccount.myregion.batch.azure.com/$metadata#pools/@Element",
   "id":"mypool",
   "vmSize":"large",
-  "cloudServiceConfiguration": {
-    "osFamily":"4",
-    "targetOSVersion":"*",
+  "virtualMachineConfiguration": {
+    "imageReference": {
+      "publisher": "canonical",
+      "offer": "ubuntuserver",
+      "sku": "18.04-lts"
+    },
+    "nodeAgentSKUId": "batch.node.ubuntu 16.04"
   },
   "targetDedicatedComputeNodes":2,
   "taskSlotsPerNode":4,

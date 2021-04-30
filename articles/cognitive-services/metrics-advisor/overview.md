@@ -23,6 +23,11 @@ Metrics Advisor is a part of Azure Cognitive Services that uses AI to perform da
 
 :::image type="content" source="media/metrics-advisor-overview.png" alt-text="Metrics Advisor overview":::
 
+This documentation contains the following types of articles:
+* The [quickstarts](./Quickstarts/web-portal.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
+* The [how-to guides](./how-tos/onboard-your-data.md) contain instructions for using the service in more specific or customized ways.
+* The [conceptual articles](glossary.md) provide in-depth explanations of the service's functionality and features.
+
 ## Connect to a variety of data sources
 
 Metrics Advisor can connect to, and [ingest multi-dimensional metric](how-tos/onboard-your-data.md) data from many data stores, including: SQL Server, Azure Blob Storage, MongoDB and more.

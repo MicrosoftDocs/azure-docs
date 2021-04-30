@@ -7,7 +7,7 @@ ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/25/2020
-ms.custom: mvc, seodec18
+ms.custom: mvc, seodec18, devx-track-azurepowershell
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
@@ -47,6 +47,8 @@ To map a custom DNS name to a web app, the web app's [App Service plan](https://
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
+  > [!NOTE]
+  > Removing or adding a custom domain to your web app will cause your site to be restarted.
 ### Sign in to Azure
 
 Open the [Azure portal](https://portal.azure.com), and sign in with your Azure account.

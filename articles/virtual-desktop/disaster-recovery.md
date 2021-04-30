@@ -8,7 +8,7 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 10/09/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 
 # Set up a business continuity and disaster recovery plan

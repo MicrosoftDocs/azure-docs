@@ -127,7 +127,7 @@ A workload may require splitting a cluster's nodes into separate pools for logic
 
 * All subnets assigned to nodepools must belong to the same virtual network.
 * System pods must have access to all nodes/pods in the cluster to provide critical functionality such as DNS resolution and tunneling kubectl logs/exec/port-forward proxy.
-* If you expand your VNET after creating the cluster you must update your cluster (perform any managed clster operation but node pool operations don't count) before adding a subnet outside the original cidr. AKS will error out on the agent pool add now though we originally allowed it. If you don't know how to reconcile your cluster file a support ticket. 
+* If you expand your VNET after creating the cluster you must update your cluster (perform any managed cluster operation but node pool operations don't count) before adding a subnet outside the original cidr. AKS will error out on the agent pool add now though we originally allowed it. If you don't know how to reconcile your cluster file a support ticket. 
 * Calico Network Policy is not supported. 
 * Azure Network Policy is not supported.
 * Kube-proxy expects a single contiguous cidr and uses it this for three optmizations. See this [K.E.P.](https://github.com/kubernetes/enhancements/tree/master/keps/sig-network/2450-Remove-knowledge-of-pod-cluster-CIDR-from-iptables-rules) and --cluster-cidr [here](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) for details. In azure cni your first node pool's subnet will be given to kube-proxy. 
@@ -404,9 +404,12 @@ It takes a few minutes for the *gpunodepool* to be successfully created.
 
 ## Specify a taint, label, or tag for a node pool
 
-### Setting nodepool taints
-
 When creating a node pool, you can add taints, labels, or tags to that node pool. When you add a taint, label, or tag, all nodes within that node pool also get that taint, label, or tag.
+
+> [!IMPORTANT]
+> Adding taints, labels, or tags to nodes should be done for the entire node pool using `az aks nodepool`. Applying taints, lablels, or tags to individual nodes in a node pool using `kubectl` is not recommended.  
+
+### Setting nodepool taints
 
 To create a node pool with a taint, use [az aks nodepool add][az-aks-nodepool-add]. Specify the name *taintnp* and use the `--node-taints` parameter to specify *sku=gpu:NoSchedule* for the taint.
 
@@ -734,6 +737,34 @@ For existing AKS clusters, you can also add a new node pool, and attach a public
 az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
 ```
 
+### Use a public IP prefix
+
+There are a number of [benefits to using a public IP prefix][public-ip-prefix-benefits]. AKS supports using addresses from an existing public IP prefix for your nodes by passing the resource ID with the flag `node-public-ip-prefix` when creating a new cluster or adding a node pool.
+
+First, create a public IP prefix using [az network public-ip prefix create][az-public-ip-prefix-create]:
+
+```azurecli-interactive
+az network public-ip prefix create --length 28 --location eastus --name MyPublicIPPrefix --resource-group MyResourceGroup3
+```
+
+View the output, and take note of the `id` for the prefix:
+
+```output
+{
+  ...
+  "id": "/subscriptions/<subscription-id>/resourceGroups/myResourceGroup3/providers/Microsoft.Network/publicIPPrefixes/MyPublicIPPrefix",
+  ...
+}
+```
+
+Finally, when creating a new cluster or adding a new node pool, use the flag `node-public-ip-prefix` and pass in the prefix's resource ID:
+
+```azurecli-interactive
+az aks create -g MyResourceGroup3 -n MyManagedCluster -l eastus --enable-node-public-ip --node-public-ip-prefix /subscriptions/<subscription-id>/resourcegroups/MyResourceGroup3/providers/Microsoft.Network/publicIPPrefixes/MyPublicIPPrefix
+```
+
+### Locate public IPs for nodes
+
 You can locate the public IPs for your nodes in various ways:
 
 * Use the Azure CLI command [az vmss list-instance-public-ips][az-list-ips].
@@ -817,3 +848,5 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
 [az-list-ips]: /cli/azure/vmss?view=azure-cli-latest&preserve-view=true#az_vmss_list_instance_public_ips
 [reduce-latency-ppg]: reduce-latency-ppg.md
+[public-ip-prefix-benefits]: ../virtual-network/public-ip-address-prefix.md#why-create-a-public-ip-address-prefix
+[az-public-ip-prefix-create]: /cli/azure/network/public-ip/prefix?view=azure-cli-latest&preserve-view=true#az_network_public_ip_prefix_create

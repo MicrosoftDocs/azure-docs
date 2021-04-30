@@ -3,7 +3,7 @@ title: Tag resources, resource groups, and subscriptions for logical organizatio
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
 ms.date: 01/04/2021 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 # Use tags to organize your Azure resources and management hierarchy
 
@@ -678,10 +678,10 @@ The following template adds the tags from an object to either a resource group o
 
 To work with tags through the Azure REST API, use:
 
-* [Tags - Create Or Update At Scope](/rest/api/resources/resources/tags/createorupdateatscope) (PUT operation)
-* [Tags - Update At Scope](/rest/api/resources/resources/tags/updateatscope) (PATCH operation)
-* [Tags - Get At Scope](/rest/api/resources/resources/tags/getatscope) (GET operation)
-* [Tags - Delete At Scope](/rest/api/resources/resources/tags/deleteatscope) (DELETE operation)
+* [Tags - Create Or Update At Scope](/rest/api/resources/tags/createorupdateatscope) (PUT operation)
+* [Tags - Update At Scope](/rest/api/resources/tags/updateatscope) (PATCH operation)
+* [Tags - Get At Scope](/rest/api/resources/tags/getatscope) (GET operation)
+* [Tags - Delete At Scope](/rest/api/resources/tags/deleteatscope) (DELETE operation)
 
 ## Inherit tags
 

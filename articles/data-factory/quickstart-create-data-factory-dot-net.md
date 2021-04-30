@@ -100,14 +100,15 @@ Next, create a C# .NET console application in Visual Studio:
    string pipelineName = "Adfv2QuickStartPipeline";
    ```
 > [!NOTE]
-> For US Azure Gov accounts, you have to use BaseUri of  *https://management.usgovcloudapi.net* instead of *https://management.azure.com/*, and then create data factory management client. 
-> 
+> For Sovereign clouds, you must use the appropriate cloud-specific endpoints for ActiveDirectoryAuthority and ResourceManagerUrl (BaseUri). 
+>  For example, in US Azure Gov you would use authority of https://login.microsoftonline.us instead of https://login.microsoftonline.com, and use https://management.usgovcloudapi.net instead of https://management.azure.com/, and then create the data factory management client. 
+>  You can use Powershell to easily get the endpoint Urls for various clouds by executing “Get-AzEnvironment | Format-List”, which will return a list of endpoints for each cloud environment.
 
 3. Add the following code to the **Main** method that creates an instance of **DataFactoryManagementClient** class. You use this object to create a data factory, a linked service, datasets, and a pipeline. You also use this object to monitor the pipeline run details.
 
    ```csharp
    // Authenticate and create a data factory management client
-   var context = new AuthenticationContext("https://login.windows.net/" + tenantID);
+   var context = new AuthenticationContext("https://login.microsoftonline.com/" + tenantID);
    ClientCredential cc = new ClientCredential(applicationId, authenticationKey);
    AuthenticationResult result = context.AcquireTokenAsync(
        "https://management.azure.com/", cc).Result;

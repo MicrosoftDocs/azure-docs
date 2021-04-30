@@ -6,7 +6,7 @@ documentationcenter: na
 author: KumudD
 manager: mtillman
 ms.service: virtual-network
-Customer intent: As an Azure customer, I want to learn more about enabling routing preference for my CDN origin resources.
+# Customer intent: As an Azure customer, I want to learn more about enabling routing preference for my CDN origin resources.
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

@@ -73,7 +73,7 @@ The steps for this task use a VNet based on the values in the following configur
    ```azurepowershell-interactive
    $vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
    ```
-1. Add a gateway subnet to your Virtual Network. The gateway subnet must be named "GatewaySubnet". The gateway subnet has to be /27 or larger (/26, /25, and so on).
+1. Add a gateway subnet to your Virtual Network. The gateway subnet must be named "GatewaySubnet". The gateway subnet has to be /27 or larger (/26, /25, and so on). If you plan on connecting 16 ExpressRoute circuits to your gateway, you **must** create a gateway subnet of /26 or larger.
 
    ```azurepowershell-interactive
    Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26

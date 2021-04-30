@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 04/29/2021
 
 ms.author: justinha
 author: justinha
@@ -23,7 +23,7 @@ Features like multi-factor authentication (MFA) are a great way to secure your o
 | --- | --- | --- |
 | Passwordless | Windows 10 Device, phone, or security key | Biometric or PIN |
 
-Each organization has different needs when it comes to authentication. Microsoft offers the following three passwordless authentication options that integrate with Azure Active Directory (Azure AD):
+Each organization has different needs when it comes to authentication. Microsoft global Azure and Azure Government offer the following three passwordless authentication options that integrate with Azure Active Directory (Azure AD):
 
 - Windows Hello for Business
 - Microsoft Authenticator app
@@ -136,6 +136,8 @@ The following providers offer FIDO2 security keys of different form factors that
 | KONA I | [https://konai.com/business/security/fido](https://konai.com/business/security/fido) |
 | Excelsecu | [https://www.excelsecu.com/productdetail/esecufido2secu.html](https://www.excelsecu.com/productdetail/esecufido2secu.html) |
 | Token2 Switzerland | [https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key](https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key) |
+| GoTrustID Inc. | [https://www.gotrustid.com/idem-key](https://www.gotrustid.com/idem-key) |
+| Kensington | [https://www.kensington.com/solutions/product-category/why-biometrics/](https://www.kensington.com/solutions/product-category/why-biometrics/) |
 
 > [!NOTE]
 > If you purchase and plan to use NFC-based security keys, you need a supported NFC reader for the security key. The NFC reader isn't an Azure requirement or limitation. Check with the vendor for your NFC-based security key for a list of supported NFC readers.
@@ -156,7 +158,7 @@ The following considerations apply:
 - End users can register and manage these passwordless authentication methods in their account portal
 - End users can sign in with these passwordless authentication methods:
    - Microsoft Authenticator App: Works in scenarios where Azure AD authentication is used, including across all browsers, during Windows 10 setup, and with integrated mobile apps on any operating system.
-   - Security keys: Work on lock screen for Windows 10 and the web in supported browsers like Microsoft Edge (both legacy and new Edge).
+   - Security keys: Work in Windows 10 setup in OOBE with or without Windows Autopilot, on lock screen for Windows 10 and the web in supported browsers like Microsoft Edge (both legacy and new Edge).
 
 ## Choose a passwordless method
 

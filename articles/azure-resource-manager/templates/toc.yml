@@ -366,9 +366,12 @@
   items:
   - name: Create templates
     items:
-    - name: Template file structure
+    - name: JSON structure
       displayName: parameters,variables,resources,outputs,condition
       href: template-syntax.md
+    - name: Bicep structure
+      displayName: parameters,variables,resources,outputs,condition
+      href: bicep-file.md
     - name: Write template expressions
       href: template-expressions.md
     - name: Parameters
@@ -563,6 +566,16 @@
       href: template-functions-resource.md
     - name: String functions
       href: template-functions-string.md
+  - name: Bicep operators
+    items:
+    - name: All operators
+      href: bicep-operators.md
+    - name: Comparison operators
+      href: bicep-operators-comparison.md
+    - name: Logical operators
+      href: bicep-operators-logical.md
+    - name: Numeric operators
+      href: bicep-operators-numeric.md
   - name: REST
     href: /rest/api/resources/
   - name: Azure PowerShell

@@ -66,7 +66,7 @@ The following table provides coverage information for Azure Maps routing.
 | Rwanda                         |        ✓       |                       |             |
 | Senegal                        |        ✓       |                       |             |
 | Seychelles                     |        ✓       |                       |             |
-| South Africa                   |        ✓       ||         ✓            |             |
+| South Africa                   |        ✓       |         ✓            |             |
 | Swaziland                      |        ✓       |                       |             |
 | Tanzania                       |        ✓       |                       |             |
 | Togo                           |        ✓       |                       |             |
