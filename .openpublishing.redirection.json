@@ -54796,6 +54796,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/app-proxy/application-proxy-migration.md",
+      "redirect_url": "/azure/active-directory/app-proxy/index",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-migration.md",
       "redirect_url": "/azure/active-directory/app-proxy/index",
       "redirect_document_id": false
