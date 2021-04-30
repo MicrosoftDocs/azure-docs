@@ -15,11 +15,11 @@ ms.author: lajanuar
 
 # Form Recognizer prebuilt invoice model
 
-Azure Form Recognizer can analyze and extract information from sales invoices using its prebuilt invoice models. The Invoice API enables customers to take invoices in a variety of formats and return structured data to automate the invoice processing. It combines our powerful [Optical Character Recognition (OCR)](../computer-vision/overview-ocr.md) capabilities with invoice understanding deep learning models to extract key information from invoices in English. It extracts the text, tables, and information such as customer, vendor, invoice ID, invoice due date, total, invoice amount due, tax amount, ship to, bill to, line items and more. The prebuilt Invoice API is publicly available in the Form Recognizer v2.1 preview.
+Azure Form Recognizer can analyze and extract information from sales invoices using its prebuilt invoice models. The Invoice API enables customers to take invoices in various formats and return structured data to automate the invoice processing. It combines our powerful [Optical Character Recognition (OCR)](../computer-vision/overview-ocr.md) capabilities with invoice understanding deep learning models to extract key information from invoices written in English. It extracts the text, tables, and information such as customer, vendor, invoice ID, invoice due date, total, invoice amount due, tax amount, ship to, bill to, line items and more. The prebuilt Invoice API is publicly available in the Form Recognizer v2.1 preview.
 
 ## What does the Invoice service do?
 
-The Invoice API extracts key fields and line items from invoices and returns them in an organized structured JSON response. Invoices can be from a variety of formats and quality, including  phone-captured images, scanned documents, and digital PDFs. The invoice API will extract the structured output from all of these invoices.
+The Invoice API extracts key fields and line items from invoices and returns them in an organized structured JSON response. Invoices can be from various formats and quality, including  phone-captured images, scanned documents, and digital PDFs. The invoice API will extract the structured output from all of these invoices.
 
 ![Contoso invoice example](./media/invoice-example-new.jpg)
 
@@ -58,21 +58,21 @@ The second step is to call the [Get Analyze Invoice Result](https://westcentralu
 |:-----|:----:|:----|
 |status | string | notStarted: The analysis operation has not started.<br /><br />running: The analysis operation is in progress.<br /><br />failed: The analysis operation has failed.<br /><br />succeeded: The analysis operation has succeeded.|
 
-When the **status** field has the **succeeded** value, the JSON response will include the invoice understanding results, tables extracted and optional text recognition results, if requested. The invoice understanding result is organized as a dictionary of named field values, where each value contains the extracted text, normalized value, bounding box, confidence and corresponding word elements. It also includes the line items extracted where each line item contains the amount, description, unitPrice, quantity etc. The text recognition result is organized as a hierarchy of lines and words, with text, bounding box and confidence information.
+When the **status** field has the **succeeded** value, the JSON response will include the invoice understanding results, tables extracted and optional text recognition results, if requested. The invoice understanding result is organized as a dictionary of named field values, where each value contains the extracted text, normalized value, bounding box, confidence, and corresponding word elements. It also includes the line items extracted where each line item contains the amount, description, unitPrice, quantity etc. The text recognition result is organized as a hierarchy of lines and words, with text, bounding box and confidence information.
 
 ### Sample JSON output
 
 The response to the Get Analyze Invoice Result operation will be the structured representation of the invoice with all the information extracted.
 See here for a [sample invoice file](media/sample-invoice.jpg) and its structured output [sample invoice output](media/invoice-example-new.jpg).
 
-The JSON output has 3 parts:
+The JSON output has three parts:
 * `"readResults"` node contains all of the recognized text and selection marks. Text is organized by page, then by line, then by individual words.
-* `"pageResults"` node contains the tables and cells extracted with their bounding boxes, confidence and a reference to the lines and words in "readResults".
-* `"documentResults"` node contains the invoice specific values and line items that the model discovered. This is where you'll find all the fields from the invoice such as invoice ID, ship to, bill to, customer, total, line items and lots more.
+* `"pageResults"` node contains the tables and cells extracted with their bounding boxes, confidence, and a reference to the lines and words in "readResults".
+* `"documentResults"` node contains the invoice-specific values and line items that the model discovered. It is where you'll find all the fields from the invoice such as invoice ID, ship to, bill to, customer, total, line items and lots more.
 
 ## Example output
 
-The Invoice service will extract the text, tables and 26 invoice fields. Following are the fields extracted from an invoice in the JSON output response (the output below uses this [sample invoice](media/sample-invoice.jpg)).
+The Invoice service will extract the text, tables, and 26 invoice fields. Following are the fields extracted from an invoice in the JSON output response (the output below uses this [sample invoice](media/sample-invoice.jpg)).
 
 |Name| Type | Description | Text | Value (standardized output) |
 |:-----|:----|:----|:----| :----|
@@ -113,8 +113,8 @@ Following are the line items extracted from an invoice in the JSON output respon
 | Quantity | number | The quantity for this invoice line item | 2 | 2 |
 | UnitPrice | number | The net or gross price (depending on the gross invoice setting of the invoice) of one unit of this item | $30.00 | 30 |
 | ProductCode | string| Product code, product number, or SKU associated with the specific line item | A123 | |
-| Unit | string| The unit of the line item e.g kg, lb etc. | hours | |
-| Date | date| Date corresponding to each line item. Often this is a date the line item was shipped | 3/4/2021| 2021-03-04 |
+| Unit | string| The unit of the line item, e.g,  kg, lb etc. | hours | |
+| Date | date| Date corresponding to each line item. Often it is a date the line item was shipped | 3/4/2021| 2021-03-04 |
 | Tax | number | Tax associated with each line item. Possible values include tax amount, tax %, and tax Y/N | 10% | |
 
 
