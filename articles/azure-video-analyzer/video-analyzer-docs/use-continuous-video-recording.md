@@ -224,7 +224,7 @@ When the live pipeline is activated, the RTSP source node attempts to connect to
   },
   "applicationProperties": {
     "dataVersion": "1.0",
-    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/videoanalyzers/hubname",
+    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/videoanalyzers/{ava-account-name}",
     "subject": "/edgeModules/avaedge/livePipelines/Sample-Pipeline-1/sources/rtspSource",
     "eventType": "Microsoft.VideoAnalyzers.Diagnostics.MediaSessionEstablished",
     "eventTime": "2021-04-09T09:42:18.1280000Z"
@@ -252,7 +252,7 @@ When the video sink node starts to record media, it emits this event of type **M
     "outputLocation": "sample-cvr-video"
   },
   "applicationProperties": {
-    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoanalyzers/{ava-account-name}",
+    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoAnalyzers/{ava-account-name}",
     "subject": "/edgeModules/avaedge/livePipelines/Sample-Pipeline-1/sinks/videoSink",
     "eventType": "Microsoft.VideoAnalyzers.Pipeline.Operational.RecordingStarted",
     "eventTime": "2021-04-09T09:42:38.1280000Z",
@@ -277,7 +277,7 @@ As the name suggests, the RecordingStarted event is sent when recording has star
     "outputLocation": "sample-cvr-video"
   },
   "applicationProperties": {
-    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoanalyzers/{ava-account-name}",
+    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoAnalyzers/{ava-account-name}",
     "subject": "/edgeModules/avaedge/livePipelines/Sample-Pipeline-1/sinks/videoSink",
     "eventType": "Microsoft.VideoAnalyzers.Pipeline.Operational.RecordingAvailable",
     "eventTime": "2021-04-09T09:43:38.1280000Z",
@@ -304,7 +304,7 @@ When you deactivate the live pipeline, the video sink node stops recording media
     "outputLocation": "sample-cvr-video"
   },
   "applicationProperties": {
-    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoanalyzers/{ava-account-name}",
+    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoAnalyzers/{ava-account-name}",
     "subject": "/edgeModules/avaedge/livePipelines/Sample-Pipeline-1/sinks/videoSink",
     "eventType": "Microsoft.VideoAnalyzers.Pipeline.Operational.RecordingStopped",
     "eventTime": "2021-04-10T11:33:31.051Z",
