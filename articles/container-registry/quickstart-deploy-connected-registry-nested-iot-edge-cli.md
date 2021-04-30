@@ -24,14 +24,14 @@ This tutorial also requires that you have set up a connected registry on a top l
 
 Also, make sure that you have created the connected registry resource in Azure as described in the [Create connected registry using the CLI][quickstart-connected-registry-cli] quickstart guide. Only `mirror` mode will work for this scenario.
 
-## Create a client token for access to the cloud registry
+## Create a client token for access to the parent registry
 
 The IoT Edge runtime will need to authenticate with the top level registry to pull the connected registry image and deploy it. First, use the following command to create a scope map for the connected registry image repository:
 
 ```azurecli
 az acr scope-map create \
-  --description "Connected registry repo pull scope map." \
-  --name l4-connected-registry-pull \
+  --description "Nested connected registry repo pull scope map." \
+  --name nested-connected-registry-pull \
   --registry mycontainerregistry001 \
   --repository "acr/connected-registry" content/read
 ```
@@ -40,7 +40,7 @@ Next, use the following command to create a client token for the IoT Edge device
 
 ```azurecli
 az acr token create \
-  --name l4crimagepulltoken \
+  --name nestedcrimagepulltoken \
   --registry mycontainerregistry001 \
   --scope-map connected-registry-pull
 ```
@@ -66,7 +66,7 @@ This command will print a JSON that will include credential information similar 
         "value": "#$an0TH3rCoMPL3xP4ssW0rd002!#$"
       }
     ],
-    "username": "l4crimagepulltoken"
+    "username": "nestedcrimagepulltoken"
   }
   ...
 ```
@@ -84,7 +84,7 @@ Last, add the client token to the top level connected registry using the followi
 az acr connected-registry update \
   --name myconnectedregistry \
   --registry mycontainerregistry001 \
-  --add-client-tokens l4crimagepulltoken
+  --add-client-tokens nestedcrimagepulltoken
 ```
   > [!IMPORTANT]
   > The client token must be added to the parent connected registry, `myconnectedregistry` in this case.
@@ -116,58 +116,6 @@ You will need the information for the IoT Edge manifest below.
 
   > [!IMPORTANT]
   > Make sure that you save the generated connection string. The connection string contains one-time password that cannot be retrieved. If you issue the command again, new passwords will be generated. You can generate new passwords using the [az acr token credential generate][az-acr-token-credential-generate] command.
-
-## Create a client token for access to the parent registry
-The IoT Edge runtime will need to authenticate with the parent registry to pull the connected registry image and deploy it. First, use the following command to create a scope map for the connected registry image repository:
-
-```azurecli
-az acr scope-map create \
-  --description "Nested connected registry repo pull scope map." \
-  --name nested-connected-registry-pull \
-  --registry mycontainerregistry001 \
-  --repository "acr/connected-registry" content/read
-```
-
-Next, use the following command to create a client token for the nested IoT Edge device and associate it to the scope map:
-
-```azurecli
-az acr token create \
-  --name nestedcrimagepulltoken \
-  --registry mycontainerregistry001 \
-  --scope-map nested-connected-registry-pull
-```
-
-This command will print a JSON that will include credential information similar to the following:
-
-```json
-  ...
-  "credentials": {
-    "activeDirectoryObject": null,
-    "certificates": [],
-    "passwords": [
-      {
-        "creationTime": "2020-12-10T00:06:15.356846+00:00",
-        "expiry": null,
-        "name": "password1",
-        "value": "$$$0meCoMPL3xP4$$W0rd001!@#$$"
-      },
-      {
-        "creationTime": "2020-12-10T00:06:15.356846+00:00",
-        "expiry": null,
-        "name": "password2",
-        "value": "#$an0TH3rCoMPL3xP4ssW0rd002!#$"
-      }
-    ],
-    "username": "nestedcrimagepulltoken"
-  }
-  ...
-```
-
-You will need the username and one of the passwords values for the IoT Edge manifest below.
-
-[!IMPORTANT] Make sure that you save the generated passwords. Those are one-time passwords and cannot be retrieved. You can generate new passwords using the az acr token credential generate command.
-
-More details about tokens and scope maps are available in Create a token with repository-scoped permissions.
 
 ## Configure a deployment manifest for the nested IoT Edge
 
