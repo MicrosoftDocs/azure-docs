@@ -372,6 +372,9 @@
       - name: Data collection
         displayname: data collection rule,Azure Monitor agent
         href: agents/data-collection-rule-azure-monitor-agent.md
+      - name: FAQ
+        displayname: Azure Monitor agent faq
+        href: faq.md#azure-monitor-agent-preview
     - name: Log Analytics agent
       items:
       - name: Overview
