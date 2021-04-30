@@ -48,12 +48,8 @@ If you have an Azure free account, see [Upgrade your Azure subscription](upgrade
     :::image type="content" source="./media/spending-limit/msdn-remove-spending-limit-banner-x.png" alt-text="Screenshot that shows remove spending limit banner." lightbox="./media/spending-limit/msdn-remove-spending-limit-banner-x.png" :::
 1. Choose whether you want to remove the spending limit indefinitely or for the current billing period only.  
     :::image type="content" source="./media/spending-limit/remove-spending-limit-blade-x.png" alt-text="Screenshot that shows remove spending limit page." lightbox="./media/spending-limit/remove-spending-limit-blade-x.png" :::
-
-      | Option | Effect |
-      | --- | --- |
-      | Remove spending limit indefinitely | Spending limit does not automatically turn back on at the start of the next billing period. However, you can turn it back on yourself at any time. |
-      | Remove spending limit for the current billing period | Spending limit automatically turns back on at the start of the next billing period. |
-
+    - Selecting the **Remove spending limit indefinitely** option prevents the spending limit from automatically getting enabled at the start of the next billing period. However, you can turn it back on yourself at any time.
+    - Selecting the **Remove spending limit for the current billing period** option automatically turns the spending limit back on at the start of the next billing period.
 1. Click **Select payment method** to choose a payment method for your subscription. This will become the active payment method for your subscription.
 1. Click **Finish**.
 
