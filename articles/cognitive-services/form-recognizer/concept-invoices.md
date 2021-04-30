@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 04/30/2021
 ms.author: lajanuar
 ---
 
@@ -19,7 +19,7 @@ Azure Form Recognizer can analyze and extract information from sales invoices us
 
 ## What does the Invoice service do?
 
-The Invoice API extracts key fields and line items from invoices and returns them in an organized structured JSON response. Invoices can be from a variety of formats and quality, including  phone-captured images, scanned documents, and digital PDFs. The invoice API will extract the structured output from all of these invoices. 
+The Invoice API extracts key fields and line items from invoices and returns them in an organized structured JSON response. Invoices can be from a variety of formats and quality, including  phone-captured images, scanned documents, and digital PDFs. The invoice API will extract the structured output from all of these invoices.
 
 ![Contoso invoice example](./media/invoice-example-new.jpg)
 
@@ -30,7 +30,7 @@ To try out the Form Recognizer Invoice Service, go to the online Sample UI Tool:
 > [!div class="nextstepaction"]
 > [Try Prebuilt Models](https://fott-preview.azurewebsites.net/)
 
-You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer Invoice service. 
+You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer Invoice service.
 
 :::image type="content" source="media/analyze-invoice-new.png" alt-text="Analyzed invoice example" lightbox="media/analyze-invoice-new.png":::
 
@@ -38,10 +38,9 @@ You will need an Azure subscription ([create one for free](https://azure.microso
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
-## Supported locales 
+## Supported locales
 
-**Pre-built Receipt v2.0** (GA) and **Pre-built Receipt v2.1-preview.3** (preview) support invoices in the EN-US locale.
-
+**Pre-built invoice v2.1-preview.3** (preview) supports invoices in the **en-us** locale.
 
 ## The Analyze Invoice operation
 
@@ -63,11 +62,11 @@ When the **status** field has the **succeeded** value, the JSON response will in
 
 ### Sample JSON output
 
-The response to the Get Analyze Invoice Result operation will be the structured representation of the invoice with all the information extracted. 
+The response to the Get Analyze Invoice Result operation will be the structured representation of the invoice with all the information extracted.
 See here for a [sample invoice file](media/sample-invoice.jpg) and its structured output [sample invoice output](media/invoice-example-new.jpg).
 
-The JSON output has 3 parts: 
-* `"readResults"` node contains all of the recognized text and selection marks. Text is organized by page, then by line, then by individual words. 
+The JSON output has 3 parts:
+* `"readResults"` node contains all of the recognized text and selection marks. Text is organized by page, then by line, then by individual words.
 * `"pageResults"` node contains the tables and cells extracted with their bounding boxes, confidence and a reference to the lines and words in "readResults".
 * `"documentResults"` node contains the invoice specific values and line items that the model discovered. This is where you'll find all the fields from the invoice such as invoice ID, ship to, bill to, customer, total, line items and lots more.
 
@@ -79,9 +78,9 @@ The Invoice service will extract the text, tables and 26 invoice fields. Followi
 |:-----|:----|:----|:----| :----|
 | CustomerName | string | Customer being invoiced | Microsoft Corp |  |
 | CustomerId | string | Reference ID for the customer | CID-12345 |  |
-| PurchaseOrder | string | A purchase order reference number | PO-3333 | | 
-| InvoiceId | string | ID for this specific invoice (often "Invoice Number") | INV-100 | | 
-| InvoiceDate | date | Date the invoice was issued | 11/15/2019 | 2019-11-15 | 
+| PurchaseOrder | string | A purchase order reference number | PO-3333 | |
+| InvoiceId | string | ID for this specific invoice (often "Invoice Number") | INV-100 | |
+| InvoiceDate | date | Date the invoice was issued | 11/15/2019 | 2019-11-15 |
 | DueDate | date | Date payment for this invoice is due | 12/15/2019 | 2019-12-15 |
 | VendorName | string | Vendor who has created this invoice | CONTOSO LTD. | |
 | VendorAddress | string | Mailing address for the Vendor | 123 456th St New York, NY, 10001 | |
@@ -92,7 +91,7 @@ The Invoice service will extract the text, tables and 26 invoice fields. Followi
 | BillingAddressRecipient | string | Name associated with the BillingAddress | Microsoft Services | |
 | ShippingAddress | string | Explicit shipping address for the customer | 123 Ship St, Redmond WA, 98052 | |
 | ShippingAddressRecipient | string | Name associated with the ShippingAddress | Microsoft Delivery | |
-| SubTotal | number | Subtotal field identified on this invoice | $100.00 | 100 | 
+| SubTotal | number | Subtotal field identified on this invoice | $100.00 | 100 |
 | TotalTax | number | Total tax field identified on this invoice | $10.00 | 10 |
 | InvoiceTotal | number | Total new charges associated with this invoice | $110.00 | 110 |
 | AmountDue |  number | Total Amount Due to the vendor | $610.00 | 610 |
@@ -104,7 +103,7 @@ The Invoice service will extract the text, tables and 26 invoice fields. Followi
 | ServiceEndDate | date | End date for the service period (for example, a utility bill service period) | 11/14/2019 | 2019-11-14 |
 | PreviousUnpaidBalance | number | Explicit previously unpaid balance | $500.00 | 500 |
 
-Following are the line items extracted from an invoice in the JSON output response (the output below uses this [sample invoice](./media/sample-invoice.jpg))  
+Following are the line items extracted from an invoice in the JSON output response (the output below uses this [sample invoice](./media/sample-invoice.jpg))
 
 |Name| Type | Description | Text (line item #1) | Value (standardized output) |
 |:-----|:----|:----|:----| :----|

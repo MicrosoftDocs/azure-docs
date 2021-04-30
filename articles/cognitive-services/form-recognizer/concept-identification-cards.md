@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/14/2021
+ms.date: 04/30/2021
 ms.author: lajanuar
 ---
 
@@ -70,6 +70,10 @@ To try out the Form Recognizer IDs service, go to the online Sample UI Tool:
 ## Input requirements
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
+
+## Supported locales
+
+ **Pre-built identification documents v2.1-preview.3** (preview) supports IDs in the **en-us** locale.
 
 ## Supported ID types
 
