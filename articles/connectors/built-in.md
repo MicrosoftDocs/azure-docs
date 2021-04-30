@@ -13,7 +13,7 @@ ms.date: 04/20/2021
 
 [Built-in triggers and actions](apis-list.md) provide ways for you to [control your workflow's schedule and structure](#control-workflow), [run your own code](#run-code-from-workflows), [manage or manipulate data](#manage-or-manipulate-data), and complete other tasks in your workflows. Different from [managed connectors](managed.md), many built-in operations aren't tied to a specific service, system, or protocol. For example, you can start almost any workflow on a schedule by using the Recurrence trigger. Or, you can have your workflow wait until called by using the Request trigger. All built-in operations run natively in the Logic Apps service, and most don't require that you create a connection before you use them. 
 
-Logic Apps also provides built-in operations for a smaller number of services, systems, and protocols, such as Azure Service Bus, Azure Functions, SQL, AS2, and so on. The number and range varies based on whether you create a multi-tenant logic app or single-tenant logic app. In a few cases, both a built-in version and a managed connector version are available. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. For example, to [exchange B2B messages using the AS2 protocol](../logic-apps/logic-apps-enterprise-integration-as2.md), select the built-in version unless you need tracking capabilities, which are available only in the (deprecated) managed connector version.
+Logic Apps also provides built-in operations for a smaller number of services, systems, and protocols, such as Azure Functions, Azure App Services, Azure API Management, AS2, and so on. This selection varies based on whether you create a multi-tenant logic app or single-tenant logic app. For example, if you create a single-tenant logic app, built-in operations are available for Azure Service Bus, Azure Event Hubs, SQL Server, and MQ. In a few cases, both a built-in version and a managed connector version are available. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. For example, to [exchange B2B messages using the AS2 protocol](../logic-apps/logic-apps-enterprise-integration-as2.md), select the built-in version unless you need tracking capabilities, which are available only in the (deprecated) managed connector version.
 
 The following list describes only some of the tasks that you can accomplish with [built-in triggers and actions](#understand-triggers-and-actions):
 
@@ -130,7 +130,7 @@ Logic Apps provides built-in actions for running your own code in your workflow:
         [![Azure Functions icon in Logic Apps][azure-functions-icon]][azure-functions-doc]
         \
         \
-        [**Azure functions**][azure-functions-doc]
+        [**Azure Functions**][azure-functions-doc]
         \
         \
         Call [Azure-hosted functions](../azure-functions/functions-overview.md) to run your own *code snippets* (C# or Node.js) within your workflow.
@@ -313,7 +313,7 @@ Logic Apps provides built-in actions for working with data outputs and their for
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create custom APIs you can call from Logic Apps](/logic-apps/logic-apps-create-api-app)
+> [Create custom APIs you can call from Logic Apps](../logic-apps/logic-apps-create-api-app.md)
 
 <!-- Built-ins icons -->
 [azure-api-management-icon]: ./media/apis-list/azure-api-management.png

@@ -38,17 +38,13 @@ Together, these projects make up the parts required create a Blazor web assembly
 
 ## Fallback route
 
-The application exposes URLs like _/counter_ and _/fetchdata_ which map to specific routes of the application. Since this app is implemented as a single page application, each route is served the _index.html_ file. To ensure that request for any path return _index.html_ a [fallback route](./routes.md#fallback-routes) is implemented in the _staticwebapp.config.json_ file found in the _wwwroot_ folder of the Client project.
+The application exposes URLs like _/counter_ and _/fetchdata_ which map to specific routes of the application. Since this app is implemented as a single page application, each route is served the _index.html_ file. To ensure that request for any path return _index.html_ a [fallback route](./configuration.md#fallback-routes) is implemented in the _staticwebapp.config.json_ file found in the _wwwroot_ folder of the Client project.
 
 ```json
 {
-  "routes": [
-    {
-      "route": "/*",
-      "serve": "/index.html",
-      "statusCode": 200
-    }
-  ]
+  "navigationFallback": {
+    "rewrite": "/index.html"
+  }
 }
 ```
 

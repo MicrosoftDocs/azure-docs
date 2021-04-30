@@ -65,7 +65,7 @@
           displayName: regulatory, compliance, standards, domains
           href: ./security-controls-policy.md
         - name: Security baseline
-          href: /security/benchmark/azure/baselines/cosmos-db-security-baseline
+          href: /security/benchmark/azure/baselines/cosmos-db-security-baseline?context=/azure/cosmos-db/context/context
     - name: Analytics with Azure Synapse Link
       items:
         - name: Azure Synapse Link for Cosmos DB
@@ -676,7 +676,7 @@
                 - name: Provision autoscale throughput - database or container
                   displayName: request units, RUs, RU, shared throughput, database level, collection level, autoscale
                   href: how-to-provision-autoscale-throughput.md
-                - name: Estimate RU/s with Cosmos capacity planner
+                - name: Estimate RU/s with capacity planner
                   displayName: request units, RUs, RU, capacity
                   href: estimate-ru-with-capacity-planner.md
                 - name: Scale using Azure Functions timer
@@ -932,7 +932,7 @@
         - name: REST (Data plane)
           href: /rest/api/cosmos-db/
         - name: REST (Management plane)
-          href: /rest/api/cosmos-db-resource-provider/2020-04-01/sqlresources
+          href: /rest/api/cosmos-db-resource-provider/2021-03-15/sqlresources
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager template
@@ -1050,7 +1050,7 @@
     - name: Reference
       items:
         - name: REST resource provider
-          href: /rest/api/cosmos-db-resource-provider/2020-04-01/cassandraresources
+          href: /rest/api/cosmos-db-resource-provider/2021-03-15/cassandraresources
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager template
@@ -1059,7 +1059,7 @@
   items:
     - name: Overview
       items:
-        - name: What is MongoDB API in Cosmos DB?
+        - name: What is the API for MongoDB in Cosmos DB?
           href: mongodb-introduction.md
     - name: Quickstarts
       items:
@@ -1069,8 +1069,6 @@
           href: create-mongodb-java.md
         - name: Node.js
           href: create-mongodb-nodejs.md
-        - name: Python
-          href: ./mongodb-introduction.md
         - name: Xamarin
           href: create-mongodb-xamarin.md
         - name: Golang
@@ -1152,6 +1150,9 @@
           href: mongodb-indexing.md
         - name: Use multi-document transactions
           href: use-multi-document-transactions.md
+        - name: Estimate RU/s with capacity planner
+          displayName: request units, RUs, RU, capacity
+          href: mongodb/estimate-ru-capacity-planner.md
         - name: Create a container - MongoDB API
           href: how-to-create-container-mongodb.md
         - name: Provision throughput- MongoDB API
@@ -1181,7 +1182,7 @@
     - name: Reference
       items:
         - name: REST resource provider
-          href: /rest/api/cosmos-db-resource-provider/2020-04-01/mongodbresources
+          href: /rest/api/cosmos-db-resource-provider/2021-03-15/mongodbresources
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager template
@@ -1263,7 +1264,7 @@
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: REST resource provider
-          href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
+          href: /rest/api/cosmos-db-resource-provider/2021-03-15/gremlinresources
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
 - name: Table API
