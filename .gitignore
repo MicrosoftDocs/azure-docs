@@ -3,8 +3,7 @@
 Thumbs.db
 
 # Visual Studio and VS Code files
-.vscode/
-.metals/*
+.vscode/*
 .vs/*
 log/
 obj/
