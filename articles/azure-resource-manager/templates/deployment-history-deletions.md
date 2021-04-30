@@ -2,7 +2,8 @@
 title: Deployment history deletions
 description: Describes how Azure Resource Manager automatically deletes deployments from the deployment history. Deployments are deleted when the history is close to exceeding the limit of 800.
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 03/23/2021 
+ms.custom: devx-track-azurepowershell
 ---
 # Automatic deletions from deployment history
 
