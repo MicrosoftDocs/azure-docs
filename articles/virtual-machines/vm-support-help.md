@@ -42,10 +42,10 @@ If you can't find an answer to your problem using search, submit a new question 
 | [Azure Virtual Machine extension](./extensions/overview.md) | [azure-virtual-machine-extension](/answers/topics/azure-virtual-machine-extension.html)| 
 | [Azure Virtual Machine Images](shared-image-galleries.md) | [azure-virtual-machine-images](/answers/topics/azure-virtual-machine-images.html) | 
 | [Azure Virtual Machine migration](classic-vm-deprecation.md) | [azure-virtual-machine-migration](/answers/topics/azure-virtual-machine-migration.html) | 
-| [Azure Virtual Machine monitoring](../azure-monitor/vm/monitor-vm-azure) | [azure-virtual-machine-monitoring](/answers/topics/azure-virtual-machine-monitoring.html) |
-| [Azure Virtual Machine networking](/network-overview.md) | [azure-virtual-machine-networking](/answers/topics/azure-virtual-machine-networking.html) | 
+| [Azure Virtual Machine monitoring](../azure-monitor/vm/monitor-vm-azure.md) | [azure-virtual-machine-monitoring](/answers/topics/azure-virtual-machine-monitoring.html) |
+| [Azure Virtual Machine networking](network-overview.md) | [azure-virtual-machine-networking](/answers/topics/azure-virtual-machine-networking.html) | 
 | [Azure Virtual Machine storage](managed-disks-overview.md) | [azure-virtual-machine-storage](/answers/topics/azure-virtual-machine-storage.html) | 
-| [Azure Virtual Machine Scale Sets](./virtual-machine-scale-sets/overview.md) | [azure-virtual-machine-scale-set](/answers/topics/azure-virtual-machine-scale-set.html) | 
+| [Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md) | [azure-virtual-machine-scale-set](/answers/topics/azure-virtual-machine-scale-set.html) | 
 
 ## Create an Azure support request
 
