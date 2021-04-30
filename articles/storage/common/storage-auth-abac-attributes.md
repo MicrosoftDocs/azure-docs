@@ -160,6 +160,83 @@ The following table lists which attributes you can use in your condition express
 > |  | `blobs:path` | string | ResourceAttributeOnly |
 > |  | `tags` | dictionaryOfString | RequestAttributeOnly |
 
+> [!div class="mx-tdBreakAll"]
+> | DataAction | Attribute | Type | Applies to |
+> | --- | --- | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete` | `containers:name` | string | ResourceAttributeOnly |
+> |  | `blobs:path` | string | ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | `containers:name` | string | ResourceAttributeOnly |
+> |  | `blobs:path` | string | ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br/>**Suboperation**<br/>`Blobs.Read.WithTagConditions` | `containers:name` | string | ResourceAttributeOnly |
+> |  | `blobs:path` | string | ResourceAttributeOnly |
+> |  | `tags` | dictionaryOfString | ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | `containers:name` | string | ResourceAttributeOnly |
+> |  | `blobs:path` | string | ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`<br/>**Suboperation**<br/>`Blobs.Write.WithTagHeaders` | `containers:name` | string | ResourceAttributeOnly |
+> |  | `blobs:path` | string | ResourceAttributeOnly |
+> |  | `tags` | dictionaryOfString | RequestAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` | `containers:name` | string | ResourceAttributeOnly |
+> |  | `blobs:path` | string | ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action`<br/>**Suboperation**<br/>`Blobs.Write.WithTagHeaders` | `containers:name` | string | ResourceAttributeOnly |
+> |  | `blobs:path` | string | ResourceAttributeOnly |
+> |  | `tags` | dictionaryOfString | RequestAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action` | `containers:name` | string | ResourceAttributeOnly |
+> |  | `blobs:path` | string | ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/manageOwnership/action` | `containers:name` | string | ResourceAttributeOnly |
+> |  | `blobs:path` | string | ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/action` | `containers:name` | string | ResourceAttributeOnly |
+> |  | `blobs:path` | string | ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action` | `containers:name` | string | ResourceAttributeOnly |
+> |  | `blobs:path` | string | ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/permanentDelete/action` | `containers:name` | string | ResourceAttributeOnly |
+> |  | `blobs:path` | string | ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | `containers:name` | string | ResourceAttributeOnly |
+> |  | `blobs:path` | string | ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` | `containers:name` | string | ResourceAttributeOnly |
+> |  | `blobs:path` | string | ResourceAttributeOnly |
+> |  | `tags` | dictionaryOfString | ResourceAttributeOnly |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` | `containers:name` | string | ResourceAttributeOnly |
+> |  | `blobs:path` | string | ResourceAttributeOnly |
+> |  | `tags` | dictionaryOfString | RequestAttributeOnly |
+
+| DataAction | Attribute | Type | Applies to |
+| --- | --- | --- | --- |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete` | `containers:name` | string | ResourceAttributeOnly |
+|  | `blobs:path` | string | ResourceAttributeOnly |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | `containers:name` | string | ResourceAttributeOnly |
+|  | `blobs:path` | string | ResourceAttributeOnly |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br/>**Suboperation**<br/>`Blobs.Read.WithTagConditions` | `containers:name` | string | ResourceAttributeOnly |
+|  | `blobs:path` | string | ResourceAttributeOnly |
+|  | `tags` | dictionaryOfString | ResourceAttributeOnly |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | `containers:name` | string | ResourceAttributeOnly |
+|  | `blobs:path` | string | ResourceAttributeOnly |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`<br/>**Suboperation**<br/>`Blobs.Write.WithTagHeaders` | `containers:name` | string | ResourceAttributeOnly |
+|  | `blobs:path` | string | ResourceAttributeOnly |
+|  | `tags` | dictionaryOfString | RequestAttributeOnly |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` | `containers:name` | string | ResourceAttributeOnly |
+|  | `blobs:path` | string | ResourceAttributeOnly |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action`<br/>**Suboperation**<br/>`Blobs.Write.WithTagHeaders` | `containers:name` | string | ResourceAttributeOnly |
+|  | `blobs:path` | string | ResourceAttributeOnly |
+|  | `tags` | dictionaryOfString | RequestAttributeOnly |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action` | `containers:name` | string | ResourceAttributeOnly |
+|  | `blobs:path` | string | ResourceAttributeOnly |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/manageOwnership/action` | `containers:name` | string | ResourceAttributeOnly |
+|  | `blobs:path` | string | ResourceAttributeOnly |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/action` | `containers:name` | string | ResourceAttributeOnly |
+|  | `blobs:path` | string | ResourceAttributeOnly |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action` | `containers:name` | string | ResourceAttributeOnly |
+|  | `blobs:path` | string | ResourceAttributeOnly |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/permanentDelete/action` | `containers:name` | string | ResourceAttributeOnly |
+|  | `blobs:path` | string | ResourceAttributeOnly |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | `containers:name` | string | ResourceAttributeOnly |
+|  | `blobs:path` | string | ResourceAttributeOnly |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` | `containers:name` | string | ResourceAttributeOnly |
+|  | `blobs:path` | string | ResourceAttributeOnly |
+|  | `tags` | dictionaryOfString | ResourceAttributeOnly |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` | `containers:name` | string | ResourceAttributeOnly |
+|  | `blobs:path` | string | ResourceAttributeOnly |
+|  | `tags` | dictionaryOfString | RequestAttributeOnly |
+
 > [!div class="mx-tableFixed"]
 > | DataAction | Attribute | Type | Applies to |
 > | --- | --- | --- | --- |
