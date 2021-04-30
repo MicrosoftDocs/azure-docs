@@ -86,8 +86,9 @@ for root, dirs, files in os.walk(self.microservices_app_package_path):
 microservices_sfpkg.close()
 ```
 
-## Azure Virtual Machine Operating System Automatic Upgrade Configuration 
-Upgrading your virtual machines is a user initiated operation, and it is recommended that you use [Virtual Machine Scale Set Automatic Operating System upgrade](service-fabric-patch-orchestration-application.md) for Azure Service Fabric clusters host patch management; Patch Orchestration Application is an alternative solution that is intended for when hosted outside of Azure, although POA can be used in Azure, with overhead of hosting POA in Azure being a common reason to prefer Virtual Machine Operating System Automatic Upgrade over POA. The following are the Compute Virtual Machine Scale Set Resource Manager template properties to enable Auto OS upgrade:
+## Azure Virtual Machine Operating System Automatic Upgrade Configuration
+
+Upgrading your virtual machines is a user initiated operation, and it is recommended that you [enable virtual machine scale set automatic image upgrades](how-to-patch-cluster-nodes-windows.md.md) for your Service Fabric cluster node patch management. Patch Orchestration Application (POA) is an alternative solution that is intended for non-Azure hosted clusters. Although POA can be used in Azure, hosting it requires significantly more management than simply enabling scale set automatic OS image upgrades. The following are the virtual machine scale set Resource Manager template properties to enable automtic OS upgrades:
 
 ```json
 "upgradePolicy": {
@@ -98,11 +99,11 @@ Upgrading your virtual machines is a user initiated operation, and it is recomme
     }
 },
 ```
-When using Automatic OS Upgrades with Service Fabric, the new OS image is rolled out one Update Domain at a time to maintain high availability of the services running in Service Fabric. To utilize Automatic OS Upgrades in Service Fabric your cluster must be configured to use the Silver Durability Tier or higher.
+When using automatic OS upgrades with Service Fabric, the new OS image is rolled out one Update Domain at a time to maintain high availability of the services running in Service Fabric. To utilize Automatic OS Upgrades in Service Fabric your cluster must be configured to use the Silver Durability Tier or higher.
 
 Ensure the following registry key is set to false to prevent your windows host machines from initiating uncoordinated updates: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
 
-The following are the Compute Virtual Machine Scale Set Resource Manager template properties to set the WindowsUpdate registry key to false:
+The following are the virtual machine scale set Resource Manager template properties to set the WindowsUpdate registry key to false:
 ```json
 "osProfile": {
         "computerNamePrefix": "{vmss-name}",

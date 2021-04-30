@@ -510,7 +510,10 @@
         - name: Upgrade cluster configuration
           href: service-fabric-cluster-config-upgrade-azure.md
         - name: Patch cluster nodes (Windows)
-          href: service-fabric-patch-orchestration-application.md
+          href: how-to-patch-cluster-nodes-windows.md
+          items:
+          - name: Use Patch Orchestration Application (POA)
+            href: service-fabric-patch-orchestration-application.md
         - name: Enable disk encryption (Windows)
           href: service-fabric-enable-azure-disk-encryption-windows.md
         - name: Enable disk encryption (Linux)
