@@ -56,7 +56,7 @@ You can also give Google guest users a direct link to an application or resource
 
 ## Deprecation of web-view sign-in support
 
-Starting in the second half of 2021, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If you’re using Google federation for B2B or [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), or if you're using [self-service sign-up with Gmail](identity-providers.md), you should test your line-of-business native applications for compatibility. If your apps authenticate users with an embedded web-view, Google Gmail users won't be able to authenticate.
+Starting in the second half of 2021, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If you’re using Google federation for B2B or [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), or if you're using [self-service sign-up with Gmail](identity-providers.md), if your apps authenticate users with an embedded web-view, Google Gmail users won't be able to authenticate.
 
 The following are known scenarios that will impact Gmail users:
 - Windows apps that use the [WebView](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/webview) control, [WebView2](https://docs.microsoft.com/microsoft-edge/webview2/), or the older WebBrowser control, for authentication. These apps should migrate to using the Web Account Manager (WAM) flow.
@@ -66,7 +66,7 @@ The following are known scenarios that will impact Gmail users:
 
 This change does not affect:
 
-- Windows apps
+- Microsoft apps on Windows
 - Web apps
 - Mobile apps using system web-views for authentication ([SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) on iOS, [Custom Tabs](https://developer.chrome.com/docs/android/custom-tabs/overview/) on Android).  
 - G Suite identities, for example when you’re using SAML-based [direct federation](direct-federation.md) with G Suite
