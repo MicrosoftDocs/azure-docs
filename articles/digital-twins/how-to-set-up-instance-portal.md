@@ -47,8 +47,9 @@ On the following **Create Resource** page, fill in the values given below:
 * **Location**: An Azure Digital Twins-enabled region for the deployment. For more details on regional support, visit [Azure products available by region (Azure Digital Twins)](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 * **Resource name**: A name for your Azure Digital Twins instance. If your subscription has another Azure Digital Twins instance in the region that's
   already using the specified name, you'll be asked to pick a different name.
+* **Grant access to resource**: Checking the box in this section will give your Azure account permission to access and manage data in the instance. If you're the one that will be managing the instance, you should check this box now. If it's greyed out because you don't have permission in the subscription, you can continue creating the resource and have someone with the required permissions grant you the role later. For more information about this role and assigning roles to your instance, see the next section, [Set up user access permissions](#set-up-user-access-permissions).
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Filling in the described values to create an Azure Digital Twins resource":::
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Screenshot of the Create Resource process for Azure Digital Twins. The described values are filled in.":::
 
 When you're finished, you can select **Review + create** if you don't want to configure any more settings for your instance. This will take you to a summary page, where you can review the instance details you've entered and finish with **Create**. 
 
@@ -83,12 +84,32 @@ You now have an Azure Digital Twins instance ready to go. Next, you'll give the 
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
+There are two ways to create a role assignment for a user in Azure Digital Twins:
+* [During Azure Digital Twins instance creation](#assign-the-role-during-instance-creation)
+* [Using Azure Identity Management (IAM)](#assign-the-role-using-azure-identity-management-iam)
+
+### Assign the role during instance creation
+
+While creating your Azure Digital Twins resource through the process described [earlier in this article](#create-the-azure-digital-twins-instance), select the **Assign Azure Digital Twins Data Owner Role** under **Grant access to resource**. This will grant yourself full access to the data plane APIs.
+
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2-role.png" alt-text="Screenshot of the Create Resource process for Azure Digital Twins. The checkbox under Grant access to resource is highlighted.":::
+
+If you don't have permission to assign a role to an identity, the box will appear greyed out.
+
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2-role-greyed.png" alt-text="Screenshot of the Create Resource process for Azure Digital Twins. The checkbox under Grant access to resource is greyed out and not clickable.":::
+
+In that case, you can still continue to successfully create the Azure Digital Twins resource, but someone with the appropriate permissions will need to assign this role to you or the person who will be managing the instance's data.
+
+### Assign the role using Azure Identity Management (IAM)
+
+You can also assign the **Azure Digital Twins Data Owner** role using the access control options in Azure Identity Management (IAM).
+
 First, open the page for your Azure Digital Twins instance in the Azure portal. From the instance's menu, select *Access control (IAM)*. Select the  **+ Add** button to add a new role assignment.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selecting to add a role assignment from the 'Access control (IAM)' page":::
 
 On the following *Add role assignment* page, fill in the values (must be completed by a user with [sufficient permissions](#prerequisites-permission-requirements) in the Azure subscription):
-* **Role**: Select *Azure Digital Twins Data Owner* from the dropdown menu
+* **Role**: Select **Azure Digital Twins Data Owner** from the dropdown menu
 * **Assign access to**: Use *User, group or service principal*
 * **Select**: Search for the name or email address of the user to assign. When you select the result, the user will show up in a *Selected members* section.
 
@@ -100,7 +121,7 @@ On the following *Add role assignment* page, fill in the values (must be complet
     :::column-end:::
 :::row-end:::
 
-When you're finished entering the details, hit the *Save* button.
+When you're finished entering the details, select the *Save* button.
 
 ### Verify success
 
