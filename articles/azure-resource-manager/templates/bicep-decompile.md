@@ -2,7 +2,8 @@
 title: Convert templates between JSON and Bicep
 description: Describes commands for converting Azure Resource Manager templates from Bicep to JSON and from JSON to Bicep.
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 03/12/2021 
+ms.custom: devx-track-azurepowershell
 ---
 # Converting ARM templates between JSON and Bicep
 
