@@ -22,11 +22,11 @@ By default, Azure Static Web Apps provides an auto-generated domain name. This a
 
 There are a few different types of DNS configurations available for an application.
 
-| Scenario                                      | Example                              | Domain validation method | DNS record type |
-| --------------------------------------------- | ------------------------------------ | ------------------------ | --------------- |
-| Add a root/APEX domain                        | `example.com`, `example.co.uk`       | TXT                      | ALIAS           |
-| Add a subdomain                               | `www.example.com`, `foo.example.com` | CNAME                    | CNAME           |
-| Transfer a subdomain that is currently in use | `www.example.com`, `foo.example.com` | TXT                      | CNAME           |
+| Scenario                                                                                 | Example                              | Domain validation method | DNS record type |
+| ---------------------------------------------------------------------------------------- | ------------------------------------ | ------------------------ | --------------- |
+| [Add a root/APEX domain](#add-domain-using-txt-record-validation)                        | `example.com`, `example.co.uk`       | TXT                      | ALIAS           |
+| [Add a subdomain](#add-domain-using-cname-record-validation)                             | `www.example.com`, `foo.example.com` | CNAME                    | CNAME           |
+| [Transfer a subdomain that is currently in use](#add-domain-using-txt-record-validation) | `www.example.com`, `foo.example.com` | TXT                      | CNAME           |
 
 ## Add domain using CNAME record validation
 
