@@ -50,7 +50,7 @@ Attribute Added | Mapping Type | Added with Agent Version
 |EmployeeNumber|Direct|1.1.xxx.x|
 |UserType|Direct|1.1.xxx.1|
 
-For more information on how to map UserType, see [Map UserType with cloud sync](how-to-map-usertype.md)
+For more information on how to map UserType, see [Map UserType with cloud sync](how-to-map-usertype.md).
 
 ## Understand properties of attribute mappings
 
