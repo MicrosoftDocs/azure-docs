@@ -35,7 +35,7 @@ To create a user-assigned managed identity, your account needs the [Managed Iden
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription to create the user-assigned managed identity.
 2. In the search box, type *Managed Identities*, and under **Services**, click **Managed Identities**.
-3. Click **Add** and enter values in the following fields under **Create user assigned managed** identity pane:
+3. Click **New** and enter values in the following fields under **Create user assigned managed** identity pane:
     - **Subscription**: Choose the subscription to create the user-assigned managed identity under.
     - **Resource group**: Choose a resource group to create the user-assigned managed identity in or click **Create new** to create a new resource group.
     - **Region**: Choose a region to deploy the user-assigned managed identity, for example **West US**.
