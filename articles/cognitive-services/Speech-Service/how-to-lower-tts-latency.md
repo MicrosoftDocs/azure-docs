@@ -316,7 +316,7 @@ We recommend using object pool in service scenario, see our sample code for [C#]
 When the network is unstable or with limited bandwidth, the payload size will also impact latency.
 Meanwhile, compressed audio format helps to save the users' precious network bandwidth especially for mobile users.
 
-We support many compressed formats including `opus`, `webm`, `mp3`, `silk` and so on, see the full list in `enum` of type [SpeechSynthesisOutputFormat](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#speechsynthesisoutputformat).
+We support many compressed formats including `opus`, `webm`, `mp3`, `silk`, and so on, see the full list in `enum` of type [SpeechSynthesisOutputFormat](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#speechsynthesisoutputformat).
 For example, the bitrate of `Riff24Khz16BitMonoPcm` format is 384 kbps, while `Audio24Khz48KBitRateMonoMp3` only costs 48 kbps.
 Our Speech SDK will automatically use a compressed format for transmission when a `pcm` output format is set and `GStreamer` is properly installed.
 Refer [this instruction](how-to-use-codec-compressed-audio-input-streams.md) to install and configure `GStreamer` for Speech SDK.
@@ -336,10 +336,10 @@ For example, we fix a `TCP_NODELAY` setting issue in [1.16.0](releasenotes.md#sp
 
 ## Load test guideline
 
-You may using load test to test the speech synthesis service capacity and latency.
+You may use load test to test the speech synthesis service capacity and latency.
 Here are some guidelines.
 
- - The speech synthesis service has the ability to auto-scale, but takes time to scale out. If the concurrency is increased in a short time, the client may get long latency or `429` error code (too many requests). So, we recommend you increase your concurrency step by step in load test.
+ - The speech synthesis service has the ability to autoscale, but takes time to scale out. If the concurrency is increased in a short time, the client may get long latency or `429` error code (too many requests). So, we recommend you increase your concurrency step by step in load test.
  - The service has quota limitation based on the real traffic, therefore, if you want to perform load test with the concurrency much higher than your real traffic, connect us before your test.
 
 ## Next steps
