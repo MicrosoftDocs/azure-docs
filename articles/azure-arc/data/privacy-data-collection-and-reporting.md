@@ -17,7 +17,7 @@ This article describes the data that Azure Arc enabled data services transmits t
 
 ## Related products
 
-The Azure Arc enabled data services may use some or all of the following products:
+Azure Arc enabled data services may use some or all of the following products:
 
 - SQL MI – Azure Arc 
 - PostgreSQL Hyperscale – Azure Arc
@@ -25,29 +25,47 @@ The Azure Arc enabled data services may use some or all of the following product
 - Azure CLI (az)
 - Azure Data CLI (`azdata`) 
 
-Below is a high-level view of the data types and connectivity modes used in Arc enabled data services. 
+## Directly connected
+
+When a cluster is configured to be directly connected to Azure some data is automatically transmitted to Microsoft. The following list describes the type of data and 
+
+- **Operational data**
+   - Required: No
+   - Action: Automatic
+   - Example: Metrics and logs
+- **Billing and inventory**
+   - Required: Yes
+   - Action: Automatic
+   - Example: Inventory of resources
+- **Diagnostics**
+   - Required: No
+   - Action: Manual - For example, for Microsoft support
+   - Example: Kubernetes logs, system query results - for example, from DMVs
+- **Customer experience improvement program (CEIP)**
+   - Required: No
+   - Action: Automatic
+   - Example: Installation & usage error codes
 
 ## Indirectly connected
 
-- **Operational data**
-   - Manual export - optional
-- **Billing and inventory**
-   - Manual export - required
-- **Diagnostics**
-   - Manual export - for Microsoft support
-- **CEIP**
-   - Not available
-
-## Directly connected
+When a cluster not configured to be directly connected to Azure, data is not automatically tran transmitted to Microsoft. To transmit data to Microsoft, you need to configure the export. The following list describes the type of data and 
 
 - **Operational data**
-   - Fully automated - optional
+   - Required: No
+   - Action: Manual
+   - Example: Metrics and logs
 - **Billing and inventory**
-   - Fully automated - required
+   - Required: Yes
+   - Action: Manual
+   - Example: Inventory of resources
 - **Diagnostics**
-   - Manual export - for Microsoft support
-- **CEIP**
-   - Yes - automatic
+   - Required: No
+   - Action: Manual - For example, for Microsoft support
+   - Example: Kubernetes logs, system query results - for example, from DMVs
+- **Customer experience improvement program (CEIP)**
+   - Required: No
+   - Action: Automatic - Does not happen if internet is not accessible. 
+   - Example: Installation & usage error codes
 
 <!-- Older table layout.  
 #### Operational data
@@ -59,7 +77,9 @@ Below is a high-level view of the data types and connectivity modes used in Arc 
 |CEIP   |No. Would typically be blocked by lack of direct connectivity to the CEIP data collection service endpoint on the Internet. |Yes, automated. <br/><br/> A firewall other network infrastructure may prevent. |
 -->
 
-### Definitions
+## Detailed description of data
+
+This section provides more details about the information included with the Azure Arc enabled data services transmits to Microsoft.
 
 ### Operational data
 
@@ -184,7 +204,7 @@ Example of resource inventory data JSON document that is sent to Azure to create
 
         "resourceGroupName": "production-resources", 
 
-        "subscriptionId": "482c901a-129a-4f5d-86e3-cc6b294590b2", 
+        "subscriptionId": "<subscription_id>", 
 
         "isDeleted": false, 
 
@@ -212,7 +232,7 @@ Billing data captures the start time (“created”) and end time (“deleted”
 
           "name": "DataControllerTestName", 
 
-          "subscriptionId": "287c901a-129a-4f5d-86e3-cc6b294590b2", 
+          "subscriptionId": "<subscription_id>", 
 
           "resourceGroup": "production-resources", 
 
@@ -240,7 +260,7 @@ Billing data captures the start time (“created”) and end time (“deleted”
 
                        \"quantity\":1, 
 
-                       \"id\":\"4BC3DC6B-9148-4C7A-B7DC-01AFC1EF5373\"}]", 
+                       \"id\":\"<subscription_id>\"}]", 
 
            "signature":"MIIE7gYJKoZIhvcNAQ...2xXqkK" 
 
@@ -248,8 +268,7 @@ Billing data captures the start time (“created”) and end time (“deleted”
 
 ### Diagnostic data
 
-Database instance logs, Kubernetes logs, and other diagnostic logs are exported out as needed in support situations. You may upload them to a secure location that only Microsoft Support and Microsoft engineers working on a support case has access to. Diagnostic data could also come from queries to dynamic management views (DMVs). The DMVs or queries used could contain database schema metadata details but typically not customer data. Diagnostic data does not contain any passwords, cluster IPs or individually identifiable data. These are cleaned and the logs are made anonymous for storage when possible. They are not transmitted automatically and administrator has to manually upload them. 
-
+In support situations, you may be asked to provide database instance logs, Kubernetes logs, and other diagnostic logs. The support team will provide a secure location for you to upload to. Dynamic management views (DMVs) may also provide diagnostic data. The DMVs or queries used could contain database schema metadata details but typically not customer data. Diagnostic data does not contain any passwords, cluster IPs or individually identifiable data. These are cleaned and the logs are made anonymous for storage when possible. They are not transmitted automatically and administrator has to manually upload them. 
 
 |Field name  |Notes  |
 |---------|---------|
@@ -259,8 +278,7 @@ Database instance logs, Kubernetes logs, and other diagnostic logs are exported 
 |Crash dumps – customer data | Max 30 day retention of crash dumps – may contain access control data <br/><br/> Statistics objects, data values within rows, query texts could be in customer crash dumps    |
 |Crash dumps – personal data | Machine, logins/ user names, emails, location information, customer identification – require user consent to be included  |
 
-
-### Customer Experience Improvement Program (CEIP) (Telemetry) 
+### Customer experience improvement program (CEIP) (Telemetry) 
 
 Telemetry is used to track product usage metrics and environment information. 
 See [SQL Server privacy supplement](/sql/sql-server/sql-server-privacy/). 
