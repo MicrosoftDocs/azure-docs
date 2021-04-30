@@ -61,6 +61,64 @@ auto resultId = result->ResultId;
 
 ::: zone-end
 
+::: zone pivot="programming-language-java"
+
+| Latency | Description | Property in the property bag of [SpeechSynthesisResult](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisresult) |
+|-----------|-------------|------------|
+| `first byte latency` | Indicates the time delay between the synthesis starts and the first audio chunk is received. | `SpeechServiceResponse_SynthesisFirstByteLatencyMs` |
+| `finish latency` | Indicates the time delay between the synthesis starts and the whole synthesized audio is received. | `SpeechServiceResponse_SynthesisFinishLatencyMs` |
+
+The Speech SDK measured the latencies and puts them in the property bag of [`SpeechSynthesisResult`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisresult). Refer following codes to get them.
+
+```java
+SpeechSynthesisResult result = synthesizer.SpeakTextAsync(text).get();
+System.out.println("first byte latency: \t" + result.getProperties().getProperty(PropertyId.SpeechServiceResponse_SynthesisFirstByteLatencyMs) + " ms.");
+System.out.println("finish latency: \t" + result.getProperties().getProperty(PropertyId.SpeechServiceResponse_SynthesisFinishLatencyMs) + " ms.");
+// you can also get the result id, and send to us when you need help for diagnosis
+String resultId = result.getResultId();
+```
+
+::: zone-end
+
+
+::: zone pivot="programming-language-python"
+
+| Latency | Description | Property in the property bag of [SpeechSynthesisResult](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisresult) |
+|-----------|-------------|------------|
+| `first byte latency` | Indicates the time delay between the synthesis starts and the first audio chunk is received. | `SpeechServiceResponse_SynthesisFirstByteLatencyMs` |
+| `finish latency` | Indicates the time delay between the synthesis starts and the whole synthesized audio is received. | `SpeechServiceResponse_SynthesisFinishLatencyMs` |
+
+The Speech SDK measured the latencies and puts them in the property bag of [`SpeechSynthesisResult`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisresult). Refer following codes to get them.
+
+```python
+SpeechSynthesisResult result = synthesizer.SpeakTextAsync(text).get();
+System.out.println("first byte latency: \t" + result.getProperties().getProperty(PropertyId.SpeechServiceResponse_SynthesisFirstByteLatencyMs) + " ms.");
+System.out.println("finish latency: \t" + result.getProperties().getProperty(PropertyId.SpeechServiceResponse_SynthesisFinishLatencyMs) + " ms.");
+#  you can also get the result id, and send to us when you need help for diagnosis
+result_id = result.result_id
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+
+| Latency | Description | Property in the property bag of [SpeechSynthesisResult](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisresult) |
+|-----------|-------------|------------|
+| `first byte latency` | Indicates the time delay between the synthesis starts and the first audio chunk is received. | `SpeechServiceResponse_SynthesisFirstByteLatencyMs` |
+| `finish latency` | Indicates the time delay between the synthesis starts and the whole synthesized audio is received. | `SpeechServiceResponse_SynthesisFinishLatencyMs` |
+
+The Speech SDK measured the latencies and puts them in the property bag of [`SpeechSynthesisResult`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisresult). Refer following codes to get them.
+
+```Objective-C
+SpeechSynthesisResult result = synthesizer.SpeakTextAsync(text).get();
+System.out.println("first byte latency: \t" + result.getProperties().getProperty(PropertyId.SpeechServiceResponse_SynthesisFirstByteLatencyMs) + " ms.");
+System.out.println("finish latency: \t" + result.getProperties().getProperty(PropertyId.SpeechServiceResponse_SynthesisFinishLatencyMs) + " ms.");
+// you can also get the result id, and send to us when you need help for diagnosis
+String resultId = result.getResultId();
+```
+
+::: zone-end
+
 The `first byte latency` is much lower than `finish latency` in most cases.
 And the `first byte latency` is almost independent with the text length, while `finish latency` increases with the text length.
 
@@ -132,7 +190,7 @@ using (var synthesizer = new SpeechSynthesizer(uspConfig, null as AudioConfig))
 ### Reuse SpeechSynthesizer
 
 Another way to reduce the connection latency is to reuse the `SpeechSynthesizer` so you don't need to create a new `SpeechSynthesizer` every synthesis.
-We recommend using object pool in service scenario, see our [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_server_scenario_sample.cs).
+We recommend using object pool in service scenario, see our sample code for [C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_server_scenario_sample.cs) and [Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechSynthesisScenarioSamples.java).
 
 
 ## Transmit compressed audio over the network
