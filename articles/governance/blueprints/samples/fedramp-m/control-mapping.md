@@ -429,8 +429,8 @@ you can take appropriate action.
 - Deploy Threat Detection on SQL servers
 
 > [!NOTE]
-> Availability of specific Azure Policy definitions may vary in Azure Government and other national 
-> clouds. 
+> Availability of specific Azure Policy definitions may vary in Azure Government and other national
+> clouds.
 
 ## Next steps
 
