@@ -6,7 +6,8 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/16/2019
-ms.author: amsriva
+ms.author: amsriva 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshooting bad gateway errors in Application Gateway

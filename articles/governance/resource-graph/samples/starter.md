@@ -1,7 +1,7 @@
 ---
 title: Starter query samples
 description: Use Azure Resource Graph to run some starter queries, including counting resources, ordering resources, or by a specific tag.
-ms.date: 02/04/2021
+ms.date: 05/01/2021
 ms.topic: sample
 ---
 # Starter Resource Graph query samples

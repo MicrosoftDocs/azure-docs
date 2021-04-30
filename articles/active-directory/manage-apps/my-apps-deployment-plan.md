@@ -133,7 +133,7 @@ The extension allows users to launch any app from its search bar, finding access
 
 #### Plan for mobile access
 
-For applications that use password-based SSO or accessed by using [Microsoft Azure AD Application Proxy](../manage-apps/application-proxy.md), you must use Microsoft Edge mobile. For other applications, any mobile browser can be used. 
+For applications that use password-based SSO or accessed by using [Microsoft Azure AD Application Proxy](../app-proxy/application-proxy.md), you must use Microsoft Edge mobile. For other applications, any mobile browser can be used. 
 
 ### Linked SSO
 
@@ -251,4 +251,4 @@ You can use [Privileged Identity Management](../privileged-identity-management/p
 
 [Plan a deployment of Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
 
-[Plan an Application Proxy deployment](application-proxy-deployment-plan.md)
+[Plan an Application Proxy deployment](../app-proxy/application-proxy-deployment-plan.md)

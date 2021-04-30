@@ -6,7 +6,7 @@ ms.date: 04/29/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 description: "Use custom locations to deploy Azure PaaS services on Azure Arc enabled Kubernetes clusters"
 ---
 
@@ -75,6 +75,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 > [!NOTE]
 > 1. Custom Locations feature is dependent on the Cluster Connect feature. So both features have to be enabled for custom locations to work.
 > 2. `az connectedk8s enable-features` needs to be run on a machine where the `kubeconfig` file is pointing to the cluster on which the features are to be enabled.
+> 3. If you are logged into Azure CLI using a service principal, [additional permissions](troubleshooting.md#enable-custom-locations-using-service-principal) have to be granted to the service principal before enabling the custom location feature.
 
 ## Create custom location
 
