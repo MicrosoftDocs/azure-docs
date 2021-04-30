@@ -57,7 +57,7 @@ The [example Git repo](https://github.com/veyalla/edgearc) points to the IoT Edg
 Use the `az` Azure CLI `k8s-configuration` extension to create a configuration that links the connected cluster to the Git repo:
 
   ```
-  az k8s-configuration create --name iotedge --cluster-name AzureArcIotEdge --resource-group AzureArcTest --operator-instance-name iotedge --operator-namespace azure-arc-iot-edge --enable-helm-operator --helm-operator-chart-version 0.6.0 --helm-operator-chart-values "--set helm.versions=v3" --repository-url "git://github.com/veyalla/edgearc.git" --cluster-scoped
+  az k8s-configuration create --name iotedge --cluster-name AzureArcIotEdge --resource-group AzureArcTest --operator-instance-name iotedge --operator-namespace azure-arc-iot-edge --enable-helm-operator --helm-operator-params='--set helm.versions=v3' --repository-url "git://github.com/veyalla/edgearc.git" --scope cluster --cluster-type connectedClusters --operator-params="--git-poll-interval 3s --git-readonly --git-path=releases/iotedge.yaml"
   ```
 
 In a few minutes, you should see the IoT Edge workload modules deployed into your cluster's `iotedge` namespace. 
