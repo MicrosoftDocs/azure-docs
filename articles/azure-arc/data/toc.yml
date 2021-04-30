@@ -6,8 +6,6 @@
       href: overview.md
     - name: Release notes
       href: release-notes.md
-    - name: Privacy & data collection
-      href: privacy-data-collection-and-reporting.md
 - name: Quickstarts
   items:
     - name: Create data controller
