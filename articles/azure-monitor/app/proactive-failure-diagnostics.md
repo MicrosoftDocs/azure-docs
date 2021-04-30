@@ -27,7 +27,7 @@ The alert details will tell you:
 * Links directly to relevant searches on the data in Application Insights.
 
 ## Benefits of Smart Detection
-Ordinary [metric alerts](../platform/alerts-log.md) tell you there might be a problem. But Smart Detection starts the diagnostic work for you, performing much the analysis you would otherwise have to do yourself. You get the results neatly packaged, helping you to get quickly to the root of the problem.
+Ordinary [metric alerts](../alerts/alerts-log.md) tell you there might be a problem. But Smart Detection starts the diagnostic work for you, performing much the analysis you would otherwise have to do yourself. You get the results neatly packaged, helping you to get quickly to the root of the problem.
 
 ## How it works
 Smart Detection monitors the data received from your app, and in particular the failure rates. This rule counts the number of requests for which the `Successful request` property is false, and the number of dependency calls for which the `Successful call` property is false. For requests, by default, `Successful request == (resultCode < 400)` (unless you have written custom code to [filter](./api-filtering-sampling.md#filtering) or generate your own [TrackRequest](./api-custom-events-metrics.md#trackrequest) calls). 
@@ -44,7 +44,7 @@ When your service is instrumented with these calls, the analyzer looks for an ex
 
 The resulting analysis is sent to you as alert, unless you have configured it not to.
 
-Like the [alerts you set manually](../platform/alerts-log.md), you can inspect the state of the fired alert, which can be resolved if the issue is fixed. Configure the alert rules in the Alerts page of your Application Insights resource. But unlike other alerts, you don't need to set up or configure Smart Detection. If you want, you can disable it or change its target email addresses.
+Like the [alerts you set manually](../alerts/alerts-log.md), you can inspect the state of the fired alert, which can be resolved if the issue is fixed. Configure the alert rules in the Alerts page of your Application Insights resource. But unlike other alerts, you don't need to set up or configure Smart Detection. If you want, you can disable it or change its target email addresses.
 
 ### Alert logic details
 
@@ -60,11 +60,11 @@ The alerts are triggered by our proprietary machine learning algorithm so we can
 
 You can disable Smart Detection alert rule from the portal or using Azure Resource Manager ([see template example](./proactive-arm-config.md)).
 
-This alert rule is created with an associated [Action Group](../platform/action-groups.md) named "Application Insights Smart Detection" that contains email and webhook actions, and can be extended to trigger additional actions when the alert fires.
+This alert rule is created with an associated [Action Group](../alerts/action-groups.md) named "Application Insights Smart Detection" that contains email and webhook actions, and can be extended to trigger additional actions when the alert fires.
 
 > [!NOTE]
 > Email notifications sent from this alert rule are now sent by default to users associated with the subscription's Monitoring Reader and Monitoring Contributor roles. More information on this is available [here](./proactive-email-notification.md).
-> Notifications sent from this alert rule follow the [common alert schema](../platform/alerts-common-schema.md).
+> Notifications sent from this alert rule follow the [common alert schema](../alerts/alerts-common-schema.md).
 >
 
 Open the Alerts page. Failure Anomalies alert rules are included along with any alerts that you have set manually, and you can see whether it is currently in the alert state.
@@ -406,7 +406,7 @@ Click **Alerts** in the Application Insights resource page to get to the most re
 ## What's the difference ...
 Smart Detection of failure anomalies complements other similar but distinct features of Application Insights.
 
-* [metric alerts](../platform/alerts-log.md) are set by you and can monitor a wide range of metrics such as CPU occupancy, request rates,  page load times, and so on. You can use them to warn you, for example, if you need to add more resources. By contrast, Smart Detection of failure anomalies covers a small range of critical metrics (currently only failed request rate), designed to notify you in near real-time manner once your web app's failed request rate increases compared to web app's normal behavior. Unlike metric alerts, Smart Detection automatically sets and updates thresholds in response changes in the behavior. Smart Detection also starts the diagnostic work for you, saving you time in resolving issues.
+* [metric alerts](../alerts/alerts-log.md) are set by you and can monitor a wide range of metrics such as CPU occupancy, request rates,  page load times, and so on. You can use them to warn you, for example, if you need to add more resources. By contrast, Smart Detection of failure anomalies covers a small range of critical metrics (currently only failed request rate), designed to notify you in near real-time manner once your web app's failed request rate increases compared to web app's normal behavior. Unlike metric alerts, Smart Detection automatically sets and updates thresholds in response changes in the behavior. Smart Detection also starts the diagnostic work for you, saving you time in resolving issues.
 
 * [Smart Detection of performance anomalies](proactive-performance-diagnostics.md) also uses machine intelligence to discover unusual patterns in your metrics, and no configuration by you is required. But unlike Smart Detection of failure anomalies, the purpose of Smart  Detection of performance anomalies is to find segments of your usage manifold that might be badly served - for example, by specific pages on a specific type of browser. The analysis is performed daily, and if any result is found, it's likely to be much less urgent than an alert. By contrast, the analysis for failure anomalies is performed continuously on incoming application data, and you will be notified within minutes if server failure rates are greater than expected.
 
@@ -437,16 +437,16 @@ Smart Detection of failure anomalies complements other similar but distinct feat
 
 *Some of the alerts are about known issues and I do not want to receive them.*
 
-* You can use [alert action rules](../platform/alerts-action-rules.md) suppression feature.
+* You can use [alert action rules](../alerts/alerts-action-rules.md) suppression feature.
 
 ## Next steps
 These diagnostic tools help you inspect the data from your app:
 
-* [Metric explorer](../platform/metrics-charts.md)
+* [Metric explorer](../essentials/metrics-charts.md)
 * [Search explorer](./diagnostic-search.md)
-* [Analytics - powerful query language](../log-query/log-analytics-tutorial.md)
+* [Analytics - powerful query language](../logs/log-analytics-tutorial.md)
 
 Smart detections are automatic. But maybe you'd like to set up some more alerts?
 
-* [Manually configured metric alerts](../platform/alerts-log.md)
+* [Manually configured metric alerts](../alerts/alerts-log.md)
 * [Availability web tests](./monitor-web-app-availability.md)

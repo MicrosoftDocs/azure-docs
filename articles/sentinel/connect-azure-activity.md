@@ -20,7 +20,7 @@ ms.author: yelevin
 ---
 # Connect data from Azure Activity log
 
-You can stream logs from [Azure Activity log](../azure-monitor/platform/platform-logs-overview.md) into Azure Sentinel with a single click. The Activity log is a subscription log that records and displays subscription-level events across Azure, from Azure Resource Manager operational data to updates on Service Health events. Using the Activity log, you can determine the 'what, who, and when' for any write operation (PUT, POST, DELETE) performed on the resources in your subscription. You can also learn the status of the operation and other relevant properties. The Activity log does not include read (GET) operations or operations for resources that use the Classic/"RDFE" model. 
+You can stream logs from [Azure Activity log](../azure-monitor/essentials/platform-logs-overview.md) into Azure Sentinel with a single click. The Activity log is a subscription log that records and displays subscription-level events across Azure, from Azure Resource Manager operational data to updates on Service Health events. Using the Activity log, you can determine the 'what, who, and when' for any write operation (PUT, POST, DELETE) performed on the resources in your subscription. You can also learn the status of the operation and other relevant properties. The Activity log does not include read (GET) operations or operations for resources that use the Classic/"RDFE" model. 
 
 ## Prerequisites
 

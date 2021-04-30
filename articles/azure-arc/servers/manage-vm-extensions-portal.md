@@ -1,7 +1,7 @@
 ---
 title: Enable VM extension from Azure portal
 description: This article describes how to deploy virtual machine extensions to Azure Arc enabled servers running in hybrid cloud environments from the Azure portal.
-ms.date: 01/22/2020
+ms.date: 04/13/2021
 ms.topic: conceptual
 ---
 
@@ -11,6 +11,9 @@ This article shows you how to deploy and uninstall Azure VM extensions, supporte
 
 > [!NOTE]
 > The Key Vault VM extension (preview) does not support deployment from the Azure portal, only using the Azure CLI, the Azure PowerShell, or using an Azure Resource Manager template.
+
+> [!NOTE]
+> Azure Arc enabled servers does not support deploying and managing VM extensions to Azure virtual machines. For Azure VMs, see the following [VM extension overview](../../virtual-machines/extensions/overview.md) article.
 
 ## Enable extensions from the portal
 
@@ -28,7 +31,7 @@ VM extensions can be applied your Arc for server managed machine through the Azu
 
     ![Install Log Analytics VM extension](./media/manage-vm-extensions/mma-extension-config.png)
 
-    To complete the installation, you are required to provide the workspace ID and primary key. If you are not familiar with how to find this information, see [obtain workspace ID and key](../../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+    To complete the installation, you are required to provide the workspace ID and primary key. If you are not familiar with how to find this information, see [obtain workspace ID and key](../../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 4. After confirming the required information provided, select **Create**. A summary of the deployment is displayed and you can review the status of the deployment.
 

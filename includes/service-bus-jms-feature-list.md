@@ -29,4 +29,5 @@ The following table lists the Java Message Service (JMS) features that Azure Ser
 | Message selectors | depends on the consumer created | **Supported** |
 | Delivery Delay (scheduled messages) | <ul> <li> JMSProducer.setDeliveryDelay( long deliveryDelay) </li> </ul>|**Supported**|
 | Message created |<ul> <li> JMSContext.createMessage() </li> <li> JMSContext.createBytesMessage() </li> <li> JMSContext.createMapMessage() </li> <li> JMSContext.createObjectMessage( Serializable object) </li> <li> JMSContext.createStreamMessage() </li> <li> JMSContext.createTextMessage() </li> <li> JMSContext.createTextMessage( String text) </li> </ul>| **Supported** |
+| Cross entity transactions |<ul> <li> Connection.createSession(true, Session.SESSION_TRANSACTED) </li> </ul> | **Supported** |
 | Distributed transactions || Not supported |

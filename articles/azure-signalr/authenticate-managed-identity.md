@@ -43,8 +43,8 @@ Once you've enabled this setting, a new service identity is created in your Azur
 
 Now, assign this service identity to a role in the required scope in your Azure SignalR Service resources.
 
-## Assign RBAC roles using the Azure portal  
-To learn more on managing access to Azure resources using RBAC and the Azure portal, see [this article](..//role-based-access-control/role-assignments-portal.md). 
+## Assign Azure roles using the Azure portal  
+To learn more on managing access to Azure resources using Azure RBAC and the Azure portal, see [this article](..//role-based-access-control/role-assignments-portal.md). 
 
 After you've determined the appropriate scope for a role assignment, navigate to that resource in the Azure portal. Display the access control (IAM) settings for the resource, and follow these instructions to manage role assignments:
 

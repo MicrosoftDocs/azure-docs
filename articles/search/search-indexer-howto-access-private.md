@@ -43,7 +43,7 @@ The following table lists Azure resources for which you can create outbound priv
 
 You can also query the Azure resources for which outbound private endpoint connections are supported by using the [list of supported APIs](/rest/api/searchmanagement/privatelinkresources/listsupported).
 
-In the remainder of this article, a mix of the [Azure CLI](https://docs.microsoft.com/cli/azure/) (or [ARMClient](https://github.com/projectkudu/ARMClient) if you prefer) and [Postman](https://www.postman.com/) (or any other HTTP client like [curl](https://curl.se/) if you prefer) is used to demonstrate the REST API calls.
+In the remainder of this article, a mix of the [Azure CLI](/cli/azure/) (or [ARMClient](https://github.com/projectkudu/ARMClient) if you prefer) and [Postman](https://www.postman.com/) (or any other HTTP client like [curl](https://curl.se/) if you prefer) is used to demonstrate the REST API calls.
 
 > [!NOTE]
 > The examples in this article are based on the following assumptions:
@@ -65,7 +65,7 @@ Configure the storage account to [allow access only from specific subnets](../st
 
 ### Step 1: Create a shared private link resource to the storage account
 
-To request Azure Cognitive Search to create an outbound private endpoint connection to the storage account, make the following API call, for example with the [Azure CLI](https://docs.microsoft.com/cli/azure/): 
+To request Azure Cognitive Search to create an outbound private endpoint connection to the storage account, make the following API call, for example with the [Azure CLI](/cli/azure/): 
 
 `az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 --body @create-pe.json`
 
@@ -188,6 +188,8 @@ If the `properties.provisioningState` of the resource is `Succeeded` and `proper
 
 - If you've created the indexer without setting the `executionEnvironment` property and it runs successfully, it means that Azure Cognitive Search has decided that its execution environment is the search service-specific *private* environment. This can change, depending on resources consumed by the indexer, the load on the search service, and other factors, and it can fail later. To remedy the issue:
   * We highly recommend that you set the `executionEnvironment` property to `private` to ensure that it won't fail in the future.
+
+- If you're viewing your data source's networking page in the Azure portal and you select a private endpoint that you created for your Azure Cognitive Search service to access this data source, you may receive a *No Access* error. This is expected. You can change the status of the connection request via the target service's portal page but to further manage the shared private link resource you need to view the shared private link resource in your search service's network page in the Azure Portal.
 
 [Quotas and limits](search-limits-quotas-capacity.md) determine how many shared private link resources can be created and depend on the SKU of the search service.
 

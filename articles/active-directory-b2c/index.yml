@@ -61,7 +61,7 @@ landingContent:
           - text: Enable self-service sign-in
             url: user-flow-overview.md
           - text: 'Add social and work identities: OIDC/OAuth2/SAML'
-            url: tutorial-add-identity-providers.md
+            url: add-identity-provider.md
           - text: Enable single sign-on (SSO)
             url: session-behavior.md
           - text: Customize your UI/UX

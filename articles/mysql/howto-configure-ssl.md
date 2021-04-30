@@ -249,6 +249,28 @@ using (var connection = new MySqlConnection(builder.ConnectionString))
 }
 ```
 
+### Node.js
+
+```node
+var fs = require('fs');
+var mysql = require('mysql');
+const serverCa = [fs.readFileSync("/var/www/html/BaltimoreCyberTrustRoot.crt.pem", "utf8")];
+var conn=mysql.createConnection({
+    host:"mydemoserver.mysql.database.azure.com",
+    user:"myadmin@mydemoserver",
+    password:"yourpassword",
+    database:"quickstartdb",
+    port:3306,
+    ssl: {
+        rejectUnauthorized: true,
+        ca: serverCa
+    }
+});
+conn.connect(function(err) {
+  if (err) throw err;
+});
+```
+
 ## Next steps
 
 Review various application connectivity options following [Connection libraries for Azure Database for MySQL](concepts-connection-libraries.md)

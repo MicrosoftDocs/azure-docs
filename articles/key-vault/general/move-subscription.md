@@ -3,7 +3,6 @@ title: Azure Key Vault moving a vault to a different subscription | Microsoft Do
 description: Guidance on moving a key vault to a different subscription.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -11,7 +10,7 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: mbaldwin
-Customer intent: As a key vault administrator, I want to move my vault to another subscription.
+# Customer intent: As a key vault administrator, I want to move my vault to another subscription.
 ---
 
 # Moving an Azure Key Vault to another subscription
@@ -103,9 +102,9 @@ For assigning policies, see:
 - [Assign an access policy using PowerShell](assign-access-policy-powershell.md)
 
 For adding role assignments, see:
-- [Add role assignment using Portal](../../role-based-access-control/role-assignments-portal.md)
-- [Add role assignment using Azure CLI](../../role-based-access-control/role-assignments-cli.md)
-- [Add role assignment using PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
+- [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+- [Assign Azure roles using PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 
 ### Update managed identities
@@ -122,5 +121,5 @@ If you are using managed identity, you'll also have to update the identity becau
 - Learn more about [keys, secrets, and certificates](about-keys-secrets-certificates.md)
 - For conceptual information, including how to interpret Key Vault logs, see [Key Vault logging](logging.md)
 - [Key Vault Developer's Guide](../general/developers-guide.md)
-- [Secure your key vault](secure-your-key-vault.md)
+- [Azure Key Vault security features](security-features.md)
 - [Configure Azure Key Vault firewalls and virtual networks](network-security.md)

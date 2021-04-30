@@ -172,4 +172,4 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 ## Next steps
 
 * The billing ownership of the Azure subscriptions is transferred to you. Keep track of the charges for these subscriptions in the [Azure portal](https://portal.azure.com).
-* Work with the customer to get access to the transferred Azure subscriptions. [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+* Work with the customer to get access to the transferred Azure subscriptions. [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).

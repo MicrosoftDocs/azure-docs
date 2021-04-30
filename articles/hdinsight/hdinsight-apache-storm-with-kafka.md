@@ -373,7 +373,7 @@ Apache Kafka on HDInsight does not provide access to the Kafka brokers over the 
 
 The following diagram shows how communication flows between Storm and Kafka:
 
-![Diagram of Storm and Kafka clusters in an Azure virtual network](./media/hdinsight-apache-storm-with-kafka/apache-storm-kafka-vnet.png)
+:::image type="content" source="./media/hdinsight-apache-storm-with-kafka/apache-storm-kafka-vnet.png" alt-text="Diagram of Storm and Kafka clusters in an Azure virtual network":::
 
 > [!NOTE]  
 > Other services on the cluster such as SSH and [Apache Ambari](https://ambari.apache.org/) can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](hdinsight-hadoop-port-settings-for-services.md).
@@ -411,7 +411,7 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
       | SSH User Name | The SSH user to create for the clusters. |
       | SSH Password | The password for the SSH user. |
    
-      ![Picture of the template parameters](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
+      :::image type="content" source="./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png" alt-text="Picture of the template parameters":::
 
 3. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**.
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/24/2020
+ms.date: 04/28/2021
 
 ms.author: mimart
 author: msmimart
@@ -23,41 +23,40 @@ ms.collection: M365-identity-device-management
 
 This article describes how to set up direct federation with another organization for B2B collaboration. You can set up direct federation with any organization whose identity provider (IdP) supports the SAML 2.0 or WS-Fed protocol.
 When you set up direct federation with a partner's IdP, new guest users from that domain can use their own IdP-managed organizational account to sign in to your Azure AD tenant and start collaborating with you. There's no need for the guest user to create a separate Azure AD account.
-> [!NOTE]
-> Direct federation guest users must sign in using a link that includes the tenant context (for example, `https://myapps.microsoft.com/?tenantid=<tenant id>` or `https://portal.azure.com/<tenant id>`, or in the case of a verified domain, `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com`). Direct links to applications and resources also work as long as they include the tenant context. Direct federation users are currently unable to sign in using common endpoints that have no tenant context. For example, using `https://myapps.microsoft.com`, `https://portal.azure.com`, or `https://teams.microsoft.com` will result in an error.
- 
+
+> [!IMPORTANT]
+> - We've removed the limitation that required the authentication URL domain to match the target domain or be from an allowed identity provider. For details, see [Step 1: Determine if the partner needs to update their DNS text records](#step-1-determine-if-the-partner-needs-to-update-their-dns-text-records).
+>-  We now recommend that the partner set the audience of the SAML or WS-Fed based IdP to a tenanted audience. Refer to the [SAML 2.0](#required-saml-20-attributes-and-claims) and [WS-Fed](#required-ws-fed-attributes-and-claims) required attributes and claims sections below.
+
 ## When is a guest user authenticated with direct federation?
 After you set up direct federation with an organization, any new guest users you invite will be authenticated using direct federation. It’s important to note that setting up direct federation doesn’t change the authentication method for guest users who have already redeemed an invitation from you. Here are some examples:
  - If guest users have already redeemed invitations from you, and you subsequently set up direct federation with their organization, those guest users will continue to use the same authentication method they used before you set up direct federation.
  - If you set up direct federation with a partner organization and invite guest users, and then the partner organization later moves to Azure AD, the guest users who have already redeemed invitations will continue to use direct federation, as long as the direct federation policy in your tenant exists.
  - If you delete direct federation with a partner organization, any guest users currently using direct federation will be unable to sign in.
 
-In any of these scenarios, you can update a guest user’s authentication method by deleting the guest user account from your directory and reinviting them.
+In any of these scenarios, you can update a guest user’s authentication method by [resetting their redemption status](reset-redemption-status.md).
 
 Direct federation is tied to domain namespaces, such as contoso.com and fabrikam.com. When establishing a direct federation configuration with AD FS or a third-party IdP, organizations associate one or more domain namespaces to these IdPs. 
 
 ## End-user experience 
-With direct federation, guest users sign into your Azure AD tenant using their own organizational account. When they are accessing shared resources and are prompted for sign-in, direct federation users are redirected to their IdP. After successful sign-in, they are returned to Azure AD to access resources. Direct federation users’ refresh tokens are valid for 12 hours, the [default length for passthrough refresh token](../develop/active-directory-configurable-token-lifetimes.md#exceptions) in Azure AD. If the federated IdP has SSO enabled, the user will experience SSO and will not see any sign-in prompt after initial authentication.
+With direct federation, guest users sign into your Azure AD tenant using their own organizational account. When they are accessing shared resources and are prompted for sign-in, direct federation users are redirected to their IdP. After successful sign-in, they are returned to Azure AD to access resources. Direct federation users’ refresh tokens are valid for 12 hours, the [default length for passthrough refresh token](../develop/active-directory-configurable-token-lifetimes.md#configurable-token-lifetime-properties) in Azure AD. If the federated IdP has SSO enabled, the user will experience SSO and will not see any sign-in prompt after initial authentication.
+
+## Sign-in endpoints
+
+Direct federation guest users can now sign in to your multi-tenant or Microsoft first-party apps by using a [common endpoint](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (in other words, a general app URL that doesn't include your tenant context). During the sign-in process, the guest user chooses **Sign-in options**, and then selects **Sign in to an organization**. The user then types the name of your organization and continues signing in using their own credentials.
+
+Direct federation guest users can also use application endpoints that include your tenant information, for example:
+
+  * `https://myapps.microsoft.com/?tenantid=<your tenant ID>`
+  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
+  * `https://portal.azure.com/<your tenant ID>`
+
+You can also give Direct federation guest users a direct link to an application or resource by including your tenant information, for example `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`.
 
 ## Limitations
 
 ### DNS-verified domains in Azure AD
 The domain you want to federate with must ***not*** be DNS-verified in Azure AD. You're allowed to set up direct federation with unmanaged (email-verified or "viral") Azure AD tenants because they aren't DNS-verified.
-
-### Authentication URL
-Direct federation is only allowed for policies where the authentication URL’s domain matches the target domain, or where the authentication URL is one of these allowed identity providers (this list is subject to change):
-
--	accounts.google.com
--	pingidentity.com
--	login.pingone.com
--	okta.com
--	oktapreview.com
--	okta-emea.com
--	my.salesforce.com
--	federation.exostar.com
--	federation.exostartest.com
-
-For example, when setting up direct federation for **fabrikam.com**, the authentication URL `https://fabrikam.com/adfs` will pass the validation. A host in the same domain will also pass, for example `https://sts.fabrikam.com/adfs`. However, the authentication URL `https://fabrikamconglomerate.com/adfs` or `https://fabrikam.com.uk/adfs` for the same domain won't pass.
 
 ### Signing certificate renewal
 If you specify the metadata URL in the identity provider settings, Azure AD will automatically renew the signing certificate when it expires. However, if the certificate is rotated for any reason before the expiration time, or if you don't provide a metadata URL, Azure AD will be unable to renew it. In this case, you'll need to update the signing certificate manually.
@@ -76,9 +75,37 @@ When direct federation is established with a partner organization, it takes prec
 ### Does direct federation address sign-in issues due to a partially synced tenancy?
 No, the [email one-time passcode](one-time-passcode.md) feature should be used in this scenario. A “partially synced tenancy” refers to a partner Azure AD tenant where on-premises user identities aren't fully synced to the cloud. A guest whose identity doesn’t yet exist in the cloud but who tries to redeem your B2B invitation won’t be able to sign in. The one-time passcode feature would allow this guest to sign in. The direct federation feature addresses scenarios where the guest has their own IdP-managed organizational account, but the organization has no Azure AD presence at all.
 ### Once Direct Federation is configured with an organization, does each guest need to be sent and redeem an individual invitation?
-Setting up direct federation doesn’t change the authentication method for guest users who have already redeemed an invitation from you. You can update a guest user’s authentication method by deleting the guest user account from your directory and reinviting them.
-## Step 1: Configure the partner organization’s identity provider
-First, your partner organization needs to configure their identity provider with the required claims and relying party trusts. 
+Setting up direct federation doesn’t change the authentication method for guest users who have already redeemed an invitation from you. You can update a guest user’s authentication method by [resetting their redemption status](reset-redemption-status.md).
+
+## Step 1: Determine if the partner needs to update their DNS text records
+
+Depending on the partner's IdP, the partner might need to update their DNS records to enable direct federation with you. Use the following steps to determine if DNS updates are needed.
+
+1. If the partner's IdP is one of these allowed identity providers, no DNS changes are needed (this list is subject to change):
+
+     - accounts.google.com
+     - pingidentity.com
+     - login.pingone.com
+     - okta.com
+     - oktapreview.com
+     - okta-emea.com
+     - my.salesforce.com
+     - federation.exostar.com
+     - federation.exostartest.com
+     - idaptive.app
+     - idaptive.qa
+
+2. If the IdP is not one of the allowed providers listed in the previous step, check the partner's IdP authentication URL to see if the domain matches the target domain or a host within the target domain. In other words, when setting up direct federation for `fabrikam.com`:
+
+     - If the authentication URL is `https://fabrikam.com` or `https://sts.fabrikam.com/adfs` (a host in the same domain), no DNS changes are needed.
+     - If the authentication URL is `https://fabrikamconglomerate.com/adfs` or `https://fabrikam.com.uk/adfs`, the domain doesn't match the fabrikam.com domain, so the partner will need to add a text record for the authentication URL to their DNS configuration; go to the next step.
+
+3. If DNS changes are needed based on the previous step, ask the partner to add a TXT record to their domain's DNS records, like the following example:
+
+   `fabrikam.com.  IN   TXT   DirectFedAuthUrl=https://fabrikamconglomerate.com/adfs`
+## Step 2: Configure the partner organization’s identity provider
+
+Next, your partner organization needs to configure their identity provider with the required claims and relying party trusts.
 
 > [!NOTE]
 > To illustrate how to configure an identity provider for direct federation, we’ll use Active Directory Federation Services (AD FS) as an example. See the article [Configure direct federation with AD FS](direct-federation-adfs.md), which gives examples of how to configure AD FS as a SAML 2.0 or WS-Fed identity provider in preparation for direct federation.
@@ -98,7 +125,7 @@ Required attributes for the SAML 2.0 response from the IdP:
 |Attribute  |Value  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
-|Audience     |`urn:federation:MicrosoftOnline`         |
+|Audience     |`https://login.microsoftonline.com/<tenant ID>/` (Recommended tenanted audience.) Replace `<tenant ID>` with the tenant ID of the Azure AD tenant you're setting up direct federation with.<br><br>`urn:federation:MicrosoftOnline` (This value will be deprecated.)          |
 |Issuer     |The issuer URI of the partner IdP, for example `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 
@@ -124,7 +151,7 @@ Required attributes in the WS-Fed message from the IdP:
 |Attribute  |Value  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
-|Audience     |`urn:federation:MicrosoftOnline`         |
+|Audience     |`https://login.microsoftonline.com/<tenant ID>/` (Recommended tenanted audience.) Replace `<tenant ID>` with the tenant ID of the Azure AD tenant you're setting up direct federation with.<br><br>`urn:federation:MicrosoftOnline` (This value will be deprecated.)          |
 |Issuer     |The issuer URI of the partner IdP, for example `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 Required claims for the WS-Fed token issued by the IdP:
@@ -134,7 +161,7 @@ Required claims for the WS-Fed token issued by the IdP:
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
 
-## Step 2: Configure direct federation in Azure AD 
+## Step 3: Configure direct federation in Azure AD 
 Next, you'll configure federation with the identity provider configured in step 1 in Azure AD. You can use either the Azure AD portal or PowerShell. It might take 5-10 minutes before the direct federation policy takes effect. During this time, don't attempt to redeem an invitation for the direct federation domain. The following attributes are required:
 - Issuer URI of partner IdP
 - Passive authentication endpoint of partner IdP (only https is supported)
@@ -144,7 +171,7 @@ Next, you'll configure federation with the identity provider configured in step 
 
 1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**. 
 2. Select **External Identities** > **All identity providers**.
-3. Select, and then select **New SAML/WS-Fed IdP**.
+3. Select **New SAML/WS-Fed IdP**.
 
     ![Screenshot showing button for adding a new SAML or WS-Fed IdP](media/direct-federation/new-saml-wsfed-idp.png)
 
@@ -165,13 +192,13 @@ Next, you'll configure federation with the identity provider configured in step 
 
 ### To configure direct federation in Azure AD using PowerShell
 
-1. Install the latest version of the Azure AD PowerShell for Graph module ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)). (If you need detailed steps, the quickstart for adding a guest user includes the section [Install the latest AzureADPreview module](b2b-quickstart-invite-powershell.md#install-the-latest-azureadpreview-module).) 
+1. Install the latest version of the Azure AD PowerShell for Graph module ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)). If you need detailed steps, the Quickstart includes the guidance, [PowerShell module](b2b-quickstart-invite-powershell.md#prerequisites).
 2. Run the following command: 
    ```powershell
    Connect-AzureAD
    ```
-1. At the sign-in prompt, sign in with the managed Global Administrator account. 
-2. Run the following commands, replacing the values from the federation metadata file. For AD FS Server and Okta, the federation file is federationmetadata.xml, for example: `https://sts.totheclouddemo.com/federationmetadata/2007-06/federationmetadata.xml`. 
+3. At the sign-in prompt, sign in with the managed Global Administrator account. 
+4. Run the following commands, replacing the values from the federation metadata file. For AD FS Server and Okta, the federation file is federationmetadata.xml, for example: `https://sts.totheclouddemo.com/federationmetadata/2007-06/federationmetadata.xml`. 
 
    ```powershell
    $federationSettings = New-Object Microsoft.Open.AzureAD.Model.DomainFederationSettings
@@ -185,7 +212,7 @@ Next, you'll configure federation with the identity provider configured in step 
    New-AzureADExternalDomainFederation -ExternalDomainName $domainName  -FederationSettings $federationSettings
    ```
 
-## Step 3: Test direct federation in Azure AD
+## Step 4: Test direct federation in Azure AD
 Now test your direct federation setup by inviting a new B2B guest user. For details, see [Add Azure AD B2B collaboration users in the Azure portal](add-users-administrator.md).
  
 ## How do I edit a direct federation relationship?
@@ -199,7 +226,7 @@ Now test your direct federation setup by inviting a new B2B guest user. For deta
 
 
 ## How do I remove direct federation?
-You can remove your direct federation setup. If you do, direct federation guest users who have already redeemed their invitations won't be able to sign in. But you can give them access to your resources again by deleting them from the directory and reinviting them. 
+You can remove your direct federation setup. If you do, direct federation guest users who have already redeemed their invitations won't be able to sign in. But you can give them access to your resources again by [resetting their redemption status](reset-redemption-status.md). 
 To remove direct federation with an identity provider in the Azure AD portal:
 
 1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**. 

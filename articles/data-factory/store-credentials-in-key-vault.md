@@ -10,7 +10,7 @@ ms.author: jingwang
 
 # Store credential in Azure Key Vault
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 You can store credentials for data stores and computes in an [Azure Key Vault](../key-vault/general/overview.md). Azure Data Factory retrieves the credentials when executing an activity that uses the data store/compute.
 

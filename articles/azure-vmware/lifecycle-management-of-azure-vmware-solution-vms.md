@@ -40,9 +40,9 @@ The following diagram shows the integrated monitoring architecture for Azure VMw
 If you are new to Azure or unfamiliar with any of the services previously mentioned, review the following articles:
 
 - [Automation account authentication overview](../automation/automation-security-overview.md)
-- [Designing your Azure Monitor Logs deployment](../azure-monitor/platform/design-logs-deployment.md) and [Azure Monitor](../azure-monitor/overview.md)
+- [Designing your Azure Monitor Logs deployment](../azure-monitor/logs/design-logs-deployment.md) and [Azure Monitor](../azure-monitor/overview.md)
 - [Planning](../security-center/security-center-planning-and-operations-guide.md) and [Supported platforms](../security-center/security-center-os-coverage.md) for Azure Security Center
-- [Enable Azure Monitor for VMs overview](../azure-monitor/insights/vminsights-enable-overview.md)
+- [Enable Azure Monitor for VMs overview](../azure-monitor/vm/vminsights-enable-overview.md)
 - [What is Azure Arc enabled servers?](../azure-arc/servers/overview.md) and [What is Azure Arc enabled Kubernetes?](../azure-arc/kubernetes/overview.md)
 - [Update Management overview](../automation/update-management/overview.md)
 
@@ -54,7 +54,7 @@ Azure Update Management in Azure Automation manages operating system updates for
 
 1.  Before you can add Log Analytics to Azure Update Management, you first need to [Create an Azure Automation account](../automation/automation-create-standalone-account.md). If you prefer to create your account using a template, see [Create an Automation account using an Azure Resource Manager template](../automation/quickstart-create-automation-account-template.md).
 
-2. **Log Analytics workspace** enables log collection and performance counter collection using the Log Analytics agent or extensions. To create your Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md). If you prefer, you can also create a workspace via [CLI](../azure-monitor/learn/quick-create-workspace-cli.md), [PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md), or [Azure Resource Manager template](../azure-monitor/samples/resource-manager-workspace.md).
+2. **Log Analytics workspace** enables log collection and performance counter collection using the Log Analytics agent or extensions. To create your Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md). If you prefer, you can also create a workspace via [CLI](../azure-monitor/logs/quick-create-workspace-cli.md), [PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md), or [Azure Resource Manager template](../azure-monitor/logs/resource-manager-workspace.md).
 
 3. To enable Azure Update Management for your VMs, see [Enable Update Management from an Automation account](../automation/update-management/enable-from-automation-account.md). In the process, you will link your Log Analytics workspace with your automation account. 
  
@@ -94,22 +94,14 @@ Azure VMware Solution VMs can be monitored through the Log Analytics agent (also
 
 Azure Monitor is a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It requires no deployment. With Azure Monitor, you can monitor guest operating system performance and discover and map application dependencies for Azure VMware Solution or on-premises VMs.
 
-- Azure Monitor allows you to collect data from different sources to monitor and analyze. For more information, see [Sources of monitoring data for Azure Monitor](../azure-monitor/platform/data-sources.md).
+- Azure Monitor allows you to collect data from different sources to monitor and analyze. For more information, see [Sources of monitoring data for Azure Monitor](../azure-monitor/agents/data-sources.md).
 
-- Collect different types of data for analysis, visualization, and alerting. For more information, see [Azure Monitor data platform](../azure-monitor/platform/data-platform.md).
+- Collect different types of data for analysis, visualization, and alerting. For more information, see [Azure Monitor data platform](../azure-monitor/data-platform.md).
 
-- To configure Azure Monitor with your Log Analytics workspace, see [Configure Log Analytics workspace for Azure Monitor for VMs](../azure-monitor/insights/vminsights-configure-workspace.md).
+- To configure Azure Monitor with your Log Analytics workspace, see [Configure Log Analytics workspace for Azure Monitor for VMs](../azure-monitor/vm/vminsights-configure-workspace.md).
 
 - You can create alert rules to identify issues in your environment, like high use of resources, missing patches, low disk space, and heartbeat of your VMs. You can also set an automated response to detected events by sending an alert to IT Service Management (ITSM) tools. Alert detection notification can also be sent via email. To create such rules, see:
-    - [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/platform/alerts-metric.md).
-    - [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/platform/alerts-log.md).
-    - [Action rules](../azure-monitor/platform/alerts-action-rules.md) to set automated actions and notifications.
-    - [Connect Azure to ITSM tools using IT Service Management Connector](../azure-monitor/platform/itsmc-overview.md).
-    
- ## Next steps
-
-Now that you've covered using Azure's native tools to manage your Azure VMware Solution VMs throughout their lifecycle, you may want to learn about:
-
-- [Protecting your Azure VMware Solution VMs with Azure Security Center](azure-security-integration.md).
-- [Setting up Azure Backup Server for Azure VMware Solution](set-up-backup-server-for-azure-vmware-solution.md).
-- [Integrating Azure VMware Solution in a hub and spoke architecture](concepts-hub-and-spoke.md).
+    - [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
+    - [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/alerts/alerts-log.md).
+    - [Action rules](../azure-monitor/alerts/alerts-action-rules.md) to set automated actions and notifications.
+    - [Connect Azure to ITSM tools using IT Service Management Connector](../azure-monitor/alerts/itsmc-overview.md).

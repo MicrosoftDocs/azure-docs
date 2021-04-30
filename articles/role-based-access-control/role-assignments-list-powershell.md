@@ -183,4 +183,4 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 ## Next steps
 
-- [Add or remove Azure role assignments using Azure PowerShell](role-assignments-powershell.md)
+- [Assign Azure roles using Azure PowerShell](role-assignments-powershell.md)

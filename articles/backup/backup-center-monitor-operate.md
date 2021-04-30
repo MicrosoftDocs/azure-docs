@@ -5,20 +5,20 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ---
 
-# Monitor and operate backups using Backup Center (Preview)
+# Monitor and operate backups using Backup center
 
-As a backup admin, you can use Backup Center as a single pane of glass to monitor your jobs and backup inventory on a day-to-day basis. You can also use Backup Center to perform your regular operations, such as responding to on-demand backup requests, restoring backups, creating backup policies, and so on.
+As a backup admin, you can use Backup center as a single pane of glass to monitor your jobs and backup inventory on a day-to-day basis. You can also use Backup center to perform your regular operations, such as responding to on-demand backup requests, restoring backups, creating backup policies, and so on.
 
 ## Supported scenarios
 
-* Backup Center is currently supported for Azure VM backup, SQL in Azure VM backup, SAP HANA in Azure VM backup, Azure Files backup, and Azure Database for PostgreSQL Server backup.
+* Backup center is currently supported for Azure VM backup, SQL in Azure VM backup, SAP HANA in Azure VM backup, Azure Files backup, Azure Blobs backup, Azure Managed Disks backup and Azure Database for PostgreSQL Server backup.
 * Refer to the [support matrix](backup-center-support-matrix.md) for a detailed list of supported and unsupported scenarios.
 
 ## Backup instances
 
-Backup Center allows for easy search and discoverability of backup instances across your backup estate.
+Backup center allows for easy search and discoverability of backup instances across your backup estate.
 
-Selecting the **Backup Instances** tab in Backup Center lets you view details of all the backup instances that you have access to.
+Selecting the **Backup Instances** tab in Backup center lets you view details of all the backup instances that you have access to.
 
  You can view the following information about each of your backup instances:
 
@@ -44,9 +44,9 @@ Right-clicking on any of the items in the grid lets you perform actions on the g
 
 ## Backup jobs
 
-Backup Center allows you to view detailed information on all jobs that were created in your backup estate and take appropriate action for failing jobs.
+Backup center allows you to view detailed information on all jobs that were created in your backup estate and take appropriate action for failing jobs.
 
-Selecting the **Backup jobs** menu item in Backup Center provides a view of all your jobs. Each job contains the following information:
+Selecting the **Backup jobs** menu item in Backup center provides a view of all your jobs. Each job contains the following information:
 
 * Backup instance associated with the job
 * Datasource subscription
@@ -65,7 +65,7 @@ Using the **Backup jobs** tab, you can view jobs up to the last seven days. To v
 
 ## Vaults
 
-Selecting the **Vaults** menu item in Backup Center allows you to see a list of all [Recovery Services vaults](backup-azure-recovery-services-vault-overview.md) and [Backup vaults](backup-vault-overview.md) that you have access to. You can filter the list with the following parameters:
+Selecting the **Vaults** menu item in Backup center allows you to see a list of all [Recovery Services vaults](backup-azure-recovery-services-vault-overview.md) and [Backup vaults](backup-vault-overview.md) that you have access to. You can filter the list with the following parameters:
 
 * Vault subscription
 * Vault resource group
@@ -78,7 +78,7 @@ Selecting any item in the list allows you to navigate to a given vault.
 
 ## Backup policies
 
-Backup Center allows you to view and edit key information for any of your backup policies.
+Backup center allows you to view and edit key information for any of your backup policies.
 
 Selecting the **Backup Policies** menu item allows you to view all the policies that you've created across your backup estate. You can filter the list by vault subscription, resource group, datasource type, and vault. Right-clicking on an item in the grid lets you view associated items for that policy, edit the policy, or even delete it if necessary.
 
@@ -87,5 +87,5 @@ Selecting the **Backup Policies** menu item allows you to view all the policies 
 ## Next steps
 
 * [Govern your backup estate](backup-center-govern-environment.md)
-* [Perform actions using Backup Center](backup-center-actions.md)
+* [Perform actions using Backup center](backup-center-actions.md)
 * [Obtain insights on your backups](backup-center-obtain-insights.md)

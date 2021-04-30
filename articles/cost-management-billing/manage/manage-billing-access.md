@@ -35,7 +35,7 @@ Account administrator can grant others access to Azure billing information by as
 
 These roles have access to billing information in the [Azure portal](https://portal.azure.com/). People that are assigned these roles can also use the [Billing APIs](consumption-api-overview.md#usage-details-api) to programmatically get invoices and usage details.
 
-To assign roles, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+To assign roles, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ** If you're an EA customer, an Account Owner can assign the above role to other users of their team. But for these users to view billing information, the Enterprise Administrator must enable AO view charges in the Enterprise portal.
 
@@ -100,7 +100,7 @@ The Billing Reader feature is in preview, and does not yet support non-global cl
 
 ## Next steps
 
-- Users in other roles, such as Owner or Contributor, can access not just billing information, but Azure services as well. To manage these roles, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+- Users in other roles, such as Owner or Contributor, can access not just billing information, but Azure services as well. To manage these roles, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 - For more information about roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 ## Need help? Contact us.

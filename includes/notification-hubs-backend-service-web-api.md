@@ -33,7 +33,7 @@
 
 1. **Control** + **Click** on the **PushDemoApi** project, then choose **New File...** from the **Add** menu.
 
-1. Set up local configuration values using the [Secret Manager tool](/aspnet/core/security/app-secrets?tabs=linux&view=aspnetcore-3.1#secret-manager). Decoupling the secrets from the solution ensures that they don't end up in source control. Open **Terminal** then go to the directory of the project file and run the following commands:
+1. Set up local configuration values using the [Secret Manager tool](/aspnet/core/security/app-secrets?tabs=linux#secret-manager). Decoupling the secrets from the solution ensures that they don't end up in source control. Open **Terminal** then go to the directory of the project file and run the following commands:
 
     ```bash
     dotnet user-secrets init
@@ -54,7 +54,7 @@
 
 ### Authenticate clients using an API Key (Optional)
 
-API keys aren't as secure as tokens, but will suffice for the purposes of this tutorial. An API key can be configured easily via the [ASP.NET Middleware](/aspnet/core/fundamentals/middleware/?view=aspnetcore-3.1).
+API keys aren't as secure as tokens, but will suffice for the purposes of this tutorial. An API key can be configured easily via the [ASP.NET Middleware](/aspnet/core/fundamentals/middleware/).
 
 1. Add the **API key** to the local configuration values.
 
@@ -145,7 +145,7 @@ API keys aren't as secure as tokens, but will suffice for the purposes of this t
     ```
 
     > [!NOTE]
-    > An [Authentication Handler](/aspnet/core/security/authentication/?view=aspnetcore-3.1#authentication-handler) is a type that implements the behavior of a scheme, in this case a custom API Key scheme.
+    > An [Authentication Handler](/aspnet/core/security/authentication/#authentication-handler) is a type that implements the behavior of a scheme, in this case a custom API Key scheme.
 
 1. Add another **Empty Class** to the **Authentication** folder called *ApiKeyAuthenticationBuilderExtensions.cs*, then add the following implementation.
 
@@ -218,7 +218,7 @@ API keys aren't as secure as tokens, but will suffice for the purposes of this t
 
 ### Add Dependencies and Configure Services
 
-ASP.NET Core supports the [dependency injection (DI)](/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1) software design pattern, which is a technique for achieving [Inversion of Control (IoC)](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) between classes and their dependencies.  
+ASP.NET Core supports the [dependency injection (DI)](/aspnet/core/fundamentals/dependency-injection) software design pattern, which is a technique for achieving [Inversion of Control (IoC)](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) between classes and their dependencies.  
 
 Use of the notification hub and the [Notification Hubs SDK for backend operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) is encapsulated within a service. The service is registered and made available through a suitable abstraction.
 
@@ -255,7 +255,7 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
     ```
 
     > [!NOTE]
-    > This class contains the tokenized notification payloads for the generic and silent notifications required by this scenario. The payloads are defined outside of the [Installation](/dotnet/api/microsoft.azure.notificationhubs.installation?view=azure-dotnet) to allow experimentation without having to update existing installations via the service. Handling changes to installations in this way is out of scope for this tutorial. For production, consider [custom templates](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+    > This class contains the tokenized notification payloads for the generic and silent notifications required by this scenario. The payloads are defined outside of the [Installation](/dotnet/api/microsoft.azure.notificationhubs.installation) to allow experimentation without having to update existing installations via the service. Handling changes to installations in this way is out of scope for this tutorial. For production, consider [custom templates](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
 1. Select **General** > **Empty Class**, enter *DeviceInstallation.cs* for the **Name**, then click **New** adding the following implementation.
 

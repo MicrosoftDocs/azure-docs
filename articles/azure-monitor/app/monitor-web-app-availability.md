@@ -1,46 +1,23 @@
 ---
-title: Monitor availability and responsiveness of any web site | Microsoft Docs
-description: Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
+title: Monitor availability and responsiveness of any web site - Azure Monitor 
+description: Set up ping tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 04/15/2021
 
 ms.reviewer: sdash
 ---
 
 # Monitor the availability of any website
 
-After you've deployed your web app/website, you can set up recurring tests to monitor availability and responsiveness. [Azure Application Insights](./app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It can alert you if your application isn't responding, or if it responds too slowly.
+The name "URL ping test" is a bit of a misnomer. To be clear, these tests are not making any use of ICMP (Internet Control Message Protocol) to check your site's availability. Instead they use more advanced HTTP request functionality to validate whether an endpoint is responding. They also measure the performance associated with that response, and adds the ability to set custom success criteria coupled with more advanced features like parsing dependent requests, and allowing for retries.
 
-You can set up availability tests for any HTTP or HTTPS endpoint that is accessible from the public internet. You don't have to make any changes to the website you're testing. In fact, it doesn't even have to be a site you own. You can test the availability of a REST API that your service depends on.
+In order to create an availability test, you need use an existing Application Insight resource or [create an Application Insights resource](create-new-resource.md).
 
-### Types of availability tests:
+To create your first availability request, open the Availability pane and select  **Create Test**.
 
-There are three types of availability tests:
+:::image type="content" source="./media/monitor-web-app-availability/availability-create-test-001.png" alt-text="Screenshot of create of create a test.":::
 
-* [URL ping test](#create-a-url-ping-test): a simple test that you can create in the Azure portal.
-* [Multi-step web test](availability-multistep.md): A recording of a sequence of web requests, which can be played back to test more complex scenarios. Multi-step web tests are created in Visual Studio Enterprise and uploaded to the portal for execution.
-* [Custom Track Availability Tests](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability): If you decide to create a custom application to run availability tests, the `TrackAvailability()` method can be used to send the results to Application Insights.
-
-**You can create up to 100 availability tests per Application Insights resource.**
-
-> [!IMPORTANT]
-> Both, [URL ping test](#create-a-url-ping-test) and [multi-step web test](availability-multistep.md) rely on the public internet DNS infrastructure to resolve the domain names of the tested endpoints. This means that if you are using Private DNS, you must either ensure that every domain name of your test is also resolvable by the public domain name servers or, when it is not possible, you can use [custom track availability tests](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) instead.
-
-## Create an Application Insights resource
-
-In order to create an availability test, you first need to create an Application Insights resource. If you have already created a resource, proceed to the next section to [create a URL Ping test](#create-a-url-ping-test).
-
-From the Azure portal, select **Create a resource** > **Developer Tools** > **Application Insights** and [create an Application Insights resource](create-new-resource.md).
-
-## Create a URL ping test
-
-The name "URL ping test" is a bit of a misnomer. To be clear, this test is not making any use of ICMP (Internet Control Message Protocol) to check your site's availability. Instead it uses more advanced HTTP request functionality to validate whether an endpoint is responding. It also measures the performance associated with that response,  and adds the ability to set custom success criteria coupled with more advanced features like parsing dependent requests, and allowing for retries.
-
-To create your first availability request, open the Availability pane and select **Create Test**.
-
-![Fill at least the URL of your website](./media/monitor-web-app-availability/availability-create-test-001.png)
-
-### Create a test
+## Create a test
 
 |Setting| Explanation
 |----|----|----|
@@ -55,7 +32,7 @@ To create your first availability request, open the Availability pane and select
 > [!NOTE]
 > We strongly recommend testing from multiple locations with **a minimum of five locations**. This is to prevent false alarms that may result from transient issues with a specific location. In addition we have found that the optimal configuration is to have the **number of test locations be equal to the alert location threshold + 2**.
 
-### Success criteria
+## Success criteria
 
 |Setting| Explanation
 |----|----|----|
@@ -63,19 +40,18 @@ To create your first availability request, open the Availability pane and select
 | **HTTP response** | The returned status code that is counted as a success. 200 is the code that indicates that a normal web page has been returned.|
 | **Content match** | A string, like "Welcome!" We test that an exact case-sensitive match occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes you might have to update it. **Only English characters are supported with content match** |
 
-### Alerts
+## Alerts
 
 |Setting| Explanation
 |----|----|----|
 |**Near-realtime (Preview)** | We recommend using Near-realtime alerts. Configuring this type of alert is done after your availability test is created.  |
-|**Classic** | We no longer recommended using classic alerts for new availability tests.|
 |**Alert location threshold**|We recommend a minimum of 3/5 locations. The optimal relationship between alert location threshold and the number of test locations is **alert location threshold** = **number of test locations - 2, with a minimum of five test locations.**|
 
-### Location population tags
+## Location population tags
 
 The following population tags can be used for the geo-location attribute when deploying an availability URL ping test using Azure Resource Manager.
 
-#### Azure Gov
+### Azure gov
 
 | Display Name   | Population Name     |
 |----------------|---------------------|
@@ -112,11 +88,11 @@ Availability test results can be visualized with both line and scatter plot view
 
 After a few minutes, click **Refresh** to see your test results.
 
-![Screenshot shows the Availability page with the Refresh button highlighted.](./media/monitor-web-app-availability/availability-refresh-002.png)
+:::image type="content" source="./media/monitor-web-app-availability/availability-refresh-002.png" alt-text="Screenshot shows the Availability page with the Refresh button highlighted.":::
 
 The scatterplot view shows samples of the test results that have diagnostic test-step detail in them. The test engine stores diagnostic detail for tests that have failures. For successful tests, diagnostic details are stored for a subset of the executions. Hover over any of the green/red dots to see the test, test name, and location.
 
-![Line view](./media/monitor-web-app-availability/availability-scatter-plot-003.png)
+:::image type="content" source="./media/monitor-web-app-availability/availability-scatter-plot-003.png" alt-text="Line view." border="false":::
 
 Select a particular test, location, or reduce the time period to see more results around the time period of interest. Use Search Explorer to see results from all executions, or use Analytics queries to run custom reports on this data.
 
@@ -124,30 +100,31 @@ Select a particular test, location, or reduce the time period to see more result
 
 To edit, temporarily disable, or delete a test click the ellipses next to a test name. It may take up to 20 minutes for configuration changes to propagate to all test agents after a change is made.
 
-![View test details. Edit and Disable a web test](./media/monitor-web-app-availability/edit.png)
+:::image type="content" source="./media/monitor-web-app-availability/edit.png" alt-text="View test details. Edit and Disable a web test." border="false":::
 
 You might want to disable availability tests or the alert rules associated with them while you are performing maintenance on your service.
 
 ## If you see failures
 
-Click a red dot.
+Select a red dot.
 
-![Click a red dot](./media/monitor-web-app-availability/open-instance-3.png)
+:::image type="content" source="./media/monitor-web-app-availability/end-to-end.png" alt-text="Screenshot of end-to-end transaction details tab." border="false":::
 
 From an availability test result, you can see the transaction details across all components. Here you can:
 
+* Review the troubleshooting report to determine what may have caused your test to fail but your application is still available.
 * Inspect the response received from your server.
 * Diagnose failure with correlated server-side telemetry collected while processing the failed availability test.
 * Log an issue or work item in Git or Azure Boards to track the problem. The bug will contain a link to this event.
 * Open the web test result in Visual Studio.
 
-Learn more about the end to end transaction diagnostics experience [here](./transaction-diagnostics.md).
+To learn more about the end to end transaction diagnostics experience visit the [transaction diagnostics documentation](./transaction-diagnostics.md).
 
 Click on the exception row to see the details of the server-side exception that caused the synthetic availability test to fail. You can also get the [debug snapshot](./snapshot-debugger.md) for richer code level diagnostics.
 
-![Server-side diagnostics](./media/monitor-web-app-availability/open-instance-4.png)
+:::image type="content" source="./media/monitor-web-app-availability/open-instance-4.png" alt-text="Server-side diagnostics.":::
 
-In addition to the raw results, you can also view two key Availability metrics in [Metrics Explorer](../platform/metrics-getting-started.md):
+In addition to the raw results, you can also view two key Availability metrics in [Metrics Explorer](../essentials/metrics-getting-started.md):
 
 1. Availability: Percentage of the tests that were successful, across all test executions.
 2. Test Duration: Average test duration across all test executions.
@@ -155,14 +132,11 @@ In addition to the raw results, you can also view two key Availability metrics i
 ## Automation
 
 * [Use PowerShell scripts to set up an availability test](./powershell.md#add-an-availability-test) automatically.
-* Set up a [webhook](../platform/alerts-webhooks.md) that is called when an alert is raised.
+* Set up a [webhook](../alerts/alerts-webhooks.md) that is called when an alert is raised.
 
-## Troubleshooting
-
-Dedicated [troubleshooting article](troubleshoot-availability.md).
 
 ## Next steps
 
 * [Availability Alerts](availability-alerts.md)
 * [Multi-step web tests](availability-multistep.md)
-
+* [Troubleshooting](troubleshoot-availability.md)

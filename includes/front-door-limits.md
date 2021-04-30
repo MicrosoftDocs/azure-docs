@@ -5,8 +5,8 @@
  author: duongau
  ms.service: frontdoor
  ms.topic: include
- ms.date: 05/09/2019
- ms.author: sharadag
+ ms.date: 02/18/2021
+ ms.author: duau
  ms.custom: include file
 ---
 
@@ -30,6 +30,31 @@
 | Web application firewall cookie name length | 256 |
 | Web application firewall HTTP request body size inspected | 128 KB |
 | Web application firewall custom response body length | 2 KB |
+
+### Azure Front Door Standard/Premium (Preview) Service Limits
+
+*** *Maximum **500** total Standard and Premium profiles per subscription.*
+
+| Resource | Standard SKU Limit | Premium SKU Limit |
+| --- | --- | --- |
+| Maximum endpoint per profile	| 10 | 25 |
+| Maximum custom domain per profile	| 100 | 200 |
+| Maximum origin group per profile | 100 | 200 |
+| Maximum secrets per profile | 100 | 200 |
+| Maximum security policy per profile | 100 | 200 |
+| Maximum rule set per profile | 100 | 200 |
+| Maximum rules per rule set | 100 | 100 |
+| Maximum origin per origin group | 50 | 50 |
+| Maximum routes per endpoint | 100 | 200 |
+| Web application firewall match conditions per custom rule | 10 | 10 |
+| Web application firewall IP address ranges per match condition | 600 | 600 |
+| Web application firewall string match values per match condition | 10 | 10 |
+| Web application firewall string match value length | 256 | 256 |
+| Web application firewall POST body parameter name length | 256 | 256 |
+| Web application firewall HTTP header name length | 256 | 256 |
+| Web application firewall cookie name length | 256 | 256|
+| Web application firewall HTTP request body size inspected | 128 KB | 128 KB |
+| Web application firewall custom response body length | 2 KB | 2 KB |
 
 ### Timeout values
 #### Client to Front Door

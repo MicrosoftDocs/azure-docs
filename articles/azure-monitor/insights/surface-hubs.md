@@ -1,7 +1,6 @@
 ---
 title: Monitor Surface Hubs with Azure Monitor | Microsoft Docs
 description: Use the Surface Hub solution to track the health of your Surface Hubs and understand how they are being used.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -22,7 +21,7 @@ Use the following information to install and configure the solution. In order to
 
 * A [Log Analytics subscription](https://azure.microsoft.com/pricing/details/log-analytics/) level that will support the number of devices you want to monitor. Log Analytics pricing varies depending on how many devices are enrolled, and how much data it processes. You'll want to take this into consideration when planning your Surface Hub rollout.
 
-Next, you will either add an existing Log Analytics workspace or create a new one. Detailed instructions for using either method is at [Create a Log Analytics workspace in the Azure portal](../learn/quick-create-workspace.md). Once the Log Analytics workspace is configured, there are two ways to enroll your Surface Hub devices:
+Next, you will either add an existing Log Analytics workspace or create a new one. Detailed instructions for using either method is at [Create a Log Analytics workspace in the Azure portal](../logs/quick-create-workspace.md). Once the Log Analytics workspace is configured, there are two ways to enroll your Surface Hub devices:
 
 * Automatically through Intune
 * Manually through **Settings** on your Surface Hub device.
@@ -70,8 +69,8 @@ When you click on the Surface Hub tile, your device's health is displayed.
 
    ![Surface Hub dashboard](./media/surface-hubs/surface-hub-dashboard.png)
 
-You can create [alerts](../platform/alerts-overview.md) based on existing or custom log searches. Using the data Azure Monitor collects from your Surface Hubs, you can search for issues and alert on the conditions that you define for your devices.
+You can create [alerts](../alerts/alerts-overview.md) based on existing or custom log searches. Using the data Azure Monitor collects from your Surface Hubs, you can search for issues and alert on the conditions that you define for your devices.
 
 ## Next steps
-* Use [Log queries in Azure Monitor](../log-query/log-query-overview.md) to view detailed Surface Hub data.
-* Create [alerts](../platform/alerts-overview.md) to notify you when issues occur with your Surface Hubs.
+* Use [Log queries in Azure Monitor](../logs/log-query-overview.md) to view detailed Surface Hub data.
+* Create [alerts](../alerts/alerts-overview.md) to notify you when issues occur with your Surface Hubs.

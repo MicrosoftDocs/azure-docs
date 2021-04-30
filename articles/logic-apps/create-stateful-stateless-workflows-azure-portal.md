@@ -5,15 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 04/23/2021
 ---
 
 # Create stateful and stateless workflows in the Azure portal with Azure Logic Apps Preview
 
 > [!IMPORTANT]
-> This capability is in public preview, is provided without a service level agreement, and 
-> is not recommended for production workloads. Certain features might not be supported or might 
-> have constrained capabilities. For more information, see 
+> This capability is in public preview, is provided without a service level agreement, and is not recommended for production workloads. 
+> Certain features might not be supported or might have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 With [Azure Logic Apps Preview](logic-apps-overview-preview.md), you can build automation and integration solutions across apps, data, cloud services, and systems by creating and running logic apps that include [*stateful* and *stateless* workflows](logic-apps-overview-preview.md#stateful-stateless) in the Azure portal by starting with the new **Logic App (Preview)** resource type. With this new logic app type, you can build multiple workflows that are powered by the redesigned Azure Logic Apps Preview runtime, which provides portability, better performance, and flexibility for deploying and running in various hosting environments, not only Azure, but also Docker containers. To learn more about the new logic app type, see [Overview for Azure Logic Apps Preview](logic-apps-overview-preview.md).
@@ -32,7 +31,7 @@ This article shows how to build your logic app and workflow in the Azure portal 
 
 * Trigger a workflow run.
 
-* View the workflow's run history.
+* View the workflow's run and trigger history.
 
 * Enable or open the Application Insights after deployment.
 
@@ -52,6 +51,8 @@ This article shows how to build your logic app and workflow in the Azure portal 
   > using queues for scheduling and storing workflow states in tables and blobs. These transactions incur 
   > [Azure Storage charges](https://azure.microsoft.com/pricing/details/storage/). For more information about 
   > how stateful logic apps store data in external storage, see [Stateful versus stateless](logic-apps-overview-preview.md#stateful-stateless).
+
+* To deploy to a Docker container, you need an existing Docker container image. For example, you can create this image through [Azure Container Registry](../container-registry/container-registry-intro.md), [App Service](../app-service/overview.md), or [Azure Container Instance](../container-instances/container-instances-overview.md). 
 
 * To build the same example logic app in this article, you need an Office 365 Outlook email account that uses a Microsoft work or school account to sign in.
 
@@ -78,7 +79,7 @@ This article shows how to build your logic app and workflow in the Azure portal 
    | **Subscription** | Yes | <*Azure-subscription-name*> | The Azure subscription to use for your logic app. |
    | **Resource group** | Yes | <*Azure-resource-group-name*> | The Azure resource group where you create your logic app and related resources. This resource name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <p><p>This example creates a resource group named `Fabrikam-Workflows-RG`. |
    | **Logic app name** | Yes | <*logic-app-name*> | The name to use for your logic app. This resource name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <p><p>This example creates a logic app named `Fabrikam-Workflows`. <p><p>**Note**: Your logic app's name automatically gets the suffix, `.azurewebsites.net`, because the **Logic App (Preview)** resource is powered by Azure Functions, which uses the same app naming convention. |
-   | **Publish** | Yes | <*deployment-environment*> | The deployment destination for your logic app. You can deploy to Azure by selecting **Workflow** or to a Docker container. <p><p>This example uses **Workflow**, which is the **Logic App (Preview)** resource in Azure. <p><p>If you select **Docker Container**, [specify the container to use in your logic app's settings](#set-docker-container). |
+   | **Publish** | Yes | <*deployment-environment*> | The deployment destination for your logic app. You can deploy to Azure by selecting **Workflow** or **Docker Container**. <p><p>This example uses **Workflow**, which deploys the **Logic App (Preview)** resource to the Azure portal. <p><p>**Note**: Before you select **Docker Container**, make sure that create your Docker container image. For example, you can create this image through [Azure Container Registry](../container-registry/container-registry-intro.md), [App Service](../app-service/overview.md), or [Azure Container Instance](../container-instances/container-instances-overview.md). That way, after you select **Docker Container**, you can [specify the container that you want to use in your logic app's settings](#set-docker-container). |
    | **Region** | Yes | <*Azure-region*> | The Azure region to use when creating your resource group and resources. <p><p>This example uses **West US**. |
    |||||
 
@@ -91,7 +92,7 @@ This article shows how to build your logic app and workflow in the Azure portal 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **Storage account** | Yes | <*Azure-storage-account-name*> | The [Azure Storage account](../storage/common/storage-account-overview.md) to use for storage transactions. This resource name must be unique across regions and have 3-24 characters with only numbers and lowercase letters. Either select an existing account or create a new account. <p><p>This example creates a storage account named `fabrikamstorageacct`. |
-   | **Plan type** | Yes | <*Azure-hosting-plan*> | The [hosting plan](../app-service/overview-hosting-plans.md) to use for deploying your logic app, which is either [**Premium**](../azure-functions/functions-premium-plan.md) or [**App service plan**](../azure-functions/dedicated-plan.md). Your choice affects the pricing tiers that you can choose later. <p><p>This example uses the **App service plan**. <p><p>**Note**: Similar to Azure Functions, the **Logic App (Preview)** resource type requires a hosting plan and pricing tier. Consumption hosting plans aren't supported nor available for this resource type. For more information, review these topics: <p><p>- [Azure Functions scale and hosting](../azure-functions/functions-scale.md) <br>- [App Service pricing details](https://azure.microsoft.com/pricing/details/app-service/) <p><p> |
+   | **Plan type** | Yes | <*Azure-hosting-plan*> | The [hosting plan](../app-service/overview-hosting-plans.md) to use for deploying your logic app, which is either [**Functions Premium**](../azure-functions/functions-premium-plan.md) or [**App service plan** (Dedicated)](../azure-functions/dedicated-plan.md). Your choice affects the capabilities and pricing tiers that are later available to you. <p><p>This example uses the **App service plan**. <p><p>**Note**: Similar to Azure Functions, the **Logic App (Preview)** resource type requires a hosting plan and pricing tier. Consumption plans aren't supported nor available for this resource type. For more information, review these topics: <p><p>- [Azure Functions scale and hosting](../azure-functions/functions-scale.md) <br>- [App Service pricing details](https://azure.microsoft.com/pricing/details/app-service/) <p><p>For example, the Functions Premium plan provides access to networking capabilities, such as connect and integrate privately with Azure virtual networks, similar to Azure Functions when you create and deploy your logic apps. For more information, review these topics: <p><p>- [Azure Functions networking options](../azure-functions/functions-networking-options.md) <br>- [Azure Logic Apps Running Anywhere - Networking possibilities with Azure Logic Apps Preview](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047) |
    | **Windows Plan** | Yes | <*plan-name*> | The plan name to use. Either select an existing plan or provide the name for a new plan. <p><p>This example uses the name `Fabrikam-Service-Plan`. |
    | **SKU and size** | Yes | <*pricing-tier*> | The [pricing tier](../app-service/overview-hosting-plans.md) to use for hosting your logic app. Your choices are affected by the plan type that you previously chose. To change the default tier, select **Change size**. You can then select other pricing tiers, based on the workload that you need. <p><p>This example uses the free **F1 pricing tier** for **Dev / Test** workloads. For more information, review [App Service pricing details](https://azure.microsoft.com/pricing/details/app-service/). |
    |||||
@@ -108,9 +109,14 @@ This article shows how to build your logic app and workflow in the Azure portal 
 
    ![Screenshot that shows the Azure portal and new logic app resource settings.](./media/create-stateful-stateless-workflows-azure-portal/check-logic-app-resource-settings.png)
 
+   > [!TIP]
+   > If you get a validation error after you select **Create**, open and review the error details. 
+   > For example, if your selected region reaches a quota for resources that you're trying to create, 
+   > you might have to try a different region.
+
    After Azure finishes deployment, your logic app is automatically live and running but doesn't do anything yet because no workflows exist.
 
-1. On the deployment completion page, select **Go to resource** so that you can start building your workflow.
+1. On the deployment completion page, select **Go to resource** so that you can start building your workflow. If you selected **Docker Container** for deploying your logic app, continue with the [steps to provide information about that Docker container](#set-docker-container).
 
    ![Screenshot that shows the Azure portal and the finished deployment.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-completed-deployment.png)
 
@@ -118,15 +124,13 @@ This article shows how to build your logic app and workflow in the Azure portal 
 
 ## Specify Docker container for deployment
 
-If you selected **Docker Container** while creating your logic app, make sure that you provide information about the container that you want to use for deployment after the Azure portal creates your **Logic App (Preview)** resource.
+Before you start these steps, you need a Docker container image. For example, you can create this image through [Azure Container Registry](../container-registry/container-registry-intro.md), [App Service](../app-service/overview.md), or [Azure Container Instance](../container-instances/container-instances-overview.md). You can then provide information about your Docker container after you create your logic app.
 
 1. In the Azure portal, go to your logic app resource.
 
-1. On the logic app menu, under **Settings**, select **Container settings**. Provide the details and location for your Docker container image.
+1. On the logic app menu, under **Settings**, select **Deployment Center**.
 
-   ![Screenshot that shows the logic app menu with "Container settings" selected.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-deploy-container-settings.png)
-
-1. When you're finished, save your settings.
+1. On the **Deployment Center** pane, follow the instructions for providing and managing the details for your Docker container.
 
 <a name="add-workflow"></a>
 
@@ -241,7 +245,33 @@ Before you can add a trigger to a blank workflow, make sure that the workflow de
 
 1. Save your work. On the designer toolbar, select **Save**.
 
-Next, to test your workflow, manually trigger a run.
+1. If your environment has strict network requirements or firewalls that limit traffic, you have to set up permissions for any trigger or action connections that exist in your workflow. To find the fully qualified 
+
+   Otherwise, to test your workflow, [manually trigger a run](#trigger-workflow).
+
+<a name="firewall-setup"></a>
+
+##  Find domain names for firewall access
+
+Before you deploy your logic app and run your workflow in the Azure portal, if your environment has strict network requirements or firewalls that limit traffic, you have to set up network or firewall permissions for any trigger or action connections in the workflows that exist in your logic app.
+
+To find the fully qualified domain names (FQDNs) for these connections, follow these steps:
+
+1. On your logic app menu, under **Workflows**, select **Connections**. On the **API Connections** tab, select the connection's resource name, for example:
+
+   ![Screenshot that shows the Azure portal and logic app menu with the "Connections" and "offic365" connection resource name selected.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connections.png)
+
+1. Expand your browser wide enough so that when **JSON View** appears in the browser's upper right corner, select **JSON View**.
+
+   ![Screenshot that shows the Azure portal and API Connection pane with "JSON View" selected.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connection-view-json.png)
+
+1. Find, copy, and save the `connectionRuntimeUrl` property value somewhere safe so that you can set up your firewall with this information.
+
+   ![Screenshot that shows the "connectionRuntimeUrl" property value selected.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connection-runtime-url.png)
+
+1. For each connection, repeat the relevant steps.
+
+<a name="trigger-workflow"></a>
 
 ## Trigger the workflow
 
@@ -295,9 +325,11 @@ In this example, the workflow runs when the Request trigger receives an inbound 
 
       ![Screenshot that shows Outlook email as described in the example](./media/create-stateful-stateless-workflows-azure-portal/workflow-app-result-email.png)
 
+<a name="view-run-history"></a>
+
 ## Review run history
 
-For a stateful workflow, after each workflow run, you can view the run history, including the status for the overall run, for the trigger, and for each action along with their inputs and outputs.
+For a stateful workflow, after each workflow run, you can view the run history, including the status for the overall run, for the trigger, and for each action along with their inputs and outputs. In the Azure portal, run history and trigger histories appear at the workflow level, not the logic app level. To review the trigger histories outside the run history context, see [Review trigger histories](#view-trigger-histories).
 
 1. In the Azure portal, on your workflow's menu, select **Monitor**.
 
@@ -312,7 +344,7 @@ For a stateful workflow, after each workflow run, you can view the run history, 
    | Run status | Description |
    |------------|-------------|
    | **Aborted** | The run stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
-   | **Cancelled** | The run was triggered and started but received a cancellation request. |
+   | **Cancelled** | The run was triggered and started but received a cancel request. |
    | **Failed** | At least one action in the run failed. No subsequent actions in the workflow were set up to handle the failure. |
    | **Running** | The run was triggered and is in progress, but this status can also appear for a run that is throttled due to [action limits](logic-apps-limits-and-config.md) or the [current pricing plan](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Tip**: If you set up [diagnostics logging](monitor-logic-apps-log-analytics.md), you can get information about any throttle events that happen. |
    | **Succeeded** | The run succeeded. If any action failed, a subsequent action in the workflow handled that failure. |
@@ -330,15 +362,15 @@ For a stateful workflow, after each workflow run, you can view the run history, 
 
    | Action status | Icon | Description |
    |---------------|------|-------------|
-   | Aborted | ![Icon for "Aborted" action status][aborted-icon] | The action stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
-   | Cancelled | ![Icon for "Cancelled" action status][cancelled-icon] | The action was running but received a cancellation request. |
-   | Failed | ![Icon for "Failed" action status][failed-icon] | The action failed. |
-   | Running | ![Icon for "Running" action status][running-icon] | The action is currently running. |
-   | Skipped | ![Icon for "Skipped" action status][skipped-icon] | The action was skipped because the immediately preceding action failed. An action has a `runAfter` condition that requires that the preceding action finishes successfully before the current action can run. |
-   | Succeeded | ![Icon for "Succeeded" action status][succeeded-icon] | The action succeeded. |
-   | Succeeded with retries | ![Icon for "Succeeded with retries" action status][succeeded-with-retries-icon] | The action succeeded but only after one or more retries. To review the retry history, in the run history details view, select that action so that you can view the inputs and outputs. |
-   | Timed out | ![Icon for "Timed out" action status][timed-out-icon] | The action stopped due to the timeout limit specified by that action's settings. |
-   | Waiting | ![Icon for "Waiting" action status][waiting-icon] | Applies to a webhook action that's waiting for an inbound request from a caller. |
+   | **Aborted** | ![Icon for "Aborted" action status][aborted-icon] | The action stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
+   | **Cancelled** | ![Icon for "Cancelled" action status][cancelled-icon] | The action was running but received a cancel request. |
+   | **Failed** | ![Icon for "Failed" action status][failed-icon] | The action failed. |
+   | **Running** | ![Icon for "Running" action status][running-icon] | The action is currently running. |
+   | **Skipped** | ![Icon for "Skipped" action status][skipped-icon] | The action was skipped because its `runAfter` conditions weren't met, for example, a preceding action failed. Each action has a `runAfter` object where you can set up conditions that must be met before the current action can run. |
+   | **Succeeded** | ![Icon for "Succeeded" action status][succeeded-icon] | The action succeeded. |
+   | **Succeeded with retries** | ![Icon for "Succeeded with retries" action status][succeeded-with-retries-icon] | The action succeeded but only after a single or multiple retries. To review the retry history, in the run history details view, select that action so that you can view the inputs and outputs. |
+   | **Timed out** | ![Icon for "Timed out" action status][timed-out-icon] | The action stopped due to the timeout limit specified by that action's settings. |
+   | **Waiting** | ![Icon for "Waiting" action status][waiting-icon] | Applies to a webhook action that's waiting for an inbound request from a caller. |
    ||||
 
    [aborted-icon]: ./media/create-stateful-stateless-workflows-azure-portal/aborted.png
@@ -356,6 +388,18 @@ For a stateful workflow, after each workflow run, you can view the run history, 
    ![Screenshot that shows the inputs and outputs in the selected "Send an email" action.](./media/create-stateful-stateless-workflows-azure-portal/review-step-inputs-outputs.png)
 
 1. To further review the raw inputs and outputs for that step, select **Show raw inputs** or **Show raw outputs**.
+
+<a name="view-trigger-histories"></a>
+
+## Review trigger histories
+
+For a stateful workflow, you can review the trigger history for each run, including the trigger status along with inputs and outputs, separately from the [run history context](#view-run-history). In the Azure portal, trigger history and run history appear at the workflow level, not the logic app level. To find this historical data, follow these steps:
+
+1. In the Azure portal, on your workflow's menu, under **Developer**, select **Trigger Histories**.
+
+   The **Trigger Histories** pane shows the trigger histories for your workflow's runs.
+
+1. To review a specific trigger history, select the ID for that run.
 
 <a name="enable-open-application-insights"></a>
 
@@ -375,7 +419,10 @@ To enable Application Insights on a deployed logic app or open the Application I
 
    If Application Insights is enabled, on the **Application Insights** pane, select **View Application Insights data**.
 
-After Application Insights opens, you can review various metrics for your logic app.
+After Application Insights opens, you can review various metrics for your logic app. For more information, review these topics:
+
+* [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849)
+* [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 2](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/2003332)
 
 <a name="enable-run-history-stateless"></a>
 
@@ -418,8 +465,157 @@ To delete an item in your workflow from the designer, follow any of these steps:
   ![Screenshot that shows a selected item on designer with the opened details pane plus the selected ellipses button and "Delete" command.](./media/create-stateful-stateless-workflows-azure-portal/delete-item-from-designer.png)
 
   > [!TIP]
-  > If the ellipses menu isn't visible, expand your browser window wide enough so that the details 
-  > pane shows the ellipses (**...**) button in the upper right corner.
+  > If the ellipses menu isn't visible, expand your browser window wide enough so that 
+  > the details pane shows the ellipses (**...**) button in the upper right corner.
+
+<a name="restart-stop-start"></a>
+
+## Restart, stop, or start logic apps
+
+You can stop or start a [single logic app](#restart-stop-start-single-logic-app) or [multiple logic apps at the same time](#stop-start-multiple-logic-apps). You can also restart a single logic app without first stopping. Your single-tenant logic app can include multiple workflows, so you can either stop the entire logic app or [disable only workflows](#disable-enable-workflows).
+
+> [!NOTE]
+> The stop logic app and disable workflow operations have different effects. For more information, review 
+> [Considerations for stopping logic apps](#considerations-stop-logic-apps) and [considerations for disabling workflows](#disable-enable-workflows).
+
+<a name="considerations-stop-logic-apps"></a>
+
+### Considerations for stopping logic apps
+
+Stopping a logic app affects workflow instances in the following ways:
+
+* The Logic Apps service cancels all in-progress and pending runs immediately.
+
+* The Logic Apps service doesn't create or run new workflow instances.
+
+* Triggers won't fire the next time that their conditions are met. However, trigger states remember the points where the logic app was stopped. So, if you restart the logic app, the triggers fire for all unprocessed items since the last run.
+
+  To stop each workflow from triggering on unprocessed items since the last run, clear the trigger state before you restart the logic app by following these steps:
+
+  1. In the Azure portal, find and open your logic app.
+  1. On the logic app menu, under **Workflows**, select **Workflows**.
+  1. Open a workflow, and edit any part of that workflow's trigger.
+  1. Save your changes. This step resets the trigger's current state.
+  1. Repeat for each workflow.
+  1. When you're done, [restart your logic app](#restart-stop-start-single-logic-app).
+
+<a name="restart-stop-start-single-logic-app"></a>
+
+### Restart, stop, or start a single logic app
+
+1. In the Azure portal, find and open your logic app.
+
+1. On the logic app menu, select **Overview**.
+
+   * To restart a logic app without stopping, on the Overview pane toolbar, select **Restart**.
+   * To stop a running logic app, on the Overview pane toolbar, select **Stop**. Confirm your selection.
+   * To start a stopped logic app, on the Overview pane toolbar, select **Start**.
+
+   > [!NOTE]
+   > If your logic app is already stopped, you only see the **Start** option. 
+   > If your logic app is already running, you only see the **Stop** option.
+   > You can restart your logic app anytime.
+
+1. To confirm whether your operation succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
+
+<a name="stop-start-multiple-logic-apps"></a>
+
+### Stop or start multiple logic apps
+
+You can stop or start multiple logic apps at the same time, but you can't restart multiple logic apps without stopping them first.
+
+1. In the Azure portal's main search box, enter `logic apps`, and select **Logic apps**.
+
+1. On the **Logic apps** page, review the logic app's **Status** column.
+
+1. In the checkbox column, select the logic apps that you want to stop or start.
+
+   * To stop the selected running logic apps, on the Overview pane toolbar, select **Disable/Stop**. Confirm your selection.
+   * To start the selected stopped logic apps, on the Overview pane toolbar, select **Enable/Start**.
+
+1. To confirm whether your operation succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
+
+<a name="disable-enable-workflows"></a>
+
+## Disable or enable workflows
+
+To stop the trigger from firing the next time when the trigger condition is met, disable your workflow. You can disable or enable a single workflow, but you can't disable or enable multiple workflows at the same time. Disabling a workflow affects workflow instances in the following ways:
+
+* The Logic Apps services continues all in-progress and pending runs until they finish. Based on the volume or backlog, this process might take time to complete.
+
+* The Logic Apps service doesn't create or run new workflow instances.
+
+* The trigger won't fire the next time that its conditions are met. However, the trigger state remembers the point at which the workflow was disabled. So, if you re-enable the workflow, the trigger fires for all the unprocessed items since the last run.
+
+  To stop the trigger from firing on unprocessed items since the last run, clear the trigger's state before you reactivate the workflow:
+
+  1. In the workflow, edit any part of the workflow's trigger.
+  1. Save your changes. This step resets your trigger's current state.
+  1. [Reactivate your workflow](#disable-enable-workflows).
+
+> [!NOTE]
+> The disable workflow and stop logic app operations have different effects. For more information, review 
+> [Considerations for stopping logic apps](#considerations-stop-logic-apps).
+
+<a name="disable-workflow"></a>
+
+### Disable workflow
+
+1. On the logic app menu, under **Workflows**, select **Workflows**. In the checkbox column, select the workflow to disable.
+
+1. On the Workflows pane toolbar, select **Disable**.
+
+1. To confirm whether your operation succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
+
+<a name="enable-workflow"></a>
+
+### Enable workflow
+
+1. On the logic app menu, under **Workflows**, select **Workflows**. In the checkbox column, select the workflow to enable.
+
+1. On the Workflows pane toolbar, select **Enable**.
+
+1. To confirm whether your operation succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
+
+<a name="delete"></a>
+
+## Delete logic apps or workflows
+
+You can [delete a single or multiple logic apps at the same time](#delete-logic-apps). Your single-tenant logic app can include multiple workflows, so you can either delete the entire logic app or [delete only workflows](#delete-workflows).
+
+<a name="delete-logic-apps"></a>
+
+### Delete logic apps
+
+Deleting a logic app cancels in-progress and pending runs immediately, but doesn't run cleanup tasks on the storage used by the app.
+
+1. In the Azure portal's main search box, enter `logic apps`, and select **Logic apps**.
+
+1. From the **Logic apps** list, in the checkbox column, select a single or multiple logic apps to delete. On the toolbar, select **Delete**.
+
+1. When the confirmation box appears, enter `yes`, and select **Delete**.
+
+1. To confirm whether your operation succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
+
+<a name="delete-workflows"></a>
+
+### Delete workflows
+
+Deleting a workflow affects workflow instances in the following ways:
+
+* The Logic Apps service cancels in-progress and pending runs immediately, but runs cleanup tasks on the storage used by the workflow.
+
+* The Logic Apps service doesn't create or run new workflow instances.
+
+* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. You have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
+
+1. In the Azure portal, find and open your logic app.
+
+1. On the logic app menu, under **Workflows**, select **Workflows**. In the checkbox column, select a single or multiple workflows to delete.
+
+1. On the toolbar, select **Delete**.
+
+1. To confirm whether your operation succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
 
 <a name="troubleshoot"></a>
 

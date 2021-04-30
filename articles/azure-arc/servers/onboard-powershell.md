@@ -2,7 +2,8 @@
 title: Connect hybrid machines to Azure by using PowerShell
 description: In this article, you learn how to install the agent and connect a machine to Azure by using Azure Arc enabled servers. You can do this with PowerShell.
 ms.date: 10/28/2020
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Connect hybrid machines to Azure by using PowerShell
@@ -98,6 +99,6 @@ After you install and configure the agent to register with Azure Arc enabled ser
 
 * If necessary, see the [Troubleshoot Connected Machine agent guide](troubleshoot-agent-onboard.md).
 
-* Learn how to manage your machine by using [Azure Policy](../../governance/policy/overview.md). You can use VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verify that the machine is reporting to the expected Log Analytics workspace, and enable monitoring with [Azure Monitor with VMs](../../azure-monitor/insights/vminsights-enable-policy.md).
+* Learn how to manage your machine by using [Azure Policy](../../governance/policy/overview.md). You can use VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verify that the machine is reporting to the expected Log Analytics workspace, and enable monitoring with [Azure Monitor with VMs](../../azure-monitor/vm/vminsights-enable-policy.md).
 
-* Learn more about the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to collect operating system and workload monitoring data, or manage it by using Azure Automation runbooks or features like Update Management. This agent is also required to use other Azure services, such as [Azure Security Center](../../security-center/security-center-introduction.md).
+* Learn more about the [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to collect operating system and workload monitoring data, or manage it by using Azure Automation runbooks or features like Update Management. This agent is also required to use other Azure services, such as [Azure Security Center](../../security-center/security-center-introduction.md).

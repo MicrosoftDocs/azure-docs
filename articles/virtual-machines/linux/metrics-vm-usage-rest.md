@@ -18,7 +18,7 @@ Complete reference documentation and additional samples for the REST API are ava
 
 ## Build the request
 
-Use the following GET request to collect the [Percentage CPU metric](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) from a Virtual Machine
+Use the following GET request to collect the [Percentage CPU metric](../../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachines) from a Virtual Machine
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmname}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=Percentage%20CPU&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z

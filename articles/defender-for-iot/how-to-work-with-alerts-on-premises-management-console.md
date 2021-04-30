@@ -1,11 +1,7 @@
 ---
 title: Work with alerts on the on-premises management console
 description: Use the on-premises management console to get an enterprise view of recent threats in your network and better understand how sensor users are handling them.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/06/2020
-ms.service: azure
 ms.topic: how-to
 ---
 
@@ -114,13 +110,34 @@ To view the devices in a zone map:
 
 ## Manage alert events
 
-You can manage alert events detected by organizational sensors as follows:
+Several options are available for managing alert events from the on-premises management console.
 
 - Learn or acknowledge alert events. Select **Learn & Acknowledge** to learn all alert events that can be authorized and to acknowledge all alert events that are currently not acknowledged.
 
   :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/learn-and-acknowledge.png" alt-text="Select Learn & Acknowledge to learn all.":::
 
 - Mute and unmute alert events.
+
+To learn more about learning, acknowledging and muting alert events, see the sensor [Manage alert events](how-to-manage-the-alert-event.md) article.
+
+## Export alert information
+
+Export alert information to a .csv file. You can export information of all alerts detected or export information based on the filtered view.The following information is exported:
+
+- Source Address
+- Destination Address
+- Alert title
+- Alert severity
+- Alert message
+- Additional information
+- Acknowledged status
+- PCAP availability
+
+To export:
+
+1. Select Alerts from the side menu.
+1. Select Export.
+1. Select Export Extended Alerts to export alert information in separate rows for each alert that covers multiple devices. When Export Extended Alerts is selected, the .csv file will create a duplicate row of the alert with the unique items in each row. Using this option makes it easier to investigate exported alert events.  
 
 ## Create alert exclusion rules
 
@@ -220,6 +237,7 @@ Rules that you create by using the API appear in the **Exclusion Rule** window a
 
 :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/edit-exclusion-rule-screen.png" alt-text="Screenshot of the Edit Exclusion Rule view.":::
 
-## See also
+## Next steps
 
-[Work with alerts on your sensor](how-to-work-with-alerts-on-your-sensor.md)
+[Work with alerts on your sensor](how-to-work-with-alerts-on-your-sensor.md).
+Review the [Defender for IoT Engine alerts](alert-engine-messages.md).

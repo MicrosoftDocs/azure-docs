@@ -110,7 +110,7 @@ The bounds of a model are defined by the box that contains the entire model - ju
     // Create a query using the model entity
     async private void QueryBounds()
     {
-        remoteBoundsQuery = targetModel.ModelEntity.QueryLocalBoundsAsync();
+        var remoteBounds = targetModel.ModelEntity.QueryLocalBoundsAsync();
         CurrentBoundsState = RemoteBoundsState.Updating;
         await remoteBounds;
 

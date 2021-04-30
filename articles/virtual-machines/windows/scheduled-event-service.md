@@ -3,7 +3,7 @@ title: Monitor scheduled events for your VMs in Azure
 description: Learn how to monitor your Azure virtual machines for scheduled events.
 author: mysarn
 ms.service: virtual-machines
-ms.subservice: monitoring
+ms.subservice: scheduled-events
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
@@ -21,7 +21,7 @@ In this article, we will show how you can use scheduled events to be notified ab
 
 Scheduled Events is available as part of the [Azure Instance Metadata Service](instance-metadata-service.md), which is available on every Azure virtual machine. Customers can write automation to query the endpoint of their virtual machines to find scheduled maintenance notifications and perform mitigations, like saving the state and taking the virtual machine out of rotation. We recommend building automation to record the Scheduled Events so you can have an auditing log of Azure maintenance events. 
 
-In this article, we will walk you through how to capture maintenance Scheduled Events to Log Analytics. Then, we will trigger some basic notification actions, like sending an email to your team and getting a historical view of all events that have affected your virtual machines. For the event aggregation and automation we will use [Log Analytics](../../azure-monitor/learn/quick-create-workspace.md), but you can use any monitoring solution to collect these logs and trigger automation.
+In this article, we will walk you through how to capture maintenance Scheduled Events to Log Analytics. Then, we will trigger some basic notification actions, like sending an email to your team and getting a historical view of all events that have affected your virtual machines. For the event aggregation and automation we will use [Log Analytics](../../azure-monitor/logs/quick-create-workspace.md), but you can use any monitoring solution to collect these logs and trigger automation.
 
 ![Diagram showing the event lifecycle](./media/notifications/events.png)
 
@@ -31,7 +31,7 @@ For this example, you will need to create a [Windows Virtual Machine in an Avail
 
 Don't delete the group resource group at the end of the tutorial.
 
-You will also need to [create a Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md) that we will use to aggregate information from the VMs in the availability set.
+You will also need to [create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md) that we will use to aggregate information from the VMs in the availability set.
 
 ## Set up the environment
 
@@ -128,7 +128,7 @@ This will install the [Microsoft Monitoring agent](../extensions/oms-windows.md)
 ## Creating an alert rule with Azure Monitor 
 
 
-Once the events are pushed to Log Analytics, you can run the following [query](../../azure-monitor/log-query/log-analytics-tutorial.md) to look for the schedule Events.
+Once the events are pushed to Log Analytics, you can run the following [query](../../azure-monitor/logs/log-analytics-tutorial.md) to look for the schedule Events.
 
 1. At the top of the page, select **Logs** and paste the following into the text box:
 

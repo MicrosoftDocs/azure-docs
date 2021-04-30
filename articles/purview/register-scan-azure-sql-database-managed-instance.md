@@ -83,7 +83,7 @@ To use a service principal, you can use an existing one or create a new one.
 The service principal or managed identity must have permission to get metadata for the database, schemas and tables. It must also be able to query the tables to sample for classification.
 - [Configure and manage Azure AD authentication with Azure SQL](../azure-sql/database/authentication-aad-configure.md)
 - Create an Azure AD user in Azure SQL Database Managed Instance by following the prerequisites and tutorial on [Create contained users mapped to Azure AD identities](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
-- Assign `db_owner` (**recommended**) permission to the identity
+- Assign `db_datareader` permission to the identity
 
 ##### Add service principal to key vault and Purview's credential
 
@@ -113,7 +113,7 @@ It is required to get the service principal's application ID and secret:
 
     :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/set-up-the-sql-data-source.png" alt-text="Set up the SQL data source":::
 
-1. Select **Enter manually**
+1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop-down box and the appropriate server from the **Server name** drop-down box.
 
 1. Provide the **public endpoint fully qualified domain name** and **port number**. Then select **Finish** to register the data source.
 

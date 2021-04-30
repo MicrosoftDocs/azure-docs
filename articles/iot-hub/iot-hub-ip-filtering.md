@@ -5,7 +5,7 @@ author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/19/2020
+ms.date: 03/22/2021
 ms.author: jlian
 ---
 
@@ -15,7 +15,7 @@ Security is an important aspect of any IoT solution based on Azure IoT Hub. Some
 
 ## When to use
 
-Use IP filter to receive traffic only from a specified range of IP addresses and reject everything else. For example, you're using your IoT hub with [Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) to create private connections between an IoT hub and your on-premises infrastructure.
+Use IP filter to receive traffic only from a specified range of IP addresses and reject everything else. For example, you're using your IoT hub with [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services) to create private connections between an IoT hub and your on-premises infrastructure.
 
 ## Default setting
 
@@ -27,11 +27,11 @@ By default, the **IP Filter** grid in the portal for an IoT hub is empty. This d
 
 ## Add or edit an IP filter rule
 
-To add an IP filter rule, select **+ Add IP Filter Rule**.
+To add an IP filter rule, select **+ Add IP Filter Rule**. To quickly add your computer's IP address, click the **Add your client IP address**. 
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="Add an IP filter rule to an IoT hub":::
 
-After selecting **Add IP Filter Rule**, fill in the fields.
+After selecting **Add IP Filter Rule**, fill in the fields. These fields are pre-filled for you if you selected to add your client IP address.
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="After selecting Add an IP Filter rule":::
 
@@ -80,6 +80,10 @@ Any connection attempt from an IP address that isn't explicitly allowed receives
 IP filter rules are *allow* rules and applied without ordering. Only IP addresses that you add are allowed to connect to IoT Hub. 
 
 For example, if you want to accept addresses in the range `192.168.100.0/22` and reject everything else, you only need to add one rule in the grid with address range `192.168.100.0/22`.
+
+### Azure portal 
+
+IP filter rules are also applied when using IoT Hub through Azure portal. This is because API calls to the IoT Hub service are made directly using your browser with your credentials, which is consistent with other Azure services. To access IoT Hub using Azure portal when IP filter is enabled, add your computer's IP address to the allowlist. 
 
 ## Retrieve and update IP filters using Azure CLI
 
@@ -159,7 +163,7 @@ $iothubResource | Set-AzResource -Force
 ## Update IP filter rules using REST
 
 
-You may also retrieve and modify your IoT Hub's IP filter using Azure resource Provider's REST endpoint. See `properties.networkRuleSets` in [createorupdate method](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate).
+You may also retrieve and modify your IoT Hub's IP filter using Azure resource Provider's REST endpoint. See `properties.networkRuleSets` in [createorupdate method](/rest/api/iothub/iothubresource/createorupdate).
 
 ## IP filter (classic) retirement
 
@@ -169,7 +173,7 @@ Classic IP filter has been retired. To learn more, see [IoT Hub classic IP filte
 
 To further explore the capabilities of IoT Hub, see:
 
-* [IoT Hub metrics](iot-hub-metrics.md)
+* [IoT Hub metrics](./monitor-iot-hub.md)
 * [IoT Hub support for virtual networks with Private Link and Managed Identity](virtual-network-support.md)
 * [Managing public network access for your IoT hub](iot-hub-public-network-access.md)
 * [Monitor IoT Hub](monitor-iot-hub.md)

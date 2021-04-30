@@ -166,7 +166,7 @@ Click through a specific request type to see individual instances.
 ![Drill into a specific sample view](./media/java-get-started/007-instance.png)
 
 ### Analytics: Powerful query language
-As you accumulate more data, you can run queries both to aggregate data and to find individual instances.  [Analytics](../log-query/log-query-overview.md) is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
+As you accumulate more data, you can run queries both to aggregate data and to find individual instances.  [Analytics](../logs/log-query-overview.md) is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
 
 ![Example of Analytics](./media/java-get-started/0025.png)
 
@@ -290,7 +290,7 @@ Application Insights can test your website at regular intervals to check that it
 * [Monitor Unix performance counters](java-collectd.md)
 * Add [monitoring to your web pages](javascript.md) to monitor page load times, AJAX calls, browser exceptions.
 * Write [custom telemetry](./api-custom-events-metrics.md) to track usage in the browser or at the server.
-* Use  [Analytics](../log-query/log-query-overview.md) for powerful queries over telemetry from your app
+* Use  [Analytics](../logs/log-query-overview.md) for powerful queries over telemetry from your app
 * For more information, visit [Azure for Java developers](/java/azure).
 
 <!--Link references-->
@@ -300,5 +300,5 @@ Application Insights can test your website at regular intervals to check that it
 [availability]: ./monitor-web-app-availability.md
 [diagnostic]: ./diagnostic-search.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../platform/metrics-charts.md
+[metrics]: ../essentials/metrics-charts.md
 [usage]: javascript.md

@@ -1,11 +1,8 @@
 ---
 title: Azure Service Fabric Event Aggregation with EventFlow 
 description: Learn about aggregating and collecting events using EventFlow for monitoring and diagnostics of Azure Service Fabric clusters.
-author: srrengar
-
 ms.topic: conceptual
 ms.date: 2/25/2019
-ms.author: srrengar
 ms.custom: devx-track-csharp
 ---
 

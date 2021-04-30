@@ -88,7 +88,7 @@ Review [Tenants, roles, and users in Azure Lighthouse scenarios](../lighthouse/c
 
 If you publish a new version of your offer and need to create an updated manifest, select **+ New manifest**. Be sure to increase the version number from the previous manifest version.
 
-###	Authorizations
+### Authorizations
 
 Authorizations define the entities in your managing tenant who can access resources and subscriptions for customers who purchase the plan. Each of these entities is assigned a built-in role that grants specific levels of access.
 

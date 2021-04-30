@@ -4,7 +4,6 @@ description: This document explains how just-in-time VM access in Azure Security
 services: security-center
 author: memildin
 manager: rkarlin
-
 ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
@@ -60,7 +59,7 @@ When Security Center finds a machine that can benefit from JIT, it adds that mac
 ![Just-in-time (JIT) virtual machine (VM) access recommendation](./media/just-in-time-explained/unhealthy-resources.png)
 
 
-## FAQ - Questions about just in time virtual machine access
+## FAQ - Just-in-time virtual machine access
 
 ### What permissions are needed to configure and use JIT?
 

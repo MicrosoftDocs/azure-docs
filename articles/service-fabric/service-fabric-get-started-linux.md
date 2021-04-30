@@ -26,17 +26,13 @@ You can manage Service Fabric entities hosted in the cloud or on-premises with t
 
 ## Prerequisites
 
-These operating system versions are supported for development.
+- Ensure you are using a supported [Linux version](service-fabric-versions.md#supported-linux-versions-and-support-end-date).
 
-* Ubuntu 16.04 (`Xenial Xerus`), 18.04 (`Bionic Beaver`)
-
-    Make sure that the `apt-transport-https` package is installed.
+- Install the `apt-transport-https` package:
          
     ```bash
     sudo apt-get install apt-transport-https
     ```
-* Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
-
 
 ## Installation methods
 
@@ -262,7 +258,7 @@ After you install the generators, create guest executable or container services 
 
 ## Set up .NET Core 3.1 development
 
-Install the [.NET Core 3.1 SDK for Ubuntu](https://www.microsoft.com/net/core#linuxubuntu) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). Packages for .NET Core Service Fabric applications are hosted on NuGet.org.
+Install the [.NET Core 3.1 SDK for Ubuntu](/dotnet/core/install/linux-ubuntu) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). Packages for .NET Core Service Fabric applications are hosted on NuGet.org.
 
 ## Set up Java development
 

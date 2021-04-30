@@ -117,10 +117,10 @@ Every site consists of binding information. The binding information includes the
 
 ![Screenshot that shows setting the TLS/SSL binding](./media/site-recovery-iis/sslbinding.png)
 
-If you associated the IP address with a site, update all site bindings with the new IP address. To change the site bindings, add an [IIS web tier update script](https://aka.ms/asr-web-tier-update-runbook-classic) after Group 3 in the recovery plan.
+If you associated the IP address with a site, update all site bindings with the new IP address. To change the site bindings, add an [IIS web tier update script](/samples/browse/?redirectedfrom=TechNet-Gallery) after Group 3 in the recovery plan.
 
 #### Update the load balancer IP address
-If you have an ARR virtual machine, to update the IP address, add an [IIS ARR  failover script](https://aka.ms/asr-iis-arrtier-failover-script-classic) after Group 4.
+If you have an ARR virtual machine, to update the IP address, add an [IIS ARR  failover script](/samples/browse/?redirectedfrom=TechNet-Gallery) after Group 4.
 
 #### TLS/SSL certificate binding for an HTTPS connection
 A website might have an associated TLS/SSL certificate that helps ensure a secure communication between the web server and the user’s browser. If the website has an HTTPS connection, and also has an associated HTTPS site binding to the IP address of the IIS server with a TLS/SSL certificate binding, you must add a new site binding  for the certificate with the IP address of the IIS virtual machine post-failover.

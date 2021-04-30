@@ -23,10 +23,10 @@ Sign in to the client by using the credentials that you granted permissions to, 
 
 Before you can mount the file share, make sure you've gone through the following pre-requisites:
 
-- If you are mounting the file share from a client that has previously mounted the file share using your storage account key, make sure that you have disconnected the share, removed the persistent credentials of the storage account key, and are currently using AD DS credentials for authentication.
+- If you are mounting the file share from a client that has previously mounted the file share using your storage account key, make sure that you have disconnected the share, removed the persistent credentials of the storage account key, and are currently using AD DS credentials for authentication. For instructions to clear the mounted share with storage account key, refer to [FAQ page](./storage-files-faq.md#ad-ds--azure-ad-ds-authentication).
 - Your client must have line of sight to your AD DS. If your machine or VM is out of the network managed by your AD DS, you will need to enable VPN to reach AD DS for authentication.
 
-Replace the placeholder values with your own values, then use the following command to mount the Azure file share:
+Replace the placeholder values with your own values, then use the following command to mount the Azure file share. You always need to mount using the path shown below. Using CNAME for file mount is not supported for identity based authentication (AD DS or Azure AD DS).
 
 ```PSH
 # Always mount your share using.file.core.windows.net, even if you setup a private endpoint for your share.

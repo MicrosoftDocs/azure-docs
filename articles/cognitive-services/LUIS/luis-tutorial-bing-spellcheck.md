@@ -13,11 +13,34 @@ ms.date: 01/12/2021
 
 ---
 
-# Correct misspelled words with Bing Search Resource
+# Correct misspelled words with Bing Resource
 
-You can integrate your LUIS app with [Bing Search](https://ms.portal.azure.com/#create/Microsoft.BingSearch) to correct misspelled words in utterances before LUIS predicts the score and entities of the utterance.
+The V3 prediction API now supports the [Bing Spellcheck API](/bing/search-apis/bing-spell-check/overview). Add spell checking to your application by including the key to your Bing search resource in the header of your requests. You can use an existing Bing resource if you already own one, or [create a new one](https://portal.azure.com/#create/Microsoft.BingSearch) to use this feature. 
 
-## Create Endpoint key
+Prediction output example for a misspelled query:
+
+```json
+{
+  "query": "bouk me a fliht to kayro",
+  "prediction": {
+    "alteredQuery": "book me a flight to cairo",
+    "topIntent": "book a flight",
+    "intents": {
+      "book a flight": {
+        "score": 0.9480589
+      }
+      "None": {
+        "score": 0.0332136229
+      }
+    },
+    "entities": {}
+  }
+}
+```
+
+Corrections to spelling are made before the LUIS user utterance prediction. You can see any changes to the original utterance, including spelling, in the response.
+
+## Create Bing Search Resource
 
 To create a Bing Search resource in the Azure portal, follow these instructions:
 
@@ -29,7 +52,8 @@ To create a Bing Search resource in the Azure portal, follow these instructions:
 
 4. An information panel appears to the right containing information including the Legal Notice. Select **Create** to begin the subscription creation process.
 
-    :::image type="content" source="./media/luis-tutorial-bing-spellcheck/bing-search-resource-portal.png" alt-text="Bing Spell Check API V7 resource":::
+> [!div class="mx-imgBorder"]
+> ![Bing Spell Check API V7 resource](./media/luis-tutorial-bing-spellcheck/bing-search-resource-portal.png)
 
 5. In the next panel, enter your service settings. Wait for service creation process to finish.
 
@@ -37,15 +61,23 @@ To create a Bing Search resource in the Azure portal, follow these instructions:
 
 7. Copy one of the keys to be added to the header of your prediction request. You will only need one of the two keys.
 
-8. Add the key to `mkt-bing-spell-check-key` in the prediction request header.
-
 <!--
 ## Using the key in LUIS test panel
 There are two places in LUIS to use the key. The first is in the [test panel](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). The key isn't saved into LUIS but instead is a session variable. You need to set the key every time you want the test panel to apply the Bing Spell Check API v7 service to the utterance. See [instructions](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) in the test panel for setting the key.
 -->
+## Enable spell check from UI 
+You can enable spellcheck for your example query using the [Luis portal](https://www.luis.ai). Select **Manage** at the top of the screen, and **Azure Resources** in the left navigation. After you associate a prediction resource to your application, you can select **Change query parameters** from the bottom of the page and paste the resource key in the **Enable spell check** field.
+    
+   > [!div class="mx-imgBorder"]
+   > ![Enable spell check](./media/luis-tutorial-bing-spellcheck/spellcheck-query-params.png)
+
+
 ## Adding the key to the endpoint URL
 For each query you want to apply spelling correction on, the endpoint query needs the Bing Spellcheck resource key passed in the query header parameter. You may have a chatbot that calls LUIS or you may call the LUIS endpoint API directly. Regardless of how the endpoint is called, each and every call must include the required information in the header's request for spelling corrections to work properly. You must set the value with **mkt-bing-spell-check-key** to the key value.
 
+|Header Key|Header Value|
+|--|--|
+|`mkt-bing-spell-check-key`|Keys found in **Keys and Endpoint** blade of your resource|
 
 ## Send misspelled utterance to LUIS
 1. Add a misspelled utterance in the prediction query you will be sending such as "How far is the mountainn?". In English, `mountain`, with one `n`, is the correct spelling.

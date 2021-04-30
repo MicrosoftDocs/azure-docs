@@ -72,8 +72,7 @@ The current IPv6 for Azure virtual network release has the following limitations
 - IPv6 for Azure virtual network is available in all global Azure Commercial and US Government regions using all deployment methods.  
 - ExpressRoute gateways CAN be used for IPv4-only traffic in a VNET with IPv6 enabled.  Support for IPv6 traffic is on our roadmap.   
 - VPN gateways CANNOT be used in a VNET with IPv6 enabled, either directly or peered with "UseRemoteGateway".
-- The Azure platform (AKS, etc.) does not support IPv6 communication for Containers.  
-- IPv6 can be load balanced only to the primary network interface (NIC) on Azure VMs. Load balancing IPv6 traffic to secondary NICs is not supported.    
+- The Azure platform (AKS, etc.) does not support IPv6 communication for Containers. 
 - IPv6-only Virtual Machines or Virtual Machines Scale Sets are not supported, each NIC must include at least one IPv4 IP configuration. 
 - When adding IPv6 to existing IPv4 deployments, IPv6 ranges can not be added to a VNET with existing resource navigation links.  
 - Forward DNS for IPv6 is supported for Azure public DNS today but Reverse DNS is not yet supported.   

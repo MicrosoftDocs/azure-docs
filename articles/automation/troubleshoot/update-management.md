@@ -3,8 +3,9 @@ title: Troubleshoot Azure Automation Update Management issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 01/13/2021
+ms.date: 04/18/2021
 ms.topic: troubleshooting
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot Update Management issues
@@ -130,7 +131,7 @@ This issue can be caused by local configuration issues or by improperly configur
 
 1. Run the troubleshooter for [Windows](update-agent-issues.md#troubleshoot-offline) or [Linux](update-agent-issues-linux.md#troubleshoot-offline), depending on the OS.
 
-2. Make sure that your machine is reporting to the correct workspace. For guidance on how to verify this aspect, see [Verify agent connectivity to Azure Monitor](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Also make sure that this workspace is linked to your Azure Automation account. To confirm, go to your Automation account and select **Linked workspace** under **Related Resources**.
+2. Make sure that your machine is reporting to the correct workspace. For guidance on how to verify this aspect, see [Verify agent connectivity to Azure Monitor](../../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Also make sure that this workspace is linked to your Azure Automation account. To confirm, go to your Automation account and select **Linked workspace** under **Related Resources**.
 
 3. Make sure that the machines show up in the Log Analytics workspace linked to your Automation account. Run the following query in the Log Analytics workspace.
 
@@ -139,7 +140,7 @@ This issue can be caused by local configuration issues or by improperly configur
    | summarize by Computer, Solutions
    ```
 
-    If you don't see your machine in the query results, it hasn't recently checked in. There's probably a local configuration issue and you should [reinstall the agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
+    If you don't see your machine in the query results, it hasn't recently checked in. There's probably a local configuration issue and you should [reinstall the agent](../../azure-monitor/vm/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
     If your machine is listed in the query results, verify under the **Solutions** property that **updates** is listed. This verifies it is registered with Update Management. If it is not, check for scope configuration problems. The [scope configuration](../update-management/scope-configuration.md) determines which machines are configured for Update Management. To configure the scope configuration for the target the machine, see [Enable machines in the workspace](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
@@ -183,11 +184,13 @@ To register the Automation resource provider, follow these steps in the Azure po
 
 5. If it's not listed, register the Microsoft.Automation provider by following the steps at [Resolve errors for resource provider registration](../../azure-resource-manager/templates/error-register-resource-provider.md).
 
-## <a name="scheduled-update-missed-machines"></a>Scenario: Scheduled update with a dynamic schedule missed some machines
+## <a name="scheduled-update-missed-machines"></a>Scenario: Scheduled update did not patch some machines
 
 ### Issue
 
-Machines included in an update preview don't all appear in the list of machines patched during a scheduled run.
+Machines included in an update preview don't all appear in the list of machines patched during a scheduled run, or VMs for selected scopes of a dynamic group are not showing up in the update preview list in the portal.
+
+The update preview list consists of all machines retrieved by an [Azure Resource Graph](../../governance/resource-graph/overview.md) query for the selected scopes. The scopes are filtered for machines that have a system Hybrid Runbook Worker installed and for which you have access permissions.
 
 ### Cause
 
@@ -196,6 +199,12 @@ This issue can have one of the following causes:
 * The subscriptions defined in the scope in a dynamic query aren't configured for the registered Automation resource provider.
 
 * The machines weren't available or didn't have appropriate tags when the schedule executed.
+
+* You don't have the correct access on the selected scopes.
+
+* The Azure Resource Graph query doesn't retrieve the expected machines.
+
+* The system Hybrid Runbook Worker isn't installed on the machines.
 
 ### Resolution
 
@@ -233,31 +242,15 @@ Use the following procedure if your subscription is configured for the Automatio
 
 7. Rerun the update schedule to ensure that deployment with the specified dynamic groups includes all machines.
 
-## <a name="machines-not-in-preview"></a>Scenario: Expected machines don't appear in preview for dynamic group
-
-### Issue
-
-VMs for selected scopes of a dynamic group are not showing up in the Azure portal preview list. This list consists of all machines retrieved by an ARG query for the selected scopes. The scopes are filtered for machines that have Hybrid Runbook Workers installed and for which you have access permissions.
-
-### Cause
-
-Here are possible causes for this issue:
-
-* You don't have the correct access on the selected scopes.
-* The ARG query doesn't retrieve the expected machines.
-* Hybrid Runbook Worker isn't installed on the machines.
-
-### Resolution 
-
 #### Incorrect access on selected scopes
 
 The Azure portal only displays machines for which you have write access in a given scope. If you don't have the correct access for a scope, see [Tutorial: Grant a user access to Azure resources using the Azure portal](../../role-based-access-control/quickstart-assign-role-user-portal.md).
 
-#### ARG query doesn't return expected machines
+#### Resource Graph query doesn't return expected machines
 
 Follow the steps below to find out if your queries are working correctly.
 
-1. Run an ARG query formatted as shown below in the Resource Graph explorer blade in Azure portal. This query mimics the filters you selected when you created the dynamic group in Update Management. See [Use dynamic groups with Update Management](../update-management/configure-groups.md).
+1. Run an Azure Resource Graph query formatted as shown below in the Resource Graph explorer blade in Azure portal. If you are new to Azure Resource Graph, see this [quickstart](../../governance/resource-graph/first-query-portal.md) to learn how to work with Resource Graph explorer. This query mimics the filters you selected when you created the dynamic group in Update Management. See [Use dynamic groups with Update Management](../update-management/configure-groups.md).
 
     ```kusto
     where (subscriptionId in~ ("<subscriptionId1>", "<subscriptionId2>") and type =~ "microsoft.compute/virtualmachines" and properties.storageProfile.osDisk.osType == "<Windows/Linux>" and resourceGroup in~ ("<resourceGroupName1>","<resourceGroupName2>") and location in~ ("<location1>","<location2>") )
@@ -282,7 +275,7 @@ Follow the steps below to find out if your queries are working correctly.
 
 #### Hybrid Runbook Worker not installed on machines
 
-Machines do appear in ARG query results but still don't show up in the dynamic group preview. In this case, the machines might not be designated as hybrid workers and thus can't run Azure Automation and Update Management jobs. To ensure that the machines you're expecting to see are set up as Hybrid Runbook Workers:
+Machines do appear in Azure Resource Graph query results, but still don't show up in the dynamic group preview. In this case, the machines might not be designated as system Hybrid Runbook workers and thus can't run Azure Automation and Update Management jobs. To ensure that the machines you're expecting to see are set up as system Hybrid Runbook Workers:
 
 1. In the Azure portal, go to the Automation account for a machine that is not appearing correctly.
 
@@ -292,11 +285,9 @@ Machines do appear in ARG query results but still don't show up in the dynamic g
 
 4. Validate that the hybrid worker is present for that machine.
 
-5. If the machine is not set up as a hybrid worker, make adjustments using instructions at [Automate resources in your datacenter or cloud by using Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md).
+5. If the machine is not set up as a system Hybrid Runbook Worker, review the methods to enable the machine under the [Enable Update Management](../update-management/overview.md#enable-update-management) section of the Update Management Overview article. The method to enable is based on the environment the machine is running in.
 
-6. Join the machine to the Hybrid Runbook Worker group.
-
-7. Repeat the steps above for all machines that have not been displaying in the preview.
+6. Repeat the steps above for all machines that have not been displaying in the preview.
 
 ## <a name="components-enabled-not-working"></a>Scenario: Update Management components enabled, while VM continues to show as being configured
 
@@ -398,10 +389,10 @@ Review the registry keys listed under [Configuring Automatic Updates by editing 
 
 ### Issue
 
-A machine shows a `Failed to start` status. When you view the specific details for the machine, you see the following error:
+A machine shows a `Failed to start` or `Failed` status. When you view the specific details for the machine, you see the following error:
 
 ```error
-Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
+For one or more machines in schedule, UM job run resulted in either Failed or Failed to start state. Guide available at https://aka.ms/UMSucrFailed.
 ```
 
 ### Cause
@@ -415,6 +406,8 @@ This error can occur for one of the following reasons:
 * Your update run was throttled if you hit the limit of 200 concurrent jobs in an Automation account. Each deployment is considered a job, and each machine in an update deployment counts as a job. Any other automation job or update deployment currently running in your Automation account counts toward the concurrent job limit.
 
 ### Resolution
+
+You can retrieve more details programmatically by using the REST API. See [Software Update Configuration Machine Runs](/rest/api/automation/softwareupdateconfigurationmachineruns) for information on retrieving either a list of update configuration machine runs, or a single software update configuration machine run by ID.
 
 When applicable, use [dynamic groups](../update-management/configure-groups.md) for your update deployments. In addition, you can take the following steps.
 
@@ -510,11 +503,13 @@ Verify that the system account has read access to the **C:\ProgramData\Microsoft
 
 ### Issue
 
-The default maintenance window for updates is 120 minutes. You can increase the maintenance window to a maximum of 6 hours, or 360 minutes.
+The default maintenance window for updates is 120 minutes. You can increase the maintenance window to a maximum of 6 hours, or 360 minutes. You might receive the error message `For one or more machines in schedule, UM job run resulted in Maintenance Window Exceeded state. Guide available at https://aka.ms/UMSucrMwExceeded.`
 
 ### Resolution
 
 To understand why this occurred during an update run after it starts successfully, [check the job output](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) from the affected machine in the run. You might find specific error messages from your machines that you can research and take action on.  
+
+You can retrieve more details programmatically by using the REST API. See [Software Update Configuration Machine Runs](https://docs.microsoft.com/rest/api/automation/softwareupdateconfigurationmachineruns) for information on retrieving either a list of update configuration machine runs, or a single software update configuration machine run by ID.
 
 Edit any failing scheduled update deployments, and increase the maintenance window.
 

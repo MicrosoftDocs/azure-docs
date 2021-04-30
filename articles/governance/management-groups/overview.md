@@ -1,7 +1,7 @@
 ---
 title: Organize your resources with management groups - Azure Governance
 description: Learn about the management groups, how their permissions work, and how to use them. 
-ms.date: 01/22/2021
+ms.date: 04/28/2021
 ms.topic: overview
 ms.custom: contperf-fy21q1
 ---
@@ -136,11 +136,13 @@ If you have questions on this backfill process, contact: `managementgroups@micro
   
 ## Management group access
 
-Azure management groups support [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) for all resource accesses and role definitions.
-These permissions are inherited to child resources that exist in the hierarchy. Any Azure role can be
-assigned to a management group that will inherit down the hierarchy to the resources. For example,
-the Azure role VM contributor can be assigned to a management group. This role has no action on the
-management group, but will inherit to all VMs under that management group.
+Azure management groups support
+[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) for all
+resource accesses and role definitions. These permissions are inherited to child resources that
+exist in the hierarchy. Any Azure role can be assigned to a management group that will inherit down
+the hierarchy to the resources. For example, the Azure role VM contributor can be assigned to a
+management group. This role has no action on the management group, but will inherit to all VMs under
+that management group.
 
 The following chart shows the list of roles and the supported actions on management groups.
 
@@ -240,21 +242,21 @@ There are a couple different options to fix this scenario:
 
 ### Limitations  
 
-There are limitations that exist when using custom roles on management groups. 
+There are limitations that exist when using custom roles on management groups.
 
- - You can only define one management group in the assignable scopes of a new role. This limitation
-   is in place to reduce the number of situations where role definitions and role assignments are
-   disconnected. This situation happens when a subscription or management group with a role
-   assignment moves to a different parent that doesn't have the role definition.  
- - Resource provider data plane actions can't be defined in management group custom roles. This
-   restriction is in place as there's a latency issue with updating the data plane resource
-   providers. This latency issue is being worked on and these actions will be disabled from the role
-   definition to reduce any risks.
- - The Azure Resource Manager doesn't validate the management group's existence in the role
-   definition's assignable scope. If there's a typo or an incorrect management group ID listed, the
-   role definition is still created.
- - Role assignment for a role with _dataActions_ aren't supported. Create the role assignment at the
-   subscription scope instead.
+- You can only define one management group in the assignable scopes of a new role. This limitation
+  is in place to reduce the number of situations where role definitions and role assignments are
+  disconnected. This situation happens when a subscription or management group with a role
+  assignment moves to a different parent that doesn't have the role definition.  
+- Resource provider data plane actions can't be defined in management group custom roles. This
+  restriction is in place as there's a latency issue with updating the data plane resource
+  providers. This latency issue is being worked on and these actions will be disabled from the role
+  definition to reduce any risks.
+- The Azure Resource Manager doesn't validate the management group's existence in the role
+  definition's assignable scope. If there's a typo or an incorrect management group ID listed, the
+  role definition is still created.
+- Role assignment of a role with _dataActions_ isn't supported. Create the role assignment at the
+  subscription scope instead.
 
 > [!IMPORTANT]
 > Adding a management group to `AssignableScopes` is currently in preview. This preview version is
@@ -265,14 +267,14 @@ There are limitations that exist when using custom roles on management groups.
 
 ## Moving management groups and subscriptions 
 
-To move a management group or subscription to be a child of another management group, three rules need to
-be evaluated as true.
+To move a management group or subscription to be a child of another management group, three rules
+need to be evaluated as true.
 
 If you're doing the move action, you need: 
 
 - Management group write and Role Assignment write permissions on the child subscription or
   management group.
-  - Built-on role example **Owner**
+  - Built-in role example **Owner**
 - Management group write access on the target parent management group.
   - Built-in role example: **Owner**, **Contributor**, **Management Group Contributor**
 - Management group write access on the existing parent management group.
@@ -293,7 +295,7 @@ where you're a contributor.
 ## Audit management groups using activity logs
 
 Management groups are supported within
-[Azure Activity Log](../../azure-monitor/platform/platform-logs-overview.md). You can search all
+[Azure Activity Log](../../azure-monitor/essentials/platform-logs-overview.md). You can search all
 events that happen to a management group in the same central location as other Azure resources. For
 example, you can see all Role Assignments or Policy Assignment changes made to a particular
 management group.

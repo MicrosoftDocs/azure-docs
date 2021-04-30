@@ -1,0 +1,47 @@
+### YamlMime:Landing
+
+title: Azure Route Server documentation
+summary: Learn how to use Azure Route Server to simplify dynamic routing between your Network Virtual Appliances and your virtual network.
+
+metadata:
+  title: Azure Route Server documentation 
+  description: Learn about Azure Route Server
+  services: route-server
+  ms.service: route-server 
+  ms.topic: landing-page 
+  author: duongau 
+  ms.author: duau 
+  ms.date: 03/02/2021
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Route Server (Preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Route Server (Preview)?
+            url: overview.md
+            
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create and configure a Route Server - PowerShell
+            url: quickstart-configure-route-server-powershell.md
+          - text: Create and configure a Route Server - CLI
+            url: quickstart-configure-route-server-cli.md
+
+  # Card
+  - title: Planning
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: ExpressRoute and VPN Gateway support
+            url: expressroute-vpn-support.md
+          - text: Route Server FAQ
+            url: route-server-faq.md

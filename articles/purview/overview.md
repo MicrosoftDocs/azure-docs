@@ -65,6 +65,9 @@ Discovering and understanding data sources and their use is the primary purpose 
 
 At the same time, users can contribute to the catalog by tagging, documenting, and annotating data sources that have already been registered. They can also register new data sources, which are then discovered, understood, and consumed by the community of catalog users.
 
+## In-region data residency
+Azure Purview does not move or store customer data out of the region in which it is deployed.
+
 ## Next steps
 
 To get started with Azure Purview, see [Create an Azure Purview account](create-catalog-portal.md).

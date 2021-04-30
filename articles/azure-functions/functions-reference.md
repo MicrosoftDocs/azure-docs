@@ -111,10 +111,12 @@ Some connections in Azure Functions are configured to use an identity instead of
 
 Identity-based connections are supported by the following trigger and binding extensions:
 
-| Extension name | Extension version                                                                                     | Supports identity-based connections in the Consumption plan |
+| Extension name | Extension version                                                                                     | Supported in the Consumption plan |
 |----------------|-------------------------------------------------------------------------------------------------------|---------------------------------------|
 | Azure Blob     | [Version 5.0.0-beta1 or later](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | No                                    |
 | Azure Queue    | [Version 5.0.0-beta1 or later](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | No                                    |
+| Azure Event Hubs    | [Version 5.0.0-beta1 or later](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) | No                                    |
+| Azure Service Bus    | [Version 5.0.0-beta2 or later](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher) | No                                    |
 
 > [!NOTE]
 > Support for identity-based connections is not yet available for storage connections used by the Functions runtime for core behaviors. This means that the `AzureWebJobsStorage` setting must be a connection string.
@@ -123,9 +125,10 @@ Identity-based connections are supported by the following trigger and binding ex
 
 An identity-based connection for an Azure service accepts the following properties:
 
-| Property    | Environment variable | Is Required | Description |
+| Property    | Required for Extensions | Environment variable | Description |
 |---|---|---|---|
-| Service URI | `<CONNECTION_NAME_PREFIX>__serviceUri` | Yes | The data plane URI of the service to which you are connecting. |
+| Service URI | Azure Blob, Azure Queue | `<CONNECTION_NAME_PREFIX>__serviceUri` |  The data plane URI of the service to which you are connecting. |
+| Fully Qualified Namespace | Event Hubs, Service Bus | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | The fully qualified Event Hubs and Service Bus namespace. |
 
 Additional options may be supported for a given connection type. Please refer to the documentation for the component making the connection.
 
@@ -147,18 +150,39 @@ In some cases, you may wish to specify use of a different identity. You can add 
 > [!NOTE]
 > The following configuration options are not supported when hosted in the Azure Functions service.
 
-To connect using an Azure Active Directory service principal with a client ID and secret, define the connection with the following properties:
+To connect using an Azure Active Directory service principal with a client ID and secret, define the connection with the following required properties in addition to the [Connection properties](#connection-properties) above:
 
-| Property    | Environment variable | Is Required | Description |
-|---|---|---|---|
-| Service URI | `<CONNECTION_NAME_PREFIX>__serviceUri` | Yes | The data plane URI of the service to which you are connecting. |
-| Tenant ID | `<CONNECTION_NAME_PREFIX>__tenantId` | Yes | The Azure Active Directory tenant (directory) ID. |
-| Client ID | `<CONNECTION_NAME_PREFIX>__clientId` | Yes |  The client (application) ID of an app registration in the tenant. |
-| Client secret | `<CONNECTION_NAME_PREFIX>__clientSecret` | Yes | A client secret that was generated for the app registration. |
+| Property    | Environment variable | Description |
+|---|---|---|
+| Tenant ID | `<CONNECTION_NAME_PREFIX>__tenantId` | The Azure Active Directory tenant (directory) ID. |
+| Client ID | `<CONNECTION_NAME_PREFIX>__clientId` |  The client (application) ID of an app registration in the tenant. |
+| Client secret | `<CONNECTION_NAME_PREFIX>__clientSecret` | A client secret that was generated for the app registration. |
+
+Example of `local.settings.json` properties required for identity-based connection with Azure Blob: 
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "<CONNECTION_NAME_PREFIX>__serviceUri": "<serviceUri>",
+    "<CONNECTION_NAME_PREFIX>__tenantId": "<tenantId>",
+    "<CONNECTION_NAME_PREFIX>__clientId": "<clientId>",
+    "<CONNECTION_NAME_PREFIX>__clientSecret": "<clientSecret>"
+  }
+}
+```
 
 #### Grant permission to the identity
 
 Whatever identity is being used must have permissions to perform the intended actions. This is typically done by assigning a role in Azure RBAC or specifying the identity in an access policy, depending on the service to which you are connecting. Refer to the documentation for each service on what permissions are needed and how they can be set.
+
+The following roles cover the primary permissions needed for each extension in normal operation:
+
+| Service     | Example built-in roles |
+|-------------|------------------------|
+| Azure Blobs  | [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader), [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)                 |
+| Azure Queues | [Storage Queue Data Reader](../role-based-access-control/built-in-roles.md#storage-queue-data-reader), [Storage Queue Data Message Processor](../role-based-access-control/built-in-roles.md#storage-queue-data-message-processor), [Storage Queue Data Message Sender](../role-based-access-control/built-in-roles.md#storage-queue-data-message-sender), [Storage Queue Data Contributor](../role-based-access-control/built-in-roles.md#storage-queue-data-contributor)             |
+| Event Hubs   |    [Azure Event Hubs Data Receiver](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver), [Azure Event Hubs Data Sender](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender), [Azure Event Hubs Data Owner](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner)              |
+| Service Bus | [Azure Service Bus Data Receiver](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver), [Azure Service Bus Data Sender](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender), [Azure Service Bus Data Owner](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) |
 
 > [!IMPORTANT]
 > Some permissions might be exposed by the service that are not necessary for all contexts. Where possible, adhere to the **principle of least privilege**, granting the identity only required privileges. For example, if the app just needs to read from a blob, use the [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role as the [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) includes excessive permissions for a read operation.

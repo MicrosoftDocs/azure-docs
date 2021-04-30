@@ -84,15 +84,10 @@ For service tiers and resource limits in each purchasing model, see the [DTU-bas
 The following steps can help you estimate whether a pool is more cost-effective than single databases:
 
 1. Estimate the eDTUs or vCores needed for the pool as follows:
-
-For DTU-based purchasing model:
-
-MAX(<*Total number of DBs* X *average DTU utilization per DB*>, <*Number of concurrently peaking DBs* X *Peak DTU utilization per DB*>)
-
-For vCore-based purchasing model:
-
-MAX(<*Total number of DBs* X *average vCore utilization per DB*>, <*Number of concurrently peaking DBs* X *Peak vCore utilization per DB*>)
-
+   - For the DTU-based purchasing model:
+     - MAX(<*Total number of DBs* &times; *Average DTU utilization per DB*>, <*Number of concurrently peaking DBs* &times; *Peak DTU utilization per DB*>)
+   - For the vCore-based purchasing model:
+     - MAX(<*Total number of DBs* &times; *Average vCore utilization per DB*>, <*Number of concurrently peaking DBs* &times; *Peak vCore utilization per DB*>)
 2. Estimate the total storage space needed for the pool by adding the data size needed for all the databases in the pool. For the DTU purchasing model, then determine the eDTU pool size that provides this amount of storage.
 3. For the DTU-based purchasing model, take the larger of the eDTU estimates from Step 1 and Step 2. For the vCore-based purchasing model, take the vCore estimate from Step 1.
 4. See the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/) and find the smallest pool size that is greater than the estimate from Step 3.

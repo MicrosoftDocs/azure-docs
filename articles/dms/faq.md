@@ -27,9 +27,7 @@ Azure Database Migration Service is a fully managed service designed to enable s
 * Continued investment in friction-free migrations.
 
 **Q. What source/target pairs does Azure Database Migration Service currently support?**
-The service currently supports a variety of source/target pairs, or migration scenarios. For a complete listing of the status of each available migration scenario, see the article [Status of migration scenarios supported by the Azure Database Migration Service](./resource-scenario-status.md).
-
-Other migration scenarios are in preview and require submitting a nomination via the DMS Preview site. For a complete listing of the scenarios in preview and to sign up to participate in one of these offerings, see the [DMS Preview site](https://aka.ms/dms-preview/).
+The service currently supports a variety of source/target pairs, or migration scenarios. For a complete listing of the status of each available migration scenario, see the article [Status of migration scenarios supported by the Azure Database Migration Service](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/dms/resource-scenario-status.md).
 
 **Q. What versions of SQL Server does Azure Database Migration Service support as a source?**
 When migrating from SQL Server, supported sources for Azure Database Migration Service are SQL Server 2005 through SQL Server 2019.
@@ -57,7 +55,7 @@ There are several prerequisites required to ensure that Azure Database Migration
 Azure Database Migration Service prerequisites that are common across all supported migration scenarios include the need to:
 
 * Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](../expressroute/expressroute-introduction.md) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
-* Ensure that your virtual network Network Security Group rules don't block the following communication ports 443, 53, 5671-5672, 9350-9354, 445, 12000. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Ensure that your virtual network Network Security Group rules don't block the port 443 for ServiceTags of ServiceBus, Storage and AzureMonitor. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * When using a firewall appliance in front of your source database(s), you may need to add firewall rules to allow Azure Database Migration Service to access the source database(s) for migration.
 
 For a list of all the prerequisites required to compete specific migration scenarios using Azure Database Migration Service, see the related tutorials in the Azure Database Migration Service [documentation](./dms-overview.md) on docs.microsoft.com.

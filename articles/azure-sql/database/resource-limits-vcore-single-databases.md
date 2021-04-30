@@ -10,16 +10,27 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-ms.date: 01/22/2021
+ms.date: 04/09/2021
 ---
 # Resource limits for single databases using the vCore purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article provides the detailed resource limits for single databases in Azure SQL Database using the vCore purchasing model.
 
-For DTU purchasing model limits for single databases on a server, see [Overview of resource limits on a server](resource-limits-logical-server.md).
+* For DTU purchasing model limits for single databases on a server, see [Overview of resource limits on a server](resource-limits-logical-server.md).
+* For DTU purchasing model resource limits for Azure SQL Database, see [DTU resource limits single databases](resource-limits-dtu-single-databases.md) and [DTU resource limits elastic pools](resource-limits-dtu-elastic-pools.md).
+* For vCore resource limits, see [vCore resource limits - Azure SQL Database](resource-limits-vcore-single-databases.md) and [vCore resource limits - elastic pools](resource-limits-vcore-elastic-pools.md).
+* For more information regarding the different purchasing models, see [Purchasing models and service tiers](purchasing-models.md).
 
-You can set the service tier, compute size (service objective), and storage amount for a single database using the [Azure portal](single-database-manage.md#the-azure-portal), [Transact-SQL](single-database-manage.md#transact-sql-t-sql), [PowerShell](single-database-manage.md#powershell), the [Azure CLI](single-database-manage.md#the-azure-cli), or the [REST API](single-database-manage.md#rest-api).
+Each read-only replica has its own resources, such as vCores, memory, data IOPS, TempDB, workers, and sessions. Each read-only replica is subject to the resource limits detailed later in this article.
+
+You can set the service tier, compute size (service objective), and storage amount for a single database using:
+
+* [Transact-SQL](single-database-manage.md#transact-sql-t-sql) via [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
+* [Azure portal](single-database-manage.md#the-azure-portal)
+* [PowerShell](single-database-manage.md#powershell)
+* [Azure CLI](single-database-manage.md#the-azure-cli)
+* [REST API](single-database-manage.md#rest-api)
 
 > [!IMPORTANT]
 > For scaling guidance and considerations, see [Scale a single database](single-database-scale.md).
@@ -36,14 +47,14 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Min-max vCores|0.5-1|0.5-2|0.5-4|0.75-6|1.0-8|
 |Min-max memory (GB)|2.02-3|2.05-6|2.10-12|2.25-18|3.00-24|
 |Min-max auto-pause delay (minutes)|60-10080|60-10080|60-10080|60-10080|60-10080|
-|Columnstore support|Yes|Yes|Yes|Yes|Yes|
+|Columnstore support|Yes*|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|
 |Max data size (GB)|512|1024|1024|1024|1536|
 |Max log size (GB)|154|307|307|307|461|
 |TempDB max data size (GB)|32|64|128|192|256|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
-|Max data IOPS *|320|640|1280|1920|2560|
+|Max data IOPS \*\*|320|640|1280|1920|2560|
 |Max log rate (MBps)|4.5|9|18|27|36|
 |Max concurrent workers (requests)|75|150|300|450|600|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|
@@ -52,7 +63,8 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance).
+\* Service objectives with smaller max vcore configurations may have insufficient memory for creating and using column store indexes.  If encountering performance problems with column store, increase the max vcore configuration to increase the max memory available.  
+\*\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance).
 
 ### Gen5 compute generation (part 2)
 
@@ -70,7 +82,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS *|3200|3840|4480|5120|
-|Max log rate (MBps)|36|36|36|36|
+|Max log rate (MBps)|45|50|50|50|
 |Max concurrent workers (requests)|750|900|1050|1200|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|
 |Number of replicas|1|1|1|1|
@@ -96,7 +108,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS *|5760|6400|7680|10240|12800|
-|Max log rate (MBps)|36|36|36|36|36|
+|Max log rate (MBps)|50|50|50|50|50|
 |Max concurrent workers (requests)|1350|1500|1800|2400|3000|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|
 |Number of replicas|1|1|1|1|1|
@@ -239,7 +251,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max log size (TB)|Unlimited |Unlimited |Unlimited |Unlimited |
 |TempDB max data size (GB)|64|128|192|256|
 |Storage type| [Note 1](#notes) |[Note 1](#notes)|[Note 1](#notes) |[Note 1](#notes) |
-|Max local SSD IOPS *|8000 |16000 |24000 |32000 |
+|Max local SSD IOPS *|14000|28000|42000|44800|
 |Max log rate (MBps)|100 |100 |100 |100 |
 |IO latency (approximate)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|
 |Max concurrent workers (requests)|160|320|480|640|
@@ -301,7 +313,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)
 |Max data IOPS *|2240|2560|2880|3200|5120|7680|
-|Max log rate (MBps)|31.5|36|36|36|36|36|
+|Max log rate (MBps)|31.5|36|40.5|45|50|50|
 |Max concurrent workers (requests)|1400|1600|1800|2000|3200|4800|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|
 |Number of replicas|1|1|1|1|1|1|
@@ -328,7 +340,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS *|640|1280|1920|2560|3200|3840|4480|
-|Max log rate (MBps)|9|18|27|36|36|36|36|
+|Max log rate (MBps)|9|18|27|36|45|50|50|
 |Max concurrent workers (requests)|200|400|600|800|1000|1200|1400|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Number of replicas|1|1|1|1|1|1|1|
@@ -353,7 +365,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS *|5120|5760|6400|7680|10240|12800|12800|
-|Max log rate (MBps)|36|36|36|36|36|36|36|
+|Max log rate (MBps)|50|50|50|50|50|50|50|
 |Max concurrent workers (requests)|1600|1800|2000|2400|3200|4000|8000|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Number of replicas|1|1|1|1|1|1|1|
@@ -376,11 +388,11 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|
 |Max data size (GB)|1024|1024|1024|1024|1536|
 |Max log size (GB)|336|336|336|336|512|
-|TempDB max data size (GB)|333|333|333|333|333|
+|TempDB max data size (GB)|37|46|56|65|74|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS *|2560|3200|3840|4480|5120|
-|Max log rate (MBps)|36|36|36|36|36|
+|Max log rate (MBps)|36|45|50|50|50|
 |Max concurrent workers (requests)|400|500|600|700|800|
 |Max concurrent logins|800|1000|1200|1400|1600|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|
@@ -402,11 +414,11 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Max data size (GB)|1536|1536|1536|3072|3072|4096|
 |Max log size (GB)|512|512|512|1024|1024|1024|
-|TempDB max data size (GB)|83.25|92.5|111|148|166.5|333|
+|TempDB max data size (GB)|83|93|111|148|167|333|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS *|5760|6400|7680|10240|11520|12800|
-|Max log rate (MBps)|36|36|36|36|36|36|
+|Max log rate (MBps)|50|50|50|50|50|50|
 |Max concurrent workers (requests)|900|1000|1200|1600|1800|3600|
 |Max concurrent logins|1800|2000|2400|3200|3600|7200|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -628,7 +640,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |TempDB max data size (GB)|64|128|192|256|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
-|Max data IOPS *|14000|28000|42000|56000|
+|Max data IOPS *|14000|28000|42000|44800|
 |Max log rate (MBps)|24|48|72|96|
 |Max concurrent workers (requests)|200|400|600|800|
 |Max concurrent logins|200|400|600|800|

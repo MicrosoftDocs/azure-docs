@@ -282,7 +282,11 @@ On the Azure Portal, go to **Azure Active Directory -> Enterprise applications**
 
 ### Does Data Lake Storage Gen1 support inheritance of ACLs?
 
-No, but Default ACLs can be used to set ACLs for child files and folder newly created under the parent folder.  
+No, but Default ACLs can be used to set ACLs for child files and folder newly created under the parent folder.
+
+### What are the limits for ACL entries on files and folders?
+
+32 ACLs can be set per file and per directory. Access and default ACLs each have their own 32 ACL entry limit. Use security groups for ACL assignments if possible. By using groups, you're less likely to exceed the maximum number of ACL entries per file or directory.
 
 ### Where can I learn more about POSIX access control model?
 

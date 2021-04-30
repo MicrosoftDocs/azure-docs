@@ -1,31 +1,30 @@
 ---
-title: Add or remove Azure role assignments for external users using the Azure portal - Azure RBAC
+title: Assign Azure roles to external guest users using the Azure portal - Azure RBAC
 description: Learn how to grant access to Azure resources for users external to an organization using the Azure portal and Azure role-based access control (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
-editor: ''
-
-ms.assetid:
+manager: daveba
 ms.service: role-based-access-control
 ms.devlang:
 ms.topic: how-to
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 02/15/2021
 ms.author: rolyon
-ms.reviewer: skwan
 ms.custom: it-pro
 
 ---
-# Add or remove Azure role assignments for external guest users using the Azure portal
+# Assign Azure roles to external guest users using the Azure portal
 
 [Azure role-based access control (Azure RBAC)](overview.md) allows better security management for large organizations and for small and medium-sized businesses working with external collaborators, vendors, or freelancers that need access to specific resources in your environment, but not necessarily to the entire infrastructure or any billing-related scopes. You can use the capabilities in [Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md) to collaborate with external guest users and you can use Azure RBAC to grant just the permissions that guest users need in your environment.
 
 ## Prerequisites
 
-[!INCLUDE [Azure role assignment prerequisites](../../includes/role-based-access-control/prerequisites-role-assignments.md)]
+To assign Azure roles or remove role assignments, you must have:
+
+- `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
+
 
 ## When would you invite guest users?
 
@@ -61,9 +60,9 @@ For the guest user to be able to access your directory, they must complete the i
 
 For more information about the invitation process, see [Azure Active Directory B2B collaboration invitation redemption](../active-directory/external-identities/redemption-experience.md).
 
-## Add a role assignment for a guest user
+## Assign a role to a guest user
 
-In Azure RBAC, to grant access, you assign a role. To add a role assignment for a guest user, you follow [same steps](role-assignments-portal.md#add-a-role-assignment) as you would for a member user, group, service principal, or managed identity. Follow these steps add a role assignment for a guest user at different scopes.
+In Azure RBAC, to grant access, you assign a role. To assign a role to a guest user, you follow [same steps](role-assignments-portal.md) as you would for a member user, group, service principal, or managed identity. Follow these steps assign a role to a guest user at different scopes.
 
 1. In the Azure portal, click **All services**.
 
@@ -97,9 +96,9 @@ In Azure RBAC, to grant access, you assign a role. To add a role assignment for 
 
     ![Role assignment for Virtual Machine Contributor](./media/role-assignments-external-users/access-control-role-assignments.png)
 
-## Add a role assignment for a guest user not yet in your directory
+## Assign a role to a guest user not yet in your directory
 
-To add a role assignment for a guest user, you follow [same steps](role-assignments-portal.md#add-a-role-assignment) as you would for a member user, group, service principal, or managed identity.
+To assign a role to a guest user, you follow [same steps](role-assignments-portal.md) as you would for a member user, group, service principal, or managed identity.
 
 If the guest user is not yet in your directory, you can invite the user directly from the Add role assignment pane.
 
@@ -183,7 +182,7 @@ If a guest user needs additional privileges in the directory, you can assign a d
 
 ### Guest user cannot browse users, groups, or service principals to assign roles
 
-Guest users have restricted directory permissions. Even if a guest user is an [Owner](built-in-roles.md#owner) at a scope, if they try to add a role assignment to grant someone else access, they cannot browse the list of users, groups, or service principals.
+Guest users have restricted directory permissions. Even if a guest user is an [Owner](built-in-roles.md#owner) at a scope, if they try to assign a role to grant someone else access, they cannot browse the list of users, groups, or service principals.
 
 ![Guest user cannot browse security principals to assign roles](./media/role-assignments-external-users/directory-no-browse.png)
 
