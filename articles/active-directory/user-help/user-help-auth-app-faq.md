@@ -205,9 +205,7 @@ On Android, Microsoft recommends allowing the app to access location all the tim
 
 **Q**: I’m trying to sign into an iOS app, and I need to approve a notification on the Authenticator app. When I go back to the iOS app, I get stuck. What can I do?
 
-**A**: This is a known issue on iOS 13+. Reach out to your support admin for help, and provide the following details: 
-
-    - Use Azure MFA, not MFA server.
+**A**: This is a known issue on iOS 13+. Reach out to your support admin for help, and provide the following details: `Use Azure MFA, not MFA server.`
 
 ### Apple Watch doesn't show accounts
 
