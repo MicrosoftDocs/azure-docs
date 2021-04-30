@@ -74,5 +74,5 @@ Verify the following:
 ## Next steps
 
 - [Deploy modules from the commercial marketplace](../iot-edge/how-to-deploy-modules-portal.md#deploy-from-azure-marketplace)
-- [Publish the Edge Module in Partner Center](./partner-center-portal/azure-iot-edge-module-creation.md)
+- [Publish the Edge Module in Partner Center](./iot-edge-offer-setup.md)
 - [Deploy IoT Edge Module](../iot-edge/quickstart-linux.md)

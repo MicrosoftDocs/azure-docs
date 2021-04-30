@@ -66,9 +66,9 @@ To publish an IoT Edge module to the Azure Marketplace, you need to meet the fol
 
 ### Technical Requirements
 
-The primary technical requirements for an IoT Edge Module, in order for it to get certified and published in the Azure Marketplace, are detailed in the [Prepare your IoT Edge module technical assets](./partner-center-portal/create-iot-edge-module-asset.md).
+The primary technical requirements for an IoT Edge Module, in order for it to get certified and published in the Azure Marketplace, are detailed in the [Prepare your IoT Edge module technical assets](iot-edge-technical-asset.md).
 
 ## Next steps
 
 - Sign in to [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
-- [Create an IoT Edge module offer](./partner-center-portal/azure-iot-edge-module-creation.md) in Partner Center.
+- [Create an IoT Edge module offer](./iot-edge-offer-setup.md) in Partner Center.
