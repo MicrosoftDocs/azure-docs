@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/03/2020
+ms.date: 04/30/2021
 ---
 
 # Prepare IoT Edge module technical assets
@@ -43,7 +43,7 @@ Your module must support a subset (at least one) of Tier 1 platforms supported b
 - Provide a latest tag and a version tag (for example, 1.0.1) that are manifest tags built with the GitHub [manifest-tool](https://github.com/estesp/manifest-tool) if more than one platform is supported. Manifest tags are optional only when one platform is supported.
 - Use the offer listing tab in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace) to add a link under the **Useful links** section to at least one IoT Edge device from the [Azure IoT Edge Certified device catalog](https://devicecatalog.azure.com/).
 
-:::image type="content" source="media/iot-edge/iot-edge-module-technical-asse0ts-offer-listing.png" alt-text="This is an image of the Offer Listing section within Partner Center":::
+:::image type="content" source="media/iot-edge/iot-edge-module-technical-assets-offer-listing.png" alt-text="This is an image of the Offer Listing section within Partner Center":::
 
 ### Device dimensions
 

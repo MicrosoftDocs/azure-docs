@@ -4,9 +4,9 @@ description: Create a IoT Edge Module offer on Microsoft AppSource.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: navits09
-ms.author: navits
-ms.date: 12/18/2020
+author: keferna
+ms.author: keferna
+ms.date: 04/30/2021
 ---
 
 # Create an IoT Edge Module offer

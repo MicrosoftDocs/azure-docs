@@ -6,10 +6,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 08/18/2020
+ms.date: 04/30/2021
 ---
 
-# IoT Edge modules
+# Plan an IoT Edge modules offer
 
 The [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) platform is backed by Microsoft Azure.  This platform enables users to deploy cloud workloads to run directly on IoT devices.  An IoT Edge module can run offline workloads and do data analysis locally. This offer type helps to save bandwidth, safeguard local and sensitive data, and offers low-latency response time.  You now have the options to take advantage of these pre-built workloads. Until now, only a handful of first-party solutions from Microsoft were available.  You had to invest the time and resources into building your own custom IoT solutions.
 
@@ -21,7 +21,7 @@ With [IoT Edge modules in the Azure Marketplace](https://azuremarketplace.micros
 | :------------------- | :-------------------|
 | Reach millions of developers looking to build and deploy IoT Edge solutions.  | Compose an IoT Edge solution with the confidence of using secure and tested components. |
 | Publish once and run across any IoT Edge hardware that supports containers. | Reduce time to market by finding and deploying 1st and 3rd party IoT Edge modules for specific needs. |
-| Monetize with flexible billing options <ul> <li> Free and Bring Your Own License (BYOL). </li> </ul> | Make purchases with your choice of billing models. <ul> <li> Free and Bring Your Own License (BYOL). </li> </ul> |
+| Monetize with flexible billing options <ul><li>Free and Bring Your Own License (BYOL).</li></ul> | Make purchases with your choice of billing models.<ul><li>Free and Bring Your Own License (BYOL).</li></ul> |
 
 ## What is an IoT Edge module?
 

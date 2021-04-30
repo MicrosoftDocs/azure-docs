@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 03/01/2021
+ms.date: 04/30/2021
 ---
 
 # Pre-certification checklist for IoT Edge modules

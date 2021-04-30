@@ -4,9 +4,9 @@ description: Set the preview audience for an IoT Edge Module offer in Microsoft 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: emuench
-ms.author: navits
-ms.date: 12/21/2020
+author: keferna
+ms.author: keferna
+ms.date: 04/30/2021
 ---
 
 # Set the preview audience for an IoT Edge Module offer

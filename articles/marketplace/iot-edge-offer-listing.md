@@ -4,9 +4,9 @@ description: Configure IoT Edge Module offer listing details on Microsoft AppSou
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: emuench
-ms.author: navits
-ms.date: 12/18/2020
+author: keferna
+ms.author: keferna
+ms.date: 04/30/2021
 ---
 
 # Configure IoT Edge Module offer listing details
