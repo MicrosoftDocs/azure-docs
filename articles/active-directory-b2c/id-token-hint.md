@@ -183,7 +183,7 @@ The token issuer must provide following endpoints:
 * `/.well-known/openid-configuration` - A well-known configuration endpoint with relevant information about the token, such as the token issuer name and the link to the JWK endpoint. 
 * `/.well-known/keys` - the JSON Web Key (JWK) end point with the public key that is used to sign the key (with the private key part of the certificate).
 
-See the [TokenMetadataController.cs](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs) .Net MVC controller sample.
+See the [TokenMetadataController.cs](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs) .NET MVC controller sample.
 
 #### Step 1. Prepare a self-signed certificate
 
