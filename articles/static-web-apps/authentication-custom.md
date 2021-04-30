@@ -18,7 +18,7 @@ Azure Static Web Apps provides managed authentication but also the option to pro
 > [!NOTE]
 > Custom authentication is only available in the Standard tier of Azure Static Web Apps and is used to override a built-in provider.
 
-The settings used to override the built-in providers are configured in the `auth` section of the [Configuration file](configuration.md). For example, the following snippet shows how a custom Azure Active Directory provider is configured (see [Default provider configuration](#default-provider-configuration) for options across all providers), and additional providers can be added as required.
+The settings used to override the built-in providers are configured in the `auth` section of the [Configuration file](configuration.md). For example, the following snippet shows how a custom Azure Active Directory provider is configured (see [Default provider configuration](#default-provider-configuration) for options across all providers). You can add additional providers as required.
 
 ```json
 {
@@ -44,7 +44,7 @@ The settings used to override the built-in providers are configured in the `auth
 | `enabled`          | Used to control if a provider is available to the application or not. Defaults to `true` when a provider is configured. |
 | `userDetailsClaim` | The name of the claim that contains the `userDetails` identity value.                                                   |
 
-To avoid putting secrets in source control, the configuration looks into [Application Settings](application-settings.md), for a matching name in the configuration file.
+To avoid putting secrets in source control, the configuration looks into [Application Settings](application-settings.md) for a matching name in the configuration file.
 
 ### Authentication callbacks
 
@@ -274,8 +274,8 @@ For more information on how to configure GitHub as an authentication provider re
     "google": {
       "enabled": true,
       "registration": {
-        "clientIdSettingName": "GOOGLE_CLIENT_ID",
-        "clientSecretSettingName": "GOOGLE_CLIENT_SECRET"
+        "clientIdSettingName": "<GOOGLE_CLIENT_ID>",
+        "clientSecretSettingName": "<GOOGLE_CLIENT_SECRET>"
       },
       "login": {
         "loginParameters": []
@@ -303,8 +303,8 @@ For more information on how to configure Google as an authentication provider re
     "twitter": {
       "enabled": true,
       "registration": {
-        "consumerKeySettingName": "TWITTER_CONSUMER_KEY",
-        "consumerSecretSettingName": "TWITTER_CONSUMER_SECRET"
+        "consumerKeySettingName": "<TWITTER_CONSUMER_KEY>",
+        "consumerSecretSettingName": "<TWITTER_CONSUMER_SECRET>"
       },
       "login": {
         "loginParameters": []
