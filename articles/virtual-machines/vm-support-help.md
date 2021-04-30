@@ -9,7 +9,7 @@ ms.date: 4/28/2021
 ms.custom: support-help-page
 ---
 
-# Support, troubleshooting and feedback options for Azure VMs
+# Support and troubleshooting for Azure VMs
 
 Here are suggestions for where you can get help when developing your Azure Virtual Machines solutions.
 
