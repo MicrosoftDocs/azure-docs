@@ -16,7 +16,7 @@ ms.author: jeffme
 
 :::row:::
    :::column span="0.5":::
-      ![Progressive_Logo](./media/logo-progressive.svg)
+      ![Progressive_Logo](./media/logo-progressive-01.png)
    :::column-end:::
    :::column span="2":::
       ## Progressive helps customers make smarter insurance decisions with Bot Service Cognitive Search
