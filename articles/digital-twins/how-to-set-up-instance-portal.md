@@ -100,7 +100,7 @@ On the following *Add role assignment* page, fill in the values (must be complet
     :::column-end:::
 :::row-end:::
 
-When you're finished entering the details, hit the *Save* button.
+When you're finished entering the details, select the *Save* button.
 
 ### Verify success
 
