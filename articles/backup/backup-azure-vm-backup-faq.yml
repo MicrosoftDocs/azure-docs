@@ -213,5 +213,5 @@ sections:
           
           You can also use [Backup Explorer](./monitor-azure-backup-with-backup-explorer.md) to view the retention settings for all your VMs within a single pane of glass. Navigate to Backup Explorer from any Recovery Services vault, go to the **Backup Items** tab and select the Advanced View to see detailed retention information for each VM.
       - question: When the snapshot is moved from a storage account to a vault, how is encryption in the transit managed?
-        answer: Azure VM Backup uses [HTTPS communication for encryption in transit](guidance-best-practices.md#encryption-of-data-in-transit-and-at-rest). For VM backups, which doesn’t need the Internet access, the data transfer uses Azure fabric, and not public endpoints.
+        answer: Azure VM Backup uses [HTTPS communication for encryption in transit](guidance-best-practices.md#encryption-of-data-in-transit-and-at-rest). The data transfer uses Azure fabric (and not public endpoints), which do not need Internet access for VM backup.
           
