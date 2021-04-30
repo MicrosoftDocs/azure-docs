@@ -156,6 +156,8 @@
         href: safe-url-list.md
       - name: Bandwidth considerations
         href: rdp-bandwidth.md
+      - name: Proxy support guidelines
+        href: proxy-server-support.md
       - name: Determine user connection latency
         href: connection-latency.md
   - name: Delegated access in Windows Virtual Desktop
@@ -212,8 +214,6 @@
   items:
   - name: Security best practices
     href: security-guide.md
-  - name: Proxy support guidelines
-    href: proxy-server-support.md
   - name: Linux support
     href: linux-overview.md
   - name: Azure CLI
