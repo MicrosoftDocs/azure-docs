@@ -200,7 +200,8 @@ The more important reason is that with the new agent, data collection setup is m
 ### What’s the upgrade path from Log Analytics Agent (MMA) to Azure Monitor Agent (AMA) for monitoring SCOM? Can we use AMA for SCOM scenarios?
 Here's how AMA impacts the two SCOM related monitor scenarios:
 - **Scenario 1**: For monitoring the Windows operating system of SCOM, the upgrade path is same as any other machine, wherein you can migrate from MMA (versions 2016, 2019) to AMA as soon as your required parity features are available on AMA.
-- **Scenario 2**: For onboarding/connecting SCOM to Log Analytics workspaces, since this is enabled via a SCOM connector for Log Analytics/Azure Monitor, neither MMA nor AMA is required to be installed on the SCOM management server. As such there is no impact to this use case from AMA perspective. 
+- **Scenario 2**: For onboarding/connecting SCOM to Log Analytics workspaces, since this is enabled via a SCOM connector for Log Analytics/Azure Monitor, neither MMA nor AMA is required to be installed on the SCOM management server. As such there is no impact to this use case from AMA perspective.  
+
 *Note: You can run both scenarios above with MMA and AMA side-by-side without any impact*
 
 
