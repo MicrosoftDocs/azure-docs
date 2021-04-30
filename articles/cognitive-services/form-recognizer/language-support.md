@@ -36,7 +36,7 @@ This table lists the human languages supported by the Form Recognizer service.
 |Danish | `da` |  ✔ | |
 |Dutch | `nl` |✔ | ✔ |
 |English (printed and handwritten) | `en` |✔ | ✔ |
-|Estonian  |`crh`|  ✔ | |
+|Estonian  |`et`|  ✔ | |
 |Fijian |`fj`|  ✔ | |
 |Filipino  |`fil`|  ✔ | |
 |Finnish | `fi` |  ✔ | |
