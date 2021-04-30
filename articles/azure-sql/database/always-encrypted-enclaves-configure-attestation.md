@@ -31,14 +31,6 @@ To use Azure Attestation for attesting Intel SGX enclaves used for [Always Encry
 > [!NOTE]
 > Configuring attestation is the responsibility of the attestation administrator. See [Roles and responsibilities when configuring SGX enclaves and attestation](always-encrypted-enclaves-plan.md#roles-and-responsibilities-when-configuring-sgx-enclaves-and-attestation).
 
-## Requirements
-
-The Azure SQL logical server and the attestation provider must belong to the same Azure Active Directory tenant. Cross-tenant interactions aren't supported. 
-
-The Azure SQL logical server must have an Azure AD identity assigned to it. As the attestation administrator you need to obtain the Azure AD identity of the server from the Azure SQL Database administrator for that server. You will use the identity to grant the server access to the attestation provider. 
-
-For instructions on how to create a server with an identity or assign an identity to an existing server using PowerShell and Azure CLI, see [Assign an Azure AD identity to your server](transparent-data-encryption-byok-configure.md#assign-an-azure-active-directory-azure-ad-identity-to-your-server).
-
 ## Create and configure an attestation provider
 
 An [attestation provider](../../attestation/basic-concepts.md#attestation-provider) is a resource in Azure Attestation that evaluates [attestation requests](../../attestation/basic-concepts.md#attestation-request) against [attestation policies](../../attestation/basic-concepts.md#attestation-request) and issues [attestation tokens](../../attestation/basic-concepts.md#attestation-token). 
@@ -89,6 +81,10 @@ For instructions for how to create an attestation provider and configure with an
 
 After you've configured an attestation policy, you need to share the attestation URL with administrators of applications that use Always Encrypted with secure enclaves in Azure SQL Database. The attestation URL is the `Attest URI` of the attestation provider containing the attestation policy, which looks like this: `https://MyAttestationProvider.wus.attest.azure.net`.
 
+### Use Azure portal to determine the attestation URL
+
+In the Overview pane for your attestation provider, copy the value of the `Attest URI` property to clipboard. 
+
 ### Use PowerShell to determine the attestation URL
 
 Use the `Get-AzAttestation` cmdlet to retrieve the attestation provider properties, including AttestURI.
@@ -98,10 +94,6 @@ Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestation
 ```
 
 For more information, see [Create and manage an attestation provider](../../attestation/quickstart-powershell.md#create-and-manage-an-attestation-provider).
-
-### Use Azure portal to determine the attestation URL
-
-In the Overview pane for your attestation provider, copy the value of the `Attest URI` property to clipboard. 
 
 ## Next Steps
 

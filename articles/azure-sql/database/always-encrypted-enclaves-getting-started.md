@@ -128,8 +128,8 @@ In this step, you will create a new Azure SQL Database logical server and a new 
 
 1. Create a new resource group.
 
-  > [!IMPORTANT]
-  > You need to create your resource group in a region (location) that supports both the DC-series hardware generation and Microsoft Azure Attestation. For the list of regions supporting DC-series, see [DC-series availability](service-tiers-vcore.md#dc-series-1). [Here](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) is the regional availability of Microsoft Azure Attestation.
+   > [!IMPORTANT]
+   > You need to create your resource group in a region (location) that supports both the DC-series hardware generation and Microsoft Azure Attestation. For the list of regions supporting DC-series, see [DC-series availability](service-tiers-vcore.md#dc-series-1). [Here](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) is the regional availability of Microsoft Azure Attestation.
 
    ```powershell
    $resourceGroupName = "<your new resource group name>"
@@ -199,7 +199,7 @@ In this step, you'll create and configure an attestation provider in Microsoft A
    ![Create attestation provider](./media/always-encrypted-enclaves/portal-create-attestation-provider-basics.png)
 
 1. Select **Create**.
-1. Once the attestation provider is created, lick **Go to resource**.
+1. Once the attestation provider is created, click **Go to resource**.
 1. On the **Overview** tab for the attestation provider, copy the value of the **Attest URI** property to clipboard and save it in a file. This is the attestation URL, you will need in later steps.  
 
    ![Attestation URL](./media/always-encrypted-enclaves/portal-attest-uri.png)
