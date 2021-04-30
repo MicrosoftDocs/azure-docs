@@ -397,7 +397,7 @@ const { resource: result, headers: responseHeaders} await container.scripts
 console.log(responseHeaders[Constants.HttpHeaders.ScriptLogResults]);
 ```
 
-# [C#](#tab/c#)
+# [C#](#tab/csharp)
 
 ```csharp
 var response = await client.ExecuteStoredProcedureAsync(
