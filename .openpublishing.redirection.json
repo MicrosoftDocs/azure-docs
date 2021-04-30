@@ -4236,6 +4236,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/deployment-manager-health-check.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/overview.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/deployment-manager-overview.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/overview.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/deployment-manager-tutorial-health-check.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/overview.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/deployment-manager-tutorial.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/overview.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service/web-sites-enable-diagnostic-log.md",
       "redirect_url": "/azure/app-service/troubleshoot-diagnostic-logs",
       "redirect_document_id": false
@@ -33494,7 +33514,7 @@
       "source_path_from_root": "/articles/service-bus-messaging/service-bus-migrate-acs-sas.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/service-bus-messaging/service-bus-dotnet-advanced-message-queuing.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-amqp-dotnet",
