@@ -19,7 +19,7 @@ ms.subservice: B2C
 
 Azure Active Directory B2C (Azure AD B2C) connects to your endpoints through [API connectors](api-connectors-overview.md) and [identity providers](oauth2-technical-profile.md) within [user flows](user-flow-overview.md). This article discusses the TLS and cipher suite requirements for your endpoints.
 
-The endpoints involved when configuring API connectors and identity providers must be published to a publicly-accessible HTTPS URI. Before a secure connection is established with the endpoint, the protocol and cipher is negotiated between Azure AD B2C and the endpoint based on capabilities of both sides.
+The endpoints configured with API connectors and identity providers must be published to a publicly-accessible HTTPS URI. Before a secure connection is established with the endpoint, the protocol and cipher is negotiated between Azure AD B2C and the endpoint based on the capabilities of both sides of the connection.
 
 Azure AD B2C must be able to connect to your endpoints using the Transport Layer Security (TLS) and cipher suites as described in this article.
 
@@ -29,7 +29,7 @@ TLS version 1.2 is a cryptographic protocol that provides authentication and dat
 
 ## Cipher suites
 
-Cipher suites are set of cryptographic algorithms. They provide essential information on how to communicate data securely when using the HTTPS protocol through TLS.
+Cipher suites are sets of cryptographic algorithms. They provide essential information on how to communicate data securely when using the HTTPS protocol through TLS.
 
 Your endpoint must support at least one of the following ciphers:
 
