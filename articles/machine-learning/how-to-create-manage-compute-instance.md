@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, references_regions
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
@@ -145,7 +145,7 @@ Some examples of what you can do in a setup script:
 
 The setup script is a shell script which runs as *azureuser*.  Create or upload the script into your **Notebooks** files:
 
-1. Sign into the [studio](https://ml.azureml.com) and select your workspace.
+1. Sign into the [studio](https://ml.azure.com) and select your workspace.
 1. On the left, select **Notebooks**
 1. Use the **Add files** tool to create or upload your setup shell script.  Make sure the script filename ends in ".sh".  When you create a new file, also change the **File type** to *bash(.sh)*.
 
