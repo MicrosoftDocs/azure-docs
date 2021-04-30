@@ -24,75 +24,93 @@ This document describes the steps to perform an operating system file level back
 
 
 >[!NOTE]
->The OS backup scripts uses the ReaR software, which is pre-installed in the server.  
+> * The OS backup scripts uses xfsdump utility.  
+> * This document supports complete Root filesystem backup and **no incremental** backups
+> * Do ensure that while taking backups, there are no files being written actively to the system for which you will need a backup, since while the system is being backed up and there is a backup being performed it might not get updated in the backup.
 
-After the provisioning is complete by the Microsoft `Service Management` team, by default, the server is configured with two backup schedules to back up the file system level back of the operating system. You can check the schedules of the backup jobs by using the following command:
-```
-#crontab –l
-```
-You can change the backup schedule anytime using the following command:
-```
-#crontab -e
-```
+
 ## How to take a manual backup?
 
-The OS file system backup is scheduled using a **cron job** already. However, you can perform the operating system file level backup manually as well. To perform a manual backup, run the following command:
+To perform a manual backup :
 
-```
-#rear -v mkbackup
-```
-The following screen show shows the sample manual backup:
+* Install the backup tool 
+   ```
+   zypper in xfsdump
+   ```
 
-![how](media/HowToHLI/OSBackupTypeIISKUs/HowtoTakeManualBackup.PNG)
+* Create a backup 
+   ```
+   xfsdump -l 0 -f /data1/xfs_dump /
+   ```
+
+   The following screen show shows the sample manual backup:
+   
+   ![how](media/HowToHLI/OSBackupTypeIISKUs/dump_capture.PNG)
+
+
+* Save a copy of backup in NFS volumes as well, in the scenario where data1 partition also gets corrupted.
+   ```
+   cp /data1/xfs_dump /nfs_vol/
+   ```
+
+* For excluding regular directories and files from dump, please tag files with chattr
+   * chattr -R +d directory
+   * chattr +d file
+   * Run xfsdump with “-e” option
+   * Note, It is not possible to exclude nfs filesystems [ntfs]
+
+
 
 
 ## How to restore a backup?
 
-You can restore a full backup or an individual file from the backup. To restore, use the following command:
+>[!NOTE]
+> * This step requires engaging Microsoft team.
+> * We will be restoring the complete filesystem:
 
-```
-#tar  -xvf  <backup file>  [Optional <file to restore>]
-```
-After the restore, the file is recovered in the current working directory.
+* Mount OS iso on the system 
 
-The following command shows the restore of a file */etc/fstabfrom* the backup file *backup.tar.gz*
-```
-#tar  -xvf  /osbackups/hostname/backup.tar.gz  etc/fstab 
-```
->[!NOTE] 
->You need to copy the file to desired location after it is restored from the backup.
+* Enter rescue mode
 
-The following screenshot shows the restore of a complete backup:
+* Mount data1 (or nfs volume, wherever the dump is stored) partition in read write mode
+   ```
+   mount -o rw /dev/md126p4 /mnt1
+   ```
+* Mount Root in read write mode
+   ```
+   mount -o rw /dev/md126p2 /mnt2
+   ```
+* Restore Filesystem 
+   ```
+   xfsrestore -f /mnt1/xfs_dump /mnt2
+   ```
+   ![how](media/HowToHLI/OSBackupTypeIISKUs/restore_screenshot.PNG)
+* Reboot the system
+   ```
+   reboot
+   ```
 
-![Screenshot shows a command prompt window with the restore.](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
+## Post Restore check
 
-## How to install the ReaR tool and change the configuration? 
+* Ensure the system has complete attributes restored.
+   * Network is up
+   * NFS volumes are mounted
+* Ensure RAID is configured, please replace with your RAID device
+   ```
+   mdadm -D /dev/md126
+   ```
+   ![how](media/HowToHLI/OSBackupTypeIISKUs/RAID_status.PNG)
 
-The Relax-and-Recover (ReaR) packages are **pre-installed** in the **Type II SKUs** of HANA Large Instances, and no action needed from you. You can directly start using the ReaR for the operating system backup.
-However, in the circumstances where you need to install the packages in your own, you can follow the listed steps to install and configure the ReaR tool.
+* Ensure that RAID disks are synced and the configuration is in a clean state.
+   * RAID disks take sometime in syncing and for the initial few minutes it will sync before it is 100% synced.
 
-To install the **ReaR** backup packages, use the following commands:
-
-For **SLES** operating system, use the following command:
-```
-#zypper install <rear rpm package>
-```
-For **RHEL** operating system, use the following command: 
-```
-#yum install rear -y
-```
-To configure the ReaR tool, you need to update parameters **OUTPUT_URL**  and **BACKUP_URL**  in the *file /etc/rear/local.conf*.
-```
-OUTPUT=ISO
-ISO_MKISOFS_BIN=/usr/bin/ebiso
-BACKUP=NETFS
-OUTPUT_URL="nfs://nfsip/nfspath/"
-BACKUP_URL="nfs://nfsip/nfspath/"
-BACKUP_OPTIONS="nfsvers=4,nolock"
-NETFS_KEEP_OLD_BACKUP_COPY=
-EXCLUDE_VG=( vgHANA-data-HC2 vgHANA-data-HC3 vgHANA-log-HC2 vgHANA-log-HC3 vgHANA-shared-HC2 vgHANA-shared-HC3 )
-BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/crash' '/hana' '/usr/sap'  ‘/proc’)
-```
-
-The following screenshot shows the restore of a complete backup:
-![Screenshot shows a command prompt window with the restore using the ReaR tool.](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)
+* Start HANA DB
+   ```
+   su - sidadm
+   HDB start
+   ```
+* Ensure HANA comes up and there are no errors
+   ```
+   hdbinfo
+   ```
+   ![how](media/HowToHLI/OSBackupTypeIISKUs/hana_status.PNG)
