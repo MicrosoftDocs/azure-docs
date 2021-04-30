@@ -17,7 +17,7 @@ Requirements for automatic OS image upgrades by Virtual Machine Scale Sets
 
 Ensure that durability settings are not mismatched on the Service Fabric cluster and Service Fabric extension, as a mismatch will result in upgrade errors. Durability levels can be modified per the guidelines outlined on [this page](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
 
-With Bronze durability, automatic OS image upgrade isn't available. While [Patch Orchestration Application](#patch-orchestration-application ) (intended only for non-Azure hosted clusters) is *not recommended* for Silver or greater durability levels, it is your only option to automate Windows updates with respect to Service Fabric upgrade domains.
+With Bronze durability, automatic OS image upgrade isn't available. While [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) (intended only for non-Azure hosted clusters) is *not recommended* for Silver or greater durability levels, it is your only option to automate Windows updates with respect to Service Fabric upgrade domains.
 
 > [!IMPORTANT]
 > Service Fabric does not support in-VM upgrades where "Windows Update" applies operating system patches without replacing the OS disk.
