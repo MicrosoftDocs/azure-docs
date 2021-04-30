@@ -69,7 +69,7 @@
         topicHref: /azure/active-directory/reports-monitoring/
       - name: Verifiable credentials
         tocHref: /azure/active-directory/verifiable-credentials/
-        topicHref: /azure/active-directory/verifable-credentials/
+        topicHref: /azure/active-directory/verifiable-credentials/
   - name: Analysis Services
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/
@@ -473,6 +473,10 @@
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
+    items:
+    - name: MongoDB API
+      tocHref: /azure/cosmos-db/mongodb/
+      topicHref: /azure/cosmos-db/mongodb/
   - name: Managed Instance for Apache Cassandra
     tocHref: /azure/managed-instance-apache-cassandra/
     topicHref: /azure/managed-instance-apache-cassandra/
