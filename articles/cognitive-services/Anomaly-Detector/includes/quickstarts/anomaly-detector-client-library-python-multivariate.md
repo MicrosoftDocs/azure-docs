@@ -76,7 +76,7 @@ These code snippets show you how to do the following with the Anomaly Detector c
 
 To instantiate a new Anomaly Detector client you need to pass the Anomaly Detector subscription key and associated endpoint. We'll also establish a datasource.  
 
-To use the Anomaly Detector multivariate APIs, you need to first train your own models.Training data is a set of multiple time series that meet the following requirements:
+To use the Anomaly Detector multivariate APIs, you need to first train your own models. Training data is a set of multiple time series that meet the following requirements:
 
 Each time series should be a CSV file with two (and only two) columns, "timestamp" and "value" (all in lowercase) as the header row. The "timestamp" values should conform to ISO 8601; the "value" could be integers or decimals with any number of decimal places. For example:
 
