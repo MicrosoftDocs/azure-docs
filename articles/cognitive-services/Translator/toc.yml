@@ -171,7 +171,7 @@
   - name: Region support
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Compliance and certification
-    href: https://www.microsoft.com/en-us/translator/business/notrace/
+    href: https://www.microsoft.com/translator/business/notrace/
   - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
   - name: Code samples on GitHub
