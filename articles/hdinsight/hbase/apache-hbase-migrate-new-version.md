@@ -80,7 +80,7 @@ Use these detailed steps and commands to migrate your Apache HBase cluster.
    ```bash
    hbase shell
    flush "<table-name>"
-```
+   ```
    
 1. Sign in to [Apache Ambari](https://ambari.apache.org/) on the source cluster with `https://<OLDCLUSTERNAME>.azurehdinsight.net`, and stop the HBase services.
    
@@ -107,7 +107,7 @@ Use these detailed steps and commands to migrate your Apache HBase cluster.
    
 1. Sign in to [Apache Ambari](https://ambari.apache.org/) on the new cluster at `https://<NEWCLUSTERNAME>.azurehdinsight.net`, and stop the HBase services.
    
-1. Under **Services** > **HDFS** > **Configs** > **Advanced** > **Advanced core-site**, change the `fs.defaultFS` HDFS setting to point to the original source cluster container name. The setting in the following example should be changed to `wasbs://hbase-upgrade-old-2021-03-22`.
+1. Under **Services** > **HDFS** > **Configs** > **Advanced** > **Advanced core-site**, change the `fs.defaultFS` HDFS setting to point to the original source cluster container name. For example, the setting in the following screenshot should be changed to `wasbs://hbase-upgrade-old-2021-03-22`.
    
    :::image type="content" source="./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png" alt-text="In Ambari, select Services > HDFS > Configs > Advanced > Advanced core-site and change the container name." border="false":::
    
@@ -134,7 +134,7 @@ Run the following commands, depending on your source HDI version and whether the
 > - The `<source-container-fullpath>` for storage type WASB is `wasbs://<source-container-name>@<storageaccountname>.blob.core.windows.net`.
 > - The `<source-container-fullpath>` for storage type Azure Data Lake Storage Gen2 is `abfs://<source-container-name>@<storageaccountname>.dfs.core.windows.net`.
 
-#### The source cluster is HDI 3.6 or HDI 4.0, and both source and destination clusters have Accelerated Writes
+#### The source cluster is HDI 3.6 or HDI 4.0, and both the source and destination clusters have Accelerated Writes
 
 Clean the WAL FS data for the destination cluster, and copy the WAL directory from the source cluster into the destination cluster's HDFS. Copy the directory by running the following commands in any Zookeeper node or worker node on the destination cluster:
 
@@ -144,7 +144,7 @@ sudo -u hbase hdfs dfs -cp <source-container-fullpath>/hbase-wal-backup/hbasewal
 ```
 #### The source cluster is HDI 3.6, and only the source cluster has Accelerated Writes
 
-On the destination cluster, restore the source cluster WAL directory that you backed up in an earlier step. To restore the backup, run the following commands in any Zookeeper node or worker node on the destination cluster:
+On the destination cluster, copy over the source cluster WAL directory that you backed up in an earlier step. To copy the backup, run the following commands in any Zookeeper node or worker node on the destination cluster:
 
 ```bash   
 hdfs dfs -cp <source-container-fullpath>/hbase-wal-backup/hbasewal/MasterProcWALs <source-container-fullpath>/hbase
@@ -159,7 +159,7 @@ sudo -u hbase hdfs dfs -rm -r hdfs://mycluster/hbasewal
 sudo -u hbase hdfs dfs -Dfs.azure.page.blob.dir="/hbase/WALs,/hbase/MasterProcWALs,/hbase/oldWALs" -cp <source-container>/hbase/*WALs hdfs://mycluster/hbasewal
 ```
 
-#### The source cluster is HDI 3.6, and neither the source nor the destination clusters have Accelerated Writes
+#### The source cluster is HDI 3.6, and the source and destination clusters don't have Accelerated Writes
 
 Clean the WAL FS data for the destination cluster, and copy the source cluster WAL directory into the destination cluster's HDFS. To copy the directory, run the following commands in any Zookeeper node or worker node on the destination cluster:
 
@@ -170,7 +170,7 @@ sudo -u hbase hdfs dfs -Dfs.azure.page.blob.dir="/hbase/WALs,/hbase/MasterProcWA
 
 #### The source cluster is HDI 4.0, and only the source cluster has Accelerated Writes
 
-On the destination cluster, restore the source cluster WAL directory that you backed up in an earlier step. To restore the backup, run the following commands in any Zookeeper node or worker node on the destination cluster:
+On the destination cluster, copy over the source cluster WAL directory that you backed up in an earlier step. To copy the backup, run the following commands in any Zookeeper node or worker node on the destination cluster:
 
 ```bash   
 hdfs dfs -cp <source-container-fullpath>/hbase-wal-backup/hbasewal/WALs <source-container-fullpath>/hbase-wals
@@ -185,7 +185,7 @@ sudo -u hbase hdfs dfs -rm -r hdfs://mycluster/hbasewal
 sudo -u hbase hdfs dfs -cp <source-container-fullpath>/hbase-wals/* hdfs://mycluster/hbasewal
    ```
 
-#### The source cluster is HDI 4.0, and neither the source nor the destination clusters have Accelerated Writes
+#### The source cluster is HDI 4.0, and the source and destination clusters don't have Accelerated Writes
 
 Clean the WAL FS data for the destination cluster, and copy the source cluster WAL directory into the destination cluster's HDFS. To copy the directory, run the following commands in any Zookeeper node or worker node on the destination cluster:
 
@@ -216,7 +216,7 @@ sudo -u hbase hdfs dfs -Dfs.azure.page.blob.dir="/hbase-wals" -cp <source-contai
    
 1. Start the ingestion.
    
-1. Verify HBase consistency and simple Data Definition Language DDL) and Data Manipulation Language (DML) operations.
+1. Verify HBase consistency and simple Data Definition Language (DDL) and Data Manipulation Language (DML) operations.
    
 1. If the destination cluster is satisfactory, delete the source cluster.
 

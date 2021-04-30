@@ -81,7 +81,7 @@ Use these detailed steps and commands to migrate your Apache HBase cluster with 
    ```bash
    hbase shell
    flush "<table-name>"
-```
+   ```
    
 1. Sign in to [Apache Ambari](https://ambari.apache.org/) on the source cluster with `https://<OLDCLUSTERNAME>.azurehdinsight.net`, and stop the HBase services.
    
@@ -145,7 +145,7 @@ When copying HBase data files, you can use [AzCopy](/azure/storage/common/storag
    azcopy cp "<source-container-endpoint-url>/hbase" "<destination-container-endpoint-url>" --recursive
    ```
 
-You can download AzCopy from [Use AzCopy](/azure/storage/common/storage-use-azcopy-v10). The AzCopy command reference is at [AzCopy command reference](azure/storage/common/storage-ref-azcopy-copy).
+You can download AzCopy from [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10). For more information about using the AzCopy `copy` command, see [azcopy copy](/azure/storage/common/storage-ref-azcopy-copy).
 
 #### The source cluster is HDI 3.6 or HDI 4.0, and both the source and the destination cluster have Accelerated Writes
 
@@ -154,18 +154,18 @@ You can download AzCopy from [Use AzCopy](/azure/storage/common/storage-use-azco
    ```bash
    hdfs dfs -rm -r /hbase 
    hadoop distcp <source-container-fullpath>/hbase /
-  ```
+   ```
    
 1. Remove `hbase.id` by running `hdfs dfs -rm /hbase/hbase.id`
    
 1. To clean and migrate the WAL, run the following commands:
    
-```bash
+   ```bash
    hdfs dfs -rm -r hdfs://<destination-cluster>/hbasewal
    hdfs dfs -cp <source-container-fullpath>/hbase-wal-backup/hbasewal hdfs://<destination-cluster>/hbasewal
    ```
 
-#### The source cluster is HDI 3.6, and neither the source nor the destination clusters have Accelerated Writes
+#### The source cluster is HDI 3.6, and the source and destination clusters don't have Accelerated Writes
 
 1. To clean the file system and migrate data, run the following commands:
    
@@ -179,7 +179,7 @@ You can download AzCopy from [Use AzCopy](/azure/storage/common/storage-use-azco
    
 1. To clean and migrate the WAL, run the following commands:
    
-```bash
+   ```bash
    hdfs dfs -rm -r /hbase-wals/*
    hdfs dfs -Dfs.azure.page.blob.dir="/hbase/WALs,/hbase/MasterProcWALs,/hbase/oldWALs,/hbase-wals" -cp <source-container-fullpath>/hbase/*WALs /hbase-wals
    ```
@@ -198,25 +198,25 @@ You can download AzCopy from [Use AzCopy](/azure/storage/common/storage-use-azco
    
 1. To clean and migrate the WAL, run the following commands:
    
-```bash
+   ```bash
    hdfs dfs -rm -r hdfs://<destination-cluster>/hbasewal/*
    hdfs dfs -Dfs.azure.page.blob.dir="/hbase/WALs,/hbase/MasterProcWALs,/hbase/oldWALs,/hbase-wals" -cp <source-container-fullpath>/hbase/*WALs hdfs://<destination-cluster>/hbasewal
    ```
 
-#### The source cluster is HDI 4.0, and neither the source nor the destination cluster have Accelerated Writes
+#### The source cluster is HDI 4.0, and the source and destination clusters don't have Accelerated Writes
 
 1. To clean the file system and migrate data, run the following commands:
    
    ```bash
    hdfs dfs -rm -r /hbase 
    hadoop distcp <source-container-fullpath>/hbase /
-  ```
+   ```
    
 1. Remove `hbase.id` by running `hdfs dfs -rm /hbase/hbase.id`
    
 1. To clean and migrate the WAL, run the following commands:
    
-```bash
+   ```bash
    hdfs dfs -rm -r /hbase-wals/*
    hdfs dfs -Dfs.azure.page.blob.dir="/hbase-wals" -cp <source-container-fullpath>/hbase-wals /
    ```
@@ -228,13 +228,13 @@ You can download AzCopy from [Use AzCopy](/azure/storage/common/storage-use-azco
    ```bash
    hdfs dfs -rm -r /hbase 
    hadoop distcp <source-container-fullpath>/hbase /
-  ```
+   ```
    
 1. Remove `hbase.id` by running `hdfs dfs -rm /hbase/hbase.id`
    
 1. To clean and migrate the WAL, run the following commands:
    
-```bash
+   ```bash
    hdfs dfs -rm -r hdfs://<destination-cluster>/hbasewal
    hdfs dfs -Dfs.azure.page.blob.dir="/hbase-wals" -cp <source-container-fullpath>/hbase-wals hdfs://<destination-cluster>/hbasewal
    ```
@@ -250,7 +250,7 @@ You can download AzCopy from [Use AzCopy](/azure/storage/common/storage-use-azco
    
 1. Start the ingestion.
    
-1. Verify HBase consistency and simple Data Definition Language DDL) and Data Manipulation Language (DML) operations.
+1. Verify HBase consistency and simple Data Definition Language (DDL) and Data Manipulation Language (DML) operations.
    
 1. If the destination cluster is satisfactory, delete the source cluster.
 
