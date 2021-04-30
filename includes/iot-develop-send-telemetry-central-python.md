@@ -12,7 +12,7 @@
 ## Prerequisites
 - [Python 3.7](https://www.python.org/downloads/) or later. To check your Python version, run `python --version`. 
 
-[!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device]
+[!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
 ## Run a simulated device
 In this section, you install the Azure IoT Python device sdk samples, configure your local environment, and run a sample that creates a simulated temperature controller.
