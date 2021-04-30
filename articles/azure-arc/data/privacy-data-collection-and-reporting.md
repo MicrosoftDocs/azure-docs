@@ -27,7 +27,7 @@ Azure Arc enabled data services may use some or all of the following products:
 
 ## Directly connected
 
-When a cluster is configured to be directly connected to Azure some data is automatically transmitted to Microsoft. The following list describes the type of data and 
+When a cluster is configured to be directly connected to Azure, some data is automatically transmitted to Microsoft. The following list describes the type of data and 
 
 - **Operational data**
    - Required: No
@@ -85,19 +85,19 @@ This section provides more details about the information included with the Azure
 
 Operational data is collected for all database instances and for the Arc enabled data services platform itself. There are two types of operational data: 
 
-- Metrics – Performance and capacity related metrics which are collected to an Influx DB provided as part of Arc enabled data services. You can view these metrics in the provided Grafana dashboard. 
+- Metrics – Performance and capacity related metrics, which are collected to an Influx DB provided as part of Arc enabled data services. You can view these metrics in the provided Grafana dashboard. 
 
 - Logs – logs emitted by all components including failure, warning, and informational events are collected to an Elasticsearch database provided as part of Arc enabled data services. You can view the logs in the provided Kibana dashboard. 
 
 The operational data stored locally requires built in administrative privileges to view it in Grafana/Kibana. 
 
-The operational data does not leave yous environment unless you chooses to export/upload (indirect connected mode) or automatically send (directly connected mode) the data to Azure Monitor/Log Analytics. The data goes into a Log Analytics workspace which you control. 
+The operational data does not leave yous environment unless you chooses to export/upload (indirect connected mode) or automatically send (directly connected mode) the data to Azure Monitor/Log Analytics. The data goes into a Log Analytics workspace, which you control. 
 
-If the data is sent to Azure Monitor or Log Analytics you can choose which Azure region or datacenter the Log Analytics workspace resides in. After that, access to view or copy it from other locations can be controlled by you. 
+If the data is sent to Azure Monitor or Log Analytics, you can choose which Azure region or datacenter the Log Analytics workspace resides in. After that, access to view or copy it from other locations can be controlled by you. 
 
 ### Billing and Inventory Data 
 
-Billing data is used for purposes of tracking usage that is billable. This is essential for running of the service and needs to be transmitted manually or automatically in all modes. 
+Billing data is used for purposes of tracking usage that is billable. This data is essential for running of the service and needs to be transmitted manually or automatically in all modes. 
 
 Every database instance and the data controller itself will be reflected in Azure as an Azure resource in Azure Resource Manager. 
 
@@ -108,7 +108,7 @@ There are three resource types:
 - Arc enabled SQL Server 
 - Data controller 
 
-These are the properties, types and description that are collected and stored about each of them: 
+The following sections show the properties, types, and descriptions that are collected and stored about each type of resource: 
 
 ### Arc enabled SQL Server 
 - SQL Server edition. 
@@ -151,7 +151,7 @@ These are the properties, types and description that are collected and stored ab
 
 #### PostgreSQL Hyperscale Server Group 
 
-- The data controller id
+- The data controller ID
    `string: DataControllerId`
 - The instance admin name
    `string: Admin`
@@ -159,7 +159,7 @@ These are the properties, types and description that are collected and stored ab
    `public: BasicLoginInformation BasicLoginInformation` 
 - The raw Kubernetes information (`kubectl get postgres12`) 
    `object: K8sRaw` 
-- Last uploaded date from on premise cluster. 
+- Last uploaded date from on premises cluster. 
    `System.DateTime: LastUploadedDate` 
 - Group provisioning state
    `string: ProvisioningState` 
@@ -178,7 +178,7 @@ These are the properties, types and description that are collected and stored ab
    `object: K8sRaw` 
 - Username and password for basic authentication. 
    `public: BasicLoginInformation BasicLoginInformation`
-- Last uploaded date from on premise cluster. 
+- Last uploaded date from on-premises cluster. 
    `public: System.DateTime LastUploadedDate` 
 - SQL managed instance provisioning state
    `public string: ProvisioningState` 
@@ -221,7 +221,7 @@ Example of resource inventory data JSON document that is sent to Azure to create
 
  
 
-Billing data captures the start time (“created”) and end time (“deleted”) of a given instance e ….as well as any start and time whenever a change in the number of cores available to a given instance (“core limit”) happens. 
+Billing data captures the start time (“created”) and end time (“deleted”) of a given instance.as well as any start and time whenever a change in the number of cores available to a given instance (“core limit”) happens. 
 
 ```json
 { 
@@ -275,7 +275,7 @@ In support situations, you may be asked to provide database instance logs, Kuber
 |Error logs |Log files capturing errors may contain customer or personal data (see below) are restricted and shared by user |
 |DMVs      |Dynamic management views can contain query and query plans but are restricted and shared by user     |
 |Views    |Views can contain customer data but are restricted and shared only by user     |
-|Crash dumps – customer data | Max 30 day retention of crash dumps – may contain access control data <br/><br/> Statistics objects, data values within rows, query texts could be in customer crash dumps    |
+|Crash dumps – customer data | Maximum 30-day retention of crash dumps – may contain access control data <br/><br/> Statistics objects, data values within rows, query texts could be in customer crash dumps    |
 |Crash dumps – personal data | Machine, logins/ user names, emails, location information, customer identification – require user consent to be included  |
 
 ### Customer experience improvement program (CEIP) (Telemetry) 
