@@ -35,7 +35,7 @@ IoT Hub is a multi-tenant Platform-as-a-Service (PaaS), so different customers s
 
 Disabling public network access is enforced on a specific IoT hub resource, ensuring isolation. To keep the service active for other customer resources using the public path, its public endpoint remains resolvable, IP addresses discoverable, and ports remain open. This is not a cause for concern as Microsoft integrates multiple layers of security to ensure complete isolation between tenants. To learn more, see [Isolation in the Azure Public Cloud](../security/fundamentals/isolation-choices.md#tenant-level-isolation).
 
-### IP Filter 
+### IP Filter
 
 If public network access is disabled, all [IP Filter](iot-hub-ip-filtering.md) rules are ignored. This is because all IPs from the public internet are blocked. To use IP Filter, use the **Selected IP ranges** option.
 
@@ -43,7 +43,7 @@ If public network access is disabled, all [IP Filter](iot-hub-ip-filtering.md) r
 
 There is a bug with IoT Hub where the [built-in Event Hub compatible endpoint](iot-hub-devguide-messages-read-builtin.md) continues to be accessible via public internet when public network access to the IoT Hub is disabled. To learn more and contact us about this bug, see [Disabling public network access for IoT Hub disables access to built-in Event Hub endpoint](https://azure.microsoft.com/updates/iot-hub-public-network-access-bug-fix).
 
-## Turn on public network access using Azure portal
+## Turn on network access using Azure portal
 
 1. Visit [Azure portal](https://portal.azure.com)
 2. Navigate to your IoT hub.
@@ -76,4 +76,12 @@ You can check IoT hub access by using the Azure cloud shell. Make sure that you'
 ```
 ### Troubleshooting
 
-If the preceding commands work but you still have no access to IoT hub, check your local network settings or contact your local network administrator to fix your connectivity to IoT Hub. If the preceding commands do not work or you cannot turn on all network ranges, contact Microsoft support.
+If you have trouble accessing your IoT hub, your network configuration could be the problem. For example, if you see the following error message when trying to access the IoT devices page, check the **Networking** page to see if public network access is disabled or restricted to selected IP ranges.
+
+```
+  Unable to retrieve devices. Please ensure that your network connection is online and network settings allow connections from your IP address.
+```
+
+To get access to the IoT hub, request permission from your IT administrator and either add your IP address in the range or enable public network access to all networks. If that fails to resolve the issue, check your local network settings or contact your local network administrator to fix connectivity to IoT Hub. For example, sometimes a proxy in the local network can interfere with access to IoT Hub. 
+
+If the preceding commands do not work or you cannot turn on all network ranges, contact Microsoft support.
