@@ -89,7 +89,7 @@ You'll be taken to the deployment page for the connector. When it is finished de
 
 Next, you'll configure the connector you've created to reach Azure Digital Twins.
 
-First, download a custom Azure Digital Twins Swagger that has been modified to work with Logic Apps. Download the [Azure Digital Twins custom Swaggers (Logic Apps connector) sample](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) by hitting the *Download ZIP* button. Navigate to the downloaded *Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_.zip* folder and unzip it. 
+First, download a custom Azure Digital Twins Swagger that has been modified to work with Logic Apps. Download the [Azure Digital Twins custom Swaggers (Logic Apps connector) sample](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) by selecting the *Download ZIP* button. Navigate to the downloaded *Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_.zip* folder and unzip it. 
 
 The custom Swagger for this tutorial is located in the ***Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_\LogicApps*** folder. This folder contains subfolders called *stable* and *preview*, both of which hold different versions of the Swagger organized by date. The folder with the most recent date will contain the latest copy of the Swagger. Whichever version you select, the Swagger file is named _**digitaltwins.json**_.
 
@@ -129,7 +129,7 @@ In the Security step, select *Edit* and configure this information:
     - Scope: Directory.AccessAsUser.All
     - Redirect URL: (leave default for now)
 
-Note that the Redirect URL field says *Save the custom connector to generate the redirect URL*. Do this now by hitting *Update connector* across the top of the pane to confirm your connector settings.
+Note that the Redirect URL field says *Save the custom connector to generate the redirect URL*. Do this now by selecting *Update connector* across the top of the pane to confirm your connector settings.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="Screenshot of the top of the 'Edit Logic Apps Custom Connector' page. Highlight around 'Update connector' button":::
 
@@ -142,7 +142,7 @@ Return to the Redirect URL field and copy the value that has been generated. You
 This is all the information that is required to create your connector (no need to continue past Security to the Definition step). You can close the *Edit Logic Apps Custom Connector* pane.
 
 >[!NOTE]
->Back on your connector's Overview page where you originally selected *Edit*, note that hitting *Edit* again will restart the entire process of entering your configuration choices. It will not populate your values from the last time you went through it, so if you want to save an updated configuration with any changed values, you must re-enter all the other values as well to avoid their being overwritten by the defaults.
+>Back on your connector's Overview page where you originally selected *Edit*, note that selecting *Edit* again will restart the entire process of entering your configuration choices. It will not populate your values from the last time you went through it, so if you want to save an updated configuration with any changed values, you must re-enter all the other values as well to avoid their being overwritten by the defaults.
 
 ### Grant connector permissions in the Azure AD app
 
