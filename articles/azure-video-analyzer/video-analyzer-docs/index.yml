@@ -6,7 +6,7 @@ summary: Learn how to use Azure Video Analyzer # < 160 chars
 metadata:
   title: Azure Video Analyzer documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Learn how to use Azure Video Analyzer # Required; article description that is displayed in search results. < 160 chars.
-  services: media-services
+  services: azure-video-analyzer
   ms.service: azure-video-analyzer  #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
   ms.collection: collection
@@ -31,11 +31,13 @@ landingContent:
       - linkListType: concept
         links:
           - text: Pipeline
-            url: ""
+            url: pipeline.md
           - text: Video recording 
-            url: ""
+            url: video-recording.md
+      - linkListType: how-to-guide
+        links:            
           - text: Video playback
-            url: ""
+            url: playback-recordings-how-to.md
           
   # Card
   - title: Azure Video Analyzer scenarios
@@ -43,4 +45,4 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Get started with Azure Video Analyzer 
-            url: ""
+            url: get-started-detect-motion-emit-events.md

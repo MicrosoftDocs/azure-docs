@@ -28,7 +28,7 @@ highlightedContent:
     # Card
     - title: Azure Video Analyzer concepts 
       itemType: concept
-      url: ./video-analyzer-docs/pipeline-extension.md   
+      url: ./video-analyzer-docs/pipeline.md   
     # Card
     - title: Azure Video Analyzer for Media documentation
       itemType: overview
