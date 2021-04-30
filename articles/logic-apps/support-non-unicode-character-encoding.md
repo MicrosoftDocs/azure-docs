@@ -1,5 +1,5 @@
 ---
-title: Support non-Unicode character encoding in Logic Apps
+title: Support non-Unicode character encoding in Azure Logic Apps
 description: Work with non-Unicode text in Logic Apps. Convert text payloads to UTF-8 using base64 encoding and Azure Functions.
 ms.date: 04/29/2021
 ms.topic: conceptual
