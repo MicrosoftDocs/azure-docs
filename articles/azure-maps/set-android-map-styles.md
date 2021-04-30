@@ -20,7 +20,7 @@ This article shows you two ways to set map styles using the Azure Maps Android S
 Be sure to complete the steps in the [Quickstart: Create an Android app](quick-android-map.md) document.
 
 >[!important]
->The procedure in this section requires an Azure Maps account in Gen 1 or Gen2 pricing tier. For more information on pricing tiers, see [Choose the right pricing tier in Azure Maps](choose-pricing-tier.md).
+>The procedure in this section requires an Azure Maps account in Gen 1 or Gen 2 pricing tier. For more information on pricing tiers, see [Choose the right pricing tier in Azure Maps](choose-pricing-tier.md).
 
 
 ## Set map style in the layout

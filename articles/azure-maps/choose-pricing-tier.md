@@ -22,9 +22,8 @@ See the **pricing tier targeted customers** table below for a better understandi
 |-----------------|----| -----------------|
 | **Gen 1** | S0            |    The S0 pricing tier works for applications in all stages of production: from proof-of-concept development and early stage testing to application production and deployment. However, this tier is designed for small-scale development, or customers with low concurrent users, or both.
 |        |S1            |    The S1 pricing tier is for customers with large-scale enterprise applications, mission-critical applications, or high volumes of concurrent users. It's also for those customers who require advanced geospatial services.
-| **Gen 2** | Maps/Location Insights | Gen2 pricing is perfect for new and current Azure Maps customers as it comes with a free monthly tier of transactions to be used to test and build on Azure maps. Maps and Locations Insights SKU’s contain all current and future Azure Maps capabilities. Additionally, there’s no QPS (Queries Per Second) restrictions and for most services, achieve cost savings as Azure Maps transactions increase.  
+| **Gen 2** | Maps/Location Insights | Gen 2 pricing is for new and current Azure Maps customers. Gen 2 comes with a free monthly tier of transactions to be used to test and build on Azure maps. Maps and Location Insights SKU’s contain all of Azure Maps capabilities. Additionally, there’s no QPS (Queries Per Second) restrictions, which for most services, achieves cost savings as Azure Maps transactions increase.  
 |     |  |
-
 
 ## Next steps
 

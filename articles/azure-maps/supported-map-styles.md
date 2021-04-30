@@ -15,7 +15,7 @@ manager: philmea
 Azure Maps supports several different built-in map styles as described below.
 
 >[!important]
->The procedure in this section requires an Azure Maps account in Gen 1 or Gen2 pricing tier. For more information on pricing tiers, see [Choose the right pricing tier in Azure Maps](choose-pricing-tier.md).
+>The procedure in this section requires an Azure Maps account in Gen 1 or Gen 2 pricing tier. For more information on pricing tiers, see [Choose the right pricing tier in Azure Maps](choose-pricing-tier.md).
 
 ## road
 
