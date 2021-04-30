@@ -331,7 +331,7 @@ az deployment group create \
 To learn more about deploying templates using the Azure CLI, see [Deploy resources with ARM templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
 ---
-
+[!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 ## Clean up resources
 
 Clean up the resources you deployed by deleting the resource group.
