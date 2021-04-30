@@ -1,10 +1,10 @@
 ---
-title: CI/CD with Azure Pipelines and templates
-description: Describes how to configure continuous integration in Azure Pipelines by using Azure Resource Manager templates. It shows how to use a PowerShell script, or copy files to a staging location and deploy from there.
+title: CI/CD with Azure Pipelines and templates (Bicep)
+description: Describes how to configure continuous integration in Azure Pipelines by using Azure Resource Manager templates. It shows how to use a PowerShell script, or copy files to a staging location and deploy from there. (Bicep)
 ms.topic: conceptual
 ms.date: 03/09/2021
 ---
-# Integrate ARM templates with Azure Pipelines
+# Integrate ARM templates with Azure Pipelines (Bicep)
 
 You can integrate Azure Resource Manager templates (ARM templates) with Azure Pipelines for continuous integration and continuous deployment (CI/CD). In this article, you learn two more advanced ways to deploy templates with Azure Pipelines.
 
