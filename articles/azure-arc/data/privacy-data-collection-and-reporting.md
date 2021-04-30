@@ -113,7 +113,7 @@ These are the properties, types and description that are collected and stored ab
 ### Arc enabled SQL Server 
 - SQL Server edition. 
    `string: Edition` 
-- ARM Resource id of the container resource (Azure Arc for Servers). 
+- Resource ID of the container resource (Azure Arc for Servers). 
    `string: ContainerResourceId` 
 - Time when the resource was created. 
    `string: CreateTime` 
