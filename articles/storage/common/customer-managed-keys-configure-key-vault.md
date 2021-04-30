@@ -67,10 +67,26 @@ For step-by-step guidance, see [Assign a Key Vault access policy using the Azure
    > [!div class="mx-imgBorder"]
    > ![Set access policy for key vault](./media/customer-managed-keys-configure-key-vault/configure-key-vault-access-policy.png)
 
-3. Select the **Select Principal** button, and then use the search feature to find a user-assigned managed identity, or the system-wide managed identity of the storage account. 
+You can use a system-assigned managed identity or a user-defined managed identity to grant the storage account access to the key vault. To learn more each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). 
+ 
 
-   > [!NOTE]
-   > You can find the system-wide managed identity of the storage account by searching for the storage account name.
+##### Option 1: Use a system-assigned managed identity
+
+Select the **Select Principal** button, and then use the search feature to find a system-assigned managed identity of the storage account. You can find the system-assigned managed identity of the storage account by searching for the storage account name.
+
+If the storage account name doesn't appear in the list of search results, then you'll have to assign a system-assigned assigned managed identity to your storage account.
+
+To assign a system-assigned managed identity to the storage account, locate your storage account and display the account overview. Under **Security + networking**, select **Identity**, set **Status** to **On**, and then select the **Save** button.   
+
+> [!div class="mx-imgBorder"]
+> ![Add system-assigned managed identity in the Azure portal](./media/customer-managed-keys-configure-key-vault/portal-add-system-assigned-managed-identity.png)
+
+##### Option 2: Use a user-assigned managed identity
+
+Select the **Select Principal** button, and then use enter the ID of the user-assigned managed identity into the search feature to find and select the user-assigned managed identity. 
+
+> [!NOTE]
+> You can find that ID of a user-assigned managed identity in the Azure portal on the resource's **Overview** page. 
 
 ### [PowerShell](#tab/powershell)
 
@@ -89,11 +105,21 @@ To learn how to enable purge protection on an existing key vault with PowerShell
 
 #### Configure a key vault access policy
 
-You can use a system-wide managed identity or a user-defined managed identity to grant the storage account access to the key vault. To learn more each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).   
+You can use a system-assigned managed identity or a user-defined managed identity to grant the storage account access to the key vault. To learn more each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).   
 
-#### Option 1: Use a system-assigned managed identity
+##### Option 1: Use a system-assigned managed identity
 
-If you want to use a system-wide managed identity, you'll have to assign one to your storage account. 
+First, determine if a system-assigned managed identity is assigned to the storage account. If the account was created by using the Azure portal, then Azure portal assigns one automatically. 
+
+Use the [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) command to get the storage account object, and then use the `identity` property of storage account object to get the ID of the system-assigned managed identity.
+
+```powershell
+Get-AzStorageAccount -ResourceGroupName <resource_group> `
+    -AccountName <storage-account>
+    $storageAccount.identity
+```
+ 
+If `identity` property doesn't return a value, then you'll have to assign a system-assigned assigned managed identity to your storage account. 
 
 To assign a managed identity using PowerShell, call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount):
 
@@ -112,7 +138,7 @@ Set-AzKeyVaultAccessPolicy `
     -PermissionsToKeys wrapkey,unwrapkey,get
 ```
 
-#### Option 2: Use a user-assigned managed identity
+##### Option 2: Use a user-assigned managed identity
 
 First, find the object ID of the user-assigned managed identity. You can find that ID in the Azure portal on the resource's **Overview** page. You can also use the following PowerShell script to find the object ID. To use this script, you'll need the resource ID of the user-assigned managed identity.
 
@@ -146,13 +172,22 @@ To learn how to enable purge protection on an existing key vault with Azure CLI,
 
 #### Configure a key vault access policy
 
-You can use a system-wide managed identity or a user-defined managed identity to grant the storage account access to the key vault. To learn more each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).  
+You can use a system-assigned managed identity or a user-defined managed identity to grant the storage account access to the key vault. To learn more each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).  
 
 #### Use a system-assigned managed identity
 
-If you want to use a system-wide managed identity, you'll have to assign one to your storage account. 
+First, determine if a system-assigned managed identity is assigned to the storage account. If the account was created by using the Azure portal, then Azure portal assigns one automatically. 
 
-To assign a managed identity using Azure CLI, call [az storage account update](/cli/azure/storage/account#az_storage_account_update):
+Use the [az storage account show](/cli/azure/storage/account#az_storage_account_show) command to print the storage account properties to the console. 
+
+```azurecli-interactive
+az storage account show -resource-group <resource_group> \
+   --name <storage-account>
+```
+ 
+If `principalId` property is null, then you'll have to assign a system-assigned managed identity to your storage account.  
+
+To assign a system-assigned managed identity using Azure CLI, call [az storage account update](/cli/azure/storage/account#az_storage_account_update):
 
 ```azurecli-interactive
 az storage account update \
