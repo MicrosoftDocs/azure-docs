@@ -224,13 +224,13 @@ Log Analytics solutions can be enabled using the new Azure Monitor Agent either 
 | Sentinel | Private preview on AMA for Windows Events: [sign up link](https://aka.ms/AMAgent) |
 | Change Tracking | Supported as File Integrity Monitoring (FIM) in ASC on AMA private preview : [Sign up link](https://aka.ms/AMAgent) |
 | Update Management | New version that doesn’t need any agent is in private preview: [Sign up link](https://www.yammer.com/azureadvisors/threads/1064001355087872) |
-| VM Insights guest health <sup>NEW</sup> | Public preview: [VM insights guest health (preview)](https://docs.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-health-overview) |
+| VM Insights guest health <sup>NEW</sup> | Public preview: [VM insights guest health (preview)](https://docs.microsoft.com/azure/azure-monitor/vm/vminsights-health-overview) |
 | SQL Monitoring (new) | Private preview on AMA only |
 | VM Insights with metrics support | *Private preview coming soon* |
 
 
 ### Can the new Azure Monitor Agent and Log Analytics Agent co-exist side-by-side?
-Yes they can, but with certain considerations. Read more [here](https://docs.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-overview#coexistence-with-other-agents).
+Yes they can, but with certain considerations. Read more [here](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview#coexistence-with-other-agents).
 
 ### Is the new Azure Monitor Agent at parity with existing agents?
 It does not have full parity yet with existing agents. Here are some high-level gaps:
@@ -255,7 +255,7 @@ You can directly install them on Virtual Machines, Virtual Machines Scale Sets, 
 
 
 ### Can we filter events using event Id, i.e. more granular event filtering using the new Azure Monitor Agent?
-Yes. You can use **Xpath queries** for filtering events on Windows machines. [Learn more](https://docs.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent#limit-data-collection-with-custom-xpath-queries)  
+Yes. You can use **Xpath queries** for filtering events on Windows machines. [Learn more](https://docs.microsoft.com/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent#limit-data-collection-with-custom-xpath-queries)  
 For performance counters, you can specify specific counters you wish to collect, and exclude ones you don’t need.
 For syslog on Linux, you can choose Facilities and log level for each facility to collect.
 
