@@ -21,7 +21,7 @@ zone_pivot_groups: b2c-policy-type
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 > [!IMPORTANT]
-> **Starting in the second half of 2021**, Google is [deprecating web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If you’re using Google federation for Azure AD B2B invitations or Azure AD B2C, or if you're using self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](../active-directory/external-identities/google-federation.md#deprecation-of-web-view-sign-in-support).
+> **Starting in the second half of 2021**, Google is [deprecating web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If you’re using Google federation for Azure AD B2B invitations or Azure AD B2C, or if you're using self-service sign-up with Gmail, Google Gmail users won't be able to sign in if your apps authenticate users with an embedded web-view. [Learn more](../active-directory/external-identities/google-federation.md#deprecation-of-web-view-sign-in-support).
 
 ::: zone pivot="b2c-custom-policy"
 
