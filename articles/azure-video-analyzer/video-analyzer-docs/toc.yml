@@ -57,7 +57,7 @@
       href: use-intel-grpc-vas-tutorial.md #404
     - name: With Custom Vision
       displayName: analyze live video    
-      href: analyze-live-video-custom-vision.md #404
+      href: analyze-live-video-custom-vision.md 
 - name: Concepts
   items:
   - name: Pipeline
