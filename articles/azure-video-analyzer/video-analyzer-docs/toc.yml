@@ -14,8 +14,6 @@
     href: get-started-detect-motion-emit-events.md
   - name: Detect motion, record video in the cloud
     href: detect-motion-record-video-clips-cloud.md #404
-  - name: Track objects in live videos
-    href: track-objects-live-video.md
   - name: Detect motion, record video on edge devices
     href: detect-motion-record-video-edge-devices.md
   - name: Create pipeline topology using VS Code extension
@@ -28,6 +26,8 @@
     - name: with your own HTTP model
       displayName: analyze live video
       href: analyze-live-video-use-your-model-http.md
+  - name: Track objects in live videos
+    href: track-objects-live-video.md
   - name: Detect motion and emit events
     items:
     - name: Using direct method calls
