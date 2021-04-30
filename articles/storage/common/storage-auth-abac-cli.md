@@ -38,11 +38,11 @@ For information about the prerequisites to add or edit role assignment condition
 
 In this tutorial, you restrict access to blobs with a specific tag. For example, you add a condition to a role assignment so that Chandra can only read files with the tag Project=Cascade.
 
-![Diagram of role assignment with a condition](./media/shared/condition-role-assignment-rg.png)
+![Diagram of role assignment with a condition.](./media/shared/condition-role-assignment-rg.png)
 
 If Chandra tries to read a blob without the tag Project=Cascade, access is not allowed.
 
-![Diagram of access with a condition](./media/shared/condition-access.png)
+![Diagram showing read access to blobs with Project=Cascade tag.](./media/shared/condition-access.png)
 
 Here is what the condition looks like in code:
 
@@ -196,7 +196,7 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
 
 1. In the **Condition** column, click **View/Edit** to view the condition.
 
-    ![View the condition in the Azure portal](./media/shared/condition-view.png)
+    ![Screenshot of Add role assignment condition in the Azure portal.](./media/shared/condition-view.png)
 
 ## Step 6: Test the condition
 

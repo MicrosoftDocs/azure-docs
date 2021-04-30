@@ -34,7 +34,7 @@ This condition allows users to read blobs with a blob index tag key of Project a
 > [!TIP]
 > Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags (preview)](../blobs/storage-manage-find-blobs.md).
 
-![Diagram of example 1 condition](./media/storage-auth-abac-examples/example-1.png)
+![Diagram of example 1 condition showing read access to some blob with a tag.](./media/storage-auth-abac-examples/example-1.png)
 
 ```
 (
@@ -63,7 +63,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | StringEquals |
 | Value | {keyValue} |
 
-![Diagram of example 1 condition in Azure portal](./media/storage-auth-abac-examples/example-1-condition-1-portal.png)
+![Screenshot of example 1 condition editor in Azure portal.](./media/storage-auth-abac-examples/example-1-condition-1-portal.png)
 
 #### Azure PowerShell
 
@@ -96,7 +96,7 @@ There are two permissions that allow you to create new blobs, so you must target
 - /blobs/write (create or update) 
 - /blobs/add/action (create)
 
-![Diagram of example 2 condition](./media/storage-auth-abac-examples/example-2.png)
+![Diagram of example 2 condition showing new blobs must include a tag.](./media/storage-auth-abac-examples/example-2.png)
 
 ```
 (
@@ -125,7 +125,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | StringEquals |
 | Value | {keyValue} |
 
-![Diagram of example 2 condition 1 in Azure portal](./media/storage-auth-abac-examples/example-2-condition-1-portal.png)
+![Screenshot of example 2 condition 1 editor in Azure portal.](./media/storage-auth-abac-examples/example-2-condition-1-portal.png)
 
 #### Azure PowerShell
 
@@ -165,7 +165,7 @@ There are two permissions that allow you to update tags on existing blobs, so yo
 - /blobs/write (update or create, cannot exclude create)
 - /blobs/tags/write
 
-![Diagram of example 3 condition](./media/storage-auth-abac-examples/example-3.png)
+![Diagram of example 3 condition showing existing blobs must have tag keys.](./media/storage-auth-abac-examples/example-3.png)
 
 ```
 (
@@ -193,7 +193,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | ForAllOfAnyValues:StringEquals |
 | Value | {keyName1}<br/>{keyName2} |
 
-![Diagram of example 3 condition 1 in Azure portal](./media/storage-auth-abac-examples/example-3-condition-1-portal.png)
+![Screenshot of example 3 condition 1 editor in Azure portal.](./media/storage-auth-abac-examples/example-3-condition-1-portal.png)
 
 #### Azure PowerShell
 
@@ -233,7 +233,7 @@ There are two permissions that allow you to update tags on existing blobs, so yo
 - /blobs/write (update or create, cannot exclude create)
 - /blobs/tags/write
 
-![Diagram of example 4 condition](./media/storage-auth-abac-examples/example-4.png)
+![Diagram of example 4 condition showing existing blobs must have a tag key and values.](./media/storage-auth-abac-examples/example-4.png)
 
 ```
 (
@@ -270,7 +270,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | ForAllOfAnyValues:StringEquals |
 | Value | {keyValue1}<br/>{keyValue2}<br/>{keyValue3} |
 
-![Diagram of example 4 condition 1 in Azure portal](./media/storage-auth-abac-examples/example-4-condition-1-portal.png)
+![Screenshot of example 4 condition 1 editor in Azure portal.](./media/storage-auth-abac-examples/example-4-condition-1-portal.png)
 
 #### Azure PowerShell
 
@@ -315,7 +315,7 @@ There are four permissions for read, write, and delete of existing blobs, so you
 
 Suboperations are not used in this condition because the subOperation is needed only when conditions are authored based on tags.
 
-![Diagram of example 5 condition](./media/storage-auth-abac-examples/example-5.png)
+![Diagram of example 5 condition showing read, write, or delete blobs in named containers.](./media/storage-auth-abac-examples/example-5.png)
 
 ```
 (
@@ -347,7 +347,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | StringEquals |
 | Value | {containerName} |
 
-![Diagram of example 5 condition 1 in Azure portal](./media/storage-auth-abac-examples/example-5-condition-1-portal.png)
+![Screenshot of example 5 condition 1 editor in Azure portal.](./media/storage-auth-abac-examples/example-5-condition-1-portal.png)
 
 #### Azure PowerShell
 
@@ -387,7 +387,7 @@ You must add this condition to any role assignments that include the following p
 
 - /blobs/read
 
-![Diagram of example 6 condition](./media/storage-auth-abac-examples/example-6.png)
+![Diagram of example 6 condition showing read access to blobs in named containers with a path.](./media/storage-auth-abac-examples/example-6.png)
 
 ```
 (
@@ -421,7 +421,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | StringLike |
 | Value | {pathString} |
 
-![Diagram of example 6 condition 1 in Azure portal](./media/storage-auth-abac-examples/example-6-condition-1-portal.png)
+![Screenshot of example 6 condition 1 editor in Azure portal.](./media/storage-auth-abac-examples/example-6-condition-1-portal.png)
 
 #### Azure PowerShell
 
@@ -456,7 +456,7 @@ You must add this condition to any role assignments that include the following p
 - /blobs/write (create or update)
 - /blobs/add/action (create)
 
-![Diagram of example 7 condition](./media/storage-auth-abac-examples/example-7.png)
+![Diagram of example 7 condition showing write access to blobs in named containers with a path.](./media/storage-auth-abac-examples/example-7.png)
 
 ```
 (
@@ -492,7 +492,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | StringLike |
 | Value | {pathString} |
 
-![Diagram of example 7 condition 1 in Azure portal](./media/storage-auth-abac-examples/example-7-condition-1-portal.png)
+![Screenshot of example 7 condition 1 editor in Azure portal.](./media/storage-auth-abac-examples/example-7-condition-1-portal.png)
 
 #### Azure PowerShell
 
@@ -529,7 +529,7 @@ You must add this condition to any role assignments that includes the following 
 
 - /blobs/read
 
-![Diagram of example 8 condition](./media/storage-auth-abac-examples/example-8.png)
+![Diagram of example 8 condition showing read access to blobs with a tag and a path.](./media/storage-auth-abac-examples/example-8.png)
 
 ```
 (
@@ -568,7 +568,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | StringEquals |
 | Value | {keyValue} |
 
-![Diagram of example 8 condition 1 in Azure portal](./media/storage-auth-abac-examples/example-8-condition-1-portal.png)
+![Screenshot of example 8 condition 1 editor in Azure portal.](./media/storage-auth-abac-examples/example-8-condition-1-portal.png)
 
 | Condition #2 | Setting |
 | --- | --- |
@@ -578,7 +578,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | StringLike |
 | Value | {pathString} |
 
-![Diagram of example 8 condition 2 in Azure portal](./media/storage-auth-abac-examples/example-8-condition-2-portal.png)
+![Screenshot of example 8 condition 2 editor in Azure portal.](./media/storage-auth-abac-examples/example-8-condition-2-portal.png)
 
 #### Azure PowerShell
 

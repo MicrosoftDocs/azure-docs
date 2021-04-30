@@ -33,13 +33,13 @@ The most basic condition consists of a targeted action and an expression. An act
 
 The following shows the format of a simple condition.
 
-![Format of a simple condition](./media/conditions-format/format-simple.png)
+![Format of a simple condition with a single action and a single expression.](./media/conditions-format/format-simple.png)
 
 The following condition has an action of "Read a blob". The expression checks whether the container name is blobs-example-container.
 
-![Simple condition example](./media/conditions-format/format-simple-example.png)
+![Simple condition example with a blobs read action and a container name expression.](./media/conditions-format/format-simple-example.png)
 
-![Simple condition example diagram](./media/conditions-format/format-simple-example-diagram.png)
+![Diagram showing read access to blobs with particular container name.](./media/conditions-format/format-simple-example-diagram.png)
 
 ### How a condition is evaluated
 
@@ -71,25 +71,25 @@ else
 
 Some actions have suboperations. For example, the "Read a blob" data action has the suboperation "Read content from a blob with tag conditions". Conditions with suboperations have the following format.
 
-![Format for an action with a suboperation](./media/conditions-format/format-suboperation.png)
+![Format for an action with a suboperation.](./media/conditions-format/format-suboperation.png)
 
 ### Multiple actions
 
 A condition can include multiple actions that you want to allow if the condition is true. If you select multiple actions, there might be fewer attributes to choose from for your condition because the attributes must be available across the selected actions.
 
-![Format for multiple actions](./media/conditions-format/format-multiple-actions.png)
+![Format for multiple actions to allow if condition is true.](./media/conditions-format/format-multiple-actions.png)
 
 ### Multiple expressions
 
 A condition can include multiple expressions. Depending on the operator, attributes can be checked against multiple values.
 
-![Format for multiple expressions](./media/conditions-format/format-multiple-expressions.png)
+![Format for multiple expressions using Boolean operators and multiple values.](./media/conditions-format/format-multiple-expressions.png)
 
 ### Multiple conditions
 
 You can also combine conditions to target multiple actions.
 
-![Format for multiple conditions](./media/conditions-format/format-multiple-conditions.png)
+![Format for multiple conditions using Boolean operator.](./media/conditions-format/format-multiple-conditions.png)
 
 ## Condition syntax
 
@@ -173,7 +173,7 @@ The following table lists the operators that are available to construct conditio
 |  | `StringLike`<br/>`StringLikeIgnoreCase` | Case-sensitive (or case-insensitive) matching. The values can include a multi-character match wildcard (`*`) or a single-character match wildcard (`?`) anywhere in the string. If needed, these characters can be escaped by add a backslash `\*` and `\?`. |
 |  | `StringNotLike`<br/>`StringNotLikeIgnoreCase` | Negation of `StringLike` (or `StringLikeIgnoreCase`) operator |
 | Numeric comparison | `NumericEquals`<br/>`NumericNotEquals`<br/>`NumericLessThan`<br/>`NumericLessThanEquals`<br/>`NumericGreaterThan`<br/>`NumericGreaterThanEquals` | Currently, only integers are supported. |
-| Higher-level functions | `ActionMatches` | Checks if Action[Id] value matches the specified action pattern. This operator is equivalent to the action matching logic that the SDK uses when comparing an action to an action pattern inside a Permission. |
+| Higher-level functions | `ActionMatches` | Checks if Action[ID] value matches the specified action pattern. This operator is equivalent to the action matching logic that the SDK uses when comparing an action to an action pattern inside a Permission. |
 | Cross product comparison | `ForAnyOfAnyValues:StringEquals`<br/>`ForAnyOfAnyValues:StringEqualsIgnoreCase`<br/>`ForAnyOfAnyValues:StringNotEquals`<br/>`ForAnyOfAnyValues:StringNotEqualsIgnoreCase`<br/>`ForAnyOfAnyValues:StringLike`<br/>`ForAnyOfAnyValues:StringLikeIgnoreCase`<br/>`ForAnyOfAnyValues:StringNotLike`<br/>`ForAnyOfAnyValues:StringNotLikeIgnoreCase`<br/>`ForAnyOfAnyValues:NumericEquals`<br/>`ForAnyOfAnyValues:NumericNotEquals`<br/>`ForAnyOfAnyValues:NumericGreaterThan`<br/>`ForAnyOfAnyValues:NumericGreaterThanEquals`<br/>`ForAnyOfAnyValues:NumericLessThan`<br/>`ForAnyOfAnyValues:NumericLessThanEquals` | If at least one value on the left-hand side satisfies the comparison to at least one value on the right-hand side, then the expression evaluates to true. Has the format: `ForAnyOfAnyValues:<BooleanFunction>`. Supports multiple strings and numbers. |
 |  | `ForAllOfAnyValues:StringEquals`<br/>`ForAllOfAnyValues:StringEqualsIgnoreCase`<br/>`ForAllOfAnyValues:StringNotEquals`<br/>`ForAllOfAnyValues:StringNotEqualsIgnoreCase`<br/>`ForAllOfAnyValues:StringLike`<br/>`ForAllOfAnyValues:StringLikeIgnoreCase`<br/>`ForAllOfAnyValues:StringNotLike`<br/>`ForAllOfAnyValues:StringNotLikeIgnoreCase`<br/>`ForAllOfAnyValues:NumericEquals`<br/>`ForAllOfAnyValues:NumericNotEquals`<br/>`ForAllOfAnyValues:NumericGreaterThan`<br/>`ForAllOfAnyValues:NumericGreaterThanEquals`<br/>`ForAllOfAnyValues:NumericLessThan`<br/>`ForAllOfAnyValues:NumericLessThanEquals` | If every value on the left-hand side satisfies the comparison to at least one value on the right-hand side, then the expression evaluates to true. Has the format: `ForAllOfAnyValues:<BooleanFunction>`. Supports multiple strings and numbers. |
 |  | `ForAnyOfAllValues:StringEquals`<br/>`ForAnyOfAllValues:StringEqualsIgnoreCase`<br/>`ForAnyOfAllValues:StringNotEquals`<br/>`ForAnyOfAllValues:StringNotEqualsIgnoreCase`<br/>`ForAnyOfAllValues:StringLike`<br/>`ForAnyOfAllValues:StringLikeIgnoreCase`<br/>`ForAnyOfAllValues:StringNotLike`<br/>`ForAnyOfAllValues:StringNotLikeIgnoreCase`<br/>`ForAnyOfAllValues:NumericEquals`<br/>`ForAnyOfAllValues:NumericNotEquals`<br/>`ForAnyOfAllValues:NumericGreaterThan`<br/>`ForAnyOfAllValues:NumericGreaterThanEquals`<br/>`ForAnyOfAllValues:NumericLessThan`<br/>`ForAnyOfAllValues:NumericLessThanEquals` | If at least one value on the left-hand side satisfies the comparison to every value on the right-hand side, then the expression evaluates to true. Has the format: `ForAnyOfAllValues:<BooleanFunction>`. Supports multiple strings and numbers. |

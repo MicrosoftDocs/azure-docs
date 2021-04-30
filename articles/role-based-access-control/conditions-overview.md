@@ -76,11 +76,11 @@ Here are the storage attributes you can use in your conditions.
 
 You can add conditions to new or existing role assignments. Here is the [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader) role that has been assigned to a user named Chandra at a resource group scope. A condition has also been added that only allows read access to blobs with the tag Project=Cascade.
 
-![Diagram of role assignment with a condition](./media/conditions-overview/condition-role-assignment-rg.png)
+![Diagram of role assignment with a condition.](./media/conditions-overview/condition-role-assignment-rg.png)
 
 If Chandra tries to read a blob without the Project=Cascade tag, access will not be allowed.
 
-![Diagram of access with a condition](./media/conditions-overview/condition-access-multiple.png)
+![Diagram of access is not allowed with a condition.](./media/conditions-overview/condition-access-multiple.png)
 
 Here is what the condition looks like in code:
 

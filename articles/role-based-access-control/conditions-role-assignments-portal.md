@@ -62,7 +62,7 @@ There are two ways that you can add a condition. You can add a condition when yo
 
     If you don't see the Add link, be sure you are looking at the same scope as the role assignment.
 
-    ![Role assignment list](./media/conditions-role-assignments-portal/condition-role-assignments-list.png)
+    ![Role assignment list with a Condition column.](./media/conditions-role-assignments-portal/condition-role-assignments-list.png)
 
     The Add role assignment condition page appears.
 
@@ -78,7 +78,7 @@ Once you have the Add role assignment condition page open, you can review the ba
 
     Depending on how you chose to add a condition, you might not see the Description box. A description can help you understand and remember the condition.
 
-    ![Add role assignment condition basics](./media/conditions-role-assignments-portal/condition-basics.png)
+    ![Add role assignment condition page showing editor type and description.](./media/conditions-role-assignments-portal/condition-basics.png)
 
 ## Step 4: Add actions
 
@@ -86,7 +86,7 @@ Once you have the Add role assignment condition page open, you can review the ba
 
     The Select an action pane appears. This pane is a filtered list of data actions based on the role assignment that will be the target of your condition. 
 
-    ![Select an action for condition](./media/conditions-role-assignments-portal/condition-actions-select.png)
+    ![Select an action pane for condition with an action selected.](./media/conditions-role-assignments-portal/condition-actions-select.png)
 
 1. Select the actions you want to allow if the condition is true.
 
@@ -115,7 +115,7 @@ Once you have the Add role assignment condition page open, you can review the ba
 
 1. In the Value box, enter a value for the right side of the expression.
 
-    ![Build expressions for blob index tags](./media/conditions-role-assignments-portal/condition-expressions.png)
+    ![Build expression section with values for blob index tags.](./media/conditions-role-assignments-portal/condition-expressions.png)
 
 ## Step 6: Review and add condition
 
@@ -123,7 +123,7 @@ Once you have the Add role assignment condition page open, you can review the ba
 
     The condition is displayed as code. You can make changes to the condition in this code editor. To go back to the visual editor, click **Visual**.
 
-    ![Condition displayed in code](./media/conditions-role-assignments-portal/condition-code.png)
+    ![Condition displayed in code editor with selected actions and added expression.](./media/conditions-role-assignments-portal/condition-code.png)
 
 1. Click **Save** to add the condition to the role assignment.
 
@@ -137,13 +137,13 @@ Once you have the Add role assignment condition page open, you can review the ba
 
     If you don't see the View/Edit link, be sure you are looking at the same scope as the role assignment.
 
-    ![Role assignment list with condition](./media/conditions-role-assignments-portal/condition-role-assignments-list-edit.png)
+    ![Role assignment list with View/Edit link for condition.](./media/conditions-role-assignments-portal/condition-role-assignments-list-edit.png)
 
     The Add role assignment condition page appears.
 
 1. Use the editor to view or edit the condition.
 
-    ![View or edit a role assignment condition](./media/conditions-role-assignments-portal/condition-edit.png)
+    ![Condition displayed in editor after clicking View/Edit link.](./media/conditions-role-assignments-portal/condition-edit.png)
 
 1. When finished, click **Update**. To delete the entire condition, click **Delete condition**. Deleting the condition does not remove the role assignment.
 

@@ -41,13 +41,13 @@ The way you control access to resources using Azure RBAC is to assign Azure role
 
 A *security principal* is an object that represents a user, group, service principal, or managed identity that is requesting access to Azure resources. You can assign a role to any of these security principals.
 
-![Security principal for a role assignment](./media/shared/rbac-security-principal.png)
+![Diagram showing the security principal types for a role assignment.](./media/shared/rbac-security-principal.png)
 
 ### Role definition
 
 A *role definition* is a collection of permissions. It's typically just called a *role*. A role definition lists the operations that can be performed, such as read, write, and delete. Roles can be high-level, like owner, or specific, like virtual machine reader.
 
-![Role definition for a role assignment](./media/shared/rbac-role-definition.png)
+![Diagram showing role definition example for a role assignment](./media/shared/rbac-role-definition.png)
 
 Azure includes several [built-in roles](built-in-roles.md) that you can use. For example, the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role allows a user to create and manage virtual machines. If the built-in roles don't meet the specific needs of your organization, you can create your own [Azure custom roles](custom-roles.md).
 
@@ -65,7 +65,7 @@ For more information, see [Understand Azure role definitions](role-definitions.m
 
 In Azure, you can specify a scope at four levels: [management group](../governance/management-groups/overview.md), subscription, [resource group](../azure-resource-manager/management/overview.md#resource-groups), or resource. Scopes are structured in a parent-child relationship. You can assign roles at any of these levels of scope.
 
-![Scope for a role assignment](./media/shared/rbac-scope.png)
+![Diagram showing scope levels for a role assignment.](./media/shared/rbac-scope.png)
 
 For more information about scope, see [Understand scope](scope-overview.md).
 
@@ -75,7 +75,7 @@ A *role assignment* is the process of attaching a role definition to a user, gro
 
 The following diagram shows an example of a role assignment. In this example, the Marketing group has been assigned the [Contributor](built-in-roles.md#contributor) role for the pharma-sales resource group. This means that users in the Marketing group can create or manage any Azure resource in the pharma-sales resource group. Marketing users do not have access to resources outside the pharma-sales resource group, unless they are part of another role assignment.
 
-![Role assignment to control access](./media/overview/rbac-overview.png)
+![Diagram showing how security principal, role definition, and scope create a role assignment.](./media/overview/rbac-overview.png)
 
 You can assign roles using the Azure portal, Azure CLI, Azure PowerShell, Azure SDKs, or REST APIs.
 
@@ -85,7 +85,7 @@ For more information, see [Steps to assign an Azure role](role-assignments-steps
 
 So what happens if you have multiple overlapping role assignments? Azure RBAC is an additive model, so your effective permissions are the sum of your role assignments. Consider the following example where a user is granted the Contributor role at the subscription scope and the Reader role on a resource group. The sum of the Contributor permissions and the Reader permissions is effectively the Contributor role for the subscription. Therefore, in this case, the Reader role assignment has no impact.
 
-![Multiple role assignments](./media/overview/rbac-multiple-roles.png)
+![Diagram showing how when multiple role assignments overlap.](./media/overview/rbac-multiple-roles.png)
 
 ## Deny assignments
 
@@ -123,7 +123,7 @@ The following are the high-level steps that Azure RBAC uses to determine if you 
 
 The following diagram is a summary of the evaluation logic.
 
-![Evaluation logic role assignments](./media/overview/evaluation-logic.png)
+![Evaluation logic flowchart for determining access to a resource.](./media/overview/evaluation-logic.png)
 
 ## License requirements
 

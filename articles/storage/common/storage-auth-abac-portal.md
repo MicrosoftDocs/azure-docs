@@ -37,11 +37,11 @@ For information about the prerequisites to add or edit role assignment condition
 
 In this tutorial, you restrict access to blobs with a specific tag. For example, you add a condition to a role assignment so that Chandra can only read files with the tag Project=Cascade.
 
-![Diagram of role assignment with a condition](./media/shared/condition-role-assignment-rg.png)
+![Diagram of role assignment with a condition.](./media/shared/condition-role-assignment-rg.png)
 
 If Chandra tries to read a blob without the tag Project=Cascade, access is not allowed.
 
-![Diagram of access with a condition](./media/shared/condition-access.png)
+![Diagram showing read access to blobs with Project=Cascade tag.](./media/shared/condition-access.png)
 
 Here is what the condition looks like in code:
 
@@ -92,7 +92,7 @@ Here is what the condition looks like in code:
     | --- | --- |
     | Project  | Cascade |
 
-   ![Add blob index tags for a blob](./media/storage-auth-abac-portal/container-upload-blob.png)
+   ![Screenshot showing Upload blob pane with Blog index tags section.](./media/storage-auth-abac-portal/container-upload-blob.png)
 
 1. Click the **Upload** button to upload the file.
 
@@ -114,17 +114,17 @@ Here is what the condition looks like in code:
 
 1. Click **Add** > **Add role assignment (Preview)**.
 
-   ![Add role assignment menu preview](./media/storage-auth-abac-portal/add-role-assignment-menu-preview.png)
+   ![Screenshot of Add > Add role assignment menu preview.](./media/storage-auth-abac-portal/add-role-assignment-menu-preview.png)
 
     The Add role assignment page opens.
 
 1. On the **Roles** tab, select the [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role.
 
-    ![Add role assignment page with Roles tab](./media/storage-auth-abac-portal/roles.png)
+    ![Screenshot of Add role assignment page with Roles tab.](./media/storage-auth-abac-portal/roles.png)
 
 1. On the **Members** tab, select the user you created earlier.
 
-   ![Add role assignment page with Members tab](./media/storage-auth-abac-portal/members.png)
+   ![Screenshot of Add role assignment page with Members tab.](./media/storage-auth-abac-portal/members.png)
 
 1. (Optional) In the **Description** box, enter **Read access to blobs with the tag Project=Cascade**.
 
@@ -134,7 +134,7 @@ Here is what the condition looks like in code:
 
 1. On the **Condition** tab, click **Add condition**.
 
-    ![Add role assignment condition new](./media/storage-auth-abac-portal/condition-add-new.png)
+    ![Screenshot of Add role assignment condition page for a new condition.](./media/storage-auth-abac-portal/condition-add-new.png)
 
     The Add role assignment condition page appears.
 
@@ -142,7 +142,7 @@ Here is what the condition looks like in code:
 
     The Select an action pane appears. This pane is a filtered list of data actions based on the role assignment that will be the target of your condition. 
 
-    ![Select an action for condition](./media/storage-auth-abac-portal/condition-actions-select.png)
+    ![Screenshot of Select an action pane with an action selected.](./media/storage-auth-abac-portal/condition-actions-select.png)
 
 1. Under Read a blog, click **Read content from a blob with tag conditions** and then click **Select**.
 
@@ -162,13 +162,13 @@ Here is what the condition looks like in code:
 
 1. In the Value box, enter **Cascade**.
 
-    ![Build expressions for blob index tags](./media/storage-auth-abac-portal/condition-expressions.png)
+    ![Screenshot of Build expression section for blob index tags.](./media/storage-auth-abac-portal/condition-expressions.png)
 
 1. Scroll up to **Editor type** and click **Code**.
 
     The condition is displayed as code. You can make changes to the condition in this code editor. To go back to the visual editor, click **Visual**.
 
-    ![Condition displayed in code](./media/storage-auth-abac-portal/condition-code.png)
+    ![Screenshot of condition displayed in code editor.](./media/storage-auth-abac-portal/condition-code.png)
 
 1. Click **Save** to add the condition and return the Add role assignment page.
 
@@ -178,7 +178,7 @@ Here is what the condition looks like in code:
 
     After a few moments, the security principal is assigned the role at the selected scope.
 
-    ![Add role assignment condition saved](./media/storage-auth-abac-portal/rg-role-assignments-condition.png)
+    ![Screenshot of role assignment list after assigning role.](./media/storage-auth-abac-portal/rg-role-assignments-condition.png)
 
 ## Step 5: Test the condition
 

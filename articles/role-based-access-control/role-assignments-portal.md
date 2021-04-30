@@ -32,19 +32,19 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
 [!INCLUDE [Scope for Azure RBAC introduction](../../includes/role-based-access-control/scope-intro.md)] For more information about scope, see [Understand scope](scope-overview.md).
 
-![Scope levels for Azure RBAC](../../includes/role-based-access-control/media/scope-levels.png)
+![Diagram showing the scope levels for Azure RBAC.](../../includes/role-based-access-control/media/scope-levels.png)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the Search box at the top, search for the scope you want to grant access to. For example, search for **Management groups**, **Subscriptions**, **Resource groups**, or a specific resource.
 
-    ![Azure portal search for resource group](./media/shared/rg-portal-search.png)
+    ![Screenshot of Azure portal search for resource group.](./media/shared/rg-portal-search.png)
 
 1. Click the specific resource for that scope.
 
     The following shows an example resource group.
 
-    ![Resource group overview](./media/shared/rg-overview.png)
+    ![Screenshot of resource group overview page.](./media/shared/rg-overview.png)
 
 ## Step 2: Open the Add role assignment pane
 
@@ -54,18 +54,18 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
     The following shows an example of the Access control (IAM) page for a resource group.
 
-    ![Access control (IAM) page for a resource group](./media/shared/rg-access-control.png)
+    ![Screenshot of Access control (IAM) page for a resource group.](./media/shared/rg-access-control.png)
 
 1. Click the **Role assignments** tab to view the role assignments at this scope.
 
 1. Click **Add** > **Add role assignment**.
    If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 
-   ![Add role assignment menu](./media/shared/add-role-assignment-menu.png)
+   ![Screenshot of Add > Add role assignment menu.](./media/shared/add-role-assignment-menu.png)
 
     The Add role assignment pane opens.
 
-   ![Add role assignment page](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+   ![Screenshot of Add role assignment page with Role, Assign access to, and Select options.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## Step 3: Select the appropriate role
 
@@ -73,7 +73,7 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
     To help you determine the appropriate role, you can hover over the info icon to display a description for the role. For additional information, you can view the [Azure built-in roles](built-in-roles.md) article.
 
-   ![Select role in Add role assignment](./media/role-assignments-portal/add-role-assignment-role.png)
+   ![Screenshot of Select a role list in Add role assignment.](./media/role-assignments-portal/add-role-assignment-role.png)
 
 1. Click to select the role.
 
@@ -87,13 +87,13 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
     | **User assigned managed identity** | If you want to assign the role to a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md), select this type. |
     | *System assigned managed identity* | If you want to assign the role to a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md), select the Azure service instance where the managed identity is located. |
 
-   ![Select security principal type in Add role assignment](./media/role-assignments-portal/add-role-assignment-type.png)
+   ![Screenshot of selecting a security principal in Add role assignment.](./media/role-assignments-portal/add-role-assignment-type.png)
 
 1. If you selected a user-assigned managed identity or a system-assigned managed identity, select the **Subscription** where the managed identity is located.
 
 1. In the **Select** section, search for the security principal by entering a string or scrolling through the list.
 
-   ![Select user in Add role assignment](./media/role-assignments-portal/add-role-assignment-user.png)
+   ![Screenshot of selecting a user in Add role assignment.](./media/role-assignments-portal/add-role-assignment-user.png)
 
 1. Once you have found the security principal, click to select it.
 
@@ -105,7 +105,7 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
 1. On the **Role assignments** tab, verify that you see the role assignment in the list.
 
-    ![Add role assignment saved](./media/role-assignments-portal/rg-role-assignments.png)
+    ![Screenshot of role assignment list after assigning role.](./media/role-assignments-portal/rg-role-assignments.png)
 
 #### [Add role assignment (Preview)](#tab/add-role-assignment-preview/)
 
@@ -113,19 +113,19 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
 [!INCLUDE [Scope for Azure RBAC introduction](../../includes/role-based-access-control/scope-intro.md)] For more information about scope, see [Understand scope](scope-overview.md).
 
-![Scope levels for Azure RBAC](../../includes/role-based-access-control/media/scope-levels.png)
+![Diagram showing the scope levels for Azure RBAC for preview experience.](../../includes/role-based-access-control/media/scope-levels.png)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the Search box at the top, search for the scope you want to grant access to. For example, search for **Management groups**, **Subscriptions**, **Resource groups**, or a specific resource.
 
-    ![Azure portal search for resource group](./media/shared/rg-portal-search.png)
+    ![Screenshot of Azure portal search for resource group for preview experience.](./media/shared/rg-portal-search.png)
 
 1. Click the specific resource for that scope.
 
     The following shows an example resource group.
 
-    ![Resource group overview](./media/shared/rg-overview.png)
+    ![Screenshot of Resource group overview page for preview experience.](./media/shared/rg-overview.png)
 
 ## Step 2: Open the Add role assignment page (Preview)
 
@@ -135,7 +135,7 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
     The following shows an example of the Access control (IAM) page for a resource group.
 
-    ![Access control (IAM) page for a resource group](./media/shared/rg-access-control.png)
+    ![Screenshot of Access control (IAM) page for a resource group for preview experience.](./media/shared/rg-access-control.png)
 
 1. Click the **Role assignments** tab to view the role assignments at this scope.
 
@@ -143,7 +143,7 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
     If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 
-    ![Add role assignment menu preview](./media/shared/add-role-assignment-menu-preview.png)
+    ![Screenshot of Add > Add role assignment menu for preview experience.](./media/shared/add-role-assignment-menu-preview.png)
 
     The Assign a role page opens.
 
@@ -153,11 +153,11 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
     You can search for a role by name or by description. You can also filter roles by type and category.
 
-   ![Add role assignment page with Select role tab](./media/role-assignments-portal/roles.png)
+   ![Screenshot of Add role assignment page with Select role tab for preview experience.](./media/role-assignments-portal/roles.png)
 
 1. In the **Details** column, click **View** to get more details about a role.
 
-   ![View role details pane with Permissions tab](./media/role-assignments-portal/select-role-permissions.png)
+   ![Screenshot of View role details pane with Permissions tab for preview experience.](./media/role-assignments-portal/select-role-permissions.png)
 
 1. Click **Next**.
 
@@ -165,7 +165,7 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
 1. On the **Members** tab, select **User, group, or service principal** to assign the selected role to one or more Azure AD users, groups, or service principals (applications).
 
-   ![Add role assignment page with Add members tab](./media/role-assignments-portal/members.png)
+   ![Screenshot of Add role assignment page with Add members tab for preview experience.](./media/role-assignments-portal/members.png)
 
 1. Click **Add members**.
 
@@ -173,7 +173,7 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
     You can type in the **Select** box to search the directory for display names, email addresses, and object identifiers.
 
-   ![Add members using Select principal pane](./media/role-assignments-portal/select-principal.png)
+   ![Screenshot of Add members using Select principal pane for preview experience.](./media/role-assignments-portal/select-principal.png)
 
 1. Click **Save** to add the users, groups, or service principals to the Members list.
 
@@ -185,11 +185,11 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
 1. Find and select the managed identities.
 
-   ![Add user-assigned managed identities using Select principal pane](./media/role-assignments-portal/select-managed-identity-user.png)
+   ![Screenshot of Add user-assigned managed identities using Select principal pane for preview experience.](./media/role-assignments-portal/select-managed-identity-user.png)
 
     If you selected a system-assigned managed identity, you need to select the Azure service instance where the managed identity is located.
 
-   ![Add system-assigned managed identities using Select principal pane](./media/role-assignments-portal/select-managed-identity-system.png)
+   ![Screenshot of Add system-assigned managed identities using Select principal pane for preview experience.](./media/role-assignments-portal/select-managed-identity-system.png)
 
 1. Click **Save** to add the managed identities to the Members list.
 
@@ -212,7 +212,7 @@ Currently, conditions can be added to built-in or custom role assignments that h
 
 1. Click **Add condition** if you want to further refine the role assignments based on principal and resource attributes. For more information, see [Add or edit Azure role assignment conditions](conditions-role-assignments-portal.md).
 
-   ![Add role assignment page with Add condition tab](./media/role-assignments-portal/condition.png)
+   ![Screenshot of Add role assignment page with Add condition tab for preview experience.](./media/role-assignments-portal/condition.png)
 
 1. Click **Next**.
 
@@ -220,13 +220,13 @@ Currently, conditions can be added to built-in or custom role assignments that h
 
 1. On the **Review + assign** tab, review the role assignment settings.
 
-   ![Assign a role page with Review + assign tab](./media/role-assignments-portal/review-assign.png)
+   ![Screenshot of Assign a role page with Review + assign tab for preview experience.](./media/role-assignments-portal/review-assign.png)
 
 1. Click **Review + assign** to assign the role.
 
    After a few moments, the security principal is assigned the role at the selected scope.
 
-    ![Add role assignment saved](./media/role-assignments-portal/rg-role-assignments.png)
+    ![Screenshot of role assignment list after assigning role for preview experience.](./media/role-assignments-portal/rg-role-assignments.png)
 
 1. If you don't see the description for the role assignment, click **Edit columns** to add the **Description** column.
 
