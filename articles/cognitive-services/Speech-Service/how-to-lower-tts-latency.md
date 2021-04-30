@@ -53,8 +53,8 @@ The Speech SDK measured the latencies and puts them in the property bag of [`Spe
 
 ```cpp
 auto result = synthesizer->SpeakTextAsync(text).get();
-std::cout << "first byte latency: \t" << result->Properties.GetProperty(PropertyId::SpeechServiceResponse_SynthesisFirstByteLatencyMs) << " ms" << std::endl;
-std::cout << "finish latency: \t" << result->Properties.GetProperty(PropertyId::SpeechServiceResponse_SynthesisFinishLatencyMs) << " ms" << std::endl;
+auto firstByteLatency = std::stoi(result->Properties.GetProperty(PropertyId::SpeechServiceResponse_SynthesisFirstByteLatencyMs));
+auto finishedLatency = std::stoi(result->Properties.GetProperty(PropertyId::SpeechServiceResponse_SynthesisFinishLatencyMs));
 // you can also get the result id, and send to us when you need help for diagnosis
 auto resultId = result->ResultId;
 ```
@@ -91,10 +91,10 @@ String resultId = result.getResultId();
 The Speech SDK measured the latencies and puts them in the property bag of [`SpeechSynthesisResult`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisresult). Refer following codes to get them.
 
 ```python
-SpeechSynthesisResult result = synthesizer.SpeakTextAsync(text).get();
-System.out.println("first byte latency: \t" + result.getProperties().getProperty(PropertyId.SpeechServiceResponse_SynthesisFirstByteLatencyMs) + " ms.");
-System.out.println("finish latency: \t" + result.getProperties().getProperty(PropertyId.SpeechServiceResponse_SynthesisFinishLatencyMs) + " ms.");
-#  you can also get the result id, and send to us when you need help for diagnosis
+result = synthesizer.speak_text_async(text).get()
+first_byte_latency = int(result.properties.get_property(speechsdk.PropertyId.SpeechServiceResponse_SynthesisFirstByteLatencyMs))
+finished_latency = int(result.properties.get_property(speechsdk.PropertyId.SpeechServiceResponse_SynthesisFinishLatencyMs))
+# you can also get the result id, and send to us when you need help for diagnosis
 result_id = result.result_id
 ```
 
@@ -180,6 +180,46 @@ using (var synthesizer = new SpeechSynthesizer(uspConfig, null as AudioConfig))
     }
     await synthesizer.SpeakTextAsync(text);
 }
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
+```cpp
+auto synthesizer = SpeechSynthesizer::FromConfig(config, nullptr);
+auto connection = Connection::FromSpeechSynthesizer(synthesizer);
+connection->Open(true);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+```java
+SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, (AudioConfig) null);
+Connection connection = Connection.fromSpeechSynthesizer(synthesizer);
+connection.openConnection(true);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+```python
+synthesizer = speechsdk.SpeechSynthesizer(config, None)
+connection = speechsdk.Connection.from_speech_synthesizer(synthesizer)
+connection.open(True)
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+
+```Objective-C
+SPXSpeechSynthesizer* synthesizer = [[SPXSpeechSynthesizer alloc]initWithSpeechConfiguration:self.speechConfig audioConfiguration:nil];
+SPXConnection* connection = [[SPXConnection alloc]initFromSpeechSynthesizer:synthesizer];
+[connection open:true];
 ```
 
 ::: zone-end
