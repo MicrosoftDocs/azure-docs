@@ -49,8 +49,9 @@ The Business Card API can also return all recognized text from the Business Card
 
 ## Supported locales
 
-**Pre-built business cards v2.1-preview.3** (Public Preview) adds additional support for the following English locales:
+**Pre-built business cards v2.1-preview.3** (Public Preview) supports the following locales:
 
+* **en-us**
 * **en-au**
 * **en-ca**
 * **en-gb**

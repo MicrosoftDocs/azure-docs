@@ -71,8 +71,8 @@ To try out the Form Recognizer receipt service, go to the online Sample UI Tool:
 
 ## Supported locales
 
-* **Pre-built Receipt v2.0** (GA) supports sales receipts in the **en-us** locale
-* **Pre-built Receipt v2.1-preview.3** (Public Preview) adds additional support for the following English receipt locales:
+* **Pre-built receipt v2.0** (GA) supports sales receipts in the **en-us** locale
+* **Pre-built receipt v2.1-preview.3** (Public Preview) adds additional support for the following English receipt locales:
 
 * **en-au**
 * **en-ca**

@@ -73,7 +73,7 @@ To try out the Form Recognizer IDs service, go to the online Sample UI Tool:
 
 ## Supported locales
 
- **Pre-built identification documents v2.1-preview.3** (preview) supports IDs in the **en-us** locale.
+ **Pre-built ID v2.1-preview.3** (preview) supports identity documents in the **en-us** locale.
 
 ## Supported ID types
 
