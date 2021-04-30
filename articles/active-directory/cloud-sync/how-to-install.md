@@ -26,7 +26,7 @@ Installing and configuring the Azure AD Connect cloud sync is accomplished in th
 - [Verify agent installation](#verify-agent-installation)
 
 >[!NOTE]
->This document deals with installing the provisioning agent using the wizard.  For information on installing the Azure AD Connect provisioing agent using a command-line interface (CLI), see [Install the Azure AD Connect provisioning agent using a command-line interface (CLI) and powershell cmdlets](how-to-install-pshell.md).
+>This document deals with installing the provisioning agent using the wizard.  For information on installing the Azure AD Connect provisioing agent using a command-line interface (CLI), see [Install the Azure AD Connect provisioning agent using a command-line interface (CLI) and powershell](how-to-install-pshell.md).
 
 ## Group Managed Service Accounts
 A group Managed Service Account is a managed domain account that provides automatic password management, simplified service principal name (SPN) management,the ability to delegate the management to other administrators, and also extends this functionality over multiple servers.  Azure AD Connect Cloud Sync supports and recommends the use of a group Managed Service Account for running the agent.  For more information on a gMSA, see [Group Managed Service Accounts](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 

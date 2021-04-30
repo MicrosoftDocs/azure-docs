@@ -14,7 +14,7 @@ ms.collection: M365-identity-device-management
 ---
 
 
-# Install the Azure AD Connect provisioning agent using a command-line interface (CLI) and powershell cmdlets 
+# Install the Azure AD Connect provisioning agent using a command-line interface (CLI) and powershell
 The following document will guide show you how to install the Azure AD Connect provisioning agent using PowerShell cmdlets.
  
 >[!NOTE]
