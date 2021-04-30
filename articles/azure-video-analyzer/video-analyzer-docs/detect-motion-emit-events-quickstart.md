@@ -41,17 +41,6 @@ This quickstart walks you through the steps to get started with Azure Video Anal
 [!INCLUDE [review-sample-video](includes/detect-motion-emit-events-quickstart/python/review-sample-video.md)]
 ::: zone-end
 
-
-## Set up Azure resources
-
-::: zone pivot="programming-language-csharp"
-[!INCLUDE [setup-azure-resources](includes/detect-motion-emit-events-quickstart/csharp/setup-azure-resources.md)]
-::: zone-end
-
-::: zone pivot="programming-language-python"
-[!INCLUDE [setup-azure-resources](includes/detect-motion-emit-events-quickstart/python/setup-azure-resources.md)]
-::: zone-end
-
 ## Set up your development environment
 
 ::: zone pivot="programming-language-csharp"
