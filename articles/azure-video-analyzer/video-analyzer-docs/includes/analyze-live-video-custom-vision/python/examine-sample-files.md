@@ -11,9 +11,8 @@ ms.author: juliako
    The deployment template refers to the deployment manifest for the edge device with some placeholder values. The .env file has the values for those variables.
 2. Next, browse to the src/cloud-to-device-console-app folder. Here you'll see the appsettings.json file that you created along with a few other files:
 
-   - c2d-console-app.csproj: This is the project file for Visual Studio Code.
-   - operations.json: This file lists the different operations that you want the program to run.
-   - Program.cs: This sample program code:
+   - operations.json - This file will list the different operations that you would like the program to run
+   - main.py - This is the sample program code which does the following:
      - Loads the app settings.
      - Invokes the Azure Video analyzer on IoT Edge module's direct methods to create topology, instantiate the pipeline and activate it.
      - Pauses for you to examine the pipeline output in the **TERMINAL** window and the events sent to the IoT hub in the **OUTPUT** window.
