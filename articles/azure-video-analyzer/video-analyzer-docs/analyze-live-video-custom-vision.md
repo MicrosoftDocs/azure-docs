@@ -3,9 +3,9 @@ title: Get started with Azure Video Analyzer
 description: This tutorial walks you through the steps to analyze live video with Azure Video Analyzer on IoT Edge and Azure Custom Vision.
 ms.topic: tutorial
 ms.date: 04/21/2021
+zone_pivot_groups: video-analyzer-programming-languages
 
 ---
-
 
 # Tutorial: Analyze live video with Azure Video Analyzer on IoT Edge and Azure Custom Vision
 
@@ -13,7 +13,13 @@ In this tutorial, you'll learn how to use Azure [Custom Vision](https://azure.mi
 
 We'll show you how to bring together the power of Custom Vision to build and train a computer vision model by uploading and labeling a few images. You don't need any knowledge of data science, machine learning, or AI. You'll also learn about the capabilities of Azure Video Analyzer and how to easily deploy a custom model as a container on the edge and analyze a simulated live video feed.
 
-This tutorial uses an Azure virtual machine (VM) as an IoT Edge device and is based on sample code written in C#. The information in this tutorial builds on the [Detect motion and emit events](get-started-detect-motion-emit-events.md) quickstart.
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [header](includes/analyze-live-video-custom-vision/csharp/header.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [header](includes/analyze-live-video-custom-vision/python/header.md)]
+::: zone-end
 
 The tutorial shows you how to:
 
@@ -39,25 +45,13 @@ Read through the following articles before you begin:
 
 ## Prerequisites
 
-Prerequisites for this tutorial are:
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [prerequisites](includes/analyze-live-video-custom-vision/csharp/prerequisites.md)]
+::: zone-end
 
-- [Visual Studio Code](https://code.visualstudio.com/) on your development machine with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) and [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) extensions.
-
-> [!TIP]
-> You might be prompted to install Docker. Ignore this prompt.
-
-- [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer) on your development machine.
-- [Running Azure Video Analyzer with your own model](add-valid-link.md)
-- Ensure you have:
-
-  - [Set up Azure Resources](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/detect-motion-emit-events-quickstart#set-up-azure-resources)
-  - [Set up your development environment](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/detect-motion-emit-events-quickstart#set-up-your-development-environment)
-
-> [!TIP]
-> If you run into issues with Azure resources that get created, please view our **[troubleshooting guide](troubleshoot.md)** to resolve some commonly encountered issues.
-
-> [!Important]
-> This Custom Vision module only supports **Intel x86 and amd64** architectures. Check the architecture of your edge device before continuing.
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/analyze-live-video-custom-vision/python/prerequisites.md)]
+::: zone-end
 
 ## Review the sample video
 
@@ -129,18 +123,13 @@ After you're finished, you can export the model to a Docker container by using t
 
 ## Examine the sample files
 
-1. In Visual Studio Code, browse to src/edge. You'll see the .env file that you created along with a few deployment template files.
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [examine-sample-files](includes/analyze-live-video-custom-vision/csharp/examine-sample-files.md)]
+::: zone-end
 
-   The deployment template refers to the deployment manifest for the edge device with some placeholder values. The .env file has the values for those variables.
-2. Next, browse to the src/cloud-to-device-console-app folder. Here you'll see the appsettings.json file that you created along with a few other files:
-
-   - c2d-console-app.csproj: This is the project file for Visual Studio Code.
-   - operations.json: This file lists the different operations that you want the program to run.
-   - Program.cs: This sample program code:
-     - Loads the app settings.
-     - Invokes the Azure Video analyzer on IoT Edge module's direct methods to create topology, instantiate the pipeline and activate it.
-     - Pauses for you to examine the pipeline output in the **TERMINAL** window and the events sent to the IoT hub in the **OUTPUT** window.
-     - Deactivates the pipeline instance, deletes the pipeline instance, and deletes the topology.
+::: zone pivot="programming-language-python"
+[!INCLUDE [examine-sample-files](includes/analyze-live-video-custom-vision/python/examine-sample-files.md)]
+::: zone-end
 
 ## Generate and deploy the deployment manifest
 
