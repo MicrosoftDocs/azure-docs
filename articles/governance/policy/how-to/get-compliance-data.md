@@ -91,22 +91,21 @@ that you get the latest compliance status at a convenient time. Optionally, this
 generate a report on the compliance state of scanned resources for further analysis or for
 archiving.
 
-The following example runs a compliance scan for a subscription. 
+The following example runs a compliance scan for a subscription.
 
 ```yaml
 on:
-  schedule:    
+  schedule:
     - cron:  '0 8 * * *'  # runs every morning 8am
 jobs:
   assess-policy-compliance:    
     runs-on: ubuntu-latest
-    steps:         
+    steps:
     - name: Login to Azure
       uses: azure/login@v1
       with:
-        creds: ${{secrets.AZURE_CREDENTIALS}} 
+        creds: ${{secrets.AZURE_CREDENTIALS}}
 
-    
     - name: Check for resource compliance
       uses: azure/policy-compliance-scan@v0
       with:
