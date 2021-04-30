@@ -35,23 +35,6 @@ After completing the setup steps, you'll be able to run the simulated live video
 
 [!INCLUDE [resources](./includes/common-includes/azure-resources.md)]
 
-## Deploy modules on your edge device
-
-Run the following command from Cloud Shell.
-
-```shell
-az iot edge set-modules --hub-name <iot-hub-name> --device-id lva-sample-device --content ~/clouddrive/lva-sample/edge-deployment/deployment.amd64.json
-```
-
-This command deploys the following modules to the edge device, which is the Linux VM in this case.
-
-* Azure Video Analyzer (module name avaEdge)
-* Real-Time Streaming Protocol (RTSP) simulator (module name rtspsim)
-
-The RTSP simulator module simulates a live video stream by using a video file that was copied to your edge device when you ran the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup).
-
-Now the modules are deployed, but no pipelines are active.
-
 ## Configure the Azure IoT Tools extension
 
 Follow these instructions to connect to your IoT hub by using the Azure IoT Tools extension.
@@ -73,7 +56,7 @@ Follow these instructions to connect to your IoT hub by using the Azure IoT Tool
 > [!NOTE]
 > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this: `Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>`
 
-If the connection succeeds, the list of edge devices appears. You should see at least one device named **lva-sample-device**. You can now manage your IoT Edge devices and interact with Azure IoT Hub through the context menu. To view the modules deployed on the edge device, under **lva-sample-device**, expand the **Modules** node.
+If the connection succeeds, the list of edge devices appears. You should see at least one device named **avasample-iot-edge-device**. You can now manage your IoT Edge devices and interact with Azure IoT Hub through the context menu. To view the modules deployed on the edge device, under **avasample-iot-edge-device**, expand the **Modules** node.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/get-started-detect-motion-emit-events/modules-node.png" alt-text="Expand the Modules node":::
@@ -83,13 +66,13 @@ If the connection succeeds, the list of edge devices appears. You should see at 
 
 ## Use direct method calls
 
-You can use the module to analyze live video streams by invoking direct methods. For more information, see [Direct methods for Azure Video Analyzer](https://review.docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/direct-methods?branch=release-azure-video-analyzer)<!--add a link-->.
+You can use the module to analyze live video streams by invoking direct methods. For more information, see [Direct methods for Azure Video Analyzer](direct-methods.md)
 
 ### Invoke pipelineTopologyList
 
-To enumerate all of the [pipelines](https://review.docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/pipeline?branch=release-azure-video-analyzer)<!-- add a link-->  in the module:
+To enumerate all of the [pipelines](pipeline.md) in the module:
 
-1. In the Visual Studio Code, right-click the **avaEdge** module and select **Invoke Module Direct Method**.
+1. In the Visual Studio Code, right-click the **avaedge** module and select **Invoke Module Direct Method**.
 1. In the box that appears, enter `pipelineTopologyList`.
 1. Copy the following JSON payload, paste it in the box then press Enter.
 
@@ -447,8 +430,8 @@ Within few seconds, you see the following response in the **OUTPUT** window:
 
 In the response payload, notice that:
 
-* The status code is 201, indicating a new live pipeline was created.
-* The state is Inactive, indicating that the live pipeline was created but not activated. For more information, see [Pipeline states]()<!--TODO:add a link later-->.
+* The status code is 201, indicating a new livePipeline was created.
+* The state is Inactive, indicating that the livePipeline was created but not activated. For more information, see [Pipeline states](pipeline.md#pipeline-states).
 
 Try the following next steps:
 
@@ -530,13 +513,13 @@ In the response payload, notice the following details:
 
 ## Observe results
 
-The live pipeline that we have created and activated uses the motion detection processor node to detect motion in the incoming live video stream. It sends events to the IoT Hub sink node. These events are relayed to IoT Edge Hub.
+The livePipeline that we have created and activated uses the motion detection processor node to detect motion in the incoming live video stream. It sends events to the IoT Hub sink node. These events are relayed to IoT Edge Hub.
 
 To observe the results, follow these steps.
 
 1. In Visual Studio Code, open the **Explorer** pane. In the lower-left corner, look for **Azure IoT Hub**.
 1. Expand the **Devices** node.
-1. Right-click **lva-sample-device** and then select **Start Monitoring Built-in Event Monitoring**.
+1. Right-click **avasample-iot-edge-device** and then select **Start Monitoring Built-in Event Monitoring**.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/get-started-detect-motion-emit-events/start-monitoring.png" alt-text="Start Monitoring Built-in Event Monitoring":::
