@@ -47,7 +47,7 @@ Beginning in Visual Studio 2019 version 16.2.0, Azure SignalR Service is built i
        dotnet new blazorserver -o BlazorChat
        ```
    
-1. Add a new C# file called `BlazorChatSampleHub.cs` and create a new class `BlazorSampleHub` deriving from the `Hub` class for the chat app. For more information on creating hubs, see [Create and Use Hubs](/aspnet/core/signalr/hubs.md#create-and-use-hubs). 
+1. Add a new C# file called `BlazorChatSampleHub.cs` and create a new class `BlazorSampleHub` deriving from the `Hub` class for the chat app. For more information on creating hubs, see [Create and Use Hubs](/aspnet/core/signalr/hubs#create-and-use-hubs). 
    
    ```cs
    using System;
@@ -99,7 +99,7 @@ Beginning in Visual Studio 2019 version 16.2.0, Azure SignalR Service is built i
 
 1. Create a new [Razor component](/aspnet/core/blazor/components/) called `ChatRoom.razor` under the `Pages` folder to implement the SignalR client. Follow the steps below or use the [ChatRoom.razor](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BlazorChat/Pages/ChatRoom.razor) file.
 
-   1. Add the [`@page`](aspnet/core/mvc/views/razor#page) directive and the using statements. Use the [`@inject`](/aspnet/core/mvc/views/razor.md#inject) directive to inject the [`NavigationManager`](/aspnet/core/blazor/fundamentals/routing.md#uri-and-navigation-state-helpers) service.
+   1. Add the [`@page`](/aspnet/core/mvc/views/razor#page) directive and the using statements. Use the [`@inject`](/aspnet/core/mvc/views/razor#inject) directive to inject the [`NavigationManager`](/aspnet/core/blazor/fundamentals/routing#uri-and-navigation-state-helpers) service.
       
       ```razor
       @page "/chatroom"
@@ -427,7 +427,7 @@ When you deploy the Blazor app to Azure App Service, we recommend that you use [
 1. Configure the Azure SignalR Service connection string either in *appsettings.json* or by using the [Secret Manager](/aspnet/core/security/app-secrets?tabs=visual-studio#secret-manager) tool.
 
 > [!NOTE]
-> Step 2 can be replaced with [Hosting Startup Assemblies](/aspnet/core/fundamentals/host/platform-specific-configuration) to the SignalR SDK.
+> Step 2 can be replaced with configuring [Hosting Startup Assemblies](/aspnet/core/fundamentals/host/platform-specific-configuration) to use the SignalR SDK.
 >
 > 1. Add the configuration to turn on Azure SignalR Service in *appsettings.json*:
 >
