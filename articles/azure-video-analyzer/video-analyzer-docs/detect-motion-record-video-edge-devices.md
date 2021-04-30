@@ -33,12 +33,6 @@ Open an application such as [VLC media player](https://www.videolan.org/vlc/). S
 
 Complete the following steps to use Azure Video Analyzer on IoT Edge to detect the motion of the car and record a video clip starting around the 5-second mark.
 
-## Setup Azure Resources
-
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
-
-[!INCLUDE [resources](includes/common-includes/azure-resources.md)]
-
 ## Overview
 
 > [!div class="mx-imgBorder"]
