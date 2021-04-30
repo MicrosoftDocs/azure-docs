@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/24/2021
+ms.date: 04/29/2021
 ms.author: rolyon
 
 #Customer intent: 
@@ -26,16 +26,6 @@ To add or edit Azure role assignment conditions, you must have the following pre
 ## Storage accounts
 
 For conditions that use blob index tags, you must use a storage account that is compatible with the blob index feature. For example, only General Purpose v2 (GPv2) storage accounts with hierarchical namespace (HNS) disabled are currently supported. For more information, see [Manage and find Azure Blob data with blob index tags (preview)](../storage/blobs/storage-manage-find-blobs.md#regional-availability-and-storage-account-support)
-
-## Regions
-
-You must use one of the following regions for storage accounts:
-
-- (US) East US
-- (US) South Central US
-- (US) West US 2
-- US Gov Arizona
-- US Gov Virginia
 
 ## Azure PowerShell
 
