@@ -52,6 +52,7 @@
       href: computer-vision-for-spatial-analysis.md    
     - name: With OVMS via HTTP extension
       displayName: analyze live video, intel, OpenVINO 
+      href: use-intel-openvino-tutorial.md
     - name: With OV DL Streamer via gRPC extension
       displayName: analyze live video, intel, OpenVINO, DL Streamer, VAS
       href: use-intel-grpc-vas-tutorial.md #404
