@@ -13,39 +13,39 @@ ms.custom: support-help-page
 
 Here are suggestions for where you can get help when developing your Azure Virtual Machines solutions.
 
-## Self help Content
+## Self help troubleshooting Content
 <div class='icon is-large'>
     <img alt='Self help content' src='https://docs.microsoft.com/media//common/i_article.svg'>
 </div>
 
-Various articles explain how to determine, diagnose, and fix issues that you might encounter when you use Azure Virtual Machines. Use these articles to troubleshoot deployment failures, unexpected restarts, connection issues and more. 
+Various articles explain how to determine, diagnose, and fix issues that you might encounter when using Azure Virtual Machines. Use these articles to troubleshoot deployment failures, unexpected restarts, connection issues and more. 
 
-See a full list of self help content at [Azure Virtual Machine troubleshooting documentation](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
+For a full list of self help troubleshooting content, see [Azure Virtual Machine troubleshooting documentation](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
 
 
 ## Post a question on Microsoft Q&A
 
 <div class='icon is-large'>
-    <img alt='Microsoft Q&A' src='../active-directory/develop/media/common/question-mark-icon.png'>
+    <img alt='Microsoft Q&A' src='./media/microsoft-logo.png'>
 </div>   
 
 For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](/answers/products/azure), Azure’s preferred destination for community support. 
 
-If you can't find an answer to your problem using search, submit a new question to Microsoft Q&A. Use one of the following tags when you ask your question:
+If you can't find an answer to your problem using search, submit a new question to Microsoft Q&A. Use one of the following tags when asking your question:
 
 
 | Area | Tag |
 |-------|----------------------|
-| Azure Virtual Machines | [azure-virtual-machines](/answers/topics/azure-virtual-machines.html) | 
-| Azure SQL Virtual Machines | [azure-sql-virtual-machines](/answers/topics/azure-sql-virtual-machines.html)| 
-| Azure Virtual Machine backup | [azure-virtual-machine-backup](/answers/topics/azure-virtual-machine-backup.html) | 
-| Azure Virtual Machine extension | [azure-virtual-machine-extension](/answers/topics/azure-virtual-machine-extension.html)| 
-| Azure Virtual Machine Images | [azure-virtual-machine-images](/answers/topics/azure-virtual-machine-images.html) | 
-| Azure Virtual Machine migration | [azure-virtual-machine-migration](/answers/topics/azure-virtual-machine-migration.html) | 
-| Azure Virtual Machine monitoring | [azure-virtual-machine-monitoring](/answers/topics/azure-virtual-machine-monitoring.html) |
-| Azure Virtual Machine networking | [azure-virtual-machine-networking](/answers/topics/azure-virtual-machine-networking.html) | 
-| Azure Virtual Machine storage | [azure-virtual-machine-storage](/answers/topics/azure-virtual-machine-storage.html) | 
-| Azure Virtual Machine Scale Sets | [azure-virtual-machine-scale-set](/answers/topics/azure-virtual-machine-scale-set.html) | 
+| [Azure Virtual Machines](./linux/overview.md) | [azure-virtual-machines](/answers/topics/azure-virtual-machines.html) | 
+| [Azure SQL Virtual Machines](https://docs.microsoft.com/azure/azure-sql/virtual-machines/) | [azure-sql-virtual-machines](/answers/topics/azure-sql-virtual-machines.html)| 
+| [Azure Virtual Machine backup](backup-recovery.md) | [azure-virtual-machine-backup](/answers/topics/azure-virtual-machine-backup.html) | 
+| [Azure Virtual Machine extension](./extensions/overview.md) | [azure-virtual-machine-extension](/answers/topics/azure-virtual-machine-extension.html)| 
+| [Azure Virtual Machine Images](shared-image-galleries.md) | [azure-virtual-machine-images](/answers/topics/azure-virtual-machine-images.html) | 
+| [Azure Virtual Machine migration](classic-vm-deprecation.md) | [azure-virtual-machine-migration](/answers/topics/azure-virtual-machine-migration.html) | 
+| [Azure Virtual Machine monitoring](../azure-monitor/vm/monitor-vm-azure) | [azure-virtual-machine-monitoring](/answers/topics/azure-virtual-machine-monitoring.html) |
+| [Azure Virtual Machine networking](/network-overview.md) | [azure-virtual-machine-networking](/answers/topics/azure-virtual-machine-networking.html) | 
+| [Azure Virtual Machine storage](managed-disks-overview.md) | [azure-virtual-machine-storage](/answers/topics/azure-virtual-machine-storage.html) | 
+| [Azure Virtual Machine Scale Sets](./virtual-machine-scale-sets/overview.md) | [azure-virtual-machine-scale-set](/answers/topics/azure-virtual-machine-scale-set.html) | 
 
 ## Create an Azure support request
 
@@ -57,7 +57,7 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 
 - If you already have an Azure Support Plan, [open a support request here](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-- If you're not an Azure customer, you can open a support request with [Microsoft Support for business](https://support.serviceshub.microsoft.com/supportforbusiness).
+- To sign up for a new Azure Support Plan, [compare support plans](https://azure.microsoft.com/support/plans/) and select the plan that works for you. 
 
 
 ## Create a GitHub issue
@@ -66,19 +66,21 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
     <img alt='GitHub-image' src='../active-directory/develop/media/common/github.svg'>
 </div>
 
-If you need help with one of the Microsoft Authentication Libraries (MSAL), open an issue in its repository on GitHub.
+If you need help with the language and tools used to develop and manage Azure Virtual Machines, open an issue in its repository on GitHub.
 
-| MSAL Library | GitHub issues URL|
+| Library | GitHub issues URL|
 | --- | --- |
-| MSAL for Android | https://github.com/AzureAD/microsoft-authentication-library-for-android/issues |
-| MSAL Angular | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
-| MSAL for iOS and macOS| https://github.com/AzureAD/microsoft-authentication-library-for-objc/issues |
-| MSAL Java | https://github.com/AzureAD/microsoft-authentication-library-for-java/issues |
-| MSAL.js | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
-|MSAL.NET| https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues |
-| MSAL Node | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
-| MSAL Python | https://github.com/AzureAD/microsoft-authentication-library-for-python/issues |
-| MSAL React | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
+| Azure PowerShell | https://github.com/Azure/azure-powershell/issues |
+| Azure CLI | https://github.com/Azure/azure-cli/issues | 
+| Azure REST API | https://github.com/Azure/azure-rest-api-specs/issues | 
+| Azure SDK for Java | https://github.com/Azure/azure-sdk-for-java/issues | 
+| Azure SDK for Python | https://github.com/Azure/azure-sdk-for-python/issues | 
+| Azure SDK for .NET | https://github.com/Azure/azure-sdk-for-net/issues | 
+| Azure SDK for JavaScript | https://github.com/Azure/azure-sdk-for-js/issues | 
+| Jenkins | https://github.com/Azure/jenkins/issues | 
+| Terraform | https://github.com/Azure/terraform/issues | 
+| Ansible | https://github.com/Azure/Ansible/issues | 
+
 
 
 ## Submit feedback on Azure Feedback
@@ -87,7 +89,7 @@ If you need help with one of the Microsoft Authentication Libraries (MSAL), open
     <img alt='UserVoice' src='https://docs.microsoft.com/media/logos/logo-uservoice.svg'>
 </div>
 
-To request new features, post them on Azure Feedback. Share your ideas for making Azure Virtual Machine services work better for the applications you develop:
+To request new features, post them on Azure Feedback. Share your ideas for improving Azure Virtual Machines.
 
 | Service                       | Azure Feedback URL |
 |-------------------------------|---------------|
@@ -106,4 +108,4 @@ News and information about Azure Virtual Machines is shared at the [Azure blog](
 
 ## Next steps
 
-[What are Azure Virtual Machines?](./linux/overview.md)
+Learn more about [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/)

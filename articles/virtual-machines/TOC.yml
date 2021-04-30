@@ -1778,7 +1778,7 @@
     href: /azure/developer/jenkins/
   - name: Azure DevOps
     href: ./linux/tutorial-azure-devops-blue-green-strategy.md
-- name: Support and help options
+- name: Support and troubleshooting
   href: vm-support-help.md
 - name: Resources
   items:
