@@ -6,7 +6,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 06/25/2019
+ms.date: 04/29/2021
 ms.author: wesmc
 ms.custom:  [mqtt, 'Role: Cloud Development', devx-track-azurecli]
 ---
@@ -15,7 +15,7 @@ ms.custom:  [mqtt, 'Role: Cloud Development', devx-track-azurecli]
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-You can use the [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/) to develop and prototype Internet of Things (IoT) solutions that take advantage of Microsoft Azure services. It includes an Arduino-compatible board with rich peripherals and sensors, an open-source board package, and a rich [sample gallery](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/).
+You can use the [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/) to develop and prototype Internet of Things (IoT) solutions that take advantage of Microsoft Azure services. The kit includes an Arduino-compatible board with rich peripherals and sensors, an open-source board package, and a rich [sample gallery](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/).
 
 ## What you learn
 
@@ -73,7 +73,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
    **MyNodeDevice**: The name of the device you're registering. Use **MyNodeDevice** as shown. If you choose a different name for your device, you need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice
+    az iot hub device-identity create --hub-name YourIoTHubName --device-id AZ3166Device
     ```
 
    > [!NOTE]
@@ -90,12 +90,12 @@ A device must be registered with your IoT hub before it can connect. In this qui
    **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub device-identity connection-string show --hub-name YourIoTHubName --device-id MyNodeDevice --output table
+    az iot hub device-identity connection-string show --hub-name YourIoTHubName --device-id AZ3166Device --output table
     ```
 
     Make a note of the device connection string, which looks like:
 
-   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=AZ3166Device;SharedAccessKey={YourSharedAccessKey}`
 
     You use this value later in the quickstart.
 
@@ -103,7 +103,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 The DevKit connects to a device-specific endpoint on your IoT hub and sends temperature and humidity telemetry.
 
-1. Download the latest version of [GetStarted firmware](https://aka.ms/devkit/prod/getstarted/latest) for IoT DevKit.
+1. Download the latest version of [GetStarted firmware](https://github.com/microsoft/devkit-sdk/releases/) for IoT DevKit.
 
 1. Make sure IoT DevKit connect to your computer via USB. Open File Explorer there is a USB mass storage device called **AZ3166**.
 
