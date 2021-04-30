@@ -112,7 +112,7 @@
           href: supported-versions-postgres-hyperscale.md
         - name: Create Postgres Hyperscale server group (CLI)
           href: create-postgresql-hyperscale-server-group.md
-        - name: Crate Postgres Hyperscale server group (portal)
+        - name: Create Postgres Hyperscale server group (portal)
           href: create-postgresql-hyperscale-server-group-azure-portal.md
         - name: Create Postgres Hyperscale server group (Azure Data Studio)
           href: create-postgresql-hyperscale-server-group-azure-data-studio.md
