@@ -9,7 +9,7 @@ ms.custom: devx-track-azurepowershell
 
 Before creating custom policies, read the overview information at
 [Azure Policy Guest Configuration](../concepts/guest-configuration.md).
- 
+
 To learn about creating Guest Configuration policies for Windows, see the page
 [How to create Guest Configuration policies for Windows](./guest-configuration-create.md)
 
@@ -31,7 +31,7 @@ non-Azure machine.
 > The Guest Configuration extension is required to perform audits in Azure virtual machines. To
 > deploy the extension at scale across all Linux machines, assign the following policy definition:
 > `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
-> 
+>
 > Don't use secrets or confidential information in custom content packages.
 
 ## Install the PowerShell module
@@ -62,7 +62,7 @@ Operating Systems where the module can be installed:
 > The cmdlet `Test-GuestConfigurationPackage` requires OpenSSL version 1.0, due to a dependency on
 > OMI. This causes an error on any environment with OpenSSL 1.1 or later.
 >
-> Running the cmdlet `Test-GuestConfigurationPackage` is only supported on Windows 
+> Running the cmdlet `Test-GuestConfigurationPackage` is only supported on Windows
 > for Guest Configuration module version 2.1.0.
 
 The Guest Configuration resource module requires the following software:
@@ -119,7 +119,7 @@ required resource property. Create a YaML file and a Ruby script file, as detail
 First, create the YaML file used by InSpec. The file provides basic information about the
 environment. An example is given below:
 
-```YaML
+```yaml
 name: linux-path
 title: Linux path
 maintainer: Test
@@ -134,7 +134,7 @@ Save this file with name `inspec.yml` to a folder named `linux-path` in your pro
 
 Next, create the Ruby file with the InSpec language abstraction used to audit the machine.
 
-```Ruby
+```ruby
 describe file('/tmp') do
     it { should exist }
 end
@@ -306,17 +306,17 @@ Publish-GuestConfigurationPolicy `
   -Path './policies'
 ```
 
- The `Publish-GuestConfigurationPolicy` cmdlet accepts the path from the PowerShell pipeline. This
- feature means you can create the policy files and publish them in a single set of piped commands.
+The `Publish-GuestConfigurationPolicy` cmdlet accepts the path from the PowerShell pipeline. This
+feature means you can create the policy files and publish them in a single set of piped commands.
 
- ```azurepowershell-interactive
- New-GuestConfigurationPolicy `
+```azurepowershell-interactive
+New-GuestConfigurationPolicy `
   -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditFilePathExists.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
   -DisplayName 'Audit Linux file path.' `
   -Description 'Audit that a file path exists on a Linux machine.' `
   -Path './policies' `
- | Publish-GuestConfigurationPolicy
- ```
+| Publish-GuestConfigurationPolicy
+```
 
 With the policy created in Azure, the last step is to assign the definition. See how to assign the
 definition with [Portal](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md), and
@@ -338,7 +338,7 @@ project.
 Define the input in the Ruby file where you script what to audit on the machine. An example is given
 below.
 
-```Ruby
+```ruby
 attr_path = attribute('path', description: 'The file path to validate.')
 
 describe file(attr_path) do
@@ -401,7 +401,6 @@ New-GuestConfigurationPolicy -ContentUri $uri `
     -Platform 'Linux' `
     -Version 1.0.0
 ```
-
 
 ## Policy lifecycle
 

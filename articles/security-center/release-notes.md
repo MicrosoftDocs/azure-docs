@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/21/2021
+ms.date: 04/29/2021
 ms.author: memildin
 
 ---
@@ -24,17 +24,40 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 ## April 2021
 
 Updates in April include:
-- [Recently pulled container registry images are now rescanned weekly (General Availability)](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
-- [Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (preview)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
-- [Recommendations to enable Azure Defender for DNS and Resource Manager (preview)](#recommendations-to-enable-azure-defender-for-dns-and-resource-manager-preview)
+- [Refreshed resource health page (in preview)](#refreshed-resource-health-page-in-preview)
+- [Container registry images that have been recently pulled are now rescanned weekly (released for General Availability (GA))](#container-registry-images-that-have-been-recently-pulled-are-now-rescanned-weekly-released-for-general-availability-ga)
+- [Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (in preview)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-in-preview)
+- [Microsoft Defender for Endpoint integration with Azure Defender now supports Windows Server 2019 and Windows 10 Virtual Desktop (WVD) released for General Availability (GA)](#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-released-for-general-availability-ga)
+- [Recommendations to enable Azure Defender for DNS and Resource Manager (in preview)](#recommendations-to-enable-azure-defender-for-dns-and-resource-manager-in-preview)
 - [Three regulatory compliance standards added: Azure CIS 1.3.0, CMMC Level 3, and New Zealand ISM Restricted](#three-regulatory-compliance-standards-added-azure-cis-130-cmmc-level-3-and-new-zealand-ism-restricted)
-- [Four new recommendations related to guest configuration (preview)](#four-new-recommendations-related-to-guest-configuration-preview)
+- [Four new recommendations related to guest configuration (in preview)](#four-new-recommendations-related-to-guest-configuration-in-preview)
 - [CMK recommendations moved to best practices security control](#cmk-recommendations-moved-to-best-practices-security-control)
 - [11 Azure Defender alerts deprecated](#11-azure-defender-alerts-deprecated)
 - [Two recommendations from "Apply system updates" security control were deprecated](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
 - [Azure Defender for SQL on machine tile removed from Azure Defender dashboard](#azure-defender-for-sql-on-machine-tile-removed-from-azure-defender-dashboard)
+- [21 recommendations moved between security controls](#21-recommendations-moved-between-security-controls)
 
-### Recently pulled container registry images are now rescanned weekly (General Availability)
+### Refreshed resource health page (in preview)
+
+Security Center's resource health has been expanded, enhanced, and improved to provide a snapshot view of the overall health of a single resource. 
+
+You can review detailed information about the resource and all recommendations that apply to that resource. Also, if you're using [Azure Defender](azure-defender.md), you can see outstanding security alerts for that specific resource too.
+
+To open the resource health page for a resource, select any resource from the [asset inventory page](asset-inventory.md).
+
+This preview page in Security Center's portal pages shows:
+
+1. **Resource information** - The resource group and subscription it's attached to, the geographic location, and more.
+1. **Applied security feature** - Whether Azure Defender is enabled for the resource.
+1. **Counts of outstanding recommendations and alerts** - The number of outstanding security recommendations and Azure Defender alerts.
+1. **Actionable recommendations and alerts** - Two tabs list the recommendations and alerts that apply to the resource.
+
+:::image type="content" source="media/investigate-resource-health/resource-health-page-virtual-machine.gif" alt-text="Azure Security Center's resource health page showing the health information for a virtual machine":::
+
+Learn more in [Tutorial: Investigate the health of your resources](investigate-resource-health.md).
+
+
+### Container registry images that have been recently pulled are now rescanned weekly (released for General Availability (GA))
 
 Azure Defender for container registries includes a built-in vulnerability scanner. This scanner immediately scans any image you push to your registry and any image pulled within the last 30 days.
 
@@ -45,7 +68,7 @@ Scanning is charged on a per image basis, so there's no additional charge for th
 Learn more about this scanner in [Use Azure Defender for container registries to scan your images for vulnerabilities](defender-for-container-registries-usage.md).
 
 
-### Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (preview)
+### Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (in preview)
 
 Azure Defender for Kubernetes is expanding its threat protection capabilities to defend your clusters wherever they're deployed. This has been enabled by integrating with [Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md) and its new [extensions capabilities](../azure-arc/kubernetes/extensions.md). 
 
@@ -66,7 +89,19 @@ Learn more in [Use Azure Defender for Kubernetes with your on-premises and multi
 :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Security Center's recommendation for deploying the Azure Defender extension for Azure Arc enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
 
-### Recommendations to enable Azure Defender for DNS and Resource Manager (preview)
+### Microsoft Defender for Endpoint integration with Azure Defender now supports Windows Server 2019 and Windows 10 Virtual Desktop (WVD) released for General Availability (GA)
+
+Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security solution. It provides risk-based vulnerability management and assessment as well as endpoint detection and response (EDR). For a full list of the benefits of using Defender for Endpoint together with Azure Security Center, see [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](security-center-wdatp.md).
+
+When you enable Azure Defender for servers on a Windows server, a license for Defender for Endpoint is included with the plan. If you've already enabled Azure Defender for servers and you have Windows 2019 servers in your subscription, they'll automatically receive Defender for Endpoint with this update. No manual action is required. 
+
+Support has now been expanded to include Windows Server 2019 and [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md).
+
+> [!NOTE]
+> If you're enabling Defender for Endpoint on a Windows Server 2019 machine, ensure it meets the prerequisites described in [Enable the Microsoft Defender for Endpoint integration](security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration).
+
+
+### Recommendations to enable Azure Defender for DNS and Resource Manager (in preview)
 
 Two new recommendations have been added to simplify the process of enabling [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) and [Azure Defender for DNS](defender-for-dns-introduction.md):
 
@@ -96,7 +131,7 @@ Learn more in:
 - [Tutorial: Improve your regulatory compliance](security-center-compliance-dashboard.md)
 - [FAQ - Regulatory compliance dashboard](security-center-compliance-dashboard.md#faq---regulatory-compliance-dashboard)
 
-### Four new recommendations related to guest configuration (preview)
+### Four new recommendations related to guest configuration (in preview)
 
 Azure's [Guest Configuration extension](../governance/policy/concepts/guest-configuration.md) reports to Security Center to help ensure your virtual machines' in-guest settings are hardened. The extension isn't required for Arc enabled servers because it's included in the Arc Connected Machine agent. The extension requires a system-managed identity on the machine.
 
@@ -175,6 +210,19 @@ Learn more about these recommendations in the [security recommendations referenc
 ### Azure Defender for SQL on machine tile removed from Azure Defender dashboard
 
 The Azure Defender dashboard's coverage area includes tiles for the relevant Azure Defender plans for your environment. Due to an issue with the reporting of the numbers of protected and unprotected resources, we've decided to temporarily remove the resource coverage status for **Azure Defender for SQL on machines** until the issue is resolved.
+
+
+### 21 recommendations moved between security controls 
+
+The following recommendations were moved to different security controls. Security controls are logical groups of related security recommendations, and reflect your vulnerable attack surfaces. This move ensures that each of these recommendations is in the most appropriate control to meet its objective.
+
+Learn which recommendations are in each security control in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
+
+|Recommendation |Change and impact  |
+|---------|---------|
+|Vulnerability assessment should be enabled on your SQL servers<br>Vulnerability assessment should be enabled on your SQL managed instances<br>Vulnerabilities on your SQL databases should be remediated new<br>Vulnerabilities on your SQL databases in VMs should be remediated     |Moving from Remediate vulnerabilities (worth 6 points)<br>to Remediate security configurations (worth 4 points).<br>Depending on your environment, these recommendations will have a reduced impact on your score.|
+|There should be more than one owner assigned to your subscription<br>Automation account variables should be encrypted<br>IoT Devices - Auditd process stopped sending events<br>IoT Devices - Operating system baseline validation failure<br>IoT Devices - TLS cipher suite upgrade needed<br>IoT Devices - Open Ports On Device<br>IoT Devices - Permissive firewall policy in one of the chains was found<br>IoT Devices - Permissive firewall rule in the input chain was found<br>IoT Devices - Permissive firewall rule in the output chain was found<br>Diagnostic logs in IoT Hub should be enabled<br>IoT Devices - Agent sending underutilized messages<br>IoT Devices - Default IP Filter Policy should be Deny<br>IoT Devices - IP Filter rule large IP range<br>IoT Devices - Agent message intervals and size should be adjusted<br>IoT Devices - Identical Authentication Credentials<br>IoT Devices - Audited process stopped sending events<br>IoT Devices - Operating system (OS) baseline configuration should be fixed|Moving to **Implement security best practices**.<br>When a recommendation moves to the Implement security best practices security control, which is worth no points, the recommendation no longer affects your secure score.|
+|||
 
 
 ## March 2021
@@ -445,7 +493,7 @@ Existing recommendations are unaffected and as the benchmark grows, changes will
 
 To learn more, see the following pages:
 
-- [Learn more about Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)
+- [Learn more about Azure Security Benchmark](/security/benchmark/azure/introduction)
 - [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md)
 
 ### Vulnerability assessment for on-premise and multi-cloud machines is released for General Availability (GA)
@@ -560,7 +608,7 @@ Learn more in [Request tenant-wide permissions when yours are insufficient](tena
 
 ### 35 preview recommendations added to increase coverage of Azure Security Benchmark
 
-[Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction) is the default policy initiative in Azure Security Center. 
+[Azure Security Benchmark](/security/benchmark/azure/introduction) is the default policy initiative in Azure Security Center. 
 
 To increase the coverage of this benchmark, the following 35 preview recommendations have been added to Security Center.
 
@@ -578,7 +626,7 @@ To increase the coverage of this benchmark, the following 35 preview recommendat
 
 Related links:
 
-- [Learn more about Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)
+- [Learn more about Azure Security Benchmark](/security/benchmark/azure/introduction)
 - [Learn more about Azure Database for MariaDB](../mariadb/overview.md)
 - [Learn more about Azure Database for MySQL](../mysql/overview.md)
 - [Learn more about Azure Database for PostgreSQL](../postgresql/overview.md)
@@ -804,7 +852,7 @@ Updates in November include:
 
 ### 29 preview recommendations added to increase coverage of Azure Security Benchmark
 
-Azure Security Benchmark is the Microsoft-authored, Azure-specific, set of guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction).
+Azure Security Benchmark is the Microsoft-authored, Azure-specific, set of guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](/security/benchmark/azure/introduction).
 
 The following 29 preview recommendations have been added to Security Center to increase the coverage of this benchmark.
 
@@ -821,7 +869,7 @@ Preview recommendations don't render a resource unhealthy, and they aren't inclu
 
 Related links:
 
-- [Learn more about Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)
+- [Learn more about Azure Security Benchmark](/security/benchmark/azure/introduction)
 - [Learn more about Azure API apps](../app-service/app-service-web-tutorial-rest-api.md)
 - [Learn more about Azure function apps](../azure-functions/functions-overview.md)
 - [Learn more about Azure web apps](../app-service/overview.md)

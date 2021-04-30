@@ -35,7 +35,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * GitHub Enterprise Managed User supports **SP and IDP** initiated SSO.
 * GitHub Enterprise Managed User supports **Just In Time** user provisioning.
-* GitHub Enterprise Managed User supports [**Automated** user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial).
+* GitHub Enterprise Managed User supports [**Automated** user provisioning](./github-enterprise-managed-user-provisioning-tutorial.md).
 
 ## Adding GitHub Enterprise Managed User from the gallery
 
@@ -127,7 +127,7 @@ To configure single sign-on on **GitHub Enterprise Managed User** side, you need
 
 In this section, a user called B.Simon is created in GitHub Enterprise Managed User. GitHub Enterprise Managed User supports just-in-time provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in GitHub Enterprise Managed User, a new one is created when you attempt to access GitHub Enterprise Managed User.
 
-GitHub Enterprise Managed User also supports automatic user provisioning, you can find more details [here](https://docs.microsoft.com/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial) on how to configure automatic user provisioning.
+GitHub Enterprise Managed User also supports automatic user provisioning, you can find more details [here](./github-enterprise-managed-user-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
@@ -143,11 +143,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the GitHub Enterprise Managed User for which you set up the SSO 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the GitHub Enterprise Managed User tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the GitHub Enterprise Managed User for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+You can also use Microsoft My Apps to test the application in any mode. When you click the GitHub Enterprise Managed User tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the GitHub Enterprise Managed User for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps
 
-Once you configure GitHub Enterprise Managed User you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Once you configure GitHub Enterprise Managed User you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

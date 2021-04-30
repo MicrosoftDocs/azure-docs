@@ -36,6 +36,9 @@ If your environment is ready to block legacy authentication to improve your tena
 
 This article assumes that you are familiar with the [basic concepts](overview.md) of Azure AD Conditional Access.
 
+> [!NOTE]
+> Conditional Access policies are enforced after first-factor authentication is completed. Conditional Access isn't intended to be an organization's first line of defense for scenarios like denial-of-service (DoS) attacks, but it can use signals from these events to determine access.
+
 ## Scenario description
 
 Azure AD supports several of the most widely used authentication and authorization protocols including legacy authentication. Legacy authentication refers to protocols that use basic authentication. Typically, these protocols can't enforce any type of second factor authentication. Examples for apps that are based on legacy authentication are:
