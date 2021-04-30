@@ -23,21 +23,17 @@ This article shows how to configure encryption with customer-managed keys stored
 > [!NOTE]
 > Azure Key Vault and Azure Key Vault Managed HSM support the same APIs and management interfaces for configuration.
 
-## Configure a key vault
+## Configure a key vault with purge protection
 
 You can use a new or existing key vault to store customer-managed keys. The storage account and the key vault must be in the same region, but they can be in different subscriptions.
 
 Using customer-managed keys with Azure Storage encryption requires that both soft delete and purge protection be enabled for the key vault. Soft delete is enabled by default when you create a new key vault and cannot be disabled. You can enable purge protection either when you create the key vault or after it is created.
 
-You'll also have to configure an access policy so that the storage account has access to the key in your key vault.
-
 ### [Azure portal](#tab/portal)
 
-To learn how to create a key vault with the Azure portal, see [Quickstart: Create a key vault using the Azure portal](../../key-vault/general/quick-create-portal.md). 
+#### Enable purge protection when you create a key vault
 
-#### Enable purge protection for a new key vault
-
-When you create the key vault, enable purge protection.
+To learn how to create a key vault with the Azure portal, see [Quickstart: Create a key vault using the Azure portal](../../key-vault/general/quick-create-portal.md). When you create the key vault, enable purge protection.
 
 Select **Enable purge protection**, as shown in the following image.
 
@@ -45,7 +41,7 @@ Select **Enable purge protection**, as shown in the following image.
 
 #### Enable purge protection on an existing key vault
 
-You can also enable purge protection on an existing key vault.
+If you want to use an existing key vault, you'll have to enable purge protection on that key vault.
 
 1. Navigate to your key vault in the Azure portal.
 
@@ -53,7 +49,47 @@ You can also enable purge protection on an existing key vault.
 
 3. In the **Purge protection** section, choose **Enable purge protection**.
 
-#### Configure a key vault access policy
+### [PowerShell](#tab/powershell)
+
+#### Enable purge protection when you create a key vault
+
+To create a new key vault with PowerShell, install version 2.0.0 or later of the [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault/2.0.0) PowerShell module. Then call [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault) to create a new key vault. With version 2.0.0 and later of the Az.KeyVault module, soft delete is enabled by default when you create a new key vault.
+
+The following example creates a new key vault with both soft delete and purge protection enabled. Remember to replace the placeholder values in brackets with your own values.
+
+```powershell
+$keyVault = New-AzKeyVault -Name <key-vault> `
+    -ResourceGroupName <resource_group> `
+    -Location <location> `
+    -EnablePurgeProtection
+```
+#### Enable purge protection on an existing key vault
+
+To learn how to enable purge protection on an existing key vault with PowerShell, see [How to use soft-delete with PowerShell](../../key-vault/general/key-vault-recovery.md).
+
+### [Azure CLI](#tab/azure-cli)
+
+#### Enable purge protection when you create a key vault
+
+To create a new key vault using Azure CLI, call [az keyvault create](/cli/azure/keyvault#az_keyvault_create). Remember to replace the placeholder values in brackets with your own values:
+
+```azurecli-interactive
+az keyvault create \
+    --name <key-vault> \
+    --resource-group <resource_group> \
+    --location <region> \
+    --enable-purge-protection
+```
+
+#### Enable purge protection on an existing key vault
+
+To learn how to enable purge protection on an existing key vault with Azure CLI, see [How to use soft-delete with CLI](../../key-vault/general/key-vault-recovery.md).
+
+---
+
+## Configure a key vault access policy
+
+### [Azure portal](#tab/portal)
 
 Configure an access policy so that the storage account has access to the key in your key vault.
 
@@ -69,8 +105,7 @@ For step-by-step guidance, see [Assign a Key Vault access policy using the Azure
 
 You can use a system-assigned managed identity or a user-defined managed identity to grant the storage account access to the key vault. To learn more each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). 
  
-
-##### Option 1: Use a system-assigned managed identity
+#### Option 1: Use a system-assigned managed identity
 
 Select the **Select Principal** button, and then use the search feature to find a system-assigned managed identity of the storage account. You can find the system-assigned managed identity of the storage account by searching for the storage account name.
 
@@ -81,7 +116,7 @@ To assign a system-assigned managed identity to the storage account, locate your
 > [!div class="mx-imgBorder"]
 > ![Add system-assigned managed identity in the Azure portal](./media/customer-managed-keys-configure-key-vault/portal-add-system-assigned-managed-identity.png)
 
-##### Option 2: Use a user-assigned managed identity
+#### Option 2: Use a user-assigned managed identity
 
 Select the **Select Principal** button, and then use enter the ID of the user-assigned managed identity into the search feature to find and select the user-assigned managed identity. 
 
@@ -90,24 +125,9 @@ Select the **Select Principal** button, and then use enter the ID of the user-as
 
 ### [PowerShell](#tab/powershell)
 
-To create a new key vault with PowerShell, install version 2.0.0 or later of the [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault/2.0.0) PowerShell module. Then call [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault) to create a new key vault. With version 2.0.0 and later of the Az.KeyVault module, soft delete is enabled by default when you create a new key vault.
+You can use a system-assigned managed identity or a user-defined managed identity to grant the storage account access to the key vault. To learn more each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). 
 
-The following example creates a new key vault with both soft delete and purge protection enabled. Remember to replace the placeholder values in brackets with your own values.
-
-```powershell
-$keyVault = New-AzKeyVault -Name <key-vault> `
-    -ResourceGroupName <resource_group> `
-    -Location <location> `
-    -EnablePurgeProtection
-```
-
-To learn how to enable purge protection on an existing key vault with PowerShell, see [How to use soft-delete with PowerShell](../../key-vault/general/key-vault-recovery.md).
-
-#### Configure a key vault access policy
-
-You can use a system-assigned managed identity or a user-defined managed identity to grant the storage account access to the key vault. To learn more each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).   
-
-##### Option 1: Use a system-assigned managed identity
+#### Option 1: Use a system-assigned managed identity
 
 First, determine if a system-assigned managed identity is assigned to the storage account. If the account was created by using the Azure portal, then Azure portal assigns one automatically. 
 
@@ -138,7 +158,7 @@ Set-AzKeyVaultAccessPolicy `
     -PermissionsToKeys wrapkey,unwrapkey,get
 ```
 
-##### Option 2: Use a user-assigned managed identity
+#### Option 2: Use a user-assigned managed identity
 
 First, find the object ID of the user-assigned managed identity. You can find that ID in the Azure portal on the resource's **Overview** page. You can also use the following PowerShell script to find the object ID. To use this script, you'll need the resource ID of the user-assigned managed identity.
 
@@ -158,23 +178,9 @@ Set-AzKeyVaultAccessPolicy `
 
 ### [Azure CLI](#tab/azure-cli)
 
-To create a new key vault using Azure CLI, call [az keyvault create](/cli/azure/keyvault#az_keyvault_create). Remember to replace the placeholder values in brackets with your own values:
+You can use a system-assigned managed identity or a user-defined managed identity to grant the storage account access to the key vault. To learn more each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). 
 
-```azurecli-interactive
-az keyvault create \
-    --name <key-vault> \
-    --resource-group <resource_group> \
-    --location <region> \
-    --enable-purge-protection
-```
-
-To learn how to enable purge protection on an existing key vault with Azure CLI, see [How to use soft-delete with CLI](../../key-vault/general/key-vault-recovery.md).
-
-#### Configure a key vault access policy
-
-You can use a system-assigned managed identity or a user-defined managed identity to grant the storage account access to the key vault. To learn more each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).  
-
-#### Use a system-assigned managed identity
+#### Option 1: Use a system-assigned managed identity
 
 First, determine if a system-assigned managed identity is assigned to the storage account. If the account was created by using the Azure portal, then Azure portal assigns one automatically. 
 
@@ -211,7 +217,7 @@ az keyvault set-policy \
     --key-permissions get unwrapKey wrapKey
 ```
 
-#### Use a user-assigned managed identity
+#### Option 2: Use a user-assigned managed identity
 
 First, find the object ID of the user-assigned managed identity. You can find that ID in the Azure portal on the resource's **Overview** page. You can also use the following CLI script to find the object ID. To use this script, you'll need the name of the user-assigned managed identity and the name of the resource group.
 
