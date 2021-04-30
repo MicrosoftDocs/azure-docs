@@ -38,7 +38,7 @@ After completing the setup steps, you'll be able to run the simulated live video
 
 To connect the extension to the edge module, you first need to retrieve your connection string.  Follow these steps to do so.
 
-1.	Go to the [Azure portal](http://portal.azure.com) and select your IoT Hub.
+1.	Go to the [Azure portal](https://portal.azure.com) and select your IoT Hub.
 1.	On the left under **Settings**, select **Shared access policies**.
 1.	Select the Policy Name **iothubowner**.
 1.	From the window on the right, copy the **Primary connection string**.
