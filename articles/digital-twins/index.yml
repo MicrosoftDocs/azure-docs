@@ -56,7 +56,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Use the Azure Digital Twins CLI
-            url: how-to-use-cli.md
+            url: concepts-cli.md
       - linkListType: how-to-guide
         links:
           - text: Set up an instance and authentication

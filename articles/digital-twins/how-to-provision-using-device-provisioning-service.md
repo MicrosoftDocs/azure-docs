@@ -182,7 +182,7 @@ You should see the device being registered and connected to IoT Hub, and then st
 
 ### Validate
 
-As a result of the flow you've set up in this article, the device will be automatically registered in Azure Digital Twins. Use the following [Azure Digital Twins CLI](how-to-use-cli.md) command to find the twin of the device in the Azure Digital Twins instance you created.
+As a result of the flow you've set up in this article, the device will be automatically registered in Azure Digital Twins. Use the following [Azure Digital Twins CLI](concepts-cli.md) command to find the twin of the device in the Azure Digital Twins instance you created.
 
 ```azurecli-interactive
 az dt twin show -n <Digital Twins instance name> --twin-id "<Device Registration ID>"
@@ -318,7 +318,7 @@ Follow the steps below to delete the device in the Azure portal:
 
 It might take a few minutes to see the changes reflected in Azure Digital Twins.
 
-Use the following [Azure Digital Twins CLI](how-to-use-cli.md) command to verify the twin of the device in the Azure Digital Twins instance was deleted.
+Use the following [Azure Digital Twins CLI](concepts-cli.md) command to verify the twin of the device in the Azure Digital Twins instance was deleted.
 
 ```azurecli-interactive
 az dt twin show -n <Digital Twins instance name> --twin-id "<Device Registration ID>"

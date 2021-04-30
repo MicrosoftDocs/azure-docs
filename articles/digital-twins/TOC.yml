@@ -45,6 +45,8 @@
     items:
     - name: APIs and SDKs
       href: concepts-apis-sdks.md
+    - name: CLI command set
+      href: concepts-cli.md
   - name: Integration with other services
     href: concepts-integration.md
   - name: Event notifications
@@ -59,8 +61,6 @@
   items:
   - name: Deploy
     items:
-    - name: Use the Azure Digital Twins CLI
-      href: how-to-use-cli.md
     - name: Set up an instance and authentication
       items:
       - name: Portal version

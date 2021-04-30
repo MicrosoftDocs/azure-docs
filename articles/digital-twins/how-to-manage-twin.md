@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Manage digital twins
 
-Entities in your environment are represented by [digital twins](concepts-twins-graph.md). Managing your digital twins may include creation, modification, and removal. To do these operations, you can use the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client), or the [Azure Digital Twins CLI](how-to-use-cli.md).
+Entities in your environment are represented by [digital twins](concepts-twins-graph.md). Managing your digital twins may include creation, modification, and removal. To do these operations, you can use the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client), or the [Azure Digital Twins CLI](concepts-cli.md).
 
 This article focuses on managing digital twins; to work with relationships and the [twin graph](concepts-twins-graph.md) as a whole, see [How-to: Manage the twin graph with relationships](how-to-manage-graph.md).
 
@@ -138,7 +138,7 @@ You can read more about the serialization helper classes like `BasicDigitalTwin`
 
 ## View all digital twins
 
-To view all of the digital twins in your instance, use a [query](how-to-query-graph.md). You can run a query with the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](how-to-use-cli.md).
+To view all of the digital twins in your instance, use a [query](how-to-query-graph.md). You can run a query with the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](concepts-cli.md).
 
 Here is the body of the basic query that will return a list of all digital twins in the instance:
 

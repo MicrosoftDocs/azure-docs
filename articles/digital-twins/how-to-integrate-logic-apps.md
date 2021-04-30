@@ -43,7 +43,7 @@ You also need to complete the following items as part of prerequisite setup. The
 
 This article uses Logic Apps to update a twin in your Azure Digital Twins instance. To proceed, you should add at least one twin in your instance. 
 
-You can add twins using the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client), or the [Azure Digital Twins CLI](how-to-use-cli.md). For detailed steps on how to create twins using these methods, see [How-to: Manage digital twins](how-to-manage-twin.md).
+You can add twins using the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client), or the [Azure Digital Twins CLI](concepts-cli.md). For detailed steps on how to create twins using these methods, see [How-to: Manage digital twins](how-to-manage-twin.md).
 
 You will need the **_Twin ID_** of a twin in your instance that you've created.
 
@@ -209,7 +209,7 @@ You can choose other operations by selecting _+ New step_ on the same window.
 
 Now that your logic app has been created, the twin update event you defined in the Logic Apps Designer should occur on a recurrence of every three seconds. This means that after three seconds, you should be able to query your twin and see your new patched values reflected.
 
-You can query your twin via your method of choice (such as a [custom client app](tutorial-command-line-app.md), the [Azure Digital Twins Explorer sample app](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/), the [SDKs and APIs](concepts-apis-sdks.md), or the [CLI](how-to-use-cli.md)). 
+You can query your twin via your method of choice (such as a [custom client app](tutorial-command-line-app.md), the [Azure Digital Twins Explorer sample app](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/), the [SDKs and APIs](concepts-apis-sdks.md), or the [CLI](concepts-cli.md)). 
 
 For more about querying your Azure Digital Twins instance, see [How-to: Query the twin graph](how-to-query-graph.md).
 
