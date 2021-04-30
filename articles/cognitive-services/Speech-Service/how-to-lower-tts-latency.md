@@ -157,6 +157,84 @@ using (var synthesizer = new SpeechSynthesizer(config, null as AudioConfig))
 
 ::: zone-end
 
+::: zone pivot="programming-language-cpp"
+
+You can use the [`PullAudioOutputStream`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-pullaudiooutputstream), [`PushAudioOutputStream`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-pushaudiooutputstream), [`Synthesizing` event](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#synthesizing), and [`AudioDateStream`](https://docs.microsoft.com/cpp/cognitive-services/speech/audiodatastream) of the Speech SDK to enable streaming.
+
+Taking `AudioDateStream` as an example:
+
+```cpp
+auto synthesizer = SpeechSynthesizer::FromConfig(config, nullptr);
+auto result = synthesizer->SpeakTextAsync(text).get();
+auto audioDataStream = AudioDataStream::FromResult(result);
+uint8_t buffer[16000];
+uint32_t filledSize = 0;
+
+while ((filledSize = audioDataStream->ReadData(buffer, sizeof(buffer))) > 0)
+{
+    cout << filledSize << " bytes received." << endl;
+}
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+You can use the [`PullAudioOutputStream`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.pullaudiooutputstream), [`PushAudioOutputStream`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.pushaudiooutputstream), [`Synthesizing` event](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer.synthesizing#com_microsoft_cognitiveservices_speech_SpeechSynthesizer_Synthesizing), and [`AudioDateStream`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audiodatastream) of the Speech SDK to enable streaming.
+
+Taking `AudioDateStream` as an example:
+
+```java
+SpeechSynthesizer synthesizer = new SpeechSynthesizer(config, null);
+SpeechSynthesisResult result = synthesizer.StartSpeakingTextAsync(text).get();
+AudioDataStream audioDataStream = AudioDataStream.fromResult(result);
+byte[] buffer = new byte[16000];
+long filledSize = audioDataStream.readData(buffer);
+while (filledSize > 0) {
+    System.out.println(filledSize + " bytes received.");
+    filledSize = audioDataStream.readData(buffer);
+}
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+You can use the [`PullAudioOutputStream`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.pullaudiooutputstream), [`PushAudioOutputStream`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.pushaudiooutputstream), [`Synthesizing` event](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer#synthesizing), and [`AudioDateStream`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audiodatastream) of the Speech SDK to enable streaming.
+
+Taking `AudioDateStream` as an example:
+
+```python
+speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)
+result = speech_synthesizer.start_speaking_text_async(text).get()
+audio_data_stream = speechsdk.AudioDataStream(result)
+audio_buffer = bytes(16000)
+filled_size = audio_data_stream.read_data(audio_buffer)
+while filled_size > 0:
+    print("{} bytes received.".format(filled_size))
+    filled_size = audio_data_stream.read_data(audio_buffer)
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+
+You can use the [`SPXPullAudioOutputStream`](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxpullaudiooutputstream), [`SPXPushAudioOutputStream`](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxpushaudiooutputstream), [`Synthesizing` event](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechsynthesizer#addsynthesizingeventhandler), and [`SPXAudioDataStream`](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxaudiodatastream) of the Speech SDK to enable streaming.
+
+Taking `AudioDateStream` as an example:
+
+```Objective-C
+SPXSpeechSynthesizer *synthesizer = [[SPXSpeechSynthesizer alloc] initWithSpeechConfiguration:speechConfig audioConfiguration:nil];
+SPXSpeechSynthesisResult *speechResult = [synthesizer startSpeakingText:inputText];
+SPXAudioDataStream *stream = [[SPXAudioDataStream alloc] initFromSynthesisResult:speechResult];
+NSMutableData* data = [[NSMutableData alloc]initWithCapacity:16000];
+while ([stream readData:data length:16000] > 0) {
+    // read data here
+}
+```
+
+::: zone-end
+
 ## Pre-connect and reuse SpeechSynthesizer
 
 The Speech SDK uses websocket to communicate with the service.
