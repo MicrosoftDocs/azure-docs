@@ -47,7 +47,7 @@ When you add a condition to a role assignment, it can take up to 5 minutes for t
 
 Wait for 5 minutes and test the condition again.
 
-## Symptom - Copying and pasting a condition results in an error
+## Symptom - Error when copying and pasting a condition
 
 **Cause**
 
@@ -57,7 +57,7 @@ If you copy a condition from a document, it might include special characters and
 
 If you are certain that your condition is correct, delete all spaces and returns and then add back the relevant spaces.
 
-## Symptom - Adding a condition using Azure PowerShell results in a resource attribute is not valid error
+## Symptom - Resource attribute is not valid error when adding a condition using Azure PowerShell
 
 When you try to add a role assignment with a condition using Azure PowerShell, you get an error similar to:
 
@@ -78,7 +78,7 @@ Add a backtick (\`) before each dollar sign. The following shows an example. For
 $condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blobs.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade'))"
 ```
 
-## Symptom - Adding a condition using Azure CLI results in a resource attribute is not valid error
+## Symptom - Resource attribute is not valid error when adding a condition using Azure CLI
 
 When you try to add a role assignment with a condition using Azure CLI, you get an error similar to:
 
@@ -98,7 +98,7 @@ Add a backslash (\\) before each dollar sign. The following shows an example. Fo
 condition="((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blobs.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<\$key_case_sensitive\$>] StringEquals 'Cascade'))"
 ```
 
-## Symptom - Assigning a condition string to a variable in Bash results in an error
+## Symptom - Error when assigning a condition string to a variable in Bash
 
 When you try to assign a condition string to a variable in Bash, you get the `bash: !: event not found` message.
 
@@ -110,7 +110,7 @@ In Bash, if history expansion is enabled, you might see the message `bash: !: ev
 
 Disable history expansion with the command `set +H`. To re-enable history expansion, use `set -H`.
 
-## Symptom - Adding a condition using Azure CLI results in an unrecognized arguments error
+## Symptom - Unrecognized arguments error when adding a condition using Azure CLI
 
 When you try to add a role assignment with a condition using Azure CLI, you get an error similar to:
 
