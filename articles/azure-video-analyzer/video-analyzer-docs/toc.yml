@@ -138,3 +138,5 @@
     href: faq-edge.md 
   - name: Quotas and limitations
     href: quotas-limitations.md
+  - name: Production readiness and best practices
+    href: production-readines.md
