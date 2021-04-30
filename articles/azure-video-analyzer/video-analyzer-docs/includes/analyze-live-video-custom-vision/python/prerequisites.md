@@ -14,19 +14,13 @@ Prerequisites for this tutorial are:
 > You might be prompted to install Docker. Ignore this prompt.
 
 - [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer) on your development machine.
-- [Detect motion and emit events](../../../detect-motion-emit-events-quickstart.md) quickstart
-- Ensure you have:
-
-  - [Set up Azure Resources](#set-up-azure-resources)
-  - [Set up your development environment](../../common-includes/set-up-dev-environment.md)
+- [Set up your development environment](../../common-includes/set-up-dev-environment.md)
+- If you haven't complete the [Detect motion and emit events](../../../detect-motion-emit-events-quickstart.md) quickstart, be sure to [set up Azure resources](#set-up-azure-resources).    
 
 > [!Important]
 > This Custom Vision module only supports **Intel x86 and amd64** architectures. Check the architecture of your edge device before continuing.
 
 ## Set up Azure resources
-
-> [!TIP]
-> If you run into issues with Azure resources that get created, please view our **[troubleshooting guide](../../../troubleshoot.md)** to resolve some commonly encountered issues.
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
 
