@@ -54,8 +54,6 @@ landingContent:
           url: analyze-live-video-without-recording.md
     - linkListType: quickstart
       links:            
-        - text: Detect motion, record video in the cloud
-          url: detect-motion-record-video-clips-cloud.md #404
         - text: Track objects in live videos
           url: track-objects-live-video.md
         - text: Detect motion, record video on edge devices
@@ -64,8 +62,6 @@ landingContent:
       links:            
         - text: Analyze live video with Spatial Analysis
           url: computer-vision-for-spatial-analysis.md    
-        - text: Analyze live video with OV DL Streamer via gRPC extension
-          url: use-intel-grpc-vas-tutorial.md #404
         - text: Analyze live video with Custom Vision 
           url: analyze-live-video-custom-vision.md 
 
