@@ -195,10 +195,10 @@ To update the public access level for one or more existing containers in the Azu
 1. Select the containers for which you want to set the public access level.
 1. Use the **Change access level** button to display the public access settings.
 1. Select the desired public access level from the **Public access level** dropdown and click the OK button to apply the change to the selected containers.
-    
-    :::image type="content" source="media/anonymous-read-access-configure/configure-public-access-container.png" alt-text="Screenshot showing how to set public access level in the portal.":::
 
-When public access is disallowed for the storage account, a container's public access level cannot be set. If you attempt to set the container's public access level, you'll see that the se lightbox="media/anonymous-read-access-configure/configure-public-access-container.png"tting is disabled because public access is disallowed for the account.
+    :::image type="content" source="media/anonymous-read-access-configure/configure-public-access-container.png" alt-text="Screenshot showing how to set public access level in the portal." lightbox="media/anonymous-read-access-configure/configure-public-access-container.png":::
+    
+When public access is disallowed for the storage account, a container's public access level cannot be set. If you attempt to set the container's public access level, you'll see that the setting is disabled because public access is disallowed for the account.
 
 :::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Screenshot showing that setting container public access level is blocked when public access disallowed":::
 
