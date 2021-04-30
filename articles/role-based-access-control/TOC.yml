@@ -81,7 +81,7 @@
         href: role-assignments-external-users.md
     - name: PowerShell
       href: role-assignments-powershell.md
-    - name: Azure CLI
+    - name: CLI
       href: role-assignments-cli.md
     - name: REST API
       href: role-assignments-rest.md
@@ -94,7 +94,7 @@
       href: conditions-role-assignments-portal.md
     - name: PowerShell
       href: conditions-role-assignments-powershell.md
-    - name: Azure CLI
+    - name: CLI
       href: conditions-role-assignments-cli.md
     - name: REST API
       href: conditions-role-assignments-rest.md
@@ -120,7 +120,7 @@
       href: custom-roles-portal.md
     - name: PowerShell
       href: custom-roles-powershell.md
-    - name: Azure CLI
+    - name: CLI
       href: custom-roles-cli.md
     - name: REST API
       href: custom-roles-rest.md
@@ -147,7 +147,7 @@
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-role-based-access-control-limits
   - name: Azure PowerShell
     href: /powershell/module/az.resources
-  - name: Azure CLI
+  - name: CLI
     href: /cli/azure/role
   - name: REST API
     href: /rest/api/authorization/
