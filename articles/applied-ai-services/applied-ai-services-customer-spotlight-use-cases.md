@@ -7,7 +7,7 @@ manager: jeffme
 ms.service: applied-ai-services
 ms.subservice:
 ms.topic: overview
-ms.date: 04/24/2021
+ms.date: 04/30/2021
 ms.author: jeffme
 ---
 
@@ -15,10 +15,9 @@ ms.author: jeffme
 
 Customers are already leveraging Applied AI Services to add AI horsepower to their business scenarios.  
   
- <br>
- 
-![Progressive_Logo](./media/logo-progressive-01.png)  
+<br>
 
+![Progressive_Logo](./media/logo-progressive-01.png)
 ## Progressive helps customers make smarter insurance decisions with Bot Service Cognitive Search
 "One of the great things about Bot Service is that, out of the box, we could use it to quickly put together the basic framework for our bot." 
 
@@ -26,7 +25,7 @@ Customers are already leveraging Applied AI Services to add AI horsepower to the
 
 [Read the story >](https://customers.microsoft.com/en-us/story/789698-progressive-insurance-cognitive-services-insurance)  
    ​
- <br>
+<br>
   
 ![Wix Logo](./media/wix-logo.svg)
 ## WIX deploys smart, scalable search across 150 million websites with Cognitive Search 
