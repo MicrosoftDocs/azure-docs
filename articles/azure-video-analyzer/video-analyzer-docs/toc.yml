@@ -8,6 +8,8 @@
     href: ../video-analyzer-for-media-docs/video-indexer-overview.md
   - name: Video Analyzer terminology
     href: terminology.md
+  - name: Release notes
+    href: release-notes.md
 - name: Quickstarts
   items:
   - name: Get started - Azure Video Analyzer
