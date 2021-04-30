@@ -236,7 +236,7 @@ az managed-cassandra datacenter update \
     --cluster-name $clusterName \
     --data-center-name $dataCenterName \
     --base64-encoded-cassandra-yaml-fragment $yamlFragment
-   
+```
 
 ### <a id="get-datacenters-cluster"></a>Get the datacenters in a cluster
 
