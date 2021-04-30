@@ -2,15 +2,15 @@
 title: Bring dependencies or third party library to Azure Functions
 description: Learn how to bring files or third party library 
 ms.date: 4/6/2020
-ms.topic: tutorial
+ms.topic: article
 zone_pivot_groups: "bring-third-party-dependency-programming-functions"
 ---
 
 # Bring dependencies or third party library to Azure Functions
 
-In this tutorial, you learn to bring in third party dependencies, such as json files, binary files, and machine learning models, into your functions apps. Completing this tutorial might incur costs of a few US dollars in your Azure account for the potential storage cost, which you can minimize by cleaning-up resources when you're done.
+In this article, you learn to bring in third party dependencies, such as json files, binary files, and machine learning models, into your functions apps.
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 > [!div class="checklist"]
 > * Bring in dependencies via Functions Code project 
 ::: zone pivot="programming-language-python"
@@ -202,21 +202,21 @@ az webapp config storage-account add \
   --mount-path </path/to/mount>
 ```
 
-#### custom-id 
- Any unique string
-#### storage-type 
- Only AzureFiles is supported currently
-#### share-name 
- Pre-existing share
-#### mount-path 
- Path at which the share will be accessible inside the container. has to be of the format /dir-name. Cannot start with /home.
+
+
+|       Flag    |  Value     |
+| ------------- | ---------------------------------- | 
+| custom-id      |  Any unique string |
+| storage-type      |  Only AzureFiles is supported currently |
+| share-name      |  Pre-existing share |
+| mount-path     |   Path at which the share will be accessible inside the container. Value has to be of the format `/dir-name` and it cannot start with `/home` |
 
 Additional commands to modify/delete the file share configuration can be found [here](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-update)
 
 
 ### Uploading the dependencies to Azure Files
 
-One option to upload your dependency into Azure Files is through Azure portal. Refer to this [guide](../storage/files/storage-how-to-use-files-portal.md#upload-a-file) for instruction to upload dependencies using portal. 
+One option to upload your dependency into Azure Files is through Azure portal. Refer to this [guide](../storage/files/storage-how-to-use-files-portal.md#upload-a-file) for instruction to upload dependencies using portal. Other options to upload your dependencies into Azure Files are through [Azure CLI](../storage/files/storage-how-to-use-files-cli.md#upload-a-file) and [PowerShell](../storage/files/storage-how-to-use-files-powershell.md#upload-a-file).
 
 
 ### Accessing the dependencies in your code
@@ -268,6 +268,5 @@ When you deploy this code snippet to Azure, you need to configure a custom app s
 
 ## Next steps
 
-+ [Monitoring functions](functions-monitoring.md)
++ [Develop Functions in VS Code](functions-develop-vs-code.md)
 + [Scale and hosting options](functions-scale.md)
-+ [Kubernetes-based serverless hosting](functions-kubernetes-keda.md)
