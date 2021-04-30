@@ -2,7 +2,7 @@
 title: Selective disk backup and restore for Azure virtual machines
 description: In this article, learn about selective disk backup and restore using the Azure virtual machine backup solution.
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/03/2021
 ms.custom: references_regions , devx-track-azurecli
 ---
  
@@ -111,8 +111,6 @@ There's an additional **diskExclusionProperties** parameter added to the protect
 
 ### Get backup job with Azure CLI
 
-_BackupJobID_ is the Backup Job name. To fetch the job name, run the following command:
-
 ```azurecli
 az backup job show --vault-name {vaultname} --resource-group {resourcegroup} -n {BackupJobID}
 ```
@@ -124,6 +122,11 @@ This command helps get the details of the backed-up disks and excluded disks as 
    "Excluded disk(s)": "diskextest_DataDisk_2",
 ```
 
+_BackupJobID_ is the Backup Job name. To fetch the job name, run the following command:
+
+```azurecli
+az backup job list --resource-group {resourcegroup} --vault-name {vaultname}
+```
 ### List recovery points with Azure CLI
 
 ```azurecli
