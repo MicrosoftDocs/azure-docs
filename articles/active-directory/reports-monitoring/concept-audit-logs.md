@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/26/2021
+ms.date: 04/30/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -34,9 +34,9 @@ To support you with this goal, the Azure Active Directory portal gives you acces
 This article gives you an overview of the audit logs.
 
 
-## What can you do with it?
+## What is it?
 
-With the Azure AD audit logs, you get records of system activities for compliance.
+With the audit logs in Azure AD, you get access to records of system activities for compliance.
 The most common views of this log are based on the following categories:
 
 - User management
@@ -46,7 +46,7 @@ The most common views of this log are based on the following categories:
 - Application management  
 
 
-With a user or group-centric view, you can get answers to questions such as:
+With a user-centric view, you can get answers to questions such as:
 
 - What types of updates have been applied to users?
 
@@ -56,6 +56,9 @@ With a user or group-centric view, you can get answers to questions such as:
 
 - What has an administrator done in a directory?
 
+
+With a group-centric view, you can get answers to questions such as:
+
 - What are the groups that have been added?
 
 - Are there groups with membership changes?
@@ -63,7 +66,6 @@ With a user or group-centric view, you can get answers to questions such as:
 - Have the owners of group been changed?
 
 - What licenses have been assigned to a group or a user?
-
 
 With an application-centric view, you can get answers to questions such as:
 
@@ -78,6 +80,10 @@ With an application-centric view, you can get answers to questions such as:
 - Who gave consent to an application?
 
  
+## What license do I need?
+
+The audit activity report is available in all editions of Azure AD.
+
 ## Who can access it?
 
 To access the audit logs, you need to be in one of the following roles: 
@@ -88,13 +94,16 @@ To access the audit logs, you need to be in one of the following roles:
 - Global Reader
 - Global Administrator
 
-## Where can you find it in the Azure portal?
+## Where can I find it?
 
 The Azure portal provides you with several options to access the log. For example, on the Azure Active Directory menu, you can open the log in the **Monitoring** section.  
 
-![Open provisioning logs](./media/concept-provisioning-logs/provisioning-logs-menu.png)
+![Open audit logs](./media/concept-audit-logs/audit-logs-menu.png)
 
-Additionally, you can get directly get to the audit logs using this link: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/ProvisioningEvents](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/ProvisioningEvents)
+Additionally, you can get directly get to the audit logs using [this link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/ProvisioningEvents).
+
+
+You can also access the audit log through the Microsoft Graph API.
 
 
 ## What is the default view?
@@ -121,94 +130,6 @@ This enables you to display additional fields or remove fields that are already 
 Select an item in the list view to get more detailed information.
 
 ![select item](./media/concept-audit-logs/details.png "Select item")
-
-
-## Filtering audit logs
-
-You can filter the audit data on the following fields:
-
-- Service
-- Category
-- Activity
-- Status
-- Target
-- Initiated by (Actor)
-- Date range
-
-![Filter object](./media/concept-audit-logs/filter.png "Filter object")
-
-The **Service** filter allows you to select from a drop-down list of the following services:
-
-- All
-- AAD Management UX
-- Access Reviews
-- Account Provisioning
-- Application Proxy
-- Authentication Methods
-- B2C
-- Conditional Access
-- Core Directory
-- Entitlement Management
-- Hybrid Authentication
-- Identity Protection
-- Invited Users
-- MIM Service
-- MyApps
-- PIM
-- Self-service Group Management
-- Self-service Password Management
-- Terms of Use
-
-The **Category** filter enables you to select one of the following filters:
-
-- All
-- AdministrativeUnit
-- ApplicationManagement
-- Authentication
-- Authorization
-- Contact
-- Device
-- DeviceConfiguration
-- DirectoryManagement
-- EntitlementManagement
-- GroupManagement
-- KerberosDomain
-- KeyManagement
-- Label
-- Other
-- PermissionGrantPolicy
-- Policy
-- ResourceManagement
-- RoleManagement
-- UserManagement
-
-The **Activity** filter is based on the category and activity resource type selection you make. You can select a specific activity you want to see or choose all. 
-
-You can get the list of all Audit Activities using the Graph API: `https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
-
-The **Status** filter allows you to filter based on the status of an audit operation. The status can be one of the following:
-
-- All
-- Success
-- Failure
-
-The **Target** filter allows you to search for a particular target by the starting of the name or user principal name (UPN). The target name and UPN are case-sensitive. 
-
-The **Initiated by** filter enables you to define what an actor's name or a universal principal name (UPN) starts with. The name and UPN are case-sensitive.
-
-The **Date range** filter enables to you to define a timeframe for the returned data.  
-Possible values are:
-
-- 7 days
-- 24 hours
-- Custom
-
-When you select a custom timeframe, you can configure a start time and an end time.
-
-You can also choose to download the filtered data, up to 250,000 records, by selecting the **Download** button. You can download the logs in either CSV or JSON format. The number of records you can download is constrained by the [Azure Active Directory report retention policies](reference-reports-data-retention.md).
-
-![Download data](./media/concept-audit-logs/download.png "Download data")
-
 
 
 
