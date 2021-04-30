@@ -43,16 +43,19 @@ Prepare Azure for migration with the [Server Migration tool](../../../migrate/mi
 |--- | ---
 |**Create an Azure Migrate project** | Your Azure account needs Contributor or Owner permissions to [create a new project](../../../migrate/create-manage-projects.md).|
 |**Verify permissions for your Azure account** | Your Azure account needs Contributor or Owner permissions on the Azure subscription, permissions to register Azure Active Directory (AAD) apps, and User Access Administrator permissions on the Azure subscription to create a Key Vault, to create a VM, and to write to an Azure managed disk. |
-|**Setup an Azure virtual network** | [Setup](/virtual-network/manage-virtual-network.md#create-a-virtual-network) an Azure virtual network (VNet). When you replicate to Azure, Azure VMs are created and joined to the Azure VNet that you specify when you set up migration.|
+|**Set up an Azure virtual network** | [Setup](/virtual-network/manage-virtual-network.md#create-a-virtual-network) an Azure virtual network (VNet). When you replicate to Azure, Azure VMs are created and joined to the Azure VNet that you specify when you set up migration.|
 
 
-If you need to assign permissions, follow these steps: 
+To check you have proper permissions, follow these steps: 
 
 1. In the Azure portal, open the subscription, and select **Access control (IAM)**.
 2. In **Check access**, find the relevant account, and select it to view permissions.
 3. You should have **Contributor** or **Owner** permissions.
     - If you just created a free Azure account, you're the owner of your subscription.
     - If you're not the subscription owner, work with the owner to assign the role.
+
+If you need to assign permissions, follow the steps in [Prepare for an Azure user account](../../../migrate/tutorial-discover-vmware.md#prepare-an-azure-user-account)
+
 
 ## Prepare for migration
 
@@ -70,7 +73,7 @@ Ensure source machines comply with requirements to migrate to Azure. Follow thes
 
 ### Prepare for replication 
 
-Azure Migrate:Server Migration uses a replication appliance to replicate machines to Azure. The replication appliance runs the following components: 
+Azure Migrate: Server Migration uses a replication appliance to replicate machines to Azure. The replication appliance runs the following components: 
 
 - **Configuration server**: The configuration server coordinates communications between on-premises and Azure, and manages data replication.
 - **Process server**: The process server acts as a replication gateway. It receives replication data; optimizes it with caching, compression, and encryption, and sends it to a cache storage account in Azure. 
@@ -135,7 +138,7 @@ To install the Mobility service, follow these steps:
     - Store the file in a temporary text file on the machine.
     - You can obtain the passphrase on the replication appliance. From the command line, run **C:\ProgramData\ASR\home\svsystems\bin\genpassphrase.exe -v** to view the current passphrase.
     - Don't regenerate the passphrase. This will break connectivity and you will have to reregister the replication appliance.
-    - In the */Platform* parameter, specify *VMware* for both VMWare machines and physical machines. 
+    - In the */Platform* parameter, specify *VMware* for both VMware machines and physical machines. 
 
 1. Connect to the machine and extract the contents of the installer file to a local folder (such as c:\temp). Run this in an admin command prompt: 
 
@@ -288,7 +291,7 @@ After machines are replicated, they are ready for migration. To migrate your ser
 
     ![Replicating servers](../../../migrate/media/tutorial-migrate-physical-virtual-machines/replicate-servers.png)
 
-2. To ensure the migrated server is synchronized with the source server, stop the SQL Server service on every replica in the availability group, starting with secondary replicas (in **SQL Server Configuration Manager** > **Services** ) while ensuring the disks hosting SQL data are online.   
+2. To ensure the migrated server is synchronized with the source server, stop the SQL Server service on every replica in the availability group, starting with secondary replicas (in **SQL Server Configuration Manager** > **Services) while ensuring the disks hosting SQL data are online.   
 3. In **Replicating machines** > select server name > **Overview**, ensure that the last synchronized timestamp is after you have stopped the SQL Server service on the servers to be migrated before you move onto the next step. This should only take a few minutes. 
 2. In **Replicating machines**, right-click the VM > **Migrate**.
 3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **No** > **OK**.
@@ -303,7 +306,7 @@ After machines are replicated, they are ready for migration. To migrate your ser
 
 After your VMs have migrated, reconfigure the cluster. Follow these steps: 
 
-1. Shutdown the migrated servers in Azure.
+1. Shut down the migrated servers in Azure.
 1.  Add the migrated machines to the backend pool of the load balancer. Navigate to **Load Balancer** > **Backend pools** > select backend pool > **add migrated machines**. 3. Start the migrated servers in Azure and login to any node. 
 1. Copy the `ClusterConfig.csv` file and run the `Update-ClusterConfig.ps1` script passing the CSV as a parameter. This ensures the cluster resources are updated with the new configuration for the cluster to work in Azure. 
 

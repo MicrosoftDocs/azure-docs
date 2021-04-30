@@ -42,16 +42,18 @@ Prepare Azure for migration with Server Migration.
 --- | ---
 **Create an Azure Migrate project** | Your Azure account needs Contributor or Owner permissions to [create a new project](https://docs.microsoft.com/azure/migrate/create-manage-projects).
 **Verify permissions for your Azure account** | Your Azure account needs Contributor or Owner permissions on the Azure subscription, permissions to register Azure Active Directory (AAD) apps, and User Access Administrator permissions on the Azure subscription to create a Key Vault, to create a VM, and to write to an Azure managed disk.
-**Setup an Azure virtual network** | [Setup](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network) an Azure virtual network (VNet). When you replicate to Azure, Azure VMs are created and joined to the Azure VNet that you specify when you set up migration.
+**Set up an Azure virtual network** | [Setup](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network) an Azure virtual network (VNet). When you replicate to Azure, Azure VMs are created and joined to the Azure VNet that you specify when you set up migration.
 
 
-### Assign permissions to create project
+To check you have proper permissions, follow these steps: 
 
 1. In the Azure portal, open the subscription, and select **Access control (IAM)**.
 2. In **Check access**, find the relevant account, and select it to view permissions.
 3. You should have **Contributor** or **Owner** permissions.
     - If you just created a free Azure account, you're the owner of your subscription.
     - If you're not the subscription owner, work with the owner to assign the role.
+
+If you need to assign permissions, follow the steps in [Prepare for an Azure user account](../../../migrate/tutorial-discover-vmware.md#prepare-an-azure-user-account)
 
 
 ## Prepare for migration
@@ -132,7 +134,7 @@ To install the Mobility service, follow these steps:
     - Store the file in a temporary text file on the machine.
     - You can obtain the passphrase on the replication appliance. From the command line, run **C:\ProgramData\ASR\home\svsystems\bin\genpassphrase.exe -v** to view the current passphrase.
     - Don't regenerate the passphrase. This will break connectivity and you will have to reregister the replication appliance.
-    - In the */Platform* parameter, specify *VMware* for both VMWare machines and physical machines. 
+    - In the */Platform* parameter, specify *VMware* for both VMware machines and physical machines. 
 
 1. Connect to the machine and extract the contents of the installer file to a local folder (such as c:\temp). Run this in an admin command prompt: 
 
@@ -192,13 +194,13 @@ ServicePort | Specify the service port to be used by each resource in the CSV fi
 
 **Parameter** | **Type** | **Description**
 --- | --- | ---
-ConfigFilePath |  Specify the path for the `Cluster-Config.csv` file that you have filled out in the previous step.
-ResourceGroupName | Specify the name of the resource Group in which the load balancer is to be created. 
-VNetName | Specify the name of the Azure virtual network that the load balancer will be associated to. 
-SubnetName | Specify the name of the subnet in the Azure virtual network that the load balancer will be associated to. 
-VNetResourceGroupName | Specify the name of the resource group for the Azure virtual network that the load balancer will be associated to. 
-Location | Specify the location in which the load balancer should be created. 
-LoadBalancerName | Specify the name of the load balancer to be created. 
+ConfigFilePath | Mandatory |  Specify the path for the `Cluster-Config.csv` file that you have filled out in the previous step.
+ResourceGroupName | Mandatory| Specify the name of the resource Group in which the load balancer is to be created. 
+VNetName | Mandatory| Specify the name of the Azure virtual network that the load balancer will be associated to. 
+SubnetName | Mandatory| Specify the name of the subnet in the Azure virtual network that the load balancer will be associated to. 
+VNetResourceGroupName | Mandatory| Specify the name of the resource group for the Azure virtual network that the load balancer will be associated to. 
+Location | Mandatory| Specify the location in which the load balancer should be created. 
+LoadBalancerName | Mandatory| Specify the name of the load balancer to be created. 
 
 
 ```powershell
@@ -275,7 +277,7 @@ Replication proceeds in the following sequence:
 - When you select **Replicate** a _Start Replication_ job begins. 
 - When the _Start Replication_ job finishes successfully, the machines begin their initial replication to Azure.
 - After initial replication finishes, delta replication begins. Incremental changes to on-premises disks are periodically replicated to the replica disks in Azure.
-- After the initial replication is completed, configure the Compute and Network items for each VM. Cluster typically have multiple NICs. Only one NIC is required for the migration. (set the others as do not create).
+- After the initial replication is completed, configure the Compute and Network items for each VM. Clusters typically have multiple NICs but only one NIC is required for the migration (set the others as do not create).
 
 You can track job status in the portal notifications.
 
@@ -306,10 +308,10 @@ After machines are replicated, they are ready for migration. To migrate your ser
 
 After your VMs have migrated, reconfigure the cluster. Follow these steps: 
 
-1. Shutdown the migrated servers in Azure.
+1. Shut down the migrated servers in Azure.
 2. Add the migrated machines to the backend pool of the load balancer. Navigate to **Load Balancer** > **Backend pools** > select backend pool > **add migrated machines**. 
 
-3. Re-configure the migrated disks of the servers as shared disks by running the `Create-SharedDisks.ps1` script. The script is interactive and will prompt for a list of machines and then show available disks to be extracted (only data disks). You will be prompted once to select which machines contain the drives to be turned into shared disks. Once selected, you will be prompted again, once per machine, to pick the specific disks. 
+3. Reconfigure the migrated disks of the servers as shared disks by running the `Create-SharedDisks.ps1` script. The script is interactive and will prompt for a list of machines and then show available disks to be extracted (only data disks). You will be prompted once to select which machines contain the drives to be turned into shared disks. Once selected, you will be prompted again, once per machine, to pick the specific disks. 
 
    **Parameter** | **Type** | **Description**
    --- | --- | ---
