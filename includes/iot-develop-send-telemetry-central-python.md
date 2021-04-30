@@ -10,7 +10,8 @@
 ---
 
 ## Prerequisites
-- [Python](https://www.python.org/downloads/) version 3.7 or later. To check your Python version, run `python --version`. 
+- [Python](https://www.python.org/downloads/) version 3.7 or later. To check your Python version, run `python --version`.
+- You can run this quickstart on Linux or Windows. The shell commands use the standard Linux path separator `/`. If you use use Windows, replace these separators with the Windows path separator `\`.
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
@@ -26,9 +27,6 @@ In this section, you install the Azure IoT Python device sdk, configure your loc
     ```
 
 1. Navigate to the samples directory.
-    > [!NOTE]
-    > If you use Bash, in file system paths replace the Windows path separator `\` with the Bash path separator `/`. 
-
     ```console
     cd azure-iot-sdk-python/azure-iot-device/samples/pnp
     ```

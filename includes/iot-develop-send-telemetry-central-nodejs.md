@@ -11,6 +11,7 @@
 
 ## Prerequisites
 - [Node.js](https://nodejs.org/) version 6 or later. To check your version, run `node --version` in your console app. 
+- You can run this quickstart on Linux or Windows. The shell commands use the standard Linux path separator `/`. If you use use Windows, replace these separators with the Windows path separator `\`.
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
@@ -26,9 +27,6 @@ In this section, you install the Azure IoT Node device sdk samples, configure yo
     ```
 
 1. Navigate to the samples directory.
-    > [!NOTE]
-    > If you use Bash, in file system paths replace the Windows path separator `\` with the Bash path separator `/`. 
-
     ```console
     cd azure-iot-sdk-node/device/samples/pnp
     ```
