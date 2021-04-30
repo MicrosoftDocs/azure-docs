@@ -47,19 +47,9 @@ Credentials are a part of our daily lives; driver's licenses are used to assert 
 
 There are multiple ways of offering a recovery mechanism to users, each with their own tradeoffs. We're currently evaluating options and designing approaches to recovery that offer convenience and security while respecting a user's privacy and self-sovereignty.
 
-### Why does validation of a verifiable credential require a query to a credential status endpoint? Is this not a privacy concern?
-
-The `credentialStatus` property in a verifiable credential requires the verifier to query the credential's issuer during validation. This is a convenient and efficient way for the issuer to be able to revoke a credential that has been previously issued. This also means that the issuer can track which verifiers have accessed a user's credentials. In some use cases this is desirable, but in many, this would be considered a serious violation of user privacy. We are exploring alternative means of credential revocation that will allow an issuer to revoke a verifiable credential without being able to trace a credential's usage. 
-
-<!-- Additionally, an issuer can issuer a Verifiable Credential without a 'credentialStatus' endpoint. Please follow the instructions in [How to customize your verifiable credentials article.](credential-design.md) -->
-
 ### How can a user trust a request from an issuer or verifier? How do they know a DID is the real DID for an organization?
 
 We have implemented [the Decentralized Identity Foundation's Well Known DID Configuration spec](https://identity.foundation/.well-known/resources/did-configuration/) in order to connect a DID to a highly known existing system, domain names. Each DID created using the  Azure Active Directory Verifiable Credentials has the option of including a root domain name that will be encoded in the DID Document. Follow the article titled [Link your Domain to your Distributed Identifier](how-to-dnsbind.md) to learn more.  
-
-### Does a user need to periodically rotate their DID keys?
-
-The DID methods used in verifiable credential exchanges support the ability for a user to update the keys associated with their DID. Currently, Microsoft Authenticator does not change the user's keys after a DID has been created.
 
 ### Why does the Verifiable Credential preview use ION as its DID method, and therefore Bitcoin to provide decentralized public key infrastructure?
 
@@ -79,3 +69,13 @@ Yes! The following repositories are the open-sourced components of our services.
 2. The [VC SDK for Node, on GitHub](https://github.com/microsoft/VerifiableCredentials-Verification-SDK-Typescript)
 3. An [Android SDK for building decentralized identity wallets, on GitHub](https://github.com/microsoft/VerifiableCredential-SDK-Android)
 4. An [iOS SDK for building decentralized identity wallets, on GitHub](https://github.com/microsoft/VerifiableCredential-SDK-iOS)
+
+
+## What are the licensing requirements?
+
+An Azure AD P2 license is required to use the preview of Verifiable Credentials. This is a temporary requirement, as we expect pricing for this service to be billed based on usage. 
+
+
+## Next steps
+
+- [How to customize your Azure Active Directory Verifiable Credentials](credential-design.md)

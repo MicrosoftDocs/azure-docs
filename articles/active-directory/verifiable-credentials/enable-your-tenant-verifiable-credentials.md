@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Configure your Azure Active Directory to issue verifiable credentials (Preview)"
+title: Tutorial - Configure your Azure Active Directory to issue verifiable credentials (Preview)
 description: In this tutorial, you build the environment needed to deploy verifiable credentials in your tenant
 documentationCenter: ''
 author: barclayn
@@ -7,7 +7,7 @@ manager: daveba
 ms.service: identity
 ms.topic: tutorial
 ms.subservice: verifiable-credentials
-ms.date: 03/31/2021
+ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: 
 
@@ -15,7 +15,7 @@ ms.reviewer:
 
 ---
 
-# Tutorial: Configure your Azure Active Directory to issue verifiable credentials (Preview)
+# Tutorial - Configure your Azure Active Directory to issue verifiable credentials (Preview)
 
 In this tutorial, we build on the work done as part of the [get started](get-started-verifiable-credentials.md) article and set up your Azure Active Directory (Azure AD) with its own [decentralized identifier](https://www.microsoft.com/security/business/identity-access-management/decentralized-identity-blockchain?rtc=1#:~:text=Decentralized%20identity%20is%20a%20trust,protect%20privacy%20and%20secure%20transactions.) (DID). We use the decentralized identifier to issue a verifiable credential using the sample app and your issuer; however, in this tutorial, we still use the sample Azure B2C tenant for authentication.  In our next tutorial, we will take additional steps to get the app configured to work with your Azure AD.
 
@@ -89,9 +89,10 @@ Take note of the two properties listed below:
 >[!IMPORTANT]
 > During the Azure Active Directory Verifiable Credentials preview, keys and secrets created in your vault should not be modified once created. Deleting, disabling, or updating your keys and secrets invalidates any issued credentials. Do not modify your keys or secrets during the preview.
 
-## Create a Modified Rules and Display File
+## Create a modified rules and display file
 
-In this section, we use the rules and display files from the Sample issuer app and modify them slightly to create your tenant's first verifiable credential.
+In this section, we use the rules and display files from the [Sample issuer app](https://github.com/Azure-Samples/active-directory-verifiable-credentials/)
+ and modify them slightly to create your tenant's first verifiable credential.
 
 1. Copy both the rules and display json files to a temporary folder and rename them **MyFirstVC-display.json** and **MyFirstVC-rules.json** respectively. You can find both files under **issuer\issuer_config**
 
@@ -99,7 +100,7 @@ In this section, we use the rules and display files from the Sample issuer app a
 
    ![display and rules files in a temp folder](media/enable-your-tenant-verifiable-credentials/display-rules-files-temp.png)
 
-2. Open up the MyFirstVC-rules.json file in your code editor. 
+2. Open the MyFirstVC-rules.json file in your code editor. 
 
     ```json
          {
@@ -124,19 +125,19 @@ In this section, we use the rules and display files from the Sample issuer app a
       
     ```
 
-Now let's change the type field to "MyFirstVC". 
+   Now let's change the type field to "MyFirstVC". 
 
-  ```json
-   "type": ["MyFirstVC"]
+   ```json
+    "type": ["MyFirstVC"]
   
-  ```
+   ```
 
-Save this change.
+   Save this change.
 
- >[!NOTE]
+   >[!NOTE]
    > We are not changing the **"configuration"** or the **"client_id"** at this point in the tutorial. We still use the Microsoft B2C tenant we used in the [Get started](get-started-verifiable-credentials.md). We will use your Azure AD in the next tutorial.
 
-3. Open up the MyFirstVC-display.json file in your code editor.
+3. Open the MyFirstVC-display.json file in your code editor.
 
    ```json
        {
@@ -171,17 +172,22 @@ Save this change.
       }
    ```
 
-Lets make a few modifications so this verifiable credential looks visibly different from sample code's version. 
-    
-```json
-     "card": {
-        "title": "My First VC",
-        "issuedBy": "Your Issuer Name",
-        "backgroundColor": "#ffffff",
-        "textColor": "#000000",
-```
+   Let's make a few modifications so this verifiable credential looks visibly different from sample code's version. 
 
-Save these changes.
+    ```json
+         "card": {
+            "title": "My First VC",
+            "issuedBy": "Your Issuer Name",
+            "backgroundColor": "#ffffff",
+            "textColor": "#000000",
+          }
+    ```
+ 
+   >[!NOTE]
+   > To ensure that your credential is readable and accessible, we strongly recommend that you select text and background colors with a [contrast ratio](https://www.w3.org/WAI/WCAG21/Techniques/general/G18) of at least 4.5:1.  
+
+   Save these changes.
+
 ## Create a storage account
 
 Before creating our first verifiable credential, we need to create a Blob Storage container that can hold our configuration and rules files.
@@ -250,7 +256,7 @@ Now we need to take the last step to set up your tenant for verifiable credentia
 
 Congratulations, your tenant is now enabled for the Verifiable Credential preview!
 
-## Create your VC in the Portal
+## Create your VC in the portal
 
 The previous step leaves you in the **Create a new credential** page. 
 
@@ -295,7 +301,7 @@ Now we make modifications to the sample app's issuer code to update it with your
     node app.js
     ```
 
-6. Using a different command prompt run ngrok to set up a URL on 8081
+6. Using a different command prompt run ngrok to set up a URL on 8081. You can install ngrok globally using the [ngrok npm package](https://www.npmjs.com/package/ngrok/).
 
     ```terminal
     ngrok http 8081

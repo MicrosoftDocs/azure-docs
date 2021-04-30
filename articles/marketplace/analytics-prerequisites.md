@@ -15,7 +15,7 @@ Before you can programmatically access commercial marketplace analytics data, yo
 
 ## Commercial marketplace enrollment
 
-To access commercial marketplace analytics data programmatically, you need to be enrolled in the commercial marketplace program and have a Partner Center account. To learn how, see [Create a commercial marketplace account in Partner Center](./partner-center-portal/create-account.md).
+To access commercial marketplace analytics data programmatically, you need to be enrolled in the commercial marketplace program and have a Partner Center account. To learn how, see [Create a commercial marketplace account in Partner Center](create-account.md).
 
 ## Create Azure Active Directory application
 

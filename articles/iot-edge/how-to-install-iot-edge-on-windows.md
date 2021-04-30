@@ -37,7 +37,7 @@ This article lists the steps to set up IoT Edge on a Windows device. These steps
 
   * Windows 10 Version 1809 or later; build 17763 or later
   * Professional, Enterprise, or Server editions
-  * Minimum Free Memory: 2 GB
+  * Minimum Free Memory: 1 GB
   * Minimum Free Disk Space: 10 GB
   * If you're creating a new deployment using Windows 10, make sure you enable Hyper-V. For more information, see how to [Install Hyper-V on Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
   * If you're creating a new deployment using Windows Server, make sure you install Hyper-V role. For more information, see how to [Install the Hyper-V role on Windows Server](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).

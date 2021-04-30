@@ -5,11 +5,11 @@ description: Use the Docker containers for the Text Analytics API to perform nat
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18, cog-serv-seo-aug-2020
+ms.custom: seodec18, cog-serv-seo-aug-2020, devx-track-azurecli
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 03/29/2021
 ms.author: aahi
 keywords: on-premises, Docker, container, sentiment analysis, natural language processing
 ---
@@ -27,7 +27,7 @@ Containers enable you to run the Text Analytic APIs in your own environment and 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 > [!IMPORTANT]
-> The free account is limited to 5,000 transactions per month and only the **Free** and **Standard** <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">pricing tiers </a> are valid for containers. For more information on transaction request rates, see [Data Limits](../overview.md#data-limits).
+> The free account is limited to 5,000 transactions per month and only the **Free** and **Standard** <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">pricing tiers </a> are valid for containers. For more information on transaction request rates, see [Data Limits](../concepts/data-limits.md).
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ You must meet the following prerequisites before using Text Analytics containers
 
 [!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
 
-If you're using the Text Analytics for health container, the [responsible AI](https://docs.microsoft.com/legal/cognitive-services/text-analytics/transparency-note-health)  (RAI) acknowledgment must also be present with a value of `accept`.
+If you're using the Text Analytics for health container, the [responsible AI](/legal/cognitive-services/text-analytics/transparency-note-health)  (RAI) acknowledgment must also be present with a value of `accept`.
 
 ## The host computer
 

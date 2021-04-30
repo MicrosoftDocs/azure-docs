@@ -6,19 +6,19 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/21/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli, subject-rbac-steps
 ---
 
 # Deploy Azure Spring Cloud in a virtual network
 
-**This article applies to:** ✔️ Java ✔️ C#
+**This article applies to:** âœ”ï¸ Java âœ”ï¸ C#
 
 This tutorial explains how to deploy an Azure Spring Cloud instance in your virtual network. This deployment is sometimes called VNet injection.
 
 The deployment enables:
 
-* Isolation of Azure Spring Cloud apps and service runtime from the internet​ on your corporate network​.
-* Azure Spring Cloud interaction with systems in ​on-premises data centers ​or Azure services in other virtual networks.
+* Isolation of Azure Spring Cloud apps and service runtime from the internetâ€‹ on your corporate networkâ€‹.
+* Azure Spring Cloud interaction with systems in â€‹on-premises data centers â€‹or Azure services in other virtual networks.
 * Empowerment of customers to control inbound and outbound network communications for Azure Spring Cloud.
 
 > [!Note]
@@ -83,16 +83,9 @@ Select the virtual network **azure-spring-cloud-vnet** you previously created.
 
     ![Screenshot that shows the Access control screen.](./media/spring-cloud-v-net-injection/access-control.png)
 
-1. In the **Add role assignment** dialog box, enter or select the following information:
+1. Assign the [azure-spring-cloud-data-reader](../role-based-access-control/built-in-roles.md#azure-spring-cloud-data-reader) role to the [user | group | service-principal | managed-identity] at [management-group | subscription | resource-group | resource] scope.
 
-    |Setting  |Value                                             |
-    |---------|--------------------------------------------------|
-    |Role     |Select **Owner**.                                 |
-    |Select   |Enter **Azure Spring Cloud Resource Provider**.   |
-
-    Then select **Azure Spring Cloud Resource Provider**, and select **Save**.
-
-    ![Screenshot that shows selecting Azure Spring Cloud Resource Provider.](./media/spring-cloud-v-net-injection/grant-azure-spring-cloud-resource-provider-to-vnet.png)
+    For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 You can also do this step by running the following Azure CLI command:
 

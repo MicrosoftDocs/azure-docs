@@ -23,8 +23,8 @@ This quickstart shows you how to create a content key policy where you specify w
 ### Suggested pre-reading
 
 * [Dynamic encryption and key delivery](drm-content-protection-concept.md)
-* [Streaming locators](streaming-locators-concept.md)
-* [Streaming policies](streaming-policy-concept.md)
+* [Streaming locators](stream-streaming-locators-concept.md)
+* [Streaming policies](stream-streaming-policy-concept.md)
 * [Content key policies](drm-content-key-policy-concept.md)
 
 ## Prerequisites
@@ -75,7 +75,7 @@ You can also add an AES-128 clear key encryption to your content. The content ke
 1. In the **Streaming locator** section for the selected asset, press **+ Add a streaming locator**. 
 1. Select a **streaming policy** that is appropriate for the **content key policy** that you configured.
 
-    The [Streaming policies](streaming-policy-concept.md) topic gives details on what streaming policy matches what content key policy.
+    The [Streaming policies](stream-streaming-policy-concept.md) topic gives details on what streaming policy matches what content key policy.
 1. Once you select the appropriate streaming policy, you can select the content key policy from the drop-down list.
 1. Press **Add** to add the streaming locator to your asset.
 

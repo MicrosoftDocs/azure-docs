@@ -30,12 +30,13 @@ You can configure the Azure AD Connect Health service to send email notification
 >
 
 ### To enable Azure AD Connect Health email notifications
-1. Open the **Alerts** blade for the service for which you want to receive email notification.
-2. From the action bar, click **Notification Settings**.
-3. At the email notification switch, select **ON**.
-4. Select the check box if you want all global administrators to receive email notifications.
-5. If you want to receive email notifications at any other email addresses, specify them in the **Additional Email Recipients** box. To remove an email address from this list, right-click the entry and select **Delete**.
-6. To finalize the changes, click **Save**. Changes take effect only after you save.
+1. In the Azure Portal, search for Azure AD Connect Health
+2. Select **Sync errors**
+3. Select **Notification Settings**.
+5. At the email notification switch, select **ON**.
+6. Select the check box if you want all global administrators to receive email notifications.
+7. If you want to receive email notifications at any other email addresses, specify them in the **Additional Email Recipients** box. To remove an email address from this list, right-click the entry and select **Delete**.
+8. To finalize the changes, click **Save**. Changes take effect only after you save.
 
 >[!NOTE] 
 > When there are issues processing synchronization requests in our backend service, this service sends a notification email with the details of the error to the administrative contact email address(es) of your tenant. We heard feedback from customers that in certain cases the volume of these messages is prohibitively large so we are changing the way we send these messages. 
