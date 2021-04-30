@@ -21,7 +21,7 @@ Follow these steps to run the sample code:
 1. On the **LivePipelineSet** node, make sure you see the following value:
 
     ```
-    "topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/2.0/topology.json"
+    "topologyUrl" : "https://raw.githubusercontent.com/Azure/azure-video-analyzer/master/pipelines/live/topologies/motion-detection/2.0/topology.json"
     ```
 
 1. On the **LivePipelineSet** and **LivePipelineDelete**  nodes, ensure that the value of `topologyName` matches the value of the `name` property in the graph topology:
@@ -32,15 +32,15 @@ Follow these steps to run the sample code:
 1. The *operations.json* file starts off with calls to `LivePipelineTopologyList` and `LivePipelineInstanceList`. If you cleaned up resources after you finished previous quickstarts, then this process will return empty lists and then pause. To continue, select the Enter key.
 
     ```
-    --------------------------------------------------------------------------
-    Executing operation GraphTopologyList
-    -----------------------  Request: GraphTopologyList  --------------------------------------------------
+     --------------------------------------------------------------------------
+    Executing operation pipelineTopologyList
+    -----------------------  Request: pipelineTopologyList  --------------------------------------------------
     {
-        "@apiVersion": "2.0"
+      "@apiVersion": "1.0"
     }
-    ---------------  Response: GraphTopologyList - Status: 200  ---------------
+    ---------------  Response: pipelineTopologyList - Status: 200  ---------------
     {
-        "value": []
+      "value": []
     }
     --------------------------------------------------------------------------
     Executing operation WaitForInput
@@ -53,26 +53,26 @@ Follow these steps to run the sample code:
          
     ```
     {
-      "@apiVersion": "2.0",
-      "name": "Sample-LivePipeline",
-      "properties": {
-        "topologyName": "MotionDetection",
-        "description": "Sample LivePipeline description",
-        "parameters": [
-          {
-            "name": "rtspUrl",
-            "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
-          },
-          {
-            "name": "rtspUserName",
-            "value": "testuser"
-          },
-          {
-            "name": "rtspPassword",
-            "value": "testpassword"
-          }
-        ]
-      }
+       "@apiVersion": "1.0",
+       "name": "Sample-Pipeline-1",
+       "properties": {
+         "topologyName": "MotionDetection",
+         "description": "Sample topology description",
+         "parameters": [
+           {
+             "name": "rtspUrl",
+             "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+           },
+           {
+             "name": "rtspUserName",
+             "value": "testuser"
+           },
+           {
+             "name": "rtspPassword",
+             "value": "testpassword"
+           }
+         ]
+       }
     }
     ```
      
