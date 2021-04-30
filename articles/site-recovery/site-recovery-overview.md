@@ -2,7 +2,7 @@
 title: About Azure Site Recovery
 description: Provides an overview of the Azure Site Recovery service, and summarizes disaster recovery and migration deployment scenarios.
 ms.topic: overview
-ms.date: 03/17/2020
+ms.date: 04/30/2021
 ms.custom: MVC
 ---
 
