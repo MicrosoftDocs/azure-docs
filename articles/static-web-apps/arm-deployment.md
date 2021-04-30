@@ -50,11 +50,12 @@ One of the required parameters in the ARM template is `repositoryToken`, which a
 
 1. Specify the following *scopes*: **repo, workflow, write:packages**
 
-1. As your token is created the details are shown on screen.
+1. Select **Generate token**.
+
+1. Copy the token value and paste it into a text editor for later use.
 
 > [!IMPORTANT]
 > Make sure you copy this token and store it somewhere safe. Consider storing this token in [Azure KeyVault](../azure-resource-manager/templates/template-tutorial-use-key-vault.md) and access it in your ARM Template. 
-
 ## Create a GitHub repo
 
 The following steps demonstrate how to create a new repository for a static web app.
