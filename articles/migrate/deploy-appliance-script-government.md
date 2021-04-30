@@ -113,6 +113,7 @@ Here's what the script does:
 
 - Installs agents and a web application.
 - Installs Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
+- Downloads and installs an IIS rewritable module.
 - Updates a registry key (HKLM), with persistent settings for Azure Migrate.
 - Creates log and configuration files as follows:
     - **Config Files**: %ProgramData%\Microsoft Azure\Config
@@ -165,6 +166,7 @@ Here's what the script does:
 
 - Installs agents and a web application.
 - Installs Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
+- Downloads and installs an IIS rewritable module.
 - Updates a registry key (HKLM), with persistent settings for Azure Migrate.
 - Creates log and configuration files as follows:
     - **Config Files**: %ProgramData%\Microsoft Azure\Config
