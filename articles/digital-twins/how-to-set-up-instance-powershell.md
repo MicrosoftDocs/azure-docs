@@ -25,8 +25,8 @@ Digital Twins instance ready to start programming against.
 
 This version of this article goes through these steps manually, one by one, using [Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
-* To go through these steps manually using the Azure portal, see the portal version of this article: [*How-to: Set up an instance and authentication (portal)*](how-to-set-up-instance-portal.md).
-* To run through an automated setup using a deployment script sample, see the scripted version of this article: [*How-to: Set up an instance and authentication (scripted)*](how-to-set-up-instance-scripted.md).
+* To go through these steps manually using the Azure portal, see the portal version of this article: [How-to: Set up an instance and authentication (portal)](how-to-set-up-instance-portal.md).
+* To run through an automated setup using a deployment script sample, see the scripted version of this article: [How-to: Set up an instance and authentication (scripted)](how-to-set-up-instance-scripted.md).
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
@@ -82,7 +82,7 @@ You'll need to provide:
   ```
 
 * A region for the deployment. To see what regions support Azure Digital Twins, visit
-  [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
+  [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 * A name for your instance. The name of the new instance must be unique within the region for your
   subscription. If your subscription has another Azure Digital Twins instance in the region that's
   already using the specified name, you'll be asked to pick a different name.
@@ -163,4 +163,4 @@ You now have an Azure Digital Twins instance ready to go, and have assigned perm
 ## Next steps
 
 See how to connect a client application to your instance with authentication code:
-* [*How-to: Write app authentication code*](how-to-authenticate-client.md)
+* [How-to: Write app authentication code](how-to-authenticate-client.md)

@@ -2,7 +2,7 @@
 title: Managed identities for Azure resources with Service Bus
 description: This article describes how to use managed identities to access with Azure Service Bus entities (queues, topics, and subscriptions).
 ms.topic: article
-ms.date: 01/21/2021
+ms.date: 04/23/2021
 ---
 
 # Authenticate a managed identity with Azure Active Directory to access Azure Service Bus resources
@@ -86,13 +86,8 @@ Once the application is created, follow these steps:
 
 Once you've enabled this setting, a new service identity is created in your Azure Active Directory (Azure AD) and configured into the App Service host.
 
-> [!NOTE]
-> When you use a managed identity, the connection string should be in the format: `Endpoint=sb://<NAMESPACE NAME>.servicebus.windows.net/;Authentication=ManagedIdentity`.
-
-Now, assign this service identity to a role in the required scope in your Service Bus resources.
-
 ### To Assign Azure roles using the Azure portal
-To assign a role to a Service Bus namespace, navigate to the namespace in the Azure portal. Display the Access Control (IAM) settings for the resource, and follow these instructions to manage role assignments:
+Now, assign the service identity to a role in the required scope in your Service Bus resources. To assign a role to a Service Bus namespace, navigate to the namespace in the Azure portal. Display the Access Control (IAM) settings for the resource, and follow these instructions to manage role assignments:
 
 > [!NOTE]
 > The following steps assigns a service identity role to your Service Bus namespaces. You can follow the same steps to assign a role at other supported scopes (resource group and subscription). 
@@ -122,7 +117,7 @@ Now, modify the default page of the ASP.NET application you created. You can use
 
 The Default.aspx page is your landing page. The code can be found in the Default.aspx.cs file. The result is a minimal web application with a few entry fields, and with **send** and **receive** buttons that connect to Service Bus to either send or receive messages.
 
-Note how the [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) object is initialized. Instead of using the Shared Access Token (SAS) token provider, the code creates a token provider for the managed identity with the `var msiTokenProvider = TokenProvider.CreateManagedIdentityTokenProvider();` call. As such, there are no secrets to retain and use. The flow of the managed identity context to Service Bus and the authorization handshake are automatically handled by the token provider. It is a simpler model than using SAS.
+Note how the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object is initialized by using a constructor that takes a TokenCredential. The DefaultAzureCredential derives from TokenCredential and can be passed here. As such, there are no secrets to retain and use. The flow of the managed identity context to Service Bus and the authorization handshake are automatically handled by the token credential. It is a simpler model than using SAS.
 
 After you make these changes, publish and run the application. You can obtain the correct publishing data easily by downloading and then importing a publishing profile in Visual Studio:
 
