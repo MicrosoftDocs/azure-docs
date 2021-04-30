@@ -2,7 +2,7 @@
 title: Selective disk backup and restore for Azure virtual machines
 description: In this article, learn about selective disk backup and restore using the Azure virtual machine backup solution.
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 04/30/2020
 ms.custom: references_regions , devx-track-azurecli
 ---
  
@@ -30,7 +30,7 @@ Ensure you're using Az CLI version 2.0.80 or higher. You can get the CLI version
 az --version
 ```
 
-Sign in to the subscription ID where the Recovery Services vault and the VM exist:
+Sign in to the subscription ID, where the Recovery Services vault and the VM exist:
 
 ```azurecli
 az account set -s {subscriptionID}
@@ -42,6 +42,9 @@ az account set -s {subscriptionID}
 ### Configure backup with Azure CLI
 
 During the configure protection operation, you need to specify the disk list setting with an **inclusion** / **exclusion** parameter, giving the LUN numbers of the disks to be included or excluded in the backup.
+
+>[!NOTE]
+>The configure protection operation overrides the previous settings and is not cumulative.
 
 ```azurecli
 az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name {vaultname} --vm {vmname} --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
@@ -107,6 +110,8 @@ There's an additional **diskExclusionProperties** parameter added to the protect
 ```
 
 ### Get backup job with Azure CLI
+
+_BackupJobID_ is the Backup Job name. To fetch the job name, run the following command:
 
 ```azurecli
 az backup job show --vault-name {vaultname} --resource-group {resourcegroup} -n {BackupJobID}
@@ -185,6 +190,9 @@ When you execute these commands, you'll see `"diskExclusionProperties": null`.
 Ensure you're using Azure PowerShell version 3.7.0 or higher.
 
 During the configure protection operation, you need to specify the disk list setting with an inclusion / exclusion parameter, giving the LUN numbers of the disks to be included or excluded in the backup.
+
+>[!NOTE]
+>The configure protection operation overrides the previous settings and is not cumulative.
 
 ### Enable backup with PowerShell
 
