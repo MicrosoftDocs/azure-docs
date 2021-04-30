@@ -33,7 +33,7 @@ The following example is a sample client principal object:
 {
   "identityProvider": "github",
   "userId": "d75b260a64504067bfc5b2905e3b8182",
-  "userDetails": "user@example.com",
+  "userDetails": "username",
   "userRoles": ["anonymous", "authenticated"]
 }
 ```
