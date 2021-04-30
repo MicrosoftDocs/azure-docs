@@ -1,4 +1,17 @@
+---
+title: Secure an Azure Machine Learning workspace with virtual networks
+titleSuffix: Azure Machine Learning
+description: Use an isolated Azure Virtual Network to secure your Azure Machine Learning workspace and associated resources.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.reviewer: larryfr
+ms.author: larryfr
+author: larryfr
+ms.date: 03/17/2021
+ms.topic: how-to
 
+---
 # How to create a secure workspace
 
 In this article, learn how to create and connect to a secure Azure Machine Learning workspace.
@@ -6,7 +19,6 @@ In this article, learn how to create and connect to a secure Azure Machine Learn
 ## Prerequisites
 
 * Familiarity with Azure Virtual Networks
-* Familiarity with the Azure CLI
 
 ## Create a virtual network
 
