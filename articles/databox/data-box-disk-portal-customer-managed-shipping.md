@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 02/02/2021
+ms.date: 04/30/2021
 ms.author: alkohli
 ---
 
@@ -28,6 +28,7 @@ Self-managed shipping is available as an option when you [Order Azure Data Box D
 * South Korea
 * South Africa
 * India (Preview)
+* Brazil<!--NEW-->
 
 ## Use self-managed shipping
 
@@ -51,6 +52,22 @@ When you place a Data Box Disk order, you can choose self-managed shipping optio
 
    ![Schedule pickup](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-user-pickup-02c.png)
 
+   
+   <!--Specific to Brazil: 
+   Brazil: Include the following information in the email:
+   * Subject: Request Azure Data Box pickup for order: ‘orderName’
+   * Order name
+   * Company name
+   * Company legal name (if different)
+   * Contact name of the person who will pick up the Data Box (A government-issued photo ID will be required to validate the contact’s identity upon arrival.)
+   * License plate number
+   * Tax ID
+   * Address -IS THIS THE ADDRESS OF COMPANY HQ, FOR TAX PURPOSES? SHIPPING ADDRESS ENTERED IN PORTAL.
+   * Country
+   * Phone number
+
+   Is this much detail needed about how they get to scheduling an appointment? The only thing significant is that it might take up to 4 business days: "After the operations team receives your information, they will submit it to the data center to obtain an inbound Nota Fiscal. After the Nota Fiscal is prepared, which can take up to 4 business days, the operations team will reach back out to schedule an appointment for pickup."-->
+
 6. After you've scheduled your device pickup, you can view your authorization code in **Schedule pickup for Azure**.
 
    ![Screenshot of the Schedule pick up for Azure dialog box with the Authorization code for Pickup text box called out.](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-01b.png)
@@ -73,6 +90,7 @@ When you place a Data Box Disk order, you can choose self-managed shipping optio
 
    > [!NOTE]
    > Do not share the authorization code over email. This is only to be verified at the datacenter during drop-off.
+
 
 9. After you receive an appointment for drop-off, the order should be in the **Ready to receive at Azure datacenter** state in the Azure portal.
 

@@ -7,13 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 02/02/2021
+ms.date: 04/30/2021
 ms.author: alkohli
 ---
 
 # Use self-managed shipping for Azure Data Box in the Azure portal
 
-This article describes self-managed shipping tasks to order, pick up, and drop-off of an Azure Data Box device. You can manage the Data Box device using the Azure portal.
+This article describes self-managed shipping tasks to order, pick up, and drop off an Azure Data Box device. You can manage the Data Box device using the Azure portal.
 
 ## Prerequisites
 
@@ -28,6 +28,7 @@ Self-managed shipping is available as an option when you [Order Azure Data Box](
 * India
 * South Africa
 * Australia
+* Brazil<!--NEW-->
 
 ## Use self-managed shipping
 
@@ -55,15 +56,42 @@ When you place a Data Box order, you can choose the self-managed shipping option
 
    ![Schedule pickup for Azure instructions](media\data-box-portal-customer-managed-shipping\data-box-portal-schedule-pickup-email-01.png)
 
+   <!--Specific to Brazil: 
+   Brazil: Include the following information in the email:
+   * Subject: Request Azure Data Box pickup for order: ‘orderName’
+   * Order name
+   * Company name
+   * Company legal name (if different)
+   * Contact name of the person who will pick up the Data Box (A government-issued photo ID will be required to validate the contact’s identity upon arrival.)
+   * License plate number
+   * Tax ID
+   * Address -IS THIS THE ADDRESS OF COMPANY HQ, FOR TAX PURPOSES? SHIPPING ADDRESS ENTERED IN PORTAL.
+   * Country
+   * Phone number
+
+   Is this much detail needed about how they get to scheduling an appointment? The only thing significant is that it might take up to 4 business days: "After the operations team receives your information, they will submit it to the data center to obtain an inbound Nota Fiscal. After the Nota Fiscal is prepared, which can take up to 4 business days, the operations team will reach back out to schedule an appointment for pickup."-->
+
 6. After you schedule your device pickup, you can view your device authorization code in the **Schedule pickup for Azure** pane.
 
    ![Viewing your device authorization code](media\data-box-portal-customer-managed-shipping\data-box-portal-auth-01b.png)
 
    Make a note of this **Authorization code**. As per security requirements, at the time of scheduling pick-up, it's necessary to present the name of the person who would arrive for pick-up.
 
-   You also need to provide details of who will be going to the datacenter for pickup. You or the point of contact must carry a Government approved photo ID that will be validated at the datacenter.
+   You also need to provide details of who will be going to the datacenter for pickup.<!--Loosely described on-screen. What are "details," typically? Brazil requires a license plate number in advance.--> 
 
-   Additionally, the person who is picking up the device also needs to have the **Authorization code**. The authorization code is validated at the datacenter time of pickup.
+7. Pick up your order at the Azure datacenter.
+
+   The person who picks up the order must provide:
+
+   * The authorization code for the order, which will be validated at the datacenter at the time of pickup
+   * A government-approved ID, which will be validated at the datacenter
+   * Brazil only: A copy of the appointment confirmation email provided by the Azure Data Box Operations team <!--NEW: Brazil only-->
+
+   <!--REPLACED BY STEP 7. - You or the point of contact must carry a Government-approved photo ID that will be validated at the datacenter.
+
+   Additionally, the person who is picking up the device also needs to have the **Authorization code**. The authorization code is validated at the datacenter time of pickup.-->
+
+   If you miss a scheduled appointment, you'll need to request a new appointment.<!--Added by Brazil team.-->
 
 7. Your order automatically moves to the **Picked up** state once the device has been picked up from the datacenter.
 
