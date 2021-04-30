@@ -25,7 +25,13 @@ In this tutorial, you learn to:
 - **Active Azure account:** If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
 - **GitHub Account:** If you don't have one, you can [create a GitHub Account for free](https://github.com) 
 - **Github Personal Access Token (PAT):** Used by Static Web Apps to interact with a GitHub repo and GitHub Actions pipeline for publishing your static site content. More details on [GitHub PAT](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token).
-- **Editor for ARM Templates:** Reviewing and editing templates requires a JSON editor. Visual Studio Code with the Resource Manager Tools extension is well suited for editing ARM Templates. For instructions on how to install and configure Visual Studio Code, see [Quickstart: Create ARM templates with Visual Studio Code](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md).
+- **Editor for ARM Templates:** Reviewing and editing templates requires a JSON editor. Visual Studio Code with the [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) is well suited for editing ARM Templates. For instructions on how to install and configure Visual Studio Code, see [Quickstart: Create ARM templates with Visual Studio Code](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md).
+
+- **Azure CLI or Azure PowerShell**: Deploying ARM templates requires a command line tool. For the installation instructions, see:
+  - [Install Azure CLI on Windows OS](https://docs.microsoft.com/cli/azure/install-azure-cli-windows)
+  - [Install Azure CLI on Linux OS](https://docs.microsoft.com/cli/azure/install-azure-cli-linux)
+  - [Install Azure CLI on MacOS](https://docs.microsoft.com/cli/azure/install-azure-cli-macos)
+  - [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
 
 
 ## Create a GitHub personal access token
