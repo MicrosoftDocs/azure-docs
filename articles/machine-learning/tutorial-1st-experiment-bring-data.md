@@ -232,8 +232,6 @@ Notice:
 > [!div class="nextstepaction"]
 > [I inspected the log file](?success=inspect-log#clean-up-resources) [I ran into an issue](https://www.research.net/r/7C6W7BQ?issue=inspect-log)
 
-## Clean up resources
-
 ## <a name="clean-up"></a>Clean up resources
 
 If you plan to continue now to another tutorial, or to start your own training runs, skip to [Next steps](#next-steps).
