@@ -231,12 +231,7 @@ With the prerequisites in place, the next step is to define the ARM deployment t
 
 ## Running the deployment
 
-You need either Azure PowerShell or Azure CLI to deploy the template. For the installation instructions, see:
-
-- [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
-- [Install Azure CLI on Windows OS](https://docs.microsoft.com/cli/azure/install-azure-cli-windows)
-- [Install Azure CLI on Linux OS](https://docs.microsoft.com/cli/azure/install-azure-cli-linux)
-- [Install Azure CLI on MacOS](https://docs.microsoft.com/cli/azure/install-azure-cli-macos)
+You need either Azure CLI or Azure PowerShell to deploy the template.
 
 ### Sign in to Azure
 
