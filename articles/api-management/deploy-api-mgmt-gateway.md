@@ -5,7 +5,7 @@ author: v-hhunter
 ms.author: v-hhunter
 ms.service: api-management
 ms.topic: article 
-ms.date: 04/16/2021
+ms.date: 04/30/2021
 ---
 
 # Deploy an Azure API Management gateway on Azure Arc
