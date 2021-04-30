@@ -17,7 +17,7 @@ The Secrets Store CSI Driver for Kubernetes allows for the integration of Azure 
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- Before you start, install the latest version of the [Azure CLI](/cli/azure/install-azure-cli-windows).
+- Before you start, install the latest version of the [Azure CLI](/cli/azure/install-azure-cli-windows) and the *aks-preview* extension.
 
 ## Features
 
@@ -51,6 +51,18 @@ When ready, refresh the registration of the *Microsoft.ContainerService* resourc
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
+```
+
+## Install the aks-preview CLI extension
+
+You also need the *aks-preview* Azure CLI extension version 0.5.10 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. If you already have the extension installed, update to the latest available version by using the [az extension update][az-extension-update] command.
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
 ```
 
 ## Create an AKS cluster with Secrets Store CSI Driver support
@@ -232,6 +244,8 @@ After learning how to use the CSI Secrets Store Driver with an AKS Cluster, see 
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [key-vault-provider]: ../key-vault/general/key-vault-integrate-kubernetes.md
 [csi-storage-drivers]: ./csi-storage-drivers.md
