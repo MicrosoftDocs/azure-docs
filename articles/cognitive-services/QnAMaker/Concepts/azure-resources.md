@@ -75,7 +75,8 @@ Typically there are three parameters you need to consider:
 
     With Custom question anwering (Preview) you have a choice to setup your Text Analytics service for KBs in a single language or multiple languages. You can make this selection when you create the first knowledge base in your Custom question anwering (Preview) feature.
 
-    ![QnA Maker managed (Preview) multi-lingual knowledge base selection](../media/concept-plan-your-knowledge-base/qnamaker-v2-select-multilanguage-knowledge-base.png)
+> [!div class="mx-imgBorder"]
+> ![Multi-lingual knowledge base selection](../media/qnamaker-create-publish-knowledge-base/select-language-custom-qna.png)
 
     You can publish N-1 knowledge bases of a single language or N/2 knowledge bases of different languages in a particular tier, where N is the maximum indexes allowed in the tier. Also check the maximum size and the number of documents allowed per tier.
 
