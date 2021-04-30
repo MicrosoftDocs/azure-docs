@@ -1,13 +1,13 @@
 ---
-title: Define multiple instances of a variable
-description: Use copy operation in an Azure Resource Manager template (ARM template) to iterate multiple times when creating a variable.
+title: Define multiple instances of a variable (Bicep)
+description: Use copy operation in an Azure Resource Manager template (ARM template) to iterate multiple times when creating a variable. (Bicep)
 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 02/13/2020
 ---
-# Variable iteration in ARM templates
+# Variable iteration in ARM templates (Bicep)
 
 This article shows you how to create more than one value for a variable in your Azure Resource Manager template (ARM template). By adding the `copy` element to the variables section of your template, you can dynamically set the number of items for a variable during deployment. You also avoid having to repeat template syntax.
 

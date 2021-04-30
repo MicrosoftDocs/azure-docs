@@ -1,13 +1,13 @@
 ---
-title: User-defined functions in templates
-description: Describes how to define and use user-defined functions in an Azure Resource Manager template (ARM template).
+title: User-defined functions in templates (Bicep)
+description: Describes how to define and use user-defined functions in an Azure Resource Manager template (ARM template). (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 04/12/2021
 ---
 
-# User-defined functions in ARM template
+# User-defined functions in ARM template (Bicep)
 
 Within your template, you can create your own functions. These functions are available for use in your template. User-defined functions are separate from the [standard template functions](template-functions.md) that are automatically available within your template. Create your own functions when you have complicated expressions that are used repeatedly in your template.
 

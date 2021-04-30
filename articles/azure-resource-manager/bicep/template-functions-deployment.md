@@ -1,12 +1,12 @@
 ---
-title: Template functions - deployment
-description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve deployment information.
+title: Template functions - deployment (Bicep)
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve deployment information. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 03/02/2021
 ---
-# Deployment functions for ARM templates
+# Deployment functions for ARM templates (Bicep)
 
 Resource Manager provides the following functions for getting values related to the current deployment of your Azure Resource Manager template (ARM template):
 

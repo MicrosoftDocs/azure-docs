@@ -1,6 +1,6 @@
 ---
-title: Continuous integration with Azure Pipelines
-description: Learn how to continuously build, test, and deploy Azure Resource Manager templates (ARM templates).
+title: Continuous integration with Azure Pipelines (Bicep)
+description: Learn how to continuously build, test, and deploy Azure Resource Manager templates (Bicep).
 author: mumian
 ms.date: 03/02/2021
 ms.topic: tutorial

@@ -1,12 +1,12 @@
 ---
-title: Template functions
-description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values, work with strings and numerics, and retrieve deployment information.
+title: Template functions (Bicep)
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values, work with strings and numerics, and retrieve deployment information. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 10/12/2020
 ---
-# ARM template functions
+# ARM template functions (Bicep)
 
 This article describes all the functions you can use in an Azure Resource Manager template (ARM template). For information about using functions in your template, see [template syntax](../templates/template-expressions.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Convert portal template to template spec
-description: Describes how to convert an existing template in the Azure portal gallery to a template specs.
+title: Convert portal template to template spec (Bicep)
+description: Describes how to convert an existing template in the Azure portal gallery to a template specs. (Bicep)
 
 author: mumian
 ms.author: jgao
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 
 ---
-# Convert template gallery in portal to template specs
+# Convert template gallery in portal to template specs (Bicep)
 
 The Azure portal provides a way to store Azure Resource Manager templates (ARM templates) in your account. However, [template specs](template-specs.md) offers an easier way to share your templates with users in your organization, and link with other templates. This article shows how to convert existing templates in the template gallery to template specs.
 

@@ -1,12 +1,12 @@
 ---
-title: Template functions - string
-description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with strings.
+title: Template functions - string (Bicep)
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with strings. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 03/02/2021
 ---
-# String functions for ARM templates
+# String functions for ARM templates (Bicep)
 
 Resource Manager provides the following functions for working with strings in your Azure Resource Manager template (ARM template):
 

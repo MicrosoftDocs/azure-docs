@@ -1,12 +1,12 @@
 ---
-title: Template functions - objects
-description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with objects.
+title: Template functions - objects (Bicep)
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with objects. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 11/18/2020
 ---
-# Object functions for ARM templates
+# Object functions for ARM templates (Bicep)
 
 Resource Manager provides several functions for working with objects in your Azure Resource Manager template (ARM template):
 

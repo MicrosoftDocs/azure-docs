@@ -1,13 +1,13 @@
 ---
-title: Define multiple instances of a property
-description: Use copy operation in an Azure Resource Manager template (ARM template) to iterate multiple times when creating a property on a resource.
+title: Define multiple instances of a property (Bicep)
+description: Use copy operation in an Azure Resource Manager template (ARM template) to iterate multiple times when creating a property on a resource. (Bicep)
 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 04/01/2021
 ---
-# Property iteration in ARM templates
+# Property iteration in ARM templates (Bicep)
 
 This article shows you how to create more than one instance of a property in your Azure Resource Manager template (ARM template). By adding copy loop to the properties section of a resource in your template, you can dynamically set the number of items for a property during deployment. You also avoid having to repeat template syntax.
 

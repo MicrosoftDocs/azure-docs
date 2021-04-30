@@ -1,12 +1,12 @@
 ---
-title: Export template in Azure portal
-description: Use Azure portal to export an Azure Resource Manager template from resources in your subscription.
+title: Export template in Azure portal (Bicep)
+description: Use Azure portal to export an Azure Resource Manager template from resources in your subscription. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 07/29/2020
 ---
-# Single and multi-resource export to a template in Azure portal
+# Single and multi-resource export to a template in Azure portal (Bicep)
 
 To assist with creating Azure Resource Manager templates, you can export a template from existing resources. The exported template helps you understand the JSON syntax and properties that deploy your resources. To automate future deployments, start with the exported template and modify it for your scenario.
 

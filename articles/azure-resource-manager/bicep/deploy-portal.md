@@ -1,13 +1,13 @@
 ---
-title: Deploy resources with Azure portal
-description: Use Azure portal and Azure Resource Manage to deploy your resources to a resource group in your subscription.
+title: Deploy resources with Azure portal (Bicep)
+description: Use Azure portal and Azure Resource Manage to deploy your resources to a resource group in your subscription. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 10/22/2020
 ---
 
-# Deploy resources with ARM templates and Azure portal
+# Deploy resources with ARM templates and Azure portal (Bicep)
 
 Learn how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager templates (ARM templates)](overview.md) to deploy your Azure resources. To learn about managing your resources, see [Manage Azure resources by using the Azure portal](../management/manage-resources-portal.md).
 

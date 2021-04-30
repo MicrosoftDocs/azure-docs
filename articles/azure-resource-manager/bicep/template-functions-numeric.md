@@ -1,12 +1,12 @@
 ---
-title: Template functions - numeric
-description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with numbers.
+title: Template functions - numeric (Bicep)
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with numbers. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 11/18/2020
 ---
-# Numeric functions for ARM templates
+# Numeric functions for ARM templates (Bicep)
 
 Resource Manager provides the following functions for working with integers in your Azure Resource Manager template (ARM template):
 

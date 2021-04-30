@@ -1,13 +1,13 @@
 ---
-title: Parameters in templates
-description: Describes how to define parameters in an Azure Resource Manager template (ARM template) and Bicep file.
+title: Parameters in templates (Bicep)
+description: Describes how to define parameters in an Azure Resource Manager template (ARM template) and Bicep file. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 03/03/2021
 ---
 
-# Parameters in ARM templates
+# Parameters in ARM templates (Bicep)
 
 This article describes how to define and use parameters in your Azure Resource Manager template (ARM template) and Bicep file. By providing different values for parameters, you can reuse a template for different environments.
 

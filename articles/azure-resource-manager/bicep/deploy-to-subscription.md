@@ -1,13 +1,13 @@
 ---
-title: Deploy resources to subscription
-description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
+title: Deploy resources to subscription (Bicep)
+description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 01/13/2021
 ---
 
-# Subscription deployments with ARM templates
+# Subscription deployments with ARM templates (Bicep)
 
 To simplify the management of resources, you can use an Azure Resource Manager template (ARM template) to deploy resources at the level of your Azure subscription. For example, you can deploy [policies](../../governance/policy/overview.md) and [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) to your subscription, which applies them across your subscription. You can also create resource groups within the subscription and deploy resources to resource groups in the subscription.
 

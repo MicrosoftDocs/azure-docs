@@ -1,12 +1,12 @@
 ---
-title: Template functions - arrays
-description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with arrays.
+title: Template functions - arrays (Bicep)
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with arrays. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 11/18/2020
 ---
-# Array functions for ARM templates
+# Array functions for ARM templates (Bicep)
 
 Resource Manager provides several functions for working with arrays in your Azure Resource Manager template (ARM template):
 

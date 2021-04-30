@@ -1,12 +1,12 @@
 ---
-title: Deployment history deletions
-description: Describes how Azure Resource Manager automatically deletes deployments from the deployment history. Deployments are deleted when the history is close to exceeding the limit of 800.
+title: Deployment history deletions (Bicep)
+description: Describes how Azure Resource Manager automatically deletes deployments from the deployment history. Deployments are deleted when the history is close to exceeding the limit of 800. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 03/23/2021
 ---
-# Automatic deletions from deployment history
+# Automatic deletions from deployment history (Bicep)
 
 Every time you deploy a template, information about the deployment is written to the deployment history. Each resource group is limited to 800 deployments in its deployment history.
 

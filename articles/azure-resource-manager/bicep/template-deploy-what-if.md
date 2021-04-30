@@ -1,12 +1,12 @@
 ---
-title: Template deployment what-if
-description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
+title: Template deployment what-if (Bicep)
+description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template. (Bicep)
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: tomfitz
 ---
-# ARM template deployment what-if operation
+# ARM template deployment what-if operation (Bicep)
 
 Before deploying an Azure Resource Manager template (ARM template), you can preview the changes that will happen. Azure Resource Manager provides the what-if operation to let you see how resources will change if you deploy the template. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified template is deployed.
 
@@ -144,7 +144,7 @@ The default value is **FullResourcePayloads**.
 For PowerShell deployment commands, use the `-WhatIfResultFormat` parameter. In the programmatic object commands, use the `ResultFormat` parameter.
 
 For Azure CLI, use the `--result-format` parameter.
- 
+
 The following results show the two different output formats:
 
 - Full resource payloads

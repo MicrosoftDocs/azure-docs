@@ -1,12 +1,12 @@
 ---
-title: Create & deploy template specs
-description: Describes how to create template specs and share them with other users in your organization.
+title: Create & deploy template specs (Bicep)
+description: Describes how to create template specs and share them with other users in your organization. (Bicep)
 ms.topic: conceptual
 ms.date: 03/26/2021
 ms.author: tomfitz
 author: tfitzmac
 ---
-# Azure Resource Manager template specs (Preview)
+# Azure Resource Manager template specs (Preview) (Bicep)
 
 A template spec is a resource type for storing an Azure Resource Manager template (ARM template) in Azure for later deployment. This resource type enables you to share ARM templates with other users in your organization. Just like any other Azure resource, you can use Azure role-based access control (Azure RBAC) to share the template spec.
 

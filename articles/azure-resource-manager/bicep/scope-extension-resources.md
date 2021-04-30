@@ -1,13 +1,13 @@
 ---
-title: Scope on extension resource types
-description: Describes how to use the scope property when deploying extension resource types.
+title: Scope on extension resource types (Bicep)
+description: Describes how to use the scope property when deploying extension resource types. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 01/13/2021
 ---
 
-# Setting scope for extension resources in ARM templates
+# Setting scope for extension resources in ARM templates (Bicep)
 
 An extension resource is a resource that modifies another resource. For example, you can assign a role to a resource. The role assignment is an extension resource type.
 

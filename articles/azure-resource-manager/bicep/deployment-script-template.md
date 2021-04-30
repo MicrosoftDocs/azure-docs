@@ -1,5 +1,5 @@
 ---
-title: Use deployment scripts in templates | Microsoft Docs
+title: Use deployment scripts in templates (Bicep) | Microsoft Docs
 description: use deployment scripts in Azure Resource Manager templates.
 services: azure-resource-manager
 author: mumian
@@ -9,7 +9,7 @@ ms.date: 04/15/2021
 ms.author: jgao
 
 ---
-# Use deployment scripts in ARM templates
+# Use deployment scripts in ARM templates (Bicep)
 
 Learn how to use deployment scripts in Azure Resource templates (ARM templates). With a new resource type called `Microsoft.Resources/deploymentScripts`, users can execute scripts in template deployments and review execution results. These scripts can be used for performing custom steps such as:
 

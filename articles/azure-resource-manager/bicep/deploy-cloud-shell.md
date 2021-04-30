@@ -1,13 +1,13 @@
 ---
-title: Deploy templates with Cloud Shell
-description: Use Azure Resource Manager and Azure Cloud Shell to deploy resources to Azure. The resources are defined in an Azure Resource Manager template (ARM template).
+title: Deploy templates with Cloud Shell (Bicep)
+description: Use Azure Resource Manager and Azure Cloud Shell to deploy resources to Azure. The resources are defined in an Azure Resource Manager template (ARM template). (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 10/22/2020
 ---
 
-# Deploy ARM templates from Azure Cloud Shell
+# Deploy ARM templates from Azure Cloud Shell (Bicep)
 
 You can use [Azure Cloud Shell](../../cloud-shell/overview.md) to deploy an Azure Resource Manager template (ARM template). You can deploy either an ARM template that is stored remotely, or an ARM template that is stored on the local storage account for Cloud Shell.
 

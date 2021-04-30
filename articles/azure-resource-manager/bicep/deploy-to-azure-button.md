@@ -1,13 +1,13 @@
 ---
-title: Deploy to Azure button
-description: Use button to deploy Azure Resource Manager templates from a GitHub repository.
+title: Deploy to Azure button (Bicep)
+description: Use button to deploy Azure Resource Manager templates from a GitHub repository. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 03/25/2021
 ---
 
-# Use a deployment button to deploy templates from GitHub repository
+# Use a deployment button to deploy templates from GitHub repository (Bicep)
 
 This article describes how to use the **Deploy to Azure** button to deploy templates from a GitHub repository. You can add the button directly to the _README.md_ file in your GitHub repository. Or, you can add the button to a web page that references the repository.
 

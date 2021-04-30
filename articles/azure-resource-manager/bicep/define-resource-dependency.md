@@ -1,13 +1,13 @@
 ---
-title: Set deployment order for resources
-description: Describes how to set one Azure resource as dependent on another resource during deployment. The dependencies ensure resources are deployed in the correct order.
+title: Set deployment order for resources (Bicep)
+description: Describes how to set one Azure resource as dependent on another resource during deployment. The dependencies ensure resources are deployed in the correct order. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 12/21/2020
 ---
 
-# Define the order for deploying resources in ARM templates
+# Define the order for deploying resources in ARM templates (Bicep)
 
 When deploying resources, you may need to make sure some resources exist before other resources. For example, you need a logical SQL server before deploying a database. You establish this relationship by marking one resource as dependent on the other resource. Use the `dependsOn` element to define an explicit dependency. Use the **reference** or **list** functions to define an implicit dependency.
 

@@ -1,6 +1,6 @@
 ---
-title: Deploy Resource Manager templates by using GitHub Actions
-description: Describes how to deploy Azure Resource Manager templates (ARM templates) by using GitHub Actions.
+title: Deploy Resource Manager templates by using GitHub Actions (Bicep)
+description: Describes how to deploy Azure Resource Manager templates (ARM templates) by using GitHub Actions. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.date: 10/13/2020
 ms.custom: github-actions-azure
 ---
 
-# Deploy ARM templates by using GitHub Actions
+# Deploy ARM templates by using GitHub Actions (Bicep)
 
 [GitHub Actions](https://docs.github.com/en/actions) is a suite of features in GitHub to automate your software development workflows in the same place you store code and collaborate on pull requests and issues.
 

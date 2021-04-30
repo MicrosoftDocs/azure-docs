@@ -1,11 +1,11 @@
 ---
-title: Child resources in templates (Bicep)
-description: Describes how to set the name and type for child resources in an Azure Resource Manager template (ARM template). (Bicep)
+title: Child resources in templates
+description: Describes how to set the name and type for child resources in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
 ms.date: 04/23/2021
 ---
 
-# Set name and type for child resources (Bicep)
+# Set name and type for child resources
 
 Child resources are resources that exist only within the context of another resource. For example, a [virtual machine extension](/azure/templates/microsoft.compute/virtualmachines/extensions) can't exist without a [virtual machine](/azure/templates/microsoft.compute/virtualmachines). The extension resource is a child of the virtual machine.
 

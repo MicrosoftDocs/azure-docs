@@ -1,6 +1,6 @@
 ---
-title: Deploy a template spec as a linked template
-description: Learn how to deploy an existing template spec in a linked deployment.
+title: Deploy a template spec as a linked template (Bicep)
+description: Learn how to deploy an existing template spec in a linked deployment. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.date: 11/17/2020
 
 ---
 
-# Tutorial: Deploy a template spec as a linked template (Preview)
+# Tutorial: Deploy a template spec as a linked template (Preview) (Bicep)
 
 Learn how to deploy an existing [template spec](template-specs.md) by using a [linked deployment](../templates/linked-templates.md#linked-template). You use template specs to share ARM templates with other users in your organization. After you have created a template spec, you can deploy the template spec by using Azure PowerShell or Azure CLI. You can also deploy the template spec as a part of your solution by using a linked template.
 

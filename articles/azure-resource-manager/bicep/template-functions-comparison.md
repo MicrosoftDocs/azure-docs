@@ -1,12 +1,12 @@
 ---
-title: Template functions - comparison
-description: Describes the functions to use in an Azure Resource Manager template (ARM template) to compare values.
+title: Template functions - comparison (Bicep)
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) to compare values. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 11/18/2020
 ---
-# Comparison functions for ARM templates
+# Comparison functions for ARM templates (Bicep)
 
 Resource Manager provides several functions for making comparisons in your Azure Resource Manager template (ARM template):
 

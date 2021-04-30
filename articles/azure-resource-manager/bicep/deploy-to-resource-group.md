@@ -1,13 +1,13 @@
 ---
-title: Deploy resources to resource groups
-description: Describes how to deploy resources in an Azure Resource Manager template. It shows how to target more than one resource group.
+title: Deploy resources to resource groups (Bicep)
+description: Describes how to deploy resources in an Azure Resource Manager template. It shows how to target more than one resource group. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 01/13/2021
 ---
 
-# Resource group deployments with ARM templates
+# Resource group deployments with ARM templates (Bicep)
 
 This article describes how to scope your deployment to a resource group. You use an Azure Resource Manager template (ARM template) for the deployment. The article also shows how to expand the scope beyond the resource group in the deployment operation.
 

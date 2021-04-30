@@ -1,13 +1,13 @@
 ---
-title: Declare resources in templates
-description: Describes how to declare resources to deploy in an Azure Resource Manager template (ARM template).
+title: Declare resources in templates (Bicep)
+description: Describes how to declare resources to deploy in an Azure Resource Manager template (Bicep).
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 03/02/2021
 ---
 
-# Resource declaration in ARM templates
+# Resource declaration in ARM templates (Bicep)
 
 To deploy a resource through an Azure Resource Manager template (ARM template), you add a resource declaration. Use the `resources` array for JSON template, or the `resource` keyword for Bicep.
 

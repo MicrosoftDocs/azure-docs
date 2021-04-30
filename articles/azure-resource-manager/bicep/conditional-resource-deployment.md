@@ -1,6 +1,6 @@
 ---
-title: Conditional deployment with templates
-description: Describes how to conditionally deploy a resource in an Azure Resource Manager template (ARM template).
+title: Conditional deployment with templates (Bicep)
+description: Describes how to conditionally deploy a resource in an Azure Resource Manager template (ARM template). (Bicep)
 
 author: mumian
 ms.author: jgao
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 03/02/2021
 ---
 
-# Conditional deployment in ARM templates
+# Conditional deployment in ARM templates (Bicep)
 
 Sometimes you need to optionally deploy a resource in an Azure Resource Manager template (ARM template) or Bicep file. For JSON templates, use the `condition` element to specify whether the resource is deployed. For Bicep, use the `if` keyword to specify whether the resource is deployed. The value for the condition resolves to true or false. When the value is true, the resource is created. When the value is false, the resource isn't created. The value can only be applied to the whole resource.
 

@@ -1,6 +1,6 @@
 ---
-title: Configure development environment for deployment scripts in templates | Microsoft Docs
-description: Configure development environment for deployment scripts in Azure Resource Manager templates (ARM templates).
+title: Configure development environment for deployment scripts in templates (Bicep) | Microsoft Docs
+description: Configure development environment for deployment scripts in Azure Resource Manager templates (ARM templates). (Bicep)
 services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
@@ -10,7 +10,7 @@ ms.author: jgao
 
 ---
 
-# Configure development environment for deployment scripts in ARM templates
+# Configure development environment for deployment scripts in ARM templates (Bicep)
 
 Learn how to create a development environment for developing and testing ARM template deployment scripts with a deployment script image. You can either create an [Azure container instance](../../container-instances/container-instances-overview.md) or use [Docker](https://docs.docker.com/get-docker/). Both options are covered in this article.
 

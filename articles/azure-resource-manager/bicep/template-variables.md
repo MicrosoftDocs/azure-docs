@@ -1,13 +1,13 @@
 ---
-title: Variables in templates
-description: Describes how to define variables in an Azure Resource Manager template (ARM template) and Bicep file.
+title: Variables in templates (Bicep)
+description: Describes how to define variables in an Azure Resource Manager template (ARM template) and Bicep file. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 02/19/2021
 ---
 
-# Variables in ARM templates
+# Variables in ARM templates (Bicep)
 
 This article describes how to define and use variables in your Azure Resource Manager template (ARM template) or Bicep file. You use variables to simplify your template. Rather than repeating complicated expressions throughout your template, you define a variable that contains the complicated expression. Then, you use that variable as needed throughout your template.
 

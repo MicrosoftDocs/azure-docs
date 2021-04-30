@@ -1,13 +1,13 @@
 ---
-title: Key Vault secret with template
-description: Shows how to pass a secret from a key vault as a parameter during deployment.
+title: Key Vault secret with template (Bicep)
+description: Shows how to pass a secret from a key vault as a parameter during deployment. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 04/23/2021
 ---
 
-# Use Azure Key Vault to pass secure parameter value during deployment
+# Use Azure Key Vault to pass secure parameter value during deployment (Bicep)
 
 Instead of putting a secure value (like a password) directly in your template or parameter file, you can retrieve the value from an [Azure Key Vault](../../key-vault/general/overview.md) during a deployment. You retrieve the value by referencing the key vault and secret in your parameter file. The value is never exposed because you only reference its key vault ID. The key vault can exist in a different subscription than the resource group you're deploying to.
 

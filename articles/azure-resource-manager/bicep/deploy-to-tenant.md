@@ -1,13 +1,13 @@
 ---
-title: Deploy resources to tenant
-description: Describes how to deploy resources at the tenant scope in an Azure Resource Manager template.
+title: Deploy resources to tenant (Bicep)
+description: Describes how to deploy resources at the tenant scope in an Azure Resource Manager template. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 04/27/2021
 ---
 
-# Tenant deployments with ARM templates
+# Tenant deployments with ARM templates (Bicep)
 
 As your organization matures, you may need to define and assign [policies](../../governance/policy/overview.md) or [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) across your Azure AD tenant. With tenant level templates, you can declaratively apply policies and assign roles at a global level.
 

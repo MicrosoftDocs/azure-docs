@@ -1,12 +1,12 @@
 ---
-title: Template functions - logical
-description: Describes the functions to use in an Azure Resource Manager template (ARM template) to determine logical values.
+title: Template functions - logical (Bicep)
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) to determine logical values. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 11/18/2020
 ---
-# Logical functions for ARM templates
+# Logical functions for ARM templates (Bicep)
 
 Resource Manager provides several functions for making comparisons in your Azure Resource Manager template (ARM template):
 

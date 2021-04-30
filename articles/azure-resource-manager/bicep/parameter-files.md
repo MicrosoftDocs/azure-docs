@@ -1,13 +1,13 @@
 ---
-title: Create parameter file
-description: Create parameter file for passing in values during deployment of an Azure Resource Manager template
+title: Create parameter file (Bicep)
+description: Create parameter file for passing in values during deployment of an Azure Resource Manager template (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 04/15/2021
 ---
 
-# Create Resource Manager parameter file
+# Create Resource Manager parameter file (Bicep)
 
 Rather than passing parameters as inline values in your script, you can use a JSON file that contains the parameter values. This article shows how to create a parameter file that you use with a JSON template or Bicep file.
 

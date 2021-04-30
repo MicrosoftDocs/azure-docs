@@ -1,12 +1,12 @@
 ---
-title: Deployment modes
-description: Describes how to specify whether to use a complete or incremental deployment mode with Azure Resource Manager.
+title: Deployment modes (Bicep)
+description: Describes how to specify whether to use a complete or incremental deployment mode with Azure Resource Manager. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 07/22/2020
 ---
-# Azure Resource Manager deployment modes
+# Azure Resource Manager deployment modes (Bicep)
 
 When deploying your resources, you specify that the deployment is either an incremental update or a complete update. The difference between these two modes is how Resource Manager handles existing resources in the resource group that aren't in the template.
 

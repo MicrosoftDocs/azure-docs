@@ -1,6 +1,6 @@
 ---
-title: Data types in templates
-description: Describes the data types that are available in Azure Resource Manager templates.
+title: Data types in templates (Bicep)
+description: Describes the data types that are available in Azure Resource Manager templates. (Bicep)
 ms.topic: conceptual
 author: mumian
 ms.author: jgao
@@ -8,7 +8,7 @@ ms.author: jgao
 ms.date: 03/04/2021
 ---
 
-# Data types in ARM templates
+# Data types in ARM templates (Bicep)
 
 This article describes the data types supported in Azure Resource Manager templates (ARM templates). It covers both JSON and Bicep data types.
 

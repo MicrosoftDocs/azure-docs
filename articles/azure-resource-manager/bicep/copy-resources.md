@@ -1,13 +1,13 @@
 ---
-title: Deploy multiple instances of resources
-description: Use copy operation and arrays in an Azure Resource Manager template (ARM template) to deploy resource type many times.
+title: Deploy multiple instances of resources (Bicep)
+description: Use copy operation and arrays in an Azure Resource Manager template (ARM template) to deploy resource type many times. (Bicep)
 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 04/01/2021
 ---
-# Resource iteration in ARM templates
+# Resource iteration in ARM templates (Bicep)
 
 This article shows you how to create more than one instance of a resource in your Azure Resource Manager template (ARM template). By adding copy loop to the resources section of your template, you can dynamically set the number of resources to deploy. You also avoid having to repeat template syntax.
 

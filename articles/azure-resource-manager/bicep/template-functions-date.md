@@ -1,12 +1,12 @@
 ---
-title: Template functions - date
-description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with dates.
+title: Template functions - date (Bicep)
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with dates. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 11/18/2020
 ---
-# Date functions for ARM templates
+# Date functions for ARM templates (Bicep)
 
 Resource Manager provides the following functions for working with dates in your Azure Resource Manager template (ARM template):
 

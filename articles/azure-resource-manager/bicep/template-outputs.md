@@ -1,13 +1,13 @@
 ---
-title: Outputs in templates
-description: Describes how to define output values in an Azure Resource Manager template (ARM template) and Bicep file.
+title: Outputs in templates (Bicep)
+description: Describes how to define output values in an Azure Resource Manager template (ARM template) and Bicep file. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 02/19/2021
 ---
 
-# Outputs in ARM templates
+# Outputs in ARM templates (Bicep)
 
 This article describes how to define output values in your Azure Resource Manager template (ARM template) and Bicep file. You use outputs when you need to return values from the deployed resources.
 

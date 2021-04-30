@@ -1,11 +1,11 @@
 ---
-title: Complete mode deletion (Bicep)
-description: Shows how resource types handle complete mode deletion in Azure Resource Manager templates. (Bicep)
+title: Complete mode deletion
+description: Shows how resource types handle complete mode deletion in Azure Resource Manager templates.
 ms.topic: conceptual
 ms.date: 04/16/2021
 ---
 
-# Deletion of Azure resources for complete mode deployments (Bicep)
+# Deletion of Azure resources for complete mode deployments
 
 This article describes how resource types handle deletion when not in a template that is deployed in complete mode.
 

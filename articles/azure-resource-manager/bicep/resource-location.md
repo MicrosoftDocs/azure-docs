@@ -1,13 +1,13 @@
 ---
-title: Template resource location
-description: Describes how to set resource location in an Azure Resource Manager template (ARM template).
+title: Template resource location (Bicep)
+description: Describes how to set resource location in an Azure Resource Manager template (Bicep).
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 09/04/2019
 ---
 
-# Set resource location in ARM template
+# Set resource location in ARM template (Bicep)
 
 When deploying an Azure Resource Manager template (ARM template), you must provide a location for each resource. The location doesn't need to be the same location as the resource group location.
 

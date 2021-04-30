@@ -1,13 +1,13 @@
 ---
-title: Template functions in scoped deployments
-description: Describes how template functions are resolved in scoped deployments. The scope can be a tenant, management groups, subscriptions, and resource groups.
+title: Template functions in scoped deployments (Bicep)
+description: Describes how template functions are resolved in scoped deployments. The scope can be a tenant, management groups, subscriptions, and resource groups. (Bicep)
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 10/22/2020
 ---
 
-# ARM template functions in deployment scopes
+# ARM template functions in deployment scopes (Bicep)
 
 With Azure Resource Manager templates (ARM templates), you can deploy to resource groups, subscriptions, management groups, or tenants. Generally, [ARM template functions](template-functions.md) work the same for all scopes. This article describes the differences that exist for some functions depending on the scope.
 
