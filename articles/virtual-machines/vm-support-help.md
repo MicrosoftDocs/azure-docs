@@ -4,12 +4,12 @@ description: How to obtain help and support for questions or problems when you c
 author: mimckitt
 ms.author: mimckitt
 ms.service: virtual-machines
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 4/28/2021
 ms.custom: support-help-page
 ---
 
-# What are the help and support options for Azure Virtual Machine?
+# Support, troubleshooting and feedback options for Azure Virtual Machine
 
 Here are suggestions for where you can get help when developing your Azure Virtual Machines solutions.
 
@@ -83,7 +83,7 @@ If you need help with the language and tools used to develop and manage Azure Vi
 
 
 
-## Submit feedback on Azure Feedback
+## Submit feature requests on Azure Feedback
 
 <div class='icon is-large'>
     <img alt='UserVoice' src='https://docs.microsoft.com/media/logos/logo-uservoice.svg'>
