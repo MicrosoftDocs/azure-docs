@@ -43,8 +43,18 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 **Service category:** Authentications (Logins)  
 **Product capability:** User Authentication
  
-Azure AD has identified, tested, and released a fix for a bug in the `/authorize` response to a client application.  Azure AD was incorrectly URL encoding the `state` parameter twice when sending responses back to the client.  This can cause a client application to reject the request, due to a mismatch in state parameters.  
+Azure AD has identified, tested, and released a fix for a bug in the `/authorize` response to a client application.  Azure AD was incorrectly URL encoding the `state` parameter twice when sending responses back to the client.  This can cause a client application to reject the request, due to a mismatch in state parameters. [Learn more](../develop/reference-breaking-changes.md#bug-fix-azure-ad-will-no-longer-url-encode-the-state-parameter-twice). 
+
+---
+
+### Users can only create security and Microsoft 365 groups in Azure portal being deprecated
+
+**Type:** Plan for change  
+**Service category:** Group Management  
+**Product capability:** Directory
  
+Users will no longer be limited to create security and Microsoft 365 groups only in the Azure portal. The new setting will allow users to create security groups in the Azure portal, PowerShell, and API. Users will be required to verify and update the new setting. [Learn more](../enterprise-users/groups-self-service-management.md).
+
 ---
 
 ### Public Preview - External Identities Self-Service Sign-up in AAD using Email One-Time Passcode accounts
@@ -142,17 +152,6 @@ With this update, the following event-related scenarios will now be included in 
 These results will show contextual and relevant details about the event and actions to take to resolve these problems. Also, for scenarios where we don't have deep contextual diagnostics, Sign-in Diagnostic will present more descriptive content about the error event.
 
 For more information, see [What is sign-in diagnostic in Azure AD?](../reports-monitoring/overview-sign-in-diagnostics.md)
- 
----
-
-### Deprecated - Users can only create security groups in Azure portal 
-
-**Type:** Deprecated  
-**Service category:** Group Management  
-**Product capability:** Directory
- 
-
-Users will no longer be limited to create security groups only in the Azure portal. The new setting will allow users to create security groups in the Azure portal, PowerShell, and API. [Learn more](../enterprise-users/groups-self-service-management.md).
 
 ---
 
