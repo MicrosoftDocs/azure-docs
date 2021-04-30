@@ -260,8 +260,8 @@ Column name can be parameterized similar to other properties. Like in derived co
 
 ### What are the supported regions for wrangling data flow?
 
-Data factory is available in folliwng [regions.](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory)
-Power query fetaure is being rolled out to all regions. If the fetaure is not available in your region, please check with support.
+Data factory is available in following [regions.](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory)
+Power query feature is being rolled out to all regions. If the feature is not available in your region, please check with support.
 
 ### What are the limitations and constraints with wrangling data flow ?
 
