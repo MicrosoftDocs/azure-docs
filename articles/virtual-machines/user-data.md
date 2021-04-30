@@ -1,325 +1,208 @@
-# What is "User data"
+---
+title: User Data for Azure Virtual Machine
+description: Allow customer to insert script or other metadata into an Azure virtual machine at provision time.
+services: virtual-machines-linux
+author: ningk
+manager: rogardle
+ms.service: virtual-machines-linux
+ms.subservice: IMDS
+ms.topic: article
+ms.workload: infrastructure-services
+ms.date: 04/30/2021
+ms.author: ningk
+ms.reviewer: azmetadata
+---
 
-\"User data\" is a setup of script or other metadata you want to insert
-to an Azure virtual machine at provision time. Any application on the
-virtual machine can access the \"user data\" from the Azure virtual
-machine instance metadata service (IMDS) throughout the lifetime of the
-virtual machine.
+# User Data for Azure Virtual Machine 
 
-"User data" is a new version of custom data ( [Custom data and Azure
-Virtual Machines - Azure Virtual Machines \| Microsoft
-Docs](https://docs.microsoft.com/en-us/azure/virtual-machines/custom-data))
+## What is "user data"
 
-, and it offers added benefits:
+User data is a set of script or other metadata,  it will be inserted to an Azure virtual machine at provision time. Any application on the virtual machine can access the user data from the Azure instance metadata service (IMDS) after provision. 
 
-1.  "User data" will be exposed to Azure instance metadata service after
-    provision. Users do not need to manage it as a local file.
+User data is a new version of [Custom data](https://docs.microsoft.com/en-us/azure/virtual-machines/custom-data)  and it offers added benefits:
 
-2.  "User data" is persistent. It will be available in the lifetime of
-    the VM.
+1. User data will be exposed to Azure instance metadata service after provision.
 
-3.  "User data" can be updated from outside the VM, without stopping or
-    rebooting the VM.
+2. User data is persistent. It will be available in the lifetime of the VM.
 
-4.  "User data" can be queried via GET VM/VMSS API with \$expand option.
+3. User data can be updated from outside the VM, without stopping or rebooting the VM.
 
-> In addition, if you did not specify custom data or user data at
-> provision time, you can still add it later after the provision, with
-> the latest API version.
+4. User data can be queried via GET VM/VMSS API with $expand option.
+
+ In addition, if user data is not added at provision time, you can still add it after provision.
 
 **Security warning**
 
-Note "user data" will not be encrypted, and any process on the VM can
-query this data. You should not save confidential information in "user
-data".
+> Note user data will not be encrypted, and any process on the VM can query this data. You should not store confidential information in user data.
 
-# Create user data for an Azure VM/VMSS
+Make sure you get the latest Azure ARM API to use the new user data features. The contents should be base64 encoded before passed to the API. The size cannot exceed 64 KB.
 
-Make sure you have upgraded to latest Azure ARM API version.
+## Create user data for Azure VM/VMSS
 
-**Adding "User data" when you create new VM**
+**Adding user data when creating new VM**
 
-[For single VMs, new 'UserData' goes inside properties bag.]{.ul}
+For single VMs, add 'UserData' to the properties bag.
 
+```json
 {{
-
-\"name\": \"testVM_ϫ\",
-
-\"location\": \"West US\",
-
-\"properties\": {
-
-\"hardwareProfile\": {
-
-\"vmSize\": \"Standard_A1\"
-
-},
-
-\"storageProfile\": {
-
-\"osDisk\": {
-
-\"osType\": \"Windows\",
-
-\"name\": \"osDisk\",
-
-\"createOption\": \"Attach\",
-
-\"vhd\": {
-
-\"uri\":
-\"http://myaccount.blob.core.windows.net/container/directory/blob.vhd\"
-
-}
-
-}
-
-},
-
-\"userData\": \"U29tZSBDdXN0b20gRGF0YQ==\",
-
-\"networkProfile\": { \'networkInterfaces\' : \[ { \'name\' : \'nic1\' }
-\] },
-
-\"provisioningState\": 0
-
-}
-
+  "name": "testVM_ϫ",
+  "location": "West US",
+  "properties": {
+    "hardwareProfile": {
+      "vmSize": "Standard_A1"
+    },
+    "storageProfile": {
+      "osDisk": {
+        "osType": "Windows",
+        "name": "osDisk",
+        "createOption": "Attach",
+        "vhd": {
+          "uri": "http://myaccount.blob.core.windows.net/container/directory/blob.vhd"
+        }
+      }
+    },
+    "userData": "U29tZSBDdXN0b20gRGF0YQ==",
+    "networkProfile": { 'networkInterfaces' : [ { 'name' : 'nic1' } ] },
+    "provisioningState": 0
+  }
 }}
+```
 
-**Adding "User data" when you create new VMSS**
+**Adding user data when you create new VMSS**
 
-[For VMSS, new 'UserData' goes inside virtualMachineProfile]{.ul}
-
+For VMSS, add 'UserData' to the virtualMachineProfile.
+```json
 {
-
-\"location\": \"West US\",
-
-\"sku\": {
-
-\"name\": \"Standard_A1\",
-
-\"capacity\": 1
-
-},
-
-\"properties\": {
-
-\"upgradePolicy\": {
-
-\"mode\": \"Automatic\"
-
-},
-
-\"virtualMachineProfile\": {
-
-\"userData\": \"VXNlckRhdGE=\",
-
-\"osProfile\": {
-
-\"computerNamePrefix\": \"TestVM\",
-
-\"adminUsername\": \"TestUserName\",
-
-\"windowsConfiguration\": {
-
-\"provisionVMAgent\": true,
-
-\"timeZone\": \"Dateline Standard Time\"
-
+  "location": "West US",
+  "sku": {
+    "name": "Standard_A1",
+    "capacity": 1
+  },
+  "properties": {
+    "upgradePolicy": {
+      "mode": "Automatic"
+    },
+    "virtualMachineProfile": {
+      "userData": "VXNlckRhdGE=",
+      "osProfile": {
+        "computerNamePrefix": "TestVM",
+        "adminUsername": "TestUserName",
+        "windowsConfiguration": {
+          "provisionVMAgent": true,
+          "timeZone": "Dateline Standard Time"
+        }
+      },
+      "storageProfile": {
+        "osDisk": {
+          "createOption": "FromImage",
+          "caching": "ReadOnly"
+        },
+        "imageReference": {
+          "publisher": "publisher",
+          "offer": "offer",
+          "sku": "sku",
+          "version": "1.2.3"
+        }
+      },
+      "networkProfile": {"networkInterfaceConfigurations":[{"name":"nicconfig1","properties":{"ipConfigurations":[{"name":"ip1","properties":{"subnet":{"id":"vmssSubnet0"}}}]}}]},
+      "diagnosticsProfile": {
+        "bootDiagnostics": {
+          "enabled": true,
+          "storageUri": "https://crputest.blob.core.windows.net"
+        }
+      }
+    },
+    "provisioningState": 0,
+    "overprovision": false,
+    "uniqueId": "00000000-0000-0000-0000-000000000000"
+  }
 }
+```
 
-},
+## Retrieving user data
 
-\"storageProfile\": {
-
-\"osDisk\": {
-
-\"createOption\": \"FromImage\",
-
-\"caching\": \"ReadOnly\"
-
-},
-
-\"imageReference\": {
-
-\"publisher\": \"publisher\",
-
-\"offer\": \"offer\",
-
-\"sku\": \"sku\",
-
-\"version\": \"1.2.3\"
-
-}
-
-},
-
-\"networkProfile\":
-{\"networkInterfaceConfigurations\":\[{\"name\":\"nicconfig1\",\"properties\":{\"ipConfigurations\":\[{\"name\":\"ip1\",\"properties\":{\"subnet\":{\"id\":\"vmssSubnet0\"}}}\]}}\]},
-
-\"diagnosticsProfile\": {
-
-\"bootDiagnostics\": {
-
-\"enabled\": true,
-
-\"storageUri\": \"https://crputest.blob.core.windows.net\"
-
-}
-
-}
-
-},
-
-\"provisioningState\": 0,
-
-\"overprovision\": false,
-
-\"uniqueId\": \"00000000-0000-0000-0000-000000000000\"
-
-}
-
-}
-
-Retrieving "User data"
-
-Applications running inside the VM can retrieve user data from IMDS
-endpoint. For details, see
-(<https://docs.microsoft.com/en-us/azure/virtual-machines/linux/instance-metadata-service?tabs=linux#get-user-data>
+Applications running inside the VM can retrieve user data from IMDS endpoint. For details, see [IMDS sample code here.](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/instance-metadata-service?tabs=linux#get-user-data
 )
 
-Customers may also retrieve existing value of user data via ARM API
-using \$expand=userData endpoint (request body can be left empy).
+Customers can retrieve existing value of user data via ARM API
+using \$expand=userData endpoint (request body can be left empty).
 
 Single VMs:
 
-GET
-\"/subscriptions/{guid}/resourceGroups/{RGName}/providers/Microsoft.Compute/virtualMachines/{VMName}?\$expand=userData\"
+`GET "/subscriptions/{guid}/resourceGroups/{RGName}/providers/Microsoft.Compute/virtualMachines/{VMName}?$expand=userData"`
 
 VMSS:
 
-GET
-\"/subscriptions/{guid}/resourceGroups/{RGName}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMSSName}?\$expand=userData\"
+`GET "/subscriptions/{guid}/resourceGroups/{RGName}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMSSName}?$expand=userData"`
 
 VMSS VM:
 
-GET
-\"/subscriptions/{guid}/resourceGroups/{RGName}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMSSName}/virtualmachines/{vmss
-instance id}?\$expand=userData\"
+` GET "/subscriptions/{guid}/resourceGroups/{RGName}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMSSName}/virtualmachines/{vmss instance id}?$expand=userData" `
 
-Updating "User data"
+## Updating user data
 
-From Azure Rest API, you can use a normal PUT request to create/update
-the VM user data. You can also user PATCH request to update the user
-data. The user data will be updated without the need to stop or reboot
-the VM.
+With Azure Rest API, you can use a normal PUT request to create/update the user data. You can also use PATCH request to update the user data. The user data will be updated without the need to stop or reboot the VM.
 
-PUT/PATCH
+`PUT
+"/subscriptions/{guid}/resourceGroups/{RGName}/providers/Microsoft.Compute/ virtualMachines/{VMName}
+`
 
-\"/subscriptions/{guid}/resourceGroups/{RGName}/providers/Microsoft.Compute/
-virtualMachines/{VMName}
+`PATCH
+"/subscriptions/{guid}/resourceGroups/{RGName}/providers/Microsoft.Compute/ virtualMachines/{VMName}
+`
 
-The VM.Properties in the 'update' request should contain your desired
-UserData field, like this:
+The VM.Properties in the 'update' request should contain your desired UserData field, like this:
 
-\"properties\": {
+```json
+"properties": {
+        "hardwareProfile": {
+          "vmSize": "Standard_D1_v2"
+        },
+        "storageProfile": {
+          "imageReference": {
+            "sku": "2016-Datacenter",
+            "publisher": "MicrosoftWindowsServer",
+            "version": "latest",
+            "offer": "WindowsServer"
+          },
+          "osDisk": {
+            "caching": "ReadWrite",
+            "managedDisk": {
+              "storageAccountType": "Standard_LRS"
+            },
+            "name": "vmOSdisk",
+            "createOption": "FromImage"
+          }
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+              "properties": {
+                "primary": true
+              }
+            }
+          ]
+        },
+        "osProfile": {
+          "adminUsername": "{your-username}",
+          "computerName": "{vm-name}",
+          "adminPassword": "{your-password}"
+        },
+        "diagnosticsProfile": {
+          "bootDiagnostics": {
+            "storageUri": "http://{existing-storage-account-name}.blob.core.windows.net",
+            "enabled": true
+          }
+        },
+        "userData": "U29tZSBDdXN0b20gRGF0YQ=="
+      } 
+```
 
-\"hardwareProfile\": {
+## User data and custom data
 
-\"vmSize\": \"Standard_D1_v2\"
+Custom data will continue to work the same way as today. However, in the long term we recommend customers to move to user data. Note you cannot retrieve custom data from IMDS.
 
-},
+## Adding user data to an existing VM 
 
-\"storageProfile\": {
-
-\"imageReference\": {
-
-\"sku\": \"2016-Datacenter\",
-
-\"publisher\": \"MicrosoftWindowsServer\",
-
-\"version\": \"latest\",
-
-\"offer\": \"WindowsServer\"
-
-},
-
-\"osDisk\": {
-
-\"caching\": \"ReadWrite\",
-
-\"managedDisk\": {
-
-\"storageAccountType\": \"Standard_LRS\"
-
-},
-
-\"name\": \"vmOSdisk\",
-
-\"createOption\": \"FromImage\"
-
-}
-
-},
-
-\"networkProfile\": {
-
-\"networkInterfaces\": \[
-
-{
-
-\"id\":
-\"/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}\",
-
-\"properties\": {
-
-\"primary\": true
-
-}
-
-}
-
-\]
-
-},
-
-\"osProfile\": {
-
-\"adminUsername\": \"{your-username}\",
-
-\"computerName\": \"{vm-name}\",
-
-\"adminPassword\": \"{your-password}\"
-
-},
-
-\"diagnosticsProfile\": {
-
-\"bootDiagnostics\": {
-
-\"storageUri\":
-\"http://{existing-storage-account-name}.blob.core.windows.net\",
-
-\"enabled\": true
-
-}
-
-},
-
-\"userData\": \"U29tZSBDdXN0b20gRGF0YQ==\"
-
-}
-
-# "Custom data" and "User data" 
-
-"Custom data" will continue to work the same way as of today. However,
-in the long term we recommend customers to switch to "User data." Note
-you cannot retrieve "custom data" from IMDS.
-
-# Adding User data to an existing VM 
-
-If you have an existing VM without user data, including VM that already
-has custom data, you can still add user data to this VM by using the
-same updating commands, see the "Updating the User data" section for
-details. Same applies to VMSS.
+If you have an existing VM/VMSS without user data, you can still add user data to this VM by using the updating commands,  as described the ["Updating the User data"](#Updating-User-data) section.
