@@ -28,9 +28,7 @@ This article focuses on managing digital twins; to work with relationships and t
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-## Ways to manage twins
-
-[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
+[!INCLUDE [digital-twins-developer-interfaces.md](../../includes/digital-twins-developer-interfaces.md)]
 
 ## Create a digital twin
 
