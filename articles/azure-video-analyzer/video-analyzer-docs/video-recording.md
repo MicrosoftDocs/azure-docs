@@ -14,7 +14,6 @@ In the context of a video management system for CCTV cameras, video recording re
 ## Continuous video recording
 
 Continuous video recording (CVR) refers to the process of continuously recording all the video being captured from a video source. CVR ensures that all the video is available (dictated by the **[recording policy](#recording-policy))** to analyze and/or audit at a later point in time.
-<!-- TODO: Add link to recording policy -->
 
 ## Event-based video recording
 
@@ -22,14 +21,13 @@ Event-based video recording (EVR) refers to the process of recording video trigg
 
 ## Choosing recording modes
 
-The choice of whether to use CVR or EVR depends on the business goals. Azure Video Analyzer (AVA) provides platform capabilities for both CVR and EVR. You can learn more about it in the **`CVR`** and **`EVR`** scenario articles.
-<!-- TODO: Add links to the CVR and EVR concept pages-->
+The choice of whether to use CVR or EVR depends on the business goals. Azure Video Analyzer (AVA) provides platform capabilities for both CVR and EVR. You can learn more about it in the **[CVR](continuous-video-recording.md)** and **[EVR](event-based-video-recording-concept.md)** scenario articles.
 
 ## Recording policy
 
-Recording policy refers to the policies that dictate the recording start/stop time (in case of EVR), recording duration, and recording deletion. Recording policies enable you to balance storage cost with business requirements. Recording policies differ between CVR and EVR. For CVR, recording policy defines how many days of video should be stored (for example, the last 7 days). For EVR, recording policy defines when recording should start and end, along with the duration of the video. You can learn more about it in the **`CVR`** and **`EVR`** scenario articles.
-<!-- TODO: Add links to the CVR and EVR concept pages -->
+Recording policy refers to the policies that dictate the recording start/stop time (in case of EVR), recording duration, and recording deletion. Recording policies enable you to balance storage cost with business requirements. Recording policies differ between CVR and EVR. For CVR, recording policy defines how many days of video should be stored (for example, the last 7 days). For EVR, recording policy defines when recording should start and end, along with the duration of the video. You can learn more about it in the **[CVR](continuous-video-recording.md)** and **[EVR](event-based-video-recording-concept.md)** scenario articles.
+
 ## Next steps
 
 - [Tutorial: Continuous video recording and playback](use-continuous-video-recording.md)
-- [Detect motion, record video clips to edge devices](detect-motion-record-video-clips-edge-devices.md)  
+- [Detect motion, record video clips to edge devices]() <!-- TODO: Add link-->  
