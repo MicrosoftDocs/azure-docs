@@ -235,7 +235,7 @@ You need either Azure CLI or Azure PowerShell to deploy the template.
 
 ### Sign in to Azure
 
-To start working with Azure PowerShell/Azure CLI to deploy a template, sign in with your Azure credentials.
+To deploy a template sign in to either the Azure CLI or Azure PowerShell.
 
 # [PowerShell](#tab/azure-powershell)
 
