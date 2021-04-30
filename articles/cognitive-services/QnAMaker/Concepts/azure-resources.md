@@ -78,9 +78,9 @@ Typically there are three parameters you need to consider:
 > [!div class="mx-imgBorder"]
 > ![Multi-lingual knowledge base selection](../media/qnamaker-create-publish-knowledge-base/select-language-custom-qna.png)
 
-    You can publish N-1 knowledge bases of a single language or N/2 knowledge bases of different languages in a particular tier, where N is the maximum indexes allowed in the tier. Also check the maximum size and the number of documents allowed per tier.
+   You can publish N-1 knowledge bases of a single language or N/2 knowledge bases of different languages in a particular tier, where N is the maximum indexes allowed in the tier. Also check the maximum size and the number of documents allowed per tier.
 
-    For example, if your tier has 15 allowed indexes, you can publish 14 knowledge bases of the same language (1 index per published knowledge base). The fifteenth index is used for all the knowledge bases for authoring and testing. If you choose to have knowledge bases in different languages, then you can only publish 7 knowledge bases.
+   For example, if your tier has 15 allowed indexes, you can publish 14 knowledge bases of the same language (1 index per published knowledge base). The fifteenth index is used for all the knowledge bases for authoring and testing. If you choose to have knowledge bases in different languages, then you can only publish 7 knowledge bases.
 
 * **Number of documents as sources**: Custom question anwering (Preview) is a free feature, and there are no limits to the number of documents you can add as sources. See more details [here](https://aka.ms/qnamaker-pricing).
 
