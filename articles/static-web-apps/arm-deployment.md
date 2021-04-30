@@ -65,7 +65,7 @@ The following steps demonstrate how to create a new repository for a static web 
 
 1. Log on to [Github](https://github.com) using your GitHub account credentials.
 
-1. Create a new repository with named **myfirstswadeployment**.
+1. Create a new repository named **myfirstswadeployment**.
 
 1. Define your GitHub repo as **Public**.
 
