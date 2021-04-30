@@ -16,6 +16,7 @@ Learn about important updates in the commercial marketplace program of Partner C
 
 | Category | Description | Date |
 | ------------ | ------------- | ------------- |
+| Offers | Publishers now have a simpler and faster way to prepare and publish their Azure Virtual Machine-based offers in Partner Center. To learn more, see [How to create a virtual machine using an approved base](azure-vm-create-using-approved-base.md). | 2021-03-22 |
 | Analytics | Developers can use new report APIs to programmatically access commercial marketplace analytics data. You can schedule custom reports and download your marketplace data into your internal analytics systems. To learn more, see [Get started with programmatic access to analytics data](analytics-get-started.md). | 2021-03-08 |
 | Grow your business | Publishers can more easily mitigate the risk of their customers receiving an incorrect bill for metered billing usage. To learn more, see [Manage metered billing anomalies in Partner Center](anomaly-detection.md). | 2021-02-18 |
 ||||
@@ -30,6 +31,5 @@ Learn about important updates in the commercial marketplace program of Partner C
 | Capabilities | Reorganized and clarified the [Commercial marketplace transact capabilities](marketplace-commercial-transaction-capabilities-and-considerations.md) documentation to help independent software vendors (ISVs) understand the difference between the various transactable and non-transactable options. | 2021-04-06 |
 | Policies | We’ve updated the [Commercial marketplace certification policies](/legal/marketplace/certification-policies). | 2021-04-02 |
 | Offers | New guidance for publishers to test their software as a service (SaaS) offers by creating separate development and production offers. To learn more, see [Create a test offer (SaaS)](create-saas-dev-test-offer.md). | 2021-03-25 |
-| Offers | Publishers now have a simpler and faster way to prepare and publish their Azure Virtual Machine-based offers in Partner Center. To learn more, see [How to create a virtual machine using an approved base](azure-vm-create-using-approved-base.md). | 2021-03-22 |
 | Co-sell | Improved documentation to help partners use the commercial marketplace to collaboratively sell (co-sell) their offers with Microsoft sales teams. To learn more, see the following topics:<ul><li>[Co-sell with Microsoft sales teams and partners overview](co-sell-overview.md)</li><li>[Co-sell requirements](co-sell-requirements.md)</li><li>[Configure co-sell for a commercial marketplace offer](co-sell-configure.md)</li><li>[Verify co-sell status of a commercial marketplace offer](co-sell-status.md)</li></ul> | 2021-03-17 |
 ||||
