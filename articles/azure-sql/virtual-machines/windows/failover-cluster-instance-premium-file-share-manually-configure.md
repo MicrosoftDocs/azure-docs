@@ -54,7 +54,7 @@ Before you complete the instructions in this article, you should already have:
 
   > [!IMPORTANT]
   > - Consider using a separate file share for backup files to save the input/output operations per second (IOPS) and space capacity of this share for data and log files. You can use either a Premium or Standard File Share for backup files.
-  > - If you're on Windows 2012 R2 or earlier, follow these same steps to mount the file share that you're going to use as the file share witness. 
+  > - If you're on Windows 2012 R2 or earlier, you can follow similar steps to mount a file share you can use for the file share witness. 
   > 
 
 
@@ -77,6 +77,12 @@ Before you complete the instructions in this article, you should already have:
    $nodes = ("<node1>","<node2>")
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
+
+## Configure quorum
+
+Although the disk witness is the most resilient quorum option, it requires an Azure shared disk which imposes some limitations to the failover cluster instance when configured with premium file shares. As such, the cloud witness is the recommended quorum solution for this type of cluster configuration for SQL Server on Azure VMs. Otherwise, configure a file share witness. 
+
+If you have an even number of votes in the cluster, configure the [quorum solution](hadr-cluster-quorum-configure-how-to.md) that best suits your business needs. For more information, see [Quorum with SQL Server VMs](hadr-windows-server-failover-cluster-overview.md#quorum). 
 
 ## Validate cluster
 

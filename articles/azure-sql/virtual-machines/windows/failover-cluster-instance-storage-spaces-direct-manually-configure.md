@@ -79,6 +79,11 @@ Before you complete the instructions in this article, you should already have:
 
 For more information about the next steps, see the instructions in the "Step 3: Configure Storage Spaces Direct" section of [Hyperconverged solution using Storage Spaces Direct in Windows Server 2016](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-3-configure-storage-spaces-direct).
 
+## Configure quorum
+
+Although the disk witness is the most resilient quorum option, it's not supported for failover cluster instances configured with Storage Spaces Direct. As such, the cloud witness is the recommended quorum solution for this type of cluster configuration for SQL Server on Azure VMs. Otherwise, configure a file share witness. 
+
+If you have an even number of votes in the cluster, configure the [quorum solution](hadr-cluster-quorum-configure-how-to.md) that best suits your business needs. For more information, see [Quorum with SQL Server VMs](hadr-windows-server-failover-cluster-overview.md#quorum). 
 
 ## Validate the cluster
 

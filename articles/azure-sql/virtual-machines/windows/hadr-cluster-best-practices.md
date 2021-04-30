@@ -38,17 +38,19 @@ Although a two-node cluster will function without a [quorum resource](/windows-s
 
 Technically, a three-node cluster can survive a single node loss (down to two nodes) without a quorum resource. But after the cluster is down to two nodes, there's a risk that the clustered resources will go offline if a node loss or communication failure to prevent a split-brain scenario. Configuring a quorum resource will allow the cluster to continue online with only one node online.
 
-The following table lists the quorum options available in the order recommended using with an Azure VM, with the disk witness being the preferred choice: 
+The disk witness is the most resilient quorum option, but to use a disk witness on a SQL Server on Azure VM, you must use an Azure Shared Disk which imposes some limitations to the high availability solution. As such, use a disk witness when you're configuring your failover cluster instance with Azure Shared Disks, otherwise use a cloud witness whenever possible. 
 
-||[Disk witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Cloud witness](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp))  |[File share witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
+The following table lists the quorum options available for SQL Server on Azure VMs: 
+
+|  |[Cloud witness](/windows-server/failover-clustering/deploy-cloud-witness) |[Disk witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum) |[File share witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
-|**Supported OS**| All |Windows Server 2016+| All|
+|**Supported OS**| Windows Server 2016+ |All | All|
 
-- The **disk witness** is the preferred quorum option for any cluster that uses Azure Shared Disks (or any shared-disk solution like shared SCSI, iSCSI, or fiber channel SAN).  A Clustered Shared Volume cannot be used as a disk witness.
-- The **cloud witness** is ideal for deployments in multiple sites, multiple zones, and multiple regions.
+- The **cloud witness** is ideal for deployments in multiple sites, multiple zones, and multiple regions. Use a cloud witness whenever possible, unless you're using a shared-storage cluster solution.
+- The **disk witness** is the most resilient quorum option and is preferred for any cluster that uses Azure Shared Disks (or any shared-disk solution like shared SCSI, iSCSI, or fiber channel SAN).  A Clustered Shared Volume cannot be used as a disk witness. 
 - The **fileshare witness** is suitable for when the disk witness and cloud witness are unavailable options. 
 
-### Quorum Voting
+## Quorum Voting
 
 It's possible to change the quorum vote of a node participating in a Windows Server Failover Cluster. 
 
