@@ -15,6 +15,8 @@ ms.custom: template-concept
 
 This article describes the data that Azure Arc enabled data services transmits to Microsoft. 
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Related products
 
 Azure Arc enabled data services may use some or all of the following products:
