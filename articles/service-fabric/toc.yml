@@ -457,6 +457,8 @@
       href: how-to-enable-managed-cluster-disk-encryption.md
     - name: Use managed identity for managed cluster nodes
       href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
+    - name: Deploy a stateless only node type with a managed cluster 
+      href: how-to-managed-cluster-stateless-node-type.md 
   - name: Plan and prepare
     items:
     - name: Plan cluster capacity
