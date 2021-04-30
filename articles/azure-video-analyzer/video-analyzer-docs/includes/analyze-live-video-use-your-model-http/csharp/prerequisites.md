@@ -24,6 +24,3 @@ ms.author: juliako
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
 [!INCLUDE [resources](../../common-includes/azure-resources.md)]
-
-> [!TIP]
-> If you run into issues with Azure resources that get created, review our [troubleshooting guide](../../../troubleshoot.md) to resolve some commonly encountered issues.
