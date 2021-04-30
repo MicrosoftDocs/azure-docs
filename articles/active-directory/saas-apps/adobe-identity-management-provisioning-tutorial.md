@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2020
+ms.date: 04/30/2021
 ms.author: Zhchia
 ---
 
@@ -38,6 +38,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md).
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * A federated directory in the [Adobe Admin Console](https://adminconsole.adobe.com/) with verified domains.
+* Review the [adobe documentation](https://helpx.adobe.com/enterprise/admin-guide.html/enterprise/using/add-azure-sync.ug.html) on user provisioning 
 
 > [!NOTE]
 > If your organization uses the User Sync Tool or a UMAPI integration, you must first pause the integration. Then, add Azure AD automatic provisioning to automate user management from the Azure Portal. Once Azure AD automatic provisioning is configured and running, you can completely remove the User Sync Tool or UMAPI integration.
