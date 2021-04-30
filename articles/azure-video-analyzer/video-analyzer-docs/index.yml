@@ -20,7 +20,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: Azure Video Analyzer documentation
+  - title: Video Analyzer overview
     linkLists:
       - linkListType: overview
         links:
@@ -34,15 +34,34 @@ landingContent:
             url: pipeline.md
           - text: Video recording 
             url: video-recording.md
-      - linkListType: how-to-guide
-        links:            
-          - text: Video playback
-            url: playback-recordings-how-to.md
-          
-  # Card
-  - title: Azure Video Analyzer scenarios
-    linkLists:
       - linkListType: quickstart
         links:
           - text: Get started with Azure Video Analyzer 
             url: get-started-detect-motion-emit-events.md
+        
+  # Card
+  - title: Video Analyzer quickstarts/tutorials
+    linkLists:
+    - linkListType: concept
+      links:
+        - text: Pipeline extension
+          url: pipeline-extension.md
+        - text: Event-based video recording
+          url: event-based-video-recording-concept.md 
+        - text: Continuous video recording
+          url: continuous-video-recording.md
+        - text: Analyze live videos without recording
+          url: analyze-live-video-without-recording.md
+    - linkListType: quickstart
+      links:            
+        - text: Track objects in live videos
+          url: track-objects-live-video.md
+        - text: Detect motion, record video on edge devices
+          url: detect-motion-record-video-edge-devices.md
+    - linkListType: tutorial
+      links:            
+        - text: Analyze live video with Spatial Analysis
+          url: computer-vision-for-spatial-analysis.md    
+        - text: Analyze live video with Custom Vision 
+          url: analyze-live-video-custom-vision.md 
+
