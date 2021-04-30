@@ -207,4 +207,4 @@ Custom data will continue to work the same way as today. Note you cannot retriev
 
 ## Adding user data to an existing VM 
 
-If you have an existing VM/VMSS without user data, you can still add user data to this VM by using the updating commands,  as described in the ["Updating the User data"](#Updating-User-data) section.
+If you have an existing VM/VMSS without user data, you can still add user data to this VM by using the updating commands,  as described in the ["Updating the User data"](#Updating-User-data) section. Make sure you upgrade to the latest version of ARM API.
