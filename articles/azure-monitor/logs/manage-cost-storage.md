@@ -12,7 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/28/2021
-ms.author: bwren
+ms.author: bwren 
+ms.custom: devx-track-azurepowershell
 ---
  
 # Manage usage and costs with Azure Monitor Logs	

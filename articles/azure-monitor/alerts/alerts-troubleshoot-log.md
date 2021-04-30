@@ -4,7 +4,8 @@ description: Common issues, errors, and resolutions for log alert rules in Azure
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 09/22/2020 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Troubleshoot log alerts in Azure Monitor  

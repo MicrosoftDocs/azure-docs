@@ -4,7 +4,8 @@ description: You can use the Azure Key Vault solution in Azure Monitor to review
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/27/2019
+ms.date: 03/27/2019 
+ms.custom: devx-track-azurepowershell
 
 ---
 
