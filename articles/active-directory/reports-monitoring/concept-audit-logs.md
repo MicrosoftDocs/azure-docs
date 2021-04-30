@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/26/2021
+ms.date: 04/30/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -34,8 +34,57 @@ To support you with this goal, the Azure Active Directory portal gives you acces
 This article gives you an overview of the audit logs.
 
 
+## What is it?
+
+With the audit logs in Azure AD, you get access to records of system activities for compliance.
+The most common views of this log are based on the following categories:
+
+- User management
+
+- Group management
  
-## Who can access the data?
+- Application management  
+
+
+With a user-centric view, you can get answers to questions such as:
+
+- What types of updates have been applied to users?
+
+- How many users were changed?
+
+- How many passwords were changed?
+
+- What has an administrator done in a directory?
+
+
+With a group-centric view, you can get answers to questions such as:
+
+- What are the groups that have been added?
+
+- Are there groups with membership changes?
+
+- Have the owners of group been changed?
+
+- What licenses have been assigned to a group or a user?
+
+With an application-centric view, you can get answers to questions such as:
+
+- What applications have been added or updated?
+
+- What applications have been removed?
+
+- Has a service principal for an application changed?
+
+- Have the names of applications been changed?
+
+- Who gave consent to an application?
+
+ 
+## What license do I need?
+
+The audit activity report is available in all editions of Azure AD.
+
+## Who can access it?
 
 To access the audit logs, you need to be in one of the following roles: 
 
@@ -45,11 +94,19 @@ To access the audit logs, you need to be in one of the following roles:
 - Global Reader
 - Global Administrator
 
-## Audit logs
+## Where can I find it?
 
-The Azure AD audit logs provide records of system activities for compliance. To access the audit report, select **Audit logs** in the **Monitoring** section of **Azure Active Directory**. 
+The Azure portal provides you with several options to access the log. For example, on the Azure Active Directory menu, you can open the log in the **Monitoring** section.  
+
+![Open audit logs](./media/concept-audit-logs/audit-logs-menu.png)
+
+Additionally, you can get directly get to the audit logs using [this link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/ProvisioningEvents).
 
 
+You can also access the audit log through the Microsoft Graph API.
+
+
+## What is the default view?
 
 An audit log has a default list view that shows:
 
@@ -73,7 +130,6 @@ This enables you to display additional fields or remove fields that are already 
 Select an item in the list view to get more detailed information.
 
 ![select item](./media/concept-audit-logs/details.png "Select item")
-
 
 ## Filtering audit logs
 
@@ -161,54 +217,7 @@ You can also choose to download the filtered data, up to 250,000 records, by sel
 
 ![Download data](./media/concept-audit-logs/download.png "Download data")
 
-## Audit logs shortcuts
 
-In addition to **Azure Active Directory**, the Azure portal provides you with two additional entry points to audit data:
-
-- Users and groups
-- Enterprise applications
-
-### Users and groups audit logs
-
-With user and group-based audit logs, you can get answers to questions such as:
-
-- What types of updates have been applied to users?
-
-- How many users were changed?
-
-- How many passwords were changed?
-
-- What has an administrator done in a directory?
-
-- What are the groups that have been added?
-
-- Are there groups with membership changes?
-
-- Have the owners of group been changed?
-
-- What licenses have been assigned to a group or a user?
-
-If you want to review only auditing data that is related to users, you can find a filtered view under **Audit logs** in the **Monitoring** section of the **Users** tab. This entry point has **UserManagement** as preselected category.
-
-![User](./media/concept-audit-logs/users.png "User")
-
-If you want to review only auditing data that is related to groups, you can find a filtered view under **Audit logs** in the **Monitoring** section of the **Groups** tab. This entry point has **GroupManagement** as preselected category.
-
-![Filter groups](./media/concept-audit-logs/groups.png "Filter groups")
-
-### Enterprise applications audit logs
-
-With application-based audit logs, you can get answers to questions such as:
-
-* What applications have been added or updated?
-* What applications have been removed?
-* Has a service principal for an application changed?
-* Have the names of applications been changed?
-* Who gave consent to an application?
-
-If you want to review audit data related to your applications, you can find a filtered view under **Audit logs** in the **Activity** section of the **Enterprise applications** blade. This entry point has **Enterprise applications** preselected as the **Application Type**.
-
-![Enterprise applications](./media/concept-audit-logs/enterpriseapplications.png "Enterprise applications")
 
 ## Microsoft 365 activity logs
 
@@ -221,4 +230,4 @@ You can also access the Microsoft 365 activity logs programmatically by using th
 - [Azure AD audit activity reference](reference-audit-activities.md)
 - [Azure AD logs retention reference](reference-reports-data-retention.md)
 - [Azure AD log latencies reference](reference-reports-latencies.md)
-- [Unknown actors in audit report](https://docs.microsoft.com/troubleshoot/azure/active-directory/unknown-actors-in-audit-reports)
+- [Unknown actors in audit report](/troubleshoot/azure/active-directory/unknown-actors-in-audit-reports)

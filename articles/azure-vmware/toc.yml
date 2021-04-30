@@ -52,12 +52,14 @@
   items:
   - name: Request host quota and enable Azure VMware Solution
     href: enable-azure-vmware-solution.md
-  - name: Move EA and CSP subscriptions
-    href: move-ea-csp-subscriptions.md
+  - name: Move resources
+    items:
+    - name: Move Azure VMware Solution subscriptions
+      href: move-ea-csp-subscriptions.md
   - name: Save costs with a reserved instance
     href: reserved-instance.md
   - name: Migration assessment
-    href: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
+    href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
   - name: Manage DHCP
     href: manage-dhcp.md
   - name: Configure NSX network components
@@ -79,19 +81,19 @@
     - name: Disaster recovery to Azure
       items:
       - name: Prepare Azure
-        href: /azure/site-recovery/avs-tutorial-prepare-azure?context=/azure/azure-vmware/context/context
+        href: ../site-recovery/avs-tutorial-prepare-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Prepare Azure VMware Solution 
-        href: /azure/site-recovery/avs-tutorial-prepare-avs?context=/azure/azure-vmware/context/context
+        href: ../site-recovery/avs-tutorial-prepare-avs.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Set up replication
-        href: /azure/site-recovery/avs-tutorial-replication?context=/azure/azure-vmware/context/context
+        href: ../site-recovery/avs-tutorial-replication.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Run a disaster recovery drill 
-        href: /azure/site-recovery/avs-tutorial-dr-drill-azure?context=/azure/azure-vmware/context/context
+        href: ../site-recovery/avs-tutorial-dr-drill-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Fail over to Azure 
-        href: /azure/site-recovery/avs-tutorial-failover?context=/azure/azure-vmware/context/context
+        href: ../site-recovery/avs-tutorial-failover.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Reprotect VMs
-        href: /azure/site-recovery/avs-tutorial-reprotect?context=/azure/azure-vmware/context/context
+        href: ../site-recovery/avs-tutorial-reprotect.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Fail back from Azure 
-        href: /azure/site-recovery/avs-tutorial-failback?context=/azure/azure-vmware/context/context
+        href: ../site-recovery/avs-tutorial-failback.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
   - name: Azure native integration
     items:
     - name: API Management

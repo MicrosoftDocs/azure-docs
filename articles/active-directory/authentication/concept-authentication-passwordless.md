@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 04/29/2021
 
 ms.author: justinha
 author: justinha
@@ -23,7 +23,7 @@ Features like multi-factor authentication (MFA) are a great way to secure your o
 | --- | --- | --- |
 | Passwordless | Windows 10 Device, phone, or security key | Biometric or PIN |
 
-Each organization has different needs when it comes to authentication. Microsoft offers the following three passwordless authentication options that integrate with Azure Active Directory (Azure AD):
+Each organization has different needs when it comes to authentication. Microsoft global Azure and Azure Government offer the following three passwordless authentication options that integrate with Azure Active Directory (Azure AD):
 
 - Windows Hello for Business
 - Microsoft Authenticator app
@@ -158,7 +158,7 @@ The following considerations apply:
 - End users can register and manage these passwordless authentication methods in their account portal
 - End users can sign in with these passwordless authentication methods:
    - Microsoft Authenticator App: Works in scenarios where Azure AD authentication is used, including across all browsers, during Windows 10 setup, and with integrated mobile apps on any operating system.
-   - Security keys: Work on lock screen for Windows 10 and the web in supported browsers like Microsoft Edge (both legacy and new Edge).
+   - Security keys: Work in Windows 10 setup in OOBE with or without Windows Autopilot, on lock screen for Windows 10 and the web in supported browsers like Microsoft Edge (both legacy and new Edge).
 
 ## Choose a passwordless method
 
