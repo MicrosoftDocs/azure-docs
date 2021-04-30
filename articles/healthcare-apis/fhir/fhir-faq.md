@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 1/21/2021
+ms.date: 04/30/2021
 ms.author: cavoeg
 ---
 
@@ -46,7 +46,7 @@ For a development standpoint, every feature that doesn't apply only to the manag
 
 ### Where can I see what is releasing into the Azure API for FHIR?
 
-To see some of what is releasing into the Azure API for FHIR, please refer to the [release](https://github.com/microsoft/fhir-server/releases) of the open-source FHIR Server. Starting in November 2020, we have tagged items with Azure-API-for-FHIR if the open-source item will release to the managed service. These features are typically available two weeks after they are on the release page in open-source. We have also included instructions on how to test the build [here] (https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) if you would like to test in your own environment. We are evaluating how to best share additional managed service updates.
+To see some of what is releasing into the Azure API for FHIR, please refer to the [release](https://github.com/microsoft/fhir-server/releases) of the open-source FHIR Server. Starting in November 2020, we have tagged items with Azure-API-for-FHIR if the open-source item will release to the managed service. These features are typically available two weeks after they are on the release page in open-source. We've also included instructions on how to test the build if you would like to test in your own environment. We are evaluating how to best share additional managed service updates.
 
 ### In which regions is Azure API for FHIR Available?
 
@@ -77,7 +77,7 @@ We allow you to load any valid FHIR JSON data into the server. If you want to st
 
 ### What is the limit on _count?
 
-The current limit on _count is 100. If you set _count to more than 100, you will receive a warning in the bundle that only 100 records will be shown.
+The current limit on _count is 1000. If you set _count to more than 1000, you'll receive a warning in the bundle that only 1000 records will be shown.
 
 ### Are there any limitations on the Group Export functionality?
 
