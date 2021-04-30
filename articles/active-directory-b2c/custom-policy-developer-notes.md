@@ -145,13 +145,13 @@ Azure Active Directory B2C [user flows and custom policies](user-flow-overview.m
 
 | Feature | Custom policy | Notes |
 | ------- | :--: | ----- |
-| Azure Portal | GA |   |
+| Azure portal | GA |   |
 | [Application Insights user journey logs](troubleshoot-with-application-insights.md) | Preview | Used for troubleshooting during development.  |
 | [Application Insights event logs](analytics-with-application-insights.md) | Preview | Used to monitor user flows in production. |
 
 ## Responsibilities of custom policy feature-set developers
 
-Manual policy configuration grants lower-level access to the underlying platform of Azure AD B2C and results in the creation of a unique, trust framework. The many possible permutations of custom identity providers, trust relationships, integrations with external services, and step by step workflows require a methodical approach to design and configuration.
+Manual policy configuration grants lower-level access to the underlying platform of Azure AD B2C and results in the creation of a unique, trust framework. The many possible permutations of custom identity providers, trust relationships, integrations with external services, and step-by-step workflows require a methodical approach to design and configuration.
 
 Developers consuming the custom policy feature set should adhere to the following guidelines:
 
