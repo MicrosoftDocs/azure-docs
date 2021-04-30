@@ -57,7 +57,7 @@ Read through the following articles before you begin:
 
 This tutorial uses a [toy car inference video](https://lvamedia.blob.core.windows.net/public/t2.mkv) file to simulate a live stream. You can examine the video via an application such as [VLC media player](https://www.videolan.org/vlc/). Select **Ctrl+N**, and then paste a link to the [toy car inference video](https://lvamedia.blob.core.windows.net/public/t2.mkv) to start playback. As you watch the video, note that at the 36-second marker a toy truck appears in the video. The custom model has been trained to detect this specific toy truck.
 
-<iframe src="https://www.microsoft.com/videoplayer/embed/RE4LPwK" frameborder="0" allowfullscreen="true" data-linktype="external" style="box-sizing: inherit; margin: 0px; padding: 0px; border: 0px; outline-color: inherit; width: 640px; position: absolute; inset: 0px; height: 360px;"></iframe>
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LPwK]
 
 In this tutorial, you'll use Azure Video Analyzer on IoT Edge to detect such toy trucks and publish associated inference events to the IoT Edge hub.
 
