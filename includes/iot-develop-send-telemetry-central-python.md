@@ -10,22 +10,24 @@
 ---
 
 ## Prerequisites
-- [Python 3.7](https://www.python.org/downloads/) or later. To check your Python version, run `python --version`. 
+- [Python](https://www.python.org/downloads/) version 3.7 or later. To check your Python version, run `python --version`. 
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
 ## Run a simulated device
-In this section, you install the Azure IoT Python device sdk samples, configure your local environment, and run a sample that creates a simulated temperature controller.
+In this section, you install the Azure IoT Python device sdk, configure your local environment, and run a sample that creates a simulated temperature controller.
 
-1. Open a console using Windows CMD, or PowerShell, or Bash (for Windows or Linux). You'll use the console to install the Python SDK, update environment variables, and run the Python code sample.
+1. Open a console using Windows CMD, or PowerShell, or Bash (for Windows or Linux). You'll use the console to install the Python SDK, update environment variables, and run the code sample.
 
-1. Copy the [Azure IoT Python SDK device samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) to your local machine.
+1. Copy the Azure IoT Python device SDK to your local machine.
 
     ```console
     git clone https://github.com/Azure/azure-iot-sdk-python
     ```
 
 1. Navigate to the samples directory.
+    > [!NOTE]
+    > If you use Bash, in file system paths replace the Windows path separator `\` with the Bash path separator `/`. 
 
     ```console
     cd azure-iot-sdk-python/azure-iot-device/samples/pnp
