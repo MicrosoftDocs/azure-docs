@@ -19,11 +19,9 @@ ms.author: juliako
         * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
     * [Python 3](https://www.python.org/downloads/) (3.6.9 or later), [Pip 3](https://pip.pypa.io/en/stable/installing/) and optionally [venv](https://docs.python.org/3/library/venv.html).
  
-
 ## Set up Azure resources
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
-
 [!INCLUDE [resources](../../common-includes/azure-resources.md)]
 
 > [!TIP]
