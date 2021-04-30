@@ -55,7 +55,8 @@ Select-AzSubscription -SubscriptionId <SubId>
 Get-AzADServicePrincipal -DisplayName "Azure Service Fabric Resource Provider"
 ```
 
-> Make sure you are in the correct subscription, the Id will change if the subscription is in a different tenant. The example output below is for the Microsoft tenant
+> [!NOTE]
+> Make sure you are in the correct subscription, the principal Id will change if the subscription is in a different tenant. The example output below is for the Microsoft tenant
 
 ```powershell
 ServicePrincipalNames : {74cb6831-0dbb-4be1-8206-fd4df301cdc2}
