@@ -32,18 +32,16 @@
       href: /azure/active-directory/saas-apps/
   - name: Samples
     items: 
-    - name: App Management PowerShell samples
-      items:
-      - name: Overview of App Management samples
-        href: app-management-powershell-samples.md
-      - name: Export secrets and certs (app registrations)
-        href: ./scripts/powershell-export-all-app-registrations-secrets-and-certs.md
-      - name: Export secrets and certs (enterprise apps)
-        href: ./scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md
-      - name: Export expiring secrets and certs
-        href: ./scripts/powershell-export-apps-with-expriring-secrets.md
-      - name: Export secrets and certs expiring beyond required date
-        href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
+    - name: Overview of App Management samples
+      href: app-management-powershell-samples.md
+    - name: Export secrets and certs (app registrations)
+      href: ./scripts/powershell-export-all-app-registrations-secrets-and-certs.md
+    - name: Export secrets and certs (enterprise apps)
+      href: ./scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md
+    - name: Export expiring secrets and certs
+      href: ./scripts/powershell-export-apps-with-expriring-secrets.md
+    - name: Export secrets and certs expiring beyond required date
+      href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
   - name: Concepts
     expanded: true
     items: 
@@ -142,18 +140,16 @@
         href: migrate-application-authentication-to-azure-active-directory.md
       - name: Use the AD FS application activity report
         href: migrate-adfs-application-activity.md
-    - name: Configure on-premises app access
+    - name: Secure legacy apps 
       items:
-      - name: Secure legacy apps 
-        items:
-        - name: Secure hybrid access with Azure AD 
-          href: secure-hybrid-access.md
-        - name: F5 and Azure AD integration
-          href: f5-aad-integration.md
-        - name: F5 BIG-IP VE deployment in Azure IaaS
-          href: f5-bigip-deployment-guide.md
-        - name: F5 Big-IP with Azure AD for passwordless VPN
-          href: f5-aad-password-less-vpn.md
+      - name: Secure hybrid access with Azure AD 
+        href: secure-hybrid-access.md
+      - name: F5 and Azure AD integration
+        href: f5-aad-integration.md
+      - name: F5 BIG-IP VE deployment in Azure IaaS
+        href: f5-bigip-deployment-guide.md
+      - name: F5 Big-IP with Azure AD for passwordless VPN
+        href: f5-aad-password-less-vpn.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot password-based single sign-on
@@ -162,18 +158,16 @@
         href: troubleshoot-saml-based-sso.md
       - name: Debug SAML-based single sign-on
         href: debug-saml-sso-issues.md
-      - name: Troubleshoot user sign-in
-        items:
-        - name: Unexpected consent prompt
-          href: application-sign-in-unexpected-user-consent-prompt.md
-        - name: User consent error
-          href: application-sign-in-unexpected-user-consent-error.md
-        - name: Problems signing in from My Apps
-          href: application-sign-in-other-problem-access-panel.md
-        - name: Error on application sign-in page
-          href: application-sign-in-problem-application-error.md
-        - name: Problem signing into a Microsoft app
-          href: application-sign-in-problem-first-party-microsoft.md
+      - name: Unexpected consent prompt
+        href: application-sign-in-unexpected-user-consent-prompt.md
+      - name: User consent error
+        href: application-sign-in-unexpected-user-consent-error.md
+      - name: Problems signing in from My Apps
+        href: application-sign-in-other-problem-access-panel.md
+      - name: Error on application sign-in page
+        href: application-sign-in-problem-application-error.md
+      - name: Problem signing into a Microsoft app
+        href: application-sign-in-problem-first-party-microsoft.md
   - name: Reference
     items:
     - name: App Management certificates FAQ
