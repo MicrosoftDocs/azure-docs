@@ -6,7 +6,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/06/2021
+ms.date: 04/29/2021
 ms.author: mbullwin
 ---
 
