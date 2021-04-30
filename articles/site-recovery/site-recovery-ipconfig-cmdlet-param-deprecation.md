@@ -1,5 +1,5 @@
 ---
-title: Deprecation of IPConfig Parameterss for the cmdlet New-AzRecoveryServicesAsrVMNicConfig | Microsoft Docs
+title: Deprecation of IPConfig Parameters for the cmdlet New-AzRecoveryServicesAsrVMNicConfig | Microsoft Docs
 description: Details about deprecation of IPConfig Params of the cmdlet New-AzRecoveryServicesAsrVMNicConfig and information about the use of new cmdlet New-AzRecoveryServicesAsrVMNicIPConfig
 services: site-recovery
 author: rishjai-msft
@@ -31,20 +31,20 @@ The New-AzRecoveryServicesAsrVMNicConfig uses the following parameters to config
 - TfoPublicIPAddressId
 - TfoLBBackendAddressPoolId
 
-These parameters will not be accepted by the cmdlet going forward.
+These parameters will no longer be accepted by the cmdlet.
 
-- Starting 4th May 2021, you will receive Azure portal notifications & email communications with the deprecation of IP Config params in the cmdlet New-AzRecoveryServicesAsrVMNicConfig.
+- Starting 4 May 2021, you will receive Azure portal notifications & email communications with the deprecation of IP Config params in the cmdlet New-AzRecoveryServicesAsrVMNicConfig.
 
-- If you have an existing script leveraging it, it will not be supported going forward.
+- If you have an existing script using it, it will no longer be supported.
  
 ## Alternatives 
 
-As an alternative, we have introduced a new cmdlet [New-AzRecoveryServicesAsrVMNicIPConfig](https://docs.microsoft.com/powershell/module/az.recoveryservices/new-azrecoveryservicesasrvmnicipconfig) for configuring IP Config FO/TFO settings. 
+As an alternative, a new cmdlet [New-AzRecoveryServicesAsrVMNicIPConfig](https://docs.microsoft.com/powershell/module/az.recoveryservices/new-azrecoveryservicesasrvmnicipconfig) is introduced for configuring IP Config FO/TFO settings. 
 
 
 ## Remediation steps
 
-We expect you to modify your scripts to remove these params. Instead, start using the new cmdlet **New-AzRecoveryServicesAsrVMNicIPConfig** to create an IP Config object. Here is an illustration:
+You are expected to modify your scripts to remove these params. Instead, start using the new cmdlet **New-AzRecoveryServicesAsrVMNicIPConfig** to create an IP Config object. Here is an illustration:
 
 Your **existing scripts** would have been written like this:
 ```azurepowershell
@@ -60,7 +60,7 @@ $nics = @($nic1)
 Set-AzRecoveryServicesAsrReplicationProtectedItem -InputObject $protectedItemObject -ASRVMNicConfiguration $nics
 ```
 
-Please modify your scripts **as below**:
+Modify your scripts **as below**:
 ```azurepowershell
 # Fetching the Protected Item Object (for the Protected VM)
 $protectedItemObject = Get-AsrReplicationProtectedItem -ProtectionContainer $primaryContainerObject | where { $_.FriendlyName -eq $VMName };$protectedItemObject
@@ -80,4 +80,4 @@ Set-AzRecoveryServicesAsrReplicationProtectedItem -InputObject $protectedItemObj
 ```
 
 ## Next steps
-Modify your scripts as illustrated above. In case you have any queries regarding this, reach out to Microsoft Support
+Modify your scripts as illustrated above. In case you have any queries about this, contact Microsoft Support
