@@ -17,12 +17,17 @@ Prerequisites for this tutorial are:
 - [Detect motion and emit events](../../../detect-motion-emit-events-quickstart.md) quickstart
 - Ensure you have:
 
-  - [Set up Azure Resources](../../common-includes/azure-resources.md)
+  - [Set up Azure Resources](#set-up-azure-resources)
   - [Set up your development environment](../../common-includes/set-up-dev-environment.md)
-
-> [!TIP]
-> If you run into issues with Azure resources that get created, please view our **[troubleshooting guide](../../../troubleshoot.md)** to resolve some commonly encountered issues.
 
 > [!Important]
 > This Custom Vision module only supports **Intel x86 and amd64** architectures. Check the architecture of your edge device before continuing.
 
+## Set up Azure resources
+
+> [!TIP]
+> If you run into issues with Azure resources that get created, please view our **[troubleshooting guide](../../../troubleshoot.md)** to resolve some commonly encountered issues.
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
+
+[!INCLUDE [resources](../../common-includes/azure-resources.md)]
