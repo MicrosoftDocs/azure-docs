@@ -163,7 +163,8 @@ Evaluate the desired state, Pause or Resume, and the current status, Online, or 
 The final and only relevant step for some requirements, is to initiate the pause or resume of your dedicated SQL pool. This step again uses a Web activity, calling the [Pause or Resume compute REST API for Azure Synapse](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#pause-compute). 
 1. Select the activity edit pencil and add a **Web** activity to the State-PauseorResume canvas. 
 1. Select the **Settings** tab then click in the **URL** entry space, then select **Add dynamic content**. Copy and paste the POST request that has been parameterized using the @concat string function below into the dynamic content box. Select **Finish**. 
-1. Select the drop-down for **Method** and select **POST**.  
+1. Select the drop-down for **Method** and select **POST**.
+1. In the Body section type "Pause and Resume"
 1. Select **Advanced** to expand the content. Select **MSI** as the Authentication type. For Resource enter `https://management.azure.com/` 
 1. Add a second activity for the resume functionality using the parameterized code below.
 
