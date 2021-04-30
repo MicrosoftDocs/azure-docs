@@ -164,14 +164,6 @@
         href: document-translation/reference/get-translation-status.md
       - name: Cancel translation
         href: document-translation/reference/cancel-translation.md
-- name: How-to guides
-  items:
-  - name: Enterprise readiness
-    items:
-    - name: Set up Virtual Networks
-      href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/translator/context/context
-    - name: Use customer-managed keys
-      href: encrypt-data-at-rest.md
 - name: Resources
   items:
   - name: Enterprise readiness
@@ -180,6 +172,8 @@
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Compliance and certification
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+    - name: Use customer-managed keys
+      href: encrypt-data-at-rest.md
   - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
   - name: Code samples on GitHub
