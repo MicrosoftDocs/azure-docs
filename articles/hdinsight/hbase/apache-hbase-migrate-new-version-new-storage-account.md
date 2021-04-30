@@ -131,7 +131,7 @@ The HDFS copy command is `hdfs dfs <copy properties starting with -D> -cp`
  
 Use `hadoop distcp` for better performance when copying files not in a page blob: `hadoop distcp <copy properties starting with -D>`
  
-When copying HBase data files, you can use [AzCopy](/azure/storage/common/storage-ref-azcopy) for better performance:
+You can also use [AzCopy](/azure/storage/common/storage-ref-azcopy) for better performance when copying HBase data files.
    
 1. Create the directory structure first using the `hdfs` command:
    
@@ -145,7 +145,7 @@ When copying HBase data files, you can use [AzCopy](/azure/storage/common/storag
    azcopy cp "<source-container-endpoint-url>/hbase" "<destination-container-endpoint-url>" --recursive
    ```
 
-You can download AzCopy from [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10). For more information about using the AzCopy `copy` command, see [azcopy copy](/azure/storage/common/storage-ref-azcopy-copy).
+You can download AzCopy from [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10). For more information about using AzCopy, see [azcopy copy](/azure/storage/common/storage-ref-azcopy-copy).
 
 #### The source cluster is HDI 3.6 or HDI 4.0, and both the source and the destination cluster have Accelerated Writes
 
