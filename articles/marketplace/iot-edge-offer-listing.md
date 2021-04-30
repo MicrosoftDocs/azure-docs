@@ -18,7 +18,7 @@ This page lets you define the offer details such as offer name, description, lin
 
 Here's an example of how offer information appears in Azure Marketplace (any listed prices are for example purposes only and not intended to reflect actual costs):
 <font color="red">[ Should screen be AppSource, not Azure? ]</font>
-:::image type="content" source="media/dynamics-365/example-iot-azure-marketplace-offer.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
+:::image type="content" source="media/iot-edge/example-iot-azure-marketplace-offer.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 
 ##### Call-out descriptions
 
@@ -35,7 +35,7 @@ Here's an example of how offer information appears in Azure Marketplace (any lis
 
 <br>Here's an example of how offer information appears in Azure Marketplace search results:
 
-:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Illustrates how this offer appears in Azure Marketplace search results.":::
+:::image type="content" source="media/iot-edge/example-iot-azure-marketplace-offer-search-results.png" alt-text="Illustrates how this offer appears in Azure Marketplace search results.":::
 
 #### Call-out descriptions
 
@@ -45,7 +45,7 @@ Here's an example of how offer information appears in Azure Marketplace (any lis
 
 <br>Here's an example of how offer information appears in the Azure portal:
 
-:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Illustrates how this offer appears in the Azure portal.":::
+:::image type="content" source="media/iot-edge/example-iot-azure-portal-offer.png" alt-text="Illustrates how this offer appears in the Azure portal.":::
 
 #### Call-out descriptions
 
@@ -56,7 +56,7 @@ Here's an example of how offer information appears in Azure Marketplace (any lis
 
 <br>Here's an example of how offer information appears in the Azure portal search results:
 
-:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Illustrates how this offer appears in the Azure portal search results.":::
+:::image type="content" source="media/iot-edge/example-iot-azure-portal-offer-search-results.png" alt-text="Illustrates how this offer appears in the Azure portal search results.":::
 
 #### Call-out descriptions
 
@@ -80,7 +80,7 @@ Provide a **Short description** of your offer, up to 256 characters. This will a
 
 [!INCLUDE [Long description-2](includes/long-description-2.md)]
 
-[!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
+Use HTML tags to format your description so it's more engaging. For a list of allowed tags, see [Supported HTML tags](supported-html-tags.md).
 
 <strike>#### Help/Privacy URLs
 

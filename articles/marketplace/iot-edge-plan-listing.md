@@ -11,7 +11,7 @@ ms.date: 12/21/2020
 
 # Set up plan listing details for an IoT Edge Module offer
 
-This page displays information specific to the current plan.
+This page in Partner Center displays information specific to the current plan.
 
 ## Plan name
 
@@ -31,4 +31,4 @@ Select **Save draft** before continuing to the next tab in the **Plan overview**
 
 ## Next steps
 
-- [Set plan availability](iot-edge-module-plan-availability.md)
+- [Set plan availability](iot-edge-plan-availability.md)

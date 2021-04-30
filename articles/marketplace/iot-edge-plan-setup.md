@@ -34,4 +34,4 @@ Select **Save draft** before continuing to the next tab in the **Plan overview**
 
 ## Next steps
 
-- [Set up the plan listing](iot-edge-module-plan-listing.md)
+- [Set up the plan listing](iot-edge-plan-listing.md)

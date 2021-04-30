@@ -13,6 +13,8 @@ ms.date: 12/21/2020
 
 If you want to hide your published offer so customers can't search, browse, or purchase it in the marketplace, select the **Hide plan** check box.
 
+## Set plan availability
+
 This field is commonly used when:
 
 - The offer is only to be used only indirectly when referenced though another application.
@@ -24,4 +26,4 @@ Select **Save draft** before continuing to the next tab in the **Plan overview**
 
 ## Next steps
 
-- [Set plan technical configuration](iot-edge-module-plan-technical-configuration.md)
+- [Set plan technical configuration](iot-edge-plan-technical-configuration.md)

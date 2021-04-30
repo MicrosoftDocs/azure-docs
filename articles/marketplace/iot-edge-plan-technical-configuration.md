@@ -29,7 +29,7 @@ Provide the [**Azure container registry name**](../container-registry/container-
 
 Provide the [**Admin username for the Azure Container Registry**](../container-registry/container-registry-authentication.md#admin-account) associated with the Azure Container Registry that has your container image. The username and password (next step) are required to ensure your company has access to the registry. To get the admin username and password, set the **admin-enabled** property to **True** using the Azure Command-Line Interface (CLI). You can optionally set **Admin user** to **Enable** in the Azure portal.
 
-:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Illustrates the Update container registry dialog box.":::
+:::image type="content" source="media/iot-edge/example-iot-update-container-registry.png" alt-text="Illustrates the Update container registry dialog box.":::
 
 #### Call-out description
 
@@ -37,7 +37,7 @@ Provide the [**Admin username for the Azure Container Registry**](../container-r
 
 <br>Provide the **Admin password for the Azure Container Registry** for the admin username associated with the Azure Container Registry and has your container image. The username and password are required to ensure your company has access to the registry. You can get the password from the Azure portal by going to **Container Registry** > **Access Keys** or with Azure CLI using the [show command.](/cli/azure/acr/credential#az-acr-credential-show)
 
-:::image type="content" source="media/example-iot-access-keys.png" alt-text="Illustrates the access key screen in the Azure portal.":::
+:::image type="content" source="media/iot-edge/example-iot-access-keys.png" alt-text="Illustrates the access key screen in the Azure portal.":::
 
 #### Call-out descriptions
 
@@ -98,7 +98,7 @@ For example, if a module requires port binding, define the following create opti
 
 Here's an example of Azure Marketplace plan details (any listed prices are for example purposes only and not intended to reflect actual costs):
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Illustrates Azure Marketplace plan details.":::
+:::image type="content" source="media/iot-edge/example-iot-azure-marketplace-plan.png" alt-text="Illustrates Azure Marketplace plan details.":::
 
 #### Call-out descriptions
 
@@ -108,7 +108,7 @@ Here's an example of Azure Marketplace plan details (any listed prices are for e
 
 <br>Here's an example of the Azure portal plan details (any listed prices are for example purposes only and not intended to reflect actual costs):
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Illustrates the Azure portal plan details.":::
+:::image type="content" source="media/iot-edge/example-iot-azure-marketplace-plan-details.png" alt-text="Illustrates the Azure portal plan details.":::
 
 #### Call-out descriptions
 

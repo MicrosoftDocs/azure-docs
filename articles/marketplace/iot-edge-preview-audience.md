@@ -24,4 +24,4 @@ Add up to 10 GUIDs individually or up to 100 by uploading a CSV file. By adding 
 
 ## Next steps
 
-- [Create and manage plans](iot-edge-plan-overview.md).
+- [Create and manage plans](iot-edge-plan-overview.md)

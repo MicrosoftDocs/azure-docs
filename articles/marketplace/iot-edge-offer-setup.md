@@ -25,7 +25,7 @@ Review [Plan an IoT Edge Module offer](marketplace-iot-edge). It will explain th
 2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
 3. On the Overview page, select **+ New offer** > **IoT Edge module**.
 
-    :::image type="content" source="media/dynamics-365/new-offer-iot-edge.png" alt-text="The left pane menu options and the 'New offer' button.":::
+    :::image type="content" source="media/iot-edge/new-offer-iot-edge.png" alt-text="The left pane menu options and the 'New offer' button.":::
 
 > [!IMPORTANT]
 > After an offer is published, any edits you make to it in Partner Center appear on Microsoft AppSource only after you republish the offer. Be sure to always republish an offer after changing it.
@@ -50,15 +50,6 @@ Select **Create** to generate the offer. Partner Center opens the **Offer setup*
 
 Enter a descriptive name that we'll use to refer to this offer solely within Partner Center. The offer alias (pre-populated with what you entered when you created the offer) won't be used in the marketplace and is different than the offer name shown to customers. If you want to update the offer name later, see the [Offer listing](iot-edge-offer-listing.md) page.
 
-<!-- ## Test drive
-
-A test drive is a great way to showcase your offer to potential customers by giving them access to a preconfigured environment for a fixed number of hours. Offering a test drive results in an increased conversion rate and generates highly qualified leads. To learn more, start with [What is a test drive?](what-is-test-drive.md).
-
-> [!TIP]
-> A test drive is different from a free trial. You can offer either a test drive, free trial, or both. They both provide customers with your solution for a fixed period-of-time. But, a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits being demonstrated in a real-world implementation scenario.
-
-To enable a test drive, select the **Enable a test drive** check box and select the **Type of test drive**. You will configure the test drive later. <font color="red">[ Need to do this ]</font>Configuring a CRM (see next section) is required with test drive <font color="red">[ Applies to CE&PA too? ]</font> and when using the **Contact me** package type. To remove test drive from your offer, clear this check box.
--->
 ## Customer leads
 
 [!INCLUDE [Connect lead management](includes/connect-lead-management.md)]
