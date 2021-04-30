@@ -61,9 +61,6 @@ In this quickstart, you will:
 [!INCLUDE [prerequisites](includes/analyze-live-video-use-your-model-grpc/python/sample-files.md)]
 ::: zone-end
 
-> [!NOTE]
-> Expand this and check out how the VideoAnalyzer.GrpcExtension node is implemented in the topology.
-
 ## Generate and deploy the IoT Edge deployment manifest
 
 1. Right-click the *src/edge/* deployment.grpcyolov3icpu.template.json file and then select **Generate IoT Edge Deployment Manifest**.
@@ -97,7 +94,7 @@ In this quickstart, you will:
     curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/avaedgeuser/samples/input/camera-300s.mkv  
     chown -R lvalvaedgeuser:localusergroup /home/lvaedgeuser/samples/  
     ```
-    * The **avaExtension** module, which is the YOLOv3 object detection model that uses gRPC as the communication method and applies computer vision to the images and returns multiple classes of object types.
+    * The **avaextension** module, which is the YOLOv3 object detection model that uses gRPC as the communication method and applies computer vision to the images and returns multiple classes of object types.
 
         > [!div class="mx-imgBorder"]
         > :::image type="content" source="./media/analyze-live-video-use-your-model-http/object-detection-model.png" alt-text= "YoloV3 object detection model":::
@@ -144,16 +141,16 @@ In this quickstart, you will:
     ```
 1. The TERMINAL window shows the next set of direct method calls:
     
-    * A call to pipelineTopologySet that uses the preceding topologyUrl
+    * A call to pipelineTopologySet that uses the preceding pipelineTopologyUrl
     * A call to livePipelineSet that uses the following body:
     
     ```
     {
       "@apiVersion": "1.0",
-      "name": "Sample-Graph-1",
+      "name": "Sample-Pipeline-1",
       "properties": {
         "topologyName": "InferencingWithGrpcExtension",
-        "description": "Sample graph description",
+        "description": "Sample pipeline description",
         "parameters": [
           {
             "name": "rtspUrl",
@@ -204,7 +201,7 @@ When a media graph is instantiated, the RTSP source node attempts to connect to 
 },
   "applicationProperties": {
     "dataVersion": "1.0",
-    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/mediaservices/hubname",
+    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoAnalyzers/{ava-account-name}/edgeModules/avaedge",
     "subject": "/livePipelines/LIVEPIPELINENAMEHERE/sources/rtspSource",
     "eventType": "Microsoft.VideoAnalyzer.Diagnostics.MediaSessionEstablished",
     "eventTime": "2020-04-09T16:42:18.1280000Z"
