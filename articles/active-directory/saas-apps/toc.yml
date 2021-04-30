@@ -2281,6 +2281,8 @@
         href: juno-journey-provisioning-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeper-password-manager-digitalvault-provisioning-tutorial.md
+      - name: kpifire
+        href: kpifire-provisioning-tutorial.md
       - name: LinkedIn Elevate
         href: linkedinelevate-provisioning-tutorial.md
       - name: LinkedIn Sales Navigator

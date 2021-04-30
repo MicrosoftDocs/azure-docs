@@ -13911,6 +13911,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/blockchain/service/migration-guide.md",
+      "redirect_url": "/azure/blockchain/service/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/blockchain/templates/ethereum-deployment.md",
       "redirect_url": "/azure/blockchain/templates/ethereum-poa-deployment",
       "redirect_document_id": false
@@ -28401,6 +28406,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/machine-learning/how-to-label-images.md",
+      "redirect_url": "/azure/machine-learning/how-to-label-data",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/how-to-use-parallel-run-step.md",
       "redirect_url": "/azure/machine-learning/tutorial-pipeline-batch-scoring-classification",
       "redirect_document_id": false
@@ -40801,6 +40811,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-machines/linux/sap-hana-overview-troubleshooting-monitoring.md",
+      "redirect_url": "/azure/virtual-machines/workloads/sap/troubleshooting-monitoring",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-machines/windows/sap-high-availability-guide.md",
       "redirect_url": "/azure/virtual-machines/workloads/sap/high-availability-guide",
       "redirect_document_id": false
@@ -40816,19 +40831,19 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/virtual-machines/workloads/sap/suse-quickstart.md",
-      "redirect_url": "/azure/virtual-machines/workloads/sap/sap-deployment-checklist",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/virtual-machines/windows/sap-high-availability-multi-sid.md",
       "redirect_url": "/azure/virtual-machines/workloads/sap/sap-high-availability-multi-sid",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/virtual-machines/linux/sap-hana-overview-troubleshooting-monitoring.md",
-      "redirect_url": "/azure/virtual-machines/workloads/sap/troubleshooting-monitoring",
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/os-backup-type-ii-skus.md",
+      "redirect_url": "/azure/virtual-machines/workloads/sap/large-instance-os-backup",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/suse-quickstart.md",
+      "redirect_url": "/azure/virtual-machines/workloads/sap/sap-deployment-checklist",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md",
@@ -50421,7 +50436,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/active-directory/active-directory-passwords-faq.md",
+      "source_path_from_root": "/articles/active-directory/active-directory-passwords-faq.yml",
       "redirect_url": "/azure/active-directory/authentication/active-directory-passwords-faq",
       "redirect_document_id": true
     },
@@ -54777,7 +54792,17 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-transition-from-uag-tmg.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-migration",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-migration.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-faq.yml",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-faq",
       "redirect_document_id": false
     },
     {

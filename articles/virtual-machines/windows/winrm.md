@@ -53,11 +53,12 @@ $fileContentBytes = Get-Content $fileName -Encoding Byte
 $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
 
 [System.Collections.HashTable]$TableForJSON = @{
-    "data"     = $filecontentencoded;
+    "data"     = $fileContentEncoded;
     "dataType" = "pfx";
     "password" = "<password>";
 }
-[System.String]$JSONObject = $TableForJSON | ConvertTo-Json
+[System.String]$jsonObject = $TableForJSON | ConvertTo-Json
+$jsonEncoded = [System.Convert]::ToBase64String($jsonObject)
 
 $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText –Force
 Set-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValue $secret
