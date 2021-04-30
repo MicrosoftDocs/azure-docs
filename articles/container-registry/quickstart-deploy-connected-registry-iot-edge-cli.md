@@ -266,6 +266,9 @@ In this quickstart, you learned how to deploy a connected registry to an IoT Edg
 > [!div class="nextstepaction"]
 > [Quickstart: Pull images from a connected registry][quickstart-pull-images-from-connected-registry]
 
+> [!div class="nextstepaction"]
+> [Quickstart: Deploy connected registry on nested IoT Edge device][quickstart-pull-images-from-connected-registry]
+
 <!-- LINKS - internal -->
 [az-acr-connected-registry-install]: /cli/azure/acr#az-acr-connected-registry-install
 [az-acr-import]: /cli/azure/acr#az-acr-import
@@ -273,3 +276,4 @@ In this quickstart, you learned how to deploy a connected registry to an IoT Edg
 [container-registry-intro]: container-registry-intro.md
 [quickstart-pull-images-from-connected-registry]: quickstart-pull-images-from-connected-registry.md
 [quickstart-connected-registry-cli]: quickstart-connected-registry-cli.md
+[quickstart-connected-registry-nested]: quickstart-connected-registry-nested-iot-edge-cli.md
