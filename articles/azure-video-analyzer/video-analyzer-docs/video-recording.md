@@ -14,7 +14,6 @@ In the context of a video management system for CCTV cameras, video recording re
 ## Continuous video recording
 
 Continuous video recording (CVR) refers to the process of continuously recording all the video being captured from a video source. CVR ensures that all the video is available (dictated by the **[recording policy](#recording-policy))** to analyze and/or audit at a later point in time.
-<!-- TODO: Add link to recording policy -->
 
 ## Event-based video recording
 
