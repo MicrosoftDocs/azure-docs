@@ -10,7 +10,7 @@ You'll use the Azure Video Analyzer on IoT Edge module to detect motion in the i
 
 1. Open the Explorer pane in Visual Studio Code and look for Azure IoT Hub in the lower-left corner.
 1. Expand the **Devices** node.
-1. Right-click **ava-sample-device** and select **Start Monitoring Built-in Event Endpoint**.
+1. Right-click **avasample-iot-edge-device** and select **Start Monitoring Built-in Event Endpoint**.
 
     ![Start monitoring a built-in event endpoint](../../../media/quickstarts/start-monitoring-iot-hub-events.png)
 
