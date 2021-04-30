@@ -56,14 +56,14 @@ Get-AzADServicePrincipal -DisplayName "Azure Service Fabric Resource Provider"
 ```
 
 > [!NOTE]
-> Make sure you are in the correct subscription, the principal Id will change if the subscription is in a different tenant. The example output below is for the Microsoft tenant
+> Make sure you are in the correct subscription, the principal Id will change if the subscription is in a different tenant.
 
 ```powershell
 ServicePrincipalNames : {74cb6831-0dbb-4be1-8206-fd4df301cdc2}
 ApplicationId         : 74cb6831-0dbb-4be1-8206-fd4df301cdc2
 ObjectType            : ServicePrincipal
 DisplayName           : Azure Service Fabric Resource Provider
-Id                    : fbc587f2-66f5-4459-a027-bcd908b9d278
+Id                    : 00000000-0000-0000-0000-000000000000
 Type                  :
 ```
 
@@ -87,7 +87,7 @@ This role assignment can be defined in the resources section template using the 
     ], 
     "properties": {
         "roleDefinitionId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'f1a07417-d97a-45cb-824c-7a7467783830')]",
-        "principalId": "fbc587f2-66f5-4459-a027-bcd908b9d278" 
+        "principalId": "00000000-0000-0000-0000-000000000000" 
     } 
 }, 
 ```
@@ -95,7 +95,7 @@ This role assignment can be defined in the resources section template using the 
 or created via PowerShell using the principal Id and role definition name:
 
 ```powershell
-New-AzRoleAssignment -PrincipalId fbc587f2-66f5-4459-a027-bcd908b9d278 -RoleDefinitionName "Managed Identity Operator" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<userAssignedIdentityName>"
+New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Managed Identity Operator" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<userAssignedIdentityName>"
 ```
 
 ## Add managed identity properties to node type definition
