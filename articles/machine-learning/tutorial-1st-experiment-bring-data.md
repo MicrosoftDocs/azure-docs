@@ -34,10 +34,10 @@ In this tutorial, you:
 
 ## Prerequisites
 
-You'll need the data and an updated version of the pytorch environment created in the previous tutorial.  Make sure you have completed these steps:
+You'll need the data that was downloaded in the previous tutorial.  Make sure you have completed these steps:
 
 1. [Create the training script](tutorial-1st-experiment-sdk-train.md#create-training-scripts).  
-1. [Test locally](tutorial-1st-experiment-sdk-train.md#test-local) to download the data you need for this tutorial.
+1. [Test locally](tutorial-1st-experiment-sdk-train.md#test-local).
 
 ## Adjust the training script
 
@@ -181,7 +181,7 @@ The control script is similar to the one from [part 3 of this series](tutorial-1
 
 ## <a name="submit-to-cloud"></a> Submit the run to Azure Machine Learning
 
-Select **Save and run script in terminal** to train the model on the compute cluster using the data you uploaded.
+Select **Save and run script in terminal**  to run the *run-pytorch-data.py* script.  This run will train the model on the compute cluster using the data you uploaded.
 
 This code will print a URL to the experiment in the Azure Machine Learning studio. If you go to that link, you'll be able to see your code running.
 
@@ -234,12 +234,19 @@ Notice:
 
 ## Clean up resources
 
-If you plan to continue now to the another tutorial, leave the compute instance running.  But if you're done for now, stop the compute instance:
+## <a name="clean-up"></a>Clean up resources
+
+If you plan to continue now to another tutorial, or to start your own training runs, skip to [Next steps](#next-steps).
+
+### Stop compute instance
+
+If you're not going to use it now, stop the compute instance:
 
 1. In the studio, on the left, select **Compute**.
 1. In the top tabs, select **Compute instances**
 1. Select the compute instance in the list.
 1. On the top toolbar, select **Stop**.
+
 
 ### Delete all resources
 
@@ -251,7 +258,7 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 In this tutorial, we saw how to upload data to Azure by using `Datastore`. The datastore served as cloud storage for your workspace, giving you a persistent and flexible place to keep your data.
 
-You saw how to modify your training script to accept a data path via the command line. By using `Dataset`, you were able to mount a directory to the remote run. 
+You saw how to modify your training script to accept a data path via the command line. By using `Dataset`, you were able to mount a directory to the remote run.
 
 Now that you have a model, learn:
 
