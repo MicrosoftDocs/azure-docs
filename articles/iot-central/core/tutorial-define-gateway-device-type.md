@@ -86,6 +86,8 @@ To add a new gateway device template to your application:
 
 1. Enter **Send Data** as the display name, and then select **Property** as the capability type.
 
+1. Select **+ Add capability** to add another capability. Enter **Boolean Telemetry** as the display name, select **Telemetry** as the capability type, and then select **Boolean** as schema.
+
 1. Select **Save**
 
 
