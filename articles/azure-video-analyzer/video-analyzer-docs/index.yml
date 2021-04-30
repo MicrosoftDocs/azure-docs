@@ -34,15 +34,37 @@ landingContent:
             url: pipeline.md
           - text: Video recording 
             url: video-recording.md
-      - linkListType: how-to-guide
-        links:            
-          - text: Video playback
-            url: playback-recordings-how-to.md
-          
-  # Card
-  - title: Azure Video Analyzer scenarios
-    linkLists:
       - linkListType: quickstart
         links:
           - text: Get started with Azure Video Analyzer 
             url: get-started-detect-motion-emit-events.md
+        
+  # Card
+  - title: Video Analyzer quickstarts/tutorials
+      linkLists:
+      - linkListType: concept
+          - text: Pipeline extension
+            url: pipeline-extension.md
+          - text: Event-based video recording
+            url: event-based-video-recording-concept.md 
+          - text: Continuous video recording
+            url: continuous-video-recording.md
+          - text: Analyze live videos without recording
+            url: analyze-live-video-without-recording.md
+      - linkListType: quickstart
+        links:            
+          - text: Detect motion, record video in the cloud
+            url: detect-motion-record-video-clips-cloud.md #404
+          - text: Track objects in live videos
+            url: track-objects-live-video.md
+          - text: Detect motion, record video on edge devices
+            url: detect-motion-record-video-edge-devices.md
+      - linkListType: tutorial
+        links:            
+          - text: Analyze live video with Spatial Analysis
+            url: computer-vision-for-spatial-analysis.md    
+          - text: Analyze live video with OV DL Streamer via gRPC extension
+            url: use-intel-grpc-vas-tutorial.md #404
+          - text: Analyze live video with Custom Vision 
+            url: analyze-live-video-custom-vision.md 
+            
