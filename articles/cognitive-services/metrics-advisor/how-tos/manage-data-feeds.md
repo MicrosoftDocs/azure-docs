@@ -30,9 +30,9 @@ Only the administrator of a data feed is allowed to make changes to it.
 
 On the data feed list page, you can **pause, reactivate, delete** a data feed:
 
-A. **Pause/Reactivate**: Select the **Pause/Play** icon you want to perform on the data feed.
+* **Pause/Reactivate**: Select the **Pause/Play** icon you want to perform on the data feed.
 
-B. **Delete**: Select **Delete** icon on the data feed.
+* **Delete**: Select **Delete** icon on the data feed.
 
 If you change the start time, you need to verify the schema again. You can change it by clicking **Edit** in the data feed detail page.
 
