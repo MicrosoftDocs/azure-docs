@@ -32,7 +32,7 @@ In this quickstart, you will:
 1. Interpret the results.
 1. Clean up resources.
 
-## Create and deploy the live pipeline
+## Create and deploy the livePipeline
 
 ### Examine and edit the sample files
 
@@ -52,7 +52,7 @@ Open the URL for the pipeline topology in a browser, and examine the settings fo
 
 ```
    "samplingOptions":{
-       "skipSamplesWithoutAnnotation":"False",
+       "skipSamplesWithoutAnnotation":"false",
        "maximumSamplesPerSecond":"2"
    }
 ```
@@ -71,7 +71,7 @@ Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension nod
     -------------------------------Executing operation pipelineTopologyList-----------------------  
     Request: pipelineTopologyList  --------------------------------------------------
     {
-    "@apiVersion": "2.0"
+    "@apiVersion": "1.0"
     }
     ---------------  
     Response: pipelineTopologyList - Status: 200  ---------------
