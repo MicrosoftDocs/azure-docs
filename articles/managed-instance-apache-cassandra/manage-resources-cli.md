@@ -220,7 +220,8 @@ column_index_size_in_kb: 16
 read_request_timeout_in_ms: 10000
 ```
 
-When encoded, this would be passed in as `Y29sdW1uX2luZGV4X3NpemVfaW5fa2I6IDE2CnJlYWRfcmVxdWVzdF90aW1lb3V0X2luX21zOiAxMDAwMA==`. 
+When encoded, this would be passed in as: 
+`Y29sdW1uX2luZGV4X3NpemVfaW5fa2I6IDE2CnJlYWRfcmVxdWVzdF90aW1lb3V0X2luX21zOiAxMDAwMA==`. 
 
 See below:
 
