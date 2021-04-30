@@ -14,9 +14,9 @@ ms.author: trbye
 
 # Long Audio API
 
-The Long Audio API provides asynchronous synthesis of long-form text to speech (for example: audio books, news articles and documents). This API doesn't return synthesized audio in real-time. Instead, you poll for the response(s) and consume the output(s) as the service makes them available. Unlike the Text-to-speech API used by the Speech SDK, the Long Audio API can create synthesized audio longer than 10 minutes, making it ideal for publishers and audio content platforms to create long audio content like audio books in a batch.
+The Long Audio API provides asynchronous synthesis of long-form text to speech (for example: audio books, news articles and documents). This API doesn't return synthesized audio in real time. Instead, you poll for the response(s) and consume the output(s) as the service makes them available. Unlike the Text-to-speech API used by the Speech SDK, the Long Audio API can create synthesized audio longer than 10 minutes. This makes it ideal for publishers and audio content platforms to create long audio content like audio books in a batch.
 
-Additional benefits of the Long Audio API:
+More benefits of the Long Audio API:
 
 * Synthesized speech returned by the service uses the best neural voices.
 * There's no need to deploy a voice endpoint.
@@ -45,7 +45,7 @@ When preparing your text file, make sure it:
 
 ## Sample code
 
-The remainder of this page focuses on Python, but sample code for the Long Audio API is available on GitHub for the following programming languages:
+The rest of this page focuses on Python, but sample code for the Long Audio API is available on GitHub for the following programming languages:
 
 * [Sample code: Python](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/Python)
 * [Sample code: C#](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/CSharp)
@@ -387,7 +387,7 @@ You can also customize page size and skip number by providing `skip` and `top` i
 
 ### Remove previous requests
 
-The service will keep up to **20,000** requests for each Azure subscription account. If your request amount exceeds this limitation, please remove previous requests before making new ones. If you don't remove existing requests, you'll receive an error notification.
+The service will keep up to **20,000** requests for each Azure subscription account. If your request amount exceeds this limitation, remove previous requests before making new ones. If you don't remove existing requests, you'll receive an error notification.
 
 The following code shows how to remove a specific synthesis request.
 
@@ -424,18 +424,18 @@ The following table details the HTTP response codes and messages from the REST A
 |-----|------------------|-------------|----------|
 | Create | 400 | The voice synthesis is not enabled in this region. | Change the speech subscription key with a supported region. |
 |        | 400 | Only the **Standard** speech subscription for this region is valid. | Change the speech subscription key to the "Standard" pricing tier. |
-|        | 400 | Exceed the 20,000 request limit for the Azure account. Please remove some requests before submitting new ones. | The server will keep up to 20,000 requests for each Azure account. Delete some requests before submitting new ones. |
-|        | 400 | This model cannot be used in the voice synthesis : {modelID}. | Make sure the {modelID}'s state is correct. |
-|        | 400 | The region for the request does not match the region for the model : {modelID}. | Make sure the {modelID}'s region match with the request's region. |
+|        | 400 | Exceed the 20,000 request limit for the Azure account. Remove some requests before submitting new ones. | The server will keep up to 20,000 requests for each Azure account. Delete some requests before submitting new ones. |
+|        | 400 | This model cannot be used in the voice synthesis: {modelID}. | Make sure the {modelID}'s state is correct. |
+|        | 400 | The region for the request does not match the region for the model: {modelID}. | Make sure the {modelID}'s region match with the request's region. |
 |        | 400 | The voice synthesis only supports the text file in the UTF-8 encoding with the byte-order marker. | Make sure the input files are in UTF-8 encoding with the byte-order marker. |
 |        | 400 | Only valid SSML inputs are allowed in the voice synthesis request. | Make sure the input SSML expressions are correct. |
 |        | 400 | The voice name {voiceName} is not found in the input file. | The input SSML voice name is not aligned with the model ID. |
 |        | 400 | The number of paragraphs in the input file should be less than 10,000. | Make sure the number of paragraphs in the file is less than 10,000. |
 |        | 400 | The input file should be more than 400 characters. | Make sure your input file exceeds 400 characters. |
-|        | 404 | The model declared in the voice synthesis definition cannot be found : {modelID}. | Make sure the {modelID} is correct. |
-|        | 429 | Exceed the active voice synthesis limit. Please wait until some requests finish. | The server is allowed to run and queue up to 120 requests for each Azure account. Please wait and avoid submitting new requests until some requests are completed. |
-| All       | 429 | There are too many requests. | The client is allowed to submit up to 5 requests to server per second for each Azure account. Please reduce the request amount per second. |
-| Delete    | 400 | The voice synthesis task is still in use. | You can only delete requests that is **Completed** or **Failed**. |
+|        | 404 | The model declared in the voice synthesis definition cannot be found: {modelID}. | Make sure the {modelID} is correct. |
+|        | 429 | Exceed the active voice synthesis limit. Wait until some requests finish. | The server is allowed to run and queue up to 120 requests for each Azure account. Wait and avoid submitting new requests until some requests are completed. |
+| All       | 429 | There are too many requests. | The client is allowed to submit up to 5 requests to server per second for each Azure account. Reduce the request amount per second. |
+| Delete    | 400 | The voice synthesis task is still in use. | You can only delete requests that are **Completed** or **Failed**. |
 | GetByID   | 404 | The specified entity cannot be found. | Make sure the synthesis ID is correct. |
 
 ## Regions and endpoints
