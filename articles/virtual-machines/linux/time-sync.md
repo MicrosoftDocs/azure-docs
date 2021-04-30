@@ -1,15 +1,10 @@
 ---
 title: Time sync for Linux VMs in Azure 
 description: Time sync for Linux virtual machines.
-services: virtual-machines
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/30/2021
 ms.author: cynthn
@@ -106,7 +101,7 @@ cat /sys/class/ptp/ptp0/clock_name
 
 This should return `hyperv`, meaning the Azure host.
 
-In Linux VMs with Accelerated Networking enabled, you may see multiple ptp devices listed because the Mellanox mlx5 driver also creates a /dev/ptp device.
+In Linux VMs with Accelerated Networking enabled, you may see multiple PTP devices listed because the Mellanox mlx5 driver also creates a /dev/ptp device.
 Because the initialization order can be different each time Linux boots, the PTP device corresponding to the Azure host might be /dev/ptp0 or it might be /dev/ptp1, which makes
 it difficult to configure chronyd with the correct clock source. To solve this problem, the most recent Linux images have a udev rule that creates the
 symlink /dev/ptp_hyperv to whichever /dev/ptp entry corresponds to the Azure host. Chrony should be configured to use this symlink instead of /dev/ptp0 or /dev/ptp1.
