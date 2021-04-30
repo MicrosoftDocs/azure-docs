@@ -14,7 +14,7 @@ ms.author: jeffme
 # Customer Spotlight on Use Cases  
 
 Customers are already leveraging Applied AI Services to add AI horsepower to their business scenarios.  
- <br>   
+  
  <br>
  
 ![Progressive_Logo](./media/logo-progressive-01.png)  
@@ -25,12 +25,9 @@ Customers are already leveraging Applied AI Services to add AI horsepower to the
 -Matt White, Marketing Manager, Personal Lines Acquisition Experience, Progressive Insurance 
 
 [Read the story >](https://customers.microsoft.com/en-us/story/789698-progressive-insurance-cognitive-services-insurance)  
-  
-  
- ​
+   ​
  <br>
- <br>
- 
+  
 ![Wix Logo](./media/wix-logo.svg)
 ## WIX deploys smart, scalable search across 150 million websites with Cognitive Search 
 “We really benefitted from choosing Azure Cognitive Search because we could go to market faster than we had with other products. We don’t have to manage infrastructure, and our developers can spend time on higher-value tasks.” 
@@ -38,9 +35,7 @@ Customers are already leveraging Applied AI Services to add AI horsepower to the
 -Giedrius Graževičius: Project Manager for Search, Wix 
 
 [Read the story >](https://customers.microsoft.com/en-us/story/764974-wix-partner-professional-services-azure-cognitive-search)  
-  
-  
-<br>
+
 <br>
 
 ![Chevron logo](./media/Chevron2.png)
