@@ -973,8 +973,8 @@ The following functions are only available in policy rules:
 
 - `addDays(dateTime, numberOfDaysToAdd)`
   - **dateTime**: [Required] string - String in the Universal ISO 8601 DateTime format
-    'yyyy-MM-ddTHH:mm:ss.FFFFFFFZ'
-  - **numberOfDaysToAdd**: [Required] integer - Number of days to add
+    `yyyy-MM-ddTHH:mm:ss.fffffffZ'.
+  - **numberOfDaysToAdd**: [Required] integer - Number of days to add.
 
 - `field(fieldName)`
   - **fieldName**: [Required] string - Name of the [field](#fields) to retrieve
@@ -1117,7 +1117,7 @@ When used in a [field](#fields) condition, array aliases make it possible to com
 array element to a target value. When used with [count](#count) expression, it's possible to:
 
 - Check the size of an array
-- Check if all\any\none of the array elements meet a complex condition
+- Check if all/any/none of the array elements meet a complex condition
 - Check if exactly ***n*** array elements meet a complex condition
 
 For more information and examples, see [Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
