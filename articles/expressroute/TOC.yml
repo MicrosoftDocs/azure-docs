@@ -104,8 +104,8 @@
     href: expressroute-bfd.md
   - name: QoS requirements
     href: expressroute-qos.md
-  - name: Routing M365 traffic over ExpressRoute 
-    href: using-expressroute-for-m365.md
+  - name: Routing Microsoft 365 traffic over ExpressRoute 
+    href: using-expressroute-for-microsoft365.md
   - name: High Availability - Design
     href: designing-for-high-availability-with-expressroute.md
   - name: Disaster Recovery - Design
