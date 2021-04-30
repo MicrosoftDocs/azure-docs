@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Build policies to enforce compliance"
 description: In this tutorial, you use policies to enforce standards, control costs, maintain security, and impose enterprise wide design principles.
-ms.date: 01/29/2021
+ms.date: 05/01/2021
 ms.topic: tutorial
 ---
 # Tutorial: Create and manage policies to enforce compliance
@@ -459,7 +459,7 @@ overview](../overview.md).
 1. Select **Next** at the bottom of the page or the **Policy parameters** tab at the top of the
    wizard.
 
-1. Policy definition added to the initiative that have parameters are displayed in a grid. The
+1. Policy definitions added to the initiative that have parameters are displayed in a grid. The
    _value type_ can be 'Default value', 'Set value', or 'Use Initiative Parameter'. If 'Set value'
    is selected, the related value is entered under _Value(s)_. If the parameter on the policy
    definition has a list of allowed values, the entry box is a drop-down selector. If 'Use
@@ -605,11 +605,11 @@ different location is denied. In this section, you walk through resolving a deni
 a resource by creating an exclusion on a single resource group. The exclusion prevents enforcement
 of the policy (or initiative) on that resource group. In the following example, any location is
 allowed in the excluded resource group. An exclusion can apply to a subscription, a resource group,
-or an individual resources.
+or an individual resource.
 
 > [!NOTE]
 > A [policy exemption](../concepts/exemption-structure.md) can also be used skip the evaluation of a
-> resource. For additional information, see [Scope in Azure Policy](../concepts/scope.md).
+> resource. For more information, see [Scope in Azure Policy](../concepts/scope.md).
 
 Deployments prevented by an assigned policy or initiative can be viewed on the resource group
 targeted by the deployment: Select **Deployments** in the left side of the page, then select the
@@ -622,7 +622,7 @@ related policy objects.
 :::image type="content" source="../media/create-and-manage/rg-deployment-denied.png" alt-text="Screenshot of a failed deployment that was denied by a policy assignment." border="false":::
 
 On the Azure Policy page: Select **Compliance** in the left side of the page and select the **Get
-Secure** policy initiative. On this page, there is an increase in the **Deny** count for blocked
+Secure** policy initiative. On this page, there's an increase in the **Deny** count for blocked
 resources. Under the **Events** tab are details about who tried to create or deploy the resource
 that was denied by the policy definition.
 

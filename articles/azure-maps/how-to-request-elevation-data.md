@@ -3,7 +3,7 @@ title: Request elevation data using the Azure Maps Elevation service (Preview)
 description: Learn how to request elevation data using the Azure Maps Elevation service (Preview).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 04/26/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -22,7 +22,7 @@ The Azure Maps [Elevation service](/rest/api/maps/elevation) provides APIs to qu
 
 ## Prerequisites
 
-1. [Make an Azure Maps account in the S1 pricing tier](quick-demo-map-app.md#create-an-azure-maps-account)
+1. [Make an Azure Maps account in Gen 1 (S1) or Gen 2 pricing tier](quick-demo-map-app.md#create-an-azure-maps-account).
 2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 
 For more information on authentication in Azure Maps, [Manage Authentication in Azure Maps](how-to-manage-authentication.md).
