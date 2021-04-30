@@ -51,7 +51,7 @@ cd multicontainerwordpress
 
 [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
-In the Cloud Shell, create a resource group with the [`az group create`](/cli/azure/group#az-group-create) command. The following example creates a resource group named *myResourceGroup* in the *South Central US* location. To see all supported locations for App Service on Linux in **Standard** tier, run the [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice#az-appservice-list-locations) command.
+In the Cloud Shell, create a resource group with the [`az group create`](/cli/azure/group#az_group_create) command. The following example creates a resource group named *myResourceGroup* in the *South Central US* location. To see all supported locations for App Service on Linux in **Standard** tier, run the [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice#az_appservice_list_locations) command.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"
@@ -63,7 +63,7 @@ When the command finishes, a JSON output shows you the resource group properties
 
 ## Create an Azure App Service plan
 
-In the Cloud Shell, create an App Service plan in the resource group with the [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) command.
+In the Cloud Shell, create an App Service plan in the resource group with the [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) command.
 
 The following example creates an App Service plan named `myAppServicePlan` in the **Standard** pricing tier (`--sku S1`) and in a Linux container (`--is-linux`).
 
@@ -96,7 +96,7 @@ When the App Service plan has been created, the Azure CLI shows information simi
 > [!NOTE]
 > Docker Compose on Azure App Services currently has a limit of 4,000 characters at this time.
 
-In your Cloud Shell terminal, create a multi-container [web app](overview.md#app-service-on-linux) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#az-webapp-create) command. Don't forget to replace _\<app_name>_ with a unique app name (valid characters are `a-z`, `0-9`, and `-`).
+In your Cloud Shell terminal, create a multi-container [web app](overview.md#app-service-on-linux) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#az_webapp_create) command. Don't forget to replace _\<app_name>_ with a unique app name (valid characters are `a-z`, `0-9`, and `-`).
 
 ```azurecli
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml

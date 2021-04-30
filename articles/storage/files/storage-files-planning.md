@@ -17,7 +17,7 @@ ms.custom: references_regions
 
 - **Cache Azure file share on-premises with Azure File Sync**: Azure File Sync enables you to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms an on-premises (or cloud) Windows Server into a quick cache of your Azure SMB file share. 
 
-This article primarily addresses deployment considerations for deploying an Azure file share to be directly mounted by an on-premises or cloud client. To plan for an Azure File Sync deployment, see [Planning for an Azure File Sync deployment](storage-sync-files-planning.md).
+This article primarily addresses deployment considerations for deploying an Azure file share to be directly mounted by an on-premises or cloud client. To plan for an Azure File Sync deployment, see [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md).
 
 ## Available protocols
 
@@ -126,7 +126,7 @@ In many cases, you will not be establishing a net new file share for your organi
 The [migration overview article](storage-files-migration-overview.md) briefly covers the basics and contains a table that leads you to migration guides that likely cover your scenario.
 
 ## Next steps
-* [Planning for an Azure File Sync Deployment](storage-sync-files-planning.md)
+* [Planning for an Azure File Sync Deployment](../file-sync/file-sync-planning.md)
 * [Deploying Azure Files](./storage-how-to-create-file-share.md)
-* [Deploying Azure File Sync](storage-sync-files-deployment-guide.md)
+* [Deploying Azure File Sync](../file-sync/file-sync-deployment-guide.md)
 * [Check out the migration overview article to find the migration guide for your scenario](storage-files-migration-overview.md)

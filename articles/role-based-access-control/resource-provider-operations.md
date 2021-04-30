@@ -7,13 +7,13 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 04/09/2021
+ms.date: 04/26/2021
 ms.custom: generated
 ---
 
 # Azure resource provider operations
 
-This section lists the operations for Azure resource providers, which are used in built-in roles. You can use these operations in your own [Azure custom roles](custom-roles.md) to provide granular access control to resources in Azure. The resource provider operations are always evolving. To get the latest operations, use [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) or [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
+This section lists the operations for Azure resource providers, which are used in built-in roles. You can use these operations in your own [Azure custom roles](custom-roles.md) to provide granular access control to resources in Azure. The resource provider operations are always evolving. To get the latest operations, use [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) or [az provider operation list](/cli/azure/provider/operation#az_provider_operation_list).
 
 Click the resource provider name in the following table to see the list of operations.
 
@@ -480,6 +480,8 @@ Azure service: [Virtual Machines](../virtual-machines/index.yml), [Virtual Machi
 > | Microsoft.Compute/images/write | Creates a new Image or updates an existing one |
 > | Microsoft.Compute/images/delete | Deletes the image |
 > | Microsoft.Compute/locations/capsOperations/read | Gets the status of an asynchronous Caps operation |
+> | Microsoft.Compute/locations/cloudServiceOsFamilies/read | Read any guest OS Family that can be specified in the XML service configuration (.cscfg) for a Cloud Service. |
+> | Microsoft.Compute/locations/cloudServiceOsVersions/read | Read any guest OS Version that can be specified in the XML service configuration (.cscfg) for a Cloud Service. |
 > | Microsoft.Compute/locations/diskOperations/read | Gets the status of an asynchronous Disk operation |
 > | Microsoft.Compute/locations/logAnalytics/getRequestRateByInterval/action | Create logs to show total requests by time interval to aid throttling diagnostics. |
 > | Microsoft.Compute/locations/logAnalytics/getThrottledRequests/action | Create logs to show aggregates of throttled requests grouped by ResourceName, OperationName, or the applied Throttle Policy. |
@@ -1067,6 +1069,7 @@ Azure service: [Application Gateway](../application-gateway/index.yml), [Azure B
 > | Microsoft.Network/expressRoutePorts/join/action | Joins Express Route ports. Not alertable. |
 > | Microsoft.Network/expressRoutePorts/delete | Deletes ExpressRoutePorts |
 > | Microsoft.Network/expressRoutePorts/generateloa/action | Generates LOA for ExpressRoutePorts |
+> | Microsoft.Network/expressRoutePorts/authorizations/read | Gets an ExpressRoutePorts Authorization |
 > | Microsoft.Network/expressRoutePorts/links/read | Gets ExpressRouteLink |
 > | Microsoft.Network/expressRoutePortsLocations/read | Get Express Route Ports Locations |
 > | Microsoft.Network/expressRouteServiceProviders/read | Gets Express Route Service Providers |
@@ -1158,6 +1161,7 @@ Azure service: [Application Gateway](../application-gateway/index.yml), [Azure B
 > | Microsoft.Network/locations/dnsResolverOperationStatuses/read | Gets status of a DNS Resolver operation |
 > | Microsoft.Network/locations/operationResults/read | Gets operation result of an async POST or DELETE operation |
 > | Microsoft.Network/locations/operations/read | Gets operation resource that represents status of an asynchronous operation |
+> | Microsoft.Network/locations/serviceTagDetails/read | GetServiceTagDetails |
 > | Microsoft.Network/locations/serviceTags/read | Get Service Tags |
 > | Microsoft.Network/locations/supportedVirtualMachineSizes/read | Gets supported virtual machines sizes |
 > | Microsoft.Network/locations/usages/read | Gets the resources usage metrics |
@@ -1825,6 +1829,7 @@ Azure service: [Storage](../storage/index.yml)
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action | Returns the result of the blob command |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read | Returns the result of reading blob tags |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | Returns the result of writing blob tags |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/worm/write |  |
 > | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders |
 > | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write | Returns the result of writing a file or creating a folder |
 > | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete | Returns the result of deleting a file/folder |
@@ -2196,9 +2201,6 @@ Azure service: [Azure Maps](../azure-maps/index.yml)
 > | Microsoft.Maps/accounts/eventGridFilters/delete | Delete an Event Grid filter. |
 > | Microsoft.Maps/accounts/eventGridFilters/read | Get an Event Grid filter |
 > | Microsoft.Maps/accounts/eventGridFilters/write | Create or update an Event Grid filter. |
-> | Microsoft.Maps/accounts/privateAtlases/write | Create or update a Private Atlas. |
-> | Microsoft.Maps/accounts/privateAtlases/read | Get a Private Atlas. |
-> | Microsoft.Maps/accounts/privateAtlases/delete | Delete a Private Atlas. |
 > | Microsoft.Maps/operations/read | Read the provider operations |
 > | **DataAction** | **Description** |
 > | Microsoft.Maps/accounts/services/data/read | Allows reading of data for data upload services and Private Atlas. |
@@ -2364,32 +2366,43 @@ Azure service: [Azure SignalR Service](../azure-signalr/index.yml)
 > | Microsoft.SignalRService/SignalR/listkeys/action | View the value of SignalR access keys in the management portal or through API |
 > | Microsoft.SignalRService/SignalR/regeneratekey/action | Change the value of SignalR access keys in the management portal or through API |
 > | Microsoft.SignalRService/SignalR/restart/action | To restart a SignalR resource in the management portal or through API. There will be certain downtime. |
+> | Microsoft.SignalRService/SignalR/detectors/read | Read Detector |
 > | Microsoft.SignalRService/SignalR/eventGridFilters/read | Get the properties of the specified event grid filter or lists all the event grid filters for the specified SignalR resource. |
 > | Microsoft.SignalRService/SignalR/eventGridFilters/write | Create or update an event grid filter for a SignalR resource with the specified parameters. |
 > | Microsoft.SignalRService/SignalR/eventGridFilters/delete | Delete an event grid filter from a SignalR resource. |
-> | Microsoft.SignalRService/SignalR/privateEndpointConnectionProxies/validate/action | Validate a Private Endpoint Connection Proxy |
-> | Microsoft.SignalRService/SignalR/privateEndpointConnectionProxies/write | Create a Private Endpoint Connection Proxy |
-> | Microsoft.SignalRService/SignalR/privateEndpointConnectionProxies/read | Read a Private Endpoint Connetion Proxy |
-> | Microsoft.SignalRService/SignalR/privateEndpointConnectionProxies/delete | Delete a Private Endpoint Connection Proxy |
-> | Microsoft.SignalRService/SignalR/privateEndpointConnections/write | Approve or reject a Private Endpoint Connection |
-> | Microsoft.SignalRService/SignalR/privateEndpointConnections/read | Read a Private Endpoint Connection |
-> | Microsoft.SignalRService/SignalR/privateLinkResources/read | List all Private Link Resources of a SignalR resource. |
+> | Microsoft.SignalRService/SignalR/privateEndpointConnectionProxies/validate/action | Validate Private Endpoint Connection Proxy |
+> | Microsoft.SignalRService/SignalR/privateEndpointConnectionProxies/write | Write Private Endpoint Connection Proxy |
+> | Microsoft.SignalRService/SignalR/privateEndpointConnectionProxies/read | Read Private Endpoint Connection Proxy |
+> | Microsoft.SignalRService/SignalR/privateEndpointConnectionProxies/delete | Delete Private Endpoint Connection Proxy |
+> | Microsoft.SignalRService/SignalR/privateEndpointConnections/write | Write Private Endpoint Connection |
+> | Microsoft.SignalRService/SignalR/privateEndpointConnections/read | Read Private Endpoint Connection |
+> | Microsoft.SignalRService/SignalR/privateEndpointConnections/delete | Delete Private Endpoint Connection |
+> | Microsoft.SignalRService/SignalR/privateLinkResources/read | List Private Link Resources |
+> | Microsoft.SignalRService/SignalR/sharedPrivateLinkResources/write | Write Shared Private Link Resource |
+> | Microsoft.SignalRService/SignalR/sharedPrivateLinkResources/read | Read Shared Private Link Resource |
+> | Microsoft.SignalRService/SignalR/sharedPrivateLinkResources/delete | Delete Shared Private Link Resource |
 > | Microsoft.SignalRService/WebPubSub/read | View the WebPubSub's settings and configurations in the management portal or through API |
 > | Microsoft.SignalRService/WebPubSub/write | Modify the WebPubSub's settings and configurations in the management portal or through API |
 > | Microsoft.SignalRService/WebPubSub/delete | Delete the WebPubSub resource. |
 > | Microsoft.SignalRService/WebPubSub/listkeys/action | View the value of WebPubSub access keys in the management portal or through API |
 > | Microsoft.SignalRService/WebPubSub/regeneratekey/action | Change the value of WebPubSub access keys in the management portal or through API |
 > | Microsoft.SignalRService/WebPubSub/restart/action | To restart a WebPubSub resource in the management portal or through API. There will be certain downtime. |
-> | Microsoft.SignalRService/WebPubSub/privateEndpointConnectionProxies/validate/action | Validate a Private Endpoint Connection Proxy |
-> | Microsoft.SignalRService/WebPubSub/privateEndpointConnectionProxies/write | Create a Private Endpoint Connection Proxy |
-> | Microsoft.SignalRService/WebPubSub/privateEndpointConnectionProxies/read | Read a Private Endpoint Connetion Proxy |
-> | Microsoft.SignalRService/WebPubSub/privateEndpointConnectionProxies/delete | Delete a Private Endpoint Connection Proxy |
-> | Microsoft.SignalRService/WebPubSub/privateEndpointConnections/write | Approve or reject a Private Endpoint Connection |
-> | Microsoft.SignalRService/WebPubSub/privateEndpointConnections/read | Read a Private Endpoint Connection |
-> | Microsoft.SignalRService/WebPubSub/privateLinkResources/read | List all Private Link Resources of a WebPubSub resource. |
+> | Microsoft.SignalRService/WebPubSub/detectors/read | Read Detector |
+> | Microsoft.SignalRService/WebPubSub/privateEndpointConnectionProxies/validate/action | Validate Private Endpoint Connection Proxy |
+> | Microsoft.SignalRService/WebPubSub/privateEndpointConnectionProxies/write | Write Private Endpoint Connection Proxy |
+> | Microsoft.SignalRService/WebPubSub/privateEndpointConnectionProxies/read | Read Private Endpoint Connection Proxy |
+> | Microsoft.SignalRService/WebPubSub/privateEndpointConnectionProxies/delete | Delete Private Endpoint Connection Proxy |
+> | Microsoft.SignalRService/WebPubSub/privateEndpointConnections/write | Write Private Endpoint Connection |
+> | Microsoft.SignalRService/WebPubSub/privateEndpointConnections/read | Read Private Endpoint Connection |
+> | Microsoft.SignalRService/WebPubSub/privateEndpointConnections/delete | Delete Private Endpoint Connection |
+> | Microsoft.SignalRService/WebPubSub/privateLinkResources/read | List Private Link Resources |
+> | Microsoft.SignalRService/WebPubSub/sharedPrivateLinkResources/write | Write Shared Private Link Resource |
+> | Microsoft.SignalRService/WebPubSub/sharedPrivateLinkResources/read | Read Shared Private Link Resource |
+> | Microsoft.SignalRService/WebPubSub/sharedPrivateLinkResources/delete | Delete Shared Private Link Resource |
 > | **DataAction** | **Description** |
-> | Microsoft.SignalRService/SignalR/auth/accessKey/action | Generate a temporary AccessKey for signing ClientTokens. |
-> | Microsoft.SignalRService/SignalR/auth/clientToken/action | Generate a ClientToken for starting a client connection. |
+> | Microsoft.SignalRService/SignalR/auth/clientToken/action | Generate an AccessToken for client to connect to ASRS, the token will expire in 5 minutes by default. |
+> | Microsoft.SignalRService/SignalR/auth/accessKey/action | Generate an AccessKey for signing AccessTokens, the key will expire in 90 minutes by default. |
+> | Microsoft.SignalRService/SignalR/auth/accessToken/action | Generate an AccessToken for client to connect to ASRS, the token will expire in 5 minutes by default. |
 > | Microsoft.SignalRService/SignalR/clientConnection/send/action | Send messages directly to a client connection. |
 > | Microsoft.SignalRService/SignalR/clientConnection/read | Check client connection existence. |
 > | Microsoft.SignalRService/SignalR/clientConnection/write | Close client connection. |
@@ -2401,6 +2414,8 @@ Azure service: [Azure SignalR Service](../azure-signalr/index.yml)
 > | Microsoft.SignalRService/SignalR/user/send/action | Send messages to user, who may consist of multiple client connections. |
 > | Microsoft.SignalRService/SignalR/user/read | Check user existence. |
 > | Microsoft.SignalRService/SignalR/user/write | Modify a user. |
+> | Microsoft.SignalRService/WebPubSub/auth/accessKey/action | Generate an AccessKey for signing AccessTokens, the key will expire in 90 minutes by default. |
+> | Microsoft.SignalRService/WebPubSub/auth/accessToken/action | Generate an AccessToken for client to connect to AWPS, the token will expire in 5 minutes by default. |
 > | Microsoft.SignalRService/WebPubSub/clientConnection/send/action | Send messages directly to a client connection. |
 > | Microsoft.SignalRService/WebPubSub/clientConnection/read | Check client connection existence. |
 > | Microsoft.SignalRService/WebPubSub/clientConnection/write | Close client connection. |
@@ -3058,7 +3073,7 @@ Azure service: [Azure Kubernetes Service (AKS)](../aks/index.yml)
 > | Microsoft.ContainerService/locations/operationresults/read | Gets the status of an asynchronous operation result |
 > | Microsoft.ContainerService/locations/operations/read | Gets the status of an asynchronous operation |
 > | Microsoft.ContainerService/locations/orchestrators/read | Lists the supported orchestrators |
-> | Microsoft.ContainerService/locations/os-options/read | Gets OS options |
+> | Microsoft.ContainerService/locations/osOptions/read | Gets OS options |
 > | Microsoft.ContainerService/managedClusters/read | Get a managed cluster |
 > | Microsoft.ContainerService/managedClusters/write | Creates a new managed cluster or updates an existing one |
 > | Microsoft.ContainerService/managedClusters/delete | Deletes a managed cluster |
@@ -4969,7 +4984,7 @@ Azure service: [Azure Data Explorer](/azure/data-explorer/)
 > | Microsoft.Kusto/Clusters/Databases/PrincipalAssignments/read | Reads a database principal assignments resource. |
 > | Microsoft.Kusto/Clusters/Databases/PrincipalAssignments/write | Writes a database principal assignments resource. |
 > | Microsoft.Kusto/Clusters/Databases/PrincipalAssignments/delete | Deletes a database principal assignments resource. |
-> | Microsoft.Kusto/Clusters/Databases/Scripts/read | Reads an attached database configuration resource. |
+> | Microsoft.Kusto/Clusters/Databases/Scripts/read | Reads a script resource. |
 > | Microsoft.Kusto/Clusters/DataConnections/read | Reads a cluster's data connections resource. |
 > | Microsoft.Kusto/Clusters/DataConnections/write | Writes a cluster's data connections resource. |
 > | Microsoft.Kusto/Clusters/DataConnections/delete | Deletes a cluster's data connections resource. |
@@ -5053,6 +5068,8 @@ Azure service: [Stream Analytics](../stream-analytics/index.yml)
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.StreamAnalytics/Register/action | Register subscription with Stream Analytics Resource Provider |
+> | Microsoft.StreamAnalytics/locations/TestQuery/action | Test Query for Stream Analytics Resource Provider |
+> | Microsoft.StreamAnalytics/locations/operationresults/Read | Read Stream Analytics Operation Result |
 > | Microsoft.StreamAnalytics/locations/quotas/Read | Read Stream Analytics Subscription Quota |
 > | Microsoft.StreamAnalytics/operations/Read | Read Stream Analytics Operations |
 > | Microsoft.StreamAnalytics/streamingjobs/Delete | Delete Stream Analytics Job |
@@ -5368,6 +5385,12 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/locations/operationresults/read | Read the status of an asynchronous operation. |
 > | Microsoft.CognitiveServices/Operations/read | List all available operations |
 > | **DataAction** | **Description** |
+> | Microsoft.CognitiveServices/accounts/AnomalyDetector/multivariate/models/write | Create and train a multivariate anomaly detection model.<br>The request must include a source parameter to indicate an externally accessible Azure storage Uri (preferably a Shared Access Signature Uri).<br>All time-series used in generate the model must be zipped into one single file.<br>Each time-series will be in a single CSV file in which the first column is timestamp and the second column is value. |
+> | Microsoft.CognitiveServices/accounts/AnomalyDetector/multivariate/models/delete | Delete an existing multivariate model according to the modelId |
+> | Microsoft.CognitiveServices/accounts/AnomalyDetector/multivariate/models/detect/action | Submit detection multivariate anomaly task with the trained model of modelId, the input schema should be the same with the training request.<br>Thus request will be complete asynchronously and will return a resultId for querying the detection result.The request should be a source link to indicate an externally accessible Azure storage Uri (preferably a Shared Access Signature Uri).<br>All time-series used in generate the model must be zipped into one single file.<br>Each time-series will be as follows: the first column is timestamp and the second column is value. |
+> | Microsoft.CognitiveServices/accounts/AnomalyDetector/multivariate/models/read | Get detailed information of multivariate model, including the training status and variables used in the model. List models of a subscription |
+> | Microsoft.CognitiveServices/accounts/AnomalyDetector/multivariate/models/export/action | Export multivariate anomaly detection model based on modelId |
+> | Microsoft.CognitiveServices/accounts/AnomalyDetector/multivariate/results/read | Get multivariate anomaly detection result based on resultId returned by the DetectAnomalyAsync api |
 > | Microsoft.CognitiveServices/accounts/AnomalyDetector/timeseries/changepoint/detect/action | This operation generates a model using an entire series, each point is detected with the same model.<br>With this method, points before and after a certain point are used to determine whether it is a trend change point.<br>The entire detection can detect all trend change points of the time series. |
 > | Microsoft.CognitiveServices/accounts/AnomalyDetector/timeseries/entire/detect/action | This operation generates a model using an entire series, each point is detected with the same model.<br>With this method, points before and after a certain point are used to determine whether it is an anomaly.<br>The entire detection can give the user an overall status of the time series. |
 > | Microsoft.CognitiveServices/accounts/AnomalyDetector/timeseries/last/detect/action | This operation generates a model using points before the latest one. With this method, only historical points are used to determine whether the target point is an anomaly. The latest point detecting matches the scenario of real-time monitoring of business metrics. |
@@ -5984,6 +6007,7 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/QnAMaker.v2/knowledgebases/create/write | Asynchronous operation to create a new knowledgebase. |
 > | Microsoft.CognitiveServices/accounts/QnAMaker.v2/knowledgebases/download/read | Download the knowledgebase. |
 > | Microsoft.CognitiveServices/accounts/QnAMaker.v2/operations/read | Gets details of a specific long running operation. |
+> | Microsoft.CognitiveServices/accounts/QnAMaker.v2/QnaMaker/generateanswer/action | GenerateAnswer call to query over the given passage or documents |
 > | Microsoft.CognitiveServices/accounts/QnAMaker/alterations/read | Download alterations from runtime. |
 > | Microsoft.CognitiveServices/accounts/QnAMaker/alterations/write | Replace alterations data. |
 > | Microsoft.CognitiveServices/accounts/QnAMaker/endpointkeys/read | Gets endpoint keys for an endpoint |
@@ -6043,6 +6067,7 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/TextAnalytics/sentiment/action | The API returns a numeric score between 0 and 1.<br>Scores close to 1 indicate positive sentiment, while scores close to 0 indicate negative sentiment.<br>A score of 0.5 indicates the lack of sentiment (e.g.<br>a factoid statement). |
 > | Microsoft.CognitiveServices/accounts/TextAnalytics/analyze/action | Submit a collection of text documents for analysis. Specify one or more unique tasks to be executed. |
 > | Microsoft.CognitiveServices/accounts/TextAnalytics/QnaMaker/action | QnA Maker |
+> | Microsoft.CognitiveServices/accounts/TextAnalytics/QnaMaker/generateanswer/action | GenerateAnswer call to query over the given passage or documents |
 > | Microsoft.CognitiveServices/accounts/TextAnalytics/QnaMaker/alterations/read | Download alterations from runtime. |
 > | Microsoft.CognitiveServices/accounts/TextAnalytics/QnaMaker/alterations/write | Replace alterations data. |
 > | Microsoft.CognitiveServices/accounts/TextAnalytics/QnaMaker/endpointkeys/read | Gets endpoint keys for an endpoint |
@@ -6233,7 +6258,7 @@ Azure service: [Machine Learning Service](../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/workspaces/onlineEndpoints/read | Gets online inference endpoints in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/onlineEndpoints/write | Creates or updates an online inference endpoint in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/onlineEndpoints/delete | Deletes an online inference endpoint in Machine Learning Services Workspace(s) |
-> | Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action | Retrieve auth token or keys to score Online Endpoints in Machine Learning Services Workspace(s) |
+> | Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action | Score Online Endpoints in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action | Retrieve auth token to score Online Endpoints in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/onlineEndpoints/listkeys/action | Retrieve auth keys to score Online Endpoints in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/onlineEndpoints/checkNameAvailability/read | Checks name for an online inference endpoint in Machine Learning Services Workspace(s) |
@@ -6869,11 +6894,6 @@ Azure service: core
 > | Microsoft.AzureStack/register/action | Registers Subscription with Microsoft.AzureStack resource provider |
 > | Microsoft.AzureStack/cloudManifestFiles/read | Gets the Cloud Manifest File |
 > | Microsoft.AzureStack/edgeSubscriptions/read | Get the properties of an Azure Stack Edge Subscription |
-> | Microsoft.AzureStack/edgeSubscriptions/write | Create or updates an edge subscription |
-> | Microsoft.AzureStack/edgeSubscriptions/delete | Delete an Edge Subscription |
-> | Microsoft.AzureStack/edgeSubscriptions/edgeResourceGroups/action | Reads or Writes to a projected edge resource under the edge resource group |
-> | Microsoft.AzureStack/edgeSubscriptions/edgeProviders/action | Reads or Writes to a projected edge resource under the given edge resource provider namespace |
-> | Microsoft.AzureStack/edgeSubscriptions/operations/action | Get or list statuses of async operations on projected edge resources |
 > | Microsoft.AzureStack/linkedSubscriptions/read | Get the properties of an Azure Stack Linked Subscription |
 > | Microsoft.AzureStack/linkedSubscriptions/write | Create or updates an linked subscription |
 > | Microsoft.AzureStack/linkedSubscriptions/delete | Delete a Linked Subscription |
@@ -6916,6 +6936,8 @@ Azure service: [Azure Stack Edge](../databox-online/azure-stack-edge-overview.md
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/installUpdates/action | Install Updates on device |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/uploadCertificate/action | Upload certificate for device registration |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/generateCertificate/action | ArmApiDesc_action_generateCertificate_dataBoxEdgeDevices |
+> | Microsoft.DataBoxEdge/dataBoxEdgeDevices/diagnosticSettings/action | ArmApiDesc_action_diagnosticSettings_dataBoxEdgeDevices |
+> | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggerSupportPackage/action | ArmApiDesc_action_triggerSupportPackage_dataBoxEdgeDevices |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/alerts/read | Lists or gets the alerts |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/alerts/read | Lists or gets the alerts |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/read | Lists or gets the bandwidth schedules |
@@ -6923,6 +6945,8 @@ Azure service: [Azure Stack Edge](../databox-online/azure-stack-edge-overview.md
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/write | Creates or updates the bandwidth schedules |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/delete | Deletes the bandwidth schedules |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/operationResults/read | Lists or gets the operation result |
+> | Microsoft.DataBoxEdge/dataBoxEdgeDevices/diagnosticSettings/read | Lists or gets the ArmApiRes_diagnosticSettings |
+> | Microsoft.DataBoxEdge/dataBoxEdgeDevices/diagnosticSettings/operationResults/read | Lists or gets the operation result |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/jobs/read | Lists or gets the jobs |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/networkSettings/read | Lists or gets the Device network settings |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/nodes/read | Lists or gets the nodes |
@@ -7541,9 +7565,6 @@ Azure service: [Azure Active Directory B2C](../active-directory-b2c/index.yml)
 > | Microsoft.AzureActiveDirectory/b2cDirectories/read | View B2C Directory resource |
 > | Microsoft.AzureActiveDirectory/b2cDirectories/delete | Delete B2C Directory resource |
 > | Microsoft.AzureActiveDirectory/b2ctenants/read | Lists all B2C tenants where the user is a member |
-> | Microsoft.AzureActiveDirectory/guestUsages/write | Create or update Guest Usages resource |
-> | Microsoft.AzureActiveDirectory/guestUsages/read | View Guest Usages resource |
-> | Microsoft.AzureActiveDirectory/guestUsages/delete | Delete Guest Usages resource |
 > | Microsoft.AzureActiveDirectory/operations/read | Read all API operations available for Microsoft.AzureActiveDirectory resource provider |
 
 ### Microsoft.ManagedIdentity
@@ -7597,6 +7618,9 @@ Azure service: [Key Vault](../key-vault/index.yml)
 > | Microsoft.KeyVault/vaults/eventGridFilters/read | Notifies Microsoft.KeyVault that an EventGrid Subscription for Key Vault is being viewed |
 > | Microsoft.KeyVault/vaults/eventGridFilters/write | Notifies Microsoft.KeyVault that a new EventGrid Subscription for Key Vault is being created |
 > | Microsoft.KeyVault/vaults/eventGridFilters/delete | Notifies Microsoft.KeyVault that an EventGrid Subscription for Key Vault is being deleted |
+> | Microsoft.KeyVault/vaults/internalNotificationRegistration/read | View internal notification state for a Key Vault object |
+> | Microsoft.KeyVault/vaults/internalNotificationRegistration/write | Registers a Key Vault object for internal notifications |
+> | Microsoft.KeyVault/vaults/internalNotificationRegistration/delete | Deletes an internal notification registration from a Key Vault object |
 > | Microsoft.KeyVault/vaults/keys/read | List the keys in a specified vault, or read the current version of a specified key. |
 > | Microsoft.KeyVault/vaults/keys/write | Creates the first version of a new key if it does not exist. If it already exists, then the existing key is returned without any modification. This API does not create subsequent versions, and does not update existing keys. |
 > | Microsoft.KeyVault/vaults/keys/versions/read | List the versions of a specified key, or read the specified version of a key. |
@@ -8184,10 +8208,16 @@ Azure service: [Azure Migrate](../migrate/migrate-services-overview.md)
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
+> | Microsoft.OffAzure/register/action | Subscription Registration Action |
+> | Microsoft.OffAzure/unregister/action | Unregisters Subscription with Microsoft.Migrate resource provider |
 > | Microsoft.OffAzure/register/action | Registers Subscription with Microsoft.OffAzure resource provider |
+> | Microsoft.OffAzure/unregister/action | Unregisters Subscription with Microsoft.Migrate resource provider |
 > | Microsoft.OffAzure/register/action | Registers Subscription with Microsoft.OffAzure resource provider |
+> | Microsoft.OffAzure/unregister/action | Unregisters Subscription with Microsoft.Migrate resource provider |
 > | Microsoft.OffAzure/register/action | Registers Subscription with Microsoft.OffAzure resource provider |
+> | Microsoft.OffAzure/unregister/action | Unregisters Subscription with Microsoft.Migrate resource provider |
 > | Microsoft.OffAzure/register/action | Registers Subscription with Microsoft.OffAzure resource provider |
+> | Microsoft.OffAzure/unregister/action | Unregisters Subscription with Microsoft.Migrate resource provider |
 > | Microsoft.OffAzure/register/action | Registers Subscription with Microsoft.OffAzure resource provider |
 > | Microsoft.OffAzure/HyperVSites/read | Gets the properties of a Hyper-V site |
 > | Microsoft.OffAzure/HyperVSites/write | Creates or updates the Hyper-V site |
@@ -8354,6 +8384,31 @@ Azure service: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/MasterSites/privateLinkResources/read | Get Private Link Resource |
 > | Microsoft.OffAzure/MasterSites/privateLinkResources/read | Get Private Link Resource |
 > | Microsoft.OffAzure/MasterSites/privateLinkResources/read | Get Private Link Resource |
+> | Microsoft.OffAzure/MasterSites/webAppSites/read | Gets the properties of a WebApp site |
+> | Microsoft.OffAzure/MasterSites/webAppSites/write | Creates or updates the WebApp site |
+> | Microsoft.OffAzure/MasterSites/webAppSites/delete | Deletes the WebApp site |
+> | Microsoft.OffAzure/MasterSites/webAppSites/read | Gets the properties of a WebApp site |
+> | Microsoft.OffAzure/MasterSites/webAppSites/write | Creates or updates the WebApp site |
+> | Microsoft.OffAzure/MasterSites/webAppSites/delete | Deletes the WebApp site |
+> | Microsoft.OffAzure/MasterSites/webAppSites/read | Gets the properties of a WebApp site |
+> | Microsoft.OffAzure/MasterSites/webAppSites/write | Creates or updates the WebApp site |
+> | Microsoft.OffAzure/MasterSites/webAppSites/delete | Deletes the WebApp site |
+> | Microsoft.OffAzure/MasterSites/webAppSites/read | Gets the properties of a WebApp site |
+> | Microsoft.OffAzure/MasterSites/webAppSites/write | Creates or updates the WebApp site |
+> | Microsoft.OffAzure/MasterSites/webAppSites/delete | Deletes the WebApp site |
+> | Microsoft.OffAzure/MasterSites/webAppSites/read | Gets the properties of a WebApp site |
+> | Microsoft.OffAzure/MasterSites/webAppSites/write | Creates or updates the WebApp site |
+> | Microsoft.OffAzure/MasterSites/webAppSites/delete | Deletes the WebApp site |
+> | Microsoft.OffAzure/MasterSites/webAppSites/IISWebApplications/read | Gets the properties of IIS Web applications. |
+> | Microsoft.OffAzure/MasterSites/webAppSites/IISWebApplications/read | Gets the properties of IIS Web applications. |
+> | Microsoft.OffAzure/MasterSites/webAppSites/IISWebApplications/read | Gets the properties of IIS Web applications. |
+> | Microsoft.OffAzure/MasterSites/webAppSites/IISWebApplications/read | Gets the properties of IIS Web applications. |
+> | Microsoft.OffAzure/MasterSites/webAppSites/IISWebApplications/read | Gets the properties of IIS Web applications. |
+> | Microsoft.OffAzure/MasterSites/webAppSites/IISWebServers/read | Gets the properties of IIS Web servers. |
+> | Microsoft.OffAzure/MasterSites/webAppSites/IISWebServers/read | Gets the properties of IIS Web servers. |
+> | Microsoft.OffAzure/MasterSites/webAppSites/IISWebServers/read | Gets the properties of IIS Web servers. |
+> | Microsoft.OffAzure/MasterSites/webAppSites/IISWebServers/read | Gets the properties of IIS Web servers. |
+> | Microsoft.OffAzure/MasterSites/webAppSites/IISWebServers/read | Gets the properties of IIS Web servers. |
 > | Microsoft.OffAzure/Operations/read | Reads the exposed operations |
 > | Microsoft.OffAzure/ServerSites/read | Gets the properties of a Server site |
 > | Microsoft.OffAzure/ServerSites/write | Creates or updates the Server site |
@@ -9204,6 +9259,14 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/BlockchainApplicationLog/read | Read data from the BlockchainApplicationLog table |
 > | Microsoft.OperationalInsights/workspaces/query/BlockchainProxyLog/read | Read data from the BlockchainProxyLog table |
 > | Microsoft.OperationalInsights/workspaces/query/BoundPort/read | Read data from the BoundPort table |
+> | Microsoft.OperationalInsights/workspaces/query/CDBCassandraRequests/read | Read data from the CDBCassandraRequests table |
+> | Microsoft.OperationalInsights/workspaces/query/CDBControlPlaneRequests/read | Read data from the CDBControlPlaneRequests table |
+> | Microsoft.OperationalInsights/workspaces/query/CDBDataPlaneRequests/read | Read data from the CDBDataPlaneRequests table |
+> | Microsoft.OperationalInsights/workspaces/query/CDBGremlinRequests/read | Read data from the CDBGremlinRequests table |
+> | Microsoft.OperationalInsights/workspaces/query/CDBMongoRequests/read | Read data from the CDBMongoRequests table |
+> | Microsoft.OperationalInsights/workspaces/query/CDBPartitionKeyRUConsumption/read | Read data from the CDBPartitionKeyRUConsumption table |
+> | Microsoft.OperationalInsights/workspaces/query/CDBPartitionKeyStatistics/read | Read data from the CDBPartitionKeyStatistics table |
+> | Microsoft.OperationalInsights/workspaces/query/CDBQueryRuntimeStatistics/read | Read data from the CDBQueryRuntimeStatistics table |
 > | Microsoft.OperationalInsights/workspaces/query/CommonSecurityLog/read | Read data from the CommonSecurityLog table |
 > | Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read | Read data from the ComputerGroup table |
 > | Microsoft.OperationalInsights/workspaces/query/ConfigurationChange/read | Read data from the ConfigurationChange table |
@@ -9853,6 +9916,8 @@ Azure service: [Cost Management + Billing](../cost-management-billing/index.yml)
 > | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/write |  |
 > | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/validateDeleteInvoiceSectionEligibility/write |  |
 > | Microsoft.Billing/billingAccounts/billingProfiles/validateDeleteBillingProfileEligibility/write |  |
+> | Microsoft.Billing/billingAccounts/policies/read |  |
+> | Microsoft.Billing/billingAccounts/policies/write |  |
 > | Microsoft.Billing/billingProperty/write |  |
 > | Microsoft.Billing/operations/read |  |
 
@@ -10565,11 +10630,6 @@ Azure service: [Site Recovery](../site-recovery/index.yml)
 > | Microsoft.RecoveryServices/Vaults/backupJobs/operationsStatus/read | Returns the status of Job Operation. |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Returns Backup Operation Result for Recovery Services Vault. |
 > | Microsoft.RecoveryServices/Vaults/backupOperations/read | Returns Backup Operation Status for Recovery Services Vault. |
-> | Microsoft.RecoveryServices/Vaults/backupOperationVaultGuardProxies/delete | The Delete VaultGuard proxy operation deletes the specified Azure resource of type 'VaultGuard proxy' |
-> | Microsoft.RecoveryServices/Vaults/backupOperationVaultGuardProxies/read | Get the list of VaultGuard proxies for a resource |
-> | Microsoft.RecoveryServices/Vaults/backupOperationVaultGuardProxies/read | Get VaultGuard proxy operation gets an object representing the Azure resource of type 'VaultGuard proxy' |
-> | Microsoft.RecoveryServices/Vaults/backupOperationVaultGuardProxies/unlockDelete/action | Unlock delete VaultGuard proxy operation unlocks the next delete critical operation |
-> | Microsoft.RecoveryServices/Vaults/backupOperationVaultGuardProxies/write | Create VaultGuard proxy operation creates an Azure resource of type 'VaultGuard Proxy' |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/delete | Delete a Protection Policy |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Returns all Protection Policies |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/write | Creates Protection Policy |
@@ -10579,6 +10639,11 @@ Azure service: [Site Recovery](../site-recovery/index.yml)
 > | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Returns the list of all Protected Items. |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Returns all containers belonging to the subscription |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | List all backup Protection Intents |
+> | Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/delete | The Delete ResourceGuard proxy operation deletes the specified Azure resource of type 'ResourceGuard proxy' |
+> | Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/read | Get the list of ResourceGuard proxies for a resource |
+> | Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/read | Get ResourceGuard proxy operation gets an object representing the Azure resource of type 'ResourceGuard proxy' |
+> | Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/unlockDelete/action | Unlock delete ResourceGuard proxy operation unlocks the next delete critical operation |
+> | Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/write | Create ResourceGuard proxy operation creates an Azure resource of type 'ResourceGuard Proxy' |
 > | Microsoft.RecoveryServices/Vaults/backupstorageconfig/read | Returns Storage Configuration for Recovery Services Vault. |
 > | Microsoft.RecoveryServices/Vaults/backupstorageconfig/write | Updates Storage Configuration for Recovery Services Vault. |
 > | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Returns summaries for Protected Items and Protected Servers for a Recovery Services . |

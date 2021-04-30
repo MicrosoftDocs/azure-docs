@@ -7,7 +7,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/04/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, subject-rbac-steps
 ---
 
 # Access Config Server and Service Registry
@@ -16,25 +16,15 @@ This article explains how to access the Spring Cloud Config Server and Spring Cl
 
 ## Assign role to Azure AD user/group, MSI, or service principal
 
-To use Azure AD and RBAC you must assign the *Azure Spring Cloud Data Reader* role to a user, group, or service principal by the following procedure:
+Assign the [azure-spring-cloud-data-reader](../role-based-access-control/built-in-roles.md#azure-spring-cloud-data-reader) role to the [user | group | service-principal | managed-identity] at [management-group | subscription | resource-group | resource] scope.
 
-1. Go to the service overview page of your service instance.
-
-2. Click **Access Control (IAM)** to open the access control blade.
-
-3. Click the **Add** button and **Add role assignments** (Authorization may be required to add).
-
-4. Find and select *Azure Spring Cloud Data Reader* under **Role**.
-5. Assign access to `User, group, or service principal` or `User assigned managed identity` according to the user type. Search for and select user.  
-6. Click `Save`
-
-   ![assign-role](media/access-data-plane-aad-rbac/assign-data-reader-role.png)
+For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ## Access Config Server and Service Registry Endpoints
 
 After the Azure Spring Cloud Data Reader role is assigned, customers can access the Spring Cloud Config Server and the Spring Cloud Service Registry endpoints. Use the following procedures:
 
-1. Get an access token. After an Azure AD user is assigned the Azure Spring Cloud Data Reader role, customers can use the following commands to log in to Azure CLI with user, service principal, or managed identity to get an access token. For details, see [Authenticate Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). 
+1. Get an access token. After an Azure AD user is assigned the Azure Spring Cloud Data Reader role, customers can use the following commands to log in to Azure CLI with user, service principal, or managed identity to get an access token. For details, see [Authenticate Azure CLI](/cli/azure/authenticate-azure-cli). 
 
     ```azurecli
     az login
@@ -46,7 +36,7 @@ After the Azure Spring Cloud Data Reader role is assigned, customers can access 
     * *'https://SERVICE_NAME.svc.azuremicroservices.io/config/actuator/'* 
 
 >[!NOTE]
-> If you are using Azure China, please replace `*.azuremicroservices.io` with `*.microservices.azure.cn`, [learn more](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure).
+> If you are using Azure China, please replace `*.azuremicroservices.io` with `*.microservices.azure.cn`, [learn more](/azure/china/resources-developer-guide#check-endpoints-in-azure).
 
 3. Access the composed endpoint with the access token. Put the access token in a header to provide authorization.  Only the "GET" method is supported.
 
@@ -55,7 +45,7 @@ After the Azure Spring Cloud Data Reader role is assigned, customers can access 
     If the response is *401 Unauthorized*, check to see if the role is successfully assigned.  It will take several minutes for the role take effect or verify that the access token has not expired.
 
 ## Next steps
-* [Authenticate Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli)
+* [Authenticate Azure CLI](/cli/azure/authenticate-azure-cli)
 * [Production ready endpoints](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints)
 
 ## See also

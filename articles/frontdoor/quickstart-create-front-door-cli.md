@@ -43,7 +43,7 @@ In Azure, you allocate related resources to a resource group. You can either use
 
 For this quickstart, you need two resource groups. One in *Central US* and the second in *South Central US*.
 
-Create a resource group with [az group create](/cli/azure/group#az-group-create):
+Create a resource group with [az group create](/cli/azure/group#az_group_create):
 
 ```azurecli-interactive
 az group create \
@@ -101,7 +101,7 @@ Make note of the default host name of each web app so you can define the backend
 
 Create a basic Front Door with default load balancing settings, health probe, and routing rules by running to follow:
 
-Create Front Door with [az network front-door create](/cli/azure/ext/front-door/network/front-door#ext_front_door_az_network_front_door_create&preserve-view=true):
+Create Front Door with [az network front-door create](/cli/azure/network/front-door#az_network_front_door_create&preserve-view=true):
 
 ```azurecli-interactive
 az network front-door create \

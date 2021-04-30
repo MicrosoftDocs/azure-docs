@@ -4,7 +4,7 @@ description: Create a transactionally consistent copy of an existing database in
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: sqldbrb=1, devx-track-azurecli
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: how-to
 author: stevestein
@@ -68,7 +68,7 @@ az sql db copy --dest-name "CopyOfMySampleDatabase" --dest-resource-group "myRes
     --name "<databaseName>" --resource-group "<resourceGroup>" --server $sourceserver
 ```
 
-The database copy is an asynchronous operation but the target database is created immediately after the request is accepted. If you need to cancel the copy operation while still in progress, drop the the target database using the [az sql db delete](/cli/azure/sql/db#az-sql-db-delete) command.
+The database copy is an asynchronous operation but the target database is created immediately after the request is accepted. If you need to cancel the copy operation while still in progress, drop the the target database using the [az sql db delete](/cli/azure/sql/db#az_sql_db_delete) command.
 
 * * *
 
@@ -218,7 +218,7 @@ To manage database copy using the Azure portal, you will also need the following
    Microsoft.Resources/deployments/write
    Microsoft.Resources/deployments/operationstatuses/read
 
-If you want to see the operations under deployments in the resource group on the portal, operations across multiple resource providers including SQL operations, you will need these additional Azure roles:
+If you want to see the operations under deployments in the resource group on the portal, operations across multiple resource providers including SQL operations, you will need these additional permissions:
 
    Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read
    Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read

@@ -4,7 +4,8 @@ description: Use health check to safely deploy Azure resources with Azure Deploy
 author: mumian
 ms.date: 10/09/2019
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurepowershell
 
 ---
 

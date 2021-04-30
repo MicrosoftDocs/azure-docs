@@ -5,7 +5,7 @@ description: Learn how to use Azure Machine Learning to deploy a model for use w
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: cgronlun
 author: cjgronlund
 ms.reviewer: larryfr
