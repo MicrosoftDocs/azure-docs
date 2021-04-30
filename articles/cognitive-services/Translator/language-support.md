@@ -46,8 +46,8 @@ Translator supports the following languages for text to text translation.
 | Chinese Traditional | `zh-Hant` |
 | Croatian | `hr` |
 | Czech | `cs` |
-| Dari | `prs` |
 | Danish | `da` |
+| Dari | `prs` |
 | Dutch | `nl` |
 | English | `en` |
 | Estonian | `et` |
@@ -334,6 +334,7 @@ The following languages are available for customization to or from English using
 | Hungarian      | `hu`          |
 | Icelandic | `is` |
 | Indonesian|	`id`	|
+| Inuktitut|	`iu`	|
 | Irish | `ga`	|
 | Italian      | `it`          |
 | Japanese      | `ja`          |

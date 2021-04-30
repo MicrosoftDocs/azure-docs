@@ -2,14 +2,14 @@
 title: Azure Active Directory Application Management certificates frequently asked questions
 description: Learn answers to frequently asked questions (FAQ) about managing certificates for apps using Azure Active Directory as an Identity Provider (IdP).  
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/19/2021
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: secherka, mifarca, shchaur, shravank, sureshja
 ---
 
@@ -50,11 +50,11 @@ In Azure AD, you can set up certificate signing options and the certificate sign
 
 ## I need to replace the certificate for Azure AD Application Proxy applications and need more instructions.
 
-To replace certificates for Azure AD Application Proxy applications, see [PowerShell sample - Replace certificate in Application Proxy apps](scripts/powershell-get-custom-domain-replace-cert.md).
+To replace certificates for Azure AD Application Proxy applications, see [PowerShell sample - Replace certificate in Application Proxy apps](../app-proxy/scripts/powershell-get-custom-domain-replace-cert.md).
 
 ## How do I manage certificates for custom domains in Azure AD Application Proxy?
 
-To configure an on-premises app to use a custom domain, you need a verified Azure Active Directory custom domain, a PFX certificate for the custom domain, and an on-premises app to configure. To learn more, see [Custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md). 
+To configure an on-premises app to use a custom domain, you need a verified Azure Active Directory custom domain, a PFX certificate for the custom domain, and an on-premises app to configure. To learn more, see [Custom domains in Azure AD Application Proxy](../app-proxy/application-proxy-configure-custom-domain.md). 
 
 ## I need to update the token signing certificate on the application side. Where can I get it on Azure AD side?
 

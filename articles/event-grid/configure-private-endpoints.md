@@ -116,7 +116,7 @@ You can reject a private endpoint that's in the pending state or approved state.
 
 
 ## Use Azure CLI
-To create a private endpoint, use the [az network private-endpoint create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create) method as shown in the following example:
+To create a private endpoint, use the [az network private-endpoint create](/cli/azure/network/private-endpoint?#az_network_private_endpoint_create) method as shown in the following example:
 
 ```azurecli-interactive
 az network private-endpoint create \
@@ -130,12 +130,12 @@ az network private-endpoint create \
     --group-ids topic
 ```
 
-For descriptions of the parameters used in the example, see documentation for [az network private-endpoint create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create). A few points to note in this example are: 
+For descriptions of the parameters used in the example, see documentation for [az network private-endpoint create](/cli/azure/network/private-endpoint?#az_network_private_endpoint_create). A few points to note in this example are: 
 
 - For `private-connection-resource-id`, specify the resource ID of the **topic** or **domain**. The preceding example uses the type: topic.
 - for `group-ids`, specify `topic` or `domain`. In the preceding example, `topic` is used. 
 
-To delete a private endpoint, use the [az network private-endpoint delete](/cli/azure/network/private-endpoint?#az-network-private-endpoint-delete) method as shown in the following example:
+To delete a private endpoint, use the [az network private-endpoint delete](/cli/azure/network/private-endpoint?#az_network_private_endpoint_delete) method as shown in the following example:
 
 ```azurecli-interactive
 az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --name <PRIVATE ENDPOINT NAME>
@@ -160,7 +160,7 @@ az extension add -n eventgrid
 ```
 
 ### Create a private endpoint
-To create a private endpoint, use the [az network private-endpoint create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create) method as shown in the following example:
+To create a private endpoint, use the [az network private-endpoint create](/cli/azure/network/private-endpoint?#az_network_private_endpoint_create) method as shown in the following example:
 
 ```azurecli-interactive
 az network private-endpoint create \
@@ -174,12 +174,12 @@ az network private-endpoint create \
     --group-ids topic
 ```
 
-For descriptions of the parameters used in the example, see documentation for [az network private-endpoint create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create). A few points to note in this example are: 
+For descriptions of the parameters used in the example, see documentation for [az network private-endpoint create](/cli/azure/network/private-endpoint?#az_network_private_endpoint_create). A few points to note in this example are: 
 
 - For `private-connection-resource-id`, specify the resource ID of the **topic** or **domain**. The preceding example uses the type: topic.
 - for `group-ids`, specify `topic` or `domain`. In the preceding example, `topic` is used. 
 
-To delete a private endpoint, use the [az network private-endpoint delete](/cli/azure/network/private-endpoint?#az-network-private-endpoint-delete) method as shown in the following example:
+To delete a private endpoint, use the [az network private-endpoint delete](/cli/azure/network/private-endpoint?#az_network_private_endpoint_delete) method as shown in the following example:
 
 ```azurecli-interactive
 az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --name <PRIVATE ENDPOINT NAME>

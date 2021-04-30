@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Determine user connection latency in Windows Virtual Desktop
 
@@ -32,4 +32,4 @@ Windows Virtual Desktop uses [Azure Front Door](https://azure.microsoft.com/serv
 
 - To check the best location for optimal latency, see the [Windows Virtual Desktop Experience Estimator tool](https://azure.microsoft.com/services/virtual-desktop/assessment/).
 - For pricing plans, see [Windows Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
-- To get started with your Windows Virtual Desktop deployment, check out [our tutorial](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace).
+- To get started with your Windows Virtual Desktop deployment, check out [our tutorial](./create-host-pools-azure-marketplace.md).

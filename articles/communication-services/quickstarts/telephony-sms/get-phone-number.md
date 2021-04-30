@@ -16,6 +16,8 @@ zone_pivot_groups: acs-azp-java-net-python-csharp-js
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
+[!INCLUDE [Bulk Acquisition Instructions](../../includes/phone-number-special-order.md)]
+
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/phone-numbers-portal.md)]
 ::: zone-end
@@ -38,7 +40,7 @@ zone_pivot_groups: acs-azp-java-net-python-csharp-js
 
 ## Troubleshooting
 
-Common questions and issues:
+Common Questions and Issues:
 
 - Purchasing phone is supported in the US only. To purchase phone numbers, ensure that:
   - The associated Azure subscription billing address is located in the United States. You cannot move a resource to another subscription at this time.

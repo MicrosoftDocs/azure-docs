@@ -108,7 +108,7 @@ To use this string with each SDK, use the following commands:
   parameter **params**
 - Azure PowerShell: Cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment)
   with parameter **PolicyParameter**
-- REST API: In the _PUT_ [create](/rest/api/resources/policyassignments/create) operation as part of
+- REST API: In the _PUT_ [create](/rest/api/policy/policyassignments/create) operation as part of
   the Request Body as the value of the **properties.parameters** property
 
 ## Using arrays in conditions
@@ -169,7 +169,7 @@ The condition is true only if the resulted count is greater than 0.
 
 To make the condition above more generic, use parameter reference instead of a literal array:
 
- ```json
+```json
 {
     "count": {
         "value": "[parameters('patterns')]",

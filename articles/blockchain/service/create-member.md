@@ -1,10 +1,12 @@
 ---
 title: Create an Azure Blockchain Service member - Azure portal
 description: Create an Azure Blockchain Service member for a blockchain consortium using the Azure portal.
+ms.reviewer: ravastra
 ms.date: 07/16/2020
 ms.topic: quickstart
-ms.reviewer: ravastra
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - mode-portal
 #Customer intent: As a network operator, I want use Azure Blockchain Service so that I can create a managed ledger on Azure.
 ---
 

@@ -40,7 +40,7 @@ This script uses the following commands to delete an App Configuration store. Ea
 
 | Command | Notes |
 |---|---|
-| [az appconfig delete](/cli/azure/appconfig#az-appconfig-delete) | Deletes an App Configuration store resource. |
+| [az appconfig delete](/cli/azure/appconfig#az_appconfig_delete) | Deletes an App Configuration store resource. |
 
 ## Next steps
 

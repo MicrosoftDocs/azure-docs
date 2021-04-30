@@ -32,7 +32,7 @@ Test the new way of delivering Live events with Media Services before moving you
 
 - Create a new v3 [Live Event](live-event-outputs-concept.md#live-events) for encoding. You can enable [1080P and 720P encoding presets](live-event-types-comparison-reference.md#system-presets).
 - Use the [Live Output](live-event-outputs-concept.md#live-outputs) entity instead of Programs
-- Create [streaming locators](streaming-locators-concept.md).
+- Create [streaming locators](stream-streaming-locators-concept.md).
 - Consider your need for [HLS and DASH](encode-dynamic-packaging-concept.md) live streaming.
 - If you require fast-start of live events explore the new [Standby mode](live-event-outputs-concept.md#standby-mode) features.
 - If you want to transcribe your live event while it is happening, explore the new [live transcription](live-event-live-transcription-how-to.md) feature.
@@ -47,7 +47,7 @@ See Live events concepts, tutorials and how to guides below for specific steps.
 
 - [Live streaming with Azure Media Services v3](stream-live-streaming-concept.md)
 - [Live events and live outputs in Media Services](live-event-outputs-concept.md)
-- [Verified on-premises live streaming encoders](recommended-on-premises-live-encoders.md)
+- [Verified on-premises live streaming encoders](encode-recommended-on-premises-live-encoders.md)
 - [Use time-shifting and Live Outputs to create on-demand video playback](live-event-cloud-dvr-time-how-to.md)
 - [live-event-live-transcription-how-to (preview)](live-event-live-transcription-how-to.md)
 - [Live Event types comparison](live-event-types-comparison-reference.md)

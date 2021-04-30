@@ -67,11 +67,11 @@ You need an Azure account. You can [open a free Azure account](https://signup.az
 
 Azure creates the resource group and pins a shortcut to the resource group in the portal.
 
-## Create the network and subnets
+## Create the network and subnet
 
-The next step is to create the networks and subnets in the Azure resource group.
+The next step is to create the networks and subnet in the Azure resource group.
 
-The solution uses one virtual network with two subnets. The [Virtual network overview](../../../virtual-network/virtual-networks-overview.md) provides more information about networks in Azure.
+The solution uses one virtual network and one subnet. The [Virtual network overview](../../../virtual-network/virtual-networks-overview.md) provides more information about networks in Azure.
 
 To create the virtual network in the Azure portal:
 
@@ -98,48 +98,13 @@ To create the virtual network in the Azure portal:
 
    Your address space and subnet address range might be different from the table. Depending on your subscription, the portal suggests an available address space and corresponding subnet address range. If no sufficient address space is available, use a different subscription.
 
-   The example uses the subnet name **Admin**. This subnet is for the domain controllers.
+   The example uses the subnet name **Admin**. This subnet is for the domain controllers and SQL Server VMs.
 
 5. Select **Create**.
 
    ![Configure the virtual network](./media/availability-group-manually-configure-prerequisites-tutorial-/06-configurevirtualnetwork.png)
 
 Azure returns you to the portal dashboard and notifies you when the new network is created.
-
-### Create a second subnet
-
-The new virtual network has one subnet, named **Admin**. The domain controllers use this subnet. The SQL Server VMs use a second subnet named **SQL**. To configure this subnet:
-
-1. On your dashboard, select the resource group that you created, **SQL-HA-RG**. Locate the network in the resource group under **Resources**.
-
-    If **SQL-HA-RG** isn't visible, find it by selecting **Resource Groups** and filtering by the resource group name.
-
-2. Select **autoHAVNET** on the list of resources. 
-3. On the **autoHAVNET** virtual network, under **Settings** select **Subnets**.
-
-    Note the subnet that you already created.
-
-   ![Note the subnet that you already created](./media/availability-group-manually-configure-prerequisites-tutorial-/07-addsubnet.png)
-
-5. To create a second subnet, select **+ Subnet**.
-6. On **Add subnet**, configure the subnet by typing **sqlsubnet** under **Name**. Azure automatically specifies a valid **Address range**. Verify that this address range has at least 10 addresses in it. In a production environment, you might require more addresses.
-7. Select **OK**.
-
-    ![Configure subnet](./media/availability-group-manually-configure-prerequisites-tutorial-/08-configuresubnet.png)
-
-The following table summarizes the network configuration settings:
-
-| **Field** | Value |
-| --- | --- |
-| **Name** |**autoHAVNET** |
-| **Address space** |This value depends on the available address spaces in your subscription. A typical value is 10.0.0.0/16. |
-| **Subnet name** |**admin** |
-| **Subnet address range** |This value depends on the available address ranges in your subscription. A typical value is 10.0.0.0/24. |
-| **Subnet name** |**sqlsubnet** |
-| **Subnet address range** |This value depends on the available address ranges in your subscription. A typical value is 10.0.1.0/24. |
-| **Subscription** |Specify the subscription that you intend to use. |
-| **Resource Group** |**SQL-HA-RG** |
-| **Location** |Specify the same location that you chose for the resource group. |
 
 ## Create availability sets
 
@@ -162,7 +127,7 @@ After you create the availability sets, return to the resource group in the Azur
 
 ## Create domain controllers
 
-After you've created the network, subnets, and availability sets, you're ready to create the virtual machines for the domain controllers.
+After you've created the network, subnet, and availability sets, you're ready to create the virtual machines for the domain controllers.
 
 ### Create virtual machines for the domain controllers
 
@@ -407,7 +372,7 @@ Next, create three VMs - two SQL Server VMs and one VM for an additional cluster
 <br/>
 
 > [!NOTE]
-> The machine sizes suggested here are meant for testing availability groups in Azure Virtual Machines. For the best performance on production workloads, see the recommendations for SQL Server machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](performance-guidelines-best-practices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> The machine sizes suggested here are meant for testing availability groups in Azure Virtual Machines. For the best performance on production workloads, see the recommendations for SQL Server machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](./performance-guidelines-best-practices-checklist.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 >
 
 After the three VMs are fully provisioned, you need to join them to the **corp.contoso.com** domain and grant CORP\Install administrative rights to the machines.
