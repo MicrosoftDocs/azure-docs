@@ -43,6 +43,7 @@ landingContent:
   - title: Video Analyzer quickstarts/tutorials
     linkLists:
     - linkListType: concept
+      links:
         - text: Pipeline extension
           url: pipeline-extension.md
         - text: Event-based video recording
