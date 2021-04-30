@@ -1,5 +1,5 @@
 ---
-title: Prepare your IoT Edge module technical assets - Azure Marketplace
+title: Prepare IoT Edge module technical assets - Azure Marketplace
 description: Learn about the technical and configuration requirements your Internet of Things (IoT) Edge module technical assets must meet before you can publish them to Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -9,7 +9,7 @@ ms.author: keferna
 ms.date: 04/03/2020
 ---
 
-# Prepare your IoT Edge module technical assets
+# Prepare IoT Edge module technical assets
 
 This article describes the requirements that your Internet of Things (IoT) Edge module technical assets must meet before being published in Azure Marketplace.
 
@@ -17,8 +17,8 @@ This article describes the requirements that your Internet of Things (IoT) Edge 
 
 An IoT Edge module is a Docker-compatible container that runs on an IoT Edge device.
 
-- To learn more about IoT Edge modules, see [Understand Azure IoT Edge modules](../../iot-edge/iot-edge-modules.md).
-- To get started with your IoT Edge module development, see [Develop your own IoT Edge modules](../../iot-edge/module-development.md).
+- To learn more about IoT Edge modules, see [Understand Azure IoT Edge modules](../iot-edge/iot-edge-modules.md).
+- To get started with your IoT Edge module development, see [Develop your own IoT Edge modules](../iot-edge/module-development.md).
 
 ## Technical requirements
 
@@ -30,7 +30,7 @@ Your IoT Edge module must support one of the following platform options:
 
 #### Tier 1 platforms supported by IoT Edge
 
-Your module must support all Tier 1 platforms supported by IoT Edge (as recorded in [Azure IoT Edge support](../../iot-edge/support.md)). We recommend this option because it provides a better customer experience. Modules that meet this criteria will be showcased. A module using this platform option must:
+Your module must support all Tier 1 platforms supported by IoT Edge (as recorded in [Azure IoT Edge support](../iot-edge/support.md)). We recommend this option because it provides a better customer experience. Modules that meet this criteria will be showcased. A module using this platform option must:
 
 - Provide a latest tag and a version tag (for example, 1.0.1) that are manifest tags built with the [GitHub Manifest-tool](https://github.com/estesp/manifest-tool).
 
@@ -38,12 +38,12 @@ Your module must support all Tier 1 platforms supported by IoT Edge (as recorded
 
 #### A subset of Tier 1 platforms supported by IoT Edge
 
-Your module must support a subset (at least one) of Tier 1 platforms supported by IoT Edge (as recorded in [Azure IoT Edge support](../../iot-edge/support.md)). A module using this platform option must:
+Your module must support a subset (at least one) of Tier 1 platforms supported by IoT Edge (as recorded in [Azure IoT Edge support](../iot-edge/support.md)). A module using this platform option must:
 
 - Provide a latest tag and a version tag (for example, 1.0.1) that are manifest tags built with the GitHub [manifest-tool](https://github.com/estesp/manifest-tool) if more than one platform is supported. Manifest tags are optional only when one platform is supported.
 - Use the offer listing tab in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace) to add a link under the **Useful links** section to at least one IoT Edge device from the [Azure IoT Edge Certified device catalog](https://devicecatalog.azure.com/).
 
-:::image type="content" source="media/iot-edge-module-technical-assets-offer-listing.png" alt-text="This is an image of the Offer Listing section within Partner Center":::
+:::image type="content" source="media/iot-edge/iot-edge-module-technical-asse0ts-offer-listing.png" alt-text="This is an image of the Offer Listing section within Partner Center":::
 
 ### Device dimensions
 
@@ -134,8 +134,8 @@ Your offer will also be recertified if you update it, such as adding new image t
 
 ## Host module in Azure Container Registry
 
-To upload your IoT Edge module to Azure Marketplace, you first need to host it in an [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) (ACR). The module must include all the tags that you want to publish, including the image tags that are referenced by a manifest tag. For more information, see the tutorial [Create an Azure container registry and push a container image](../../container-instances/container-instances-tutorial-prepare-acr.md).
+To upload your IoT Edge module to Azure Marketplace, you first need to host it in an [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) (ACR). The module must include all the tags that you want to publish, including the image tags that are referenced by a manifest tag. For more information, see the tutorial [Create an Azure container registry and push a container image](../container-instances/container-instances-tutorial-prepare-acr.md).
 
 ## Next steps
 
-- [Create an IoT Edge module offer](azure-iot-edge-module-creation.md)
+- [Create an IoT Edge module offer](iot-edge-offer-setup.md)

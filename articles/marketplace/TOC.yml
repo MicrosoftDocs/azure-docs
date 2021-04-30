@@ -256,7 +256,7 @@
       - name: Prepare technical assets
         href: iot-edge-technical-asset.md
     - name: Create the offer
-    items: 
+      items: 
       - name: Create the offer
         href: iot-edge-offer-setup.md
       - name: Properties

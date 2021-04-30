@@ -13,7 +13,7 @@ ms.date: 12/21/2020
 
 This overview page lets you create different plan options within the same offer. Plans (formerly called SKUs) can differ in terms of in where they are available (Azure Global or Azure Government) and the image referenced by the plan. Your offer must contain at least one plan.
 
-You can create up to 100 plans for each offer: up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](../private-offers.md).
+You can create up to 100 plans for each offer: up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](private-offers.md).
 
 After you create a plan, the **Plan overview** page shows:
 

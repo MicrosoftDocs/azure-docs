@@ -17,7 +17,7 @@ Before you start, create a commercial marketplace account in [Partner Center](pa
 
 ## Before you begin
 
-Review [Plan an IoT Edge Module offer](marketplace-iot-edge). It will explain the technical requirements for this offer and list the information and assets you’ll need when you create it.
+Review [Plan an IoT Edge Module offer](marketplace-iot-edge.md). It will explain the technical requirements for this offer and list the information and assets you’ll need when you create it.
 
 ## Create a new offer
 
@@ -52,7 +52,7 @@ Enter a descriptive name that we'll use to refer to this offer solely within Par
 
 ## Customer leads
 
-[!INCLUDE [Connect lead management](includes/connect-lead-management.md)]
+[!INCLUDE [Connect lead management](includes/customer-leads.md)]
 
 For more information, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
