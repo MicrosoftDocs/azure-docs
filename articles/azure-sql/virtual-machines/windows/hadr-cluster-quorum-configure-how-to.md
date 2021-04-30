@@ -16,7 +16,7 @@ ms.author: chadam
 
 ---
 
-# Configure quorum - SQL Server on Azure VMs
+# Configure quorum for SQL Server on Azure VMs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article teaches you to configure one of the three quorum options for a Windows Server Failover Cluster running on SQL Server on Azure Virtual Machines (VMs) - a disk witness, a cloud witness, and a file share witness.
@@ -49,6 +49,62 @@ The following table provides additional information and considerations about the
 | ---------    |---------        |---------                        |
 | Disk witness     |  <ul><li> Dedicated LUN that stores a copy of the cluster database</li><li> Most useful for clusters with shared (not replicated) storage</li>       |  <ul><li>Size of LUN must be at least 512 MB</li><li> Must be dedicated to cluster use and not assigned to a clustered role</li><li> Must be included in clustered storage and pass storage validation tests</li><li> Can't be a disk that is a Cluster Shared Volume (CSV)</li><li> Basic disk with a single volume</li><li> Doesn't need to have a drive letter</li><li> Can be formatted with NTFS or ReFS</li><li> Can be optionally configured with hardware RAID for fault tolerance</li><li> Should be excluded from backups and antivirus scanning</li><li> A Disk witness isn't supported with Storage Spaces Direct</li>|
 
+To use an Azure Shared drive for the disk witness, you must first create the file share in your storage account and mount it on each node of the cluster. To mount the storage, follow these steps: 
+
+1. Sign in to the [Azure portal](https://portal.azure.com). and go to your storage account.
+1. Go to **File Shares** under **File service**, and then select the standard file share you want to use for your disk witness. 
+1. Select **Connect** to bring up the connection string for your file share.
+1. In the drop-down list, select the drive letter you want to use, and then copy both code blocks to Notepad.
+
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/premium-file-storage-commands.png" alt-text="Copy both PowerShell commands from the file share connect portal":::
+
+1. Use Remote Desktop Protocol (RDP) to connect to the SQL Server VM with the account that your SQL Server service will use for the service account.
+1. Open an administrative PowerShell command console.
+1. Run the commands that you saved earlier when you were working in the portal.
+1. Go to the share by using either File Explorer or the **Run** dialog box (select Windows + R). Use the network path `\\storageaccountname.file.core.windows.net\filesharename`. For example, `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
+1. Create at least one folder on the newly connected file share to place your cluster quorum on. 
+1. Repeat these steps on each SQL Server VM that will participate in the cluster.
+
+After your file share is mounted, configure quorum following these steps:
+
+# [PowerShell](#tab/powershell)
+
+The existing Set-ClusterQuorum PowerShell command has new parameters corresponding to Cloud Witness.
+
+You can configure disk witness with the cmdlet [`Set-ClusterQuorum`](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum) using the PowerShell command:
+
+```PowerShell
+Set-ClusterQuorum -NodeAndDiskMajority "\\storageaccountname.file.core.windows.net\filesharename"
+```
+
+
+# [Failover Cluster Manager](#tab/fcm-gui)
+
+Use the Quorum Configuration Wizard built into Failover Cluster Manager to configure your disk witness. To do so, follow these steps: 
+
+1. Open Failover Cluster Manager.
+
+2. Right-click the cluster -> **More Actions** -> **Configure Cluster Quorum Settings**. This launches the Configure Cluster Quorum wizard.
+
+    ![Snapshot of the menu path to Configure Cluster Quorum Settings in the Failover Cluster Manager UI](./media/hadr-create-quorum-windows-failover-cluster-how-to/cloudwitness_7.png)
+    
+3. On the **Select Quorum Configurations** page, select **Select the quorum witness**.
+
+    ![Snapshot of the 'select the quorum witness' radio button in the Cluster Quorum wizard](./media/hadr-create-quorum-windows-failover-cluster-how-to/cloudwitness_8.png)
+   
+4. On the **Select Quorum Witness** page, select **Configure a disk witness**.
+
+    ![Snapshot of the appropriate radio button to select a disk witness](./media/hadr-create-quorum-windows-failover-cluster-how-to/cloudwitness_9.png)
+    
+
+5. On the **Configure Disk Witness** page, enter the UNC path for your Azure file share. 
+6. Upon successful configuration of the disk witness, you can view the newly created witness resource in the Failover Cluster Manager snap-in.
+
+
+---
+
+
+
 ## Cloud Witness
 
 A cloud witness is a type of failover cluster quorum witness that uses Microsoft Azure storage to provide a vote on cluster quorum. 
@@ -74,7 +130,7 @@ A cloud witness requires an Azure Storage Account. To configure a storage accoun
     1. Enter a name for your storage account. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. The storage account name must also be unique within Azure.
     2. For **Account kind**, select **General purpose**.
     3. For **Performance**, select **Standard**.
-    2. For **Replication**, select **Local-redundant storage (LRS).
+    2. For **Replication**, select **Local-redundant storage (LRS)**.
 
 
 Once your storage account is created, follow these steps to configure your cloud witness quorum resource for your failover cluster: 
@@ -84,13 +140,13 @@ Once your storage account is created, follow these steps to configure your cloud
 
 The existing Set-ClusterQuorum PowerShell command has new parameters corresponding to Cloud Witness.
 
-You can configure Cloud Witness with the cmdlet [`Set-ClusterQuorum`](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum) using the PowerShell command:
+You can configure cloud witness with the cmdlet [`Set-ClusterQuorum`](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum) using the PowerShell command:
 
 ```PowerShell
 Set-ClusterQuorum -CloudWitness -AccountName <StorageAccountName> -AccessKey <StorageAccountAccessKey>
 ```
 
-In case you need to use a different endpoint (rare):
+In the rare instance you need to use a different endpoint, use this PowerShell command: 
 
 ```PowerShell
 Set-ClusterQuorum -CloudWitness -AccountName <StorageAccountName> -AccessKey <StorageAccountAccessKey> -Endpoint <servername>
@@ -101,39 +157,36 @@ See the [cloud witness documentation](/windows-server/failover-clustering/deploy
 
 # [Failover Cluster Manager](#tab/fcm-gui)
 
-Cloud Witness configuration is well integrated within the existing Quorum Configuration Wizard built into the Failover Cluster Manager.
+Use the Quorum Configuration Wizard built into Failover Cluster Manager to configure your cloud witness. To do so, follow these steps: 
 
-1. Launch Failover Cluster Manager.
+1. Open Failover Cluster Manager.
 
-2. Right-click the cluster -> **More Actions** -> **Configure Cluster Quorum Settings** (see figure 6). This launches the Configure Cluster Quorum wizard.
+2. Right-click the cluster -> **More Actions** -> **Configure Cluster Quorum Settings**. This launches the Configure Cluster Quorum wizard.
 
     ![Snapshot of the menu path to Configure Cluster Quorum Settings in the Failover Cluster Manager UI](./media/hadr-create-quorum-windows-failover-cluster-how-to/cloudwitness_7.png)
-    **Figure 6. Cluster Quorum Settings**
-
-3. On the **Select Quorum Configurations** page, select **Select the quorum witness** (see figure 7).
+    
+3. On the **Select Quorum Configurations** page, select **Select the quorum witness**.
 
     ![Snapshot of the 'select the quorum witness' radio button in the Cluster Quorum wizard](./media/hadr-create-quorum-windows-failover-cluster-how-to/cloudwitness_8.png)
-    **Figure 7. Select the Quorum Configuration**
-
-4. On the **Select Quorum Witness** page, select **Configure a cloud witness** (see figure 8).
+   
+4. On the **Select Quorum Witness** page, select **Configure a cloud witness**.
 
     ![Snapshot of the appropriate radio button to select a cloud witness](./media/hadr-create-quorum-windows-failover-cluster-how-to/cloudwitness_9.png)
-    **Figure 8. Select the Quorum Witness**
-
+    
 5. On the **Configure Cloud Witness** page, enter the Azure Storage Account information. For help with finding this information, see the [cloud witness documentation](/windows-server/failover-clustering/deploy-cloud-witness). 
    1. (Required parameter) Azure Storage Account Name.
    2. (Required parameter) Access Key corresponding to the Storage Account.
-       1. When creating for the first time, use Primary Access Key (see figure 5)
-       2. When rotating the Primary Access Key, use Secondary Access Key (see figure 5)
+       1. When creating for the first time, use Primary Access Key 
+       2. When rotating the Primary Access Key, use Secondary Access Key
    3. (Optional parameter) If you intend to use a different Azure service endpoint (for example the Microsoft Azure service in China), then update the endpoint server name.
 
       ![Snapshot of the Cloud Witness configuration pane in the Cluster Quorum wizard](./media/hadr-create-quorum-windows-failover-cluster-how-to/cloudwitness_10.png)
-      **Figure 9: Configure your Cloud Witness**
+      
 
-6. Upon successful configuration of the cloud witness, you can view the newly created witness resource in the Failover Cluster Manager snap-in (see figure 10).
+6. Upon successful configuration of the cloud witness, you can view the newly created witness resource in the Failover Cluster Manager snap-in.
 
     ![Successful configuration of Cloud Witness](./media/hadr-create-quorum-windows-failover-cluster-how-to/cloudwitness_11.png)
-    **Figure 10: Successful configuration of Cloud Witness**
+    
 
 
 ---

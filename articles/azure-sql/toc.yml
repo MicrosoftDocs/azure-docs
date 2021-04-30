@@ -1193,7 +1193,7 @@
       - name: Business continuity
         items:
         - name: Configure quorum 
-          href: virtual-machines/windows/hadr-configure-cluster-quorum-how-to.md
+          href: virtual-machines/windows/hadr-cluster-quorum-configure-how-to.md
         - name: Backup and restore
           items:
           - name: Automated backup (SQL 2016+)

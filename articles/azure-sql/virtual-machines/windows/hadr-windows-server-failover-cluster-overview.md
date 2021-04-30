@@ -187,5 +187,5 @@ On Azure Virtual Machines, MSDTC isn't supported for Windows Server 2016 or earl
 
 ## Next steps
 
-Now that you've familiarized yourself with the differences when using a Windows Failover Cluster with SQL Server on Azure VMs, learn about the high availability features [availability groups](availability-group-overview.md) or [failover cluster instances](failover-cluster-instance-overview.md). If you're ready to get started, [create a cluster](hadr-create-cluster-how-to.md) and be sure to review the [best practices](hadr-cluster-best-practices.md) for configuration recommendations. 
+Now that you've familiarized yourself with the differences when using a Windows Failover Cluster with SQL Server on Azure VMs, learn about the high availability features [availability groups](availability-group-overview.md) or [failover cluster instances](failover-cluster-instance-overview.md). If you're ready to get started, be sure to review the [best practices](hadr-cluster-best-practices.md) for configuration recommendations. 
 
