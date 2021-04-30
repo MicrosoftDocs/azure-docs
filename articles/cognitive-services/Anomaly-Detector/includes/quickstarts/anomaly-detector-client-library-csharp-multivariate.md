@@ -91,7 +91,8 @@ string datasource = "YOUR_SAMPLE_ZIP_FILE_LOCATED_IN_AZURE_BLOB_STORAGE_WITH_SAS
 
 To use the Anomaly Detector multivariate APIs, you need to first train your own models.Training data is a set of multiple time series that meet the following requirements:
 
-Each time series should be a CSV file with two (and only two) columns, "timestamp" and "value" (all in lowercase) as the header row. The "timestamp" values should conform to ISO 8601; the "value" could be integers or decimals with any number of decimal places. For example,
+Each time series should be a CSV file with two (and only two) columns, "timestamp" and "value" (all in lowercase) as the header row. The "timestamp" values should conform to ISO 8601; the "value" could be integers or decimals with any number of decimal places. For example:
+
 |timestamp | value|
 |-------|-------|
 |2019-04-01T00:00:00Z| 5|
