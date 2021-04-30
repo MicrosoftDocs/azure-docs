@@ -84,10 +84,11 @@ You now have an Azure Digital Twins instance ready to go. Next, you'll give the 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
 There are two ways to create a role assignment for a user in Azure Digital Twins:
-1. [During Azure Digital Twins instance resource creation](#assign-the-role-during-instance-creation)
-1. [Using Azure Identity Management (IAM)](#assign-the-role-using-azure-identity-management-iam)
+* [During Azure Digital Twins instance creation](#assign-the-role-during-instance-creation)
+* [Using Azure Identity Management (IAM)](#assign-the-role-using-azure-identity-management-iam)
  
 ### Prerequisites: Permission requirements
+
 [!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
 
 ### Assign the role during instance creation
@@ -100,11 +101,11 @@ If you don't have permission to assign a role to an identity, the box will appea
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2-role-greyed.png" alt-text="Screenshot of the Create Resource process for Azure Digital Twins. The checkbox under Grant access to resource is greyed out and not clickable.":::
 
-You can still continue to successfully create the Azure Digital Twins resource, but someone with the appropriate permissions will need to assign this role to you or the person who will be managing the instance's data.
+In that case, you can still continue to successfully create the Azure Digital Twins resource, but someone with the appropriate permissions will need to assign this role to you or the person who will be managing the instance's data.
 
 ### Assign the role using Azure Identity Management (IAM)
 
-To give a user permissions to manage an Azure Digital Twins instance, you must assign them the **Azure Digital Twins Data Owner** role within the instance.
+You can also assign the **Azure Digital Twins Data Owner** role using the access control options in Azure Identity Management (IAM).
 
 First, open the page for your Azure Digital Twins instance in the Azure portal. From the instance's menu, select *Access control (IAM)*. Select the  **+ Add** button to add a new role assignment.
 
