@@ -1,6 +1,6 @@
 ---
 title: Use deployment scripts in templates (Bicep) | Microsoft Docs
-description: use deployment scripts in Azure Resource Manager templates.
+description: use deployment scripts in Azure Resource Manager templates. (Bicep)
 services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager

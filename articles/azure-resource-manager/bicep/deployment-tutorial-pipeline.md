@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Tutorial: Continuous integration of ARM templates with Azure Pipelines
+# Tutorial: Continuous integration of ARM templates with Azure Pipelines (Bicep)
 
 In the [previous tutorial](../templates/deployment-tutorial-linked-template.md), you deploy a linked template.  In this tutorial, you learn how to use Azure Pipelines to continuously build and deploy Azure Resource Manager template (ARM template) projects.
 

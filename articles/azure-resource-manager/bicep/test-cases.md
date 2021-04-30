@@ -1,13 +1,13 @@
 ---
-title: Test cases for test toolkit
-description: Describes the tests that are run by the ARM template test toolkit.
+title: Test cases for test toolkit (Bicep)
+description: Describes the tests that are run by the ARM template test toolkit. (Bicep)
 ms.topic: conceptual
 ms.date: 04/12/2021
 ms.author: tomfitz
 author: tfitzmac
 ---
 
-# Default test cases for ARM template test toolkit
+# Default test cases for ARM template test toolkit (Bicep)
 
 This article describes the default tests that are run with the [template test toolkit](test-toolkit.md) for Azure Resource Manager templates (ARM templates). It provides examples that pass or fail the test. It includes the name of each test. To run a specific test, see [Test parameters](test-toolkit.md#test-parameters).
 

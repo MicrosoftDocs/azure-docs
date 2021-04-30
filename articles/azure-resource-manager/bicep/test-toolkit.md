@@ -1,13 +1,13 @@
 ---
-title: ARM template test toolkit
-description: Describes how to run the Azure Resource Manager template (ARM template) test toolkit on your template. The toolkit lets you see if you have implemented recommended practices.
+title: ARM template test toolkit (Bicep)
+description: Describes how to run the Azure Resource Manager template (ARM template) test toolkit on your template. The toolkit lets you see if you have implemented recommended practices. (Bicep)
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
 ---
 
-# Use ARM template test toolkit
+# Use ARM template test toolkit (Bicep)
 
 The [Azure Resource Manager template (ARM template) test toolkit](https://aka.ms/arm-ttk) checks whether your template uses recommended practices. When your template isn't compliant with recommended practices, it returns a list of warnings with the suggested changes. By using the test toolkit, you can learn how to avoid common problems in template development.
 
