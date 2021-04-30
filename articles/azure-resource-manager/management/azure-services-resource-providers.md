@@ -2,7 +2,8 @@
 title: Resource providers by Azure services
 description: Lists all resource provider namespaces for Azure Resource Manager and shows the Azure service for that namespace.
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 03/16/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Resource providers for Azure services
