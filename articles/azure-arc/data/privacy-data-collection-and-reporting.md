@@ -114,76 +114,76 @@ The following sections show the properties, types, and descriptions that are col
 
 ### Arc enabled SQL Server 
 - SQL Server edition. 
-   `string: Edition` 
+   - `string: Edition` 
 - Resource ID of the container resource (Azure Arc for Servers). 
-   `string: ContainerResourceId` 
+   - `string: ContainerResourceId` 
 - Time when the resource was created. 
-   `string: CreateTime` 
+   - `string: CreateTime` 
 - The number of logical processors used by the SQL Server instance.
-   `string: VCore` 
+   - `string: VCore` 
 - Cloud connectivity status. 
-   `string: Status` 
+   - `string: Status` 
 - SQL Server update level. 
-   `string: PatchLevel` 
+   - `string: PatchLevel` 
 - SQL Server collation. 
-   `string: Collation`
+   - `string: Collation`
 - SQL Server current version.
-   `string: CurrentVersion`
+   - `string: CurrentVersion`
 - SQL Server instance name. 
-   `string: InstanceName`
+   - `string: InstanceName`
 - Dynamic TCP ports used by SQL Server. 
-   `string: TcpDynamicPorts`
+   - `string: TcpDynamicPorts`
 - Static TCP ports used by SQL Server.
-   `string: TcpStaticPorts` 
+   - `string: TcpStaticPorts` 
 - SQL Server product ID.
-   `string: ProductId`
+   - `string: ProductId`
 - SQL Server provisioning state.
-   `string: ProvisioningState`
+   - `string: ProvisioningState`
 
 #### Data Controller 
 
-   `public OnPremiseProperty OnPremiseProperty` 
+   - `public OnPremiseProperty OnPremiseProperty` 
 
 - The raw Kubernetes information (`kubectl get datacontroller`) 
-   `object: K8sRaw` 
+   - `object: K8sRaw` 
 - Last uploaded date from on-premises cluster.
-   `System.DateTime: LastUploadedDate` 
+   - `System.DateTime: LastUploadedDate` 
 - Data controller state
-   `string: ProvisioningState` 
+   - `string: ProvisioningState` 
 
 #### PostgreSQL Hyperscale Server Group 
 
 - The data controller ID
-   `string: DataControllerId`
+   - `string: DataControllerId`
 - The instance admin name
-   `string: Admin`
+   - `string: Admin`
 - Username and password for basic authentication
-   `public: BasicLoginInformation BasicLoginInformation` 
+   - `public: BasicLoginInformation BasicLoginInformation` 
 - The raw Kubernetes information (`kubectl get postgres12`) 
-   `object: K8sRaw` 
+   - `object: K8sRaw` 
 - Last uploaded date from on premises cluster. 
-   `System.DateTime: LastUploadedDate` 
+   - `System.DateTime: LastUploadedDate` 
 - Group provisioning state
-   `string: ProvisioningState` 
+   - `string: ProvisioningState` 
 
 #### SQL Managed Instance 
 
 - The managed instance ID
-   `public string: DataControllerId` 
+   - `public string: DataControllerId` 
 - The instance admin username 
-   `string: Admin` 
+   - `string: Admin` 
 - The instance start time 
-   `string: StartTime`
+   - `string: StartTime`
 - The instance end time 
-   `string: EndTime` 
+   - `string: EndTime` 
 - The raw kubernetes information (`kubectl get sqlmi`) 
-   `object: K8sRaw` 
+   - `object: K8sRaw` 
 - Username and password for basic authentication. 
-   `public: BasicLoginInformation BasicLoginInformation`
+   - `public: BasicLoginInformation BasicLoginInformation`
 - Last uploaded date from on-premises cluster. 
-   `public: System.DateTime LastUploadedDate` 
+   - `public: System.DateTime LastUploadedDate` 
 - SQL managed instance provisioning state
-   `public string: ProvisioningState` 
+   - `public string: ProvisioningState` 
 
 ### Examples
 
