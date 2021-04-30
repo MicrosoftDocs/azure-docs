@@ -102,19 +102,19 @@ result_id = result.result_id
 
 ::: zone pivot="programming-language-objectivec"
 
-| Latency | Description | Property in the property bag of [SpeechSynthesisResult](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisresult) |
+| Latency | Description | Property in the property bag of [SPXSpeechSynthesisResult](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechsynthesisresult) |
 |-----------|-------------|------------|
-| `first byte latency` | Indicates the time delay between the synthesis starts and the first audio chunk is received. | `SpeechServiceResponse_SynthesisFirstByteLatencyMs` |
-| `finish latency` | Indicates the time delay between the synthesis starts and the whole synthesized audio is received. | `SpeechServiceResponse_SynthesisFinishLatencyMs` |
+| `first byte latency` | Indicates the time delay between the synthesis starts and the first audio chunk is received. | `SPXSpeechServiceResponseSynthesisFirstByteLatencyMs` |
+| `finish latency` | Indicates the time delay between the synthesis starts and the whole synthesized audio is received. | `SPXSpeechServiceResponseSynthesisFinishLatencyMs` |
 
-The Speech SDK measured the latencies and puts them in the property bag of [`SpeechSynthesisResult`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisresult). Refer following codes to get them.
+The Speech SDK measured the latencies and puts them in the property bag of [`SPXSpeechSynthesisResult`](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechsynthesisresult). Refer following codes to get them.
 
 ```Objective-C
-SpeechSynthesisResult result = synthesizer.SpeakTextAsync(text).get();
-System.out.println("first byte latency: \t" + result.getProperties().getProperty(PropertyId.SpeechServiceResponse_SynthesisFirstByteLatencyMs) + " ms.");
-System.out.println("finish latency: \t" + result.getProperties().getProperty(PropertyId.SpeechServiceResponse_SynthesisFinishLatencyMs) + " ms.");
+SPXSpeechSynthesisResult *speechResult = [speechSynthesizer speakText:text];
+int firstByteLatency = [intString [speechResult.properties getPropertyById:SPXSpeechServiceResponseSynthesisFirstByteLatencyMs]];
+int finishedLatency = [intString [speechResult.properties getPropertyById:SPXSpeechServiceResponseSynthesisFinishLatencyMs]];
 // you can also get the result id, and send to us when you need help for diagnosis
-String resultId = result.getResultId();
+NSString *resultId = result.resultId;
 ```
 
 ::: zone-end
