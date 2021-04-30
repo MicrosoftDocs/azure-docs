@@ -31,7 +31,7 @@ non-Azure machine.
 > The Guest Configuration extension is required to perform audits in Azure virtual machines. To
 > deploy the extension at scale across all Windows machines, assign the following policy
 > definitions: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
-> 
+>
 > Don't use secrets or confidential information in custom content packages.
 
 ## Install the PowerShell module
@@ -512,7 +512,7 @@ The DSC resource requires custom development if a community solution doesn't alr
 Community solutions can be discovered by searching the PowerShell Gallery for tag
 [GuestConfiguration](https://www.powershellgallery.com/packages?q=Tags%3A%22GuestConfiguration%22).
 
-> [!Note]
+> [!NOTE]
 > Guest Configuration extensibility is a "bring your own
 > license" scenario. Ensure you have met the terms and conditions of any third
 > party tools before use.

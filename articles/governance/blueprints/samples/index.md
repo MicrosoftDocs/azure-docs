@@ -47,7 +47,7 @@ quality and ready to deploy today to assist you in meeting your various complian
 
 The CAF foundation and the CAF Migrate landing zone blueprints assume that the customer is preparing
 an existing clean single subscription for migrating on-premises assets and workloads in to Azure.
-(Region A and B in the figure).  
+(Region A and B in the figure).
 
 There's an opportunity to iterate on the sample blueprints and look for patterns of customizations
 that a customer is applying. There is also an opportunity to proactively address blueprints that are
@@ -68,4 +68,5 @@ customizing each for their unique needs.
 - Learn to customize the [blueprint sequencing order](../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../concepts/resource-locking.md).
 - Learn how to [update existing assignments](../how-to/update-existing-assignments.md).
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md).
+- Resolve issues during the assignment of a blueprint with
+  [general troubleshooting](../troubleshoot/general.md).
