@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create a profile and endpoint - Resource Manager template'
 titleSuffix: Azure Content Delivery Network
-description: Learn how to create an Azure Content Delivery Network profile and endpoint a Resource Manager template
+description: In this quickstart, learn how to create an Azure Content Delivery Network profile and endpoint a Resource Manager template
 services: cdn
 author: asudbring
 manager: KumudD
@@ -9,7 +9,7 @@ ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurecli
+ms.custom: subject-armqs
 ms.date: 06/25/2020
 ms.author: allensu
 
@@ -94,7 +94,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ### Azure CLI
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group and all resources contained within.
+When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group and all resources contained within.
 
 ```azurecli-interactive 
   az group delete \
@@ -103,7 +103,7 @@ When no longer needed, you can use the [az group delete](/cli/azure/group#az-gro
 
 ### PowerShell
 
-When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=latest) command to remove the resource group and all resources contained within.
+When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group and all resources contained within.
 
 ```azurepowershell-interactive 
 Remove-AzResourceGroup -Name myResourceGroupCDN
@@ -122,5 +122,5 @@ In this quickstart, you created a:
 
 To learn more about Azure CDN and Azure Resource Manager, continue to the articles below.
 
-* Read an [Overview of Azure CDN](cdn-overview.md)
-* Learn more about [Azure Resource Manager](../azure-resource-manager/management/overview.md)
+> [!div class="nextstepaction"]
+> [Tutorial: Use CDN to serve static content from a web app](cdn-add-to-web-app.md)

@@ -18,7 +18,7 @@ The Device Simulation solution accelerator lets you generate telemetry from simu
 
 To follow the steps in this how-to guide, you need an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-The steps in this how-to guide assume you've deployed the Device Simulation solution accelerator to your Azure subscription. If you haven't deployed Device Simulation yet, see [Device Simulation deployment](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) on GitHub.
+The steps in this how-to guide assume you've deployed the Device Simulation solution accelerator to your Azure subscription. If you haven't deployed Device Simulation yet, see [Device Simulation deployment](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md) on GitHub.
 
 This article assumes the name of your solution accelerator is **contoso-simulation**. Replace **contoso-simulation** with the name of your solution accelerator as you complete the following steps.
 

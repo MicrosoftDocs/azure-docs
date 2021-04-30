@@ -8,7 +8,7 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: amsriva
-# As a website owner, I want to add a custom domain to my Front Door configuration so that my users can use my custom domain to access my content.
+#Customer intent: As a website owner, I want to add a custom domain to my Front Door configuration so that my users can use my custom domain to access my content.
 ---
 
 # Configure HTTPS on a Front Door Standard/Premium SKU (Preview) custom domain using the Azure portal
@@ -74,7 +74,7 @@ Register the service principal for Azure Front Door as an app in your Azure Acti
 
 1. In PowerShell, run the following command:
 
-     `New-AzADServicePrincipal -ApplicationId 205478c0-bd83-4e1b-a9d6-db63a3e1e1c8""`              
+     `New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`              
 
 #### Grant Azure Front Door access to your key vault
  

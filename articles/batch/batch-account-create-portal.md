@@ -2,7 +2,7 @@
 title: Create an account in the Azure portal
 description: Learn how to create an Azure Batch account in the Azure portal to run large-scale parallel workloads in the cloud
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 02/23/2021
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -97,7 +97,7 @@ In user subscription mode, an [Azure Key Vault](../key-vault/general/overview.md
 
 When creating the Batch account in user subscription mode, specify **User subscription** as the pool allocation mode, select the Key Vault you created, and check the box to grant Azure Batch access to the Key Vault.
 
-If you prefer to grant access to the Key Vault manually, go to the **Access policies** section of the Key Vault and select **Add Access Policy**. Select the link next to **Select principal** and search for **Microsoft Azure Batch** (Application ID **ddbf3205-c6bd-46ae-8127-60eb93363864**). Select that principal, then configure the **Secret permissions** using the drop-down menu. Azure Batch must be given a minimum of **Get**, **List**, **Set**, and **Delete** permissions.
+If you prefer to grant access to the Key Vault manually, go to the **Access policies** section of the Key Vault and select **Add Access Policy**. Select the link next to **Select principal** and search for **Microsoft Azure Batch** (Application ID **ddbf3205-c6bd-46ae-8127-60eb93363864**). Select that principal, then configure the **Secret permissions** using the drop-down menu. Azure Batch must be given a minimum of **Get**, **List**, **Set**, and **Delete** permissions. For [Key Vaults with soft-delete enabled](../key-vault/general/soft-delete-overview.md), Azure Batch must also be given **Recover** permission.
 
 :::image type="content" source="media/batch-account-create-portal/secret-permissions.png" alt-text="Screenshot of the Secret permissions selections for Azure Batch":::
 

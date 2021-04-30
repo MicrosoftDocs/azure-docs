@@ -171,7 +171,7 @@
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
         - name: Security baseline
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/machine-learning-security-baseline?context=/azure/machine-learning/context/ml-context
         - name: Security controls by Azure Policy
           href: ./security-controls-policy.md
         - name: Data encryption
@@ -258,6 +258,8 @@
         - name: Use Resource Manager template
           displayName: arm
           href: how-to-create-workspace-template.md
+        - name: Link to Azure Synapse Analytics workspace
+          href: how-to-link-synapse-ml-workspaces.md
     - name: Create & manage compute resources
       items: 
         - name: Compute instance
@@ -266,6 +268,9 @@
         - name: Compute cluster
           displayName: compute target, low priority, managed identity
           href: how-to-create-attach-compute-cluster.md
+        - name: Upgrade host OS
+          displayName: upgrade compute cluster, upgrade compute instance, upgrade ubuntu
+          href: how-to-compute-cluster-instance-os-upgrade.md
         - name: Azure Kubernetes Service
           displayName: AKS, inference
           href: how-to-create-attach-kubernetes.md
@@ -315,17 +320,20 @@
             - name: Get data labeled
               displayName: data, dataset, labeling
               href: how-to-create-labeling-projects.md
-            - name: Label images
+            - name: Label images and text
               displayName: data, dataset, labeling
-              href: how-to-label-images.md
+              href: how-to-label-data.md
             - name: Create datasets with labels
               displayName: data, labels, torchvision
               href: how-to-use-labeled-dataset.md
-        - name: Get data
+        - name: Get & prepare data
           items: 
             - name: Data ingestion with Azure Data Factory
               displayName: data, ingestion, adf
               href: how-to-data-ingest-adf.md
+            - name: Data preparation with Azure Synapse
+              displayName: data, data prep, spark, spark pool, cluster, spark cluster,dataset, datastore
+              href: how-to-data-prep-synapse-spark-pool.md
             - name: DevOps for data ingestion
               displayName: data, ingestion, devops
               href: how-to-cicd-data-ingestion.md
@@ -382,15 +390,12 @@
           href: how-to-migrate-from-estimators-to-scriptrunconfig.md
         - name: Track & monitor training
           items: 
-            - name: Start, monitor or cancel runs
+            - name: Track, monitor, and analyze runs
               displayName: cancel, fail, status, child run
-              href: how-to-manage-runs.md
-            - name: Enable logs
-              displayName: troubleshoot, log, files, tracing
-              href: how-to-track-experiments.md
-            - name: View logs and metrics for runs
+              href: how-to-track-monitor-analyze-runs.md
+            - name: Log & view metrics and log files
               displayName: troubleshoot, log, files, tracing, metrics
-              href: how-to-monitor-view-training-logs.md
+              href: how-to-log-view-metrics.md
             - name: Visualize runs with TensorBoard
               displayName: log, monitor, metrics
               href: how-to-monitor-tensorboard.md
@@ -432,9 +437,6 @@
         - name: Use automated ML with Databricks
           displayName: automl
           href: how-to-configure-databricks-automl-environment.md
-        - name: Use remote compute targets
-          displayName: automl automated auto ml
-          href: how-to-auto-train-remote.md
         - name: Auto-train a forecast model
           displayName: time series
           href: how-to-auto-train-forecast.md
@@ -442,7 +444,7 @@
           displayName: automl, feature engineering, feature importance
           href: how-to-configure-cross-validation-data-splits.md
         - name: Featurization in automated ML (Python)
-          displayName: automl, feature engineering, feature importance
+          displayName: automl, feature engineering, feature importance, BERT
           href: how-to-configure-auto-features.md
         - name: Use automated ML in ML pipelines (Python)
           displayName: machine learning automl
@@ -451,6 +453,8 @@
           href: how-to-understand-automated-ml.md
         - name: Use ONNX model in .NET application
           href: how-to-use-automl-onnx-model-dotnet.md
+        - name: Troubleshoot automated ML
+          href: how-to-troubleshoot-auto-ml.md
     - name: Deploy & serve models
       items:
       - name: Where and how to deploy
@@ -458,10 +462,7 @@
         href: how-to-deploy-and-where.md
       - name: Deployment targets
         items:
-        - name: Use existing models
-          displayName: publish existing model
-          href: how-to-deploy-existing-model.md
-        - name: Azure ML compute instances
+        - name: Local
           href: how-to-deploy-local-container-notebook-vm.md
         - name: Azure Kubernetes Service
           displayName: aks, aad, authentication, azure active directory
@@ -534,6 +535,8 @@
           href: how-to-move-data-in-out-of-pipelines.md
         - name: Deploy ML pipelines (Python)
           href: how-to-deploy-pipelines.md
+        - name: Use Azure Synapse Apache spark pools in an ML pipeline (Python)
+          href: how-to-use-synapsesparkstep.md
         - name: Trigger a pipeline
           href: how-to-trigger-published-pipeline.md
         - name: Designer (drag-n-drop)
@@ -544,6 +547,9 @@
             - name: Transform data
               displayName: pipeline
               href: how-to-designer-transform-data.md
+            - name: Use pipeline parameters
+              displayName: designer, pipeline parameters
+              href: how-to-use-pipeline-parameter.md
             - name: Retrain using published pipelines
               displayName: retrain, designer, published pipeline
               href: how-to-retrain-designer.md
@@ -585,7 +591,7 @@
   items: 
     - name: Python SDK
       displayName: api, core, package, python, class
-      href: /python/api/overview/azure/ml/intro?view=azure-ml-py
+      href: /python/api/overview/azure/ml/intro
     - name: R SDK
       displayName: api, core, package, R, class
       href: https://azure.github.io/azureml-sdk-for-r/reference/index.html
@@ -609,6 +615,8 @@
     - name: Curated environments
       displayName: environments, curated environments
       href: resource-curated-environments.md         
+    - name: Azure CLI
+      href: /cli/azure/ml
 - name: Resources
   items: 
     - name: Release notes

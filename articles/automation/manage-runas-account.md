@@ -1,10 +1,11 @@
 ---
 title: Manage an Azure Automation Run As account
-description: This article tells how to manage your Run As account with PowerShell or from the Azure portal.
+description: This article tells how to manage your Azure Automation Run As account with PowerShell or from the Azure portal.
 services: automation
 ms.subservice:
-ms.date: 01/19/2021
-ms.topic: conceptual
+ms.date: 04/29/2021
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage an Azure Automation Run As account
@@ -23,7 +24,7 @@ When you renew the self-signed certificate, the current valid certificate is ret
 >If you think that the Run As account has been compromised, you can delete and re-create the self-signed certificate.
 
 >[!NOTE]
->If you have configured your Run As account to use a certificate issued by your enterprise certificate authority and you use the option to renew a self-signed certificate option, the enterprise certificate is replaced by a self-signed certificate.
+>If you have configured your Run As account to use a certificate issued by your enterprise or third-party certificate authority (CA) and you use the option to renew a self-signed certificate option, the enterprise certificate is replaced by a self-signed certificate.
 
 Use the following steps to renew the self-signed certificate.
 

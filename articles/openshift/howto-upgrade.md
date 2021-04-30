@@ -15,7 +15,7 @@ Part of the ARO cluster lifecycle involves performing periodic upgrades to the l
 
 ## Before you begin
 
-This article requires that you're running the Azure CLI version 2.0.65 of later. Run `az --version` to find your current version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+This article requires that you're running the Azure CLI version 2.0.65 of later. Run `az --version` to find your current version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli)
 
 This article assumes you have access to an existing Azure Red Hat OpenShift cluster as a user with `admin` privileges.
 
@@ -34,4 +34,3 @@ Selection a version to update to, and select **Update**. You'll see the update s
 ## Next steps
 - [Learn to upgrade an ARO cluster using the OC CLI](https://docs.openshift.com/container-platform/4.6/updating/updating-cluster-between-minor.html)
 - You can find information about available OpenShift Container Platform advisories and updates in the [errata section](https://access.redhat.com/downloads/content/290/ver=4.6/rhel---8/4.6.0/x86_64/product-errata) of the Customer Portal.
-  

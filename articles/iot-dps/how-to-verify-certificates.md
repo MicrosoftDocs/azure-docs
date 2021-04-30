@@ -67,14 +67,4 @@ The PowerShell and Bash scripts provided in the documentation and SDKs rely on [
 ## Next steps
 
 - To learn about how to use the portal to create an enrollment group, see [Managing device enrollments with Azure portal](how-to-manage-enrollments.md).
-- To learn about how to use the service SDKs to create an enrollment group, see [Managing device enrollments with service SDKs](how-to-manage-enrollments-sdks.md).
-
-
-
-
-
-
-
-
-
-
+- To learn about how to use the service SDKs to create an enrollment group, see [Managing device enrollments with service SDKs](./quick-enroll-device-x509-java.md).

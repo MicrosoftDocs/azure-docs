@@ -37,7 +37,7 @@ Some features aren't supported with geo-replication:
 
 After geo-replication is configured, the following restrictions apply to your linked cache pair:
 
-- The secondary linked cache is read-only; you can read from it, but you can't write any data to it. 
+- The secondary linked cache is read-only; you can read from it, but you can't write any data to it. If you choose to read from the Geo-Secondary instance, it is important to note that whenever a full data sync is happening between the Geo-Primary and the Geo-Secondary (happens when either Geo-Primary or Geo-Secondary is updated and on some reboot scenarios as well), the Geo-Secondary instance will throw erorrs (stating that a full data sync is in progress) on any Redis operation against it until the full data sync between Geo-Primary and Geo-Secondary is complete. Applications reading from Geo-Seocndary should be built to fall back to the Geo-Primary whenever the Geo-Seocndary is throwing such errors. 
 - Any data that was in the secondary linked cache before the link was added is removed. If the geo-replication is later removed however, the replicated data remains in the secondary linked cache.
 - You can't [scale](cache-how-to-scale.md) either cache while the caches are linked.
 - You can't [change the number of shards](cache-how-to-premium-clustering.md) if the cache has clustering enabled.
@@ -165,7 +165,7 @@ To obtain a recovery point, [Export](cache-how-to-import-export-data.md#export) 
 
 ### Can I use PowerShell or Azure CLI to manage geo-replication?
 
-Yes, geo-replication can be managed using the Azure portal, PowerShell, or Azure CLI. For more information, see the [PowerShell docs](/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) or [Azure CLI docs](/cli/azure/redis/server-link?view=azure-cli-latest).
+Yes, geo-replication can be managed using the Azure portal, PowerShell, or Azure CLI. For more information, see the [PowerShell docs](/powershell/module/az.rediscache/#redis_cache) or [Azure CLI docs](/cli/azure/redis/server-link).
 
 ### How much does it cost to replicate my data across Azure regions?
 
@@ -194,3 +194,4 @@ Yes, you can configure a [firewall](./cache-configure.md#firewall) with geo-repl
 Learn more about Azure Cache for Redis features.
 
 * [Azure Cache for Redis service tiers](cache-overview.md#service-tiers)
+* [High availability for Azure Cache for Redis](cache-high-availability.md)

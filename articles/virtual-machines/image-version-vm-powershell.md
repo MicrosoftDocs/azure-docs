@@ -4,7 +4,7 @@ description: Learn how to use Azure PowerShell to create an image in a Shared Im
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn

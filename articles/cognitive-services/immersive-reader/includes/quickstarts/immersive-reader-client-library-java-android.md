@@ -1386,4 +1386,5 @@ Use Android Studio to run the app on a device emulator. When you select **Immers
 
 ## Next steps
 
-Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK reference](../../reference.md).
+> [!div class="nextstepaction"]
+> [Create a resource and configure AAD](../../how-to-create-immersive-reader.md)

@@ -2,7 +2,7 @@
 title: Monitor with multi-step web tests - Azure Application Insights
 description: Set up multi-step web tests to monitor your web applications with Azure Application Insights
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 02/14/2021
 ---
 
 # Multi-step web tests
@@ -60,7 +60,6 @@ For guidance on creating Visual Studio web tests consult the [official Visual St
 |Setting| Explanation
 |----|----|----|
 |**Near-realtime (Preview)** | We recommend using Near-realtime alerts. Configuring this type of alert is done after your availability test is created.  |
-|**Classic** | We no longer recommended using classic alerts for new availability tests.|
 |**Alert location threshold**|We recommend a minimum of 3/5 locations. The optimal relationship between alert location threshold and the number of test locations is **alert location threshold** = **number of test locations - 2, with a minimum of five test locations.**|
 
 ## Configuration

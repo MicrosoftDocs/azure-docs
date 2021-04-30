@@ -1,21 +1,19 @@
 ---
 title: Copying blobs from a storage account into an Azure Media Services asset | Microsoft Docs
-description: This topic shows how to copy an existing blob into a Media Services Asset. The example uses Azure Media Services .NET SDK Extensions. 
+description: This topic shows how to copy an existing blob into a Media Services Asset. The example uses Azure Media Services .NET SDK Extensions.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # Copying existing blobs into a Media Services Asset
 

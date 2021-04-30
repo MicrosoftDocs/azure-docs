@@ -8,9 +8,9 @@ ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
 ms.date: 02/16/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: larryfr
-ms.custom: deploy
+ms.custom: deploy, devx-track-azurecli
 ---
 
 # High-performance serving with Triton Inference Server (Preview) 
@@ -27,11 +27,14 @@ Triton is a framework that is *optimized for inference*. It provides better util
 > [!TIP]
 > The code snippets in this document are for illustrative purposes and may not show a complete solution. For working example code, see the [end-to-end samples of Triton in Azure Machine Learning](https://aka.ms/triton-aml-sample).
 
+> [!NOTE]
+> [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-docs) is an open-source third-party software that is integrated in Azure Machine Learning.
+
 ## Prerequisites
 
 * An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 * Familiarity with [how and where to deploy a model](how-to-deploy-and-where.md) with Azure Machine Learning.
-* The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/?view=azure-ml-py) **or** the [Azure CLI](/cli/azure/?view=azure-cli-latest) and [machine learning extension](reference-azure-machine-learning-cli.md).
+* The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/) **or** the [Azure CLI](/cli/azure/) and [machine learning extension](reference-azure-machine-learning-cli.md).
 * A working installation of Docker for local testing. For information on installing and validating Docker, see [Orientation and setup](https://docs.docker.com/get-started/) in the docker documentation.
 
 ## Architectural overview
@@ -92,7 +95,7 @@ models
         - model_1
             - model_version
                 - model_file
-                - config_file
+            - config_file
         - model_2
             ...
 ```
@@ -108,7 +111,12 @@ models
 az ml model register -n my_triton_model -p models --model-framework=Multi
 ```
 
-For more information on `az ml model register`, consult the [reference documentation](/cli/azure/ext/azure-cli-ml/ml/model).
+For more information on `az ml model register`, consult the [reference documentation](/cli/azure/ml/model).
+
+When registering the model in Azure Machine Learning, the value for the `--model-path  -p` parameter must be the name of the parent folder of the Triton.  
+In the example above,  `--model-path` is 'models'.
+
+The value for `--name  -n` parameter, â€˜my_triton_modelâ€™ in the example, will be the model name known to Azure Machine Learning Workspace. 
 
 # [Python](#tab/python)
 
@@ -129,7 +137,7 @@ model = Model.register(
 )
 
 ```
-For more information, see the documentation for the [Model class](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py).
+For more information, see the documentation for the [Model class](/python/api/azureml-core/azureml.core.model.model).
 
 ---
 
@@ -271,7 +279,7 @@ An inference configuration allows you use an entry script, as well as the Azure 
 > [!IMPORTANT]
 > You must specify the `AzureML-Triton` [curated environment](./resource-curated-environments.md).
 >
-> The Python code example clones `AzureML-Triton` into another environment called `My-Triton`. The Azure CLI code also uses this environment. For more information on cloning an environment, see the [Environment.Clone()](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#clone-new-name-) reference.
+> The Python code example clones `AzureML-Triton` into another environment called `My-Triton`. The Azure CLI code also uses this environment. For more information on cloning an environment, see the [Environment.Clone()](/python/api/azureml-core/azureml.core.environment.environment#clone-new-name-) reference.
 
 # [Azure CLI](#tab/azcli)
 
@@ -326,13 +334,13 @@ print(local_service.scoring_uri)
 
 ---
 
-After deployment completes, the scoring URI is displayed. For this local deployment, it will be `http://localhost:6789/score`. If you deploy to the cloud, you can use the [az ml service show](/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) CLI command to get the scoring URI.
+After deployment completes, the scoring URI is displayed. For this local deployment, it will be `http://localhost:6789/score`. If you deploy to the cloud, you can use the [az ml service show](/cli/azure/ml/service#az_ml_service_show) CLI command to get the scoring URI.
 
 For information on how to create a client that sends inference requests to the scoring URI, see [consume a model deployed as a web service](how-to-consume-web-service.md).
 
 ### Setting the number of workers
 
-To set the number of workers in your deployment, set the environment variable `WORKER_COUNT`. Given you have an [Environment](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) object called `env`, you can do the following:
+To set the number of workers in your deployment, set the environment variable `WORKER_COUNT`. Given you have an [Environment](/python/api/azureml-core/azureml.core.environment.environment) object called `env`, you can do the following:
 
 ```{py}
 env.environment_variables["WORKER_COUNT"] = "1"
@@ -359,13 +367,17 @@ local_service.delete()
 
 
 ---
+## Troubleshoot
+
+* [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md), learn how to troubleshoot and solve, or work around, common errors you may encounter when deploying a model.
+
+* If deployment logs show that **TritonServer failed to start**, please refer to [Nvidiaâ€™s open source documentation.](https://github.com/triton-inference-server/server)
 
 ## Next steps
 
 * [See end-to-end samples of Triton in Azure Machine Learning](https://aka.ms/aml-triton-sample)
 * Check out [Triton client examples](https://aka.ms/nvidia-client-examples)
 * Read the [Triton Inference Server documentation](https://aka.ms/nvidia-triton-docs)
-* [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md)
 * [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Update web service](how-to-deploy-update-web-service.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)

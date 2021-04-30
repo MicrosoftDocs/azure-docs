@@ -47,9 +47,3 @@ keywords: face search by image, facial recognition search, facial recognition, f
 [!INCLUDE [cURL quickstart](../includes/quickstarts/rest-api.md)]
 
 ::: zone-end
-
-::: zone pivot="programming-language-rest-api"
-
-[!INCLUDE [cURL quickstart](../includes/quickstarts/rest-api.md)]
-
-::: zone-end

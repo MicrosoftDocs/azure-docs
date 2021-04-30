@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a blueprint with Azure CLI"
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts using the Azure CLI.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: quickstart
 ---
 # Quickstart: Define and Assign an Azure Blueprint with Azure CLI
@@ -129,7 +129,7 @@ assignment on the resource group.
      > [!NOTE]
      > Use the filename _blueprint.json_ when importing your blueprint definitions.
      > This file name is used when calling
-     > [az blueprint import](/cli/azure/ext/blueprint/blueprint#ext_blueprint_az_blueprint_import).
+     > [az blueprint import](/cli/azure/blueprint#az_blueprint_import).
 
      The blueprint object is created in the default subscription by default. To specify the
      management group, use parameter **managementgroup**. To specify the subscription, use parameter
@@ -357,7 +357,7 @@ lock, and blueprint parameters, use the matching Azure CLI parameters on the
 1. Run the blueprint deployment by assigning it to a subscription. As the **contributors** and
    **owners** parameters require an array of objectIds of the principals to be granted the role
    assignment, use
-   [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md)
+   [Azure Active Directory Graph API](/graph/migrate-azure-ad-graph-planning-checklist)
    for gathering the objectIds for use in the **parameters** for your own users, groups, or
    service principals.
 

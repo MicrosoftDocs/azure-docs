@@ -1,7 +1,6 @@
 ---
 title: Office 365 management solution in Azure
 description: This article provides details on configuration and use of the Office 365 solution in Azure.  It includes detailed description of the Office 365 records created in Azure Monitor.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

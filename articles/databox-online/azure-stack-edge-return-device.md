@@ -7,11 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 03/03/2021
 ms.author: alkohli
 ---
 
 # Return your Azure Stack Edge Pro device
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article describes how to wipe the data and then return your Azure Stack Edge Pro device. After you've returned the device, you can also delete the resource associated with the device.
 
@@ -26,26 +28,15 @@ In this article, you learn how to:
 
 ## Erase data from the device
 
-To wipe the data off the data disks of your device, you need to reset your device. You can reset your device using the local web UI or the PowerShell interface.
+To wipe the data off the data disks of your device, you need to reset your device.
 
-Before you reset, create a copy of the local data on the device if needed. You can copy the data from the device to an Azure Storage container.
+Before you reset, create a copy of the local data on the device if needed. You can copy the data from the device to an Azure Storage container. 
 
-You can initiate the device return even before the device is reset. 
+You can initiate the device return even before the device is reset.
 
-To reset your device using the local web UI, take the following steps.
+You can reset your device in the local web UI or in PowerShell. For PowerShell instructions, see [Reset your device](./azure-stack-edge-connect-powershell-interface.md#reset-your-device).
 
-1. In the local web UI, go to **Maintenance > Device reset**.
-2. Select **Reset device**.
-
-    ![Reset device](media/azure-stack-edge-return-device/device-reset-1.png)
-
-3. When prompted for confirmation, review the warning and select **Yes** to continue.
-
-    ![Confirm reset](media/azure-stack-edge-return-device/device-reset-2.png)  
-
-The reset erases the data off the device data disks. Depending on the amount of data on your device, this process takes about 30-40 minutes.
-
-Alternatively, connect to the PowerShell interface of the device and use the `Reset-HcsAppliance` cmdlet to erase the data from the data disks. For more information, see [Reset your device](azure-stack-edge-connect-powershell-interface.md#reset-your-device).
+[!INCLUDE [Reset data from the device](../../includes/azure-stack-edge-device-reset.md)]
 
 > [!NOTE]
 > - If you're exchanging or upgrading to a new device, we recommend that you reset your device only after you've received the new device.
@@ -63,15 +54,15 @@ To begin the return process, take the following steps.
 
     1. Provide the serial number of the device. To get the device serial number, go the local web UI of the device and then go to **Overview**.  
     
-    ![Device serial number 1](media/azure-stack-edge-return-device/device-serial-number-1.png) 
+       ![Device serial number 1](media/azure-stack-edge-return-device/device-serial-number-1.png) 
 
-    2. Enter the service tag number which is a five or more character identifier that is unique to your device. The service tag is located on the bottom right corner of the device (as you face the device). Pull out the information tag (it is a slide-out label panel). This panel contains system information such as service tag, NIC, MAC address, and so on. 
+    2. Enter the service tag number. The service tag number is an identifier with five or more characters, which is unique to your device. The service tag is located on the bottom-right corner of the device (as you face the device). Pull out the information tag (it is a slide-out label panel). This panel contains system information such as service tag, NIC, MAC address, and so on. 
     
-    ![Service tag number 1](media/azure-stack-edge-return-device/service-tag-number-1.png)
+       ![Service tag number 1](media/azure-stack-edge-return-device/service-tag-number-1.png)
 
     3. From the dropdown list, choose a reason for the return.
 
-    ![Return device 2](media/azure-stack-edge-return-device/return-device-2.png) 
+       ![Return device 2](media/azure-stack-edge-return-device/return-device-2.png) 
 
 3. Under **Shipping details**:
 
@@ -80,7 +71,7 @@ To begin the return process, take the following steps.
 
     ![Return device 3](media/azure-stack-edge-return-device/return-device-3.png)
 
-4. Review the **Privacy terms** and select the checkbox against the note that you have reviewed and agree to the privacy terms.
+4. Review the **Privacy terms**, and select the checkbox by the note that you have reviewed and agree to the privacy terms.
 
 5. Select **Initiate return**.
 
@@ -105,7 +96,7 @@ To schedule a pickup, take the following steps.
 
     1. Call the local UPS (country/region-specific toll free number).
     2. In your call, quote the reverse shipment tracking number as shown on your printed label.
-    3. If the tracking number isn't quoted, UPS will require you to pay an additional charge during pickup.
+    3. If the tracking number isn't quoted, UPS will require you to pay an extra charge during pickup.
 
     Instead of scheduling the pickup, you can also drop off the Azure Stack Edge Pro at the nearest drop-off location.
 
@@ -119,8 +110,8 @@ After the device is received at the Azure datacenter, the device is inspected fo
 
 You can delete the device in the Azure portal:
 
-- After you have placed the order and before the device is prepared by Microsoft.
-- After you've returned the device to Microsoft, it passes the physical inspection at the Azure datacenter, and Azure Stack Edge Pro operations team calls to confirm that the device was returned.
+- After you place an order, and before the device is prepared by Microsoft.
+- After you return a device to Microsoft, and the Azure Stack Edge Pro operations team has called to confirm that the device was returned. The operations team doesn't call until the returned device passes the physical inspection at the Azure datacenter.
 
 If you've activated the device against another subscription or location, Microsoft will move your order to the new subscription or location within one business day. After the order is moved, you can delete this resource.
 

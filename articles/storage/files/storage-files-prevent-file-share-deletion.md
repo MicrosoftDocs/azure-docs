@@ -4,7 +4,7 @@ description: Learn about soft delete for Azure file shares and how you can use i
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 03/29/2021
 ms.author: rogarana
 ms.subservice: files
 services: storage
@@ -28,7 +28,7 @@ For soft-deleted premium file shares, the file share quota (the provisioned size
 
 ### Enabling or disabling soft delete
 
-Soft delete for file shares is enabled at the storage account level, because of this, the soft delete settings apply to all file shares within a storage account. You can enable or disable soft delete at any time. When you create a new storage account, soft delete for file shares is disabled by default, you can enable it during deployment or anytime afterwards. Soft delete will remain disabled by default for existing storage accounts. If you have configured [Azure file share backup](../../backup/azure-file-share-backup-overview.md) for a Azure file share, then soft delete for Azure file shares will be automatically enabled on that share's storage account.
+Soft delete for file shares is enabled at the storage account level, because of this, the soft delete settings apply to all file shares within a storage account. Soft delete is enabled by default for new storage accounts and can be disabled or enabled at any time. Soft delete is not automatically enabled for existing storage accounts unless [Azure file share backup](../../backup/azure-file-share-backup-overview.md) was configured for a Azure file share in that storage account. If Azure file share backup was configured, then soft delete for Azure file shares are automatically enabled on that share's storage account.
 
 If you enable soft delete for file shares, delete some file shares, and then disable soft delete, if the shares were saved in that period you can still access and recover those file shares. When you enable soft delete, you also need to configure the retention period.
 

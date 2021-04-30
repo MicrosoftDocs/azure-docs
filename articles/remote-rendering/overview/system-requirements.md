@@ -10,11 +10,6 @@ ms.custom: references_regions
 
 # System requirements
 
-> [!IMPORTANT]
-> **Azure Remote Rendering** is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 This chapter lists the minimum system requirements to work with *Azure Remote Rendering* (ARR).
 
 ## Development PC
@@ -111,12 +106,10 @@ The following software must be installed:
 
 ## Unity
 
-For development with Unity, install
-
-* Unity 2019.3.1 [(download)](https://unity3d.com/get-unity/download)
-* Install these modules in Unity:
-  * **UWP** - Universal Windows Platform Build Support
-  * **IL2CPP** - Windows Build Support (IL2CPP)
+For development with Unity, install a current version of Unity 2019.3 or 2019.4 LTS [(download)](https://unity3d.com/get-unity/download). We recommend using Unity Hub for managing installations.
+Make sure to include the following modules in your Unity installation:
+* **UWP** - Universal Windows Platform Build Support
+* **IL2CPP** - Windows Build Support (IL2CPP)
 
 ## Next steps
 

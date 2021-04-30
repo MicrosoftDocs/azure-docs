@@ -39,6 +39,12 @@ You can create a role-assignable group in Azure AD as described in [Create a rol
 
 > [!NOTE]
 > Once a privileged access group is managed, it can't be taken out of management. This prevents another resource administrator from removing Privileged Identity Management settings.
+>
+
+> [!IMPORTANT]
+> If a privileged access group is deleted from Azure Active Directory, it may take up to 24 hours for the group to be removed from the Privileged access groups (Preview) blade. 
+>
+
 
 ## Next steps
 
