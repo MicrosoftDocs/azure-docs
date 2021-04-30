@@ -91,7 +91,7 @@ Replace the following values:
 
 You'll see output that looks like this:
 
-```console
+```json
 {
   "values": [
     {
