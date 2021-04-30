@@ -44,10 +44,6 @@ When you run the FHIR Server for Azure, you have direct access to the underlying
 
 For a development standpoint, every feature that doesn't apply only to the managed service is first deployed to the open-source Microsoft FHIR Server for Azure. Once it has been validated in open-source, it will be released to the PaaS Azure API for FHIR solution. The time between the release in open-source and PaaS depends on the complexity of the feature and other roadmap priorities. This is the same process for all of our services, such as Azure IoT Connector for FHIR (preview).
 
-### Where can I see what is releasing into the Azure API for FHIR?
-
-To see some of what is releasing into the Azure API for FHIR, please refer to the [release](https://github.com/microsoft/fhir-server/releases) of the open-source FHIR Server. Starting in November 2020, we have tagged items with Azure-API-for-FHIR if the open-source item will release to the managed service. These features are typically available two weeks after they are on the release page in open-source. We've also included instructions on how to test the build if you would like to test in your own environment. We are evaluating how to best share additional managed service updates.
-
 ### In which regions is Azure API for FHIR Available?
 
 Currently, we have general availability for both public and government in [multiple geo-regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=non-regional,us-east,us-east-2,us-central,us-north-central,us-south-central,us-west-central,us-west,us-west-2,canada-east,canada-central,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For information about government cloud services at Microsoft, check out [Azure services by FedRAMP](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
