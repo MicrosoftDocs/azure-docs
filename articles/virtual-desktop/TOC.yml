@@ -252,3 +252,6 @@
     href: https://github.com/Azure/RDS-Templates/tree/master/wvd-templates
   - name: Azure compliance offerings
     href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
+  - name: Azure Advisor
+    href: ../advisor/advisor-overview.md
+
