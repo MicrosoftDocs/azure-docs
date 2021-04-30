@@ -13,7 +13,9 @@ ms.author: jeffme
 
 # Customer Spotlight on Use Cases
 
+
 Customers are already leveraging Applied AI Services to add AI horespower to their business scenarios. 
+
 
 
 
@@ -26,6 +28,8 @@ Customers are already leveraging Applied AI Services to add AI horespower to the
 [Read the story >](https://customers.microsoft.com/en-us/story/789698-progressive-insurance-cognitive-services-insurance)
  ​
  
+ 
+
 
 ![Wix Logo](./media/wix-logo.svg)
 ## WIX deploys smart, scalable search across 150 million websites with Cognitive Search 
@@ -34,6 +38,8 @@ Customers are already leveraging Applied AI Services to add AI horespower to the
 -Giedrius Graževičius: Project Manager for Search, Wix 
 
 [Read the story >](https://customers.microsoft.com/en-us/story/764974-wix-partner-professional-services-azure-cognitive-search)
+
+
 
 
 
