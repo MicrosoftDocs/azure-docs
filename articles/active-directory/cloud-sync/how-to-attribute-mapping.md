@@ -132,7 +132,7 @@ To test your attribute mapping, you can use [on-demand provisioning](how-to-on-d
    ![Screenshot that shows success and export details.](media/how-to-attribute-mapping/mapping-5.png)
 
 ## Schema updates
-Cloud sync will occasionally update the schema and the list of default attributes that are [synchronized](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized?context=/azure/active-directory/cloud-provisioning/context/cp-context).  These default attribute mappings will be available for new installations but will not automatically be added to existing installations.  To add these mappings you can do the following:
+Cloud sync will occasionally update the schema and the list of default attributes that are [synchronized](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized?context=/azure/active-directory/cloud-provisioning/context/cp-context).  These default attribute mappings will be available for new installations but will not automatically be added to existing installations.  To add these mappings you can do the following:
 
 
   1. Click on “add attribute mapping”
