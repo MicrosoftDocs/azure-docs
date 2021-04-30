@@ -73,9 +73,9 @@ A console window will open, carry out authentication, and wait for a command. In
 SetupBuildingScenario
 ```
 
-The output of this command is a series of confirmation messages as three [**digital twins**](concepts-twins-graph.md) are created and connected in your Azure Digital Twins instance: a floor named *floor1*, a room named *room21*, and a temperature sensor named *thermostat67*. These digital twins represent the entities that would exist in a real-world environment.
+The output of this command is a series of confirmation messages as three [digital twins](concepts-twins-graph.md) are created and connected in your Azure Digital Twins instance: a floor named *floor1*, a room named *room21*, and a temperature sensor named *thermostat67*. These digital twins represent the entities that would exist in a real-world environment.
 
-They are connected via relationships into the following [**twin graph**](concepts-twins-graph.md). The twin graph represents the environment as a whole, including how the entities interact with and relate to each other.
+They are connected via relationships into the following [twin graph](concepts-twins-graph.md). The twin graph represents the environment as a whole, including how the entities interact with and relate to each other.
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-graph.png" alt-text="A graph showing that floor1 contains room21, and room21 contains thermostat67" border="false":::
 
@@ -90,7 +90,7 @@ Query
 >
 > Here is the full query body to get all digital twins in your instance:
 > 
-> :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="GetAllTwins":::
+> :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="GetAllTwins":::
 
 After this, you can stop running the project. Keep the solution open in Visual Studio, though, as you'll continue using it throughout the tutorial.
 
@@ -130,7 +130,7 @@ There are two settings that need to be set for the function app to access your A
 
 #### Assign access role
 
-The first setting gives the function app the **Azure Digital Twins Data Owner** role in the Azure Digital Twins instance. This role is required for any user or function that wants to perform many data plane activities on the instance. You can read more about security and role assignments in [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md). 
+The first setting gives the function app the **Azure Digital Twins Data Owner** role in the Azure Digital Twins instance. This role is required for any user or function that wants to perform many data plane activities on the instance. You can read more about security and role assignments in [Concepts: Security for Azure Digital Twins solutions](concepts-security.md). 
 
 1. Use the following command to see the details of the system-managed identity for the function. Take note of the **principalId** field in the output.
 
@@ -157,7 +157,7 @@ The result of this command is outputted information about the role assignment yo
 
 #### Configure application settings
 
-The second setting creates an **environment variable** for the function with the URL of your Azure Digital Twins instance. The function code will use this to refer to your instance. For more information about environment variables, see [*Manage your function app*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
+The second setting creates an **environment variable** for the function with the URL of your Azure Digital Twins instance. The function code will use this to refer to your instance. For more information about environment variables, see [Manage your function app](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
 
 Run the command below, filling in the placeholders with the details of your resources.
 
@@ -172,7 +172,7 @@ The output is the list of settings for the Azure Function, which should now cont
 
 An Azure Digital Twins graph is meant to be driven by telemetry from real devices. 
 
-In this step, you will connect a simulated thermostat device registered in [IoT Hub](../iot-hub/about-iot-hub.md) to the digital twin that represents it in Azure Digital Twins. As the simulated device emits telemetry, the data will be directed through the *ProcessHubToDTEvents* Azure function that triggers a corresponding update in the digital twin. In this way, the digital twin stays up to date with the real device's data. In Azure Digital Twins, the process of directing events data from one place to another is called [**routing events**](concepts-route-events.md).
+In this step, you will connect a simulated thermostat device registered in [IoT Hub](../iot-hub/about-iot-hub.md) to the digital twin that represents it in Azure Digital Twins. As the simulated device emits telemetry, the data will be directed through the *ProcessHubToDTEvents* Azure function that triggers a corresponding update in the digital twin. In this way, the digital twin stays up to date with the real device's data. In Azure Digital Twins, the process of directing events data from one place to another is called [routing events](concepts-route-events.md).
 
 This happens in this part of the end-to-end scenario (**arrow B**):
 
@@ -441,4 +441,4 @@ In this tutorial, you created an end-to-end scenario that shows Azure Digital Tw
 Next, start looking at the concept documentation to learn more about elements you worked with in the tutorial:
 
 > [!div class="nextstepaction"]
-> [*Concepts: Custom models*](concepts-models.md)
+> [Concepts: Custom models](concepts-models.md)

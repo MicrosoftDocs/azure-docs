@@ -6,7 +6,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java
 ---
 
 # Customer responsibilities for running Azure Spring Cloud in VNET

@@ -81,7 +81,7 @@ When using a service principal account to query the activity log, we recommend t
 
 - [Create a new service principal account](../../active-directory/develop/howto-create-service-principal-portal.md) to be used only for this function, rather than assigning this role to an existing service principal used for other automation.
 - Be sure that this service principal does not have access to any delegated customer resources.
-- [Use a certificate to authenticate](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) and [store it securely in Azure Key Vault](../../key-vault/general/security-overview.md).
+- [Use a certificate to authenticate](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) and [store it securely in Azure Key Vault](../../key-vault/general/security-features.md).
 - Limit the users who have access to act on behalf of the service principal.
 
 Once you've created a new service principal account with Monitoring Reader access to the root scope of your managing tenant, you can use it to query and report on delegation activity in your tenant.

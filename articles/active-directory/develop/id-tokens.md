@@ -5,7 +5,6 @@ description: Learn how to use id_tokens emitted by the Azure AD v1.0 and Microso
 services: active-directory
 author: hpsin
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -13,8 +12,10 @@ ms.topic: conceptual
 ms.date: 04/02/2021
 ms.author: hirsin
 ms.reviewer: hirsin
-ms.custom: aaddev, identityplatformtop40
-ms:custom: fasttrack-edit
+ms.custom:
+  - aaddev
+  - identityplatformtop40
+  - fasttrack-edit
 ---
 
 # Microsoft identity platform ID tokens

@@ -118,7 +118,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
 ### Azure CLI
-Use [az feature register](/cli/azure/feature#az-feature-register) to enable the preview for your subscription.
+Use [az feature register](/cli/azure/feature#az_feature_register) to enable the preview for your subscription.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name AutomaticExtensionUpgradePreview

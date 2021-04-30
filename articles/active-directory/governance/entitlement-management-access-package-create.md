@@ -136,11 +136,11 @@ On the **Review + create** tab, you can review your settings and check for any v
 
 You can also create an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to
 
-1. [List the accessPackageResources in the catalog](/graph/api/accesspackagecatalog-list?tabs=http&view=graph-rest-beta) and [create an accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?tabs=http&view=graph-rest-beta) for any resources that are not yet in the catalog.
-1. [List the accessPackageResourceRoles](/graph/api/accesspackage-list-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta) of each accessPackageResource in an accessPackageCatalog. This list of roles will then be used to select a role, when subsequently creating an accessPackageResourceRoleScope.
-1. [Create an accessPackage](/graph/tutorial-access-package-api?view=graph-rest-beta).
-1. [Create an accessPackageAssignmentPolicy](/graph/api/accesspackageassignmentpolicy-post?tabs=http&view=graph-rest-beta).
-1. [Create an accessPackageResourceRoleScope](/graph/api/accesspackage-post-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta) for each resource role needed in the access package.
+1. [List the accessPackageResources in the catalog](/graph/api/accesspackagecatalog-list?tabs=http&view=graph-rest-beta&preserve-view=true) and [create an accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?tabs=http&view=graph-rest-beta&preserve-view=true) for any resources that are not yet in the catalog.
+1. [List the accessPackageResourceRoles](/graph/api/accesspackage-list-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta&preserve-view=true) of each accessPackageResource in an accessPackageCatalog. This list of roles will then be used to select a role, when subsequently creating an accessPackageResourceRoleScope.
+1. [Create an accessPackage](/graph/tutorial-access-package-api&view=graph-rest-beta&preserve-view=true).
+1. [Create an accessPackageAssignmentPolicy](/graph/api/accesspackageassignmentpolicy-post?tabs=http&view=graph-rest-beta&preserve-view=true).
+1. [Create an accessPackageResourceRoleScope](/graph/api/accesspackage-post-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta&preserve-view=true) for each resource role needed in the access package.
 
 ## Next steps
 

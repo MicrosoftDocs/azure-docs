@@ -41,10 +41,8 @@ The Oracle source supports **Full scan** to extract metadata from an Oracle data
 
 5.  Supported Oracle database versions are 6i to 19c.
 
-6.  User permission: To ensure a successful scan for the first time, a
-    Full Sys Admin type permission is required.
-
-    For subsequent scans, a read-only access to system tables is required. The user should have permission to create a session as well as role SELECT\_CATALOG\_ROLE assigned. Alternatively, the user may have SELECT permission granted for every individual system table that this connector queries metadata from:
+6.  User permission: A read-only access to system tables is required. 
+The user should have permission to create a session as well as role SELECT\_CATALOG\_ROLE assigned. Alternatively, the user may have SELECT permission granted for every individual system table that this connector queries metadata from:
        > grant create session to \[user\];\
         grant select on all\_users to \[user\];\
         grant select on dba\_objects to \[user\];\
