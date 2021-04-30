@@ -16,8 +16,8 @@ This article answers commonly asked questions about Azure Video Analyzer.
 
 | Variable	 |  Description  | 
 | --- | --- | 
-| [System.DateTime](/dotnet/framework/data/adonet/sql/linq/system-datetime-methods) | Represents an instant in UTC time, typically expressed as a date and time of day in the following format:<br>*yyyyMMddTHHmmssZ* | 
-| System.PreciseDateTime | Represents a Coordinated Universal Time (UTC) date-time instance in an ISO8601 file-compliant format with milliseconds, in the following format:<br>*yyyyMMddTHHmmss.fffZ* | 
+| System.Runtime.DateTime | Represents an instant in UTC time, typically expressed as a date and time of day in the following format:<br>*yyyyMMddTHHmmssZ* | 
+| System.Runtime.PreciseDateTime | Represents a Coordinated Universal Time (UTC) date-time instance in an ISO8601 file-compliant format with milliseconds, in the following format:<br>*yyyyMMddTHHmmss.fffZ* | 
 | System.TopologyName	 | Represents the name of the pipeline topology. | 
 | System.PipelineName | Represents the name of the live pipeline. | 
 
