@@ -1,17 +1,12 @@
 ---
 title: Public IP addresses in Azure
-titlesuffix: Azure Virtual Network
+titleSuffix: Azure Virtual Network
 description: Learn about public IP addresses in Azure.
 services: virtual-network
-documentationcenter: na
 author: asudbring
-manager: KumudD
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 04/29/2021
 ms.author: allensu
 ---
@@ -30,11 +25,11 @@ In Azure Resource Manager, a [public IP](virtual-network-public-ip-address.md) a
 * Azure Firewall
 * Bastion Host
 
-For Virtual Machine Scale Sets, please utilize [Public IP Prefixes](public-ip-address-prefix.md).
+For Virtual Machine Scale Sets, use [Public IP Prefixes](public-ip-address-prefix.md).
 
 ## IP address version
 
-Public IP addresses can be created with an IPv4 or IPv6 address.  In certain scenarios, you may be given the option to create a dual-stack deployment with a IPv4 and IPv6 address being generated simultaneously.
+Public IP addresses can be created with an IPv4 or IPv6 address. You may be given the option to create a dual-stack deployment with a IPv4 and IPv6 address.
 
 ## SKU
 
@@ -46,9 +41,9 @@ Standard SKU public IP addresses:
 
 - Always use static allocation method.
 - Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.
-- Secure by default and closed to inbound traffic. Allow list inbound traffic with a [network security group](./network-security-groups-overview.md#network-security-groups).
+- Secure by default and closed to inbound traffic. Allowlist inbound traffic with a [network security group](./network-security-groups-overview.md#network-security-groups).
 - Assigned to network interfaces, standard public load balancers, or Application Gateways. For more information about Standard load balancer, see [Azure Standard Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Can be zone-redundant (advertised from all 3 zones), zonal (guaranteed in a specific pre-selected availability zone), or no-zone (not associated with a specific pre-selected availability zone). To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Zone redundant IPs can only be created in [regions where 3 availability zones](../availability-zones/az-region.md) are live.** IPs created before zones are live will not be zone redundant.
+- Can be zone-redundant, which is advertised from all three zones. Zonal, which is guaranteed in a specific pre-selected availability zone. No-zone, which isn't associated with a specific pre-selected availability zone. To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Zone redundant IPs can only be created in [regions where three availability zones](../availability-zones/az-region.md) are live.** IPs created before zones are live won't be zone redundant.
 - Can be utilized with the [routing preference](routing-preference-overview.md) to enable more granular control of how traffic is routed between Azure and the Internet.
 - Can be used as anycast frontend IPs for [cross-region load balancers](../load-balancer/cross-region-overview.md) (preview functionality).
  
@@ -65,11 +60,11 @@ Standard SKU public IP addresses:
 
 Basic SKU addresses:
 
-- Assigned with the dynamic or static allocation method (IPv6 basic addresses can only utilize dynamic allocation method).
+- Assigned with the dynamic or static allocation method (IPv6 basic addresses can only use dynamic allocation method).
 - Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.
 - Are open by default.  Network security groups are recommended but optional for restricting inbound or outbound traffic.
-- Do not support Availability Zone scenarios. Use Standard SKU public IP for Availability Zone scenarios in applicable regions. To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Do not support [routing preference](routing-preference-overview.md) or [cross-region load balancers](../load-balancer/cross-region-overview.md) functionality.
+- Don't support Availability Zone scenarios. Use Standard SKU public IP for Availability Zone scenarios in applicable regions. To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Don't support [routing preference](routing-preference-overview.md) or [cross-region load balancers](../load-balancer/cross-region-overview.md) functionality.
 
 > [!NOTE]
 > Basic SKU IPv4 addresses can be upgraded after creation to Standard SKU.  To learn about SKU upgrade, refer to [Public IP upgrade](../virtual-network/virtual-network-public-ip-address-upgrade.md).
@@ -92,9 +87,9 @@ Static public IP addresses are commonly used in the following scenarios:
 * Your Azure resources communicate with other apps or services that use an IP address-based security model.
 * You use TLS/SSL certificates linked to an IP address.
 
-Basic public IPv4 and IPv6 addresses also support a **dynamic** assignment.  The IP address **isn't** given to the resource at the time of creation when selecting dynamic.  Rather, the IP is assigned when you associate the public IP address with a resource (e.g. a virtual machine, load balancer frontend) and the IP address is released when you stop (or delete) the resource.  For example, a public IP resource is released from a resource named **Resource A**. **Resource A** receives a different IP on start-up if the public IP resource is reassigned.
+Basic public IPv4 and IPv6 addresses support a **dynamic** assignment.  The IP address **isn't** given to the resource at the time of creation when selecting dynamic.  The IP is assigned when you associate the public IP address with a resource, such as a virtual machine or load balancer frontend. The IP address is released when you stop, or the resource.  For example, a public IP resource is released from a resource named **Resource A**. **Resource A** receives a different IP on start-up if the public IP resource is reassigned.
 
-Any associated IP address is released if the allocation method is changed from **static** to **dynamic**. To ensure the IP address for the associated resource remains the same, set the allocation method explicitly to **static**.
+Any associated IP address is released if the allocation method is changed from **static** to **dynamic**. Set the allocation method to **static** to ensure the IP address remains the same.
 
 > [!NOTE]
 > Azure allocates public IP addresses from a range unique to each region in each Azure cloud. You can download the list of ranges (prefixes) for the Azure [Public](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062), and [Germany](https://www.microsoft.com/download/details.aspx?id=57064) clouds.
@@ -102,7 +97,7 @@ Any associated IP address is released if the allocation method is changed from *
 
 ## DNS Name Label
 
-Select this option to specify a DNS domain name system label for a public IP resource.  This functionality works for both IPv4 addresses (32-bit A records) and IPv6 addresses  (128-bit AAAA records).
+Select this option to specify a DNS label for a public IP resource. This functionality works for both IPv4 addresses (32-bit A records) and IPv6 addresses (128-bit AAAA records).
 
 ### DNS hostname resolution
 
@@ -117,17 +112,19 @@ The fully qualified domain name (FQDN) **contoso.westus.cloudapp.azure.com** res
 
 > [!IMPORTANT]
 > Each domain name label created must be unique within its Azure location.  
->
 
 ### DNS Recommendations
 
-If a region move is needed, you can't migrate the FQDN of your public IP. Use the FQDN to create a custom CNAME record pointing to the public IP address.   If a move to a different public IP is required, update the CNAME record instead of updating the FQDN.
+You can't migrate the FQDN of your public IP between regions. Use the FQDN to create a custom CNAME record pointing to the public IP address. If a move to a different public IP is required, update the CNAME record.
 
 You can use [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) or an external DNS provider for your DNS Record.
 
 ## Other public IP address features
 
-There are additional attributes that can be utilized for certain types of public IP address.  The Global **Tier** option allows public IP address to be used with Cross-Region Load Balancers. The Internet **Routing Preference** option minimizes the time that traffic to/from your public IP address spends on the Microsoft network, lowering the egress data transfer cost.
+There are other attributes that can be used for a public IP address.  
+
+* The Global **Tier** allows public an IP address to be used with Cross-Region Load Balancers. 
+* The Internet **Routing Preference** option minimizes the time that traffic spends on the Microsoft network, lowering the egress data transfer cost.
 
 > [!NOTE]
 > At this time, both the **Tier** and **Routing Preference** feature are available for Standard SKU IPv4 addresses only.  They also cannot be utilized on the same IP address concurrently.
@@ -137,7 +134,9 @@ There are additional attributes that can be utilized for certain types of public
 
 ## At-a-glance
 
-The following table shows the property through which a public IP can be associated to a top-level resource and the possible allocation methods.  Note public IPv6 support is not available for all resource types at this time.
+The following table shows the property a public IP can be associated to a resource and the allocation methods. 
+
+Public IPv6 support isn't available for all resource types at this time.
 
 | Top-level resource | IP Address association | Dynamic IPv4 | Static IPv4 | Dynamic IPv6 | Static IPv6 |
 | --- | --- | --- | --- | --- | --- |
@@ -150,7 +149,7 @@ The following table shows the property through which a public IP can be associat
 | Azure Firewall | Front-end configuration | No | Yes | No | No |
 | Bastion Host | Public IP configuration | No | Yes | No | No |
 
-\* = IPv6 support for Express Route private peering is currently in Private Preview
+
 
 ## Limits 
 
@@ -164,11 +163,11 @@ Public IP addresses have a nominal charge. To learn more about IP address pricin
 
 * VPN gateways cannot be used in a Virtual Network with IPv6 enabled, either directly or peered with "UseRemoteGateway".
 * Public IPv6 addresses are locked at an Idle Timeout of 4 minutes.
-* The Azure platform (AKS, etc.) does not support IPv6 communication for Containers.
-* Utilizing IPv6-only Virtual Machines or Virtual Machines Scale Sets are not supported; each NIC must include at least one IPv4 IP configuration.
-* When adding IPv6 to existing IPv4 deployments, IPv6 ranges can not be added to a VNET with existing resource navigation links.
-* Forward DNS for IPv6 is supported for Azure public DNS but Reverse DNS is not yet supported.
-* Neither Routing Preference nor Cross-Region Load Balancing is supported for IPv6 at this time.
+* Azure doesn't support IPv6 communication for Containers.
+* Use of IPv6-only Virtual Machines or Virtual Machines Scale Sets aren't supported; each NIC must include at least one IPv4 IP configuration.
+* When adding IPv6 to existing IPv4 deployments, IPv6 ranges can't be added to a VNET with existing resource navigation links.
+* Forward DNS for IPv6 is supported for Azure public DNS but Reverse DNS isn't supported.
+* Routing Preference and cross-region Load Balancing isn't supported.
 
 ## Next steps
 * Learn about [Private IP Addresses in Azure](private-ip-addresses.md)
