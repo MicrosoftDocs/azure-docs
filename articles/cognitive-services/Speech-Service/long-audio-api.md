@@ -14,19 +14,19 @@ ms.author: trbye
 
 # Long Audio API
 
-The Long Audio API is designed for asynchronous synthesis of long-form text to speech (for example: audio books, news articles and documents). This API doesn't return synthesized audio in real-time, instead the expectation is that you will poll for the response(s) and consume the output(s) as they are made available from the service. Unlike the text to speech API that's used by the Speech SDK, the Long Audio API can create synthesized audio longer than 10 minutes, making it ideal for publishers and audio content platforms to create long audio content like audio books in a batch.
+The Long Audio API provides asynchronous synthesis of long-form text to speech (for example: audio books, news articles and documents). This API doesn't return synthesized audio in real-time. Instead, you poll for the response(s) and consume the output(s) as the service makes them available. Unlike the Text-to-speech API used by the Speech SDK, the Long Audio API can create synthesized audio longer than 10 minutes, making it ideal for publishers and audio content platforms to create long audio content like audio books in a batch.
 
 Additional benefits of the Long Audio API:
 
 * Synthesized speech returned by the service uses the best neural voices.
-* There's no need to deploy a voice endpoint as it synthesizes voices in none real-time batch mode.
+* There's no need to deploy a voice endpoint.
 
 > [!NOTE]
-> The Long Audio API now supports both [Public Neural Voices](./language-support.md#neural-voices) and [Custom Neural Voices](./how-to-custom-voice.md#custom-neural-voices).
+> The Long Audio API supports both [Public Neural Voices](./language-support.md#neural-voices) and [Custom Neural Voices](./how-to-custom-voice.md#custom-neural-voices).
 
 ## Workflow
 
-Typically, when using the Long Audio API, you'll submit a text file or files to be synthesized, poll for the status, then if the status is successful, you can download the audio output.
+When using the Long Audio API, you'll typically submit a text file or files to be synthesized, poll for the status, and download the audio output when the status indicates success.
 
 This diagram provides a high-level overview of the workflow.
 
@@ -36,15 +36,16 @@ This diagram provides a high-level overview of the workflow.
 
 When preparing your text file, make sure it:
 
-* Is either plain text (.txt) or SSML text (.txt)
-* Is encoded as [UTF-8 with Byte Order Mark (BOM)](https://www.w3.org/International/questions/qa-utf8-bom.en#bom)
-* Is a single file, not a zip
-* Contains more than 400 characters for plain text or 400 [billable characters](./text-to-speech.md#pricing-note) for SSML text, and less than 10,000 paragraphs
-  * For plain text, each paragraph is separated by hitting **Enter/Return** - View [plain text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
-  * For SSML text, each SSML piece is considered a paragraph. SSML pieces shall be separated by different paragraphs - View [SSML text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)
+* Is either plain text (.txt) or SSML text (.txt).
+* Is encoded as [UTF-8 with Byte Order Mark (BOM)](https://www.w3.org/International/questions/qa-utf8-bom.en#bom).
+* Is a single file, not a zip.
+* Contains more than 400 characters for plain text or 400 [billable characters](./text-to-speech.md#pricing-note) for SSML text, and less than 10,000 paragraphs.
+  * For plain text, each paragraph is separated by hitting **Enter/Return**. See [plain text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt).
+  * For SSML text, each SSML piece is considered a paragraph. Separate SSML pieces by different paragraphs. See [SSML text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt).
 
 ## Sample code
-The remainder of this page will focus on Python, but sample code for the Long Audio API is available on GitHub for the following programming languages:
+
+The remainder of this page focuses on Python, but sample code for the Long Audio API is available on GitHub for the following programming languages:
 
 * [Sample code: Python](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/Python)
 * [Sample code: C#](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/CSharp)
@@ -66,8 +67,8 @@ These libraries are used to construct the HTTP request, and call the text-to-spe
 
 To get a list of supported voices, send a GET request to `https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/voices`.
 
+This code gets a full list of voices you can use at a specific region/endpoint.
 
-This code allows you to get a full list of voices for a specific region/endpoint that you can use.
 ```python
 def get_voices():
     region = '<region>'
@@ -88,7 +89,7 @@ Replace the following values:
 * Replace `<your_key>` with your Speech service subscription key. This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 * Replace `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 
-You'll see an output that looks like this:
+You'll see output that looks like this:
 
 ```console
 {
@@ -125,8 +126,8 @@ If **properties.publicAvailable** is **true**, the voice is a public neural voic
 Prepare an input text file, in either plain text or SSML text, then add the following code to `long_audio_synthesis_client.py`:
 
 > [!NOTE]
-> `concatenateResult` is an optional parameter. If this parameter isn't set, the audio outputs will be generated per paragraph. You can also concatenate the audios into 1 output by setting the parameter. 
-> `outputFormat` is also optional. By default, the audio output is set to riff-16khz-16bit-mono-pcm. For more information about supported audio output formats, see [Audio output formats](#audio-output-formats).
+> `concatenateResult` is an optional parameter. If this parameter isn't set, the audio outputs will be generated per paragraph. You can also concatenate the audios into one output by including the parameter. 
+> `outputFormat` is also optional. By default, the audio output is set to `riff-16khz-16bit-mono-pcm`. For more information about supported audio output formats, see [Audio output formats](#audio-output-formats).
 
 ```python
 def submit_synthesis():
@@ -185,7 +186,7 @@ voice_identities = [
 ]
 ```
 
-You'll see an output that looks like this:
+You'll see output that looks like this:
 
 ```console
 response.status_code: 202
@@ -193,15 +194,16 @@ https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/<guid>
 ```
 
 > [!NOTE]
-> If you have more than 1 input files, you will need to submit multiple requests. There are some limitations that needs to be aware.
-> * The client is allowed to submit up to **5** requests to server per second for each Azure subscription account. If it exceeds the limitation, client will get a 429 error code (too many requests). Please reduce the request amount per second.
-> * The server is allowed to run and queue up to **120** requests for each Azure subscription account. If it exceeds the limitation, server will return a 429 error code(too many requests). Please wait and avoid submitting new request until some requests are completed.
+> If you have more than one input file, you will need to submit multiple requests, and there are limitations to consider.
+> * The client can submit up to **5** requests per second for each Azure subscription account. If it exceeds the limitation, a 429 error code (too many requests) is returned. Reduce the rate of submissions to avoid this limit.
+> * The server can queue up to **120** requests for each Azure subscription account. If the queue exceeds this limitation, server will return a 429 error code(too many requests). Wait for completed requests before submitting additional requests.
 
-The URL in output can be used for getting the request status.
+You can use the URL in output to get the request status.
 
-### Get information of a submitted request
+### Get details about a submitted request
 
-To get status of a submitted synthesis request, simply send a GET request to the URL returned by previous step.
+To get status of a submitted synthesis request, send a GET request to the URL returned in previous step.
+
 ```Python
 
 def get_synthesis():
@@ -240,11 +242,11 @@ response.status_code: 200
 }
 ```
 
-From `status` property, you can read status of this request. The request will start from `NotStarted` status, then change to `Running`, and finally become `Succeeded` or `Failed`. You can use a loop to poll this API until the status becomes `Succeeded`.
+The `status` property changes from `NotStarted` status, to `Running`, and finally to `Succeeded` or `Failed`. You can poll this API in a loop until the status becomes `Succeeded` or `Failed`.
 
 ### Download audio result
 
-Once a synthesis request succeeds, you can download the audio result by calling GET `/files` API.
+Once a synthesis request succeeds, you can download the audio result by calling the GET `/files` API.
 
 ```python
 def get_files():
@@ -262,9 +264,11 @@ def get_files():
 
 get_files()
 ```
+
 Replace `<request_id>` with the ID of request you want to download the result. It can be found in the response of previous step.
 
 Output will be like this:
+
 ```console
 response.status_code: 200
 {
@@ -294,14 +298,15 @@ response.status_code: 200
   ]
 }
 ```
-The output contains information of 2 files. The one with `"kind": "LongAudioSynthesisScript"` is the input script submitted. The other one with `"kind": "LongAudioSynthesisResult"` is the result of this request.
-The result is zip which contains the audio output files generated, along with a copy of the input text.
+This example output contains information for two files. The one with `"kind": "LongAudioSynthesisScript"` is the input script submitted. The other one with `"kind": "LongAudioSynthesisResult"` is the result of this request.
+
+The result is zip that contains the audio output files generated, along with a copy of the input text.
 
 Both files can be downloaded from the URL in their `links.contentUrl` property.
 
 ### Get all synthesis requests
 
-You can get a list of all submitted requests with following code:
+The following code lists all submitted requests:
 
 ```python
 def get_synthesis():
@@ -320,6 +325,7 @@ get_synthesis()
 ```
 
 Output will be like:
+
 ```console
 response.status_code: 200
 {
@@ -369,7 +375,7 @@ response.status_code: 200
 }
 ```
 
-`values` property contains a list of synthesis requests. The list is paginated, with a maximum page size of 100. If there are more than 100 requests, a `"@nextLink"` property will be provided to get the next page of the paginated list.
+The `values` property lists your synthesis requests. The list is paginated, with a maximum page size of 100. If there are more than 100 requests, a `"@nextLink"` property is provided to get the next page of the paginated list.
 
 ```console
   "@nextLink": "https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/?top=100&skip=100"
@@ -382,6 +388,7 @@ You can also customize page size and skip number by providing `skip` and `top` i
 The service will keep up to **20,000** requests for each Azure subscription account. If your request amount exceeds this limitation, please remove previous requests before making new ones. If you don't remove existing requests, you'll receive an error notification.
 
 The following code shows how to remove a specific synthesis request.
+
 ```python
 def delete_synthesis():
     id = '<request_id>'
@@ -443,7 +450,7 @@ The Long audio API is available in multiple regions with unique endpoints.
 
 ## Audio output formats
 
-We support flexible audio output formats. You can generate audio outputs per paragraph or concatenate the audio outputs into a single output by setting the 'concatenateResult' parameter. The following audio output formats are supported by the Long Audio API:
+We support flexible audio output formats. You can generate audio outputs per paragraph or concatenate the audio outputs into a single output by setting the `concatenateResult` parameter. The following audio output formats are supported by the Long Audio API:
 
 > [!NOTE]
 > The default audio format is riff-16khz-16bit-mono-pcm.
