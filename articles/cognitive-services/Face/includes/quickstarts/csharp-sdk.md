@@ -20,7 +20,7 @@ Use the Face client library for .NET to:
 * [Create a PersonGroup](#create-a-persongroup)
 * [Identify a face](#identify-a-face)
 
-[Reference documentation](/dotnet/api/overview/azure/cognitiveservices/client/faceapi) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.6.0-preview.1) | [Samples](/samples/browse/?products=azure&term=face)
+[Reference documentation](/dotnet/api/overview/azure/cognitiveservices/client/faceapi) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.7.0-preview.1) | [Samples](/samples/browse/?products=azure&term=face)
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ Using Visual Studio, create a new .NET Core application.
 
 ### Install the client library 
 
-Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Microsoft.Azure.CognitiveServices.Vision.Face`. Select version `2.6.0-preview.1`, and then **Install**. 
+Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Microsoft.Azure.CognitiveServices.Vision.Face`. Select version `2.7.0-preview.1`, and then **Install**. 
 
 #### [CLI](#tab/cli)
 
@@ -72,7 +72,7 @@ Build succeeded.
 Within the application directory, install the Face client library for .NET with the following command:
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.Vision.Face --version 2.6.0-preview.1
+dotnet add package Microsoft.Azure.CognitiveServices.Vision.Face --version 2.7.0-preview.1
 ```
 
 ---
