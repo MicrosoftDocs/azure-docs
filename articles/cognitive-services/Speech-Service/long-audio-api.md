@@ -195,8 +195,8 @@ https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/<guid>
 
 > [!NOTE]
 > If you have more than one input file, you will need to submit multiple requests, and there are limitations to consider.
-> * The client can submit up to **5** requests per second for each Azure subscription account. If it exceeds the limitation, a 429 error code (too many requests) is returned. Reduce the rate of submissions to avoid this limit.
-> * The server can queue up to **120** requests for each Azure subscription account. If the queue exceeds this limitation, server will return a 429 error code(too many requests). Wait for completed requests before submitting additional requests.
+> * The client can submit up to **5** requests per second for each Azure subscription account. If it exceeds the limitation, a **429 error code (too many requests)** is returned. Reduce the rate of submissions to avoid this limit.
+> * The server can queue up to **120** requests for each Azure subscription account. If the queue exceeds this limitation, server will return **429 error code(too many requests)**. Wait for completed requests before submitting additional requests.
 
 You can use the URL in output to get the request status.
 
@@ -217,8 +217,10 @@ def get_synthesis():
 
 get_synthesis()
 ```
+
 Output will be like this:
-```console
+
+```json
 response.status_code: 200
 {
   "models": [
@@ -269,7 +271,7 @@ Replace `<request_id>` with the ID of request you want to download the result. I
 
 Output will be like this:
 
-```console
+```json
 response.status_code: 200
 {
   "values": [
@@ -326,7 +328,7 @@ get_synthesis()
 
 Output will be like:
 
-```console
+```json
 response.status_code: 200
 {
   "values": [
