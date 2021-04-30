@@ -18,7 +18,7 @@ Azure Applied AI Services are high-level services focused on empowering develope
 
 ## Azure Form Recognizer
 
-Enabling organizations in all industries to consume information hidden within documents to increase productivity, automate business process and generate knowledge and insights.  Azure Form Recognizer is a service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, tables, and structure from your documents—the service outputs structured data that includes the relationships in the original file, bounding boxes, confidence and more. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise. Use Form Recognizer to automate data entry in your applications and enrich your documents search capabilities.
+Enabling organizations in all industries to consume information hidden within documents to increase productivity, automate business process and generate knowledge and insights.  Azure Form Recognizer is a service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, tables, and structure from your documents—the service outputs structured data that includes the relationships in the original file, bounding boxes, confidence and more. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise. Use Form Recognizer to automate data entry in your applications and enrich your documents search capabilities.  Azure Form Recognizer is built using OCR, Text Analytics and Custom Text from Azure Cognitive Services.
 
 Form Recognizer is composed of custom document processing models, prebuilt models for invoices, receipts, IDs and business cards, and the layout model. 
 
@@ -26,31 +26,31 @@ Form Recognizer is composed of custom document processing models, prebuilt model
 
 ## Azure Metrics Advisor
 
-Protecting organization’s growth by enabling them to make right decision based on intelligence from metrics of businesses, services and physical assets.  Azure Metrics Advisor  uses AI to perform data monitoring and anomaly detection in time series data. The service automates the process of applying models to your data, and provides a set of APIs and a web-based workspace for data ingestion, anomaly detection, and diagnostics - without needing to know machine learning. Developers can build AIOps, predicative maintenance, and business monitor applications on top of the service. ​
+Protecting organization’s growth by enabling them to make right decision based on intelligence from metrics of businesses, services and physical assets.  Azure Metrics Advisor  uses AI to perform data monitoring and anomaly detection in time series data. The service automates the process of applying models to your data, and provides a set of APIs and a web-based workspace for data ingestion, anomaly detection, and diagnostics - without needing to know machine learning. Developers can build AIOps, predicative maintenance, and business monitor applications on top of the service.  Azure Metrics Advisor is built using Anomaly Detector from Azure Cognitive Services.​
 
 [Learn more about Azure Metrics Advisor >](https://aka.ms/metricsadvisordocs)
 
 ## Azure Cognitive Search
 
-Unlock valuable information lying latent in all your content in order to perform an action or make decisions.  Azure Cognitive Search is the only cloud search service with built-in AI capabilities that enrich all types of information to help you identify and explore relevant content at scale. Use cognitive skills for vision, language, and speech, or use custom machine learning models to uncover insights from all types of content. Azure Cognitive Search also offers semantic search capability, which uses advanced machine learning techniques to understand user intent and contextually rank the most relevant search results. Spend more time innovating and less time maintaining a complex cloud search solution.
+Unlock valuable information lying latent in all your content in order to perform an action or make decisions.  Azure Cognitive Search is the only cloud search service with built-in AI capabilities that enrich all types of information to help you identify and explore relevant content at scale. Use cognitive skills for vision, language, and speech, or use custom machine learning models to uncover insights from all types of content. Azure Cognitive Search also offers semantic search capability, which uses advanced machine learning techniques to understand user intent and contextually rank the most relevant search results. Spend more time innovating and less time maintaining a complex cloud search solution.  Azure Cognitive Search is built using Computer Vision and Text Analytics from Azure Cognitive Services.
 
 [Learn more about Azure Cognitive Search >](https://docs.microsoft.com/azure/search/)​​
 
 ## Azure Immersive Reader
 
-Enhance reading comprehension and achievement with AI. Azure Immersive Reader is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. With the Immersive Reader client library, you can leverage the same technology used in Microsoft Word and Microsoft One Note to improve your web applications.
+Enhance reading comprehension and achievement with AI. Azure Immersive Reader is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. With the Immersive Reader client library, you can leverage the same technology used in Microsoft Word and Microsoft One Note to improve your web applications. Azure Immersive Reader is built using Translation and Text to Speech from Azure Cognitive Services.
 
 [Learn more about Azure Immersive Reader >](https://aka.ms/immersivereaderdocs)
 
 ## Azure Bot Service
 
-Enable rapid creation of customizable, sophisticated, conversational experiences with pre-built conversational components enabling business value right out of the box.  Azure Bot Service is an open-source visual authoring canvas for developers and multidisciplinary teams to build bots. Composer integrates language understanding services such as LUIS and QnA Maker and allows sophisticated composition of bot replies using language generation. 
+Enable rapid creation of customizable, sophisticated, conversational experiences with pre-built conversational components enabling business value right out of the box.  Azure Bot Service is an open-source visual authoring canvas for developers and multidisciplinary teams to build bots. Composer integrates language understanding services such as LUIS and QnA Maker and allows sophisticated composition of bot replies using language generation. Azure Bot Service is built using Speech/Telephony, LUIS, and QnA Maker from Azure Cognitive Services.
 
 [Learn more about Azure Bot Service >](https://docs.microsoft.com/azure/bot-service)​
 
-## Azure Video Analytics
+## Azure Video Analyzer 
 
-Enabling businesses to build automated apps powered by video intelligence without being a video or AI expert.  Azure Video Analytics is a service for building AI-based video solutions and applications. You can generate real-time business insights from video streams, processing data near the source and applying the AI of your choice. Record videos of interest on the edge or in the cloud and combine them with other data to power your business decisions.
+Enabling businesses to build automated apps powered by video intelligence without being a video or AI expert.  Azure Video Analyzer is a service for building AI-based video solutions and applications. You can generate real-time business insights from video streams, processing data near the source and applying the AI of your choice. Record videos of interest on the edge or in the cloud and combine them with other data to power your business decisions.  Azure Video Analyzer is built using Spatial Analysis from Azure Cognitive Services.  Azure Video Analyzer for Media is built using Face, Speech, Translation, Text analytics, Custom vision, and textual content moderation from Azure Cognitive Services.  
 
 [Learn more about Azure Video Analytics >](https://aka.ms/video-analyzer-hub)​​
 
@@ -64,6 +64,6 @@ To understand privacy and data management, go to the [Trust Center](https://serv
 
 Applied AI Services provides several support options to help you move forward with creating intelligent applications. Applied AI Services also has a strong community of developers that can help answer your specific questions. For a full list of options available to you, see:
 
-- [Submit Feedback on UserVoice](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395737/)
-- [Ask Questions on Microsoft Q&A]( https://docs.microsoft.com/answers)
+- [Submit Feedback on UserVoice](https://aka.ms/AppliedAIUserVoice)
+- [Ask Questions on Microsoft Q&A](https://aka.ms/AppliedAIMSFTQandA)
 - [Troubleshoot on StackOverflow](https://aka.ms/AppliedAIStackOverflow)
