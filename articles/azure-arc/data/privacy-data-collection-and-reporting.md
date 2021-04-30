@@ -27,7 +27,7 @@ The Azure Arc enabled data services may use some or all of the following product
 
 Below is a high-level view of the data types and connectivity modes used in Arc enabled data services. 
 
-### Indirectly connected
+## Indirectly connected
 
 - **Operational data**
    - Manual export - optional
@@ -38,7 +38,7 @@ Below is a high-level view of the data types and connectivity modes used in Arc 
 - **CEIP**
    - Not available
 
-### Directly connected
+## Directly connected
 
 - **Operational data**
    - Fully automated - optional
@@ -59,7 +59,9 @@ Below is a high-level view of the data types and connectivity modes used in Arc 
 |CEIP   |No. Would typically be blocked by lack of direct connectivity to the CEIP data collection service endpoint on the Internet. |Yes, automated. <br/><br/> A firewall other network infrastructure may prevent. |
 -->
 
-## Operational data
+### Definitions
+
+### Operational data
 
 Operational data is collected for all database instances and for the Arc enabled data services platform itself. There are two types of operational data: 
 
@@ -73,7 +75,7 @@ The operational data does not leave yous environment unless you chooses to expor
 
 If the data is sent to Azure Monitor or Log Analytics you can choose which Azure region or datacenter the Log Analytics workspace resides in. After that, access to view or copy it from other locations can be controlled by you. 
 
-## Billing and Inventory Data 
+### Billing and Inventory Data 
 
 Billing data is used for purposes of tracking usage that is billable. This is essential for running of the service and needs to be transmitted manually or automatically in all modes. 
 
@@ -116,7 +118,7 @@ These are the properties, types and description that are collected and stored ab
 - SQL Server provisioning state.
    `string: ProvisioningState`
 
-### Data Controller 
+#### Data Controller 
 
    `public OnPremiseProperty OnPremiseProperty` 
 
@@ -127,7 +129,7 @@ These are the properties, types and description that are collected and stored ab
 - Data controller state
    `string: ProvisioningState` 
 
-### PostgreSQL Hyperscale Server Group 
+#### PostgreSQL Hyperscale Server Group 
 
 - The data controller id
    `string: DataControllerId`
@@ -142,7 +144,7 @@ These are the properties, types and description that are collected and stored ab
 - Group provisioning state
    `string: ProvisioningState` 
 
-### SQL Managed Instance 
+#### SQL Managed Instance 
 
 - The managed instance ID
    `public string: DataControllerId` 
@@ -161,7 +163,7 @@ These are the properties, types and description that are collected and stored ab
 - SQL managed instance provisioning state
    `public string: ProvisioningState` 
 
-## Examples
+### Examples
 
 Example of resource inventory data JSON document that is sent to Azure to create Azure resources in your subscription. 
 
@@ -244,7 +246,7 @@ Billing data captures the start time (“created”) and end time (“deleted”
 
 ```
 
-## Diagnostic data
+### Diagnostic data
 
 Database instance logs, Kubernetes logs, and other diagnostic logs are exported out as needed in support situations. You may upload them to a secure location that only Microsoft Support and Microsoft engineers working on a support case has access to. Diagnostic data could also come from queries to dynamic management views (DMVs). The DMVs or queries used could contain database schema metadata details but typically not customer data. Diagnostic data does not contain any passwords, cluster IPs or individually identifiable data. These are cleaned and the logs are made anonymous for storage when possible. They are not transmitted automatically and administrator has to manually upload them. 
 
@@ -258,7 +260,7 @@ Database instance logs, Kubernetes logs, and other diagnostic logs are exported 
 |Crash dumps – personal data | Machine, logins/ user names, emails, location information, customer identification – require user consent to be included  |
 
 
-## Customer Experience Improvement Program (CEIP) (Telemetry) 
+### Customer Experience Improvement Program (CEIP) (Telemetry) 
 
 Telemetry is used to track product usage metrics and environment information. 
 See [SQL Server privacy supplement](/sql/sql-server/sql-server-privacy/). 
