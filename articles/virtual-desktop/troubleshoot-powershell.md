@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Windows Virtual Desktop PowerShell
 

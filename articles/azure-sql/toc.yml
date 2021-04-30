@@ -66,7 +66,7 @@
         displayName: regulatory, compliance, standards, domains
         href: ./database/security-controls-policy.md
       - name: Security baseline
-        href: database/security-baseline.md
+        href: /security/benchmark/azure/baselines/sql-database-security-baseline?toc=/azure/azure-sql/toc.json
       - name: Always Encrypted
         href: database/always-encrypted-landing.yml
       - name: Azure Defender for SQL
@@ -221,6 +221,8 @@
         href: database/monitoring-with-dmvs.md
       - name: Understand and resolve blocking
         href: database/understand-resolve-blocking.md 
+      - name: Configure the max degree of parallelism (MAXDOP)
+        href: database/configure-max-degree-of-parallelism.md
       - name: Log diagnostic telemetry
         href: database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md
       - name: In-memory OLTP
@@ -297,9 +299,7 @@
       - name: Hyperscale
         href: database/service-tier-hyperscale.md
       - name: Hyperscale FAQ
-        href: database/service-tier-hyperscale-frequently-asked-questions-faq.md
-      - name: Hyperscale Replicas
-        href: database/service-tier-hyperscale-replicas.md
+        href: database/service-tier-hyperscale-frequently-asked-questions-faq.yml
     - name: Plan and manage costs 
       href: database/cost-management.md
 
@@ -518,8 +518,6 @@
           href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
         - name: Java with Spring Data R2DBC
           href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
-        - name: R
-          href: database/connect-query-r.md
 
     - name: Manage
       items:         
@@ -543,7 +541,8 @@
         href: database/elastic-pool-resource-management.md        
       - name: Hyperscale performance diagnostics
         href: database/hyperscale-performance-diagnostics.md
-
+      - name: Block T-SQL CRUD
+        href: database/block-crud-tsql.md
     - name: Secure 
       items: 
       - name: Audit to storage account behind VNet or firewall

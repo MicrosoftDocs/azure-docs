@@ -264,7 +264,10 @@ Now that you have learned the basics of the Twilio service, follow these links t
 [try_twilio]: https://www.twilio.com/try-twilio
 [twilio_console]:  https://www.twilio.com/console
 [twilio_security_guidelines]: https://www.twilio.com/docs/security
-[twilio_howtos]: https://www.twilio.com/docs/howto
+[twilio_howtos]: https://www.twilio.com/docs/all
 [twilio_on_github]: https://github.com/twilio
 [twilio_support]: https://www.twilio.com/help/contact
 [twilio_quickstarts]: https://www.twilio.com/docs/quickstart
+[azure_ips]: ./virtual-network/virtual-network-public-ip-address.md
+[azure_vm_setup]: ./virtual-machines/linux/quick-create-portal.md
+[azure_nsg]: ./virtual-network/manage-network-security-group.md

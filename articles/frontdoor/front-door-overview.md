@@ -8,7 +8,7 @@ ms.topic: overview
 ms.workload: infrastructure-services
 ms.date: 03/09/2021
 ms.author: duau
-# customer intent: As an IT admin, I want to learn about Front Door and what I can use it for. 
+# Customer intent: As an IT admin, I want to learn about Front Door and what I can use it for. 
 ---
 
 # What is Azure Front Door?

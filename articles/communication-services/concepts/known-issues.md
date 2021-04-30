@@ -11,11 +11,11 @@ ms.topic: troubleshooting
 ms.service: azure-communication-services
 ---
 
-# Known issues: Azure Communication Services SDKs
-This article provides information about limitations and known issues related to the Azure Communication Services SDKs.
+# Known issues: Azure Communication Services Calling SDKs
+This article provides information about limitations and known issues related to the Azure Communication Services Calling SDKs.
 
 > [!IMPORTANT]
-> There are multiple factors that can affect the quality of your calling experience. Refer to the **[network requirements](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements)** documentation to learn more about Communication Services network configuration and testing best practices.
+> There are multiple factors that can affect the quality of your calling experience. Refer to the **[network requirements](./voice-video-calling/network-requirements.md)** documentation to learn more about Communication Services network configuration and testing best practices.
 
 
 ## JavaScript SDK
@@ -35,7 +35,7 @@ If the user was sending video before refreshing, the `videoStreams` collection w
 
 
 ### It's not possible to render multiple previews from multiple devices on web
-This is a known limitation. For more information, refer to the [calling SDK overview](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features).
+This is a known limitation. For more information, refer to the [calling SDK overview](./voice-video-calling/calling-sdk-features.md).
 
 ### Enumerating devices isn't possible in Safari when the application runs on iOS or iPadOS
 
@@ -44,7 +44,10 @@ Applications can't enumerate/select mic/speaker devices (like Bluetooth) on Safa
 If you're using Safari on macOS, your app will not be able to enumerate/select speakers through the Communication Services Device Manager. In this scenario, devices must be selected via the OS. If you use Chrome on macOS, the app can enumerate/select devices through the Communication Services Device Manager.
 
 ### Audio connectivity is lost when receiving SMS messages or calls during an ongoing VoIP call
-Mobile browsers don't maintain connectivity while in the background state. This can lead to a degraded call experience if the VoIP call was interrupted by an event that pushes your application into the background.
+This problem may occur due to multiple reasons:
+
+- Some mobile browsers don't maintain connectivity while in the background state. This can lead to a degraded call experience if the VoIP call was interrupted by an event that pushes your application into the background. 
+- Sometimes, an SMS or PSTN call captures the audio sound, and doesn't release audio back to the VoIP call. Apple fixed this issue in iOS versions 14.4.1+. 
 
 <br/>Client library: Calling (JavaScript)
 <br/>Browsers: Safari, Chrome
@@ -92,9 +95,28 @@ If users decide to quickly turn video on/off while call is in `Connecting` state
  - If the user starts with audio and then start and stop video while the call is in `Connecting` state.
  - If the user starts with audio and then start and stop video while the call is in `Lobby` state.
 
-
 #### Possible causes
 Under investigation.
 
+### Enumerating/accessing devices for Safari on MacOS and iOS 
+If access to devices are granted, after some time, device permissions are reset. Safari on MacOS and on iOS does not keep permissions for very long time unless there is a stream acquired. The simplest way to work around this is to call DeviceManager.askDevicePermission() API before calling the device manager's device enumeration APIs (DeviceManager.getCameras(), DeviceManager.getSpeakers(), and DeviceManager.getMicrophones()). If the permissions are there, then user will not see anything, if not, it will re-prompt.
+
+<br/>Devices affected: iPhone
+<br/>Client library: Calling (JavaScript)
+<br/>Browsers: Safari
+<br/>Operating System: iOS
+
 ###  Sometimes it takes a long time to render remote participant videos
-During an ongoing group call, _User A_ sends video and then _User B_ joins the call. Sometimes, User B doesn't see video from User A, or User A's video begins rendering after a long delay. This issue could be caused by a network environment that requires further configuration. Refer to the [network requirements](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements) documentation for network configuration guidance.
+During an ongoing group call, _User A_ sends video and then _User B_ joins the call. Sometimes, User B doesn't see video from User A, or User A's video begins rendering after a long delay. This issue could be caused by a network environment that requires further configuration. Refer to the [network requirements](./voice-video-calling/network-requirements.md) documentation for network configuration guidance.
+
+### Using 3rd party libraries to access GUM during the call may result in audio loss
+Using getUserMedia separately inside the application will result in losing audio stream since a third party library takes over device access from ACS library.
+Developers are encouraged to do the following:
+1. Don't use 3rd party libraries that are using internally GetUserMedia API during the call.
+2. If you still need to use 3rd party library, only way to recover is to either change the selected device (if the user has more than one) or restart the call.
+
+<br/>Browsers: Safari
+<br/>Operating System: iOS
+
+#### Possible causes
+In some browsers (Safari for example), acquiring your own stream from the same device will have a side-effect of running into race conditions. Acquiring streams from other devices may lead the user into insufficient USB/IO bandwidth, and sourceUnavailableError rate will skyrocket.  

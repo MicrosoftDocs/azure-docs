@@ -6,7 +6,7 @@ services: network-watcher
 documentationcenter: na
 author: damendo
 
-Customer intent: I need to determine why resources in a virtual network can't communicate with resources in a different network. 
+# Customer intent: I need to determine why resources in a virtual network can't communicate with resources in a different network. 
 
 ms.service: network-watcher
 ms.devlang: na

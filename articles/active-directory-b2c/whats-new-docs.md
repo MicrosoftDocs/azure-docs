@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 03/08/2021
+ms.date: 04/05/2021
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -14,6 +14,27 @@ manager: CelesteDG
 # Azure Active Directory B2C: What's new
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## March 2021
+
+### New articles
+
+- [Enable custom domains for Azure Active Directory B2C](custom-domain.md)
+- [Investigate risk with Identity Protection in Azure AD B2C](identity-protection-investigate-risk.md)
+- [Set up sign-up and sign-in with an Apple ID  using Azure Active Directory B2C (Preview)](identity-provider-apple-id.md)
+- [Set up a force password reset flow in Azure Active Directory B2C](force-password-reset.md)
+- [Embedded sign-in experience](embedded-login.md)
+
+### Updated articles
+
+- [Set up sign-up and sign-in with an Amazon account using Azure Active Directory B2C](identity-provider-amazon.md)
+- [Set up sign-in with a Salesforce SAML provider by using SAML protocol in Azure Active Directory B2C](identity-provider-salesforce-saml.md)
+- [Migrate an OWIN-based web API to b2clogin.com or a custom domain](multiple-token-endpoints.md)
+- [Technical profiles](technicalprofiles.md)
+- [Add Conditional Access to user flows in Azure Active Directory B2C](conditional-access-user-flow.md)
+- [Set up a password reset flow in Azure Active Directory B2C](add-password-reset-policy.md)
+- [RelyingParty](relyingparty.md)
+
 
 ## February 2021
 
@@ -61,7 +82,7 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 - [Set up sign-up and sign-in with a Twitter account using Azure Active Directory B2C](identity-provider-twitter.md)
 - [Set up sign-up and sign-in with a WeChat account using Azure Active Directory B2C](identity-provider-wechat.md)
 - [Set up sign-up and sign-in with a Weibo account using Azure Active Directory B2C](identity-provider-weibo.md)
-- [Azure AD B2C custom policy overview](custom-policy-trust-frameworks.md)
+- [Azure AD B2C custom policy overview](custom-policy-overview.md)
 
 
 ## December 2020

@@ -47,7 +47,7 @@ Azure AD terms of use policies have the following capabilities:
 - List who has or hasn't accepted to your terms of use policies.
 - Assist in meeting privacy regulations.
 - Display a log of terms of use policy activity for compliance and audit.
-- Create and manage terms of use policies using [Microsoft Graph APIs](/graph/api/resources/agreement?view=graph-rest-beta) (currently in preview).
+- Create and manage terms of use policies using [Microsoft Graph APIs](/graph/api/resources/agreement) (currently in preview).
 
 ## Prerequisites
 

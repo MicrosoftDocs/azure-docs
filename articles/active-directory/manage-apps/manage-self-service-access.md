@@ -2,24 +2,20 @@
 title: How to configure self-service application assignment | Microsoft Docs
 description: Enable self-service application access to allow users to find their own applications
 services: active-directory
-documentationcenter: ''
-author: kenwith
-manager: daveba
-ms.assetid: 
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.author: kenwith
+ms.author: iangithinji
 ms.collection: M365-identity-device-management
 ---
 
 # How to configure self-service application assignment
 
-Before your users can self-discover applications from their My Apps, you need to enable **Self-service application access** to any applications that you wish to allow users to self-discover and request access to. This functionality is available for applications that were added from the [Azure AD Gallery](./add-application-portal.md), [Azure AD Application Proxy](./application-proxy.md) or were added via [user or admin consent](../develop/application-consent-experience.md). 
+Before your users can self-discover applications from their My Apps, you need to enable **Self-service application access** to any applications that you wish to allow users to self-discover and request access to. This functionality is available for applications that were added from the [Azure AD Gallery](./add-application-portal.md), [Azure AD Application Proxy](../app-proxy/application-proxy.md) or were added via [user or admin consent](../develop/application-consent-experience.md). 
 
 This feature is a great way for you to save time and money as an IT group, and is highly recommended as part of a modern applications deployment with Azure Active Directory.
 

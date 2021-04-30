@@ -28,7 +28,7 @@ Virtual Network (VNet) services endpoints and rules extend the private address s
 
 The [az network vnet](/cli/azure/network/vnet) commands are used to configure Virtual Networks.
 
-If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select the specific subscription ID under your account using [az account set](/cli/azure/account#az-account-set) command. Substitute the **id** property from the **az login** output for your subscription into the subscription id placeholder.
+If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select the specific subscription ID under your account using [az account set](/cli/azure/account#az_account_set) command. Substitute the **id** property from the **az login** output for your subscription into the subscription id placeholder.
 
 - The account must have the necessary permissions to create a virtual network and service endpoint.
 

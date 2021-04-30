@@ -57,7 +57,7 @@ The following is an example of a properly constructed membership rule with a sin
 user.department -eq "Sales"
 ```
 
-Parentheses are optional for a single expression. The total length of the body of your membership rule cannot exceed 2048 characters.
+Parentheses are optional for a single expression. The total length of the body of your membership rule cannot exceed 3072 characters.
 
 ## Constructing the body of a membership rule
 

@@ -27,7 +27,7 @@ This article shows you how to connect to the Azure Media Services v3 Python SDK 
 
 - Download Python from [python.org](https://www.python.org/downloads/)
 - Make sure to set the `PATH` environment variable
-- [Create a Media Services account](./create-account-howto.md). Be sure to remember the resource group name and the Media Services account name.
+- [Create a Media Services account](./account-create-how-to.md). Be sure to remember the resource group name and the Media Services account name.
 - Follow the steps in the [Access APIs](./access-api-howto.md) topic, selecting the Service principal authentication method. Record the subscription ID (`SubscriptionId`), application client ID (`AadClientId`), the authentication key (`AadSecret`), and the tenant ID (`AadTenantId`) that you need in the later steps.
 
 > [!IMPORTANT]

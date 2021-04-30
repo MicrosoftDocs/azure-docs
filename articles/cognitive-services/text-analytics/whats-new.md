@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 03/25/2021
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -34,7 +34,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
     * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
     * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
     * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
-    * [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/javascript)
+    * [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/v5/javascript)
     
 > [!div class="nextstepaction"]
 > [Learn more about Text Analytics API v3.1-Preview.4](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-4/operations/Languages)
@@ -46,11 +46,12 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
     * A new `Date` entity type.
     * Assertion detection which replaces negation detection (only available in API v3.1-preview.4).
     * A new preferred `name` property for linked entities that is normalized from various ontologies and coding systems (only available in API v3.1-preview.4). 
-* A new container image with tag `3.0.015370001-onprem-amd64` and the new model-version `2021-03-01` has been released to the container preview repository. 
-* The Text Analytics for health container image will be moving to a new repository next month.  Please watch for an email communication on the location of its new home.
+* A new container image with tag `3.0.015490002-onprem-amd64` and the new model-version `2021-03-01` has been released to the container preview repository. 
+    * This container image will no longer be available for download from `containerpreview.azurecr.io` after April 26th, 2021.
+* A new Text Analytics for health container image with this same model-version is now available at `mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare`. Starting April 26th, you will only be able to download the container from this repository.
+
 > [!div class="nextstepaction"]
 > [Learn more about Text Analytics for health](how-tos/text-analytics-for-health.md)
->
 
 ### Text Analytics resource portal update
 * **Processed Text Records** is now available as a metric in the **Monitoring** section for your Text Analytics resource in the Azure portal.  

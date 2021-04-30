@@ -1,7 +1,7 @@
 ---
 title: How to work with your management groups - Azure Governance
 description: Learn how to view, maintain, update, and delete your management group hierarchy.
-ms.date: 01/15/2021
+ms.date: 05/01/2021
 ms.topic: conceptual
 ---
 # Manage your resources with management groups
@@ -427,5 +427,5 @@ To learn more about management groups, see:
 - [Create management groups to organize Azure resources](./create-management-group-portal.md)
 - [How to change, delete, or manage your management groups](./manage.md)
 - [Review management groups in Azure PowerShell Resources Module](/powershell/module/az.resources#resources)
-- [Review management groups in REST API](/rest/api/resources/managementgroups)
+- [Review management groups in REST API](/rest/api/managementgroups/managementgroups)
 - [Review management groups in Azure CLI](/cli/azure/account/management-group)
