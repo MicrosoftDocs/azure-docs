@@ -49,7 +49,7 @@ Synapse Pipelines allow for the automation of pause and resume, but you can exec
 1. Navigate to your workspace and open Synapse Studio. 
 1. Select the **Integrate** icon, then select the **+** sign to create a new pipeline. 
 1. Name your pipeline PauseResume.
-1.
+
     ![Create a pipeline in Synapse Studio](./media/how-to-pause-resume-pipelines/create-pipeline.png) 
 
 ## Step 2: Create pipeline parameters 
@@ -112,28 +112,28 @@ Create a ForEach activity to loop over each dedicated SQL pool.
 1. Select the **Activities** tab and select the edit pencil to open the ForEach loop canvas. 
 
 ## Step 5a: Check the state of the dedicated SQL pools    
-1. Checking the state of the dedicated SQL pool requires a Web Activity, similar to step 1. This activity calls the [Check dedicated SQL pool state REST API for Azure Synapse](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#check-database-state). 
-    1. Select and drag a **Web** activity under **General** to the pipeline canvas.    
-    2. In the **General** tab, name this stage CheckState. 
-    3. Select the **Settings** tab.     
-    4. Click in the **URL** entry space, then select **Add dynamic content**. Copy and paste the GET request that has been parameterized using the @concat string function from below into the dynamic content box. Select **Finish**. Checking the state again uses a Get request using the following call:
+Checking the state of the dedicated SQL pool requires a Web Activity, similar to step 1. This activity calls the [Check dedicated SQL pool state REST API for Azure Synapse](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#check-database-state). 
+1. Select and drag a **Web** activity under **General** to the pipeline canvas.    
+2. In the **General** tab, name this stage CheckState. 
+3. Select the **Settings** tab.     
+4. Click in the **URL** entry space, then select **Add dynamic content**. Copy and paste the GET request that has been parameterized using the @concat string function from below into the dynamic content box. Select **Finish**. Checking the state again uses a Get request using the following call:
+
+    ```HTTP
+    GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Synapse/workspaces/{workspace-name}/sqlPools/{database-name}?api-version=2019-06-01-preview HTTP/1.1
+    ```
     
-        ```HTTP
-        GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Synapse/workspaces/{workspace-name}/sqlPools/{database-name}?api-version=2019-06-01-preview HTTP/1.1
-        ```
-        
-        The parameterize GET request using the @concat string function:
-        
-        ```HTTP
-        @concat('https://management.azure.com/subscriptions/',pipeline().parameters.SubscriptionID,'/resourceGroups/',pipeline().parameters.ResourceGroup,'/providers/Microsoft.Synapse/workspaces/',pipeline().parameters.WorkspaceName,'/sqlPools/',item().name,'?api-version=2019-06-01-preview')
-        ```
-        
-        In this case, we are using item().name, which is the name of the dedicated SQL pool from Step 1 that was passed to this activity from the ForEach loop. If you are using a pipeline to control a single dedicated SQL pool, you can embed the name of your dedicated SQL pool here, or use a parameter from the pipeline. For example, you could use pipeline().parameters.SQLPoolName.
+    The parameterize GET request using the @concat string function:
     
-        The output is a JSON string that contains details of the dedicated SQL pool, including its status (in properties.status). The JSON string is passed to the next activity. 
-    1. Select the drop-down for **Method** and select **Get**  Select **Advanced** to expand the content. Select **MSI** as the Authentication type. For Resource enter `https://management.azure.com/` 
+    ```HTTP
+    @concat('https://management.azure.com/subscriptions/',pipeline().parameters.SubscriptionID,'/resourceGroups/',pipeline().parameters.ResourceGroup,'/providers/Microsoft.Synapse/workspaces/',pipeline().parameters.WorkspaceName,'/sqlPools/',item().name,'?api-version=2019-06-01-preview')
+    ```
     
-    ![Check state of the dedicated SQL pool](./media/how-to-pause-resume-pipelines/check-sql-pool-state.png)
+    In this case, we are using item().name, which is the name of the dedicated SQL pool from Step 1 that was passed to this activity from the ForEach loop. If you are using a pipeline to control a single dedicated SQL pool, you can embed the name of your dedicated SQL pool here, or use a parameter from the pipeline. For example, you could use pipeline().parameters.SQLPoolName.
+
+    The output is a JSON string that contains details of the dedicated SQL pool, including its status (in properties.status). The JSON string is passed to the next activity. 
+1. Select the drop-down for **Method** and select **Get**  Select **Advanced** to expand the content. Select **MSI** as the Authentication type. For Resource enter `https://management.azure.com/` 
+
+![Check state of the dedicated SQL pool](./media/how-to-pause-resume-pipelines/check-sql-pool-state.png)
     
 
     
