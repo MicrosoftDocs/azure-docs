@@ -76,4 +76,4 @@ Yes. Support has been added to deploy applications as an Azure Resource Manager 
 
 ### Can I deploy applications with managed identities?
 
- Yes, applications with managed identities can be deployed to a Service Fabric managed cluster. For more information see, [Application managed identities](.\concepts-managed-identity).
+ Yes, applications with managed identities can be deployed to a Service Fabric managed cluster. For more information see, [Application managed identities](.\concepts-managed-identity.md).
