@@ -131,6 +131,92 @@ Select an item in the list view to get more detailed information.
 
 ![select item](./media/concept-audit-logs/details.png "Select item")
 
+## Filtering audit logs
+
+You can filter the audit data on the following fields:
+
+- Service
+- Category
+- Activity
+- Status
+- Target
+- Initiated by (Actor)
+- Date range
+
+![Filter object](./media/concept-audit-logs/filter.png "Filter object")
+
+The **Service** filter allows you to select from a drop-down list of the following services:
+
+- All
+- AAD Management UX
+- Access Reviews
+- Account Provisioning
+- Application Proxy
+- Authentication Methods
+- B2C
+- Conditional Access
+- Core Directory
+- Entitlement Management
+- Hybrid Authentication
+- Identity Protection
+- Invited Users
+- MIM Service
+- MyApps
+- PIM
+- Self-service Group Management
+- Self-service Password Management
+- Terms of Use
+
+The **Category** filter enables you to select one of the following filters:
+
+- All
+- AdministrativeUnit
+- ApplicationManagement
+- Authentication
+- Authorization
+- Contact
+- Device
+- DeviceConfiguration
+- DirectoryManagement
+- EntitlementManagement
+- GroupManagement
+- KerberosDomain
+- KeyManagement
+- Label
+- Other
+- PermissionGrantPolicy
+- Policy
+- ResourceManagement
+- RoleManagement
+- UserManagement
+
+The **Activity** filter is based on the category and activity resource type selection you make. You can select a specific activity you want to see or choose all. 
+
+You can get the list of all Audit Activities using the Graph API: `https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
+
+The **Status** filter allows you to filter based on the status of an audit operation. The status can be one of the following:
+
+- All
+- Success
+- Failure
+
+The **Target** filter allows you to search for a particular target by the starting of the name or user principal name (UPN). The target name and UPN are case-sensitive. 
+
+The **Initiated by** filter enables you to define what an actor's name or a universal principal name (UPN) starts with. The name and UPN are case-sensitive.
+
+The **Date range** filter enables to you to define a timeframe for the returned data.  
+Possible values are:
+
+- 7 days
+- 24 hours
+- Custom
+
+When you select a custom timeframe, you can configure a start time and an end time.
+
+You can also choose to download the filtered data, up to 250,000 records, by selecting the **Download** button. You can download the logs in either CSV or JSON format. The number of records you can download is constrained by the [Azure Active Directory report retention policies](reference-reports-data-retention.md).
+
+![Download data](./media/concept-audit-logs/download.png "Download data")
+
 
 
 ## Microsoft 365 activity logs
