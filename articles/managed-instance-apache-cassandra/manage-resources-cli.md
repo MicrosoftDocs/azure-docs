@@ -202,7 +202,7 @@ az managed-cassandra datacenter update \
 
 ### <a id="update-yaml"></a>Update YAML config
 
-Change YAML configs on a datacenter by using the [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_update) command. You will need to base64 encode the YAML fragment by using an online tool like [this](https://www.base64encode.org/). We support the following YAML settings:
+Change YAML configuration on a datacenter by using the [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_update) command. You will need to base64 encode the YAML fragment by using an online tool like [this](https://www.base64encode.org/). We support the following YAML settings:
 
 - column_index_size_in_kb
 - compaction_throughput_mb_per_sec
