@@ -1,23 +1,32 @@
 ---
-author: fvneerden
+author: Juliako
 ms.service: azure-video-analyzer
 ms.topic: include
-ms.date: 03/18/2021
-ms.author: faneerde
+ms.date: 04/07/2021
+ms.author: juliako
 ---
 
-* An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
-  > [!NOTE]
-  > You will need an Azure subscription with permissions for creating service principals (**owner role** provides this). If you do not have the right permissions, please reach out to your account administrator to grant you the right permissions.
-<!-- 
-Above needs to be updated based on new AVA ARM experience.
--->
 
-* [Visual Studio Code](https://code.visualstudio.com/) with the following extensions:
+* An Azure account that includes an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
+
+    > [!NOTE]
+    > You will need an Azure subscription with at least a Contributor role. If you do not have the right permissions, please reach out to your account administrator to grant you the right permissions.
+* [Visual Studio Code](https://code.visualstudio.com/), with the following extensions:
     * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+    
+    > [!TIP]
+    > When installing Azure IoT Tools, you might be prompted to install Docker. Feel free to ignore the prompt.    
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1). 
+* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1).
+* If you didn't complete the [Detect motion and emit events](../../../detect-motion-emit-events-quickstart.md) quickstart, be sure to [set up Azure resources](#set-up-azure-resources).    
+
+## Set up Azure resources
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
+
+[!INCLUDE [resources](../../common-includes/azure-resources.md)]
 
 > [!TIP]
-> You might be prompted to install Docker while you're installing the Azure IoT Tools extension. You can ignore the prompt.
+> If you run into issues with Azure resources that get created, review our [troubleshooting guide](../../../troubleshoot.md) to resolve some commonly encountered issues.
+
 
