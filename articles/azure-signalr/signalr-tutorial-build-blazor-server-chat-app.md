@@ -11,8 +11,8 @@ ms.author: jixin
 # Tutorial: Build a Blazor Server chat app
 This tutorial shows you how to build and modify a Blazor Server app. You'll learn how to:
 > [!div class="checklist"] 
-> * Build a simple chat room with Blazor Server app.
-> * Modify Razor components.
+> * Build a simple chat room with the Blazor Server app template.
+> * Work with Razor components.
 > * Use event handling and data binding in Razor components.
 > * Quick deploy to the Azure App Service in Visual Studio.
 > * Migrate from local SignalR to the Azure SignalR Service.
@@ -39,6 +39,7 @@ From Visual Studio 2019 version 16.2.0, the Azure SignalR Service is built-in to
    [ ![In Create a new project, the Blazor App templates are selected.](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-create.png) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-create.png#lightbox)
    
    5. The project can also be created by running the [`dotnet new`](dotnet/core/tools/dotnet-new) command in the .NET CLI:
+   
    ```dotnetcli
    dotnet new blazorserver -o BlazorChat
    ```
@@ -423,27 +424,26 @@ From Visual Studio 2019 version 16.2.0, the Azure SignalR Service is built-in to
 
 > [!NOTE]
 > Step 2 can be replaced with [Hosting Startup Assemblies](/aspnet/core/fundamentals/host/platform-specific-configuration) to SignalR SDK.
-
-1. Add the configuration to turn on Azure SignalR Service in `appsettings.json`
-    ```json
-    "Azure": {
-      "SignalR": {
-        "Enabled": true,
-        "ConnectionString": <your-connection-string>
-        
-      }
-    }
-    
-   ```
-
-1. Configure the hosting startup assembly to use the Azure SignalR SDK. Edit `launchSettings.json` and add a configuration like below inside `environmentVariables`.
-    ```json
-   "environmentVariables": {
-        ...,
-       "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.Azure.SignalR"
-     }
-  
-    ```
+>
+> 1. Add the configuration to turn on Azure SignalR Service in `appsettings.json`
+>    ```json
+>    "Azure": {
+>      "SignalR": {
+>        "Enabled": true,
+>        "ConnectionString": <your-connection-string>       
+>      }
+>    }
+>    
+>   ```
+>
+> 1. Configure the hosting startup assembly to use the Azure SignalR SDK. Edit `launchSettings.json` and add a configuration like below inside `environmentVariables`.
+>    ```json
+>   "environmentVariables": {
+>        ...,
+>       "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.Azure.SignalR"
+>     }
+>  
+>    ```
 
 [Having issues? Let us know.](https://aka.ms/asrs/qsblazor)
 
@@ -460,7 +460,7 @@ In this tutorial, you have learnt how to:
 > * Work with Razor components.
 > * Use event handling and data binding in Razor components.
 > * Quick deploy to the Azure App Service in Visual Studio.
-> * Migrate local SignalR to the Azure SignalR Service.
+> * Migrate from local SignalR to the Azure SignalR Service.
 
 Read more on high availability:
 > [!div class="nextstepaction"]
