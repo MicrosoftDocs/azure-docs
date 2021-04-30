@@ -158,18 +158,16 @@
         href: troubleshoot-saml-based-sso.md
       - name: Debug SAML-based single sign-on
         href: debug-saml-sso-issues.md
-      - name: Troubleshoot user sign-in
-        items:
-        - name: Unexpected consent prompt
-          href: application-sign-in-unexpected-user-consent-prompt.md
-        - name: User consent error
-          href: application-sign-in-unexpected-user-consent-error.md
-        - name: Problems signing in from My Apps
-          href: application-sign-in-other-problem-access-panel.md
-        - name: Error on application sign-in page
-          href: application-sign-in-problem-application-error.md
-        - name: Problem signing into a Microsoft app
-          href: application-sign-in-problem-first-party-microsoft.md
+      - name: Unexpected consent prompt
+        href: application-sign-in-unexpected-user-consent-prompt.md
+      - name: User consent error
+        href: application-sign-in-unexpected-user-consent-error.md
+      - name: Problems signing in from My Apps
+        href: application-sign-in-other-problem-access-panel.md
+      - name: Error on application sign-in page
+        href: application-sign-in-problem-application-error.md
+      - name: Problem signing into a Microsoft app
+        href: application-sign-in-problem-first-party-microsoft.md
   - name: Reference
     items:
     - name: App Management certificates FAQ
