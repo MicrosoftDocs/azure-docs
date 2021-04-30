@@ -27,15 +27,40 @@ The Azure Arc enabled data services may use some or all of the following product
 
 Below is a high-level view of the data types and connectivity modes used in Arc enabled data services. 
 
+### Indirectly connected
 
-|Information category  |Indirectly connected  |Directly connected  |Never connected <br/><br/> (not supported) |
-|---------|---------|---------|---------|
-|Operational Data      |   Yes, export/upload. Optional.      |  Yes, fully automated. Optional.       |No  |
-|Billing & Inventory      |  Yes, export/upload Required. You must send to Azure 1/month.       |   Yes, fully automated. Required.      |  No       |
-|Diagnostics     |     Manually exported and provided to Microsoft Support.    |  Manually exported and provided to Microsoft Support.       |  No       |
-|CEIP     |  No. Would typically be blocked by lack of direct connectivity to the CEIP data collection service endpoint on the Internet.       |   Yes, automated. <br/><br/> A firewall other network infrastructure may prevent. |   No      |
+- **Operational data**
+   - Manual export - optional
+- **Billing and inventory**
+   - Manual export - required
+- **Diagnostics**
+   - Manual export - for Microsoft support
+- **CEIP**
+   - Not available
+
+### Directly connected
+
+- **Operational data**
+   - Fully automated - optional
+- **Billing and inventory**
+   - Fully automated - required
+- **Diagnostics**
+   - Manual export - for Microsoft support
+- **CEIP**
+   - Yes - automatic
+
+<!-- Older table layout.  
+#### Operational data
+|Information category  |Indirectly connected  |Directly connected  |
+|---------|---------|---------|
+|Operational Data | Yes, export/upload. Optional. |Yes, fully automated. Optional.  |
+|Billing & Inventory |Yes, export/upload Required. You must send to Azure 1/month. |Yes, fully automated. Required. |
+|Diagnostics    |Manually exported and provided to Microsoft Support.  |Manually exported and provided to Microsoft Support.  |
+|CEIP   |No. Would typically be blocked by lack of direct connectivity to the CEIP data collection service endpoint on the Internet. |Yes, automated. <br/><br/> A firewall other network infrastructure may prevent. |
+-->
 
 ## Operational data
+
 Operational data is collected for all database instances and for the Arc enabled data services platform itself. There are two types of operational data: 
 
 - Metrics – Performance and capacity related metrics which are collected to an Influx DB provided as part of Arc enabled data services. You can view these metrics in the provided Grafana dashboard. 
@@ -226,11 +251,11 @@ Database instance logs, Kubernetes logs, and other diagnostic logs are exported 
 
 |Field name  |Notes  |
 |---------|---------|
-|Error logs      |    Log files capturing errors may contain customer or personal data (see below) are restricted and shared by user      |
-|DMVs      |Dynamic management views can contain query and query plans but are restricted and shared by user          |
-|Views     | Views can contain customer data but are restricted and shared only by user          |
-|Crash dumps – customer data      | Max 30 day retention of crash dumps – may contain access control data <br/><br/> Statistics objects, data values within rows, query texts could be in customer crash dumps         |
-|Crash dumps – personal data      |   Machine, logins/ user names, emails, location information, customer identification – require user consent to be included       |
+|Error logs |Log files capturing errors may contain customer or personal data (see below) are restricted and shared by user |
+|DMVs      |Dynamic management views can contain query and query plans but are restricted and shared by user     |
+|Views    |Views can contain customer data but are restricted and shared only by user     |
+|Crash dumps – customer data | Max 30 day retention of crash dumps – may contain access control data <br/><br/> Statistics objects, data values within rows, query texts could be in customer crash dumps    |
+|Crash dumps – personal data | Machine, logins/ user names, emails, location information, customer identification – require user consent to be included  |
 
 
 ## Customer Experience Improvement Program (CEIP) (Telemetry) 
