@@ -74,8 +74,6 @@
       href: application-proxy-network-topology.md
     - name: Security
       href: application-proxy-security.md
-    - name: Comparison of remote access solutions
-      href: application-proxy-migration.md
   - name: How-to guides
     expanded: true
     items:

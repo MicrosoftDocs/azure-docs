@@ -296,7 +296,7 @@ vulnerabilities in your deployed resources.
 - Advanced data security should be enabled on your SQL servers
 - Auditing on SQL server should be enabled
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
-- Vulnerabilities on your SQL databases should be remediated 
+- Vulnerabilities on your SQL databases should be remediated
 - Vulnerabilities in security configuration on your machines should be remediated
 
 ## 1.3 Denial of Service Protection
@@ -452,7 +452,7 @@ exfiltration of information.
 - Deploy Threat Detection on SQL servers
 
 > [!NOTE]
-> Availability of specific Azure Policy definitions may vary in Azure Government and other national 
+> Availability of specific Azure Policy definitions may vary in Azure Government and other national
 > clouds.
 
 ## Next steps
