@@ -22,6 +22,6 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
         * Invokes direct methods to clean up resources.
 1. Edit the operations.json file:
     
-    * Change the link to the pipeline:<br/>` "topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-with-grpcExtension/2.0/topology.json"`
+    * Change the link to the pipeline:<br/>` "topologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/motion-with-grpcExtension/topology.json"`
     * Under livePipelineSet, edit the name of the graph topology to match the value in the preceding link:<br/>`"topologyName" : "EVROnMotionPlusGrpcExtension"`
     * Under topologyDelete, edit the name:<br/>`"name" : "EVROnMotionPlusGrpcExtension"`
