@@ -116,8 +116,8 @@ The following sections show the properties, types, and descriptions that are col
 
 #### Data Controller 
 
+- Location information
    - `public OnPremiseProperty OnPremiseProperty` 
-
 - The raw Kubernetes information (`kubectl get datacontroller`) 
    - `object: K8sRaw` 
 - Last uploaded date from on-premises cluster.
