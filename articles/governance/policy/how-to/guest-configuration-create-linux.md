@@ -31,7 +31,7 @@ non-Azure machine.
 > The Guest Configuration extension is required to perform audits in Azure virtual machines. To
 > deploy the extension at scale across all Linux machines, assign the following policy definition:
 > `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
-> 
+>
 > Don't use secrets or confidential information in custom content packages.
 
 ## Install the PowerShell module
@@ -62,7 +62,7 @@ Operating Systems where the module can be installed:
 > The cmdlet `Test-GuestConfigurationPackage` requires OpenSSL version 1.0, due to a dependency on
 > OMI. This causes an error on any environment with OpenSSL 1.1 or later.
 >
-> Running the cmdlet `Test-GuestConfigurationPackage` is only supported on Windows 
+> Running the cmdlet `Test-GuestConfigurationPackage` is only supported on Windows
 > for Guest Configuration module version 2.1.0.
 
 The Guest Configuration resource module requires the following software:
@@ -119,7 +119,7 @@ required resource property. Create a YaML file and a Ruby script file, as detail
 First, create the YaML file used by InSpec. The file provides basic information about the
 environment. An example is given below:
 
-```YaML
+```yaml
 name: linux-path
 title: Linux path
 maintainer: Test
@@ -134,7 +134,7 @@ Save this file with name `inspec.yml` to a folder named `linux-path` in your pro
 
 Next, create the Ruby file with the InSpec language abstraction used to audit the machine.
 
-```Ruby
+```ruby
 describe file('/tmp') do
     it { should exist }
 end
@@ -338,7 +338,7 @@ project.
 Define the input in the Ruby file where you script what to audit on the machine. An example is given
 below.
 
-```Ruby
+```ruby
 attr_path = attribute('path', description: 'The file path to validate.')
 
 describe file(attr_path) do
@@ -401,7 +401,6 @@ New-GuestConfigurationPolicy -ContentUri $uri `
     -Platform 'Linux' `
     -Version 1.0.0
 ```
-
 
 ## Policy lifecycle
 
