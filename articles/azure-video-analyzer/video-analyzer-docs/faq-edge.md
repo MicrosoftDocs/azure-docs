@@ -21,7 +21,8 @@ This article answers commonly asked questions about Azure Video Analyzer.
 | System.TopologyName	 | Represents the name of the pipeline topology. | 
 | System.PipelineName | Represents the name of the live pipeline. | 
 
-Note: System.DateTime and System.PreciseDateTime cannot be used as part of the name of an Azure Video Analyzer video resource, in a video sink node. These variables can be used in a file sink node, for naming the file.
+> [!Note] 
+> System.Runtime.DateTime and System.Runtime.PreciseDateTime cannot be used as part of the name of an Azure Video Analyzer video resource, in a video sink node. These variables can be used in a file sink node, for naming the file.
 
 **What is the privacy policy for Video Analyzer?**
 

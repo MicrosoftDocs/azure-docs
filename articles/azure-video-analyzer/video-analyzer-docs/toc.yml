@@ -8,6 +8,10 @@
     href: ../video-analyzer-for-media-docs/video-indexer-overview.md
   - name: Video Analyzer terminology
     href: terminology.md
+  - name: What's new
+    items:
+    - name: Release notes
+      href: release-notes.md  
 - name: Quickstarts
   items:
   - name: Get started - Azure Video Analyzer
@@ -92,6 +96,8 @@
     href: manage-retention-policy-how-to.md
   - name: Deploy to an IoT Edge device
     href: deploy-iot-edge-device.md
+  - name: Deploy to an IoT Edge for Linux on Windows
+    href: deploy-iot-edge-linux-on-windows.md
   - name: Invoke direct methods with the portal
     href: use-azure-portal-to-invoke-direct-methods.md
   - name: Playback a recording
