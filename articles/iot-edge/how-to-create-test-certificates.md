@@ -154,7 +154,7 @@ Before proceeding with the steps in this section, follow the steps in the [Set u
 
 1. Navigate to the working directory where you placed the certificate generation scripts.
 
-1. Create the root CA certificate and have it sign one intermediate certificate. The certificates are all placed in your working directory.
+1. Create the root CA certificate and have it sign one intermediate certificate. The certificates are all placed in your working directory. 
 
    ```powershell
    New-CACertsCertChain rsa
@@ -163,6 +163,8 @@ Before proceeding with the steps in this section, follow the steps in the [Set u
    This script command creates several certificate and key files, but when articles ask for the **root CA certificate**, use the following file:
 
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
+   
+   This certificate is required before you move forward with creating additional certificates for your edge and leaf devices as described below.
 
 ### Linux
 
@@ -201,6 +203,9 @@ The new device identity command creates several certificate and key files, inclu
 * `<WRKDIR>\certs\iot-edge-device-identity-<name>-full-chain.cert.pem`
 * `<WRKDIR>\certs\iot-edge-device-identity-<name>.cert.pem`
 * `<WRKDIR>\private\iot-edge-device-identity-<name>.key.pem`
+
+For individual enrollment of the edge device in the device provisioning service (DPS), use `iot-edge-device-identity-<name>.cert.pem`, whereas for registering the iot edge device to iot hub use `iot-edge-device-identity-<name>-full-chain.cert.pem` and `iot-edge-device-identity-<name>.key.pem` certificates. For more information on how to create and provision an ioT edge device using certificates, refer [Create and provision an IoT Edge device using X.509 certificates](https://github.com/Azure/iotedge/blob/master/doc/rc/how-to-auto-provision-x509-certificates.md).
+
 
 ### Linux
 
