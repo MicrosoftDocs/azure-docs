@@ -29,55 +29,29 @@ Azure Arc enabled data services may use some or all of the following products:
 
 ## Directly connected
 
-When a cluster is configured to be directly connected to Azure, some data is automatically transmitted to Microsoft. The following list describes the type of data and 
+When a cluster is configured to be directly connected to Azure, some data is automatically transmitted to Microsoft. 
 
-- **Operational data**
-   - Required: No
-   - Action: Automatic
-   - Example: Metrics and logs
-- **Billing and inventory**
-   - Required: Yes
-   - Action: Automatic
-   - Example: Inventory of resources
-- **Diagnostics**
-   - Required: No
-   - Action: Manual - For example, for Microsoft support
-   - Example: Kubernetes logs, system query results - for example, from DMVs
-- **Customer experience improvement program (CEIP)**
-   - Required: No
-   - Action: Automatic
-   - Example: Installation & usage error codes
+The following table describes the type of data, how it is sent, and requirement.  
+
+|Data category|What data is sent?|How is it sent?|Is it required?
+|:----|:----|:----|:----|
+|Operational Data|Metrics and logs|Automatic, when configured to do so|No
+Billing & inventory data|Inventory such as number of instances, and usage such as number of vCores consumed|Automatic |Yes
+Diagnostics|Diagnostic information for troubleshooting purposes|Manually exported and provided to Microsoft Support|Only for the scope of troubleshooting and follows the standard [privacy policies](https://privacy.microsoft.com/privacystatement)
+Customer Experience Improvement Program (CEIP)|[CIEP summary](https://docs.microsoft.com/sql/sql-server/usage-and-diagnostic-data-configuration-for-sql-server?view=sql-server-ver15)|Automatic, if allowed|No
 
 ## Indirectly connected
 
-When a cluster not configured to be directly connected to Azure, it does not automatically transmit operational, or billing and inventory data to Microsoft. To transmit data to Microsoft, you need to configure the export. The following list describes the type of data and 
+When a cluster not configured to be directly connected to Azure, it does not automatically transmit operational, or billing and inventory data to Microsoft. To transmit data to Microsoft, you need to configure the export. 
 
-- **Operational data**
-   - Required: No
-   - Action: Manual
-   - Example: Metrics and logs
-- **Billing and inventory**
-   - Required: Yes
-   - Action: Manual
-   - Example: Inventory of resources
-- **Diagnostics**
-   - Required: No
-   - Action: Manual - For example, for Microsoft support
-   - Example: Kubernetes logs, system query results - for example, from DMVs
-- **Customer experience improvement program (CEIP)**
-   - Required: No
-   - Action: Automatic - Does not happen if internet is not accessible. 
-   - Example: Installation & usage error codes
+The following table describes the type of data, how it is sent, and requirement.  
 
-<!-- Older table layout.  
-#### Operational data
-|Information category  |Indirectly connected  |Directly connected  |
-|---------|---------|---------|
-|Operational Data | Yes, export/upload. Optional. |Yes, fully automated. Optional.  |
-|Billing & Inventory |Yes, export/upload Required. You must send to Azure 1/month. |Yes, fully automated. Required. |
-|Diagnostics    |Manually exported and provided to Microsoft Support.  |Manually exported and provided to Microsoft Support.  |
-|CEIP   |No. Would typically be blocked by lack of direct connectivity to the CEIP data collection service endpoint on the Internet. |Yes, automated. <br/><br/> A firewall other network infrastructure may prevent. |
--->
+|Data category|What data is sent?|How is it sent?|Is it required?
+|:----|:----|:----|:----|
+|Operational Data|Metrics and logs|Manual|No
+Billing & inventory data|Inventory such as number of instances, and usage such as number of vCores consumed|Manual |Yes
+Diagnostics|Diagnostic information for troubleshooting purposes|Manually exported and provided to Microsoft Support|Only for the scope of troubleshooting and follows the standard [privacy policies](https://privacy.microsoft.com/privacystatement)
+Customer Experience Improvement Program (CEIP)|[CIEP summary](https://docs.microsoft.com/sql/sql-server/usage-and-diagnostic-data-configuration-for-sql-server?view=sql-server-ver15)|Automatic, if allowed|No
 
 ## Detailed description of data
 
