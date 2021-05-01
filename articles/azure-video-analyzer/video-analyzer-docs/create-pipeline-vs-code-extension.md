@@ -9,9 +9,9 @@ ms.date: 04/30/2021
 
 # Quickstart: Azure Video Analyzer Visual Studio Code extension
 
-This quickstart is designed to show you how to set up and connect the Azure Video Analyzer Visual Studio Code extension to your Azure Video Analyzer edge module, and deploy a sample pipeline.  It will use the same pipeline as the Get Started quickstart.  
+This quickstart is designed to show you how to set up and connect the Azure Video Analyzer Visual Studio Code extension to your Azure Video Analyzer edge module and deploy a sample pipeline topology.  It will use the same pipeline as the Get Started quickstart.  
 
-After completing the setup steps, you'll be able to run the simulated live video stream through a pipeline that detects and reports any motion in that stream. The following diagram graphically represents that pipeline.
+After completing the setup steps, you'll be able to run the simulated live video stream through a live pipeline that detects and reports any motion in that stream. The following diagram graphically represents that pipeline.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/get-started-detect-motion-emit-events/motion-detection.svg" alt-text="Detect motion":::
@@ -21,7 +21,7 @@ After completing the setup steps, you'll be able to run the simulated live video
 * An Azure account that includes an active subscription. [Create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) for free if you don't already have one.
 
 * [Visual Studio Code](https://code.visualstudio.com/), with the following extensions:
-    * [Azure Video Analytics](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge)
+    * [Video Analyzer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge)
 
 * If you didn't complete the [Get started - Azure Video Analyzer](./get-started-detect-motion-emit-events.md) quickstart, be sure to [set up Azure resources](#set-up-azure-resources).    
 
@@ -36,7 +36,7 @@ After completing the setup steps, you'll be able to run the simulated live video
 
 ## Connect the Azure Video Analyzer Visual Studio Code extension to your IoT Hub
 
-To connect the extension to the edge module, you first need to retrieve your connection string.  Follow these steps to do so.
+To connect the extension to the edge module, you first need to retrieve your connection string. Follow these steps to do so.
 
 1.	Go to the [Azure portal](https://portal.azure.com) and select your IoT Hub.
 1.	On the left under **Settings**, select **Shared access policies**.
@@ -49,19 +49,19 @@ Now that you have the connection string, the below steps will connect the extens
 1.	Click on the **Enter Connection String** button.
 1.	At the top, paste the connection string from the portal.
 1.	Select the device – default is **ava-sample-device**.
-1.	Select the Azure Video Analyzer module – default is **avaEdge**.
+1.	Select the Video Analyzer module – default is **avaedge**.
 
-Along the left, you will now see your connected device with the underlying module.  By default, there are no pipelines deployed.
+Along the left, you will now see your connected device with the underlying module.  By default, there are no pipeline topologies deployed.
 
-## Deploy a pipeline
+## Deploy a pipeline topology
 
-Pipelines are the basic building block which Azure Video Analyzer uses to define how work happens.  You can learn more about [pipelines here](./pipeline.md).  In this section you will deploy a pipeline which is a template, then create an instance of that pipeline and connect it to the actual simulator device on the edge module.
+Pipeline topologies are the basic building block which Video Analyzer uses to define how work happens.  You can learn more about [pipeline topologies here](./pipeline.md).  In this section you will deploy a pipeline topology which is a template and then create an instance of the topology, or live pipeline. The live pipeline is connected to the actual video stream.
 
 1.	On the left under **Modules**, right click on **Pipelines** and select **Create pipeline**.
 1.	Along the top, under **Try sample pipelines**, under **Motion Detection**, select **Publish motion events to IoT Hub**.  When prompted, click **Proceed**.
 1.	Click **Save** in the top right.
 
-You should now see an entry in the **Pipelines** list on the left labeled **MotionDetection**.  This is a template for a pipeline, where some of the parameters are defined as variables that you can feed in when you create an instance.  Next we will create an instance of this pipeline.
+You should now see an entry in the **Pipelines** list on the left labeled **MotionDetection**.  This is a pipeline topology, where some of the parameters are defined as variables that you can feed in when you create a live pipeline.  Next we will create a live pipeline.
 
 1.	On the left under **Pipelines**, right click on **MotionDetection** and select **Create instance**.
 1.	For **Instance name**, put in **mdpipeline1**.
@@ -71,7 +71,7 @@ a.	For “rtspUrl” put in “rtsp://rtspsim:554/media/camera-300s.mkv”.
 a.	For “rtspUserName” put in “testpassword”.
 1.	In the top right, click “Save and activate”.
 
-This gets a starting topology up and running on your edge device.  If you have the Azure IoT Hub extension installed from the Get Started quickstart, you can monitor the build-in event endpoint in the Azure IoT-Hub Visual Studio Code extension to monitor this as shown in the Observe Results section.
+This gets a starting topology deployed and a live pipeline up and running on your edge device.  If you have the Azure IoT Hub extension installed from the Get Started quickstart, you can monitor the build-in event endpoint in the Azure IoT-Hub Visual Studio Code extension to monitor this as shown in the Observe Results section.
 
 ## Clean up resources
 
