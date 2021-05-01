@@ -108,7 +108,7 @@ top five results.
 > subscriptions you have access to, one can set the PSDefaultParameterValues for `Search-AzGraph`
 > cmdlet by running
 > `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
-   
+
 ## Clean up resources
 
 If you wish to remove the Resource Graph module from your Azure PowerShell environment, you can do

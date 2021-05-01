@@ -132,7 +132,7 @@ portal workflow. For more information, see
 Resource Graph supports Azure CLI, Azure PowerShell, Azure SDK for Python, and more. The query is
 structured the same for each language. Learn how to enable Resource Graph with:
 
-- [Azure portal and Resource Graph Explorer](./first-query-portal.md) 
+- [Azure portal and Resource Graph Explorer](./first-query-portal.md)
 - [Azure CLI](./first-query-azurecli.md#add-the-resource-graph-extension)
 - [Azure PowerShell](./first-query-powershell.md#add-the-resource-graph-module)
 - [Python](./first-query-python.md#add-the-resource-graph-library)

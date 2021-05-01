@@ -73,14 +73,14 @@ identifies resources that aren't compliant to the conditions set in the policy d
    const argv = require("yargs").argv;
    const authenticator = require("@azure/ms-rest-nodeauth");
    const policyObjects = require("@azure/arm-policy");
-   
+
    if (argv.subID && argv.name && argv.displayName && argv.policyDefID && argv.scope && argv.description) {
-   
+
        const createAssignment = async () => {
            const credentials = await authenticator.interactiveLogin();
            const client = new policyObjects.PolicyClient(credentials, argv.subID);
            const assignments = new policyObjects.PolicyAssignments(client);
-   
+
            const result = await assignments.create(
                argv.scope,
                argv.name,
@@ -92,7 +92,7 @@ identifies resources that aren't compliant to the conditions set in the policy d
            );
            console.log(result);
        };
-   
+
        createAssignment();
    }
    ```
@@ -142,11 +142,11 @@ Now that your policy assignment is created, you can identify resources that aren
    const argv = require("yargs").argv;
    const authenticator = require("@azure/ms-rest-nodeauth");
    const policyInsights = require("@azure/arm-policyinsights");
-   
+
    if (argv.subID && argv.name) {
-   
+
        const getStates = async () => {
-   
+
            const credentials = await authenticator.interactiveLogin();
            const client = new policyInsights.PolicyInsightsClient(credentials);
            const policyStates = new policyInsights.PolicyStates(client);
@@ -162,7 +162,7 @@ Now that your policy assignment is created, you can identify resources that aren
            );
            console.log(result);
        };
-   
+
        getStates();
    }
    ```
