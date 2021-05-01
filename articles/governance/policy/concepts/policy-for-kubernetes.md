@@ -652,7 +652,6 @@ aligns with how the add-on was installed:
   Redeploy the cluster definition to AKS Engine after changing the **addons** property for
   _azure-policy_ to false:
 
-
   ```json
   "addons": [{
       "name": "azure-policy",

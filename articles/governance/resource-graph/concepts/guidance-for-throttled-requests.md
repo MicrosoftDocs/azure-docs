@@ -187,7 +187,7 @@ async Task ExecuteQueries(IEnumerable<string> queries)
         var azureOperationResponse = await this.resourceGraphClient
             .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
             .ConfigureAwait(false);
-        
+
         var responseHeaders = azureOperationResponse.response.Headers;
         int remainingQuota = /* read and parse x-ms-user-quota-remaining from responseHeaders */
         TimeSpan resetAfter = /* read and parse x-ms-user-quota-resets-after from responseHeaders */

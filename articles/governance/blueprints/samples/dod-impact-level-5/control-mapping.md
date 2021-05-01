@@ -13,7 +13,7 @@ controls, see
 The Defense Information Systems Agency (DISA) is an agency of the US Department of Defense (DoD)
 that is responsible for developing and maintaining the DoD Cloud Computing Security Requirements
 Guide (SRG). The SRG defines the baseline security requirements for cloud service providers (CSPs)
-that host DoD information, systems, and applications, and for DoD's use of cloud services.  
+that host DoD information, systems, and applications, and for DoD's use of cloud services.
 
 The following mappings are to the **DoD Impact Level 5** controls. Use the navigation on the right
 to jump directly to a specific control mapping. Many of the mapped controls are implemented with an
@@ -353,8 +353,8 @@ all virtual machine user accounts comply with your organization's password polic
 
 This blueprint provides policy definitions that audit records with analysis of vulnerability
 assessment on virtual machines, virtual machine scale sets, and SQL servers. These insights provide
-real-time information about the security state of your deployed resources and can help you prioritize
-remediation actions.
+real-time information about the security state of your deployed resources and can help you
+prioritize remediation actions.
 
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
@@ -547,8 +547,8 @@ Security Center.
 - A security contact phone number should be provided for your subscription
 
 > [!NOTE]
-> Availability of specific Azure Policy definitions may vary in Azure Government and other national 
-> clouds. 
+> Availability of specific Azure Policy definitions may vary in Azure Government and other national
+> clouds.
 
 ## Next steps
 
