@@ -5,30 +5,25 @@ description: Learn how to setup and configure Azure API Management in Internal V
 services: api-management
 documentationcenter: ''
 author: solankisamir
-manager: kjoshi
-editor: vlvinogr
 
-ms.assetid: a8c982b2-bca5-4312-9367-4a0bbc1082b1
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 11/04/2019
+ms.topic: how-to
 ms.author: sasolank 
 ms.custom: devx-track-azurepowershell
 
 ---
-# Integrate API Management in an internal VNET with Application Gateway
+# Integrate API Management in an internal virtual network with Application Gateway
 
-## <a name="overview"> </a> Overview
+The API Management service can be configured in a [virtual network in internal mode](api-management-using-with-internal-vnet.md), which makes it accessible only from within the virtual network. Azure Application Gateway is a PaaS service, which provides a Layer-7 load balancer. It acts as a reverse-proxy service and provides among its offerings a Web Application Firewall (WAF).
 
-The API Management service can be configured in a Virtual Network in internal mode, which makes it accessible only from within the Virtual Network. Azure Application Gateway is a PAAS Service, which provides a Layer-7 load balancer. It acts as a reverse-proxy service and provides among its offering a Web Application Firewall (WAF).
-
-Combining API Management provisioned in an internal VNET with the Application Gateway frontend enables the following scenarios:
+Combining API Management provisioned in an internal virtual network with the Application Gateway front end enables the following scenarios:
 
 * Use the same API Management resource for consumption by both internal consumers and external consumers.
 * Use a single API Management resource and have a subset of APIs defined in API Management available for external consumers.
-* Provide a turn-key way to switch access to API Management from the public Internet on and off.
+* Provide a turnkey way to switch access to API Management from the public internet on and off.
+
+> [!NOTE]
+> This article has been updated to use the [Application Gateway WAF_v2 SKU](../application-gateway/application-gateway-autoscaling-zone-redundant.md).
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
@@ -42,43 +37,41 @@ To follow the steps described in this article, you must have:
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-* Certificates - pfx and cer for the API hostname and pfx for the developer portal's hostname.
+* Certificates - PFX files for the API Management service's custom hostnames: gateway, developer portal, and management endpoint. 
+* Make sure that you are using the latest version of Azure PowerShell. See [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
-## <a name="scenario"> </a> Scenario
+## Scenario
 
-This article covers how to use a single API Management service for both internal and external consumers and make it act as a single frontend for both on premises and cloud APIs. You will also see how to expose only a subset of your APIs (in the example they are highlighted in green) for External Consumption using routing functionality available in Application Gateway.
+This article covers how to use a single API Management service for both internal and external consumers and make it act as a single front end for both on-premises and cloud APIs. You will also see how to expose only a subset of your APIs (in the example they are highlighted in green) for external consumption using routing functionality available in Application Gateway.
 
-In the first setup example all your APIs are managed only from within your Virtual Network. Internal consumers (highlighted in orange) can access all your internal and external APIs. Traffic never goes out to the internet. High performance connectivity is delivered via Express Route circuits.
+In the first setup example, all your APIs are managed only from within your virtual network. Internal consumers (highlighted in orange) can access all your internal and external APIs. Traffic never goes out to the internet. High performance connectivity is delivered via Express Route circuits.
 
 ![url route](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
-## <a name="before-you-begin"> </a> Before you begin
+### What is required to integrate API Management and Application Gateway?
 
-* Make sure that you are using the latest version of Azure PowerShell. See the installation instructions at [Install Azure PowerShell](/powershell/azure/install-az-ps). 
-
-## What is required to create an integration between API Management and Application Gateway?
-
-* **Back-end server pool:** This is the internal virtual IP address of the API Management service.
-* **Back-end server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity. These settings are applied to all servers within the pool.
+* **Backend server pool:** This is the internal virtual IP address of the API Management service.
+* **Backend server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity. These settings are applied to all servers within the pool.
 * **Front-end port:** This is the public port that is opened on the application gateway. Traffic hitting it gets redirected to one of the back-end servers.
 * **Listener:** The listener has a front-end port, a protocol (Http or Https, these values are case-sensitive), and the TLS/SSL certificate name (if configuring TLS offload).
-* **Rule:** The rule binds a listener to a back-end server pool.
-* **Custom Health Probe:** Application Gateway, by default, uses IP address based probes to figure out which servers in the BackendAddressPool are active. The API Management service only responds to requests with the correct host header, hence the default probes fail. A custom health probe needs to be defined to help application gateway determine that the service is alive and it should forward requests.
-* **Custom domain certificates:** To access API Management from the internet, you need to create a CNAME mapping of its hostname to the Application Gateway front-end DNS name. This ensures that the hostname header and certificate sent to Application Gateway that is forwarded to API Management is one APIM can recognize as valid. In this example, we will use two certificates - for the backend and for the developer portal.  
+* **Rule:** The rule binds a listener to a backend server pool.
+* **Custom health probe:** Application Gateway, by default, uses IP address-based probes to figure out which servers in the BackendAddressPool are active. The API Management service only responds to requests with the correct host header, hence the default probes fail. A custom health probe needs to be defined to help the application gateway determine that the service is alive and it should forward requests.
+* **Custom domain certificates:** To access API Management from the internet, you need to create a CNAME mapping of its hostname to the Application Gateway front-end DNS name. This ensures that the hostname header and certificate sent to Application Gateway and forwarded to API Management is one that API Management recognizes as valid. In this example, we will use three certificates - for the API Management service's gateway (the backend), the developer portal, and the management endpoint.  
 
-## <a name="overview-steps"> </a> Steps required for integrating API Management and Application Gateway
+## Steps required to integrate API Management and Application Gateway
 
 1. Create a resource group for Resource Manager.
-2. Create a Virtual Network, subnet, and public IP for the Application Gateway. Create another subnet for API Management.
-3. Create an API Management service inside the VNET subnet created above and ensure you use the Internal mode.
-4. Set up a custom domain name in the API Management service.
-5. Create an Application Gateway configuration object.
-6. Create an Application Gateway resource.
-7. Create a CNAME from the public DNS name of the Application Gateway to the API Management proxy hostname.
+1. Create a virtual network, subnet, and public IP for the Application Gateway. Create another subnet for API Management.
+1. Create an API Management service inside the virtal network subnet created in the previous step. Ensure you use the internal mode.
+1. Set up custom domain names in the API Management service.
+1. Configure a private DNS zone for DNS resolution in the virtual network
+1. Create an Application Gateway configuration object.
+1. Create an Application Gateway resource.
+1. Create a CNAME from the public DNS name of the Application Gateway to the API Management proxy hostname.
 
-## Exposing the developer portal externally through Application Gateway
+### Exposs the developer portal and management endpoint externally through Application Gateway
 
-In this guide we will also expose the **developer portal** to external audiences through the Application Gateway. It requires additional steps to create developer portal's listener, probe, settings and rules. All details are provided in respective steps.
+In this guide we also expose the **developer portal** the the **management endpoint** to external audiences through the application gateway. It requires additional steps to create a listener, probe, settings, and rules for each endpoint. All details are provided in respective steps.
 
 > [!WARNING]
 > If you use Azure AD or third party authentication, please enable [cookie-based session affinity](../application-gateway/features.md#session-affinity) feature in Application Gateway.
@@ -124,9 +117,9 @@ New-AzResourceGroup -Name $resGroupName -Location $location
 
 Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway use the same resource group.
 
-## Create a Virtual Network and a subnet for the application gateway
+## Create a virtual network and a subnet for the application gateway
 
-The following example shows how to create a Virtual Network using Resource Manager.
+The following example shows how to create a virtual network using Resource Manager.
 
 ### Step 1
 
@@ -146,7 +139,7 @@ $apimsubnet = New-AzVirtualNetworkSubnetConfig -Name "apim02" -AddressPrefix "10
 
 ### Step 3
 
-Create a Virtual Network named **appgwvnet** in resource group **apim-appGw-RG** for the West US region. Use the prefix 10.0.0.0/16 with subnets 10.0.0.0/24 and 10.0.1.0/24.
+Create a virtual network named **appgwvnet** in resource group **apim-appGw-RG** for the West US region. Use the prefix 10.0.0.0/16 with subnets 10.0.0.0/24 and 10.0.1.0/24.
 
 ```powershell
 $vnet = New-AzVirtualNetwork -Name "appgwvnet" -ResourceGroupName $resGroupName -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $appgatewaysubnet,$apimsubnet
@@ -154,20 +147,20 @@ $vnet = New-AzVirtualNetwork -Name "appgwvnet" -ResourceGroupName $resGroupName 
 
 ### Step 4
 
-Assign a subnet variable for the next steps
+Assign subnet variables for the next steps
 
 ```powershell
 $appgatewaysubnetdata = $vnet.Subnets[0]
 $apimsubnetdata = $vnet.Subnets[1]
 ```
 
-## Create an API Management service inside a VNET configured in internal mode
+## Create an API Management service inside a virtual network configured in internal mode
 
-The following example shows how to create an API Management service in a VNET configured for internal access only.
+The following example shows how to create an API Management service in a virtual network configured for internal access only.
 
 ### Step 1
 
-Create an API Management Virtual Network object using the subnet $apimsubnetdata created above.
+Create an API Management virtual network object using the subnet `$apimsubnetdata` created above.
 
 ```powershell
 $apimVirtualNetwork = New-AzApiManagementVirtualNetwork -SubnetResourceId $apimsubnetdata.Id
@@ -175,54 +168,71 @@ $apimVirtualNetwork = New-AzApiManagementVirtualNetwork -SubnetResourceId $apims
 
 ### Step 2
 
-Create an API Management service inside the Virtual Network.
+/// TO DO: UPDATE APIM VNET to use public IP address ///
+
+Create an API Management service inside the virtual network. This example creates the service in the Developer service tier. Substitute a unique name for your API Managment service.
 
 ```powershell
-$apimServiceName = "ContosoApi"       # API Management service instance name
+$apimServiceName = "ContosoApi"       # API Management service instance name, must be globally unique
 $apimOrganization = "Contoso"         # organization name
 $apimAdminEmail = "admin@contoso.com" # administrator's email address
 $apimService = New-AzApiManagement -ResourceGroupName $resGroupName -Location $location -Name $apimServiceName -Organization $apimOrganization -AdminEmail $apimAdminEmail -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Developer"
 ```
 
-After the above command succeeds refer to [DNS Configuration required to access internal VNET API Management service](api-management-using-with-internal-vnet.md#apim-dns-configuration) to access it. This step may take more than half an hour.
+It can take between 30 and 40 minutes to create and activate an API Management service in this tier. After the above command succeeds, refer to [DNS Configuration required to access internal virtual network API Management service](api-management-using-with-internal-vnet.md#apim-dns-configuration) to access it. 
 
-## Set-up a custom domain name in API Management
+
+## Set up custom domain names in API Management
 
 > [!IMPORTANT]
 > The [new developer portal](api-management-howto-developer-portal.md) also requires enabling connectivity to the API Management's management endpoint in addition to the steps below.
 
 ### Step 1
 
-Initialize the following variables with the details of the certificates with private keys for the domains. In this example, we will use `api.contoso.net` and `portal.contoso.net`.  
+Initialize the following variables with the details of the certificates with private keys for the domains. In this example, we will use `api.contoso.net`, `portal.contoso.net`, and `management.contoso.net`.  
 
 ```powershell
 $gatewayHostname = "api.contoso.net"                 # API gateway host
 $portalHostname = "portal.contoso.net"               # API developer portal host
-$gatewayCertCerPath = "C:\Users\Contoso\gateway.cer" # full path to api.contoso.net .cer file
+$managementHostname = "management.contoso.net"               # API management endpoint host
 $gatewayCertPfxPath = "C:\Users\Contoso\gateway.pfx" # full path to api.contoso.net .pfx file
 $portalCertPfxPath = "C:\Users\Contoso\portal.pfx"   # full path to portal.contoso.net .pfx file
+$managementCertPfxPath = "C:\Users\Contoso\management.pfx"   # full path to management.contoso.net .pfx file
 $gatewayCertPfxPassword = "certificatePassword123"   # password for api.contoso.net pfx certificate
 $portalCertPfxPassword = "certificatePassword123"    # password for portal.contoso.net pfx certificate
+$managementCertPfxPassword = "certificatePassword123"    # password for management.contoso.net pfx certificate
+# Paths to CER files used in Application Gateway HTTP settings
+$gatewayCertCerPath = "C:\Users\Contoso\gateway.cer" # full path to api.contoso.net .cer file
+$portalCertCerPath = "C:\Users\Contoso\portal.cer" # full path to api.contoso.net .cer file
+$managementCertCerPath = "C:\Users\Contoso\portal.cer" # full path to api.contoso.net .cer file
 
-$certPwd = ConvertTo-SecureString -String $gatewayCertPfxPassword -AsPlainText -Force
+$certGatewayPwd = ConvertTo-SecureString -String $gatewayCertPfxPassword -AsPlainText -Force
 $certPortalPwd = ConvertTo-SecureString -String $portalCertPfxPassword -AsPlainText -Force
+$certManagementPwd = ConvertTo-SecureString -String $managementCertPfxPassword -AsPlainText -Force
 ```
 
 ### Step 2
 
-Create and set the hostname configuration objects for the proxy and for the portal.  
+Create and set the hostname configuration objects for the API Management endpoints.  
 
 ```powershell
-$proxyHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $gatewayHostname -HostnameType Proxy -PfxPath $gatewayCertPfxPath -PfxPassword $certPwd
+$proxyHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $gatewayHostname -HostnameType Proxy -PfxPath $gatewayCertPfxPath -PfxPassword $certGatewayPwd
 $portalHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $portalHostname -HostnameType DeveloperPortal -PfxPath $portalCertPfxPath -PfxPassword $certPortalPwd
+$managementHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $managementHostname -HostnameType Management -PfxPath $managementCertPfxPath -PfxPassword $certManagementPwd
 
 $apimService.ProxyCustomHostnameConfiguration = $proxyHostnameConfig
 $apimService.PortalCustomHostnameConfiguration = $portalHostnameConfig
+$apimService.ManagementCustomHostnameConfiguration = $managementHostnameConfig
+
 Set-AzApiManagement -InputObject $apimService
 ```
 
 > [!NOTE]
 > To configure the legacy developer portal connectivity you need to replace `-HostnameType DeveloperPortal` with `-HostnameType Portal`.
+
+## Configure a private zone for DNS resolution in the virtual network
+
+/// TO DO: ADD PowerShell steps to create private DNS zone contoso.net and 3 A-records pointing to the private IP address of the APIM instance. ///
 
 ## Create a public IP address for the front-end configuration
 
@@ -240,7 +250,7 @@ All configuration items must be set up before creating the application gateway. 
 
 ### Step 1
 
-Create an application gateway IP configuration named **gatewayIP01**. When Application Gateway starts, it picks up an IP address from the subnet configured and route network traffic to the IP addresses in the back-end IP pool. Keep in mind that each instance takes one IP address.
+Create an application gateway IP configuration named **gatewayIP01**. When Application Gateway starts, it picks up an IP address from the subnet configured and route network traffic to the IP addresses in the backend IP pool. Keep in mind that each instance takes one IP address.
 
 ```powershell
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name "gatewayIP01" -Subnet $appgatewaysubnetdata
@@ -267,8 +277,9 @@ $fipconfig01 = New-AzApplicationGatewayFrontendIPConfig -Name "frontend1" -Publi
 Configure the certificates for the Application Gateway, which will be used to decrypt and re-encrypt the traffic passing through.
 
 ```powershell
-$cert = New-AzApplicationGatewaySslCertificate -Name "cert01" -CertificateFile $gatewayCertPfxPath -Password $certPwd
+$certGateway = New-AzApplicationGatewaySslCertificate -Name "cert01" -CertificateFile $gatewayCertPfxPath -Password $certGatewayPwd
 $certPortal = New-AzApplicationGatewaySslCertificate -Name "cert02" -CertificateFile $portalCertPfxPath -Password $certPortalPwd
+$certManagement = New-AzApplicationGatewaySslCertificate -Name "cert03" -CertificateFile $managementCertPfxPath -Password $certManagementPwd
 ```
 
 ### Step 5
@@ -276,29 +287,34 @@ $certPortal = New-AzApplicationGatewaySslCertificate -Name "cert02" -Certificate
 Create the HTTP listeners for the Application Gateway. Assign the front-end IP configuration, port, and TLS/SSL certificates to them.
 
 ```powershell
-$listener = New-AzApplicationGatewayHttpListener -Name "listener01" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $cert -HostName $gatewayHostname -RequireServerNameIndication true
+$listener = New-AzApplicationGatewayHttpListener -Name "listener01" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $certGateway -HostName $gatewayHostname -RequireServerNameIndication true
 $portalListener = New-AzApplicationGatewayHttpListener -Name "listener02" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $certPortal -HostName $portalHostname -RequireServerNameIndication true
+$managementListener = New-AzApplicationGatewayHttpListener -Name "listener03" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $certManagement -HostName $managementHostname -RequireServerNameIndication true
 ```
 
 ### Step 6
 
-Create custom probes to the API Management service `ContosoApi` proxy domain endpoint. The path `/status-0123456789abcdef` is a default health endpoint hosted on all the API Management services. Set `api.contoso.net` as a custom probe hostname to secure it with the TLS/SSL certificate.
+Create custom probes to the API Management service `ContosoApi` gateway domain endpoint. The path `/status-0123456789abcdef` is a default health endpoint hosted on all the API Management services. Set `api.contoso.net` as a custom probe hostname to secure it with the TLS/SSL certificate.
 
 > [!NOTE]
 > The hostname `contosoapi.azure-api.net` is the default proxy hostname configured when a service named `contosoapi` is created in public Azure.
 >
+/// TO DO: VERIFY TIMEOUTS ///
 
 ```powershell
 $apimprobe = New-AzApplicationGatewayProbeConfig -Name "apimproxyprobe" -Protocol "Https" -HostName $gatewayHostname -Path "/status-0123456789abcdef" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
-$apimPortalProbe = New-AzApplicationGatewayProbeConfig -Name "apimportalprobe" -Protocol "Https" -HostName $portalHostname -Path "/internal-status-0123456789abcdef" -Interval 60 -Timeout 300 -UnhealthyThreshold 8
+$apimPortalProbe = New-AzApplicationGatewayProbeConfig -Name "apimportalprobe" -Protocol "Https" -HostName $portalHostname -Path "/signin" -Interval 60 -Timeout 300 -UnhealthyThreshold 8
+$apimManagementProbe = New-AzApplicationGatewayProbeConfig -Name "apimmanagementprobe" -Protocol "Https" -HostName $managementHostname -Path "/ServiceStatus" -Interval 60 -Timeout 300 -UnhealthyThreshold 8
 ```
 
 ### Step 7
 
-Upload the certificate to be used on the TLS-enabled backend pool resources. This is the same certificate which you provided in Step 4 above.
+Upload the certificates to be used on the TLS-enabled backend pool resources.
 
 ```powershell
-$authcert = New-AzApplicationGatewayAuthenticationCertificate -Name "whitelistcert1" -CertificateFile $gatewayCertCerPath
+$gatewayRootCert = New-AzApplicationGatewayTrustedRootCertificate -Name "whitelistcert1" -CertificateFile $gatewayCertCerPath
+$portalRootCert = New-AzApplicationGatewayTrustedRootCertificate -Name "whitelistcert2" -CertificateFile $portalCertCerPath
+$managementRootCert = New-AzApplicationGatewayTrustedRootCertificate -Name "whitelistcert3" -CertificateFile $managementCertCerPath
 ```
 
 ### Step 8
@@ -306,13 +322,14 @@ $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name "whitelistce
 Configure HTTP backend settings for the Application Gateway. This includes setting a time-out limit for backend request, after which they're canceled. This value is different from the probe time-out.
 
 ```powershell
-$apimPoolSetting = New-AzApplicationGatewayBackendHttpSettings -Name "apimPoolSetting" -Port 443 -Protocol "Https" -CookieBasedAffinity "Disabled" -Probe $apimprobe -AuthenticationCertificates $authcert -RequestTimeout 180
-$apimPoolPortalSetting = New-AzApplicationGatewayBackendHttpSettings -Name "apimPoolPortalSetting" -Port 443 -Protocol "Https" -CookieBasedAffinity "Disabled" -Probe $apimPortalProbe -AuthenticationCertificates $authcert -RequestTimeout 180
+$apimPoolSetting = New-AzApplicationGatewayBackendHttpSettings -Name "apimPoolSetting" -Port 443 -Protocol "Https" -CookieBasedAffinity "Disabled" -Probe $apimprobe -TrustedRootCertificate $gatewayRootCert -RequestTimeout 180
+$apimPoolPortalSetting = New-AzApplicationGatewayBackendHttpSettings -Name "apimPoolPortalSetting" -Port 443 -Protocol "Https" -CookieBasedAffinity "Disabled" -Probe $apimPortalProbe -TrustedRootCertificate $portalRootCert -RequestTimeout 180
+$apimPoolManagementSetting = New-AzApplicationGatewayBackendHttpSettings -Name "apimPoolManagementSetting" -Port 443 -Protocol "Https" -CookieBasedAffinity "Disabled" -Probe $apimManagementProbe -TrustedRootCertificate $managementRootCert -RequestTimeout 180
 ```
 
 ### Step 9
 
-Configure a back-end IP address pool named **apimbackend**  with the internal virtual IP address of the API Management service created above.
+Configure a backend IP address pool named **apimbackend**  with the internal virtual IP address of the API Management service created above.
 
 ```powershell
 $apimProxyBackendPool = New-AzApplicationGatewayBackendAddressPool -Name "apimbackend" -BackendIPAddresses $apimService.PrivateIPAddresses[0]
@@ -325,17 +342,18 @@ Create rules for the Application Gateway to use basic routing.
 ```powershell
 $rule01 = New-AzApplicationGatewayRequestRoutingRule -Name "rule1" -RuleType Basic -HttpListener $listener -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
 $rule02 = New-AzApplicationGatewayRequestRoutingRule -Name "rule2" -RuleType Basic -HttpListener $portalListener -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolPortalSetting
+$rule03 = New-AzApplicationGatewayRequestRoutingRule -Name "rule3" -RuleType Basic -HttpListener $managementListener -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolManagementSetting
 ```
 
 > [!TIP]
-> Change the -RuleType and routing, to restrict access to certain pages of the developer portal.
+> Change the `-RuleType` and routing, to restrict access to certain pages of the developer portal.
 
 ### Step 11
 
 Configure the number of instances and size for the Application Gateway. In this example, we are using the [WAF SKU](../web-application-firewall/ag/ag-overview.md) for increased security of the API Management resource.
 
 ```powershell
-$sku = New-AzApplicationGatewaySku -Name "WAF_Medium" -Tier "WAF" -Capacity 2
+$sku = New-AzApplicationGatewaySku -Name "WAF_v2" -Tier "WAF_v2" -Capacity 2
 ```
 
 ### Step 12
@@ -352,7 +370,7 @@ Create an Application Gateway with all the configuration objects from the preced
 
 ```powershell
 $appgwName = "apim-app-gw"
-$appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $resGroupName -Location $location -BackendAddressPools $apimProxyBackendPool -BackendHttpSettingsCollection $apimPoolSetting, $apimPoolPortalSetting  -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener, $portalListener -RequestRoutingRules $rule01, $rule02 -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert, $certPortal -AuthenticationCertificates $authcert -Probes $apimprobe, $apimPortalProbe
+$appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $resGroupName -Location $location -BackendAddressPools $apimProxyBackendPool -BackendHttpSettingsCollection $apimPoolSetting, $apimPoolPortalSetting, $apimPoolManagementSetting  -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener, $portalListener, $managementListener -RequestRoutingRules $rule01, $rule02, $rule03 -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $certGateway, $certPortal, $certManagement -TrustedRootCertificate $gatewayRootCert, $portalRootCert, $managementRootCert -Probes $apimprobe, $apimPortalProbe, $apimManagementProbe
 ```
 
 ## CNAME the API Management proxy hostname to the public DNS name of the Application Gateway resource
