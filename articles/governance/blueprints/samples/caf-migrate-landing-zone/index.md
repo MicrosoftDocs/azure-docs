@@ -35,8 +35,7 @@ enterprise-ready governance. This environment is composed of:
   an isolated network and subnets for your virtual machine.
 - Deploy [Azure Migrate Project](../../../../migrate/migrate-services-overview.md) for discovery and
   assessment. We're adding the tools for Server assessment, Server migration, Database assessment,
-  and Database migration.  
-
+  and Database migration.
 
 All these elements abide to the proven practices published in the
 [Azure Architecture Center - Reference Architectures](/azure/architecture/reference-architectures/).
