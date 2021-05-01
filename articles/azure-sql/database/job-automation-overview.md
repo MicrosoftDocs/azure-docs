@@ -18,7 +18,7 @@ ms.date: 2/1/2021
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-You can create and schedule elastic jobs that could be periodically executed against one or many Azure SQL databases to run Transact-SQL (T-SQL) queries and perform maintenance tasks. 
+You can create and schedule elastic jobs that could be periodically executed against one or many Azure SQL Databases to run Transact-SQL (T-SQL) queries and perform maintenance tasks. 
 
 You can define target database or groups of databases where the job will be executed, and also define schedules for running a job.
 A job handles the task of logging in to the target database. You also define, maintain, and persist Transact-SQL scripts to be executed across a group of databases.
