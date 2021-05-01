@@ -11,6 +11,8 @@ ms.author: v-harisudhan
 ---
 
 # Cleanup script on a VMM server
+If your VMM server was in a Disconnected state, then download and run the cleanup script on the VMM server.
+
 
 ```
 pushd .
