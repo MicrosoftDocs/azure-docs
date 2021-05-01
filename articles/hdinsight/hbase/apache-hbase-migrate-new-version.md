@@ -129,11 +129,11 @@ Run the following commands, depending on your source HDI version and whether the
 > - The `<source-container-fullpath>` for storage type WASB is `wasbs://<source-container-name>@<storageaccountname>.blob.core.windows.net`.
 > - The `<source-container-fullpath>` for storage type Azure Data Lake Storage Gen2 is `abfs://<source-container-name>@<storageaccountname>.dfs.core.windows.net`.
 
-- [The source cluster is HDI 3.6 or HDI 4.0, and both the source and destination clusters have Accelerated Writes](#the-source-cluster-is-hdi-36-or-hdi-40-and-both-the-source-and-destination-clusters-have-accelerated-writes)
-- [The source cluster is HDI 3.6, and only the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-36-and-only-the-destination-cluster-has-accelerated-writes)
-- [The source cluster is HDI 3.6, and the source and destination clusters don't have Accelerated Writes](#the-source-cluster-is-hdi-36-and-the-source-and-destination-clusters-dont-have-accelerated-writes)
-- [The source cluster is HDI 4.0, and only the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-40-and-only-the-destination-cluster-has-accelerated-writes)
-- [The source cluster is HDI 4.0, and the source and destination clusters don't have Accelerated Writes](#the-source-cluster-is-hdi-40-and-the-source-and-destination-clusters-dont-have-accelerated-writes)
+- [The source cluster is HDI 3.6 or HDI 4.0, and both the source and destination clusters have Accelerated Writes](#the-source-cluster-is-hdi-36-or-hdi-40-and-both-the-source-and-destination-clusters-have-accelerated-writes).
+- [The source cluster is HDI 3.6, and only the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-36-and-only-the-destination-cluster-has-accelerated-writes).
+- [The source cluster is HDI 3.6, and the source and destination clusters don't have Accelerated Writes](#the-source-cluster-is-hdi-36-and-the-source-and-destination-clusters-dont-have-accelerated-writes).
+- [The source cluster is HDI 4.0, and only the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-40-and-only-the-destination-cluster-has-accelerated-writes).
+- [The source cluster is HDI 4.0, and the source and destination clusters don't have Accelerated Writes](#the-source-cluster-is-hdi-40-and-the-source-and-destination-clusters-dont-have-accelerated-writes).
 
 #### The source cluster is HDI 3.6 or HDI 4.0, and both the source and destination clusters have Accelerated Writes
 

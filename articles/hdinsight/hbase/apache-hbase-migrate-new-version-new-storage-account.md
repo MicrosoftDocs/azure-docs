@@ -116,11 +116,11 @@ Use these detailed steps and commands to migrate your Apache HBase cluster with 
 
 Run the following commands, depending on your source HDI version and whether the source and destination clusters have Accelerated Writes. The destination cluster is always HDI version 4.0, since HDI 3.6 is in Basic support and isn't recommended for new clusters.
 
-- [The source cluster is HDI 3.6 or HDI 4.0, and both the source and destination clusters have Accelerated Writes](#the-source-cluster-is-hdi-36-or-hdi-40-and-both-the-source-and-destination-clusters-have-accelerated-writes)
-- [The source cluster is HDI 3.6, and the source and destination clusters don't have Accelerated Writes](#the-source-cluster-is-hdi-36-and-the-source-and-destination-clusters-dont-have-accelerated-writes)
-- [The source cluster is HDI 3.6, and only the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-36-and-only-the-destination-cluster-has-accelerated-writes)
-- [The source cluster is HDI 4.0, and the source and destination clusters don't have Accelerated Writes](#the-source-cluster-is-hdi-40-and-the-source-and-destination-clusters-dont-have-accelerated-writes)
-- [The source cluster is HDI 4.0, and only the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-40-and-only-the-destination-cluster-has-accelerated-writes)
+- [The source cluster is HDI 3.6 or HDI 4.0, and both the source and destination clusters have Accelerated Writes](#the-source-cluster-is-hdi-36-or-hdi-40-and-both-the-source-and-destination-clusters-have-accelerated-writes).
+- [The source cluster is HDI 3.6, and the source and destination clusters don't have Accelerated Writes](#the-source-cluster-is-hdi-36-and-the-source-and-destination-clusters-dont-have-accelerated-writes).
+- [The source cluster is HDI 3.6, and only the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-36-and-only-the-destination-cluster-has-accelerated-writes).
+- [The source cluster is HDI 4.0, and the source and destination clusters don't have Accelerated Writes](#the-source-cluster-is-hdi-40-and-the-source-and-destination-clusters-dont-have-accelerated-writes).
+- [The source cluster is HDI 4.0, and only the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-40-and-only-the-destination-cluster-has-accelerated-writes).
 
 To pass the key of the storage account, use: 
 - `-Dfs.azure.account.key.<storageaccount>.blob.core.windows.net='<storage account key>'`
@@ -153,7 +153,7 @@ You can also use [AzCopy](/azure/storage/common/storage-ref-azcopy) for better p
 
 You can download AzCopy from [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10). For more information about using AzCopy, see [azcopy copy](/azure/storage/common/storage-ref-azcopy-copy).
 
-#### The source cluster is HDI 3.6 or HDI 4.0, and both the source and the destination cluster have Accelerated Writes
+#### The source cluster is HDI 3.6 or HDI 4.0, and both the source and destination clusters have Accelerated Writes
 
 1. To clean the file system and migrate data, run the following commands:
    
