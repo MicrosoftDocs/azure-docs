@@ -102,7 +102,7 @@ unrestricted access, allow list activity, and threats.
 - Deploy Threat Detection on SQL servers
 - Deploy default Microsoft IaaSAntimalware extension for Windows Server
 
-## 9 Secure User Management 
+## 9 Secure User Management
 
 Azure role-based access control (Azure RBAC) helps you manage who has access to resources in Azure.
 Using the Azure portal, you can review who has access to Azure resources and their permissions. This
@@ -211,7 +211,6 @@ workspace.
 - \[Preview\]: Deploy Log Analytics Agent for Linux VMs
 - \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 - Deploy network watcher when virtual networks are created
-
 
 ## Next steps
 
