@@ -22,7 +22,7 @@ Examples would be:
 
 - create a web server
 - create a DNS server
-- create a SharePoint server
+- create a SharePoint Server
 - configure a SQL cluster
 - manage firewall settings
 - manage password settings
