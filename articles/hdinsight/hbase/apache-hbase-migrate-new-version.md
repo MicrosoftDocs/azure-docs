@@ -84,11 +84,7 @@ Use these detailed steps and commands to migrate your Apache HBase cluster.
    
 1. Sign in to [Apache Ambari](https://ambari.apache.org/) on the source cluster with `https://<OLDCLUSTERNAME>.azurehdinsight.net`, and stop the HBase services.
    
-   :::image type="content" source="./media/apache-hbase-migrate-new-version/stop-hbase-services.png" alt-text="In Ambari, select Services > HBase > Stop under Service Actions" border="false":::
-   
 1. At the confirmation prompt, select the box to turn on maintenance mode for HBase.
-   
-   :::image type="content" source="./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png" alt-text="Select Turn On Maintenance Mode for HBase, then confirm." border="false":::
    
    For more information on connecting to and using Ambari, see [Manage HDInsight clusters by using the Ambari Web UI](../hdinsight-hadoop-manage-ambari.md).
    
@@ -103,7 +99,6 @@ Use these detailed steps and commands to migrate your Apache HBase cluster.
 
 1. In the Azure portal, [set up a new destination HDInsight cluster](../hdinsight-hadoop-provision-linux-clusters.md) using the same storage account as the source cluster, but with a different container name:
 
-   :::image type="content" source="./media/apache-hbase-migrate-new-version/same-storage-different-container.png" alt-text="Use the same Storage account, but create a different container." border="false":::
    
 1. Sign in to [Apache Ambari](https://ambari.apache.org/) on the new cluster at `https://<NEWCLUSTERNAME>.azurehdinsight.net`, and stop the HBase services.
    
@@ -127,12 +122,18 @@ Use these detailed steps and commands to migrate your Apache HBase cluster.
 
 Run the following commands, depending on your source HDI version and whether the source and destination clusters have Accelerated Writes.
 
-- The destination cluster is HDI version 4.0, since HDI 3.6 is in Basic support and isn't recommended for new clusters.
+- The destination cluster is always HDI version 4.0, since HDI 3.6 is in Basic support and isn't recommended for new clusters.
 - The HDFS copy command is `hdfs dfs <copy properties starting with -D> -cp <source> <destination> # Serial execution`.
 
 > [!NOTE]  
 > - The `<source-container-fullpath>` for storage type WASB is `wasbs://<source-container-name>@<storageaccountname>.blob.core.windows.net`.
 > - The `<source-container-fullpath>` for storage type Azure Data Lake Storage Gen2 is `abfs://<source-container-name>@<storageaccountname>.dfs.core.windows.net`.
+
+- [The source cluster is HDI 3.6 or HDI 4.0, and both the source and destination clusters have Accelerated Writes](#the-source-cluster-is-hdi-36-or-hdi-40-and-both-the-source-and-destination-clusters-have-accelerated-writes)
+- [The source cluster is HDI 3.6, and only the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-36-and-only-the-destination-cluster-has-accelerated-writes)
+- [The source cluster is HDI 3.6, and the source and destination clusters don't have Accelerated Writes](#the-source-cluster-is-hdi-36-and-the-source-and-destination-clusters-dont-have-accelerated-writes)
+- [The source cluster is HDI 4.0, and only the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-40-and-only-the-destination-cluster-has-accelerated-writes)
+- [The source cluster is HDI 4.0, and the source and destination clusters don't have Accelerated Writes](#the-source-cluster-is-hdi-40-and-the-source-and-destination-clusters-dont-have-accelerated-writes)
 
 #### The source cluster is HDI 3.6 or HDI 4.0, and both the source and destination clusters have Accelerated Writes
 
@@ -142,14 +143,6 @@ Clean the WAL FS data for the destination cluster, and copy the WAL directory fr
 sudo -u hbase hdfs dfs -rm -r hdfs://mycluster/hbasewal
 sudo -u hbase hdfs dfs -cp <source-container-fullpath>/hbase-wal-backup/hbasewal hdfs://mycluster/
 ```
-#### The source cluster is HDI 3.6, and only the source cluster has Accelerated Writes
-
-On the destination cluster, copy over the source cluster WAL directory that you backed up in an earlier step. To copy the backup, run the following commands in any Zookeeper node or worker node on the destination cluster:
-
-```bash   
-hdfs dfs -cp <source-container-fullpath>/hbase-wal-backup/hbasewal/MasterProcWALs <source-container-fullpath>/hbase
-```
-
 #### The source cluster is HDI 3.6, and only the destination cluster has Accelerated Writes
 
 Clean the WAL FS data for the destination cluster, and copy the WAL directory from the source cluster into the destination cluster's HDFS. Copy the directory by running the following commands in any Zookeeper node or worker node on the destination cluster:
@@ -166,14 +159,6 @@ Clean the WAL FS data for the destination cluster, and copy the source cluster W
 ```bash
 sudo -u hbase hdfs dfs -rm -r /hbase-wals/*
 sudo -u hbase hdfs dfs -Dfs.azure.page.blob.dir="/hbase/WALs,/hbase/MasterProcWALs,/hbase/oldWALs" -cp <source-container-fullpath>/hbase/*WALs /hbase-wals
-```
-
-#### The source cluster is HDI 4.0, and only the source cluster has Accelerated Writes
-
-On the destination cluster, copy over the source cluster WAL directory that you backed up in an earlier step. To copy the backup, run the following commands in any Zookeeper node or worker node on the destination cluster:
-
-```bash   
-hdfs dfs -cp <source-container-fullpath>/hbase-wal-backup/hbasewal/WALs <source-container-fullpath>/hbase-wals
 ```
 
 #### The source cluster is HDI 4.0, and only the destination cluster has Accelerated Writes
