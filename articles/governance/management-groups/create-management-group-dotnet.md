@@ -76,7 +76,7 @@ required packages.
    using Microsoft.Rest;
    using Microsoft.Azure.Management.ManagementGroups;
    using Microsoft.Azure.Management.ManagementGroups.Models;
-   
+
    namespace mgCreate
    {
        class Program
@@ -88,12 +88,12 @@ required packages.
                string strClientSecret = args[2];
                string strGroupId = args[3];
                string strDisplayName = args[4];
-   
+
                var authContext = new AuthenticationContext($"https://login.microsoftonline.com/{strTenant}");
                var authResult = await authContext.AcquireTokenAsync(
                       "https://management.core.windows.net",
                       new ClientCredential(strClientId, strClientSecret));
-   
+
                using (var client = new ManagementGroupsAPIClient(new TokenCredentials(authResult.AccessToken)))
                {
                    var mgRequest = new CreateManagementGroupRequest
