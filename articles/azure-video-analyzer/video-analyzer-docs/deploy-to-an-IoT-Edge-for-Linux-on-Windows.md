@@ -50,7 +50,6 @@ The following depicts the overall flow of the document and in 5 simple steps you
 
     Note the video files (*.mkv) in the /home/localedgeuser/samples/input folder, which serve as input files to be analyzed. 
 
-
 4. Now that you have the edge device set up, registered to the hub and running successfully with the correct folder structures created, the next step is to set up the following additional Azure resources and deploy the LVA module. 
 
     * Storage account
