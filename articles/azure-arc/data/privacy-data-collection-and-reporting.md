@@ -114,7 +114,7 @@ The following sections show the properties, types, and descriptions that are col
 - SQL Server provisioning state.
    - `string: ProvisioningState`
 
-#### Data Controller 
+### Data Controller 
 
 - Location information
    - `public OnPremiseProperty OnPremiseProperty` 
@@ -125,7 +125,7 @@ The following sections show the properties, types, and descriptions that are col
 - Data controller state
    - `string: ProvisioningState` 
 
-#### PostgreSQL Hyperscale Server Group 
+### PostgreSQL Hyperscale Server Group 
 
 - The data controller ID
    - `string: DataControllerId`
@@ -140,7 +140,7 @@ The following sections show the properties, types, and descriptions that are col
 - Group provisioning state
    - `string: ProvisioningState` 
 
-#### SQL Managed Instance 
+### SQL Managed Instance 
 
 - The managed instance ID
    - `public string: DataControllerId` 
