@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 02/02/2021
+ms.date: 05/01/2021
 ms.author: alkohli
 ---
 
@@ -28,6 +28,7 @@ Self-managed shipping is available as an option when you [Order Azure Data Box D
 * South Korea
 * South Africa
 * India (Preview)
+* Brazo;
 
 ## Use self-managed shipping
 
@@ -51,19 +52,26 @@ When you place a Data Box Disk order, you can choose self-managed shipping optio
 
    ![Schedule pickup](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-user-pickup-02c.png)
 
+   > [!NOTE:]
+   > Required information in the email may vary by region. *HOW CAN THEY GET THIS INFORMATION?*  
+
 6. After you've scheduled your device pickup, you can view your authorization code in **Schedule pickup for Azure**.
 
    ![Screenshot of the Schedule pick up for Azure dialog box with the Authorization code for Pickup text box called out.](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-01b.png)
 
-   Make a note of this authorization code.
+   Make a note of this authorization code. The person who picks up the device will need to have it.
 
-   As per security requirements, at the time of scheduling pick-up, it's necessary to present the name of the person who will be arriving for pick-up.
+7. Pick up the Data Box Disk from the datacenter at the scheduled time.<!--I repackaged existing materials to make a step, and matched the steps in DB and DBD. The first security requirement actually is something they need to do before the person shows up at the datacenter. It's required in the adbops email for Brazil.-->
 
-   You also need to provide details of who will go to the datacenter for the pick-up. You or the point of contact must carry a government-approved photo ID that will be validated at the datacenter.
+   As per security requirements, at the time of scheduling pick-up, it's necessary to provide the following:
 
-   The person who is picking up the device also needs to have the authorization code. The authorization code is unique for a pick-up or a drop-off and is validated at the datacenter.
+   * The name and details of the person who will pick up the device at the datacenter. You or the point of contact must carry a government-approved photo ID, which will be validated at the datacenter.
 
-7. Your order automatically moves to the **Picked up** state after the device is picked up from the datacenter.
+   * The authorization code. The authorization code is unique for a pick-up or a drop-off and is validated at the datacenter.
+
+   * In some regions, you'll need a copy of the scheduled appointment.<!--Brazil only. I asked Emily about this. The datacenter would see this info when they validate the authorization code?-->
+
+8. Your order automatically moves to the **Picked up** state after the device is picked up from the datacenter.
 
    ![Picked up](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-ready-disk-01b.png)
 
