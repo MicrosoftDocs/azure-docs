@@ -223,7 +223,7 @@ Some property names, such as those that include a `.` or `$`, must be wrapped or
 query or the property name is interpreted incorrectly and doesn't provide the expected results.
 
 - `.` - Wrap the property name as such: `['propertyname.withaperiod']`
-  
+
   Example query that wraps the property _odata.type_:
 
   ```kusto
