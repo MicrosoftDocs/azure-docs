@@ -43,42 +43,11 @@ To complete this quickstart on Windows, install the following software on your l
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
 ## Run a simulated device
-In this section, you install the Azure IoT C device SDK, configure your local environment, and run a sample that creates a simulated temperature controller.
+In this section, you configure your local environment, install the Azure IoT C device SDK, and run a sample that creates a simulated temperature controller.
 
-1. Open a console using Windows CMD, PowerShell, or Bash (for Windows or Linux). You'll use the console to install the C SDK, update environment variables, and run the code sample.
+### Configure your environment
 
-1. Copy the Azure IoT C device SDK to your local machine.
-
-    ```console
-    git clone https://github.com/Azure/azure-iot-sdk-c.git
-    ```
-
-1. Navigate to the newly created folder for the SDK:
-
-    ```console
-    cd azure-iot-sdk-c
-    ```
-1. Run the following command to update dependencies:
-    ```console
-    git submodule update --init
-    ```
-    This operation takes a few minutes.
-
-1. In the root folder of the device SDK, create a subfolder named *cmake*, and navigate to that folder:
-
-    ```console
-    mkdir cmake
-    cd cmake
-    ```
-
-1. To build the SDK and samples, run the following commands:
-
-    ```console
-    cmake -Duse_prov_client=ON -Dhsm_type_symm_key=ON -Drun_e2e_tests=OFF ..
-    cmake --build .
-    ```
-
-1. Set the following environment variables, using the appropriate commands for your console. The simulated device uses these values to connect to IoT Central. For `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY`, and `IOTHUB_DEVICE_DPS_DEVICE_ID`, use the device connection values that you saved previously. 
+1. Set the following environment variables, using the appropriate commands for your console. The simulated device uses these values to connect to IoT Central. For `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY`, and `IOTHUB_DEVICE_DPS_DEVICE_ID`, use the device connection values that you saved previously.
 
     **Windows CMD**
 
@@ -112,6 +81,38 @@ In this section, you install the Azure IoT C device SDK, configure your local en
     export IOTHUB_DEVICE_DPS_DEVICE_ID='<your device ID>'
     export IOTHUB_DEVICE_DPS_ENDPOINT='global.azure-devices-provisioning.net' 
     ```
+
+### Install the SDK and samples
+
+1. Open a console using Windows CMD, PowerShell, or Bash (for Windows or Linux). You'll use the console to install the C SDK, and run the code sample.
+
+1. Copy the Azure IoT C device SDK to your local machine.
+
+    ```console
+    git clone https://github.com/Azure/azure-iot-sdk-c.git
+    ```
+
+1. In the root folder of the SDK you downloaded, run the following command to update dependencies:
+    ```console
+    git submodule update --init
+    ```
+    This operation takes a few minutes.
+
+1. In the root folder of the device SDK, create a subfolder named *cmake*, and navigate to that folder:
+
+    ```console
+    mkdir cmake
+    cd cmake
+    ```
+
+1. To build the SDK and samples, run the following commands:
+
+    ```console
+    cmake -Duse_prov_client=ON -Dhsm_type_symm_key=ON -Drun_e2e_tests=OFF ..
+    cmake --build .
+    ```
+
+### Run the code
 
 1. Run the sample code, using the appropriate command for your console:
 

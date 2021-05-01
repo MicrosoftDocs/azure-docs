@@ -10,32 +10,18 @@
 ---
 
 ## Prerequisites
-- [Python 3.7](https://www.python.org/downloads/) or later. To check your Python version, run `python --version`. 
+- A development machine with Java SE Development Kit 8 or later. You can download the Java 8 (LTS) JDK for multiple platforms from [Download Zulu Builds of OpenJDK](https://www.azul.com/downloads/zulu-community/).
+- [Git](https://git-scm.com/downloads).
+- [Apache Maven 3](https://maven.apache.org/download.cgi).
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
 ## Run a simulated device
-In this section, you install the Azure IoT Python device sdk samples, configure your local environment, and run a sample that creates a simulated temperature controller.
+In this section, you configure your local environment, install the Azure IoT Java device SDK, and run a sample that creates a simulated temperature controller.
 
-1. Open a console using Windows CMD, or PowerShell, or Bash (for Windows or Linux). You'll use the console to install the Python SDK, update environment variables, and run the Python code sample.
+### Configure your environment
 
-1. Copy the [Azure IoT Python SDK device samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) to your local machine.
-
-    ```console
-    git clone https://github.com/Azure/azure-iot-sdk-python
-    ```
-
-1. Navigate to the samples directory.
-
-    ```console
-    cd azure-iot-sdk-python/azure-iot-device/samples/pnp
-    ```
-1. Install the Azure IoT Python SDK.
-    ```console
-    pip3 install azure-iot-device
-    ```
-
-1. Set each of the following environment variables, to enable your simulated device to connect to IoT Central. For `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY`, and `IOTHUB_DEVICE_DPS_DEVICE_ID`, use the device connection values that you saved.
+1. Set the following environment variables, using the appropriate commands for your console. The simulated device uses these values to connect to IoT Central. For `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY`, and `IOTHUB_DEVICE_DPS_DEVICE_ID`, use the device connection values that you saved previously.
 
     **Windows CMD**
 
@@ -60,7 +46,7 @@ In this section, you install the Azure IoT Python device sdk samples, configure 
     $env:IOTHUB_DEVICE_DPS_ENDPOINT='global.azure-devices-provisioning.net'
     ```
 
-    **Bash (Linux or Windows)**
+    **Bash**
 
     ```bash
     export IOTHUB_DEVICE_SECURITY_TYPE='DPS'
@@ -69,9 +55,33 @@ In this section, you install the Azure IoT Python device sdk samples, configure 
     export IOTHUB_DEVICE_DPS_DEVICE_ID='<your device ID>'
     export IOTHUB_DEVICE_DPS_ENDPOINT='global.azure-devices-provisioning.net' 
     ```
-1. In your console, run the following code sample from the SDK. The sample creates a simulated temperature controller with thermostat sensors.
+
+### Install the SDK and samples
+
+1. Open a console using Windows CMD, PowerShell, or Bash. You'll use the console to install the Java SDK, and run the code sample.
+
+1. Copy the Azure IoT Java device SDK to your local machine.
+
     ```console
-    python temp_controller_with_thermostats.py
+    git clone https://github.com/Azure/azure-iot-sdk-java
+    ```
+
+1. In the root folder of the SDK you downloaded, run the following command to build the sample application:
+
+    ```console
+    mvn install -T 2C -DskipTests
+    ```
+
+### Run the code
+
+1. Navigate to the samples directory.
+    ```console
+    cd azure-iot-sdk-java/device/iot-device-samples/pnp-device-sample/temperature-controller-device-sample
+    ```
+
+1. In your console, run the following code sample. The sample creates a simulated temperature controller with thermostat sensors.
+    ```console
+    mvn exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.TemperatureController"
     ```
 
     After your simulated device connects to your IoT Central application, it connects to the device instance you created in the application and begins to send telemetry. The connection details and telemetry output are shown in your console: 
