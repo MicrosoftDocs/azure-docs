@@ -36,13 +36,13 @@ You can build a dual-homed network that involves two or more ExpressRoute connec
 * Create another Route Server in each hub virtual network that has an ExpressRoute gateway.
 * Connect the NVA in the hub virtual network with the Route Server in the hub virtual network.
 * [Enable route exchange](quickstart-configure-route-server-portal.md#configure-route-exchange) between the ExpressRoute gateway and the Route Server in the hub virtual network.
-* Make sure “Use Remote Gateway or Remote Route Server” is **not enabled** in the spoke virtual network VNet peering configuration.
+* Make sure “Use Remote Gateway or Remote Route Server” is **disabled** in the spoke virtual network VNet peering configuration.
 
 :::image type="content" source="./media/about-dual-homed-network/dual-homed-topology-expressroute.png" alt-text="Diagram of Route Server in a dual-homed topology with ExpressRoute.":::
 
 ### How does it work?
 
-In the control plane, the NVA in the hub virtual network will learn about on-premises routes from the ExpressRoute gateway through [route exchange](quickstart-configure-route-server-portal.md#configure-route-exchange) with the Route Server in the hub. Since you've already established connectivity between the Route Server in the spoke and the NVA in the hub virtual network. And there's also connectivity between the NVA and Route Server in the hub. The ExpressRoute gateway will learn about the spoke virtual network addresses from the Route Server in the hub. The Route Server in both the spoke and hub virtual network will then program the on-premises network addresses to the virtual machines in their respective virtual network.
+In the control plane, the NVA in the hub virtual network will learn about on-premises routes from the ExpressRoute gateway through [route exchange](quickstart-configure-route-server-portal.md#configure-route-exchange) with the Route Server in the hub. In return, the NVA will send the spoke virtual network addresses to the ExpressRoute gateway using the same Route Server. The Route Server in both the spoke and hub virtual network will then program the on-premises network addresses to the virtual machines in their respective virtual network.
 
 In the data plane, the virtual machines in the spoke virtual network will send all traffic destined for the on-premises network to the NVA in the hub virtual network first. Then the NVA will forward the traffic to the on-premises network through ExpressRoute. Traffic from on-premises will traverse the same data path in the reverse direction. You'll notice neither of the Route Servers are in the data path.
 
