@@ -254,7 +254,7 @@ indicators helps you ensure that system authenticators comply with your organiza
 identification and authentication policy.
 
 - Show audit results from Linux VMs that do not have the passwd file permissions set to 0644
-- Show audit results from  Linux VMs that have accounts without passwords
+- Show audit results from Linux VMs that have accounts without passwords
 
 ## IA-5 (1) Authenticator Management | Password-Based Authentication
 
@@ -304,10 +304,10 @@ vulnerabilities in your deployed resources.
 
 ## SC-5 Denial of Service Protection
 
-Azure's distributed denial of service (DDoS) standard tier provides additional features and
+Azure's distributed denial of service (DDoS) Standard tier provides additional features and
 mitigation capabilities over the basic service tier. These additional features include Azure Monitor
 integration and the ability to review post-attack mitigation reports. This blueprint assigns an
-[Azure Policy](../../../policy/overview.md) definition that audits if the DDoS standard tier is
+[Azure Policy](../../../policy/overview.md) definition that audits if the DDoS Standard tier is
 enabled. Understanding the capability difference between the service tiers can help you select the
 best solution to address denial of service protections for your Azure environment.
 
@@ -358,7 +358,7 @@ properly encrypted can help you meet your organization's requirements or protect
 unauthorized disclosure and modification.
 
 - API App should only be accessible over HTTPS
-- Show audit results from  Windows web servers that are not using secure communication protocols
+- Show audit results from Windows web servers that are not using secure communication protocols
 - Function App should only be accessible over HTTPS
 - Only secure connections to your Azure Cache for Redis should be enabled
 - Web Application should only be accessible over HTTPS

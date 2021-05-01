@@ -210,7 +210,7 @@ assessment on virtual machines, virtual machine scale sets, SQL Database servers
 Instance servers. These policy definitions also audit configuration of diagnostic logs to provide
 insight into operations that are performed within Azure resources. These insights provide real-time
 information about the security state of your deployed resources and can help you prioritize
-remediation actions. For detailed vulnerability scanning and monitoring, we recommend you leverage
+remediation actions. For detailed vulnerability scanning and monitoring, we recommend you use
 Azure Sentinel and Azure Security Center as well.
 
 - \[Preview\]: Vulnerability Assessment should be enabled on Virtual Machines
@@ -299,7 +299,7 @@ ensure necessary contingency controls are in place.
 
 - Audit virtual machines without disaster recovery configured
 
-## CP-9 (05)  Information System Backup | Transfer to Alternate Storage Site
+## CP-9 (05) Information System Backup | Transfer to Alternate Storage Site
 
 This blueprint assigns Azure Policy definitions that audit the organization's system backup
 information to the alternate storage site electronically. For physical shipment of storage metadata,
@@ -413,10 +413,10 @@ vulnerabilities in your deployed resources.
 
 ## SC-5 Denial of Service Protection
 
-Azure's distributed denial of service (DDoS) standard tier provides additional features and
+Azure's distributed denial of service (DDoS) Standard tier provides additional features and
 mitigation capabilities over the basic service tier. These additional features include Azure Monitor
 integration and the ability to review post-attack mitigation reports. This blueprint assigns an
-[Azure Policy](../../../policy/overview.md) definition that audits if the DDoS standard tier is
+[Azure Policy](../../../policy/overview.md) definition that audits if the DDoS Standard tier is
 enabled. Understanding the capability difference between the service tiers can help you select the
 best solution to address denial of service protections for your Azure environment.
 
@@ -517,15 +517,15 @@ This blueprint assigns policy definitions that help you ensure applications are 
 version of HTTP, Java, PHP, Python, and TLS. This blueprint also assigns
 a policy definition that ensures that Kubernetes Services is upgraded to its non-vulnerable version.
 
-- Ensure that 'HTTP Version' is the latest, if used to run the Api app
+- Ensure that 'HTTP Version' is the latest, if used to run the API app
 - Ensure that 'HTTP Version' is the latest, if used to run the Function app
 - Ensure that 'HTTP Version' is the latest, if used to run the Web app
-- Ensure that 'Java version' is the latest, if used as a part of the Api app
+- Ensure that 'Java version' is the latest, if used as a part of the API app
 - Ensure that 'Java version' is the latest, if used as a part of the Function app
 - Ensure that 'Java version' is the latest, if used as a part of the Web app
-- Ensure that 'PHP version' is the latest, if used as a part of the Api app
+- Ensure that 'PHP version' is the latest, if used as a part of the API app
 - Ensure that 'PHP version' is the latest, if used as a part of the WEB app
-- Ensure that 'Python version' is the latest, if used as a part of the Api app
+- Ensure that 'Python version' is the latest, if used as a part of the API app
 - Ensure that 'Python version' is the latest, if used as a part of the Function app
 - Ensure that 'Python version' is the latest, if used as a part of the Web app
 - Latest TLS version should be used in your API App
@@ -583,8 +583,8 @@ you can take appropriate action.
 ## SI-4 (12) Information System Monitoring | Automated Alerts
 
 This blueprint provides policy definitions that help you ensure data security notifications are
-properly enabled. In addition, this blueprint ensures that the standard pricing tier is enabled
-for Azure Security Center. Note that the standard pricing tier enables threat detection for networks
+properly enabled. In addition, this blueprint ensures that the Standard pricing tier is enabled
+for Azure Security Center. Note that the Standard pricing tier enables threat detection for networks
 and virtual machines, providing threat intelligence, anomaly detection, and behavior analytics in
 Azure Security Center.
 
