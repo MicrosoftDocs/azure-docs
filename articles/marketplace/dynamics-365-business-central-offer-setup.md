@@ -48,7 +48,7 @@ Select **Create** to generate the offer. Partner Center opens the **Offer setup*
 
 ## Alias
 
-Enter a descriptive name that we'll use to refer to this offer solely within Partner Center. The offer alias (pre-populated with what you entered when you created the offer) won't be used in the marketplace and is different than the offer name shown to customers. If you want to update the offer name later, see the [Offer listing](dynamics-365-business-central-create-listing.md) page.
+Enter a descriptive name that we'll use to refer to this offer solely within Partner Center. The offer alias (pre-populated with what you entered when you created the offer) won't be used in the marketplace and is different than the offer name shown to customers. If you want to update the offer name later, see the [Offer listing](dynamics-365-business-central-offer-listing.md) page.
 
 ## Setup details
 
@@ -78,7 +78,7 @@ To enable a test drive, select the **Enable a test drive** check box and select 
 
 ## Customer leads
 
-[!INCLUDE [Connect lead management](includes/connect-lead-management.md)]
+[!INCLUDE [Connect lead management](includes/customer-leads.md)]
 
 For more information, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
