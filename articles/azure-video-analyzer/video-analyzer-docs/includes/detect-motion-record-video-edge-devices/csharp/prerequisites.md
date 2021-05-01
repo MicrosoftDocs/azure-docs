@@ -18,18 +18,9 @@ ms.author: juliako
     > When installing Azure IoT Tools, you might be prompted to install Docker. Feel free to ignore the prompt.    
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1).       
-* If you didn't complete the [Detect motion and emit events](../../../detect-motion-emit-events-quickstart.md) quickstart, be sure to [set up Azure resources](#setup-azure-resources).    
-* Set up the following:
-
-    * [Set up your development environment](set-up-dev-environment.md)
-    * [Generate and deploy the IoT Edge deployment manifest](add-valid-link.md) 
-    * [Prepare to monitor events](add-valid-link.md)
+* Read [Detect motion and emit events](../../../detect-motion-emit-events-quickstart.md) quickstart.    
 
 ## Set up Azure resources
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
-
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)  
 [!INCLUDE [resources](includes/common-includes/azure-resources.md)]
-
-> [!TIP]
-> If you run into issues with Azure resources that get created, review our [troubleshooting guide](../../../troubleshoot.md) to resolve some commonly encountered issues.

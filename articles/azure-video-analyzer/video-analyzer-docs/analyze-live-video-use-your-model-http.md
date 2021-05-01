@@ -170,15 +170,15 @@ In this quickstart, you will:
           }
         }
         ```
-    * A call to livePipelineActivate that starts the graph instance and the flow of video.
-    * A second call to livePipelineList that shows that the graph instance is in the running state.
+    * A call to livePipelineActivate that starts the pipeline instance and the flow of video.
+    * A second call to livePipelineList that shows that the pipeline instance is in the running state.
 1. The output in the **TERMINAL** window pauses at a **Press Enter to continue** prompt. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
 1. Switch to the **OUTPUT** window in Visual Studio Code. You see messages that the Video Analyzer module is sending to the IoT hub. The following section of this quickstart discusses these messages.
 1. The pipeline continues to run and print results. The RTSP simulator keeps looping the source video. To stop the pipeline, return to the **TERMINAL** window and select Enter.
     
     The next series of calls cleans up resources:
     
-    * A call to livePipelineDeactivate deactivates the graph instance.
+    * A call to livePipelineDeactivate deactivates the pipeline instance.
     * A call to livePipelineDelete deletes the instance.
     * A call to pipelineTopologyDelete deletes the topology.
     * A final call to pipelineTopologyList shows that the list is empty.
