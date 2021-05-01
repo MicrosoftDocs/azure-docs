@@ -28,9 +28,9 @@ This quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated 
 
 When you set up the Azure resources, a short video of highway traffic is copied to the Linux VM in Azure that you're using as the IoT Edge device. This quickstart uses the video file to simulate a live stream.
 
-Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to [the highway intersection sample video](https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4) to start playback. You see the footage of many vehicles moving in highway traffic.
+Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to [the highway intersection sample video](https://www.microsoft.com/videoplayer/embed/RE4LTY4) to start playback. You see the footage of many vehicles moving in highway traffic.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LTY4]
 
 In this quickstart, you'll use Video Analyzer to detect objects such as vehicles and persons. You'll publish associated inference events to IoT Edge Hub.
 
@@ -39,7 +39,7 @@ In this quickstart, you'll use Video Analyzer to detect objects such as vehicles
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/analyze-live-video-use-your-model-grpc/overview.png" alt-text="gRPC overview":::
  
-This diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/azure-video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source node](pipeline.md#rtsp-source) pulls the video feed from this server and sends video frames to the [motion detection processor](pipeline.md#motion-detection-processor) node. This processor will detect motion and upon detection will push video frames to the [gRPC extension processor]((pipeline.md#grpc-extension-processor) node.
+This diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source node](pipeline.md#rtsp-source) pulls the video feed from this server and sends video frames to the [motion detection processor](pipeline.md#motion-detection-processor) node. This processor will detect motion and upon detection will push video frames to the [gRPC extension processor]((pipeline.md#grpc-extension-processor) node.
 
 The gRPC extension node plays the role of a proxy. It converts the video frames to the specified image type. Then it relays the image over gRPC to another edge module that runs an AI model behind a gRPC endpoint over a [shared memory](https://en.wikipedia.org/wiki/Shared_memory). In this example, that edge module is built by using the [YOLOv3](https://github.com/Azure/azure-video-analyzer/tree/main/edge-modules/extensions/yolo/yolov3) model, which can detect many types of objects. The gRPC extension processor node gathers the detection results and publishes events to the [IoT Hub sink](pipeline.md#iot-hub-message-sink) node. The node then sends those events to [IoT Edge Hub](https://docs.microsoft.com/azure/iot-fundamentals/iot-glossary?view=iotedge-2020-11&preserve-view=true#iot-edge-hub).
 
@@ -319,5 +319,10 @@ In the messages, notice the following details:
 ## Next steps
 
 * Try running different media graph topologies using gRPC protocol.
+
+* Review additional challenges for advanced users:
+
+    * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that has support for RTSP instead of using the RTSP simulator. You can search for IP cameras that support RTSP on the [ONVIF conformant](https://www.onvif.org/conformant-products/) products page. Look for devices that conform with profiles G, S, or T.
+    * Use an AMD64 or x64 Linux device instead of an Azure Linux VM. This device must be in the same network as the IP camera. You can follow the instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2018-06&preserve-view=true). Then register the device with Azure IoT Hub by following instructions in [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux?view=iotedge-2018-06&preserve-view=true).
     
 
