@@ -13,11 +13,11 @@ ms.date: 04/30/2021
 
 # Troubleshooting common issues with Shared Private Link Resources
 
-Shared private link resources allow Azure Cognitive Search to make secure outbound connections to access customer resources. However, during the process of managing (create, delete or update) these resources a few different types of errors might occur.
+Shared private link resources allow Azure Cognitive Search to make secure outbound connections to access customer resources. However, during the process of managing (create, delete, or update) these resources a few different types of errors might occur.
 
 ## Creating a shared private link resource
 
-There are 4 distinct steps involved in creation of a shared private link resource:
+There are four distinct steps involved in creation of a shared private link resource:
 
 1. Customer invokes the management plane [CreateOrUpdate API](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) on the Search Resource Provider (RP) with details of the shared private link resource to be created.
 
@@ -25,7 +25,7 @@ There are 4 distinct steps involved in creation of a shared private link resourc
 
 3. Search queries for the completion of the operation (which usually takes a few minutes). At this point, the shared private link resource would have a provisioning state of "Updating".
 
-4. Once the operation completes successfully, a private endpoint (along with any DNS zones and mappings) are created. At this point, if the customer queries the state of the shared private link resource, it would have a provisioning state of "Succeeded".
+4. Once the operation completes successfully, a private endpoint (along with any DNS zones and mappings) is created. At this point, if the customer queries the state of the shared private link resource, it would have a provisioning state of "Succeeded".
 
 ![Steps involved in creating shared private link resources ](media\search-indexer-howto-secure-access\shared-private-link-states.png)
 
@@ -78,10 +78,10 @@ Shared private link resources that have failed ARM deployment will show up in [L
 
 | Deployment failure reason | Description | Resolution |
 | --- | --- | --- |
-| Network resource provider not registered on target resource's subscription | A private endpoint (and associated DNS mappings) are created for the target resource (Storage Account, CosmosDB, SQL server etc.,) via the `Microsoft.Network` resource provider (RP). If the subscription that hosts the target resource ("target subscription") is not registered with `Microsoft.Network` RP, then the ARM deployment can fail. | Customers need to register this RP in their target subscription. Typically, this can be done either via the Azure portal, powershell or CLI as documented in [this guide](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types) |
+| Network resource provider not registered on target resource's subscription | A private endpoint (and associated DNS mappings) is created for the target resource (Storage Account, CosmosDB, SQL server etc.,) via the `Microsoft.Network` resource provider (RP). If the subscription that hosts the target resource ("target subscription") is not registered with `Microsoft.Network` RP, then the ARM deployment can fail. | Customers need to register this RP in their target subscription. Typically, this can be done either via the Azure portal, powershell, or CLI as documented in [this guide](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types) |
 | Invalid `groupId` for the target resource | When CosmosDB accounts are created, customers can specify the API type for the database account. While CosmosDB offers several different API types, Azure Cognitive Search only supports "Sql" as the `groupId` for shared private link resources. When a "Sql" shared private link resource is created for a `privateLinkResourceId` that points to a non-Sql database account, the ARM deployment will fail because of the `groupId` mismatch. The Azure resource Id of a CosmosDB account is not sufficient to determine the API type that is being used. Azure Cognitive Search tries to create the private endpoint, which is then denied by CosmosDb. | Customers should ensure that the `privateLinkResourceId` of the specified CosmosDb resource is for a database account of "Sql" API type |
-| Target resource not found | Existence of the target resource specified in `privateLinkResourceId` is checked only during the commencement of the ARM deployment. If the target resource is no longer available then the deployment will fail. | Customer should ensure that the target resource is present in the specified subscription and resource group and is not moved/deleted |
-| Transient/other errors | The ARM deployment can fail in case of an infrastructure outage or because of other unexpected reasons. This should be rare and usually indicates a transient state. | Retry creating this resource at a later time. If the problem persists reach out to Azure Support. |
+| Target resource not found | Existence of the target resource specified in `privateLinkResourceId` is checked only during the commencement of the ARM deployment. If the target resource is no longer available, then the deployment will fail. | Customer should ensure that the target resource is present in the specified subscription and resource group and is not moved/deleted |
+| Transient/other errors | The ARM deployment can fail if there is an infrastructure outage or because of other unexpected reasons. This should be rare and usually indicates a transient state. | Retry creating this resource at a later time. If the problem persists reach out to Azure Support. |
 
 ### Resource stuck in "Updating" or "Incomplete" state
 
@@ -93,7 +93,7 @@ If you observe that the shared private link resource has not transitioned to a t
 
 ## Updating a shared private link resource
 
-An existing shared private link resource can be updated using the [Create or Update API](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate). Search RP only allows for very narrow updates to the shared private link resource - only the request message can be modified via this API.
+An existing shared private link resource can be updated using the [Create or Update API](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate). Search RP only allows for narrow updates to the shared private link resource - only the request message can be modified via this API.
 
 1. It is not possible to update any of the "core" properties of an existing shared private link resource (such as `privateLinkResourceId` or `groupId`) and this will always be unsupported. If any other property besides the request message needs to be changed, we advise customers to delete and re-create the shared private link resource.
 
@@ -101,7 +101,7 @@ An existing shared private link resource can be updated using the [Create or Upd
 
 ## Deleting a shared private link resource
 
-Customers can delete an existing shared private link resource via the [Delete API](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/delete). Similar to the process of creation (or update), this is also an asynchronous operation with 4 steps:
+Customers can delete an existing shared private link resource via the [Delete API](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/delete). Similar to the process of creation (or update), this is also an asynchronous operation with four steps:
 
 1. Customer requests search RP to delete the shared private link resource.
 
@@ -111,16 +111,16 @@ Customers can delete an existing shared private link resource via the [Delete AP
 
 4. Once the operation completes successfully, the backing private endpoint and any associated DNS mappings are removed. The resource will not show up as part of [List](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/listbyservice) operation and attempting a [Get](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/get) operation on this resource will result in a 404 Not Found.
 
-![Steps involved in creating shared private link resources ](media\search-indexer-howto-secure-access\shared-private-link-delete-states.png)
+![Steps involved in deleting shared private link resources ](media\search-indexer-howto-secure-access\shared-private-link-delete-states.png)
 
 Some common errors that occur during the deletion phase are listed below.
 
 | Failure Type | Description | Resolution |
 | --- | --- | --- |
 | Resource is in non-terminal state | A shared private link resource that's not in a terminal state (`Succeeded` or `Failed`) cannot be deleted. It is possible (rare) for a shared private link resource to be stuck in a non-terminal state for up to 8 hours. | Wait until the resource has reached a terminal state and retry the delete request. |
-| ARM delete operation failed with error "Conflict" | The ARM operation to delete a shared private link resource reaches out to the resource provider of the target resource specified in `privateLinkResourceId` ("target RP") before it can remove the private endpoint and DNS mappings. Customers can utilize [Azure resource locks](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) to prevent any changes to their resources. When ARM reaches out to the target RP, it requires the target RP to modify the state of the target resource (to remove from it's metadata details about the private endpoint). When the target resource has a lock configured on it (or its resource group/subscription), the ARM operation fails with a "Conflict" (and appropriate details). The shared private link resource will not be deleted. | Customers should remove the lock on the target resource before retrying the deletion operation. **Note**: This problem can also occur when customers try to delete a search service with shared private link resources that point to "locked" target resources |
+| ARM delete operation failed with error "Conflict" | The ARM operation to delete a shared private link resource reaches out to the resource provider of the target resource specified in `privateLinkResourceId` ("target RP") before it can remove the private endpoint and DNS mappings. Customers can utilize [Azure resource locks](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) to prevent any changes to their resources. When ARM reaches out to the target RP, it requires the target RP to modify the state of the target resource (to remove details about the private endpoint from its metadata). When the target resource has a lock configured on it (or its resource group/subscription), the ARM operation fails with a "Conflict" (and appropriate details). The shared private link resource will not be deleted. | Customers should remove the lock on the target resource before retrying the deletion operation. **Note**: This problem can also occur when customers try to delete a search service with shared private link resources that point to "locked" target resources |
 | ARM delete operation failed | The asynchronous ARM delete operation can fail in rare cases. When this operation fails, querying the state of the asynchronous operation will present customers with an error message and appropriate details. | Retry the operation at a later time, or reach out to Azure Support if the problem persists.
-| Resource stuck in "Deleting" state | In extremely rare cases, a shared private link resource might be stuck in "Deleting" state for up to 8 hours, likely due to some catastrophic failure on the search RP. | Wait for 8 hours, after which the resource would transition to `Failed` state and then reissue the request.|
+| Resource stuck in "Deleting" state | In rare cases, a shared private link resource might be stuck in "Deleting" state for up to 8 hours, likely due to some catastrophic failure on the search RP. | Wait for 8 hours, after which the resource would transition to `Failed` state and then reissue the request.|
 
 ## Next steps
 
