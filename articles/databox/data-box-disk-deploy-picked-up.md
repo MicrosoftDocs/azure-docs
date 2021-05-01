@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 02/02/2021
+ms.date: 05/01/2021
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -227,7 +227,7 @@ Take the following steps if returning the device in China.
 
 ### [Self-Managed](#tab/in-selfmanaged)
 
-If you are using Data Box Disk in US Government, Japan, Singapore, Korea, United Kingdom, West Europe, Australia, South Africa, or India and have selected the self-managed shipping option during order creation, follow these instructions.
+If you are using Data Box Disk in US Government, Japan, Singapore, Korea, United Kingdom, West Europe, Australia, South Africa, India, or Brazil, and have selected the self-managed shipping option during order creation, follow these instructions.
 
 1. Go to the **Overview** blade for your order in the Azure portal. Go through the instructions displayed when you select **Schedule pickup**. You should see an Authorization code that is used at the time of dropping off the order.
 
@@ -239,6 +239,10 @@ If you are using Data Box Disk in US Government, Japan, Singapore, Korea, United
     Body:
      a. Order name
      b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop-off.
+
+> [!NOTE:]
+> Required information in the email and at pickup may vary by region.<!--This is to cover Brazil's note fiscal requirement in both.-->
+
     ```
 3. Azure Data Box Operations team will work with you to arrange the drop-off to the Azure datacenter.
 

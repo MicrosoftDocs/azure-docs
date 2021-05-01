@@ -57,7 +57,7 @@ When you place a Data Box order, you can choose the self-managed shipping option
    ![Schedule pickup for Azure instructions](media\data-box-portal-customer-managed-shipping\data-box-portal-schedule-pickup-email-01.png)
 
    > [!NOTE:]
-   > Required information in the email may vary by region. *HOW CAN THEY GET THIS INFORMATION?*
+   > Required information in the email may vary by region.<!--How can they get this information?-->
 
 6. After you schedule your device pickup, you can view your device authorization code in the **Schedule pickup for Azure** pane.
 
