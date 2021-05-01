@@ -1,6 +1,6 @@
 ---
 title: Configure maintenance window (Preview)
-description: Learn how to set the time when planned maintenance should be performed on your Azure SQL databases, elastic pools, and managed instance databases.
+description: Learn how to set the time when planned maintenance should be performed on your Azure SQL Databases, elastic pools, and managed instance databases.
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
@@ -14,7 +14,7 @@ ms.date: 03/23/2021
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 
-Configure the [maintenance window (Preview)](maintenance-window.md) for an Azure SQL database, elastic pool, or Azure SQL Managed Instance database during resource creation, or anytime after a resource is created. 
+Configure the [maintenance window (Preview)](maintenance-window.md) for an Azure SQL Database, elastic pool, or Azure SQL Managed Instance database during resource creation, or anytime after a resource is created. 
 
 The *System default* maintenance window is 5PM to 8AM daily (local time of the Azure region the resource is located) to avoid peak business hours interruptions. If the *System default* maintenance window is not the best time, select one of the other available maintenance windows.
 
