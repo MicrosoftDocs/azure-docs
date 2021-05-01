@@ -16,9 +16,9 @@
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
 ## Run a simulated device
-In this section, you install the Azure IoT Node device sdk samples, configure your local environment, and run a sample that creates a simulated temperature controller.
+In this section, you install the Azure IoT Node device SDK, configure your local environment, and run a sample that creates a simulated temperature controller.
 
-1. Open a console using Windows CMD, or PowerShell, or Bash (for Windows or Linux). You'll use the console to install the Node SDK, update environment variables, and run the code sample.
+1. Open a console using Windows CMD, PowerShell, or Bash (for Windows or Linux). You'll use the console to install the Node SDK, update environment variables, and run the code sample.
 
 1. Copy the Azure IoT Node.js device SDK to your local machine.
 
@@ -35,7 +35,7 @@ In this section, you install the Azure IoT Node device sdk samples, configure yo
     npm install
     ```
 
-1. Set each of the following environment variables, to enable your simulated device to connect to IoT Central. For `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY`, and `IOTHUB_DEVICE_DPS_DEVICE_ID`, use the device connection values that you saved.
+1. Set the following environment variables, using the appropriate commands for your console. The simulated device uses these values to connect to IoT Central. For `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY`, and `IOTHUB_DEVICE_DPS_DEVICE_ID`, use the device connection values that you saved previously.
 
     **Windows CMD**
 

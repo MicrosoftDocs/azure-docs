@@ -12,34 +12,73 @@
 ## Prerequisites
 - You can run this quickstart on Linux or Windows. The shell commands use the standard Linux path separator `/`. If you use use Windows, replace these separators with the Windows path separator `\`.
 
-### Linux prerequisites
+Install the remaining prerequisites for your operating system.
 
-### Windows prerequisites
+### Linux
+The steps in this tutorial were tested using Ubuntu Linux 18.04.
+
+To complete this quickstart on Linux, install the following software on your local Linux environment:
+
+Install **GCC**, **Git**, **cmake**, and the required dependencies using the `apt-get` command:
+
+```sh
+sudo apt-get update
+sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
+```
+
+Verify the version of `cmake` is above **2.8.12** and the version of **GCC** is above **4.4.7**.
+
+```sh
+cmake --version
+gcc --version
+```
+
+### Windows
+To complete this quickstart on Windows, install the following software on your local Windows environment:
+
+* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure you include the **Desktop Development with C++** workload when you [install](/cpp/build/vscpp-step-0-installation?preserve-view=true&view=vs-2019) Visual Studio.
+* [Git](https://git-scm.com/download/).
+* [CMake](https://cmake.org/download/).
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
 ## Run a simulated device
-In this section, you install the Azure IoT Python device sdk samples, configure your local environment, and run a sample that creates a simulated temperature controller.
+In this section, you install the Azure IoT C device SDK, configure your local environment, and run a sample that creates a simulated temperature controller.
 
-1. Open a console using Windows CMD, or PowerShell, or Bash (for Windows or Linux). You'll use the console to install the Python SDK, update environment variables, and run the Python code sample.
+1. Open a console using Windows CMD, PowerShell, or Bash (for Windows or Linux). You'll use the console to install the C SDK, update environment variables, and run the code sample.
 
-1. Copy the [Azure IoT Python SDK device samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) to your local machine.
-
-    ```console
-    git clone https://github.com/Azure/azure-iot-sdk-python
-    ```
-
-1. Navigate to the samples directory.
+1. Copy the Azure IoT C device SDK to your local machine.
 
     ```console
-    cd azure-iot-sdk-python/azure-iot-device/samples/pnp
-    ```
-1. Install the Azure IoT Python SDK.
-    ```console
-    pip3 install azure-iot-device
+    git clone https://github.com/Azure/azure-iot-sdk-c.git
     ```
 
-1. Set each of the following environment variables, to enable your simulated device to connect to IoT Central. For `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY`, and `IOTHUB_DEVICE_DPS_DEVICE_ID`, use the device connection values that you saved.
+1. Navigate to the newly created folder for the SDK:
+
+    ```console
+    cd azure-iot-sdk-c
+    ```
+1. Run the following command to update dependencies:
+    ```console
+    git submodule update --init
+    ```
+    This operation takes a few minutes.
+
+1. In the root folder of the device SDK, create a subfolder named *cmake*, and navigate to that folder:
+
+    ```console
+    mkdir cmake
+    cd cmake
+    ```
+
+1. To build the SDK and samples, run the following commands:
+
+    ```console
+    cmake -Duse_prov_client=ON -Dhsm_type_symm_key=ON -Drun_e2e_tests=OFF ..
+    cmake --build .
+    ```
+
+1. Set the following environment variables, using the appropriate commands for your console. The simulated device uses these values to connect to IoT Central. For `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY`, and `IOTHUB_DEVICE_DPS_DEVICE_ID`, use the device connection values that you saved previously. 
 
     **Windows CMD**
 
@@ -73,9 +112,23 @@ In this section, you install the Azure IoT Python device sdk samples, configure 
     export IOTHUB_DEVICE_DPS_DEVICE_ID='<your device ID>'
     export IOTHUB_DEVICE_DPS_ENDPOINT='global.azure-devices-provisioning.net' 
     ```
-1. In your console, run the following code sample from the SDK. The sample creates a simulated temperature controller with thermostat sensors.
+
+1. Run the sample code, using the appropriate command for your console:
+
+    **Windows CMD**
     ```console
-    python temp_controller_with_thermostats.py
+    cd iothub_client\samples\pnp\pnp_temperature_controller\Debug
+    .\pnp_temperature_controller.exe
+    ```
+    **PowerShell**
+    ```azurepowershell
+    cd iothub_client\samples\pnp\pnp_temperature_controller\Debug
+    .\pnp_temperature_controller.exe
+    ```
+
+    **Bash (Linux or Windows)**
+    cd iothub_client/samples/pnp/pnp_temperature_controller/
+    ./pnp_temperature_controller
     ```
 
     After your simulated device connects to your IoT Central application, it connects to the device instance you created in the application and begins to send telemetry. The connection details and telemetry output are shown in your console: 
