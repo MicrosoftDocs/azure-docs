@@ -829,7 +829,7 @@ condition and effect for each policy is independently evaluated. For example:
   - Restricts resource location to 'eastus'
   - Assigned to resource group B in subscription A
   - Audit effect
-  
+
 This setup would result in the following outcome:
 
 - Any resource already in resource group B in 'eastus' is compliant to policy 2 and non-compliant to
@@ -861,4 +861,5 @@ to validate the right policy assignments are affecting the right scopes.
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
-- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).
+- Review what a management group is with
+  [Organize your resources with Azure management groups](../../management-groups/overview.md).
