@@ -252,7 +252,7 @@ These metrics will be reported from the Video Analytics on IoT Edge module throu
 
 ### Azure Monitor collection via Telegraf 
 
-Follow these steps to enable the collection of metrics from the Video Analytics on IoT Edge module. The metrics will be collected by [Telegraf](https://github.com/influxdata/telegraf), then uploaded to [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/) as a [custom metric](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-custom-overview). In telegraf, the logs are scraped by the [prometheus](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/prometheus) plugin, and uploaded by the [azure_monitor](https://github.com/influxdata/telegraf/tree/master/plugins/outputs/azure_monitor) plugin.
+Follow these steps to enable the collection of metrics from the Video Analytics on IoT Edge module. The metrics will be collected by [Telegraf](https://github.com/influxdata/telegraf), then uploaded to [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) as a [custom metric](https://docs.microsoft.com/azure/azure-monitor/essentials/metrics-custom-overview). In telegraf, the logs are scraped by the [prometheus](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/prometheus) plugin, and uploaded by the [azure_monitor](https://github.com/influxdata/telegraf/tree/master/plugins/outputs/azure_monitor) plugin.
 
 The agent can be used to collect metrics from any module which exposes a Prometheus endpoint.
 
