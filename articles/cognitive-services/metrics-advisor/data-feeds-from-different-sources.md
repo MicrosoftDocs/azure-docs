@@ -280,22 +280,16 @@ The following sections specify the parameters required for all authentication ty
      {"date": "2018-01-01T00:00:00Z", "market":"zh-cn", "count":22, "revenue":4.56}
    ]
    ```
-   <!--
-   ## <span id="eventhubs">Azure Event Hubs</span>
-
+<!--
+## <span id="eventhubs">Azure Event Hubs</span>
 * **Connection String**: This can be found in 'Shared access policies' in your Event Hubs instance. Also for the 'EntityPath', it could be found by clicking into your Event Hubs instance and clicking at 'Event Hubs' in 'Entities' blade. Items that listed can be input as EntityPath. 
-
 * **Consumer Group**: A [consumer group](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#consumer-groups) is a view (state, position, or offset) of an entire event hub.
 Event Hubs use the latest offset of a consumer group to consume (subscribe from) the data from data source. Therefore a dedicated consumer group should be created for one data feed in your Metrics Advisor instance.
-
 * **Timestamp**: Metrics Advisor uses the Event Hubs timestamp as the event timestamp if the user data source does not contain a timestamp field.
 The timestamp field must match one of these two formats:
-
-    * "YYYY-MM-DDTHH:MM:SSZ" format;
-
-    * Number of seconds or milliseconds from the epoch of 1970-01-01T00:00:00Z.
-
-    No matter which timestamp field it left aligns to granularity.For example, if timestamp is "2019-01-01T00:03:00Z", granularity is 5 minutes, then Metrics Advisor aligns the timestamp to "2019-01-01T00:00:00Z". If the event timestamp is "2019-01-01T00:10:00Z",  Metrics Advisor uses the timestamp directly without any alignment.
+* "YYYY-MM-DDTHH:MM:SSZ" format;
+* * Number of seconds or milliseconds from the epoch of 1970-01-01T00:00:00Z.
+    No matter which timestamp field it left aligns to granularity.For example, if timestamp is "2019-01-01T00:03:00Z", granularity is 5 minutes, then Metrics Advisor aligns the timestamp to "2019-01-01T00:00:00Z". If the event timestamp is "2019-01-01T00:10:00Z",  Metrics Advisor uses the timestamp directly without any alignment. 
 -->
 
 ## <span id="log">Azure Log Analytics</span>
