@@ -55,7 +55,8 @@ away from alignment with ISM PROTECTED controls.
 
 1. Select **Publish blueprint** at the top of the page. In the new page on the right, provide a
    **Version** for your copy of the blueprint sample. This property is useful for if you make a
-   modification later. Provide **Change notes** such as "First version published from the ISM PROTECTED blueprint sample." Then select **Publish** at the bottom of the page.
+   modification later. Provide **Change notes** such as "First version published from the ISM
+   PROTECTED blueprint sample." Then select **Publish** at the bottom of the page.
 
 ## Assign the sample copy
 
@@ -200,10 +201,10 @@ The following table provides a list of the blueprint artifact parameters:
 |\[Preview\]: Audit Australian Government ISM PROTECTED controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Remote debugging should be turned off for Web Application|Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
 |\[Preview\]: Audit Australian Government ISM PROTECTED controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Vulnerabilities in security configuration on your machines should be remediated  |Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
 |\[Preview\]: Audit Australian Government ISM PROTECTED controls and deploy specific VM Extensions to support audit requirements|Policy assignment|MFA should be enabled on accounts with read permissions on your subscription  |Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md). |
-|\[Preview\]: Audit Australian Government ISM PROTECTED controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Enforce password history  |	Specifies limits on password reuse - how many times a new password must be created for a user account before the password can be repeated. |
-|\[Preview\]: Audit Australian Government ISM PROTECTED controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Maximum password age  |	Specifies the maximum number of days that may elapse before a user account password must be changed. The format of the value is two integers separated by a comma, denoting an inclusive range. |
+|\[Preview\]: Audit Australian Government ISM PROTECTED controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Enforce password history  | Specifies limits on password reuse - how many times a new password must be created for a user account before the password can be repeated. |
+|\[Preview\]: Audit Australian Government ISM PROTECTED controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Maximum password age  | Specifies the maximum number of days that may elapse before a user account password must be changed. The format of the value is two integers separated by a comma, denoting an inclusive range. |
 |\[Preview\]: Audit Australian Government ISM PROTECTED controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Minimum password age | 	Specifies the minimum number of days that must elapse before a user account password can be changed. |
-|\[Preview\]: Audit Australian Government ISM PROTECTED controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Minimum password length  |	Specifies the minimum number of characters that a user account password may contain. |
+|\[Preview\]: Audit Australian Government ISM PROTECTED controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Minimum password length  | Specifies the minimum number of characters that a user account password may contain. |
 |\[Preview\]: Audit Australian Government ISM PROTECTED controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Password must meet complexity requirements|Specifies whether a user account password must be complex. If required, a complex password must not contain part of user's account name or full name; be at least 6 characters long; contain a mix of uppercase, lowercase, number, and non-alphabetic characters. |
 |\[Preview\]: Audit Australian Government ISM PROTECTED controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Vulnerabilities in container security configurations should be remediated|Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md). |
 |\[Preview\]: Audit Australian Government ISM PROTECTED controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Remote debugging should be turned off for App Service|Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md). |
@@ -217,8 +218,8 @@ The following table provides a list of the blueprint artifact parameters:
 
 ## Next steps
 
-Now that you've reviewed the steps to deploy the Australian Government ISM PROTECTED blueprint sample, visit the following
-articles to learn about the blueprint and control mapping:
+Now that you've reviewed the steps to deploy the Australian Government ISM PROTECTED blueprint
+sample, visit the following articles to learn about the blueprint and control mapping:
 
 > [!div class="nextstepaction"]
 > [ISM PROTECTED blueprint - Overview](./index.md)
