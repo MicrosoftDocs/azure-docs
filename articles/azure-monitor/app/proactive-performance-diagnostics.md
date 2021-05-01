@@ -7,6 +7,11 @@ ms.date: 05/04/2017
 ms.reviewer: antonfr
 ---
 
+>[!NOTE]
+>You can migrate Smart Detection on your Application Insights resource to be based on alerts. The migration creates alert rules for the different Smart Detection modules. Once created, you can manage and configure these rules just like any other Azure Monitor alert rules. You can also configure action groups for these rules, thus enabling multiple methods of taking actions or triggering notification on new detections.
+>
+> See [Smart Detection Alerts migration](../alerts/alerts-smart-detections-migration.md) for more details on the migration process and the behavior of Smart Detection after the migration.
+
 # Smart Detection - Performance Anomalies
 
 [Application Insights](./app-insights-overview.md) automatically analyzes the performance of your web application, and can warn you about potential problems. You might be reading this because you received one of our smart detection notifications.
@@ -40,8 +45,6 @@ The notifications include diagnostic information. Here's an example:
 3. **Diagnose**. Often, the diagnostic information in the notification will suggest the nature of the problem. For example, if response time slows down when request rate is high, that suggests your server or dependencies are overloaded. 
 
     Otherwise, open the Performance blade in Application Insights. There, you will find [Profiler](profiler.md) data. If exceptions are thrown, you can also try the [snapshot debugger](./snapshot-debugger.md).
-
-
 
 ## Configure Email Notifications
 
