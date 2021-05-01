@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 04/29/2021
+ms.date: 05/01/2021
 ms.topic: conceptual
 ---
 # Azure Policy definition structure
@@ -19,7 +19,8 @@ resources have a particular tag. Policy assignments are inherited by child resou
 assignment is applied to a resource group, it's applicable to all the resources in that resource
 group.
 
-The policy definition _policyRule_ schema is found here: [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
+The policy definition _policyRule_ schema is found here:
+[https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
 
 You use JSON to create a policy definition. The policy definition contains elements for:
 
@@ -212,7 +213,7 @@ A parameter has the following properties that are used in the policy definition:
 - `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given.
   Required when updating an existing policy definition that is assigned.
 - `allowedValues`: (Optional) Provides an array of values that the parameter accepts during
-  assignment. Allowed value comparisons are case-sensitive. 
+  assignment. Allowed value comparisons are case-sensitive.
 
 As an example, you could define a policy definition to limit the locations where resources can be
 deployed. A parameter for that policy definition could be **allowedLocations**. This parameter would
@@ -886,6 +887,7 @@ Parameter value:
 ```
 
 Policy:
+
 ```json
 {
     "count": {
@@ -992,7 +994,7 @@ The following functions are only available in policy rules:
 - `policy()`
   - Returns the following information about the policy that is being evaluated. Properties can be
     accessed from the returned object (example: `[policy().assignmentId]`).
-  
+
     ```json
     {
       "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",

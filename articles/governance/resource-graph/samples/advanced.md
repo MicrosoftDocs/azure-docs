@@ -352,15 +352,15 @@ related to those network interfaces.
 ```kusto
 Resources
 | where type =~ 'microsoft.compute/virtualmachines'
-| extend nics=array_length(properties.networkProfile.networkInterfaces) 
-| mv-expand nic=properties.networkProfile.networkInterfaces 
-| where nics == 1 or nic.properties.primary =~ 'true' or isempty(nic) 
-| project vmId = id, vmName = name, vmSize=tostring(properties.hardwareProfile.vmSize), nicId = tostring(nic.id) 
+| extend nics=array_length(properties.networkProfile.networkInterfaces)
+| mv-expand nic=properties.networkProfile.networkInterfaces
+| where nics == 1 or nic.properties.primary =~ 'true' or isempty(nic)
+| project vmId = id, vmName = name, vmSize=tostring(properties.hardwareProfile.vmSize), nicId = tostring(nic.id)
 | join kind=leftouter (
     Resources
     | where type =~ 'microsoft.network/networkinterfaces'
-    | extend ipConfigsCount=array_length(properties.ipConfigurations) 
-    | mv-expand ipconfig=properties.ipConfigurations 
+    | extend ipConfigsCount=array_length(properties.ipConfigurations)
+    | mv-expand ipconfig=properties.ipConfigurations
     | where ipConfigsCount == 1 or ipconfig.properties.primary =~ 'true'
     | project nicId = id, publicIpId = tostring(ipconfig.properties.publicIPAddress.id))
 on nicId
@@ -566,7 +566,6 @@ Search-AzGraph -Query "ResourceContainers | where type=='microsoft.resources/sub
 
 This query uses the [extended properties](../concepts/query-language.md#extended-properties) on
 virtual machines to summarize by power states.
-
 
 ```kusto
 Resources
