@@ -29,6 +29,7 @@ Troubleshooting Logs decrees your charges by giving you basic capabilities for t
 
 > [!NOTE]
 >* By default, the tables inherits the workspace retention. To avoid additional charges, it is recommended to change these tables retention. [Click here to learn how to change table retention](https://docs.microsoft.com//azure/azure-monitor/platform/manage-cost-storage).
+>* If you have any questions, contact [TroubleshootingLogs team](mailto:troubleshootinglogs@microsoft.com)
 >* This feature is available only for subscriptions that were added to the feature allow-list.
 
 ## Turn on Troubleshooting Logs on your tables
