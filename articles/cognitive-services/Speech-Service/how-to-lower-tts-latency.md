@@ -17,7 +17,7 @@ zone_pivot_groups: programming-languages-set-nineteen
 # Lower speech synthesis latency using Speech SDK
 
 > [!NOTE]
-> Speech SDK 1.17.0 is required as the minimum version for this instruction.
+> This article requires Speech SDK 1.17.0 or later.
 
 The synthesis latency is critical to your applications.
 In this article, we will introduce the best practices to lower the latency and bring the best performance to you and your end users.
