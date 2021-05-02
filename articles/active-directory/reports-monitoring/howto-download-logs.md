@@ -94,5 +94,5 @@ In Azure AD, you can access the download option in the toolbar of an activity lo
 
 ## Next steps
 
-* [Sign-ins error codes reference](./concept-sign-ins.md)
-* [Sign-ins report overview](concept-sign-ins.md)
+- [Sign-ins logs in Azure AD](concept-sign-ins.md)
+- [Audit logs in Azure AD](concept-audit-logs.md)
