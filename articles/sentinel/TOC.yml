@@ -337,8 +337,6 @@
     href: cef-name-mapping.md
   - name: MCAS alerts not onboarded to Microsoft 365 Defender
     href: microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md
-  - name: Feature availability for US Government clouds
-    href: /azure/security/fundamentals/feature-availability
 - name: Resources
   items:
   - name: Useful resources
@@ -349,3 +347,5 @@
     href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-sentinel/
+  - name: Feature availability for US Government clouds
+    href: /azure/security/fundamentals/feature-availability
