@@ -221,5 +221,5 @@ Learn how to [deploy Video Analyzer on an IoT Edge device][docs-deploy-on-edge].
 [docs-uami]: /azure/active-directory/managed-identities-azure-resources/overview
 [docs-storage-access]: /azure/role-based-access-control/built-in-roles#storage-blob-data-contributor
 [docs-arm-template]: /azure/azure-resource-manager/templates/overview
-[docs-deploy-on-edge]: deploy,iot-edge-device.md
+[docs-deploy-on-edge]: deploy-iot-edge-device.md
 [click-to-deploy]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fgist.githubusercontent.com%2Fbennage%2F58523b2e6a4d3bf213f16893d894dcaf%2Fraw%2Fazuredeploy.json
