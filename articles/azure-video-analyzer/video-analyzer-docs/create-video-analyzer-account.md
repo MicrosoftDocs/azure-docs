@@ -10,7 +10,7 @@ ms.date: 05/01/2021
 
 To start using Azure Video Analyzer, you will need to create a Video Analyzer account. The account needs to be associated with a storage account and [user-assigned managed identity][docs-uami]. The managed identity will need to have the permissions of the [Storage Blob Data Contributor][docs-storage-access] role for the storage account. This article describes the steps for creating a new Video Analyzer account.
 
- You can use either the Azure portal or an [ARM template][docs-arm-template] to create a Video Analzyer account. Choose the tab for the method you would like to use.
+ You can use either the Azure portal or an [ARM template][docs-arm-template] to create a Video Analyzer account. Choose the tab for the method you would like to use.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
