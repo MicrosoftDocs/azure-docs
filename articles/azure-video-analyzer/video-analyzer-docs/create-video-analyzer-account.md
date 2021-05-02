@@ -10,7 +10,7 @@ ms.date: 05/01/2021
 
 To start using Azure Video Analyzer, you will need to create a Video Analyzer account. The account needs to be associated with a storage account and [user-assigned managed identity][docs-uami]. This article describes the steps for creating a new Video Analyzer account.
 
- You can use either the Azure portal or an Azure Resource Manager template to create a Video Analzyer account. Choose the tab for the method you would like to use.
+ You can use either the Azure portal or an [ARM template][docs-arm-template] to create a Video Analzyer account. Choose the tab for the method you would like to use.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,9 +39,183 @@ To start using Azure Video Analyzer, you will need to create a Video Analyzer ac
 
 1. Click **Review + ceate** at the bottom of the form.
 
-## [CLI](#tab/template/)
+## [Template](#tab/template/)
 
 [!INCLUDE [the video analyzer account and storage account must be in the same subscription](./includes/note-account-storage-same-subscription.md)]
 
+### Review the template
+
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the Deploy to Azure button. The template will open in the Azure portal.
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)][click-to-deploy]
+
+<!-- TODO replace with a reference like this:
+:::code language="json" source="~/quickstart-templates/101-vm-simple-linux/azuredeploy.json":::
+-->
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "namePrefix": {
+            "metadata": {
+                "description": "Used to qualify the names of all of the resources created in this template."
+            },
+            "defaultValue": "avasample",
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 13
+        }
+    },
+    "variables": {
+        "storageAccountName": "[concat(parameters('namePrefix'),uniqueString(resourceGroup().id))]",
+        "accountName": "[concat(parameters('namePrefix'),uniqueString(resourceGroup().id))]",
+        "managedIdentityName": "[concat(parameters('namePrefix'),'-',resourceGroup().name,'-storage-access-identity')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-10-01",
+            "name": "deploy-storage-and-identity",
+            "properties": {
+                "mode": "Incremental",
+                "expressionEvaluationOptions": {
+                    "scope": "Inner"
+                },
+                "parameters": {
+                    "namePrefix": {
+                        "value": "[parameters('namePrefix')]"
+                    },
+                    "managedIdentityName": {
+                        "value": "[variables('managedIdentityName')]"
+                    }
+                },
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {
+                        "namePrefix": {
+                            "type": "string"
+                        },
+                        "managedIdentityName": {
+                            "type": "string"
+                        }
+                    },
+                    "variables": {
+                        "storageAccountName": "[concat(parameters('namePrefix'),uniqueString(resourceGroup().id))]",
+                        "managedIdentityName": "[parameters('managedIdentityName')]",
+                        "roleAssignmentName": "[guid('Storage Blob Data Contributor',variables('managedIdentityName'))]",
+                        "roleDefinitionId": "[concat(resourceGroup().id, '/providers/Microsoft.Authorization/roleDefinitions/', 'ba92f5b4-2d11-453d-a403-e96b0029c9fe')]"
+                    },
+                    "resources": [
+                        {
+                            "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+                            "name": "[variables('managedIdentityName')]",
+                            "apiVersion": "2015-08-31-preview",
+                            "location": "[resourceGroup().location]"
+                        },
+                        {
+                            "type": "Microsoft.Storage/storageAccounts",
+                            "apiVersion": "2019-04-01",
+                            "name": "[variables('storageAccountName')]",
+                            "location": "[resourceGroup().location]",
+                            "sku": {
+                                "name": "Standard_LRS"
+                            },
+                            "kind": "StorageV2",
+                            "properties": {
+                                "accessTier": "Hot"
+                            }
+                        },
+                        {
+                            "name": "[concat(variables('storageAccountName'), '/Microsoft.Authorization/', variables('roleAssignmentName'))]",
+                            "type": "Microsoft.Storage/storageAccounts/providers/roleAssignments",
+                            "apiVersion": "2021-04-01-preview",
+                            "dependsOn": [
+                                "[variables('managedIdentityName')]",
+                                "[variables('storageAccountName')]"
+                            ],
+                            "properties": {
+                                "roleDefinitionId": "[variables('roleDefinitionId')]",
+                                "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities',variables('managedIdentityName')), '2018-11-30').principalId]",
+                                "principalType": "ServicePrincipal"
+                            }
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Media/videoAnalyzers",
+            "comments": "The Azure Video Analyzer account",
+            "apiVersion": "2021-05-01-preview",
+            "name": "[variables('accountName')]",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "deploy-storage-and-identity"
+            ],
+            "properties": {
+                "storageAccounts": [
+                    {
+                        "id": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+                        "identity": {
+                            "userAssignedIdentity": "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities',variables('managedIdentityName'))]"
+                        }
+                    }
+                ]
+            },
+            "identity": {
+                "type": "UserAssigned",
+                "userAssignedIdentities": {
+                    "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities',variables('managedIdentityName'))]": {}
+                }
+            }
+        }
+    ],
+    "outputs": { }
+}
+```
+
+These additional resources are defined in the template:
+
+- [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts): create a storage account.
+- [**Microsoft.ManagedIdentity/userAssignedIdentities**](/azure/templates/Microsoft.ManagedIdentity/userAssignedIdentities): create a user-assigned managed identity.
+- [**Microsoft.Storage/storageAccounts/providers/roleAssignments**](/azure/templates/microsoft.authorization/roleassignment): assign a role for the storage account.
+
+### Deploy the template
+
+1. Select the following image to sign in to Azure and open a template.
+
+    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)][click-to-deploy]
+
+1. Select or enter the following values. Use the default values, when available.
+
+    - **Subscription**: select an Azure subscription.
+    - **Resource group**: select an existing resource group from the drop-down, or select **Create new**, enter a unique name for the resource group, and then click **OK**.
+    - **Location**: select a location.  For example, **West Central US**.
+    - **Name Prefix**: provide a string that is used to prefix the name of the resources.
+
+1. Select **Review + create**. After validation completes, select **Create** to create and deploy the VM.
+
+The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure CLI, Azure PowerShell, and REST API. To learn other deployment methods, see [Deploy templates](../../azure-resource-manager/templates/deploy-cli.md).
+
+## Review deployed resources
+
+You can use the Azure portal to check on the account and other resource that were created. After the deployment is finished, select **Go to resource group** to see the account and other resources.
+
+## Clean up resources
+
+When no longer needed, delete the resource group, which deletes the account and all of the resources in the resource group.
+
+1. Select the **Resource group**.
+1. On the page for the resource group, select **Delete**.
+1. When prompted, type the name of the resource group and then select **Delete**.
+
+## Next steps
+
 <!-- links -->
 [docs-uami]: /azure/active-directory/managed-identities-azure-resources/overview
+[docs-arm-template]: /azure/azure-resource-manager/templates/overview
+[click-to-deploy]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fgist.githubusercontent.com%2Fbennage%2F58523b2e6a4d3bf213f16893d894dcaf%2Fraw%2Fazuredeploy.json
