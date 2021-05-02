@@ -1,11 +1,10 @@
 ---
 title: Learn to audit the contents of virtual machines
 description: Learn how Azure Policy uses the Guest Configuration client to audit settings inside virtual machines.
-ms.date: 01/14/2021
+ms.date: 05/01/2021
 ms.topic: conceptual
 ---
 # Understand Azure Policy's Guest Configuration
-
 
 Azure Policy can audit settings inside a machine, both for machines running in Azure and
 [Arc Connected Machines](../../../azure-arc/servers/overview.md). The validation is performed by the
@@ -50,7 +49,7 @@ Connected Machines because it's included in the Arc Connected Machine agent.
 > [!IMPORTANT]
 > The Guest Configuration extension and a managed identity is required to audit Azure virtual
 > machines. To deploy the extension at scale, assign the following policy initiative:
-> 
+>
 > `Deploy prerequisites to enable Guest Configuration policies on virtual machines`
 
 ### Limits set on the extension
@@ -74,14 +73,15 @@ built-in content, Guest Configuration handles loading these tools automatically.
 
 ### Validation frequency
 
-The Guest Configuration client checks for new or changed guest assignments every 5 minutes. Once a guest assignment is
-received, the settings for that configuration are rechecked on a 15-minute interval. Results are
-sent to the Guest Configuration resource provider when the audit completes. When a policy
-[evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers) occurs, the state of the
-machine is written to the Guest Configuration resource provider. This update causes Azure Policy to
-evaluate the Azure Resource Manager properties. An on-demand Azure Policy evaluation retrieves the
-latest value from the Guest Configuration resource provider. However, it doesn't trigger a new audit
-of the configuration within the machine. The status is simultaneously written to Azure Resource Graph.
+The Guest Configuration client checks for new or changed guest assignments every 5 minutes. Once a
+guest assignment is received, the settings for that configuration are rechecked on a 15-minute
+interval. Results are sent to the Guest Configuration resource provider when the audit completes.
+When a policy [evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers) occurs, the
+state of the machine is written to the Guest Configuration resource provider. This update causes
+Azure Policy to evaluate the Azure Resource Manager properties. An on-demand Azure Policy evaluation
+retrieves the latest value from the Guest Configuration resource provider. However, it doesn't
+trigger a new audit of the configuration within the machine. The status is simultaneously written to
+Azure Resource Graph.
 
 ## Supported client types
 
@@ -167,7 +167,7 @@ are met on the machine. The requirements are described in section
 
 > [!IMPORTANT]
 > In a prior release of Guest Configuration, an initiative was required to combine
-> **DeployIfNoteExists** and **AuditIfNotExists** definitions. **DeployIfNotExists** definitions are
+> **DeployIfNotExists** and **AuditIfNotExists** definitions. **DeployIfNotExists** definitions are
 > no longer required. The definitions and initiatives are labeled `[Deprecated]` but existing
 > assignments will continue to function. For information see the blog post:
 > [Important change released for Guest Configuration audit policies](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
@@ -283,7 +283,7 @@ Capture information from log files using
 [Azure VM Run Command](../../../virtual-machines/linux/run-command.md), the following example Bash
 script can be helpful.
 
-```Bash
+```bash
 linesToIncludeBeforeMatch=0
 linesToIncludeAfterMatch=10
 logPath=/var/lib/GuestConfig/gc_agent_logs/gc_agent.log
