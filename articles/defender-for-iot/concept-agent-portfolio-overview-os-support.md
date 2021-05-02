@@ -11,7 +11,7 @@ Azure Defender for IoT provides a large portfolio of agents based on the device 
 
 ## Standalone agent
 
-The standalone agent covers most of the Linux operating systems, which can be deployed as a binary package or as a source code that can be incorporated as part of the firmware and allow modification and customization based on customer needs. The following are some examples of supported OS: 
+The standalone agent covers most of the Linux Operating Systems (OS), which can be deployed as a binary package or as a source code that can be incorporated as part of the firmware and allow modification and customization based on customer needs. The following are some examples of supported OS: 
 
 | Operating system | AMD64 | ARM32v7 |
 |--|--|--|
