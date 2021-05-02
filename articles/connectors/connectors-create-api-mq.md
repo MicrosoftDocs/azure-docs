@@ -98,7 +98,7 @@ When you add an MQ action for the first time, you're prompted to create a connec
 > The MQ connector currently supports only server authentication, not client authentication. 
 > For more information, see [Connection and authentication problems](#connection-problems).
 
-#### [Managed](#tab/managed-connection)
+#### [Managed](#tab/managed)
 
 1. If you're connecting to an on-premises MQ server, select **Connect via on-premises data gateway**.
 
@@ -126,7 +126,7 @@ When you add an MQ action for the first time, you're prompted to create a connec
 
 1. When you're done, select **Create**.
 
-#### [Built-in (preview)](#tab/built-in-connection)
+#### [Built-in (preview)](#tab/built-in)
 
 1. Provide the connection information for your MQ server.
 
