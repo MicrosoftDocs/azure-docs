@@ -32,7 +32,7 @@ The IBM MQ connector provides actions but no triggers.
 
 For more information about the difference between a managed connector and built-in operations, review [key terms in Logic Apps](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-#### [Managed](#tab/managed-operations)
+#### [Managed](#tab/managed)
 
 For all the operations in the managed connector and other technical information, review the [MQ connector's reference page](/connectors/mq/). The following table lists some example operations available with the managed connector:
 
@@ -47,7 +47,7 @@ For all the operations in the managed connector and other technical information,
 | Send message | Send a single message to the MQ server. |
 |||
 
-#### [Built-in (preview)](#tab/built-in-operations)
+#### [Built-in (preview)](#tab/built-in)
 
 The following table lists the operations available with the built-in version:
 
@@ -65,6 +65,8 @@ Built-in operations also include the following capabilities:
 - The Receive Messages operation has options to set the maximum number of messages and the maximum batch size in KB.
 - Support for Azure virtual network integration when your logic app uses the Azure Functions Premium plan
 - Built-in operations benefit from all the other capabilities available for logic apps that run in single-tenant Logic Apps service. For more information, see [Overview for Azure Logic Apps (Preview)](../logic-apps/logic-apps-overview-preview.md).
+
+---
 
 ## Limitations
 
@@ -96,7 +98,7 @@ When you add an MQ action for the first time, you're prompted to create a connec
 > The MQ connector currently supports only server authentication, not client authentication. 
 > For more information, see [Connection and authentication problems](#connection-problems).
 
-#### [Managed](#tab/managed-connection)
+### [Managed](#tab/managed-connection)
 
 1. If you're connecting to an on-premises MQ server, select **Connect via on-premises data gateway**.
 
@@ -124,7 +126,7 @@ When you add an MQ action for the first time, you're prompted to create a connec
 
 1. When you're done, select **Create**.
 
-#### [Built-in (preview)](#tab/built-in-connection)
+### [Built-in (preview)](#tab/built-in-connection)
 
 1. Provide the connection information for your MQ server.
 
