@@ -30,7 +30,7 @@ Video Analyzer supports operating under conditions where the edge device may occ
 ```
 "segmentLength": "PT30S",
 "localMediaCacheMaximumSizeMiB": "2048",
-"localMediaCachePath": "/var/lib/azurevideoanalyzer/tmp/",
+"localMediaCachePath": "/var/lib/videoanalyzer/tmp/",
 ```
 
 The latter two properties are relevant to resilient recording (both are also required properties for a video sink node). The localMediaCachePath property tells the video sink to use that folder path to cache media data before uploading to the asset. You can see [this](../../iot-edge/how-to-access-host-storage-from-module.md) article to understand how the edge module can make use of your device's local storage. The `localMediaCacheMaximumSizeMiB` property defines how much disk space the video sink can use as a cache (1 MiB = 1024 * 1024 bytes). 

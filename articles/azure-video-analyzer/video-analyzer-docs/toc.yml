@@ -8,6 +8,8 @@
     href: ../video-analyzer-for-media-docs/video-indexer-overview.md
   - name: Video Analyzer terminology
     href: terminology.md
+  - name: Release notes
+    href: release-notes.md
 - name: Quickstarts
   items:
   - name: Get started - Azure Video Analyzer
@@ -52,6 +54,7 @@
       href: computer-vision-for-spatial-analysis.md    
     - name: With OVMS via HTTP extension
       displayName: analyze live video, intel, OpenVINO 
+      href: use-intel-openvino-tutorial.md
     - name: With OV DL Streamer via gRPC extension
       displayName: analyze live video, intel, OpenVINO, DL Streamer, VAS
       href: use-intel-grpc-vas-tutorial.md #404
@@ -119,7 +122,7 @@
   - name: Cloud APIs #404
     href: cloud-apis.md
   - name: Module Twin configuration schema
-    href: module-twin-configuration-schema.md  #404
+    href: module-twin-json-schema.md
   - name: Production readiness and best practices	
     href: production-readiness.md  #404
   - name: VS Code extension

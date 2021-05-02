@@ -1,7 +1,7 @@
 ---
 title: Canada Federal PBMM blueprint sample controls
 description: Control mapping of the Canada Federal PBMM blueprint samples. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 02/05/2021
+ms.date: 04/30/2021
 ms.topic: sample
 ---
 # Control mapping of the Canada Federal PBMM blueprint sample
@@ -51,7 +51,6 @@ appropriate action to ensure account management requirements are met.
 - External accounts with owner permissions should be removed from your subscription
 - External accounts with read permissions should be removed from your subscription
 - External accounts with write permissions should be removed from your subscription
-
 
 ## AC-2 (7) Account Management | Role-Based Schemes
 
@@ -126,12 +125,13 @@ monitor and enforce use of advanced data security on SQL server.
 
 ## AC-17 (1) Remote Access | Automated Monitoring / Control
 
-This blueprint helps you monitor and control remote access by assigning [Azure Policy](../../../policy/overview.md)
-definitions to monitor that remote debugging for Azure App Service application is turned off. The
-blueprint also assigns policy definitions that audit Linux virtual machines that allow remote
-connections from accounts without passwords. Additionally, the blueprint assigns an Azure Policy
-definition that helps you monitor unrestricted access to storage accounts. Monitoring these
-indicators can help you ensure remote access methods comply with your security policy.
+This blueprint helps you monitor and control remote access by assigning
+[Azure Policy](../../../policy/overview.md) definitions to monitor that remote debugging for Azure
+App Service application is turned off. The blueprint also assigns policy definitions that audit
+Linux virtual machines that allow remote connections from accounts without passwords. Additionally,
+the blueprint assigns an Azure Policy definition that helps you monitor unrestricted access to
+storage accounts. Monitoring these indicators can help you ensure remote access methods comply with
+your security policy.
 
 - Show audit results from Linux VMs that allow remote connections from accounts without passwords
 - Storage accounts should restrict network access
@@ -268,7 +268,8 @@ all virtual machine user accounts comply with your organization's password polic
 - Show audit results from Windows VMs that do not have a maximum password age of 70 days
 - Show audit results from Windows VMs that do not have a minimum password age of 1 day
 - Show audit results from Windows VMs that do not have the password complexity setting enabled
-- Show audit results from Windows VMs that do not restrict the minimum password length to 14 characters
+- Show audit results from Windows VMs that do not restrict the minimum password length to 14
+  characters
 
 ## IA-8 (100) Identification and Authentication (Non-Organizational Users) | Identity and Credential Assurance Levels
 
@@ -443,8 +444,8 @@ you can take appropriate action.
 - Deploy Threat Detection on SQL servers
 
 > [!NOTE]
-> Availability of specific Azure Policy definitions may vary in Azure Government and other national 
-> clouds. 
+> Availability of specific Azure Policy definitions may vary in Azure Government and other national
+> clouds.
 
 ## Next steps
 
