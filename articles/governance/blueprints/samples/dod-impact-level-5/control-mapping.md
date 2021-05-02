@@ -237,20 +237,20 @@ settings are enabled or not.
 ## CM-7 (2) Least Functionality | Prevent Program Execution
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
-application allow list solution that can block or prevent specific software from running on your
+application allowlist solution that can block or prevent specific software from running on your
 virtual machines. Application control can run in an enforcement mode that prohibits non-approved
 application from running. This blueprint assigns an Azure Policy definition that helps you monitor
-virtual machines where an application allow list is recommended but has not yet been configured.
+virtual machines where an application allowlist is recommended but has not yet been configured.
 
 - Adaptive application controls for defining safe applications should be enabled on your machines
 
 ## CM-7 (5) Least Functionality | Authorized Software / Whitelisting
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
-application allow list solution that can block or prevent specific software from running on your
+application allowlist solution that can block or prevent specific software from running on your
 virtual machines. Application control helps you create approved application lists for your virtual
 machines. This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that
-helps you monitor virtual machines where an application wallow list is recommended but has not yet
+helps you monitor virtual machines where an application wallowlist is recommended but has not yet
 been configured.
 
 - Adaptive application controls for defining safe applications should be enabled on your machines
@@ -258,11 +258,11 @@ been configured.
 ## CM-11 User-Installed Software
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
-application allow list solution that can block or prevent specific software from running on your
+application allowlist solution that can block or prevent specific software from running on your
 virtual machines. Application control can help you enforce and monitor compliance with software
 restriction policies. This blueprint assigns an [Azure Policy](../../../policy/overview.md)
-definition that helps you monitor virtual machines where an application allow list is recommended
-but has not yet been configured.
+definition that helps you monitor virtual machines where an application allowlist is recommended but
+has not yet been configured.
 
 - Adaptive application controls for defining safe applications should be enabled on your machines
 
