@@ -41,18 +41,9 @@ You can obtain the sample in either of two ways:
 
 [!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
 
-## Register your web API
+## Register the web API (TodoListService)
 
 Register your web API in **App registrations** in the Azure portal.
-
-### Choose your Azure AD tenant
-
-To register your apps manually, choose the Azure Active Directory (Azure AD) tenant where you want to create your apps.
-
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant that you want to use.
-
-### Register the TodoListService app
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
@@ -92,7 +83,7 @@ To add the new scope to the TodoListClient *app.config* file, do the following:
   > [!NOTE]
   > Make sure that the Application ID uses the following format: `api://{TodoListService-Application-ID}/access_as_user` (where `{TodoListService-Application-ID}` is the GUID representing the Application ID for your TodoListService app).
 
-## Register the TodoListClient client app
+## Register the web app (TodoListClient)
 
 Register your TodoListClient app in **App registrations** in the Azure portal, and then configure the code in the TodoListClient project. If the client and server are considered the same application, you can reuse the application that's registered in step 2. Use the same application if you want users to sign in with a personal Microsoft account.
 
