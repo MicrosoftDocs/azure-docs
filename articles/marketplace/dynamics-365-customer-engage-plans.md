@@ -46,7 +46,7 @@ You need to copy the Service ID of each plan you created so you can map them to 
 
 ## Add Service IDs to your solution package
 
-1. Add the Service IDs you copied in the previous step to your solution package. To learn how, see [Adding license metadata to your solution](https://go.microsoft.com/fwlink/?linkid=2162161&clcid=0x409) and [Create an AppSource package for your app](/powerapps/developer/data-platform/create-package-app-appsource).
+1. Add the Service IDs you copied in the previous step to your solution package. To learn how, see [Adding license metadata to your solution](/powerapps/developer/data-platform/appendix-add-license-information-to-your-solution) and [Create an AppSource package for your app](/powerapps/developer/data-platform/create-package-app-appsource).
 1. After you create the CRM package .zip file, upload it to Azure Blob Storage. You will need to provide the SAS URL of the Azure Blob Storage account that contains the uploaded CRM package .zip file.
 
 ## Next steps
