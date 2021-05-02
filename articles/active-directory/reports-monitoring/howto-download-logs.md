@@ -27,7 +27,7 @@ The Azure Active Directory (Azure AD) portal gives you access to three types of 
 - **[Audit](concept-audit-logs.md)** – Information about changes applied to your tenant such as users and group management or updates applied to your tenant’s resources.
 - **[Provisioning](concept-provisioning-logs.md)** – Activities performed by the provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday.
 
-Azure AD stores the data in these logs for a limited amount of time. As an IT administrator, you can download your activity logs to have a longterm backup.
+Azure AD stores the data in these logs for a limited amount of time. As an IT administrator, you can download your activity logs to have a long-term backup.
 
 This article explains how to download activity logs in Azure AD.  
 
