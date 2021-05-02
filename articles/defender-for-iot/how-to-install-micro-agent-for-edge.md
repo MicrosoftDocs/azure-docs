@@ -1,7 +1,7 @@
 ---
 title: Install Defender for IoT micro agent for Edge (Preview)
 description: Learn how to install, and authenticate the Defender Micro agent for Edge.
-ms.date: 4/12/2021
+ms.date: 05/02/2021
 ms.topic: how-to
 ---
 
