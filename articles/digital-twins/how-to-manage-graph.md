@@ -125,7 +125,7 @@ Relationships are updated using the `UpdateRelationship` method.
 >[!NOTE]
 >This method is for updating the **properties** of a relationship. If you need to change the source twin or target twin of the relationship, you'll need to [delete the relationship](#delete-relationships) and [re-create one](#create-relationships) using the new twins.
 
-The required parameters for the client call are the ID of the source twin (the twin where the relationship originates), the ID of the relationship to update, and a [JSON Patch](http://jsonpatch.com/) document containing the properties and new values you'd like to update.
+The required parameters for the client call are the ID of the source twin (the twin where the relationship originates), the ID of the relationship to update, and a [JSON Patch](http://jsonpatch.com/) document containing the properties and new values you want to update.
 
 Here is sample code showing how to use this method. This example uses the SDK call (highlighted) inside a custom method that might appear in the context of a larger program.
 
@@ -157,7 +157,7 @@ The snippet uses the [Room.json](https://github.com/Azure-Samples/digital-twins-
 
 Before you run the sample, do the following:
 1. Download the model files, place them in your project, and replace the `<path-to>` placeholders in the code below to tell your program where to find them.
-2. Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's hostname.
+2. Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's host name.
 3. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client), the second provides tools to help with authentication against Azure.
 
       ```cmd/sh
@@ -196,7 +196,7 @@ Consider the following data table, describing a set of digital twins 
 
 One way to get this data into Azure Digital Twins is to convert the table to a CSV file and write code to interpret the file into commands to create twins and relationships. The following code sample illustrates reading the data from the CSV file and creating a twin graph in Azure Digital Twins.
 
-In the code below, the CSV file is called *data.csv*, and there is a placeholder representing the **hostname** of your Azure Digital Twins instance. The sample also makes use of several packages that you can add to your project to help with this process.
+In the code below, the CSV file is called *data.csv*, and there is a placeholder representing the **host name** of your Azure Digital Twins instance. The sample also makes use of several packages that you can add to your project to help with this process.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graphFromCSV.cs":::
 

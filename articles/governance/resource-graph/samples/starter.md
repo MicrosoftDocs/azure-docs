@@ -499,7 +499,7 @@ results from _Resources_, giving broad coverage to which tags are fetched. Last,
 results to `distinct` paired data and excludes system-hidden tags.
 
 ```kusto
-ResourceContainers 
+ResourceContainers
 | where isnotempty(tags)
 | project tags
 | mvexpand tags

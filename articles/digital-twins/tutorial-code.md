@@ -44,7 +44,7 @@ What you need to begin:
 
 Once you are ready to go with your Azure Digital Twins instance, start setting up the client app project. 
 
-Open a command prompt or other console window on your machine, and create an empty project directory where you would like to store your work during this tutorial. Name the directory whatever you would like (for example, *DigitalTwinsCodeTutorial*).
+Open a command prompt or other console window on your machine, and create an empty project directory where you want to store your work during this tutorial. Name the directory whatever you want (for example, *DigitalTwinsCodeTutorial*).
 
 Navigate into the new directory.
 
@@ -97,10 +97,10 @@ Next, you'll add code to this file to fill out some functionality.
 
 The first thing your app will need to do is authenticate against the Azure Digital Twins service. Then, you can create a service client class to access the SDK functions.
 
-In order to authenticate, you need the *hostName* of your Azure Digital Twins instance.
+In order to authenticate, you need the *host name* of your Azure Digital Twins instance.
 
 In *Program.cs*, paste the following code below the "Hello, World!" printout line in the `Main` method. 
-Set the value of `adtInstanceUrl` to your Azure Digital Twins instance *hostName*.
+Set the value of `adtInstanceUrl` to your Azure Digital Twins instance *host name*.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Authentication_code":::
 
@@ -122,7 +122,7 @@ Azure Digital Twins has no intrinsic domain vocabulary. The types of elements in
 
 The first step in creating an Azure Digital Twins solution is defining at least one model in a DTDL file.
 
-In the directory where you created your project, create a new *.json* file called *SampleModel.json*. Paste in the following file body: 
+In the directory where you created your project, create a new .json file called *SampleModel.json*. Paste in the following file body: 
 
 :::code language="json" source="~/digital-twins-docs-samples/models/SampleModel.json":::
 
@@ -256,7 +256,7 @@ At this point in the tutorial, you have a complete client app, capable of perfor
 
 ## Clean up resources
 
-After completing this tutorial, you can choose which resources you'd like to remove, depending on what you'd like to do next.
+After completing this tutorial, you can choose which resources you want to remove, depending on what you want to do next.
 
 * **If you plan to continue to the next tutorial**, the instance used in this tutorial can be reused in the next one. You can keep the Azure Digital Twins resources you set up here and skip the rest of this section.
 
