@@ -34,35 +34,27 @@ For more information about the difference between a managed connector and built-
 
 #### [Managed](#tab/managed)
 
-The following table lists some example managed connector operations available for MQ. For all the managed connector operations and other technical information, such as properties, limits, and so on, review the [MQ connector's reference page](/connectors/mq/).
+The following lists describes some example managed connector operations available for MQ:
 
-| Operation | Description |
-|-----------|-------------|
-| **Browse message** | Return a single message without deleting from the MQ server. |
-| **Browse messages** | Return an array of messages without deleting from the MQ server. <p><p>You can specify the maximum number of messages to return. Otherwise, all messages are returned. |
-| **Delete message** | Delete a single message from the MQ server. |
-| **Delete messages** | Delete an array of messages from the MQ server. |
-| **Receive message** | Return a single message and then delete from the MQ server. |
-| **Receive messages** | Return an array of messages and then delete from the MQ server. |
-| **Send message** | Send a single message to the MQ server. |
-|||
+* Browse a single message or an array of messages without deleting from the MQ server. For multiple messages, you can specify the maximum number of messages to return per batch. Otherwise, all messages are returned.
+* Delete a single or an array of messages from the MQ server.
+* Receive a single message or an array of messages and then delete from the MQ server.
+* Send a single message to the MQ server.
+
+ For all the managed connector operations and other technical information, such as properties, limits, and so on, review the [MQ connector's reference page](/connectors/mq/).
 
 #### [Built-in (preview)](#tab/built-in)
 
-The following table lists the built-in operations available for MQ:
+The following list describes some example built-in operations available for MQ:
 
-| Operation | Description |
-|-----------|-------------|
-| **Receive messages** | Return a single or multiple messages from the MQ server. <p><p>For multiple messages, you can specify the maximum number of messages to receive per batch and the maximum batch size in KB. |
-| **Send message** | Write a single message to the MQ server. |
-| **Send multiple messages** | Send an array of messages to the MQ server. |
-||||
+* Receive a single message or an array of messages from the MQ server. For multiple messages, you can specify the maximum number of messages to return per batch and the maximum batch size in KB.
+* Send a single message or an array of messages to the MQ server.
 
 These built-in MQ operations also have the following capabilities plus the benefits from all the other capabilities for logic apps in the [single-tenant Logic Apps service](../logic-apps/logic-apps-overview-preview.md):
 
-- Transport Layer Security (TLS) encryption for data in transit
-- Message encoding for both the send and receive operations
-- Support for Azure virtual network integration when your logic app uses the Azure Functions Premium plan
+* Transport Layer Security (TLS) encryption for data in transit
+* Message encoding for both the send and receive operations
+* Support for Azure virtual network integration when your logic app uses the Azure Functions Premium plan
 
 ---
 
