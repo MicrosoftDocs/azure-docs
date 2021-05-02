@@ -35,7 +35,9 @@ This article explains how to download activity logs in Azure AD.
 
 - In the Azure AD portal, you can find several entry points to the activity logs. For example, the **Activity** section on the [Users](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers) or [groups](https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups) page. However, there is only one location that provides you with an initially unfiltered view of the logs: the **Monitoring** section on the [Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) page.    
 
-- Azure AD stores activity logs only for a specific period. For more information, see [How long does Azure AD store reporting data?](reference-reports-data-retention.md) By downloading the logs, you can control for how long logs are stored. 
+- Azure AD stores activity logs only for a specific period. For more information, see [How long does Azure AD store reporting data?](reference-reports-data-retention.md) 
+
+- By downloading the logs, you can control for how long logs are stored. 
 
 - You can download up to 250 000 records. If you want to download more data, use the reporting API.
 
