@@ -85,7 +85,7 @@ Private DNS zone settings and VNET peering are independent of each other.
 * If you want to connect to the flexible server from a client that is provisioned in another VNET, you have to link the private DNS zone with the VNET. See [how to link the virtual network](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network) documentation.
 
 > [!NOTE]
-> Only the Private DNS zone names that end with `private.postgres.database.azure.com` can be linked.
+> Private DNS zone names that end with `private.postgres.database.azure.com` can only be linked.
 
 ### Unsupported virtual network scenarios
 * Public endpoint (or public IP or DNS) - A flexible server deployed to a virtual network cannot have a public endpoint
