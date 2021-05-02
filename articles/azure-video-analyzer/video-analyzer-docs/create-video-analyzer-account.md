@@ -18,7 +18,7 @@ To start using Azure Video Analyzer, you will need to create a Video Analyzer ac
 
 [!INCLUDE [the video analyzer account and storage account must be in the same subscription](./includes/note-account-storage-same-subscription.md)]
 
-## Create a Video Analyzer account in the Azure Portal
+### Create a Video Analyzer account in the Azure Portal
 
 1. Sign in at the [Azure portal](https://portal.azure.com/).
 1. Using the search bar at the top, enter **Video Analyzer**.
@@ -41,7 +41,7 @@ To start using Azure Video Analyzer, you will need to create a Video Analyzer ac
 
 [!INCLUDE [the video analyzer account and storage account must be in the same subscription](./includes/note-account-storage-same-subscription.md)]
 
-### Review the template
+### Create a Video Analyzer account using a template
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the Deploy to Azure button. The template will open in the Azure portal.
 
@@ -199,11 +199,11 @@ These additional resources are defined in the template:
 
 The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure CLI, Azure PowerShell, and REST API. To learn other deployment methods, see [Deploy templates](../../azure-resource-manager/templates/deploy-cli.md).
 
-## Review deployed resources
+### Review deployed resources
 
 You can use the Azure portal to check on the account and other resource that were created. After the deployment is finished, select **Go to resource group** to see the account and other resources.
 
-## Clean up resources
+### Clean up resources
 
 When no longer needed, delete the resource group, which deletes the account and all of the resources in the resource group.
 
@@ -211,10 +211,15 @@ When no longer needed, delete the resource group, which deletes the account and 
 1. On the page for the resource group, select **Delete**.
 1. When prompted, type the name of the resource group and then select **Delete**.
 
+---
+
 ## Next steps
+
+Learn how to [deploy Video Analyzer on an IoT Edge device][docs-deploy-on-edge].
 
 <!-- links -->
 [docs-uami]: /azure/active-directory/managed-identities-azure-resources/overview
 [docs-storage-access]: /azure/role-based-access-control/built-in-roles#storage-blob-data-contributor
 [docs-arm-template]: /azure/azure-resource-manager/templates/overview
+[docs-deploy-on-edge]: deploy,iot-edge-device.md
 [click-to-deploy]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fgist.githubusercontent.com%2Fbennage%2F58523b2e6a4d3bf213f16893d894dcaf%2Fraw%2Fazuredeploy.json
