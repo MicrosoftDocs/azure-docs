@@ -93,7 +93,7 @@ Use this parameter to define the AI bundle you would like to apply on your audio
 - `AdvancedVideoAndAudio` - Index and extract insights using both advanced audio and advanced video analysis. 
 
 > [!NOTE]
-> Advanced presets (listed above) include models that are in public preview. Once these models gp GA, there could be implications on the price. 
+> Advanced presets (listed above) include models that are in public preview. Once these models go GA, there could be implications on the price. 
 
 Video Indexer covers up to two tracks of audio. If there are more audio tracks in the file, they will be treated as one track.<br/>
 If you want to index the tracks separately, you will need to extract the relevant audio file and index it as `AudioOnly`.

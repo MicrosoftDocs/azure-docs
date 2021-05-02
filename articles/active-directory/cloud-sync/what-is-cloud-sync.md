@@ -68,7 +68,8 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Azure AD Domain Services support|● | |
 | [Exchange hybrid writeback](../hybrid/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
 | Support for up to 150,000 objects per AD domain |● |● |
-| Large group support - groups with up to 50,000 members |● |● |
+| Groups with up to 50,000 members |● |● |
+| Large groups with up to 250,000 members |● |  |
 | Cross domain references|● | |
 | On-demand provisioning| |● |
 

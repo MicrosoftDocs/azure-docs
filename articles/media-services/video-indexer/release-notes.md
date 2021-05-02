@@ -29,7 +29,7 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 ## April 2021
 
-### Observed People Tracing (Public Preview)  
+### Observed people tracing (public preview)  
 
 Video Indexer now detects observed people in videos and provides information such as the location of the person in the video frame and the exact timestamp (start, end) when a person appears. The API returns the bounding box coordinates (in pixels) for each person instance detected, including its confidence. 
 
