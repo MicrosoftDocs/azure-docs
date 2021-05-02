@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # How to: Download logs in Azure Active Directory
 
-The Azure Active Directory (Azure AD) portal gives you access to three activity logs:
+The Azure Active Directory (Azure AD) portal gives you access to three types of activity logs:
 
 - **[Sign-ins](concept-sign-ins.md)** – Information about sign-ins and how your resources are used by your users.
 - **[Audit](concept-audit-logs.md)** – Information about changes applied to your tenant such as users and group management or updates applied to your tenant’s resources.
@@ -29,12 +29,14 @@ The Azure Active Directory (Azure AD) portal gives you access to three activity 
 
 Azure AD stores the data in these logs for a limited amount of time. For more information, see [How long does Azure AD store reporting data?](reference-reports-data-retention.md). As an IT administrator, you may want to download your activity logs to have a longterm backup of your logs.
 
-This article explains how to download logs in Azure AD.  
+This article explains how to download activity logs in Azure AD.  
 
 ## What you should know
 
 - In the Azure AD portal, you can find several entry points to the activity logs. For example, the **Activity** section on the [Users](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers) or [groups](https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups) page. However, there is only one location that provides you with an initially unfiltered view of the logs: the **Monitoring** section on the [Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) page.    
+
 - Azure AD stores activity logs only for a specific timeframe. For more information, see... You can use the download option to extend this timeframe and to create a long term backup of your data.
+
 - You can download up to 250 000 records. If you want to download more, use the reporting API.
 
 - Your download is based on the filter you have set. 
@@ -67,23 +69,14 @@ To access the audit logs, you need to be in one of the following roles:
 
 ## Steps
 
-Azure Active Directory portal gives you access to three activity logs:
-
-- **[Sign-ins](concept-sign-ins.md)** – Information about sign-ins and how your resources are used by your users.
-- **[Audit](concept-audit-logs.md)** – Information about changes applied to your tenant. Examples are user and group management changes or updates applied to your tenant’s resources.
-- **[Provisioning](concept-provisioning-logs.md)** – Activities performed by the provisioning service. Example are the creation of a group in ServiceNow or a user imported from Workday.
-
-On each activity log-page, you can access the download option in the toolbar:  
-
+In Azure AD, you can access the download option in the toolbar of an activity log page.  
 
 ![Download log](./media/\howto-download-logs/download-log.png)
 
 
 **To download an activity log:**
 
-1. Sign in to the Azure Portal (Remove step?)
-
-2. Navigate to the activity log view you care about:
+1. Navigate to the activity log view you care about:
  
     - [The sign-ins log](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
     
@@ -92,13 +85,12 @@ On each activity log-page, you can access the download option in the toolbar:
     - [The provisioning log](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/ProvisioningEvents)    
    
 
-3.  **Add** the required filter.  
+2.  **Add** the required filter.  
 
     ![Add filter](./media/\howto-download-logs/add-filter.png)    
 
-4. **Download** the data.
+3. **Download** the data.
 
-    ![Download log](./media/\howto-download-logs/download-log.png)
 
 ## Next steps
 
