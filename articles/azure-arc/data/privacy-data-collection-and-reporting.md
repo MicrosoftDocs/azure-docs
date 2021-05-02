@@ -38,7 +38,7 @@ The following table describes the type of data, how it is sent, and requirement.
 |Operational Data|Metrics and logs|Automatic, when configured to do so|No
 Billing & inventory data|Inventory such as number of instances, and usage such as number of vCores consumed|Automatic |Yes
 Diagnostics|Diagnostic information for troubleshooting purposes|Manually exported and provided to Microsoft Support|Only for the scope of troubleshooting and follows the standard [privacy policies](https://privacy.microsoft.com/privacystatement)
-Customer Experience Improvement Program (CEIP)|[CIEP summary](/sql-server/usage-and-diagnostic-data-configuration-for-sql-server)|Automatic, if allowed|No
+Customer Experience Improvement Program (CEIP)|[CEIP summary](/sql-server/usage-and-diagnostic-data-configuration-for-sql-server)|Automatic, if allowed|No
 
 ## Indirectly connected
 
@@ -51,7 +51,7 @@ The following table describes the type of data, how it is sent, and requirement.
 |Operational Data|Metrics and logs|Manual|No
 Billing & inventory data|Inventory such as number of instances, and usage such as number of vCores consumed|Manual |Yes
 Diagnostics|Diagnostic information for troubleshooting purposes|Manually exported and provided to Microsoft Support|Only for the scope of troubleshooting and follows the standard [privacy policies](https://privacy.microsoft.com/privacystatement)
-Customer Experience Improvement Program (CEIP)|[CIEP summary](/sql-server/usage-and-diagnostic-data-configuration-for-sql-server)|Automatic, if allowed|No
+Customer Experience Improvement Program (CEIP)|[CEIP summary](/sql-server/usage-and-diagnostic-data-configuration-for-sql-server)|Automatic, if allowed|No
 
 ## Detailed description of data
 
@@ -71,7 +71,7 @@ The operational data does not leave yous environment unless you chooses to expor
 
 If the data is sent to Azure Monitor or Log Analytics, you can choose which Azure region or datacenter the Log Analytics workspace resides in. After that, access to view or copy it from other locations can be controlled by you. 
 
-### Billing and Inventory Data 
+### Billing and inventory data 
 
 Billing data is used for purposes of tracking usage that is billable. This data is essential for running of the service and needs to be transmitted manually or automatically in all modes. 
 
@@ -114,7 +114,7 @@ The following sections show the properties, types, and descriptions that are col
 - SQL Server provisioning state.
    - `string: ProvisioningState`
 
-### Data Controller 
+### Data controller 
 
 - Location information
    - `public OnPremiseProperty OnPremiseProperty` 
