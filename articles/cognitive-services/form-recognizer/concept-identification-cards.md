@@ -9,38 +9,42 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 04/30/2021
 ms.author: lajanuar
 ---
 
-# Form Recognizer prebuilt identification card (ID) model
+# Form Recognizer prebuilt identification (ID) document model
 
-Azure Form Recognizer can analyze and extract information from government identification cards (IDs) using its prebuilt IDs model. It combines our powerful [Optical Character Recognition (OCR)](../computer-vision/overview-ocr.md) capabilities with ID recognition capabilities to extract key information from Worldwide Passports and U.S. Driver's Licenses (all 50 states and D.C.). The IDs API extracts key information from these identity documents, such as first name, last name, date of birth, document number, and more. This API is available in the Form Recognizer v2.1 preview as a cloud service and as an on-premise container.
+Azure Form Recognizer can analyze and extract information from government-issued identification documents (IDs) using its prebuilt IDs model. It combines our powerful [Optical Character Recognition (OCR)](../computer-vision/overview-ocr.md) capabilities with ID recognition capabilities to extract key information from Worldwide Passports and U.S. Driver's Licenses (all 50 states and D.C.). The IDs API extracts key information from these identity documents, such as first name, last name, date of birth, document number, and more. This API is available in the Form Recognizer v2.1 preview as a cloud service and as an on-premise container.
 
-## What does the ID service do? 
+## What does the ID service do?
 
-The prebuilt IDs service extracts the key values from worldwide passports and U.S. Driver's Licenses and returns them in an organized structured JSON response. 
+The prebuilt IDs service extracts the key values from worldwide passports and U.S. Driver's Licenses and returns them in an organized structured JSON response.
+
+### **Driver's license example**
 
 ![Sample Driver's License](./media/id-example-drivers-license.JPG)
+
+### **Passport example**
 
 ![Sample Passport](./media/id-example-passport-result.JPG)
 
 ### Fields extracted
 
-|Name| Type | Description | Value | 
+|Name| Type | Description | Value |
 |:-----|:----|:----|:----|
-|  Country | country | Country code compliant with ISO 3166 standard | "USA" | 
-|  DateOfBirth | date | DOB in YYYY-MM-DD format | "1980-01-01" | 
-|  DateOfExpiration | date | Expiration date in YYYY-MM-DD format | "2019-05-05" |  
-|  DocumentNumber | string | Relevant passport number, driver's license number, etc. | "340020013" |  
-|  FirstName | string | Extracted given name and middle initial if applicable | "JENNIFER" | 
-|  LastName | string | Extracted surname | "BROOKS" |   
+|  Country | country | Country code compliant with ISO 3166 standard | "USA" |
+|  DateOfBirth | date | DOB in YYYY-MM-DD format | "1980-01-01" |
+|  DateOfExpiration | date | Expiration date in YYYY-MM-DD format | "2019-05-05" |
+|  DocumentNumber | string | Relevant passport number, driver's license number, etc. | "340020013" |
+|  FirstName | string | Extracted given name and middle initial if applicable | "JENNIFER" |
+|  LastName | string | Extracted surname | "BROOKS" |
 |  Nationality | country | Country code compliant with ISO 3166 standard | "USA" |
-|  Sex | gender | Possible extracted values include "M", "F" and "X" | "F" | 
+|  Sex | gender | Possible extracted values include "M", "F" and "X" | "F" |
 |  MachineReadableZone | object | Extracted Passport MRZ including two lines of 44 characters each | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
-|  DocumentType | string | Document type, for example, Passport, Driver's License | "passport" |  
+|  DocumentType | string | Document type, for example, Passport, Driver's License | "passport" |
 |  Address | string | Extracted address (Driver's License only) | "123 STREET ADDRESS YOUR CITY WA 99999-1234"|
-|  Region | string | Extracted region, state, province, etc. (Driver's License only) | "Washington" | 
+|  Region | string | Extracted region, state, province, etc. (Driver's License only) | "Washington" |
 
 ### Additional features
 
@@ -54,7 +58,7 @@ The IDs API also returns the following information:
   > [!NOTE]
   > Pre-built IDs does not detect ID authenticity
   >
-  > Form Recognizer Pre-built IDs extracts key data from ID data. However, it does not detect the validity or authenticity of the original identity document. 
+  > Form Recognizer Pre-built IDs extracts key data from ID data. However, it does not detect the validity or authenticity of the original identity document.
 
 ## Try it out
 
@@ -67,16 +71,20 @@ To try out the Form Recognizer IDs service, go to the online Sample UI Tool:
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
-## Supported ID types  
+## Supported locales
 
-* **Pre-built IDs v2.1-preview.3** Extracts key values from worldwide passports, and U.S. Driver's Licenses. 
+ **Pre-built ID v2.1-preview.3** (preview) supports identity documents in the **en-us** locale.
+
+## Supported Identity document types
+
+* **Pre-built IDs v2.1-preview.3** Extracts key values from worldwide passports, and U.S. Driver's Licenses.
 
   > [!NOTE]
-  > ID type support 
+  > ID type support
   >
   > Currently supported ID types include worldwide passport and U.S. Driver's Licenses. We are actively seeking to expand our ID support to other identity documents around the world.
 
-## POST Analyze Id Document
+## POST Analyze ID Document
 
 The [Analyze ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5f74a7daad1f2612c46f5822) operation takes an image or PDF of an ID as the input and extracts the values of interest. The call returns a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Result ID to be used in the next step.
 
@@ -90,7 +98,7 @@ The [Analyze ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-r
 Need to update this with updated APIM links when available
 -->
 
-The second step is to call the [**Get Analyze idDocument Result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeFormResult) operation. This operation takes as input the Result ID that was created by the Analyze ID operation. It returns a JSON response that contains a **status** field with the following possible values. You call this operation iteratively until it returns with the **succeeded** value. Use an interval of 3 to 5 seconds to avoid exceeding the requests per second (RPS) rate.
+The second step is to call the [**Get Analyze idDocument Result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5f74a7738978e467c5fb8707) operation. This operation takes as input the Result ID that was created by the Analyze ID operation. It returns a JSON response that contains a **status** field with the following possible values. You call this operation iteratively until it returns with the **succeeded** value. Use an interval of 3 to 5 seconds to avoid exceeding the requests per second (RPS) rate.
 
 |Field| Type | Possible values |
 |:-----|:----:|:----|
@@ -109,7 +117,7 @@ See the following example of a successful JSON response:
 The `readResults` node contains all of the recognized text. Text is organized by page, then by line, then by individual words. The `documentResults` node contains the ID values that the model discovered. This node is also where you'll find useful key/value pairs like the first name, last name, document number, and more.
 
 ```json
-{ 
+{
    "status": "succeeded",
   "createdDateTime": "2021-03-04T22:29:33Z",
   "lastUpdatedDateTime": "2021-03-04T22:29:36Z",
@@ -154,7 +162,7 @@ The `readResults` node contains all of the recognized text. Text is organized by
           ...
       }
     ],
-    
+
      "documentResults": [
       {
         "docType": "prebuilt:idDocument:passport",
@@ -240,11 +248,10 @@ The `readResults` node contains all of the recognized text. Text is organized by
 }
 ```
 
-
 ## Next steps
 
-- Try your own IDs and samples in the [Form Recognizer Sample UI](https://fott-preview.azurewebsites.net/).
-- Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started writing an ID processing app with Form Recognizer in the development language of your choice.
+* Try your own IDs and samples in the [Form Recognizer Sample UI](https://fott-preview.azurewebsites.net/).
+* Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started writing an ID processing app with Form Recognizer in the development language of your choice.
 
 ## See also
 

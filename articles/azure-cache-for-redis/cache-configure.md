@@ -6,7 +6,8 @@ author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
-ms.author: yegu
+ms.author: yegu 
+ms.custom: devx-track-azurepowershell
 
 ---
 # How to configure Azure Cache for Redis

@@ -1,7 +1,7 @@
 ---
 title: Work with large data sets
 description: Understand how to get, format, page, and skip records in large data sets while working with Azure Resource Graph.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ---
@@ -93,9 +93,9 @@ consumer if there are more records not returned in the response. This condition 
 identified when the **count** property is less than the **totalRecords** property. **totalRecords**
 defines how many records that match the query.
 
- **resultTruncated** is **true** when either paging is disabled or not possible because no `id`
- column or when there are less resources available than a query is requesting. When
- **resultTruncated** is **true**, the **$skipToken** property isn't set.
+**resultTruncated** is **true** when either paging is disabled or not possible because no `id`
+column or when there are less resources available than a query is requesting. When
+**resultTruncated** is **true**, the **$skipToken** property isn't set.
 
 The following examples show how to **skip** the first 3000 records and return the **first** 1000
 records after those records skipped with Azure CLI and Azure PowerShell:

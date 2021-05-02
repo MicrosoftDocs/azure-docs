@@ -28,7 +28,7 @@ Before you start this tutorial, install the [Azure CLI](/cli/azure/install-azure
 
 ## Create a storage account and blob container with Azure CLI
 
-You'll need to create a general-purpose storage account first to use blobs. If you don't have a [resource group](/cli/azure/group#az-group-create), create one before running the command. The following command creates and display the metadata of the storage container. Copy down the **ID**.
+You'll need to create a general-purpose storage account first to use blobs. If you don't have a [resource group](/cli/azure/group#az_group_create), create one before running the command. The following command creates and display the metadata of the storage container. Copy down the **ID**.
 
 ```azurecli
 az storage account create --name contosoblobstorage5 --resource-group contosoResourceGroup --location eastus --sku Standard_ZRS --encryption-services blob
