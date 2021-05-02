@@ -201,7 +201,7 @@ This zone covers workspace-specific mapping to the agent service automation endp
 This zone configures connectivity to the global agents' solution packs storage account. Through it, agents can download new or updated solution packs (also known as management packs). Only one entry is required to handle to Log Analytics agents, no matter how many workspaces are used.
 [![Screenshot of Private DNS zone blob-core-windows-net.](./media/private-link-security/dns-zone-privatelink-blob-core-windows-net.png)](./media/private-link-security/dns-zone-privatelink-blob-core-windows-net-expanded.png#lightbox)
 > [!NOTE]
-> This entry is only added to Private Links setups created at or after April 19, 2021.
+> This entry is only added to Private Links setups created at or after April 19, 2021 (or starting June, 2021 on Azure Sovereign clouds).
 
 
 ### Validating you are communicating over a Private Link
@@ -235,7 +235,7 @@ Restricting access as explained above doesn't apply to the Azure Resource Manage
 > Logs and metrics uploaded to a workspace via [Diagnostic Settings](../essentials/diagnostic-settings.md) go over a secure private Microsoft channel, and are not controlled by these settings.
 
 ### Log Analytics solution packs download
-Log Analytics agents need to access a global storage account to download solution packs. Private Link setups created at or after April 19, 2021 can reach the agents' solution packs storage over the private link. This is made possible through the new DNS zone created for [blob.core.windows.net](#privatelink-blob-core-windows-net).
+Log Analytics agents need to access a global storage account to download solution packs. Private Link setups created at or after April 19, 2021 (or starting June, 2021 on Azure Sovereign clouds) can reach the agents' solution packs storage over the private link. This is made possible through the new DNS zone created for [blob.core.windows.net](#privatelink-blob-core-windows-net).
 
 If your Private Link setup was created before April 19, 2021, it won't reach the solution packs storage over a private link. To handle that you can do one of the following:
 * Re-create your AMPLS and the Private Endpoint connected to it
