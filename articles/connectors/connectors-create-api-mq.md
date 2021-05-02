@@ -34,7 +34,7 @@ For more information about the difference between a managed connector and built-
 
 #### [Managed](#tab/managed)
 
-The following table lists some example managed connector operations available for MQ. For all the managed connector operations and other technical information, review the [MQ connector's reference page](/connectors/mq/).
+The following table lists some example managed connector operations available for MQ. For all the managed connector operations and other technical information, such as properties, limits, and so on, review the [MQ connector's reference page](/connectors/mq/).
 
 | Operation | Description |
 |-----------|-------------|
@@ -53,10 +53,10 @@ The following table lists the built-in operations available for MQ:
 
 | Operation | Description |
 |-----------|-------------|
-| **Receive Messages** | Receive single or multiple messages from the MQ server. <p><p>For multiple messages, you can specify the maximum number of messages to receive per batch and the maximum batch size in KB. |
-| **Send Message** | Write a single message to the MQ server. |
-| **Send Multiple Messages** | Send an array of messages to the MQ server. |
-|||
+| **Receive messages** | Return a single or multiple messages from the MQ server. <p><p>For multiple messages, you can specify the maximum number of messages to receive per batch and the maximum batch size in KB. |
+| **Send message** | Write a single message to the MQ server. |
+| **Send multiple messages** | Send an array of messages to the MQ server. |
+||||
 
 These built-in MQ operations also have the following capabilities plus the benefits from all the other capabilities for logic apps in the [single-tenant Logic Apps service](../logic-apps/logic-apps-overview-preview.md):
 
@@ -152,7 +152,7 @@ When you add an MQ action for the first time, you're prompted to create a connec
 
 ## Add an action
 
-The following steps describe the way to add an action, for example, **Browse a single message**.
+The following steps describe the general way to add an action, for example, **Browse a single message**.
 
 1. In your workflow, under the trigger or another action, add a new step.
 
@@ -160,21 +160,7 @@ The following steps describe the way to add an action, for example, **Browse a s
 
 1. If you haven't already created an MQ connection, you're prompted to [create that connection](#create-connection).
 
-1. After you create the connection, set up the **Browse message** action properties.
-
-   | Property | Description |
-   |----------|-------------|
-   | **IncludeInfo** | To include other message information in the output, select **true**. To omit extra message information in the output, select **false**. |
-   |||
-
-    To view more available properties, open the **Add new parameter** list, and select the properties you want to use, for example:
-
-   | Property | Description |
-   |----------|-------------|
-   | **MessageId**, **CorrelationId**, **GroupId**, and other properties | Browse for a message that's based on the different MQ message properties |
-   | **Queue** | If different from the queue specified in the connection, specify that queue. |
-   | **Timeout** | Enter a value to determine how long to wait for a message to arrive in an empty queue. If nothing is entered, the first message in the queue is retrieved, and no time is spent waiting for a message to appear. |
-   |||
+1. After you create the connection, specify the property values for the action. To view more properties, open the **Add new parameter** list, and select the properties you want to use.
 
 1. When you're done, on the designer toolbar, select **Save**. To test your workflow, select **Run**.
 
