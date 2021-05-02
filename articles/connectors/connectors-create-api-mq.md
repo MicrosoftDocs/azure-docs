@@ -34,7 +34,7 @@ For more information about the difference between a managed connector and built-
 
 #### [Managed](#tab/managed)
 
-The following lists describes some example managed connector operations available for MQ:
+The following list describes some example managed operations available for MQ:
 
 * Browse a single message or an array of messages without deleting from the MQ server. For multiple messages, you can specify the maximum number of messages to return per batch. Otherwise, all messages are returned.
 * Delete a single or an array of messages from the MQ server.
