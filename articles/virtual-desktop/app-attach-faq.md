@@ -82,6 +82,20 @@ Certain applications can't be application layered, which means they can't be rep
 - VPN clients
 - Antivirus programs
 
+## What is the maximum number of MISX applications that can be delivered per session host?
+
+Each session host can handle different amount of MSIX applications based on its CPU, memory, and OS. CPU, memory, and OS will be limiting fact for applciation performance and user experience. MSIX app attahc has no limitation on the amount of applications. 
+
+## How many .VHD or .VHDX can be mounted on a host pool?
+
+MSIX app attach does not enforce a limit. There are limits coming from:
+
+- OS ability to handle mounted volumes
+- Each storage solution and/or file system defines differnet max handle of open files
+- Session host memory and CPU utilization 
+
+These limits enforce the same considerations and limitations as installing and running the apps locally.
+
 ## Next steps
 
 If you want to learn more about MSIX app attach, check out our [overview](what-is-app-attach.md) and [glossary](app-attach-glossary.md). Otherwise, get started with [Set up app attach](app-attach.md).
