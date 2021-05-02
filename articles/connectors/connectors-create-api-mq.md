@@ -38,12 +38,12 @@ For all the operations in the managed connector and other technical information,
 
 | Managed connector operations | Description |
 |------------------------------|-------------|
-| Browse message | Read a single message without deleting from the MQ server. |
-| Browse messages | Read an array of messages without deleting from the MQ server. |
+| Browse message | Return a single message without deleting from the MQ server. |
+| Browse messages | Return an array of messages without deleting from the MQ server. <p><p>This action is similar to **Browse message** but has an additional **BatchSize** property that specifies the maximum number of messages to read in the queue. If **BatchSize** has no value, all messages are returned. The returned output is an array of messages. | 
 | Delete message | Delete a single message from the MQ server. |
 | Delete messages | Delete an array of messages from the MQ server. |
-| Receive message | Receive a single message and then delete from the MQ server. |
-| Receive messages | Receive an array of messages and then delete from the MQ server. |
+| Receive message | Return a single message and then delete from the MQ server. |
+| Receive messages | Return an array of messages and then delete from the MQ server. |
 | Send message | Send a single message to the MQ server. |
 |||
 
@@ -66,6 +66,10 @@ Built-in operations also include the following capabilities:
 - Support for Azure virtual network integration when your logic app uses the Azure Functions Premium plan
 - Built-in operations benefit from all the other capabilities available for logic apps that run in single-tenant Logic Apps service. For more information, see [Overview for Azure Logic Apps (Preview)](../logic-apps/logic-apps-overview-preview.md).
 
+## Limitations
+
+The MQ connector doesn't support or use the message's **Format** field and doesn't perform any character set conversions. The connector only puts whatever data appears in the message field into a JSON message and sends the message along.
+
 ## Prerequisites
 
 * If you're using an on-premises MQ server, [install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a server within your network. For the MQ connector to work, the server with the on-premises data gateway also must have .NET Framework 4.6 installed.
@@ -81,10 +85,6 @@ Built-in operations also include the following capabilities:
 * The logic app workflow where you want to add the MQ action. The logic app resource must have the same location as your gateway resource in Azure.
 
   The MQ connector doesn't have any triggers, so either your workflow must already start with a trigger, or you first have to add a trigger to your workflow. For example, you can use the [Recurrence trigger](../connectors/connectors-native-recurrence.md). If you're new to Azure Logic Apps, try this [quickstart to create an example logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md), which runs in the multi-tenant Logic Apps service.
-
-## Limitations
-
-The MQ connector doesn't support or use the message's **Format** field and doesn't perform any character set conversions. The connector only puts whatever data appears in the message field into a JSON message and sends the message along.
 
 <a name="create-connection"></a>
 
@@ -148,7 +148,9 @@ When you add an MQ action for the first time, you're prompted to create a connec
 
 1. When you're done, select **Create**.
 
-## Browse a single message
+## Add an action
+
+The following steps describe the way to add an action, for example, **Browse a single message**.
 
 1. In your workflow, under the trigger or another action, add a new step.
 
@@ -180,34 +182,6 @@ When you add an MQ action for the first time, you're prompted to create a connec
 
    * To review more input details, select **Show raw inputs**.
    * To review more output details, select **Show raw outputs**. If you set **IncludeInfo** to **true**, additional output is also included.
-
-## Browse multiple messages
-
-The **Browse messages** action is similar to **Browse message** but has an additional **BatchSize** property that specifies the maximum number of messages to read in the queue. If **BatchSize** has no value, all messages are returned. The returned output is an array of messages.
-
-## Receive single message
-
-The **Receive message** action has the same inputs and outputs as the **Browse message** action. However, the action deletes the message from the queue after returning the message.
-
-## Receive multiple messages
-
-The **Receive messages** action has the same inputs and outputs as the **Browse messages** action. However, the action deletes the messages from the queue after returning the messages.
-
-## Send message
-
-1. Follow the previous steps, but add the **Send message** action instead.
-
-1. If you haven't already created an MQ connection, you're prompted to [create that connection](#create-connection). Otherwise, by default, the first previously configured connection is used. To create a new connection, select **Change connection**. Or, select a different connection.
-
-1. Provide the information for the action. For **MessageType**, select a valid message type: **Datagram**, **Reply**, or **Request**
-
-   ![Properties for "Send message action"](media/connectors-create-api-mq/send-message-properties.png)
-
-1. Save and run the logic app.
-
-   After the logic app finishes running, here is some sample output from the **Send message** action:
-
-   ![Sample "Send message" output](media/connectors-create-api-mq/send-message-output.png)
 
 ## Troubleshoot problems
 
