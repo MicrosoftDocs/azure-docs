@@ -23,4 +23,4 @@ ms.author: juliako
 ## Set up Azure resources
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)  
-[!INCLUDE [resources](includes/common-includes/azure-resources.md)]
+[!INCLUDE [resources](../../includes/common-includes/azure-resources.md)]

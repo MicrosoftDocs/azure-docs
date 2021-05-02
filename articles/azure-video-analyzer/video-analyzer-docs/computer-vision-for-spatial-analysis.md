@@ -368,7 +368,7 @@ Sample output for personZoneEvent (from `SpatialAnalysisPersonZoneCrossingOperat
 #### Parameters:
 
 | Name    | Type   | Description   |   |   |
-|---------|--------|---------------|---|---|
+|:---------|:--------|:---------------|:---|:---|
 | zones   | list   | List of zones.|   |   |
 | name    | string | Friendly name for this zone.|   |   |
 | polygon | string | Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are tracked or counted. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. threshold 	 float 	Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 48 when type is zonecrossing and 16 when time is DwellTime. These are the recommended values to achieve maximum accuracy. |   |   |

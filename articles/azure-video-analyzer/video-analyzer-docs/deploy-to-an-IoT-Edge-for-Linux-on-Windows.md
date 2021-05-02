@@ -8,7 +8,7 @@ ms.date: 05/25/2021
 
 # Deploy to an IoT Edge for Linux on Windows (EFLOW) device
 
-In this article, you'll learn how to deploy Azure Video Analyzer on an edge device that has [IoT Edge for Linux on Windows (EFLOW)](../../iot-edge/iot-edge-for-linux-on-windows.md). Once you have finished following the steps in this document, you will be able to run a [pipeline](pipelines.md) that detects motion in a video and emits such events to the IoT hub in the cloud. You can then switch out the pipeline for advanced scenarios and bring the power of Azure Video Analyzer to your Windows-based IoT Edge device.
+In this article, you'll learn how to deploy Azure Video Analyzer on an edge device that has [IoT Edge for Linux on Windows (EFLOW)](../../iot-edge/iot-edge-for-linux-on-windows.md). Once you have finished following the steps in this document, you will be able to run a [pipeline](pipeline.md) that detects motion in a video and emits such events to the IoT hub in the cloud. You can then switch out the pipeline for advanced scenarios and bring the power of Azure Video Analyzer to your Windows-based IoT Edge device.
 
 ## Prerequisites 
 
@@ -21,7 +21,7 @@ In this article, you'll learn how to deploy Azure Video Analyzer on an edge devi
 
 The following depicts the overall flow of the document and in 5 simple steps you should be all set up to run Azure Video Analyzer on a Windows device  that has EFLOW:
 
-![IoT Edge for Linux on Windows (EFLOW) diagram](https://docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media/deploy-iot-edge-linux-on-windows/eflow.png)
+![IoT Edge for Linux on Windows (EFLOW) diagram](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/deploy-iot-edge-linux-on-windows/eflow.png)
 
 1. [Install EFLOW](../../iot-edge/how-to-install-iot-edge-on-windows.md) on your Windows device. 
 
