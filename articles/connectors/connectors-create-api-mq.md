@@ -34,37 +34,35 @@ For more information about the difference between a managed connector and built-
 
 #### [Managed](#tab/managed)
 
-For all the operations in the managed connector and other technical information, review the [MQ connector's reference page](/connectors/mq/). The following table lists some example operations available with the managed connector:
+The following table lists some example managed connector operations available for MQ. For all the managed connector operations and other technical information, review the [MQ connector's reference page](/connectors/mq/).
 
-| Managed connector operations | Description |
-|------------------------------|-------------|
-| Browse message | Return a single message without deleting from the MQ server. |
-| Browse messages | Return an array of messages without deleting from the MQ server. <p><p>This action is similar to **Browse message** but has a **BatchSize** property that specifies the maximum number of messages to read in the queue. If **BatchSize** has no value, all messages are returned. The returned output is an array of messages. | 
-| Delete message | Delete a single message from the MQ server. |
-| Delete messages | Delete an array of messages from the MQ server. |
-| Receive message | Return a single message and then delete from the MQ server. |
-| Receive messages | Return an array of messages and then delete from the MQ server. |
-| Send message | Send a single message to the MQ server. |
+| Operation | Description |
+|-----------|-------------|
+| **Browse message** | Return a single message without deleting from the MQ server. |
+| **Browse messages** | Return an array of messages without deleting from the MQ server. <p><p>You can specify the maximum number of messages to return. Otherwise, all messages are returned. |
+| **Delete message** | Delete a single message from the MQ server. |
+| **Delete messages** | Delete an array of messages from the MQ server. |
+| **Receive message** | Return a single message and then delete from the MQ server. |
+| **Receive messages** | Return an array of messages and then delete from the MQ server. |
+| **Send message** | Send a single message to the MQ server. |
 |||
 
 #### [Built-in (preview)](#tab/built-in)
 
-The following table lists the operations available with the built-in version:
+The following table lists the built-in operations available for MQ:
 
-| Built-in operations (preview) | Description |
-|-------------------------------|-------------|
-| Receive Messages | Receive single or multiple messages from the MQ server. |
-| Send Message | Write a single message to the MQ server. |
-| Send Multiple Messages | Send an array of messages to the MQ server. |
+| Operation | Description |
+|-----------|-------------|
+| **Receive Messages** | Receive single or multiple messages from the MQ server. <p><p>For multiple messages, you can specify the maximum number of messages to receive per batch and the maximum batch size in KB. |
+| **Send Message** | Write a single message to the MQ server. |
+| **Send Multiple Messages** | Send an array of messages to the MQ server. |
 |||
 
-Built-in operations also include the following capabilities:
+These built-in MQ operations also have the following capabilities plus the benefits from all the other capabilities for logic apps in the [single-tenant Logic Apps service](../logic-apps/logic-apps-overview-preview.md):
 
 - Transport Layer Security (TLS) encryption for data in transit
 - Message encoding for both the send and receive operations
-- The Receive Messages operation has options to set the maximum number of messages and the maximum batch size in KB.
 - Support for Azure virtual network integration when your logic app uses the Azure Functions Premium plan
-- Built-in operations benefit from all the other capabilities available for logic apps that run in single-tenant Logic Apps service. For more information, see [Overview for Azure Logic Apps (Preview)](../logic-apps/logic-apps-overview-preview.md).
 
 ---
 
