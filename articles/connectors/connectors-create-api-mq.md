@@ -26,13 +26,14 @@ This article provides a starter guide to using the MQ connector. For example, yo
 
 The IBM MQ connector provides actions but no triggers.
 
-* Multi-tenant Azure Logic Apps: When you create a consumption-based logic app workflow, you can connect to an MQ server by using the managed MQ connector.
+* Multi-tenant Azure Logic Apps: When you create a consumption-based logic app workflow, you can connect to an MQ server by using the *managed* MQ connector.
 
-* Single-tenant Azure Logic Apps (preview): When you create a preview logic app workflow, you can connect to an MQ server by using either the managed MQ connector or the built-in MQ operations (preview).
+* Single-tenant Azure Logic Apps (preview): When you create a preview logic app workflow, you can connect to an MQ server by using either the managed MQ connector or the *built-in* MQ operations (preview).
 
 For more information about the difference between a managed connector and built-in operations, review [key terms in Logic Apps](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-### Managed connector
+
+#### [Managed](#tab/managed)
 
 For all the operations in the managed connector and other technical information, review the [MQ connector's reference page](/connectors/mq/). The following table lists some example operations available with the managed connector:
 
@@ -47,7 +48,7 @@ For all the operations in the managed connector and other technical information,
 | Send message | Send a single message to the MQ server. |
 |||
 
-### Built-in operations
+#### [Built-in](#tab/built-in)
 
 The following table lists the operations available with the built-in version:
 
@@ -96,7 +97,7 @@ When you add an MQ action for the first time, you're prompted to create a connec
 > The MQ connector currently supports only server authentication, not client authentication. 
 > For more information, see [Connection and authentication problems](#connection-problems).
 
-#### [Managed](#tab/managed-connector)
+#### [Managed](#tab/managed)
 
 1. If you're connecting to an on-premises MQ server, select **Connect via on-premises data gateway**.
 
@@ -124,7 +125,7 @@ When you add an MQ action for the first time, you're prompted to create a connec
 
 1. When you're done, select **Create**.
 
-#### [Built in](#tab/built-in)
+#### [Built-in](#tab/built-in)
 
 1. Provide the connection information for your MQ server.
 
