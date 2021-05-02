@@ -39,7 +39,7 @@ For all the operations in the managed connector and other technical information,
 | Managed connector operations | Description |
 |------------------------------|-------------|
 | Browse message | Return a single message without deleting from the MQ server. |
-| Browse messages | Return an array of messages without deleting from the MQ server. <p><p>This action is similar to **Browse message** but has an additional **BatchSize** property that specifies the maximum number of messages to read in the queue. If **BatchSize** has no value, all messages are returned. The returned output is an array of messages. | 
+| Browse messages | Return an array of messages without deleting from the MQ server. <p><p>This action is similar to **Browse message** but has a **BatchSize** property that specifies the maximum number of messages to read in the queue. If **BatchSize** has no value, all messages are returned. The returned output is an array of messages. | 
 | Delete message | Delete a single message from the MQ server. |
 | Delete messages | Delete an array of messages from the MQ server. |
 | Receive message | Return a single message and then delete from the MQ server. |
@@ -68,7 +68,7 @@ Built-in operations also include the following capabilities:
 
 ## Limitations
 
-The MQ connector doesn't support or use the message's **Format** field and doesn't perform any character set conversions. The connector only puts whatever data appears in the message field into a JSON message and sends the message along.
+The MQ connector doesn't use the message's **Format** field and doesn't make any character set conversions. The connector only puts whatever data appears in the message field into a JSON message and sends the message along.
 
 ## Prerequisites
 
@@ -162,7 +162,7 @@ The following steps describe the way to add an action, for example, **Browse a s
 
    | Property | Description |
    |----------|-------------|
-   | **IncludeInfo** | To include additional message information in the output, select **true**. To omit additional message information in the output, select **false**. |
+   | **IncludeInfo** | To include other message information in the output, select **true**. To omit extra message information in the output, select **false**. |
    |||
 
     To view more available properties, open the **Add new parameter** list, and select the properties you want to use, for example:
@@ -171,7 +171,7 @@ The following steps describe the way to add an action, for example, **Browse a s
    |----------|-------------|
    | **MessageId**, **CorrelationId**, **GroupId**, and other properties | Browse for a message that's based on the different MQ message properties |
    | **Queue** | If different from the queue specified in the connection, specify that queue. |
-   | **Timeout** | Enter a value to determine how long to wait for a message to arrive in an empty queue. If nothing is entered, the first message in the queue is retrieved, and there is no time spent waiting for a message to appear. |
+   | **Timeout** | Enter a value to determine how long to wait for a message to arrive in an empty queue. If nothing is entered, the first message in the queue is retrieved, and no time is spent waiting for a message to appear. |
    |||
 
 1. When you're done, on the designer toolbar, select **Save**. To test your workflow, select **Run**.
@@ -181,7 +181,7 @@ The following steps describe the way to add an action, for example, **Browse a s
 1. To review the inputs and outputs for each step that ran (not skipped), expand or select the step.
 
    * To review more input details, select **Show raw inputs**.
-   * To review more output details, select **Show raw outputs**. If you set **IncludeInfo** to **true**, additional output is also included.
+   * To review more output details, select **Show raw outputs**. If you set **IncludeInfo** to **true**, more output is included.
 
 ## Troubleshoot problems
 
@@ -203,9 +203,9 @@ When your workflow tries connecting to your on-premises MQ server, you might get
 
 * The MQ server requires that you define the cipher specification to use with TLS connections. However, for security purposes, the Windows operating system sets the cipher specifications to first include the best security suites. 
 
-  The operating system where the MQ server runs is responsible for choosing the suites to use. To make the configuration match, you have to change your MQ server setup so that the cipher specification matches the option chosen in the TLS negotiation.
+  The operating system where the MQ server runs chooses the suites to use. To make the configuration match, you have to change your MQ server setup so that the cipher specification matches the option chosen in the TLS negotiation.
 
-  When you try making the connection, the MQ server logs an event message that indicates the connection failed because the MQ server choose the incorrect cipher specification. The event message contains the cipher specification that was chosen from the list by the MQ Server. In the channel configuration, update the cipher specification to match the cipher specification in the event message.
+  When you try to connect, the MQ server logs an event message that indicates the connection attempt failed because the MQ server chose the incorrect cipher specification. The event message contains the cipher specification that the MQ server chose from the list. In the channel configuration, update the cipher specification to match the cipher specification in the event message.
 
 ## Connector reference
 
