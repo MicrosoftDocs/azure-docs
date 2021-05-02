@@ -47,7 +47,7 @@ For all the operations in the managed connector and other technical information,
 | Send message | Send a single message to the MQ server. |
 |||
 
-#### [Built-in](#tab/built-in-operations)
+#### [Built-in (preview)](#tab/built-in-operations)
 
 The following table lists the operations available with the built-in version:
 
@@ -65,8 +65,6 @@ Built-in operations also include the following capabilities:
 - The Receive Messages operation has options to set the maximum number of messages and the maximum batch size in KB.
 - Support for Azure virtual network integration when your logic app uses the Azure Functions Premium plan
 - Built-in operations benefit from all the other capabilities available for logic apps that run in single-tenant Logic Apps service. For more information, see [Overview for Azure Logic Apps (Preview)](../logic-apps/logic-apps-overview-preview.md).
-
----
 
 ## Limitations
 
@@ -126,7 +124,7 @@ When you add an MQ action for the first time, you're prompted to create a connec
 
 1. When you're done, select **Create**.
 
-#### [Built-in](#tab/built-in-connection)
+#### [Built-in (preview)](#tab/built-in-connection)
 
 1. Provide the connection information for your MQ server.
 
