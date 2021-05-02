@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 05/02/2020
 ms.author: markvi
 ms.reviewer: besiler 
 
@@ -27,10 +27,9 @@ The Azure Active Directory (Azure AD) portal gives you access to three activity 
 - **[Audit](concept-audit-logs.md)** – Information about changes applied to your tenant such as users and group management or updates applied to your tenant’s resources.
 - **[Provisioning](concept-provisioning-logs.md)** – Activities performed by the provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday.
 
+Azure AD stores the data in these logs for a limited amount of time. For more information, see [How long does Azure AD store reporting data?](reference-reports-data-retention.md). As an IT administrator, you may want to download your activity logs to have a longterm backup of your logs.
 
-As an IT administrator, you want to download your activity logs, so that you have full control over your data.
-
-This article explains how to download logs.  
+This article explains how to download logs in Azure AD.  
 
 ## What you should know
 
