@@ -34,13 +34,8 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 - Supported tables are currently limited those specific in the [supported tables](#supported-tables) section below. For example, custom log tables aren't supported currently.
 - If the data export rule includes an unsupported table, the operation will succeed, but no data will be exported for that table until table gets supported. 
 - If the data export rule includes a table that doesn't exist, it will fail with error ```Table <tableName> does not exist in the workspace```.
-- Your Log Analytics workspace can be in any region except for the following:
-  - Azure Government regions
-  - Japan West
-  - Brazil south east
-  - Norway East
-  - UAE North
-- You can have up to 10 enabled rules in your workspace. Additional rules above 10 can be created in disable state. 
+- Data export will be available in all regions, but currently not available in the following: Azure Government regions, Japan West, Brazil south east, Norway East, Norway West, UAE North, UAE Central, Australia Central 2, Switzerland North, Switzerland West, Germany West Central, South India, France South, Japan West
+- You can define up to 10 enabled rules in your workspace. Additional rules are allowed but in disable state. 
 - Destination must be unique across all export rules in your workspace.
 - The destination storage account or event hub must be in the same region as the Log Analytics workspace.
 - Names of tables to be exported can be no longer than 60 characters for a storage account and no more than 47 characters to an event hub. Tables with longer names will not be exported.

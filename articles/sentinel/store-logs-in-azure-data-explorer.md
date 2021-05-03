@@ -40,7 +40,7 @@ Azure Sentinel provides full SIEM and SOAR capabilities, quick deployment and co
 
 If you only need to access specific tables occasionally, such as for periodic investigations or audits, you may consider that retaining your data in Azure Sentinel is no longer cost-effective. At this point, we recommend storing data in Azure Data Explorer, which costs less, but still enables you to explore using the same KQL queries that you run in Azure Sentinel.
 
-You can access the data in Azure Data Explorer directly from Azure Sentinel using the [Log Analytics Azure Data Explorer proxy feature](//azure/azure-monitor/logs/azure-monitor-data-explorer-proxy). To do so, use cross cluster queries in your log search or workbooks.
+You can access the data in Azure Data Explorer directly from Azure Sentinel using the [Log Analytics Azure Data Explorer proxy feature](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy). To do so, use cross cluster queries in your log search or workbooks.
 
 > [!IMPORTANT]
 > Core SIEM capabilities, including Analytic rules, UEBA, and the investigation graph, do not support data stored in Azure Data Explorer.

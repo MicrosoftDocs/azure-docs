@@ -25,6 +25,9 @@ Premium file shares are Storage Spaces Direct (SSD)-backed, consistently low-lat
 
 To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [cluster best practices](hadr-cluster-best-practices.md). 
 
+> [!NOTE]
+> It's now possible to lift and shift your failover cluster instance solution to SQL Server on Azure VMs using Azure Migrate. See [Migrate failover cluster instance](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) to learn more. 
+
 ## Prerequisites
 
 Before you complete the instructions in this article, you should already have:
