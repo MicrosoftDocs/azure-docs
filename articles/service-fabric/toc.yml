@@ -459,6 +459,14 @@
       href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
     - name: Deploy a stateless only node type with a managed cluster 
       href: how-to-managed-cluster-stateless-node-type.md 
+    - name: Deploy managed cluster applications using managed identity
+      href: how-to-managed-cluster-application-managed-identity.md
+    - name: Deploy managed cluster application secrets
+      href: how-to-managed-cluster-application-secrets.md
+    - name: Configure managed cluster Availability Zone spanning
+      href: how-to-managed-cluster-availability-zones.md
+    - name: Select managed cluster managed disk types
+      href: how-to-managed-cluster-managed-disk.md
   - name: Plan and prepare
     items:
     - name: Plan cluster capacity
