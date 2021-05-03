@@ -18,7 +18,7 @@ Azure Route Server supports your typical hub-and-spoke network topology. This co
 As can be seen in the following diagram, you need to:
 
 * Deploy an NVA in each hub virtual network and the route server in the spoke virtual network.
-* Enable VNet peering between the hub and spoke virtual networks. Make sure “Use Remote Gateway or Remote Route Server” is **disabled** in the spoke virtual network VNet peering configuration.
+* Enable VNet peering between the hub and spoke virtual networks.
 * Configure BGP peering between the Route Server and each NVA deployed.
 
 :::image type="content" source="./media/about-dual-homed-network/dual-homed-topology.png" alt-text="Diagram of Route Server in a dual-homed topology.":::
