@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 
 # Keyword recognition
 
-Keyword recognition refers to speech technology that recognizes the existence of a word or short phrase within a given stream of audio. It is often synonymously referred to as keyword spotting (KWS). The most common use case of keyword recognition is voice activation of virtual assistants. For example, "Hey Cortana" is the keyword for the Cortana assistant. Upon recognition of the keyword, a scenario-specific action is carried out. For virtual assistant scenarios, a common resulting action is speech recognition of audio that follows the keyword.
+Keyword recognition refers to speech technology that recognizes the existence of a word or short phrase within a given stream of audio. It is often synonymously referred to as keyword spotting. The most common use case of keyword recognition is voice activation of virtual assistants. For example, "Hey Cortana" is the keyword for the Cortana assistant. Upon recognition of the keyword, a scenario-specific action is carried out. For virtual assistant scenarios, a common resulting action is speech recognition of audio that follows the keyword.
 
 Generally, virtual assistants are always listening. Keyword recognition acts as a privacy boundary for the user. A keyword requirement acts as a gate that prevents unrelated user audio from crossing the local device to the cloud.
 
@@ -37,7 +37,7 @@ The Custom Keyword portal on Speech Studio allows you to generate keyword recogn
 
 ## Keyword Verification
 
-Keyword Verification is a cloud service that reduces the impact of false accepts from on-device models with robust models running on Azure. It is always used in combination with Speech-to-Text, and there is no cost to using Keyword Verification beyond the cost of Speech-to-Text. To learn more, read [Keyword Verification](keyword-verification-overview.md).
+Keyword Verification is a cloud service that reduces the impact of false accepts from on-device models with robust models running on Azure. It is always used in combination with Speech-to-text, and there is no cost to using Keyword Verification beyond the cost of Speech-to-text. To learn more, read [Keyword Verification](keyword-verification-overview.md).
 
 ## Speech SDK integration and scenarios
 
@@ -45,7 +45,7 @@ The Speech SDK facilitates easy use of personalized on-device keyword recognitio
 
 | Scenario | Description | Samples |
 | -------- | ----------- | ------- |
-| End-to-end keyword recognition with Speech-to-Text | Best suited for products that will use a customized on-device keyword model from Custom Keyword with Azure Speech’s Keyword Verification and Speech-to-Text services. This is the most common scenario. | [Voice assistant sample code.](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant) <br> [Tutorial: Voice enable your assistant built using Azure Bot Service with the C# Speech SDK.](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk) <br> [Tutorial: Create a Custom Commands application with simple voice commands.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-develop-custom-commands-application) |
+| End-to-end keyword recognition with Speech-to-text | Best suited for products that will use a customized on-device keyword model from Custom Keyword with Azure Speech’s Keyword Verification and Speech-to-text services. This is the most common scenario. | [Voice assistant sample code.](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant) <br> [Tutorial: Voice enable your assistant built using Azure Bot Service with the C# Speech SDK.](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk) <br> [Tutorial: Create a Custom Commands application with simple voice commands.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-develop-custom-commands-application) |
 | Offline keyword recognition | Best suited for products without network connectivity that will use a customized on-device keyword model from Custom Keyword. | [C# on Windows UWP sample.](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer) <br> [Java on Android sample.](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
 
 ## Next steps

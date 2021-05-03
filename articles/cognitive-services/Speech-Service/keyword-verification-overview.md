@@ -17,6 +17,10 @@ ms.custom: devx-track-csharp
 
 Keyword Verification is a cloud service that reduces the impact of false accepts from on-device models with robust models running on Azure. There is no tuning or training required for Keyword Verification to work with your keyword. Incremental model updates are continually deployed to the service to improve accuracy and latency, completely transparent to client applications.
 
+## Pricing
+
+Keyword Verification is always used in combination with Speech-to-text, and there is no cost to using Keyword Verification beyond the cost of Speech-to-text.
+
 ## Keyword Verification and Speech-to-text
 
 When Keyword Verification is used, it is always in combination with Speech-to-text. Both services run in parallel. This means that audio is sent to both services for simultaneous processing.
@@ -52,10 +56,6 @@ The sample and tutorials linked below show how to use the Speech SDK:
  * [Voice assistant samples on GitHub.](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)
  * [Tutorial: Voice enable your assistant built using Azure Bot Service with the C# Speech SDK.](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk)
  * [Tutorial: Create a Custom Commands application with simple voice commands.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-develop-custom-commands-application)
-
-## Pricing
-
-Keyword Verification is always used in combination with Speech-to-text, and there is no cost to using Keyword Verification beyond the cost of Speech-to-text. 
 
 ## Next steps
 

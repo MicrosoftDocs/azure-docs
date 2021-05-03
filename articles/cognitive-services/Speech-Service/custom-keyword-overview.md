@@ -17,6 +17,10 @@ ms.custom: devx-track-csharp
 
 The [Custom Keyword portal on Speech Studio](https://speech.microsoft.com/customkeyword) allows you to generate keyword recognition models that execute at the edge by specifying any word or short phrase. You can further personalize your keyword model by choosing the right pronunciations.
 
+## Pricing
+
+There is no cost to using Custom Keyword for generating models, including both Basic and Advanced models. There is also no cost for running models on-device with the Speech SDK.
+
 ## Types of models
 
 Custom Keyword allows you to generate two types of on-device models for any keyword:
@@ -46,10 +50,6 @@ The Speech SDK allows you to quickly integrate your on-device keyword recognitio
 | -------- | ----------- | ------- |
 | End-to-end keyword recognition with Speech-to-text | Best suited for applications that will use a customized on-device keyword model from Custom Keyword with Azure Speech’s Keyword Verification and Speech-to-text services. This is the most common scenario. | [Voice assistant sample code.](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant) <br> [Tutorial: Voice enable your assistant built using Azure Bot Service with the C# Speech SDK.](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk) <br> [Tutorial: Create a Custom Commands application with simple voice commands.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-develop-custom-commands-application) |
 | Offline keyword recognition | Best suited for applications without network connectivity that will use a customized on-device keyword model from Custom Keyword. | [C# on Windows UWP sample.](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer) <br> [Java on Android sample.](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
-
-## Pricing
-
-There is no cost to using Custom Keyword for generating models, including both Basic and Advanced models. There is also no cost for running models on-device with the Speech SDK.
 
 ## Next steps
 
