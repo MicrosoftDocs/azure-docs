@@ -591,7 +591,7 @@ Invoke the direct method `livePipelineDelete` by using the following payload.
 }
 ```
 
-Within a few seconds, you see the following response in the *grpah *OUTPUT** window:
+Within a few seconds, you see the following response in the **OUTPUT** window:
 
 ```json
 {
