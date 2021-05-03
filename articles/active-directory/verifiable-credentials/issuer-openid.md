@@ -29,9 +29,9 @@ To issue a Verifiable Credential, Authenticator is instructed through downloadin
 | ------- | ----------- |
 | Grant type | Must support the authorization code grant type. |
 | Token format | Must produce unencrypted compact JWTs. |
-| Signature algorithm | Must produce JWTs signed using RSA 256. |
+| Signature algorithm | Must produce JWTs signed using RS 256. |
 | Configuration document | Must support OpenID Connect configuration document and `jwks_uri`. | 
-| Client registration | Must support public client registration using a `redirect_uri` value of `vclient://openid/`. | 
+| Client registration | Must support public client registration using a `redirect_uri` value of `vcclient://openid/`. | 
 | PKCE | Recommended for security reasons, but not required. |
 
 Examples of the HTTP requests sent to your identity provider are included below. Your identity provider must accept and respond to these requests in accordance with the OpenID Connect authentication standard.

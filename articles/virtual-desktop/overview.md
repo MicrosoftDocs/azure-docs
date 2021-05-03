@@ -85,7 +85,7 @@ The Azure virtual machines you create for Windows Virtual Desktop must be:
 >[!NOTE]
 >If you need an Azure subscription, you can [sign up for a one-month free trial](https://azure.microsoft.com/free/). If you're using the free trial version of Azure, you should use Azure AD Domain Services to keep your Windows Server Active Directory in sync with Azure Active Directory.
 
-For a list of URLs you should unblock for your Windows Virtual Desktop deployment to work as intended, see our [Safe URL list](safe-url-list.md).
+For a list of URLs you should unblock for your Windows Virtual Desktop deployment to work as intended, see our [Required URL list](safe-url-list.md).
 
 Windows Virtual Desktop comprises the Windows desktops and apps you deliver to users and the management solution, which is hosted as a service on Azure by Microsoft. Desktops and apps can be deployed on virtual machines (VMs) in any Azure region, and the management solution and data for these VMs will reside in the United States. This may result in data transfer to the United States.
 
@@ -115,10 +115,10 @@ To learn more about URLs you must unblock to use the clients, see the [Safe URL 
 
 ## Supported virtual machine OS images
 
-Windows Virtual Desktop supports the following x64 operating system images:
+Windows Virtual Desktop follows the [Microsoft Lifecycle Policy](https://docs.microsoft.com/lifecycle/) and supports the following x64 operating system images:
 
-* Windows 10 Enterprise multi-session, version 1809 or later
-* Windows 10 Enterprise, version 1809 or later (Semi-Annual Channel only)
+* Windows 10 Enterprise multi-session
+* Windows 10 Enterprise
 * Windows 7 Enterprise
 * Windows Server 2019
 * Windows Server 2016
@@ -130,10 +130,8 @@ Available automation and deployment options depend on which OS and version you c
 
 |Operating system|Azure Image Gallery|Manual VM deployment|Azure Resource Manager template integration|Provision host pools on Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
-|Windows 10 Enterprise (multi-session), version 2004|Yes|Yes|Yes|Yes|
-|Windows 10 Enterprise (multi-session), version 1909|Yes|Yes|Yes|Yes|
-|Windows 10 Enterprise (multi-session), version 1903|Yes|Yes|No|No|
-|Windows 10 Enterprise (multi-session), version 1809|Yes|Yes|No|No|
+|Windows 10 Enterprise multi-session, version 1909 and later|Yes|Yes|Yes|Yes|
+|Windows 10 Enterprise, version 1909 and later|Yes|Yes|Yes|Yes|
 |Windows 7 Enterprise|Yes|Yes|No|No|
 |Windows Server 2019|Yes|Yes|No|No|
 |Windows Server 2016|Yes|Yes|Yes|Yes|

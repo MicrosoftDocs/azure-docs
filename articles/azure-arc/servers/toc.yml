@@ -80,7 +80,7 @@
     - name: Data residency
       href: data-residency.md
     - name: Azure CLI
-      href: /cli/azure/ext/connectedmachine/connectedmachine
+      href: /cli/azure/connectedmachine
     - name: Azure PowerShell
       href: /powershell/module/az.connectedmachine
     - name: .NET

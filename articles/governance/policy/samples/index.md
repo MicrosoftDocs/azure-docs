@@ -1,7 +1,7 @@
 ---
 title: Index of policy samples
 description: Index of built-ins for Azure Policy. Categories Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 01/29/2021
+ms.date: 05/01/2021
 ms.topic: sample
 ---
 # Azure Policy Samples

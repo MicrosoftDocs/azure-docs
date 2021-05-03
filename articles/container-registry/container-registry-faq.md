@@ -28,7 +28,7 @@ For registry troubleshooting guidance, see:
 
 ### Can I create an Azure Container Registry using a Resource Manager template?
 
-Yes. Here is [a template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry) that you can use to create a registry.
+Yes. Here is [a template](https://azure.microsoft.com/resources/templates/101-container-registry/) that you can use to create a registry.
 
 ### Is there security vulnerability scanning for images in ACR?
 
@@ -270,6 +270,7 @@ You may disable anonymous pull access at any time by setting `--anonymous-pull-e
 > * Before attempting an anonymous pull operation, run `docker logout` to ensure that you clear any existing Docker credentials.
 > * Only data-plane operations are available to unauthenticated clients.
 > * The registry may throttle a high rate of unauthenticated requests.
+> * Currently, anonymous pull access isn't supported in [geo-replicated](container-registry-geo-replication.md) registry regions.
 
 > [!WARNING]
 > Anonymous pull access currently applies to all repositories in the registry. If you manage repository access using [repository-scoped tokens](container-registry-repository-scoped-permissions.md), be aware that all users may pull from those repositories in a registry enabled for anonymous pull. We recommend deleting tokens when anonymous pull access is enabled.
@@ -480,7 +481,7 @@ Please contact your network administrator or check your network configuration an
 ### Why does my pull or push request fail with disallowed operation?
 
 Here are some scenarios where operations may be disallowed:
-* Classic registries are no longer supported. Please upgrade to a supported [service tier](./container-registry-skus.md) using [az acr update](/cli/azure/acr#az-acr-update) or the Azure portal.
+* Classic registries are no longer supported. Please upgrade to a supported [service tier](./container-registry-skus.md) using [az acr update](/cli/azure/acr#az_acr_update) or the Azure portal.
 * The image or repository maybe locked so that it can't be deleted or updated. You can use the [az acr show repository](./container-registry-image-lock.md) command to view current attributes.
 * Some operations are disallowed if the image is in quarantine. Learn more about [quarantine](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 * Your registry may have reached its [storage limit](container-registry-skus.md#service-tier-features-and-limits).

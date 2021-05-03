@@ -101,7 +101,7 @@ This chart shows a total of 1.11 billion `Function Execution Units` consumed in 
 
 #### Azure CLI
 
-The [Azure CLI](/cli/azure/) has commands for retrieving metrics. You can use the CLI from a local command environment or directly from the portal using [Azure Cloud Shell](../cloud-shell/overview.md). For example, the following [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) command returns hourly data over same time period used before.
+The [Azure CLI](/cli/azure/) has commands for retrieving metrics. You can use the CLI from a local command environment or directly from the portal using [Azure Cloud Shell](../cloud-shell/overview.md). For example, the following [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) command returns hourly data over same time period used before.
 
 Make sure to replace `<AZURE_SUBSCRIPTON_ID>` with your Azure subscription ID running the command.
 

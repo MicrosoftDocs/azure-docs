@@ -195,7 +195,7 @@ the blueprint definition unique.
      |-|-|-|-|-|
      |RGtoLock resource group|Resource group|Name|TestingBPLocks|Defines the name of the new resource group to apply blueprint locks to.|
      |RGtoLock resource group|Resource group|Location|West US 2|Defines the location of the new resource group to apply blueprint locks to.|
-     |StorageAccount|Resource Manager template|storageAccountType (StorageAccount)|Standard_GRS|The storage SKU. The default value is _Standard_LRS_.|
+     |StorageAccount|Resource Manager template|storageAccountType (StorageAccount) |Standard_GRS|The storage SKU. The default value is _Standard_LRS_.|
 
 1. After you've entered all parameters, select **Assign** at the bottom of the page.
 
@@ -218,7 +218,7 @@ assignment details page.
 
    From this page, we can see that the assignment succeeded and that the resources were deployed
    with the new blueprint lock state. If the assignment is updated, the **Assignment operation**
-   drop-down shows details about the deployment of each definition version. You can select the
+   dropdown list shows details about the deployment of each definition version. You can select the
    resource group to open the property page.
 
 1. Select the **TestingBPLocks** resource group.

@@ -8,8 +8,8 @@ ms.subservice: core
 author: minxia
 ms.author: minxia
 ms.date: 02/27/2020
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
+
 ---
 
 # Visualize experiment runs and metrics with TensorBoard and Azure Machine Learning
