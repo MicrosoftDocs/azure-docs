@@ -232,8 +232,7 @@ OpenCensus.stats supports 4 aggregation methods but provides partial support for
 
 - **Count:** The count of the number of measurement points. The value is cumulative, can only increase and resets to 0 on restart. 
 - **Sum:** A sum up of the measurement points. The value is cumulative, can only increase and resets to 0 on restart. 
-- **LastValue:** Keeps the last 
-rded value, drops everything else.
+- **LastValue:** Keeps the last recorded value, drops everything else.
 - **Distribution:** Histogram distribution of the measurement points. This method is **NOT supported by the Azure Exporter**.
 
 ### Count Aggregation example
