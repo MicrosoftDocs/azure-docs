@@ -38,7 +38,7 @@ Prerequisites for this tutorial are:
     > You might be prompted to install Docker. Ignore this prompt.
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer) on your development machine.
 * Complete [setting up Azure resources](get-started-detect-motion-emit-events.md#set-up-azure-resources)
-* Complete [setting up your dev environment](set-up-dev-environment.md)
+
 At the end of these steps, you'll have several Azure resources deployed in your Azure subscription, including the ones relevant to this tutorial:
 
 * Azure IoT Hub
@@ -68,16 +68,14 @@ In this tutorial, you'll use an edge module built using the [Live555 Media Serve
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 
 ## Set up your development environment
-
-1. Follow the steps in [this](../../iot-accelerators/iot-accelerators-device-simulation-choose-hub.md) article (step 3) to obtain the IoT Hub connection string for the *iothubowner* shared access policy. 
-1. Clone the repo from this location: <!--TODO: replace this  https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp -->.
+1. Clone the repo from this location: https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp <!--TODO: replace this  https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp -->.
 1. Start Visual Studio Code, and open the folder where the repo has been downloaded.
 1. In Visual Studio Code, browse to the src/cloud-to-device-console-app folder and create a file named **appsettings.json**. This file contains the settings needed to run the program.
-1. Copy the following text to the settings file, where the `IoTHubConnectionString` is the string you obtained in the first step above.
+1. Browse to the file share in the storage account created in the setup step above, and copy the contents of the **appsettings.json** file, which should look like:
     ```
     {  
         "IoThubConnectionString" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",  
-        "deviceId" : "ava-sample-device",  
+        "deviceId" : "avasample-iot-edge-device",  
         "moduleId" : "avaedge"  
     }
     ```
@@ -106,7 +104,7 @@ In Visual Studio Code, browse to the src/cloud-to-device-console-app folder. Her
         ```
         Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
         ```
-1. In about 30 seconds, refresh Azure IoT Hub in the lower-left section. You should see the edge device `ava-sample-device`, which should have the following modules deployed:
+1. In about 30 seconds, refresh Azure IoT Hub in the lower-left section. You should see the edge device `avasample-iot-edge-device`, which should have the following modules deployed:
     * Video Analyzer on IoT Edge (module name **avaedge**)
     * RTSP simulator (module name **rtspsim**)
  
@@ -117,7 +115,7 @@ When you use the Video Analyzer on IoT Edge module to record the live video stre
 
 1. Open the Explorer pane in Visual Studio Code, and look for **Azure IoT Hub** in the lower-left corner.
 1. Expand the **Devices** node.
-1. Right-click on `ava-sample-device`, and select **Start Monitoring Built-in Event Endpoint**.
+1. Right-click on `avasample-iot-edge-device`, and select **Start Monitoring Built-in Event Endpoint**.
 
     > [!NOTE]
     > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
