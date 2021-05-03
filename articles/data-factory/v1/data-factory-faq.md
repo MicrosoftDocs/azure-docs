@@ -94,7 +94,7 @@ Copy Activity in Data Factory copies data from a source data store to a sink dat
 > Data stores with * can be on-premises or on Azure IaaS, and require you to install [Data Management Gateway](data-factory-data-management-gateway.md) on an on-premises/Azure IaaS machine.
 
 ### What are the supported file formats?
-[!INCLUDE [data-factory-file-format](../../../includes/data-factory-file-format.md)]
+[!INCLUDE [data-factory-file-format](includes/data-factory-file-format.md)]
 
 ### Where is the copy operation performed?
 See [Globally available data movement](data-factory-data-movement-activities.md#global) section for details. In short, when an on-premises data store is involved, the copy operation is performed by the Data Management Gateway in your on-premises environment. And, when the data movement is between two cloud stores, the copy operation is performed in the region closest to the sink location in the same geography.
