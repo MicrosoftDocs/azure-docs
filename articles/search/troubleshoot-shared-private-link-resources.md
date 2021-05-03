@@ -126,5 +126,5 @@ Some common errors that occur during the deletion phase are listed below.
 
 Learn more about shared private link resources and how to use it for secure access to protected content.
 
-- [Accessing protected content via indexers](search-indexer-howto-access-private.md)
-- [REST API reference](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources)
++ [Accessing protected content via indexers](search-indexer-howto-access-private.md)
++ [REST API reference](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources)

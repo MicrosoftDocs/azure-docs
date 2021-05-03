@@ -217,6 +217,6 @@ If the "Provisioning State" (`properties.provisioningState`) of the resource is 
 
 Learn more about private endpoints:
 
-- [Troubleshoot issues with shared private link resources](troubleshoot-shared-private-link-resources.md)
-- [What are private endpoints?](../private-link/private-endpoint-overview.md)
-- [DNS configurations needed for private endpoints](../private-link/private-endpoint-dns.md)
++ [Troubleshoot issues with shared private link resources](troubleshoot-shared-private-link-resources.md)
++ [What are private endpoints?](../private-link/private-endpoint-overview.md)
++ [DNS configurations needed for private endpoints](../private-link/private-endpoint-dns.md)
