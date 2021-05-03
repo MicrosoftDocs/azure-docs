@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 09/21/2016
+ms.date: 05/03/2021
 ms.author: rohink
 ---
 # How Azure DNS works with other Azure services
