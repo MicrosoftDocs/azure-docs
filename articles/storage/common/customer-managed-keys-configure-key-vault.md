@@ -305,10 +305,8 @@ If you configured the key vault access policy by using the system-assigned manag
 > [!NOTE]
 > You can select a system-wide managed identity only after the account is created. Therefore, This option doesn't appear in the **Encryption** tab of the **Create a storage account** page. 
 
-If you configured the key vault access policy by using a user-assigned managed identity, then in the **Encryption** settings page of an existing account, select **user-assigned**. Then, click **select an identity**.
+If you configured the key vault access policy by using a user-assigned managed identity, then in the **Encryption** settings page, select **user-assigned**. Then, click **select an identity**. 
 
-> [!div class="mx-imgBorder"]
-> ![User-assigned option in the Azure portal](./media/customer-managed-keys-configure-key-vault/portal-user-assigned-option.png)
 
 Search for the identity, select it, and then click the **Select** button.
 
