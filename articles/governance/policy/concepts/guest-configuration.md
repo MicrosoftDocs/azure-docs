@@ -234,6 +234,21 @@ The Audit policy definitions available for Guest Configuration include the
 [Azure Arc for servers](../../../azure-arc/servers/overview.md) that are in the scope of the policy
 assignment are automatically included.
 
+## Availability
+
+Guest Configuration service is designed to support Azure
+[availabilty zones](../../../availability-zones/az-overview) in regions where they are available.
+Customers designing a highly available solution should consider the redundancy planning requirements for
+[virtual machines](../../../virtual-machines/availability).
+For Azure regions where zone-redundancy is not available,
+ensure that machines deployed for the purpose of redundancy are within the scope of the same Azure Policy assignments,
+to ensure the audit/configuration requirements are consistent.
+
+For machines protected by
+[Azure Site Recovery](../../../site-recovery/site-recovery-overview),
+ensure that machines in a secondary site are within scope of Azure Policy assignments
+for the same definitions using the same parameter values as machines in the primary site.
+
 ## Troubleshooting guest configuration
 
 For more information about troubleshooting Guest Configuration, see
