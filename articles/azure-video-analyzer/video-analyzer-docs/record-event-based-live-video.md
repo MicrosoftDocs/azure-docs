@@ -87,9 +87,9 @@ Of interest in this tutorial are the files:
 You'll need the files for these steps:
 
 1. Clone the repo from the GitHub link https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp <!--TODO: replace this -->
-1. Start Visual Studio Code, and open the folder where you downloaded the repo.
-1. In Visual Studio Code, browse to the src/cloud-to-device-console-app folder and create a file named **appsettings.json**. This file contains the settings needed to run the program.
-1. Copy and paste the text that you obtained previously (from the third bullet in [Prerequisites](#prerequisites) under **app-settings** on the **Deployment Outputs** page of the Portal) into the **appsettings.json** file in Visual Studio Code. The text should look like: 
+1. In Visual Studio Code, open the folder where the repo has been downloaded.
+1. In Visual Studio Code, go to the src/cloud-to-device-console-app folder. There, create a file and name it **appsettings.json**. This file will contain the settings needed to run the program.
+1. Copy the text from the **appsettings.json** file that you downloaded from the Portal and paste into the **appsettings.json** file in Visual Studio Code. The text should look like: 
     ```
     {  
         "IoThubConnectionString" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",  
@@ -98,20 +98,20 @@ You'll need the files for these steps:
     }
     ```
     The IoT Hub connection string lets you use Visual Studio Code to send commands to the edge modules via Azure IoT Hub.
-    
-1. Next, browse to the src/edge folder and create a file named **.env**.
-1. Copy the contents from the arm-template/.env file. The text should look like: <!--TODO: replace this -->
-
+1. In Visual Studio Code, go to the src/edge folder and create a file named **.env**
+1. Copy the text from the **env.txt** file that you downloaded from the Portal and paste into the **.env** file in Visual Studio Code. The text should look like:
+   ```
+    {  
+        SUBSCRIPTION_ID="<Subscription ID>"  
+        RESOURCE_GROUP="<Resource Group>" 
+        AVA_PROVISIONING_TOKEN="<Provisioning token>"
+        VIDEO_INPUT_FOLDER_ON_DEVICE="/home/localedgeuser/samples/input"  
+        VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"
+        APPDATA_FOLDER_ON_DEVICE="/var/lib/videoAnalyzer"
+        CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
+        CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry password>"
+    }
     ```
-    IOTHUB_CONNECTION_STRING="HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx"  
-    AVA_PROVISIONING_TOKEN="<device provisioning token>"  
-    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/avaedgeuser/samples/input"  
-    VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"  
-    APPDATA_FOLDER_ON_DEVICE="/var/local/azurevideoanalyzer"
-    CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
-    CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry username>"      
-    ```
-
 ## Examine the sample files
 
 In Visual Studio Code, open src/edge/deployment.template.json. This template defines which edge modules you'll deploy to the edge device (the Azure Linux VM). There are two entries under the **modules** section with the following names:
