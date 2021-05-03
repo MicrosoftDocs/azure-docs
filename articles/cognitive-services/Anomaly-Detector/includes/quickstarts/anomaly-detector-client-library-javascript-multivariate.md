@@ -6,7 +6,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/06/2021
+ms.date: 04/29/2021
 ms.author: mbullwin
 ---
 
@@ -17,6 +17,8 @@ Use the Anomaly Detector multivariate client library for JavaScript to:
 * Detect system level anomalies from a group of time series.
 * When any individual time series won't tell you much and you have to look at all signals to detect a problem.
 * Predicative maintenance of expensive physical assets with tens to hundreds of different types of sensors measuring various aspects of system health.
+
+[Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/anomalydetector/ai-anomaly-detector) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-anomaly-detector) | [Sample code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/anomalydetector/ai-anomaly-detector/samples/v3/javascript/sample_multivariate_detection.js)
 
 ## Prerequisites
 
@@ -61,14 +63,25 @@ const endpoint = "YOUR_ENDPOINT";
 const data_source = "YOUR_SAMPLE_ZIP_FILE_LOCATED_IN_AZURE_BLOB_STORAGE_WITH_SAS";
 ```
 
- To use the Anomaly Detector multivariate APIs, we need to train our own model before using detection. Data used for training is a batch of time series, each time series should be in CSV format with two columns, timestamp and value. All of the time series should be zipped into one zip file and be uploaded to [Azure Blob storage](../../../../storage/blobs/storage-blobs-introduction.md). By default the file name will be used to represent the variable for the time series. Alternatively, an extra meta.json file can be included in the zip file if you wish the name of the variable to be different from the .zip file name. Once we generate [blob SAS (Shared access signatures) URL](../../../../storage/common/storage-sas-overview.md), we can use the url to the zip file for training.
+To use the Anomaly Detector multivariate APIs, you need to first train your own models. Training data is a set of multiple time series that meet the following requirements:
+
+Each time series should be a CSV file with two (and only two) columns, "timestamp" and "value" (all in lowercase) as the header row. The "timestamp" values should conform to ISO 8601; the "value" could be integers or decimals with any number of decimal places. For example:
+
+|timestamp | value|
+|-------|-------|
+|2019-04-01T00:00:00Z| 5|
+|2019-04-01T00:01:00Z| 3.6|
+|2019-04-01T00:02:00Z| 4|
+|`...`| `...` |
+
+Each CSV file should be named after a different variable that will be used for model training. For example, "temperature.csv" and "humidity.csv". All the CSV files should be zipped into one zip file without any subfolders. The zip file can have whatever name you want. The zip file should be uploaded to Azure Blob storage. Once you generate the blob SAS (Shared access signatures) URL for the zip file, it can be used for training. Refer to this document for how to generate SAS URLs from Azure Blob Storage.
 
 ### Install the client library
 
 Install the `ms-rest-azure` and `azure-ai-anomalydetector` NPM packages. The csv-parse library is also used in this quickstart:
 
 ```console
-npm install @azure/ai-anomaly-detector @azure/ms-rest-js csv-parse
+npm install @azure/ai-anomaly-detector csv-parse
 ```
 
 Your app's `package.json` file will be updated with the dependencies.
@@ -88,7 +101,7 @@ These code snippets show you how to do the following with the Anomaly Detector c
 Instantiate a `AnomalyDetectorClient` object with your endpoint and credentials.
 
 ```javascript
-const client = new AnomalyDetectorClient(endpoint, new AzureKeyCredential(apiKey)).client;
+const client = new AnomalyDetectorClient(endpoint, new AzureKeyCredential(apiKey));
 ```
 
 ## Train a model
@@ -112,21 +125,21 @@ You will need to pass your model request to the Anomaly Detector client `trainMu
 
 ```javascript
 console.log("Training a new model...")
-var train_response = await client.trainMultivariateModel(Modelrequest)
-var model_id = train_response.location.split("/").pop()
+const train_response = await client.trainMultivariateModel(Modelrequest)
+const model_id = train_response.location?.split("/").pop() ?? ""
 console.log("New model ID: " + model_id)
 ```
 
 To check if training of your model is complete you can track the model's status:
 
 ```javascript
-var model_response = await client.getMultivariateModel(model_id)
-var model_status = model_response.modelInfo.status
+let model_response = await client.getMultivariateModel(model_id)
+let model_status = model_response.modelInfo?.status
 
 while (model_status != 'READY'){
     await sleep(10000).then(() => {});
-    var model_response = await client.getMultivariateModel(model_id)
-    var model_status = model_response.modelInfo.status
+    model_response = await client.getMultivariateModel(model_id)
+    model_status = model_response.modelInfo?.status
 }
 
 console.log("TRAINING FINISHED.")
@@ -144,14 +157,14 @@ const detect_request = {
     endTime: new Date(2021,0,3,0,0,0)
 };
 const result_header = await client.detectAnomaly(model_id, detect_request)
-const result_id = result_header.location.split("/").pop()
-var result = await client.getDetectionResult(result_id)
-var result_status = result.summary.status
+const result_id = result_header.location?.split("/").pop() ?? ""
+let result = await client.getDetectionResult(result_id)
+let result_status = result.summary.status
 
 while (result_status != 'READY'){
     await sleep(2000).then(() => {});
-    var result = await client.getDetectionResult(result_id)
-    var result_status = result.summary.status
+    result = await client.getDetectionResult(result_id)
+    result_status = result.summary.status
 }
 ```
 
@@ -163,7 +176,7 @@ To export your trained model use the `exportModel` function.
 const export_result = await client.exportModel(model_id)
 const model_path = "model.zip"
 const destination = fs.createWriteStream(model_path)
-export_result.readableStreamBody.pipe(destination)
+export_result.readableStreamBody?.pipe(destination)
 console.log("New model has been exported to "+model_path+".")
 ```
 
@@ -177,6 +190,8 @@ console.log("New model has been deleted.")
 ```
 
 ## Run the application
+
+Before running the application it can be helpful to check your code against the [full sample code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/anomalydetector/ai-anomaly-detector/samples/v3/javascript/sample_multivariate_detection.js)
 
 Run the application with the `node` command on your quickstart file.
 

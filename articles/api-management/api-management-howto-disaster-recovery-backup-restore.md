@@ -13,7 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/05/2020
-ms.author: apimpm
+ms.author: apimpm 
+ms.custom: devx-track-azurepowershell
 ---
 
 # How to implement disaster recovery using service backup and restore in Azure API Management
@@ -226,7 +227,7 @@ Restore is a long running operation that may take up to 30 or more minutes to co
 -   [Managed Identity](api-management-howto-use-managed-service-identity.md) configuration.
 -   [Azure Monitor Diagnostic](api-management-howto-use-azure-monitor.md) Configuration.
 -   [Protocols and Cipher](api-management-howto-manage-protocols-ciphers.md) settings.
--   [Developer portal](api-management-howto-developer-portal.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management) content.
+-   [Developer portal](developer-portal-faq.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management) content.
 
 The frequency with which you perform service backups affect your recovery point objective. To minimize it, we recommend implementing regular backups and performing on-demand backups after you make changes to your API Management service.
 

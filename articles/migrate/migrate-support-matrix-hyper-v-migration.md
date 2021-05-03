@@ -78,7 +78,13 @@ backup.windowsazure.us | Replication data transfer and coordination.
 *.hypervrecoverymanager.windowsazure.us | Used for replication management.
 *.blob.core.usgovcloudapi.net | Upload data to storage accounts.
 dc.services.visualstudio.com | Upload app logs used for internal monitoring.
-time.nist.gov | Verifies time synchronization between system and global time.
+time.nist.gov | Verifies time synchronization between system and global time.   
+
+>[!Note]
+>
+> If you Migrate project has **private endpoint connectivity**, the replication provider software on the Hyper-V hosts will need access to these URLs for private link support. 
+> - *.blob.core.windows.com - To access storage account that stores replicated data. This is optional and is not required if the storage account has a private endpoint attached. 
+> - login.windows.net for access control and identity management using Active Directory.
 
 ## Azure VM requirements
 

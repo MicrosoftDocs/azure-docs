@@ -86,7 +86,7 @@
         href: concepts/telephony-sms/telephony-concept.md
       - name: Phone number types
         href: concepts/telephony-sms/plan-solution.md
-      - name: SIP Interface infrastructure requirements
+      - name: Azure direct routing infrastructure requirements
         href: concepts/telephony-sms/sip-interface-infrastructure.md
       - name: SMS FAQ
         href: concepts/telephony-sms/sms-faq.md
@@ -152,7 +152,7 @@
   - name: Reference documentation overview
     href: concepts/reference.md
   - name: Azure CLI
-    href: /cli/azure/ext/communication/communication
+    href: /cli/azure/communication
   - name: REST API documentation
     href: /rest/api/communication/
   - name: Calling libraries

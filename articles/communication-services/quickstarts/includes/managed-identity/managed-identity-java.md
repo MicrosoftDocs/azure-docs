@@ -1,6 +1,6 @@
 ## Additional prerequisites for Java
 For Java, you'll also need:
-- [Java Development Kit (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
+- [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
 ## Setting up
@@ -200,4 +200,3 @@ Sending SMS using Managed Identities
 Sms id: Outgoing_202104...33f8ae1f_noam
 Send Result Successful: true
 ```
-

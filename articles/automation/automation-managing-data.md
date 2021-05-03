@@ -4,7 +4,8 @@ description: This article helps you learn how Azure Automation protects your pri
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 03/10/2021
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Management of Azure Automation data
