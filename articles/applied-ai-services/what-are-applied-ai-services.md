@@ -26,7 +26,7 @@ Form Recognizer is composed of custom document processing models, prebuilt model
 
 ## Azure Metrics Advisor
 
-Protecting organization’s growth by enabling them to make right decision based on intelligence from metrics of businesses, services and physical assets.  Azure Metrics Advisor  uses AI to perform data monitoring and anomaly detection in time series data. The service automates the process of applying models to your data, and provides a set of APIs and a web-based workspace for data ingestion, anomaly detection, and diagnostics - without needing to know machine learning. Developers can build AIOps, predicative maintenance, and business monitor applications on top of the service.  Azure Metrics Advisor is built using Anomaly Detector from Azure Cognitive Services.​
+Protecting organization’s growth by enabling them to make the right decision based on intelligence from metrics of businesses, services and physical assets.  Azure Metrics Advisor uses AI to perform data monitoring and anomaly detection in time series data. The service automates the process of applying models to your data, and provides a set of APIs and a web-based workspace for data ingestion, anomaly detection, and diagnostics - without needing to know machine learning. Developers can build AIOps, predicative maintenance, and business monitoring applications on top of the service.  Azure Metrics Advisor is built using Anomaly Detector from Azure Cognitive Services.​
 
 [Learn more about Azure Metrics Advisor >](https://aka.ms/metricsadvisordocs)
 
