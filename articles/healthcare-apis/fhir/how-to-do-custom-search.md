@@ -135,13 +135,13 @@ After you have tested and are satisfied that your search parameter is working as
 To update a search parameter, use `PUT` to create a new version of the search parameter.
 
 ```rest
-PUT {fhirurl}/SearchParameter/{SearchParameter ID}`
+PUT {{FHIR_ULR}}/SearchParameter/{SearchParameter ID}`
 ```
 
 You must include the `SearchParameter ID` in the ID field of the body of the `PUT` request and in the `PUT` call.
 
 > [!NOTE]
-> If you don't know the ID for your search parameter, you can search for it. Using `GET {fhirurl}/SearchParameter` will return all custom search parameters, and you can scroll through the search parameter to find the search parameter you need. You could also limit the search by name. With the example below, you could search for name using `USCoreRace: GET {fhirurl}/SearchParameter?name=USCoreRace`.
+> If you don't know the ID for your search parameter, you can search for it. Using `GET {{FHIR_URL}}/SearchParameter` will return all custom search parameters, and you can scroll through the search parameter to find the search parameter you need. You could also limit the search by name. With the example below, you could search for name using `USCoreRace: GET {{FHIR_URL}}/SearchParameter?name=USCoreRace`.
 
 ```json
 {
@@ -194,7 +194,7 @@ The result will be an updated `SearchParameter` and the version will increment.
 
 If you need to delete a search parameter, use the following:
 
-`Delete {fhirurl}/SearchParameter/{SearchParameter ID}`
+`Delete {{FHIR_URL}}/SearchParameter/{SearchParameter ID}`
 
 > [!Warning]
 > Be careful when deleting SearchParameters that have already been indexed in your database. Changing an existing SearchParameter’s behavior could have impacts on the expected behavior. We recommend running a reindex job immediately.
