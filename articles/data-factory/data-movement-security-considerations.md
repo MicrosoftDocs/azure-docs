@@ -6,7 +6,7 @@ author: nabhishek
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/26/2020
+ms.date: 05/03/2021
 ---
 
 # Security considerations for data movement in Azure Data Factory
