@@ -86,7 +86,7 @@ Certain applications can't be application layered, which means they can't be rep
 
 Each session host can handle different amount of MSIX applications based on its CPU, memory, and OS. CPU, memory, and OS will be limiting fact for applciation performance and user experience. MSIX app attahc has no limitation on the amount of applications. 
 
-## How many .VHD or .VHDX can be mounted on a host pool?
+## How many .VHD or .VHDX files can I mount on a host pool?
 
 MSIX app attach does not enforce a limit. There are limits coming from:
 
