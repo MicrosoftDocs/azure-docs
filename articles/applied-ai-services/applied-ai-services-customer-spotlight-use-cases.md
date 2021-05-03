@@ -18,7 +18,7 @@ Customers are already leveraging Applied AI Services to add AI horsepower to the
 <br>
 
 ![Progressive_Logo](./media/logo-progressive-01.png)
-## Progressive helps customers make smarter insurance decisions with Bot Service Cognitive Search
+## Progressive helps customers make smarter insurance decisions with Bot Service and Cognitive Search
 "One of the great things about Bot Service is that, out of the box, we could use it to quickly put together the basic framework for our bot." 
 
 -Matt White, Marketing Manager, Personal Lines Acquisition Experience, Progressive Insurance 
