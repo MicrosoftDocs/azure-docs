@@ -9,7 +9,7 @@ ms.custom: generated
 
 This page is an index of Azure Policy built-in policy definitions.
 
-The name of each built-in links to the policy definition in Azure portal. Use the link in the
+The name of each built-in links to the policy definition in the Azure portal. Use the link in the
 **Source** column to view the source on the
 [Azure Policy GitHub repo](https://github.com/Azure/azure-policy). The built-ins are grouped by the
 **category** property in **metadata**. To jump to a specific **category**, use the menu on the right
