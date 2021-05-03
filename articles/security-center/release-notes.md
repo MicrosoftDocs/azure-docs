@@ -27,7 +27,7 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 Updates in May include:
 
 - [SQL data classification recommendation severity changed](#sql-data-classification-recommendation-severity-changed)
-- [Assessments API expanded with new fields](#assessments-api-expanded-with-new-fields)
+- [Assessments API expanded with two new fields](#assessments-api-expanded-with-two-new-fields)
 
 ### SQL data classification recommendation severity changed
 
@@ -38,20 +38,25 @@ This is part of the ongoing changes to this recommendation announced in [Enhance
 For a full list of all security controls in Security Center, together with their scores and a list of the recommendations in each, see [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
 
 
-### Assessments API expanded with new fields
+### Assessments API expanded with two new fields
 
 We've added the following two fields to the [Assessments REST API](https://docs.microsoft.com/rest/api/securitycenter/assessments):
 
-- **FirstEvaluationDate** – The time that the assessment was created and first evaluated. Returned as UTC time in ISO 8601 format.
-- **StatusChangeDate** – The time that the status of the assessment last changed. Returned as UTC time in ISO 8601 format.
+- **FirstEvaluationDate** – The time that the recommendation was created and first evaluated. Returned as UTC time in ISO 8601 format.
+- **StatusChangeDate** – The time that the status of the recommendation last changed. Returned as UTC time in ISO 8601 format.
 
-To access this information, you can use either of the methods in the table below.
+The initial default value for these fields - for all recommendations - is `2021-03-14T00:00:00+0000`.
 
-|Tool  |Details  |
-|---------|---------|
-|Azure Resource Graph     | securityresources<br>where type == "microsoft.security/assessments"        |
-|REST API call     |GET https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.Security/assessments?api-version=2019-01-01-preview&$expand=statusEvaluationDates|
-|||
+To access this information, you can use any of the methods in the table below.
+
+| Tool                 | Details                                                                                                                                                                |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| REST API call        | GET https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.Security/assessments?api-version=2019-01-01-preview&$expand=statusEvaluationDates |
+| Azure Resource Graph | `securityresources`<br>`where type == "microsoft.security/assessments"`                                                                                                |
+| Workflow automation  | The two fields are included in the RecommendationAdditionalData array                                                                                                  |
+| [CSV export](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations) | The two fields are included in the CSV files                                         |
+|                      |                                                                                                                                                                        |
+
 
 Learn more about the [Assessments REST API](https://docs.microsoft.com/rest/api/securitycenter/assessments).
 
