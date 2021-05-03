@@ -1,9 +1,6 @@
 ---
 title: Bulk loading into Apache Phoenix using psql - Azure HDInsight 
 description: Use the psql tool to load bulk load data into Apache Phoenix tables in Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -24,7 +21,7 @@ Bulk loading with MapReduce is used for much larger data volumes, typically in p
 
 Before you start loading data, verify that Phoenix is enabled and that query timeout settings are as expected.  Access your HDInsight cluster [Apache Ambari](https://ambari.apache.org/) dashboard, select HBase, and then the Configuration tab.  Scroll down to verify that Apache Phoenix is set to `enabled` as shown:
 
-![Apache Phoenix HDInsight Cluster Settings](./media/apache-hbase-phoenix-psql/apache-ambari-phoenix.png)
+:::image type="content" source="./media/apache-hbase-phoenix-psql/apache-ambari-phoenix.png" alt-text="Apache Phoenix HDInsight Cluster Settings" border="true":::
 
 ### Use `psql` to bulk load tables
 

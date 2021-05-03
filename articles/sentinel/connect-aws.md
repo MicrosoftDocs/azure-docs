@@ -1,6 +1,6 @@
 ---
 title: Connect AWS CloudTrail to Azure Sentinel | Microsoft Docs
-description: Use the AWS connector to delegate Azure Sentinel access to AWS resource logs, creating a trust relationship between AWS CloudTrail and Sentinel.
+description: Use the AWS connector to delegate Azure Sentinel access to AWS resource logs, creating a trust relationship between AWS CloudTrail and Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin

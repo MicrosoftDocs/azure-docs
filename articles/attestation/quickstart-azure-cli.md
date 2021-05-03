@@ -11,7 +11,11 @@ ms.author: mbaldwin
 ---
 # Quickstart: Set up Azure Attestation with Azure CLI
 
-Get started with Azure Attestation by using Azure CLI to set up attestation.
+Get started with [Azure Attestation by using Azure CLI](/cli/azure/attestation).
+
+## Prerequisites
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Get started
 
@@ -60,13 +64,13 @@ Get started with Azure Attestation by using Azure CLI to set up attestation.
 
 Here are commands you can use to create and manage the attestation provider:
 
-1. Run the [az attestation create](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_create) command to create an attestation provider:
+1. Run the [az attestation create](/cli/azure/attestation#az_attestation_create) command to create an attestation provider without policy signing requirement:
 
    ```azurecli
    az attestation create --name "myattestationprovider" --resource-group "MyResourceGroup" --location westus
    ```
    
-1. Run the [az attestation show](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_show) command to retrieve attestation provider properties such as status and AttestURI:
+1. Run the [az attestation show](/cli/azure/attestation#az_attestation_show) command to retrieve attestation provider properties such as status and AttestURI:
 
    ```azurecli
    az attestation show --name "myattestationprovider" --resource-group "MyResourceGroup"
@@ -86,7 +90,7 @@ Here are commands you can use to create and manage the attestation provider:
    TagsTable:
    ```
 
-You can delete an attestation provider by using the [az attestation delete](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_delete) command:
+You can delete an attestation provider by using the [az attestation delete](/cli/azure/attestation#az_attestation_delete) command:
 
 ```azurecli
 az attestation delete --name "myattestationprovider" --resource-group "sample-resource-group"
@@ -96,7 +100,7 @@ az attestation delete --name "myattestationprovider" --resource-group "sample-re
 
 Use the commands described here to provide policy management for an attestation provider, one attestation type at a time.
 
-The [az attestation policy show](/cli/azure/ext/attestation/attestation/policy?view=azure-cli-latest#ext_attestation_az_attestation_policy_show) command returns the current policy for the specified TEE:
+The [az attestation policy show](/cli/azure/attestation/policy#az_attestation_policy_show) command returns the current policy for the specified TEE:
 
 ```azurecli
 az attestation policy show --name "myattestationprovider" --resource-group "MyResourceGroup" --attestation-type SGX-IntelSDK
@@ -111,7 +115,7 @@ The following are supported TEE types:
 - `SGX-OpenEnclaveSDK`
 - `TPM`
 
-Use the [az attestation policy set](/cli/azure/ext/attestation/attestation/policy?view=azure-cli-latest#ext_attestation_az_attestation_policy_set) command to set a new policy for the specified attestation type.
+Use the [az attestation policy set](/cli/azure/attestation/policy#az_attestation_policy_set) command to set a new policy for the specified attestation type.
 
 To set policy in text format for a given kind of attestation type using file path:
 
@@ -123,7 +127,7 @@ To set policy in JWT format for a given kind of attestation type using file path
 
 ```azurecli
 az attestation policy set --name "myattestationprovider" --resource-group "MyResourceGroup" \
---attestation-type SGX-IntelSDK --new-attestation-policy-file "{file_path}" --policy-format JWT
+--attestation-type SGX-IntelSDK -f "{file_path}" --policy-format JWT
 ```
 
 ## Next steps

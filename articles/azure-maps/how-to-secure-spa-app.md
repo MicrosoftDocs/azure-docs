@@ -25,7 +25,7 @@ The following guide pertains to an application using Azure Active Directory (Azu
 
 Create a secured web service application which is responsible for authentication to Azure AD. 
 
-1. Create a function in the Azure portal. For more information, see [Create Azure Function](../azure-functions/functions-create-first-azure-function.md).
+1. Create a function in the Azure portal. For more information, see [Create Azure Function](../azure-functions/functions-get-started.md).
 
 2. Configure CORS policy on the Azure function to be accessible by the single page web application. This will secure browser clients to the allowed origins of your web application. See [Add CORS functionality](../app-service/app-service-web-tutorial-rest-api.md#add-cors-functionality).
 
@@ -106,7 +106,7 @@ You grant *Azure role-based access control (Azure RBAC)* access by assigning the
 
 2. On the **Role assignments** tab, under **Role**, select a built in Azure Maps role definition such as **Azure Maps Data Reader** or **Azure Maps Data Contributor**. Under **Assign access to**, select **Function App**. Select the principal by name. Then select **Save**.
 
-   * See details on [Add or remove role assignments](../role-based-access-control/role-assignments-portal.md).
+   * See details on [Assign Azure roles](../role-based-access-control/role-assignments-portal.md).
 
 > [!WARNING]
 > Azure Maps built-in role definitions provide a very large authorization access to many Azure Maps REST APIs. To restrict APIs access to a minimum, see [create a custom role definition and assign the system-assigned identity](../role-based-access-control/custom-roles.md) to the custom role definition. This will enable the least privilege necessary for the application to access Azure Maps.

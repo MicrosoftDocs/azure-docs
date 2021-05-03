@@ -30,7 +30,7 @@ Jump ahead to the [live store locator example](https://azuremapscodesamples.azur
 
 ## Prerequisites
 
-1. [Make an Azure Maps account with S1 pricing tier](quick-demo-map-app.md#create-an-azure-maps-account)
+1. [Make an Azure Maps account in Gen 1 (S1) or Gen 2 pricing tier](quick-demo-map-app.md#create-an-azure-maps-account).
 2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 
 For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
@@ -930,6 +930,10 @@ In this tutorial, you learned how to create a basic store locator by using Azure
  * Store your data in a database and search for nearby locations. To learn more, see the [SQL Server spatial data types overview](/sql/relational-databases/spatial/spatial-data-types-overview?preserve-view=true&view=sql-server-2017) and [Query spatial data for the nearest neighbor](/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?preserve-view=true&view=sql-server-2017).
 
 You can [View full source code](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator), [View live sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator) and learn more about the coverage and capabilities of Azure Maps by using [Zoom levels and tile grid](zoom-levels-and-tile-grid.md). You can also [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md) to apply to your business logic.
+
+## Clean up resources
+
+There are no resources that require cleanup.
 
 ## Next steps
 

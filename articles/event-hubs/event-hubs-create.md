@@ -49,7 +49,7 @@ An Event Hubs namespace provides a unique scoping container, in which you create
    1. Select the **resource group** you created in the previous step.   
    1. Enter a **name** for the namespace. The system immediately checks to see if the name is available.  
    1. Select a **location** for the namespace.
-   1. Choose the **pricing tier** (Basic or Standard). To learn about some of the differences between basic and standard tiers, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/), [Differences between tiers](event-hubs-faq.md#what-is-the-difference-between-event-hubs-basic-and-standard-tiers), and [Quotas and limits](event-hubs-quotas.md). 
+   1. Choose the **pricing tier** (Basic or Standard). To learn about some of the differences between basic and standard tiers, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/), [Differences between tiers](event-hubs-faq.yml#what-is-the-difference-between-event-hubs-basic-and-standard-tiers-), and [Quotas and limits](event-hubs-quotas.md). 
    1. Leave the **throughput units** settings as it is. Throughput units are pre-purchased units of capacity. To learn about throughput units, see [Event Hubs scalability](event-hubs-scalability.md#throughput-units).  
    1. Select **Review + Create** at the bottom of the page.
       
@@ -82,7 +82,7 @@ To create an event hub within the namespace, do the following actions:
 
     The **partition count** setting allows you to parallelize consumption across many consumers. For more information, see [Partitions](event-hubs-scalability.md#partitions).
 
-    The **message retention** setting specifies how long the Event Hubs service keeps data. For the maximum limits for this setting, see [Quotas and limits](event-hubs-quotas.md).
+    The **message retention** setting specifies how long the Event Hubs service keeps data. For more information, see [Event retention](event-hubs-features.md#event-retention).
 1. You can check the status of the event hub creation in alerts. After the event hub is created, you see it in the list of event hubs.
 
     ![Event hub created](./media/event-hubs-quickstart-portal/event-hub-created.png)

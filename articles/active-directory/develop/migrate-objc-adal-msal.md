@@ -35,14 +35,14 @@ The Microsoft identity platform has a few key differences with Azure Active Dire
 
 ### Standards compliance
 
-* The Microsoft identity Platform endpoint follows OAuth 2.0 and OpenId Connect standards.
+* The Microsoft identity platform follows OAuth 2.0 and OpenId Connect standards.
 
 ### Incremental and dynamic consent
 
 * The Azure Active Directory v1.0 endpoint requires that all permissions be declared in advance during application registration. This means those permissions are static.
 * The Microsoft identity platform allows you to request permissions dynamically. Apps can ask for permissions only as needed and request more as the app needs them.
 
-For more about differences between Azure Active Directory v1.0 and the Microsoft identity platform, see [Why update to Microsoft identity platform (v2.0)?](../azuread-dev/azure-ad-endpoint-comparison.md).
+For more about differences between Azure Active Directory v1.0 and the Microsoft identity platform, see [Why update to Microsoft identity platform?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 ## ADAL and MSAL library differences
 

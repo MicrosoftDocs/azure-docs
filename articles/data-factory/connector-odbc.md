@@ -1,20 +1,11 @@
 ---
 title: Copy data from and to ODBC data stores using Azure Data Factory 
 description: Learn how to copy data from and to ODBC data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: jingwang
-
 ---
 # Copy data from and to ODBC data stores using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -195,12 +186,12 @@ To copy data to ODBC-compatible data store, set the sink type in the copy activi
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity sink must be set to: **OdbcSink** | Yes |
-| writeBatchTimeout |Wait time for the batch insert operation to complete before it times out.<br/>Allowed values are: timespan. Example: “00:30:00” (30 minutes). |No |
+| writeBatchTimeout |Wait time for the batch insert operation to complete before it times out.<br/>Allowed values are: timespan. Example: "00:30:00" (30 minutes). |No |
 | writeBatchSize |Inserts data into the SQL table when the buffer size reaches writeBatchSize.<br/>Allowed values are: integer (number of rows). |No (default is 0 - auto detected) |
 | preCopyScript |Specify a SQL query for Copy Activity to execute before writing data into data store in each run. You can use this property to clean up the pre-loaded data. |No |
 
 > [!NOTE]
-> For "writeBatchSize", if it's not set (auto-detected), copy activity first detects whether the driver supports batch operations, and set it to 10000 if it does, or set it to 1 if it doesn’t. If you explicitly set the value other than 0, copy activity honors the value and fails at runtime if the driver doesn’t support batch operations.
+> For "writeBatchSize", if it's not set (auto-detected), copy activity first detects whether the driver supports batch operations, and set it to 10000 if it does, or set it to 1 if it doesn't. If you explicitly set the value other than 0, copy activity honors the value and fails at runtime if the driver doesn't support batch operations.
 
 **Example:**
 

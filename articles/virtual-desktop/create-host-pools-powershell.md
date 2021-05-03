@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 10/02/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Create a Windows Virtual Desktop host pool with PowerShell
 
@@ -118,7 +118,7 @@ To register the Windows Virtual Desktop agents, do the following on each virtual
 
 You'll need to update the agent if you're in one of the following situations:
 
-- You want to migrate a previously registered session to a new host pool
+- You want to migrate a previously registered session host to a new host pool
 - The session host doesn't appear in your host pool after an update
 
 To update the agent:

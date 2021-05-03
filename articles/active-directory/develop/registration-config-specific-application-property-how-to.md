@@ -12,7 +12,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
-
+ROBOTS: NOINDEX
 ---
 
 # Azure portal registration fields for custom-developed apps
@@ -21,7 +21,7 @@ This article gives you a brief description of all the available fields in the ap
 
 ## Register a new application
 
--   To register a new application, navigate to the [Azure portal](https://portal.azure.com).
+-   To register a new application, navigate to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 
 -   From the left navigation pane, click **Azure Active Directory.**
 
@@ -57,7 +57,7 @@ Once you have filled the above fields, the application is registered in the Azur
 
 | Field           | Description        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Logout URL      | This is the single sign-out logout URL. Azure AD sends a logout request to this URL when the user clears their session with Azure AD using any other registered application.|
+| Front-channel logout URL      | This is the single sign-out logout URL. Azure AD sends a logout request to this URL when the user clears their session with Azure AD using any other registered application.|
 | Supported account types  | This switch specifies whether the application can be used by multiple tenants. Typically, this means that external organizations can use your application by registering it in their tenant and granting access to their organization's data.|
 | Redirect URLs      | The redirect, or reply, URLs are the endpoints where Azure AD returns any tokens that your application requests. For native applications, this is where the user is sent after successful authorization. Azure AD checks that the redirect URI your application supplies in the OAuth 2.0 request matches one of the registered values in the portal.|
 

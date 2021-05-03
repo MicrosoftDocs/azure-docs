@@ -4,8 +4,10 @@ description: Learn how Azure Hybrid Benefit can help you save money on your Linu
 services: virtual-machines
 documentationcenter: ''
 author: mathapli
-manager: westonh
-ms.service: virtual-machines-linux
+manager: rochakm
+ms.service: virtual-machines
+ms.subservice: azure-hybrid-benefit
+ms.collection: linux
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
@@ -14,7 +16,7 @@ ms.author: mathapli
 
 # How Azure Hybrid Benefit applies for Linux virtual machines
 
-Azure Hybrid Benefit is a licensing benefit that helps you to significantly reduce the costs of running your Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) in the cloud. With this benefit, you pay for only the infrastructure costs of your VM because your RHEL or SLES subscription covers the software fee. The benefit is applicable to all RHEL and SLES Marketplace pay-as-you-go (PAYG) images.
+Azure Hybrid Benefit is a licensing benefit that helps you to significantly reduce the costs of running your Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) in the cloud. With this benefit, you pay for only the infrastructure costs of your VM because your RHEL or SLES subscription covers the software fee. The benefit is available for all RHEL and SLES Marketplace pay-as-you-go (PAYG) images.
 
 Azure Hybrid Benefit for Linux VMs is now publicly available.
 
@@ -24,7 +26,7 @@ Through Azure Hybrid Benefit, you can migrate your on-premises RHEL and SLES ser
 
 :::image type="content" source="./media/ahb-linux/azure-hybrid-benefit-cost.png" alt-text="Azure Hybrid Benefit cost visualization on Linux VMs.":::
 
-After you enable the benefit on a RHEL or SLES VM, you'll no longer be charged for the additional software fee typically incurred on a PAYG VM. Instead, your VM will begin accruing a BYOS charge, which includes only the compute hardware fee and no software fee.
+After you enable the benefit on RHEL or SLES VM, you'll no longer be charged for the additional software fee typically incurred on a PAYG VM. Instead, your VM will begin accruing a BYOS charge, which includes only the compute hardware fee and no software fee.
 
 You can also choose to convert a VM that has had the benefit enabled on it back to a PAYG billing model.
 
@@ -32,7 +34,7 @@ You can also choose to convert a VM that has had the benefit enabled on it back 
 
 Azure Hybrid Benefit is available for all RHEL and SLES PAYG images from Azure Marketplace. The benefit is not yet available for RHEL or SLES BYOS images or custom images from Azure Marketplace.
 
-Reserved instances, Azure Dedicated Host instances, and SQL hybrid benefits are not eligible for Azure Hybrid Benefit if you're already using the benefit with Linux VMs.
+Azure Dedicated Host instances, and SQL hybrid benefits are not eligible for Azure Hybrid Benefit if you're already using the benefit with Linux VMs.
 
 ## Get started
 
@@ -43,12 +45,15 @@ Azure Hybrid Benefit for RHEL is available to Red Hat customers who meet both of
 - Have active or unused RHEL subscriptions that are eligible for use in Azure
 - Have enabled one or more of those subscriptions for use in Azure with the [Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) program
 
+> [!IMPORTANT]
+> Ensure the correct subscription has been enabled on the [cloud-access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) program.
+
 To start using the benefit for Red Hat:
 
 1. Enable one or more of your eligible RHEL subscriptions for use in Azure by using the [Red Hat Cloud Access customer interface](https://access.redhat.com/management/cloud).
 
    The Azure subscriptions that you provide during the Red Hat Cloud Access enablement process will then be permitted to use the Azure Hybrid Benefit feature.
-1. Apply Azure Hybrid Benefit to any of your existing RHEL PAYG VMs and any new RHEL VMs that you deploy from Azure Marketplace PAYG images.
+1. Apply Azure Hybrid Benefit to any of your existing RHEL PAYG VMs and any new RHEL VMs that you deploy from Azure Marketplace PAYG images. You can use Azure portal or Azure CLI for enabling the benefit.
 1. Follow recommended [next steps](https://access.redhat.com/articles/5419341) for configuring update sources for your RHEL VMs and for RHEL subscription compliance guidelines.
 
 
@@ -57,8 +62,28 @@ To start using the benefit for Red Hat:
 To start using the benefit for SUSE:
 
 1. Register with the SUSE Public Cloud Program.
-1. Apply the benefit to your existing VMs via the Azure CLI.
+1. Apply the benefit to your newly created or existing VMs via the Azure portal or Azure CLI.
 1. Register your VMs that are receiving the benefit with a separate source of updates.
+
+## Enable and disable the benefit in the Azure portal
+
+You may enable the benefit on existing VMs by visiting the **Configuration** option on the left and following the steps there. You may enable the benefit on new VMs during the VM create experience.
+
+### Azure portal example to enable the benefit during creation of VM:
+1. Visit [Microsoft Azure portal](https://portal.azure.com/)
+1. Go to 'Create a Virtual Machine' page on the portal.
+ ![AHB while creating VM](./media/azure-hybrid-benefit/create-vm-ahb.png)
+1. Click on the checkbox to enable AHB conversion and use cloud access licenses.
+ ![AHB while creating VM Checkbox](./media/azure-hybrid-benefit/create-vm-ahb-checkbox.png)
+1. Create a Virtual Machine following the next set of instructions
+1. Check the **Configuration** blade and you will see the option enabled. 
+![AHB Configuration blade after creating](./media/azure-hybrid-benefit/create-configuration-blade.png)
+
+### Azure portal example to enable the benefit for an existing VM:
+1. Visit [Microsoft Azure portal](https://portal.azure.com/)
+1. Open the Virtual Machine page on which you want to apply the conversion.
+1. Go the **Configuration** option on the left. You will see the Licensing section. To enable the AHB conversion, check the 'Yes' radio button and check the Confirmation checkbox.
+![AHB Configuration blade after creating](./media/azure-hybrid-benefit/create-configuration-blade.png)
 
 
 ## Enable and disable the benefit in the Azure CLI
@@ -142,7 +167,18 @@ For more information about Red Hat subscription compliance, software updates, an
 
 ### SUSE
 
-To use Azure Hybrid Benefit for your SLES VMs, you must first be registered with the [SUSE Public Cloud Program](https://www.suse.com/media/guide/suse_public_cloud_service_provider_program_overview.pdf). After you've purchased SUSE subscriptions, you must register your VMs that use those subscriptions to your own source of updates. Use SUSE Customer Center, the Subscription Management Tool server, or SUSE Manager for this registration.
+To use Azure Hybrid Benefit for your SLES VMs, and for information about moving from SLES PAYG to BYOS or moving from SLES BYOS to PAYG, see [SUSE Linux Enterprise and Azure Hybrid Benefit](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/). 
+
+## Azure Hybrid Benefit on Reserved Instances 
+
+Azure Reservations (Azure Reserved Virtual Machine Instances) help you save money by committing to one-year or three-year plans for multiple products. You can learn more about [Reserved instances here](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations). The Azure Hybrid Benefit is available for [Reserved Virtual Machine Instance(RIs)](https://review.docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). 
+
+This means that if you have purchased compute costs at a discounted rate using RI, you can apply AHB benefit on the licensing costs for RHEL and SUSE on top of it. The steps to apply AHB benefit for an RI instance remains exactly same as it is for a regular VM.
+![AHB for RIs](./media/azure-hybrid-benefit/reserved-instances.png)
+
+>[!NOTE]
+>If you have already purchased reservations for RHEL or SUSE PAYG software on Azure Marketplace, please wait for the reservation tenure to complete before using the Azure Hybrid Benefit..
+
 
 ## Frequently asked questions
 *Q: Can I use a license type of `RHEL_BYOS` with a SLES image, or vice versa?*
@@ -153,7 +189,7 @@ A: No, you can't. Trying to enter a license type that incorrectly matches the di
 
 A: It might take some time for your Red Hat Cloud Access subscription registration to propagate from Red Hat to Azure. If you still see the error after one business day, contact Microsoft support.
 
-*Q: I've deployed a VM by using a RHEL BYOS "golden image." Can I convert the billing on these images from BYOS to PAYG?*
+*Q: I've deployed a VM by using RHEL BYOS "golden image." Can I convert the billing on these images from BYOS to PAYG?*
 
 A: No, you can't. Azure Hybrid Benefit supports conversion only on pay-as-you-go images.
 
@@ -171,15 +207,19 @@ A: Yes, you can. You can use the license type of `RHEL_BYOS` for RHEL VMs and `S
 
 *Q: Can I use Azure Hybrid Benefit on virtual machine scale sets for RHEL and SLES?*
 
-A: No, you can't. Virtual machine scale sets aren't currently in the scope of Azure Hybrid Benefit for RHEL and SLES.
+A: Yes, Azure Hybrid Benefit on virtual machine scale sets for RHEL and SLES is is available to all users. You can [learn more about this benefit and how to use it here](https://docs.microsoft.com/azure/virtual-machine-scale-sets/azure-hybrid-benefit-linux). 
 
 *Q: Can I use Azure Hybrid Benefit on reserved instances for RHEL and SLES?*
 
-A: No, you can't. Reserved instances aren't currently in the scope of Azure Hybrid Benefit for RHEL and SLES.
+A: Yes, Azure Hybrid Benefit on reserved instance for RHEL and SLES is available to all users. You can [learn more about this benefit and how to use it here](#azure-hybrid-benefit-on-reserved-instances).
 
 *Q: Can I use Azure Hybrid Benefit on a virtual machine deployed for SQL Server on RHEL images?*
 
-A: No, you can't. There is no plan for supporting these.
+A: No, you can't. There is no plan for supporting these virtual machines.
+
+*Q: Can I use Azure Hybrid Benefit on my RHEL Virtual Data Center subscription?*
+
+A: No, you cannot. VDC is not supported on Azure at all, including AHB.  
  
 
 ## Common problems
@@ -190,4 +230,5 @@ This section lists common problems that you might encounter and steps for mitiga
 | "The action could not be completed because our records show that you have not successfully enabled Red Hat Cloud Access on your Azure subscription…." | To use the benefit with RHEL VMs, you must first [register your Azure subscriptions with Red Hat Cloud Access](https://access.redhat.com/management/cloud).
 
 ## Next steps
-* [Learn how to create and update VMs and add license types (RHEL_BYOS, SLES_BYOS) for Azure Hybrid Benefit by using the Azure CLI](/cli/azure/vm?preserve-view=true&view=azure-cli-latest)
+* [Learn how to create and update VMs and add license types (RHEL_BYOS, SLES_BYOS) for Azure Hybrid Benefit by using the Azure CLI](/cli/azure/vm)
+* Azure Hybrid Benefit on virtual machine scale sets for RHEL and SLES is is available to all users. You can [learn more about this benefit and how to use it here](https://docs.microsoft.com/azure/virtual-machine-scale-sets/azure-hybrid-benefit-linux). 

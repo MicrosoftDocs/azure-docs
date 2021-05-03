@@ -3,10 +3,12 @@ title: 'Quickstart: Create an Azure Purview account using Azure PowerShell/Azure
 description: This Quickstart describes how to create an Azure Purview account using Azure PowerShell/Azure CLI.
 author: hophanms
 ms.author: hophan
+ms.date: 11/23/2020
+ms.topic: quickstart
 ms.service: purview
 ms.subservice: purview-data-catalog
-ms.topic: quickstart
-ms.date: 11/23/2020
+ms.custom:
+  - mode-api
 # Customer intent: As a data steward, I want create a new Azure Purview Account so that I can scan and classify my data.
 ---
 # Quickstart: Create an Azure Purview account using Azure PowerShell/Azure CLI
@@ -22,9 +24,9 @@ In this Quickstart, you create an Azure Purview account using Azure PowerShell/A
 
 * The user account that you use to sign in to Azure must be a member of the contributor or owner role, or an administrator of the Azure subscription.
 
-* Your own [Azure Active Directory tenant](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+* Your own [Azure Active Directory tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
-* Install either Azure PowerShell or Azure CLI in your client machine to deploy the template: [Command-line deployment](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-cli#command-line-deployment)
+* Install either Azure PowerShell or Azure CLI in your client machine to deploy the template: [Command-line deployment](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-cli#command-line-deployment)
 
 ## Sign in to Azure
 

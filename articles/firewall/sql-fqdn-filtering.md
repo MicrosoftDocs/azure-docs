@@ -91,7 +91,7 @@ If you use non-default ports for SQL IaaS traffic, you can configure those ports
 3. Add the application rule with the appropriate protocol, port, and SQL FQDN and then select **Save**.
    ![application rule with SQL FQDN](media/sql-fqdn-filtering/application-rule-sql.png)
 4. Access SQL from a virtual machine in a VNet that filters the traffic through the firewall. 
-5. Validate that [Azure Firewall logs](log-analytics-samples.md) show the traffic is allowed.
+5. Validate that [Azure Firewall logs](./firewall-workbook.md) show the traffic is allowed.
 
 ## Next steps
 

@@ -7,7 +7,8 @@ ms.subservice: dsc
 author: mgoedtel
 ms.author: magoedte
 ms.date: 11/06/2018
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 manager: carmonm
 ---
 # Integrate with Azure Monitor logs
@@ -30,7 +31,7 @@ To start sending your Automation State Configuration reports to Azure Monitor lo
 
 - The November 2016 or later release of [Azure PowerShell](/powershell/azure/) (v2.3.0).
 - An Azure Automation account. For more information, see [An introduction to Azure Automation](automation-intro.md).
-- A Log Analytics workspace with an Automation & Control service offering. For more information, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
+- A Log Analytics workspace with an Automation & Control service offering. For more information, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).
 - At least one Azure Automation State Configuration node. For more information, see [Onboarding machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md).
 - The [xDscDiagnostics](https://www.powershellgallery.com/packages/xDscDiagnostics/2.7.0.0) module, version 2.7.0.0 or greater. For installation steps, see [Troubleshoot Azure Automation Desired State Configuration](./troubleshoot/desired-state-configuration.md).
 
@@ -85,7 +86,7 @@ Filtering details:
 * Filter on `DscResourceStatusData` to return operations for each DSC resource called in the node configuration applied to that resource. 
 * Filter on `DscResourceStatusData` to return error information for any DSC resources that fail.
 
-To learn more about constructing log queries to find data, see [Overview of log queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+To learn more about constructing log queries to find data, see [Overview of log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ### Send an email when a State Configuration compliance check fails
 
@@ -100,7 +101,7 @@ the alert rule.
    If you have set up logs from more than one Automation account or subscription to your workspace, you can group your alerts by subscription and Automation account. Derive the Automation account name from the `Resource` field in the search of the `DscNodeStatusData` records.
 1. To open the **Create rule** screen, click **New Alert Rule** at the top of the page. 
 
-For more information on the options to configure the alert, see [Create an alert rule](../azure-monitor/platform/alerts-metric.md).
+For more information on the options to configure the alert, see [Create an alert rule](../azure-monitor/alerts/alerts-metric.md).
 
 ### Find failed DSC resources across all nodes
 
@@ -191,8 +192,8 @@ Azure Automation diagnostics create two categories of records in Azure Monitor l
 - For an overview, see [Azure Automation State Configuration overview](automation-dsc-overview.md).
 - To get started, see [Get started with Azure Automation State Configuration](automation-dsc-getting-started.md).
 - To learn about compiling DSC configurations so that you can assign them to target nodes, see [Compile DSC configurations in Azure Automation State Configuration](automation-dsc-compile.md).
-- For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).
 - For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/).
 - To see an example of using Azure Automation State Configuration in a continuous deployment pipeline, see [Set up continuous deployment with Chocolatey](automation-dsc-cd-chocolatey.md).
-- To learn more about how to construct different search queries and review the Automation State Configuration logs with Azure Monitor logs, see [Log searches in Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md).
-- To learn more about Azure Monitor logs and data collection sources, see [Collecting Azure storage data in Azure Monitor logs overview](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
+- To learn more about how to construct different search queries and review the Automation State Configuration logs with Azure Monitor logs, see [Log searches in Azure Monitor logs](../azure-monitor/logs/log-query-overview.md).
+- To learn more about Azure Monitor logs and data collection sources, see [Collecting Azure storage data in Azure Monitor logs overview](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).

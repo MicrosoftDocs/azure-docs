@@ -1,22 +1,17 @@
 ---
-title: Windows Virtual Desktop set up file share MSIX app attach preview - Azure
+title: Windows Virtual Desktop set up file share MSIX app attach - Azure
 description: How to set up a file share for MSIX app attach for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/13/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
-# Set up a file share for MSIX app attach (preview)
-
-> [!IMPORTANT]
-> MSIX app attach is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Set up a file share for MSIX app attach
 
 All MSIX images must be stored on a network share that can be accessed by users in a host pool with read-only permissions.
 
-MSIX app attach (preview) doesn't have any dependencies on the type of storage fabric the file share uses. The considerations for the MSIX app attach share are same as those for an FSLogix share. To learn more about storage requirements, see [Storage options for FSLogix profile containers in Windows Virtual Desktop](store-fslogix-profile.md).
+MSIX app attach doesn't have any dependencies on the type of storage fabric the file share uses. The considerations for the MSIX app attach share are same as those for an FSLogix share. To learn more about storage requirements, see [Storage options for FSLogix profile containers in Windows Virtual Desktop](store-fslogix-profile.md).
 
 ## Performance requirements
 
@@ -60,6 +55,12 @@ The setup process for MSIX app attach file share is largely the same as [the set
 
 If you're storing your MSIX applications in Azure Files, then for your session hosts, you'll need to assign all session host VMs both storage account role-based access control (RBAC) and file share New Technology File System (NTFS) permissions on the share.
 
+| Azure object                      | Required role                                     | Role function                                  |
+|-----------------------------------|--------------------------------------------------|-----------------------------------------------|
+| Session host (VM computer objects)| Storage File Data SMB Share Contributor          | Read and Execute, Read, List folder contents  |
+| Admins on File Share              | Storage File Data SMB Share Elevated Contributor | Full control                                  |
+| Users on File Share               | Storage File Data SMB Share Contributor          | Read and Execute, Read, List folder contents  |
+
 To assign session host VMs permissions for the storage account and file share:
 
 1. Create an Active Directory Domain Services (AD DS) security group.
@@ -70,7 +71,7 @@ To assign session host VMs permissions for the storage account and file share:
 
 4. Create a storage account.
 
-5. Create a file share under the storage account by following the instructions in [Create an Azure file share](../storage/files/storage-how-to-create-file-share.md#create-file-share).
+5. Create a file share under the storage account by following the instructions in [Create an Azure file share](../storage/files/storage-how-to-create-file-share.md#create-a-file-share).
 
 6. Join the storage account to AD DS by following the instructions in [Part one: enable AD DS authentication for your Azure file shares](../storage/files/storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module).
 

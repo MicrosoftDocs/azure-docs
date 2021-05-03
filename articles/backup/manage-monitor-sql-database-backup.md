@@ -15,7 +15,7 @@ If you haven't yet configured backups for your SQL Server databases, see [Back u
 
 Azure Backup shows all scheduled and on-demand operations under **Backup jobs** in the portal, except the scheduled log backups since they can be very frequent. The jobs you see in this portal include database discovery and registration, configure backup, and backup and restore operations.
 
-![The Backup jobs portal](./media/backup-azure-sql-database/jobs-list.png)
+![The Backup jobs portal](./media/backup-azure-sql-database/sql-backup-jobs-list.png)
 
 For details on Monitoring scenarios, go to [Monitoring in the Azure portal](backup-azure-monitoring-built-in-monitor.md) and [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
@@ -31,13 +31,9 @@ To monitor database backup alerts:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. On the vault dashboard, select **Alerts and Events**.
+2. On the vault dashboard, select **Backup Alerts**.
 
-   ![Select Alerts and Events](./media/backup-azure-sql-database/vault-menu-alerts-events.png)
-
-3. In **Alerts and Events**, select **Backup Alerts**.
-
-   ![Select Backup Alerts](./media/backup-azure-sql-database/backup-alerts-dashboard.png)
+   ![Select Backup Alerts](./media/backup-azure-sql-database/sql-backup-alerts-list.png)
 
 ## Stop protection for a SQL Server database
 
@@ -78,8 +74,8 @@ To stop protection for a database:
 >
 >For more information about the delete data option, see the FAQ below:
 >
->- [If I delete a database from an autoprotected instance, what will happen to the backups?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
->- [If I do stop backup operation of an autoprotected database what will be its behavior?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>- [If I delete a database from an autoprotected instance, what will happen to the backups?](faq-backup-sql-server.yml#if-i-delete-a-database-from-an-autoprotected-instance--what-will-happen-to-the-backups-)
+>- [If I do stop backup operation of an autoprotected database what will be its behavior?](faq-backup-sql-server.yml#if-i-change-the-name-of-the-database-after-it-has-been-protected--what-will-be-the-behavior-)
 >
 >
 

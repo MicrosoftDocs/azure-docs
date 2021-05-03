@@ -170,10 +170,6 @@ The Anomaly Detector containers send billing information to Azure, using an _Ano
 
 For more information about these options, see [Configure containers](anomaly-detector-container-configuration.md).
 
-<!--blogs/samples/video coures -->
-
-[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
-
 ## Summary
 
 In this article, you learned concepts and workflow for downloading, installing, and running Anomaly Detector containers. In summary:

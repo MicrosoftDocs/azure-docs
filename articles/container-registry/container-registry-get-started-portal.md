@@ -1,9 +1,11 @@
 ---
 title: Quickstart - Create registry in portal
 description: Quickly learn to create a private Azure container registry using the Azure portal.
-ms.topic: quickstart
 ms.date: 08/04/2020
-ms.custom: "seodec18, mvc, devx-track-azurecli"
+ms.topic: quickstart
+ms.custom:
+  - mvc
+  - mode-portal
 ---
 # Quickstart: Create an Azure container registry using the Azure portal
 
@@ -97,5 +99,5 @@ In this quickstart, you created an Azure Container Registry with the Azure porta
 [container-registry-skus]: container-registry-skus.md
 [azure-cli]: /cli/azure/install-azure-cli
 [get-started-with-azure-cli]: /cli/azure/get-started-with-azure-cli
-[az-acr-login]: /cli/azure/acr#az-acr-login
+[az-acr-login]: /cli/azure/acr#az_acr_login
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md

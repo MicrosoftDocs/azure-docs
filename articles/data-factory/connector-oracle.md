@@ -1,15 +1,10 @@
 ---
 title: Copy data to and from Oracle by using Azure Data Factory 
 description: Learn how to copy data from supported source stores to an Oracle database, or from Oracle to supported sink stores, by using Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 03/17/2021
 ms.author: jingwang
 ---
 
@@ -264,6 +259,7 @@ To copy data to Oracle, set the sink type in the copy activity to `OracleSink`. 
 | writeBatchSize | Inserts data into the SQL table when the buffer size reaches `writeBatchSize`.<br/>Allowed values are Integer (number of rows). |No (default is 10,000) |
 | writeBatchTimeout | The wait time for the batch insert operation to complete before it times out.<br/>Allowed values are Timespan. An example is 00:30:00 (30 minutes). | No |
 | preCopyScript | Specify a SQL query for the copy activity to run before writing data into Oracle in each run. You can use this property to clean up the preloaded data. | No |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 **Example:**
 
@@ -364,7 +360,8 @@ When you copy data from and to Oracle, the following mappings apply. To learn ab
 | LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| NUMBER |Decimal, String (if precision > 28) |
+| NUMBER (p,s) |Decimal, String (if p > 28) |
+| NUMBER without precision and scale |Double |
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |

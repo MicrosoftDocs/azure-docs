@@ -38,7 +38,7 @@ Install the Service Fabric plug-in, in Eclipse, go to **Help** > **Install New S
    ![Service Fabric plug-in for Eclipse][sf-eclipse-plugin-install]
 3. Select the Service Fabric plug-in, and then click **Next**.
 4. Complete the installation steps, and then accept the Microsoft Software License Terms.
-  
+
 If you already have the Service Fabric plug-in installed, install the latest version. 
 1. To check for available updates, go to **Help** > **About Eclipse** > **Installation Details**. 
 2. In the list of installed plug-ins, select Service Fabric, and then click **Update**. Available updates will be installed.
@@ -50,7 +50,6 @@ If you already have the Service Fabric plug-in installed, install the latest ver
 > [!NOTE]
 >If Eclipse isn't working as expected on your Mac, or needs you run as super user), go to the **ECLIPSE_INSTALLATION_PATH** folder and navigate to the subfolder **Eclipse.app/Contents/MacOS**. Start Eclipse by running `./eclipse`.
 
-
 ## Create a Service Fabric application in Eclipse
 
 1.  In Eclipse, go to **File** > **New** > **Other**. Select  **Service Fabric Project**, and then click **Next**.
@@ -61,7 +60,7 @@ If you already have the Service Fabric plug-in installed, install the latest ver
 
     ![Service Fabric New Project page 2][create-application/p2]
 
-3.  In the list of templates, select **Service Template**. Select your service template type (Actor, Stateless, Container, or Guest Binary), and then click **Next**.
+3.  In the list of templates, select **Service Template**. Select your service template type (Actor, Stateless, Container, or Guest Binary), and then click **Next**.
 
     ![Service Fabric New Project page 3][create-application/p3]
 
@@ -87,7 +86,7 @@ If you already have the Service Fabric plug-in installed, install the latest ver
     -   To build the application without cleaning, click **Build Application**.
     -   To do a clean build of the application, click **Rebuild Application**.
     -   To clean the application of built artifacts, click **Clean Application**.
-     
+
 ## Deploy a Service Fabric application to the local cluster with Eclipse
 
 After you have built your Service Fabric application, follow these steps to deploy it to the local cluster.
@@ -152,7 +151,6 @@ To publish your application to the cloud, follow these steps:
 
 4. You can follow the progress of the publish operation in the Console window.
 5. To verify that your application is running, open Service Fabric Explorer on your Azure cluster in a browser window. For the example above, this would be: `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`. Expand the **Applications** node and make sure your application is running. 
-
 
 On secure Linux clusters, if your application contains Reliable Services services, you will also need to configure a certificate that your services can use to call Service Fabric runtime APIs. To learn more, see [Configure a Reliable Services app to run on Linux clusters](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).
 

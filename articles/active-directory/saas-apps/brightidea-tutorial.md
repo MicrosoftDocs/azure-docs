@@ -48,19 +48,19 @@ To configure the integration of Brightidea into Azure AD, you need to add Bright
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+    ![The Azure Active Directory button](common/select-azuread.png)
 
 2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+    ![The Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button](common/add-new-app.png)
+    ![The New application button](common/add-new-app.png)
 
 4. In the search box, type **Brightidea**, select **Brightidea** from result panel then click **Add** button to add the application.
 
-	 ![Brightidea in the results list](common/search-new-app.png)
+    ![Brightidea in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -92,45 +92,45 @@ To configure Azure AD single sign-on with Brightidea, perform the following step
 
 3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 4. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file** and wish to configure in **IDP** intiated mode perform the following steps:
 
-	a. Click **Upload metadata file**.
+    a. Click **Upload metadata file**.
 
     ![Upload metadata file](common/upload-metadata.png)
 
-	b. Click on **folder logo** to select the metadata file and click **Upload**.
+    b. Click on **folder logo** to select the metadata file and click **Upload**.
 
-	![choose metadata file](common/browse-upload-metadata.png)
+    ![choose metadata file](common/browse-upload-metadata.png)
 
-	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Brightidea section textbox:
+    c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Brightidea section textbox:
 
-	![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
-	> [!Note]
-	> If the **Identifier** and **Reply URL** values do not get auto polulated, then fill in the values manually according to your requirement.
+    > [!Note]
+    > If the **Identifier** and **Reply URL** values do not get auto polulated, then fill in the values manually according to your requirement.
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
-	In the **Sign-on URL** text box, type a URL using the following pattern:
+    In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.brightidea.com`
 
 4. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+    ![The Certificate download link](common/metadataxml.png)
 
 6. On the **Set up Brightidea** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	a. Login URL
+    a. Login URL
 
-	b. Azure Ad Identifier
+    b. Azure Ad Identifier
 
-	c. Logout URL
+    c. Logout URL
 
 ### Configure Brightidea Single Sign-On
 
@@ -138,33 +138,33 @@ To configure Azure AD single sign-on with Brightidea, perform the following step
 
 2. To get to the SSO feature in your Brightidea system, navigate to **Enterprise Setup** -> **Authentication Tab**. There you will see two sub tabs: Auth Selection & SAML Profiles.
 
-	![Screenshot shows the Brightidea site with the Authentication tab selected.](./media/brightidea-tutorial/configure1.png)
+    ![Screenshot shows the Brightidea site with the Authentication tab selected.](./media/brightidea-tutorial/configure1.png)
 
 3. Select **Auth Selection**. By default, it only shows two standard methods: Brightidea Login & Registration. When an SSO method added, it will show up in the list.
 
-	![Screenshot shows the Brightidea Authentication tab with Auth Selection selected.](./media/brightidea-tutorial/configure2.png)
+    ![Screenshot shows the Brightidea Authentication tab with Auth Selection selected.](./media/brightidea-tutorial/configure2.png)
 
 4. Select **SAML Profiles** and perform the following steps:
 
-	![Screenshot shows the Brightidea Authentication tab with SAML Profiles selected, which provides options to Download Metadata and Add New.](./media/brightidea-tutorial/configure3.png)
+    ![Screenshot shows the Brightidea Authentication tab with SAML Profiles selected, which provides options to Download Metadata and Add New.](./media/brightidea-tutorial/configure3.png)
 
-	a. Click on the **Download Metadata** and upload at the **Basic SAML Configuration** section in the Azure portal.
+    a. Click on the **Download Metadata** and upload at the **Basic SAML Configuration** section in the Azure portal.
 
-	b. Click on the **Add New** button under the **Identity Provider Setting** and perform the following steps:
-	
-	![Screenshot shows the Brightidea Identity Provider Setting where you enter information.](./media/brightidea-tutorial/configure4.png)
-	
+    b. Click on the **Add New** button under the **Identity Provider Setting** and perform the following steps:
+
+    ![Screenshot shows the Brightidea Identity Provider Setting where you enter information.](./media/brightidea-tutorial/configure4.png)
+
    * Enter the **SAML Profile Name** like e.g `Azure Ad SSO`
-	
+
    * For **Upload Metadata**, click choose file and upload the downloaded metadata file from the Azure portal.
 
-	 > [!NOTE]
-	 > After uploading the metadata file, the remaining fields **Single Sign-on Service, Identity Provider Issuer, Upload Public Key** will populate automatically.
+     > [!NOTE]
+     > After uploading the metadata file, the remaining fields **Single Sign-on Service, Identity Provider Issuer, Upload Public Key** will populate automatically.
 
    * In the **Email** textbox, enter the value as `mail`.
-	 
+
    * In the **Screen Name** textbox, enter the value as `givenName`.
-	 
+
    * Click **Save Changes**.  
 
 ### Create an Azure AD test user 
@@ -184,7 +184,7 @@ The objective of this section is to create a test user in the Azure portal calle
     ![The User dialog box](common/user-properties.png)
 
     a. In the **Name** field, enter **BrittaSimon**.
-  
+
     b. In the **User name** field, type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
@@ -198,11 +198,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Brightidea**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **Brightidea**.
 
-	![The Brightidea link in the Applications list](common/all-applications.png)
+    ![The Brightidea link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 

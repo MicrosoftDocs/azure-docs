@@ -8,17 +8,14 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 03/02/2021
 ms.author: mimart
 ms.reviewer: elisolMS
 
 ms.collection: M365-identity-device-management
 ---
 
-# Language customization in Azure Active Directory (Preview)
-
-> [!NOTE]
-> Self-service sign-up is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Language customization in Azure Active Directory
 
 Language customization in Azure Active Directory (Azure AD) allows your user flow to accommodate different languages to suit your user's needs. Microsoft provides the translations for [36 languages](#supported-languages). Even if your experience is provided for only a single language, you can customize the attribute names on the attribute collection page.
 
@@ -36,7 +33,7 @@ Language customization enables you to customize any string in your user flow.
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
 3. In the left menu, select **External Identities**.
-4. Select **User flows (Preview)**.
+4. Select **User flows**.
 3. Select the user flow that you want to enable for translations.
 4. Select **Languages**.
 5. On the **Languages** page for the user flow, select the language that you want to customize.

@@ -28,7 +28,7 @@ For general information about Azure Security Center, see [What is Azure Security
 | When you build custom VM images, apply the latest updates. | Before you create images, install the latest updates for the operating system and for all applications that will be part of your image.  | - |
 | Keep your VMs current. | You can use the [Update Management](../automation/update-management/overview.md) solution in Azure Automation to manage operating system updates for your Windows and Linux computers in Azure. | [Yes](../security-center/asset-inventory.md) |
 | Back up your VMs. | [Azure Backup](../backup/backup-overview.md) helps protect your application data and has minimal operating costs. Application errors can corrupt your data, and human errors can introduce bugs into your applications. Azure Backup protects your VMs that run Windows and Linux. | - |
-| Use multiple VMs for greater resilience and availability. | If your VM runs applications that must be highly available, use multiple VMs or [availability sets](./manage-availability.md). | - |
+| Use multiple VMs for greater resilience and availability. | If your VM runs applications that must be highly available, use multiple VMs or [availability sets](./availability.md). | - |
 | Adopt a business continuity and disaster recovery (BCDR) strategy. | Azure Site Recovery allows you to choose from different options designed to support business continuity. It supports different replication and failover scenarios. For more information, see  [About Site Recovery](../site-recovery/site-recovery-overview.md). | - |
 
 ## Data security
@@ -51,7 +51,7 @@ For general information about Azure Security Center, see [What is Azure Security
 
 | Recommendation | Comments | Security Center |
 |-|----|--|
-| Monitor your VMs. | You can use [Azure Monitor for VMs](../azure-monitor/insights/vminsights-overview.md) to monitor the state of your Azure VMs and virtual machine scale sets. Performance issues with a VM can lead to service disruption, which violates the security principle of availability. | - |
+| Monitor your VMs. | You can use [Azure Monitor for VMs](../azure-monitor/vm/vminsights-overview.md) to monitor the state of your Azure VMs and virtual machine scale sets. Performance issues with a VM can lead to service disruption, which violates the security principle of availability. | - |
 
 ## Networking
 

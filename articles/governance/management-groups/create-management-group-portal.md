@@ -1,8 +1,10 @@
 ---
-title: "Quickstart: Create a management group with portal"
+title: 'Quickstart: Create a management group with portal'
 description: In this quickstart, you use Azure portal to create a management group to organize your resources into a resource hierarchy.
-ms.date: 08/31/2020
+ms.date: 05/01/2021
 ms.topic: quickstart
+ms.custom:
+  - mode-portal
 ---
 # Quickstart: Create a management group
 
@@ -43,7 +45,7 @@ directory. You receive a notification when the process is complete. For more inf
 
 1. Select **+ Add management group**.
 
-   :::image type="content" source="./media/main.png" alt-text="Screenshot of the Management groups page showing child management groups and subscriptions." border="false":::
+   :::image type="content" source="./media/main.png" alt-text="Screenshot of the Management groups page showing child management groups and subscriptions.":::
 
 1. Leave **Create new** selected and fill in the management group ID field.
 

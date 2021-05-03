@@ -5,14 +5,14 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Windows Virtual Desktop PowerShell
 
 >[!IMPORTANT]
 >This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/troubleshoot-powershell-2019.md).
 
-Use this article to resolve errors and issues when using PowerShell with Windows Virtual Desktop. For more information on Remote Desktop Services PowerShell, see [Windows Virtual Desktop PowerShell](/powershell/module/windowsvirtualdesktop/).
+Use this article to resolve errors and issues when using PowerShell with Windows Virtual Desktop. For more information on Remote Desktop Services PowerShell, see [Windows Virtual Desktop PowerShell](/powershell/windows-virtual-desktop/overview).
 
 ## Provide feedback
 

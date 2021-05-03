@@ -77,10 +77,10 @@ The length and acceptable characters for metadata name and value are listed in t
 
 ## Knowledge Base content limits
 Overall limits on the content in the knowledge base:
-* Length of answer text: 25,000
-* Length of question text: 1,000
-* Length of metadata key text: 100
-* Length of metadata value text: 500
+* Length of answer text: 25,000 characters
+* Length of question text: 1,000 characters
+* Length of metadata key text: 100 characters
+* Length of metadata value text: 500 characters
 * Supported characters for metadata name: Alphabets, digits and `_`
 * Supported characters for metadata value: All except `:` and `|`
 * Length of file name: 200
@@ -94,6 +94,7 @@ These represent the limits for each create knowledge base action; that is, click
 * Recommended maximum number of alternate questions per answer: 300
 * Maximum number of URLs: 10
 * Maximum number of files: 10
+* Maximum number of QnAs permitted per call: 1000
 
 ## Update Knowledge base call limits
 These represent the limits for each update action; that is, clicking *Save and train* or calling the UpdateKnowledgeBase API.
@@ -101,6 +102,27 @@ These represent the limits for each update action; that is, clicking *Save and t
 * Recommended maximum number of alternate questions added or deleted: 300
 * Maximum number of metadata fields added or deleted: 10
 * Maximum number of URLs that can be refreshed: 5
+* Maximum number of QnAs permitted per call: 1000
+
+## Add unstructured file limits
+
+> [!NOTE]
+> * If you need to use larger files than the limit allows, you can break the file into smaller files before sending them to the API. 
+
+These represent the limits when unstructured files are used to *Create KB* or call the CreateKnowledgeBase API:
+* Length of file: We will extract first 32000 characters
+* Maximum 3 responses per file.
+
+## Prebuilt question answering limits
+
+> [!NOTE]
+> * If you need to use larger documents than the limit allows, you can break the text into smaller chunks of text before sending them to the API. 
+> * A document is a single string of text characters.  
+
+These represent the limits when Prebuilt API is used to *Generate response* or call the GenerateAnswer API:
+* Number of documents: 5
+* Maximum size of a single document:  5,120 characters
+* Maximum 3 responses per document.
 
 ## Next steps
 

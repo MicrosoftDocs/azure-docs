@@ -23,7 +23,7 @@ zone_pivot_groups: programming-languages-set-ten
 #   - id: programming-language-python
 #     title: Python
 
-# As a solution builder, I want to connect to and interact with an IoT Plug and Play device that's connected to my solution. For example, to collect telemetry from the device or to control the behavior of the device.
+#Customer intent: As a solution builder, I want to connect to and interact with an IoT Plug and Play device that's connected to my solution. For example, to collect telemetry from the device or to control the behavior of the device.
 ---
 
 # Quickstart: Interact with an IoT Plug and Play device that's connected to your solution
@@ -51,6 +51,10 @@ zone_pivot_groups: programming-languages-set-ten
 [!INCLUDE [iot-pnp-service-python](../../includes/iot-pnp-service-python.md)]
 
 :::zone-end
+
+## Clean up resources
+
+If you've finished with the quickstarts and tutorials, see [Clean up resources](set-up-environment.md#clean-up-resources).
 
 ## Next steps
 

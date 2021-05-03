@@ -1,8 +1,8 @@
 ---
 title: Azure Stream Analytics resource log data errors
 description: This article explains the different input and output data errors that can occur when using Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 08/07/2020

@@ -1,15 +1,11 @@
 ---
 title: 'Tutorial: Load data & run queries with Apache Spark - Azure HDInsight'
 description: Tutorial - Learn how to load data and run interactive queries on Spark clusters in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 02/12/2020
-
-#custom intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to load data into a Spark cluster, so I can run interactive SQL queries against the data.
+# Customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to load data into a Spark cluster, so I can run interactive SQL queries against the data.
 ---
 
 # Tutorial: Load data and run queries on an Apache Spark cluster in Azure HDInsight
@@ -25,7 +21,7 @@ In this tutorial, you learn how to:
 
 An Apache Spark cluster on HDInsight. See [Create an Apache Spark cluster](./apache-spark-jupyter-spark-sql-use-portal.md).
 
-## Create a Jupyter notebook
+## Create a Jupyter Notebook
 
 Jupyter Notebook is an interactive notebook environment that supports various programming languages. The notebook allows you to interact with your data, combine code with markdown text and perform simple visualizations.
 
@@ -33,7 +29,7 @@ Jupyter Notebook is an interactive notebook environment that supports various pr
 
 2. From the Jupyter web page, Select **New** > **PySpark** to create a notebook.
 
-   ![Create a Jupyter Notebook to run interactive Spark SQL query](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Create a Jupyter Notebook to run interactive Spark SQL query")
+   :::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png " alt-text="Create a Jupyter Notebook to run interactive Spark SQL query" border="true":::
 
    A new notebook is created and opened with the name Untitled(`Untitled.ipynb`).
 
@@ -44,9 +40,9 @@ Jupyter Notebook is an interactive notebook environment that supports various pr
 
 Applications can create dataframes directly from files or folders on the remote storage such as Azure Storage or Azure Data Lake Storage; from a Hive table; or from other data sources supported by Spark, such as Cosmos DB, Azure SQL DB, DW, and so on. The following screenshot shows a snapshot of the HVAC.csv file used in this tutorial. The csv file comes with all HDInsight Spark clusters. The data captures the temperature variations of some buildings.
 
-![Snapshot of data for interactive Spark SQL query](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Snapshot of data for interactive Spark SQL query")
+:::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png " alt-text="Snapshot of data for interactive Spark SQL query" border="true":::
 
-1. Paste the following code in an empty cell of the Jupyter notebook, and then press **SHIFT + ENTER** to run the code. The code imports the types required for this scenario:
+1. Paste the following code in an empty cell of the Jupyter Notebook, and then press **SHIFT + ENTER** to run the code. The code imports the types required for this scenario:
 
     ```python
     from pyspark.sql import *
@@ -55,7 +51,7 @@ Applications can create dataframes directly from files or folders on the remote 
 
     When running an interactive query in Jupyter, the web browser window or tab caption shows a **(Busy)** status along with the notebook title. You also see a solid circle next to the **PySpark** text in the top-right corner. After the job is completed, it changes to a hollow circle.
 
-    ![Status of interactive Spark SQL query](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Status of interactive Spark SQL query")
+    :::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png " alt-text="Status of interactive Spark SQL query" border="true":::
 
 1. Note the session id returned. From the picture above, the session id is 0. If desired, you can retrieve the session details by navigating to `https://CLUSTERNAME.azurehdinsight.net/livy/sessions/ID/statements` where CLUSTERNAME is the name of your Spark cluster and ID is your session id number.
 
@@ -80,11 +76,11 @@ Once the table is created, you can run an interactive query on the data.
 
    The following tabular output is displayed.
 
-     ![Table output of interactive Spark query result](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Table output of interactive Spark query result")
+     :::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png " alt-text="Table output of interactive Spark query result" border="true":::
 
 2. You can also see the results in other visualizations as well. To see an area graph for the same output, select **Area** then set other values as shown.
 
-    ![Area graph of interactive Spark query result](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Area graph of interactive Spark query result")
+    :::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png " alt-text="Area graph of interactive Spark query result" border="true":::
 
 3. From the notebook menu bar, navigate to **File** > **Save and Checkpoint**.
 
@@ -92,11 +88,11 @@ Once the table is created, you can run an interactive query on the data.
 
 ## Clean up resources
 
-With HDInsight, your data and Jupyter notebooks are stored in Azure Storage or Azure Data Lake Storage, so you can safely delete a cluster when it isn't in use. You're also charged for an HDInsight cluster, even when it's not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they aren't in use. If you plan to work on the next tutorial immediately, you might want to keep the cluster.
+With HDInsight, your data and Jupyter Notebooks are stored in Azure Storage or Azure Data Lake Storage, so you can safely delete a cluster when it isn't in use. You're also charged for an HDInsight cluster, even when it's not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they aren't in use. If you plan to work on the next tutorial immediately, you might want to keep the cluster.
 
 Open the cluster in the Azure portal, and select **Delete**.
 
-![Delete HDInsight cluster](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Delete HDInsight cluster")
+:::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png " alt-text="Delete HDInsight cluster" border="true":::
 
 You can also select the resource group name to open the resource group page, and then select **Delete resource group**. By deleting the resource group, you delete both the HDInsight Spark cluster, and the default storage account.
 

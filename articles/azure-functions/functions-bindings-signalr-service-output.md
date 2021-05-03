@@ -749,4 +749,5 @@ The following table explains the binding configuration properties that you set i
 
 ## Next steps
 
+- [Handle messages from SignalR Service  (Trigger binding)](./functions-bindings-signalr-service-trigger.md)
 - [Return the service endpoint URL and access token (Input binding)](./functions-bindings-signalr-service-input.md)

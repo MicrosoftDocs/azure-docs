@@ -125,10 +125,6 @@ Yes. See [Caveats/Limitations](#caveatslimitations).
 
 No. The Azure PowerShell script only migrates the configuration. Actual traffic migration is your responsibility and in your control.
 
-### I ran into some issues with using this script. How can I get help?
-  
-You can send an email to slbupgradesupport@microsoft.com, open a support case with Azure Support, or do both.
-
 ## Next steps
 
 [Learn about Standard Load Balancer](load-balancer-overview.md)

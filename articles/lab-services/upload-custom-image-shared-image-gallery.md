@@ -61,5 +61,5 @@ Many options exist for creating a VHD from a physical lab environment. The follo
 
 ## Next steps
 
-* [Shared Image Gallery overview](../virtual-machines/windows/shared-image-galleries.md)
+* [Shared Image Gallery overview](../virtual-machines/shared-image-galleries.md)
 * [How to use shared image gallery](how-to-use-shared-image-gallery.md)

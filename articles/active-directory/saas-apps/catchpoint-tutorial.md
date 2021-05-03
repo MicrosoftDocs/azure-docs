@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/27/2020
+ms.date: 12/16/2020
 ms.author: jeedes
 ---
 
@@ -20,8 +20,6 @@ In this tutorial, you learn how to integrate Catchpoint with Azure Active Direct
 * Control user access to Catchpoint from Azure AD.
 * Enable automatic Catchpoint sign-in for users with Azure AD accounts.
 * Manage your accounts in one central location: the Azure portal.
-
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -36,20 +34,19 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Catchpoint supports SP-initiated and IDP-initiated SSO.
 * Catchpoint supports just-in-time (JIT) user provisioning.
-* After you configure Catchpoint, you can enforce session control. This precaution protects against exfiltration and infiltration of your organization's sensitive data in real time. Session control is an extension of Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## Add Catchpoint from the gallery
 
 To configure the integration of Catchpoint into Azure AD, add Catchpoint to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with a work, school, or personal Microsoft account.
+1. Sign in to the Azure portal with a work, school, or personal Microsoft account.
 1. On the left pane, select the **Azure Active Directory** service.
 1. Go to **Enterprise Applications** and then select **All Applications**.
 1. To add a new application, select **New application**.
 1. In the **Add from the gallery** section, type **Catchpoint** in the search box.
 1. Select **Catchpoint** from the results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for Catchpoint
+## Configure and test Azure AD SSO for Catchpoint
 
 For SSO to work, you need to link an Azure AD user with a user in Catchpoint. For this tutorial, we'll configure a test user called **B.Simon**. 
 
@@ -66,10 +63,10 @@ Complete the following sections:
 
 Follow these steps in the Azure portal to enable Azure AD SSO:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the Azure portal.
 1. On the **Catchpoint** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set Up Single Sign-On with SAML** page, select the pen icon to edit the **Basic SAML Configuration** settings.
+1. On the **Set Up Single Sign-On with SAML** page, select the pencil icon to edit the **Basic SAML Configuration** settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -99,7 +96,7 @@ Follow these steps in the Azure portal to enable Azure AD SSO:
     | namespace | user.assignedrole |
 
     > [!NOTE]
-    > The `namespace` claim needs to be mapped with the account name. This account name should be set up with a role in Azure AD to be passed back in SAML response. For more information about roles in Azure AD, see [Configure the role claim issued in the SAML token for enterprise applications](../develop/active-directory-enterprise-app-role-management.md).
+    > The `namespace` claim needs to be mapped with the account name. This account name should be set up with a role in Azure AD to be passed back in SAML response. For more information about roles in Azure AD, see [Configure the role claim issued in the SAML token for enterprise applications](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview).
 
 1. Go to the **Set Up Single Sign-On with SAML** page. In the **SAML Signing Certificate** section,  find **Certificate (Base64)**. Select **Download** to save the certificate to your computer.
 
@@ -128,15 +125,9 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
 1. In the Azure portal, select **Enterprise Applications** > **All applications**.
 1. In the applications list, select **Catchpoint**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
 1. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
-
-    ![The "Add user" link](common/add-assign-user.png)
-
 1. In the **Users and groups** dialog box, select **B.Simon** from the list of users. Click **Select** at the bottom of the screen.
-1. If you expect a role value in the SAML assertion, look in the **Select Role** dialog box and choose the user's role from the list. Click the **Select** button at the bottom of the screen.
+1. If you have setup the roles as explained in the above, you can select it from the **Select a role** dropdown.
 1. In the **Add Assignment** dialog box, select **Assign**.
 
 ## Configure Catchpoint SSO
@@ -168,23 +159,26 @@ Catchpoint supports just-in-time user provisioning, which is enabled by default.
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration by using the My Apps portal.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you select the Catchpoint tile in the My Apps portal, you should be automatically signed in to the Catchpoint app with SSO configured. For more information about the My Apps portal, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
+#### SP initiated:
+
+* Click on **Test this application** in Azure portal. This will redirect to Catchpoint Sign on URL where you can initiate the login flow.  
+
+* Go to Catchpoint Sign-on URL directly and initiate the login flow from there.
+
+#### IDP initiated:
+
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Catchpoint for which you set up the SSO 
+
+You can also use Microsoft My Apps to test the application in any mode. When you click the Catchpoint tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Catchpoint for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+
 
 > [!NOTE]
 > When you're signed in to the Catchpoint application through the login page, after providing **Catchpoint Credentials**, enter the valid **Namespace** value in the **Company Credentials(SSO)** field and select **Login**.
 > 
 > ![Catchpoint configuration](./media/catchpoint-tutorial/loginimage.png)
 
-## Additional resources
+## Next steps
 
-- [List of tutorials on how to integrate SaaS apps with Azure Active Directory](./tutorial-list.md)
-
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try Catchpoint with Azure AD](https://aad.portal.azure.com/)
-
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+After you configure Catchpoint, you can enforce session control. This precaution protects against exfiltration and infiltration of your organization's sensitive data in real time. Session control is an extension of Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

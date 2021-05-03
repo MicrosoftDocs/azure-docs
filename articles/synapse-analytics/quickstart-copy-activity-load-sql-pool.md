@@ -7,6 +7,7 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: quickstart
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
@@ -125,6 +126,6 @@ In this section, you manually trigger the pipeline published in the previous ste
 Advance to the following article to learn about Azure Synapse Analytics support:
 
 > [!div class="nextstepaction"]
-> [Pipeline and activities](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-> [Connector overview](https://docs.microsoft.com/azure/data-factory/connector-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-> [Copy activity](https://docs.microsoft.com/azure/data-factory/copy-activity-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> [Pipeline and activities](../data-factory/concepts-pipelines-activities.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+> [Connector overview](../data-factory/connector-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+> [Copy activity](../data-factory/copy-activity-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)

@@ -3,7 +3,7 @@ title: 'ML Studio (classic): Manage web services - Azure'
 description: Manage your Machine Learning New and Classic Web services using the Microsoft Azure Machine Learning Web Services portal. Since Classic Web services and New Web services are based on different underlying technologies, you have slightly different management capabilities for each of them.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: likebupt
@@ -39,7 +39,7 @@ If the user does not have the correct permissions to access resources in the Azu
 
 For more information on creating a workspace, see [Create and share an Azure Machine Learning Studio (classic) workspace](create-workspace.md).
 
-For more information on setting access permissions, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+For more information on setting access permissions, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 
 ## Manage New Web services

@@ -1,21 +1,11 @@
 ---
 title: Copy data to/from Azure SQL Database 
 description: Learn how to copy data to/from Azure SQL Database using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
-ms.assetid: 484f735b-8464-40ba-a9fc-820e6553159e
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Copy data to and from Azure SQL Database using Azure Data Factory
@@ -145,7 +135,7 @@ GO
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Wait time for the batch insert operation to complete before it times out. |timespan<br/><br/> Example: “00:30:00” (30 minutes). |No |
+| writeBatchTimeout |Wait time for the batch insert operation to complete before it times out. |timespan<br/><br/> Example: "00:30:00" (30 minutes). |No |
 | writeBatchSize |Inserts data into the SQL table when the buffer size reaches writeBatchSize. |Integer (number of rows) |No (default: 10000) |
 | sqlWriterCleanupScript |Specify a query for Copy Activity to execute such that data of a specific slice is cleaned up. For more information, see [repeatable copy](#repeatable-copy). |A query statement. |No |
 | sliceIdentifierColumnName |Specify a column name for Copy Activity to fill with auto generated slice identifier, which is used to clean up data of a specific slice when rerun. For more information, see [repeatable copy](#repeatable-copy). |Column name of a column with data type of binary(32). |No |
@@ -217,9 +207,9 @@ See the [Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-s
 
 **Azure SQL input dataset:**
 
-The sample assumes you have created a table “MyTable” in Azure SQL and it contains a column called “timestampcolumn” for time series data.
+The sample assumes you have created a table "MyTable" in Azure SQL and it contains a column called "timestampcolumn" for time series data.
 
-Setting “external”: ”true” informs the Azure Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
+Setting "external": "true" informs the Azure Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
 ```JSON
 {
@@ -409,7 +399,7 @@ See the [Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-s
 
 **Azure Blob input dataset:**
 
-Data is picked up from a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, and day part of the start time and file name uses the hour part of the start time. “external”: “true” setting informs the Data Factory service that this table is external to the data factory and is not produced by an activity in the data factory.
+Data is picked up from a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, and day part of the start time and file name uses the hour part of the start time. "external": "true" setting informs the Data Factory service that this table is external to the data factory and is not produced by an activity in the data factory.
 
 ```JSON
 {
@@ -479,7 +469,7 @@ See the [Azure Blob dataset type properties](data-factory-azure-blob-connector.m
 
 **Azure SQL Database output dataset:**
 
-The sample copies data to a table named “MyTable” in Azure SQL. Create the table in Azure SQL with the same number of columns as you expect the Blob CSV file to contain. New rows are added to the table every hour.
+The sample copies data to a table named "MyTable" in Azure SQL. Create the table in Azure SQL with the same number of columns as you expect the Blob CSV file to contain. New rows are added to the table every hour.
 
 ```JSON
 {
@@ -620,7 +610,7 @@ Notice that the target table has an identity column.
 }
 ```
 
-Notice that as your source and target table have different schema (target has an additional column with identity). In this scenario, you need to specify **structure** property in the target dataset definition, which doesn’t include the identity column.
+Notice that as your source and target table have different schema (target has an additional column with identity). In this scenario, you need to specify **structure** property in the target dataset definition, which doesn't include the identity column.
 
 ## Invoke stored procedure from SQL sink
 For an example of invoking a stored procedure from SQL sink in a copy activity of a pipeline, see [Invoke stored procedure for SQL sink in copy activity](data-factory-invoke-stored-procedure-from-copy-activity.md) article.

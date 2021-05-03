@@ -14,6 +14,8 @@ monikerRange: ">=iotedge-2020-11"
 
 # Configure the API proxy module for your gateway hierarchy scenario (Preview)
 
+[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
+
 The API proxy module enables IoT Edge devices to send HTTP requests through gateways instead of making direct connections to cloud services. This article walks through the configuration options so that you can customize the module to support your gateway hierarchy requirements.
 
 >[!NOTE]
@@ -25,7 +27,7 @@ The API proxy module can enable many scenarios for gateway hierarchies, includin
 
 ## Deploy the proxy module
 
-The API proxy module is available from the Microsoft Container Registry (MCR): `mcr.microsoft.com/azureiotedge-api-proxy:latest`.
+The API proxy module is available from the Microsoft Container Registry (MCR): `mcr.microsoft.com/azureiotedge-api-proxy:1.0`.
 
 You can also deploy the API proxy module directly from the Azure Marketplace: [IoT Edge API Proxy](https://azuremarketplace.microsoft.com/marketplace/apps/azure-iot.azureiotedge-api-proxy?tab=Overview).
 

@@ -91,6 +91,18 @@ The following example shows how to check the thumbprint of a client certificate 
 > Client certificate deadlock issue described in this [article](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) can manifest itself in several ways, e.g. requests freeze, requests result in `403 Forbidden` status code after timing out, `context.Request.Certificate` is `null`. This problem usually affects `POST` and `PUT` requests with content length of approximately 60KB or larger.
 > To prevent this issue from occurring turn on "Negotiate client certificate" setting for desired hostnames on the "Custom domains" blade as shown in the first image of this document. This feature is not available in the Consumption tier.
 
+## Certificate validation in self-hosted gateway
+
+The default API Management [self-hosted gateway](self-hosted-gateway-overview.md) image doesn't support validating server and client certificates using [CA root certificates](api-management-howto-ca-certificates.md) uploaded to an API Management instance. Clients presenting a custom certificate to the self-hosted gateway may experience slow responses, because certificate revocation list (CRL) validation can take a long time to time out on the gateway. 
+
+As a workaround when running the gateway, you may configure the PKI IP address to point to the localhost address (127.0.0.1) instead of the API Management instance. This causes the CRL validation to fail quickly when the gateway attempts to validate the client certificate. To configure the gateway, add a DNS entry for the API Management instance to resolve to the localhost in the `/etc/hosts` file in the container. You can add this entry during gateway deployment:
+ 
+* For Docker deployment - add the `--add-host <hostname>:127.0.0.1` parameter to the `docker run` command. For more information, see [Add entries to container hosts file](https://docs.docker.com/engine/reference/commandline/run/#add-entries-to-container-hosts-file---add-host)
+ 
+* For Kubernetes deployment - Add a `hostAliases` specification to the `myGateway.yaml` configuration file. For more information, see [Adding entries to Pod /etc/hosts with Host Aliases](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/).
+
+
+
 
 ## Next steps
 

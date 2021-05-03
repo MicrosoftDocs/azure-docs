@@ -1,7 +1,7 @@
 ---
 title: Keyboard shortcuts in the Azure portal for Azure Resource Graph Explorer
 description: Azure Resource Graph Explorer in the Azure portal supports keyboard shortcuts to help you perform actions and navigate.
-ms.date: 10/21/2020
+ms.date: 05/01/2021
 ms.topic: reference
 ms.custom: accessibility
 ---

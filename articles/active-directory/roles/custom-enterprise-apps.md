@@ -1,21 +1,21 @@
 ---
-title: Custom role permissions for enterprise app access assignments - Azure Active Directory | Microsoft Docs
+title: Create custom roles to manage enterprise apps in Azure Active Directory
 description: Create and assign custom Azure AD roles for enterprise apps access in Azure Active Directory
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/04/2020
-ms.author: curtand
+ms.date: 04/14/2021
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Assign custom roles to manage enterprise apps in Azure Active Directory
+# Create custom roles to manage enterprise apps in Azure Active Directory
 
 This article explains how to create a custom role with permissions to manage enterprise app assignments for users and groups in Azure Active Directory (Azure AD). For the elements of roles assignments and the meaning of terms such as subtype, permission, and property set, see the [custom roles overview](custom-overview.md).
 
@@ -84,18 +84,16 @@ For more detail, see [Create and assign a custom role](custom-create.md) and [As
 First, install the Azure AD PowerShell module from [the PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Then import the Azure AD PowerShell preview module, using the following command:
 
 ```powershell
-PowerShell
-import-module azureadpreview
+Import-Module -Name AzureADPreview
 ```
 
 To verify that the module is ready to use, match the version returned by the following command to the one listed here:
 
 ```powershell
-PowerShell
-get-module azureadpreview
+Get-Module -Name AzureADPreview
   ModuleType Version      Name                         ExportedCommands
   ---------- ---------    ----                         ----------------
-  Binary     2.0.0.115    azureadpreview               {Add-AzureADAdministrati...}
+  Binary     2.0.0.115    AzureADPreview               {Add-AzureADAdministrati...}
 ```
 
 ### Create a custom role
@@ -109,7 +107,7 @@ $displayName = "Can manage user and group assignments for Applications"
 $templateId = (New-Guid).Guid
 
 # Set of permissions to grant
-$allowedResourceAction =@( "microsoft.directory/servicePrincipals/appRoleAssignedTo/update")
+$allowedResourceAction = @("microsoft.directory/servicePrincipals/appRoleAssignedTo/update")
 $resourceActions = @{'allowedResourceActions'= $allowedResourceAction}
 $rolePermission = @{'resourceActions' = $resourceActions}
 $rolePermissions = $rolePermission
@@ -123,24 +121,16 @@ $customRole = New-AzureADMSRoleDefinition -RolePermissions $rolePermissions -Dis
 Assign the role using this PowerShell script.
 
 ```powershell
-PowerShell
-# Basic role information
+# Get the user and role definition you want to link
+$user = Get-AzureADUser -Filter "userPrincipalName eq 'chandra@example.com'"
+$roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Manage user and group assignments'"
 
-$description = "Manage user and group assignments"
-$displayName = "Can manage user and group assignments for Applications"
-$templateId = (New-Guid).Guid
+# Get app registration and construct resource scope for assignment.
+$appRegistration = Get-AzureADApplication -Filter "displayName eq 'My Filter Photos'"
+$resourceScope = '/' + $appRegistration.objectId
 
-# Set of permissions to grant
-$allowedResourceAction =
-@(
-    "microsoft.directory/servicePrincipals/appRoleAssignedTo/update"
-)
-$resourceActions = @{'allowedResourceActions'= $allowedResourceAction}
-$rolePermission = @{'resourceActions' = $resourceActions}
-$rolePermissions = $rolePermission
-
-# Create new custom role
-$customRole = New-AzureAdRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
+# Create a scoped role assignment
+$roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
 ## Use the Microsoft Graph API

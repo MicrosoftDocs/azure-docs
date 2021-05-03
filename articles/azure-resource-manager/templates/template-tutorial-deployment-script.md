@@ -9,7 +9,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/14/2020
+ms.date: 12/16/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -30,13 +30,15 @@ This tutorial covers the following tasks:
 > * Debug the failed script
 > * Clean up resources
 
+For a Microsoft Learn module that covers deployment scripts, see [Extend ARM templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts/).
+
 ## Prerequisites
 
 To complete this article, you need:
 
 * **[Visual Studio Code](https://code.visualstudio.com/) with the Resource Manager Tools extension**. See [Quickstart: Create ARM templates with Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 
-* **A user-assigned managed identity with the contributor's role at the subscription level**. This identity is used to execute deployment scripts. To create one, see [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). You need the identity ID when you deploy the template. The format of the identity is:
+* **A user-assigned managed identity**. This identity is used to perform Azure-specific actions in the script. To create one, see [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). You need the identity ID when you deploy the template. The format of the identity is:
 
   ```json
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
@@ -249,7 +251,7 @@ The deployment script adds a certificate to the key vault. Configure the key vau
 
     The `deploymentScripts` resource depends on the key vault resource and the role assignment resource. It has these properties:
 
-    * `identity`: Deployment script uses a user-assigned managed identity to execute the scripts.
+    * `identity`: Deployment script uses a user-assigned managed identity to perform the operations in the script.
     * `kind`: Specify the type of script. Currently, only PowerShell scripts are supported.
     * `forceUpdateTag`: Determine whether the deployment script should be executed even if the script source hasn't changed. Can be current time stamp or a GUID. To learn more, see [Run script more than once](./deployment-script-template.md#run-script-more-than-once).
     * `azPowerShellVersion`: Specifies the Azure PowerShell module version to be used. Currently, deployment script supports version 2.7.0, 2.8.0, and 3.0.0.
@@ -323,13 +325,13 @@ The deployment script adds a certificate to the key vault. Configure the key vau
 
     ![Resource Manager template deployment script resources](./media/template-tutorial-deployment-script/resource-manager-template-deployment-script-resources.png)
 
-    Both files have the **azscripts** suffix. One is a storage account and the other is a container instance.
+    Both files have the _azscripts_ suffix. One is a storage account and the other is a container instance.
 
     Select **Show hidden types** to list the `deploymentScripts` resource.
 
-1. Select the storage account with the **azscripts** suffix.
-1. Select the **File shares** tile. You will see an **azscripts** folder. The folder contains the deployment script execution files.
-1. Select **azscripts**. You will see two folders **azscriptinput** and **azscriptoutput**. The input folder contains a system PowerShell script file and the user deployment script files. The output folder contains a _executionresult.json_ and the script output file. You can see the error message in _executionresult.json_. The output file isn't there because the execution failed.
+1. Select the storage account with the _azscripts_ suffix.
+1. Select the **File shares** tile. You will see an _azscripts_ folder that contains the deployment script execution files.
+1. Select _azscripts_. You will see two folders _azscriptinput_ and _azscriptoutput_. The input folder contains a system PowerShell script file and the user deployment script files. The output folder contains a _executionresult.json_ and the script output file. You can see the error message in _executionresult.json_. The output file isn't there because the execution failed.
 
 Remove the `Write-Output1` line and redeploy the template.
 

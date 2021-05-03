@@ -20,12 +20,12 @@ The policy contains rules that determine the authorization criteria, properties,
 version=1.0;
 authorizationrules
 {
-   c:[type="secureBootEnables", issuer=="AttestationService"]=> permit()
+   c:[type="secureBootEnabled", issuer=="AttestationService"]=> permit()
 };
 
 issuancerules
 {
-  c:[type="secureBootEnables", issuer=="AttestationService"]=> issue(claim=c)
+  c:[type="secureBootEnabled", issuer=="AttestationService"]=> issue(claim=c)
   c:[type="notSafeMode", issuer=="AttestationService"]=> issue(claim=c)
 };
 ```

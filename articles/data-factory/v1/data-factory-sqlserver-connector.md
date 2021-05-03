@@ -1,21 +1,11 @@
 ---
 title: Move data to and from SQL Server 
 description: Learn about how to move data to/from SQL Server database that is on-premises or in an Azure VM using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
-ms.assetid: 864ece28-93b5-4309-9873-b095bbe6fedd
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: jingwang
-
 robots: noindex
 ---
 # Move data to and from SQL Server using Azure Data Factory
@@ -167,7 +157,7 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Wait time for the batch insert operation to complete before it times out. |timespan<br/><br/> Example: “00:30:00” (30 minutes). |No |
+| writeBatchTimeout |Wait time for the batch insert operation to complete before it times out. |timespan<br/><br/> Example: "00:30:00" (30 minutes). |No |
 | writeBatchSize |Inserts data into the SQL table when the buffer size reaches writeBatchSize. |Integer (number of rows) |No (default: 10000) |
 | sqlWriterCleanupScript |Specify query for Copy Activity to execute such that data of a specific slice is cleaned up. For more information, see [repeatable copy](#repeatable-copy) section. |A query statement. |No |
 | sliceIdentifierColumnName |Specify column name for Copy Activity to fill with auto generated slice identifier, which is used to clean up data of a specific slice when rerun. For more information, see [repeatable copy](#repeatable-copy) section. |Column name of a column with data type of binary(32). |No |
@@ -220,9 +210,9 @@ As a first step, setup the data management gateway. The instructions are in the 
 ```
 **SQL Server input dataset**
 
-The sample assumes you have created a table “MyTable” in SQL Server and it contains a column called “timestampcolumn” for time series data. You can query over multiple tables within the same database using a single dataset, but a single table must be used for the dataset's tableName typeProperty.
+The sample assumes you have created a table "MyTable" in SQL Server and it contains a column called "timestampcolumn" for time series data. You can query over multiple tables within the same database using a single dataset, but a single table must be used for the dataset's tableName typeProperty.
 
-Setting “external”: ”true” informs Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
+Setting "external": "true" informs Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
 ```json
 {
@@ -403,7 +393,7 @@ The sample copies time-series data from an Azure blob to a SQL Server table ever
 ```
 **Azure Blob input dataset**
 
-Data is picked up from a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, and day part of the start time and file name uses the hour part of the start time. “external”: “true” setting informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
+Data is picked up from a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, and day part of the start time and file name uses the hour part of the start time. "external": "true" setting informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
 ```json
 {
@@ -471,7 +461,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 ```
 **SQL Server output dataset**
 
-The sample copies data to a table named “MyTable” in SQL Server. Create the table in SQL Server with the same number of columns as you expect the Blob CSV file to contain. New rows are added to the table every hour.
+The sample copies data to a table named "MyTable" in SQL Server. Create the table in SQL Server with the same number of columns as you expect the Blob CSV file to contain. New rows are added to the table every hour.
 
 ```json
 {
@@ -635,7 +625,7 @@ Notice that the target table has an identity column.
 }
 ```
 
-Notice that as your source and target table have different schema (target has an additional column with identity). In this scenario, you need to specify **structure** property in the target dataset definition, which doesn’t include the identity column.
+Notice that as your source and target table have different schema (target has an additional column with identity). In this scenario, you need to specify **structure** property in the target dataset definition, which doesn't include the identity column.
 
 ## Invoke stored procedure from SQL sink
 See [Invoke stored procedure for SQL sink in copy activity](data-factory-invoke-stored-procedure-from-copy-activity.md) article for an example of invoking a stored procedure from SQL sink in a copy activity of a pipeline.

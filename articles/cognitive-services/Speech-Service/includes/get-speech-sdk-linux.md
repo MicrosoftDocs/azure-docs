@@ -26,6 +26,9 @@ ms.author: trbye
 > [!IMPORTANT]
 > For C# on Linux ARM64, the .NET Core 3.x (dotnet-sdk-3.x package) is required.
 
+> [!NOTE]
+> To use the Speech SDK in Alpine Linux, create a Debian chroot environment as documented in the Alpine Linux Wiki on [running glibc programs](https://wiki.alpinelinux.org/wiki/Running_glibc_programs), and then follow Debian instructions here.
+
 ### System requirements
 
 For a native application, the Speech SDK relies on `libMicrosoft.CognitiveServices.Speech.core.so`. Make sure the target architecture (x86, x64) matches the application. Depending on the Linux version, additional dependencies may be required.

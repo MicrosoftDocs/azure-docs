@@ -9,6 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 12/14/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -74,7 +75,7 @@ The domain hint query string parameter can set to one of the following domains:
 
 ::: zone pivot="b2c-custom-policy"
 
-To support domain hing parameter, you can configure the domain name using the `<Domain>domain name</Domain>` XML element of any `<ClaimsProvider>`.
+To support domain hint parameter, you can configure the domain name using the `<Domain>domain name</Domain>` XML element of any `<ClaimsProvider>`.
 
 ```xml
 <ClaimsProvider>

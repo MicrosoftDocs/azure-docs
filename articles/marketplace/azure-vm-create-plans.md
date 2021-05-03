@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 10/19/2020
+ms.date: 04/01/2021
 ---
 
 # How to create plans for a virtual machine offer
@@ -149,7 +149,9 @@ Private offers are not supported with Azure subscriptions established through a 
 
 If your virtual machine is meant to be used only indirectly when it's referenced through another solution template or managed application, select this check box to publish the virtual machine but hide it from customers who might be searching or browsing for it directly.
 
-Hidden plans don't support preview links.
+Any Azure customer can deploy the offer using either PowerShell or CLI.  If you wish to make this offer available to a limited set of customers, then set the plan to **Private**. 
+
+Hidden plans do not generate preview links. However, you can test you them by [following these steps](azure-vm-create-faq.md#how-do-i-test-a-hidden-preview-image). 
 
 Select **Save draft** before continuing to the next tab in the left-nav Plan menu, **Technical configuration**.
 
@@ -186,7 +188,7 @@ Generating a virtual machine defines the virtual hardware it uses. Based on your
 
 1. When creating a new offer, select a **Generation type** and enter the requested details:
 
-    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details-1.png" alt-text="A view of the Generation drop-down box.":::
+    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details-1.png" alt-text="A view of the Generation detail section in Partner Center.":::
 
 2. To add another generation to a plan, select **Add generation**...
 
@@ -198,9 +200,7 @@ Generating a virtual machine defines the virtual hardware it uses. Based on your
 
 <!--    The **Generation ID** you choose will be visible to customers in places such as product URLs and ARM templates (if applicable). Use only lowercase, alphanumeric characters, dashes, or underscores; it cannot be modified once published.
 -->
-3. To update an existing VM that has a Generation 1 already published, edit details on this **Technical configuration** page:
-
-    :::image type="content" source="./media/create-vm/azure-vm-generations-updating.png" alt-text="A view of the plan technical configuration page.":::
+3. To update an existing VM that has a Generation 1 already published, edit details on the **Technical configuration** page.
 
 To learn more about the differences between Generation 1 and Generation 2 capabilities, see [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
 
@@ -218,6 +218,8 @@ Data disks (select **Add data disk (maximum 16)**) are also VHD shared access si
 Regardless of which operating system you use, add only the minimum number of data disks that the solution requires. During deployment, customers can't remove disks that are part of an image, but they can always add disks during or after deployment.
 
 Select **Save draft**, then select **← Plan overview** at the top left to see the plan you just created.
+
+Once your VM image has published, you can delete the image from your Azure storage.
 
 ## Next steps
 

@@ -45,13 +45,12 @@ The following snippet shows the different kinds of resources that can be managed
 }
 ```
 
-
 ## Add a new application to your Resource Manager template
 
 1. Prepare your cluster's Resource Manager template for deployment. See [Create a Service Fabric cluster by using Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) for more information on this.
 2. Think about some of the applications you plan on deploying in the cluster. Are there any that will always be running that other applications may take dependencies on? Do you plan on deploying any cluster governance or setup applications? These sorts of applications are best managed via a Resource Manager template, as discussed above. 
-3. Once you have figured out what applications you want to be deployed this way, the applications have to be packaged, zipped, and put on a file share. The share needs to be accessible through a REST endpoint for Azure Resource Manager to consume during deployment.
-4. In your Resource Manager template, below your cluster declaration, describe each application's properties. These properties include replica or instance count and any dependency chains between resources (other applications or services). For a list of comprehensive properties, see the [REST API Swagger Spec](https://aka.ms/sfrpswaggerspec). Note that this does not replace the Application or Service manifests, but rather describes some of what is in them as part of the cluster's Resource Manager template. Here is a sample template that includes deploying a stateless service *Service1* and a stateful service *Service2* as part of *Application1*:
+3. Once you have figured out what applications you want to be deployed this way, the applications have to be packaged, zipped, and placed on a storage share. The share needs to be accessible through a REST endpoint for Azure Resource Manager to consume during deployment. See [Create a storage account](service-fabric-concept-resource-model.md#create-a-storage-account) for details.
+4. In your Resource Manager template, below your cluster declaration, describe each application's properties. These properties include replica or instance count and any dependency chains between resources (other applications or services). Note that this does not replace the Application or Service manifests, but rather describes some of what is in them as part of the cluster's Resource Manager template. Here is a sample template that includes deploying a stateless service *Service1* and a stateful service *Service2* as part of *Application1*:
 
    ```json
    {
@@ -239,7 +238,7 @@ The following snippet shows the different kinds of resources that can be managed
    ```
 
    > [!NOTE] 
-   > The *apiVersion* must be set to `"2019-03-01"`. This template can also be deployed independently of the cluster, as long as the cluster has already been deployed.
+   > Refer to the Service Fabric [Azure Resource Manager reference](/azure/templates/microsoft.servicefabric/clusters/applicationtypes) to find usage and details on individual template properties.
 
 5. Deploy! 
 

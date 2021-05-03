@@ -1,9 +1,6 @@
 ---
 title: 'Tutorial: ETL operations with Interactive Query - Azure HDInsight'
 description: Tutorial - Learn how to extract data from a raw CSV dataset. Transform it using Interactive Query on HDInsight. Then load the transformed data into Azure SQL Database by using Apache Sqoop.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
@@ -34,7 +31,7 @@ This tutorial covers the following tasks:
 
 ## Download the flight data
 
-1. Browse to [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
+1. Browse to [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?gnoyr_VQ=FGJ).
 
 2. On the page, clear all fields, and then select the following values:
 

@@ -18,7 +18,7 @@ ms.custom: "devx-track-csharp, aaddev, scenarios:getting-started, languages:aspn
 
 # Quickstart: ASP.NET Core web app that signs in users and calls Microsoft Graph on their behalf
 
-In this quickstart, you download and run a code sample that demonstrates how an ASP.NET Core web app can sign in users from any Azure Active Directory (Azure AD) organization and calls Microsoft Graph.  
+In this quickstart, you download and run a code sample that demonstrates how an ASP.NET Core web app can sign in users from any Azure Active Directory (Azure AD) organization and calls Microsoft Graph.
 
 See [How the sample works](#how-the-sample-works) for an illustration.
 
@@ -35,7 +35,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
-> 1. Go to the [Azure portal - App registrations](https://aka.ms/aspnetcore-webapp-calls-graph-quickstart-v2).
+> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetCoreWebAppQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
 > 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application for you in one click.
 >
@@ -44,15 +44,15 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > #### Step 1: Register your application
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com).
+> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 > 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. Enter a **Name** for your application, for example `AspNetCoreWebAppCallsGraph-Quickstart`. Users of your app might see this name, and you can change it later.
-> 1. Enter a **Redirect URI** of `https://localhost:44321/signin-oidc`
+> 1. Enter a **Redirect URI** of `https://localhost:44321/signin-oidc`.
 > 1. Select **Register**.
 > 1. Under **Manage**, select **Authentication**.
-> 1. Enter a **Logout URL** of `https://localhost:44321/signout-oidc`
+> 1. Enter a **Front-channel logout URL** of `https://localhost:44321/signout-oidc`.
 > 1. Select **Save**.
 > 1. Under **Manage**, select **Certificates & secrets** > **New client secret**.
 > 1. Enter a **Description**, for example `clientsecret1`.
@@ -61,7 +61,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in the Azure portal
-> For the code sample for this quickstart to work, you need to add reply URLs as `https://localhost:44321/signin-oidc`, add the Logout URL as `https://localhost:44321/signout-oidc`.
+> For the code sample in this quickstart to work, add a **Redirect URI** of `https://localhost:44321/signin-oidc` and **Front-channel logout URL** of `https://localhost:44321/signout-oidc` in the app registration.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >
@@ -78,6 +78,8 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 > [!div renderon="portal" class="sxs-lookup" id="autoupdate" class="nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore3-1-callsgraph.zip)
+
+[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
@@ -103,7 +105,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >       - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
 >       - If your application supports **All Microsoft account users**, leave this value as `common`
 >    - Replace `Enter_the_Client_Secret_Here` with the **Client secret** you created and recorded in an earlier step.
-> 
+>
 > For this quickstart, don't change any other values in the *appsettings.json* file.
 >
 > #### Step 4: Build and run the application
@@ -123,6 +125,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 This section gives an overview of the code required to sign in users and call the Microsoft Graph API on their behalf. This overview can be useful to understand how the code works, main arguments, and also if you want to add sign-in to an existing ASP.NET Core application and call Microsoft Graph. It uses [Microsoft.Identity.Web](microsoft-identity-web.md), which is a wrapper around [MSAL.NET](msal-overview.md).
 
 ### How the sample works
+
 ![Shows how the sample app generated by this quickstart works](media/quickstart-v2-aspnet-core-webapp-calls-graph/aspnetcorewebapp-intro.svg)
 
 ### Startup class
@@ -163,7 +166,7 @@ The *Microsoft.AspNetCore.Authentication* middleware uses a `Startup` class that
 
 The `AddAuthentication()` method configures the service to add cookie-based authentication, which is used in browser scenarios and to set the challenge to OpenID Connect.
 
-The line containing `.AddMicrosoftIdentityWebApp` adds Microsoft identity platform authentication to your application. This is provided by [Microsoft.Identity.Web](microsoft-identity-web.md). It's then configured to sign in using the Microsoft identity platform endpoint based on the information in the `AzureAD` section of the *appsettings.json* configuration file:
+The line containing `.AddMicrosoftIdentityWebApp` adds the Microsoft identity platform authentication to your application. This is provided by [Microsoft.Identity.Web](microsoft-identity-web.md). It's then configured to sign in using the Microsoft identity platform based on the information in the `AzureAD` section of the *appsettings.json* configuration file:
 
 | *appsettings.json* key | Description                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -195,7 +198,7 @@ app.UseEndpoints(endpoints =>
 
 You can protect a controller or its methods by applying the `[Authorize]` attribute to the controller's class or one or more of its methods. This `[Authorize]` attribute restricts access by allowing only authenticated users. If the user isn't already authenticated, an authentication challenge can be started to access the controller. In this quickstart, the scopes are read from the configuration file:
 
-```CSharp
+```csharp
 [AuthorizeForScopes(ScopeKeySection = "DownstreamApi:Scopes")]
 public async Task<IActionResult> Index()
 {
@@ -204,7 +207,7 @@ public async Task<IActionResult> Index()
 
     return View();
 }
- ```
+```
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

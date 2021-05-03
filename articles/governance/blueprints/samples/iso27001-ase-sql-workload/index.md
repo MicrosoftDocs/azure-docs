@@ -1,7 +1,7 @@
 ---
 title: ISO 27001 ASE/SQL workload blueprint sample overview
 description: Overview and architecture of the ISO 27001 App Service Environment/SQL Database workload blueprint sample.
-ms.date: 11/02/2020
+ms.date: 04/30/2021
 ms.topic: sample
 ---
 # Overview of the ISO 27001 App Service Environment/SQL Database workload blueprint sample
@@ -21,7 +21,7 @@ Services](../iso27001-shared/index.md) blueprint sample.
 ## Architecture
 
 The ISO 27001 App Service Environment/SQL Database workload blueprint sample deploys a platform as
-a service based web environment. The environment can be used to host multiple web applications, web
+a service-based web environment. The environment can be used to host multiple web applications, web
 APIs, and SQL Database instances that follow the ISO 27001 standards. This blueprint sample depends
 on the [ISO 27001 Shared Services](../iso27001-shared/index.md) blueprint sample.
 

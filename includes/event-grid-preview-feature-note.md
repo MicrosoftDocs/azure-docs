@@ -2,30 +2,15 @@
  title: include file
  description: include file
  services: event-grid
- author: tfitzmac
+ author: spelluru
  ms.service: event-grid
  ms.topic: include
  ms.date: 11/06/2018
- ms.author: tomfitz
+ ms.author: spelluru
  ms.custom: include file
 ---
 
 This feature is in preview. To use it, you must install a preview extension or module.
-
-### Install extension for Azure CLI
-
-For Azure CLI, you need the [Event Grid extension](/cli/azure/azure-cli-extensions-list).
-
-In [CloudShell](../articles/cloud-shell/quickstart.md):
-
-* If you've installed the extension previously, update it `az extension update -n eventgrid`
-* If you haven't installed the extension previously, install it `az extension add -n eventgrid`
-
-For a local installation:
-
-1. [Install the Azure CLI](/cli/azure/install-azure-cli). Make sure that you have the latest version, by checking with `az --version`.
-1. Uninstall previous versions of the extension `az extension remove -n eventgrid`
-1. Install the `eventgrid` extension with `az extension add -n eventgrid`
 
 ### Install module for PowerShell
 

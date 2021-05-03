@@ -1,18 +1,12 @@
 ---
 title: Transform data using U-SQL script - Azure 
 description: Learn how to process or transform data by running U-SQL scripts on Azure Data Lake Analytics compute service - version 1.
-services: data-factory
-documentationcenter: ''
-ms.assetid: e17c1255-62c2-4e2e-bb60-d25274903e80
 ms.service: data-factory
-ms.workload: data-services
-
 ms.topic: conceptual
 ms.date: 10/01/2017
 author: nabhishek
 ms.author: abnarain
 ms.custom: devx-track-csharp
-manager: anandsub
 robots: noindex
 ---
 # Transform data by running U-SQL scripts on Azure Data Lake Analytics 
@@ -312,7 +306,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-The values for **\@in** and **\@out** parameters in the U-SQL script are passed dynamically by ADF using the ‘parameters’ section. See the ‘parameters’ section in the pipeline definition.
+The values for **\@in** and **\@out** parameters in the U-SQL script are passed dynamically by ADF using the 'parameters' section. See the 'parameters' section in the pipeline definition.
 
 You can specify other properties such as degreeOfParallelism and priority as well in your pipeline definition for the jobs that run on the Azure Data Lake Analytics service.
 

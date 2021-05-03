@@ -2,7 +2,7 @@
 title: Scalability - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to scale Azure Event Hubs by using partitions and throughput units. 
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 03/16/2021
 ---
 
 # Scaling with Event Hubs
@@ -34,11 +34,7 @@ For more information about the auto-inflate feature, see [Automatically scale th
 ## Partitions
 [!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
 
-### Partition key
 
-You can use a [partition key](event-hubs-programming-guide.md#partition-key) to map incoming event data into specific partitions for the purpose of data organization. The partition key is a sender-supplied value passed into an event hub. It is processed through a static hashing function, which creates the partition assignment. If you don't specify a partition key when publishing an event, a round-robin assignment is used.
-
-The event publisher is only aware of its partition key, not the partition to which the events are published. This decoupling of key and partition insulates the sender from needing to know too much about the downstream processing. A per-device or user unique identity makes a good partition key, but other attributes such as geography can also be used to group related events into a single partition.
 
 
 ## Next steps

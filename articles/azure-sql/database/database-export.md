@@ -9,7 +9,7 @@ author: stevestein
 ms.custom: sqldbrb=2
 ms.author: sstein
 ms.reviewer: 
-ms.date: 07/16/2019
+ms.date: 01/11/2021
 ms.topic: how-to
 ---
 # Export to a BACPAC file - Azure SQL Database and Azure SQL Managed Instance
@@ -24,6 +24,7 @@ When you need to export a database for archiving or for moving to another platfo
 - If you are exporting to blob storage, the maximum size of a BACPAC file is 200 GB. To archive a larger BACPAC file, export to local storage.
 - Exporting a BACPAC file to Azure premium storage using the methods discussed in this article is not supported.
 - Storage behind a firewall is currently not supported.
+- Storage file name or the input value for StorageURI should be less than 128 characters long and cannot end with '.' and cannot contain special characters like a space character or '<,>,*,%,&,:,\,/,?'. 
 - If the export operation exceeds 20 hours, it may be canceled. To increase performance during export, you can:
 
   - Temporarily increase your compute size.
@@ -96,6 +97,14 @@ while ($exportStatus.Status -eq "InProgress")
 }
 [Console]::WriteLine("")
 $exportStatus
+```
+## Cancel the export request
+
+Use the [Database Operations - Cancel API](/rest/api/sql/databaseoperations/cancel)
+or the Powershell [Stop-AzSqlDatabaseActivity command](/powershell/module/az.sql/Stop-AzSqlDatabaseActivity), here an example of powershell command.
+
+```cmd
+Stop-AzSqlDatabaseActivity -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -OperationId $Operation.OperationId
 ```
 
 ## Next steps

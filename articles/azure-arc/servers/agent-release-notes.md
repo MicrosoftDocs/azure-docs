@@ -1,8 +1,8 @@
 ---
 title: What's new with Azure Arc enabled servers agent
-description: This article has release notes for Azure Arc enabled servers agent. For many of the summarized issues, there are links to additional details.
+description: This article has release notes for Azure Arc enabled servers agent. For many of the summarized issues, there are links to more details.
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 04/27/2021
 ---
 
 # What's new with Azure Arc enabled servers agent
@@ -13,11 +13,38 @@ The Azure Arc enabled servers Connected Machine agent receives improvements on a
 - Known issues
 - Bug fixes
 
-## December 2020
+## April 2021
+
+Version 1.5
 
 ### New feature
 
-Added support for Windows Server 2008 R2
+- Added support for Red Hat Enterprise Linux 8 and CentOS Linux 8.
+- New `-useStderr` parameter to direct error and verbose output to stderr.
+- New `-json` parameter to direct output results in JSON format (when used with -useStderr).
+- Collect other instance metadata - Manufacturer, model, if SQL Server is installed (Boolean), and cluster resource ID (for Azure Stack HCI nodes).
+ 
+## March 2021
+
+Version 1.4
+
+### New feature
+
+- Added support for private endpoints, which is currently in limited preview.
+- Expanded list of exit codes for azcmagent.
+- Agent configuration parameters can now be read from a file with the `--config` parameter.
+
+### Fixed
+
+Network endpoint checks are now faster.
+
+## December 2020
+
+Version: 1.3
+
+### New feature
+
+Added support for Windows Server 2008 R2.
 
 ### Fixed
 
@@ -25,18 +52,22 @@ Resolved issue preventing the Custom Script Extension on Linux from installing s
 
 ## November 2020
 
+Version: 1.2
+
 ### Fixed
 
 Resolved issue where proxy configuration could be lost after upgrade on RPM-based distributions.
 
 ## October 2020
 
+Version: 1.1
+
 ### Fixed
 
 - Fixed proxy script to handle alternate GC daemon unit file location.
 - GuestConfig agent reliability changes.
 - GuestConfig agent support for US Gov Virginia region.
-- GuestConfig agent extension report messages to be more verbose in case of failures.
+- GuestConfig agent extension report messages to be more verbose if there is a failure.
 
 ## September 2020
 
@@ -56,7 +87,7 @@ Version: 1.0 (General Availability)
 - Added `azcmagent show --json` option to output agent state in easily parseable format.
 - Added flag in `azcmagent show` output to indicate if server is on a virtual machine hosted in Azure.
 - Added `azcmagent disconnect --force-local-only` option to allow reset of local agent state when Azure service cannot be reached.
-- Added `azcmagent connect --cloud` option to support additional clouds. In this release, only Azure is supported by service at time of agent release.
+- Added `azcmagent connect --cloud` option to support other clouds. In this release, only Azure is supported by service at time of agent release.
 - Agent has been localized into Azure-supported languages.
 
 ### Fixed

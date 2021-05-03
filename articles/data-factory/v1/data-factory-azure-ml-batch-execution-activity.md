@@ -1,14 +1,10 @@
 ---
 title: Create predictive data pipelines using Azure Data Factory 
 description: Describes how to create create predictive pipelines using Azure Data Factory and Azure Machine Learning Studio (classic)
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ---
@@ -263,8 +259,8 @@ We recommend that you go through the [Build your first pipeline with Data Factor
         "name": "PredictivePipeline",
         "properties": {
           "description": "use AzureML model",
-       	  "activities": [
-         	  {
+          "activities": [
+            {
               "name": "MLActivity",
               "type": "AzureMLBatchExecution",
               "description": "prediction analysis on batch input",
@@ -292,11 +288,11 @@ We recommend that you go through the [Build your first pipeline with Data Factor
                 "retry": 1,
                 "timeout": "02:00:00"
               }
-       	    }
+            }
           ],
           "start": "2016-02-13T00:00:00Z",
           "end": "2016-02-14T00:00:00Z"
-     	  }
+        }
       }
       ```
 

@@ -33,10 +33,12 @@ from openrowset(
 Make sure that you can access this file. If your file is protected with SAS key or custom Azure identity, you would need to setup [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
 > [!IMPORTANT]
-> Ensure you are using a UTF-8 database collation (for example `Latin1_General_100_CI_AS_SC_UTF8`) because string values in PARQUET files are encoded using UTF-8 encoding.
+> Ensure you are using a UTF-8 database collation (for example `Latin1_General_100_BIN2_UTF8`) because string values in PARQUET files are encoded using UTF-8 encoding.
 > A mismatch between the text encoding in the PARQUET file and the collation may cause unexpected conversion errors.
 > You can easily change the default collation of the current database using the following T-SQL statement:
->   `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+>   `alter database current collate Latin1_General_100_BIN2_UTF8`'
+
+If you use a _BIN2 collation you get an additional performance boost. BIN2 collation is compatible with parquet string sorting rules so we a some parts of the parquet files that will not contain data needed in the queries (file/column-segment pruning) can be eliminated. If you use a non-BIN2 collation all data from the parquet fill will be loaded into Synapse SQL with the filtering happening within the SQL process which might be much slower than with file elimination of the unneeded data. BIN2 collation has additional performance optimization that works only for parquet and CosmosDB. The downside is that you lose fine-grained comparison rules like case insensitivity.
 
 ### Data source usage
 
@@ -70,12 +72,12 @@ from openrowset(
 ```
 
 > [!IMPORTANT]
-> Make sure that you are explicilty specifying some UTF-8 collation (for example `Latin1_General_100_CI_AS_SC_UTF8`) for all string columns in `WITH` clause or set some UTF-8 collation at database level.
+> Make sure that you are explicilty specifying some UTF-8 collation (for example `Latin1_General_100_BIN2_UTF8`) for all string columns in `WITH` clause or set some UTF-8 collation at database level.
 > Mismatch between text encoding in the file and string column collation might cause unexpected conversion errors.
 > You can easily change default collation of the current database using the following T-SQL statement:
->   `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+>   `alter database current collate Latin1_General_100_BIN2_UTF8`
 > You can easily set collation on the colum types using the following definition:
->    `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8`
+>    `geo_id varchar(6) collate Latin1_General_100_BIN2_UTF8`
 
 In the following sections you can see how to query various types of PARQUET files.
 
@@ -117,7 +119,7 @@ ORDER BY
 
 You don't need to use the OPENROWSET WITH clause when reading Parquet files. Column names and data types are automatically read from Parquet files.
 
-The sample below shows the automatic schema inference capabilities for Parquet files. It returns the number of rows in September 2017 without specifying a schema.
+The sample below shows the automatic schema inference capabilities for Parquet files. It returns the number of rows in September 2018 without specifying a schema.
 
 > [!NOTE]
 > You don't have to specify columns in the OPENROWSET WITH clause when reading Parquet files. In that case, serverless SQL pool query service will utilize metadata in the Parquet file and bind columns by name.
@@ -126,7 +128,7 @@ The sample below shows the automatic schema inference capabilities for Parquet f
 SELECT TOP 10 *
 FROM  
     OPENROWSET(
-        BULK 'puYear=2018/puMonth=*/*.snappy.parquet',
+        BULK 'puYear=2018/puMonth=9/*.snappy.parquet',
         DATA_SOURCE = 'YellowTaxi',
         FORMAT='PARQUET'
     ) AS nyc

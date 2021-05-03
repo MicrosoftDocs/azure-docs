@@ -1,687 +1,154 @@
 ---
-title: Coarse Relocalization
-description: Learn about using Coarse relocalization to find anchors near you.
+title: Coarse relocalization
+description: Learn how and when to use coarse relocalization. Coarse relocalization helps you find anchors that are near you. 
 author: msftradford
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
 ms.author: parkerra
-ms.date: 11/20/2020
+ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
 ---
 # Coarse relocalization
 
-Coarse relocalization is a feature that provides an initial answer to the question: *Where is my device now / What content should I be observing?* The response isn't precise, but instead is in the form: *You're close to these anchors; try locating one of them*.
+Coarse relocalization is a feature that enables large-scale localization by providing an approximate but fast answer to these questions: 
+- *Where is my device now?* 
+- *What content should I be observing?* 
+ 
+The response isn't precise. It's in this form: *You're close to these anchors. Try to locate one of them*.
 
-Coarse relocalization works by associating various on-device sensor readings with both the creation and the querying of anchors. For outdoor scenarios, the sensor data is typically the GPS (Global Positioning System) position of the device. When GPS is not available or unreliable (such as indoors), the sensor data consists of the WiFi access points and Bluetooth beacons in range. All collected sensor data contributes to maintaining a spatial index this is used by the Azure Spatial Anchors to quickly determine the anchors that are within approximately 100 meters of your device.
+Coarse relocalization works by tagging anchors with various on-device sensor readings that are later used for fast querying. For outdoor scenarios, the sensor data is typically the GPS (Global Positioning System) position of the device. When GPS is unavailable or unreliable, like when you're indoors, the sensor data consists of the Wi-Fi access points and Bluetooth beacons in range. The collected sensor data contributes to maintaining a spatial index used by Azure Spatial Anchors to quickly determine which anchors are close to your device.
 
-The fast look-up of anchors enabled by coarse relocalization simplifies the development of applications backed by world-scale collections of (say, millions of geo-distributed) anchors. The complexity of anchor management is all hidden away, allowing you to focus more on your awesome application logic. All the anchor heavy-lifting is done for you behind the scenes by Azure Spatial Anchors.
+## When to use coarse relocalization
 
-## Collected sensor data
+If you're planning to handle more than 35 spatial anchors in a space larger than a tennis court, you'll probably benefit from coarse relocalization spatial indexing.
 
-The sensor data you can send to the anchor service is one of the following:
+The fast lookup of anchors enabled by coarse relocalization is designed to simplify the development of applications backed by world-scale collections of, say, millions of geo-distributed anchors. The complexity of spatial indexing is all hidden, so you can focus on your application logic. All the difficult work is done behind the scenes by Azure Spatial Anchors.
 
-* GPS position: latitude, longitude, altitude.
-* Signal strength of WiFi access points in range.
-* Signal strength of Bluetooth beacons in range.
+## Using coarse relocalization
 
-In general, your application will need to acquire device-specific permissions to access GPS, WiFi, or BLE data. Additionally, some of the sensor data above isn't available by design on certain platforms. To account for these situations, the collection of sensor data is optional and is turned off by default.
+Here's the typical workflow to create and query Azure Spatial Anchors with coarse relocalization:
+1.  Create and configure a sensor fingerprint provider to collect the sensor data that you want.
+2.  Start an Azure Spatial Anchors session and create the anchors. Because sensor fingerprinting is enabled, the anchors are spatially indexed by coarse relocalization.
+3.  Query surrounding anchors by using coarse relocalization via the dedicated search criteria in the Spatial Anchors session.
 
-## Set up the sensor data collection
+You can refer to one of these tutorials to set up coarse relocalization in your application:
+* [Coarse relocalization in Unity](../how-tos/set-up-coarse-reloc-unity.md)
+* [Coarse relocalization in Objective-C](../how-tos/set-up-coarse-reloc-objc.md)
+* [Coarse relocalization in Swift](../how-tos/set-up-coarse-reloc-swift.md)
+* [Coarse relocalization in Java](../how-tos/set-up-coarse-reloc-java.md)
+* [Coarse relocalization in C++/NDK](../how-tos/set-up-coarse-reloc-cpp-ndk.md)
+* [Coarse relocalization in C++/WinRT](../how-tos/set-up-coarse-reloc-cpp-winrt.md)
 
-Let's start by creating a sensor fingerprint provider and making the session aware of it:
+## Sensors and platforms
 
-# [C#](#tab/csharp)
+### Platform availability
 
-```csharp
-// Create the sensor fingerprint provider
-sensorProvider = new PlatformLocationProvider();
+You can send these types of sensor data to the anchor service:
 
-// Create and configure the session
-cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
+* GPS position: latitude, longitude, altitude
+* Signal strength of Wi-Fi access points in range
+* Signal strength of Bluetooth beacons in range
 
-// Inform the session it can access sensor data from your provider
-cloudSpatialAnchorSession.LocationProvider = sensorProvider;
-```
-
-# [ObjC](#tab/objc)
-
-```objc
-// Create the sensor fingerprint provider
-ASAPlatformLocationProvider *sensorProvider;
-sensorProvider = [[ASAPlatformLocationProvider alloc] init];
-
-// Create and configure the session
-cloudSpatialAnchorSession = [[ASACloudSpatialAnchorSession alloc] init];
-
-// Inform the session it can access sensor data from your provider
-cloudSpatialAnchorSession.locationProvider = sensorProvider;
-```
-
-# [Swift](#tab/swift)
-
-```swift
-// Create the sensor fingerprint provider
-var sensorProvider: ASAPlatformLocationProvider?
-sensorProvider = ASAPlatformLocationProvider()
-
-// Create and configure the session
-cloudSpatialAnchorSession = ASACloudSpatialAnchorSession()
-
-// Inform the session it can access sensor data from your provider
-cloudSpatialAnchorSession!.locationProvider = sensorProvider
-```
-
-# [Java](#tab/java)
-
-```java
-// Create the sensor fingerprint provider
-PlatformLocationProvider sensorProvider = new PlatformLocationProvider();
-
-// Create and configure the session
-cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
-
-// Inform the session it can access sensor data from your provider
-cloudSpatialAnchorSession.setLocationProvider(sensorProvider);
-```
-
-# [C++ NDK](#tab/cpp)
-
-```cpp
-// Create the sensor fingerprint provider
-std::shared_ptr<PlatformLocationProvider> sensorProvider;
-sensorProvider = std::make_shared<PlatformLocationProvider>();
-
-// Create and configure the session
-cloudSpatialAnchorSession = std::make_shared<CloudSpatialAnchorSession>();
-
-// Inform the session it can access sensor data from your provider
-cloudSpatialAnchorSession->LocationProvider(sensorProvider);
-```
-
-# [C++ WinRT](#tab/cppwinrt)
-```cpp
-// Create the sensor fingerprint provider
-PlatformLocationProvider sensorProvider = PlatformLocationProvider();
-
-// Create and configure the session
-cloudSpatialAnchorSession = CloudSpatialAnchorSession();
-
-// Inform the session it can access sensor data from your provider
-cloudSpatialAnchorSession.LocationProvider(sensorProvider);
-```
----
-
-Next, you'll need to decide which sensors you'd like to use for coarse relocalization. This decision is specific to the application you're developing, but the recommendations in the following table should give you a good starting point:
-
-|                 | Indoors | Outdoors |
-|-----------------|---------|----------|
-| **GPS**         | Off | On |
-| **WiFi**        | On | On (optional) |
-| **BLE beacons** | On (optional with caveats, see below) | Off |
-
-### Enabling GPS
-
-Assuming your application already has permission to access the device's GPS position, you can configure Azure Spatial Anchors to use it:
-
-# [C#](#tab/csharp)
-
-```csharp
-sensorProvider.Sensors.GeoLocationEnabled = true;
-```
-
-# [ObjC](#tab/objc)
-
-```objc
-ASASensorCapabilities *sensors = locationProvider.sensors;
-sensors.geoLocationEnabled = true;
-```
-
-# [Swift](#tab/swift)
-
-```swift
-let sensors = locationProvider?.sensors
-sensors.geoLocationEnabled = true
-```
-
-# [Java](#tab/java)
-
-```java
-SensorCapabilities sensors = sensorProvider.getSensors();
-sensors.setGeoLocationEnabled(true);
-```
-
-# [C++ NDK](#tab/cpp)
-
-```cpp
-const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
-sensors->GeoLocationEnabled(true);
-```
-
-# [C++ WinRT](#tab/cppwinrt)
-
-```cpp
-SensorCapabilities sensors = sensorProvider.Sensors()
-sensors.GeoLocationEnabled(true);
-```
-
----
-
-When using GPS in your application, keep in mind that the readings provided by the hardware are typically:
-
-* asynchronous and low frequency (less than 1 Hz).
-* unreliable / noisy (on average 7-m standard deviation).
-
-In general, both the device OS and Azure Spatial Anchors will do some filtering and extrapolation on the raw GPS signal in an attempt to mitigate these issues. This extra-processing requires additional time for convergence, so for best results you should try to:
-
-* create one sensor fingerprint provider as early as possible in your application
-* keep the sensor fingerprint provider alive between multiple sessions
-* share the sensor fingerprint provider between multiple sessions
-
-If you plan to use the sensor fingerprint provider outside an anchor session, make sure you start it before requesting sensor estimates. For instance, the following code will take care of updating your device's position on the map in real time:
-
-# [C#](#tab/csharp)
-
-```csharp
-// Game about to start, start tracking the sensors
-sensorProvider.Start();
-
-// Game loop
-while (m_isRunning)
-{
-    // Get the GPS estimate
-    GeoLocation geoPose = sensorProvider.GetLocationEstimate();
-
-    // Paint it on the map
-    drawCircle(
-        x: geoPose.Longitude,
-        y: geoPose.Latitude,
-        radius: geoPose.HorizontalError);
-}
-
-// Game ended, no need to track the sensors anymore
-sensorProvider.Stop();
-```
-
-# [ObjC](#tab/objc)
-
-```objc
-// Game about to start, start tracking the sensors
-[sensorProvider start];
-
-// Game loop
-while (m_isRunning)
-{
-    // Get the GPS estimate
-    ASAGeoLocation *geoPose = [sensorProvider getLocationEstimate];
-
-    // Paint it on the map
-    drawCircle(geoPose.longitude, geoPose.latitude, geoPose.horizontalError);
-}
-
-// Game ended, no need to track the sensors anymore
-[sensorProvider stop];
-```
-
-# [Swift](#tab/swift)
-
-```swift
-// Game about to start, start tracking the sensors
-sensorProvider?.start()
-
-// Game loop
-while m_isRunning
-{
-    // Get the GPS estimate
-    var geoPose: ASAGeoLocation?
-    geoPose = sensorProvider?.getLocationEstimate()
-
-    // Paint it on the map
-    drawCircle(geoPose.longitude, geoPose.latitude, geoPose.horizontalError)
-}
-
-// Game ended, no need to track the sensors anymore
-sensorProvider?.stop()
-```
-
-# [Java](#tab/java)
-
-```java
-// Game about to start, start tracking the sensors
-sensorProvider.start();
-
-// Game loop
-while (m_isRunning)
-{
-    // Get the GPS estimate
-    GeoLocation geoPose = sensorProvider.getLocationEstimate();
-
-    // Paint it on the map
-    drawCircle(geoPose.getLongitude(), geoPose.getLatitude(), geoPose.getHorizontalError());
-}
-
-// Game ended, no need to track the sensors anymore
-sensorProvider.stop();
-```
-
-# [C++ NDK](#tab/cpp)
-
-```cpp
-// Game about to start, start tracking the sensors
-sensorProvider->Start();
-
-// Game loop
-while (m_isRunning)
-{
-    // Get the GPS estimate
-    std::shared_ptr<GeoLocation> geoPose = sensorProvider->GetLocationEstimate();
-
-    // Paint it on the map
-    drawCircle(geoPose->Longitude(), geoPose->Latitude(), geoPose->HorizontalError());
-}
-
-// Game ended, no need to track the sensors anymore
-sensorProvider->Stop();
-```
-
-# [C++ WinRT](#tab/cppwinrt)
-
-```cpp
-// Game about to start, start tracking the sensors
-sensorProvider.Start();
-
-// Game loop
-while (m_isRunning)
-{
-    // Get the GPS estimate
-    GeoLocation geoPose = sensorProvider.GetLocationEstimate();
-
-    // Paint it on the map
-    drawCircle(geoPose.Longitude(), geoPose.Latitude(), geoPose.HorizontalError());
-}
-
-// Game ended, no need to track the sensors anymore
-sensorProvider.Stop();
-```
-
----
-
-### Enabling WiFi
-
-Assuming your application already has permission to access the device's WiFi state, you can configure Azure Spatial Anchors to use it:
-
-# [C#](#tab/csharp)
-
-```csharp
-sensorProvider.Sensors.WifiEnabled = true;
-```
-
-# [ObjC](#tab/objc)
-
-```objc
-ASASensorCapabilities *sensors = locationProvider.sensors;
-sensors.wifiEnabled = true;
-```
-
-# [Swift](#tab/swift)
-
-```swift
-let sensors = locationProvider?.sensors
-sensors.wifiEnabled = true
-```
-
-# [Java](#tab/java)
-
-```java
-SensorCapabilities sensors = sensorProvider.getSensors();
-sensors.setWifiEnabled(true);
-```
-
-# [C++ NDK](#tab/cpp)
-
-```cpp
-const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
-sensors->WifiEnabled(true);
-```
-
-# [C++ WinRT](#tab/cppwinrt)
-
-```cpp
-SensorCapabilities sensors = sensorProvider.Sensors()
-sensors.WifiEnabled(true);
-```
-
----
-
-When using WiFi in your application, keep in mind that the readings provided by the hardware are typically:
-
-* asynchronous and low frequency (less than 0.1 Hz).
-* potentially throttled at the OS level.
-* unreliable / noisy (on average 3-dBm standard deviation).
-
-Azure Spatial Anchors will attempt to build a filtered WiFi signal strength map during a session in an attempt to mitigate these issues. For best results you should try to:
-
-* create the session well before placing the first anchor.
-* keep the session alive for as long as possible (that is, create all anchors and query in one session).
-
-### Enabling Bluetooth beacons
-
-Assuming your application already has permission to access the device's Bluetooth state, you can configure Azure Spatial Anchors to use it:
-
-# [C#](#tab/csharp)
-
-```csharp
-sensorProvider.Sensors.BluetoothEnabled = true;
-```
-
-# [ObjC](#tab/objc)
-
-```objc
-ASASensorCapabilities *sensors = locationProvider.sensors;
-sensors.bluetoothEnabled = true;
-```
-
-# [Swift](#tab/swift)
-
-```swift
-let sensors = locationProvider?.sensors
-sensors.bluetoothEnabled = true
-```
-
-# [Java](#tab/java)
-
-```java
-SensorCapabilities sensors = sensorProvider.getSensors();
-sensors.setBluetoothEnabled(true);
-```
-
-# [C++ NDK](#tab/cpp)
-
-```cpp
-const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
-sensors->BluetoothEnabled(true);
-```
-
-# [C++ WinRT](#tab/cppwinrt)
-
-```cpp
-SensorCapabilities sensors = sensorProvider.Sensors();
-sensors.BluetoothEnabled(true);
-```
-
----
-
-Beacons are typically versatile devices, where everything - including UUIDs and MAC addresses - can be configured. This flexibility can be problematic for Azure Spatial Anchors as it considers beacons to be uniquely identified by their UUIDs. Failing to ensure this uniqueness will most likely cause spatial wormholes. For best results you should:
-
-* assign unique UUIDs to your beacons.
-* deploy them - typically in a regular pattern, such as a grid.
-* pass the list of unique beacon UUIDs to the sensor fingerprint provider:
-
-# [C#](#tab/csharp)
-
-```csharp
-sensorProvider.Sensors.KnownBeaconProximityUuids = new[]
-{
-    "22e38f1a-c1b3-452b-b5ce-fdb0f39535c1",
-    "a63819b9-8b7b-436d-88ec-ea5d8db2acb0",
-    . . .
-};
-```
-
-# [ObjC](#tab/objc)
-
-```objc
-NSArray *uuids = @[@"22e38f1a-c1b3-452b-b5ce-fdb0f39535c1", @"a63819b9-8b7b-436d-88ec-ea5d8db2acb0"];
-
-ASASensorCapabilities *sensors = locationProvider.sensors;
-sensors.knownBeaconProximityUuids = uuids;
-```
-
-# [Swift](#tab/swift)
-
-```swift
-let uuids = [String]()
-uuids.append("22e38f1a-c1b3-452b-b5ce-fdb0f39535c1")
-uuids.append("a63819b9-8b7b-436d-88ec-ea5d8db2acb0")
-
-let sensors = locationProvider?.sensors
-sensors.knownBeaconProximityUuids = uuids
-```
-
-# [Java](#tab/java)
-
-```java
-String uuids[] = new String[2];
-uuids[0] = "22e38f1a-c1b3-452b-b5ce-fdb0f39535c1";
-uuids[1] = "a63819b9-8b7b-436d-88ec-ea5d8db2acb0";
-
-SensorCapabilities sensors = sensorProvider.getSensors();
-sensors.setKnownBeaconProximityUuids(uuids);
-```
-
-# [C++ NDK](#tab/cpp)
-
-```cpp
-std::vector<std::string> uuids;
-uuids.push_back("22e38f1a-c1b3-452b-b5ce-fdb0f39535c1");
-uuids.push_back("a63819b9-8b7b-436d-88ec-ea5d8db2acb0");
-
-const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
-sensors->KnownBeaconProximityUuids(uuids);
-```
-
-# [C++ WinRT](#tab/cppwinrt)
-
-```cpp
-std::vector<winrt::hstring> uuids;
-uuids.emplace_back("22e38f1a-c1b3-452b-b5ce-fdb0f39535c1");
-uuids.emplace_back("a63819b9-8b7b-436d-88ec-ea5d8db2acb0");
-
-SensorCapabilities sensors = sensorProvider.Sensors();
-sensors.KnownBeaconProximityUuids(uuids);
-```
-
----
-
-Azure Spatial Anchors will only track Bluetooth beacons that are in the known beacon proximity UUIDs list. Malicious beacons programmed to have allow-listed UUIDs can still negatively impact the quality of the service though. For that reason, you should use beacons only in curated spaces where you can control their deployment.
-
-## Querying with sensor data
-
-Once you have created anchors with associated sensor data, you can start retrieving them using the sensor readings reported by your device. You're no longer required to provide the service with a list of known anchors you're expecting to find - instead you just let the service know the location of your device as reported by its onboard sensors. Azure Spatial Anchors will then figure out the set of anchors close to your device and attempt to visually match them.
-
-To have queries use the sensor data, start by creating "near device" criteria:
-
-# [C#](#tab/csharp)
-
-```csharp
-NearDeviceCriteria nearDeviceCriteria = new NearDeviceCriteria();
-
-// Choose a maximum exploration distance between your device and the returned anchors
-nearDeviceCriteria.DistanceInMeters = 5;
-
-// Cap the number of anchors returned
-nearDeviceCriteria.MaxResultCount = 25;
-
-anchorLocateCriteria = new AnchorLocateCriteria();
-anchorLocateCriteria.NearDevice = nearDeviceCriteria;
-```
-
-# [ObjC](#tab/objc)
-
-```objc
-ASANearDeviceCriteria *nearDeviceCriteria = [[ASANearDeviceCriteria alloc] init];
-
-// Choose a maximum exploration distance between your device and the returned anchors
-nearDeviceCriteria.distanceInMeters = 5.0f;
-
-// Cap the number of anchors returned
-nearDeviceCriteria.maxResultCount = 25;
-
-ASAAnchorLocateCriteria *anchorLocateCriteria = [[ASAAnchorLocateCriteria alloc] init];
-anchorLocateCriteria.nearDevice = nearDeviceCriteria;
-```
-
-# [Swift](#tab/swift)
-
-```swift
-let nearDeviceCriteria = ASANearDeviceCriteria()!
-
-// Choose a maximum exploration distance between your device and the returned anchors
-nearDeviceCriteria.distanceInMeters = 5.0
-
-// Cap the number of anchors returned
-nearDeviceCriteria.maxResultCount = 25
-
-let anchorLocateCriteria = ASAAnchorLocateCriteria()!
-anchorLocateCriteria.nearDevice = nearDeviceCriteria
-```
-
-# [Java](#tab/java)
-
-```java
-NearDeviceCriteria nearDeviceCriteria = new NearDeviceCriteria();
-
-// Choose a maximum exploration distance between your device and the returned anchors
-nearDeviceCriteria.setDistanceInMeters(5.0f);
-
-// Cap the number of anchors returned
-nearDeviceCriteria.setMaxResultCount(25);
-
-AnchorLocateCriteria anchorLocateCriteria = new AnchorLocateCriteria();
-anchorLocateCriteria.setNearDevice(nearDeviceCriteria);
-```
-
-# [C++ NDK](#tab/cpp)
-
-```cpp
-auto nearDeviceCriteria = std::make_shared<NearDeviceCriteria>();
-
-// Choose a maximum exploration distance between your device and the returned anchors
-nearDeviceCriteria->DistanceInMeters(5.0f);
-
-// Cap the number of anchors returned
-nearDeviceCriteria->MaxResultCount(25);
-
-auto anchorLocateCriteria = std::make_shared<AnchorLocateCriteria>();
-anchorLocateCriteria->NearDevice(nearDeviceCriteria);
-```
-
-# [C++ WinRT](#tab/cppwinrt)
-
-```cpp
-NearDeviceCriteria nearDeviceCriteria = NearDeviceCriteria();
-
-// Choose a maximum exploration distance between your device and the returned anchors
-nearDeviceCriteria.DistanceInMeters(5.0f);
-
-// Cap the number of anchors returned
-nearDeviceCriteria.MaxResultCount(25);
-
-// Set the session's locate criteria
-anchorLocateCriteria = AnchorLocateCriteria();
-anchorLocateCriteria.NearDevice(nearDeviceCriteria);
-```
-
----
-
-The `DistanceInMeters` parameter controls how far we'll explore the anchor graph to retrieve content. Assume for instance that you have populated some space with anchors at a constant density of 2 every meter. Furthermore, the camera on your device is  observing a single anchor and the service has successfully located it. You're most likely interested in retrieving all the anchors you've placed nearby rather than the single anchor you're currently observing. Assuming the anchors you've placed are connected in a graph, the service can retrieve all the nearby anchors for you by following the edges in the graph. The amount of graph traversal done is controlled by `DistanceInMeters`; you'll be given all the anchors connected to the one you've located, that are closer than `DistanceInMeters`.
-
-Keep in mind that large values for `MaxResultCount` may negatively affect performance. Set it to a sensible value for your application.
-
-Finally, you'll need to tell the session to use the sensor-based look up:
-
-# [C#](#tab/csharp)
-
-```csharp
-cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);
-```
-
-# [ObjC](#tab/objc)
-
-```objc
-[cloudSpatialAnchorSession createWatcher:anchorLocateCriteria];
-```
-
-# [Swift](#tab/swift)
-
-```swift
-cloudSpatialAnchorSession!.createWatcher(anchorLocateCriteria)
-```
-
-# [Java](#tab/java)
-
-```java
-cloudSpatialAnchorSession.createWatcher(anchorLocateCriteria);
-```
-
-# [C++ NDK](#tab/cpp)
-
-```cpp
-cloudSpatialAnchorSession->CreateWatcher(anchorLocateCriteria);
-```
-
-# [C++ WinRT](#tab/cppwinrt)
-
-```cpp
-cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);
-```
-
----
-
-## Expected results
-
-Consumer-grade GPS devices are typically quite imprecise. A study by [Zandenbergen and Barbeau (2011)][6] reports the median accuracy of mobile phones with assisted GPS (A-GPS) to be around 7 meters - quite a large value to be ignored! To account for these measurement errors, the service treats the anchors as probability distributions in GPS space. As such, an anchor is now the region of space that most likely (that is, with more than 95% confidence) contains its true, unknown GPS position.
-
-The same reasoning is applied when querying with GPS. The device is represented as another spatial confidence region around its true, unknown GPS position. Discovering nearby anchors translates into simply finding the anchors with confidence regions *close enough* to the device's confidence region, as illustrated in the image below:
-
-![Selection of anchor candidates with GPS](media/coarse-reloc-gps-separation-distance.png)
-
-The accuracy of the GPS signal, both on anchor creation as well as during queries, has a large influence over the set of returned anchors. In contrast, queries based on WiFi / beacons will consider all anchors that have at least one access point / beacon in common with the query. In that sense, the result of a query based on WiFi / beacons is mostly determined by the physical range of the access points / beacons, and environmental obstructions.
-
-The table below estimates the expected search space for each sensor type:
-
-| Sensor      | Search space radius (approx.) | Details |
-|-------------|:-------:|---------|
-| GPS         | 20 m - 30 m | Determined by the GPS uncertainty among other factors. The reported numbers are estimated for the median GPS accuracy of mobile phones with A-GPS, that is 7 meters. |
-| WiFi        | 50 m - 100 m | Determined by the range of the wireless access points. Depends on the frequency, transmitter strength, physical obstructions, interference, and so on. |
-| BLE beacons |  70 m | Determined by the range of the beacon. Depends on the frequency, transmission strength, physical obstructions, interference, and so on. |
-
-## Per-platform support
-
-The following table summarizes the sensor data collected on each of the supported platforms, along with any platform-specific caveats:
+This table summarizes the availability of the sensor data on supported platforms and provides information that you should be aware of:
 
 |                 | HoloLens | Android | iOS |
 |-----------------|----------|---------|-----|
-| **GPS**         | N/A | Supported through [LocationManager][3] APIs (both GPS and NETWORK) | Supported through [CLLocationManager][4] APIs |
-| **WiFi**        | Supported at a rate of approximately one scan every 3 seconds | Supported. Starting with API level 28, WiFi scans are throttled to 4 calls every 2 minutes. From Android 10, the throttling can be disabled from the Developer settings menu. For more information, see the [Android documentation][5]. | N/A - no public API |
-| **BLE beacons** | Limited to [Eddystone][1] and [iBeacon][2] | Limited to [Eddystone][1] and [iBeacon][2] | Limited to [Eddystone][1] and [iBeacon][2] |
+| **GPS**         | No<sup>1</sup>  | Yes<sup>2</sup> | Yes<sup>3</sup> |
+| **Wi-Fi**        | Yes<sup>4</sup> | Yes<sup>5</sup> | No  |
+| **BLE beacons** | Yes<sup>6</sup> | Yes<sup>6</sup> | Yes<sup>6</sup>|
 
-## Next steps
 
-Use coarse relocalization in an app.
+<sup>1</sup> An external GPS device can be associated with HoloLens. Contact [our support](../spatial-anchor-support.md) if you'd be willing to use HoloLens with a GPS tracker.<br/>
+<sup>2</sup> Supported through [LocationManager][3] APIs (both GPS and NETWORK).<br/>
+<sup>3</sup> Supported through [CLLocationManager][4] APIs.<br/>
+<sup>4</sup> Supported at a rate of approximately one scan every 3 seconds. <br/>
+<sup>5</sup> Starting with API level 28, Wi-Fi scans are throttled to four calls every 2 minutes. Starting with Android 10, you can disable this throttling from the **Developer settings** menu. For more information, see the [Android documentation][5].<br/>
+<sup>6</sup> Limited to [Eddystone][1] and [iBeacon][2].
 
-> [!div class="nextstepaction"]
-> [Unity](../how-tos/set-up-coarse-reloc-unity.md)
+### Which sensor to enable
 
-> [!div class="nextstepaction"]
-> [Objective-C](../how-tos/set-up-coarse-reloc-objc.md)
+The choice of sensor depends on the application you're developing and the platform.
+This diagram provides a starting point for determining which combination of sensors you can enable, depending on the localization scenario:
 
-> [!div class="nextstepaction"]
-> [Swift](../how-tos/set-up-coarse-reloc-swift.md)
+![Diagram that shows enabled sensors for various scenarios.](media/coarse-relocalization-enabling-sensors.png)
 
-> [!div class="nextstepaction"]
-> [Java](../how-tos/set-up-coarse-reloc-java.md)
+The following sections provide more insight on the advantages and limitations of each sensor type.
 
-> [!div class="nextstepaction"]
-> [C++/NDK](../how-tos/set-up-coarse-reloc-cpp-ndk.md)
+### GPS
 
-> [!div class="nextstepaction"]
-> [C++/WinRT](../how-tos/set-up-coarse-reloc-cpp-winrt.md)
+GPS is the go-to option for outdoor scenarios.
+When you use GPS in your application, keep in mind that the readings provided by the hardware are typically:
+
+* Asynchronous and low frequency (less than 1 Hz).
+* Unreliable/noisy (on average, 7-m standard deviation).
+
+In general, both the device OS and Spatial Anchors will do some filtering and extrapolation of the raw GPS signal in an attempt to mitigate these problems. This extra processing requires time for convergence, so, for best results, you should try to:
+
+* Create one sensor fingerprint provider as early as possible in your application.
+* Keep the sensor fingerprint provider alive between multiple sessions.
+* Share the sensor fingerprint provider between multiple sessions.
+
+Consumer-grade GPS devices are typically imprecise. A study by [Zandenbergen and Barbeau (2011)][6] reports that the median accuracy of mobile phones that have assisted GPS (A-GPS) is about 7 meters. That's quite a large value to ignore! To account for these measurement errors, the service treats anchors as probability distributions in GPS space. So an anchor is the region of space that most likely (with more than 95% confidence) contains its true, unknown GPS position.
+
+The same reasoning applies when you query by using GPS. The device is represented as another spatial confidence region around its true, unknown GPS position. Discovering nearby anchors translates to finding the anchors with confidence regions *close enough* to the device's confidence region, as illustrated here:
+
+![Diagram that illustrates finding anchor candidates by using GPS.](media/coarse-reloc-gps-separation-distance.png)
+
+### Wi-Fi
+
+On HoloLens and Android, Wi-Fi signal strength can be a good way to enable indoor coarse relocalization.
+The advantage is the potential immediate availability of Wi-Fi access points (common in office spaces and shopping malls, for example) with no extra setup needed.
+
+> [!NOTE]
+> iOS doesn't provide an API for reading Wi-Fi signal strength, so it can't be used for coarse relocalization enabled via Wi-Fi.
+
+When you use Wi-Fi in your application, keep in mind that the readings provided by the hardware are typically:
+
+* Asynchronous and low frequency (less than 0.1 Hz).
+* Potentially throttled at the OS level.
+* Unreliable/noisy (on average, 3-dBm standard deviation).
+
+Spatial Anchors will try to build a filtered map of Wi-Fi signal strength during a session in an attempt to mitigate these issues. For best results, try to:
+
+* Create the session well before you place the first anchor.
+* Keep the session alive for as long as possible. (That is, create all anchors and query in one session.)
+
+### Bluetooth beacons
+<a name="beaconsDetails"></a>
+
+Careful deployment of Bluetooth beacons is a good solution for large-scale indoor coarse relocalization scenarios, where GPS is absent or inaccurate. It's also the only indoor method that's supported on all three platforms.
+
+Beacons are typically versatile devices on which everything can be configured, including UUIDs and MAC addresses. Azure Spatial Anchors expects beacons to be uniquely identified by their UUIDs. If you don't ensure this uniqueness, you'll probably get incorrect results. For best results:
+
+* Assign unique UUIDs to your beacons.
+* Deploy beacons in a way that covers your space uniformly and so that at least three beacons are reachable from any point in space.
+* Pass the list of unique beacon UUIDs to the sensor fingerprint provider.
+
+Radio signals like those of Bluetooth are affected by obstacles and can interfere with other radio signals. So it can be hard to guess whether your space is uniformly covered. To guarantee a better customer experience, we recommend that you manually test the coverage of your beacons. You can conduct a test by walking around your space with candidate devices and an application that shows Bluetooth in range. While you test the coverage, make sure you can reach at least three beacons from any strategic position in your space. Having too many beacons can result in more interference between them and won't necessarily improve the accuracy of coarse relocalization.
+
+Bluetooth beacons typically cover 80 meters if no obstacles are present in the space.
+So, for a space that has no large obstacles, you could deploy beacons in a grid pattern every 40 meters.
+
+A beacon that's running out of battery will affect the results, so be sure to monitor your deployment periodically for low or uncharged batteries.
+
+Azure Spatial Anchors will track only Bluetooth beacons that are in the known-beacon proximity UUIDs list. But malicious beacons programmed to have allowlisted UUIDs can negatively affect the quality of the service. So you'll get the best results in curated spaces where you can control beacon deployment.
+
+### Sensor accuracy
+
+The accuracy of the GPS signal, both during anchor creation and during queries, has a significant influence on the set of returned anchors. In contrast, queries based on Wi-Fi/beacons will consider all anchors that have at least one access point / beacon in common with the query. In that sense, the result of a query that's based on Wi-Fi/beacons is determined mostly by the physical range of the access points / beacons and environmental obstructions.
+This table estimates the expected search space for each sensor type:
+
+| Sensor      | Search-space radius (approximate) | Details |
+|-------------|:-------:|---------|
+| **GPS**         | 20 m to 30 m | Determined by the GPS uncertainty, among other factors. The reported numbers are estimated for the median GPS accuracy of mobile phones with A-GPS: 7 meters. |
+| **Wi-Fi**        | 50 m to 100 m | Determined by the range of the wireless access points. Depends on the frequency, transmitter strength, physical obstructions, interference, and so on. |
+| **BLE beacons** |  70 m | Determined by the range of the beacon. Depends on the frequency, transmission strength, physical obstructions, interference, and so on. |
 
 <!-- Reference links in article -->
-[1]: https://developers.google.com/beacons/eddystone
+[1]: https://developer.estimote.com/eddystone/
 [2]: https://developer.apple.com/ibeacon/
 [3]: https://developer.android.com/reference/android/location/LocationManager
 [4]: https://developer.apple.com/documentation/corelocation/cllocationmanager?language=objc

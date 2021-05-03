@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/28/2020
+ms.date: 02/04/2021
 ms.author: normesta
 ms.reviewer: jamesbak
 ---
@@ -48,9 +48,6 @@ These Blob REST APIs aren't supported:
 * [Get Page Ranges](/rest/api/storageservices/get-page-ranges)
 * [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob)
 * [Put Page from URL](/rest/api/storageservices/put-page-from-url)
-* [Append Block](/rest/api/storageservices/append-block)
-* [Append Block from URL](/rest/api/storageservices/append-block-from-url)
-
 
 Unmanaged VM disks are not supported in accounts that have a hierarchical namespace. If you want to enable a hierarchical namespace on a storage account, place unmanaged VM disks into a storage account that doesn't have the hierarchical namespace feature enabled.
 
@@ -96,10 +93,6 @@ The setting for retention days is not yet supported, but you can delete logs man
 ## Lifecycle management policies with premium tier for Azure Data Lake Storage
 
 You can't move data that's stored in the premium tier between hot, cool, and archive tiers. However, you can copy data from the premium tier to the hot access tier in a different account.
-
-## Dremio support with premium-performance BlockBlobStorage storage accounts
-
-Dremio doesn't yet connect to a BlockBlobStorage account that has the hierarchical namespace feature enabled on it. 
 
 ## Windows Azure Storage Blob (WASB) driver (unsupported with Data Lake Storage Gen2)
 

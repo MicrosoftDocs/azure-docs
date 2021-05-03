@@ -17,7 +17,7 @@ ms.custom: devx-track-python, data4ml
 
 # Secure data access in Azure Machine Learning
 
-Azure Machine Learning makes it easy to connect to your data in the cloud.  It provides an abstraction layer over the underlying storage service, so you can securely access and work with your data without having to write code specific to your storage type. Azure Machine Learning also provides the following data capabilities:
+Azure Machine Learning makes it easy to connect to your data in the cloud. It provides an abstraction layer over the underlying storage service, so you can securely access and work with your data without having to write code specific to your storage type. Azure Machine Learning also provides the following data capabilities:
 
 *    Interoperability with Pandas and Spark DataFrames
 *    Versioning and tracking of data lineage
@@ -39,7 +39,7 @@ When you're ready to use the data in your cloud-based storage solution, we recom
 
     1. Consume it directly in Azure Machine Learning solutions like, automated machine learning (automated ML) experiment runs, machine learning pipelines, or the [Azure Machine Learning designer](concept-designer.md).
 
-4. Create [dataset monitors](#data-drift) for your model output dataset to detect for data drift. 
+4. Create [dataset monitors](#drift) for your model output dataset to detect for data drift. 
 
 5. If data drift is detected, update your input dataset and retrain your model accordingly.
 
@@ -47,9 +47,10 @@ The following diagram provides a visual demonstration of this recommended workfl
 
 ![Diagram shows the Azure Storage Service which flows into a datastore, which flows into a dataset. The dataset flows into model training, which flows into data drift, which flows back to dataset.](./media/concept-data/data-concept-diagram.svg)
 
-## Datastores
+<a name="datastores"></a>
+## Connect to storage with datastores
 
-Azure Machine Learning datastores securely keep the connection information to your Azure storage, so you don't have to code it in your scripts. [Register and create a datastore](how-to-access-data.md) to easily connect to your storage account, and access the data in your underlying Azure storage service. 
+Azure Machine Learning datastores securely keep the connection information to your data storage on Azure, so you don't have to code it in your scripts. [Register and create a datastore](how-to-access-data.md) to easily connect to your storage account, and access the data in your underlying storage service. 
 
 Supported cloud-based storage services in Azure that can be registered as datastores:
 
@@ -62,7 +63,11 @@ Supported cloud-based storage services in Azure that can be registered as datast
 + Databricks File System
 + Azure Database for MySQL
 
-## Datasets
+>[!TIP]
+> The generally available functionality for creating datastores requires credential-based authentication for accessing storage services, like a service principal or shared access signature (SAS) token. These credentials can be accessed by users who have *Reader* access to the workspace. <br><br>If this is a concern,  [create a datastore that uses identity-based data access to storage services (preview)](how-to-identity-based-data-access.md). This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
+
+<a name="datasets"></a>
+## Reference data in storage with datasets
 
 Azure Machine Learning datasets aren't copies of your data. By creating a dataset, you create a reference to the data in its storage service, along with a copy of its metadata. 
 
@@ -78,9 +83,9 @@ Datasets can be created from local files, public urls, [Azure Open Datasets](htt
 
 There are 2 types of datasets: 
 
-+ A [FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset?preserve-view=true&view=azure-ml-py) references single or multiple files in your datastores or public URLs. If your data is already cleansed and ready to use in training experiments, you can [download or mount files](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenced by FileDatasets to your compute target.
++ A [FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset) references single or multiple files in your datastores or public URLs. If your data is already cleansed and ready to use in training experiments, you can [download or mount files](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenced by FileDatasets to your compute target.
 
-+ A [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. You can load a TabularDataset into a pandas or Spark DataFrame for further manipulation and cleansing. For a complete list of data formats you can create TabularDatasets from, see the [TabularDatasetFactory class](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
++ A [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) represents data in a tabular format by parsing the provided file or list of files. You can load a TabularDataset into a pandas or Spark DataFrame for further manipulation and cleansing. For a complete list of data formats you can create TabularDatasets from, see the [TabularDatasetFactory class](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
 
 Additional datasets capabilities can be found in the following documentation:
 
@@ -96,13 +101,13 @@ With datasets, you can accomplish a number of machine learning tasks through sea
      + [automated ML experiments](how-to-use-automated-ml-for-ml-models.md)
      + the [designer](tutorial-designer-automobile-price-train-score.md#import-data)
      + [notebooks](how-to-train-with-datasets.md)
-     + [Azure Machine Learning pipelines](how-to-create-your-first-pipeline.md)
-+ Access datasets for scoring with [batch inference](./tutorial-pipeline-batch-scoring-classification.md) in [machine learning pipelines](how-to-create-your-first-pipeline.md).
+     + [Azure Machine Learning pipelines](./how-to-create-machine-learning-pipelines.md)
++ Access datasets for scoring with [batch inference](./tutorial-pipeline-batch-scoring-classification.md) in [machine learning pipelines](./how-to-create-machine-learning-pipelines.md).
 + Set up a dataset monitor for [data drift](#drift) detection.
 
 <a name="label"></a>
 
-## Data labeling
+## Label data with data labeling projects
 
 Labeling large amounts of data has often been a headache in machine learning projects. Those with a computer vision component, such as image classification or object detection, generally require thousands of images and corresponding labels.
 
@@ -112,7 +117,7 @@ Create a [data labeling project](how-to-create-labeling-projects.md), and output
 
 <a name="drift"></a>
 
-## Data drift
+## Monitor model performance with data drift
 
 In the context of machine learning, data drift is the change in model input data that leads to model performance degradation. It is one of the top reasons model accuracy degrades over time, thus monitoring data drift helps detect model performance issues.
 

@@ -177,7 +177,7 @@ You can configure a site-to-site VPN connection to a virtual network by using th
 
 For more information, see:
 
-[Create a site-to-site connection in the Azure portal](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+[Create a site-to-site connection in the Azure portal](../../vpn-gateway/tutorial-site-to-site-portal.md)
 
 [Create a site-to-site connection in PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 

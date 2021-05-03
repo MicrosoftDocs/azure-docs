@@ -1,21 +1,21 @@
 ---
-title: Create an image from a VM (Preview)
+title: Create an image from a VM
 description: Learn how to use Azure PowerShell to create an image in a Shared Image Gallery from an existing VM in Azure.
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ---
 
-# Preview: Create an image from a VM
+# Create an image from a VM
 
 If you have an existing VM that you would like to use to make multiple, identical VMs, you can use that VM to create an image in a Shared Image Gallery using Azure PowerShell. You can also create an image from a VM using the [Azure CLI](image-version-vm-cli.md).
 
-You can capture an image from both [specialized and generalized](./windows/shared-image-galleries.md#generalized-and-specialized-images) VMs using Azure PowerShell. 
+You can capture an image from both [specialized and generalized](./shared-image-galleries.md#generalized-and-specialized-images) VMs using Azure PowerShell. 
 
 Images in an image gallery have two components, which we will create in this example:
 - An **Image definition** carries information about the image and requirements for using it. This includes whether the image is Windows or Linux, specialized or generalized, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. 
@@ -72,7 +72,7 @@ Image definitions create a logical grouping for images. They are used to manage 
 
 When making your image definition, make sure is has all of the correct information. If you generalized the VM (using Sysprep for Windows, or waagent -deprovision for Linux) then you should create an image definition using `-OsState generalized`. If you didn't generalized the VM, create an image definition using `-OsState specialized`.
 
-For more information about the values you can specify for an image definition, see [Image definitions](./windows/shared-image-galleries.md#image-definitions).
+For more information about the values you can specify for an image definition, see [Image definitions](./shared-image-galleries.md#image-definitions).
 
 Create the image definition using [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). 
 

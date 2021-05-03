@@ -1,18 +1,28 @@
 ---
 title: Azure Lighthouse and Azure managed applications
-description: Understand how Azure Lighthouse and Azure managed applications can help enable different scenarios, and how they can be used together.
-ms.date: 08/12/2020
+description: Understand how Azure Lighthouse and Azure managed applications can be used together.
+ms.date: 12/18/2020
 ms.topic: conceptual
 ---
 
 # Azure Lighthouse and Azure managed applications
 
-Both Azure managed applications and Azure Lighthouse work by enabling a service provider to access resources that reside in the customer's tenant. It can be helpful to understand the differences in the way that they work and the scenarios that they help to enable, as well as how they can be used together.
+Both Azure managed applications and Azure Lighthouse work by enabling a service provider to access resources that reside in the customer's tenant. It can be helpful to understand the differences in the way that they work and the scenarios that they help to enable, and how they can be used together.
 
 > [!TIP]
 > Though we refer to service providers and customers in this topic, [enterprises managing multiple tenants](enterprise.md) can use the same processes and tools.
 
 ## Comparing Azure Lighthouse and Azure managed applications
+
+This table illustrates some high-level differences that may impact whether you might choose to use Azure Lighthouse or Azure managed applications. As noted below, you can also design a solution that uses them together.
+
+|Consideration  |Azure Lighthouse  |Azure managed applications  |
+|---------|---------|---------|
+|Typical user     |Service providers or enterprises managing multiple tenants         |Independent Software Vendors (ISVs)         |
+|Scope of cross-tenant access     |Subscription(s) or resource group(s)         |Resource group (scoped to a single application)         |
+|Purchasable in Azure Marketplace     |No (offers can be published to Azure Marketplace, but customers are billed separately)        |Yes         |
+|IP protection     |Yes (IP can remain in the service provider's tenant)        |Yes (by design, resource group is locked to customers)         |
+|Deny assignments     |No         |Yes        |
 
 ### Azure Lighthouse
 
@@ -46,3 +56,4 @@ Customers might also be interested in managed applications from multiple service
 
 - Learn about [Azure managed applications](../../azure-resource-manager/managed-applications/overview.md).
 - Learn how to [onboard a subscription to Azure Lighthouse](../how-to/onboard-customer.md).
+- Learn about [ISV scenarios with Azure Lighthouse](isv-scenarios.md).

@@ -6,8 +6,6 @@ ms.topic: include
 ms.date: 11/15/2019
 ---
 
-## Clean up resources
-
 If you plan to continue with additional IoT Plug and Play articles, you can keep and reuse the resources you used in this article. Otherwise, you can delete the resources you created in this article to avoid additional charges.
 
 You can delete both the hub and registered device at once by deleting the entire resource group with the following Azure CLI command. Don't use this command if these resources are sharing a resource group with other resources you want to keep.

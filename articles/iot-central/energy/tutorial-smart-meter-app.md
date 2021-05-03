@@ -97,10 +97,7 @@ If you decide to not continue using this application, delete your application wi
 
 ## Next steps
 
-Learn about smart meter app architecture refer to 
+To learn about smart meter app architecture, see:
+
 > [!div class="nextstepaction"]
-> [the concept article](./concept-iot-central-smart-meter-app.md)
-* Create smart meter application templates for free: 
-[smart meter app](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
-* Learn more about IoT Central, see 
-[IoT Central overview](../index.yml)
+> [Smart meter application architecture](./concept-iot-central-smart-meter-app.md)

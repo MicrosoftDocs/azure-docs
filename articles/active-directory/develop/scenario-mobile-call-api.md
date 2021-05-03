@@ -14,12 +14,12 @@ ms.date: 05/18/2020
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform.
 ---
 
 # Call a web API from a mobile app
 
-After your app signs in a user and receives tokens, Microsoft Authentication Library (MSAL) exposes information about the user, the user's environment, and the issued tokens. Your app can use these values to call a web API or display a welcome message to the user.
+After your app signs in a user and receives tokens, the Microsoft Authentication Library (MSAL) exposes information about the user, the user's environment, and the issued tokens. Your app can use these values to call a web API or display a welcome message to the user.
 
 In this article, we'll first look at the MSAL result. Then we'll look at how to use an access token from `AuthenticationResult` or `result` to call a protected web API.
 
@@ -114,15 +114,15 @@ task.resume()
 
 ## Make several API requests
 
-If you need to call the same API several times, or if you need to call multiple APIs, then consider the following subjects when you build your app:
+To call the same API several times, or call multiple APIs, then consider the following subjects when you build your app:
 
-- **Incremental consent**: Microsoft identity platform allows apps to get user consent when permissions are required rather than all at the start. Each time your app is ready to call an API, it should request only the scopes that it needs.
+- **Incremental consent**: The Microsoft identity platform allows apps to get user consent when permissions are required rather than all at the start. Each time your app is ready to call an API, it should request only the scopes that it needs.
 
 - **Conditional access**: When you make several API requests, in certain scenarios you might have to meet additional conditional-access requirements. Requirements can increase in this way if the first request has no conditional-access policies and your app attempts to silently access a new API that requires conditional access. To handle this problem, be sure to catch errors from silent requests, and be prepared to make an interactive request.  For more information, see [Guidance for conditional access](../azuread-dev/conditional-access-dev-guide.md).
 
 ## Call several APIs by using incremental consent and conditional access
 
-If you need to call several APIs for the same user, after you acquire a token for the user, you can avoid repeatedly asking the user for credentials by subsequently calling `AcquireTokenSilent` to get a token:
+To call several APIs for the same user, after you acquire a token for the user, you can avoid repeatedly asking the user for credentials by subsequently calling `AcquireTokenSilent` to get a token:
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")

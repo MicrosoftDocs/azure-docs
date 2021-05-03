@@ -57,7 +57,7 @@ To configure the integration of Autotask Endpoint Backup into Azure AD, you need
 
 4. In the search box, type **Autotask Endpoint Backup**, select **Autotask Endpoint Backup** from result panel then click **Add** button to add the application.
 
-     ![Autotask Endpoint Backup in the results list](common/search-new-app.png)
+    ![Autotask Endpoint Backup in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 

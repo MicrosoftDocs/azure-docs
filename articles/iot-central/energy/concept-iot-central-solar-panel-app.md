@@ -4,7 +4,7 @@ description: This article introduces key concepts relating the architecture of A
 author: op-ravi
 ms.author: omravi
 ms.date: 12/11/2020
-ms.topic: overview
+ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: abjork

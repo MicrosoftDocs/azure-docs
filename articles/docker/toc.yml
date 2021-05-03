@@ -1,10 +1,10 @@
 - name: Docker documentation
   href: index.yml
 - name: Quickstart
-  expanded: true
   items:
   - name: Deploy an Ubuntu VM with Docker
     href: https://azure.microsoft.com/resources/templates/docker-simple-on-ubuntu/
+  expanded: true
 - name: Tutorials
   items:
   - name: Python Web App with Docker and PostgreSQL
@@ -15,8 +15,6 @@
   items:
   - name: Docker VM extension
     href: https://github.com/Azure/azure-docker-extension/blob/master/README.md
-  - name: Docker Machine
-    href: ../virtual-machines/linux/docker-machine.md
   - name: Docker container registry
     href: ../container-registry/container-registry-get-started-portal.md
 - name: Resources

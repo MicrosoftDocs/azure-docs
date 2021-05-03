@@ -67,6 +67,8 @@ In the following example, you replace these values:
 - `<tenant-name>` - The name of your Azure AD B2C tenant.
 - `<policy-name>` - The name of your custom policy or user flow.
 - `<application-ID>` - The application identifier of the web application that you registered to support the user flow.
+- `<application-ID-URI>` - The application identifier URI that you set under **Expose an API** blade of the client application.
+- `<scope-name>` - The name of the scope that you added under **Expose an API** blade of the client application.
 - `<redirect-uri>` - The **Redirect URI** that you entered when you registered the client application.
 
 ```http
@@ -74,7 +76,7 @@ GET https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-nam
 client_id=<application-ID>
 &nonce=anyRandomValue
 &redirect_uri=https://jwt.ms
-&scope=https://<tenant-name>.onmicrosoft.com/api/read
+&scope=<application-ID-URI>/<scope-name>
 &response_type=code
 ```
 
@@ -87,13 +89,13 @@ https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 After successfully receiving the authorization code, you can use it to request an access token:
 
 ```http
-POST <tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token HTTP/1.1
+POST <tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code
 &client_id=<application-ID>
-&scope=https://<tenant-name>.onmicrosoft.com/api/read
+&scope=<application-ID-URI>/<scope-name>
 &code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 &redirect_uri=https://jwt.ms
 &client_secret=2hMG2-_:y12n10vwH...

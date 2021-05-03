@@ -1,13 +1,13 @@
 ---
 title: "Tutorial: Build policies to enforce compliance"
 description: In this tutorial, you use policies to enforce standards, control costs, maintain security, and impose enterprise wide design principles.
-ms.date: 10/05/2020
+ms.date: 05/01/2021
 ms.topic: tutorial
 ---
 # Tutorial: Create and manage policies to enforce compliance
 
 Understanding how to create and manage policies in Azure is important for staying compliant with
-your corporate standards and service level agreements. In this tutorial, you learn to use Azure
+your corporate standards and service-level agreements. In this tutorial, you learn to use Azure
 Policy to do some of the more common tasks related to creating, assigning, and managing policies
 across your organization, such as:
 
@@ -95,6 +95,12 @@ resources missing the tag.
    and
    [how remediation security works](../how-to/remediate-resources.md#how-remediation-security-works).
 
+1. Select the **Non-compliance messages** tab at the top of the wizard.
+
+1. Set the **Non-compliance message** to _This resource doesn't have the required tag_. This custom
+   message is displayed when a resource is denied or for non-compliant resources during regular
+   evaluation.
+
 1. Select the **Review + create** tab at the top of the wizard.
 
 1. Review your selections, then select **Create** at the bottom of the page.
@@ -124,15 +130,15 @@ create a virtual machine in the G series, the request is denied.
      > for an initiative definition.
 
    - The name of the policy definition - _Require VM SKUs not in the G series_
-   - The description of what the policy definition is intended to do – _This policy definition
+   - The description of what the policy definition is intended to do - _This policy definition
      enforces that all virtual machines created in this scope have SKUs other than the G series to
      reduce cost._
    - Choose from existing options (such as _Compute_), or create a new category for this policy
      definition.
    - Copy the following JSON code and then update it for your needs with:
       - The policy parameters.
-      - The policy rules/conditions, in this case – VM SKU size equal to G series
-      - The policy effect, in this case – **Deny**.
+      - The policy rules/conditions, in this case - VM SKU size equal to G series
+      - The policy effect, in this case - **Deny**.
 
    Here's what the JSON should look like. Paste your revised code into the Azure portal.
 
@@ -453,12 +459,12 @@ overview](../overview.md).
 1. Select **Next** at the bottom of the page or the **Policy parameters** tab at the top of the
    wizard.
 
-1. Policy definition added to the initiative that have parameters are displayed in a grid. The
+1. Policy definitions added to the initiative that have parameters are displayed in a grid. The
    _value type_ can be 'Default value', 'Set value', or 'Use Initiative Parameter'. If 'Set value'
    is selected, the related value is entered under _Value(s)_. If the parameter on the policy
-   definition has a list of allowed values, the entry box is a drop-down selector. If 'Use
-   Initiative Parameter' is selected, a drop-down select is provided with the names of initiative
-   parameters created on the **Initiative parameters** tab.
+   definition has a list of allowed values, the entry box is a dropdown list selector. If 'Use
+   Initiative Parameter' is selected, a dropdown list select is provided with the names of
+   initiative parameters created on the **Initiative parameters** tab.
 
    :::image type="content" source="../media/create-and-manage/initiative-definition-3.png" alt-text="Screenshot of the options for allowed values for the allowed locations definition parameter on the policy parameters tab of the initiative definition page.":::
 
@@ -470,13 +476,13 @@ overview](../overview.md).
    > creation of the initiative definition and has no impact on policy evaluation or the scope of
    > the initiative when assigned.
 
-   Set the 'Allowed locations' _value type_ to 'Set value' and select 'East US 2' from the
-   drop-down. For the two instances of the _Add or replace a tag on resources_ policy definitions,
-   set the **Tag Name** parameters to 'Env' and 'CostCenter and the **Tag Value** parameters to
-   'Test' and 'Lab' as shown below. Leave the others as 'Default value'. Using the same definition
-   twice in the initiative but with different parameters, this configuration adds or replace an
-   'Env' tag with the value 'Test' and a 'CostCenter' tag with the value of 'Lab' on resources in
-   scope of the assignment.
+   Set the 'Allowed locations' _value type_ to 'Set value' and select 'East US 2' from the dropdown
+   list. For the two instances of the _Add or replace a tag on resources_ policy definitions, set
+   the **Tag Name** parameters to 'Env' and 'CostCenter and the **Tag Value** parameters to 'Test'
+   and 'Lab' as shown below. Leave the others as 'Default value'. Using the same definition twice in
+   the initiative but with different parameters, this configuration adds or replace an 'Env' tag
+   with the value 'Test' and a 'CostCenter' tag with the value of 'Lab' on resources in scope of the
+   assignment.
 
    :::image type="content" source="../media/create-and-manage/initiative-definition-4.png" alt-text="Screenshot of the entered options for allowed values for the allowed locations definition parameter and values for both tag parameter sets on the policy parameters tab of the initiative definition page.":::
 
@@ -538,8 +544,8 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
    :::image type="content" source="../media/create-and-manage/assign-definition.png" alt-text="Screenshot of the 'Assign' button on the initiative definition page." border="false":::
 
-   You can also right-click on the selected row or select the ellipsis at the end of the row for a
-   contextual menu. Then select **Assign**.
+   You can also select and hold (or right-click) on the selected row or select the ellipsis at the
+   end of the row for a contextual menu. Then select **Assign**.
 
    :::image type="content" source="../media/create-and-manage/select-right-click.png" alt-text="Screenshot of the context menu for an initiative to select the Assign functionality." border="false":::
 
@@ -553,7 +559,7 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
      being applied to them.
    - Initiative definition and Assignment name: Get Secure (pre-populated as name of initiative
      being assigned).
-   - Description: This initiative assignment is tailored to enforce this group of policy 
+   - Description: This initiative assignment is tailored to enforce this group of policy
      definitions.
    - Policy enforcement: Leave as the default _Enabled_.
    - Assigned by: Automatically filled based on who is logged in. This field is optional, so custom
@@ -599,11 +605,11 @@ different location is denied. In this section, you walk through resolving a deni
 a resource by creating an exclusion on a single resource group. The exclusion prevents enforcement
 of the policy (or initiative) on that resource group. In the following example, any location is
 allowed in the excluded resource group. An exclusion can apply to a subscription, a resource group,
-or an individual resources.
+or an individual resource.
 
 > [!NOTE]
 > A [policy exemption](../concepts/exemption-structure.md) can also be used skip the evaluation of a
-> resource. For additional information, see [Scope in Azure Policy](../concepts/scope.md).
+> resource. For more information, see [Scope in Azure Policy](../concepts/scope.md).
 
 Deployments prevented by an assigned policy or initiative can be viewed on the resource group
 targeted by the deployment: Select **Deployments** in the left side of the page, then select the
@@ -616,7 +622,7 @@ related policy objects.
 :::image type="content" source="../media/create-and-manage/rg-deployment-denied.png" alt-text="Screenshot of a failed deployment that was denied by a policy assignment." border="false":::
 
 On the Azure Policy page: Select **Compliance** in the left side of the page and select the **Get
-Secure** policy initiative. On this page, there is an increase in the **Deny** count for blocked
+Secure** policy initiative. On this page, there's an increase in the **Deny** count for blocked
 resources. Under the **Events** tab are details about who tried to create or deploy the resource
 that was denied by the policy definition.
 

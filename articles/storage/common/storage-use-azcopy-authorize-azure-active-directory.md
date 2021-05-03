@@ -4,7 +4,7 @@ description: You can provide authorization credentials for AzCopy operations by 
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 04/01/2021
 ms.author: normesta
 ms.subservice: common
 ---
@@ -154,7 +154,7 @@ Replace the `<application-id>` placeholder with the application ID of your servi
 
 If you prefer to use your own credentials for authorization, you can upload a certificate to your app registration, and then use that certificate to log in.
 
-In addition to uploading your certificate to your app registration, you'll also need to have a copy of the certificate saved to the machine or VM where AzCopy will be running. This copy of the certificate should be in .PFX or .PEM format, and must include the private key. The private key should be password-protected. If you're using Windows, and your certificate exists only in a certificate store, make sure to export that certificate to a PFX file (including the private key). For guidance, see [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate)
+In addition to uploading your certificate to your app registration, you'll also need to have a copy of the certificate saved to the machine or VM where AzCopy will be running. This copy of the certificate should be in .PFX or .PEM format, and must include the private key. The private key should be password-protected. If you're using Windows, and your certificate exists only in a certificate store, make sure to export that certificate to a PFX file (including the private key). For guidance, see [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate)
 
 Next, set the `AZCOPY_SPA_CERT_PASSWORD` environment variable to the certificate password.
 
@@ -178,9 +178,11 @@ Replace the `<path-to-certificate-file>` placeholder with the relative or fully 
 > [!NOTE]
 > Consider using a prompt as shown in this example. That way, your password won't appear in your console's command history. 
 
-## Authorize without a keyring (Linux)
+## Authorize without a secret store
 
-If your operating system doesn't have a secret store such as a *keyring*, the `azcopy login` command won't work. Instead, You can set in-memory environment variables prior to running each operation. These values disappear from memory once the operation completes, so you'll have to set these variables each time you run an azcopy command.
+The `azcopy login` command retrieves an OAuth token and then places that token into a secret store on your system. If your operating system doesn't have a secret store such as a Linux *keyring*, the `azcopy login` command won't work because there is nowhere to place the token. 
+
+Instead of using the `azcopy login` command, you can set in-memory environment variables. Then run any AzCopy command. AzCopy will retrieve the Auth token required to complete the operation. After the operation completes, the token disappears from memory. 
 
 ### Authorize a user identity
 
@@ -244,8 +246,6 @@ After you set these variables, you can run any azcopy command (For example: `azc
 
 ### Authorize a service principal
 
-Before you run a script, you have to sign in interactively at least one time so that you can provide AzCopy with the credentials of your service principal.  Those credentials are stored in a secured and encrypted file so that your script doesn't have to provide that sensitive information.
-
 You can sign into your account by using a client secret or by using the password of a certificate that is associated with your service principal's app registration.
 
 #### Authorize a service principal by using a client secret
@@ -256,9 +256,10 @@ Type the following command, and then press the ENTER key.
 export AZCOPY_AUTO_LOGIN_TYPE=SPN
 export AZCOPY_SPA_APPLICATION_ID=<application-id>
 export AZCOPY_SPA_CLIENT_SECRET=<client-secret>
+export AZCOPY_TENANT_ID=<tenant-id>
 ```
 
-Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<client-secret>` placeholder with the client secret.
+Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<client-secret>` placeholder with the client secret. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Azure Active Directory > Properties > Directory ID** in the Azure portal. 
 
 > [!NOTE]
 > Consider using a prompt to collect the password from the user. That way, your password won't appear in your command history. 
@@ -277,9 +278,10 @@ Type the following command, and then press the ENTER key.
 export AZCOPY_AUTO_LOGIN_TYPE=SPN
 export AZCOPY_SPA_CERT_PATH=<path-to-certificate-file>
 export AZCOPY_SPA_CERT_PASSWORD=<certificate-password>
+export AZCOPY_TENANT_ID=<tenant-id>
 ```
 
-Replace the `<path-to-certificate-file>` placeholder with the relative or fully qualified path to the certificate file. AzCopy saves the path to this certificate but it doesn't save a copy of the certificate, so make sure to keep that certificate in place. Replace the `<certificate-password>` placeholder with the password of the certificate.
+Replace the `<path-to-certificate-file>` placeholder with the relative or fully qualified path to the certificate file. AzCopy saves the path to this certificate but it doesn't save a copy of the certificate, so make sure to keep that certificate in place. Replace the `<certificate-password>` placeholder with the password of the certificate. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Azure Active Directory > Properties > Directory ID** in the Azure portal. 
 
 > [!NOTE]
 > Consider using a prompt to collect the password from the user. That way, your password won't appear in your command history. 

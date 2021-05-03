@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Blueprints
 description: Understand how the Azure Blueprints service enables you to create, define, and deploy artifacts in your Azure environment.
-ms.date: 09/30/2020
+ms.date: 05/01/2021
 ms.topic: overview
 ---
 # What is Azure Blueprints?
@@ -35,7 +35,7 @@ including through a continuous integration and continuous delivery (CI/CD) pipel
 each is assigned to a subscription in a single operation that can be audited and tracked.
 
 Nearly everything that you want to include for deployment in Azure Blueprints can be accomplished
-with an ARM template. However, an ARM template is a document that doesn't exist natively in Azure –
+with an ARM template. However, an ARM template is a document that doesn't exist natively in Azure -
 each is stored either locally or in source control. The template gets used for deployments of one or
 more Azure resources, but once those resources deploy there's no active connection or relationship
 to the template.
@@ -73,7 +73,7 @@ as artifacts:
 
 |Resource  | Hierarchy options| Description  |
 |---------|---------|---------|
-|Resource Groups | Subscription | Create a new resource group for use by other artifacts within the blueprint.  These placeholder resource groups enable you to organize resources exactly the way you want them structured and provides a scope limiter for included policy and role assignment artifacts and ARM templates. |
+|Resource Groups | Subscription | Create a new resource group for use by other artifacts within the blueprint. These placeholder resource groups enable you to organize resources exactly the way you want them structured and provides a scope limiter for included policy and role assignment artifacts and ARM templates. |
 |ARM template | Subscription, Resource Group | Templates, including nested and linked templates, are used to compose complex environments. Example environments: a SharePoint farm, Azure Automation State Configuration, or a Log Analytics workspace. |
 |Policy Assignment | Subscription, Resource Group | Allows assignment of a policy or initiative to the subscription the blueprint is assigned to. The policy or initiative must be within the scope of the blueprint definition location. If the policy or initiative has parameters, these parameters are assigned at creation of the blueprint or during blueprint assignment. |
 |Role Assignment | Subscription, Resource Group | Add an existing user or group to a built-in role to make sure the right people always have the right access to your resources. Role assignments can be defined for the entire subscription or nested to a specific resource group included in the blueprint. |

@@ -9,13 +9,13 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/14/2020
+ms.date: 04/27/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
 # Migrate users to Azure AD B2C
 
-Migrating from another identity provider to Azure Active Directory B2C (Azure AD B2C) might also require migrating existing user accounts. Two migration methods are discussed here, *pre migration* and *seamless migration*. With either approach, you're required to write an application or script that uses the [Microsoft Graph API](manage-user-accounts-graph-api.md) to create user accounts in Azure AD B2C.
+Migrating from another identity provider to Azure Active Directory B2C (Azure AD B2C) might also require migrating existing user accounts. Two migration methods are discussed here, *pre migration* and *seamless migration*. With either approach, you're required to write an application or script that uses the [Microsoft Graph API](microsoft-graph-operations.md) to create user accounts in Azure AD B2C.
 
 ## Pre migration
 
@@ -29,7 +29,7 @@ Use the pre migration flow in either of these two situations:
 - You have access to a user's plaintext credentials (their username and password).
 - The credentials are encrypted, but you can decrypt them.
 
-For information about programmatically creating user accounts, see [Manage Azure AD B2C user accounts with Microsoft Graph](manage-user-accounts-graph-api.md).
+For information about programmatically creating user accounts, see [Manage Azure AD B2C user accounts with Microsoft Graph](microsoft-graph-operations.md).
 
 ## Seamless migration
 
@@ -38,14 +38,14 @@ Use the seamless migration flow if plaintext passwords in the old identity provi
 - The password is stored in a one-way encrypted format, such as with a hash function.
 - The password is stored by the legacy identity provider in a way that you can't access. For example, when the identity provider validates credentials by calling a web service.
 
-The seamless migration flow still requires pre migration of user accounts, but then uses a [custom policy](custom-policy-get-started.md) to query a [REST API](custom-policy-rest-api-intro.md) (which you create) to set each users' password at first sign-in.
+The seamless migration flow still requires pre migration of user accounts, but then uses a [custom policy](user-flow-overview.md) to query a [REST API](api-connectors-overview.md) (which you create) to set each users' password at first sign-in.
 
-The seamless migration flow thus has two phases: *pre migration* and *set credentials*.
+The seamless migration flow consists of two phases: *pre migration* and *set credentials*.
 
 ### Phase 1: Pre migration
 
 1. Your migration application reads the user accounts from the old identity provider.
-1. The migration application creates corresponding user accounts in your Azure AD B2C directory, but *does not set passwords*.
+1. The migration application creates corresponding user accounts in your Azure AD B2C directory, but *set random passwords* you generate.
 
 ### Phase 2: Set credentials
 
@@ -62,15 +62,13 @@ To see an example custom policy and REST API, see the [seamless user migration s
 
 ![Flowchart diagram of the seamless migration approach to user migration](./media/user-migration/diagram-01-seamless-migration.png)<br />*Diagram: Seamless migration flow*
 
-## Best practices
-
-### Security
+## Security
 
 The seamless migration approach uses your own custom REST API to validate a user's credentials against the legacy identity provider.
 
 **You must protect your REST API against brute-force attacks.** An attacker can submit several passwords in the hope of eventually guessing a user's credentials. To help defeat such attacks, stop serving requests to your REST API when the number of sign-in attempts passes a certain threshold. Also, secure the communication between Azure AD B2C and your REST API. To learn how to secure your RESTful APIs for production, see [Secure RESTful API](secure-rest-api.md).
 
-### User attributes
+## User attributes
 
 Not all information in the legacy identity provider should be migrated to your Azure AD B2C directory. Identify the appropriate set of user attributes to store in Azure AD B2C before migrating.
 
@@ -87,12 +85,12 @@ Before you start the migration process, take the opportunity to clean up your di
 
 - Identify the set of user attributes to be stored in Azure AD B2C, and migrate only what you need. If necessary, you can create [custom attributes](user-flow-custom-attributes.md) to store more data about a user.
 - If you're migrating from an environment with multiple authentication sources (for example, each application has its own user directory), migrate to a unified account in Azure AD B2C.
-- If multiple applications have different usernames, you can store all of them in an Azure AD B2C user account by using the identities collection. With regard to the password, let the user choose one and set it in the directory. For example, with the seamless migration, only the chosen password should be stored in the Azure AD B2C account.
-- Remove unused user accounts before migration, or do not migrate stale accounts.
+- If multiple applications have different usernames, you can store all of them in an Azure AD B2C user account by using the identities collection. About the password, let the user choose one and set it in the directory. For example, with the seamless migration, only the chosen password should be stored in the Azure AD B2C account.
+- Remove unused user accounts, or don't migrate stale accounts.
 
-### Password policy
+## Password policy
 
-If the accounts you're migrating have weaker password strength than the [strong password strength](../active-directory/authentication/concept-sspr-policy.md) enforced by Azure AD B2C, you can disable the strong password requirement. For more information, see [Password policy property](manage-user-accounts-graph-api.md#password-policy-property).
+If the accounts you're migrating have weaker password strength than the [strong password strength](../active-directory/authentication/concept-sspr-policy.md) enforced by Azure AD B2C, you can disable the strong password requirement. For more information, see [Password policy property](user-profile-attributes.md#password-policy-attribute).
 
 ## Next steps
 

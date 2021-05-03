@@ -36,13 +36,13 @@ Each of these training methods can use different types of compute resources for 
 
 The Azure Machine Learning SDK for Python allows you to build and run machine learning workflows with Azure Machine Learning. You can interact with the service from an interactive Python session, Jupyter Notebooks, Visual Studio Code, or other IDE.
 
-* [What is the Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
-* [Install/update the SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
+* [What is the Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro)
+* [Install/update the SDK](/python/api/overview/azure/ml/install)
 * [Configure a development environment for Azure Machine Learning](how-to-configure-environment.md)
 
 ### Run configuration
 
-A generic training job with Azure Machine Learning can be defined using the [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py). The script run configuration is then used, along with your training script(s) to train a model on a compute target.
+A generic training job with Azure Machine Learning can be defined using the [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig). The script run configuration is then used, along with your training script(s) to train a model on a compute target.
 
 You may start with a run configuration for your local computer, and then switch to one for a cloud-based compute target as needed. When changing the compute target, you only change the run configuration you use. A run also logs information about the training job, such as the inputs, outputs, and logs.
 
@@ -71,7 +71,7 @@ Define the iterations, hyperparameter settings, featurization, and other setting
 Machine learning pipelines can use the previously mentioned training methods. Pipelines are more about creating a workflow, so they encompass more than just the training of models. In a pipeline, you can train a model using automated machine learning or run configurations.
 
 * [What are ML pipelines in Azure Machine Learning?](concept-ml-pipelines.md)
-* [Create and run machine learning pipelines with Azure Machine Learning SDK](how-to-create-your-first-pipeline.md)
+* [Create and run machine learning pipelines with Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md)
 * [Tutorial: Use Azure Machine Learning Pipelines for batch scoring](tutorial-pipeline-batch-scoring-classification.md)
 * [Examples: Jupyter Notebook examples for machine learning pipelines](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [Examples: Pipeline with automated machine learning](https://aka.ms/pl-automl)
@@ -104,7 +104,6 @@ The R SDK enables you to use the R language with Azure Machine Learning. The SDK
 
 For more information, see the following articles:
 
-* [Tutorial: Create a logistic regression model](tutorial-1st-r-experiment.md)
 * [Azure Machine Learning SDK for R reference](https://azure.github.io/azureml-sdk-for-r/index.html)
 
 ## Azure Machine Learning designer

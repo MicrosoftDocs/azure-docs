@@ -1,15 +1,15 @@
 ---
 title: ISO 27001 Shared Services blueprint sample overview
 description: Overview and architecture of the ISO 27001 Shared Services blueprint sample. This blueprint sample helps customers assess specific ISO 27001 controls.
-ms.date: 11/02/2020
+ms.date: 04/30/2021
 ms.topic: sample
 ---
 # Overview of the ISO 27001 Shared Services blueprint sample
 
 The ISO 27001 Shared Services blueprint sample provides a set of compliant infrastructure patterns
-and policy guard-rails that help towards ISO 27001 attestation. This blueprint helps customers
-deploy cloud-based architectures that offer solutions to scenarios that have accreditation or
-compliance requirements.
+and policy guardrails that help toward ISO 27001 attestation. This blueprint helps customers deploy
+cloud-based architectures that offer solutions to scenarios that have accreditation or compliance
+requirements.
 
 The [ISO 27001 App Service Environment/SQL Database workload](../iso27001-ase-sql-workload/index.md)
 blueprint sample extends this sample.
