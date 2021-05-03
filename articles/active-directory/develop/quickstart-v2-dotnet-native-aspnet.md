@@ -78,7 +78,7 @@ To add the new scope to the TodoListClient *app.config* file, follow these steps
 
 1. In the TodoListClient project root folder, open the *app.config* file.
 
-1. Paste the Application ID from the application that you just registered for your TodoListService project in the `TodoListServiceScope` parameter, replacing the `{Enter the Application ID of your TodoListService from the app registration portal}` string.
+1. Paste the Application ID from the application that you registered for your TodoListService project in the `TodoListServiceScope` parameter, replacing the `{Enter the Application ID of your TodoListService from the app registration portal}` string.
 
   > [!NOTE]
   > Make sure that the Application ID uses the following format: `api://{TodoListService-Application-ID}/access_as_user` (where `{TodoListService-Application-ID}` is the GUID representing the Application ID for your TodoListService app).
@@ -89,8 +89,7 @@ Register your TodoListClient app in **App registrations** in the Azure portal, a
 
 ### Register the app
 
-To register the TodoListClient app, follow these steps
-:
+To register the TodoListClient app, follow these steps:
 
 1. Go to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) portal.
 1. Select **New registration**.
