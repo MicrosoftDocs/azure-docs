@@ -111,7 +111,7 @@ there are some _common_ properties used by Azure Policy and in built-ins.
 
 - `version` (string): Tracks details about the version of the contents of a policy initiative
   definition.
-- `category` (string): Determines under which category in Azure portal the policy definition is
+- `category` (string): Determines under which category in the Azure portal the policy definition is
   displayed.
 
   > [!NOTE]
@@ -133,7 +133,7 @@ there are some _common_ properties used by Azure Policy and in built-ins.
 ## Parameters
 
 Parameters help simplify your policy management by reducing the number of policy definitions. Think
-of parameters like the fields on a form – `name`, `address`, `city`, `state`. These parameters
+of parameters like the fields on a form - `name`, `address`, `city`, `state`. These parameters
 always stay the same, however their values change based on the individual filling out the form.
 Parameters work the same way when building policy initiatives. By including parameters in a policy
 initiative definition, you can reuse that parameter in the included policies.
@@ -225,9 +225,9 @@ properties](#parameter-properties).
 
 ### strongType
 
-Within the `metadata` property, you can use **strongType** to provide a multi-select list of options
-within the Azure portal. **strongType** can be a supported _resource type_ or an allowed
-value. To determine if a _resource type_ is valid for **strongType**, use
+Within the `metadata` property, you can use **strongType** to provide a multiselect list of options
+within the Azure portal. **strongType** can be a supported _resource type_ or an allowed value. To
+determine whether a _resource type_ is valid for **strongType**, use
 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider).
 
 Some resource types not returned by **Get-AzResourceProvider** are supported. Those resource types
