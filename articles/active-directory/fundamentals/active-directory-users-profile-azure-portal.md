@@ -23,7 +23,8 @@ As you'll see, there's more information available in a user's profile than what 
 
 ## To add or change profile information
 
->[!Note] The user name and email address properties can contain accent characters, but using them can cause access issues with other Microsoft applications for the user.
+>[!Note]
+>The user name and email address properties can contain accent characters, but using them can cause access issues with other Microsoft applications for the user.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) in the User Administrator role for the organization.
 
