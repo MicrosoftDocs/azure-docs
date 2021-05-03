@@ -7,4 +7,4 @@ ms.author: christb
 ---
 
 > [!NOTE]
-> The Video Analyzer account and all associated storage accounts must be in the same Azure subscription. It is strongly recommended to use storage accounts in the same location as the Video Analyzer account to avoid additional latency and data egress costs.
+> The associated storage account and the managed identity must be in the same Azure subscription and the same region as the Video Analyzer account. It is recommend to use a [standard general-purpose v2](/azure/storage/common/storage-account-overview#types-of-storage-accounts) storage account

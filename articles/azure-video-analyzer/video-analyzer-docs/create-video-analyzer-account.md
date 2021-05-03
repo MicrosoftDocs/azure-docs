@@ -16,7 +16,7 @@ To start using Azure Video Analyzer, you will need to create a Video Analyzer ac
 
 ## [Portal](#tab/portal/)
 
-[!INCLUDE [the video analyzer account and storage account must be in the same subscription](./includes/note-account-storage-same-subscription.md)]
+[!INCLUDE [the video analyzer account and storage account must be in the same subscription and region](./includes/note-account-storage-same-subscription.md)]
 
 ### Create a Video Analyzer account in the Azure Portal
 
@@ -29,17 +29,17 @@ To start using Azure Video Analyzer, you will need to create a Video Analyzer ac
     | Name | Description |
     | ---|---|
     |**Subscription**|If you have more than one subscription, select one from the list of Azure subscriptions that you have access to.|
-    |**Resource Group**|Select the new or existing resource. A resource group is a collection of resources that share lifecycle, permissions, and policies. Learn more [here](/azure/azure-resource-manager/management/overview.md#resource-groups).|
+    |**Resource Group**|Select an existing resource or create a new one. A resource group is a collection of resources that share lifecycle, permissions, and policies. Learn more [here](/azure/azure-resource-manager/management/overview.md#resource-groups).|
     |**Account Name**|Enter the name of the new Video Analyzer account. A Video Analyzer account name is all lowercase letters or numbers with no spaces, and is 3 to 24 characters in length.|
     |**Location**|Select the geographic region that will be used to store the video and metadata records for your Video Analyzer account. Only the available Video Analyzer regions appear in the drop-down list box. |
-    |**Storage Account**|Select a storage account to provide blob storage of the video content from your Video Analyzer account. You can select an existing storage account in the same geographic region as your Video Analyzer account, or you can create a new storage account. A new storage account is created in the same region. The rules for storage account names are the same as for Video Analyzer accounts.<br/><br/>The Video Analyzer account and all associated storage accounts must be in the same Azure subscription. It is strongly recommended to use storage accounts in the same location as the Video Analyzer account to avoid additional latency and data egress costs.|
+    |**Storage Account**|Select a storage account to provide blob storage of the video content for your Video Analyzer account. You can select an existing storage account in the same geographic region as your Video Analyzer account, or you can create a new storage account. A new storage account is created in the same region. The rules for storage account names are the same as for Video Analyzer accounts.<br/><br/>The Video Analyzer account and the associated storage account must be in the same Azure subscription adn region.|
     |**TODO**| *Add content for managed identities*
 
 1. Click **Review + create** at the bottom of the form.
 
 ## [Template](#tab/template/)
 
-[!INCLUDE [the video analyzer account and storage account must be in the same subscription](./includes/note-account-storage-same-subscription.md)]
+[!INCLUDE [the video analyzer account and storage account must be in the same subscription and region](./includes/note-account-storage-same-subscription.md)]
 
 ### Create a Video Analyzer account using a template
 
@@ -192,7 +192,7 @@ These additional resources are defined in the template:
 
     - **Subscription**: select an Azure subscription.
     - **Resource group**: select an existing resource group from the drop-down, or select **Create new**, enter a unique name for the resource group, and then click **OK**.
-    - **Location**: select a location.  For example, **West Central US**.
+    - **Location**: select a location.  For example, **West US 2**.
     - **Name Prefix**: provide a string that is used to prefix the name of the resources.
 
 1. Select **Review + create**. After validation completes, select **Create** to create and deploy the VM.
