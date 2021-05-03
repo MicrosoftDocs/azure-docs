@@ -14,7 +14,7 @@ ms.author: jeffme
 
 # What are Azure Applied AI Services?
 
-Azure Applied AI Services are high-level services focused on empowering developers to quickly unlock the value of data by applying AI into their key business scenarios.  Built on top of the AI APIs of Azure Cognitive Services, Azure Applied AI Services are optimized for critical tasks ranging from monitoring and diagnosing metric anomalies, mining knowledge from documents, enhancing the customer experience through transcription analysis, boosting literacy in the classroom, document understanding and more. Previously, companies would have to orchestrate multiple AI skills, add business logic, and create a UI to go from development to deployment for their scenario-- all of which would consume time, expertise, and resources – these “scenario specific” services provide developers these benefits “out of the box”.​
+Azure Applied AI Services are high-level services focused on empowering developers to quickly unlock the value of data by applying AI into their key business scenarios.  Built on top of the AI APIs of Azure Cognitive Services, Azure Applied AI Services are optimized for critical tasks ranging from monitoring and diagnosing metric anomalies, mining knowledge from documents, enhancing the customer experience through transcription analysis, boosting literacy in the classroom, document understanding and more. Previously, companies would have to orchestrate multiple AI skills, add business logic, and create a UI to go from development to deployment for their scenario – all of which would consume time, expertise, and resources – these “scenario specific” services provide developers these benefits “out of the box”.​
 
 ## Azure Form Recognizer
 
