@@ -80,14 +80,14 @@ Note: USA mixed rates to `+1-425` is $0.013. Refer to the following link for det
 Alice is a doctor meeting with her patient, Bob. Alice will be joining the visit from the Teams Desktop application. Bob will receive a link to join using the healthcare provider website, which connects to the meeting using the Communication Services JavaScript SDK. Bob will use his mobile phone to enter the meeting using a web browser (iPhone with Safari). Chat will be available during the virtual visit.
 
 - The call lasts a total of 30 minutes.
-- On meeting join, Bob put in Teams meeting lobby per Teams policy. Bob has been in the lobby for one minute until Alice admitted him to the meeting.
-- After Bob admitted to the meeting, Alice and Bob participate for the entire call. Alice turns on her video five minutes after the call starts and shares her screen for 13 minutes. Bob has his video on for the whole call.
+- When Bob joins the meeting, he's placed in the Teams meeting lobby per Teams policy. After one minute, Alice admits him into the meeting.
+- After Bob is admitted to the meeting, Alice and Bob participate for the entire call. Alice turns on her video five minutes after the call starts and shares her screen for 13 minutes. Bob has his video on for the whole call.
 - Alice sends five messages, Bob replies with three messages.
 
 
 **Cost calculations**
 
-- 1 Participant (Bob)  connected to Teams lobby x 1 minute x $0.004 per participant per minute (lobby charged aat regular rate of meettings) = $0.004
+- 1 Participant (Bob) connected to Teams lobby x 1 minute x $0.004 per participant per minute (lobby charged aat regular rate of meettings) = $0.004
 - 1 participant (Bob) x 29 minutes x $0.004 per participant per minute = $0.116 [both video and audio are charged at the same rate]
 - 1 participant (Alice) x 30 minutes x $0.000 per participant per minute = $0.0*.
 - 1 participant (Bob) x 3 chat messages x $0.0008 = $0.0024.
