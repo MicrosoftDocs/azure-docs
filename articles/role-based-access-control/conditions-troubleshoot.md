@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 05/01/2021
+ms.date: 05/03/2021
 ms.author: rolyon
 
 #Customer intent: 
@@ -47,15 +47,19 @@ When you add a condition to a role assignment, it can take up to 5 minutes for t
 
 Wait for 5 minutes and test the condition again.
 
-## Symptom - Error when copying and pasting a condition
+## Symptom - Condition is not valid error when adding a condition
+
+When you try to add a role assignment with a condition, you get an error similar to:
+
+`The given role assignment condition is invalid.`
 
 **Cause**
 
-If you copy a condition from a document, it might include special characters and cause errors. Some editors (such as Microsoft Word) add control characters when formatting text that does not appear.
+Your condition is not formatted correctly. 
 
 **Solution**
 
-If you are certain that your condition is correct, delete all spaces and returns and then add back the relevant spaces.
+Fix any [condition format or syntax](conditions-format.md) issues. Alternatively, add the condition using the [visual editor in the Azure portal](conditions-role-assignments-portal.md).
 
 ## Symptom - Resource attribute is not valid error when adding a condition using Azure PowerShell
 
@@ -137,6 +141,16 @@ Updates were made to the condition that the visual editor is not able to parse.
 **Solution**
 
 Fix any [condition format or syntax](conditions-format.md) issues. Alternatively, you can delete the condition and try again.
+
+## Symptom - Error when copying and pasting a condition
+
+**Cause**
+
+If you copy a condition from a document, it might include special characters and cause errors. Some editors (such as Microsoft Word) add control characters when formatting text that does not appear.
+
+**Solution**
+
+If you are certain that your condition is correct, delete all spaces and returns and then add back the relevant spaces.
 
 ## Next steps
 
