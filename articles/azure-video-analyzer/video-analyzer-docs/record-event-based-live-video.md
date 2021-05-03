@@ -50,7 +50,7 @@ At the end of these steps, you'll have relevant Azure resources deployed in your
 * Linux VM in Azure, with the [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge.md) installed
 
 > [!TIP]
-> If you run into issues with Azure resources that get created, please view our **[troubleshooting guide]()<!--troubleshoot-how-to.md#common-error-resolutions-->** to resolve some commonly encountered issues.
+> If you run into issues with Azure resources that get created, please view our **[troubleshooting guide](troubleshoot.md#common-error-resolutions)** to resolve some commonly encountered issues.
 
 ## Concepts
 
