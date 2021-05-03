@@ -44,7 +44,7 @@ az account set -s {subscriptionID}
 During the configure protection operation, you need to specify the disk list setting with an **inclusion** / **exclusion** parameter, giving the LUN numbers of the disks to be included or excluded in the backup.
 
 >[!NOTE]
->The configure protection operation overrides the previous settings and is not cumulative.
+>The configure protection operation overrides the previous settings, they will not be cumulative.
 
 ```azurecli
 az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name {vaultname} --vm {vmname} --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
@@ -195,7 +195,7 @@ Ensure you're using Azure PowerShell version 3.7.0 or higher.
 During the configure protection operation, you need to specify the disk list setting with an inclusion / exclusion parameter, giving the LUN numbers of the disks to be included or excluded in the backup.
 
 >[!NOTE]
->The configure protection operation overrides the previous settings and is not cumulative.
+>The configure protection operation overrides the previous settings, they will not be cumulative.
 
 ### Enable backup with PowerShell
 
