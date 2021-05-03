@@ -144,7 +144,7 @@ This section is based on the IoT Hub X.509 certificate tutorial series. See [Und
 
    If you don't have a certificate authority to create X.509 certificates, you can use the IoT Edge demo certificate scripts to [Create downstream device certificates](how-to-create-test-certificates.md#create-downstream-device-certificates). Follow the steps for creating CA-signed certificates. Use the same root CA certificate that generated the certificates for your gateway device.
 
-2. Follow the instructions in the [Demonstrate proof of posession](../iot-hub/tutorial-x509-openssl.md#step-7---demonstrate-proof-of-possession) section of *Set up X.509 security in your Azure IoT hub*. In that section, you perform the following steps:
+2. Follow the instructions in the [Demonstrate proof of possession](../iot-hub/tutorial-x509-openssl.md#step-7---demonstrate-proof-of-possession) section of *Set up X.509 security in your Azure IoT hub*. In that section, you perform the following steps:
 
    1. Upload a root CA certificate. If you're using the demo certificates, the root CA is **\<path>/certs/azure-iot-test-only.root.ca.cert.pem**.
 
