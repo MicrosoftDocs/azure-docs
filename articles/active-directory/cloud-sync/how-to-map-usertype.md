@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 Cloud sync supports synchronization of the UserType attribute for User objects. 
 
-By default, the UserType attribute is not enabled for synchronization because there is no corresponding UserType attribute in on-premises Active Directory. You must manually add this mapping for synchronizaton. Before doing this, you must take note of the following behavior enforced by Azure AD:
+By default, the UserType attribute is not enabled for synchronization because there is no corresponding UserType attribute in on-premises Active Directory. You must manually add this mapping for synchronization. Before doing this, you must take note of the following behavior enforced by Azure AD:
 
 - Azure AD only accepts two values for the UserType attribute: Member and Guest.
 - If the UserType attribute is not mapped in cloud sync, Azure AD users created through directory synchronization would have the UserType attribute set to Member.

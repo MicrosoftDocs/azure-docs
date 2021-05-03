@@ -1,6 +1,6 @@
 ---
-title: 'Install the Azure AD Connect cloud provisioning agent using a command-line interface (CLI) and powershell'
-description: Learn how to install the Azure AD Connect cloud provisioning agent using powershell cmdlets.
+title: 'Install the Azure AD Connect cloud provisioning agent using a command-line interface (CLI) and PowerShell'
+description: Learn how to install the Azure AD Connect cloud provisioning agent using PowerShell cmdlets.
 services: active-directory
 author: billmath
 manager: daveba
@@ -14,7 +14,7 @@ ms.collection: M365-identity-device-management
 ---
 
 
-# Install the Azure AD Connect provisioning agent using a command-line interface (CLI) and powershell
+# Install the Azure AD Connect provisioning agent using a command-line interface (CLI) and PowerShell
 The following document will guide show you how to install the Azure AD Connect provisioning agent using PowerShell cmdlets.
  
 >[!NOTE]
@@ -26,11 +26,11 @@ The following document will guide show you how to install the Azure AD Connect p
 >[!IMPORTANT]
 >The following installation instructions assume that all of the [Prerequisites](how-to-prerequisites.md) have been met.
 >
-> The windows server needs to have TLS 1.2 enabled before you install the Azure AD Connect provisioning agent using powershell cmdlets. To enable TLS 1.2 you can use the steps found [here](how-to-prerequisites.md#tls-requirements).
+> The windows server needs to have TLS 1.2 enabled before you install the Azure AD Connect provisioning agent using PowerShell cmdlets. To enable TLS 1.2 you can use the steps found [here](how-to-prerequisites.md#tls-requirements).
 
  
 
-## Install the Azure AD Connect provisioning agent using powershell cmdlets 
+## Install the Azure AD Connect provisioning agent using PowerShell cmdlets 
 
 
  1. Sign in to the Azure portal, and then go to **Azure Active Directory**.
@@ -49,7 +49,7 @@ The following document will guide show you how to install the Azure AD Connect p
  7. Import Provisioning Agent PS module 
 
    ```
-   Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Microsoft.CloudSync.Powershell.dll" 
+   Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Microsoft.CloudSync.PowerShell.dll" 
    ```
  8. Connect to AzureAD using global administrator credentials, you can customize this section to fetch password from a secure store. 
 

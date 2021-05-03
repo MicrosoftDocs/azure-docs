@@ -53,7 +53,7 @@ So our expression, basically says, replace the mail attribute on user objects th
 For more information on supported expressions, see [Writing expressions for attribute mappings in Azure Active Directory](reference-expressions.md)
 
 ### Information on expression builder input boxes
-Depending on which function you have selected, the boxes provided by expression builder, will accept muliple values.  For example, the JOIN function will accept strings or the value that is associated with a given attribute.  For example, we can use the value contained in the attribute value of [givenName] and join this with a string value of "@contoso.com" to create an email address.
+Depending on which function you have selected, the boxes provided by expression builder, will accept multiple values.  For example, the JOIN function will accept strings or the value that is associated with a given attribute.  For example, we can use the value contained in the attribute value of [givenName] and join this with a string value of "@contoso.com" to create an email address.
 
   ![Input box values](media/how-to-expression-builder/expression-8.png)
 
