@@ -54,7 +54,7 @@
       displayName: analyze live video, intel, OpenVINO 
     - name: With OV DL Streamer via gRPC extension
       displayName: analyze live video, intel, OpenVINO, DL Streamer, VAS
-      href: use-intel-grpc-vas-tutorial.md
+      href: use-intel-grpc-video-analytics-serving-tutorial.md
     - name: With Custom Vision
       displayName: analyze live video    
       href: analyze-live-video-custom-vision.md #404
