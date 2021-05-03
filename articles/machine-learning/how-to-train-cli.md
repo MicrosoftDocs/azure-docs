@@ -136,7 +136,7 @@ With a parameterized command, you can modify the `job.yml` into `job-sweep.yml` 
 
 A sweep job can be specified for sweeping across hyperparameters used in the command.
 
-Create job:
+Create job and open in the studio:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="lightgbm_iris_sweep":::
 
@@ -158,7 +158,7 @@ Notice this refers to local data, which is not present in the cloned examples re
 
 :::code language="bash" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="download_cifar":::
 
-Now you can submit the job:
+Create the job and open in the studio:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="pytorch_cifar":::
 
@@ -168,7 +168,7 @@ An example YAML file for distributed TensorFlow training on the MNIST dataset:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/tensorflow/mnist-distributed/job.yml":::
 
-Create the job:
+Create the job and open in the studio:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="tensorflow_mnist":::
 
@@ -182,7 +182,7 @@ An example YAML specification, which runs a TensorFlow job on MNIST using Horovo
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/tensorflow/mnist-distributed-horovod/job.yml":::
 
-Create the job:
+Create the job and open in the studio:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="tensorflow_mnist_horovod":::
 
