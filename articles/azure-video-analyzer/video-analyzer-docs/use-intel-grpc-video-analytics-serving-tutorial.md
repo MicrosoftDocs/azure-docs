@@ -1,5 +1,5 @@
 ---
-title:  Analyze live videos by using Intel OpenVINO™ DL Streamer – Edge AI Extension via gRPC 
+title:  Analyze live videos by using Intel OpenVINO™ DL Streamer – Edge AI Extension via gRPC with Azure Video Analyzer
 description: This tutorial shows you how to use the Intel OpenVINO™ DL Streamer – Edge AI Extension from Intel to analyze a live video feeds from a (simulated) IP camera. 
 ms.topic: tutorial
 ms.service: azure-video-analyzer
@@ -138,7 +138,7 @@ The above mentioned templates point to the intel Docker hub image. If you rather
 
         `sudo docker push {YOUR ACR NAME/video-analytics-serving:0.4.1-dlstreamer-edge-ai-extension}`
     
-2. Now you need to edit the templates to reference your new image hosted on Azure Container Registry.
+1. Now you need to edit the templates to reference your new image hosted on Azure Container Registry.
     * Right-click the *deployment.openvino.grpc.cpu.template.json* and navigate to the *avaExtension* module portion and replace:
 
         `intel/video-analytics-serving:0.4.1-dlstreamer-edge-ai-extension`
@@ -149,14 +149,14 @@ The above mentioned templates point to the intel Docker hub image. If you rather
     * Repeat step 2 for the *deployment.openvino.grpc.gpu.template.json*
 
 
-3. If you completed the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart, then skip this step. 
+1. If you completed the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart, then skip this step. 
 
     Otherwise, near the **AZURE IOT HUB** pane in the lower-left corner, select the **More actions** icon and then select **Set IoT Hub Connection String**. You can copy the string from the *appsettings.json* file. Or, to ensure you've configured the proper IoT hub within Visual Studio Code, use the [Select IoT hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
     
     ![Set IoT Hub Connection String](./media/quickstarts/set-iot-connection-string.png)
 
-> [!NOTE]
-> You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
+   > [!NOTE]
+   > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in  endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
     ```
     Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
     ```
