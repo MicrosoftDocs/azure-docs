@@ -80,7 +80,7 @@ If you're given the enterprise administrator role, copy the link on the Set up y
 
 #### If you're not an owner of the billing profile
 
-If you're an enterprise administrator but you don't have a billing account or following error that prevents the transition. for your Microsoft Customer Agreement, You see the following page in the Azure portal.
+If you're an enterprise administrator but you don't have a billing account, you'll see the following error in the Azure portal that prevents the transition.
 
 If you believe that you have billing profile owner access to the correct Microsoft Customer Agreement and you see the following message, make sure that you are in the correct tenant for your organization. You might need to change directories.
 
