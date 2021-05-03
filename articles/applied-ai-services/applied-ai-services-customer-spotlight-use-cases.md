@@ -23,7 +23,7 @@ Customers are already leveraging Applied AI Services to add AI horsepower to the
 
 -Matt White, Marketing Manager, Personal Lines Acquisition Experience, Progressive Insurance 
 
-[Read the story >](https://customers.microsoft.com/en-us/story/789698-progressive-insurance-cognitive-services-insurance)  
+[Read the story >](https://customers.microsoft.com/story/789698-progressive-insurance-cognitive-services-insurance)  
    ​
 <br>
   
