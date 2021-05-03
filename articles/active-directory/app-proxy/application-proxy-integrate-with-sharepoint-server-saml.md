@@ -1,5 +1,5 @@
 ---
-title: Publish on-premises SharePoint farm with Azure Active Directory Application Proxy
+title: Publish an on-premises SharePoint farm with Azure Active Directory Application Proxy
 description: Covers the basics about how to integrate an on-premises SharePoint farm with Azure Active Directory Application Proxy for SAML.
 services: active-directory
 author: kenwith
