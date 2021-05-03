@@ -11,7 +11,7 @@ ms.date: 02/11/2021
 ms.topic: how-to
 ---
 
-# Create Azure SQL managed instance using Kubernetes tools
+# Create Azure SQL Managed Instance using Kubernetes tools
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
