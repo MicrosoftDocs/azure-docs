@@ -72,9 +72,9 @@ additionalContent:
         - title: Support & Help
           links:
             - text: Submit Feedback on UserVoice
-              url: https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395737/
+              url: https://aka.ms/AppliedAIUserVoice
  #           - text: Ask Questions on Microsoft Q&A
- #             url: https://docs.microsoft.com/en-us/answers/topics/azure-cognitive-services.html/
+ #             url: https://aka.ms/AppliedAIMSFTQandA
             # Card
             - text: Troubleshoot on StackOverflow
               url: https://aka.ms/AppliedAIStackOverflow
@@ -83,7 +83,7 @@ additionalContent:
             - text: How To Guides
               url: https://aka.ms
             - text: Start For Free
-              url: https://azure.microsoft.com/free/
+              url: https://azure.microsoft.com/free/ai
         - title: Explore other Azure AI Services
           links:
             - text: Azure Cognitive Services
