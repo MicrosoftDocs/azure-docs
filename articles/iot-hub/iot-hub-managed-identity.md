@@ -124,7 +124,7 @@ C# code snippet
         StorageAuthenticationType = StorageAuthenticationType.IdentityBased,
         Identity = new ManagedIdentity
         {
-            userAssignedIdentity = userDefinedManagedIdentityResourceId
+            userAssignedIdentity = "<resource ID of user assigned managed identity>"
         }
     };
 
@@ -145,7 +145,7 @@ C# code snippet
         StorageAuthenticationType = StorageAuthenticationType.IdentityBased,
         Identity = new ManagedIdentity
         {
-            userAssignedIdentity = userDefinedManagedIdentityResourceId
+            userAssignedIdentity = "<resource ID of user assigned managed identity>"
         }
     };
 
