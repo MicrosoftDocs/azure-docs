@@ -21,12 +21,12 @@ Consider the following scenario:
 * You provision Azure Cosmos DB with 20K RU. This implies that your target database will expect a maximum of no more than 20K RUs per second.
 * Your application processes an ingestion job that contains 10K records, each of which
 costs 10 RU. Thus, the total capacity required to complete this job is 100K RU.
-* If you simply send the entire job to Cosmos DB, you should expect a large number of transient faults and a large buffer of requests that you must retry. This is because the total number of RUs needed for the job (100k) is much greater than the provisioned maximum (20k). Some of the records will be excepted into the database, but more will be rejected, and the rejected records will need to be retried.
-* Instead if you parcel the job into 5 batches, and send those requests evenly across 5 seconds, you should expect no faults and overall faster throughput as each batch would be at or under the provisioned 20K.
+* If you simply send the entire job to Cosmos DB, you should expect a large number of transient faults and a large buffer of requests that you must retry. This is because the total number of RUs needed for the job (100K) is much greater than the provisioned maximum (20K). ~2K of the records will be accepted into the database, but ~8K will be rejected. You will send ~8K records to Cosmos on retry, of which ~2K will be accepted, and so on. You should expect this pattern would send ~30K records instead of 10K records.
+* Instead if you send the records evenly across 5 seconds, you should expect no faults and overall faster throughput as each batch would be at or under the provisioned 20K.
 
 Spreading the requests across a period of time can be accomplished by introducing a rate limiting mechanism in your code.
 
-Its important to keep in mind that RU throughout characteristics are effected to the number of partitions in a given container. In the example above, that 20k RU provisioned throughput would actually be evenly shared across the number of partitions in the target container. This could further inform the way you'd want to parcel the overall workload.
+Its important to keep in mind that RU throughout characteristics are effected to the number of physical partitions in a given container. In the example above, that 20K RU provisioned throughput would be evenly shared across the number of partitions in the target container. For example, if Cosmos DB provisioned 2 physical partitions, each would have 10K RU. This could further inform the way you'd want to parcel the overall workload.
 
 For more information about Resource Units, see [Request Units in Azure Cosmos DB
 ](request-units.md).
@@ -60,10 +60,10 @@ There are some key concepts when measuring cost:
 * Consider all factors that affect RU usage, as described in [request unit considerations](request-units.md#request-unit-considerations).
 * Keep in mind that all simultaneous read and write operations across all client connections for given database or container will be held to the single provision throughput set for that target.
 * RU consumption is incurred, regardless of the Cosmos DB APIs being used.
-* Use representative documents and representative queries
+* Use representative documents and representative queries.
   * These are documents and queries that you think are close to what the operational system will encounter.
   * The best way to get these representative documents and queries is to instrument the usage of your application. It is always better to make this a data-driven decision.
-* Measure cost periodically
+* Measure cost periodically.
   * Index changes, the size of indexes, and the number of partitions can affect the cost. The volume of data can also have an affect in some cases, for example, if you pack lots of documents into a single logical partition.
   * It will be helpful to create some repeatable (maybe even automated) test of the representative documents and queries.
   * Ensure your representative documents and queries are still representative.
@@ -118,7 +118,7 @@ Autoscale provisioned throughput in Azure Cosmos DB allows you to scale the thro
 Autoscale provisioned throughput is well suited for mission-critical workloads that have variable or unpredictable traffic patterns, and require SLAs on high performance and scale.
 
 For more information on autoscaling, see [Create Azure Cosmos containers and databases with autoscale throughput
-](provision-throughput-autoscale.md).
+](provision-throughput-autoscale.md)
 
 ### Queue-Based Load Leveling pattern
 
@@ -126,4 +126,4 @@ You could employ a queue that acts as a buffer between a client and Cosmos DB in
 
 This pattern is useful to any application that uses services that are subject to overloading. However, this pattern isn't useful if the application expects a response from the service with minimal latency.
 
-For more information about this pattern, see [Queue-Based Load Leveling pattern](architecture/patterns/queue-based-load-leveling).
+For more information about this pattern, see [Queue-Based Load Leveling pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling)
