@@ -60,9 +60,9 @@
       href: ../authentication.md?context=/azure/cognitive-services/face/context/context
 - name: Concepts
   items:
-  - name: Face detection
+  - name: Face detection and analysis
     href: concepts/face-detection.md
-  - name: Identity verification
+  - name: Face recognition
     href: concepts/face-recognition.md
 - name: Tutorials
   items:
