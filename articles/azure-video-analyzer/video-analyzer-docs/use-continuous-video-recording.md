@@ -70,7 +70,7 @@ In this tutorial, you'll use an edge module built using the [Live555 Media Serve
 ## Set up your development environment
 1. Clone the repo from this location: https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp <!--TODO: replace this  https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp -->.
 1. Start Visual Studio Code, and open the folder where the repo has been downloaded.
-1. In Visual Studio Code, browse to the src/cloud-to-device-console-app folder and create a file named **appsettings.json**. This file contains the settings needed to run the program.
+1. Browse to the src/cloud-to-device-console-app folder and create a file named **appsettings.json**. This file contains the settings needed to run the program.
 1. Browse to the file share in the storage account created in the setup step above, and copy the contents of the **appsettings.json** file, which should look like:
     ```
     {  
