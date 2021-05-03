@@ -111,7 +111,7 @@ In Visual Studio Code, browse to the src/cloud-to-device-console-app folder. Her
 
 ## Prepare to monitor the modules 
 
-When you use the Video Analyzer on IoT Edge module to record the live video stream in this tutorial, events will be sent to the IoT Hub. To see these events, follow these steps:
+When you use the Video Analyzer module to record the live video stream in this tutorial, events will be sent to the IoT Hub. To see these events, follow these steps:
 
 1. Open the Explorer pane in Visual Studio Code, and look for **Azure IoT Hub** in the lower-left corner.
 1. Expand the **Devices** node.
