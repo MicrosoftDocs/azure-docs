@@ -19,7 +19,7 @@ App Configuration collects the same kinds of monitoring data as other�
 
 ## Collection and routing
 Platform metrics and the Activity log are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.
-Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations. For example, to view logs and metrics for a configuration store in near real-time in Azure Monitor, collect the resource logs in a Log Analytics workspace. Follow these steps to create and enable a diagnostic setting. 
+Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations. For example, to view logs and metrics for a configuration store in near realtime in Azure Monitor, collect the resource logs in a Log Analytics workspace. Follow these steps to create and enable a diagnostic setting. 
 
  #### [Portal](#tab/portal)
 
@@ -52,32 +52,32 @@ Resource Logs are not collected and stored until you create a diagnos
     az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <app-configuration-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
     ```
 
- ### [Powershell](#tab/powershell)
+ ### [PowerShell](#tab/PowerShell)
     
 1. Open a Windows PowerShell command window, and sign in to your Azure subscription by using the Connect-AzAccount command. Then, follow the on-screen directions.
 
-    ```powershell
+    ```PowerShell
     Connect-AzAccount
     ```
 
 1. Set your active subscription to subscription of the App Configuration account that you want to enable logging for.
 
-    ```powershell
+    ```PowerShell
     Set-AzContext -SubscriptionId <subscription-id>
     ```
     
 1. To enable logs for a Log Analytics Workspace, use the [Set-AzDiagnosticSetting PowerShell](https://docs.microsoft.com/previous-versions/azure/mt631625(v=azure.100)?redirectedfrom=MSDN) cmdlet. 
 
-    ```powershell
+    ```PowerShell
     Set-AzDiagnosticSetting -ResourceId <app-configuration-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true
     ```
 1. Verify that the that your diagnostic setting is correctly set and log categories are enabled. 
 
-    ```powershell
+    ```PowerShell
     Get-AzureRmDiagnosticSetting -ResourceId <app-configuration-resource-id> 
     ```
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for further information on creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. For further information on the categories of logs for App Configuration, please reference [App Configuration monitoring data reference](monitor-service-reference.md#resource-logs).
+See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for further information on creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. For further information on the categories of logs for App Configuration, reference [App Configuration monitoring data reference](monitor-service-reference.md#resource-logs).
 
 ## Analyzing metrics
 
@@ -92,6 +92,7 @@ For a list of the platform metrics collected for App Configuration, s
 ## Analyzing logs
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema). The schema for App Configuration resource logs is found in the [App Configuration Data Reference](monitor-service-reference#schemas).
+
 The [Activity log](/azure/azure-monitor/platform/activity-log is a platform login Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 For a list of the types of resource logs collected for App Configuration, see [Monitoring App Configuration data reference](monitor-service-reference#logs)  
 For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring App Configuration data reference](monitor-service-reference#azuremonitorlogstables)  
@@ -101,20 +102,20 @@ For a list of the tables used by Azure Monitor Logs and queryable b
 
 Following are queries that you can use to help you monitor your App Configuration resource. 
 
-* List all Http Requests in the last 3 days 
+* List all Http Requests in the last three days 
     ```Kusto
        AACHttpRequest
         | where TimeGenerated > ago(3d)
     ```
 
-* List all throttled requests (returned Http status code 429 for too many requests) in the last 3 days 
+* List all throttled requests (returned Http status code 429 for too many requests) in the last three days 
     ```Kusto
        AACHttpRequest
         | where TimeGenerated > ago(3d)
         | where StatusCode == "429"
     ```
 
-* List the number of requests sent in the last 3 days by IP Address 
+* List the number of requests sent in the last three days by IP Address 
     ```Kusto
        AACHttpRequest
         | where TimeGenerated > ago(3d)
@@ -122,7 +123,7 @@ Following are queries that you can use to help you monitor your App 
         | order by requestCount desc 
     ```
 
-* Create a pie chart of the types of status codes received in the last 3 days
+* Create a pie chart of the types of status codes received in the last three days
     ```Kusto
        AACHttpRequest
         | where TimeGenerated > ago(3d)
@@ -134,7 +135,7 @@ Following are queries that you can use to help you monitor your App 
 * List the number of requests sent by day for the last 14 days
     ```Kusto
     AACHttpRequest
-        | where TimeGenerated > ago(124d)
+        | where TimeGenerated > ago(14d)
         | extend Day = startofday(TimeGenerated)
         | summarize requestcount=count() by Day
         | order by Day desc  
@@ -148,7 +149,7 @@ The following table lists common and recommended alert rules for App C
 | Alert type | Condition | Description  |
 |:---|:---|:---|
 |Rate Limit on Http Requests | Status Code often returns 429 response | The configuration store has exceeded the [hourly request quota](/faq#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration). Upgrade to a standard store or follow the [best practices](/howto-best-practices#reduce-requests-made-to-app-configuration) to optimize your usage. |
-| Unexpected Http Responses | Verify StatusCode for Requests| For further information on StatusCode, please reference [the HTTP Status Code Guide](./rest/api/searchservice/http-status-codes)|
+| Unexpected Http Responses | Verify StatusCode for Requests| For further information on StatusCode, reference [the HTTP Status Code Guide](./rest/api/searchservice/http-status-codes)|
 
 ## Next steps
 
