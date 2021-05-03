@@ -85,7 +85,7 @@ Important field descriptions:
 
 While you cannot use the search parameters in production until you run a reindex job, there are a few ways to test your search parameters before reindexing the entire database. 
 
-First, you can test your new search parameter to see what values will be returned. By running the command below against a specific patient (by inputting their ID) you will get back a list of value pairs with the search parameter name and the value stored for the specific patient. This will include all of the search parameters for the resource and you can scroll through to find the search parameter you created. 
+First, you can test your new search parameter to see what values will be returned. By running the command below against a specific patient (by inputting their ID), you'll get back a list of value pairs with the search parameter name and the value stored for the specific patient. This will include all of the search parameters for the resource and you can scroll through to find the search parameter you created. 
 
 ```rest
 GET https://{{FHIR_URL}}/Patient/{{PATIENT_ID}}/$reindex
@@ -116,7 +116,7 @@ The result will look like this:
     },
 ...
 ```
-Once you see that your search parameter is displaying as expected, you can reindex a single resource to test searching against the resource. This is a two step process where first you will reindex your specific resource:
+Once you see that your search parameter is displaying as expected, you can reindex a single resource to test searching against the resource. This is a two-step process where first you will reindex your specific resource:
 
 ```rest
 POST https://{{FHIR_URL}/Patient/{{PATIENT_ID}}/$reindex
@@ -128,7 +128,7 @@ GET https://{{FHIR_URL}}/Patient?race=2028-9
 x-ms-use-partial-indices: true
 ```
 
-After you have tested and are satified that your search parameter is working as expected, run or schedule your reindex job so the search parameters can be used in the FHIR server for production use cases.
+After you have tested and are satisfied that your search parameter is working as expected, run or schedule your reindex job so the search parameters can be used in the FHIR server for production use cases.
 
 ## Update a search parameter
 
@@ -201,7 +201,7 @@ If you need to delete a search parameter, use the following:
 
 ## Next steps
 
-In this article, you’ve learned how to create a search parameter. To learn how to how to reindex a job, see
+In this article, you’ve learned how to create a search parameter. To learn how to reindex a job, see
 
 >[!div class="nextstepaction"]
 >[How to run a reindex job](how-to-run-a-reindex.md)
