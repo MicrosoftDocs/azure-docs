@@ -612,7 +612,7 @@ An overview of the industrial network diagram will allow you to define the prope
  
     <Add your network diagram with marked serial connection> 
 
-7. For QoS, the default setting of the sensor is 1.5 Mbps. Specify if you want to change it: ________________ 
+7. For Quality of Service (QoS), the default setting of the sensor is 1.5 Mbps. Specify if you want to change it: ________________ 
 
    Business unit (BU): ________________ 
 
