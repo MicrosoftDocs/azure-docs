@@ -12,7 +12,7 @@ ms.author: petender
 
 # Tutorial: Publish Azure Static Web Apps using an ARM Template
 
-This article demonstrates how to deploy [Azure Static Web Apps](./overview.md) using an [ARM Template](../azure-resource-manager/templates/overview.md).
+This article demonstrates how to deploy [Azure Static Web Apps](./overview.md) using an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) (ARM template).
 
 In this tutorial, you learn to:
 
