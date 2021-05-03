@@ -59,7 +59,7 @@ Solutions vary depending on the communication protocol that's used by the infere
 
 *Use the HTTP protocol*:
 
-* Single container (module named as *avaedge*):  
+* Single container (module named as *avaextension*):  
 
    In your inferencing server, you can use a single port but different endpoints for different AI models. For example, for a Python sample you can use different `routes` per model as shown here: 
 
@@ -76,22 +76,22 @@ Solutions vary depending on the communication protocol that's used by the infere
 
    And then in your Video Analyzer deployment, when you activate live pipelines set the inference server URL for each one as shown here: 
 
-   1st live pipeline: inference server URL=`http://avaedge:44000/score/face_detection`<br/>
-   2nd live pipeline: inference server URL=`http://avaedge:44000/score/vehicle_detection`  
+   1st live pipeline: inference server URL=`http://avaextension:44000/score/face_detection`<br/>
+   2nd live pipeline: inference server URL=`http://avaextension:44000/score/vehicle_detection`  
    
     > [!NOTE]
     > Alternatively, you can expose your AI models on different ports and call them when you activate live pipelines.  
 
 * Multiple containers: 
 
-   Each container is deployed with a different name. In the quickstarts and tutorials, we showed you how to deploy an extension named *avaedge*. Now you can develop two different containers, each with the same HTTP interface, which means they have the same `/score` endpoint. Deploy these two containers with different names, and ensure that both are listening on *different ports*. 
+   Each container is deployed with a different name. In the quickstarts and tutorials, we showed you how to deploy an extension named *avaextension*. Now you can develop two different containers, each with the same HTTP interface, which means they have the same `/score` endpoint. Deploy these two containers with different names, and ensure that both are listening on *different ports*. 
 
-   For example, one container named `avaedge1` is listening for the port `44000`, and a second container named `avaedge2` is listening for the port `44001`. 
+   For example, one container named `avaextension1` is listening for the port `44000`, and a second container named `avaextension2` is listening for the port `44001`. 
 
    In your Video Analyzer topology, you instantiate two live pipelines with different inference URLs, as shown here: 
 
-   1st live pipeline:  inference server URL = `http://avaedge1:44001/score`    
-   2nd live pipeline: inference server URL = `http://avaedge2:44001/score`
+   1st live pipeline:  inference server URL = `http://avaextension1:44001/score`    
+   2nd live pipeline: inference server URL = `http://avaextension2:44001/score`
    
 *Use the gRPC protocol*: 
 
@@ -121,8 +121,8 @@ Our current [default samples](add-valid-link.md)<!--https://github.com/Azure/azu
 
 To keep the state, each caller, or live pipeline, calls the inferencing server by using the HTTP query parameter that's unique to caller. For example, the inference server URL addresses for each live pipeline are shown here:  
 
-1st live pipeline: `http://avaedge:44000/score?id=1`<br/>
-2nd live pipeline: `http://avaedge:44000/score?id=2`
+1st live pipeline: `http://avaextension:44000/score?id=1`<br/>
+2nd live pipeline: `http://avaextension:44000/score?id=2`
 
 … 
 

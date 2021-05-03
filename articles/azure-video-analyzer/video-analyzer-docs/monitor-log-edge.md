@@ -37,7 +37,7 @@ Video Analyzer built on top of IoT Edge emits events, or telemetry data, accordi
            },
            "properties": {
              "topic": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/Microsoft.Media/videoAnalyzers/<account-name>",
-             "subject": "/edgeModules/avaEdge/livePipelines/Sample-Pipeline-1/sinks/fileSink",
+             "subject": "/edgeModules/avaedge/livePipelines/Sample-Pipeline-1/sinks/fileSink",
              "eventType": "Microsoft.VideoAnalyzer.Operational.RecordingStarted",
              "eventTime": "2021-04-26T18:19:13.298Z",
              "dataVersion": "1.0"
@@ -61,7 +61,7 @@ Video Analyzer built on top of IoT Edge emits events, or telemetry data, accordi
       },
       "applicationProperties": {
         "topic": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/Microsoft.Media/videoAnalyzers/<account-name>",
-        "subject": "/edgeModules/avaEdge/livePipelines/Sample-Pipeline-1/sources/rtspSource",
+        "subject": "/edgeModules/avaedge/livePipelines/Sample-Pipeline-1/sources/rtspSource",
         "eventType": "Microsoft.VideoAnalyzer.Diagnostics.MediaSessionEstablished",
         "eventTime": "2021-04-26T18:15:13.298Z",
         "dataVersion": "1.0"
@@ -99,7 +99,7 @@ Video Analyzer built on top of IoT Edge emits events, or telemetry data, accordi
         },
         "applicationProperties": {
           "topic": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/Microsoft.Media/videoAnalyzers/<account-name>",
-          "subject": "/edgeModules/avaEdge/livePipelines/Sample-Pipeline-1/processors/md",
+          "subject": "/edgeModules/avaedge/livePipelines/Sample-Pipeline-1/processors/md",
           "eventType": "Microsoft.VideoAnalyzer.Analytics.Inference",
           "eventTime": "2021-04-26T18:15:13.298Z",
           "dataVersion": "1.0"
