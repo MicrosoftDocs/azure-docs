@@ -275,6 +275,57 @@ az keyvault key create \
 
 Next, configure your Azure Storage account to use customer-managed keys with Azure Key Vault, then specify the key to associate with the storage account.
 
+### [Azure portal](#tab/portal)
+
+First enable keys. Choose what type of identity, then how you want to handle keys.
+
+#### Step 1: Enable customer-managed keys
+
+You can do this with a new account or an existing.
+
+##### Enable customer-managed keys as you create a storage account
+
+For new accounts, use the "Encryption" tab of the create storage wizard
+
+##### Enable customer-managed keys for an existing storage account
+
+For existing accounts, open the Encryption tab.
+
+#### Step 2: Select an identity
+
+You can use a system-assigned managed identity or a user-defined managed identity to grant the storage account access to the key vault. To learn more each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). Choose an identity type.
+
+##### Select a system-assigned managed identity
+
+You can set this only after you first create a storage account.  Provide steps here..
+
+##### Use a user-assigned managed identity
+
+You can set this both as you create an account or after. Put steps here.
+
+#### Step 3: Decide how to handle key versions
+
+Some sort of introduction here.
+
+##### Use automatic updating of key versions
+
+Put steps here.
+
+##### Use manual updating of key versions
+
+Put steps here.
+
+### [PowerShell](#tab/powershell)
+
+Put steps here.
+
+### [Azure CLI](#tab/azure-cli)
+
+Put steps here.
+
+---
+
+
 When you configure encryption with customer-managed keys, you can choose to automatically update the key version used for Azure Storage encryption whenever a new version is available in the associated key vault. Alternately, you can explicitly specify a key version to be used for encryption until the key version is manually updated.
 
 > [!NOTE]
