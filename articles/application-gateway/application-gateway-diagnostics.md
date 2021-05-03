@@ -7,7 +7,8 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Back-end health and diagnostic logs for Application Gateway

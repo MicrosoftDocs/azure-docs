@@ -24,7 +24,7 @@ You can migrate SQL Server running on-premises or on:
 - Amazon Relational Database Service (AWS RDS) 
 - Compute Engine (Google Cloud Platform - GCP)
 
-For other migration guides, see [Database Migration](https://docs.microsoft.com/data-migration). 
+For other migration guides, see [Database Migration](/data-migration). 
 
 ## Overview
 
@@ -36,7 +36,7 @@ Save on costs by bringing your own license with the [Azure Hybrid Benefit licens
 ## Choose appropriate target
 
 Azure Virtual Machines run in many different regions of Azure and also offer a variety of [machine sizes](../../../virtual-machines/sizes.md) and [Storage options](../../../virtual-machines/disks-types.md). 
-When determining the correct size of VM and Storage for your SQL Server workload, refer to the [Performance Guidelines for SQL Server on Azure Virtual Machines.](../../virtual-machines/windows/performance-guidelines-best-practices.md#vm-size-guidance). To determine the VM size and storage requirements for your workload. it is recommended that these are sized through a Performance-Based [Azure Migrate Assessment](../../../migrate/concepts-assessment-calculation.md#types-of-assessments). If this is not an available option, see the following article on creating your own [baseline for performance](https://azure.microsoft.com/services/virtual-machines/sql-server/).
+When determining the correct size of VM and Storage for your SQL Server workload, refer to the [Performance Guidelines for SQL Server on Azure Virtual Machines.](../../virtual-machines/windows/performance-guidelines-best-practices-checklist.md#vm-size). To determine the VM size and storage requirements for your workload. it is recommended that these are sized through a Performance-Based [Azure Migrate Assessment](../../../migrate/concepts-assessment-calculation.md#types-of-assessments). If this is not an available option, see the following article on creating your own [baseline for performance](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
 Consideration should also be made on the correct installation and configuration of SQL Server on a VM. It is recommended to use the [Azure SQL virtual machine image gallery](../../virtual-machines/windows/create-sql-vm-portal.md) as this allows you to create a SQL Server VM with the right version, edition, and operating system. This will also register the Azure VM with the SQL Server [Resource Provider](../../virtual-machines/windows/create-sql-vm-portal.md) automatically, enabling features such as Automated Backups and Automated Patching.
 
@@ -74,6 +74,9 @@ The following table details the available method for the **lift and shift** migr
 | --- | --- | --- | --- | --- |
 | [Azure Migrate](../../../migrate/index.yml) | SQL Server 2008 SP4| SQL Server 2008 SP4| [Azure VM storage limit](../../../index.yml) |  Existing SQL Server to be moved as-is to instance of SQL Server on an Azure VM. Can scale migration workloads of up to 35,000 VMs. <br /><br /> Source server(s) remain online and servicing requests during synchronization of server data, minimizing downtime. <br /><br /> **Automation & scripting**: [Azure Site Recovery Scripts](../../../migrate/how-to-migrate-at-scale.md) and [Example of scaled migration and planning for Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)|
 
+> [!NOTE]
+> It's now possible to lift and shift both your [failover cluster instance](sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) and [availability group](sql-server-availability-group-to-sql-on-azure-vm.md) solution to SQL Server on Azure VMs using Azure Migrate. 
+
 ## Migrate  
 
 Due to the ease of setup, the recommended migration approach is to take a native SQL Server [backup](/sql/t-sql/statements/backup-transact-sql) locally and then copy the file to Azure. This method supports larger databases (>1 TB) for all versions of SQL Server starting from 2008 and larger database backups (>1 TB). However, for databases starting in SQL Server 2014, that are smaller than 1 TB, and that have good connectivity to Azure, then [SQL Server backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) is the better approach. 
@@ -100,8 +103,8 @@ The following table details all available methods to migrate your SQL Server dat
 &nbsp;
  
 > [!TIP]
-> For large data transfers with limited to no network options, see [Large data transfers with limited connectivity](../../../storage/common/storage-solution-large-dataset-low-network.md).
-> 
+> - For large data transfers with limited to no network options, see [Large data transfers with limited connectivity](../../../storage/common/storage-solution-large-dataset-low-network.md).
+> - It's now possible to lift and shift both your [failover cluster instance](sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) and [availability group](sql-server-availability-group-to-sql-on-azure-vm.md) solution to SQL Server on Azure VMs using Azure Migrate. 
 
 ### Considerations
 

@@ -2,7 +2,7 @@
 title: Tutorial - add functions to Azure Resource Manager Bicep files
 description: Add functions to your Bicep files to construct values.
 author: mumian
-ms.date: 03/10/2021
+ms.date: 04/20/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: references_regions
@@ -10,7 +10,7 @@ ms.custom: references_regions
 
 # Tutorial: Add functions to Azure Resource Manager Bicep file
 
-In this tutorial, you learn how to add [template functions](template-functions.md) to your Bicep file. You use functions to dynamically construct values. In addition to these system-provided template functions, you can also create [user-defined functions](./template-user-defined-functions.md). This tutorial takes **7 minutes** to complete.
+In this tutorial, you learn how to add [template functions](template-functions.md) to your Bicep file. You use functions to dynamically construct values. Currently, Bicep doesn't support user-defined functions. This tutorial takes **7 minutes** to complete.
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
