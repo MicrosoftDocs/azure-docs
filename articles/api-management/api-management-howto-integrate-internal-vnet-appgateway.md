@@ -8,7 +8,8 @@ author: solankisamir
 
 ms.service: api-management
 ms.topic: how-to
-ms.author: sasolank 
+ms.author: sasolank
+ms.date: 05/03/2021
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -179,8 +180,10 @@ $apimAdminEmail = "admin@contoso.com" # administrator's email address
 $apimService = New-AzApiManagement -ResourceGroupName $resGroupName -Location $location -Name $apimServiceName -Organization $apimOrganization -AdminEmail $apimAdminEmail -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Developer"
 ```
 
-It can take between 30 and 40 minutes to create and activate an API Management service in this tier. After the above command succeeds, refer to [DNS Configuration required to access internal virtual network API Management service](api-management-using-with-internal-vnet.md#apim-dns-configuration) to access it. 
+It can take between 30 and 40 minutes to create and activate an API Management service in this tier. After the previous command succeeds, refer to [DNS Configuration required to access internal virtual network API Management service](api-management-using-with-internal-vnet.md#apim-dns-configuration) to access it. 
 
+
+/// TODO: NSG rule in VNet
 
 ## Set up custom domain names in API Management
 
@@ -201,10 +204,8 @@ $managementCertPfxPath = "C:\Users\Contoso\management.pfx"   # full path to mana
 $gatewayCertPfxPassword = "certificatePassword123"   # password for api.contoso.net pfx certificate
 $portalCertPfxPassword = "certificatePassword123"    # password for portal.contoso.net pfx certificate
 $managementCertPfxPassword = "certificatePassword123"    # password for management.contoso.net pfx certificate
-# Paths to CER files used in Application Gateway HTTP settings
-$gatewayCertCerPath = "C:\Users\Contoso\gateway.cer" # full path to api.contoso.net .cer file
-$portalCertCerPath = "C:\Users\Contoso\portal.cer" # full path to api.contoso.net .cer file
-$managementCertCerPath = "C:\Users\Contoso\portal.cer" # full path to api.contoso.net .cer file
+# Path to trusted root CER file used in Application Gateway HTTP settings
+$trustedRootCertCerPath = "C:\Users\Contoso\trustedroot.cer" # full path to api.contoso.net .cer file
 
 $certGatewayPwd = ConvertTo-SecureString -String $gatewayCertPfxPassword -AsPlainText -Force
 $certPortalPwd = ConvertTo-SecureString -String $portalCertPfxPassword -AsPlainText -Force
@@ -236,10 +237,10 @@ Set-AzApiManagement -InputObject $apimService
 
 ## Create a public IP address for the front-end configuration
 
-Create a public IP resource **publicIP01** in the resource group.
+Create a Standard public IP resource **publicIP01** in the resource group.
 
 ```powershell
-$publicip = New-AzPublicIpAddress -ResourceGroupName $resGroupName -name "publicIP01" -location $location -AllocationMethod Dynamic
+$publicip = New-AzPublicIpAddress -ResourceGroupName $resGroupName -name "publicIP01" -location $location -AllocationMethod Static -Sku Standard
 ```
 
 An IP address is assigned to the application gateway when the service starts.
@@ -312,9 +313,7 @@ $apimManagementProbe = New-AzApplicationGatewayProbeConfig -Name "apimmanagement
 Upload the certificates to be used on the TLS-enabled backend pool resources.
 
 ```powershell
-$gatewayRootCert = New-AzApplicationGatewayTrustedRootCertificate -Name "whitelistcert1" -CertificateFile $gatewayCertCerPath
-$portalRootCert = New-AzApplicationGatewayTrustedRootCertificate -Name "whitelistcert2" -CertificateFile $portalCertCerPath
-$managementRootCert = New-AzApplicationGatewayTrustedRootCertificate -Name "whitelistcert3" -CertificateFile $managementCertCerPath
+$trustedRootCert = New-AzApplicationGatewayTrustedRootCertificate -Name "whitelistcert1" -CertificateFile $trustedRootCertCerPath
 ```
 
 ### Step 8
@@ -322,9 +321,9 @@ $managementRootCert = New-AzApplicationGatewayTrustedRootCertificate -Name "whit
 Configure HTTP backend settings for the Application Gateway. This includes setting a time-out limit for backend request, after which they're canceled. This value is different from the probe time-out.
 
 ```powershell
-$apimPoolSetting = New-AzApplicationGatewayBackendHttpSettings -Name "apimPoolSetting" -Port 443 -Protocol "Https" -CookieBasedAffinity "Disabled" -Probe $apimprobe -TrustedRootCertificate $gatewayRootCert -RequestTimeout 180
-$apimPoolPortalSetting = New-AzApplicationGatewayBackendHttpSettings -Name "apimPoolPortalSetting" -Port 443 -Protocol "Https" -CookieBasedAffinity "Disabled" -Probe $apimPortalProbe -TrustedRootCertificate $portalRootCert -RequestTimeout 180
-$apimPoolManagementSetting = New-AzApplicationGatewayBackendHttpSettings -Name "apimPoolManagementSetting" -Port 443 -Protocol "Https" -CookieBasedAffinity "Disabled" -Probe $apimManagementProbe -TrustedRootCertificate $managementRootCert -RequestTimeout 180
+$apimPoolSetting = New-AzApplicationGatewayBackendHttpSettings -Name "apimPoolSetting" -Port 443 -Protocol "Https" -CookieBasedAffinity "Disabled" -Probe $apimprobe -TrustedRootCertificate $trustedRootCert -PickHostNameFromBackendAddress -RequestTimeout 180
+$apimPoolPortalSetting = New-AzApplicationGatewayBackendHttpSettings -Name "apimPoolPortalSetting" -Port 443 -Protocol "Https" -CookieBasedAffinity "Disabled" -Probe $apimPortalProbe -TrustedRootCertificate $trustedRootCert -PickHostNameFromBackendAddress -RequestTimeout 180
+$apimPoolManagementSetting = New-AzApplicationGatewayBackendHttpSettings -Name "apimPoolManagementSetting" -Port 443 -Protocol "Https" -CookieBasedAffinity "Disabled" -Probe $apimManagementProbe -TrustedRootCertificate $trustedRootCert -PickHostNameFromBackendAddress -RequestTimeout 180
 ```
 
 ### Step 9
@@ -370,7 +369,7 @@ Create an Application Gateway with all the configuration objects from the preced
 
 ```powershell
 $appgwName = "apim-app-gw"
-$appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $resGroupName -Location $location -BackendAddressPools $apimProxyBackendPool -BackendHttpSettingsCollection $apimPoolSetting, $apimPoolPortalSetting, $apimPoolManagementSetting  -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener, $portalListener, $managementListener -RequestRoutingRules $rule01, $rule02, $rule03 -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $certGateway, $certPortal, $certManagement -TrustedRootCertificate $gatewayRootCert, $portalRootCert, $managementRootCert -Probes $apimprobe, $apimPortalProbe, $apimManagementProbe
+$appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $resGroupName -Location $location -BackendAddressPools $apimProxyBackendPool -BackendHttpSettingsCollection $apimPoolSetting, $apimPoolPortalSetting, $apimPoolManagementSetting  -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener, $portalListener, $managementListener -RequestRoutingRules $rule01, $rule02, $rule03 -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $certGateway, $certPortal, $certManagement -TrustedRootCertificate $trustedRootCert -Probes $apimprobe, $apimPortalProbe, $apimManagementProbe
 ```
 
 ## CNAME the API Management proxy hostname to the public DNS name of the Application Gateway resource
