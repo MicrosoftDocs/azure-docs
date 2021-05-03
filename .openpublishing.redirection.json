@@ -65817,12 +65817,12 @@
     {
       "source_path_from_root": "/articles/dms/tutorial-oracle-azure-postgresql-online.md",
       "redirect_url": "/articles/postgresql/howto-migrate-from-oracle",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/dms/known-issues-oracle-azure-postgresql-online.md",
       "redirect_url": "/articles/postgresql/howto-migrate-from-oracle",
-      "redirect_document_id": true
+      "redirect_document_id": false
     }
   ]
 }
