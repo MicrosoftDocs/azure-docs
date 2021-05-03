@@ -375,8 +375,7 @@ Add the code from the following sections to invoke login using a popup window or
       <app-root></app-root>
       <app-redirect></app-redirect>
     </body>
-    </html>rect></app-redirect>
-    </body>
+    </html>
     ```
 
 3. Replace the code in *src/app/app.component.ts* with the following to sign in a user using a full-frame redirect:
