@@ -194,7 +194,9 @@ The result will be an updated `SearchParameter` and the version will increment.
 
 If you need to delete a search parameter, use the following:
 
-`Delete {{FHIR_URL}}/SearchParameter/{SearchParameter ID}`
+```rest
+Delete {{FHIR_URL}}/SearchParameter/{SearchParameter ID}
+```
 
 > [!Warning]
 > Be careful when deleting SearchParameters that have already been indexed in your database. Changing an existing SearchParameter’s behavior could have impacts on the expected behavior. We recommend running a reindex job immediately.
