@@ -1,5 +1,5 @@
 ---
-title: Third-party app license management through Microsoft - Azure
+title: Third-party app license management through Microsoft - Azure and Microsoft AppSource
 description: Learn about managing third-party app licenses through Microsoft.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
