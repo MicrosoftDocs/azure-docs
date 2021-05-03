@@ -99,43 +99,95 @@ IoT Hub supports the functionality to [import/export devices](iot-hub-bulk-ident
 4. For system-assigned, under **Assign access to** choose **User, group, or service principal** and select your IoT Hub's resource name in the drop-down list. Click **Save**.
 
 
-## **COPIED FROM EXISTING DOC. NEEDS REVIEW AND UPDATE BY SDK TEAM**
+### Using Rest API or SDK for import and export jobs
 
-You can now use the Azure IoT REST APIs for [creating import export jobs](/rest/api/iothub/service/jobs/getimportexportjobs) for information on how to use the bulk import/export functionality. You will need to provide the `storageAuthenticationType="identityBased"` in your request body and use `inputBlobContainerUri="https://..."` and `outputBlobContainerUri="https://..."` as the input and output URLs of your storage account, respectively.
+You can now use the Azure IoT REST APIs for creating import and export jobs. You will need to provide the following properties in the request body 
+1. storageAuthenticationType - The value should be set to 'identityBased' 
+1. inputBlobContainerUri - Used only in import job 
+1. outputBlobContainerUri - Used for both import and export job 
+1. identity - The managed identity to use
+
 
 Azure IoT Hub SDKs also support this functionality in the service client's registry manager. The following code snippet shows how to initiate an import job or export job in using the C# SDK.
 
-```csharp
-// Call an import job on the IoT Hub
-JobProperties importJob = 
-await registryManager.ImportDevicesAsync(
-  JobProperties.CreateForImportJob(inputBlobContainerUri, outputBlobContainerUri, null, StorageAuthenticationType.IdentityBased), 
-  cancellationToken);
+C# code snippet
 
-// Call an export job on the IoT Hub to retrieve all devices
-JobProperties exportJob = 
-await registryManager.ExportDevicesAsync(
-    JobProperties.CreateForExportJob(outputBlobContainerUri, true, null, StorageAuthenticationType.IdentityBased),
-    cancellationToken);
+```dotnetcli
+    // Create an export job
+    // see note below
+
+    using RegistryManager srcRegistryManager = RegistryManager.CreateFromConnectionString(hubConnectionString);
+
+    JobProperties jobProperties = new JobProperties
+    {
+        OutputBlobContainerUri = blobContainerUri,
+        StorageAuthenticationType = StorageAuthenticationType.IdentityBased,
+        Identity = new ManagedIdentity
+        {
+            userAssignedIdentity = userDefinedManagedIdentityResourceId
+        }
+    };
+
+    JobProperties jobResult = await srcRegistryManager
+        .ExportDevicesAsync(jobProperties);
 ```
 
-To use this version of the Azure IoT SDKs with virtual network support for C#, Java, and Node.js:
+```dotnetcli
+    // Create an import job
+    // see note below
 
-1. Create an environment variable named `EnableStorageIdentity` and set its value to `1`.
+    using RegistryManager destRegistryManager = RegistryManager.CreateFromConnectionString(hubConnectionString);
+    
+    JobProperties jobProperties = new JobProperties
+    {
+        InputBlobContainerUri = blobContainerUri,
+        OutputBlobContainerUri = blobContainerUri,
+        StorageAuthenticationType = StorageAuthenticationType.IdentityBased,
+        Identity = new ManagedIdentity
+        {
+            userAssignedIdentity = userDefinedManagedIdentityResourceId
+        }
+    };
 
-2. Download the SDK:  [Java](https://aka.ms/vnetjavasdk) | [C#](https://aka.ms/vnetcsharpsdk) | [Node.js](https://aka.ms/vnetnodesdk)
- 
-For Python, download our limited version from GitHub.
+    JobProperties jobResult = await destRegistryManager
+        .ImportDevicesAsync(jobProperties);
+```                
 
-1. Navigate to the [GitHub release page](https://aka.ms/vnetpythonsdk).
+Python code snippet
 
-2. Download the following file, which you'll find at the bottom of the release page under the header named **assets**.
-    > *azure_iot_hub-2.2.0_limited-py2.py3-none-any.whl*
+```python
+# see note below
+iothub_job_manager = IoTHubJobManager("<IoT Hub connection string>")
 
-3. Open a terminal and navigate to the folder with the downloaded file.
+# Create an import job
+result = iothub_job_manager.create_import_export_job(JobProperties(
+    type="import",
+    input_blob_container_uri="<input container URI>",
+    output_blob_container_uri="<output container URI>",
+    storage_authentication_type="identityBased",
+    identity=ManagedIdentity(
+        user_assigned_identity="<resource ID of user assigned managed identity>"
+    )
+))
 
-4. Run the following command to install the Python Service SDK with support for virtual networks:
-    > pip install ./azure_iot_hub-2.2.0_limited-py2.py3-none-any.whl
+# Create an export job
+result = iothub_job_manager.create_import_export_job(JobProperties(
+    type="export",
+    output_blob_container_uri="<output container URI>",
+    storage_authentication_type="identityBased",
+    exclude_keys_in_export=True,
+    identity=ManagedIdentity(
+        user_assigned_identity="<resource ID of user assigned managed identity>"
+    ) 
+))
+```
+
+Note:
+1. If storageAuthenticationType is set to identityBased and userAssignedIdentity property is not null, the jobs will use the specified user-assigned managed identity.
+1. If the IoT Hub is not configured with the user-assigned managed identity specified in userAssignedIdentity, the job will fail.
+1. If storageAuthenticationType is set to identityBased the userAssignedIdentity property is null, the jobs will use system-assigned identity.
+1. If the IoT Hub is not configured with the user-assigned managed identity, the job will fail.
+1. If <span class="x x-first x-last">storageAuthenticationType</span> is set to <span class="x x-first x-last">identityBased</span> and neither user<span class="x x-first x-last">-assigned </span>nor system<span class="x x-first x-last">-assigned</span> managed identities are configured on the hub, the job will fail.
 
 ## Next steps
 
@@ -144,4 +196,3 @@ Use the links below to learn more about IoT Hub features:
 * [Message routing](./iot-hub-devguide-messages-d2c.md)
 * [File upload](./iot-hub-devguide-file-upload.md)
 * [Bulk device import/export](./iot-hub-bulk-identity-mgmt.md)
-
