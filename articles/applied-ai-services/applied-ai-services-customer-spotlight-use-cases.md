@@ -43,6 +43,6 @@ Customers are already leveraging Applied AI Services to add AI horsepower to the
 
 -Diane Cillis, Engineering Technologist, Chevron Canada 
 
-[Read the story >](https://customers.microsoft.com/en-us/story/chevron-mining-oil-gas-azure-cognitive-services)
+[Read the story >](https://customers.microsoft.com/story/chevron-mining-oil-gas-azure-cognitive-services)
   
 ​​
