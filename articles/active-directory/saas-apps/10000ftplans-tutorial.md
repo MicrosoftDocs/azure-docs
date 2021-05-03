@@ -117,7 +117,7 @@ To configure single sign-on on **10,000ft Plans** side, you need to send the dow
 
 ### Create 10000ft Plans test user
 
-In this section, a user called Britta Simon is created in 10,000ft Plans. 10,000ft Plans supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in 10,000ft Plans, a new one is created after authentication.
+In this section, a user called Britta Simon is created in 10,000ft Plans. 10,000ft Plans support just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in 10,000ft Plans, a new one is created after authentication.
 
 > [!NOTE]
 > If you need to create a user manually, you need to contact the [10,000ft Plans Client support team](https://www.10000ft.com/plans/support).
