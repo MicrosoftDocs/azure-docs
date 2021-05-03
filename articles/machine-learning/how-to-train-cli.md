@@ -9,6 +9,7 @@ ms.topic: how-to
 author: lostmygithubaccount
 ms.author: copeters
 ms.date: 05/25/2021
+ms.reviewer: laobri
 ---
 
 # Train models (create jobs) with the new Azure Machine Learning CLI
@@ -38,38 +39,37 @@ For the Azure Machine Learning CLI, jobs are authored in YAML format. A job aggr
 - How to run it
 - Where to run it
 
-The simple "hello world" job has all three:
+The basic "hello world" job has all three:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/hello-world.yml":::
 
 But it's not a useful job since it doesn't produce anything other than a line in the log file. Typically you want to generate additional artifacts, such as model binaries and accompanying metadata, in addition to the system-generated logs.
 
-There are a couple of ways in which Azure Machine Learning facilitates retaining the artifacts produced by a job:
+Azure Machine learning captures the following artifacts automatically:
 
 - The `./outputs` and `./logs` directories receive special treatment by Azure Machine Learning. If you write any files to these directories during your job, these files will get uploaded to the job's run history so that you can still access them once the job is complete. The `./outputs` folder is uploaded at the end of the job, while the files written to `./logs` are uploaded in real time. Use the latter if you want to stream logs during the job, such as TensorBoard logs.
-- Azure Machine Learning integrates with MLflow's tracking functionality. You can use `mlflow.autolog()` for several common ML frameworks to log model parameters, performance metrics, model artifacts, and even feature importance graphs. You can also use the `mlflow.log_*()` methods to explicitly log parameters, metrics, and artifacts. All these Mlflow-logged metrics and artifacts will be persisted in the job's run history.
+- Azure Machine Learning integrates with MLflow's tracking functionality. You can use `mlflow.autolog()` for several common ML frameworks to log model parameters, performance metrics, model artifacts, and even feature importance graphs. You can also use the `mlflow.log_*()` methods to explicitly log parameters, metrics, and artifacts. All these Mlflow-logged metrics and artifacts will be saved in the job's run history.
 
 Often, a job involves running some source code that is edited and controlled locally. You can specify a source code directory to include in the job, from which the command will be run.
 
 For instance, look at the `jobs/train/lightgbm/iris` project directory in the examples repository:
 
-```bash
-|
- -- job.yml
- -- job-sweep.yml
- -- environment.yml
- -- src
-   |
-    -- main.py
+```tree
+.
+├── environment.yml
+├── job-sweep.yml
+├── job.yml
+└── src
+    └── main.py
 ```
 
-This directory contains two job specifications, a Conda environment file, and a source code directory `src`. While this example only has a single file under `src`, the entire subdirectory is recursively uploaded and available for use in the job.
+This directory contains two job specifications, a conda environment file, and a source code directory `src`. While this example only has a single file under `src`, the entire subdirectory is recursively uploaded and available for use in the job.
 
 The basic command job is configured via the `job.yml`:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job.yml":::
 
-This job can be created and run via `az ml job create` using the `--file/-f` parameter. However for the job to succeed, we first need to create the `cpu-cluster`.
+This job can be created and run via `az ml job create` using the `--file/-f` parameter. However for the job to succeed, you first need to create the `cpu-cluster`.
 
 ## Create compute
 
@@ -81,9 +81,9 @@ Note that you are not charged for compute at this point, refer to compute cost g
 
 Use `az ml compute create -h` or refer to the reference documentation for more details on compute create options.
 
-## Basic Python job
+## Basic Python training job
 
-With `cpu-cluster` created, you can run the basic LightGBM on Iris job. Let's review the job YAML file in detail:
+With `cpu-cluster` created, you can run the basic LightGBM on Iris job which outputs a model and accompanying metadata. Let's review the job YAML file in detail:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job.yml":::
 
@@ -91,8 +91,8 @@ With `cpu-cluster` created, you can run the basic LightGBM on Iris job. Let's re
 | --- | ----------- |
 | `$schema` | [Optional] The YAML schema. You can view the [schema](https://azuremlschemas.azureedge.net/latest/commandJob.schema.json) in the above example in a browser to see all available options for a command job YAML file. If you use the Azure Machine Learning VS Code extension to author the YAML file, including this `$schema` property at the top of your file enables you to invoke schema and resource completions. |
 | `code.local_path` | [Optional] The local path to the source directory, relative to the YAML file, to be uploaded and used with the job. Consider using `src` in the same directory as the job file(s) for consistency. |
-| `command` | The command to execute. The `>` convention allows for authoring readable multiline commands, folding newlines to spaces. Inputs can be written into the command or inferred from other sections, specifically `inputs` or `search_space`, using the curly braces notation. |
-| `inputs` | [Optional] A dictionary of the input data bindings, where the key is a name that you specify for the input binding. The value for each element is the input binding, which consists of `data` and `mode` fields. `data` can either be 1) a reference to an existing versioned Azure Machine Learning data asset by using the `azureml:` prefix (e.g. `azureml:iris-url:1` to point to version 1 of a data asset named "iris-url") or 2) an inline definition of the data. Data can be uploaded from the local filesystem or point to existing cloud resources. `mode` indicates how you want the data made available on the compute for the job. "mount" and "download" are the two supported options. <br><br> An input can be referred to in the command by its name like `{inputs.my_input_name}`. Azure Machine Learning will then resolve that parameterized notation in the command to the location of that data on the compute target. For example, if the data is configured to be mounted, `{inputs.my_input_name}` will resolve to the mount point. |
+| `command` | The command to execute. The `>` convention allows for authoring readable multiline commands by folding newlines to spaces. Inputs can be written into the command or inferred from other sections, specifically `inputs` or `search_space`, using the curly braces notation. |
+| `inputs` | [Optional] A dictionary of the input data bindings, where the key is a name that you specify for the input binding. The value for each element is the input binding, which consists of `data` and `mode` fields. `data` can either be 1) a reference to an existing versioned Azure Machine Learning data asset by using the `azureml:` prefix (e.g. `azureml:iris-url:1` to point to version 1 of a data asset named "iris-url") or 2) an inline definition of the data. Data can be uploaded from the local filesystem or point to existing cloud resources. `mode` indicates how you want the data made available on the compute for the job. "mount" and "download" are the two supported options. <br><br> An input can be referred to in the command by its name, such as `{inputs.my_input_name}`. Azure Machine Learning will then resolve that parameterized notation in the command to the location of that data on the compute target. For example, if the data is configured to be mounted, `{inputs.my_input_name}` will resolve to the mount point. |
 | `environment` | The environment to execute the command on the compute target with. You can define the environment inline by specifying the Docker image to use or the Dockerfile for building the image. You can also refer to an existing versioned environment in the workspace, or one of Azure ML's curated environments, using the `azureml:` prefix. For instance, `azureml:AzureML-TensorFlow2.4-Cuda11-OpenMpi4.1.0-py36:1` would refer to version 1 of a curated environment for TensorFlow with GPU support. <br><br> Python must be installed in the environment used for training. Run `apt-get update -y && apt-get install python3 -y` in your Dockerfile to install if needed. |
 | `compute.target` | The compute target. Specify `local` for local execution, or use the `azureml:` prefix to reference an existing compute resource in your workspace. For instance, `azureml:cpu-cluster` would point to a compute target named "cpu-cluster". |
 | `experiment_name` | [Optional] Tags the job for better organization in the Azure Machine Learning studio. Each job's run record will be organized under the corresponding experiment in the studio's "Experiment" tab. If omitted, it will default to the name of the working directory when the job is created. |
@@ -117,7 +117,7 @@ This will download the logs and any captured artifacts locally in a directory na
 
 Azure Machine Learning also enables you to more efficiently tune the hyperparameters for your machine learning models. You can configure a hyperparameter tuning job, called a sweep job, and submit it via the CLI. For more information on Azure Machine Learning's hyperparameter tuning offering, see the [conceptual documentation](how-to-tune-hyperparameters.md).
 
-With a parameterized command, you can easily modify the `job.yml` into `job-sweep.yml` to sweep over hyperparameters:
+With a parameterized command, you can modify the `job.yml` into `job-sweep.yml` to sweep over hyperparameters:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job-sweep.yml":::
 
@@ -127,7 +127,7 @@ With a parameterized command, you can easily modify the `job.yml` into `job-swee
 | `type` | The job type. |
 | `algorithm` | The sampling algorithm - "random" is often a good choice. See the schema for the enumeration of options. |
 | `trial` | The command job configuration for each trial to be run. The command (`trial.command`) has been modified from the previous example to use the `{search_space.<hyperparameter_name>}` notation to reference the hyperparameters defined in the `search_space`. Azure Machine Learning will then resolve each parameterized notation to the value for the corresponding hyperparameter that it generates for each trial. |
-| `search_space` | A dictionary of the hyperparameters to sweep over. The key is a name for the hyperparameter, e.g. `search_space.learning_rate`. Note that the name does not have to match the training script's argument itself, it just has to match the search space reference in the curly braces notation in the command, e.g. `{search_space.learning_rate}`. The value is the hyperparameter distribution. See the schema for the enumeration of options. |
+| `search_space` | A dictionary of the hyperparameters to sweep over. The key is a name for the hyperparameter, for example, `search_space.learning_rate`. Note that the name does not have to match the training script's argument itself, it just has to match the search space reference in the curly braces notation in the command, e.g. `{search_space.learning_rate}`. The value is the hyperparameter distribution. See the schema for the enumeration of options. |
 | `objective.primary_metric` | The optimization metric, which must match the name of a metric logged from the training code. `objective.goal` specifies the direction ("minimize"/"maximize"). See the schema for the full enumeration of options. |
 | `max_total_trials` | The maximum number of individual trials to run. |
 | `max_concurrent_trials` | [Optional] The maximum number of trials to run concurrently on your compute cluster. |
