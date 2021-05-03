@@ -82,7 +82,7 @@ Certain applications can't be application layered, which means they can't be rep
 - VPN clients
 - Antivirus programs
 
-## What is the maximum number of MISX applications that can be delivered per session host?
+## How many MISX applications can I add to each session host?
 
 Each session host can handle different amount of MSIX applications based on its CPU, memory, and OS. CPU, memory, and OS will be limiting fact for applciation performance and user experience. MSIX app attahc has no limitation on the amount of applications. 
 
