@@ -1,8 +1,8 @@
 ---
 title: Capture images for a no-code vision solution in Azure Percept Studio
 description: Learn how to capture images with your Azure Percept DK in Azure Percept Studio for a no-code vision solution
-author: elqu20
-ms.author: v-elqu
+author: philmea
+ms.author: philmea
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021
