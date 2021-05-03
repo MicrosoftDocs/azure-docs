@@ -9,7 +9,7 @@ ms.author: juliako
 * An Azure account that includes an active subscription. [Create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) for free if you don't already have one.
 
     > [!NOTE]    
-    > You will need an Azure subscription wher you have access to at least a Contributor role. If you do not have the right permissions, please reach out to your account administrator to grant you the right permissions.
+    > You will need an Azure subscription where you have access to at least a Contributor role. If you do not have the right permissions, please reach out to your account administrator to grant you the right permissions.
 * [Visual Studio Code](https://code.visualstudio.com/), with the following extensions:
     * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
     
