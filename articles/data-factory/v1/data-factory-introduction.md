@@ -83,7 +83,7 @@ Copy Activity in Data Factory copies data from a source data store to a sink dat
 For more information, see [Move data by using Copy Activity](data-factory-data-movement-activities.md).
 
 ### Data transformation activities
-[!INCLUDE [data-factory-transformation-activities](../../../includes/data-factory-transformation-activities.md)]
+[!INCLUDE [data-factory-transformation-activities](includes/data-factory-transformation-activities.md)]
 
 For more information, see [Move data by using Copy Activity](data-factory-data-transformation-activities.md).
 
