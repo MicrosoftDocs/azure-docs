@@ -331,7 +331,7 @@
         - name: Trigger runbook from Azure alert
           href: automation-create-alert-triggered-runbook.md
         - name: Track updated files with watcher task
-          href: automation-scenario-watcher-task.md
+          href: automation-scenario-using-watcher-task.md
         - name: Manage Office 365 services
           href: manage-office-365.md
         - name: Deploy AWS VM with Automation runbook
