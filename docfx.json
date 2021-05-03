@@ -783,7 +783,7 @@
       },
       "recommendations": {
         "articles/cognitive-services/Translator/**/*.md": false
-      }
+      },
       "no-loc": {
         "articles/governance/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]",
         "includes/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]"
