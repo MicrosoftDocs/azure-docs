@@ -78,7 +78,7 @@ The following depicts the overall flow of the document and in 5 simple steps you
     1. Delete your resources if not needed further.
 
         > [!IMPORTANT]
-        > Undeleted resources can still be active and incur Azure costs.
+        > Undeleted resources can still be active and incur Azure costs. Please ensure that you delete the resources you do not intend to use.
 ## Next steps
 
 * Try motion detection along with recording relevant videos in the cloud. Follow the steps from the [detect motion and record video clips](detect-motion-record-video-clips-edge-devices.md#review-the-sample-video) quickstart.
