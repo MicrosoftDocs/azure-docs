@@ -173,7 +173,7 @@
     - name: Move service across regions
       href: search-howto-move-across-regions.md
     - name: Troubleshoot issues with creating Shared Private Link Resources
-      href: search-troubleshooting-shared-private-link-resources.md
+      href: troubleshoot-shared-private-link-resources.md
   - name: Development
     items:
     - name: API versions

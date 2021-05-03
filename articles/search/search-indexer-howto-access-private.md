@@ -63,7 +63,7 @@ Configure the storage account to [allow access only from specific subnets](../st
 >
 > However, when you use this approach, communication between Azure Cognitive Search and your storage account happens via the public IP address of the storage account, over the secure Microsoft backbone network.
 
-Shared private link resources for an Azure Cognitive Search service can be managed via the Azure Portal. Navigate to your search service -> Networking -> Shared Private Access to manage these resources via the portal.
+Shared private link resources for an Azure Cognitive Search service can be managed via the Azure portal. Navigate to your search service -> Networking -> Shared Private Access to manage these resources via the portal.
 
    ![Screenshot of the "Networking" pane, showing the shared private link management blade. ](media\search-indexer-howto-secure-access\shared-private-link-portal-blade.png)
 
@@ -71,11 +71,11 @@ Shared private link resources for an Azure Cognitive Search service can be manag
 
 To request Azure Cognitive Search to create an outbound private endpoint connection to the storage account, via the Shared Private Access blade, click on "Add Shared Private Access". On the dialog that opens on the right, you can choose to "Connect to an Azure resource in my directory" or "Connect to an Azure resource by resource ID or alias".
 
-When using the first option (recommended), the dialog pane will help guide you to pick the appropriate storage account and will help fill in other properties such as the group id of the resource and the resource type.
+When using the first option (recommended), the dialog pane will help guide you to pick the appropriate storage account and will help fill in other properties such as the group ID of the resource and the resource type.
 
    ![Screenshot of the "Add Shared Private Access" pane, showing a guided experience for creating a shared private link resource. ](media\search-indexer-howto-secure-access\new-shared-private-link-resource.png)
 
-When using the second option, you can enter the Azure resource ID of the target storage account manually and choose the appropriate group id (in this case "blob")
+When using the second option, you can enter the Azure resource ID of the target storage account manually and choose the appropriate group ID (in this case "blob")
 
 ![Screenshot of the "Add Shared Private Access" pane, showing the manual experience for creating a shared private link resource. ](media\search-indexer-howto-secure-access\new-shared-private-link-resource-manual.png)
 
@@ -116,7 +116,7 @@ If you utilize the Azure portal to create the shared private link resource, this
 
 ![Screenshot of the "Add Shared Private Access" pane, showing the resource creation in progress. ](media\search-indexer-howto-secure-access\new-shared-private-link-resource-progress.png)
 
-Once the resource is successfully created, you will received a portal notification and the provisioning state of the resource will change to "Succeeded".
+Once the resource is successfully created, you will receive a portal notification and the provisioning state of the resource will change to "Succeeded".
 
 ![Screenshot of the "Add Shared Private Access" pane, showing the resource creation completed. ](media\search-indexer-howto-secure-access\new-shared-private-link-resource-success.png)
 
@@ -135,7 +135,7 @@ Wait until the provisioning state of the resource changes to "Succeeded" before 
 >
 > Other providers, such as Azure Cosmos DB or Azure SQL Server, offer similar storage resource provider APIs for managing private endpoint connections.
 
-1. In the Azure portal, select the **Private endpoint connections** tab of your storage account. After the asynchronous operation has succeeded, there should be a request for a private endpoint connection with the request message from the previous API call.
+1. In the Azure portal, select the **Networking** tab of your storage account and navigate to **Private endpoint connections**. After the asynchronous operation has succeeded, there should be a request for a private endpoint connection with the request message from the previous API call.
 
    ![Screenshot of the Azure portal, showing the "Private endpoint connections" pane.](media\search-indexer-howto-secure-access\storage-privateendpoint-approval.png)
 
@@ -209,7 +209,7 @@ If the "Provisioning State" (`properties.provisioningState`) of the resource is 
 + If you've created the indexer without setting the `executionEnvironment` property and it runs successfully, it means that Azure Cognitive Search has decided that its execution environment is the search service-specific *private* environment. This can change, depending on resources consumed by the indexer, the load on the search service, and other factors, and it can fail later. To remedy the issue:
   + We highly recommend that you set the `executionEnvironment` property to `private` to ensure that it won't fail in the future.
 
-+ If you're viewing your data source's networking page in the Azure portal and you select a private endpoint that you created for your Azure Cognitive Search service to access this data source, you may receive a *No Access* error. This is expected. You can change the status of the connection request via the target service's portal page but to further manage the shared private link resource you need to view the shared private link resource in your search service's network page in the Azure Portal.
++ If you're viewing your data source's networking page in the Azure portal and you select a private endpoint that you created for your Azure Cognitive Search service to access this data source, you may receive a *No Access* error. This is expected. You can change the status of the connection request via the target service's portal page but to further manage the shared private link resource you need to view the shared private link resource in your search service's network page in the Azure portal.
 
 [Quotas and limits](search-limits-quotas-capacity.md) determine how many shared private link resources can be created and depend on the SKU of the search service.
 
@@ -217,5 +217,6 @@ If the "Provisioning State" (`properties.provisioningState`) of the resource is 
 
 Learn more about private endpoints:
 
+- [Troubleshoot issues with shared private link resources](troubleshoot-shared-private-link.md)
 - [What are private endpoints?](../private-link/private-endpoint-overview.md)
 - [DNS configurations needed for private endpoints](../private-link/private-endpoint-dns.md)
