@@ -13,5 +13,5 @@ This article highlights how to complete different management operations using th
 
 Other developer interfaces that can be used to complete these operations include:
 * [REST API](/rest/api/azure-digitaltwins/) calls
-* [Azure CLI](/cli/azure/dt?view=azure-cli-latest) commands
+* [Azure CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true) commands
 * [Azure Digital Twins Explorer sample](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)
