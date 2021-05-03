@@ -65,7 +65,7 @@ this is rewrite:
 | - Enable votes for automatic failover owners. Each node that may host a primary replica or FCI as a result of an automatic failover should have a vote. | 
 | - If an availability group has more than one secondary replica, only enable votes for the replicas that have automatic failover. | 
 | - Disable votes for nodes that are in secondary disaster recovery sites. Nodes in secondary sites should not contribute to the decision of taking a cluster offline if there's nothing wrong with the primary site. | 
-| - Have an odd number of votes, with three quorum votes minimum. Add a [quorum witness](hadr-configure-cluster-quorum-how-to.md) for an additional vote if necessary in a two-node cluster. | 
+| - Have an odd number of votes, with three quorum votes minimum. Add a [quorum witness](hadr-cluster-quorum-configure-how-to.md) for an additional vote if necessary in a two-node cluster. | 
 | - Reassess vote assignments post-failover. You don't want to fail over into a cluster configuration that doesn't support a healthy quorum. |
 
 
