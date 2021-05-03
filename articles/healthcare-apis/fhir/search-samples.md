@@ -20,7 +20,7 @@ Below are some examples of using FHIR search operations, including search parame
 `_include` searches across resources for the ones that include the specified parameter of the resource. For example, you can search across `MedicationRequest` resources to find only the ones that include information about the prescriptions for a specific patient, which is the `reference` parameter `patient`:
 
 ```rest
- GET [your-fhir-server]/MedicationRequest?_include=MedicationRequest:patient=<patient id>
+ GET [your-fhir-server]/MedicationRequest?_include=MedicationRequest:patient
 
 ```
 

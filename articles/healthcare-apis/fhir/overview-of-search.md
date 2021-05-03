@@ -10,7 +10,7 @@ ms.author: cavoeg
 ---
 # Overview of FHIR search
 
-The FHIR specification defines the fundamentals of search for FHIR resources. This article will guide you through some key aspects to searching resources in FHIR. For complete details about searching FHIR resources, refer to [Search](https://www.hl7.org/fhir/search.html) in the HL7 FHIR Specification. Throughout this article, we will give examples of search syntax. Each search will be against your FHIR server, which typically has a URL of https://`<FHIRSERVERNAME>`.azurewebsites.net. In the examples we will use the placeholder {{FHIR_URL}} for this URL. 
+The FHIR specification defines the fundamentals of search for FHIR resources. This article will guide you through some key aspects to searching resources in FHIR. For complete details about searching FHIR resources, refer to [Search](https://www.hl7.org/fhir/search.html) in the HL7 FHIR Specification. Throughout this article, we will give examples of search syntax. Each search will be against your FHIR server, which typically has a URL of https://`<FHIRSERVERNAME>`.azurewebsites.net. In the examples, we will use the placeholder {{FHIR_URL}} for this URL. 
 
 FHIR searches can be against a specific resource type, a specified [compartment](https://www.hl7.org/fhir/compartmentdefinition.html), or all resources. The simplest way to execute a search in FHIR is to use a `GET` request. For example, if you want to pull all patients in the database, you could use the following request: 
 
@@ -62,9 +62,9 @@ There are [common search parameters](https://www.hl7.org/fhir/search.html#all) t
 | _text                       | No                   | No                        | No                              |             |
 | _content                    | No                   | No                        | No                              |             |
 
-### Resource specific parameters
+### Resource-specific parameters
 
-With the Azure API for FHIR, we support almost all [resource specific search parameters](https://www.hl7.org/fhir/searchparameter-registry.html) defined by the FHIR specification. The only search parameters we don’t support are available in the links below:
+With the Azure API for FHIR, we support almost all [resource-specific search parameters](https://www.hl7.org/fhir/searchparameter-registry.html) defined by the FHIR specification. The only search parameters we don’t support are available in the links below:
 
 * [STU3 Unsupported Search Parameters](https://github.com/microsoft/fhir-server/blob/main/src/Microsoft.Health.Fhir.Core/Data/Stu3/unsupported-search-parameters.json)
 
@@ -82,7 +82,7 @@ To see the search parameters in the capability statement, navigate to `Capabilit
 > The Azure API for FHIR does not automatically create or index any search parameters that are not defined by the FHIR specification. However, we do provide support for you to to define your own [search parameters](how-to-do-custom-search.md).
 
 ### Composite search parameters
-Composite search allows you to search against value pairs. For example, if you were searching for a heigh observation where the person was 60 inches, you would want to make sure that a single component of the observation contained the code of height **and** the value of 60. You wouldn't want to get an observation where a weight of 60 and height of 48 was stored, even though the observation would have entries that qualified for value of 60 and code of height, just in different component sections. 
+Composite search allows you to search against value pairs. For example, if you were searching for a height observation where the person was 60 inches, you would want to make sure that a single component of the observation contained the code of height **and** the value of 60. You wouldn't want to get an observation where a weight of 60 and height of 48 was stored, even though the observation would have entries that qualified for value of 60 and code of height, just in different component sections. 
 
 With the Azure API for FHIR, we support the following search parameter type pairings:
 
