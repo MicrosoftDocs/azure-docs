@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/20/2021
+ms.date: 05/03/2021
 
 ms.author: justinha
 author: justinha
@@ -103,13 +103,12 @@ Standard voice calls may failover to a different region.
 
 ### NPS extension and AD FS adapter
 
-| Authentication method                          | Customer region                      | Activity report location | Service log location         |
-|------------------------------------------------|--------------------------------------|--------------------------|------------------------------|
-| Phone App<br> OTP                              | Australia and New Zealand            | Australia/New Zealand    | Cloud in-region              |
-| Phone App<br> OTP                              | Outside of Australia and New Zealand | United States            | Cloud in-region              |
-| Standard voice calls and all other methods     | Any                                  | United States            | Cloud in-region              |
-| Voice calls with custom greetings              | Any                                  | United States            | MFA backend in United States |
-| Non-OTP<br>Non-voice                           | Any                                  | United States            | Cloud in-region              |
+| Authentication method                                                             | Customer region                      | Activity report location | Service log location |
+|-----------------------------------------------------------------------------------|--------------------------------------|--------------------------|----------------------|
+| Phone App OTP                                                                     | Australia and New Zealand            | Australia/New Zealand    | Cloud in-region      |
+| Phone App OTP                                                                     | Outside of Australia and New Zealand | United States            | Cloud in-region      |
+| Standard voice calls and all other methods except voice calls with custom greetings  | Any                               | United States            | Cloud in-region      |
+| Voice calls with custom greetings                                         | Any                                  | United States            | MFA backend in United States |
 
 ### MFA server and cloud-based MFA
 
