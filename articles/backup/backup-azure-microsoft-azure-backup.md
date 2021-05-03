@@ -372,5 +372,5 @@ You can get detailed information here about [preparing your environment for DPM]
 You can use these articles to gain a deeper understanding of workload protection using Microsoft Azure Backup server.
 
 * [SQL Server backup](backup-azure-backup-sql.md)
-* [SharePoint server backup](backup-azure-backup-sharepoint.md)
+* [SharePoint Server backup](backup-azure-backup-sharepoint.md)
 * [Alternate server backup](backup-azure-alternate-dpm-server.md)
