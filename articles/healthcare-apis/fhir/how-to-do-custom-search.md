@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 4/23/2021
+ms.date: 05/03/2021
 ms.author: cavoeg
 ---
 # Defining custom search parameters
@@ -135,7 +135,7 @@ After you have tested and are satisfied that your search parameter is working as
 To update a search parameter, use `PUT` to create a new version of the search parameter.
 
 ```rest
-PUT {{FHIR_ULR}}/SearchParameter/{SearchParameter ID}`
+PUT {{FHIR_ULR}}/SearchParameter/{SearchParameter ID}
 ```
 
 You must include the `SearchParameter ID` in the ID field of the body of the `PUT` request and in the `PUT` call.
