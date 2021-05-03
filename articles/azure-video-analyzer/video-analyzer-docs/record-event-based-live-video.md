@@ -7,7 +7,7 @@ ms.date: 04/13/2021
 ---
 # Tutorial: Event-based video recording and playback
 
-In this tutorial, you'll learn how to use Azure Video Analyzer to selectively record portions of a live video source to Azure Video Analyzer in the cloud. This use case is referred to as [event-based video recording](event-based-video-recording-concept.md) (EVR) in this tutorial. To record portions of a live video, you'll use an object detection AI model to look for objects in the video and record video clips only when a certain type of object is detected. You'll also learn about how to play back the recorded video clips by using Video Analyzer. This capability is useful for a variety of scenarios where there's a need to keep an archive of video clips of interest. 
+In this tutorial, you'll learn how to use Azure Video Analyzer to selectively record portions of a live video source to Video Analyzer in the cloud. This use case is referred to as [event-based video recording](event-based-video-recording-concept.md) (EVR) in this tutorial. To record portions of a live video, you'll use an object detection AI model to look for objects in the video and record video clips only when a certain type of object is detected. You'll also learn about how to play back the recorded video clips by using Video Analyzer. This capability is useful for a variety of scenarios where there's a need to keep an archive of video clips of interest. 
 
 In this tutorial, you will:
 
@@ -46,7 +46,7 @@ At the end of these steps, you'll have relevant Azure resources deployed in your
 
 * Azure IoT Hub
 * Azure Storage account
-* Azure Video Analyzer account
+* Video Analyzer account
 * Linux VM in Azure, with the [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge.md) installed
 
 > [!TIP]
@@ -73,7 +73,7 @@ The diagram is a pictorial representation of a [pipeline]() <!--concept-pipeline
 As the diagram shows, you'll use an [RTSP source]() <!--concept-pipeline --> node in the pipeline to capture the simulated live video of traffic on a highway and send that video to two paths:
 
 * The first path is to a HTTP extension node. The node samples the video frames to a value set by you using the `samplingOptions` field and then relays the frames, as images, to the AI module YOLOv3, which is an object detector. The node receives the results, which are the objects (vehicles in traffic) detected by the model. The HTTP extension node then publishes the results via the IoT Hub message sink node to the IoT Edge hub.
-* The objectCounter module is set up to receive messages from the IoT Edge hub, which include the object detection results (vehicles in traffic). The module checks these messages and looks for objects of a certain type, which were configured via a setting. When such an object is found, this module sends a message to the IoT Edge hub. Those "object found" messages are then routed to the IoT Hub source node of the pipeline. Upon receiving such a message, the IoT Hub source node in the pipeline triggers the [signal gate processor](pipeline.md#signal-gate-processor) node. The signal gate processor node then opens for a configured amount of time. Video flows through the gate to the video sink node for that duration. That portion of the live stream is then recorded via the [video sink]() <!--concept-pipeline --> node to an [video](terminology.md#video) in your Azure Video Analyzer account.
+* The objectCounter module is set up to receive messages from the IoT Edge hub, which include the object detection results (vehicles in traffic). The module checks these messages and looks for objects of a certain type, which were configured via a setting. When such an object is found, this module sends a message to the IoT Edge hub. Those "object found" messages are then routed to the IoT Hub source node of the pipeline. Upon receiving such a message, the IoT Hub source node in the pipeline triggers the [signal gate processor](pipeline.md#signal-gate-processor) node. The signal gate processor node then opens for a configured amount of time. Video flows through the gate to the video sink node for that duration. That portion of the live stream is then recorded via the [video sink]() <!--concept-pipeline --> node to an [video](terminology.md#video) in your  Video Analyzer account.
 
 ## Set up your development environment
 
@@ -116,7 +116,7 @@ You'll need the files for these steps:
 
 In Visual Studio Code, open src/edge/deployment.template.json. This template defines which edge modules you'll deploy to the edge device (the Azure Linux VM). There are two entries under the **modules** section with the following names:
 
-* **avaedge**: This is the Azure Video Analyzer on IoT Edge module.
+* **avaedge**: This is the Video Analyzer on IoT Edge module.
 * **rtspsim**: This is the RTSP simulator.
 
 Next, browse to the src/cloud-to-device-console-app folder. Here you'll see the appsettings.json file that you created along with a few other files:
@@ -125,7 +125,7 @@ Next, browse to the src/cloud-to-device-console-app folder. Here you'll see the 
 * **operations.json**: This file lists the different operations that you would run.
 * **Program.cs**: The sample program code, which:
     * Loads the app settings.
-    * Invokes direct methods exposed by the Azure Video Analyzer on IoT Edge module. You can use the module to analyze live video streams by invoking its [direct methods]()<!--direct-methods.md-->.
+    * Invokes direct methods exposed by the Video Analyzer on IoT Edge module. You can use the module to analyze live video streams by invoking its [direct methods]()<!--direct-methods.md-->.
     * Pauses for you to examine the output from the program in the **TERMINAL** window and the events generated by the module in the **OUTPUT** window.
     * Invokes direct methods to clean up resources.
 
@@ -250,7 +250,7 @@ When you use the Video Analyzer on IoT Edge module to record the live video stre
    * A second call to livePipelineList to show that the live pipeline is in the running state 
      
 1. The output in the **TERMINAL** window pauses now at a **Press Enter to continue** prompt. Don't select **Enter** at this time. Scroll up to see the JSON response payloads for the direct methods you invoked.
-1. If you now switch over to the **OUTPUT** window in Visual Studio Code, you'll see messages being sent to IoT Hub by the Azure Video Analyzer on IoT Edge module.
+1. If you now switch over to the **OUTPUT** window in Visual Studio Code, you'll see messages being sent to IoT Hub by the Video Analyzer on IoT Edge module.
 
    These messages are discussed in the following section.
 1. The live pipeline continues to run and record the video. The RTSP simulator keeps looping the source video. To stop recording, go back to the **TERMINAL** window and select **Enter**. The next series of calls are made to clean up resources by using:
@@ -262,9 +262,9 @@ When you use the Video Analyzer on IoT Edge module to record the live video stre
 
 ## Interpret the results 
 
-When you run the live pipeline, the Azure Video Analyzer on IoT Edge module sends certain diagnostic and operational events to the IoT Edge hub. These events are the messages you see in the **OUTPUT** window of Visual Studio Code. They contain a body section and an applicationProperties section. To understand what these sections represent, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
+When you run the live pipeline, the Video Analyzer on IoT Edge module sends certain diagnostic and operational events to the IoT Edge hub. These events are the messages you see in the **OUTPUT** window of Visual Studio Code. They contain a body section and an applicationProperties section. To understand what these sections represent, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
-In the following messages, the application properties and the content of the body are defined by the Azure Video Analyzer module.
+In the following messages, the application properties and the content of the body are defined by the Video Analyzer module.
 
 ## Diagnostics events
 
@@ -336,7 +336,7 @@ Almost immediately after the Object Counter sends the event, you'll see an event
 }
 ```
 
-The subject section in applicationProperties references the video sink node in the live pipeline, which generated this message. The body section contains information about the output location. In this case, it's the name of the Azure Video Analyzer video resource into which video is recorded.
+The subject section in applicationProperties references the video sink node in the live pipeline, which generated this message. The body section contains information about the output location. In this case, it's the name of the Video Analyzer video resource into which video is recorded.
 
 ### RecordingAvailable event
 
@@ -359,7 +359,7 @@ As the name suggests, the RecordingStarted event is sent when recording has star
 }
 ```
 
-This event indicates that enough data was written to the video resource for players or clients to start playback of the video. The subject section in applicationProperties references the video sink node in the live pipeline, which generated this message. The body section contains information about the output location. In this case, it's the name of the Azure Video Analyzer resource into which video is recorded.
+This event indicates that enough data was written to the video resource for players or clients to start playback of the video. The subject section in applicationProperties references the video sink node in the live pipeline, which generated this message. The body section contains information about the output location. In this case, it's the name of the Video Analyzer resource into which video is recorded.
 
 ### RecordingStopped event
 
@@ -382,7 +382,7 @@ When you deactivate the live pipeline, the video sink node stops recording media
 }
 ```
 
-This event indicates that recording has stopped. The subject section in applicationProperties references the video sink node in the live pipeline, which generated this message. The body section contains information about the output location. In this case, it's the name of the Azure Video Analyzer resource into which video is recorded.
+This event indicates that recording has stopped. The subject section in applicationProperties references the video sink node in the live pipeline, which generated this message. The body section contains information about the output location. In this case, it's the name of the Video Analyzer resource into which video is recorded.
 
 ## Video Analyzer video resource
 
