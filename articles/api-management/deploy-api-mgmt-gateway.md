@@ -5,7 +5,7 @@ author: v-hhunter
 ms.author: v-hhunter
 ms.service: api-management
 ms.topic: article 
-ms.date: 04/30/2021
+ms.date: 05/03/2021
 ---
 
 # Deploy an Azure API Management gateway on Azure Arc
@@ -18,9 +18,6 @@ With the integration between Azure API Management and Azure Arc on Kubernetes, y
 * [Create an Azure API Management instance](./get-started-create-service-instance.md).
 * [Provision a gateway resource in your Azure API Management instance](./api-management-howto-provision-self-hosted-gateway.md).
 
-> [!NOTE]
-> To deploy the API management gateway extension while taking advantage of Lima features, [create a custom location](../azure-arc/kubernetes/custom-locations.md) on your connected cluster before deploying.
-
 ## Deploy the API management gateway extension
 1. In the Azure portal, navigate to your API Management instance.
 1. Select **Gateways** from the side navigation menu.
@@ -28,6 +25,8 @@ With the integration between Azure API Management and Azure Arc on Kubernetes, y
 1. In your provisioned gateway resource, click **Deployment** from the side navigation menu.
 1. Make note of the **Token** and **Configuration URL** values for the next step.
 1. In Azure CLI, deploy the gateway extension using the following command. Fill in the `token` and `configuration URL` values.
+    * The following example uses the `service.Type='NodePort'` extension configuration. See more [available extension configurations](#available-extension-configurations).
+
     ```azurecli
     az k8s-extension create --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <rg-name> --name <extension-name> --extension-type Microsoft.ApiManagement.Gateway --scope cluster --release-namespace {namespace} --configuration-settings gateway.endpoint='{Configuration URL}' --configuration-settings gateway.authKey='{token}' --configuration-settings service.type='NodePort' --release-train preview
     ```
@@ -39,6 +38,27 @@ With the integration between Azure API Management and Azure Arc on Kubernetes, y
     * Are successfully communicating with the API Management service.
     * Have a regular "heartbeat".
 
+## Available extension configurations
+
+### Required extension configurations
+
+| Setting | Description |
+| ------- | ----------- | 
+| `gateway.endpoint` | The gateway endpoint's Configuration URL. |
+| `gateway.authKey` | Token for access to the gateway. | 
+| `service.Type` | Kubernetes service configuration for the gateway: `LoadBalancer`, `NodePort`, or `ClusterIP`. Example above uses `NodePort`. |
+
+### Optional extension configurations
+
+| Setting | Description |
+| ------- | ----------- | 
+| `gateway.httpPort` |  |
+| `gateway.httpsPort` |  | 
+| `monitoring.ingestionKey` |  |
+| `monitoring.workspaceId` |  |
+| `telemetry.workspace.local` |  | 
+| `telemetry.workspace.cloud` |  |
+
 ## Next Steps
-* To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md)
-* Learn more about [Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md)
+* To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md).
+* Learn more about [Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md).
