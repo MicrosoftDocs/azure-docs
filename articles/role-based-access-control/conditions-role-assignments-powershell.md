@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/01/2021
+ms.date: 05/03/2021
 ms.author: rolyon
 ---
 
@@ -32,23 +32,24 @@ To add a role assignment condition, use [New-AzRoleAssignment](/powershell/modul
 | `Condition` | String | Condition under which the user can be granted permission. |
 | `ConditionVersion` | String | Version of the condition syntax. Must be set to 2.0. If `Condition` is specified, `ConditionVersion` must also be specified. |
 
-The following example shows how to assign the [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader) role with a condition. The condition checks whether container name equals 'blobs-example-container'. You can start by initializing variables.
+The following example shows how to initialize the variables to assign the [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader) role with a condition. The condition checks whether container name equals 'blobs-example-container'.
 
 ```azurepowershell
 $subscriptionId = "<subscriptionId>"
 $resourceGroup = "<resourceGroup>"
+$roleDefinitionName = "Storage Blob Data Reader"
 $roleDefinitionId = "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1"
-$principalId = "<principalId>"
+$userObjectId = "<userObjectId>"
 $scope = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroup"
 $description = "Read access if container name equals blobs-example-container"
 $condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container'))"
 $conditionVersion = "2.0"
 ```
 
-The following shows how to call [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
+Use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) to assign the role with a condition.
 
 ```azurepowershell
-New-AzRoleAssignment -ObjectId $principalId -Scope $scope -RoleDefinitionId $roleDefinitionId -Description $description -Condition $condition -ConditionVersion $conditionVersion
+New-AzRoleAssignment -ObjectId $userObjectId -Scope $scope -RoleDefinitionId $roleDefinitionId -Description $description -Condition $condition -ConditionVersion $conditionVersion
 ```
 
 Here's an example of the output:
@@ -60,7 +61,7 @@ DisplayName        : User1
 SignInName         : user1@contoso.com
 RoleDefinitionName : Storage Blob Data Reader
 RoleDefinitionId   : 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1
-ObjectId           : <principalId>
+ObjectId           : <userObjectId>
 ObjectType         : User
 CanDelegate        : False
 Description        : Read access if container name equals blobs-example-container
@@ -76,12 +77,62 @@ $condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/
 
 ## Edit a condition
 
-To edit an existing role assignment condition, use [Set-AzRoleAssignment](/powershell/module/az.resources/set-azroleassignment) and a JSON file as input. The following shows an example JSON file where `Condition` and `Description` are updated. Only the `Condition`, `ConditionVersion`, and `Description` properties can be edited. You must specify all the properties in the JSON file to properly update the role assignment condition.
+To edit an existing role assignment condition, use [Set-AzRoleAssignment](/powershell/module/az.resources/set-azroleassignment). Only the `Condition`, `ConditionVersion`, and `Description` properties can be edited. The `-PassThru` parameter causes [Set-AzRoleAssignment](/powershell/module/az.resources/set-azroleassignment) to return the updated role assignment, which allows visualization or storage in a variable for further use.
+
+There are two ways to edit a condition. You can use the `PSRoleAssignment` object or a JSON file.
+
+### Edit a condition using the PSRoleAssignment object
+
+1. Use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) to get the existing role assignment with a condition as a `PSRoleAssignment` object.
+
+    ```azurepowershell
+    $testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectId
+    ```
+
+1. Edit the condition.
+
+    ```azurepowershell
+    $condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container' OR @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container2'))"
+    ```
+
+1. Initialize the condition and description.
+
+    ```azurepowershell
+    $testRa.Condition = $condition
+    $testRa.Description = "Read access if container name equals blobs-example-container or blobs-example-container2"
+    ```
+
+1. Use [Set-AzRoleAssignment](/powershell/module/az.resources/set-azroleassignment) to update the condition for the role assignment.
+
+    ```azurepowershell
+    Set-AzRoleAssignment -InputObject $testRa -PassThru
+    ```
+
+    Here's an example of the output:
+
+    ```azurepowershell
+    RoleAssignmentId   : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentId>
+    Scope              : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>
+    DisplayName        : User1
+    SignInName         : user1@contoso.com
+    RoleDefinitionName : Storage Blob Data Reader
+    RoleDefinitionId   : 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1
+    ObjectId           : <userObjectId>
+    ObjectType         : User
+    CanDelegate        : False
+    Description        : Read access if container name equals blobs-example-container or blobs-example-container2
+    ConditionVersion   : 2.0
+    Condition          : ((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container' OR @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container2'))
+    ```
+
+### Edit a condition using a JSON file
+
+To edit a condition, you can also provide a JSON file as input. The following shows an example JSON file where `Condition` and `Description` are updated. You must specify all the properties in the JSON file to update a condition.
 
 ```json
 {
     "RoleDefinitionId": "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
-    "ObjectId": "<principalId>",
+    "ObjectId": "<userObjectId>",
     "ObjectType": "User",
     "Scope": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>",
     "Condition": "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container' OR @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container2'))",
@@ -92,7 +143,7 @@ To edit an existing role assignment condition, use [Set-AzRoleAssignment](/power
 }
 ```
 
-The following shows how to call [Set-AzRoleAssignment](/powershell/module/az.resources/set-azroleassignment). The `-PassThru` parameter causes the [Set-AzRoleAssignment](/powershell/module/az.resources/set-azroleassignment) command to return the updated role assignment, which allows visualization or storage in a variable for further use.
+Use [Set-AzRoleAssignment](/powershell/module/az.resources/set-azroleassignment) to update the condition for the role assignment.
 
 ```azurepowershell
 Set-AzRoleAssignment -InputFile "C:\path\roleassignment.json" -PassThru
@@ -107,7 +158,7 @@ DisplayName        : User1
 SignInName         : user1@contoso.com
 RoleDefinitionName : Storage Blob Data Reader
 RoleDefinitionId   : 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1
-ObjectId           : <principalId>
+ObjectId           : <userObjectId>
 ObjectType         : User
 CanDelegate        : False
 Description        : Read access if container name equals blobs-example-container or blobs-example-container2
@@ -121,7 +172,7 @@ To list a role assignment condition, use [Get-AzRoleAssignment](/powershell/modu
 
 ## Delete a condition
 
-To delete a role assignment condition, edit the role assignment condition and set both the Condition and ConditionVersion to either an empty string or null.
+To delete a role assignment condition, edit the role assignment condition and set both the `Condition` and `ConditionVersion` properties to either an empty string or null.
 
 Alternatively, if you want to delete both the role assignment and the condition, you can use the [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) command. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
 

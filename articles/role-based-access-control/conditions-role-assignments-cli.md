@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/20/2021
+ms.date: 05/03/2021
 ms.author: rolyon
 ---
 
@@ -51,7 +51,7 @@ The following shows an example of the output:
     "description": "Read access if container name equals blobs-example-container",
     "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}",
     "name": "{roleAssignmentId}",
-    "principalId": "{principalId}",
+    "principalId": "{userObjectId}",
     "principalType": "User",
     "resourceGroup": "{resourceGroup}",
     "roleDefinitionId": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
@@ -62,7 +62,7 @@ The following shows an example of the output:
 
 ## Edit a condition
 
-To edit an existing role assignment condition, use [az role assignment update](/cli/azure/role/assignment#az_role_assignment_update) and a JSON file as input. The following shows an example JSON file where condition and description are updated. Only the `condition`, `conditionVersion`, and `description` properties can be edited. You must specify all the properties to properly update the role assignment condition.
+To edit an existing role assignment condition, use [az role assignment update](/cli/azure/role/assignment#az_role_assignment_update) and a JSON file as input. The following shows an example JSON file where condition and description are updated. Only the `condition`, `conditionVersion`, and `description` properties can be edited. You must specify all the properties to update the role assignment condition.
 
 ```json
 {
@@ -72,7 +72,7 @@ To edit an existing role assignment condition, use [az role assignment update](/
     "description": "Read access if container name equals blobs-example-container or blobs-example-container2",
     "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}",
     "name": "{roleAssignmentId}",
-    "principalId": "{principalId}",
+    "principalId": "{userObjectId}",
     "principalType": "User",
     "resourceGroup": "{resourceGroup}",
     "roleDefinitionId": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
@@ -81,7 +81,7 @@ To edit an existing role assignment condition, use [az role assignment update](/
 }
 ```
 
-The following shows how to call [az role assignment update](/cli/azure/role/assignment#az_role_assignment_update).
+Use [az role assignment update](/cli/azure/role/assignment#az_role_assignment_update) to update the condition for the role assignment.
 
 ```azurecli
 az role assignment update --role-assignment "./path/roleassignment.json"
@@ -97,7 +97,7 @@ The following shows an example of the output:
     "description": "Read access if container name equals blobs-example-container or blobs-example-container2",
     "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}",
     "name": "{roleAssignmentId}",
-    "principalId": "{principalId}",
+    "principalId": "{userObjectId}",
     "principalType": "User",
     "resourceGroup": "{resourceGroup}",
     "roleDefinitionId": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
@@ -112,7 +112,7 @@ To list a role assignment condition, use [az role assignment list](/cli/azure/ro
 
 ## Delete a condition
 
-To delete a role assignment condition, edit the role assignment condition and set both the condition and condition version to either an empty string or null.
+To delete a role assignment condition, edit the role assignment condition and set both the `condition` and `conditionVersion` properties to either an empty string or null.
 
 Alternatively, if you want to delete both the role assignment and the condition, you can use the [az role assignment delete](/cli/azure/role/assignment#az_role_assignment_delete) command. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
 
