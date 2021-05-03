@@ -51,7 +51,7 @@ landingContent:
             url: release-notes.md
 
   # Card
-  - title: Use Service Fabric managed clusters
+  - title: Deploy a Service Fabric managed cluster
     linkLists:
       - linkListType: get-started
         links:
