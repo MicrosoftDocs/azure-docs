@@ -85,7 +85,7 @@ When you add an Event Hubs trigger or action for the first time, you're prompted
 
 <a name="add-trigger"></a>
 
-## Add an Event Hubs trigger
+## Add Event Hubs trigger
 
 In Azure Logic Apps, every workflow must start with a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), which fires when a specific condition is met. Each time the trigger fires, the Logic Apps service creates a workflow instance and starts running the steps in the workflow.
 
@@ -149,7 +149,7 @@ The trigger doesn't use this checkpoint capability in storage, resulting in no e
 
 <a name="add-action"></a>
 
-## Add an Event Hubs action
+## Add Event Hubs action
 
 In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) follows the trigger or another action and performs some operation in your workflow. The following steps describe the general way to add an action, for example, **Send event**. For this example, the workflow starts with an Event Hubs trigger that checks for new events in your event hub.
 
