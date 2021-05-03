@@ -250,7 +250,7 @@ Adaptive application control in Azure Security Center is an intelligent, automat
 application allowlist solution that can block or prevent specific software from running on your
 virtual machines. Application control helps you create approved application lists for your virtual
 machines. This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that
-helps you monitor virtual machines where an application wallowlist is recommended but has not yet
+helps you monitor virtual machines where an application allowlist is recommended but has not yet
 been configured.
 
 - Adaptive application controls for defining safe applications should be enabled on your machines
