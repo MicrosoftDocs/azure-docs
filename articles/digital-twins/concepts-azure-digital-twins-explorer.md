@@ -17,7 +17,10 @@ ms.service: digital-twins
 
 # Azure Digital Twins Explorer (preview)
 
-**Azure Digital Twins Explorer** is a developer tool for visualizing and interacting with the data in your Azure Digital Twins instance, including your [models](concepts-models.md) and [twin graph](concepts-twins-graph.md). This tool is currently in **public preview**.
+**Azure Digital Twins Explorer** is a developer tool for visualizing and interacting with the data in your Azure Digital Twins instance, including your [models](concepts-models.md) and [twin graph](concepts-twins-graph.md). 
+
+>[!NOTE]
+>This tool is currently in **public preview**.
 
 Here is a view of the explorer window, showing models and twins that have been populated for a sample graph:
 
@@ -29,20 +32,23 @@ This article contains more information about the Azure Digital Twins Explorer, i
 
 ## When to use
 
-Azure Digital Twins Explorer is a visual, UI-based tool, designed for the experience of a manual user who wants to explore and perhaps make specific edits to their models and graphs.
+Azure Digital Twins Explorer is a visual tool designed for users who want to explore their twin graph, and modify twins and relationships in the context of their graph.
 
-It is recommended for the following stages of development:
-* **Exploration**: Use the explorer to learn about Azure Digital Twins and the way it represents data from your real-world environment. Import sample models and graphs to quickly get familiar with the features of Azure Digital Twins and try out editing capabilities to explore the experience of using the service. For a guided walkthrough of early exploration using Azure Digital Twins Explorer, see [Quickstart: Get started with Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md).
-* **Development**: Use the explorer to view and validate your twin graph, as well as investigate specific properties of models, twins, and relationships. Make ad hoc modifications to your graph and its data.
+Developers may find this tool especially useful in the following scenarios:
+* **Exploration**: Use the explorer to learn about Azure Digital Twins and the way it represents your real-world environment. Import sample models and graphs that you can view and edit to familiarize yourself with the service. For guided steps to get started using Azure Digital Twins Explorer, see [Quickstart: Get started with Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md).
+* **Development**: Use the explorer to view and validate your twin graph, as well as investigate specific properties of models, twins, and relationships. Make ad hoc modifications to your graph and its data. For detailed instructions on how to use each feature, see [How-to: Use Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md). 
 
-The explorer's main purpose is to help you visualize and understand your graph, and be able to make changes while you do so. For large-scale solutions and for work that should be repeated or automated, consider using the [APIs and SDKs](how-to-use-apis-sdks.md) to interact with your instance through code instead.
+The explorer's main purpose is to help you visualize and understand your graph, and update your graph as needed. For large-scale solutions and for work that should be repeated or automated, consider using the [APIs and SDKs](how-to-use-apis-sdks.md) to interact with your instance through code instead.
 
 ## How to access
 
-Azure Digital Twins Explorer can be accessed from the [Azure portal](https://portal.azure.com)...
-<Add more detail about how to access it in the portal/>
+The best way to access Azure Digital Twins Explorer is through the [Azure portal](https://portal.azure.com).
 
-It can also be accessed directly at this URL:
+To view the data of an Azure Digital Twins instance in Azure Digital Twins Explorer, first navigate to the instance in the portal, by searching for its name in the portal search bar.
+
+Next, select the **Go to Explorer (Preview)** button to load the instance's data in an Azure Digital Twins Explorer window.
+
+:::image type="content" source="media/concepts-azure-digital-twins-explorer/portal-access.png" alt-text="Screenshot of the Azure portal showing the Overview page for an Azure Digital Twins instance. There's a highlight around the Go to Explorer (Preview) button." lightbox="media/concepts-azure-digital-twins-explorer/portal-access.png":::
 
 ## Features and capabilities
 
@@ -70,15 +76,15 @@ To view instructions for contributing to this documentation, visit the [Microsof
 
 ## Other considerations
 
-### Pricing
-
-Azure Digital Twins Explorer is a free tool for interacting with the Azure Digital Twins service. While the tool itself is free, costs may be incurred during use when requests are sent to the Azure Digital Twins service, which follows these pricing guidelines: [Azure Digital Twins pricing](https://azure.microsoft.com/pricing/details/digital-twins/).
-
 ### Region support
 
 Azure Digital Twins Explorer is available for use with all instances of Azure Digital Twins in all [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 
 During public preview, however, data may be sent for processing through different regions than the region where the instance is hosted. To avoid this in situations where data sovereignty is a concern, you can download the [open source code](#how-to-contribute) to create a locally-hosted version of the explorer on your own machine.
+
+### Billing
+
+Azure Digital Twins Explorer is a free tool for interacting with the Azure Digital Twins service. While the tool itself is free, costs may be incurred during use when requests are sent to the Azure Digital Twins service, which follows these pricing guidelines: [Azure Digital Twins pricing](https://azure.microsoft.com/pricing/details/digital-twins/).
 
 ## Next steps 
 

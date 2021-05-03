@@ -37,13 +37,12 @@ The sample graph you'll be working with represents a building with two floors an
 
 You'll need an Azure subscription to complete this quickstart. If you don't have one already, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
-You'll also need **Node.js** on your machine. To get the latest version, see [Node.js](https://nodejs.org/).
+You'll also need to download the materials for the sample graph used in the quickstart. Use the links and instructions below to download the three required files from the [digital-twins-explorer GitHub repository](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
+* [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Room.json): Navigate to the link, right-click anywhere on the screen, and select **Save as** in your browser's right-click menu. Use the following Save As window to save the file somewhere on your machine with the name **Room.json**.
+* [Floor.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Floor.json: Navigate to the link, right-click anywhere on the screen, and select **Save as** in your browser's right-click menu. Use the following Save As window to save the file to the same location as **Room.json**, under the name **Floor.json**.
+* [buildingScenario.xlsx](https://github.com/Azure-Samples/digital-twins-explorer/blob/main/client/examples/buildingScenario.xlsx): Navigate to the link and select the **Download** button. This will download the file to your default download location.
 
-Finally, you'll need to download the materials for the sample graph used in the quickstart. The sample is located here: [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Select the **Browse code** button underneath the title, which will take you to the GitHub repo for the sample. Select the **Code** button and **Download ZIP** to download the sample as a *.ZIP* file. 
-
-:::image type="content" source="media/quickstart-azure-digital-twins-explorer/download-repo-zip.png" alt-text="Screenshot of the digital-twins-explorer repo on GitHub. The Code button is selected, producing a small dialog box where the Download ZIP button is highlighted." lightbox="media/quickstart-azure-digital-twins-explorer/download-repo-zip.png":::
-
-Unzip the **digital-twins-explorer-main.zip** folder, and extract the files. You'll use some of these files later to upload a sample graph to Azure Digital Twins Explorer.
+    :::image type="content" source="download-building-scenario.png" alt-text="Screenshot of the digital-twins-explorer repo on GitHub. The Code button is selected, producing a small dialog box where the Download ZIP button is highlighted." lightbox="media/quickstart-azure-digital-twins-explorer/download-building-scenario.png":::
 
 ## Set up Azure Digital Twins and Azure Digital Twins Explorer
 
@@ -90,8 +89,8 @@ Follow these steps to upload models.
 
    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/upload-model.png" alt-text="In the MODELS panel, an icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/quickstart-azure-digital-twins-explorer/upload-model.png":::
  
-1. In the Open window that appears, navigate to the **digital-twins-explorer-main/client/examples** folder that you downloaded earlier.
-1. Select **Room.json** and **Floor.json**, and select **Open**. You can upload additional models if you want, but they won't be used in this quickstart.
+1. In the Open window that appears, navigate to the folder containing the **Room.json** and **Floor.json** files that you downloaded earlier.
+1. Select **Room.json** and **Floor.json**, and select **Open** to upload them both. 
 
 Azure Digital Twins Explorer will upload these model files to your Azure Digital Twins instance. They should show up in the **MODELS** panel and display their friendly names and full model IDs. You can select the **View Model** information icons to see the DTDL code behind them.
 
@@ -126,7 +125,7 @@ Follow these steps to import the graph.
 
    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/import-graph.png" alt-text="In the TWIN GRAPH panel, an icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/quickstart-azure-digital-twins-explorer/import-graph.png":::
 
-2. In the Open window, navigate to the **digital-twins-explorer-main/client/examples** folder, and select the **buildingScenario.xlsx** spreadsheet file. This file contains a description of the sample graph. Select **Open**.
+2. In the Open window, navigate to the **buildingScenario.xlsx** file you downloaded earlier. This file contains a description of the sample graph. Select **Open**.
 
    After a few seconds, Azure Digital Twins Explorer opens an **IMPORT** view that shows a preview of the graph to be loaded.
 

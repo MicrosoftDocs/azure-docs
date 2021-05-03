@@ -15,9 +15,12 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Use Azure Digital Twins Explorer
+# Use Azure Digital Twins Explorer (preview)
 
 [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) is a tool for visualizing and working with Azure Digital Twins. This article describes the features of Azure Digital Twins Explorer, and how to use them to manage the data in your Azure Digital Twins instance. 
+
+>[!NOTE]
+>This tool is currently in **public preview**.
 
 ## Set up
 

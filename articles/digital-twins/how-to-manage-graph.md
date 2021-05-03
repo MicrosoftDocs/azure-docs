@@ -31,6 +31,9 @@ This article focuses on managing relationships and the graph as a whole; to work
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
+:::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Screenshot of Azure Digital Twins Explorer showing sample models and twins." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
+
+
 ## Create relationships
 
 Relationships describe how different digital twins are connected to each other, which forms the basis of the twin graph.
