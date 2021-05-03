@@ -15,6 +15,8 @@ ms.custom: devx-track-csharp
 
 # Recommendations and guidelines for keyword recognition
 
+This article outlines how to choose your keyword optimize its accuracy characteristics and how to design your user experiences with Keyword Verification. 
+
 ## Choosing an effective keyword
 
 Creating an effective keyword is vital to ensuring your product will consistently and accurately respond. Consider the following guidelines when you choose a keyword. *Note: though the examples below are in English, the guidelines apply to all languages supported by Custom Keyword.*

@@ -17,16 +17,16 @@ ms.custom: devx-track-csharp
 
 Keyword Verification is a cloud service that reduces the impact of false accepts from on-device models with robust models running on Azure. There is no tuning or training required for Keyword Verification to work with your keyword. Incremental model updates are continually deployed to the service to improve accuracy and latency, completely transparent to client applications.
 
-## Keyword Verification and Speech-to-Text
+## Keyword Verification and Speech-to-text
 
-When Keyword Verification is used, it is always in combination with Speech-to-Text where both services are executed in parallel. This means that audio is sent to both services for simultaneous processing.
+When Keyword Verification is used, it is always in combination with Speech-to-text. Both services run in parallel. This means that audio is sent to both services for simultaneous processing.
 
-![Parallel processing of Keyword Verification and Speech-to-Text.](media/custom-keyword/keyword-verification-parallel-processing.png)
+![Parallel processing of Keyword Verification and Speech-to-text.](media/custom-keyword/keyword-verification-parallel-processing.png)
 
-Executing Keyword Verification and Speech-to-Text in parallel yields the following benefits:
-1. **No net latency on Speech-to-Text results** – Parallel execution means there is no latency added to the client receiving Speech-to-Text results from the addition of Keyword Verification. To protect against unnecessary Speech-to-Text processing, there is also orchestration to ensure that if Keyword Verification determines the keyword was not present in the audio, Speech-to-Text processing is terminated. However, the user-perceived latency of voice activation will be impacted as there is additional latency from network and cloud model processing and this should be considered in the user experience design (read more on [Recommendations and guidelines](keyword-recognition-guidelines.md)).
-2. **Forced keyword prefix in Speech-to-Text results** – Speech-to-Text processing will ensure that the results sent to the client are prefixed with the keyword. This allows for increased accuracy in the Speech-to-Text results for speech that follows the keyword.
-3. **Increased Speech-to-Text timeout** – Due to the expected presence of the keyword at the beginning of audio, Speech-to-Text will allow for a longer pause of up to 5 seconds after the keyword, before determining end of speech and terminating Speech-to-Text processing. This ensures the end-user experience for both staged commands (*\<keyword> \<pause> \<command>*) and chained commands (*\<keyword> \<command>*) is correctly handled. 
+Running Keyword Verification and Speech-to-text in parallel yields the following benefits:
+1. **No additional latency on Speech-to-text results** – Parallel execution means Keyword Verification adds no latency, and the client receives Speech-to-text results just as quickly. If Keyword Verification determines the keyword was not present in the audio, Speech-to-text processing is terminated, which protects against unnecessary Speech-to-text processing. However, network and cloud model processing increases the user-perceived latency of voice activation. For details, see [Recommendations and guidelines](keyword-recognition-guidelines.md)).
+2. **Forced keyword prefix in Speech-to-text results** – Speech-to-text processing will ensure that the results sent to the client are prefixed with the keyword. This allows for increased accuracy in the Speech-to-text results for speech that follows the keyword.
+3. **Increased Speech-to-text timeout** – Due to the expected presence of the keyword at the beginning of audio, Speech-to-text will allow for a longer pause of up to 5 seconds after the keyword, before determining end of speech and terminating Speech-to-text processing. This ensures the end-user experience is correctly handled for both staged commands (*\<keyword> \<pause> \<command>*) and chained commands (*\<keyword> \<command>*). 
 
 ## Keyword Verification responses and latency considerations
 
@@ -41,7 +41,7 @@ Rejected cases often yield higher latencies as the service processes more audio 
 
 ## Using Keyword Verification with on-device models from Custom Keyword
 
-The Speech SDK facilitates seamless use of on-device models generated using Custom Keyword with Keyword Verification and Speech-to-Text. It transparently handles:
+The Speech SDK facilitates seamless use of on-device models generated using Custom Keyword with Keyword Verification and Speech-to-text. It transparently handles:
 1. Audio gating to Keyword Verification & Speech recognition based on the outcome of on-device model.
 2. Communicating the keyword to the Keyword Verification service.
 3. Communicating any additional metadata to the cloud for orchestrating the end-to-end scenario. 
@@ -55,7 +55,7 @@ The sample and tutorials linked below show how to use the Speech SDK:
 
 ## Pricing
 
-Keyword Verification is always used in combination with Speech-to-text, and there is no cost to using Keyword Verification beyond the cost of Speech-to-Text. 
+Keyword Verification is always used in combination with Speech-to-text, and there is no cost to using Keyword Verification beyond the cost of Speech-to-text. 
 
 ## Next steps
 

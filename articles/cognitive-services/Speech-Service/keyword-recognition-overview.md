@@ -17,11 +17,11 @@ ms.custom: devx-track-csharp
 
 Keyword recognition refers to speech technology that recognizes the existence of a word or short phrase within a given stream of audio. It is often synonymously referred to as keyword spotting (KWS). The most common use case of keyword recognition is voice activation of virtual assistants. For example, "Hey Cortana" is the keyword for the Cortana assistant. Upon recognition of the keyword, a scenario-specific action is carried out. For virtual assistant scenarios, a common resulting action is speech recognition of audio that follows the keyword.
 
-As virtual assistants are ambient in nature and always-listening, keyword recognition acts as a privacy boundary for the end-user. It is a gate for sensitive audio data leaving the edge by crossing the edge-cloud boundary for additional processing.
+Generally, virtual assistants are always listening. Keyword recognition acts as a privacy boundary for the user. A keyword requirement acts as a gate that prevents unrelated user audio from crossing the local device to the cloud.
 
 To balance accuracy, latency, and computational complexity, keyword recognition is implemented as a multi-stage system. For all stages beyond the first, audio is only processed if the stage prior to it believed to have recognized the keyword of interest.
 
-The current state-of-the-art system is designed with multiple stages spanning across the edge and cloud:
+The current system is designed with multiple stages spanning across the edge and cloud:
 
 ![Multiple stages of keyword recognition across edge and cloud.](media/custom-keyword/keyword-recognition-multi-stage.png)
 
