@@ -3,7 +3,6 @@ title: Azure Video Analyzer SDKs & Resources
 description: Learn all about the Azure Video Analyzer client SDKs
 author: bennage
 ms.author: christb
-ms.service: video-analyzer
 ms.topic: reference
 ms.date: 05/02/2021
 
