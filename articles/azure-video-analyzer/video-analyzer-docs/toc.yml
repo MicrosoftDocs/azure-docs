@@ -20,8 +20,8 @@
     href: detect-motion-record-video-clips-cloud.md #404
   - name: Detect motion, record video on edge devices
     href: detect-motion-record-video-edge-devices.md
-  - name: Create pipeline topology using VS Code extension
-    href: create-topology-vs-code-extension.md #404
+  - name: Azure Video Analyzer Visual Studio Code extension
+    href: create-pipeline-vs-code-extension.md
   - name: Analyze live video
     items:
     - name: with your own gRPC model
