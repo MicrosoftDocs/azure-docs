@@ -34,7 +34,7 @@ Management operations include upload, validation, retrieval, and deletion of mod
 
 ## Create models
 
-Models for Azure Digital Twins are written in DTDL, and saved as *.json* files. There is also a [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/), which provides syntax validation and other features to facilitate writing DTDL documents.
+Models for Azure Digital Twins are written in DTDL, and saved as .json files. There is also a [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/), which provides syntax validation and other features to facilitate writing DTDL documents.
 
 Consider an example in which a hospital wants to digitally represent their rooms. Each room contains a smart soap dispenser for monitoring hand-washing, and sensors to monitor traffic through the room.
 
@@ -98,7 +98,7 @@ Instead, if you want to make changes to a model—such as updating `displayName`
 
 ### Model versioning
 
-To create a new version of an existing model, start with the DTDL of the original model. Update, add, or remove the fields you would like to change.
+To create a new version of an existing model, start with the DTDL of the original model. Update, add, or remove the fields you want to change.
 
 Next, mark this as a newer version of the model by updating the `id` field of the model. The last section of the model ID, after the `;`, represents the model number. To indicate that this is now a more-updated version of this model, increment the number at the end of the `id` value to any number greater than the current version number.
 

@@ -37,12 +37,12 @@ The sample graph you'll be working with represents a building with two floors an
 
 You'll need an Azure subscription to complete this quickstart. If you don't have one already, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
-You'll also need to download the materials for the sample graph used in the quickstart. Use the links and instructions below to download the three required files from the [digital-twins-explorer GitHub repository](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
+You'll also need to download the materials for the sample graph used in the quickstart. Use the links and instructions below to download the three required files from the [digital-twins-explorer GitHub repository](https://github.com/Azure-Samples/digital-twins-explorer).
 * [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Room.json): Navigate to the link, right-click anywhere on the screen, and select **Save as** in your browser's right-click menu. Use the following Save As window to save the file somewhere on your machine with the name **Room.json**.
-* [Floor.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Floor.json: Navigate to the link, right-click anywhere on the screen, and select **Save as** in your browser's right-click menu. Use the following Save As window to save the file to the same location as **Room.json**, under the name **Floor.json**.
+* [Floor.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Floor.json): Navigate to the link, right-click anywhere on the screen, and select **Save as** in your browser's right-click menu. Use the following Save As window to save the file to the same location as **Room.json**, under the name **Floor.json**.
 * [buildingScenario.xlsx](https://github.com/Azure-Samples/digital-twins-explorer/blob/main/client/examples/buildingScenario.xlsx): Navigate to the link and select the **Download** button. This will download the file to your default download location.
 
-    :::image type="content" source="download-building-scenario.png" alt-text="Screenshot of the digital-twins-explorer repo on GitHub. The Code button is selected, producing a small dialog box where the Download ZIP button is highlighted." lightbox="media/quickstart-azure-digital-twins-explorer/download-building-scenario.png":::
+    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/download-building-scenario.png" alt-text="Screenshot of the digital-twins-explorer/client/examples/buildingScenario.xlsx file in GitHub. The Download button is highlighted." lightbox="media/quickstart-azure-digital-twins-explorer/download-building-scenario.png":::
 
 ## Set up Azure Digital Twins and Azure Digital Twins Explorer
 
@@ -264,7 +264,7 @@ In this quickstart, you made the temperature update manually. It's common in Azu
 
 ## Clean up resources
 
-To clean up after this quickstart, choose which resources you'd like to remove based on what you'd like to do next.
+To clean up after this quickstart, choose which resources you want to remove based on what you want to do next.
 
 * **If you plan to continue to the Azure Digital Twins tutorials**, you can reuse the instance in this quickstart for those articles, and you don't need to remove it.
 

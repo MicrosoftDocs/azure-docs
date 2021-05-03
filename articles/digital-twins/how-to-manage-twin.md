@@ -154,7 +154,7 @@ To update properties of a digital twin, you write the information you want to re
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="UpdateTwinCall":::
 
-A patch call can update as many properties on a single twin as you'd like (even all of them). If you need to update properties across multiple twins, you'll need a separate update call for each twin.
+A patch call can update as many properties on a single twin as you want (even all of them). If you need to update properties across multiple twins, you'll need a separate update call for each twin.
 
 > [!TIP]
 > After creating or updating a twin, there may be a latency of up to 10 seconds before the changes will be reflected in [queries](how-to-query-graph.md). The `GetDigitalTwin` API (described [earlier in this article](#get-data-for-a-digital-twin)) does not experience this delay, so use the API call instead of querying to see your newly-updated twins if you need an instant response. 
@@ -229,7 +229,7 @@ The snippet uses the [Room.json](https://github.com/Azure-Samples/digital-twins-
 
 Before you run the sample, do the following:
 1. Download the model file, place it in your project, and replace the `<path-to>` placeholder in the code below to tell your program where to find it.
-2. Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's hostname.
+2. Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's host name.
 3. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client), the second provides tools to help with authentication against Azure.
 
       ```cmd/sh
