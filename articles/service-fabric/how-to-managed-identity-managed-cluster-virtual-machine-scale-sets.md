@@ -91,6 +91,8 @@ This role assignment can be defined in the resources section template using the 
     } 
 }, 
 ```
+> [!NOTE]
+> vmIdentityRoleNameGuid should be a valid GUID. If you deploy again the same template including this role assignment, make sure the GUID is the same as the one originally used or remove this resource as it just needs to be created once.
 
 or created via PowerShell using the principal Id and role definition name:
 
