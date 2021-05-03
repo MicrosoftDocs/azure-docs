@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure Event Hubs
-description: Monitor and manage events by connecting to event hubs from workflows using Azure Logic Apps.
+description: Connect to your event hub, and add a trigger or an action to your workflow in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
@@ -13,10 +13,7 @@ tags: connectors
 
 The Azure Event Hubs connector helps you connect your logic app workflows to event hubs in Azure. You can then have your workflows monitor and manage events that are sent to an event hub. For example, your workflow can check, send, and receive events from your event hub. This article provides a get started guide to using the Azure Event Hubs connector by showing how to connect to an event hub and add an Event Hubs trigger or action to your workflow.
 
-For more information, review the following documentation:
-
-* [Azure Event Hubs](../event-hubs/event-hubs-about.md)
-* [Azure Logic Apps](../logic-apps/logic-apps-overview.md)
+For more information about Azure Event Hubs or Azure Logic Apps, review [What is Azure Event Hubs](../event-hubs/event-hubs-about.md) or [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
 ## Available operations
 
