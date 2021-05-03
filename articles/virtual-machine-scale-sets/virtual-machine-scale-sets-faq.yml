@@ -211,7 +211,7 @@ sections:
           }
           ```
           
-          This JSON block is used in [this Azure quickstart template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
+          This JSON block is used in [this Azure quickstart template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-sshkey/azuredeploy.json).
           
           For more information, see [Create or update a virtual machine scale set](/rest/api/compute/virtualmachinescalesets/createorupdate#linuxconfiguration).
           
@@ -248,7 +248,7 @@ sections:
           path | Yes | String | Specifies the Linux file path where the SSH keys or certificate should be located
           keyData | Yes | String | Specifies a base64-encoded SSH public key
           
-          For an example, see [the 101-vm-sshkey GitHub quickstart template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
+          For an example, see [the vm-sshkey GitHub quickstart template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-sshkey/azuredeploy.json).
           
       - question: |
           When I run `Update-AzVmss` after adding more than one certificate from the same key vault, I see the following message:
