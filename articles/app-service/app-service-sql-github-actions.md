@@ -8,7 +8,7 @@ ms.author: jukullam
 ms.custom: github-actions-azure
 ---
 
-# Tutorial: Use GitHub Actions to deploy to App Service and connect to a database 
+# Tutorial: Use GitHub Actions to deploy to App Service for Containers and connect to a database 
 
 This tutorial walks you through setting up a GitHub Actions workflow to deploy an ASP.NET Core application with an [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md). When you're finished, you have an ASP.NET app running in Azure and connected to SQL Database. You'll first create Azure resources with an ARM template GitHub Actions workflow. 
 
