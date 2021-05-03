@@ -80,7 +80,7 @@ A storage account can serve as the source account for up to two destination acco
 
 ### Replication rules
 
-Replication rules specify how Azure Storage will replicate blobs from a source container to a destination container. You can specify up to 10 replication rules for each replication policy. Each replication rule defines a single source and destination container, and each source and destination container can be used in only one rule.
+Replication rules specify how Azure Storage will replicate blobs from a source container to a destination container. You can specify up to 10 replication rules for each replication policy. Each replication rule defines a single source and destination container, and each source and destination container can be used in only one rule. This is also capped for the destination storage account as well. For e.g. If there are more than 10 containers in source storage account, then only 10 of them can be mapped to destination storage account under a single replication policy. The rest need to be mapped to another destination storage account or accounts (capped to 10)
 
 When you create a replication rule, by default only new block blobs that are subsequently added to the source container are copied. You can specify that both new and existing block blobs are copied, or you can define a custom copy scope that copies block blobs created from a specified time onward.
 
