@@ -256,7 +256,7 @@ When you use the Video Analyzer on IoT Edge module to record the live video stre
 1. The live pipeline continues to run and record the video. The RTSP simulator keeps looping the source video. To stop recording, go back to the **TERMINAL** window and select **Enter**. The next series of calls are made to clean up resources by using:
 
    * A call to livePipelineDeactivate to deactivate the live pipeline.
-   * A call to livePipelineDelete to delete the instance.
+   * A call to livePipelineDelete to delete the live pipeline.
    * A call to pipelineTopologyDelete to delete the topology.
    * A final call to pipelineTopologyList to show that the list is now empty.
 
