@@ -54,7 +54,7 @@ To check you have proper permissions, follow these steps:
     - If you just created a free Azure account, you're the owner of your subscription.
     - If you're not the subscription owner, work with the owner to assign the role.
 
-If you need to assign permissions, follow the steps in [Prepare for an Azure user account](../../../migrate/tutorial-discover-vmware.md#prepare-an-azure-user-account)
+If you need to assign permissions, follow the steps in [Prepare for an Azure user account](../../../migrate/tutorial-discover-vmware.md#prepare-an-azure-user-account).
 
 
 ## Prepare for migration
@@ -96,21 +96,21 @@ To download the replication appliance installer, follow these steps:
 
     ![Discover VMs](../../../migrate/media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 
-3. In **Discover machines** > **Are your machines virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
-4. In **Target region**, select the Azure region to which you want to migrate the machines.
-5. Select **Confirm that the target region for migration is region-name**.
-6. select **Create resources**. This creates an Azure Site Recovery vault in the background.
+1. In **Discover machines** > **Are your machines virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
+1. In **Target region**, select the Azure region to which you want to migrate the machines.
+1. Select **Confirm that the target region for migration is region-name**.
+1. Select **Create resources**. This creates an Azure Site Recovery vault in the background.
     - If you've already set up migration with Azure Migrate: Server Migration, the target option can't be configured, since resources were set up previously.    
     - You can't change the target region for this project after selecting this button.
     - All subsequent migrations are to this region.
 
-7. In **Do you want to install a new replication appliance?**, select **Install a replication appliance**.
-9. In **Download and install the replication appliance software**, download the appliance installer, and the registration key. You need to the key in order to register the appliance. The key is valid for five days after it's downloaded.
+1. In **Do you want to install a new replication appliance?**, select **Install a replication appliance**.
+1. In **Download and install the replication appliance software**, download the appliance installer, and the registration key. You need to the key in order to register the appliance. The key is valid for five days after it's downloaded.
 
     ![Download provider](../../../migrate/media/tutorial-migrate-physical-virtual-machines/download-provider.png)
 
-10. Copy the appliance setup file and key file to the Windows Server 2016 machine you created for the appliance.
-11. After the installation completes, the Appliance configuration wizard will launch automatically (You can also launch the wizard manually by using the cspsconfigtool shortcut that is created on the desktop of the appliance machine). Use the **Manage Accounts** tab of the wizard to create a dummy account with the following details:
+1. Copy the appliance setup file and key file to the Windows Server 2016 machine you created for the appliance.
+1. After the installation completes, the Appliance configuration wizard will launch automatically (You can also launch the wizard manually by using the cspsconfigtool shortcut that is created on the desktop of the appliance machine). Use the **Manage Accounts** tab of the wizard to create a dummy account with the following details:
 
    -  "guest" as the friendly name
    -  "username" as the username
@@ -118,7 +118,7 @@ To download the replication appliance installer, follow these steps:
    
    You will use this dummy account in the Enable Replication stage. 
 
-12. After setup completes, and the appliance restarts, in **Discover machines**, select the new appliance in **Select Configuration Server**, and select **Finalize registration**. Finalize registration performs a couple of final tasks to prepare the replication appliance.
+1. After setup completes, and the appliance restarts, in **Discover machines**, select the new appliance in **Select Configuration Server**, and select **Finalize registration**. Finalize registration performs a couple of final tasks to prepare the replication appliance.
 
     ![Finalize registration](../../../migrate/media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
@@ -214,42 +214,42 @@ To replicate machines, follow these steps:
 
     ![Screenshot of the Azure Migrate - Servers screen showing the Replicate button selected in Azure Migrate: Server Migration under Migration tools](../../../migrate/media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
 
-2. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
-3. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up.
-4. In **Process Server**, select the name of the replication appliance.
-6. In **Guest credentials**, select the dummy account created previously during the [replication installer setup](#download-replication-appliance-installer) previously in this article. Then select **Next: Virtual machines**.   
+1. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
+1. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up.
+1. In **Process Server**, select the name of the replication appliance.
+1. In **Guest credentials**, select the dummy account created previously during the [replication installer setup](#download-replication-appliance-installer) previously in this article. Then select **Next: Virtual machines**.   
 
     ![Screenshot of the Source settings tab in the Replicate screen with the Guest credentials field highlighted.](../../../migrate/media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 
-7. In **Virtual Machines**, in **Import migration settings from an assessment?**, leave the default setting **No, I'll specify the migration settings manually**.
-8. Check each VM you want to migrate. Then select **Next: Target settings**.
+1. In **Virtual Machines**, in **Import migration settings from an assessment?**, leave the default setting **No, I'll specify the migration settings manually**.
+1. Check each VM you want to migrate. Then select **Next: Target settings**.
 
     ![Select VMs](../../../migrate/media/tutorial-migrate-physical-virtual-machines/select-vms.png)
 
 
-9. In **Target settings**, select the subscription, and target region to which you'll migrate, and specify the resource group in which the Azure VMs will reside after migration.
-10. In **Virtual Network**, select the Azure VNet/subnet to which the Azure VMs will be joined after migration.
-11. In **Availability options**, select:
+1. In **Target settings**, select the subscription, and target region to which you'll migrate, and specify the resource group in which the Azure VMs will reside after migration.
+1. In **Virtual Network**, select the Azure VNet/subnet to which the Azure VMs will be joined after migration.
+1. In **Availability options**, select:
     -  Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machines in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones.
     -  Availability Set to place the migrated machine in an Availability Set. The target resource group that was selected must have one or more availability sets in order to use this option.
     - No infrastructure redundancy required option if you don't need either of these availability configurations for the migrated machines.
     
-12. In **Disk encryption type**, select:
+1. In **Disk encryption type**, select:
     - Encryption-at-rest with platform-managed key
     - Encryption-at-rest with customer-managed key
     - Double encryption with platform-managed and customer-managed keys
 
-   > [!NOTE]
-   > To replicate VMs with CMK, you'll need to [create a disk encryption set](https://go.microsoft.com/fwlink/?linkid=2151800) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE.
+    > [!NOTE]
+    > To replicate VMs with CMK, you'll need to [create a disk encryption set](https://go.microsoft.com/fwlink/?linkid=2151800) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE.
   
-13. In **Azure Hybrid Benefit**:
+1. In **Azure Hybrid Benefit**:
 
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then select **Next**.
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then select **Next**.
 
     :::image type="content" source="../../../migrate/media/tutorial-migrate-vmware/target-settings.png" alt-text="Target settings":::
 
-14. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](../../../migrate/migrate-support-matrix-physical-migration.md#azure-vm-requirements).
+1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](../../../migrate/migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 
     - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer.
@@ -258,11 +258,11 @@ To replicate machines, follow these steps:
 
    ![Compute settings](../../../migrate/media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
-15. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.  
+1. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.  
 
     ![Disk settings](../../../migrate/media/tutorial-migrate-physical-virtual-machines/disks.png)
 
-16. In **Review and start replication**, review the settings, and select **Replicate** to start the initial replication for the servers.
+1. In **Review and start replication**, review the settings, and select **Replicate** to start the initial replication for the servers.
 
 > [!NOTE]
 > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts.

@@ -53,7 +53,7 @@ To check you have proper permissions, follow these steps:
     - If you just created a free Azure account, you're the owner of your subscription.
     - If you're not the subscription owner, work with the owner to assign the role.
 
-If you need to assign permissions, follow the steps in [Prepare for an Azure user account](../../../migrate/tutorial-discover-vmware.md#prepare-an-azure-user-account)
+If you need to assign permissions, follow the steps in [Prepare for an Azure user account](../../../migrate/tutorial-discover-vmware.md#prepare-an-azure-user-account).
 
 
 ## Prepare for migration
@@ -96,7 +96,7 @@ To download the replication appliance installer, follow these steps:
 1. In **Discover machines** > **Are your machines virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
 1. In **Target region**, select the Azure region to which you want to migrate the machines.
 1. Select **Confirm that the target region for migration is region-name**.
-1. select **Create resources**. This creates an Azure Site Recovery vault in the background.
+1. Select **Create resources**. This creates an Azure Site Recovery vault in the background.
     - If you've already set up migration with Azure Migrate Server Migration, the target option can't be configured, since resources were set up previously.    
     - You can't change the target region for this project after selecting this button.
     - All subsequent migrations are to this region.
@@ -190,7 +190,7 @@ NewIP | Specify the IP address in the Azure virtual network (or subnet) for each
 ServicePort | Specify the service port to be used by each resource in the CSV file. For SQL cluster resource, use the same value for service port as the probe port in the CSV. For other cluster roles, the default values used are 1433 but you can continue to use the port numbers that are configured in your current setup. 
 
 
-2. Run the `Create-ClusterLoadBalancer.ps1` script to create the load balancer using the following mandatory parameters: 
+1. Run the `Create-ClusterLoadBalancer.ps1` script to create the load balancer using the following mandatory parameters: 
 
 **Parameter** | **Type** | **Description**
 --- | --- | ---
@@ -215,42 +215,42 @@ Now, select machines for migration. You can replicate up to 10 machines together
 
     ![Screenshot of the Azure Migrate - Servers screen showing the Replicate button selected in Azure Migrate: Server Migration under Migration tools.](../../../migrate/media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
 
-2. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
-3. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up.
-4. In **Process Server**, select the name of the replication appliance.
-6. In **Guest credentials**, select the dummy account created previously during the [replication installer setup](#download-replication-appliance-installer). Then select **Next: Virtual machines**.
+1. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
+1. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up.
+1. In **Process Server**, select the name of the replication appliance.
+1. In **Guest credentials**, select the dummy account created previously during the [replication installer setup](#download-replication-appliance-installer). Then select **Next: Virtual machines**.
 
     ![Screenshot of the Source settings tab in the Replicate screen with the Guest credentials field highlighted.](../../../migrate/media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 
-7. In **Virtual Machines**, in **Import migration settings from an assessment?**, leave the default setting **No, I'll specify the migration settings manually**.
-8. Check each VM you want to migrate. Then select **Next: Target settings**.
+1. In **Virtual Machines**, in **Import migration settings from an assessment?**, leave the default setting **No, I'll specify the migration settings manually**.
+1. Check each VM you want to migrate. Then select **Next: Target settings**.
 
     ![Select VMs](../../../migrate/media/tutorial-migrate-physical-virtual-machines/select-vms.png)
 
 
-9. In **Target settings**, select the subscription, and target region to which you'll migrate, and specify the resource group in which the Azure VMs will reside after migration.
-10. In **Virtual Network**, select the Azure VNet/subnet to which the Azure VMs will be joined after migration.
-11. In **Availability options**, select:
+1. In **Target settings**, select the subscription, and target region to which you'll migrate, and specify the resource group in which the Azure VMs will reside after migration.
+1. In **Virtual Network**, select the Azure VNet/subnet to which the Azure VMs will be joined after migration.
+1. In **Availability options**, select:
     -  Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones
     -  Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option.
     - No infrastructure redundancy required option if you don't need either of these availability configurations for the migrated machines.
     
-12. In **Disk encryption type**, select:
+1. In **Disk encryption type**, select:
     - Encryption-at-rest with platform-managed key
     - Encryption-at-rest with customer-managed key
     - Double encryption with platform-managed and customer-managed keys
 
-   > [!NOTE]
-   > To replicate VMs with CMK, you'll need to [create a disk encryption set](https://go.microsoft.com/fwlink/?linkid=2151800) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE.
+    > [!NOTE]
+    > To replicate VMs with CMK, you'll need to [create a disk encryption set](https://go.microsoft.com/fwlink/?linkid=2151800) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE.
   
-13. In **Azure Hybrid Benefit**:
+1. In **Azure Hybrid Benefit**:
 
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then select **Next**.
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then select **Next**.
 
     :::image type="content" source="../../../migrate/media/tutorial-migrate-vmware/target-settings.png" alt-text="Target settings":::
 
-14. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](../../../migrate/migrate-support-matrix-physical-migration.md#azure-vm-requirements).
+1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](../../../migrate/migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 
     - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer.
@@ -259,13 +259,13 @@ Now, select machines for migration. You can replicate up to 10 machines together
 
     ![Compute settings](../../../migrate/media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
-15. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.
+1. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.
     - Use the list that you had made earlier to select the disks to be replicated with each server. Exclude other disks from replication.
    
 
     ![Disk settings](../../../migrate/media/tutorial-migrate-physical-virtual-machines/disks.png)
 
-16. In **Review and start replication**, review the settings, and select **Replicate** to start the initial replication for the servers.
+1. In **Review and start replication**, review the settings, and select **Replicate** to start the initial replication for the servers.
 
 > [!NOTE]
 > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts.
@@ -293,25 +293,25 @@ After machines are replicated, they are ready for migration. To migrate your ser
 
     ![Replicating servers](../../../migrate/media/tutorial-migrate-physical-virtual-machines/replicate-servers.png)
 
-2. To ensure that the migrated server is synchronized with the source server, stop the SQL Server resource (in **Failover Cluster Manager** > **Roles** > **Other resources**) while ensuring that the cluster disks are online.   
-3. In **Replicating machines** > select on server name > **Overview**, ensure that the last synchronized timestamp is after you have stopped SQL Server resource on the servers to be migrated before you move onto the next step. This should only take a few of minutes. 
-2. In **Replicating machines**, right-click the VM > **Migrate**.
-3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **No** > **OK**.
+1. To ensure that the migrated server is synchronized with the source server, stop the SQL Server resource (in **Failover Cluster Manager** > **Roles** > **Other resources**) while ensuring that the cluster disks are online.   
+1. In **Replicating machines** > select on server name > **Overview**, ensure that the last synchronized timestamp is after you have stopped SQL Server resource on the servers to be migrated before you move onto the next step. This should only take a few of minutes. 
+1. In **Replicating machines**, right-click the VM > **Migrate**.
+1. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **No** > **OK**.
    
    > [!NOTE]
    > For Physical Server Migration, shut down of source machine is not supported automatically. The recommendation is to bring the application down as part of the migration window (don't let the applications accept any connections) and then initiate the migration (the server needs to be kept running, so remaining changes can be synchronized) before the migration is completed.
 
-4. A migration job starts for the VM. Track the job in Azure notifications.
-5. After the job finishes, you can view and manage the VM from the **Virtual Machines** page.
+1. A migration job starts for the VM. Track the job in Azure notifications.
+1. After the job finishes, you can view and manage the VM from the **Virtual Machines** page.
 
 ## Reconfigure cluster 
 
 After your VMs have migrated, reconfigure the cluster. Follow these steps: 
 
 1. Shut down the migrated servers in Azure.
-2. Add the migrated machines to the backend pool of the load balancer. Navigate to **Load Balancer** > **Backend pools** > select backend pool > **add migrated machines**. 
+1. Add the migrated machines to the backend pool of the load balancer. Navigate to **Load Balancer** > **Backend pools** > select backend pool > **add migrated machines**. 
 
-3. Reconfigure the migrated disks of the servers as shared disks by running the `Create-SharedDisks.ps1` script. The script is interactive and will prompt for a list of machines and then show available disks to be extracted (only data disks). You will be prompted once to select which machines contain the drives to be turned into shared disks. Once selected, you will be prompted again, once per machine, to pick the specific disks. 
+1. Reconfigure the migrated disks of the servers as shared disks by running the `Create-SharedDisks.ps1` script. The script is interactive and will prompt for a list of machines and then show available disks to be extracted (only data disks). You will be prompted once to select which machines contain the drives to be turned into shared disks. Once selected, you will be prompted again, once per machine, to pick the specific disks. 
 
    **Parameter** | **Type** | **Description**
    --- | --- | ---
@@ -323,7 +323,7 @@ After your VMs have migrated, reconfigure the cluster. Follow these steps:
    ./Create-SharedDisks.ps1 -ResourceGroupName $resoucegroupname -NumberofNodes $nodesincluster -DiskNamePrefix $disknameprefix 
    ```
 
-4. Attach the shared disks to the migrated servers by running the `Attach-SharedDisks.ps1` script. 
+1. Attach the shared disks to the migrated servers by running the `Attach-SharedDisks.ps1` script. 
 
    **Parameter** | **Type** |**Description**
    --- | ---  | ---
@@ -334,9 +334,9 @@ After your VMs have migrated, reconfigure the cluster. Follow these steps:
    ./Attach-ShareDisks.ps1 -ResourceGroupName $resoucegroupname 
    ```
 
-5. Start the migrated servers in Azure and login to any node. 
+1. Start the migrated servers in Azure and login to any node. 
 
-6. Copy the `ClusterConfig.csv` file and run the `Update-ClusterConfig.ps1` script passing the CSV as a parameter. This will ensure the cluster resources are updated with the new configuration for the cluster to work in Azure. 
+1. Copy the `ClusterConfig.csv` file and run the `Update-ClusterConfig.ps1` script passing the CSV as a parameter. This will ensure the cluster resources are updated with the new configuration for the cluster to work in Azure. 
 
    ```powershell
    ./Update-ClusterConfig.ps1 -ConfigFilePath $filepath
@@ -350,13 +350,13 @@ Your SQL Server failover cluster instance  is ready.
     - Stops replication for the on-premises machine.
     - Removes the machine from the **Replicating servers** count in Azure Migrate: Server Migration.
     - Cleans up replication state information for the machine.
-2. Install the Azure VM [Windows](/virtual-machines/extensions/agent-windows.md) agent on the migrated machines.
-3. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
-4. Perform final application and migration acceptance testing on the migrated application now running in Azure.
-5. Cut over traffic to the migrated Azure VM instance.
-6. Remove the on-premises VMs from your local VM inventory.
-7. Remove the on-premises VMs from local backups.
-8. Update any internal documentation to show the new location and IP address of the Azure VMs. 
+1. Install the Azure VM [Windows](/virtual-machines/extensions/agent-windows.md) agent on the migrated machines.
+1. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
+1. Perform final application and migration acceptance testing on the migrated application now running in Azure.
+1. Cut over traffic to the migrated Azure VM instance.
+1. Remove the on-premises VMs from your local VM inventory.
+1. Remove the on-premises VMs from local backups.
+1. Update any internal documentation to show the new location and IP address of the Azure VMs. 
 
 ## Post-migration best practices
 
