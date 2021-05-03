@@ -477,7 +477,7 @@
       href: service-fabric-disaster-recovery.md
     - name: Plan application capacity
       href: service-fabric-capacity-planning.md
-  - name: Create and manage clusters
+  - name: Create and maintain clusters
     items:
     - name: Clusters on Azure
       items:
