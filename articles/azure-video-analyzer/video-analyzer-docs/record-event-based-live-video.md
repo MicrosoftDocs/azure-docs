@@ -147,7 +147,7 @@ This step creates the IoT Edge deployment manifest at src/edge/config/deployment
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/quickstarts/create-deployment-single-device.png" alt-text="Create deployment for single device":::
 
-If this is your first tutorial with Live Video Analytics on IoT Edge, Visual Studio Code prompts you to input the IoT Hub connection string. You can copy it from the appsettings.json file.
+If this is your first tutorial with Video Analyzer on IoT Edge, Visual Studio Code prompts you to input the IoT Hub connection string. You can copy it from the appsettings.json file.
 
 > [!NOTE]
 > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
@@ -155,23 +155,24 @@ If this is your first tutorial with Live Video Analytics on IoT Edge, Visual Stu
     Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
     ```
 
-Next, Visual Studio Code asks you to select an IoT Hub device. Select your IoT Edge device, which should be lva-sample-device.
+Next, Visual Studio Code asks you to select an IoT Hub device. Select your IoT Edge device, which should be ava-sample-device.
 
 At this stage, the deployment of edge modules to your IoT Edge device has started.
-In about 30 seconds, refresh Azure IoT Hub in the lower-left section in Visual Studio Code. You should see that there are four modules deployed named lvaEdge, rtspsim, yolov3, and objectCounter.
+In about 30 seconds, refresh Azure IoT Hub in the lower-left section in Visual Studio Code. You should see that there are four modules deployed named avaedge, rtspsim, yolov3, and objectCounter.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/event-based-video-recording-tutorial/modules.png" alt-text="Four modules deployed":::
 
 ## Prepare for monitoring events
 
-When you use the Azure Video Analyzer on IoT Edge module to record the live video stream, it sends events to IoT Hub. To see these events, follow these steps:
+When you use the Video Analyzer on IoT Edge module to record the live video stream, it sends events to IoT Hub. To see these events, follow these steps:
 
 1. Open the Explorer pane in Visual Studio Code, and look for **Azure IoT Hub** in the lower-left corner.
 1. Expand the **Devices** node.
-1. Right-click the ava-sample-device file, and select **Start Monitoring Built-in Event Endpoint**.
+1. Right-click the avasample-iot-edge-device file, and select **Start Monitoring Built-in Event Endpoint**.
 
-    <!--TODO: add image -- ![Start Monitoring Built-in Event Endpoint]() ./media/quickstarts/start-monitoring-iothub-events.png -->
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/quickstarts/start-monitoring.png" alt-text="Start monitoring built-in event endpoint":::
 
     > [!NOTE]
     > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
