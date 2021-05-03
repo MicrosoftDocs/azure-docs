@@ -43,9 +43,12 @@ To start using Azure Video Analyzer, you will need to create a Video Analyzer ac
 
 ### Create a Video Analyzer account using a template
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the Deploy to Azure button. The template will open in the Azure portal.
+The following resources are defined in the template:
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)][click-to-deploy]
+- [**Microsoft.Media/videoAnalyzers**](/azure/templates/Microsoft.Media/videoAnalyzers): the account resource for Video Analyzer.
+- [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts): the storage account that will be used by Video Analyzer for storing videos and metadata.
+- [**Microsoft.ManagedIdentity/userAssignedIdentities**](/azure/templates/Microsoft.ManagedIdentity/userAssignedIdentities): the user-assigned managed identity that Video Analyzer will use to access storage.
+- [**Microsoft.Storage/storageAccounts/providers/roleAssignments**](/azure/templates/microsoft.authorization/roleassignment): the role assignment that enables Video Analyzer to access the storage account.
 
 <!-- TODO replace with a reference like this:
 :::code language="json" source="~/quickstart-templates/101-vm-simple-linux/azuredeploy.json":::
@@ -176,11 +179,8 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 }
 ```
 
-These additional resources are defined in the template:
-
-- [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts): create a storage account.
-- [**Microsoft.ManagedIdentity/userAssignedIdentities**](/azure/templates/Microsoft.ManagedIdentity/userAssignedIdentities): create a user-assigned managed identity.
-- [**Microsoft.Storage/storageAccounts/providers/roleAssignments**](/azure/templates/microsoft.authorization/roleassignment): assign a role for the storage account.
+> [!NOTE]
+> The template uses a nested deployment for the role assignment to ensure that it is available before deploying the Video Analyzer account resource.
 
 ### Deploy the template
 
