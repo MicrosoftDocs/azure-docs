@@ -18,7 +18,7 @@ Azure Route Server supports your typical hub-and-spoke network topology. This co
 As can be seen in the following diagram, you need to:
 
 * Deploy an NVA in each hub virtual network and the route server in the spoke virtual network.
-* Enable VNet peering between the hub and spoke virtual networks.
+* Enable VNet peering between the hub and spoke virtual networks. Make sure “Use Remote Gateway or Remote Route Server” is **disabled** in the spoke virtual network VNet peering configuration.
 * Configure BGP peering between the Route Server and each NVA deployed.
 
 :::image type="content" source="./media/about-dual-homed-network/dual-homed-topology.png" alt-text="Diagram of Route Server in a dual-homed topology.":::
@@ -34,7 +34,7 @@ In the data plane, virtual machines in the spoke virtual network will see the se
 You can build a dual-homed network that involves two or more ExpressRoute connections. Along with the steps described above, you'll need to:
 
 * Create another Route Server in each hub virtual network that has an ExpressRoute gateway.
-* Connect the NVA in the hub virtual network with the Route Server in the hub virtual network.
+* Configure BGP peering between the NVA and the Route Server in the hub virtual network.
 * [Enable route exchange](quickstart-configure-route-server-portal.md#configure-route-exchange) between the ExpressRoute gateway and the Route Server in the hub virtual network.
 * Make sure “Use Remote Gateway or Remote Route Server” is **disabled** in the spoke virtual network VNet peering configuration.
 
