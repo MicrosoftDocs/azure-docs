@@ -53,8 +53,8 @@ To access this information, you can use any of the methods in the table below.
 |----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | REST API call        | GET https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.Security/assessments?api-version=2019-01-01-preview&$expand=statusEvaluationDates |
 | Azure Resource Graph | `securityresources`<br>`where type == "microsoft.security/assessments"`                                                                                                |
-| Workflow automation  | The two fields are included in the RecommendationAdditionalData array                                                                                                  |
-| [CSV export](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations) | The two fields are included in the CSV files                                         |
+| Workflow automation  | The two dedicated fields are in the Log Analytics workspace data                                                                                                       |
+| [CSV export](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations) | The two fields are included in the CSV files                                                        |
 |                      |                                                                                                                                                                        |
 
 
