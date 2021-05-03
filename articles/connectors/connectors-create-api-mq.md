@@ -15,10 +15,10 @@ tags: connectors
 
 The MQ connector helps you receive and send messages stored in an IBM MQ server that's either on premises or in Azure. This connector includes a Microsoft MQ client that communicates with a remote MQ server across a TCP/IP network. You can connect to the following IBM WebSphere MQ versions:
 
-  * MQ 7.5
-  * MQ 8.0
-  * MQ 9.0
-  * MQ 9.1
+* MQ 7.5
+* MQ 8.0
+* MQ 9.0
+* MQ 9.1
 
 This article provides a starter guide to using the MQ connector. For example, you can start by browsing a single message on a queue and then try other actions.
 
@@ -181,7 +181,7 @@ When your workflow tries connecting to your on-premises MQ server, you might get
 
 * If you're using the MQ connector directly in Azure, the MQ server needs to use a certificate that's issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/).
 
-* The MQ server requires that you define the cipher specification to use with TLS connections. However, for security purposes, the Windows operating system sets the cipher specifications to first include the best security suites. 
+* The MQ server requires that you define the cipher specification to use with TLS connections. However, for security purposes and to include the best security suites, the Windows operating system sends a set of supported cipher specifications.
 
   The operating system where the MQ server runs chooses the suites to use. To make the configuration match, you have to change your MQ server setup so that the cipher specification matches the option chosen in the TLS negotiation.
 
