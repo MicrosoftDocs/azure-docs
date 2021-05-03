@@ -61,4 +61,5 @@ With the integration between Azure API Management and Azure Arc on Kubernetes, y
 
 ## Next Steps
 * To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md).
+* Discover all [Azure Arc enabled Kubernetes extensions](../azure-arc/kubernetes/extensions.md). 
 * Learn more about [Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md).
