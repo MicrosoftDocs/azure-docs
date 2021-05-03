@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 05/03/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -156,7 +156,7 @@ In Azure Active Directory B2C (Azure AD B2C), you can enable users who are signe
 
 1. Open the policy that you changed. For example, *B2C_1A_profile_edit_password_change*.
 2. For **Application**, select your application that you previously registered. To see the token, the **Reply URL** should show `https://jwt.ms`.
-3. Click **Run now**. Sign in with the account that you previously created. You should now have the opportunity to change the password.
+3. Click **Run now**. In the new tab that opens, remove "&prompt=login" from the URL and refresh the tab. Then sign in with the account you previously created. You will now have the opportunity to change the password.
 
 ## Next steps
 
