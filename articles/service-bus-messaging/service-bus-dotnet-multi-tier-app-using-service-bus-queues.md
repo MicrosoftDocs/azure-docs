@@ -261,47 +261,46 @@ Service Bus queue.
 3. Now, add code that encapsulates the connection information and initializes the connection to a Service Bus queue. Replace the entire contents of QueueConnector.cs with the following code, and enter values for `your Service Bus namespace` (your namespace name) and `yourKey`, which is the **primary key** you previously obtained from the Azure portal.
    
    ```csharp
-   using System;
-   using System.Collections.Generic;
-   using System.Linq;
-   using System.Web;
-   using System.Threading.Tasks;
-   using Azure.Messaging.ServiceBus;
-   
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using System.Threading.Tasks;
+    using Azure.Messaging.ServiceBus;
+    using Azure.Messaging.ServiceBus.Administration;
+       
    namespace FrontendWebRole
    {
         public static class QueueConnector
         {
-            // Thread-safe. Recommended that you cache rather than recreating it
-            // on every request.
-        
-            public static ServiceBusClient sbClient;
-            public static ServiceBusSender sbSender;
-            public static ServiceBusAdministrationClient adminClient;
+            // object to send messages to a Service Bus queue
+            internal static ServiceBusSender SBSender;
+    
+            // object to create a queue and get runtime properties (like message count) of queue
+            internal static ServiceBusAdministrationClient SBAdminClient;
         
             // connection string to the Service Bus namespace
-            public const string connectionString = "<Connection string to your Service Bus namespace>";
+            private const string ConnectionString = "<Connection string to your Service Bus namespace>";
         
             // The name of your queue.
-            public const string queueName = "OrdersQueue";
+            internal const string QueueName = "OrdersQueue";
         
             public static async Task Initialize()
             {
-        
                 // Create a Service Bus client that you can use to send or receive messages
-                sbClient = new ServiceBusClient(connectionString);
-        
+                ServiceBusClient SBClient = new ServiceBusClient(ConnectionString);
+    
                 // Create a Service Bus admin client to create queue if it doesn't exist or to get message count
-                adminClient = new ServiceBusAdministrationClient(QueueConnector.connectionString);
-        
+                SBAdminClient = new ServiceBusAdministrationClient(ConnectionString);
+    
                 // create the OrdersQueue if it doesn't exist already
-                if (!(await adminClient.QueueExistsAsync(queueName)))
+                if (!(await SBAdminClient.QueueExistsAsync(QueueName)))
                 {
-                    await adminClient.CreateQueueAsync(queueName);
+                    await SBAdminClient.CreateQueueAsync(QueueName);
                 }
-        
+    
                 // create a sender for the queue 
-                sbSender = sbClient.CreateSender(queueName);
+                SBSender = SBClient.CreateSender(QueueName);
             }
         }    
    }
@@ -310,7 +309,7 @@ Service Bus queue.
 5. Add the following line of code at the end of the **Application_Start** method.
    
    ```csharp
-   FrontendWebRole.QueueConnector.Initialize();
+            FrontendWebRole.QueueConnector.Initialize().Wait();
    ```
 6. Finally, update the web code you created earlier, to
    submit items to the queue. In **Solution Explorer**,
@@ -378,7 +377,8 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
     ```csharp
     using FrontendWebRole.Models;
-    using Azure.Messaging.ServiceBus;  
+    using Azure.Messaging.ServiceBus;
+    using Azure.Messaging.ServiceBus.Administration; 
     ```    
 1. In **WorkerRole.cs**, add the following properties. 
 
@@ -387,16 +387,14 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
     ```csharp
         // connection string to the Service Bus namespace
-        private const string connectionString = "<Connection String to your Service Bus namespace";
+        private const string ConnectionString = "<Connection string to your Service Bus namespace>";
 
         // The name of your queue.
-        private const string queueName = "OrdersQueue";
-
-        // Service Bus Client object 
-        private ServiceBusClient sbClient;
+        private const string QueueName = "OrdersQueue";
 
         // Service Bus Receiver object to receive messages message the specific queue
-        private ServiceBusReceiver sbReceiver;
+        private ServiceBusReceiver SBReceiver;
+
     ```
 1. Update the `OnStart` method to create a `ServiceBusClient` object and then a `ServiceBusReceiver` object to receive messages from the `OrdersQueue`. 
     
@@ -404,25 +402,24 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
         public override bool OnStart()
         {
             // Create a Service Bus client that you can use to send or receive messages
-            sbClient = new ServiceBusClient(connectionString);
+            ServiceBusClient SBClient = new ServiceBusClient(ConnectionString);
 
-            // create the OrdersQueue if it doesn't already exist
-            CreateQueue(queueName).Wait();
+            CreateQueue(QueueName).Wait();
 
             // create a receiver that we can use to receive the message
-            sbReceiver = sbClient.CreateReceiver(queueName);
+            SBReceiver = SBClient.CreateReceiver(QueueName);
 
             return base.OnStart();
         }
         private async Task CreateQueue(string queueName)
         {
             // Create a Service Bus admin client to create queue if it doesn't exist or to get message count
-            ServiceBusAdministrationClient adminClient = new ServiceBusAdministrationClient(connectionString);
+            ServiceBusAdministrationClient SBAdminClient = new ServiceBusAdministrationClient(ConnectionString);
 
             // create the OrdersQueue if it doesn't exist already
-            if (!(await adminClient.QueueExistsAsync(queueName)))
+            if (!(await SBAdminClient.QueueExistsAsync(queueName)))
             {
-                await adminClient.CreateQueueAsync(queueName);
+                await SBAdminClient.CreateQueueAsync(queueName);
             }
         }
     ```
@@ -435,16 +432,19 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
             while (!cancellationToken.IsCancellationRequested)
             {
                 // receive message from the queue
-                ServiceBusReceivedMessage receivedMessage = await sbReceiver.ReceiveMessageAsync();
+                ServiceBusReceivedMessage receivedMessage = await SBReceiver.ReceiveMessageAsync();
 
-                Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
+                if (receivedMessage != null)
+                {
+                    Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
 
-                // view the message as an OnlineOrder
-                OnlineOrder order = receivedMessage.Body.ToObjectFromJson<OnlineOrder>();
-                Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
+                    // view the message as an OnlineOrder
+                    OnlineOrder order = receivedMessage.Body.ToObjectFromJson<OnlineOrder>();
+                    Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
 
-                // complete message so that it's removed from the queue
-                await sbReceiver.CompleteMessageAsync(receivedMessage);
+                    // complete message so that it's removed from the queue
+                    await SBReceiver.CompleteMessageAsync(receivedMessage);
+                }
             }
         }
     ```
