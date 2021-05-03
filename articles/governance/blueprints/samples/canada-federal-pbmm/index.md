@@ -7,7 +7,7 @@ ms.topic: sample
 # Overview of the Canada Federal PBMM blueprint sample
 
 Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM) blueprint sample provides a
-set of governance guard-rails using [Azure Policy](../../../policy/overview.md) that help towards
+set of governance guardrails using [Azure Policy](../../../policy/overview.md) that help toward
 [Canada Federal PBMM](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html)
 attestation.
 
