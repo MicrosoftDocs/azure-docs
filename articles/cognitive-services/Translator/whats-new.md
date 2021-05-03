@@ -41,7 +41,7 @@ Translator service now has [text translation language support](language-support.
 
 **New Release**: [Custom Translator V2 upgrade](https://azure.microsoft.com/updates/ctnov2020) is now fully available to the general public (GA)]. The V2 platform enables you to build custom models with all document types (training, testing, tuning, phrase dictionary, and sentence dictionary). The bar chart  below depicts the improved translation BLEU score when Custom Translator V2:
 
-:::image type="content" source="media/custom-v2-improvement" alt-text="Quality comparison graph: standard translator, custom translator V1, custom translator V2":::
+:::image type="content" source="media/custom-v2-improvement.png" alt-text="Quality comparison graph: standard translator, custom translator V1, custom translator V2":::
 
 ## October 2020
 
