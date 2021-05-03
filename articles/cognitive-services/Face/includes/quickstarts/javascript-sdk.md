@@ -125,7 +125,7 @@ You'll use the following function to wait for the training of the PersonGroup to
 
 ## Detect and analyze faces
 
-Face detection is required as a first step in all the other scenarios. This section shows how to return the extra face attribute data. If you only want to detect faces for face identification or grouping, skip to the later sections.
+Face detection is required as a first step in  Face Analysis and Identity Verification. This section shows how to return the extra face attribute data. If you only want to detect faces for face identification or grouping, skip to the later sections.
 
 
 ### Get detected face objects
