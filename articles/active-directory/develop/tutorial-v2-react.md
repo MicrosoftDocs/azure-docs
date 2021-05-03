@@ -113,7 +113,7 @@ In the [Redirect URI: MSAL.js 2.0 with auth code flow](scenario-spa-app-registra
     };
     ```
 
-    Modify the values in the `msalConfig` section as described here:
+1. Modify the values in the `msalConfig` section as described here:
     
     |Value name| About|
     |----------|------|
@@ -125,7 +125,7 @@ In the [Redirect URI: MSAL.js 2.0 with auth code flow](scenario-spa-app-registra
     
     For more information about available configurable options, see [Initialize client applications](msal-js-initializing-client-applications.md).
 
-2. Open up the *src/index.js* file and add the following imports:
+1. Open up the *src/index.js* file and add the following imports:
 
     ```javascript
     import "bootstrap/dist/css/bootstrap.min.css";
@@ -134,13 +134,13 @@ In the [Redirect URI: MSAL.js 2.0 with auth code flow](scenario-spa-app-registra
     import { msalConfig } from "./authConfig";
     ```
 
-3. Underneath the imports in *src/index.js* create a `PublicClientApplication` instance using the configuration from step 1.
+1. Underneath the imports in *src/index.js* create a `PublicClientApplication` instance using the configuration from step 1.
 
     ```javascript
     const msalInstance = new PublicClientApplication(msalConfig);
     ``` 
 
-4. Find the `<App />` component in *src/index.js* and wrap it in the `MsalProvider` component. Your render function should look like this:
+1. Find the `<App />` component in *src/index.js* and wrap it in the `MsalProvider` component. Your render function should look like this:
 
     ```jsx
     ReactDOM.render(
@@ -216,51 +216,51 @@ export const SignInButton = () => {
 
 ### Add the sign-in button
 
-Create another file in the *components* folder named *PageLayout.jsx* and add the following code to create a navbar component that will contain the sign-in button you just created:
+1. Create another file in the *components* folder named *PageLayout.jsx* and add the following code to create a navbar component that will contain the sign-in button you just created:
 
-```jsx
-import React from "react";
-import Navbar from "react-bootstrap/Navbar";
-import { useIsAuthenticated } from "@azure/msal-react";
-import { SignInButton } from "./SignInButton";
+    ```jsx
+    import React from "react";
+    import Navbar from "react-bootstrap/Navbar";
+    import { useIsAuthenticated } from "@azure/msal-react";
+    import { SignInButton } from "./SignInButton";
+    
+    /**
+     * Renders the navbar component with a sign-in button if a user is not authenticated
+     */
+    export const PageLayout = (props) => {
+        const isAuthenticated = useIsAuthenticated();
+    
+        return (
+            <>
+                <Navbar bg="primary" variant="dark">
+                    <a className="navbar-brand" href="/">MSAL React Tutorial</a>
+                    { isAuthenticated ? <span>Signed In</span> : <SignInButton /> }
+                </Navbar>
+                <h5><center>Welcome to the Microsoft Authentication Library For React Tutorial</center></h5>
+                <br />
+                <br />
+                {props.children}
+            </>
+        );
+    };
+    ```
 
-/**
- * Renders the navbar component with a sign-in button if a user is not authenticated
- */
-export const PageLayout = (props) => {
-    const isAuthenticated = useIsAuthenticated();
+2. Now open *src/App.js* and add replace the existing content with the following code: 
 
-    return (
-        <>
-            <Navbar bg="primary" variant="dark">
-                <a className="navbar-brand" href="/">MSAL React Tutorial</a>
-                { isAuthenticated ? <span>Signed In</span> : <SignInButton /> }
-            </Navbar>
-            <h5><center>Welcome to the Microsoft Authentication Library For React Tutorial</center></h5>
-            <br />
-            <br />
-            {props.children}
-        </>
-    );
-};
-```
-
-Now open *src/App.js* and add replace the existing content with the following code: 
-
-```jsx
-import React from "react";
-import { PageLayout } from "./components/PageLayout";
-
-function App() {
-  return (
-      <PageLayout>
-          <p>This is the main app content!</p>
-      </PageLayout>
-  );
-}
-
-export default App;
-```
+    ```jsx
+    import React from "react";
+    import { PageLayout } from "./components/PageLayout";
+    
+    function App() {
+      return (
+          <PageLayout>
+              <p>This is the main app content!</p>
+          </PageLayout>
+      );
+    }
+    
+    export default App;
+    ```
 
 Your app now has a sign-in button which is only displayed for unauthenticated users!
 
@@ -360,109 +360,109 @@ export const PageLayout = (props) => {
 
 ## Conditionally render components for authenticated or unauthenticated users
 
-Add the following import to *src/App.js*:
+1. Add the following import to *src/App.js*:
 
-```javascript
-import { AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
-```
+    ```javascript
+    import { AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
+    ```
+    
+1. In order to render certain components only for authenticated users update your `App` function in *src/App.js* with the following code: 
 
-In order to render certain components only for authenticated users update your `App` function in *src/App.js* with the following code: 
+    ```jsx
+    function App() {
+        return (
+            <PageLayout>
+                <AuthenticatedTemplate>
+                    <p>You are signed in!</p>
+                </AuthenticatedTemplate>
+            </PageLayout>
+        );
+    }
+    ```
 
-```jsx
-function App() {
-    return (
-        <PageLayout>
-            <AuthenticatedTemplate>
-                <p>You are signed in!</p>
-            </AuthenticatedTemplate>
-        </PageLayout>
-    );
-}
-```
+1. To render certain components only for unauthenticated users, such as a suggestion to login, update your `App` function in *src/App.js* with the following code: 
 
-To render certain components only for unauthenticated users, such as a suggestion to login, update your `App` function in *src/App.js* with the following code: 
-
-```jsx
-function App() {
-    return (
-        <PageLayout>
-            <AuthenticatedTemplate>
-                <p>You are signed in!</p>
-            </AuthenticatedTemplate>
-            <UnauthenticatedTemplate>
-                <p>You are not signed in! Please sign in.</p>
-            </UnauthenticatedTemplate>
-        </PageLayout>
-    );
-}
-```
+    ```jsx
+    function App() {
+        return (
+            <PageLayout>
+                <AuthenticatedTemplate>
+                    <p>You are signed in!</p>
+                </AuthenticatedTemplate>
+                <UnauthenticatedTemplate>
+                    <p>You are not signed in! Please sign in.</p>
+                </UnauthenticatedTemplate>
+            </PageLayout>
+        );
+    }
+    ```
 
 ## Acquire a token
 
-Before calling an API, such as Microsoft Graph, you'll need to acquire an access token. Add a new component to *src/App.js* called `ProfileContent` with the following code:
+1. Before calling an API, such as Microsoft Graph, you'll need to acquire an access token. Add a new component to *src/App.js* called `ProfileContent` with the following code:
 
-```jsx
-function ProfileContent() {
-    const { instance, accounts, inProgress } = useMsal();
-    const [accessToken, setAccessToken] = useState(null);
-
-    const name = accounts[0] && accounts[0].name;
-
-    function RequestAccessToken() {
-        const request = {
-            ...loginRequest,
-            account: accounts[0]
-        };
-
-        // Silently acquires an access token which is then attached to a request for Microsoft Graph data
-        instance.acquireTokenSilent(request).then((response) => {
-            setAccessToken(response.accessToken);
-        }).catch((e) => {
-            instance.acquireTokenPopup(request).then((response) => {
+    ```jsx
+    function ProfileContent() {
+        const { instance, accounts, inProgress } = useMsal();
+        const [accessToken, setAccessToken] = useState(null);
+    
+        const name = accounts[0] && accounts[0].name;
+    
+        function RequestAccessToken() {
+            const request = {
+                ...loginRequest,
+                account: accounts[0]
+            };
+    
+            // Silently acquires an access token which is then attached to a request for Microsoft Graph data
+            instance.acquireTokenSilent(request).then((response) => {
                 setAccessToken(response.accessToken);
+            }).catch((e) => {
+                instance.acquireTokenPopup(request).then((response) => {
+                    setAccessToken(response.accessToken);
+                });
             });
-        });
+        }
+    
+        return (
+            <>
+                <h5 className="card-title">Welcome {name}</h5>
+                {accessToken ? 
+                    <p>Access Token Acquired!</p>
+                    :
+                    <Button variant="secondary" onClick={RequestAccessToken}>Request Access Token</Button>
+                }
+            </>
+        );
+    };
+    ```
+
+1. Update your imports in *src/App.js* to match the following:
+
+    ```js
+    import React, { useState } from "react";
+    import { PageLayout } from "./components/PageLayout";
+    import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from "@azure/msal-react";
+    import { loginRequest } from "./authConfig";
+    import Button from "react-bootstrap/Button";
+    ```
+
+1. Finally, add your new `ProfileContent` component as a child of the `AuthenticatedTemplate` in your `App` component in *src/App.js*. Your `App` component should look like this:
+
+    ```javascript
+    function App() {
+      return (
+          <PageLayout>
+              <AuthenticatedTemplate>
+                  <ProfileContent />
+              </AuthenticatedTemplate>
+              <UnauthenticatedTemplate>
+                  <p>You are not signed in! Please sign in.</p>
+              </UnauthenticatedTemplate>
+          </PageLayout>
+      );
     }
-
-    return (
-        <>
-            <h5 className="card-title">Welcome {name}</h5>
-            {accessToken ? 
-                <p>Access Token Acquired!</p>
-                :
-                <Button variant="secondary" onClick={RequestAccessToken}>Request Access Token</Button>
-            }
-        </>
-    );
-};
-```
-
-Update your imports in *src/App.js* to match the following:
-
-```js
-import React, { useState } from "react";
-import { PageLayout } from "./components/PageLayout";
-import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from "@azure/msal-react";
-import { loginRequest } from "./authConfig";
-import Button from "react-bootstrap/Button";
-```
-
-Finally, add your new `ProfileContent` component as a child of the `AuthenticatedTemplate` in your `App` component in *src/App.js*. Your `App` component should look like this:
-
-```javascript
-function App() {
-  return (
-      <PageLayout>
-          <AuthenticatedTemplate>
-              <ProfileContent />
-          </AuthenticatedTemplate>
-          <UnauthenticatedTemplate>
-              <p>You are not signed in! Please sign in.</p>
-          </UnauthenticatedTemplate>
-      </PageLayout>
-  );
-}
-```
+    ```
 
 The code above will render a button for signed in users, allowing them to request an access token for Microsoft Graph when the button is clicked.
 
@@ -480,95 +480,95 @@ Calling `acquireTokenPopup` opens a pop-up window (or `acquireTokenRedirect` red
 
 ## Call the Microsoft Graph API
 
-Create file named *graph.js* in the *src* folder and add the following code for making REST calls to the Microsoft Graph API:
+1. Create file named *graph.js* in the *src* folder and add the following code for making REST calls to the Microsoft Graph API:
 
-```javascript
-import { graphConfig } from "./authConfig";
-
-/**
- * Attaches a given access token to a Microsoft Graph API call. Returns information about the user
- */
-export async function callMsGraph(accessToken) {
-    const headers = new Headers();
-    const bearer = `Bearer ${accessToken}`;
-
-    headers.append("Authorization", bearer);
-
-    const options = {
-        method: "GET",
-        headers: headers
-    };
-
-    return fetch(graphConfig.graphMeEndpoint, options)
-        .then(response => response.json())
-        .catch(error => console.log(error));
-}
-```
-
-Next create a file named *ProfileData.jsx* in *src/components* and add the following code:
-
-```javascript
-import React from "react";
-
-/**
- * Renders information about the user obtained from Microsoft Graph
- */
-export const ProfileData = (props) => {
-    return (
-        <div id="profile-div">
-            <p><strong>First Name: </strong> {props.graphData.givenName}</p>
-            <p><strong>Last Name: </strong> {props.graphData.surname}</p>
-            <p><strong>Email: </strong> {props.graphData.userPrincipalName}</p>
-            <p><strong>Id: </strong> {props.graphData.id}</p>
-        </div>
-    );
-};
-```
-
-Next, open *src/App.js* and add these to the imports:
-
-```javascript
-import { ProfileData } from "./components/ProfileData";
-import { callMsGraph } from "./graph";
-```
-
-Finally, update your `ProfileContent` component in *src/App.js* to call Microsoft Graph and display the profile data after acquiring the token. Your `ProfileContent` component should look like this:
-
-```javascript
-function ProfileContent() {
-    const { instance, accounts } = useMsal();
-    const [graphData, setGraphData] = useState(null);
-
-    const name = accounts[0] && accounts[0].name;
-
-    function RequestProfileData() {
-        const request = {
-            ...loginRequest,
-            account: accounts[0]
+    ```javascript
+    import { graphConfig } from "./authConfig";
+    
+    /**
+     * Attaches a given access token to a Microsoft Graph API call. Returns information about the user
+     */
+    export async function callMsGraph(accessToken) {
+        const headers = new Headers();
+        const bearer = `Bearer ${accessToken}`;
+    
+        headers.append("Authorization", bearer);
+    
+        const options = {
+            method: "GET",
+            headers: headers
         };
-
-        // Silently acquires an access token which is then attached to a request for Microsoft Graph data
-        instance.acquireTokenSilent(request).then((response) => {
-            callMsGraph(response.accessToken).then(response => setGraphData(response));
-        }).catch((e) => {
-            instance.acquireTokenPopup(request).then((response) => {
-                callMsGraph(response.accessToken).then(response => setGraphData(response));
-            });
-        });
+    
+        return fetch(graphConfig.graphMeEndpoint, options)
+            .then(response => response.json())
+            .catch(error => console.log(error));
     }
+    ```
 
-    return (
-        <>
-            <h5 className="card-title">Welcome {name}</h5>
-            {graphData ? 
-                <ProfileData graphData={graphData} />
-                :
-                <Button variant="secondary" onClick={RequestProfileData}>Request Profile Information</Button>
-            }
-        </>
-    );
-};
-```
+1. Next create a file named *ProfileData.jsx* in *src/components* and add the following code:
+
+    ```javascript
+    import React from "react";
+    
+    /**
+     * Renders information about the user obtained from Microsoft Graph
+     */
+    export const ProfileData = (props) => {
+        return (
+            <div id="profile-div">
+                <p><strong>First Name: </strong> {props.graphData.givenName}</p>
+                <p><strong>Last Name: </strong> {props.graphData.surname}</p>
+                <p><strong>Email: </strong> {props.graphData.userPrincipalName}</p>
+                <p><strong>Id: </strong> {props.graphData.id}</p>
+            </div>
+        );
+    };
+    ```
+
+1. Next, open *src/App.js* and add these to the imports:
+    
+    ```javascript
+    import { ProfileData } from "./components/ProfileData";
+    import { callMsGraph } from "./graph";
+    ```
+
+1. Finally, update your `ProfileContent` component in *src/App.js* to call Microsoft Graph and display the profile data after acquiring the token. Your `ProfileContent` component should look like this:
+
+    ```javascript
+    function ProfileContent() {
+        const { instance, accounts } = useMsal();
+        const [graphData, setGraphData] = useState(null);
+    
+        const name = accounts[0] && accounts[0].name;
+    
+        function RequestProfileData() {
+            const request = {
+                ...loginRequest,
+                account: accounts[0]
+            };
+    
+            // Silently acquires an access token which is then attached to a request for Microsoft Graph data
+            instance.acquireTokenSilent(request).then((response) => {
+                callMsGraph(response.accessToken).then(response => setGraphData(response));
+            }).catch((e) => {
+                instance.acquireTokenPopup(request).then((response) => {
+                    callMsGraph(response.accessToken).then(response => setGraphData(response));
+                });
+            });
+        }
+    
+        return (
+            <>
+                <h5 className="card-title">Welcome {name}</h5>
+                {graphData ? 
+                    <ProfileData graphData={graphData} />
+                    :
+                    <Button variant="secondary" onClick={RequestProfileData}>Request Profile Information</Button>
+                }
+            </>
+        );
+    };
+    ```
 
 In the changes made above, the `callMSGraph()` method is used to make an HTTP `GET` request against a protected resource that requires a token. The request then returns the content to the caller. This method adds the acquired token in the *HTTP Authorization header*. In the sample application created in this tutorial, the protected resource is the Microsoft Graph API *me* endpoint which displays the signed-in user's profile information.
 
