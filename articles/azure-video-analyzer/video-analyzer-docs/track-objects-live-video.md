@@ -58,7 +58,7 @@ In this quickstart, you will:
     ```
     {  
         "IoThubConnectionString" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",  
-        "deviceId" : "ava-sample-device",  
+        "deviceId" : "avasample-iot-edge-device",  
         "moduleId" : "avaedge"  
     }
     ```
@@ -86,7 +86,7 @@ REGISTRY_USER_NAME=<user-name-for-acr>
         ```
         Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
         ```
-1. In about 30 seconds, refresh Azure IoT Hub in the lower-left section. You should see the edge device `ava-sample-device`, which should have the following modules deployed:
+1. In about 30 seconds, refresh Azure IoT Hub in the lower-left section. You should see the edge device `avasample-iot-edge-device`, which should have the following modules deployed:
     * Video Analyzer on IoT Edge (module name **avaedge**)
     * RTSP simulator (module name **rtspsim**)
 
@@ -96,7 +96,7 @@ When you use run this quickstart, events will be sent to the IoT Hub. To see the
 
 1. Open the Explorer pane in Visual Studio Code, and look for **Azure IoT Hub** in the lower-left corner.
 1. Expand the **Devices** node.
-1. Right-click on `ava-sample-device`, and select **Start Monitoring Built-in Event Endpoint**.
+1. Right-click on `avasample-iot-edge-device`, and select **Start Monitoring Built-in Event Endpoint**.
 
     > [!NOTE]
     > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
