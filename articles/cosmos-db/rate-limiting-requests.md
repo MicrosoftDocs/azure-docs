@@ -22,7 +22,7 @@ Consider the following scenario:
 * Your application processes an ingestion job that contains 10K records, each of which
 costs 10 RU. Thus, the total capacity required to complete this job is 100K RU.
 * If you simply send the entire job to Cosmos DB, you should expect a large number of transient faults and a large buffer of requests that you must retry. This is because the total number of RUs needed for the job (100K) is much greater than the provisioned maximum (20K). ~2K of the records will be accepted into the database, but ~8K will be rejected. You will send ~8K records to Cosmos on retry, of which ~2K will be accepted, and so on. You should expect this pattern would send ~30K records instead of 10K records.
-* Instead if you send the records evenly across 5 seconds, you should expect no faults and overall faster throughput as each batch would be at or under the provisioned 20K.
+* Instead if you parcel the job into 5 batches, and send those requests evenly across 5 seconds, you should expect no faults and overall faster throughput as each batch would be at or under the provisioned 20K.
 
 Spreading the requests across a period of time can be accomplished by introducing a rate limiting mechanism in your code.
 
@@ -118,7 +118,7 @@ Autoscale provisioned throughput in Azure Cosmos DB allows you to scale the thro
 Autoscale provisioned throughput is well suited for mission-critical workloads that have variable or unpredictable traffic patterns, and require SLAs on high performance and scale.
 
 For more information on autoscaling, see [Create Azure Cosmos containers and databases with autoscale throughput
-](provision-throughput-autoscale.md)
+](provision-throughput-autoscale.md).
 
 ### Queue-Based Load Leveling pattern
 
@@ -126,4 +126,4 @@ You could employ a queue that acts as a buffer between a client and Cosmos DB in
 
 This pattern is useful to any application that uses services that are subject to overloading. However, this pattern isn't useful if the application expects a response from the service with minimal latency.
 
-For more information about this pattern, see [Queue-Based Load Leveling pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling)
+For more information about this pattern, see [Queue-Based Load Leveling pattern](architecture/patterns/queue-based-load-leveling).
