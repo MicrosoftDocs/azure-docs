@@ -49,11 +49,6 @@ To learn more about private networking, see the following articles:
 
 ## How can I install the extension?
 
-To deploy the latest version of the extension at scale including identity requirements,
-assign the Azure Policy,
-[Deploy prerequisites to enable Guest Configuration policies on virtual machines](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_Prerequisites.json).
-For individual machines, the extension can be deployed using Azure CLI, PowerShell, Resource Manager templates, or third-party tools.
-
 The instance name of the extension must be set to
 "AzurePolicyforWindows" or "AzurePolicyforLinux",
 because the policies referenced above require these specific strings.
@@ -62,6 +57,15 @@ By default, all deployments update to the latest version. The value
 of property _autoUpgradeMinorVersion_ defaults to "true" unless it is otherwise
 specified. You do not need to worry about updating your code when
 new versions of the extension are released.
+
+### Azure Policy
+
+To deploy the latest version of the extension at scale including identity requirements,
+[assign](../../governance/policy/assign-policy-portal) the Azure Policy:
+
+[Deploy prerequisites to enable Guest Configuration policies on virtual machines](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_AzureBaseline.json).
+
+For individual machines, the extension can be deployed using Azure CLI, PowerShell, Resource Manager templates, or third-party tools.
 
 ### Azure CLI
 
