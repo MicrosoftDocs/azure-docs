@@ -35,9 +35,9 @@ The Azure CLI extension for Machine Learning enables you to accelerate the itera
 
 For the Azure Machine Learning CLI, jobs are authored in YAML format. A job aggregates:
 
-- What to run
-- How to run it
-- Where to run it
+- what to run
+- how to run it
+- where to run it
 
 The basic "hello world" job has all three:
 
@@ -63,13 +63,29 @@ For instance, look at the `jobs/train/lightgbm/iris` project directory in the ex
     └── main.py
 ```
 
-This directory contains two job specifications, a conda environment file, and a source code directory `src`. While this example only has a single file under `src`, the entire subdirectory is recursively uploaded and available for use in the job.
+This directory contains two job files, a conda environment file, and a source code subdirectory `src`. While this example only has a single file under `src`, the entire subdirectory is recursively uploaded and available for use in the job.
 
 The basic command job is configured via the `job.yml`:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job.yml":::
 
-This job can be created and run via `az ml job create` using the `--file/-f` parameter. However for the job to succeed, you first need to create the `cpu-cluster`.
+This job can be created and run via `az ml job create` using the `--file/-f` parameter. However the job targets a compute named `cpu-cluster` which does not yet exist. To run the job locally first, you can override the compute target with `--set`:
+
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="lightgbm_iris_local":::
+
+> [!IMPORANT]
+> [Docker](https://docker.io) needs to be installed and running locally. Python needs to be installed in the job's environment. For local runs which use `inputs`, the Python package `azureml-dataprep` needs to be installed in the job's environment.
+
+> [!TIP]
+> This will take a few minutes to pull the base Docker image and create the conda environment on top of it. Use prebuit Docker images, such as the [curated environments for machine learning](), to avoid the image build time.
+
+> [!TIP]
+> While running this job locally is slower than running `python main.py` in a local Python enviornment with the required packages install, the above allows you to:
+>   - save the run history in the Azure Machine Learning studio
+>   - reproduce the run on remote compute targets (scale up, scale out, sweep hyperparameters)
+>   - track run submission details, including source code git repository and commit
+>   - track model metrics, metadata, and artifacts
+>   - avoid installation and package management in your local environment
 
 ## Create compute
 
@@ -113,7 +129,7 @@ Once the job is complete, you can download the outputs:
 
 This will download the logs and any captured artifacts locally in a directory named `$run_id`. For this example, the MLflow-logged model subdirectory will be downloaded.
 
-## Sweeping hyperparameters
+## Sweep hyperparameters
 
 Azure Machine Learning also enables you to more efficiently tune the hyperparameters for your machine learning models. You can configure a hyperparameter tuning job, called a sweep job, and submit it via the CLI. For more information on Azure Machine Learning's hyperparameter tuning offering, see the [conceptual documentation](how-to-tune-hyperparameters.md).
 
@@ -139,6 +155,9 @@ A sweep job can be specified for sweeping across hyperparameters used in the com
 Create job and open in the studio:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="lightgbm_iris_sweep":::
+
+> [!TIP]
+> Hyperparameter sweeps can be used with distributed command jobs.
 
 ## Distributed training
 
@@ -187,10 +206,6 @@ Create the job and open in the studio:
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="tensorflow_mnist_horovod":::
 
 ## Best practices
-
-Colocate data and compute in the same Azure region whenever possible.
-
-Use prebuilt Docker images where possible for your environment to reduce job preparation time. These can be either your own custom images or OSS images, or prebuilt curated environments for common frameworks (See the "Curated" section of the studio's "Environments" tab (in preview)).
 
 If using VS Code, consider configuring to autopopulate completions when authoring YAML files with a `$schema` specified. For more information, see [JSON schemas and settings](https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings).
 
