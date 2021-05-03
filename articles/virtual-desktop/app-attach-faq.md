@@ -90,7 +90,7 @@ Each session host can handle different amount of MSIX applications based on its 
 
 MSIX app attach does not enforce a limit. There are limits coming from:
 
-- OS ability to handle mounted volumes
+- The ability of the OS to handle mounted volumes.
 - Each storage solution and/or file system defines differnet max handle of open files
 - Session host memory and CPU utilization 
 
