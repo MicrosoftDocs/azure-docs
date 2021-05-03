@@ -9,6 +9,7 @@ author: lzchen
 ms.author: lechen
 ---
 
+
 # Set up Azure Monitor for your Python application
 
 Azure Monitor supports distributed tracing, metric collection, and logging of Python applications.
