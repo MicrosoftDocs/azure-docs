@@ -93,7 +93,7 @@ You'll need the files for these steps:
     ```
     {  
         "IoThubConnectionString" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",  
-        "deviceId" : "ava-sample-device",  
+        "deviceId" : "avasample-iot-edge-device",  
         "moduleId" : "avaedge"  
     }
     ```
@@ -155,7 +155,7 @@ If this is your first tutorial with Video Analyzer on IoT Edge, Visual Studio Co
     Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
     ```
 
-Next, Visual Studio Code asks you to select an IoT Hub device. Select your IoT Edge device, which should be ava-sample-device.
+Next, Visual Studio Code asks you to select an IoT Hub device. Select your IoT Edge device, which should be avasample-iot-edge-device.
 
 At this stage, the deployment of edge modules to your IoT Edge device has started.
 In about 30 seconds, refresh Azure IoT Hub in the lower-left section in Visual Studio Code. You should see that there are four modules deployed named avaedge, rtspsim, yolov3, and objectCounter.
@@ -218,7 +218,7 @@ When you use the Video Analyzer on IoT Edge module to record the live video stre
     Press Enter to continue
     ```
 1. After you select **Enter** in the **TERMINAL** window, the next set of direct method calls is made:
-   * A call to pipelineTopologySet by using the previous topologyUrl
+   * A call to pipelineTopologySet by using the previous pipelinetopologyUrl
    * A call to livePipelineSet by using the following body
      
         ```
@@ -273,7 +273,7 @@ In the following messages, the application properties and the content of the bod
 When the live pipeline is activated, the RTSP source node attempts to connect to the RTSP server running on the RTSP simulator container. If successful, it prints this event:
 
 ```
-[IoTHubMonitor] [9:42:18 AM] Message received from [ava-sample-device/avaadge]:
+[IoTHubMonitor] [9:42:18 AM] Message received from [avasample-iot-edge-device/avaadge]:
 {
   "body": {
     "sdp": "SDP:\nv=0\r\no=- 1586450538111534 1 IN IP4 XXX.XX.XX.XX\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/camera-300s.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.03.06\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/camera-300s.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets=XXXXXXXXXXXXXXXXXXXXXX\r\na=control:track1\r\n"
@@ -300,7 +300,7 @@ When the live pipeline is activated, the RTSP source node attempts to connect to
 After the pipeline runs for a while, eventually you'll get an event from the objectCounter module. 
 
 ```
-[IoTHubMonitor] [5:53:44 PM] Message received from [ava-sample-device/objectCounter]:
+[IoTHubMonitor] [5:53:44 PM] Message received from [avasample-iot-edge-device/objectCounter]:
 {
   "body": {
     "count": 2
@@ -320,7 +320,7 @@ You might see more of these events show up as other trucks are detected in the v
 Almost immediately after the Object Counter sends the event, you'll see an event of type **Microsoft.VideoAnalyzers.Pipeline.Operational.RecordingStarted**:
 
 ```
-[IoTHubMonitor] [5:53:46 PM] Message received from [ava-sample-device/avaedge]:
+[IoTHubMonitor] [5:53:46 PM] Message received from [avasample-iot-edge-device/avaedge]:
 {
   "body": {
     "outputType": "videoName",
@@ -343,7 +343,7 @@ The subject section in applicationProperties references the video sink node in t
 As the name suggests, the RecordingStarted event is sent when recording has started, but media data might not have been uploaded to the video resource yet. When the video sink node has uploaded media, it emits an event of type **Microsoft.VideoAnalyzers.Pipeline.Operational.RecordingAvailable**:
 
 ```
-[IoTHubMonitor] [[9:43:38 AM] Message received from [ava-sample-device/avaedge]:
+[IoTHubMonitor] [[9:43:38 AM] Message received from [avasample-iot-edge-device/avaedge]:
 {
   "body": {
     "outputType": "videoName",
@@ -366,7 +366,7 @@ This event indicates that enough data was written to the video resource for play
 When you deactivate the live pipeline, the video sink node stops recording media. It emits this event of type **Microsoft.VideoAnalyzers.Pipeline.Operational.RecordingStopped**:
 
 ```
-[IoTHubMonitor] [11:33:31 PM] Message received from [ava-sample-device/avaedge]:
+[IoTHubMonitor] [11:33:31 PM] Message received from [avasample-iot-edge-device/avaedge]:
 {
   "body": {
     "outputType": "videoName",
