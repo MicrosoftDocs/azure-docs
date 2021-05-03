@@ -85,20 +85,43 @@ In this section, you configure your local environment, install the Azure IoT Nod
     After your simulated device connects to your IoT Central application, it connects to the device instance you created in the application and begins to send telemetry. The connection details and telemetry output are shown in your console: 
     
     ```output
-    Device was assigned
-    iotc-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azure-devices.net
-    my-sdk-device
-    Updating pnp properties for root interface
-    {'serialNumber': 'alohomora'}
-    Updating pnp properties for thermostat1
-    {'thermostat1': {'maxTempSinceLastReboot': 98.34, '__t': 'c'}}
-    Updating pnp properties for thermostat2
-    {'thermostat2': {'maxTempSinceLastReboot': 48.92, '__t': 'c'}}
-    Updating pnp properties for deviceInformation
-    {'deviceInformation': {'swVersion': '5.5', 'manufacturer': 'Contoso Device Corporation', 'model': 'Contoso 4762B-turbo', 'osName': 'Mac Os', 'processorArchitecture': 'x86-64', 'processorManufacturer': 'Intel', 'totalStorage': 1024, 'totalMemory': 32, '__t': 'c'}}
-    Listening for command requests and property updates
-    Press Q to quit
-    Sending telemetry from various components
-    Sent message
-    {"temperature": 33}
+    registration succeeded
+    assigned hub=iotc-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx.azure-devices.net
+    deviceId=my-sdk-device
+    payload=undefined
+    Connecting using connection string: HostName=iotc-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx.azure-devices.net;DeviceId=my-sdk-device;SharedAccessKey=xxxxxxxxxxxxxxxxxxxxxxxxxxx
+    Enabling the commands on the client
+    Please enter q or Q to exit sample.
+    The following properties will be updated for root interface.
+    { serialNumber: 'alwinexlepaho8329' }
+    The following properties will be updated for component: thermostat1
+    {
+      thermostat1: { maxTempSinceLastReboot: 40.53506261527863, __t: 'c' }
+    }
+    The following properties will be updated for component: thermostat2
+    {
+      thermostat2: { maxTempSinceLastReboot: 89.55136974144273, __t: 'c' }
+    }
+    The following properties will be updated for component: deviceInformation
+    {
+      deviceInformation: {
+        manufacturer: 'Contoso Device Corporation',
+        model: 'Contoso 47-turbo',
+        swVersion: '10.89',
+        osName: 'Contoso_OS',
+        processorArchitecture: 'Contoso_x86',
+        processorManufacturer: 'Contoso Industries',
+        totalStorage: 65000,
+        totalMemory: 640,
+        __t: 'c'
+      }
+    }
+    executed sample
+    Received an update for device with value: {"$version":1}
+    Properties have been reported for root interface.
+    Properties have been reported for component: thermostat1
+    Properties have been reported for component: thermostat2
+    Properties have been reported for component: deviceInformation
+    Sending telemetry message 0 from component: thermostat1
+    Sending telemetry message 0 from component: thermostat2
     ```
