@@ -15,7 +15,7 @@ Azure Monitor supports distributed tracing, metric collection, and logging of Py
 
 Microsoft's supported solution for tracking and exporting data for your Python applications is through the [Opencensus Python SDK](#introducing-opencensus-python-sdk) via the [Azure Monitor exporters](#instrument-with-opencensus-python-sdk-with-azure-monitor-exporters).
 
-You may have come across the [unsupported Application Insights Python SDK](https://github.com/microsoft/ApplicationInsights-Python). This SDK is UNSUPPORTED and is NOT reccomended by Microsoft to use as a telemetry solution.
+Any other telemetry SDKs for Python are UNSUPPORTED and are NOT recommended by Microsoft to use as a telemetry solution.
 
 You may have noted that OpenCensus is converging into [OpenTelemetry](https://opentelemetry.io/). However, we continue to recommend OpenCensus while OpenTelemetry gradually matures.
 
@@ -232,7 +232,8 @@ OpenCensus.stats supports 4 aggregation methods but provides partial support for
 
 - **Count:** The count of the number of measurement points. The value is cumulative, can only increase and resets to 0 on restart. 
 - **Sum:** A sum up of the measurement points. The value is cumulative, can only increase and resets to 0 on restart. 
-- **LastValue:** Keeps the last recorded value, drops everything else.
+- **LastValue:** Keeps the last 
+rded value, drops everything else.
 - **Distribution:** Histogram distribution of the measurement points. This method is **NOT supported by the Azure Exporter**.
 
 ### Count Aggregation example
