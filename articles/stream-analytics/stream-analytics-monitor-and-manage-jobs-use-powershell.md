@@ -550,7 +550,7 @@ For further assistance, try our [Microsoft Q&A question page for Azure Stream An
 [msdn-rest-api-create-stream-analytics-job]: ./stream-analytics-quick-create-portal.md
 [msdn-rest-api-create-stream-analytics-input]: ./stream-analytics-define-inputs.md
 [msdn-rest-api-create-stream-analytics-output]: ./stream-analytics-define-outputs.md
-[msdn-rest-api-create-stream-analytics-transformation]: /cli/azure/ext/stream-analytics/stream-analytics/transformation
+[msdn-rest-api-create-stream-analytics-transformation]: /cli/azure/stream-analytics/transformation
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md

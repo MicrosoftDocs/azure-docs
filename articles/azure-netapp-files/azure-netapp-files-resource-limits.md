@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/20/2021
+ms.date: 04/22/2021
 ms.author: b-juche
 ---
 # Resource limits for Azure NetApp Files
@@ -39,15 +39,36 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum size of a single volume     |    100 TiB    |    No    |
 |  Maximum size of a single file     |    16 TiB    |    No    |    
 |  Maximum size of directory metadata in a single directory      |    320 MB    |    No    |    
+|  Maximum number of files in a single directory  | *Approximately* 4 million. <br> See [Determine if a directory is approaching the limit size](#directory-limit).  |    No    |   
 |  Maximum number of files ([maxfiles](#maxfiles)) per volume     |    100 million    |    Yes    |    
 |  Maximum number of export policy rules per volume     |    5  |    No    | 
 |  Minimum assigned throughput for a manual QoS volume     |    1 MiB/s   |    No    |    
 |  Maximum assigned throughput for a manual QoS volume     |    4,500 MiB/s    |    No    |    
 |  Number of cross-region replication data protection volumes (destination volumes)     |    5    |    Yes    |     
 
-To see whether a directory is approaching the maximum size limit for directory metadata (320 MB), see [How do I determine if a directory is approaching the limit size](azure-netapp-files-faqs.md#how-do-i-determine-if-a-directory-is-approaching-the-limit-size).   
-
 For more information, see [Capacity management FAQs](azure-netapp-files-faqs.md#capacity-management-faqs).
+
+## Determine if a directory is approaching the limit size <a name="directory-limit"></a>  
+
+You can use the `stat` command from a client to see whether a directory is approaching the maximum size limit for directory metadata (320 MB).   
+
+For a 320-MB directory, the number of blocks is 655360, with each block size being 512 bytes.  (That is, 320x1024x1024/512.)  This number translates to approximately 4 million files maximum for a 320-MB directory. However, the actual number of maximum files might be lower, depending on factors such as the number of files containing non-ASCII characters in the directory. As such, you should use the `stat` command as follows to determine whether your directory is approaching its limit.  
+
+Examples:
+
+```console
+[makam@cycrh6rtp07 ~]$ stat bin
+File: 'bin'
+Size: 4096            Blocks: 8          IO Block: 65536  directory
+
+[makam@cycrh6rtp07 ~]$ stat tmp
+File: 'tmp'
+Size: 12288           Blocks: 24         IO Block: 65536  directory
+ 
+[makam@cycrh6rtp07 ~]$ stat tmp1
+File: 'tmp1'
+Size: 4096            Blocks: 8          IO Block: 65536  directory
+```
 
 ## Maxfiles limits <a name="maxfiles"></a> 
 

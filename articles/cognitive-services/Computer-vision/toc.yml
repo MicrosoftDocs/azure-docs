@@ -45,7 +45,8 @@
         href: ../containers/azure-container-instance-recipe.md
         displayName: container instances, container, containers, images
       - name: All Cognitive Services containers
-        href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
+        href: ../containers/index.yml
+        maintainContext: true
   - name: Reference
     items:
     - name: OCR REST API v3.2
@@ -177,15 +178,15 @@
       - name: Camera placement
         href: spatial-analysis-camera-placement.md
       - name: All Cognitive Services containers
-        href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
+        href: ../containers/index.yml?context=%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
 - name: How-to guides
   items:
   - name: Enterprise readiness
     items:
     - name: Set up Virtual Networks
-      href: /azure/cognitive-services/cognitive-services-virtual-networks?context=/azure/cognitive-services/computer-vision/context/context
+      href: ../cognitive-services-virtual-networks.md?context=%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
     - name: Use Azure AD Authentication
-      href: /azure/cognitive-services/authentication?tabs=powershell?context=/azure/cognitive-services/computer-vision/context/context
+      href: ../authentication.md?tabs=powershell%3fcontext%3d%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
 - name: Resources
   items: 
   - name: Enterprise readiness

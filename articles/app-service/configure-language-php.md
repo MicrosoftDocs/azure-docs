@@ -25,6 +25,9 @@ To show the current PHP version, run the following command in the [Cloud Shell](
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query phpVersion
 ```
 
+> [!NOTE]
+> To address a development slot, include the parameter `--slot` followed by the name of the slot.
+
 To show all supported PHP versions, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
@@ -41,6 +44,9 @@ To show the current PHP version, run the following command in the [Cloud Shell](
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
 ```
 
+> [!NOTE]
+> To address a development slot, include the parameter `--slot` followed by the name of the slot.
+
 To show all supported PHP versions, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
@@ -56,7 +62,7 @@ az webapp list-runtimes --linux | grep PHP
 Run the following command in the [Cloud Shell](https://shell.azure.com) to set the PHP version to 7.4:
 
 ```azurecli-interactive
-az webapp config set --name <app-name> --resource-group <resource-group-name> --php-version 7.4
+az webapp config set --resource-group <resource-group-name> --name <app-name> --php-version 7.4
 ```
 
 ::: zone-end
@@ -66,7 +72,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 Run the following command in the [Cloud Shell](https://shell.azure.com) to set the PHP version to 7.2:
 
 ```azurecli-interactive
-az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "PHP|7.2"
+az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PHP|7.2"
 ```
 
 ::: zone-end

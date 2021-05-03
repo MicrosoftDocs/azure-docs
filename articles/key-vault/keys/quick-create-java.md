@@ -2,7 +2,7 @@
 title: Quickstart - Azure Key Vault Key client library for Java
 description: Provides a quickstart for the Azure Key Vault Keys client library for Java.
 author: msmbaldwin
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ms.author: mbaldwin
 ms.date: 01/05/2021
 ms.service: key-vault
@@ -264,6 +264,6 @@ public class App {
 In this quickstart you created a key vault, created a key, retrieved it, and then deleted it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
-- Read the [Key Vault security overview](../general/security-overview.md)
+- Read the [Key Vault security overview](../general/security-features.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
-- How to [Secure access to a key vault](../general/security-overview.md)
+- How to [Secure access to a key vault](../general/security-features.md)

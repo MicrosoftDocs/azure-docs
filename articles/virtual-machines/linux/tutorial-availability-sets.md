@@ -1,6 +1,6 @@
 ---
 title: Deploy VMs in an availability set using Azure CLI
-description: In this tutorial, you learn how to use the Azure CLI to deploy highly available virtual machines in Availability Sets
+description: Learn how to use the Azure CLI to deploy highly available virtual machines in Availability Sets
 documentationcenter: ''
 services: virtual-machines
 author: mimckitt

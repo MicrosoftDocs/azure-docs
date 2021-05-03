@@ -80,7 +80,7 @@
   - name: Structure of Azure dashboards
     href: azure-portal-dashboards-structure.md
   - name: Azure CLI
-    href: /cli/azure/ext/portal/portal
+    href: /cli/azure/portal
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md

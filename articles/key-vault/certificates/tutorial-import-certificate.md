@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: tutorial
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure
@@ -150,4 +150,4 @@ In this tutorial, you created a Key Vault and imported a certificate in it. To l
 
 - Read more about [Managing certificate creation in Azure Key Vault](./create-certificate-scenarios.md)
 - See examples of [Importing Certificates Using REST APIs](/rest/api/keyvault/importcertificate/importcertificate)
-- Review the [Key Vault security overview](../general/security-overview.md)
+- Review the [Key Vault security overview](../general/security-features.md)

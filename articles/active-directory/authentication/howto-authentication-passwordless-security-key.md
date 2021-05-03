@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 04/21/2021
 
 ms.author: justinha
 author: justinha
@@ -28,7 +28,9 @@ This document focuses on enabling security key based passwordless authentication
 - Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys)
 - WebAuthN requires Windows 10 version 1903 or higher**
 
-To use security keys for logging in to web apps and services, you must have a browser that supports the WebAuthN protocol. These include Microsoft Edge, Chrome, Firefox, and Safari.
+To use security keys for logging in to web apps and services, you must have a browser that supports the WebAuthN protocol. 
+These include Microsoft Edge, Chrome, Firefox, and Safari.
+
 
 ## Prepare devices
 

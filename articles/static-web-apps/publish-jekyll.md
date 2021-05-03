@@ -5,20 +5,20 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 06/08/2020
+ms.date: 04/28/2021
 ms.author: cshoe
 ---
 
 # Tutorial: Publish a Jekyll site to Azure Static Web Apps Preview
 
-This article demonstrates how to create and deploy a [Jekyll](https://jekyllrb.com/) web application to [Azure Azure Static Web Apps](overview.md).
+This article demonstrates how to create and deploy a [Jekyll](https://jekyllrb.com/) web application to [Azure Static Web Apps](overview.md).
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
 > - Create a Jekyll website
-> - Setup an Azure Static Web Apps
+> - Setup an Azure Static Web Apps resource
 > - Deploy the Jekyll app to Azure
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -106,29 +106,29 @@ The following steps show you how to create a new static site app and deploy it t
 
 1. For _SKU_, select **Free**.
 
-    :::image type="content" source="./media/publish-jekyll/basic-app-details.png" alt-text="Details filled out":::
+1. In _Deployment details_, select **GitHub** for _Source_.
 
 1. Click the **Sign in with GitHub** button.
 
 1. Select the **Organization** under which you created the repo.
 
-1. Select the **jekyll-static-app** as the _Repository_.
+1. Select **jekyll-static-app** as the _Repository_.
 
 1. For the _Branch_ select **main**.
-
-    :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Completed GitHub information":::
 
 ### Build
 
 Next, you add configuration settings that the build process uses to build your app. The following settings configure the GitHub Action workflow file.
 
-1. Click the **Next: Build >** button to edit the build configuration.
+1. For _Build Presets_, select **Custom**.
 
-1. Set _App location_ to **/_site**.
+1. Set _App location_ to **/**.
 
-1. Leave the _App artifact location_ blank.
+1. Set the _Output location_ to **_site**.
 
    A value for _API location_ isn't necessary as you aren't deploying an API at the moment.
+
+   :::image type="content" source="./media/publish-jekyll/github-actions-inputs.png" alt-text="GitHub Actions Inputs":::
 
 ### Review and create
 
@@ -136,40 +136,35 @@ Next, you add configuration settings that the build process uses to build your a
 
 1. Click **Create** to start the creation of the Azure Static Web Apps and provision a GitHub Action for deployment.
 
-1. The deployment will first, fail because the workflow file needs some Jekyll-specific settings. To add those settings, navigate to your terminal and pull the commit with the GitHub Action to your machine.
-
-   ```bash
-   git pull
-   ```
-
-1. Open the Jekyll app in a text editor and open the _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml_ file.
-
-1. Before the line `- name: Build And Deploy` add the following configuration block.
-
-    ```yml
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1.59.1
-      with:
-        ruby-version: 2.6
-    - name: Install dependencies
-      run: bundle install
-    - name: Jekyll build
-      run: jekyll build
-    ```
-
-1. Commit the updated workflow and push to GitHub.
-
-    ```bash
-    git add -A
-    git commit -m "Updating GitHub Actions workflow"
-    git push
-    ```
-
 1. Wait for the GitHub Action to complete.
 
-1. In the Azure portal's _Overview_ window, click the _URL_ link to open your deployed application.
+1. In the Azure portal's _Overview_ window of newly created Azure Static Web Apps resource, click the _URL_ link to open your deployed application.
 
    :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="Deployed application":::
+
+#### Custom Jekyll settings
+
+When you generate a static web app, a [workflow file](./github-actions-workflow.md) is generated which contains the publishing configuration settings for the application.
+
+To configure environment variables, such as `JEKYLL_ENV`, add an `env` section to the Azure Static Web Apps GitHub Action in the workflow.
+
+```yaml
+- name: Build And Deploy
+   id: builddeploy
+   uses: Azure/static-web-apps-deploy@v0.0.1-preview
+   with:
+      azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+      repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+      action: "upload"
+      ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
+      # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+      app_location: "/" # App source code path
+      api_location: "" # Api source code path - optional
+      output_location: "_site_" # Built app content directory - optional
+      ###### End of Repository/Build Configurations ######
+   env:
+      JEKYLL_ENV: production
+```
 
 ## Clean up resources
 

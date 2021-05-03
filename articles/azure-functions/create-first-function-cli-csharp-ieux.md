@@ -3,7 +3,7 @@ title: Create a C# function from the command line - Azure Functions
 description: Learn how to create a C# function from the command line, then publish the local project to serverless hosting in Azure Functions.
 ms.date: 10/03/2020
 ms.topic: quickstart
-ms.custom: [devx-track-csharp, devx-track-azurecli]
+ms.custom: [devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell]
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
@@ -27,7 +27,7 @@ There is also a [Visual Studio Code-based version](create-first-function-vs-code
 
 + Get an Azure <abbr title="The profile that maintains billing information for Azure usage.">account</abbr> with an active <abbr title="The basic organizational structure in which you manage resources on Azure, typically associated with an individual or department within an organization.">subscription</abbr>. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ Install [.NET Core SDK 3.1](https://www.microsoft.com/net/download)
++ Install [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
 
 + Install [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
 

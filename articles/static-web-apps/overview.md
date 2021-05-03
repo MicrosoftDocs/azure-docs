@@ -33,14 +33,14 @@ With Static Web Apps, static assets are separated from a traditional web server 
 - **Free SSL certificates**, which are automatically renewed.
 - **Custom domains** to provide branded customizations to your app.
 - **Seamless security model** with a reverse-proxy when calling APIs, which requires no CORS configuration.
-- **Authentication provider integrations** with Azure Active Directory, Facebook, Google, GitHub, and Twitter.
+- **Authentication provider integrations** with Azure Active Directory, GitHub, and Twitter.
 - **Customizable authorization role definition** and assignments.
 - **Back-end routing rules** enabling full control over the content and routes you serve.
 - **Generated staging versions** powered by pull requests enabling preview versions of your site before publishing.
 
 ## What you can do with Static Web Apps
 
-- **Build modern web applications** with JavaScript frameworks and libraries like [Angular](getting-started.md?tabs=angular), [React](getting-started.md?tabs=react), [Svelte](/learn/modules/publish-app-service-static-web-app-api/), [Vue](getting-started.md?tabs=react), or using [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) to create WebAssembly applications, with an [Azure Functions](apis.md) back-end.
+- **Build modern web applications** with JavaScript frameworks and libraries like [Angular](getting-started.md?tabs=angular), [React](getting-started.md?tabs=react), [Svelte](/learn/modules/publish-app-service-static-web-app-api/), [Vue](getting-started.md?tabs=vue), or using [Blazor](./deploy-blazor.md) to create WebAssembly applications, with an [Azure Functions](apis.md) back-end.
 - **Publish static sites** with frameworks like [Gatsby](publish-gatsby.md), [Hugo](publish-hugo.md), [VuePress](publish-vuepress.md).
 - **Deploy web applications** with frameworks like [Next.js](deploy-nextjs.md) and [Nuxt.js](deploy-nuxtjs.md).
 
