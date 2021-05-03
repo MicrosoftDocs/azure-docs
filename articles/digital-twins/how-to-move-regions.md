@@ -82,7 +82,7 @@ If the sample isn't able to handle the size of your graph, you can export and im
 
 To proceed with Azure Digital Twins Explorer, first download the sample application code and set it up to run on your machine.
 
-To get the sample, go to [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Select the **Browse code** button underneath the title, which will take you to the GitHub repo for the sample. Select the **Code** button and **Download ZIP** to download the sample as a *.ZIP* file to your machine.
+To get the sample, go to [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Select the **Browse code** button underneath the title, which will take you to the GitHub repo for the sample. Select the **Code** button and **Download ZIP** to download the sample as a .zip file to your machine.
 
 :::image type="content" source="media/how-to-move-regions/download-repo-zip.png" alt-text="Screenshot of the digital-twins-explorer repo on GitHub. The Code button is selected, producing a small dialog box where the Download ZIP button is highlighted." lightbox="media/how-to-move-regions/download-repo-zip.png":::
 
