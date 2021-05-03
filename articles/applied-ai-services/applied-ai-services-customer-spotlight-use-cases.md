@@ -33,7 +33,7 @@ Customers are already leveraging Applied AI Services to add AI horsepower to the
 
 -Giedrius Graževičius: Project Manager for Search, Wix 
 
-[Read the story >](https://customers.microsoft.com/en-us/story/764974-wix-partner-professional-services-azure-cognitive-search)  
+[Read the story >](https://customers.microsoft.com/story/764974-wix-partner-professional-services-azure-cognitive-search)  
 
 <br>
 
