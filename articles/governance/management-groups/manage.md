@@ -75,7 +75,7 @@ To delete a management group, the following requirements must be met:
 
 1. You need write permissions on the management group ("Owner", "Contributor", or "Management Group
    Contributor"). To see what permissions you have, select the management group and then select
-   **IAM**. To learn more on Azure roles, see  
+   **IAM**. To learn more on Azure roles, see
    [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ### Delete in the portal
@@ -336,7 +336,7 @@ template.
     },
     "resources": [
         {
-            "scope": "/", 
+            "scope": "/",
             "type": "Microsoft.Management/managementGroups/subscriptions",
             "apiVersion": "2020-05-01",
             "name": "[concat(parameters('targetMgId'), '/', parameters('subscriptionId'))]",
@@ -363,8 +363,8 @@ template.
 1. In the menu that opens, select if you want a new or use an existing management group.
 
    - Selecting new will create a new management group.
-   - Selecting an existing will present you with a drop-down of all the management groups you can
-     move to this management group.
+   - Selecting an existing will present you with a dropdown list of all the management groups you
+     can move to this management group.
 
    :::image type="content" source="./media/add_context_MG.png" alt-text="Screenshot of the 'Add management group' options for creating a new management group." border="false":::
 
