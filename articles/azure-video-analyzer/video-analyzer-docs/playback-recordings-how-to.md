@@ -16,7 +16,7 @@ ms.date: 04/26/2021
 
 ## Background  
 
-You can use Azure Video Analyzer on IoT Edge for [continuous video recording](continuous-video-recording.md) (CVR), whereby you can record video into the cloud for weeks or months. You can also limit your recording to clips that are of interest, via [event-based video recording](event-based-video-recording-concept.md) (EVR). 
+You can use Azure Video Analyzer for [continuous video recording](continuous-video-recording.md) (CVR), whereby you can record video into the cloud for weeks or months. You can also limit your recording to clips that are of interest, via [event-based video recording](event-based-video-recording-concept.md) (EVR). 
 
 If you are evaluating the capabilities of Video Analyzer, then you should go through the [tutorial on CVR](use-continuous-video-recording.md), where you would play back the recordings using Azure portal.
 
@@ -24,11 +24,11 @@ If you are building an application or service using Video Analyzer APIs, then yo
 
 Your Video Analyzer account is linked to an Azure Storage account, and when you record video to the cloud, the content is written to a [video resource](terminology.md#video). You can [stream that content](terminology.md#streaming) either after the recording is complete, or while the recording is ongoing. This is indicated via the `canStream` [flag]()<!-- add link to swagger--> that will be set to `true` for the video resource.
 
-Video Analyzer provides you with the necessary capabilities to deliver streams via HLS or MPEG-DASH protocols to playback devices (clients). You would use Video Analyzer [Client APIs]()<!--add link --> to obtain the streaming URL and the playback authorization token, and use these in client apps to play back the video & audio. Alternatively, you can use [Widgets](widgets.md) that are JavaScript plugins built on top of the Client APIs.
+Video Analyzer provides you with the necessary capabilities to deliver streams via HLS or MPEG-DASH protocols to playback devices (clients). You would use Video Analyzer [Client APIs]()<!--add link --> to obtain the streaming URL and the playback authorization token, and use these in client apps to play back the video & audio. Alternatively, you can use [widgets](widgets.md) that are JavaScript plugins built on top of the Client APIs.
  
 ### Live vs. VoD  
 
-Streaming protocols like HLS and MPEG-DASH were authored to handle scenarios like streaming of live videos, as well as streaming of on-demand/pre-recorded content like TV shows and movies. For live videos, HLS and MPEG-DASH clients are designed to start playing from the ‘most recent’ time onwards. With movies, however, viewers expect to be able to start from the beginning and jump around if they choose to. The HLS and MPEG-DASH manifests have flags that indicate to the clients whether the video represents a live stream, or it is pre-recorded content. This concept also applies to HLS and MPEG-DASH streams from video resources in your Video Analyzer account.
+Streaming protocols like HLS and MPEG-DASH were authored to handle scenarios like streaming of live videos, as well as streaming of on-demand/pre-recorded content like TV shows and movies. For live videos, HLS and MPEG-DASH clients are designed to start playing from the ‘most recent’ time onwards. With recorded video however, viewers expect to be able to start from the beginning and jump around if they choose to. The HLS and MPEG-DASH manifests have flags that indicate to the clients whether the video represents a live stream, or it is pre-recorded content. This concept also applies to HLS and MPEG-DASH streams from video resources in your Video Analyzer account.
 
 ## RVX Widget One Player
 
@@ -50,7 +50,7 @@ Alternatively you can embed an existing pre-build script by adding type="module"
 
 ## Media endpoint 
 
-You can use your own player to play videos directly from your Video Analyzer account in DASH/HLS format. When you [query]()<!-- add link to swagger --> the properties of a video resource, the returned values will include the `archiveBaseUrl` [property]()<!-- add link to swagger--> of the video resource. This URL servers as the media endpoint to which players can connect. Such media endpoints authorize a player by verifying the playback token presented by the player. In order to get access to the video you will need to provide a JWT token. Currently we support a JWT token to be passed by the following ways:
+You can use your own player to play videos directly from your Video Analyzer account in DASH/HLS format. When you [query]()<!-- add link to swagger --> the properties of a video resource, the returned values will include the `archiveBaseUrl` [property]()<!-- add link to swagger--> of the video resource. This URL serves as the media endpoint to which players can connect. Such media endpoints authorize a player by verifying the playback token presented by the player. In order to get access to the video you will need to provide a JWT token. Currently we support a JWT token to be passed by the following ways:
 
 * JWT token as HTTP authorization header
 * JWT token as cookie
@@ -72,7 +72,7 @@ Following are the high level steps in order to enable playback of recordings in 
 
 ## Browsing and selective playback of recordings  
 
-Consider the scenario where you have used Video Analyzer on IoT Edge to record video only from 8AM to 10AM on days when a school was open, for the entire academic year. Or perhaps you are recording video only from 7AM to 7PM on national holidays. In either of these two scenarios, when attempting to browse and view your video recording, you would need:
+Consider the scenario where you have used Video Analyzer to record video only from 8AM to 10AM on days when a school was open, for the entire academic year. Or perhaps you are recording video only from 7AM to 7PM on national holidays. In either of these two scenarios, when attempting to browse and view your video recording, you would need:
 
 * A way to determine what dates/hours of video you have in a  recording.
 * A way to select a portion (for example, 9AM to 11AM on New Years Day) of that recording to playback.
@@ -81,7 +81,7 @@ Video Analyzer provides you with a query parameter (`availableMedia`) to address
 
 ## Query API 
 
-When using CVR, playback devices (clients) cannot request a manifest covering playback of the entire recording.  A multi-year recording would produce a manifest file that was too large for playback and it would be unwieldy to parse into usable portions on the client side.  The client needs to know what datetime ranges have data in the recording so that it can make valid requests without much guess work. This is where the new Query API comes in – clients can now use this server-side API to discover content.
+When using CVR, playback devices (clients) cannot request a manifest covering playback of the entire recording.  A multi-year recording would produce a manifest file that was too large for playback and it would be unwieldy to parse into usable portions on the client side.  The client needs to know what datetime ranges have data in the recording so that it can make valid requests without much guess work. This is where the Query API comes in – clients can use this server-side API to discover content.
 
 Where the precision value can be one of: year, month, day, or full (as shown below). 
 
@@ -96,7 +96,7 @@ Where the precision value can be one of: year, month, day, or full (as shown bel
 * All times are in UTC
 * The precision query string parameter is required.  
 * The startTime and endTime query string parameters are required for the month, day, and full precision values.  
-* The startTime and endTime query string parameters are optional for the year precision value (none, either, or both is supported).  
+* The startTime and endTime query string parameters are optional for the year precision value (none, either, or both are supported).  
 
     * If the startTime is omitted, it is assumed to be the first year in the recording.
     * If the endTime is omitted, it is assumed to be the last year in the recording.
@@ -110,7 +110,7 @@ If no media data is available for the time ranges, then an empty list is returne
 
 If the duration of time specified by the parameters is larger than allowed by the Maximum Time Range for a given query type, then an HTTP 400 will be returned with an error message explaining the maximum allowed time range for the requested query type.
 
-Assuming the time range is valid for the parameters given, no errors will be returned for queries that are outside of the time window of data in the recording.  Meaning if the recording started 7 hours ago but the customer asks for available media from {UtcNow – 24 hours} to UtcNow, then we’d just return the {UtcNow – 7} hours of data.
+Assuming the time range is valid for the parameters given, no errors will be returned for queries that are outside of the time window of data in the recording.  This means if the recording started 7 hours ago but the customer asks for available media from {UtcNow – 24 hours} to UtcNow, then we’d just return the {UtcNow – 7} hours of data.
 
 ### Response format  
 
@@ -258,7 +258,7 @@ Here are the constraints on the filters.
 |---|---|---|
 |Absent	|Absent	|Returns the most recent portion of the video, up to a maximum length of 4 hours.<br/><br/>If the video resource has not been written to (no new video data coming in) recently, an on-demand (VoD) manifest is returned. Else, a live manifest is returned.|
 |Present|Absent|	Return a manifest with whatever video is available that is newer than startTime, if such a manifest would be shorter than 24 hours.<br/>If the length of the manifest would exceed 24 hours, then return an error.<br/>If the video resource has not been written to (no new video data coming in) recently, an on-demand (VoD) manifest is returned. Else, a live manifest is returned.
-|Absent|Present	|Error – if startTime is present, then endTime is mandatory.|
+|Absent|Present	|Error – if endTime is present, then startTime is mandatory.|
 |Present|Present|Return a VoD manifest with whatever video is available between startTime and endTime.<br/>The span (startTime, endTime) cannot exceed 24 hours.|
 
 > [!NOTE]
@@ -340,7 +340,7 @@ With such a recording:
 
     `GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T10:00:00.000Z,endTime=2019-12-21T13:00:00.000Z).m3u8`
     
-    Returned manifest would start at 2019-12-21T12:00:00.000Z, even though the request asked for a start of 10AM. When building a video management system with a player plugin, care should be taken to signal this to the viewer. An unaware viewer would be confused as to why the playback timeline was beginning at noon, and not 10AM as requested
+    Returned manifest would start at 2019-12-21T12:00:00.000Z, even though the request asked for a start of 10AM. When building a video management system with a player plugin, care should be taken to signal this to the viewer. An unaware viewer would be confused as to why the playback timeline was beginning at noon, and not 10AM as requested.
 
 ## Recording and playback latencies
 
