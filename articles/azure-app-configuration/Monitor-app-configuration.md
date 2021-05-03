@@ -27,13 +27,13 @@ Resource Logs are not collected and stored until you create a diagnos
 
 1. Navigate to your App Configuration store.
 
-1. In the **Monitoring** section, click ** Diagnostic settings **, then click ** +Add diagnostic setting **. 
+1. In the **Monitoring** section, select ** Diagnostic settings **, then select ** +Add diagnostic setting **. 
     ![Add a diagnostic setting](./media/diagnostic-settings-add.png)
 
 1. In the **Diagnostic setting** page, enter a name for your setting, then select **HttpRequest** and choose the destination to send your logs to. To send them to a Log Analytics workspace, choose **Send to Log Analytics workspace**. 
     ![Details of the diagnostic settings](./media/monitoring-diagnostic-settings-details.png)
 1. Enter the name of your Subscription and Log Analytics Workspace. 
-1. Click **Save** and verify that the Diagnostic Settings page now lists your new diagnostic setting. 
+1. Select **Save** and verify that the Diagnostic Settings page now lists your new diagnostic setting. 
     
 
  ### [Azure CLI](#tab/cli)
@@ -71,7 +71,7 @@ Resource Logs are not collected and stored until you create a diagnos
     ```PowerShell
     Set-AzDiagnosticSetting -ResourceId <app-configuration-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true
     ```
-1. Verify that the that your diagnostic setting is correctly set and log categories are enabled. 
+1. Verify that your diagnostic setting is correctly set and log categories are enabled. 
 
     ```PowerShell
     Get-AzureRmDiagnosticSetting -ResourceId <app-configuration-resource-id> 
@@ -93,7 +93,7 @@ For a list of the platform metrics collected for App Configuration, s
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema). The schema for App Configuration resource logs is found in the [App Configuration Data Reference](monitor-service-reference#schemas).
 
-The [Activity log](/azure/azure-monitor/platform/activity-log is a platform login Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
+The [Activity log](/azure/azure-monitor/platform/activity-log is a platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 For a list of the types of resource logs collected for App Configuration, see [Monitoring App Configuration data reference](monitor-service-reference#logs)  
 For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring App Configuration data reference](monitor-service-reference#azuremonitorlogstables)  
 
@@ -143,7 +143,7 @@ Following are queries that you can use to help you monitor your App 
 
 ## Alerts
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/platform/alerts-metric-overview), [logs](/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](/azure/azure-monitor/platform/activity-log-alerts). Different types of alerts have benefits and drawbacks
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/platform/alerts-metric-overview), [logs](/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](/azure/azure-monitor/platform/activity-log-alerts). Different types of alerts have benefits and drawbacks.
 The following table lists common and recommended alert rules for App Configuration.
 
 | Alert type | Condition | Description  |
