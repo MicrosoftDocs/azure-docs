@@ -13,14 +13,16 @@ tags: connectors
 
 # Connect to an IBM MQ server from a workflow in Azure Logic Apps
 
-The MQ connector helps you receive and send messages stored in an IBM MQ server that's either on premises or in Azure. This connector includes a Microsoft MQ client that communicates with a remote MQ server across a TCP/IP network. You can connect to the following IBM WebSphere MQ versions:
+The MQ connector helps you connect your logic app workflows to an IBM MQ server that's either on premises or in Azure. You can then have your workflows receive and send messages stored in your MQ server. This article provides a get started guide to using the MQ connector by showing how to connect to your MQ server and add an MQ action to your workflow. For example, you can start by browsing a single message in a queue and then try other actions.
+
+This connector includes a Microsoft MQ client that communicates with a remote MQ server across a TCP/IP network. You can connect to the following IBM WebSphere MQ versions:
 
 * MQ 7.5
 * MQ 8.0
 * MQ 9.0
 * MQ 9.1
 
-This article provides a starter guide to using the MQ connector. For example, you can start by browsing a single message on a queue and then try other actions.
+<a name="available-operations"></a>
 
 ## Available operations
 
@@ -41,7 +43,7 @@ The following list describes only some of the managed operations available for M
 * Receive a single message or an array of messages and then delete from the MQ server.
 * Send a single message to the MQ server.
 
- For all the managed connector operations and other technical information, such as properties, limits, and so on, review the [MQ connector's reference page](/connectors/mq/).
+For all the managed connector operations and other technical information, such as properties, limits, and so on, review the [MQ connector's reference page](/connectors/mq/).
 
 #### [Built-in (preview)](#tab/built-in)
 
@@ -64,6 +66,8 @@ The MQ connector doesn't use the message's **Format** field and doesn't make any
 
 ## Prerequisites
 
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
 * If you're using an on-premises MQ server, [install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a server within your network. For the MQ connector to work, the server with the on-premises data gateway also must have .NET Framework 4.6 installed.
 
   After you install the gateway, you must also create a data gateway resource in Azure. The MQ connector uses this resource to access your MQ server. For more information, review [Set up the data gateway connection](../logic-apps/logic-apps-gateway-connection.md). 
@@ -74,13 +78,15 @@ The MQ connector doesn't use the message's **Format** field and doesn't make any
   > * You're going to use the built-in operations, not the managed connector.
   > * Your MQ server is publicly available or available in Azure.
 
-* The logic app workflow where you want to add the MQ action. The logic app resource must have the same location as your gateway resource in Azure.
+* The logic app workflow where you want to access your MQ server. Your logic app resource must have the same location as your gateway resource in Azure.
 
-  The MQ connector doesn't have any triggers, so either your workflow must already start with a trigger, or you first have to add a trigger to your workflow. For example, you can use the [Recurrence trigger](../connectors/connectors-native-recurrence.md). If you're new to Azure Logic Apps, try this [quickstart to create an example logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md), which runs in the multi-tenant Logic Apps service.
+  The MQ connector doesn't have any triggers, so either your workflow must already start with a trigger, or you first have to add a trigger to your workflow. For example, you can use the [Recurrence trigger](../connectors/connectors-native-recurrence.md).
+
+  If you're new to Azure Logic Apps, try this [quickstart to create an example logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md), which runs in the multi-tenant Logic Apps service.
 
 <a name="create-connection"></a>
 
-## Create MQ connection 
+## Create an MQ connection 
 
 When you add an MQ action for the first time, you're prompted to create a connection to your MQ server.
 
@@ -142,7 +148,9 @@ When you add an MQ action for the first time, you're prompted to create a connec
 
 ---
 
-## Add an action
+<a name="add-action"></a>
+
+## Add an MQ action
 
 The following steps describe the general way to add an action, for example, **Browse a single message**.
 
@@ -189,7 +197,7 @@ When your workflow tries connecting to your on-premises MQ server, you might get
 
 ## Connector reference
 
-For all the operations in the managed connector and other technical information, review the [MQ connector's reference page](/connectors/mq/).
+For all the operations in the managed connector and other technical information, such as properties, limits, and so on, review the [MQ connector's reference page](/connectors/mq/).
 
 ## Next steps
 
