@@ -3,7 +3,7 @@ title: Lock resources to prevent changes
 description: Prevent users from updating or deleting Azure resources by applying a lock for all users and roles.
 ms.topic: conceptual
 ms.date: 04/28/2021
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Lock resources to prevent unexpected changes
