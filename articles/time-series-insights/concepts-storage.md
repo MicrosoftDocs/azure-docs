@@ -38,9 +38,9 @@ When an event is ingested, it is indexed in both warm store (if enabled) and col
 Azure Time Series Insights Gen2 partitions and indexes data for optimum query performance. Data becomes available to query from both warm (if enabled) and cold store after it's indexed. The amount of data that's being ingested and the per-partition throughput rate can affect availability. Review the event source [throughput limitations](./concepts-streaming-ingress-throughput-limits.md) and [best practices](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices) for best performance. You can also configure a lag [alert](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) to be notified if your environment is experiencing issues processing data.
 
 > [!IMPORTANT]
-> You may experience a period of up to 60 seconds before data becomes available via the [Time Series Query APIs](./concepts-query-overview.md). If you experience significant latency beyond 60 seconds, please submit a support ticket through the Azure portal.
+> You might experience a period of up to 60 seconds before data becomes available via the [Time Series Query APIs](./concepts-query-overview.md). If you experience significant latency beyond 60 seconds, please submit a support ticket through the Azure portal.
 > 
-> You may experience a period of up to 5 minutes before data becomes available when directly accessing the Parquet files outside of Azure Time Series Insights Gen2. See the [Parquet file format](#parquet-file-format-and-folder-structure) section for more information.
+> You might experience a period of up to 5 minutes before data becomes available when directly accessing the Parquet files outside of Azure Time Series Insights Gen2. See the [Parquet file format](#parquet-file-format-and-folder-structure) section for more information.
 
 ## Warm store
 
@@ -93,15 +93,15 @@ For more information about the Parquet file type, read the [Parquet documentatio
 
 Azure Time Series Insights Gen2 stores copies of your data as follows:
 
-* The `PT=Time` folder is partitioned by ingestion time and stores data roughly in order of arrival. This data is preserved over time and you can directly access it from outside of Azure Time Series Insight Gen2, for example from your Spark notebooks. The timestamp `<YYYYMMDDHHMMSSfff>` corresponds to the ingestion time of the data. The `<MinEventTimeStamp>` and `<MaxEventTimeStamp>` correspond to the range of event timestamps included in the file. The path and filename are formatted as:
+* The `PT=Time` folder is partitioned by ingestion time and stores data roughly in order of arrival. This data is preserved over time and you can directly access it from outside of Azure Time Series Insight Gen2, such as from your Spark notebooks. The timestamp `<YYYYMMDDHHMMSSfff>` corresponds to the ingestion time of the data. The `<MinEventTimeStamp>` and `<MaxEventTimeStamp>` correspond to the range of event timestamps included in the file. The path and filename are formatted as:
 
   `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<MinEventTimeStamp>_<MaxEventTimeStamp>_<TSI_INTERNAL_SUFFIX>.parquet`
 
-* The `PT=Live` and `PT=Tsid` folders contain a second copy of your data, repartitioned for time series query performance at scale. This data will be optimized over time and is not static. During repartitioning, some events may be present in multiple blobs and the blob names may change.  These folders are used by Azure Time Series Insights Gen2 and should not be accessed directly, you should only use `PT=Time` for that purpose.
+* The `PT=Live` and `PT=Tsid` folders contain a second copy of your data, repartitioned for time series query performance at scale. This data is optimized over time and is not static. During repartitioning, some events could be present in multiple blobs and the blob names might change.  These folders are used by Azure Time Series Insights Gen2 and should not be accessed directly; you should only use `PT=Time` for that purpose.
 
 > [!NOTE]
 >
-> Data in the `PT=Time` folder from before June 2021 may have a filename format with no event time ranges: `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`.  The internal file format is the same and files with both naming schemes can be used together. 
+> Data in the `PT=Time` folder from before June 2021 might have a filename format with no event time ranges: `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`.  The internal file format is the same and files with both naming schemes can be used together. 
 >
 > * `<YYYY>` maps to a four-digit year representation.
 > * `<MM>` maps to a two-digit month representation.
