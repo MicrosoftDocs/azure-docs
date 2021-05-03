@@ -3,7 +3,6 @@ title: 'Monitoring Key Vault with Azure Event Grid'
 description: 'Use Azure Event Grid to subscribe to Key Vault events'
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 
 ms.service: key-vault
 ms.subservice: general

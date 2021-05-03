@@ -45,8 +45,14 @@
       href: application-settings.md
     - name: Configure front-end frameworks and libraries
       href: front-end-frameworks.md
+    - name: Enable monitoring
+      href: monitor.md
+      displayName: Application Insights
     - name: Reset deployment tokens
       href: deployment-token-management.md
+    - name: Troubleshooting errors
+      href: troubleshooting.md
+      displayName: deployment, runtime, errors
 - name: Tutorials
   items:
     - name: Publish from a static site generator

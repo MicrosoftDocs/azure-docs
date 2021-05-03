@@ -147,6 +147,6 @@ To learn more, see the following docs:
  
 * [What is supported in Azure Synapse Analytics run time](../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md)
 
-* [Frequently asked questions about Azure Synapse Link for Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
+* [Frequently asked questions about Azure Synapse Link for Azure Cosmos DB](synapse-link-frequently-asked-questions.yml)
 
 * [Azure Synapse Link for Azure Cosmos DB Use cases](synapse-link-use-cases.md)

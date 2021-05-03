@@ -217,7 +217,7 @@ az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalance
 > [!IMPORTANT]
 > Using the CLI, you can only create an AKS cluster with an internal load balancer. There is no az ml command to upgrade an existing cluster to use an internal load balancer.
 
-For more information, see the [az ml computetarget create aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference.
+For more information, see the [az ml computetarget create aks](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_aks) reference.
 
 ---
 

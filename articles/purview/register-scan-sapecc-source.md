@@ -43,7 +43,7 @@ instance and fetches **Lineage** between data assets.
 
     :::image type="content" source="media/register-scan-sapecc-source/requirement.png" alt-text="pre-requisite" border="true":::
 
-5.  The connector reads metadata from SAP using the Java Connector (JCo)
+5.  The connector reads metadata from SAP using the [SAP Java Connector (JCo)](https://support.sap.com/en/product/connectors/jco.html)
     3.0 API. Hence make sure the Java Connector is available on your
     virtual machine where self-hosted integration runtime is installed.
     Make sure that you are using the correct JCo distribution for your
