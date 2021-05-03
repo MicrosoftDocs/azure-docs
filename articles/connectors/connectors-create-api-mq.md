@@ -152,17 +152,25 @@ When you add an MQ action for the first time, you're prompted to create a connec
 
 ## Add an MQ action
 
-The following steps describe the general way to add an action, for example, **Browse a single message**.
+In Azure Logic Apps, an action follows the trigger or another action and performs some operation in your workflow. The following steps describe the general way to add an action, for example, **Browse a single message**.
 
-1. In your workflow, under the trigger or another action, add a new step.
+1. In the Logic Apps Designer, open your workflow, if not already open.
 
-1. In the operation search box, enter `mq`, and select the **Browse message** action.
+1. Under the trigger or another action, add a new step.
 
-1. If you haven't already created an MQ connection, you're prompted to [create that connection](#create-connection).
+   To add a step between existing steps, move your mouse over the arrow. Select the plus sign (+) that appears, and then select **Add an action**.
 
-1. After you create the connection, specify the property values for the action. To view more properties, open the **Add new parameter** list, and select the properties you want to use.
+1. In the operation search box, enter `mq`. From the actions list, select the action named **Browse message**.
 
-1. When you're done, on the designer toolbar, select **Save**. To test your workflow, select **Run**.
+1. If you're prompted to create a connection to your MQ server, [provide the requested connection information](#create-connection).
+
+1. In the action, provide the property values that the action needs.
+
+   For more properties, open the **Add new parameter** list, and select the properties that you want to add.
+
+1. When you're done, on the designer toolbar, select **Save**.
+
+1. To test your workflow, on the designer toolbar, select **Run**.
 
    After the run finishes, the designer shows the workflow's run history along with the status for step.
 
