@@ -1,14 +1,17 @@
 ---
-title: Troubleshooting - Personalizer
+title: Frequently asked questions - Personalizer
 description: This article contains answers to frequently asked troubleshooting questions about Personalizer.
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: troubleshooting
 ms.date: 02/26/2020
+ms.author: erhopf
+author: erhopf
+ms.manager: nitinme
 ---
-# Personalizer Troubleshooting
+# Personalizer frequently asked questions
 
-This article contains answers to frequently asked troubleshooting questions about Personalizer.
+This article contains answers to frequently asked troubleshooting questions about the Personalizer service.
 
 ## Configuration issues
 
