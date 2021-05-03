@@ -54,12 +54,6 @@ Read through the following articles before you begin:
 ::: zone-end
 
 
-## Set up Azure resources
-
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
-
-[!INCLUDE [resources](./includes/common-includes/azure-resources.md)]
-
 ## Review the sample video
 
 This tutorial uses a [toy car inference video](https://lvamedia.blob.core.windows.net/public/t2.mkv) file to simulate a live stream. You can examine the video via an application such as [VLC media player](https://www.videolan.org/vlc/). Select **Ctrl+N**, and then paste a link to the [toy car inference video](https://lvamedia.blob.core.windows.net/public/t2.mkv) to start playback. As you watch the video, note that at the 36-second marker a toy truck appears in the video. The custom model has been trained to detect this specific toy truck.
@@ -74,7 +68,7 @@ In this tutorial, you'll use Video Analyzer on IoT Edge to detect such toy truck
 
 This diagram shows how the signals flow in this tutorial. An [edge module](add-valid-link.md) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline.md#http-extension-processor) node.
 
-The HTTP extension node plays the role of a proxy. It samples the incoming video frames set by you using the `samplingOptions` field and also converts the video frames to the specified image type. Then it relays the image to the toy truck detector model built by using Custom Vision. The HTTP extension processor node gathers the detection results and publishes events to the [Azure IoT Hub sink](pipeline.md#iot-hub-message-sink) node, which sends those events to the [IoT Edge hub](https://docs.microsoft.com/azure/iot-fundamentals/iot-glossary#iot-edge-hub).
+The HTTP extension node plays the role of a proxy. It samples the incoming video frames set by you using the `samplingOptions` field and also converts the video frames to the specified image type. Then it relays the image to the toy truck detector model built by using Custom Vision. The HTTP extension processor node gathers the detection results and publishes events to the [Azure IoT Hub message sink](pipeline.md#iot-hub-message-sink) node, which sends those events to the [IoT Edge hub](https://docs.microsoft.com/azure/iot-fundamentals/iot-glossary#iot-edge-hub).
 
 ## Build and deploy a Custom Vision toy detection model
 
@@ -253,7 +247,7 @@ If you open the topology for this tutorial in a browser, you'll see that the val
 
 ## Interpret the results
 
-When you run the pipeline, the results from the HTTP extension processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a body section and an `applicationProperties` section. For more information, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+When you run the pipeline, the results from the HTTP extension processor node pass through the IoT Hub message sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a body section and an `applicationProperties` section. For more information, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
 
 In the following messages, the Video Analyzer module defines the application properties and the content of the body.
 
@@ -263,27 +257,17 @@ When a pipeline is instantiated, the RTSP source node attempts to connect to the
 
 
 ```
+[IoTHubMonitor] [9:42:18 AM] Message received from [avasample-iot-edge-device/avaedge]:
 {
   "body": {
-    "sdp": "SDP:\nv=0\r\no=- 1619031569566362 1 IN IP4 172.18.0.4\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/t2.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.08.19\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-78.357\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/t2.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=42C01F;sprop-parameter-sets=Z0LAH9kAUAW6EAAAAwAQAAADAwDxgySA,aMuBcsg=\r\na=control:track1\r\nm=audio 0 RTP/AVP 97\r\nc=IN IP4 0.0.0.0\r\nb=AS:96\r\na=rtpmap:97 MPEG4-GENERIC/44100/2\r\na=fmtp:97 streamtype=5;profile-level-id=1;mode=AAC-hbr;sizelength=13;indexlength=3;indexdeltalength=3;config=121056E500\r\na=control:track2\r\n"
+    "sdp": "SDP:\nv=0\r\no=- 1586450538111534 1 IN IP4 XXX.XX.XX.XX\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/camera-300s.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.03.06\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/camera-300s.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets=XXXXXXXXXXXXXXXXXXXXXX\r\na=control:track1\r\n"
   },
-  "properties": {
-    "topic": "/subscriptions/35c2594a-23da-4fce-b59c-f6fb9513eeeb/resourceGroups/avaAvi0407/providers/Microsoft.Media/videoAnalyzers/avaavi0407/edgeModules/aviavi0407",
-    "subject": "/livePipelines/Sample-Pipeline-1/sources/rtspSource",
-    "eventType": "Microsoft.VideoAnalyzer.Diagnostics.MediaSessionEstablished",
-    "eventTime": "2021-04-21T18:59:29.567Z",
-    "dataVersion": "1.0"
-  },
-  "systemProperties": {
-    "iothub-connection-device-id": "ava-sample-device",
-    "iothub-connection-module-id": "avaedge",
-    "iothub-connection-auth-method": "{\"scope\":\"module\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
-    "iothub-connection-auth-generation-id": "637544595384806067",
-    "iothub-enqueuedtime": 1619031569564,
-    "iothub-message-source": "Telemetry",
-    "messageId": "1b812dcf-18c2-4b11-acac-02d52027d120",
-    "contentType": "application/json",
-    "contentEncoding": "utf-8"
+  "applicationProperties": {
+    "dataVersion": "1.0",
+    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/videoanalyzers/{ava-account-name}",
+    "subject": "/edgeModules/avaedge/livePipelines/Sample-Pipeline-1/sources/rtspSource",
+    "eventType": "Microsoft.VideoAnalyzers.Diagnostics.MediaSessionEstablished",
+    "eventTime": "2021-04-09T09:42:18.1280000Z"
   }
 }
 ```
@@ -298,9 +282,8 @@ In this message, notice these details:
 
 ### Inference event
 
-The HTTP extension processor node receives inference results from the Custom Vision container and emits the results through the IoT Hub sink node as inference events.
+The HTTP extension processor node receives inference results from the Custom Vision container and emits the results through the IoT Hub message sink node as inference events.
 
-Copy
 
 ```
 {
@@ -318,7 +301,7 @@ Copy
   },
   "properties": {
     "topic": "/subscriptions/35c2594a-23da-4fce-b59c-f6fb9513eeeb/resourceGroups/avaAvi0407/providers/Microsoft.Media/videoAnalyzers/avaavi0407/edgeModules/aviavi0407",
-    "subject": "/livePipelines/Sample-Pipeline-1/processors/inferenceClient",
+    "subject": "/edgeModules/avaedge/livePipelines/Sample-Pipeline-1/processors/inferenceClient",
     "eventType": "Microsoft.VideoAnalyzer.Analytics.Inference",
     "eventTime": "2021-04-21T18:59:29.636Z",
     "dataVersion": "1.0"
