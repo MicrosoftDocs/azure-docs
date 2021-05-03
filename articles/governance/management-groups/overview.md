@@ -1,6 +1,6 @@
 ---
 title: Organize your resources with management groups - Azure Governance
-description: Learn about the management groups, how their permissions work, and how to use them. 
+description: Learn about the management groups, how their permissions work, and how to use them.
 ms.date: 04/28/2021
 ms.topic: overview
 ms.custom: contperf-fy21q1
@@ -84,7 +84,7 @@ you can assign your own account as owner of the root management group.
     the hierarchy.
   - No one is given default access to the root management group. Azure AD Global Administrators are
     the only users that can elevate themselves to gain access. Once they have access to the root
-    management group, the global administrators can assign any Azure role to other users to manage  
+    management group, the global administrators can assign any Azure role to other users to manage
     it.
 - In SDK, the root management group, or 'Tenant Root', operates as a management group.
 
@@ -156,7 +156,7 @@ The following chart shows the list of roles and the supported actions on managem
 |Resource Policy Contributor |        |        |          |        |               | X             |       |
 |User Access Administrator   |        |        |          |        | X             | X             |       |
 
-\*: MG Contributor and MG Reader only allow users to do those actions on the management group scope.  
+\*: MG Contributor and MG Reader only allow users to do those actions on the management group scope.
 \*\*: Role Assignments on the Root management group aren't required to move a subscription or
 management group to and from it. See [Manage your resources with management groups](manage.md) for
 details on moving items within the hierarchy.
@@ -182,7 +182,7 @@ since both are custom-defined fields when creating a management group.
 ...
 {
   "Name": "MG Test Custom Role",
-  "Id": "id", 
+  "Id": "id",
   "IsCustom": true,
   "Description": "This role provides members understand custom roles.",
   "Actions": [
@@ -260,7 +260,7 @@ There are limitations that exist when using custom roles on management groups.
 
 > [!IMPORTANT]
 > Adding a management group to `AssignableScopes` is currently in preview. This preview version is
-> provided without a service level agreement, and it's not recommended for production workloads.
+> provided without a service-level agreement, and it's not recommended for production workloads.
 > Certain features might not be supported or might have constrained capabilities. For more
 > information, see
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
