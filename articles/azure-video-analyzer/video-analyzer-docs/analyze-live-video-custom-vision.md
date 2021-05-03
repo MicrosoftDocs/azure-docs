@@ -11,7 +11,7 @@ zone_pivot_groups: video-analyzer-programming-languages
 
 In this tutorial, you'll learn how to use Azure [Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) to build a containerized model that can detect a toy truck and use the [AI extensibility capability](add-valid-link.md) of Azure Video Analyzer on Azure IoT Edge to deploy the model on the edge for detecting toy trucks from a live video stream.
 
-We'll show you how to bring together the power of Custom Vision to build and train a computer vision model by uploading and labeling a few images. You don't need any knowledge of data science, machine learning, or AI. You'll also learn about the capabilities of Azure Video Analyzer and how to easily deploy a custom model as a container on the edge and analyze a simulated live video feed.
+We'll show you how to bring together the power of Custom Vision to build and train a computer vision model by uploading and labeling a few images. You don't need any knowledge of data science, machine learning, or AI. You'll also learn about the capabilities of Video Analyzer and how to easily deploy a custom model as a container on the edge and analyze a simulated live video feed.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [header](includes/analyze-live-video-custom-vision/csharp/header.md)]
@@ -35,11 +35,11 @@ If you don't have an [Azure subscription](https://docs.microsoft.com/azure/guide
 
 Read through the following articles before you begin:
 
-- [Azure Video Analyzer on IoT Edge overview](overview.md)
+- [Video Analyzer on IoT Edge overview](overview.md)
 - [Azure Custom Vision overview](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/overview)
-- [Azure Video Analyzer on IoT Edge terminology](terminology.md)
+- [Video Analyzer on IoT Edge terminology](terminology.md)
 - [Pipeline concept](pipeline.md)
-- [Azure Video Analyzer without video recording](analyze-live-video-without-recording.md)
+- [Video Analyzer without video recording](analyze-live-video-without-recording.md)
 - [Tutorial: Developing an IoT Edge module](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux)
 - [How to edit deployment.*.template.json](https://github.com/microsoft/vscode-azure-iot-edge/wiki/How-to-edit-deployment.*.template.json)
 
@@ -53,13 +53,20 @@ Read through the following articles before you begin:
 [!INCLUDE [prerequisites](includes/analyze-live-video-custom-vision/python/prerequisites.md)]
 ::: zone-end
 
+
+## Set up Azure resources
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
+
+[!INCLUDE [resources](./includes/common-includes/azure-resources.md)]
+
 ## Review the sample video
 
 This tutorial uses a [toy car inference video](https://lvamedia.blob.core.windows.net/public/t2.mkv) file to simulate a live stream. You can examine the video via an application such as [VLC media player](https://www.videolan.org/vlc/). Select **Ctrl+N**, and then paste a link to the [toy car inference video](https://lvamedia.blob.core.windows.net/public/t2.mkv) to start playback. As you watch the video, note that at the 36-second marker a toy truck appears in the video. The custom model has been trained to detect this specific toy truck.
 
 <iframe src="https://www.microsoft.com/videoplayer/embed/RE4LPwK" frameborder="0" allowfullscreen="true" data-linktype="external" style="box-sizing: inherit; margin: 0px; padding: 0px; border: 0px; outline-color: inherit; width: 640px; position: absolute; inset: 0px; height: 360px;"></iframe>
 
-In this tutorial, you'll use Azure Video Analyzer on IoT Edge to detect such toy trucks and publish associated inference events to the IoT Edge hub.
+In this tutorial, you'll use Video Analyzer on IoT Edge to detect such toy trucks and publish associated inference events to the IoT Edge hub.
 
 ## Overview
 
@@ -135,7 +142,7 @@ After you're finished, you can export the model to a Docker container by using t
 
 1. In Visual Studio Code, go to src/cloud-to-device-console-app/operations.json.
 2. Under `pipelineTopologySet`, ensure the following is true:<br/>
-   `"topologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/httpExtension/topology.json"`
+   `"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/httpExtension/topology.json"`
 3. Under `livePipelineSet`, ensure:
 
    1. `"topologyName" : "InferencingWithHttpExtension"`
@@ -174,7 +181,7 @@ After you're finished, you can export the model to a Docker container by using t
 10. You'll then be asked to select an IoT Hub device. Select **ava-sample-device** from the drop-down list.
 11. In about 30 seconds, refresh the Azure IoT hub in the lower-left section. You should have the edge device with the following modules deployed:
 
-    - The Azure Video Analyzer on IoT Edge module named `avaedge`.
+    - The Video Analyzer on IoT Edge module named `avaedge`.
     - A module named `rtspsim`, which simulates an RTSP server that acts as the source of a live video feed.
     - A module named `cv`, which as the name suggests is the Custom Vision toy truck detection model that applies Custom Vision to the images and returns multiple tag types. (Our model was trained on only one tag, delivery truck.)
 
@@ -186,7 +193,7 @@ Right-click the ava-sample-device, and select **Start Monitoring Built-in Event 
 
 ## Run the sample program
 
-If you open the graph topology for this tutorial in a browser, you'll see that the value of `inferencingUrl` has been set to `http://cv/image`. This setting means the inference server will return results after detecting toy trucks, if any, in the live video.
+If you open the topology for this tutorial in a browser, you'll see that the value of `inferencingUrl` has been set to `http://cv/image`. This setting means the inference server will return results after detecting toy trucks, if any, in the live video.
 
 1. In Visual Studio Code, open the **Extensions** tab (or select **Ctrl+Shift+X**) and search for Azure IoT Hub.
 2. Right-click and select **Extension Settings**.
@@ -200,16 +207,16 @@ If you open the graph topology for this tutorial in a browser, you'll see that t
 
    The **TERMINAL** window shows the next set of direct method calls:
 
-   - A call to `pipelineTopologySet` that uses the preceding `topologyUrl`.
+   - A call to `pipelineTopologySet` that uses the preceding `pipelineTopologyUrl`.
    - A call to `livePipelineSet` that uses the following body:
 
    ```
         {
           "@apiVersion": "2.0",
-          "name": "Sample-Graph-1",
+          "name": "Sample-Pipeline-1",
           "properties": {
             "topologyName": "CustomVisionWithHttpExtension",
-            "description": "Sample graph description",
+            "description": "Sample pipeline description",
             "parameters": [
               { 
                 "name": "inferencingUrl",
@@ -232,15 +239,15 @@ If you open the graph topology for this tutorial in a browser, you'll see that t
         }
    ```
 
-   - A call to `livePipelineActivate` that starts the graph instance and the flow of video.
-   - A second call to `livePipelineList` that shows that the graph instance is in the running state.
+   - A call to `livePipelineActivate` that activates the pipeline and the flow of video.
+   - A second call to `livePipelineList` that shows that the active pipeline.
 
 6. The output in the **TERMINAL** window pauses at a **Press Enter to continue** prompt. Don't select **Enter** yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
-7. Switch to the **OUTPUT** window in Visual Studio Code. You see messages that the Azure Video Analyzer on IoT Edge module is sending to the IoT hub. The following section of this tutorial discusses these messages.
+7. Switch to the **OUTPUT** window in Visual Studio Code. You see messages that the Video Analyzer on IoT Edge module is sending to the IoT hub. The following section of this tutorial discusses these messages.
 8. The pipeline continues to run and print results. The RTSP simulator keeps looping the source video. To stop the pipeline, return to the **TERMINAL** window and select **Enter**. The next series of calls cleans up resources:
 
-   - A call to `livePipelineDeactivate` deactivates the graph instance.
-   - A call to `livePipelineDelete` deletes the instance.
+   - A call to `livePipelineDeactivate` deactivates the pipeline.
+   - A call to `livePipelineDelete` deletes the pipeline.
    - A call to `pipelineTopologyDelete` deletes the topology.
    - A final call to `pipelineTopologyList` shows that the list is empty.
 
@@ -248,7 +255,7 @@ If you open the graph topology for this tutorial in a browser, you'll see that t
 
 When you run the pipeline, the results from the HTTP extension processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a body section and an `applicationProperties` section. For more information, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
 
-In the following messages, the Azure Video Analyzer module defines the application properties and the content of the body.
+In the following messages, the Video Analyzer module defines the application properties and the content of the body.
 
 ### MediaSessionEstablished event
 
@@ -262,7 +269,7 @@ When a pipeline is instantiated, the RTSP source node attempts to connect to the
   },
   "properties": {
     "topic": "/subscriptions/35c2594a-23da-4fce-b59c-f6fb9513eeeb/resourceGroups/avaAvi0407/providers/Microsoft.Media/videoAnalyzers/avaavi0407/edgeModules/aviavi0407",
-    "subject": "/livePipelines/Sample-Graph-1/sources/rtspSource",
+    "subject": "/livePipelines/Sample-Pipeline-1/sources/rtspSource",
     "eventType": "Microsoft.VideoAnalyzer.Diagnostics.MediaSessionEstablished",
     "eventTime": "2021-04-21T18:59:29.567Z",
     "dataVersion": "1.0"
@@ -311,7 +318,7 @@ Copy
   },
   "properties": {
     "topic": "/subscriptions/35c2594a-23da-4fce-b59c-f6fb9513eeeb/resourceGroups/avaAvi0407/providers/Microsoft.Media/videoAnalyzers/avaavi0407/edgeModules/aviavi0407",
-    "subject": "/livePipelines/Sample-Graph-1/processors/inferenceClient",
+    "subject": "/livePipelines/Sample-Pipeline-1/processors/inferenceClient",
     "eventType": "Microsoft.VideoAnalyzer.Analytics.Inference",
     "eventTime": "2021-04-21T18:59:29.636Z",
     "dataVersion": "1.0"
@@ -332,7 +339,7 @@ Copy
 
 Note the following information in the preceding messages:
 
-- The subject in `properties` references the node in the MediaGraph from which the message was generated. In this case, the message originates from the HTTP extension processor.
+- The subject in `properties` references the node in the pipeline from which the message was generated. In this case, the message originates from the HTTP extension processor.
 - The event type in `properties` indicates that this is an analytics inference event.
 - The event time indicates the time when the event occurred.
 - The body contains data about the analytics event. In this case, the event is an inference event, so the body contains an array of inferences called predictions.
