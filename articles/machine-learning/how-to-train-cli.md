@@ -21,9 +21,7 @@ The Azure CLI extension for Machine Learning enables you to accelerate the itera
 ## Prerequisites
 
 - To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
-
 - [Install and setup the Azure CLI extension for Machine Learning](how-to-configure-cli.md)
-
 - Clone the examples repository:
 
     ```azurecli
@@ -131,7 +129,7 @@ This will download the logs and any captured artifacts locally in a directory na
 
 ## Sweep hyperparameters
 
-Azure Machine Learning also enables you to more efficiently tune the hyperparameters for your machine learning models. You can configure a hyperparameter tuning job, called a sweep job, and submit it via the CLI. For more information on Azure Machine Learning's hyperparameter tuning offering, see the [conceptual documentation](how-to-tune-hyperparameters.md).
+Azure Machine Learning also enables you to more efficiently tune the hyperparameters for your machine learning models. You can configure a hyperparameter tuning job, called a sweep job, and submit it via the CLI. For more information on Azure Machine Learning's hyperparameter tuning offering, see the [Hyperparameters tuning a model](how-to-tune-hyperparameters.md).
 
 With a parameterized command, you can modify the `job.yml` into `job-sweep.yml` to sweep over hyperparameters:
 
