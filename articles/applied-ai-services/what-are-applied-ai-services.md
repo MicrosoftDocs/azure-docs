@@ -44,7 +44,7 @@ Enhance reading comprehension and achievement with AI. Azure Immersive Reader is
 
 ## Azure Bot Service
 
-Enable rapid creation of customizable, sophisticated, conversational experiences with pre-built conversational components enabling business value right out of the box.  Azure Bot Service is an open-source visual authoring canvas for developers and multidisciplinary teams to build bots. Composer integrates language understanding services such as LUIS and QnA Maker and allows sophisticated composition of bot replies using language generation. Azure Bot Service is built using Speech/Telephony, LUIS, and QnA Maker from Azure Cognitive Services.
+Enable rapid creation of customizable, sophisticated, conversational experiences with pre-built conversational components enabling business value right out of the box.  Azure Bot Service Composer is an open-source visual authoring canvas for developers and multidisciplinary teams to build bots. Composer integrates language understanding services such as LUIS and QnA Maker and allows sophisticated composition of bot replies using language generation. Azure Bot Service is built using Speech/Telephony, LUIS, and QnA Maker from Azure Cognitive Services.
 
 [Learn more about Azure Bot Service >](https://docs.microsoft.com/azure/bot-service)​
 
