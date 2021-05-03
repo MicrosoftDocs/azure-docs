@@ -23,7 +23,7 @@ Cloud-based Azure AD multifactor authentication and Azure Multifactor Authentica
 
 The Azure AD multifactor authentication service has datacenters in the United States, Europe, and Asia Pacific. The following activities originate from the regional datacenters except where noted:
 
-* Multifactor authentication phone calls originate from United States datacenters and are routed by global providers.
+* Multifactor authentication phone calls originate from datacenters in the customer's region and are routed by global providers. Phone calls using custom greetings always originate from data centers in the United States.
 * General purpose user authentication requests from other regions are currently processed based on the user's location.
 * Push notifications that use the Microsoft Authenticator app are currently processed in regional datacenters based on the user's location. Vendor-specific device services, such as Apple Push Notification Service, might be outside the user's location.
 
@@ -105,9 +105,9 @@ Standard voice calls may failover to a different region.
 
 | Authentication method                                                             | Customer region                      | Activity report location | Service log location |
 |-----------------------------------------------------------------------------------|--------------------------------------|--------------------------|----------------------|
-| Phone App OTP                                                                     | Australia and New Zealand            | Australia/New Zealand    | Cloud in-region      |
-| Phone App OTP                                                                     | Outside of Australia and New Zealand | United States            | Cloud in-region      |
-| Standard voice calls and all other methods except voice calls with custom greetings  | Any                               | United States            | Cloud in-region      |
+| OATH software and hardware tokens                                                 | Australia and New Zealand            | Australia/New Zealand    | Cloud in-region      |
+| OATH software and hardware tokens                                                 | Outside of Australia and New Zealand | United States            | Cloud in-region      |
+| Voice calls without custom greetings and all other authentication methods except OATH software and hardware tokens  | Any                               | United States            | Cloud in-region      |
 | Voice calls with custom greetings                                         | Any                                  | United States            | MFA backend in United States |
 
 ### MFA server and cloud-based MFA
