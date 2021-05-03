@@ -115,6 +115,7 @@ In this section, you configure your local environment, install the Azure IoT C d
     ```
 
     **Bash (Linux or Windows)**
+    ```bash
     cmake/iothub_client/samples/pnp/pnp_temperature_controller/Debug/pnp_temperature_controller
     ```
 
