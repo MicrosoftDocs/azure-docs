@@ -28,7 +28,7 @@ You can copy data *from an Oracle database* to the following data stores:
 
 You can copy data from the following data stores *to an Oracle database*:
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 ## Prerequisites
 

@@ -28,7 +28,7 @@ You can copy data **from Azure Synapse Analytics** to the following data stores:
 
 You can copy data from the following data stores **to Azure Synapse Analytics**:
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 > [!TIP]
 > When copying data from SQL Server or Azure SQL Database to Azure Synapse Analytics, if the table does not exist in the destination store, Data Factory can automatically create the table in Azure Synapse Analytics by using the schema of the table in the source data store. See [Auto table creation](#auto-table-creation) for details.

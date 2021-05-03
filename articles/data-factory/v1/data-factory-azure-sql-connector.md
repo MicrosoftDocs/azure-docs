@@ -25,7 +25,7 @@ You can copy data **from Azure SQL Database** to the following data stores:
 
 You can copy data from the following data stores **to Azure SQL Database**:
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 ## Supported authentication type
 Azure SQL Database connector supports basic authentication.
