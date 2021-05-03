@@ -71,7 +71,7 @@ This job can be created and run via `az ml job create` using the `--file/-f` par
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="lightgbm_iris_local":::
 
-> [!IMPORANT]
+> [!IMPORTANT]
 > [Docker](https://docker.io) needs to be installed and running locally. Python needs to be installed in the job's environment. For local runs which use `inputs`, the Python package `azureml-dataprep` needs to be installed in the job's environment.
 
 > [!TIP]
