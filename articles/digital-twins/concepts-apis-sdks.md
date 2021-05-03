@@ -6,7 +6,7 @@ description: Understand the Azure Digital Twins API and SDK options.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 04/30/2021
-ms.topic: how-to
+ms.topic: conceptual
 ms.service: digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
