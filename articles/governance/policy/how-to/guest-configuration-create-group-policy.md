@@ -1,6 +1,6 @@
 ---
 title: How to create Guest Configuration policy definitions from Group Policy baseline for Windows
-description: Learn how to convert Group Policy from the Windows Server 2019 Security Baseline into a policy definition. 
+description: Learn how to convert Group Policy from the Windows Server 2019 Security Baseline into a policy definition.
 ms.date: 03/31/2021
 ms.topic: how-to
 ---
@@ -116,11 +116,11 @@ Guest Configuration and Baseline Management modules.
 
    ```azurepowershell-interactive
    $NewGuestConfigurationPolicySplat = @{
-        ContentUri = $Uri 
-        DisplayName = 'Server 2019 Configuration Baseline' 
-        Description 'Validation of using a completely custom baseline configuration for Windows VMs' 
+        ContentUri = $Uri
+        DisplayName = 'Server 2019 Configuration Baseline'
+        Description 'Validation of using a completely custom baseline configuration for Windows VMs'
         Path = 'C:\git\policyfiles\policy'  
-        Platform = Windows 
+        Platform = Windows
    }
    New-GuestConfigurationPolicy @NewGuestConfigurationPolicySplat
    ```
@@ -150,7 +150,7 @@ initiative with [Portal](../assign-policy-portal.md), [Azure CLI](../assign-poli
 
 Assigning a policy definition with _DeployIfNotExists_ effect requires an additional level of
 access. To grant the least privilege, you can create a custom role definition that extends
-**Resource Policy Contributor**. The example below creates a role named **Resource Policy
+**Resource Policy Contributor**. The following example creates a role named **Resource Policy
 Contributor DINE** with the additional permission _Microsoft.Authorization/roleAssignments/write_.
 
    ```azurepowershell-interactive
