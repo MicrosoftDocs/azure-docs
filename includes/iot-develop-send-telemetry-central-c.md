@@ -98,38 +98,24 @@ In this section, you configure your local environment, install the Azure IoT C d
     ```
     This operation takes a few minutes.
 
-1. In the root folder of the device SDK, create a subfolder named *cmake*, and navigate to that folder:
-
-    ```console
-    mkdir cmake
-    cd cmake
-    ```
-
 1. To build the SDK and samples, run the following commands:
 
     ```console
-    cmake -Duse_prov_client=ON -Dhsm_type_symm_key=ON -Drun_e2e_tests=OFF ..
-    cmake --build .
+    cmake -Bcmake -Duse_prov_client=ON -Dhsm_type_symm_key=ON -Drun_e2e_tests=OFF
+    cmake --build cmake
     ```
 
 ### Run the code
 
 1. Run the sample code, using the appropriate command for your console:
 
-    **Windows CMD**
+    **Windows CMD or PowerShell**
     ```console
-    cd iothub_client\samples\pnp\pnp_temperature_controller\Debug
-    .\pnp_temperature_controller.exe
-    ```
-    **PowerShell**
-    ```azurepowershell
-    cd iothub_client\samples\pnp\pnp_temperature_controller\Debug
-    .\pnp_temperature_controller.exe
+    cmake\iothub_client\samples\pnp\pnp_temperature_controller\Debug\pnp_temperature_controller.exe
     ```
 
     **Bash (Linux or Windows)**
-    cd iothub_client/samples/pnp/pnp_temperature_controller/
-    ./pnp_temperature_controller
+    cmake/iothub_client/samples/pnp/pnp_temperature_controller/Debug/pnp_temperature_controller
     ```
 
     After your simulated device connects to your IoT Central application, it connects to the device instance you created in the application and begins to send telemetry. The connection details and telemetry output are shown in your console: 
