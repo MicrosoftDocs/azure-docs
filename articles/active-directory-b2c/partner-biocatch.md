@@ -369,7 +369,7 @@ Follow these steps to add the policy files to Azure AD B2C
 
 4. Go through sign-up flow and create an account. Token returned to JWT.MS should have 2x claims for riskLevel and score. Follow the example.  
 
-    ```XML
+    ```JavaScript
     { 
 
       "typ": "JWT", 
