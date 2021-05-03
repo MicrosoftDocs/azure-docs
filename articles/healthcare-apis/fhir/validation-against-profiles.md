@@ -10,9 +10,11 @@ ms.author: ginle
 ---
 # How to validate FHIR resources against profiles
 
+FHIR profile is a set of constraints on a resource represented as a `StructureDefinition` per the [FHIR specification](http://hl7.org/fhir/R4/profiling.html). The HL7 FHIR standard defines a set of base resources, and these standard base resources have generic definitions. FHIR profile allows you to narrow down and customize resource definitions using constraints and extensions. Azure API for FHIR allows validating such profiles, and validating resources against the specified profiles to see if the resources conform to the requirements set by the profiles. This article walks through the basics of FHIR profile, and how to use `$validate` for validating resources against the profiles at resource creation and update.
+
 ## FHIR profile: the basics
 
-A profile is a set of constraints on a resource represented as a `StructureDefinition` per the [FHIR specification](http://hl7.org/fhir/R4/profiling.html). `StructureDefinition` defines a set of restrictions on the content of a resource or a data type, such as what fields a resource has and what values these fields can take. For example, profiles can restrict cardinality (e.g. setting the maximum cardinality to 0 to rule out the element), or restrict the contents of an element to a single fixed value. It can also specify additional constraints on an existing profile. A `StructureDefinition` is identified by its canonical URL, such as: 
+A profile sets restrictions on the resource, usually represented as a `StructureDefinition` resource. `StructureDefinition` defines a set of restrictions on the content of a resource or a data type, such as what fields a resource has and what values these fields can take. For example, profiles can restrict cardinality (e.g. setting the maximum cardinality to 0 to rule out the element), or restrict the contents of an element to a single fixed value. It can also specify additional constraints on an existing profile. A `StructureDefinition` is identified by its canonical URL, such as: 
 
 ```rest
 http://hl7.org/fhir/StructureDefinition/{resource}
