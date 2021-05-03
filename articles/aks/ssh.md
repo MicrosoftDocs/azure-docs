@@ -136,14 +136,14 @@ aks-nodepool1-79590246-0  10.240.0.4
 
 To create an SSH connection to an AKS node, you run a helper pod in your AKS cluster. This helper pod provides you with SSH access into the cluster and then additional SSH node access. To create and use this helper pod, complete the following steps:
 
-1. Run a `debian` container image and attach a terminal session to it. This container can be used to create an SSH session with any node in the AKS cluster:
+1. Run an `ubuntu` container image and attach a terminal session to it. This container can be used to create an SSH session with any node in the AKS cluster:
 
     ```console
     kubectl run -it --rm aks-ssh --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
     ```
 
     > [!TIP]
-    > If you use Windows Server nodes, add a node selector to the command to schedule the Debian container on a Linux node:
+    > If you use Windows Server nodes, add a node selector to the command to schedule the Ubuntu container on a Linux node:
     >
     > ```console
     > kubectl run -it --rm aks-ssh --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --overrides='{"apiVersion":"v1","spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}'
