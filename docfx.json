@@ -13,7 +13,8 @@
           "iot-edge/**",
           "**/_themes/**",
           "**/includes/**",
-          "**/obj/**"
+          "**/obj/**",
+          "**/*.graffle"
         ]
       },
       {
