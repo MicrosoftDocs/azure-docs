@@ -19,11 +19,11 @@ Learn what's new in the Translator service. Bookmark this page to stay up to dat
 
 ## February 2021
 
-* **New Release**:  [Document Translation](document-translation/overview.md) is available as a preview feature of the Translator Service. Preview features are still in development and aren't meant for production use. They're made available on a "preview" basis so customers can get early access and provide feedback. The Document Translation feature enables you to translate large documents and process batch documents in various file formats while still preserving the original structure and format.
+* **New Release**:  [Document Translation](document-translation/overview.md) is available as a preview feature of the Translator Service. Preview features are still in development and aren't meant for production use. They're made available on a "preview" basis so customers can get early access and provide feedback. The Document Translation feature enables you to translate large documents and process batch documents in various file formats while still preserving the original structure and format. _See_ [Introducing Document Translation](https://www.microsoft.com/translator/blog/2021/02/17/introducing-document-translation/)
 
 * Translator service has [text translation language support](language-support.md#text-translation) for the following languages:
 
-  * **Albanian**, an Indo-European language, unrelated to any other modern language, and spoken by nearly 8 million people.
+  * **Albanian**, a language, unrelated to any other modern language, and spoken by nearly 8 million people.
 
   * **Amharic**, an official language of Ethiopia spoken by approximately 32 million people. It's also the liturgical language of the Ethiopian Orthodox church.
 
@@ -45,13 +45,11 @@ Learn what's new in the Translator service. Bookmark this page to stay up to dat
 
 ## November 2020
 
-* **New Release**: [Custom Translator V2 upgrade](https://azure.microsoft.com/updates/ctnov2020) is now fully available to the general public (GA). The V2 platform enables you to build custom models with all document types (training, testing, tuning, phrase dictionary, and sentence dictionary). The bar chart  below depicts the improved translation BLEU score with Custom Translator V2:
-
-:::image type="content" source="media/custom-v2-improvement.png" alt-text="Quality comparison graph: standard translator, custom translator V1, custom translator V2":::
+* **New Release**: [Custom Translator V2 upgrade](https://azure.microsoft.com/updates/ctnov2020) is now fully available to the general public (GA). The V2 platform enables you to build custom models with all document types (training, testing, tuning, phrase dictionary, and sentence dictionary). _See_  [Custom Translator pushes the translation quality bar closer to human parity](https://www.microsoft.com/translator/blog/2020/11/12/microsoft-custom-translator-pushes-the-translation-quality-bar-closer-to-human-parity).
 
 ## October 2020
 
-* Translator service has [text translation language support](language-support.md#text-translation) for **Canadian French**. Although Canadian French and European French are similar to one another and are mutually understandable, there can be significant differences in vocabulary, grammar, writing, and pronunciation. Over 7 million Canadians (20 percent of the population) speak French as their first language.
+* Translator service has [text translation language support](language-support.md#text-translation) for **Canadian French**. Canadian French and European French are similar to one another and are mutually understandable. However, there can be significant differences in vocabulary, grammar, writing, and pronunciation. Over 7 million Canadians (20 percent of the population) speak French as their first language.
 
 ## September 2020
 
@@ -59,9 +57,9 @@ Learn what's new in the Translator service. Bookmark this page to stay up to dat
 
 ## August 2020
 
-* **New Release**: [Virtual network](/azure/cognitive-services/cognitive-services-virtual-networks) capabilities and [Azure private links](/azure/private-link/private-link-overview) for Translator are now available to the general public (GA).  Azure private links allow you to access Translator and your Azure hosted services over a private endpoint in your virtual network. You can use private endpoints for Translator to allow clients on a virtual network to securely access data over a private link.
+* **New Release**: [Virtual network](/azure/cognitive-services/cognitive-services-virtual-networks) capabilities and [Azure private links](/azure/private-link/private-link-overview) for Translator are now available to the general public (GA).  Azure private links allow you to access Translator and your Azure hosted services over a private endpoint in your virtual network. You can use private endpoints for Translator to allow clients on a virtual network to securely access data over a private link. _See_ [Virtual Networks and Private Links for Translator are generally available](https://www.microsoft.com/translator/blog/2020/08/19/virtual-networks-and-private-links-for-translator-are-now-generally-available/)
 
-* **New Release**: [Custom Translator V2 phase 1](https://azure.microsoft.com/updates/ctaug2020/). The newest version of Custom Translator will roll out in two phases to provide quicker translation and quality improvements, and allow you to keep your training data in the region of your choice.
+* **New Release**: [Custom Translator V2 phase 1](https://azure.microsoft.com/updates/ctaug2020/). The newest version of Custom Translator will roll out in two phases to provide quicker translation and quality improvements, and allow you to keep your training data in the region of your choice. *See* [Custom Translator: Introducing higher quality translations and regional data residency](https://www.microsoft.com/translator/blog/2020/08/05/custom-translator-v2-is-now-available/)
 
 * Translator service has [text translation language support](language-support.md#text-translation)
 for the following languages:
