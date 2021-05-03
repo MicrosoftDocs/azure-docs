@@ -265,6 +265,7 @@ Service Bus queue.
    using System.Collections.Generic;
    using System.Linq;
    using System.Web;
+   using System.Threading.Tasks;
    using Azure.Messaging.ServiceBus;
    
    namespace FrontendWebRole
@@ -284,7 +285,7 @@ Service Bus queue.
             // The name of your queue.
             public const string queueName = "OrdersQueue";
         
-            public static async void Initialize()
+            public static async Task Initialize()
             {
         
                 // Create a Service Bus client that you can use to send or receive messages
