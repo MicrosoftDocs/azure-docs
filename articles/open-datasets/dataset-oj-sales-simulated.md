@@ -11,11 +11,11 @@ ms.date: 04/16/2021
 
 # OJ Sales Simulated 
 
-This dataset is derived from the Dominick’s OJ dataset and includes additional simulated data with the goal of providing a dataset that makes it easy to simultaneously train thousands of models on Azure Machine Learning.
+This dataset is derived from the Dominick’s OJ dataset and includes extra simulated data to simultaneously train thousands of models on Azure Machine Learning.
 
 [!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
 
-The data contains weekly sales of refrigerated orange juice over 121 weeks. There are 3,991 stores included and 3 brand of orange juice per store so that 11,973 models can be trained.
+The data contains weekly sales of orange juice over 121 weeks. There are 3,991 stores included and three brands of orange juice per store so that 11,973 models can be trained.
 
 [View the original dataset description](http://www.cs.unitn.it/~taufer/QMMA/L10-OJ-Data.html) or [download the dataset](http://www.cs.unitn.it/~taufer/Data/oj.csv).
 
@@ -23,7 +23,7 @@ The data contains weekly sales of refrigerated orange juice over 121 weeks. Ther
 
 | Name | Data type | Unique | Values (sample) | Description |
 |-|-|-|-|-|
-| Advert | int |  | 1 | Value indicating if their were advertisements for that orange juice during the week 0: No Advertisements 1: Advertisements |
+| Advert | int |  | 1 | Value indicating if there were advertisements for that orange juice during the week 0: No Advertisements 1: Advertisements |
 | Brand | string |  | dominicks tropicana | Brand of orange juice |
 | Price | double |  | 2.6 2.09 | Price of the orange juice (in USD) |
 | Quantity | int |  | 10939 11638 | Quantity of orange juice sold for that week |
@@ -103,7 +103,7 @@ datastore.upload(src_dir = oj_sales_path,
 ```
 
 ### Create the file dataset 
-We need to define the path of the data to create the [FileDataset](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py). 
+We need to define the path of the data to create the [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py&preserve-view=true). 
 
 
 ```python

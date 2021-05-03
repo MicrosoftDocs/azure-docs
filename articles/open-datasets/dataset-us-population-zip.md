@@ -32,8 +32,8 @@ This dataset is stored in the East US Azure region. Allocating compute resources
 
 | Name | Data type | Unique | Values (sample) | Description |
 |-|-|-|-|-|
-| decennialTime | string | 1 | 2010 | The time of the decennial census happened, e.g. 2010, 2000. |
-| maxAge | int | 23 | 54 21 | Max of the age range. If it’s null, it’s across all ages or the age range has no upper bound, e.g. age > 85. |
+| decennialTime | string | 1 | 2010 | The time of the decennial census happened, for example, 2010, 2000. |
+| maxAge | int | 23 | 54 21 | Max of the age range. If it’s null, it’s across all ages or the age range has no upper bound, for example, age > 85. |
 | minAge | int | 23 | 45 30 | Min of the age range. If it’s null, it’s across all ages. |
 | population | int | 29,274 | 1 2 | Population of this segment. |
 | race | string | 8 | SOME OTHER RACE ALONE BLACK OR AFRICAN AMERICAN ALONE | Race category in Census data. If it’s null, it’s across all races. |

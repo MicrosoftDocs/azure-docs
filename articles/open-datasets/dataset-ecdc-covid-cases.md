@@ -40,13 +40,13 @@ As of May 28, 2020 they contained 19,876 rows (CSV 1.5 MB, JSON 4.9 MB, JSONL 4.
 Raw data is ingested daily from the [ECDC csv file](https://opendata.ecdc.europa.eu/covid19/casedistribution/csv). For more information on this dataset, including its origins, see the [ECDC data collection page](https://www.ecdc.europa.eu/en/covid-19/data-collection).
 
 ## Data quality
-The ECDC does not guarantee the accuracy or timeliness of the data. Please [read the disclaimer](https://www.ecdc.europa.eu/en/covid-19/data-collection).
+The ECDC does not guarantee the accuracy or timeliness of the data. [Read the disclaimer](https://www.ecdc.europa.eu/en/covid-19/data-collection).
 
 ## License and use rights attribution
 
 This data is made available and may be used as permitted under the ECDC copyright policy here. For any documents where the copyright lies with a third party, permission for reproduction must be obtained from the copyright holder.
 
-ECDC must always be acknowledged as the original source of this data. Such acknowledgement must be included in each copy of the material.
+ECDC must always be acknowledged as the original source of this data. Such acknowledgment must be included in each copy of the material.
 
 ## Contact
 
@@ -103,7 +103,7 @@ JSONL: https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ec
 
 Parquet: https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.parquet
 
-Download the dataset file using the built-in capability download from a http URL in Pandas. Pandas has readers for various file formats:
+Download the dataset file using the built-in capability download from an http URL in Pandas. Pandas has readers for various file formats:
 
 https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_parquet.html
 

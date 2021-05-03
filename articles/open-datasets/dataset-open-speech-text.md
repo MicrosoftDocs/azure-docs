@@ -13,14 +13,13 @@ ms.date: 04/16/2021
 
 A collection of speech samples derived from various audio sources. The dataset contains short audio clips in Russian.
 
-
 [!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
 
-Arguably the largest public Russian STT dataset up to date:
-- ~16m utterances;
-- ~20 000 hours;
-- 2,3 TB (uncompressed in .wav format in int16), 356G in .opus;
-- Now all files were transformed to opus, except for validation datasets;
+This Russian speech to text (STT) dataset includes:
+- ~16 million utterances
+- ~20,000 hours
+- 2.3 TB (uncompressed in .wav format in int16), 356G in opus
+- All files were transformed to opus, except for validation datasets
 
 The main purpose of the dataset is to train speech-to-text models.
 
@@ -53,28 +52,28 @@ Dataset size is given for .wav files.
 
 ## Annotation methodology
 
-The dataset is compiled using open sources. Long sequences are split into audio chunks using voice activity detection and alignment. Some audio types are annotated automatically and verified statistically / using heuristics.
+The dataset is compiled using open sources. Long sequences are split into audio chunks using voice activity detection and alignment. Some audio types are annotated automatically and verified statistically by using heuristics.
 
 ## Data volumes and update frequency
 
-The total size of the whole dataset is 350 GB. The total size of the dataset with publicly shared labels is 130GB.
+The total size of the dataset is 350 GB. The total size of the dataset with publicly shared labels is 130 GB.
 
-The dataset itself is not likely to be updated to be backwards compatible. Please follow the original repository for benchmarks and exclude files.
+The dataset itself is not likely to be updated for backwards compatibility. Follow the original repository for benchmarks and exclude files.
 
 New domains and languages may be added in future.
 
 ## Audio normalization
 
-All files are normalized for easier / faster runtime augmentations and processing as follows:
+All files are normalized for easier and faster runtime augmentations. Processing is as follows:
 
-Converted to mono, if necessary;
-Converted to 16 kHz sampling rate, if necessary;
-Stored as 16-bit integers;
-Converted to OPUS;
+- Converted to mono, if necessary;
+- Converted to 16-kHz sampling rate, if necessary;
+- Stored as 16-bit integers;
+- Converted to OPUS;
 
 ## On disk DB methodology
 
-Each audio file (wav, binary) is hashed. Its hash is used to create a folder hierarchy for more optimal fs operation.
+Each audio file (wav, binary) is hashed. The hash is used to create a folder hierarchy for more optimal fs operation.
 
 ```python
 target_format = 'wav'
@@ -90,10 +89,10 @@ store_path = Path(root_folder,
 
 ## Downloads
 
-The dataset is provided in 2 forms:
+The dataset is provided in two forms:
 
-- Archives avaiable via Azure blob storage and / or direct links;
-- Original files avaiable via Azure blob storage;
+- Archives available via Azure blob storage and/or direct links;
+- Original files available via Azure blob storage;
 Everything is stored in https://azureopendatastorage.blob.core.windows.net/openstt/
 
 Folder structure:
@@ -166,9 +165,9 @@ For instructions on how to download the dataset directly, see the [GitHub downlo
 
 ## Additional information
 
-For help or questions about the data please contact the data author(s) at aveysov@gmail.com
+For help or questions about the data contact the data author(s) at aveysov@gmail.com
 
-This license allows reusers to distribute, remix, adapt, and build upon the material in any medium or format for noncommercial purposes only, and only so long as attribution is given to the creator. It includes the following elements:
+This license allows users to distribute, remix, adapt, and build upon the material in any medium or format for noncommercial purposes only, and only so long as attribution is given to the creator. It includes the following elements:
 * BY – Credit must be given to the creator
 * NC – Only noncommercial uses of the work are permitted
 
@@ -180,8 +179,6 @@ CC-BY-NC and commercial usage available after agreement with dataset authors.
 
 # [azure-storage](#tab/azure-storage)
 
-
-
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azure-storage&registryId=open-speech-to-text -->
 
 > [!TIP]
@@ -191,15 +188,9 @@ CC-BY-NC and commercial usage available after agreement with dataset authors.
 
 ### Building libsndfile
 
-The best efficient way to read opus files in python (the we know of) that does incur any significant overhead is to use pysoundfile (a python CFFI wrapper around libsoundfile).
+An efficient way to read opus files in Python that doesn't incur significant overhead is to use pysoundfile (a Python CFFI wrapper around libsoundfile).
 
-When this solution was being researched the community had been waiting for a major libsoundfile release for some time.
-
-Opus support has been implemented some time ago upstream, but it has not been properly released. Therefore we opted for a custom build + monkey patching.
-
-At the time when you read / use this - probably there will be decent / proper builds of libsndfile.
-
-Please replace with your faviourite tool if there is one.
+Opus support has been implemented upstream, but it has not been properly released. Therefore, we opted for custom build + monkey patching.
 
 Typically, you need to run this in your shell with sudo access:
 
@@ -220,7 +211,7 @@ cmake --build .
 ```
 ### Helper functions / dependencies
 
-Install the following libraries (versions do not matter much):
+Install the following libraries:
 
 ```
 pandas
@@ -230,27 +221,16 @@ tqdm
 soundfile
 librosa
 ```
-Depending on how this notebook is run, this sometimes can be as easy as (if, for example your miniconda is not installed under root):   
 
-```python
-!pip install numpy
-!pip install tqdm
-!pip install scipy
-!pip install pandas
-!pip install soundfile
-!pip install librosa
-!pip install azure-storage-blob
-```
-
-Manifests are just csv files with the following columns:
+Manifests are csv files with the following columns:
 
 - Path to audio
 - Path to text file
 - Duration
 
-They proved to be the most simple / helpful format of accessing data.
+They proved to be the simplest format of accessing data.
 
-For ease of use all the manifests are already rerooted, i.e. all paths in them are relative and you just need to add a root folder.
+For ease of use, all the manifests are already rerooted. All paths in them are relative, you need to provide a root folder.
 
 ```python
 # manifest utils
@@ -478,9 +458,7 @@ def display_manifest(manifest_df):
 
 ### Play a sample of files
 
-On most platforms browsers usually support native audio playback.
-
-So we can leverage HTML5 audio players to view our data.
+Most platforms browsers support native audio playback. So we can use HTML5 audio players to view our data.
 
 ```python
 manifest_df = read_manifest(prepend_path +'/manifests/public_series_1.csv')
@@ -501,10 +479,9 @@ display_manifest(sample)
 !ls ru_open_stt_opus/manifests/*.csv
 ```
 
-A couple of simplistic examples showing how to best read wav and opus files.
+Some examples showing how to best read wav and opus files.
 
-Scipy is the fastest for wav, pysoundfile is the best overall for opus.
-
+Scipy is the fastest for wav. Pysoundfile is the best overall for opus.
 
 ```python
 %matplotlib inline
@@ -516,7 +493,6 @@ from matplotlib import pyplot as plt
 ```
 
 #### Read a wav
-
 
 ```python
 manifest_df = read_manifest(prepend_path +'manifests/asr_calls_2_val.csv')

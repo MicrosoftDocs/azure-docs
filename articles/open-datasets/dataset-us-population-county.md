@@ -33,8 +33,8 @@ This dataset is stored in the East US Azure region. Allocating compute resources
 | Name | Data type | Unique | Values (sample) | Description |
 |-|-|-|-|-|
 | countyName | string | 1,960 | Washington County Jefferson County | County name. |
-| decennialTime | string | 2 | 2010 2000 | The time of the decennial census happened, e.g. 2010, 2000. |
-| maxAge | int | 23 | 9 66 | Max of the age range. If it’s null, it’s across all ages or the age range has no upper bound, e.g. age > 85. |
+| decennialTime | string | 2 | 2010 2000 | The time of the decennial census happened, for example, 2010, 2000. |
+| maxAge | int | 23 | 9 66 | Max of the age range. If it’s null, it’s across all ages or the age range has no upper bound, for example, age > 85. |
 | minAge | int | 23 | 35 67 | Min of the age range. If it’s null, it’s across all ages. |
 | population | int | 47,229 | 1 2 | Population of this segment. |
 | race | string | 8 | ASIAN ALONE TWO OR MORE RACES | Race category in Census data. If it’s null, it’s across all races. |

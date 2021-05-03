@@ -40,7 +40,7 @@ All datasets are updated daily. As of May 13, 2020 they contained 4,100 rows (CS
 
 ## Data source
 
-This data is originally published by the COVID Tracking Project at the Atlantic. Raw data is ingested from the COVID Tracking GitHub repo using the [states_daily_4p_et.csv file](https://github.com/COVID19Tracking/covid-tracking-data/blob/master/data/states_daily_4pm_et.csv). For more information on this dataset including its origins from the COVID Tracking Project API see the [project GitHub repository](https://github.com/COVID19Tracking/covid-tracking-data).
+This data is originally published by the COVID Tracking Project at the Atlantic. Raw data is ingested from the COVID Tracking GitHub repo using the [states_daily_4p_et.csv file](https://github.com/COVID19Tracking/covid-tracking-data/blob/master/data/states_daily_4pm_et.csv). For more information on this dataset including its origins from the COVID Tracking Project API, see the [project GitHub repository](https://github.com/COVID19Tracking/covid-tracking-data).
 
 ## Data quality
 COVID Tracking Project grades the data quality for each state and provides further information about their assessment of the quality of the data. For more information, see the [COVID Tracking Project data page](https://covidtracking.com/data). Data in the GitHub repository may be an hour behind the API; use of the API is necessary to access the most recent data.
@@ -49,11 +49,11 @@ COVID Tracking Project grades the data quality for each state and provides furth
 
 This data is licensed under the terms and conditions of the [Apache License 2.0](https://github.com/COVID19Tracking/covid-tracking-data/blob/master/LICENSE).
 
-Any use of the data must retain all copyright, patent, trademark and attribution notices.
+Any use of the data must retain all copyright, patent, trademark, and attribution notices.
 
 ## Contact
 
-For any questions or feedback about this or other datasets in the COVID-19 Data Lake, please contact askcovid19dl@microsoft.com.
+For any questions or feedback about this or other datasets in the COVID-19 Data Lake, contact askcovid19dl@microsoft.com.
 
 ## Columns
 
@@ -125,7 +125,7 @@ JSONL: https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/co
 
 Parquet: https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/covid_tracking/latest/covid_tracking.parquet
 
-Download the dataset file using the built-in capability download from a http URL in Pandas. Pandas has readers for various file formats:
+Download the dataset file using the built-in capability download from an http URL in Pandas. Pandas has readers for various file formats:
 
 https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_parquet.html
 

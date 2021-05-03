@@ -11,7 +11,7 @@ ms.date: 04/16/2021
 
 # 1000 Genomes
 
-The 1000 Genomes Project ran between 2008 and 2015, creating the largest public catalogue of human variation and genotype data. The final data set contains data for 2,504 individuals from 26 populations and 84 million identified variants. For more details see the 1000 Genome Project website and the following publications:
+The 1000 Genomes Project ran between 2008 and 2015, creating the largest public catalog of human variation and genotype data. The final data set contains data for 2,504 individuals from 26 populations and 84 million identified variants. For more information, see the 1000 Genome Project website and the following publications:
 
 Pilot Analysis: A map of human genome variation from population-scale sequencing Nature 467, 1061-1073 (28 October 2010)
 
@@ -41,7 +41,7 @@ West US 2: https://dataset1000genomes.blob.core.windows.net/dataset
 
 West Central US: https://dataset1000genomes-secondary.blob.core.windows.net/dataset
 
-[SAS Token](https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview): sv=2019-10-10&si=prod&sr=c&sig=9nzcxaQn0NprMPlSh4RhFQHcXedLQIcFgbERiooHEqM%3D
+[SAS Token](https://docs.microsoft.com/azure/storage/common/storage-sas-overview): sv=2019-10-10&si=prod&sr=c&sig=9nzcxaQn0NprMPlSh4RhFQHcXedLQIcFgbERiooHEqM%3D
 
 ## Use Terms
 

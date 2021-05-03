@@ -13,7 +13,7 @@ ms.date: 04/16/2021
 
 [ClinVar](https://www.ncbi.nlm.nih.gov/clinvar/) is a freely accessible, public archive of reports of the relationships among human variations and phenotypes, with supporting evidence. It facilitates access to and communication about the relationships asserted between human variation and observed health status, and the history of that interpretation. It provides access to a broader set of clinical interpretations that can be incorporated into genomics workflows and applications.
 
-For more details on the data refer to the [Data Dictionary](https://www.ncbi.nlm.nih.gov/projects/clinvar/ClinVarDataDictionary.pdf) and [FAQ](https://www.ncbi.nlm.nih.gov/clinvar/docs/faq/).
+For more information on the data, see the [Data Dictionary](https://www.ncbi.nlm.nih.gov/projects/clinvar/ClinVarDataDictionary.pdf) and [FAQ](https://www.ncbi.nlm.nih.gov/clinvar/docs/faq/).
 
 [!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
 
@@ -57,14 +57,14 @@ For any questions or feedback about this dataset, contact clinvar@ncbi.nlm.nih.g
 
 ## Getting the ClinVar data from Azure Open Dataset
 
-Several public genomics data has been uploaded as an Azure Open Dataset [here](https://azure.microsoft.com/services/open-datasets/catalog/). We create a blob service linked to this open datasets. You can find examples of data calling procedure from Azure Open Dataset for `ClinVar` dataset in below:
+Several public genomics data has been uploaded as an Azure Open Dataset [here](https://azure.microsoft.com/services/open-datasets/catalog/). We create a blob service linked to this open dataset. You can find examples of data calling procedure from Azure Open Dataset for `ClinVar` dataset in below:
 
 Users can call and download the following path with this notebook: https://datasetclinvar.blob.core.windows.net/dataset/ClinVarFullRelease_00-latest.xml.gz.md5
 
 > [!NOTE]
 > Users needs to log-in their Azure Account via Azure CLI for viewing the data with Azure ML SDK. On the other hand, they do not need do any actions for downloading the data.
 
-Azure CLI: https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
+Azure CLI: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true
 
 ### Calling the data from  'ClinVar Data Set'
 

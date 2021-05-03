@@ -15,13 +15,13 @@ Fire department calls for service and 311 cases in San Francisco.
 
 [!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
 
-Fire Calls-For-Service includes all fire unit responses to calls. Each record includes the call number, incident number, address, unit identifier, call type, and disposition. All relevant time intervals are also included. Because this dataset is based on responses, and since most calls involved multiple units, there are multiple records for each call number. Addresses are associated with a block number, intersection or call box, not a specific address.
+Fire Calls-For-Service includes all fire unit responses to calls. Each record includes the call number, incident number, address, unit identifier, call type, and disposition. All relevant time intervals are also included. Because this dataset is based on responses, and since most calls involved multiple units, there are multiple records for each call number. Addresses are associated with a block number, intersection, or call box, not a specific address.
 
-311 Cases includes cases generally associated with a place or thing (for example parks, streets, or buildings) and created July 1, 2008 or later. Cases generally logged by a user regarding their own needs (for example, property or business tax questions, parking permit requests) are not included. For more information, see the [Program Link](http://support.datasf.org/customer/en/portal/articles/2429403-311-case-data---faq?b_id=13410).
+311 Cases include cases associated with a place or thing (for example parks, streets, or buildings) and created after July 1, 2008. Cases that are logged by a user about their own needs are excluded. For example, property or business tax questions, parking permit requests, and so on. For more information, see the [Program Link](http://support.datasf.org/customer/en/portal/articles/2429403-311-case-data---faq?b_id=13410).
  
 ## Volume and retention
 
-This dataset is stored in Parquet format. It is updated daily with about 6M rows (400MB) as of 2019.
+This dataset is stored in Parquet format. It is updated daily with about 6M rows (400 MB) as of 2019.
 
 This dataset contains historical records accumulated from 2015 to the present. You can use parameter settings in our SDK to fetch data within a specific time range.
 
@@ -42,7 +42,7 @@ This dataset is sourced from city of San Francisco government. See the [terms of
 
 | Name | Data type | Unique | Values (sample) | Description |
 |-|-|-|-|-|
-| address | string | 280,652 | Not associated with a specific address 0 Block of 6TH ST | Address of incident (note: address and location generalized to mid-block of street, intersection or nearest call box location, to protect caller privacy). |
+| address | string | 280,652 | Not associated with a specific address 0 Block of 6TH ST | Address of incident (note: address and location generalized to mid-block of street, intersection, or nearest call box location, to protect caller privacy). |
 | category | string | 108 | Street and Sidewalk Cleaning Potentially Life-Threatening | The human readable name of the 311 service request type or call type group for 911 fire calls. |
 | dataSubtype | string | 2 | 911_Fire 311_All | “911_Fire” or “311_All”. |
 | dataType | string | 1 | Safety | “Safety” |

@@ -19,11 +19,11 @@ Each row indicates the holiday info for a specific date, country or region, and 
 
 ## Volume and retention
 
-This dataset is stored in Parquet format. It is a snapshot with holiday information from 1970-01-01 to 2099-01-01. The data size is about 500KB.
+This dataset is stored in Parquet format. It's a snapshot with holiday information from January 1, 1970 to January 1, 2099. The data size is about 500KB.
 
 ## Storage location
 
-This dataset is stored in the East US Azure region. Allocating compute resources in East US is recommended for affinity.
+This dataset is stored in the East US Azure region. We recommend locating compute resources in East US for affinity.
 
 ## Additional information
 
@@ -42,10 +42,10 @@ Email aod@microsoft.com if you have any questions about the data source.
 |-|-|-|-|-|
 | countryOrRegion | string | 38 | Sweden Norway | Country or region full name. |
 | countryRegionCode | string | 35 | SE NO | Country or region code following the format here. |
-| date | timestamp | 20,665 | 2020-01-01 00:00:00 2018-12-25 00:00:00 | Date of the holiday. |
+| date | timestamp | 20,665 | 2074-01-01 00:00:00 2025-12-25 00:00:00 | Date of the holiday. |
 | holidayName | string | 483 | Søndag Söndag | Full name of the holiday. |
-| isPaidTimeOff | boolean | 3 | True | Indicate whether most people have paid time off on this date (only available for US, GB and India now). If it is NULL, it means unknown. |
-| normalizeHolidayName | string | 438 | Søndag Söndag | Normalized name of the holiday. |'
+| isPaidTimeOff | boolean | 3 | True | Indicate whether most people have paid time off on this date (only available for US, GB, and India now). If it is NULL, it means unknown. |
+| normalizeHolidayName | string | 438 | Søndag Söndag | Normalized name of the holiday. |
 
 ## Preview
 

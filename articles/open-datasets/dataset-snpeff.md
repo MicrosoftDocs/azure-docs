@@ -13,7 +13,7 @@ ms.date: 04/16/2021
 
 [SnpEff](https://pcingola.github.io/SnpEff/) Genetic variant annotation and functional effect prediction toolbox. It annotates and predicts the effects of genetic variants on genes and proteins (such as amino acid changes).
 
-For more details on the data refer to the [User Manual](https://pcingola.github.io/SnpEff/se_introduction/).
+For more information on the data, see the [User Manual](https://pcingola.github.io/SnpEff/se_introduction/).
 
 [!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
 
@@ -35,7 +35,7 @@ West US 2: https://datasetsnpeff.blob.core.windows.net/dataset
 
 West Central US: https://datasetsnpeff-secondary.blob.core.windows.net/dataset
 
-[SAS Token](https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview): sv=2019-10-10&st=2020-09-01T00%3A00%3A00Z&se=2050-09-01T00%3A00%3A00Z&si=prod&sr=c&sig=isafOa9tGnYBAvsXFUMDGMTbsG2z%2FShaihzp7JE5dHw%3D
+[SAS Token](../storage/common/storage-sas-overview.md): sv=2019-10-10&st=2020-09-01T00%3A00%3A00Z&se=2050-09-01T00%3A00%3A00Z&si=prod&sr=c&sig=isafOa9tGnYBAvsXFUMDGMTbsG2z%2FShaihzp7JE5dHw%3D
 
 ## Use Terms
 Data is available without restrictions. More information and citation details, see [Accessing and using data in ClinVar](https://pcingola.github.io/SnpEff/SnpEff_manual.html#intro).

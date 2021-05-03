@@ -27,7 +27,7 @@ This dataset is a mirror of the data store at https://gatk.broadinstitute.org/hc
 1. datasetpublicbroadref : 477 GB
 1. datasetbroadpublic : 3 TB
 
-Datasets are updated monthly during the first week of every month..
+Datasets are updated monthly during the first week of every month.
 
 ## Storage location
 

@@ -17,16 +17,16 @@ The Consumer Price Index (CPI) is a measure of the average change over time in t
 
 [README](https://download.bls.gov/pub/time.series/cu/cu.txt) containing file for detailed information about this dataset is available at [original dataset location](https://download.bls.gov/pub/time.series/cu/).
 
-This dataset is produced from the [Consumer Price Index data](https://www.bls.gov/cpi/) published by [US Bureau of Labor Statistics (BLS)](https://www.bls.gov/). Review [Linking and Copyright Information](https://www.bls.gov/bls/linksite.htm) and [Important Web Site Notices](https://www.bls.gov/bls/website-policies.htm) for the terms and conditions related to the use this dataset.
+This dataset is produced from the [Consumer Price Index data](https://www.bls.gov/cpi/), which is published by [US Bureau of Labor Statistics (BLS)](https://www.bls.gov/). Review [Linking and Copyright Information](https://www.bls.gov/bls/linksite.htm) and [Important Web Site Notices](https://www.bls.gov/bls/website-policies.htm) for the terms and conditions.
 
 ## Storage location
 
-This dataset is stored in the East US Azure region. Allocating compute resources in East US is recommended for affinity.
+This dataset is stored in the East US Azure region. We recommend locating compute resources in East US for affinity.
 
 ## Related datasets
 
-- [US Producer Price Index - Industry](us-producer-price-index-industry.md)
-- [US Producer Price Index - Commodities](datset-us-producer-price-index-commodities.md)
+- [US Producer Price Index - Industry](dataset-us-producer-price-index-industry.md)
+- [US Producer Price Index - Commodities](dataset-us-producer-price-index-commodities.md)
 
 ## Columns
 
@@ -40,8 +40,8 @@ This dataset is stored in the East US Azure region. Allocating compute resources
 | period | string | 16 | S01 S02 | Identifies period for which data is observed. Format: M01-M13 or S01-S03 (M=Monthly, M13=Annual Avg, S=Semi-Annually). Ex: M06=June. See https://download.bls.gov/pub/time.series/cu/cu.period for period names and codes. |
 | periodicity_code | string | 3 | R S | Frequency of data observation. S=Semi-Annual; R=Regular. |
 | seasonal | string | 1,043 | U S | Code identifying whether the data is seasonally adjusted. S=Seasonally Adjusted; U=Unadjusted. |
-| series_id | string | 16,683 | CWURS400SA0E CWUR0100SA0E | Code identifying the specific series. A time series refers to a set of data observed over an extended period of time over consistent time intervals (that is, monthly, quarterly, semi-annually, annually). BLS time series data are typically produced at monthly intervals and represent data ranging from a specific consumer item in a specific geographical area whose price is gathered monthly to a category of worker in a specific industry whose employment rate is being recorded monthly, etc. See https://download.bls.gov/pub/time.series/cu/cu.txt for more information. |
-| series_title | string | 8,336 | Alcoholic beverages in U.S. city average, all urban consumers, not seasonally adjusted Transportation in Los Angeles-Long Beach-Anaheim, CA, all urban consumers, not seasonally adjusted | Series name of the corresponding series_id. See https://download.bls.gov/pub/time.series/cu/cu.series for series ids and names. |
+| series_id | string | 16,683 | CWURS400SA0E CWUR0100SA0E | Code identifying the specific series. A time series refers to a set of data observed over an extended period of time over consistent time intervals (that is, monthly, quarterly, semi-annually, annually). BLS time series data are typically produced at monthly intervals and represent data ranging from a specific consumer item in a specific geographical area whose price is gathered monthly to a category of worker in a specific industry whose employment rate is being recorded monthly, and so on. For more information, see https://download.bls.gov/pub/time.series/cu/cu.txt |
+| series_title | string | 8,336 | Alcoholic drinks in U.S. city average, all urban consumers, not seasonally adjusted Transportation in Los Angeles-Long Beach-Anaheim, CA, all urban consumers, not seasonally adjusted | Series name of the corresponding series_id. See https://download.bls.gov/pub/time.series/cu/cu.series for series ids and names. |
 | value | float | 310,603 | 100.0 101.0999984741211 | Price index for item. |
 | year | int | 25 | 2018 2017 | Identifies year of observation. |
 

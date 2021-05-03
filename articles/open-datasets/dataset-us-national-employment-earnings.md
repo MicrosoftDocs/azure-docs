@@ -34,7 +34,7 @@ This dataset is stored in the East US Azure region. Allocating compute resources
 | Name | Data type | Unique | Values (sample) | Description |
 |-|-|-|-|-|
 | data_type_code | string | 37 | 1 10 | See https://download.bls.gov/pub/time.series/ce/ce.datatype |
-| data_type_text | string | 37 | ALL EMPLOYEES, THOUSANDS WOMEN EMPLOYEES, THOUSANDS | See See https://download.bls.gov/pub/time.series/ce/ce.datatype |
+| data_type_text | string | 37 | ALL EMPLOYEES, THOUSANDS WOMEN EMPLOYEES, THOUSANDS | See https://download.bls.gov/pub/time.series/ce/ce.datatype |
 | footnote_codes | string | 2 | nan P |  |
 | industry_code | string | 902 | 30000000 32000000 | Different industries covered. See https://download.bls.gov/pub/time.series/ce/ce.industry |
 | industry_name | string | 895 | Nondurable goods Durable goods | Different industries covered. See https://download.bls.gov/pub/time.series/ce/ce.industry |
@@ -42,8 +42,8 @@ This dataset is stored in the East US Azure region. Allocating compute resources
 | seasonal | string | 2 | U S |  |
 | series_id | string | 26,021 | CEU3100000008 CEU9091912001 | Different types of data series available in the dataset. See https://download.bls.gov/pub/time.series/ce/ce.series |
 | series_title | string | 25,685 | All employees, thousands, durable goods, not seasonally adjusted All employees, thousands, nondurable goods, not seasonally adjusted | Title of the different types of data series available in the dataset. See https://download.bls.gov/pub/time.series/ce/ce.series |
-| supersector_code | string | 22 | 31 60 | Higher level industry or sector classification. See https://download.bls.gov/pub/time.series/ce/ce.supersector |
-| supersector_name | string | 22 | Durable Goods Professional and business services | Higher level industry or sector classification. See https://download.bls.gov/pub/time.series/ce/ce.supersector |
+| supersector_code | string | 22 | 31 60 | Higher-level industry or sector classification. See https://download.bls.gov/pub/time.series/ce/ce.supersector |
+| supersector_name | string | 22 | Durable Goods Professional and business services | Higher-level industry or sector classification. See https://download.bls.gov/pub/time.series/ce/ce.supersector |
 | value | float | 572,372 | 38.5 38.400001525878906 |  |
 | year | int | 81 | 2017 2012 |  |
 

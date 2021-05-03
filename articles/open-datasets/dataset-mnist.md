@@ -15,7 +15,7 @@ The MNIST database of handwritten digits has a training set of 60,000 examples a
 
 [!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
 
-This dataset is sourced from [THE MNIST DATABASE of handwritten digits](http://yann.lecun.com/exdb/mnist/). Its a subset of the larger [NIST Handprinted Forms and Characters Database](https://www.nist.gov/srd/nist-special-database-19) published by [National Institute of Standards and Technology](https://www.nist.gov/).
+This dataset is sourced from [THE MNIST DATABASE of handwritten digits](http://yann.lecun.com/exdb/mnist/). It's a subset of the larger [NIST Hand-printed Forms and Characters Database](https://www.nist.gov/srd/nist-special-database-19) published by [National Institute of Standards and Technology](https://www.nist.gov/).
 
 
 ## Storage location
@@ -24,10 +24,10 @@ This dataset is sourced from [THE MNIST DATABASE of handwritten digits](http://y
 - Container name: mnist
 
 Four files are available in the container directly:
-  - train-images-idx3-ubyte.gz: training set images (9912422 bytes)
-  - train-labels-idx1-ubyte.gz: training set labels (28881 bytes)
-  - t10k-images-idx3-ubyte.gz: test set images (1648877 bytes)
-  - t10k-labels-idx1-ubyte.gz: test set labels (4542 bytes)
+  - train-images-idx3-ubyte.gz: training set images (9,912,422 bytes)
+  - train-labels-idx1-ubyte.gz: training set labels (28,881 bytes)
+  - t10k-images-idx3-ubyte.gz: test set images (1,648,877 bytes)
+  - t10k-labels-idx1-ubyte.gz: test set labels (4,542 bytes)
 
 ## Data access
 
@@ -41,7 +41,7 @@ Four files are available in the container directly:
 > **[Download the notebook instead](https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azureml-opendatasets&registryId=mnist)**.
 
 ### Load MNIST into a data frame using Azure Machine Learning tabular datasets. 
-See https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-register-datasets to learn more about datasets. 
+For more information on Azure Machine Learning datasets, see [Create Azure Machine Learning datasets](../machine-learning/how-to-create-register-datasets.md). 
 
 #### Get complete dataset into a data frame
 
@@ -89,7 +89,7 @@ plt.show()
 ```
 
 ### Download or mount MNIST raw files Azure Machine Learning file datasets. 
-This works only for Linux based compute. See https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-register-datasets to learn more about datasets. 
+This works only for Linux based compute. For more information on Azure Machine Learning datasets, see [Create Azure Machine Learning datasets](../machine-learning/how-to-create-register-datasets.md). 
 
 ```python
 mnist_file = MNIST.get_file_dataset()
@@ -241,7 +241,7 @@ plt.show()
 > **[Download the notebook instead](https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureDatabricks&package=azureml-opendatasets&registryId=mnist)**.
 
 ### Load MNIST into a data frame using Azure Machine Learning tabular datasets. 
-See https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-register-datasets to learn more about datasets. 
+For more information on Azure Machine Learning datasets, see [Create Azure Machine Learning datasets](../machine-learning/how-to-create-register-datasets.md). 
 
 #### Get complete dataset into a data frame
 
@@ -258,7 +258,7 @@ display(mnist_df.limit(5))
 ```
 
 ### Download or mount MNIST raw files Azure Machine Learning file datasets. 
-This works only for Linux based compute. See https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-register-datasets to learn more about datasets. 
+This works only for Linux based compute. For more information on Azure Machine Learning datasets, see [Create Azure Machine Learning datasets](../machine-learning/how-to-create-register-datasets.md). 
 
 ```python
 mnist_file = MNIST.get_file_dataset()

@@ -11,7 +11,7 @@ ms.date: 04/16/2021
 
 # Illumina Platinum Genomes
 
-Whole-genome sequencing is enabling researchers worldwide to characterize the human genome more fully and accurately. This requires a comprehensive, genome-wide catalog of high-confidence variants called in a set of genomes for use as a benchmark. Illumina has generated deep, whole-genome sequence data of 17 individuals in a three-generation pedigree and called variants in each genome using a range of currently available algorithms.
+Whole-genome sequencing is enabling researchers worldwide to characterize the human genome more fully and accurately. This requires a comprehensive, genome-wide catalog of high-confidence variants called in a set of genomes as a benchmark. Illumina has generated deep, whole-genome sequence data of 17 individuals in a three-generation pedigree. Illumina has called variants in each genome using a range of currently available algorithms.
 
 For more information on the data, see the official [Illumina site](https://www.illumina.com/platinumgenomes.html).
 
@@ -27,7 +27,7 @@ This dataset contains approximately 2 GB of data and is updated daily.
 
 ## Storage location
 
-This dataset is stored in the West US 2 and West Central US Azure regions. Allocating compute resources in West US 2 or West Central US is recommended for affinity.
+This dataset is stored in the West US 2 and West Central US Azure regions. We recommend locating compute resources in West US 2 or West Central US for affinity.
 
 ## Data Access
 
@@ -43,7 +43,7 @@ Data is available without restrictions. For more information and citation detail
 
 ## Contact
 
-For any questions or feedback about this dataset, contact platinumgenomes@illumina.com.
+For any questions or feedback about the dataset, contact platinumgenomes@illumina.com.
 
 ## Data access
 
@@ -58,9 +58,7 @@ For any questions or feedback about this dataset, contact platinumgenomes@illumi
 
 ## Getting the Illumina Platinum Genomes from Azure Open Datasets and Doing Initial Analysis 
 
-Jupyter notebooks are a great tool for data scientists who is working on Genomics data analysis. We will demonstrate Azure Jupyter notebook usage via GATK and Picard with Azure Open Datasets. 
-
-**Here is the coverage of this notebook:**
+Use Jupyter notebooks, GATK, and Picard to do the following:
 
 1. Annotate genotypes using VariantFiltration
 2. Select Specific Variants
@@ -112,11 +110,11 @@ Select a subset of variants from a VCF file. This tool makes it possible to sele
 
 There are many different options for selecting subsets of variants from a larger call set:
 
-Extract one or more samples from a callset based on either a complete sample name or a pattern match.
+Extract one or more samples from a call set based on either a complete sample name or a pattern match.
 Specify criteria for inclusion that place thresholds on annotation values, **for example "DP > 1000" (depth of coverage greater than 1000x), "AF < 0.25" (sites with allele frequency less than 0.25)**. These criteria are written as "JEXL expressions", which are documented in the article about using JEXL expressions.
-Provide concordance or discordance tracks in order to include or exclude variants that are also present in other given callsets.
+Provide concordance or discordance tracks in order to include or exclude variants that are also present in other given call sets.
 Select variants based on criteria like their type (for example, INDELs only), evidence of mendelian violation, filtering status, allelicity, etc.
-There are also several options for recording the original values of certain annotations, which are recalculated when one subsets the new callset, trims alleles, etc.
+There are also several options for recording the original values of certain annotations, which are recalculated when one subsets the new call set, trims alleles, etc.
 
 Input: A variant call set in VCF format from which a subset can be selected.
 
@@ -141,12 +139,12 @@ run gatk SelectVariants -V outputannot.vcf --set-filtered-gt-to-nocall -O output
 ### 4. Check the Concordance of VCF file with Ground Truth
 
 Evaluate site-level concordance of an input VCF against a truth VCF.
-This tool evaluates two variant callsets against each other and produces a six-column summary metrics table. 
+This tool evaluates two variant call sets against each other and produces a six-column summary metrics table. 
 
 **This function will:**
 
 1. Stratifies SNP and INDEL calls
-2. Report true-positive, False-positive and false-negative calls
+2. Report true-positive, False-positive, and false-negative calls
 3. Calculates sensitivity and precision
 
 The tool assumes all records in the --truth VCF are passing truth variants. For the -eval VCF, the tool uses only unfiltered passing calls.

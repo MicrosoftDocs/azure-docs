@@ -33,7 +33,7 @@ Raw data: https://pandemicdatalake.blob.core.windows.net/public/raw/covid-19/bin
 Previous versions of modified and raw data: https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/
 
 ## Data volume
-All datasets are updated daily. As of May 11, 2020 they contained 125,576 rows (CSV 16.1MB, JSON 40.0 MB, JSONL 39.6 MB, Parquet 1.1 MB).
+All datasets are updated daily. As of May 11, 2020 they contained 125,576 rows (CSV 16.1 MB, JSON 40.0 MB, JSONL 39.6 MB, Parquet 1.1 MB).
 
 ## License and use rights attribution
 This data is available strictly for educational and academic purposes, such as medical research, government agencies, and academic institutions, under [terms and conditions](https://github.com/microsoft/Bing-COVID-19-Data/blob/master/LICENSE.txt).
@@ -93,7 +93,7 @@ For any questions or feedback about this or other datasets in the COVID-19 Data 
 
 #### This notebook documents the URLs and sample code to access the [Bing COVID-19 Dataset](https://azure.microsoft.com/services/open-datasets/catalog/bing-covid-19-data/)
 
-URLs of different dataset file formats hosted on Azure Blob Storage:
+Use the following URLs to get specific file formats hosted on Azure Blob Storage:
 
 CSV: https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.csv
 
@@ -103,7 +103,7 @@ JSONL: https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bi
 
 Parquet: https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.parquet
 
-Download the dataset file using thebuilt-in capability download from a http URL in Pandas. Pandas has readers for various file formats:
+Download the dataset file using the built-in capability download from an http URL in Pandas. Pandas has readers for various file formats:
 
 https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_parquet.html
 
@@ -121,7 +121,7 @@ df = pd.read_parquet("https://pandemicdatalake.blob.core.windows.net/public/cura
 df.head(10)
 ```
 
-Lets check the data types of the various fields and verify that the updated column is datettime format
+Lets check the data types of the various fields and verify that the updated column is datetime format
 
 ```python
 df.dtypes

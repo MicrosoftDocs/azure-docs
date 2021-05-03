@@ -17,7 +17,7 @@ The green taxi trip records include fields capturing pick-up and drop-off dates/
 
 ## Volume and retention
 
-This dataset is stored in Parquet format. There are about 80M rows (2GB) in total as of 2018.
+This dataset is stored in Parquet format. There are about 80M rows (2 GB) in total as of 2018.
 
 This dataset contains historical records accumulated from 2009 to 2018. You can use parameter settings in our SDK to fetch data within a specific time range.
 
@@ -54,7 +54,7 @@ View the [original dataset location](https://www1.nyc.gov/site/tlc/about/tlc-tri
 | puMonth              | int       | 12         | 3 5                                     |                                                                                                                                                                                                                                                      |
 | puYear               | int       | 14         | 2015 2016                               |                                                                                                                                                                                                                                                      |
 | rateCodeID           | int       | 7          | 1 5                                     | The final rate code in effect at the end of the trip. 1= Standard rate 2= JFK 3= Newark 4= Nassau or Westchester 5= Negotiated fare 6= Group ride                                                                                                    |
-| storeAndFwdFlag      | string    | 2          | N Y                                     | This flag indicates whether the trip record was held in vehicle memory before sending to the vendor, aka “store and forward,” because the vehicle did not have a connection to the server. Y= store and forward trip N= not a store and forward trip |
+| storeAndFwdFlag      | string    | 2          | N Y                                     | This flag indicates whether the trip record was held in vehicle memory before sending to the vendor, also known as “store and forward,” because the vehicle did not have a connection to the server. Y= store and forward trip N= not a store and forward trip |
 | tipAmount            | double    | 6,206      | 1.0 2.0                                 | Tip amount – This field is automatically populated for credit card tips. Cash tips are not included.                                                                                                                                                 |
 | tollsAmount          | double    | 2,150      | 5.54 5.76                               | Total amount of all tolls paid in trip.                                                                                                                                                                                                              |
 | totalAmount          | double    | 20,188     | 7.8 6.8                                 | The total amount charged to passengers. Does not include cash tips.                                                                                                                                                                                  |

@@ -18,7 +18,7 @@ All New York City 311 service requests from 2010 to the present.
 
 ## Volume and retention
 
-This dataset is stored in Parquet format. It is updated daily, and contains about 12M rows (500MB) in total as of 2019.
+This dataset is stored in Parquet format. It is updated daily, and contains about 12M rows (500 MB) in total as of 2019.
 
 This dataset contains historical records accumulated from 2010 to the present. You can use parameter settings in our SDK to fetch data within a specific time range.
 
@@ -28,14 +28,14 @@ This dataset is stored in the East US Azure region. Allocating compute resources
 
 ## Additional information
 
-This dataset is sourced from New York City government, for more information see the [City of New York website](https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9). See the [terms of this dataset](https://www1.nyc.gov/home/terms-of-use.page).
+This dataset is sourced from New York City government, for more information, see the [City of New York website](https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9). See the [terms of this dataset](https://www1.nyc.gov/home/terms-of-use.page).
 
 ## Columns
 
 | Name | Data type | Unique | Values (sample) | Description |
 |-|-|-|-|-|
 | address | string | 1,536,593 | 655 EAST 230 STREET 78-15 PARSONS BOULEVARD | House number of incident address provided by submitter. |
-| category | string | 446 | Noise - Residential HEAT/HOT WATER | This is the first level of a hierarchy identifying the topic of the incident or condition (Complaint Type ). It may have a corresponding subcategory (Descriptor) or may stand alone. |
+| category | string | 446 | Noise - Residential HEAT/HOT WATER | This is the first level of a hierarchy identifying the topic of the incident or condition (Complaint Type). It may have a corresponding subcategory (Descriptor) or may stand alone. |
 | dataSubtype | string | 1 | 311_All | “311_All” |
 | dataType | string | 1 | Safety | “Safety” |
 | dateTime | timestamp | 17,332,609 | 2013-01-24 00:00:00 2015-01-08 00:00:00 | Date Service Request was created. |

@@ -11,7 +11,7 @@ ms.date: 04/16/2021
 
 # Human Reference Genomes
 
-This dataset includes two human genome references assembled by the [Genome Reference Consortium](https://www.ncbi.nlm.nih.gov/grc): Hg19 and Hg38.
+This dataset includes two human-genome references assembled by the [Genome Reference Consortium](https://www.ncbi.nlm.nih.gov/grc): Hg19 and Hg38.
 
 For more information on Hg19 (GRCh37) data, see the [GRCh37 report at NCBI](https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.13/).
 
@@ -68,13 +68,13 @@ For any questions or feedback about this dataset, contact the [Genome Reference 
 
 ## Getting the Reference Genomes from Azure Open Datasets
 
-Several public genomics data has been uploaded as an Azure Open Dataset [here](https://azure.microsoft.com/services/open-datasets/catalog/). We create a blob service linked to this open datasets. You can find examples of data calling procedure from Azure Open Datasets for `Reference Genomes` dataset in below:
+Several public genomics data has been uploaded as an Azure Open Dataset [here](https://azure.microsoft.com/services/open-datasets/catalog/). We create a blob service linked to this open dataset. You can find examples of data calling procedure from Azure Open Datasets for `Reference Genomes` dataset in below:
 
 Users can call and download the following path with this notebook: https://datasetreferencegenomes.blob.core.windows.net/dataset/vertebrate_mammalian/Homo_sapiens/latest_assembly_versions/GCF_000001405.39_GRCh38.p13/GCF_000001405.39_GRCh38.p13_assembly_structure/genomic_regions_definitions.txt
 
-**Important note:** Users needs to log-in their Azure Account via Azure CLI for viewing the data with Azure ML SDK. On the other hand, they do not need do any actions for downloading the data.
+**Important note:** Users need to log in their Azure Account via Azure CLI for viewing the data with Azure ML SDK. On the other hand, they do not need do any actions for downloading the data.
 
-Azure CLI: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+Azure CLI: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true
 
 ### Calling the data from  'Reference Genome Datasets'
 

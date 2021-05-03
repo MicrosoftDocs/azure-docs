@@ -11,7 +11,7 @@ ms.date: 04/16/2021
 
 # Genomics Data Lake
 
-The Genomics Data Lake provides a variety of public datasets that you can access for free and integrate into your genomics analysis workflows and applications. The datasets include genome sequences, variant info, and subject/sample metadata in BAM, FASTA, VCF, CSV file formats.
+The Genomics Data Lake provides various public datasets that you can access for free and integrate into your genomics analysis workflows and applications. The datasets include genome sequences, variant info, and subject/sample metadata in BAM, FASTA, VCF, CSV file formats.
 
 The Genomics Data Lake is hosted in the West US 2 and West Central US Azure region. Allocating compute resources in West US 2 and West Central US is recommended for affinity.
 
@@ -24,7 +24,7 @@ The Genomics Data Lake is hosted in the West US 2 and West Central US Azure regi
 |-|-|
 | [Illumina Platinum Genomes](dataset-illumina-platinum-genomes.md) | Illumina Platinum Genomes |
 | [Human Reference Genomes](dataset-human-reference-genomes.md) | Human Reference Genomes |
-| [ClinVar Annotations](dataset-clinvar-annotation.md) | ClinVar Annotations |
+| [ClinVar Annotations](dataset-clinvar-annotations.md) | ClinVar Annotations |
 | [SnpEff](dataset-snpeff.md) | SnpEff: Genomic variant annotations and functional effect prediction toolbox |
 | [gnomAD](dataset-gnomad.md) | gnomAD: Genome Aggregation Database |
 | [1000 Genomes](dataset-1000-genomes.md) | 1000 Genomes |

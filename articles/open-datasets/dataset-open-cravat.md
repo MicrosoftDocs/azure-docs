@@ -13,7 +13,7 @@ ms.date: 04/16/2021
 
 OpenCRAVAT is a python package that performs genomic variant interpretation including variant impact, annotation, and scoring. OpenCRAVAT has a modular architecture with a wide variety of analysis modules and annotation resources that can be selected and installed/run based on the needs of a given study.
 
-For more details on the data refer to the [OpenCravat](https://opencravat.org/).
+For more information on the data, see the [OpenCravat](https://opencravat.org/).
 
 [!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
 
@@ -23,7 +23,7 @@ This dataset is a mirror of the store at https://store.opencravat.org and https:
 
 ## Data volumes and update frequency
 
-This dataset includes approximately 500GB of data, and is updated daily.
+This dataset includes 500 GB of data, and is updated daily.
 
 ## Storage location
 
@@ -35,7 +35,7 @@ West US 2: https://datasetopencravat.blob.core.windows.net/dataset
 
 West Central US: https://datasetopencravat-secondary.blob.core.windows.net/dataset
 
-[SAS Token](https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview): sv=2020-04-08&st=2021-03-11T23%3A50%3A01Z&se=2025-07-26T22%3A50%3A00Z&sr=c&sp=rl&sig=J9J9wnJOXsmEy7TFMq9wjcxjXDE%2B7KhGpCUL4elsC14%3D
+[SAS Token](../storage/common/storage-sas-overview.md): sv=2020-04-08&st=2021-03-11T23%3A50%3A01Z&se=2025-07-26T22%3A50%3A00Z&sr=c&sp=rl&sig=J9J9wnJOXsmEy7TFMq9wjcxjXDE%2B7KhGpCUL4elsC14%3D
 
 ## Use Terms
 

@@ -17,13 +17,13 @@ Seattle Fire Department 911 dispatches.
 
 ## Volume and retention
 
-This dataset is stored in Parquet format. It is updated daily, and contains about 800K rows (20MB) in total as of 2019.
+This dataset is stored in Parquet format. It's updated daily, and contains about 800,000 rows (20 MB) in 2019.
 
 This dataset contains historical records accumulated from 2010 to the present. You can use parameter settings in our SDK to fetch data within a specific time range.
 
 ## Storage location
 
-This dataset is stored in the East US Azure region. Allocating compute resources in East US is recommended for affinity.
+This dataset is stored in the East US Azure region. We recommend locating compute resources in East US for affinity.
 
 ## Additional information
 

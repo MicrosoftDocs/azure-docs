@@ -1,7 +1,7 @@
 ---
-title: US Consumer Price Index
+title: US Producer Price Index industry
 titleSuffix: Azure Open Datasets
-description: Learn how to use the US Consumer Price Index dataset in Azure Open Datasets.
+description: Learn how to use the US Producer Price Index industry dataset in Azure Open Datasets.
 ms.service: open-datasets
 ms.topic: sample
 author: peterclu
@@ -9,7 +9,7 @@ ms.author: peterlu
 ms.date: 04/16/2021
 ---
 
-# US Consumer Price Index
+# US Consumer Price Index industry
 
 The Producer Price Index (PPI) is a measure of average change over time in the selling prices received by domestic producers for their output. The prices included in the PPI are from the first commercial transaction for products and services covered.
 
@@ -40,8 +40,8 @@ This dataset is stored in the East US Azure region. Allocating compute resources
 | industry_code | string | 1,064 | 221122 325412 | NAICS code for the industry. See https://download.bls.gov/pub/time.series/pc/pc.industry for codes and names. |
 | industry_name | string | 842 | Electric power distribution Pharmaceutical preparation manufacturing | Name corresponding to the code for the industry. See https://download.bls.gov/pub/time.series/pc/pc.industry for codes and names. |
 | period | string | 13 | M06 M07 | Identifies period for which data is observed. See https://download.bls.gov/pub/time.series/pc/pc.period for full list. |
-| product_code | string | 4,822 | 324121P 316--- | Code identifying the product to which the data observation refers. See https://download.bls.gov/pub/time.series/pc/pc.product for mapping of industry codes, product codes and product names. |
-| product_name | string | 3,313 | Primary products Secondary products | Name of the product to which the data observation refers. See https://download.bls.gov/pub/time.series/pc/pc.product for mapping of industry codes, product codes and product names. |
+| product_code | string | 4,822 | 324121P 316--- | Code identifying the product to which the data observation refers. See https://download.bls.gov/pub/time.series/pc/pc.product for mapping of industry codes, product codes, and product names. |
+| product_name | string | 3,313 | Primary products Secondary products | Name of the product to which the data observation refers. See https://download.bls.gov/pub/time.series/pc/pc.product for mapping of industry codes, product codes, and product names. |
 | seasonal | string | 1 | U | Code identifying whether the data are seasonally adjusted. S=Seasonally Adjusted; U=Unadjusted |
 | series_id | string | 4,822 | PCU332323332323M PCU333415333415C | Code identifying the specific series. A time series refers to a set of data observed over an extended period of time over consistent time intervals. See https://download.bls.gov/pub/time.series/pc/pc.series for details of series such as code, name, start and end year, etc. |
 | series_title | string | 4,588 | PPI industry data for Electric power distribution-West South Central, not seasonally adjusted PPI industry data for Electric power distribution-Pacific, not seasonally adjusted |  |

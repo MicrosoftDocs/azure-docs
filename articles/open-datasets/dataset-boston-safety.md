@@ -19,7 +19,7 @@ Refer to this link to learn more about [BOS:311](https://www.cityofboston.gov/31
 
 ## Volume and retention
 
-This dataset is stored in Parquet format. It is updated daily, and contains about 100K rows (10MB) in total as of 2019.
+This dataset is stored in Parquet format. It is updated daily, and contains about 100-K rows (10 MB) in total as of 2019.
 
 This dataset contains historical records accumulated from 2011 to the present. You can use parameter settings in our SDK to fetch data within a specific time range.
 
@@ -48,18 +48,16 @@ This dataset is sourced from city of Boston government. For more information, se
 
 ## Preview
 
-| Name | Data type | Unique | Values (sample) | Description |  |  |  |  |  |  |
+| ataType | dataSubtype | dateTime | category | subcategory | status | address | latitude | longitude | source | extendedProperties |
 |-|-|-|-|-|-|-|-|-|-|-|
-| dataType | dataSubtype | dateTime | category | subcategory | status | address | latitude | longitude | source | extendedProperties |
-| Safety | 311_All | 4/25/2021 12:03:01 AM | Enforcement & Abandoned Vehicles | Abandoned Vehicles | Open | INTERSECTION of Kemp St & Dorchester Ave South Boston MA | 42.3594 | -71.0587 | Citizens Connect App |  |
-| Safety | 311_All | 4/24/2021 11:59:37 PM | Enforcement & Abandoned Vehicles | Parking Enforcement | Open | 11 Washburn St Dorchester MA 02125 | 42.3256 | -71.0573 | Citizens Connect App |  |
-| Safety | 311_All | 4/24/2021 11:58:39 PM | Highway Maintenance | Request for Pothole Repair | Open | INTERSECTION of Murray Hill Rd & Florence St Roslindale MA | 42.3594 | -71.0587 | Citizens Connect App |  |
-| Safety | 311_All | 4/24/2021 11:57:50 PM | Enforcement & Abandoned Vehicles | Parking Enforcement | Open | 711 E Seventh St South Boston MA 02127 | 42.3322 | -71.0319 | Citizens Connect App |  |
-| Safety | 311_All | 4/24/2021 11:14:38 PM | Street Cleaning | Requests for Street Cleaning | Open | INTERSECTION of Florian St & Hyde Park Ave Roslindale MA | 42.3594 | -71.0587 | Citizens Connect App |  |
-| Safety | 311_All | 4/24/2021 11:13:34 PM | Highway Maintenance | Request for Pothole Repair | Open | INTERSECTION of Harrison Ave & Northampton St Roxbury MA | 42.3594 | -71.0587 | Citizens Connect App |  |
-| Safety | 311_All | 4/24/2021 11:10:46 PM | Graffiti | Graffiti Removal | Open | 354 Newbury St Boston MA 02115 | 42.3481 | -71.0874 | Citizens Connect App |  |
-| Safety | 311_All | 4/24/2021 11:03:12 PM | Enforcement & Abandoned Vehicles | Parking Enforcement | Open | 551 E Sixth St South Boston MA 02127 | 42.333 | -71.0386 | Citizens Connect App |  |
-| subcategory | string | 209 | Parking Enforcement Requests for Street Cleaning | Type of the service request. |  |  |  |  |  |  |
+| Safety | 311_All | 4/27/2021 11:45:49 PM | Enforcement & Abandoned Vehicles | Parking Enforcement | Open | 51 Gardner St Allston MA 02134 | 42.3535 | -71.1285 | Citizens Connect App |  |
+| Safety | 311_All | 4/27/2021 11:43:43 PM | Sanitation | Missed Trash/Recycling/Yard Waste/Bulk Item | Open | 4 Putnam Pl Roxbury MA 02119 | 42.3298 | -71.0883 | Self Service |  |
+| Safety | 311_All | 4/27/2021 11:37:19 PM | Enforcement & Abandoned Vehicles | Parking Enforcement | Open | 36 Raven St Dorchester MA 02125 | 42.3177 | -71.0546 | Citizens Connect App |  |
+| Safety | 311_All | 4/27/2021 11:30:00 PM | Sanitation | Missed Trash/Recycling/Yard Waste/Bulk Item | Open | 58 Bicknell St Dorchester MA 02121 | 42.2984 | -71.0834 | Constituent Call |  |
+| Safety | 311_All | 4/27/2021 11:10:20 PM | Enforcement & Abandoned Vehicles | Parking Enforcement | Open | 2000 Commonwealth Ave Brighton MA 02135 | 42.3394 | -71.1585 | Citizens Connect App |  |
+| Safety | 311_All | 4/27/2021 11:06:00 PM | Noise Disturbance | Loud Parties/Music/People | Open | INTERSECTION of Lewis St & North St Boston MA | 42.3594 | -71.0587 | Constituent Call |  |
+| Safety | 311_All | 4/27/2021 11:05:00 PM | Enforcement & Abandoned Vehicles | Parking Enforcement | Open | 1 Nassau St Boston MA 02111 | 42.3486 | -71.0629 | Constituent Call |  |
+| Safety | 311_All | 4/27/2021 11:00:55 PM | Code Enforcement | Poor Conditions of Property | Open | 17 Mercer St South Boston MA 02127 | 42.3332 | -71.0492 | Citizens Connect App |  |
 
 ## Data access
 

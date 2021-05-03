@@ -13,9 +13,9 @@ ms.date: 04/16/2021
 
 Full-text and metadata dataset of COVID-19 and coronavirus-related scholarly articles optimized for machine readability and made available for use by the global research community.
 
-In response to the COVID-19 pandemic, the [Allen Institute for AI](https://allenai.org/) has partnered with leading research groups to prepare and distribute the COVID-19 Open Research Dataset (CORD-19), a free resource of over 47,000 scholarly articles, including over 36,000 with full text, about COVID-19 and the coronavirus family of viruses for use by the global research community.
+In response to the COVID-19 pandemic, the [Allen Institute for AI](https://allenai.org/) has partnered with leading research groups to prepare and distribute the COVID-19 Open Research Dataset (CORD-19). This dataset is a free resource of over 47,000 scholarly articles, including over 36,000 with full text, about COVID-19 and the coronavirus family of viruses for use by the global research community.
 
-This dataset is intended to mobilize researchers to apply recent advances in natural language processing to generate new insights in support of the fight against this infectious disease.
+This dataset mobilizes researchers to apply recent advances in natural language processing to generate new insights in support of the fight against this infectious disease.
 
 The corpus may be updated as new research is published in peer-reviewed publications and archival services like [bioRxiv](https://www.biorxiv.org/), [medRxiv](https://www.medrxiv.org/), and others.
 
@@ -23,18 +23,18 @@ The corpus may be updated as new research is published in peer-reviewed publicat
 
 ## License Terms
 
-This dataset is made available by the Allen Institute of AI and [Semantic Scholar](https://pages.semanticscholar.org/coronavirus-research). By accessing, downloading, or otherwise using any content provided in the CORD-19 Dataset, you agree to the [Dataset License](https://ai2-semanticscholar-cord-19.s3-us-west-2.amazonaws.com/2020-03-13/COVID.DATA.LIC.AGMT.pdf) related to the use this dataset. Specific licensing information for individual articles in the dataset is available in the metadata file. More licensing information is available on the [PMC website](https://www.ncbi.nlm.nih.gov/pmc/tools/openftlist/), [medRxiv website](https://www.medrxiv.org/submit-a-manuscript) and [bioRxiv website](https://www.biorxiv.org/about-biorxiv).
+This dataset is made available by the Allen Institute of AI and [Semantic Scholar](https://pages.semanticscholar.org/coronavirus-research). By accessing, downloading, or otherwise using any content provided in the CORD-19 Dataset, you agree to the [Dataset License](https://ai2-semanticscholar-cord-19.s3-us-west-2.amazonaws.com/2020-03-13/COVID.DATA.LIC.AGMT.pdf) related to the use this dataset. Specific licensing information for individual articles in the dataset is available in the metadata file. More licensing information is available on the [PMC website](https://www.ncbi.nlm.nih.gov/pmc/tools/openftlist/), [medRxiv website](https://www.medrxiv.org/submit-a-manuscript), and [bioRxiv website](https://www.biorxiv.org/about-biorxiv).
 
 ## Volume and retention
 
 This dataset is stored in JSON format and the latest release contains over 36,000 full text articles. Each paper is represented as a single JSON object. [View the schema](https://ai2-semanticscholar-cord-19.s3-us-west-2.amazonaws.com/2020-03-13/json_schema.txt).
 
 ## Storage Location
-This dataset is stored in the East US Azure region. Allocating compute resources in East US is recommended for affinity.
+This dataset is stored in the East US Azure region. Locating compute resources in East US is recommended for affinity.
 
 ## Citation
 
-When including CORD-19 data in a publication or redistribution, please cite the dataset as follows:
+When including CORD-19 data in a publication or redistribution, cite the dataset as follows:
 
 In bibliography:
 
@@ -96,8 +96,8 @@ blob_service = BlockBlobService(
 
 We can use this blob service as a handle on the data. We can navigate the dataset making use of the `BlockBlobService` APIs. See here for more details:
 
-* [Blob service concepts](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-concepts)
-* [Operations on containers](https://docs.microsoft.com/en-us/rest/api/storageservices/operations-on-containers)
+* [Blob service concepts](https://docs.microsoft.com/rest/api/storageservices/blob-service-concepts)
+* [Operations on containers](https://docs.microsoft.com/rest/api/storageservices/operations-on-containers)
 
 The CORD-19 data is stored in the `covid19temp` container. This is the file structure within the container together with an example file.
 
@@ -208,7 +208,7 @@ There are 51078 many entries in this dataset:
 
 ## Example: Read full text
 
-Notice that `metadata.csv` does not contain the full-text itself. Let's see an example of how to read that. We will locate and unpack the full text json and convert it to a list of sentences.
+`metadata.csv` doesn't contain the full-text itself. Let's see an example of how to read that. Locate and unpack the full text json and convert it to a list of sentences.
 
 ```python
 # choose a random example with pdf parse available
@@ -433,7 +433,7 @@ nltk.download('punkt')
 
 ### Getting the CORD-19 data from Azure
 
-The CORD-19 data has been uploaded as an Azure Open Dataset [here](https://azure.microsoft.com/de-de/services/open-datasets/catalog/covid-19-open-research/). In this notebook, we use AzureML [Dataset](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) to reference the CORD-19 open dataset.
+The CORD-19 data has been uploaded as an Azure Open Dataset [here](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/). In this notebook, we use AzureML [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true) to reference the CORD-19 open dataset.
 
 ```python
 import azureml.core
@@ -450,7 +450,7 @@ The `mount()` method creates a context manager for mounting file system streams 
 
 Use `mount.start()` and `mount.stop()` or alternatively use `with mount():` to manage context.
 
-Mount is only supported on Unix or Unix-like operating systems and libfuse must be present. If you are running inside a docker container, the docker container must be started with the `--privileged` flag or started with `--cap-add SYS_ADMIN --device /dev/fuse`. For more information, see the [docs](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py#mount-mount-point-none----kwargs-)
+Mount is only supported on Unix or Unix-like operating systems and libfuse must be present. If you are running inside a docker container, the docker container must be started with the `--privileged` flag or started with `--cap-add SYS_ADMIN --device /dev/fuse`. For more information, see the [docs](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py#mount-mount-point-none----kwargs-&preserve-view=true)
 
 
 ```python
@@ -556,7 +556,7 @@ print("-- {} have Microsoft Academic paper ids".format(with_microsoft_id))
 
 ### Example: Read full text
 
-Notice that `metadata.csv` does not contain the full-text itself. Let's see an example of how to read that. We will locate and unpack the full text json and convert it to a list of sentences.
+`metadata.csv` doesn't contain the full-text itself. Let's see an example of how to read that. Locate and unpack the full text json and convert it to a list of sentences.
 
 
 ```python

@@ -21,7 +21,7 @@ Improve the accuracy of your machine learning models with publicly available dat
 | [NYC Taxi & Limousine Commission - green taxi trip records](dataset-taxi-green.md) | The green taxi trip records include pick-up and drop-off dates/times, pick-up and drop-off locations, trip distances, itemized fares, rate types, payment types, and driver-reported passenger counts. |
 | [NYC Taxi & Limousine Commission - For-Hire Vehicle (FHV) trip records](dataset-taxi-for-hire-vehicle.md) | The For-Hire Vehicle trip records include the dispatching base license number and the pick-up date, time, and taxi zone location ID. |
 
-## Health and genetics
+## Health and genomics
 
 | Dataset | Description |
 |--|--|
@@ -58,8 +58,8 @@ Improve the accuracy of your machine learning models with publicly available dat
 | Dataset | Description |
 |--|--|
 | [Diabetes](dataset-diabetes.md) | The Diabetes dataset has 442 samples with 10 features, making it ideal for getting started with machine learning algorithms. |
-| [OJ Sales Simulated Data](dataset-oj-sales-simulated.md) | This dataset is derived from the Dominick’s OJ dataset and includes additional simulated data with the goal of providing a dataset that makes it easy to simultaneously train thousands of models on Azure Machine Learning. |
+| [OJ Sales Simulated Data](dataset-oj-sales-simulated.md) | This dataset is derived from the Dominick’s OJ dataset and includes extra simulated data with the goal of providing a dataset that makes it easy to simultaneously train thousands of models on Azure Machine Learning. |
 | [MNIST database of handwritten digits](dataset-mnist.md) | The MNIST database of handwritten digits has a training set of 60,000 examples and a test set of 10,000 examples. The digits have been size-normalized and centered in a fixed-size image. |
 | [Microsoft News recommendation dataset](dataset-microsoft-news.md) | Microsoft News Dataset (MIND) is a large-scale dataset for news recommendation research. It serves as a benchmark dataset for news recommendation, and facilitates research in news recommendation and recommender systems. |
-| [Public holidays]() | Worldwide public holiday data sourced from PyPI holidays package and Wikipedia, covering 38 countries or regions from 1970 to 2099. |
+| [Public holidays](public-holidays.md) | Worldwide public holiday data sourced from PyPI holidays package and Wikipedia, covering 38 countries or regions from 1970 to 2099. |
 | [Russian open speech to text](dataset-open-speech-text.md) | Russian Open STT is a large-scale open speech to text dataset for the Russian language |

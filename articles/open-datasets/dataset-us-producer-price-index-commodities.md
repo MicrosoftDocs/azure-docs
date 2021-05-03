@@ -42,7 +42,7 @@ This dataset is stored in the East US Azure region. Allocating compute resources
 | period | string | 13 | M06 M07 | Identifies period for which data is observed. See https://download.bls.gov/pub/time.series/wp/wp.period for list of period values. |
 | seasonal | string | 2 | U S | Code identifying whether the data are seasonally adjusted. S=Seasonally Adjusted; U=Unadjusted |
 | series_id | string | 5,458 | WPU101 WPU091 | Code identifying the specific series. A time series refers to a set of data observed over an extended period of time over consistent time intervals. See https://download.bls.gov/pub/time.series/wp/wp.series for details of series such as code, name, start and end year, etc. |
-| series_title | string | 4,379 | PPI Commodity data for Mining services, not seasonally adjusted PPI Commodity data for Metal treatment services, not seasonally adjusted | Title of the specific series. A time series refers to a set of data observed over an extended period of time over consistent time intervals. See https://download.bls.gov/pub/time.series/wp/wp.series for details of series such as id, name, start and end year, etc. |
+| series_title | string | 4,379 | PPI Commodity data for Mining services, not seasonally adjusted PPI Commodity data for Metal treatment services, not seasonally adjusted | Title of the specific series. A time series refers to a set of data observed over an extended period of time over consistent time intervals. See https://download.bls.gov/pub/time.series/wp/wp.series for details of series such as ID, name, start and end year, etc. |
 | value | float | 6,788 | 100.0 99.0999984741211 | Price index for item. |
 | year | int | 26 | 2018 2017 | Identifies year of observation. |
 
