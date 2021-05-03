@@ -92,7 +92,7 @@ MSIX app attach itself doesn't have a limit to the number of files you can mount
 
 - The ability of the OS to handle mounted volumes.
 - The maximum number of open files your storage solution or file system can hold.
-- Session host memory and CPU utilization 
+- The host pool's session host memory and CPU utilization.
 
 These limits enforce the same considerations and limitations as installing and running the apps locally.
 
