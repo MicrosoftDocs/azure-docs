@@ -103,7 +103,7 @@ For step-by-step guidance, see [Assign a Key Vault access policy using the Azure
    > [!div class="mx-imgBorder"]
    > ![Set access policy for key vault](./media/customer-managed-keys-configure-key-vault/configure-key-vault-access-policy.png)
 
-You can use a system-assigned managed identity or a user-defined managed identity to grant the storage account access to the key vault. To learn more each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). 
+You can use a system-assigned managed identity or a user-assigned managed identity to grant the storage account access to the key vault. To learn more each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). 
  
 #### Option 1: Use a system-assigned managed identity
 
@@ -125,7 +125,7 @@ Select the **Select Principal** button, and then use enter the ID of the user-as
 
 ### [PowerShell](#tab/powershell)
 
-You can use a system-assigned managed identity or a user-defined managed identity to grant the storage account access to the key vault. To learn more each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). 
+You can use a system-assigned managed identity or a user-assigned managed identity to grant the storage account access to the key vault. To learn more each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). 
 
 #### Option 1: Use a system-assigned managed identity
 
@@ -178,7 +178,7 @@ Set-AzKeyVaultAccessPolicy `
 
 ### [Azure CLI](#tab/azure-cli)
 
-You can use a system-assigned managed identity or a user-defined managed identity to grant the storage account access to the key vault. To learn more each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). 
+You can use a system-assigned managed identity or a user-assigned managed identity to grant the storage account access to the key vault. To learn more each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). 
 
 #### Option 1: Use a system-assigned managed identity
 
@@ -293,15 +293,35 @@ For existing accounts, open the Encryption tab.
 
 #### Step 2: Select an identity
 
-You can use a system-assigned managed identity or a user-defined managed identity to grant the storage account access to the key vault. To learn more each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). Choose an identity type.
+Storage accounts can authorize access to a key vault by using a managed identity. The managed identity can be either a *system-assigned* managed identity or a *user-assigned* managed identity. To learn more each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). 
 
-##### Select a system-assigned managed identity
+For this step, use the same identity that you used to configure the key vault access policy in the [Configure a key vault access policy](#configure-a-key-vault-access-policy) section of this article.
 
-You can set this only after you first create a storage account.  Provide steps here..
+If you configured the key vault access policy by using the system-assigned managed identity of the storage account, then in the **Encryption** settings page of an existing account, select **system-assigned**.
 
-##### Use a user-assigned managed identity
+> [!div class="mx-imgBorder"]
+> ![System-assigned option in the Azure portal](./media/customer-managed-keys-configure-key-vault/portal-system-assigned-option.png)
 
-You can set this both as you create an account or after. Put steps here.
+> [!NOTE]
+> You can select a system-wide managed identity only after the account is created. Therefore, This option doesn't appear in the **Encryption** tab of the **Create a storage account** page. 
+
+If you configured the key vault access policy by using a user-assigned managed identity, then in the **Encryption** settings page of an existing account, select **user-assigned**. Then, click **select an identity**.
+
+> [!div class="mx-imgBorder"]
+> ![User-assigned option in the Azure portal](./media/customer-managed-keys-configure-key-vault/portal-user-assigned-option.png)
+
+Search for the identity, select it, and then click the **Select** button.
+
+> [!div class="mx-imgBorder"]
+> ![User-assigned option in the Azure portal](./media/customer-managed-keys-configure-key-vault/portal-choose-identity.png)
+
+
+
+
+You can select a user-assigned managed identity as you create the account or after the account is created. 
+
+In the **Create a storage account** page
+
 
 #### Step 3: Decide how to handle key versions
 
