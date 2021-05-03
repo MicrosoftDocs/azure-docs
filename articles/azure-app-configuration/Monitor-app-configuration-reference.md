@@ -1,17 +1,15 @@
 ---
-title: Monitoring [TODO-replace-with-service-name] data reference #Required; *your official service name*  
-description: Important reference material needed when you monitor [TODO-replace-with-service-name] 
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; Microsoft alias of author; optional team alias.
-ms.service: #Required; service you are monitoring
+title: Monitoring Azure App Configuration data reference  
+description: Important reference material needed when you monitor App Configuration 
+author: AlexandraKemperMS
+ms.author: alkemper
+ms.service: azure-app-configuration
 ms.custom: subject-monitoring
 ms.date: #Required; mm/dd/yyyy format.
 ---
-<!-- VERSION 2.2
-Template for monitoring data reference article for Azure services. This article is support for the main "Monitoring [servicename]" article for the service. -->
-<!-- IMPORTANT STEP 1.  Do a search and replace of [TODO-replace-with-service-name] with the name of your service. That will make the template easier to read -->
-# Monitoring [TODO-replace-with-service-name] data reference
-See [Monitoring [TODO-replace-with-service-name]](monitor-service.md) for details on collecting and analyzing monitoring data for [TODO-replace-with-service-name].
+
+# Monitoring App Configuration data reference
+See [Monitoring App Configuration](monitor-service.md) for details on collecting and analyzing monitoring data for App Configuration.
 ## Metrics
 <!-- REQUIRED if you support Metrics. If you don't, keep the section but call that out. Some services are only onboarded to logs.
 <!-- Please keep headings in this order -->
@@ -20,7 +18,7 @@ See [Monitoring [TODO-replace-with-service-name]](monitor-service.md) for de
 <!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported, which is auto generated from underlying systems.  Not all metrics are published depending on whether your product group wants them to be.  If the metric is published, but descriptions are wrong of missing, contact your PM and tell them to update them  in the Azure Monitor "shoebox" manifest.  If this article is missing metrics that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
 -->
 <!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->
-This section lists all the automatically collected platform metrics collected for [TODO-replace-with-service-name].  
+This section lists all the automatically collected platform metrics collected for App Configuration.  
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
 | Virtual Machine | [Microsoft.Compute/virtualMachine](/azure/azure-monitor/platform/metrics-supported#microsoftcomputevirtualmachines) |
@@ -44,7 +42,7 @@ Namespace- [Microsoft.Compute/virtualMachinesscaleset](/azure/azure-monitor/pla
 |        |      |             | Use this metric for <!-- put your specific information in here -->  |
 |        |      |             |  |
 
-<!-- Add additional explanation of reference information as needed here. Link to other articles such as your Monitor [servicename] article as appropriate. -->
+<!-- Add additional explanation of reference information as needed here. Link to other articles such as your Monitor App Configuration article as appropriate. -->
 <!-- Keep this text as-is -->
 For more information, see a list of [all platform metrics supported in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
 
@@ -54,9 +52,9 @@ For more information, see a list of [all platform metrics supported i
 <!-- If you have metrics with dimensions, outline it here. If you have no dimensions, say so.  Questions email azmondocs@microsoft.com -->
 For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
-[TODO-replace-with-service-name] does not have any metrics that contain dimensions.
+App Configuration does not have any metrics that contain dimensions.
 *OR*
-[TODO-replace-with-service-name] has the following dimensions associated with its metrics.
+App Configuration has the following dimensions associated with its metrics.
 <!-- See https://docs.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions for an example. Part is copied below. -->
 **--------------EXAMPLE format when you have dimensions------------------**
 Azure Storage supports following dimensions for metrics in Azure Monitor.
@@ -67,14 +65,14 @@ Azure Storage supports following dimensions for metrics in Azure Monito
 | **GeoType** | Transaction from Primary or Secondary cluster. The available values include **Primary** and **Secondary**. It applies to Read Access Geo Redundant Storage(RA-GRS) when reading objects from secondary tenant. |
 ## Resource logs
 <!-- REQUIRED. Please  keep headings in this order -->
-This section lists the types of resource logs you can collect for [TODO-replace-with-service-name]. 
+This section lists the types of resource logs you can collect for App Configuration. 
 <!-- List all the resource log types you can have and what they are for -->  
 For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
 ------------**OPTION 1 EXAMPLE** ---------------------
 <!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-categories, which is auto generated from the REST API.  Not all resource log types metrics are published depending on whether your product group wants them to be.  If the resource log is published, but category display names are wrong or missing, contact your PM and tell them to update them in the Azure Monitor "shoebox" manifest.  If this article is missing resource logs that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
 -->
 <!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->
-This section lists all the resource log category types collected for [TODO-replace-with-service-name].  
+This section lists all the resource log category types collected for App Configuration.  
 |Resource Log Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
 | Web Sites | [Microsoft.web/sites](/azure/azure-monitor/platform/resource-logs-categories#microsoftwebsites) |
@@ -100,7 +98,7 @@ Resource Provider and Type: [Microsoft.web/sites/slots](/azure/azure-monitor
 --------------**END Examples** -------------
 ## Azure Monitor Logs tables
 <!-- REQUIRED. Please keep heading in this order -->
-This section refers to all of the Azure Monitor Logs Kusto tables relevant to [TODO-replace-with-service-name] and available for query by Log Analytics. 
+This section refers to all of the Azure Monitor Logs Kusto tables relevant to App Configuration and available for query by Log Analytics. 
 ------------**OPTION 1 EXAMPLE** ---------------------
 <!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype where your service tables are listed. These files are auto generated from the REST API.   If this article is missing tables that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
 -->
@@ -131,7 +129,7 @@ For a reference of all Azure Monitor Logs / Log Analytics tables, se
 ### Diagnostics tables
 <!-- REQUIRED. Please keep heading in this order -->
 <!-- If your service uses the AzureDiagnostics table in Azure Monitor Logs / Log Analytics, list what fields you use and what they are for. Azure Diagnostics is over 500 columns wide with all services using the fields that are consistent across Azure Monitor and then adding extra ones just for themselves.  If it uses service specific diagnostic table, refers to that table. If it uses both, put both types of information in. Most services in the future will have their own specific table. If you have questions, contact azmondocs@microsoft.com -->
-[TODO-replace-with-service-name] uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table and the [TODO whatever additional] table to store resource log information. The following columns are relevant.
+App Configuration uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table and the [TODO whatever additional] table to store resource log information. The following columns are relevant.
 **Azure Diagnostics**
 | Property | Description |
 |:--- |:---|
@@ -144,7 +142,7 @@ For a reference of all Azure Monitor Logs / Log Analytics tables, se
 |  |  |
 ## Activity log
 <!-- REQUIRED. Please keep heading in this order -->
-The following table lists the operations related to [TODO-replace-with-service-name] that may be created in the Activity log.
+The following table lists the operations related to App Configuration that may be created in the Activity log.
 <!-- Fill in the table with the operations that can be created in the Activity log for the service. -->
 | Operation | Description |
 |:---|:---|
@@ -154,10 +152,10 @@ The following table lists the operations related to [TODO-replace-with-s
 For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
 ## Schemas
 <!-- REQUIRED. Please keep heading in this order -->
-The following schemas are in use by [TODO-replace-with-service-name]
+The following schemas are in use by App Configuration
 <!-- List the schema and their usage. This can be for resource logs, alerts, event hub formats, etc depending on what you think is important. -->
 ## See Also
 <!-- replace below with the proper link to your main monitoring service article -->
-- See [Monitoring Azure [TODO-replace-with-service-name]](monitor-service-name.md) for a description of monitoring Azure [TODO-replace-with-service-name].
+- See [Monitoring Azure App Configuration](monitor-service-name.md) for a description of monitoring Azure App Configuration.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
 
