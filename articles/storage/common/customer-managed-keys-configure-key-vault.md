@@ -241,9 +241,7 @@ az keyvault set-policy \
 
 ---
 
-## Add a key
-
-Next, add a key in the key vault.
+## Add a key to the key vault
 
 Azure Storage encryption supports RSA and RSA-HSM keys of sizes 2048, 3072 and 4096. For more information about keys, see [About keys](../../key-vault/keys/about-keys.md).
 
