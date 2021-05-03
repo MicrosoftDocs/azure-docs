@@ -564,31 +564,3 @@ This article lists supported human languages for Immersive Reader features.
 | Spanish (Spain) | es-ES |
 | Swedish | sv |
 | Swedish (Sweden) | sv-SE |
-
-## Dictionary
-
-| Language | Tag |
-|----------|-----|
-| English | en |
-| English (Australia) | en-AU |
-| English (Canada) | en-CA |
-| English (Hong Kong SAR) | en-HK |
-| English (India) | en-IN |
-| English (Ireland) | en-IE |
-| English (New Zealand) | en-NZ |
-| English (United Kingdom) | en-GB |
-| English (United States) | en-US |
-| French | fr |
-| French (Canada) | fr-CA |
-| French (France) | fr-FR |
-| French (Switzerland) | fr-CH |
-| German | de |
-| German (Austria) | de-AT |
-| German (Germany) | de-DE |
-| German (Switzerland)| de-CH |
-| Italian | it |
-| Italian (Italy) | it-IT |
-| Spanish | es |
-| Spanish (Latin America) | es-419 |
-| Spanish (Mexico) | es-MX |
-| Spanish (Spain) | es-ES |
