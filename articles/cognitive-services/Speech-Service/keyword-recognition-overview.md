@@ -33,7 +33,7 @@ The goal is to maximize the correct accept rate while minimizing the false accep
 
 ## Custom Keyword
 
-The Custom Keyword portal on Speech Studio allows you to generate keyword recognition models that execute at the edge by specifying any word or short phrase that best represents your brand or product. You can further personalize your keyword model by choosing the right pronunciations and selecting your desired accuracy tradeoffs. There is no cost to using Custom Keyword for generating models, or for running models on-device with the Speech SDK. To learn more, read [Custom Keyword for on-device models](custom-keyword-overview.md).
+The Custom Keyword portal on Speech Studio allows you to generate keyword recognition models that execute at the edge by specifying any word or short phrase that best represents your brand or product. You can further personalize your keyword model by choosing the right pronunciations. There is no cost to using Custom Keyword for generating models, or for running models on-device with the Speech SDK. To learn more, read [Custom Keyword for on-device models](custom-keyword-overview.md).
 
 ## Keyword Verification
 
