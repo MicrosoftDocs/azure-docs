@@ -38,36 +38,36 @@ Consent is becoming an important requirement in most data privacy laws across th
 ## Behaviors of over-privileged and least privileged applications
 
 An over-privileged application may have one of the following characteristics:
-1. **Unused permissions**: This arises when extra permission has been granted to an application, but no API call has been made. For example in [MS Graph](/graph/overview), an app might only be reading OneDrive Files (using the "*Files.Read.All*" permission) but has also been granted “*Calendar.Read.All*” permission, despite not integrating with any Calendar APIs.
-1. **Reducible permissions**: This implies that the granted permission has a least privileged replacement that can complete the desired API call. For example, an app that is only reading User profiles, but has been granted "*User.ReadWrite.All*" might be considered over-privileged. In this case, the app should be granted "*User.Read.All*" instead, which is the least privileged permission needed to satisfy the request.
+- **Unused permissions**: This arises when extra permission has been granted to an application, but no API call has been made. For example in [MS Graph](/graph/overview), an app might only be reading OneDrive Files (using the "*Files.Read.All*" permission) but has also been granted “*Calendar.Read.All*” permission, despite not integrating with any Calendar APIs.
+- **Reducible permissions**: This implies that the granted permission has a least privileged replacement that can complete the desired API call. For example, an app that is only reading User profiles, but has been granted "*User.ReadWrite.All*" might be considered over-privileged. In this case, the app should be granted "*User.Read.All*" instead, which is the least privileged permission needed to satisfy the request.
 
 For an application to be considered as least privileged, it should have:
-1. **Just enough permissions**: Grant only the minimum set of permissions required by an end-user application, service, or system to perform the tasks they've been assigned.
-1. **Minimum level of permission**: Allow lowest level of permission to perform the required API calls to complete a desired task.
+- **Just enough permissions**: Grant only the minimum set of permissions required by an end-user application, service, or system to perform the tasks they've been assigned.
+- **Minimum level of permission**: Allow lowest level of permission to perform the required API calls to complete a desired task.
 
 ![Request API permissions](media/least-privilege-best-practice/request-api-permissions.png)
 
 ## Benefits of least privilege principle
 
 Least privilege isn't a blocker. It's important to understand the principle of least privilege to help you build trustworthy applications for your customers. Least privileged permission provides the following benefits:
-1. **Lower the app adoption friction**: An organization's data is protected against unauthorized access by being authenticated, identified, and authorized. Users might deny consent to give an application permission to access their data because of requesting excessive permissions.
-1. **Stop the spread**: By enforcing least privilege on permissions, attackers are unable to use excessive privileges to gain further access, making it difficult for attackers to locate more sensitive directories and compromise the whole system.
+- **Lower the app adoption friction**: An organization's data is protected against unauthorized access by being authenticated, identified, and authorized. Users might deny consent to give an application permission to access their data because of requesting excessive permissions.
+- **Stop the spread**: By enforcing least privilege on permissions, attackers are unable to use excessive privileges to gain further access, making it difficult for attackers to locate more sensitive directories and compromise the whole system.
 
 ## How to approach least privilege as an organization and a developer
 
 As a developer, security is your responsibility. Here's how to avoid common mistakes associated with least privilege:
 - **Enforce least privilege**: Encouraging developers to understand and strive to minimize their privilege sets is one of the most effective controls an organization can put in place to protect itself from misuse of privileges. Follow these steps to prevent your application from being over-privileged:
-    1. Understand the API calls you need to make
-    1. Explore your own data from the user resource in [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer)
-    1. Find the corresponding [permissions](/graph/permissions-reference) from least to most privileged
-    1. Remove any duplicate sets of permissions
-    1. Apply only the least privileged set of permissions to your application
+    - Understand the API calls you need to make
+    - Explore your own data from the user resource in [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer)
+    - Find the corresponding [permissions](/graph/permissions-reference) from least to most privileged
+    - Remove any duplicate sets of permissions
+    - Apply only the least privileged set of permissions to your application
 - **Check and review your permissions regularly**: Cutting down excessive permissions is the number one priority for securing applications. Organizations rarely modify older applications because of need for stability, but that presents a challenge when already granted permissions are over-privileged and need to be revoked. Follow these steps to make your application stay healthy:
-    1. Monitor and track the API calls you made in the past. 
-    1. Referring to the documentation for the required and least privileged permissions
-    1. Audit privileges are granted to users or applications
-    1. Update your application with the latest permission set
-    1. Conduct this review regularly to make sure all authorized permissions are still relevant
+    - Monitor and track the API calls you made in the past. 
+    - Referring to the documentation for the required and least privileged permissions
+    - Audit privileges are granted to users or applications
+    - Update your application with the latest permission set
+    - Conduct this review regularly to make sure all authorized permissions are still relevant
 
 Security can be measured by the management of permissions, API, and role privileges. Adhering to the principle of least privilege creates a protected and traceable environment by clearly defining high-level functions and actively controlling access to important resources.
 
