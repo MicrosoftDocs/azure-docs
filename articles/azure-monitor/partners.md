@@ -105,14 +105,16 @@ If you are still using the previous manually configured integration, see the [do
 
 ![DynaTrace Logo](./media/partners/dynatrace.png)
 
-Dynatrace is a software intelligence monitoring platform that simplifies cloud complexity and accelerates digital transformation with automatic and intelligent observability. Dynatrace is a single source of truth for your cloud platforms, allowing you to monitor the health of your entire Azure applications and infrastructure.  Dynatrace adds value and integrates with Azure Monitor/App Insights by enriching the data and extending observability into the platform with additional metrics for cloud infrastructure, load balancers, API Management Services, and more. Dynatrace supports over 80 Azure Monitor services that span application and microservices workloads, as well as infrastructure-related services.  
+Dynatrace simplifies cloud complexity and is a single source of truth for your cloud platforms, allowing you to monitor the health of your entire Azure applications and infrastructure.  Dynatrace integrates with Azure Monitor/App Insights by enriching the data and extending observability into the platform with additional metrics for cloud infrastructure, load balancers, API Management Services, and more. Dynatrace supports over 80 Azure Monitor services that span application and microservices workloads, as well as infrastructure-related services. 
 
-Get fully automated, AI-assisted observability across Azure environments.  Dynatrace’s Software Intelligence platform brings the following value: 
-- 	Full stack observability in minutes, everything in context including metrics, logs, and traces. 
--	Auto-discovery, continuous dependency mapping and instant answers to automate monitoring of Azure cloud services including App Service, Database Performance, AKS, HDInsight, and many more. 
--	Davis, Dynatrace’s AI, continuously analyzes billions of dependencies to provide precise root cause. 
--	Single source of truth for teams to collaborate and innovate, wherever they may reside. 
--	Accelerate Azure cloud migrations. 
+Get automated, AI-assisted observability across Azure environments:
+
+- Full stack observability in minutes, everything in context including metrics, logs, and traces.
+- Auto-discovery, continuous dependency mapping and instant answers to automate monitoring of Azure cloud services including App Service, Database Performance, AKS, HDInsight, and many more.
+- Davis, Dynatrace’s AI, continuously analyzes billions of dependencies to provide precise root cause.
+- Single source of truth for teams to collaborate and innovate, wherever they may reside.
+- Accelerate Azure cloud migrations.
+
 
 [Dynatrace documentation](https://www.dynatrace.com/support/help/technology-support/cloud-platforms/microsoft-azure-services/)
 
