@@ -7,6 +7,8 @@
     href: language-support.md
   - name: Pricing
     href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator
+  - name: What's new?
+    href: whats-new.md
 - name: Text Translation
   expanded: true
   items:
