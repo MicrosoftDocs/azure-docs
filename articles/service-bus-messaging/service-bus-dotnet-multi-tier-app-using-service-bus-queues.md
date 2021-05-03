@@ -81,7 +81,7 @@ messaging:
   
 The following sections discuss the code that implements this architecture.
 
-## Prerequistes
+## Prerequisites
 In this tutorial, you'll use Azure Active Directory (Azure AD) authentication to create `ServiceBusClient` and `ServiceBusAdministrationClient` objects. You'll also use `DefaultAzureCredential` and to use it, you need to do the following steps to test the application locally in a development environment.
 
 1. [Register an application in the Azure AD](../active-directory/develop/quickstart-register-app.md).
@@ -138,7 +138,7 @@ queue and displays status information about the queue.
     :::image type="content" source="./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-13.png" alt-text="Screenshot of the Manage NuGet Packages dialog box with the Azure.Messaging.ServiceBus highlighted and the Install option outlined in red.":::
 
    Note that the required client assemblies are now referenced and some new code files have been added.
-10. Follow the same steps to add the **Azure.Identity** NuGet package to the project.  
+10. Follow the same steps to add the `Azure.Identity` NuGet package to the project.  
 10. In **Solution Explorer**, expand **FronendWebRole**, right-click **Models** and click **Add**,
     then click **Class**. In the **Name** box, type the name
     **OnlineOrder.cs**. Then click **Add**.
@@ -377,7 +377,7 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 9. Select the **Browse** tab, then search for **Azure.Messaging.ServiceBus**. Select the **Azure.Messaging.ServiceBus** package, select **Install**, and accept the terms of use.
    
     :::image type="content" source="./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-13.png" alt-text="Screenshot of the Manage NuGet Packages dialog box with the Azure.Messaging.ServiceBus highlighted and the Install option outlined in red.":::
-1. Follow the same steps to add the **Azure.Identity** NuGet package to the project.  
+1. Follow the same steps to add the `Azure.Identity` NuGet package to the project.  
 1. Create an **OnlineOrder** class to represent the orders as you process them from the queue. You can reuse a class you have already created. In **Solution Explorer**, right-click the **OrderProcessingRole** class (right-click the class icon, not the role). Click **Add**, then click **Existing Item**.
 1. Browse to the subfolder for **FrontendWebRole\Models**, and then double-click **OnlineOrder.cs** to add it to this project.
 1. Add the following `using` statement to the **WorkerRole.cs** file in the **OrderProcessingRole** project. 
