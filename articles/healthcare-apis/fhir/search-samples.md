@@ -5,20 +5,17 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 04/20/2021
-ms.author: ginle
+ms.date: 05/03/2021
+ms.author: cavoeg
 ---
 
 # FHIR search examples
 
-Below are some examples of using FHIR search operations, including search parameters and modifiers, chain and reverse chain search, composite search, viewing the next entry set for search results, and searching with a POST request. For more information about search, see [Overview of FHIR Search](overview-of-search.md).
+Below are some examples of using FHIR search operations, including search parameters and modifiers, chain and reverse chain search, composite search, viewing the next entry set for search results, and searching with a `POST` request. For more information about search, see [Overview of FHIR Search](overview-of-search.md).
    
 ## Search result parameters
 
 ### _include
-
-> [!NOTE]
-> **_include** and **_revinclude** is limited to 100 items.
 
 `_include` searches across resources for the ones that include the specified parameter of the resource. For example, you can search across `MedicationRequest` resources to find only the ones that include information about the prescriptions for a specific patient, which is the `reference` parameter `patient`:
 
@@ -26,6 +23,9 @@ Below are some examples of using FHIR search operations, including search parame
  GET [your-fhir-server]/MedicationRequest?_include=MedicationRequest:patient
 
 ```
+
+> [!NOTE]
+> **_include** and **_revinclude** is limited to 100 items.
 
 ### _revinclude
 
