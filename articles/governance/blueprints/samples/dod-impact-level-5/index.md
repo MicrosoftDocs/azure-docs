@@ -6,7 +6,12 @@ ms.topic: sample
 ---
 # Overview of the DoD Impact Level 5 blueprint sample
 
-The Department of Defense Impact Level 5 (DoD IL5) blueprint sample provides governance guard-rails using [Azure Policy](../../../policy/overview.md) that help you assess specific DoD Impact Level 5 controls. This blueprint helps customers deploy a core set of policies for any Azure-deployed architecture that must implement DoD Impact Level 5 controls. For latest information on which Azure Clouds and Services meet DoD Impact Level 5 authorization, see [Azure services by FedRAMP and DoD CC SRG audit scope](../../../../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
+The Department of Defense Impact Level 5 (DoD IL5) blueprint sample provides governance guardrails
+using [Azure Policy](../../../policy/overview.md) that help you assess specific DoD Impact Level 5
+controls. This blueprint helps customers deploy a core set of policies for any Azure-deployed
+architecture that must implement DoD Impact Level 5 controls. For latest information on which Azure
+Clouds and Services meet DoD Impact Level 5 authorization, see
+[Azure services by FedRAMP and DoD CC SRG audit scope](../../../../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
 
 > [!NOTE]
 > This blueprint sample is available in Azure Government.

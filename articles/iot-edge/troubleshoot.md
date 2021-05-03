@@ -260,6 +260,21 @@ iotedge logs <container name>
 
 You can also use a [direct method](how-to-retrieve-iot-edge-logs.md#upload-module-logs) call to a module on your device to upload the logs of that module to Azure Blob Storage.
 
+## Clean up container logs
+
+By default the Moby container engine does not set container log size limits. Over time this can lead to the device filling up with logs and running out of disk space. If large container logs are affecting your IoT Edge device performance, use the following command to force remove the container along with its related logs.
+
+If you're still troubleshooting, wait until after you've inspected the container logs to take this step.
+
+>[!WARNING]
+>If you force remove the edgeHub container while it has an undelivered message backlog and no [host storage](how-to-access-host-storage-from-module.md) set up, the undelivered messages will be lost.
+
+```cmd
+docker rm --force <container name>
+```
+
+For ongoing logs maintenance and production scenarios, [place limits on log size](production-checklist.md#place-limits-on-log-size).
+
 ## View the messages going through the IoT Edge hub
 
 <!--1.1 -->

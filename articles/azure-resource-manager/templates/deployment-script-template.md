@@ -6,7 +6,8 @@ author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/15/2021
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Use deployment scripts in ARM templates

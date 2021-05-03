@@ -49,7 +49,7 @@ Most browser-based applications use session tokens instead of access and refresh
 
 ## Revoke access for a user in the hybrid environment
 
-For a hybrid environment with on-premises Active Directory synchronized with Azure Active Directory, Microsoft recommends IT admins to take the following actions.  
+For a hybrid environment with on-premises Active Directory synchronized with Azure Active Directory, Microsoft recommends IT admins to take the following actions. If you have an **Azure AD only environment**, you may skip the [On-premises Active Directory environment](https://docs.microsoft.com/azure/active-directory/enterprise-users/users-revoke-access#on-premises-active-directory-environment) section.
 
 ### On-premises Active Directory environment
 
@@ -125,3 +125,4 @@ Once admins have taken the above steps, the user can't gain new tokens for any a
 
 - [Secure access practices for Azure AD administrators](../roles/security-planning.md)
 - [Add or update user profile information](../fundamentals/active-directory-users-profile-azure-portal.md)
+- [Remove or Delete a former employee](https://docs.microsoft.com/microsoft-365/admin/add-users/remove-former-employee?view=o365-worldwide)
