@@ -23,7 +23,6 @@ This article lists the steps that will help you deploy Azure Video Analyzer on y
 * [Create an Azure Video Analyzer account](create-video-analyzer-account.md)
 
 
-    * Use one of these regions: East US 2, East US, Central US, North Central US, Japan East, West US, West US 2, West Central US, Canada East, UK South, France Central, France South, Switzerland North, Switzerland West, and Japan West.
     * It is recommended that you use General-purpose v2 (GPv2) Storage accounts
 
 ## Configuring Azure resources and deploying edge modules for Azure Video Analyzer
@@ -32,10 +31,11 @@ Click the **Deploy to Azure** button
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava/click-to-deploy/form)
 
-1. Select your **subscription**1. Select your preferred **region**
-1. Select the **resource group** that your edge device is in 
-1. **Do you need an edge device?**, select ***Use an existing edge device*** from the drop-down menu
-1. Click **Next**
+1. Select your **subscription**
+2. Select your preferred **region**
+3. Select the **resource group** that your edge device is in 
+4. **Do you need an edge device?**, select ***Use an existing edge device*** from the drop-down menu
+5. Click **Next**
 ![Screenshot of initial deployment form](./media/deploy-iot-edge-device/project-details.png)
 
 1. Select the **Existing IoT Hub Name** that your edge device is connected to
@@ -45,6 +45,47 @@ Click the **Deploy to Azure** button
 1. On the final page, click **Create**
 
 It may take a few moments for the Azure resources to be created and the edge modules to be deployed.
+
+## Create and use local user account for deployment
+To run the Video Analyzer on IoT Edge module create a local user account with as few privileges as possible. As an example, run the following commands on your Linux machine:
+
+```
+sudo groupadd -g 1010 localedgegroup
+sudo useradd --home-dir /home/localedgeuser --uid 1010 --gid 1010 localedgeuser
+```
+
+## Granting permissions to device storage
+
+Now that you have created a local user account, 
+
+* You will need a local folder to store the application configuration data. Create a folder and grant permissions to the localuser account write to that folder using the following commands:
+
+```
+sudo mkdir -p /var/lib/videoAnalyzer 
+sudo chown -R localedgeuser:localedgegroup /var/lib/videoAnalyzer/
+```
+
+* You will also need a folder to [record videos to a local file](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources). Use the following commands to create a local folder for the same:
+
+```
+sudo mkdir -p /var/media
+sudo chown -R localedgeuser:localedgegroup /var/media/
+```
+
+### create folders to be used by the rtspsim module
+```
+sudo mkdir -p /home/localedgeuser/samples
+sudo mkdir -p /home/localedgeuser/samples/input
+```
+
+The following commands will copy over the sample videos if you plan to follow our Quickstarts and tutorials. This is optional.
+
+```
+sudo curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv --output /home/localedgeuser/samples/input/camera-300s.mkv
+sudo curl https://lvamedia.blob.core.windows.net/public/lots_284.mkv --output /home/localedgeuser/samples/input/lots_284.mkv
+sudo curl https://lvamedia.blob.core.windows.net/public/lots_015.mkv --output /home/localedgeuser/samples/input/lots_015.mkv
+sudo curl https://lvamedia.blob.core.windows.net/public/t2.mkv --output /home/localedgeuser/samples/input/t2.mkv
+```
 
 ### Verify your deployment
 
