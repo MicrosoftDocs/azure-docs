@@ -126,4 +126,4 @@ You could employ a queue that acts as a buffer between a client and Cosmos DB in
 
 This pattern is useful to any application that uses services that are subject to overloading. However, this pattern isn't useful if the application expects a response from the service with minimal latency.
 
-For more information about this pattern, see [Queue-Based Load Leveling pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling)
+For more information about this pattern, see [Queue-Based Load Leveling pattern](https://docs.microsoft.com/azure/architecture/patterns/queue-based-load-leveling)
