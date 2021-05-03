@@ -63,7 +63,7 @@ There is a bug with IoT Hub where the [built-in Event Hub compatible endpoint](i
 
 ### Check IoT hub access using Cloud Shell
 
-You can check IoT hub access by using the Azure cloud shell. Make sure that you've turned on all network ranges and then issue the following commands. Replace "SubscriptionName" with the name of your subscription and "MyIoTHub" with the name of your hub.
+You can check IoT hub access by using Azure Cloud Shell. Make sure that you've turned on all network ranges and then issue the following commands. Replace "SubscriptionName" with the name of your subscription and "MyIoTHub" with the name of your hub.
 
 ```azurecli
   az account set -s "SubscriptionName"
