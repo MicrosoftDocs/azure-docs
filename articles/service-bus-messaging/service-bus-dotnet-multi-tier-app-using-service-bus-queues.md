@@ -294,9 +294,9 @@ Service Bus queue.
                 adminClient = new ServiceBusAdministrationClient(QueueConnector.connectionString);
         
                 // create the OrdersQueue if it doesn't exist already
-                if (adminClient.QueueExistsAsync(QueueConnector.queueName).Result == false)
+                if (!(await adminClient.QueueExistsAsync(queueName)))
                 {
-                    QueueProperties newQueue = await adminClient.CreateQueueAsync(QueueConnector.queueName);
+                    await adminClient.CreateQueueAsync(queueName);
                 }
         
                 // create a sender for the queue 
@@ -405,19 +405,24 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
             // Create a Service Bus client that you can use to send or receive messages
             sbClient = new ServiceBusClient(connectionString);
 
-            // Create a Service Bus admin client to create queue if it doesn't exist or to get message count
-            ServiceBusAdministrationClient adminClient = new ServiceBusAdministrationClient(connectionString);
-
-            // create the OrdersQueue if it doesn't exist already
-            if (adminClient.QueueExistsAsync(queueName).Result == false)
-            {
-                adminClient.CreateQueueAsync(queueName).Wait();
-            }
+            // create the OrdersQueue if it doesn't already exist
+            CreateQueue(queueName).Wait();
 
             // create a receiver that we can use to receive the message
             sbReceiver = sbClient.CreateReceiver(queueName);
 
             return base.OnStart();
+        }
+        private async Task CreateQueue(string queueName)
+        {
+            // Create a Service Bus admin client to create queue if it doesn't exist or to get message count
+            ServiceBusAdministrationClient adminClient = new ServiceBusAdministrationClient(connectionString);
+
+            // create the OrdersQueue if it doesn't exist already
+            if (!(await adminClient.QueueExistsAsync(queueName)))
+            {
+                await adminClient.CreateQueueAsync(queueName);
+            }
         }
     ```
 12. Update the `RunAsync` method to include the code to receive messages. 
