@@ -117,7 +117,7 @@
         - name: Optimize cost with reserved capacity
           href: cosmos-db-reserved-capacity.md
         - name: Rate limiting requests
-          href: throttling-requests.md
+          href: rate-limiting-requests.md
     - name: Change feed overview
       href: change-feed.md
     - name: Built-in Jupyter notebooks
