@@ -61,9 +61,6 @@ On the **Build a scheduled cloud flow** page, initialize your flow with the foll
 
 ## Add variables to the flow
 
-> [!NOTE]
-> If you want to see an image of the completed flow, you can download it from [GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/TextAnalytics/flow-diagrams). 
-
 Create variables representing the information that will be added to the Excel file. Click **New Step** and search for **Initialize variable**. Do this four times, to create four variables.
 
 > [!div class="mx-imgBorder"] 
