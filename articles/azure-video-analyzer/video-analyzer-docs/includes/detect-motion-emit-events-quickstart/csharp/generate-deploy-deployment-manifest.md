@@ -47,4 +47,4 @@ mkdir /home/localedgeuser/samples/input
 curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/localedgeuser/samples/input/camera-300s.mkv  
 chown -R localedgeuser:localusergroup /home/localedgeuser/samples/  
 ```
-At this stage, the modules are deployed but no media graphs are active.
+At this stage, the modules are deployed but no media pipelines are active.
