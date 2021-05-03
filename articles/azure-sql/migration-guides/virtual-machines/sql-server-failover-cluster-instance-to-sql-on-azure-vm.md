@@ -184,28 +184,28 @@ For the cluster and cluster roles to respond properly to requests, an Azure Load
 
 1. Fill out the columns in the `Cluster-Config.csv` file: 
 
-**Column Header** | **Description**
---- | ---
-NewIP | Specify the IP address in the Azure virtual network (or subnet) for each resource in the CSV file.
-ServicePort | Specify the service port to be used by each resource in the CSV file. For SQL cluster resource, use the same value for service port as the probe port in the CSV. For other cluster roles, the default values used are 1433 but you can continue to use the port numbers that are configured in your current setup. 
+    **Column Header** | **Description**
+    --- | ---
+    NewIP | Specify the IP address in the Azure virtual network (or subnet) for each resource in the CSV file.
+    ServicePort | Specify the service port to be used by each resource in the CSV file. For SQL cluster resource, use the same value for service port as the probe port in the CSV. For other cluster roles, the default values used are 1433 but you can continue to use the port numbers that are configured in your current setup. 
 
 
 1. Run the `Create-ClusterLoadBalancer.ps1` script to create the load balancer using the following mandatory parameters: 
 
-**Parameter** | **Type** | **Description**
---- | --- | ---
-ConfigFilePath | Mandatory |  Specify the path for the `Cluster-Config.csv` file that you have filled out in the previous step.
-ResourceGroupName | Mandatory| Specify the name of the resource Group in which the load balancer is to be created. 
-VNetName | Mandatory| Specify the name of the Azure virtual network that the load balancer will be associated to. 
-SubnetName | Mandatory| Specify the name of the subnet in the Azure virtual network that the load balancer will be associated to. 
-VNetResourceGroupName | Mandatory| Specify the name of the resource group for the Azure virtual network that the load balancer will be associated to. 
-Location | Mandatory| Specify the location in which the load balancer should be created. 
-LoadBalancerName | Mandatory| Specify the name of the load balancer to be created. 
+    **Parameter** | **Type** | **Description**
+    --- | --- | ---
+    ConfigFilePath | Mandatory |  Specify the path for the `Cluster-Config.csv` file that you have filled out in the previous step.
+    ResourceGroupName | Mandatory| Specify the name of the resource Group in which the load balancer is to be created. 
+    VNetName | Mandatory| Specify the name of the Azure virtual network that the load balancer will be associated to. 
+    SubnetName | Mandatory| Specify the name of the subnet in the Azure virtual network that the load balancer will be associated to. 
+    VNetResourceGroupName | Mandatory| Specify the name of the resource group for the Azure virtual network that the load balancer will be associated to. 
+    Location | Mandatory| Specify the location in which the load balancer should be created. 
+    LoadBalancerName | Mandatory| Specify the name of the load balancer to be created. 
 
 
-```powershell
-./Create-ClusterLoadBalancer.ps1 -ConfigFilePath ./cluster-config.csv -ResourceGroupName $resoucegroupname -VNetName $vnetname -subnetName $subnetname -VnetResourceGroupName $vnetresourcegroupname -Location “eastus” -LoadBalancerName $loadbalancername
-```
+    ```powershell
+    ./Create-ClusterLoadBalancer.ps1 -ConfigFilePath ./cluster-config.csv -ResourceGroupName $resoucegroupname -VNetName $vnetname -subnetName $subnetname -VnetResourceGroupName $vnetresourcegroupname -Location “eastus” -LoadBalancerName $loadbalancername
+    ```
 
 ## Replicate machines
 
