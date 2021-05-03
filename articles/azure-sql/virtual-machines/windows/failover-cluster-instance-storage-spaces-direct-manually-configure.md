@@ -79,6 +79,36 @@ Before you complete the instructions in this article, you should already have:
 
 For more information about the next steps, see the instructions in the "Step 3: Configure Storage Spaces Direct" section of [Hyperconverged solution using Storage Spaces Direct in Windows Server 2016](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-3-configure-storage-spaces-direct).
 
+## Create failover cluster
+
+To create the failover cluster, you need:
+
+- The names of the virtual machines that will become the cluster nodes.
+- A name for the failover cluster.
+- An IP address for the failover cluster. You can use an IP address that's not used on the same Azure virtual network and subnet as the cluster nodes.
+
+
+# [Windows Server 2012 - 2016](#tab/windows2012)
+
+The following PowerShell script creates a failover cluster for Windows Server 2012 through Windows Server 2016. Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure virtual network.
+
+```powershell
+New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
+```   
+
+# [Windows Server 2019](#tab/windows2019)
+
+The following PowerShell script creates a failover cluster for Windows Server 2019.  Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure virtual network.
+
+```powershell
+New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
+```
+
+For more information, see [Failover cluster: Cluster Network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97).
+
+---
+
+
 ## Configure quorum
 
 Although the disk witness is the most resilient quorum option, it's not supported for failover cluster instances configured with Storage Spaces Direct. As such, the cloud witness is the recommended quorum solution for this type of cluster configuration for SQL Server on Azure VMs. Otherwise, configure a file share witness. 
@@ -112,45 +142,6 @@ To validate the cluster by using PowerShell, run the following script from an ad
    Test-Cluster –Node ("<node1>","<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
    ```
 
-After you validate the cluster, create the failover cluster.
-
-
-## Create failover cluster
-
-To create the failover cluster, you need:
-
-- The names of the virtual machines that will become the cluster nodes.
-- A name for the failover cluster.
-- An IP address for the failover cluster. You can use an IP address that's not used on the same Azure virtual network and subnet as the cluster nodes.
-
-
-# [Windows Server 2012 - 2016](#tab/windows2012)
-
-The following PowerShell script creates a failover cluster for Windows Server 2012 through Windows Server 2016. Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure virtual network.
-
-```powershell
-New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
-```   
-
-# [Windows Server 2019](#tab/windows2019)
-
-The following PowerShell script creates a failover cluster for Windows Server 2019.  Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure virtual network.
-
-```powershell
-New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
-```
-
-For more information, see [Failover cluster: Cluster Network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97).
-
----
-
-
-## Configure quorum
-
-If you have an even number of votes in the cluster, configure the [quorum solution](hadr-cluster-quorum-configure-how-to.md) that best suits your business needs. For more information, see [Quorum with SQL Server VMs](hadr-cluster-best-practices.md#quorum). 
-
-> [!NOTE]
-> A disk witness is not currently supported with failover cluster instances using Storage Spaces Direct as the shared storage solution. Use a cloud witness or file share witness instead. 
 
 ## Add storage
 
