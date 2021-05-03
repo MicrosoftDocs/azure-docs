@@ -181,7 +181,7 @@ appInsights.trackMetric("queueLength", 42.0);
 
 ```csharp
 var sample = new MetricTelemetry();
-sample.Name = "metric name";
+sample.Name = "queueLength";
 sample.Value = 42.3;
 telemetryClient.TrackMetric(sample);
 ```

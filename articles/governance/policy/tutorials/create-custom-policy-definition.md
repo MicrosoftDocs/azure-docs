@@ -16,8 +16,8 @@ often enforce:
 Whatever the business driver for creating a custom policy, the steps are the same for defining the
 new custom policy.
 
-Before creating a custom policy, check the [policy samples](../samples/index.md) to see if a policy
-that matches your needs already exists.
+Before creating a custom policy, check the [policy samples](../samples/index.md) to see whether a
+policy that matches your needs already exists.
 
 The approach to creating a custom policy follows these steps:
 

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a blueprint with Azure CLI"
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts using the Azure CLI.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: quickstart
 ---
 # Quickstart: Define and Assign an Azure Blueprint with Azure CLI
@@ -144,8 +144,8 @@ assignment on the resource group.
       --description 'Contains the resource template deployment and a role assignment.'
    ```
 
-1. Add role assignment at subscription. In the example below, the principal identities granted the
-   specified role are configured to a parameter that is set during blueprint assignment. This
+1. Add role assignment at subscription. In the following example, the principal identities granted
+   the specified role are configured to a parameter that is set during blueprint assignment. This
    example uses the _Contributor_ built-in role with a GUID of
    `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
