@@ -52,5 +52,4 @@ The Speech SDK facilitates easy use of personalized on-device keyword recognitio
 
 * [Learn more about Custom Keyword and on-device keyword recognition models.](custom-keyword-overview.md)
 * [Learn more about the Keyword Verification service.](keyword-verification-overview.md)
-* [Get the Speech SDK.](speech-sdk.md)
 * [Learn more about Voice Assistants.](voice-assistants.md)

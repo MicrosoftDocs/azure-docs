@@ -55,5 +55,4 @@ The Speech SDK allows you to quickly integrate your on-device keyword recognitio
 
 * [Learn more about the Keyword Verification service.](keyword-verification-overview.md)
 * [Learn more about choosing an effective keyword.](keyword-recognition-guidelines.md#choosing-an-effective-keyword)
-* [Get the Speech SDK.](speech-sdk.md)
 * [Learn more about Voice Assistants.](voice-assistants.md)

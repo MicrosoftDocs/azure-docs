@@ -71,3 +71,8 @@ Before you can use a custom keyword, you need to create a keyword using the [Cus
 ::: zone pivot="programming-languages-objectivec-swift"
 [!INCLUDE [ObjectiveC/Swift Basics include](includes/how-to/keyword-recognition/keyword-basics-objc.md)]
 ::: zone-end
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Get the Speech SDK](speech-sdk.md)
