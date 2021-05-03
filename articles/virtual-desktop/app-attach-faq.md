@@ -88,7 +88,7 @@ Each session host can handle different amount of MSIX applications based on its 
 
 ## How many .VHD or .VHDX files can I mount on a host pool?
 
-MSIX app attach does not enforce a limit. There are limits coming from:
+MSIX app attach itself doesn't have a limit to the number of files you can mount. However, the host pool itself can be limited by the following factors:
 
 - The ability of the OS to handle mounted volumes.
 - Each storage solution and/or file system defines differnet max handle of open files
