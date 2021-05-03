@@ -1,7 +1,7 @@
 ---
 title: UK OFFICIAL & UK NHS blueprint sample controls
 description: Control mapping of the UK OFFICIAL and UK NHS blueprint samples. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 02/05/2021
+ms.date: 04/30/2021
 ms.topic: sample
 ---
 # Control mapping of the UK OFFICIAL and UK NHS blueprint samples
@@ -34,7 +34,7 @@ audit requirements** built-in policy initiative.
 
 The blueprint helps you ensure information transfer with Azure services is secure by assigning
 [Azure Policy](../../../policy/overview.md) definitions that audit insecure connections to storage
-accounts and Redis Cache.
+accounts and Azure Cache for Redis.
 
 - Only secure connections to your Redis Cache should be enabled
 - Secure transfer to storage accounts should be enabled
@@ -50,11 +50,11 @@ This blueprint helps you enforce your policy on the use of cryptograph controls 
 and audit use of weak cryptographic settings. Understanding where your Azure resources may have
 non-optimal cryptographic configurations can help you take corrective actions to ensure resources
 are configured in accordance with your information security policy. Specifically, the policies
-assigned by this blueprint require encryption for data lake storage accounts; require transparent
+assigned by this blueprint require encryption for Data Lake Storage accounts; require transparent
 data encryption on SQL databases; audit missing encryption on storage accounts, SQL databases,
 virtual machine disks, and automation account variables; audit insecure connections to storage
-accounts and Redis Cache; audit weak virtual machine password encryption; and audit unencrypted
-Service Fabric communication.
+accounts and Azure Cache for Redis; audit weak virtual machine password encryption; and audit
+unencrypted Service Fabric communication.
 
 - Disk encryption should be applied on virtual machines
 - Automation account variables should be encrypted
@@ -102,7 +102,7 @@ unrestricted access, allow list activity, and threats.
 - Deploy Threat Detection on SQL servers
 - Deploy default Microsoft IaaSAntimalware extension for Windows Server
 
-## 9 Secure User Management 
+## 9 Secure User Management
 
 Azure role-based access control (Azure RBAC) helps you manage who has access to resources in Azure.
 Using the Azure portal, you can review who has access to Azure resources and their permissions. This
@@ -203,7 +203,7 @@ application controls on virtual machines.
 
 This blueprint helps you ensure system events are logged by assigning
 [Azure Policy](../../../policy/overview.md) definitions that audit log settings on Azure resources.
-An assigned policy also audits if virtual machines aren't sending logs to a specified log analytics
+An assigned policy also audits if virtual machines aren't sending logs to a specified Log Analytics
 workspace.
 
 - Advanced data security should be enabled on your SQL servers
@@ -211,7 +211,6 @@ workspace.
 - \[Preview\]: Deploy Log Analytics Agent for Linux VMs
 - \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 - Deploy network watcher when virtual networks are created
-
 
 ## Next steps
 

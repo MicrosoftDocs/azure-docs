@@ -108,7 +108,7 @@ Follow the steps below to set up these storage resources in your Azure account, 
 
     :::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token-1.png" alt-text="Storage account page in the Azure portal" lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token-1.png":::
 
-1. On the *Shared access signature page*, under *Allowed services* and *Allowed resource types*, select whatever settings you'd like. You'll need to select at least one box in each category. Under *Allowed permissions*, choose **Write** (you can also select other permissions if you want).
+1. On the *Shared access signature page*, under *Allowed services* and *Allowed resource types*, select whatever settings you want. You'll need to select at least one box in each category. Under *Allowed permissions*, choose **Write** (you can also select other permissions if you want).
 1. Set whatever values you want for the remaining settings.
 1. When you're finished, select the _Generate SAS and connection string_ button to generate the SAS token. 
 
@@ -246,7 +246,7 @@ You can restrict the events being sent by adding a **filter** for an endpoint to
 >
 > For telemetry filters, this means that the casing needs to match the casing in the telemetry sent by the device, not necessarily the casing defined in the twin's model. 
 
-To add a filter, you can use a PUT request to *https://{Your-azure-digital-twins-hostname}/eventRoutes/{event-route-name}?api-version=2020-10-31* with the following body:
+To add a filter, you can use a PUT request to *https://{Your-azure-digital-twins-host-name}/eventRoutes/{event-route-name}?api-version=2020-10-31* with the following body:
 
 :::code language="json" source="~/digital-twins-docs-samples/api-requests/filter.json":::
 

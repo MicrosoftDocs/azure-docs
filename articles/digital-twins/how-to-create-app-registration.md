@@ -41,7 +41,7 @@ In the *Register an application* page that follows, fill in the requested values
 * **Supported account types**: Select *Accounts in this organizational directory only (Default Directory only - Single tenant)*
 * **Redirect URI**: An *Azure AD application reply URL* for the Azure AD application. Add a *Public client/native (mobile & desktop)* URI for `http://localhost`.
 
-When you are finished, hit the *Register* button.
+When you are finished, select the *Register* button.
 
 :::image type="content" source="media/how-to-create-app-registration/register-an-application.png" alt-text="View of the 'Register an application' page with the described values filled in":::
 
@@ -59,11 +59,11 @@ Take note of the _**Application (client) ID**_ and _**Directory (tenant) ID**_ s
 
 Next, configure the app registration you've created with baseline permissions to the Azure Digital Twins APIs.
 
-From the portal page for your app registration, select *API permissions* from the menu. On the following permissions page, hit the *+ Add a permission* button.
+From the portal page for your app registration, select *API permissions* from the menu. On the following permissions page, select the *+ Add a permission* button.
 
 :::image type="content" source="media/how-to-create-app-registration/add-permission.png" alt-text="View of the app registration in the Azure portal, highlighting the 'API permissions' menu option and '+ Add a permission' button":::
 
-In the *Request API permissions* page that follows, switch to the *APIs my organization uses* tab and search for *azure digital twins*. Select _**Azure Digital Twins**_ from the search results to proceed with assigning permissions for the Azure Digital Twins APIs.
+In the *Request API permissions* page that follows, switch to the *APIs my organization uses* tab and search for *Azure digital twins*. Select _**Azure Digital Twins**_ from the search results to proceed with assigning permissions for the Azure Digital Twins APIs.
 
 :::image type="content" source="media/how-to-create-app-registration/request-api-permissions-1.png" alt-text="View of the 'Request API Permissions' page search result showing Azure Digital Twins, with an Application (client) ID of 0b07f429-9f4b-4714-9392-cc5e8e80c8b0.":::
 
@@ -75,7 +75,7 @@ Next, you'll select which permissions to grant for these APIs. Expand the **Read
 
 :::image type="content" source="media/how-to-create-app-registration/request-api-permissions-2.png" alt-text="View of the 'Request API Permissions' page selecting 'Read.Write' permissions for the Azure Digital Twins APIs":::
 
-Hit *Add permissions* when finished.
+Select *Add permissions* when finished.
 
 ### Verify success
 

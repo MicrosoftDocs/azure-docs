@@ -54802,12 +54802,17 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-transition-from-uag-tmg.md",
-      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-migration",
+      "redirect_url": "/azure/active-directory/app-proxy/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/app-proxy/application-proxy-migration.md",
+      "redirect_url": "/azure/active-directory/app-proxy/index",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-migration.md",
-      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-migration",
+      "redirect_url": "/azure/active-directory/app-proxy/index",
       "redirect_document_id": false
     },
     {
@@ -65812,6 +65817,11 @@
     {
       "source_path_from_root": "/articles/peering-service/create-connection.md",
       "redirect_url": "/azure/peering-service/azure-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-fabric-mesh/index.yml",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-overview",
       "redirect_document_id": false
     }
   ]
