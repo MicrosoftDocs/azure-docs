@@ -4,7 +4,7 @@ description: Frequently asked questions about Service Fabric managed clusters, i
 ms.topic: troubleshooting
 ms.author: pepogors
 author: peterpogorski
-ms.date: 04/22/2021
+ms.date: 5/10/2021
 ms.custom: references_regions
 ---
 
@@ -50,7 +50,7 @@ No. It isn't currently possible to have an internal-only load balancer. We recom
 
 ### Can I autoscale my cluster?
 
-Autoscaling is not currently supported. 
+Autoscaling is not currently supported.
 
 ### Can I deploy my cluster across availability zones?
 

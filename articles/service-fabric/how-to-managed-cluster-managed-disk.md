@@ -2,7 +2,7 @@
 title: How to select managed disk types for Service Fabric managed cluster nodes
 description: Learn how to select managed disk types for Service Fabric managed cluster nodes and configure in an ARM template.
 ms.topic: how-to
-ms.date: 04/20/2021
+ms.date: 5/10/2021
 ---
 
 
