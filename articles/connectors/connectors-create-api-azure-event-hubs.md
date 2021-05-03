@@ -143,7 +143,7 @@ For example, if the trigger is set up with four partitions, this delay might tak
 
 When an Event Hubs trigger reads events from each partition in an event hub, the trigger users its own state to maintain information about the stream offset (the event position in a partition) and the partitions from where the trigger reads events.
 
-Each time your workflow runs, the trigger reads events from a partition, starting from the stream offset that's kept by the trigger state. In round-robin fashion, the trigger iterates over each partition in the event hub and reads events in subsequent trigger runs. A single run gets one partition at a time.
+Each time your workflow runs, the trigger reads events from a partition, starting from the stream offset that's kept by the trigger state. In round-robin fashion, the trigger iterates over each partition in the event hub and reads events in subsequent trigger runs. A single run gets events from a single partition at a time.
 
 The trigger doesn't use this checkpoint capability in storage, resulting in no extra cost. However, the key point is that updating the Event Hubs trigger resets the trigger's state, which might cause the trigger to read events at start of the stream.
 
