@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 04/14/2021
 ms.author: joarroyo
-ms.custom: aaddev, identityplatformtop40, devx-track-js
+ms.custom: aaddev, devx-track-js
 ---
 
 # Tutorial: Sign in users and call the Microsoft Graph API from an Angular single-page application (SPA) using auth code flow
