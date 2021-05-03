@@ -11,12 +11,12 @@ ms.date: 03/22/2021
 
 # Managing public network access for your IoT hub
 
-To restrict access to only [private endpoint for your IoT hub in your VNet](virtual-network-support.md), disable public network access. To do so, use Azure portal or the `publicNetworkAccess` API. You can also allow public access by using the portal or the `publicNetworkAccess` API.
+To restrict access to only [private endpoint for your IoT hub in your VNet](virtual-network-support.md), disable public network access. To do so, use the Azure portal or the `publicNetworkAccess` API. You can also allow public access by using the portal or the `publicNetworkAccess` API.
 
 ## Turn off public network access using Azure portal
 
-1. Visit [Azure portal](https://portal.azure.com)
-2. Navigate to your IoT hub.
+1. Visit the [Azure portal](https://portal.azure.com)
+2. Navigate to your IoT hub. Go to **Resource Groups**, choose the appropriate group, and select your IoT Hub.
 3. Select **Networking** from the left-side menu.
 4. Under “Allow public network access to”, select **Disabled**
 5. Select **Save**.
@@ -45,8 +45,8 @@ There is a bug with IoT Hub where the [built-in Event Hub compatible endpoint](i
 
 ## Turn on network access using Azure portal
 
-1. Visit [Azure portal](https://portal.azure.com)
-2. Navigate to your IoT hub.
+1. Visit the [Azure portal](https://portal.azure.com)
+2. Navigate to your IoT hub. Go to **Resource Groups**, choose the appropriate group, and select your hub.
 3. Select **Networking** from the left-side menu.
 4. Under “Allow public network access to”, select **Selected IP Ranges**.
 5. In the **IP Filter** dialog that opens, select **Add your client IP address** and enter a name and an address range.
@@ -56,12 +56,12 @@ There is a bug with IoT Hub where the [built-in Event Hub compatible endpoint](i
 
 ### Turn on all network ranges
 
-1. Navigate to your IoT hub.
+1. Navigate to your IoT hub. Go to **Resource Groups**, choose the appropriate group, and select your hub.
 1. Select **Networking** from the left-side menu.
 1. Under “Allow public network access to”, select **All networks**.
 1. Select **Save**.
 
-### Check IoT hub access using the cloud shell
+### Check IoT hub access using Cloud Shell
 
 You can check IoT hub access by using the Azure cloud shell. Make sure that you've turned on all network ranges and then issue the following commands. Replace "SubscriptionName" with the name of your subscription and "MyIoTHub" with the name of your hub.
 
@@ -82,6 +82,6 @@ If you have trouble accessing your IoT hub, your network configuration could be 
   Unable to retrieve devices. Please ensure that your network connection is online and network settings allow connections from your IP address.
 ```
 
-To get access to the IoT hub, request permission from your IT administrator and either add your IP address in the range or enable public network access to all networks. If that fails to resolve the issue, check your local network settings or contact your local network administrator to fix connectivity to IoT Hub. For example, sometimes a proxy in the local network can interfere with access to IoT Hub. 
+To get access to the IoT hub, request permission from your IT administrator to add your IP address in the IP address range or to enable public network access to all networks. If that fails to resolve the issue, check your local network settings or contact your local network administrator to fix connectivity to IoT Hub. For example, sometimes a proxy in the local network can interfere with access to IoT Hub.
 
 If the preceding commands do not work or you cannot turn on all network ranges, contact Microsoft support.
