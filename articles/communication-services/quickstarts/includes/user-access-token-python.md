@@ -77,7 +77,7 @@ Azure Communication Services maintains a lightweight identity directory. Use the
 
 ```python
 identity = client.create_user()
-print("\nCreated an identity with ID: " + identity.identifier)
+print("\nCreated an identity with ID: " + identity.properties['id'])
 ```
 
 ## Issue access tokens
