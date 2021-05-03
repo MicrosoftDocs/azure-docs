@@ -77,7 +77,7 @@ If you are upgrading from DirSync, the AD DS Enterprise Admins credentials are u
 ### Azure AD Global Admin credentials
 These credentials are only used during the installation and are not used after the installation has completed. It is used to create the Azure AD Connector account used for synchronizing changes to Azure AD. The account also enables sync as a feature in Azure AD.
 
-For more information on Global Administrator accounts, see [Global Administrator](../../roles/permissions-reference.md#global-administrator).
+For more information on Global Administrator accounts, see [Global Administrator](../../active-directory/roles/permissions-reference.md#global-administrator).
 
 ### AD DS Connector account required permissions for express settings
 The AD DS Connector account is created for reading and writing to Windows Server AD and has the following permissions when created by express settings:
