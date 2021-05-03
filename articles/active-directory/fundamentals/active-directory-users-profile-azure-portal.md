@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 04/11/2019
+ms.date: 05/03/2021
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
@@ -22,7 +22,10 @@ Add user profile information, including a profile picture, job-specific informat
 As you'll see, there's more information available in a user's profile than what you're able to add during the user's creation. All this additional information is optional and can be added as needed by your organization.
 
 ## To add or change profile information
-1. Sign in to the [Azure portal](https://portal.azure.com/) as a User administrator for the organization.
+
+>[!Note] The user name and email address properties can contain accent characters, but using them can cause access issues with other Microsoft applications for the user.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) in the User Administrator role for the organization.
 
 2. Select **Azure Active Directory**, select **Users**, and then select a user. For example, _Alain Charon_.
 
