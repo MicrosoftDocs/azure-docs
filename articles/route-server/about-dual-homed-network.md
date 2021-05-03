@@ -44,6 +44,10 @@ You can build a dual-homed network that involves two or more ExpressRoute connec
 
 In the control plane, the NVA in the hub virtual network will learn about on-premises routes from the ExpressRoute gateway through [route exchange](quickstart-configure-route-server-portal.md#configure-route-exchange) with the Route Server in the hub. In return, the NVA will send the spoke virtual network addresses to the ExpressRoute gateway using the same Route Server. The Route Server in both the spoke and hub virtual network will then program the on-premises network addresses to the virtual machines in their respective virtual network.
 
+> [!IMPORTANT]
+> BGP prevents a loop by verifying the AS number in the AS Path. If the receiving router sees its own AS number in the AS Path of a received BGP packet, it will drop the packet. In this example, both Route Servers have the same AS number, 65515. To prevent each Route Server from dropping the routes from the other Route Server, the NVA must apply **as-override** BGP policy when peering with each Route Server. 
+>
+
 In the data plane, the virtual machines in the spoke virtual network will send all traffic destined for the on-premises network to the NVA in the hub virtual network first. Then the NVA will forward the traffic to the on-premises network through ExpressRoute. Traffic from on-premises will traverse the same data path in the reverse direction. You'll notice neither of the Route Servers are in the data path.
 
 ## Next steps
