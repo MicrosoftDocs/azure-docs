@@ -70,7 +70,7 @@ Contact [BioCatch](https://www.biocatch.com/contact-us) and create an account.
 
 It's recommended to hide the client session ID field. Use CSS, JavaScript, or any other method to hide the field. For testing purposes, you may unhide the field. For example, JavaScript is used to hide the input field as:
 
-```
+```JavaScript
 document.getElementById("clientSessionId").style.display = 'none';
 ```
 
@@ -80,7 +80,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 2. Create a new file, which inherits from the extensions file.
 
-    ```
+    ```XML
     <BasePolicy> 
 
         <TenantId>tenant.onmicrosoft.com</TenantId> 
