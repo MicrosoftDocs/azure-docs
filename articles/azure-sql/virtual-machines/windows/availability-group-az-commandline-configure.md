@@ -26,6 +26,9 @@ Deployment of the availability group is still done manually through SQL Server M
 
 While this article uses PowerShell and the Az CLI to configure the availability group environment, it is also possible to do so from the [Azure portal](availability-group-azure-portal-configure.md), using [Azure Quickstart templates](availability-group-quickstart-template-configure.md), or [Manually](availability-group-manually-configure-tutorial.md) as well. 
 
+> [!NOTE]
+> It's now possible to lift and shift your availability group solution to SQL Server on Azure VMs using Azure Migrate. See [Migrate availability group](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md) to learn more. 
+
 ## Prerequisites
 
 To configure an Always On availability group, you must have the following prerequisites: 

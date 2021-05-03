@@ -70,7 +70,7 @@ The following example shows a logical SQL server and database. Notice that an ex
 ]
 ```
 
-For the full template, see [quickstart template for Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/blob/master/101-sql-database/azuredeploy.json).
+For the full template, see [quickstart template for Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.sql/sql-database/azuredeploy.json).
 
 ## reference and list functions
 
