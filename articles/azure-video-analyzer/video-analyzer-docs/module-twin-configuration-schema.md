@@ -37,8 +37,8 @@ See the article on [Monitoring and logging](monitor-log-edge.md) for more inform
         "ApplicationDataDirectory": "/var/lib/videoanalyzer",
         "DiagnosticsEventsOutputName": "diagnostics",
         "OperationalEventsOutputName": "operational",
-        "LogLevel": "Verbose",
-        "LogCategories": "Application,Events,MediaPipeline",
+        "LogLevel": "information",
+        "LogCategories": "Application,Events",
         "AllowUnsecuredEndpoints": true,
         "TelemetryOptOut": false
     }
