@@ -33,7 +33,7 @@ After completing the setup steps, you'll be able to run the simulated live video
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
 
-[!INCLUDE [resources](../../../includes/common-includes/azure-resources.md)]
+[!INCLUDE [resources](./../../../includes/common-includes/azure-resources.md)]
 
 ## Configure the Azure IoT Tools extension
 
