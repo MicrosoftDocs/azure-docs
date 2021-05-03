@@ -181,7 +181,7 @@ Follow these steps to prepare the development environment for the DevKit:
 
     ![Install Azure IoT Tools](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/user-settings-arduino.png)
 
-    Add following lines to configure Arduino depending on your platform: 
+    The correct path to your Arduino installation must be configured in VS Code. Add following lines to configure Arduino depending on your platform and where you installed the Arduino IDE: 
 
     * **Windows**:
 
