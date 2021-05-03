@@ -22,7 +22,7 @@ This article explains how to use Copy Activity in Azure Data Factory to move dat
 ## Supported scenarios
 You can copy data **from Azure Data Lake Store** to the following data stores:
 
-[!INCLUDE [data-factory-supported-sinks](../../../includes/data-factory-supported-sinks.md)]
+[!INCLUDE [data-factory-supported-sinks](includes/data-factory-supported-sinks.md)]
 
 You can copy data from the following data stores **to Azure Data Lake Store**:
 

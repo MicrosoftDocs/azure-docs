@@ -24,7 +24,7 @@ This article explains how to use the Copy Activity in Azure Data Factory to copy
 ## Supported scenarios
 You can copy data **from an on-premises file system** to the following data stores:
 
-[!INCLUDE [data-factory-supported-sink](../../../includes/data-factory-supported-sinks.md)]
+[!INCLUDE [data-factory-supported-sink](includes/data-factory-supported-sinks.md)]
 
 You can copy data from the following data stores **to an on-premises file system**:
 
