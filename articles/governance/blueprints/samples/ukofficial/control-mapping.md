@@ -34,7 +34,7 @@ audit requirements** built-in policy initiative.
 
 The blueprint helps you ensure information transfer with Azure services is secure by assigning
 [Azure Policy](../../../policy/overview.md) definitions that audit insecure connections to storage
-accounts and Redis Cache.
+accounts and Azure Cache for Redis.
 
 - Only secure connections to your Redis Cache should be enabled
 - Secure transfer to storage accounts should be enabled
@@ -50,11 +50,11 @@ This blueprint helps you enforce your policy on the use of cryptograph controls 
 and audit use of weak cryptographic settings. Understanding where your Azure resources may have
 non-optimal cryptographic configurations can help you take corrective actions to ensure resources
 are configured in accordance with your information security policy. Specifically, the policies
-assigned by this blueprint require encryption for data lake storage accounts; require transparent
+assigned by this blueprint require encryption for Data Lake Storage accounts; require transparent
 data encryption on SQL databases; audit missing encryption on storage accounts, SQL databases,
 virtual machine disks, and automation account variables; audit insecure connections to storage
-accounts and Redis Cache; audit weak virtual machine password encryption; and audit unencrypted
-Service Fabric communication.
+accounts and Azure Cache for Redis; audit weak virtual machine password encryption; and audit
+unencrypted Service Fabric communication.
 
 - Disk encryption should be applied on virtual machines
 - Automation account variables should be encrypted
@@ -203,7 +203,7 @@ application controls on virtual machines.
 
 This blueprint helps you ensure system events are logged by assigning
 [Azure Policy](../../../policy/overview.md) definitions that audit log settings on Azure resources.
-An assigned policy also audits if virtual machines aren't sending logs to a specified log analytics
+An assigned policy also audits if virtual machines aren't sending logs to a specified Log Analytics
 workspace.
 
 - Advanced data security should be enabled on your SQL servers
