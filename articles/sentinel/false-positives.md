@@ -19,19 +19,19 @@ False positive errors in Azure Sentinel can generate incidents when no threat ex
 
 Common scenarios include:
 
-- Normal activities of certain specific users like service principals can show a pattern that appears suspicious.
-- An intentional security scanning activity that comes from known IP addresses can be detected as malicious.
-- A rule that excludes private IP addresses should also exclude some internal IP addresses that aren't private.
+- Normal activities by certain specific users like service principals can show a pattern that appears suspicious.
+- Intentional security scanning activity that comes from known IP addresses can be detected as malicious.
+- A rule that excludes private IP addresses might also need to exclude some internal IP addresses that aren't private.
 
 In this article, you learn how to resolve false positives by using two methods:
 
-1. Using *automation rules* involves creating an exception without modifying rules, and lets you apply the same exception to several rules. Also, this method:
+1. **Using automation rules** involves creating an exception without modifying alert rules, and lets you apply the same exception to several alert rules. Also, this method:
    
    - Works for detections that aren't based on scheduled alert rules.
    - Allows applying an exception on a limited-time basis. For example, maintenance work might trigger false positives that outside of the maintenance timeframe would be true incidents.
    - Keeps a trail, as the exception prevents the creation of an incident, but the alert is still recorded for audit purposes.
    
-1. Modifying the scheduled *alert rule* allows for more elaborate and detailed exceptions, like subnet-based exceptions and advanced boolean expressions. Modifying the query also allows using *watchlists* to centralize exception management.
+1. **Modifying scheduled alert rules** allows for more elaborate and detailed exceptions, like subnet-based exceptions and advanced boolean expressions. Modifying the query also allows using watchlists to centralize exception management.
 
 An important distinction between the two methods is that analysts often generate automation rule-based exceptions, while only Security Operations Center (SOC) engineers typically create alert rule-based exceptions.
 
@@ -117,7 +117,7 @@ You can use a watchlist to manage the list of exceptions outside the rule itself
 - An analyst can add exceptions without editing the rule, which better follows SOC best practices.
 - The same watchlist can apply to several rules, enabling central exception management.
 
-Using a watchlist is similar to using a direct exception.
+Using a watchlist is similar to using a direct exception. Use `_GetWatchlist('<watchlist name>')` to call the watchlist.
 
 ```kusto
 let timeFrame = 1d;
@@ -129,7 +129,7 @@ SigninLogs
 ...
 ```
 
-You can also do subnet filtering by using a watchlist. For example, in the preceding subnets exclusion code, replace the subnets `datatable` definition with a watchlist:
+You can also do subnet filtering by using a watchlist. For example, in the preceding subnets exclusion code, you could replace the subnets `datatable` definition with a watchlist:
 
 ```kusto
 let subnets = _GetWatchlist('subnetallowlist');
