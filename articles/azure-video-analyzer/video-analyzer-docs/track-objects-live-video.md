@@ -15,7 +15,22 @@ This quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated 
 
 ## Prerequisites
 
-* Complete [Quickstart: Analyze live video with your own model - HTTP](analyze-live-video-use-your-model-http.md)
+* An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
+    
+    > [!NOTE]
+    > You will need an Azure subscription with permissions for creating service principals (owner role provides this). If you do not have the right permissions, please reach out to your account administrator to grant you the right permissions.   
+* [Visual Studio Code](https://code.visualstudio.com/), with the following extensions:
+
+    * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+
+> [!TIP] 
+> You might be prompted to install Docker while you're installing the Azure IoT Tools extension. Feel free to ignore the prompt.
+
+## Set up Azure resources
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
+
+[!INCLUDE [resources](./includes/common-includes/azure-resources.md)]
 
 ## Overview
 
@@ -28,17 +43,103 @@ The HTTP extension node plays the role of a proxy. It converts every 10th video 
 
 In this quickstart, you will:
 
+1. Setup your development environment.
+1. Deploy the required edge modules.
 1. Create and deploy the live pipeline.
 1. Interpret the results.
 1. Clean up resources.
 
-## Create and deploy the livePipeline
+## Set up your development environment
+### Get the sample code
+1. Clone the repo from this location: https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp <!--TODO: replace this  https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp -->.
+1. Start Visual Studio Code, and open the folder where the repo has been downloaded.
+1. In Visual Studio Code, browse to the src/cloud-to-device-console-app folder and create a file named **appsettings.json**. This file contains the settings needed to run the program.
+1. Browse to the file share in the storage account created in the setup step above, and copy the contents of the **appsettings.json** file, which should look like:
+    ```
+    {  
+        "IoThubConnectionString" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",  
+        "deviceId" : "ava-sample-device",  
+        "moduleId" : "avaedge"  
+    }
+    ```
+    The IoT Hub connection string lets you use Visual Studio Code to send commands to the edge modules via Azure IoT Hub.
+1. Next, browse to the src/edge folder and create a file named **.env**. This file contains properties that Visual Studio Code uses to deploy modules to an edge device.
+1. Browse to the file share in the storage account created in the setup step above, and copy the contents of the **env** file,
+```
+SUBSCRIPTION_ID=<subscription-id>
+RESOUCE_GROUP=<resource-group-name>
+AVA_PROVISIONING_TOKEN=<provisioning-token-for-video-analyzer-edge-module>
+VIDEO_INPUT_FOLDER_ON_DEVICE=/home/localedgeuser/samples/input
+VIDEO_OUTPUT_FOLDER_ON_DEVICE=/var/media/
+APPDATA_FOLDER_ON_DEVICE=/var/lib/videoAnalyzer/
+REGISTRY_PASSWORD=<password-for-acr>
+REGISTRY_USER_NAME=<user-name-for-acr>
+```
+
+### Connect to the IoT Hub
+
+1. In Visual Studio Code, set the IoT Hub connection string by selecting the **More actions** icon next to the **AZURE IOT HUB** pane in the lower-left corner. Copy the string from the src/cloud-to-device-console-app/appsettings.json file. 
+
+    <!-- commenting out the image for now ![Set IoT Hub connection string]()./media/quickstarts/set-iotconnection-string.png-->
+    > [!NOTE]
+    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  <br/>
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
+1. In about 30 seconds, refresh Azure IoT Hub in the lower-left section. You should see the edge device `ava-sample-device`, which should have the following modules deployed:
+    * Video Analyzer on IoT Edge (module name **avaedge**)
+    * RTSP simulator (module name **rtspsim**)
+
+### Prepare to monitor the modules 
+
+When you use run this quickstart, events will be sent to the IoT Hub. To see these events, follow these steps:
+
+1. Open the Explorer pane in Visual Studio Code, and look for **Azure IoT Hub** in the lower-left corner.
+1. Expand the **Devices** node.
+1. Right-click on `ava-sample-device`, and select **Start Monitoring Built-in Event Endpoint**.
+
+    > [!NOTE]
+    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
+
+## Deploy the required modules
+
+1. In Visual Studio Code, right-click the *src/edge/deployment.yolov3.template.json* file and then select **Generate IoT Edge Deployment Manifest**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/generate-deployment-manifest.png" alt-text="Generate IoT Edge Deployment Manifest":::
+1. The *deployment.yolov3.amd64.json* manifest file is created in the *src/edge/config* folder.
+1. Right-click *src/edge/config/deployment.yolov3.amd64.json* and select **Create Deployment for Single Device**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/deployment-single-device.png" alt-text= "Create Deployment for Single Device":::
+1. When you're prompted to select an IoT Hub device, select **avasample-iot-edge-device**.
+1. After about 30 seconds, in the lower-left corner of the window, refresh Azure IoT Hub. The edge device now shows the following deployed modules:
+
+    * The Video Analyzer edge module, named **avaedge**.
+    * The **rtspsim** module, which simulates an RTSP server and acts as the source of a live video feed. 
+    * The **yolov3** module, which is the YOLOv3 object detection model that applies computer vision to images and returns multiple classes of object types
+
+        > [!div class="mx-imgBorder"]
+        > :::image type="content" source="./media/analyze-live-video-use-your-model-http/object-detection-model.png" alt-text= "YoloV3 object detection model":::
+
+
+## Create and deploy the live pipeline
 
 ### Examine and edit the sample files
 
-As part of the prerequisite quickstart, you downloaded the sample code to a folder. Follow these steps to examine and edit the sample files.
+In Visual Studio Code, browse to the src/cloud-to-device-console-app folder. Here you'll see the appsettings.json file that you created along with a few other files:
 
-1. In Visual Studio Code, go to the src/cloud-to-device-console-app folder.
+* **c2d-console-app.csproj**: The project file for Visual Studio Code.
+* **operations.json**: This file lists the different operations that you would run.
+* **Program.cs**: The sample program code, which:
+    * Loads the app settings.
+    * Invokes direct methods exposed by Video Analyzer on IoT Edge module. You can use the module to analyze live video streams by invoking its [direct methods](direct-methods.md).
+    * Pauses for you to examine the output from the program in the **TERMINAL** window and the events generated by the module in the **OUTPUT** window.
+    * Invokes direct methods to clean up resources.
+
 1. Edit the operations.json file:
     
     * Change the link to the pipeline topology:
