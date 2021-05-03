@@ -21,13 +21,13 @@ The pipeline extension node expects the analytics extension plugin to return the
 
 ## HTTP extension processor
 
-HTTP extension processor enables extensibility scenarios using the [HTTP protocol](add-valid-link.md), where performance and/or optimal resource utilization is not the primary concern. You can expose your own AI to a media graph via an HTTP REST endpoint.
+HTTP extension processor enables extensibility scenarios using the [HTTP protocol](add-valid-link.md), where performance and/or optimal resource utilization is not the primary concern. You can expose your own AI to a pipeline via an HTTP REST endpoint.
 
 Use HTTP extension processor node when:
 
 * You want better interoperability with existing HTTP Inferencing systems.
 * Low-performance data transfer is acceptable.
-* You want to use a simple request-response interface to Azure Video Analyzer.
+* You want to use a simple request-response interface to Video Analyzer.
 
 ## gRPC extension processor
 
@@ -36,7 +36,7 @@ gRPC extension processor enables extensibility scenarios using gRPC based, highl
 * [in-box shared memory](https://en.wikipedia.org/wiki/Shared_memory) or
 * directly embedding the content into the body of gRPC messages.
 
-The gRPC extension processor can be used for sending media properties along with exchanging inference messages. So, use a gRPC extension processor node when you:
+The gRPC extension processor can be used for sending properties along with exchanging inference messages. So, use a gRPC extension processor node when you:
 
 * Want to use a structured contract (for example, structured messages for requests and responses)
 * Want to use [Protocol Buffers (protobuf)](https://developers.google.com/protocol-buffers) as its underlying message interchange format for communication.
@@ -50,7 +50,7 @@ Cognitive Services extension processor is a custom-built extension processor tha
 Use Cognitive Services extension processor node when:
 
 * You want better interoperability with existing [spatial analysis operations](https://docs.microsoft.com/azure/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview).
-* Want to use all the benefits if gRPC protocol, accuracy, and performance of Microsoft built and supported AI.
+* Want to use all the benefits of gRPC protocol, accuracy, and performance of Microsoft built and supported AI.
 * Analyze multiple camera feeds at low latency and high throughput.
 
 ## Use your inferencing model
@@ -64,14 +64,10 @@ The diagram below depicts the high-level data flow:
  
 ## Samples
 
-You can get started with one of our quickstarts that illustrate live video analytics with pre-built extension service at low frame rates with [HTTP extension processor](pipeline.md#http-extension-processor) or at high frame rates with [gRPC extension processor](pipeline.md#grpc-extension-processor).
+You can get started with one of our quickstarts that illustrate Video Analyzer with pre-built extension service at low frame rates with [HTTP extension processor](pipeline.md#http-extension-processor) or at high frame rates with [gRPC extension processor](pipeline.md#grpc-extension-processor).
 
-For advanced users, you can check out some of our [Jupyter notebook](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) samples for Video Analyzer. These notebooks will provide you with step-by-step instructions for the pipeline extensions on:
-
-* How to create a Docker container image of an extension service
-* How to deploy the extension service as a container along with the Video Analyzer container
-* How to use an Video Analyzer pipeline with an extension client and point it to the extension endpoint (HTTP/gRPC)
 
 ## Next steps 
 
-Check out some of our [Jupyter notebook](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) samples for Video Analyzer.
+Concept: [Event-based video recording](event-based-video-recording-concept.md)
+

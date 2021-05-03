@@ -8,8 +8,10 @@
     href: ../video-analyzer-for-media-docs/video-indexer-overview.md
   - name: Video Analyzer terminology
     href: terminology.md
-  - name: Release notes
-    href: release-notes.md
+  - name: What's new
+    items:
+    - name: Release notes
+      href: release-notes.md  
 - name: Quickstarts
   items:
   - name: Get started - Azure Video Analyzer
@@ -18,8 +20,8 @@
     href: detect-motion-record-video-clips-cloud.md #404
   - name: Detect motion, record video on edge devices
     href: detect-motion-record-video-edge-devices.md
-  - name: Create pipeline topology using VS Code extension
-    href: create-topology-vs-code-extension.md #404
+  - name: Azure Video Analyzer Visual Studio Code extension
+    href: create-pipeline-vs-code-extension.md
   - name: Analyze live video
     items:
     - name: with your own gRPC model
@@ -57,7 +59,7 @@
       href: use-intel-openvino-tutorial.md
     - name: With OV DL Streamer via gRPC extension
       displayName: analyze live video, intel, OpenVINO, DL Streamer, VAS
-      href: use-intel-grpc-vas-tutorial.md #404
+      href: use-intel-grpc-video-analytics-serving-tutorial.md
     - name: With Custom Vision
       displayName: analyze live video    
       href: analyze-live-video-custom-vision.md 
@@ -95,6 +97,8 @@
     href: manage-retention-policy-how-to.md
   - name: Deploy to an IoT Edge device
     href: deploy-iot-edge-device.md
+  - name: Deploy to an IoT Edge for Linux on Windows
+    href: deploy-iot-edge-linux-on-windows.md
   - name: Invoke direct methods with the portal
     href: use-azure-portal-to-invoke-direct-methods.md
   - name: Playback a recording
@@ -122,7 +126,7 @@
   - name: Cloud APIs #404
     href: cloud-apis.md
   - name: Module Twin configuration schema
-    href: module-twin-json-schema.md
+    href: module-twin-configuration-schema.md
   - name: Production readiness and best practices	
     href: production-readiness.md  #404
   - name: VS Code extension

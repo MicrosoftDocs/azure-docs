@@ -23,7 +23,6 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
         * Invokes direct methods to clean up resources.
 1. Edit the **operations.json** file:
     
-    * Change the link to the pipeline: <br/>"topologyUrl" : "https://raw.githubusercontent.com/Azure/azure-video-analyzer/master/MediaGraph/topologies/evr-motion-files/pipeline.json" 
-    * Under LivePipelineSet, edit the name of the graph topology to match the value in the preceding link: <br/>"topologyName" : "EVRToFilesOnMotionDetection" 
-    * Edit the RTSP URL to point to the video file: <br/>"value": "rtsp://rtspsim:554/media/lots_015.mkv" 
-    * Under PipelineTopologyDelete, edit the name: <br/>"name": "EVRToFilesOnMotionDetection" 
+    * Change the link to the pipeline: <br/>`"topologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-motion-files/topology.json" `
+    * Under livePipelineSet, edit the name of the graph topology to match the value in the preceding link: <br/>`"topologyName" : "EVRToFilesOnMotionDetection" `
+    * Under PipelineTopologyDelete, edit the name: <br/>`"name": "EVRToFilesOnMotionDetection" `

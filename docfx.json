@@ -13,7 +13,8 @@
           "iot-edge/**",
           "**/_themes/**",
           "**/includes/**",
-          "**/obj/**"
+          "**/obj/**",
+          "**/*.graffle"
         ]
       },
       {
@@ -786,6 +787,9 @@
       },
       "monikerRange": {
         "articles/iot-edge/**/*.md": ">=iotedge-2018-06"
+      },
+      "recommendations": {
+        "articles/cognitive-services/Translator/**/*.md": false
       },
       "no-loc": {
         "articles/governance/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]",
