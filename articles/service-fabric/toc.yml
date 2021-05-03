@@ -2,18 +2,18 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Service Fabric?
-    href: service-fabric-overview.md
   - name: Service Fabric managed clusters
     href: overview-managed-cluster.md
+  - name: What is Service Fabric?
+    href: service-fabric-overview.md
 - name: Quickstarts
   expanded: true
   items:
+  - name: Managed cluster
+    href: quickstart-managed-cluster-template.md
   - name: ARM template
     displayName: Resource Manager
     href: quickstart-cluster-template.md
-  - name: Managed cluster
-    href: quickstart-managed-cluster-template.md
   - name: Create .NET application
     href: service-fabric-quickstart-dotnet.md
   - name: Deploy a Linux container application
@@ -28,6 +28,16 @@
       href: service-fabric-quickstart-java-reliable-services.md
 - name: Tutorials
   items:
+  - name: Create a Service Fabric managed cluster
+    items:
+    - name: 1- Deploy a Service Fabric managed cluster
+      href: tutorial-managed-cluster-deploy.md
+    - name: 2- Scale out a managed cluster node type
+      href: tutorial-managed-cluster-scale.md
+    - name: 3- Add and remove managed cluster node types
+      href: tutorial-managed-cluster-add-remove-node-type.md
+    - name: 4- Connect to a managed cluster and deploy an application
+      href: tutorial-managed-cluster-deploy-app.md
   - name: Deploy a .NET app
     items:
     - name: 1- Build a .NET application
@@ -68,16 +78,6 @@
       href: service-fabric-tutorial-package-containers.md
     - name: 3- Fail over and scale
       href: service-fabric-tutorial-containers-failover.md
-  - name: Create a Service Fabric managed cluster
-    items:
-    - name: 1- Deploy a Service Fabric managed cluster
-      href: tutorial-managed-cluster-deploy.md
-    - name: 2- Scale out a managed cluster node type
-      href: tutorial-managed-cluster-scale.md
-    - name: 3- Add and remove managed cluster node types
-      href: tutorial-managed-cluster-add-remove-node-type.md
-    - name: 4- Connect to a managed cluster and deploy an application
-      href: tutorial-managed-cluster-deploy-app.md
   - name: Create and manage a cluster
     items:
     - name: 1- Create a cluster on Azure
