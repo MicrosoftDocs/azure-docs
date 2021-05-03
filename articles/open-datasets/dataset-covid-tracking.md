@@ -109,10 +109,6 @@ For any questions or feedback about this or other datasets in the COVID-19 Data 
 
 ### Azure Notebooks
 
-# [azureml-opendatasets](#tab/azureml-opendatasets)
-
-Sample not available for this platform/package combination.
-
 # [azure-storage](#tab/azure-storage)
 
 URLs of different dataset file formats hosted on Azure Blob Storage:
@@ -173,10 +169,6 @@ Sample not available for this platform/package combination.
 
 ### Azure Databricks
 
-# [azureml-opendatasets](#tab/azureml-opendatasets)
-
-Sample not available for this platform/package combination.
-
 # [azure-storage](#tab/azure-storage)
 
 Sample not available for this platform/package combination.
@@ -210,10 +202,6 @@ display(spark.sql('SELECT * FROM source LIMIT 10'))
 ---
 
 ### Azure Synapse
-
-# [azureml-opendatasets](#tab/azureml-opendatasets)
-
-Sample not available for this platform/package combination.
 
 # [azure-storage](#tab/azure-storage)
 

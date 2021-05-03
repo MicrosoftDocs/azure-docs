@@ -88,10 +88,6 @@ For any questions or feedback about this or other datasets in the COVID-19 Data 
 
 ### Azure Notebooks
 
-# [azureml-opendatasets](#tab/azureml-opendatasets)
-
-Sample not available for this platform/package combination.
-
 # [azure-storage](#tab/azure-storage)
 
 This notebook documents the URLs and sample code to access the European Centre for Disease Prevention and Control (ECDC) Covid-19 Cases dataset URLs of different dataset file formats hosted on Azure Blob Storage:¶
@@ -151,10 +147,6 @@ Sample not available for this platform/package combination.
 
 ### Azure Databricks
 
-# [azureml-opendatasets](#tab/azureml-opendatasets)
-
-Sample not available for this platform/package combination.
-
 # [azure-storage](#tab/azure-storage)
 
 Sample not available for this platform/package combination.
@@ -188,10 +180,6 @@ display(spark.sql('SELECT * FROM source LIMIT 10'))
 ---
 
 ### Azure Synapse
-
-# [azureml-opendatasets](#tab/azureml-opendatasets)
-
-Sample not available for this platform/package combination.
 
 # [azure-storage](#tab/azure-storage)
 

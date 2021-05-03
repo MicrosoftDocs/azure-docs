@@ -109,7 +109,7 @@
     - name: Microsoft News recommendation dataset
       href: dataset-microsoft-news.md
     - name: Public holidays
-      href: public-holidays.md
+      href: dataset-public-holidays.md
     - name: Russian open speech to text
       href: dataset-open-speech-text.md
 - name: Samples
