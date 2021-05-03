@@ -19,8 +19,7 @@ This connector includes a Microsoft MQ client that communicates with a remote MQ
 
 * MQ 7.5
 * MQ 8.0
-* MQ 9.0
-* MQ 9.1
+* MQ 9.0, 9.1, and 9.2
 
 <a name="available-operations"></a>
 
