@@ -47,9 +47,9 @@ The following are prerequisites for connecting the spatial-analysis module to Az
 ## Overview
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/overview.png" alt-text="Spatial Analysis overview":::
+> :::image type="content" source="./media/spatial-analysis/overview.png" alt-text="Spatial Analysis overview":::
 
-This diagram shows how the signals flow in this tutorial. An [edge module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the `CognitiveServicesVisionProcessor` node.
+This diagram shows how the signals flow in this tutorial. An [edge module](https://github.com/Azure/video-analyzer/tree/main/utilities/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the `CognitiveServicesVisionProcessor` node.
 
 The `CognitiveServicesVisionProcessor` node plays the role of a proxy. It converts the video frames to the specified image type. Then it relays the image over **shared memory** to another edge module that runs AI operations behind a gRPC endpoint. In this example, that edge module is the spatial-analysis module. The `CognitiveServicesVisionProcessor` node does two things:
 
@@ -105,7 +105,7 @@ Follow [these steps](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) t
     AVA_PROVISIONING_TOKEN="<The provisioning token>"  
     VIDEO_INPUT_FOLDER_ON_DEVICE="/home/localedgeuser/samples/input"  
     VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"
-    APPDATA_FOLDER_ON_DEVICE="/var/lib/VideoAnalyzer" 
+    APPDATA_FOLDER_ON_DEVICE="/var/lib/Videoanalyzer" 
     ```
     
 ## Set up deployment template  
@@ -164,18 +164,18 @@ Follow these steps to generate the manifest from the template file and then depl
 1. Next to the `AZURE IOT HUB` pane, select the More actions icon to set the IoT Hub connection string. You can copy the string from the `src/cloud-to-device-console-app/appsettings.json` file.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/connection-string.png" alt-text="Spatial Analysis: connection string":::
+    > :::image type="content" source="./media/vscode-common-screenshots/set-connection-string.png" alt-text="Spatial Analysis: connection string":::
     
 1. Right-click `src/edge/deployment.spatialAnalysis.template.json` and select Generate IoT Edge Deployment Manifest.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/deployment-template-json.png" alt-text="Spatial Analysis: deployment amd64 json":::
+    > :::image type="content" source="./media/spatial-analysis/generate-deployment-manifest.png" alt-text="Spatial Analysis: deployment amd64 json":::
       
    This action should create a manifest file named `deployment.spatialAnalysis.amd64.json` in the src/edge/config folder.
 1. Right-click `src/edge/config/deployment.spatialAnalysis.amd64.json`, select **Create Deployment for Single Device**, and then select the name of your edge device.
    
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/deployment-amd64-json.png" alt-text="Spatial Analysis: deployment template json":::   
+    > :::image type="content" source="./media/spatial-analysis/deployment-single-device.png" alt-text="Spatial Analysis: deploy to single device":::   
     
 1. At the top of the page,  you will be prompted to select an IoT Hub device, choose your Azure Stack Edge name from the drop-down menu.
 1. After about 30-seconds, in the lower-left corner of the window, refresh **AZURE IOT HUB** pane. The edge device now shows the following deployed modules:
@@ -202,23 +202,21 @@ To see these events, follow these steps:
 1. Right-click and select **Extension Settings**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/run-program/extensions-tab.png" alt-text="Extension Settings":::
+    > :::image type="content" source="./media/vscode-common-screenshots/extension-settings.png" alt-text="Extension Settings":::
     
 1. Search and enable “Show Verbose Message”.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
+    > :::image type="content" source="./media/vscode-common-screenshots/verbose-message.png" alt-text="Show Verbose Message":::
     
-1. Open the Explorer pane and look for Azure IoT Hub in the lower-left corner.
-1. Expand the Devices node.
-1. Right-click on your Azure Stack Edge and select Start Monitoring Built-in Event Endpoint.
+1. Open the Explorer pane and look for **AZURE IOT HUB** in the lower-left corner, right click and select Start Monitoring Built-in Event Endpoint.
    
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/start-monitoring.png" alt-text="Spatial Analysis: start monitoring":::
+    > :::image type="content" source="./media/vscode-common-screenshots/start-monitoring.png" alt-text="Spatial Analysis: start monitoring":::
     
 ## Run the program
 
-There is a program.cs which will invoke the direct methods in src/cloud-to-device-console-app/operations.json. We need to setup operations.json and provide a pipelineTopology for pipeline use.  
+There is a program.cs which will invoke the direct methods in `src/cloud-to-device-console-app/operations.json`. We need to setup operations.json and provide a pipelineTopology for pipeline use.  
 
 In operations.json:
 
@@ -228,7 +226,7 @@ In operations.json:
 {
     "opName": "pipelineTopologySet",
     "opParams": {
-        "topologyUrl": "https://raw.githubusercontent.com/Azure/azure-video-analyzer/master/pipelines/topologies/ava-spatial-analysis/topology.json"
+        "topologyUrl": "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/topology.json"
     }
 },
 ```
@@ -238,10 +236,10 @@ In operations.json:
 {
     "opName": "livePipelineSet",
     "opParams": {
-        "name": "Sample-Graph-1",
+        "name": "Sample-Pipeline-1",
         "properties": {
             "topologyName": "InferencingWithCVExtension",
-            "description": "Sample graph description",
+            "description": "Sample pipeline description",
             "parameters": [
                 {
                     "name": "rtspUrl",
@@ -369,16 +367,16 @@ Sample output for personZoneEvent (from `SpatialAnalysisPersonZoneCrossingOperat
 
 #### Parameters:
 
-| Name    | Type   | Description   |   |   |
-|---------|--------|---------------|---|---|
-| zones   | list   | List of zones.|   |   |
-| name    | string | Friendly name for this zone.|   |   |
-| polygon | string | Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are tracked or counted. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. threshold 	 float 	Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 48 when type is zonecrossing and 16 when time is DwellTime. These are the recommended values to achieve maximum accuracy. |   |   |
-| eventType    | string | For cognitiveservices.vision.spatialanalysis-personcrossingpolygon this should be zonecrossing or zonedwelltime.|   |   |
-| trigger    | string | The type of trigger for sending an event. Supported Values: "event": fire when someone enters or exits the zone.|   |   |
-| focus    | string | The point location within person's bounding box used to calculate events. Focus's value can be footprint (the footprint of person), bottom_center (the bottom center of person's bounding box), center (the center of person's bounding box). The default value is footprint.|   |   |
-| enableFaceMaskClassifier    | boolean | true to enable detecting people wearing face masks in the video stream, false to disable it. By default this is disabled. Face mask detection requires input video width parameter to be 1920 "INPUT_VIDEO_WIDTH": 1920. The face mask attribute will not be return.|   |   |
-| detectorNodeConfiguration    | string | The DETECTOR_NODE_CONFIG parameters for all Spatial Analysis operations.|   |   |
+| Name    | Type   | Description   |
+|---------|--------|---------------|
+| zones   | list   | List of zones.|
+| name    | string | Friendly name for this zone.|
+| polygon | string | Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are tracked or counted. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. threshold 	 float 	Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 48 when type is zonecrossing and 16 when time is DwellTime. These are the recommended values to achieve maximum accuracy. |
+| eventType    | string | For cognitiveservices.vision.spatialanalysis-personcrossingpolygon this should be zonecrossing or zonedwelltime.|
+| trigger    | string | The type of trigger for sending an event. Supported Values: "event": fire when someone enters or exits the zone.|
+| focus    | string | The point location within person's bounding box used to calculate events. Focus's value can be footprint (the footprint of person), bottom_center (the bottom center of person's bounding box), center (the center of person's bounding box). The default value is footprint.|
+| enableFaceMaskClassifier    | boolean | true to enable detecting people wearing face masks in the video stream, false to disable it. By default this is disabled. Face mask detection requires input video width parameter to be 1920 "INPUT_VIDEO_WIDTH": 1920. The face mask attribute will not be return.|
+| detectorNodeConfiguration    | string | The DETECTOR_NODE_CONFIG parameters for all Spatial Analysis operations.|
 
 #### Output:
 
@@ -437,16 +435,16 @@ Sample output for personZoneEvent (from `SpatialAnalysisPersonZoneCrossingOperat
 
 #### Parameters:
 
-| Name    | Type   | Description   |   |   |
-|---------|--------|---------------|---|---|
-| lines   | list   | List of lines.|   |   |
-| name    | string | Friendly name for this line.|   |   |
-| line | string | Each value pair represents the starting and ending point of the line. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. |   |   |
-| outputFrequency    | int | The rate at which events are egressed. When output_frequency = X, every X event is egressed, ex. output_frequency = 2 means every other event is output. The output_frequency is applicable to both event and interval.|   |   |
-| focus    | string | The point location within person's bounding box used to calculate events. Focus's value can be footprint (the footprint of person), bottom_center (the bottom center of person's bounding box), center (the center of person's bounding box). The default value is footprint.|   |   |
-| threshold    | float | 	Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 16. This is the recommended value to achieve maximum accuracy.|   |   |
-| enableFaceMaskClassifier    | boolean | true to enable detecting people wearing face masks in the video stream, false to disable it. By default this is disabled. Face mask detection requires input video width parameter to be 1920 "INPUT_VIDEO_WIDTH": 1920. The face mask attribute will not be return.|   |   |
-| detectorNodeConfiguration    | string | The DETECTOR_NODE_CONFIG parameters for all Spatial Analysis operations.|   |   |
+| Name    | Type   | Description   |
+|---------|--------|---------------|
+| lines   | list   | List of lines.|
+| name    | string | Friendly name for this line.|
+| line | string | Each value pair represents the starting and ending point of the line. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. |
+| outputFrequency    | int | The rate at which events are egressed. When output_frequency = X, every X event is egressed, ex. output_frequency = 2 means every other event is output. The output_frequency is applicable to both event and interval.|
+| focus    | string | The point location within person's bounding box used to calculate events. Focus's value can be footprint (the footprint of person), bottom_center (the bottom center of person's bounding box), center (the center of person's bounding box). The default value is footprint.|
+| threshold    | float | 	Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 16. This is the recommended value to achieve maximum accuracy.|
+| enableFaceMaskClassifier    | boolean | true to enable detecting people wearing face masks in the video stream, false to disable it. By default this is disabled. Face mask detection requires input video width parameter to be 1920 "INPUT_VIDEO_WIDTH": 1920. The face mask attribute will not be return.|
+| detectorNodeConfiguration    | string | The DETECTOR_NODE_CONFIG parameters for all Spatial Analysis operations.|
 
 #### Output:
 ```json
@@ -500,20 +498,20 @@ Sample output for personZoneEvent (from `SpatialAnalysisPersonZoneCrossingOperat
 
 #### Parameters:
 
-| Name    | Type   | Description    |   |   |
-|---------|--------|----------------|---|---|
-| zones   | list   | List of zones.|   |   |
-| name    | string | Friendly name for this zone.|   |   |
-| polygon | string | Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are tracked or counted. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. threshold 	 float 	Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 48 when type is zonecrossing and 16 when time is DwellTime. These are the recommended values to achieve maximum accuracy. |   |   |
-| outputFrequency    | int | The rate at which events are egressed. When output_frequency = X, every X event is egressed, ex. output_frequency = 2 means every other event is output. The output_frequency is applicable to both event and interval.|   |   |
-| focus    | string | The point location within person's bounding box used to calculate events. Focus's value can be footprint (the footprint of person), bottom_center (the bottom center of person's bounding box), center (the center of person's bounding box). The default value is footprint.|   |   |
-| threshold    | float | Events are egressed when the person is greater than this number of pixels inside the zone.|   |   |
-| outputFrequency    | int | The rate at which events are egressed. When output_frequency = X, every X event is egressed, ex. output_frequency = 2 means every other event is output. The output_frequency is applicable to both event and interval.|   |   |
-| minimumDistanceThreshold    | float | A distance in feet that will trigger a "TooClose" event when people are less than that distance apart.|   |   |
-| maximumDistanceThreshold    | float | A distance in feet that will trigger a "TooFar" event when people are greater than that distance apart.|   |   |
-| aggregationMethod    | string | The method for aggregate persondistance result. The aggregationMethod is applicable to both mode and average.|   |   |
-| enableFaceMaskClassifier    | boolean | true to enable detecting people wearing face masks in the video stream, false to disable it. By default this is disabled. Face mask detection requires input video width parameter to be 1920 "INPUT_VIDEO_WIDTH": 1920. The face mask attribute will not be return.|   |   |
-| detectorNodeConfiguration    | string | The DETECTOR_NODE_CONFIG parameters for all Spatial Analysis operations.|   |   |
+| Name    | Type   | Description    |
+|---------|--------|----------------|
+| zones   | list   | List of zones.|
+| name    | string | Friendly name for this zone.|
+| polygon | string | Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are tracked or counted. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. threshold 	 float 	Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 48 when type is zonecrossing and 16 when time is DwellTime. These are the recommended values to achieve maximum accuracy. |
+| outputFrequency    | int | The rate at which events are egressed. When output_frequency = X, every X event is egressed, ex. output_frequency = 2 means every other event is output. The output_frequency is applicable to both event and interval.|
+| focus    | string | The point location within person's bounding box used to calculate events. Focus's value can be footprint (the footprint of person), bottom_center (the bottom center of person's bounding box), center (the center of person's bounding box). The default value is footprint.|
+| threshold    | float | Events are egressed when the person is greater than this number of pixels inside the zone.|
+| outputFrequency    | int | The rate at which events are egressed. When output_frequency = X, every X event is egressed, ex. output_frequency = 2 means every other event is output. The output_frequency is applicable to both event and interval.|
+| minimumDistanceThreshold    | float | A distance in feet that will trigger a "TooClose" event when people are less than that distance apart.|
+| maximumDistanceThreshold    | float | A distance in feet that will trigger a "TooFar" event when people are greater than that distance apart.|
+| aggregationMethod    | string | The method for aggregate persondistance result. The aggregationMethod is applicable to both mode and average.|
+| enableFaceMaskClassifier    | boolean | true to enable detecting people wearing face masks in the video stream, false to disable it. By default this is disabled. Face mask detection requires input video width parameter to be 1920 "INPUT_VIDEO_WIDTH": 1920. The face mask attribute will not be return.|
+| detectorNodeConfiguration    | string | The DETECTOR_NODE_CONFIG parameters for all Spatial Analysis operations.|
 
 #### Output:
 ```json
@@ -545,17 +543,17 @@ Sample output for personZoneEvent (from `SpatialAnalysisPersonZoneCrossingOperat
 
 #### Parameters:
 
-| Name    | Type   | Description  |   |   |
-|---------|--------|--------------|---|---|
-| zones   | list   | List of zones.|   |   |
-| name    | string | Friendly name for this zone.|   |   |
-| polygon | string | Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are tracked or counted. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. threshold 	 float 	Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 48 when type is zonecrossing and 16 when time is DwellTime. These are the recommended values to achieve maximum accuracy. |   |   |
-| outputFrequency    | int | The rate at which events are egressed. When output_frequency = X, every X event is egressed, ex. output_frequency = 2 means every other event is output. The output_frequency is applicable to both event and interval.|   |   |
-| trigger    | string | The type of trigger for sending an event. Supported values are event for sending events when the count changes or interval for sending events periodically, irrespective of whether the count has changed or not.|   |   |
-| focus    | string | The point location within person's bounding box used to calculate events. Focus's value can be footprint (the footprint of person), bottom_center (the bottom center of person's bounding box), center (the center of person's bounding box). The default value is footprint.|   |   |
-| threshold    | float | Events are egressed when the person is greater than this number of pixels inside the zone.|   |   |
-| enableFaceMaskClassifier    | boolean | true to enable detecting people wearing face masks in the video stream, false to disable it. By default this is disabled. Face mask detection requires input video width parameter to be 1920 "INPUT_VIDEO_WIDTH": 1920. The face mask attribute will not be return.|   |   |
-| detectorNodeConfiguration    | string | The DETECTOR_NODE_CONFIG parameters for all Spatial Analysis operations.|   |   |
+| Name    | Type   | Description  |
+|---------|--------|--------------|
+| zones   | list   | List of zones.|
+| name    | string | Friendly name for this zone.|
+| polygon | string | Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are tracked or counted. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. threshold 	 float 	Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 48 when type is zonecrossing and 16 when time is DwellTime. These are the recommended values to achieve maximum accuracy. |
+| outputFrequency    | int | The rate at which events are egressed. When output_frequency = X, every X event is egressed, ex. output_frequency = 2 means every other event is output. The output_frequency is applicable to both event and interval.|
+| trigger    | string | The type of trigger for sending an event. Supported values are event for sending events when the count changes or interval for sending events periodically, irrespective of whether the count has changed or not.|
+| focus    | string | The point location within person's bounding box used to calculate events. Focus's value can be footprint (the footprint of person), bottom_center (the bottom center of person's bounding box), center (the center of person's bounding box). The default value is footprint.|
+| threshold    | float | Events are egressed when the person is greater than this number of pixels inside the zone.|
+| enableFaceMaskClassifier    | boolean | true to enable detecting people wearing face masks in the video stream, false to disable it. By default this is disabled. Face mask detection requires input video width parameter to be 1920 "INPUT_VIDEO_WIDTH": 1920. The face mask attribute will not be return.|
+| detectorNodeConfiguration    | string | The DETECTOR_NODE_CONFIG parameters for all Spatial Analysis operations.|
 
 #### Output:
 ```json
@@ -607,9 +605,9 @@ Sample output for personZoneEvent (from `SpatialAnalysisPersonZoneCrossingOperat
 
 #### Parameters:
 
-| Name    | Type   | Description   |   |   |
-|---------|--------|---------------|---|---|
-| extensionConfiguration   | string   | JSON representation of the operation.|   |   |
+| Name    | Type   | Description   |
+|---------|--------|---------------|
+| extensionConfiguration   | string   | JSON representation of the operation.|
 
 #### Output:
 ```json
@@ -755,19 +753,19 @@ The spatialanalysis is a large container and its startup time can take up to 60 
 ```
 
 > [!NOTE]
-> You might see the **"media_stream_descriptor_not_received"** messages. These messages show up while the SpatailAnalysis module is starting up and can take upto 30 seconds to get to a running state. Please be patient and you should see the inference event flow through.
+> You might see the **"media_stream_descriptor_not_received"** messages. These messages show up while the SpatailAnalysis module is starting up and can take upto 60 seconds to get to a running state. Please be patient and you should see the inference event flow through.
 
 ## Next steps
 
 Try different operations that the `spatialAnalysis` module offers, please refer to the following pipelineTopologies: 
 
-<!--JK
-1. [personCount](PersonCountOperation.json)
-2. [personDistance](PersonDistanceOperation.json)
-3. [personCrossingLine](PersonCrossingLineOperation.json)
-4. [customOperation](CustomOperation.json)
-5. [personZoneCrossing](PersonZoneCrossing.json)
--->
+
+1. [personCount](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json)
+1. [personDistance](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-distance-pperation-topology.json)
+1. [personCrossingLine](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-line-crossing-operation-topology.json)
+1. [personZoneCrossing](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-zone-crossing-operation-topology.json)  
+1. [customOperation](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/custom-operation-topology.json)
+
 
 > [!Tip]
-> Use a [sample video file](https://lvamedia.blob.core.windows.net/public/2018-03-07.16-50-00.16-55-00.school.G421.mkv) that has more than one person in the frame.
+> Use a **[sample video file](https://lvamedia.blob.core.windows.net/public/2018-03-07.16-50-00.16-55-00.school.G421.mkv)** that has more than one person in the frame.

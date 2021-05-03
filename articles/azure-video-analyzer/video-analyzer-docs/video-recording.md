@@ -30,4 +30,4 @@ Recording policy refers to the policies that dictate the recording start/stop ti
 ## Next steps
 
 - [Tutorial: Continuous video recording and playback](use-continuous-video-recording.md)
-- [Detect motion, record video clips to edge devices]() <!-- TODO: Add link-->  
+- [Detect motion, record video clips to edge devices](detect-motion-record-video-edge-devices.md)  
