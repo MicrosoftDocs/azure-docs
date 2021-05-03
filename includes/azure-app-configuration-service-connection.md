@@ -1,3 +1,11 @@
+---
+author: AlexandraKemperMS
+ms.author: alkemper
+ms.service: azure-app-configuration
+ms.topic: include
+ms.date: 5/03/2021
+---
+
 A [service connection](/azure/devops/pipelines/library/service-endpoints) allows you to access resources in your Azure subscription from your Azure DevOps project.
 
 1. In Azure DevOps, go to the project containing your target pipeline and open the **Project settings** at the bottom left.

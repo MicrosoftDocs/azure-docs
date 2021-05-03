@@ -1,3 +1,11 @@
+---
+author: AlexandraKemperMS
+ms.author: alkemper
+ms.service: azure-app-configuration
+ms.topic: include
+ms.date: 5/03/2021
+---
+
 Assign the proper App Configuration role assignments to the credentials being used within the task so that the task can access the App Configuration store.
 
 1. Navigate to your target App Configuration store. 
