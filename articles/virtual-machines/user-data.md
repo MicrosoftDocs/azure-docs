@@ -4,9 +4,7 @@ description: Allow customer to insert script or other metadata into an Azure vir
 services: virtual-machines-linux
 author: ningk
 manager: rogardle
-ms.service: virtual-machines-linux
-ms.subservice: IMDS
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/30/2021
 ms.author: ningk
@@ -19,7 +17,7 @@ ms.reviewer: azmetadata
 
 User data is a set of script or other metadata,  that will be inserted to an Azure virtual machine at provision time. Any application on the virtual machine can access the user data from the Azure instance metadata service (IMDS) after provision. 
 
-User data is a new version of [custom data](https://docs.microsoft.com/en-us/azure/virtual-machines/custom-data)  and it offers added benefits:
+User data is a new version of [custom data](https://docs.microsoft.com/azure/virtual-machines/custom-data)  and it offers added benefits:
 
 1. User data can be retrieved from Azure instance metadata service(IMDS) after provision.
 
@@ -122,7 +120,7 @@ Using rest API, for VMSS, add 'UserData' to the "virtualMachineProfile" section 
 
 ## Retrieving user data
 
-Applications running inside the VM can retrieve user data from IMDS endpoint. For details, see [IMDS sample code here.](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/instance-metadata-service?tabs=linux#get-user-data
+Applications running inside the VM can retrieve user data from IMDS endpoint. For details, see [IMDS sample code here.](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service?tabs=linux#get-user-data
 )
 
 Customers can retrieve existing value of user data via rest API
@@ -207,4 +205,4 @@ Custom data will continue to work the same way as today. Note you cannot retriev
 
 ## Adding user data to an existing VM 
 
-If you have an existing VM/VMSS without user data, you can still add user data to this VM by using the updating commands,  as described in the ["Updating the User data"](#Updating-User-data) section. Make sure you upgrade to the latest version of ARM API.
+If you have an existing VM/VMSS without user data, you can still add user data to this VM by using the updating commands,  as described in the ["Updating the User data"](#updating-user-data) section. Make sure you upgrade to the latest version of ARM API.
