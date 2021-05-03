@@ -31,9 +31,6 @@ After completing the setup steps, you'll be able to run the simulated live video
 
 [!INCLUDE [resources](./includes/common-includes/azure-resources.md)]
 
-> [!TIP]
-> If you run into issues with Azure resources that get created, review our [troubleshooting guide](./troubleshoot.md) to resolve some commonly encountered issues.
-
 ## Connect the Azure Video Analyzer Visual Studio Code extension to your IoT Hub
 
 To connect the extension to the edge module, you first need to retrieve your connection string. Follow these steps to do so.
