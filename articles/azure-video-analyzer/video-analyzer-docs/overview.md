@@ -12,3 +12,10 @@ Azure Video Analyzer provides a platform to build intelligent video applications
 
 Azure Video Analyzer is designed to be an extensible platform, enabling you to connect different video analysis edge modules (such as Cognitive services containers, custom edge modules built by you with open-source machine learning models or custom models trained with your own data) to it and use them to analyze live video without worrying about the complexity of building and running a live video pipeline.
 
+## Compliance, Privacy and Security
+
+As an important reminder, you must comply with all applicable laws in your use of Video Analyzer, and you may not use Video Analyzer or any Azure service in a manner that violates the rights of others, or that may be harmful to others.
+
+Before processing any videos by Video Analyzer, you must have all the proper rights to use the videos, including, where required by law, all the necessary consents from individuals (if any) in the video/image, for the use, processing, and storage of their data in Video Analyzer and Azure. Some jurisdictions may impose special legal requirements for the collection, online processing, and storage of certain categories of data, such as biometric data. Before using Video Analyzer and Azure for the processing and storage of any data subject to special legal requirements, you must ensure compliance with any such legal requirements that may apply to You.
+
+To learn about compliance, privacy and security in Video Analyzer visit the Microsoft [Trust Center](https://www.microsoft.com/TrustCenter/CloudServices/Azure/default.aspx). For Microsoft's privacy obligations, data handling and retention practices, including how to delete your data, review Microsoft's [Privacy Statement](https://privacy.microsoft.com/PrivacyStatement), the [Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("OST"), and [Data Processing Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). By using Video Analyzer, you agree to be bound by the OST, DPA, and the Privacy Statement.

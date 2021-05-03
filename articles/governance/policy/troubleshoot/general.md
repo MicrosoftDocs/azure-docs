@@ -79,7 +79,7 @@ operate as intended.
 To troubleshoot your policy definition, do the following:
 
 1. First, wait the appropriate amount of time for an evaluation to finish and compliance results
-   to become available in Azure portal or SDK. 
+   to become available in Azure portal or SDK.
 
 1. To start a new evaluation scan with Azure PowerShell or the REST API, see
    [On-demand evaluation scan](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
@@ -98,7 +98,8 @@ To troubleshoot your policy definition, do the following:
    of the definition to the evaluated property value indicates why a resource was noncompliant.
    - If the **target value** is wrong, revise the policy definition.
    - If the **current value** is wrong, validate the resource payload through `resources.azure.com`.
-1. For other common issues and solutions, see [Troubleshoot: Enforcement not as expected](#scenario-enforcement-not-as-expected).
+1. For other common issues and solutions, see
+   [Troubleshoot: Enforcement not as expected](#scenario-enforcement-not-as-expected).
 
 If you still have an issue with your duplicated and customized built-in policy definition or custom
 definition, create a support ticket under **Authoring a policy** to route the issue correctly.
@@ -121,12 +122,11 @@ Activity log.
 
 Troubleshoot your policy assignment's enforcement by doing the following:
 
-1. First, wait the appropriate amount of time for an evaluation to finish and compliance results
-to become available in the Azure portal or the SDK. 
+1. First, wait the appropriate amount of time for an evaluation to finish and compliance results to
+   become available in the Azure portal or the SDK.
 
-1. To start a new evaluation scan with Azure PowerShell
-or the REST API, see
-[On-demand evaluation scan](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
+1. To start a new evaluation scan with Azure PowerShell or the REST API, see
+   [On-demand evaluation scan](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
 1. Ensure that the assignment parameters and assignment scope are set correctly and that
    **enforcementMode** is _Enabled_.
 1. Check the [policy definition mode](../concepts/definition-structure.md#mode):
@@ -138,7 +138,8 @@ or the REST API, see
 1. Verify that the resource payload matches the policy logic. This can be done by
    [capturing an HTTP Archive (HAR) trace](../../../azure-portal/capture-browser-trace.md) or
    reviewing the Azure Resource Manager template (ARM template) properties.
-1. For other common issues and solutions, see [Troubleshoot: Compliance not as expected](#scenario-compliance-isnt-as-expected).
+1. For other common issues and solutions, see
+   [Troubleshoot: Compliance not as expected](#scenario-compliance-isnt-as-expected).
 
 If you still have an issue with your duplicated and customized built-in policy definition or custom
 definition, create a support ticket under **Authoring a policy** to route the issue correctly.

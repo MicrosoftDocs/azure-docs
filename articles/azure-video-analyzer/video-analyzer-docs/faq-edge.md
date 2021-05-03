@@ -16,12 +16,16 @@ This article answers commonly asked questions about Azure Video Analyzer.
 
 | Variable	 |  Description  | 
 | --- | --- | 
-| [System.DateTime](/dotnet/framework/data/adonet/sql/linq/system-datetime-methods) | Represents an instant in UTC time, typically expressed as a date and time of day in the following format:<br>*yyyyMMddTHHmmssZ* | 
-| System.PreciseDateTime | Represents a Coordinated Universal Time (UTC) date-time instance in an ISO8601 file-compliant format with milliseconds, in the following format:<br>*yyyyMMddTHHmmss.fffZ* | 
+| System.Runtime.DateTime | Represents an instant in UTC time, typically expressed as a date and time of day in the following format:<br>*yyyyMMddTHHmmssZ* | 
+| System.Runtime.PreciseDateTime | Represents a Coordinated Universal Time (UTC) date-time instance in an ISO8601 file-compliant format with milliseconds, in the following format:<br>*yyyyMMddTHHmmss.fffZ* | 
 | System.TopologyName	 | Represents the name of the pipeline topology. | 
 | System.PipelineName | Represents the name of the live pipeline. | 
 
 Note: System.DateTime and System.PreciseDateTime cannot be used as part of the name of an Azure Video Analyzer video resource, in a video sink node. These variables can be used in a file sink node, for naming the file.
+
+**What is the privacy policy for Video Analyzer?**
+
+Video Analyzer is covered by the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement). The privacy statement explains the personal data Microsoft processes, how Microsoft processes it, and for what purposes Microsoft processes it. To learn more about privacy, visit the [Microsoft Trust Center](https://www.microsoft.com/trustcenter).
 
 ## Configuration and deployment
 
