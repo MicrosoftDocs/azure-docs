@@ -27,7 +27,7 @@ By building on top of the AI models from Azure Cognitive Services and providing 
 
 ## What is the difference between Applied AI Services and  Cognitive Services? 
  
-Both Applied AI Services and Cognitive Services are designed to help developers create intelligent apps. Cognitive Services provides general purpose AI services that serve the core engine for Applied AI Services.  
+Both Applied AI Services and Cognitive Services are designed to help developers create intelligent apps. Cognitive Services provides general purpose AI services that serve as the core engine for Applied AI Services.  
  
 Applied AI Services build on top of Cognitive Services with additional task-specific AI and business logic to optimize for specific use cases so that developers spend less time designing solutions or setting up pipelines.  
  
