@@ -51,7 +51,7 @@ Follow these instructions to connect to your IoT hub by using the Azure IoT Tool
 1. Select **View** > **Explorer**. Or, select Ctrl+Shift+E.
 1. In the lower-left corner of the **Explorer** tab, select **Azure IoT Hub**.
 1. Select the **More Options** icon to see the context menu. Then select **Set IoT Hub Connection String**.
-1. When an input box appears, enter your IoT Hub connection string. In Cloud Shell, you can get the connection string from `~/clouddrive/lva-sample/appsettings.json`.
+1. When an input box appears, enter your IoT Hub connection string. In Cloud portal, you can get the connection string from app-settings.json file. Assuming your resource deployment above has succeeded, please look for the storage account under the resource group you just created as part of the deployment script. The app-settings.json file can be found under the deployment-output file share within the storage account.
 
 > [!NOTE]
 > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this: `Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>`
@@ -62,11 +62,11 @@ If the connection succeeds, the list of edge devices appears. You should see at 
 > :::image type="content" source="./media/get-started-detect-motion-emit-events/modules-node.png" alt-text="Expand the Modules node":::
 
 > [!TIP]
-> If you have [manually deployed Azure Video Analyzer](deploy-iot-edge-device.md) yourselves on an edge device (such as an ARM64 device), then you will see the module show up under that device, under the Azure IoT Hub. You can select that module, and follow the rest of the steps below.
+> If you have [manually deployed Video Analyzer](deploy-iot-edge-device.md) yourselves on an edge device (such as an ARM64 device), then you will see the module show up under that device, under the Azure IoT Hub. You can select that module, and follow the rest of the steps below.
 
 ## Use direct method calls
 
-You can use the module to analyze live video streams by invoking direct methods. For more information, see [Direct methods for Azure Video Analyzer](direct-methods.md)
+You can use the module to analyze live video streams by invoking direct methods. For more information, see [Direct methods for Video Analyzer](direct-methods.md)
 
 ### Invoke pipelineTopologyList
 
@@ -367,7 +367,7 @@ Invoke the direct method `livePipelineSet` by using the following payload.
     "name": "mdpipeline1",
     "properties": {
         "topologyName": "MotionDetection",
-        "description": "Sample graph description",
+        "description": "Sample pipeline description",
         "parameters": [
             {
                 "name": "rtspUrl",
@@ -389,7 +389,7 @@ Invoke the direct method `livePipelineSet` by using the following payload.
 Notice that this payload:
 
 * Specifies the topology name (`MotionDetection`) for which the live pipeline is created from.
-* Contains a parameter value for parameters which didn't have a default value in the graph topology payload. This value is a link to the below sample video:
+* Contains a parameter value for parameters which didn't have a default value in the topology payload. This value is a link to the below sample video:
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LTY4]
 
@@ -407,7 +407,7 @@ Within few seconds, you see the following response in the **OUTPUT** window:
     "name": "mdpipeline1",
     "properties": {
       "state": "Inactive",
-      "description": "Sample graph description",
+      "description": "Sample pipeline description",
       "topologyName": "MotionDetection",
       "parameters": [
         {
@@ -485,7 +485,7 @@ Within a few seconds, you see the following response in the OUTPUT window.
     "name": "mdpipeline1",
     "properties": {
       "state": "Active",
-      "description": "Sample graph description",
+      "description": "Sample pipeline description",
       "topologyName": "MotionDetection",
       "parameters": [
         {
@@ -591,7 +591,7 @@ Invoke the direct method `livePipelineDelete` by using the following payload.
 }
 ```
 
-Within a few seconds, you see the following response in the **OUTPUT** window:
+Within a few seconds, you see the following response in the *grpah *OUTPUT** window:
 
 ```json
 {
@@ -601,13 +601,13 @@ Within a few seconds, you see the following response in the **OUTPUT** window:
 ```
 A status code of 200 indicates that the live pipeline was successfully deleted.
 
-Because we also created the pipeline called Sample-Graph-2 we cannot delete the pipeline topology. 
-Invoke the direct method livePipelineDelete by using the following payload to delete the pipeline called Sample-Graph-2:
+Because we also created the pipeline called mdpipeline2 we cannot delete the pipeline topology. 
+Invoke the direct method livePipelineDelete by using the following payload to delete the pipeline called mdpipeline2:
 
 ```
 {
     "@apiVersion" : "1.0",
-    "name" : "Sample-Graph-2"
+    "name" : "mdpipeline2"
 }
 ```
 
