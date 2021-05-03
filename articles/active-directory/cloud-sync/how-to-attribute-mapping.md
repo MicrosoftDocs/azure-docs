@@ -3,11 +3,11 @@ title: 'Attribute mapping in Azure AD Connect cloud sync'
 description: This article describes how to use the cloud sync feature of Azure AD Connect to map attributes.
 services: active-directory
 author: billmath
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/03/2021
+ms.date: 04/30/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
