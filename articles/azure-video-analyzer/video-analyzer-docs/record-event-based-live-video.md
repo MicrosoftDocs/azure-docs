@@ -142,7 +142,7 @@ The deployment manifest defines what modules are deployed to an edge device and 
 Using Visual Studio Code, follow [these instructions](../../iot-edge/tutorial-develop-for-linux.md#build-and-push-your-solution) to sign in to Docker. Then select **Build and Push IoT Edge Solution**. Use src/edge/deployment.objectCounter.template.json for this step.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/event-based-video-recording-tutorial/build-push.png" alt-text="Build and push IoT Edge solution":::
+> :::image type="content" source="./media/event-based-video-recording/build-push.png" alt-text="Build and push IoT Edge solution":::
 
 This action builds the objectCounter module for object counting and pushes the image to your Azure Container Registry.
 
@@ -404,10 +404,10 @@ You can examine the Video Analyzer video resource that was created by the live p
 1. On the video details page, select playback option <!-- TODO: fix this-->
 
     <!--TODO: add image -- ![Video playback]() TODO: new screenshot is needed here -->
-1. For more information on scrubbing the video to see the entire recording, see [video playback](add-valid-link.md)
+
 
 > [!NOTE]
-> Because the source of the video was a container simulating a camera feed, the time stamps in the video are related to when you activated the live pipeline and when you deactivated it. To see how to browse a multiday recording and view portions of that archive, see the [Playback of multi-day recordings](add-valid-link.md) tutorial. In that tutorial, you also can see the time stamps in the video displayed onscreen.
+> Because the source of the video was a container simulating a camera feed, the time stamps in the video are related to when you activated the live pipeline and when you deactivated it.
 > 
 ## Clean up resources
 
