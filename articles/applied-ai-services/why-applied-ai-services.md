@@ -22,7 +22,7 @@ By building on top of the AI models from Azure Cognitive Services and providing 
 ## Benefits: ​​
 -	Modernize business process – Use task specific AI to solve your scenario
 -	Accelerate development – Go live with your AI solutions quickly
--	Run responsibly anywhere – Enterprise-grade responsible and secure services on the cloud and to the edge 
+-	Run responsibly anywhere – Enterprise-grade responsible and secure services from the cloud to the edge 
  
 
 ## What is the difference between Applied AI Services and  Cognitive Services? 
