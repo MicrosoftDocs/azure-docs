@@ -92,7 +92,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 3. Create a reference to the custom UI to hide the input box, under the BuildingBlocks resource.
 
-    ```
+    ```XML
     <ContentDefinitions> 
 
         <ContentDefinition Id="api.selfasserted"> 
@@ -108,7 +108,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 4. Add the following claims under the BuildingBlocks resource.
 
-    ```
+    ```XML
     <ClaimsSchema> 
 
           <ClaimType Id="riskLevel"> 
@@ -142,7 +142,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 5. Configure self-asserted claims provider for the client session ID field.
 
-    ```
+    ```XML
     <ClaimsProvider> 
 
           <DisplayName>Client Session ID Claims Provider</DisplayName> 
@@ -186,7 +186,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 6. Configure REST API claims provider for BioCatch. 
 
-    ```
+    ```XML
     <TechnicalProfile Id="BioCatch-API-GETSCORE"> 
 
           <DisplayName>Technical profile for BioCatch API to return session information</DisplayName> 
@@ -243,7 +243,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
    1. If the returned claim *risk* equals *low*, skip the step for MFA, else force user MFA
 
-    ```
+    ```XML
     <OrchestrationStep Order="8" Type="ClaimsExchange"> 
 
               <ClaimsExchanges> 
@@ -292,7 +292,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
     It is useful to pass the BioCatch returned information to your application as claims in the token, specifically *risklevel* and *score*.
 
-    ```
+    ```XML
     <RelyingParty> 
 
         <DefaultUserJourney ReferenceId="SignUpOrSignInMfa" /> 
@@ -369,7 +369,7 @@ Follow these steps to add the policy files to Azure AD B2C
 
 4. Go through sign-up flow and create an account. Token returned to JWT.MS should have 2x claims for riskLevel and score. Follow the example.  
 
-    ```
+    ```XML
     { 
 
       "typ": "JWT", 
