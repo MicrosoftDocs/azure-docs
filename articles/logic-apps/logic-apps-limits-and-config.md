@@ -10,7 +10,7 @@ ms.date: 05/03/2021
 
 # Limits and configuration information for Azure Logic Apps
 
-This article describes the limits and configuration information for Azure Logic Apps and related resources. Many limits apply to both the multi-tenant and single-tenant Logic Apps service with noted exceptions when they exist. For Power Automate, see [Limits and configuration in Power Automate](/flow/limits-and-config).
+This article describes the limits and configuration information for Azure Logic Apps and related resources. Many limits apply to both the multi-tenant and single-tenant (preview) Logic Apps service with noted exceptions when they exist. For Power Automate, see [Limits and configuration in Power Automate](/flow/limits-and-config).
 
 <a name="definition-limits"></a>
 
@@ -54,9 +54,9 @@ The following table lists the limits for a single workflow run:
 
 The same setting controls the maximum number of days that a workflow can run and for keeping run history in storage. To change the default or current limit for these properties, follow these steps.
 
-* For logic apps in the multi-tenant and single-tenant Logic Apps service, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
+* For the multi-tenant and single-tenant (preview) Logic Apps service, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
 
-* For logic apps in an integration service environment, you can decrease or increase the 90-day default limit.
+* For an integration service environment, you can decrease or increase the 90-day default limit.
 
 For example, suppose that you reduce the retention limit from 90 days to 30 days. A 60-day-old run is removed from the runs history. If you increase the retention period from 30 days to 60 days, a 20-day-old run stays in the runs history for another 40 days.
 
@@ -136,7 +136,7 @@ The following table lists the limits for a single workflow run:
 
 The following table lists the limits for a single workflow definition:
 
-### Multi-tenant & single-tenant Logic Apps service
+### Multi-tenant & single-tenant (preview) Logic Apps service
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
@@ -299,10 +299,10 @@ The following table lists the limits for a single workflow definition:
 
 The following table lists the limits for a single workflow definition:
 
-| Name | Multi-tenant limit | Single-tenant limit | Notes |
-|------|--------------------|---------------------|-------|
-| Maximum number of code characters | 1,024 characters | 100,000 characters | To use the higher limit, create a **Logic App (Preview)** resource type, which runs in single-tenant Logic Apps, either [by using the Azure portal](create-stateful-stateless-workflows-azure-portal.md) or [by using Visual Studio Code and the **Azure Logic Apps (Preview)** extension](create-stateful-stateless-workflows-visual-studio-code.md). |
-| Maximum duration for runing code | 5 seconds | 15 seconds | To use the higher limit, create a **Logic App (Preview)** resource type, which runs in single-tenant Logic Apps, either [by using the Azure portal](create-stateful-stateless-workflows-azure-portal.md) or [by using Visual Studio Code and the **Azure Logic Apps (Preview)** extension](create-stateful-stateless-workflows-visual-studio-code.md). |
+| Name | Multi-tenant limit | Single-tenant limit (preview) | Notes |
+|------|--------------------|-------------------------------|-------|
+| Maximum number of code characters | 1,024 characters | 100,000 characters | To use the higher limit, create a **Logic App (Preview)** resource type, which runs in single-tenant (preview) Logic Apps, either [by using the Azure portal](create-stateful-stateless-workflows-azure-portal.md) or [by using Visual Studio Code and the **Azure Logic Apps (Preview)** extension](create-stateful-stateless-workflows-visual-studio-code.md). |
+| Maximum duration for runing code | 5 seconds | 15 seconds | To use the higher limit, create a **Logic App (Preview)** resource type, which runs in single-tenant (preview) Logic Apps, either [by using the Azure portal](create-stateful-stateless-workflows-azure-portal.md) or [by using Visual Studio Code and the **Azure Logic Apps (Preview)** extension](create-stateful-stateless-workflows-visual-studio-code.md). |
 |||||
 
 <a name="custom-connector-limits"></a>
