@@ -94,7 +94,7 @@ The following RoboCopy command will copy only the differences (updated files and
 [!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
 
 > [!TIP]
-> [Check out the Troubleshooting section](#troubleshoot) if RoboCopy is impacting your production environment, reports lots of errors or is not progressing as fast as expected.
+> [Check out the Troubleshooting section](#troubleshoot-and-optimize) if RoboCopy is impacting your production environment, reports lots of errors or is not progressing as fast as expected.
 
 ## Phase 5: User cut-over
 
