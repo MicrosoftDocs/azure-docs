@@ -16,7 +16,7 @@ To support clusters that span across Availability Zones, Service Fabric deploys 
 
 Sample templates are available at [Service Fabric cross availability zone templates](https://github.com/Azure-Samples/service-fabric-cluster-templates).
 
-## Recommended topology for the primary node type
+## Recommended topology for primary Node Type of Azure Service Fabric clusters spanning across Availability Zones
 
 To span a Service Fabric cluster across Availability Zones, you must create a primary node type in each Availability Zone supported by the region. This distributes seed nodes evenly across each of the primary node types.
 
@@ -218,7 +218,7 @@ To enable a zone on a virtual machine scale set, include the following three val
 }
 ```
 
-### Enabling multiple primary Node Types in the Service Fabric Cluster resource
+### Enable multiple primary Node Types in the Service Fabric Cluster resource
 
 To set one or more Node Types as primary in a cluster resource, set the `isPrimary` property to `true`. When you deploy a Service Fabric cluster across Availability Zones, you should have three node types in distinct zones.
 
@@ -466,7 +466,7 @@ For all migration scenarios, you need to add a new Node Type that supports multi
 [Scale up a Service Fabric cluster primary node type](./service-fabric-scale-up-primary-node-type.md) includes detailed steps to add a new Node Type and the other resources required for the new Node Type, such as IP and Load Balancer resources. That article also describes how to retire the existing Node Type after a new Node Type with multiple Availability Zones is added to the cluster.
 
 * Migration from a Node Type that uses basic Load Balancer and IP resources:
-    This process is already described in [a previous section](#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) for the solution with one Node Type per Availability Zone.
+    This process is already described in [a previous section](#migrate-to-availability-zones-from-a-cluster-by-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) for the solution with one Node Type per Availability Zone.
 
     For the new Node Type, the only difference is that there's only one virtual machine scale set and one Node Type for all Availability Zones instead of one each per Availability Zone.
 * Migration from a Node Type that uses the Standard SKU Load Balancer and IP resources with an NSG:
