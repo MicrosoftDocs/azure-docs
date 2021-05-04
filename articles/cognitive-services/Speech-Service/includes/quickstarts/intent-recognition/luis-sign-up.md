@@ -34,12 +34,12 @@ Here's where you can find this information in the [LUIS preview portal](https://
     > [!div class="mx-imgBorder"]
     > ![Publish LUIS to endpoint](../../../media/luis/publish-app-popup.png)
 
-3. From the LUIS preview portal, select **Manage**, then select **Azure Resources**. On this page, you'll find your LUIS key and location (sometimes referred to as _region_).
+3. From the LUIS preview portal, select **Manage**, then select **Azure Resources**. On this page, you'll find your LUIS key and location (sometimes referred to as _region_) for your LUIS prediction resource.
 
    > [!div class="mx-imgBorder"]
    > ![LUIS key and location](../../../media/luis/luis-key-region.png)
 
-4. After you've got your key and location, you'll need the app ID. Select **Settings** -- your app ID is available on this page.
+4. After you've got your key and location, you'll need the app ID. Select **Settings**. your app ID is available on this page.
 
    > [!div class="mx-imgBorder"]
    > ![LUIS app ID](../../../media/luis/luis-app-id.png)
