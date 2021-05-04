@@ -28,13 +28,12 @@ Read these articles before you begin:
 ## Prerequisites
 
 Prerequisites for this tutorial are:
-
+[!INCLUDE [prerequisites](./includes/common-includes/csharp-prerequisites.md)]
 
 ## Set up Azure resources
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
-
-
+[!INCLUDE [resources](./includes/common-includes/azure-resources.md)]
 
 ## Overview
 
@@ -71,7 +70,7 @@ In this tutorial, you will:
 1. Clean up resources.
 
 ## Set up your development environment
-
+[!INCLUDE [setup development environment](./includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)]
 
 ## Examine the sample files
 
