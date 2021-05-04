@@ -58,10 +58,10 @@ On the [Defender for IoT portal](https://portal.azure.com/#blade/Microsoft_Azure
 
     :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sites-and-sensors.png" alt-text="Select the sites and sensors page to view all of the associated sensors.":::
 
-    - the sensor name assigned during onboarding.
-    - the connection type (cloud connected or locally managed)
-    - the zone associated with the sensor.
-    - The sensor version installed
+    - The sensor name assigned during onboarding.
+    - The connection type (cloud connected or locally managed).
+    - The zone associated with the sensor.
+    - The sensor version installed.
     - The sensor connection status to the cloud.
     - The last time the sensor was detected connecting to the cloud.
 
