@@ -25,10 +25,8 @@ The solution described in this article will allow you to gather and analyze hist
 
 Before you can set up a relationship with Time Series Insights, you'll need to set up the following resources:
 * An **IoT hub**. For instructions, see the [Create an IoT Hub](../iot-hub/quickstart-send-telemetry-cli.md#create-an-iot-hub) section of the *IoT Hub's Send Telemetry* quickstart.
-* An **Azure Digital Twins instance**.
-For instructions, see [How-to: Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md).
-* A **model and a twin in the Azure Digital Twins instance**.
-You'll need to update twin's information a few times to see that data tracked in Time Series Insights. For instructions, see the [Add a model and twin](how-to-ingest-iot-hub-data.md#add-a-model-and-twin) section of the *How to: Ingest IoT hub* article.
+* An **Azure Digital Twins instance**. For instructions, see [How-to: Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md).
+* A **model and a twin in the Azure Digital Twins instance**. You'll need to update twin's information a few times to see that data tracked in Time Series Insights. For instructions, see the [Add a model and twin](how-to-ingest-iot-hub-data.md#add-a-model-and-twin) section of the *How to: Ingest IoT hub* article.
 
 > [!TIP]
 > In this article, the changing digital twin values that are viewed in Time Series Insights are updated manually for simplicity. However, if you want to complete this article with live simulated data, you can set up an Azure function that updates digital twins based on IoT telemetry events from a simulated device. For instructions, follow [How to: Ingest IoT Hub data](how-to-ingest-iot-hub-data.md), including the final steps to run the device simulator and validate that the data flow works.
