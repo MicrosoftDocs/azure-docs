@@ -160,7 +160,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![screenshot for Configure Properties](./media/saba-cloud-tutorial/configure-properties.png) 
     
-    You might need to set **Max Authentication Age (in seconds)** to **7776000 (90 days)** to match the default max rolling age Azure AD allows for a login. Failure to do so could result in the error `(109) Login failed. Please contact system administrator.`
+    You might need to set **Max Authentication Age (in seconds)** to **7776000** (90 days) to match the default max rolling age Azure AD allows for a login. Failure to do so could result in the error `(109) Login failed. Please contact system administrator.`
 
 ### Create Saba Cloud test user
 
