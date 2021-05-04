@@ -13,7 +13,7 @@ The **Azure Storage linked service** allows you to link an Azure storage account
 | type |The type property must be set to: **AzureStorage** |Yes |
 | connectionString |Specify information needed to connect to Azure storage for the connectionString property. |Yes |
 
-For information about how to retrieve the storage account access keys, see [Manage storage account access keys](../articles/storage/common/storage-account-keys-manage.md).
+For information about how to retrieve the storage account access keys, see [Manage storage account access keys](../../../storage/common/storage-account-keys-manage.md).
 
 **Example:**  
 
@@ -30,7 +30,7 @@ For information about how to retrieve the storage account access keys, see [Mana
 ```
 
 ### Azure Storage Sas Linked Service
-A shared access signature (SAS) provides delegated access to resources in your storage account. It allows you to grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to share your account access keys. The SAS is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the SAS, the client only needs to pass in the SAS to the appropriate constructor or method. For more information about SAS, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../articles/storage/common/storage-sas-overview.md).
+A shared access signature (SAS) provides delegated access to resources in your storage account. It allows you to grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to share your account access keys. The SAS is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the SAS, the client only needs to pass in the SAS to the appropriate constructor or method. For more information about SAS, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../../../storage/common/storage-sas-overview.md).
 
 > [!IMPORTANT]
 > Azure Data Factory now only supports **Service SAS** but not Account SAS. Note the SAS URL generable from Azure portal or Storage Explorer is an Account SAS, which is not supported.
