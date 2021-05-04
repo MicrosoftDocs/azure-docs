@@ -20,7 +20,7 @@ This article builds on top of the [Getting Started quickstart](get-started-detec
 
 [![Deploy to Azure](https://camo.githubusercontent.com/bad3d579584bd4996af60a96735a0fdcb9f402933c139cc6c4c4a4577576411f/68747470733a2f2f616b612e6d732f6465706c6f79746f617a757265627574746f6e)](https://aka.ms/ava-click-to-deploy)
 
-[!INCLUDE [resources](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-azure-video-analyzer/articles/azure-video-analyzer/video-analyzer-docs/includes/common-includes/azure-resources.md)]
+[!INCLUDE [resources](./includes/common-includes/azure-resources.md)]
 
 ## Review the sample video
 
