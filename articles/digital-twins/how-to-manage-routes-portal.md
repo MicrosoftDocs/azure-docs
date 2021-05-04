@@ -23,7 +23,7 @@ In Azure Digital Twins, you can route [event notifications](concepts-event-notif
 
 This article walks you through the process of creating endpoints and routes using the [Azure portal](https://portal.azure.com).
 
-Alternatively, you can also manage endpoints and routes with the [Event Routes APIs](/rest/api/digital-twins/dataplane/eventroutes), the [SDKs](how-to-use-apis-sdks.md#overview-data-plane-apis), or the [Azure Digital Twins CLI](how-to-use-cli.md). For a version of this article that uses these mechanisms instead of the portal, see [How-to: Manage endpoints and routes (APIs and CLI)](how-to-manage-routes-apis-cli.md).
+Alternatively, you can also manage endpoints and routes with the [Event Routes APIs](/rest/api/digital-twins/dataplane/eventroutes), the [SDKs](concepts-apis-sdks.md#overview-data-plane-apis), or the [Azure Digital Twins CLI](concepts-cli.md). For a version of this article that uses these mechanisms instead of the portal, see [How-to: Manage endpoints and routes (APIs and CLI)](how-to-manage-routes-apis-cli.md).
 
 ## Prerequisites
 
@@ -99,7 +99,7 @@ Now the event grid, event hub, or Service Bus topic is available as an endpoint 
 
 When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as **dead-lettering**.
 
-In order to create an endpoint with dead-lettering enabled, you must use the [CLI commands](how-to-use-cli.md) or [control plane APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to create your endpoint, rather than the Azure portal.
+In order to create an endpoint with dead-lettering enabled, you must use the [CLI commands](concepts-cli.md) or [control plane APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to create your endpoint, rather than the Azure portal.
 
 For instructions on how to do this with these tools, see the [APIs and CLI](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) version of this article.
 
