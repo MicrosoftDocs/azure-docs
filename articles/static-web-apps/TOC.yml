@@ -77,6 +77,8 @@
       href: add-mongoose.md
     - name: Publish with Azure DevOps
       href: publish-devops.md
+    - name: Publish with an ARM template
+      href: publish-azure-resource-manager.md
 - name: Reference
   items:
     - name: Azure CLI
