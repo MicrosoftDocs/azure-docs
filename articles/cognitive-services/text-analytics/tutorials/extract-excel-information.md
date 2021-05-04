@@ -133,15 +133,19 @@ Click in the **Text** field and select **Description** from the Dynamic content 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/description-from-dynamic-content.png" alt-text="Add Text Analytics settings.":::
 
+Within the **Apply to each**, click **Add an action** and create another **Apply to each** action. Click inside the text box and select **documents** in the Dynamic Content window that appears.
+
+> [!div class="mx-imgBorder"] 
+> :::image type="content" source="../media/tutorials/excel/apply-to-each-documents.png" alt-text="Add apply to each action step for the Text Analytics documents.":::
 
 ## Extract the person name
 
-Next, we will find the person entity type in the Text Analytics output. Within the **Apply to each**, click **Add an action**, and create another **Apply to each** action. Click inside the text box and select **Entities** in the Dynamic Content window that appears.
+Next, we will find the person entity type in the Text Analytics output. Within the **Apply to each 2**, click **Add an action**, and create another **Apply to each** action. Click inside the text box and select **Entities** in the Dynamic Content window that appears.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/add-apply-action-2.png" alt-text="Add Text Analytics credentials to your flow. 2":::
 
-Within the newly created **Apply to each 2** action, click **Add an action**, and add a **Condition** control.
+Within the newly created **Apply to each 3** action, click **Add an action**, and add a **Condition** control.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/create-condition.png" alt-text="Add Text Analytics credentials to your flow. 3":::
@@ -168,12 +172,12 @@ Enter the Excel info, and update the **Key Column**, **Key Value** and **PersonN
 
 ## Get the phone number
 
-Minimize the **Apply to each 2** action by clicking on the name. Then add another **Apply to each** action, like before. it will be named **Apply to each 3**. Select the text box, and add **entities** as the output for this action. 
+Minimize the **Apply to each 3** action by clicking on the name. Then add another **Apply to each** action to **Apply to each 2**, like before. it will be named **Apply to each 4**. Select the text box, and add **entities** as the output for this action. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action-3.png" alt-text="Add Text Analytics credentials to your flow. 8":::
+> :::image type="content" source="../media/tutorials/excel/add-apply-action-phone.png" alt-text="Add Text Analytics credentials to your flow. 8":::
 
-Within **Apply to each 3**, add a **Condition** control. It will be named **Condition 2**. In the first text box, search for, and add **categories** from the Dynamic content window. Be sure the center box is set to **is equal to**. Then, in the right text box, enter `var_phone`. 
+Within **Apply to each 4**, add a **Condition** control. It will be named **Condition 2**. In the first text box, search for, and add **categories** from the Dynamic content window. Be sure the center box is set to **is equal to**. Then, in the right text box, enter `var_phone`. 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/condition-2-options.png" alt-text="Add Text Analytics credentials to your flow. 9":::
@@ -186,10 +190,10 @@ In the **If yes** condition, add an **Update a row** action. Then enter the info
 
 ## Get the plumbing issues
 
-Minimize **Apply to each 3** by clicking on the name. Then create another **Apply to each** in the parent action. Select the text box, and add **Entities** as the output for this action from the Dynamic content window. 
+Minimize **Apply to each 4** by clicking on the name. Then create another **Apply to each** in the parent action. Select the text box, and add **Entities** as the output for this action from the Dynamic content window. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action-4.png" alt-text="Add Text Analytics credentials to your flow. 11":::
+> :::image type="content" source="../media/tutorials/excel/add-apply-action-plumbing.png" alt-text="Add Text Analytics credentials to your flow. 11":::
 
 
 Next, the flow will check if the issue description from the Excel table row contains the word "plumbing". If yes, it will add "plumbing" in the IssueType column. If not, we will enter "other."
