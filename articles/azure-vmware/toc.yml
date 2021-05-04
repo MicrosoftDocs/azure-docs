@@ -32,7 +32,7 @@
     href: tutorial-expressroute-global-reach-private-cloud.md
   - name: 7 - Deploy and configure VMware HCX
     href: tutorial-deploy-vmware-hcx.md
-  - name: 8 - Scale a private cloud
+  - name: 8 - Expand or shrink clusters in a private cloud
     href: tutorial-scale-private-cloud.md
   - name: 9 - Delete a private cloud
     href: tutorial-delete-private-cloud.md
