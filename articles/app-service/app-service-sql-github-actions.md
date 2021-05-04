@@ -10,7 +10,7 @@ ms.custom: github-actions-azure
 
 # Tutorial: Use GitHub Actions to deploy to App Service for Containers and connect to a database 
 
-This tutorial walks you through setting up a GitHub Actions workflow to deploy a containerized ASP.NET Core application with an [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) backend. When you're finished, you have an ASP.NET app running in Azure and connected to SQL Database. You'll first create Azure resources with an ARM template GitHub Actions workflow. 
+This tutorial walks you through setting up a GitHub Actions workflow to deploy a containerized ASP.NET Core application with an [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) backend. When you're finished, you have an ASP.NET app running in Azure and connected to SQL Database. You'll first create Azure resources with an [ARM template](/azure/azure-resource-manager/templates/overview) GitHub Actions workflow. 
 
 In this tutorial, you learn how to:
 
@@ -23,8 +23,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To complete this tutorial:
-
+To complete this tutorial you'll need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A GitHub account. If you don't have one, sign up for [free](https://github.com/join).
@@ -39,7 +38,7 @@ To complete this tutorial:
     https://github.com/Azure-Samples/dotnetcore-containerized-sqldb-ghactions/
     ```
 
-## Create the target resource group
+## Create the resource group
 
 Open the Azure Cloud Shell at https://shell.azure.com. You can alternately use the Azure CLI if you've installed it locally. (For more information on Cloud Shell, see the Cloud Shell Overview.)  
 
