@@ -53,8 +53,14 @@
       href: publish-devops.md
     - name: Configure front-end frameworks and libraries
       href: front-end-frameworks.md
+    - name: Enable monitoring
+      href: monitor.md
+      displayName: Application Insights
     - name: Reset deployment tokens
       href: deployment-token-management.md
+    - name: Troubleshooting errors
+      href: troubleshooting.md
+      displayName: deployment, runtime, errors
 - name: Tutorials
   items:
     - name: Publish from a static site generator
@@ -96,6 +102,6 @@
         - name: Create and publish a static web app with Blazor
           href: /learn/modules/publish-app-service-static-web-app-api-dotnet
     - name: Pricing
-      href: pricing.md
+      href: https://azure.microsoft.com/pricing/details/app-service/static/
     - name: Quotas
       href: quotas.md

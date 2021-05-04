@@ -2,10 +2,10 @@
 title: Deploy template - Azure portal
 description: Learn how to create your first Azure Resource Manager template (ARM template) using the Azure portal, and how to deploy it.
 author: mumian
-ms.date: 03/26/2021
+ms.date: 04/27/2021
 ms.topic: quickstart
 ms.author: jgao
-ms.custom: contperfq1
+ms.custom: contperf-fy21q3
 
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use the Azure portal to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
 ---
