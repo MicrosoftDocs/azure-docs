@@ -38,7 +38,12 @@ When using an Azure Machine Learning workspace with a private endpoint, there ar
 
 ### Introduction
 
-There are two predominant architectures Azure Machine Learning customers should use when accessing their Machine Learning workspace via a Private Endpoint when using a custom DNS solution. While some customers will find final architectures that deviate from the two described here, the example architectures can serve as a reference point to ensure the custom DNS solution is implemented properly – and, if something with the implemented solution is not working, this document can walk through troubleshooting steps that can identify the components in the architecture that may be misconfigured.
+There are two common architectures to use automated DNS server integration with Azure Machine Learning:
+
+* A custom [DNS server hosted in an Azure Virtual Network](#dns-vnet).
+* A custom [DNS server hosted on-premises](#dns-on-premises), connected to Azure Machine Learning through ExpressRoute.
+
+While your architecture may differ from these examples, you can use them as a reference point. Both example architectures provide troubleshooting steps that can help you identify components that may be misconfigured.
 
 ### Workspace DNS resolution path
 
@@ -76,7 +81,7 @@ The Fully Qualified Domains resolve to the following Canonical Names (CNAMEs) ca
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.privatelink.api.ml.azure.us```
 - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.privatelink.notebooks.usgovcloudapi.net```
 
-Those Fully Qualified Domains resolve to the IP addresses of Azure Machine Learning in the region the workspace was created in. However, resolution of the workspace Private Link FQDNs will be overridden when resolving with the Azure DNS Virtual Server IP address in a Virtual Network linked to the Private DNS Zones created as described above.
+The FQDNs resolve to the IP addresses of the Azure Machine Learning workspace in that region. However, resolution of the workspace Private Link FQDNs will be overridden when resolving with the Azure DNS Virtual Server IP address in a Virtual Network linked to the Private DNS Zones created as described above.
 
 ## Manual DNS server integration
 
@@ -156,6 +161,9 @@ The following table shows example IPs from Azure China regions:
 | ----- | ----- |
 | `52882c08-ead2-44aa-af65-08a75cf094bd.workspace.chinaeast2.api.ml.azure.cn` | `10.1.0.5` |
 | `ml-mype-pltest-chinaeast2-52882c08-ead2-44aa-af65-08a75cf094bd.notebooks.chinacloudapi.cn` | `10.1.0.6` |
+
+<a id='dns-vnet'></a>
+
 ## Example: Custom DNS Server hosted in VNet
 
 One architecture uses the common Hub and Spoke virtual network topology, with one Virtual Network hosting the DNS Server, and one Virtual Network containing the Private Endpoint to the Azure Machine Learning workspace and associated compute resources. There must be a valid route between both of those Virtual Networks through a series of peered Virtual Networks. 
@@ -273,6 +281,8 @@ If after running through the above steps you are unable to access the workspace 
     - The compute resource running the troubleshooting commands is not using DNS Server for DNS resolution
     - The Private DNS Zones chosen when creating the Private Endpoint are not linked to the DNS Server VNet
     - Conditional forwarders to Azure DNS Virtual Server IP were not configured correctly
+
+<a id='dns-on-premises'></a>
 
 ## Example: Custom DNS Server hosted on-premises
 
