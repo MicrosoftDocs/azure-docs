@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 05/03/2021
+ms.date: 05/04/2021
 ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: "it-pro, seodec18"
@@ -25,7 +25,7 @@ Add new users or delete existing users from your Azure Active Directory (Azure A
 You can create a new user using the Azure Active Directory portal.
 
 >[!Note]
->The user name and email address properties can contain accent characters, but using them can cause access issues with other Microsoft applications for the user.
+>The user name and email address properties can't contain accent characters.
 
 To add a new user, follow these steps:
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 05/03/2021
+ms.date: 05/04/2021
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
@@ -24,7 +24,7 @@ As you'll see, there's more information available in a user's profile than what 
 ## To add or change profile information
 
 >[!Note]
->The user name and email address properties can contain accent characters, but using them can cause access issues with other Microsoft applications for the user.
+>The user name and email address properties can't contain accent characters.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) in the User Administrator role for the organization.
 
