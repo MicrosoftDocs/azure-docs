@@ -49,7 +49,7 @@ You can use the Azure portal to run a diagnosis of the live pipeline using direc
 1. Look for **Automatic device management**, and then select **IoT Edge**.  
 1. In the list of Edge devices, select the device that you want to diagnose.  
          
-    ![Screenshot of the Azure portal displaying a list of Edge devices](./media/troubleshoot/lva-sample-device.png)
+    ![Screenshot of the Azure portal displaying a list of Edge devices](./media/troubleshoot/ava-sample-device.png)
 1. Check to see whether the response code is *200-OK*. Other response codes for the [IoT Edge runtime](../../iot-edge/iot-edge-runtime.md) include:
     * 400 - The deployment configuration is malformed or invalid.
     * 417 - The device doesn't have a deployment configuration set.
