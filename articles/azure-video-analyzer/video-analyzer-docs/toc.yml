@@ -83,8 +83,6 @@
       href: analyze-live-video-without-recording.md
 - name: How-to guides
   items:
-   - name: Set up your dev environment
-    href: set-up-dev-environment.md #404
   - name: Create a new account
     href: create-video-analyzer-account.md
   - name: Use access policies for playback
