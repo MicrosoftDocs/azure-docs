@@ -59,7 +59,7 @@ Welcome to what's new in Azure Active Directory external identities documentatio
 - [Azure Active Directory B2B collaboration API and customization](customize-invitation-api.md)
 - [Invite internal users to B2B collaboration](invite-internal-users.md)
 - [Microsoft 365 external sharing and Azure Active Directory (Azure AD) B2B collaboration](o365-external-user.md)
-- [Direct federation with AD FS and third-party providers for guest users (preview)](direct-federation.md)
+- [Federation with SAML/WS-Fed identity providers for guest users (preview)](direct-federation.md)
 
 ## January 2021
 
