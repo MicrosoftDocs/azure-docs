@@ -128,7 +128,7 @@ If verification was unsuccessful, you can also redo your own role assignment usi
 
 Test out individual REST API calls on your instance using the Azure Digital Twins CLI commands: 
 * [az dt reference](/cli/azure/dt)
-* [How-to: Use the Azure Digital Twins CLI](how-to-use-cli.md)
+* [Concepts: Azure Digital Twins CLI command set](concepts-cli.md)
 
 Or, see how to connect a client application to your instance with authentication code:
 * [How-to: Write app authentication code](how-to-authenticate-client.md)
