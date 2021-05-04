@@ -3,7 +3,6 @@ title: 'Quickstart: Create a web app on Azure Arc'
 description: Get started with App Service on Azure Arc deploying your first web app.
 ms.topic: quickstart
 ms.date: 05/04/2021
-ms.topic: quickstart
 ---
 
 # Create an App Service app on Azure Arc
@@ -83,7 +82,7 @@ AppServiceConsoleLogs_CL
 | project TimeGenerated, AppName_s, parsedProp.category, parsedProp.eventName, parsedProp.functionName, parsedProp.message, parsedProp.category, parsedProp.functionInvocationId, parsedProp.hostInstanceId, parsedProp.level, parsedProp.LevelId
 ```
 
-Further info about working with Kusto queries can be found [here](../azure/azure-monitor/logs/get-started-queries.md).
+Further info about working with Kusto queries can be found [here](../azure-monitor/logs/get-started-queries.md).
 
 ## (Optional) Deploy a custom container
 
