@@ -105,6 +105,8 @@
     href: playback-recordings-how-to.md
   - name: Configure a signal gate
     href: configure-signal-gate.md #404
+  - name: Managed identity
+    href: managed-identity.md
   - name: Use widgets
     href: use-widgets.md #404
   - name: Monitor and logging
