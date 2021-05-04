@@ -219,12 +219,20 @@ For an example of how to delete all twins at once, download the sample app used 
 
 You can use the runnable code sample below to create a twin, update its details, and delete the twin. 
 
-### Set up the runnable sample
+### Set up sample project files
 
-The snippet uses the [Room.json](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) model definition from [Tutorial: Explore Azure Digital Twins with a sample client app](tutorial-command-line-app.md). You can use this link to go directly to the file, or download it as part of the full [end-to-end sample project](/samples/azure-samples/digital-twins-samples/digital-twins-samples/).
+The snippet uses a sample model definition, [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/Room.json). Use this links to go directly to the file in GitHub. Then, right-click anywhere on the screen, select **Save as** in your browser's right-click menu, ase the following Save As window to save the file as **Room.json**.
 
-Before you run the sample, do the following:
-1. Download the model file, place it in your project, and replace the `<path-to>` placeholder in the code below to tell your program where to find it.
+Next, create a **new console app project** in Visual Studio or your editor of your choice.
+
+Then, copy the following code of the runnable sample into your project:
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs":::
+
+### Configure project
+
+Next, complete the following steps to configure your project code:
+1. Download the model file, place it in your project, and replace the `<path-to>` placeholder in the code to tell your program where to find it.
 2. Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's host name.
 3. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client), the second provides tools to help with authentication against Azure.
 
@@ -238,9 +246,7 @@ You'll also need to set up local credentials if you want to run the sample direc
 
 ### Run the sample
 
-After completing the above steps, you can directly run the following sample code.
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs":::
+Now that you've completed setup, you can run the sample code project.
 
 Here is the console output of the above program: 
 
