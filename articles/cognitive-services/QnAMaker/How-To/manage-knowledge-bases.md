@@ -72,12 +72,12 @@ QnA Maker allows you to manage your knowledge bases by providing access to the k
     If you haven't created the service yet, select **Preview** and **Create a QnA service**.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of bot returning a response](../media/qnamaker-create-publish-knowledge-base/create-qna-service.png)
+    > ![Screenshot of create a new QnA service](../media/qnamaker-create-publish-knowledge-base/create-qna-service.png)
 
     You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to set up the Text Analytics service in your subscription. You should add the Custom question answering feature to the service on creation.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of bot returning a response](../media/qnamaker-how-to-setup-service/select-qna-feature-create-flow.png)
+    > ![Screenshot of selecting additional features](../media/qnamaker-how-to-setup-service/select-qna-feature-create-flow.png)
     
     Remember your Azure Active Directory ID, Subscription, Text Analytics resource name you selected when you created the resource. When you are done creating the resource in the Azure portal, return to the QnA Maker portal, refresh the browser page, and continue to Step 2.
 
