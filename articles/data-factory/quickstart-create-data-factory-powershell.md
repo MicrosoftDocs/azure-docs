@@ -433,7 +433,7 @@ $RunId = Invoke-AzDataFactoryV2Pipeline `
     "target": "CopyFromBlobToBlob"
     ```
 
-[!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
+[!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](includes/data-factory-quickstart-verify-output-cleanup.md)]
 
 ## Next steps
 
