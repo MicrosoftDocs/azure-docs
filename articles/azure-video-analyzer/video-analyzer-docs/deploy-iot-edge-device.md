@@ -7,35 +7,42 @@ ms.date: 04/07/2021
 ---
 # Deploy Azure Video Analyzer on an IoT Edge device
 
-This article lists the steps that will help you deploy Azure Video Analyzer on your IoT Edge device. You would do this, for example, if you have access to a local Linux machine.
-
-> [!NOTE]
-> Support for ARM64 devices is available in Azure Video Analyzer builds `1.0.0` and newer.
-> Support for running Azure IoT Edge runtime on ARM64 devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This article describes how you can deploy the Azure Video Analyzer edge module on your IoT Edge device. It is meant to be used with an edge device that does not have other modules already deployed - such as a local Linux machine with only the IoT Edge runtime installed.
+When you finish the steps in this article you will have a Video Analyzer account and the Video Analyzer module deployed to your IoT Edge device.
 
 ## Prerequisites
 
 * An x86-64 or an ARM64 device running one of the [supported Linux operating systems](../../iot-edge/support.md#operating-systems)
-* Azure subscription to which you have [owner privileges](../../role-based-access-control/built-in-roles.md#owner)
+* An Azure account that has an active subscription
 * [Create and setup IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
 * [Register IoT Edge device](../../iot-edge/how-to-register-device.md)
 * [Install the Azure IoT Edge runtime on Debian-based Linux systems](../../iot-edge/how-to-install-iot-edge.md)
-* [Create an Azure Video Analyzer account](create-video-analyzer-account.md)
 
 
-    * Use one of these regions: East US 2, East US, Central US, North Central US, Japan East, West US, West US 2, West Central US, Canada East, UK South, France Central, France South, Switzerland North, Switzerland West, and Japan West.
-    * It is recommended that you use General-purpose v2 (GPv2) Storage accounts
+## Create resources on IoT Edge device
 
-## Configuring Azure resources and deploying edge modules for Azure Video Analyzer
+The following script will create the mandatory folders, users and groups needed to successfully deploy Video Analyzer on your IoT device.
+
+https://aka.ms/ava/prepare-device
+
+```
+bash -c "$(curl -sL https://aka.ms/ava/prepare-device)"
+```
+
+## Configuring Azure resources and deploying edge modules
 
 Click the **Deploy to Azure** button
 
+> [!WARNING]
+> Do not use this with IoT Edge devices that already have edge modules installed, such as a Percept DK. Also not supported with Azure Stack Edge.
+
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava/click-to-deploy/form)
 
-1. Select your **subscription**1. Select your preferred **region**
-1. Select the **resource group** that your edge device is in 
-1. **Do you need an edge device?**, select ***Use an existing edge device*** from the drop-down menu
-1. Click **Next**
+1. Select your **subscription**
+2. Select your preferred **region**
+3. Select the **resource group** that your edge device is in 
+4. In the dropdown menu for **Do you need an edge device?**, select the ***Use an existing edge device*** option
+5. Click **Next**
 ![Screenshot of initial deployment form](./media/deploy-iot-edge-device/project-details.png)
 
 1. Select the **Existing IoT Hub Name** that your edge device is connected to
