@@ -269,5 +269,5 @@ When you deploy this code snippet to Azure, you need to configure a custom app s
 
 ## Next steps
 
-+ [Develop Functions in VS Code](functions-develop-vs-code.md)
++ [Develop Functions in Visual Studio Code](functions-develop-vs-code.md)
 + [Scale and hosting options](functions-scale.md)
