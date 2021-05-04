@@ -10,8 +10,8 @@
 ---
 
 ## Prerequisites
-- [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/).
-- A local copy of the [Microsoft Azure IoT Samples for C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository that contains the sample code. Use this link to download a copy of the repository: [Download ZIP](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Then unzip the file to a suitable location on your local machine.
+- [Visual Studio (Community, Professional, or Enterprise) 2019](https://visualstudio.microsoft.com/downloads/).
+- A local copy of the [Microsoft Azure IoT Samples for C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository. Download a copy of the repository: [Download ZIP](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Then unzip the file to a suitable location on your local machine.
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
@@ -22,9 +22,9 @@ To run the sample application in Visual Studio:
 
 1. In the folder where you unzipped the Azure IoT Samples for C#, open the *azure-iot-samples-csharp-master\iot-hub\Samples\device\IoTHubDeviceSamples.sln"* solution file in Visual Studio. 
 
-1. In **Solution Explorer**, select the **PnpDeviceSamples > TemperatureController** project file.
+1. In **Solution Explorer**, select the **PnpDeviceSamples > TemperatureController** project file, right-click it, and select **Set as Startup Project**.
 
-1. Navigate to **Project > TemperatureController Properties > Debug**, and add the following environment variables to the project:
+1. Right-click the **TemperatureController** project, select **Properties**, select the **Debug** tab, and add the following environment variables to the project:
 
     | Name | Value |
     | ---- | ----- |
@@ -34,25 +34,35 @@ To run the sample application in Visual Studio:
     | IOTHUB_DEVICE_DPS_DEVICE_ID | sample-device-01 |
     | IOTHUB_DEVICE_DPS_DEVICE_KEY | The generated device key value you made a note of previously. |
 
-You can now run and debug the sample in Visual Studio.
+1. Save the updated **TemperatureController** project file.
 
-After your simulated device connects to your IoT Central application, it connects to the device instance you created in the application and begins to send telemetry. The connection details and telemetry output are shown in your console: 
+1. Press CTRL + F5 to run the sample.
+
+After your simulated device connects to your IoT Central application, it begins to send telemetry. The connection details and telemetry output appear in the console: 
 
 ```output
-Device was assigned
-iotc-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azure-devices.net
-my-sdk-device
-Updating pnp properties for root interface
-{'serialNumber': 'alohomora'}
-Updating pnp properties for thermostat1
-{'thermostat1': {'maxTempSinceLastReboot': 98.34, '__t': 'c'}}
-Updating pnp properties for thermostat2
-{'thermostat2': {'maxTempSinceLastReboot': 48.92, '__t': 'c'}}
-Updating pnp properties for deviceInformation
-{'deviceInformation': {'swVersion': '5.5', 'manufacturer': 'Contoso Device Corporation', 'model': 'Contoso 4762B-turbo', 'osName': 'Mac Os', 'processorArchitecture': 'x86-64', 'processorManufacturer': 'Intel', 'totalStorage': 1024, 'totalMemory': 32, '__t': 'c'}}
-Listening for command requests and property updates
-Press Q to quit
-Sending telemetry from various components
-Sent message
-{"temperature": 33}
+    [05/04/2021 11:53:50]info: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+          Press Control+C to quit the sample.
+    [05/04/2021 11:53:50]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+          Set up the device client.
+    [05/04/2021 11:53:50]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+          Initializing via DPS
+    [05/04/2021 11:53:56]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+          Set handler for 'reboot' command.
+    [05/04/2021 11:53:57]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+          Connection status change registered - status=Connected, reason=Connection_Ok.
+    [05/04/2021 11:53:57]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+          Set handler for "getMaxMinReport" command.
+    [05/04/2021 11:53:57]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+          Set handler to receive 'targetTemperature' updates.
+    [05/04/2021 11:53:57]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+          Property: Update - component = 'deviceInformation', properties update is complete.
+    [05/04/2021 11:53:58]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+          Property: Update - { "serialNumber": "SR-123456" } is complete.
+    [05/04/2021 11:53:58]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+          Telemetry: Sent - component="thermostat1", { "temperature": 44.9 } in °C.
+    [05/04/2021 11:53:58]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+          Property: Update - component="thermostat1", { "maxTempSinceLastReboot": 44.9 } in °C is complete.
+    [05/04/2021 11:53:58]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+          Telemetry: Sent - component="thermostat2", { "temperature": 40.8 } in °C.
 ```
