@@ -52,6 +52,7 @@ The following table shows Azure Database Migration Service support for offline m
 |   | RDS MySQL | X |   |
 | **Azure DB for PostgreSQL - Single server** | PostgreSQL | X |
 |  | RDS PostgreSQL | X |   |
+|  | Oracle | X |   |
 | **Azure DB for PostgreSQL - Hyperscale (Citus)** | PostgreSQL | X |
 |  | RDS PostgreSQL | X |   |
 
@@ -75,6 +76,7 @@ The following table shows Azure Database Migration Service support for online mi
 | **Azure DB for PostgreSQL - Single server** | PostgreSQL | ✔ | GA |
 |   | Azure DB for PostgreSQL - Single server | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
+|   | Oracle | X |   |
 | **Azure DB for PostgreSQL - Hyperscale (Citus)** | PostgreSQL | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
 
