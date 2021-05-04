@@ -344,7 +344,7 @@ The following properties are supported for Data Lake Storage Gen2 under `storeSe
 
 ### Azure Data Lake Storage Gen2 as a sink type
 
-[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)]
+[!INCLUDE [data-factory-v2-file-sink-formats](includes/data-factory-v2-file-sink-formats.md)]
 
 The following properties are supported for Data Lake Storage Gen2 under `storeSettings` settings in format-based copy sink:
 

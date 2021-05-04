@@ -315,7 +315,7 @@ The following properties are supported for Azure File Storage under `storeSettin
 
 ### Azure File Storage as sink
 
-[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)]
+[!INCLUDE [data-factory-v2-file-sink-formats](includes/data-factory-v2-file-sink-formats.md)]
 
 The following properties are supported for Azure File Storage under `storeSettings` settings in format-based copy sink:
 

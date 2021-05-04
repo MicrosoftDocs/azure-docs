@@ -435,7 +435,7 @@ The following properties are supported for Azure Blob storage under `storeSettin
 
 ### Blob storage as a sink type
 
-[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)] 
+[!INCLUDE [data-factory-v2-file-sink-formats](includes/data-factory-v2-file-sink-formats.md)] 
 
 The following properties are supported for Azure Blob storage under `storeSettings` settings in a format-based copy sink:
 

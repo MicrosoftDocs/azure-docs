@@ -311,7 +311,7 @@ The following properties are supported for SFTP under the `storeSettings` settin
 
 ### SFTP as a sink
 
-[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)]
+[!INCLUDE [data-factory-v2-file-sink-formats](includes/data-factory-v2-file-sink-formats.md)]
 
 The following properties are supported for SFTP under `storeSettings` settings in a format-based Copy sink:
 
