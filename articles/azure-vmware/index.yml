@@ -145,7 +145,8 @@ landingContent:
 # backup and restore
   - title: Backup and restore with Azure Backup Server
     linkLists:
-      - links:
+      - linkListType: how-to-guide
+        links:
           - text: Back up VMware VMs
             url: /azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
           - text: Restore VMware VMs 
