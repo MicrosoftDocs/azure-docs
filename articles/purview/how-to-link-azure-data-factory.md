@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/24/2021
 ---
 # How to connect Azure Data Factory and Azure Purview
 
@@ -28,7 +28,7 @@ Multiple Azure Data Factories can connect to a single Azure Purview Data Catalog
     - **Disconnected**: The data factory has access to the catalog, but it's connected to another catalog. As a result, data lineage won't be reported to the catalog automatically.
     - **CannotAccess**: The current user doesn't have access to the data factory, so the connection status is unknown.
  >[!Note]
- >In order to view the Data Factory connections, you need to be assigned any one of Purview roles:
+ >To view the Data Factory connections, you need to be assigned any one of Purview roles. Role inheritance from Management group is **not supported**:
  >- Contributor
  >- Owner
  >- Reader
@@ -37,7 +37,7 @@ Multiple Azure Data Factories can connect to a single Azure Purview Data Catalog
 ## Create new Data Factory connection
 
 >[!Note]
->In order to add or remove the Data Factory connections, you need to be assigned any one of Purview roles:
+>To add or remove the Data Factory connections, you need to be assigned any one of Purview roles. Role inheritance from Management group is **not supported**:
 >- Owner
 >- User Access Administrator
 >
@@ -141,6 +141,11 @@ Currently, if you use the following copy activity features, the lineage is not y
 - Source partition discovery option for file-based stores.
 - Copy data to file-based sink with setting of max rows per file.
 - Add additional columns during copy.
+
+In additional to lineage, the data asset schema (shown in Asset -> Schema tab) is reported for the following connectors:
+
+- CSV and Parquet files on Azure Blob, Azure File Storage, ADLS Gen1, ADLS Gen2, and Amazon S3
+- Azure Data Explorer, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, Teradata
 
 ### Data Factory Data Flow support
 

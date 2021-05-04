@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Install Microsoft Office using FSLogix application containers
 

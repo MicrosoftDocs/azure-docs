@@ -37,7 +37,7 @@ You can view the metrics under Monitoring | Metrics from the portal. The metrics
     2. **Stream to event hub** for ingestion by a third-party service or custom analytic solution. You will need to create an event hub namespace and event hub policy before you can configure this step.
     3. **Stream to the Log Analytics** workspace in Azure Monitor. You will need to create your Logs Analytics Workspace before you can select this option.
 
-6. Select **AuditLogs** and/or **AllMetrics**. The metrics include service name, availability, data size, total latency, total requests, total errors and timestamp. You can find more detail on [supported metrics](https://docs.microsoft.com/azure/azure-monitor/essentials/metrics-supported#microsofthealthcareapisservices). 
+6. Select **AuditLogs** and/or **AllMetrics**. The metrics include service name, availability, data size, total latency, total requests, total errors and timestamp. You can find more detail on [supported metrics](../../azure-monitor/essentials/metrics-supported.md#microsofthealthcareapisservices). 
 
    :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Azure FHIR Diagnostic Settings. Select AuditLogs and/or AllMetrics." lightbox="media/diagnostic-logging/fhir-diagnostic-setting.png":::
 

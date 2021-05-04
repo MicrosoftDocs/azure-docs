@@ -11,10 +11,7 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ---
 
-#     Custom Entity Lookup cognitive skill (Preview)
-
-> [!IMPORTANT] 
-> This skill is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). There is currently no portal or .NET SDK support.
+#     Custom Entity Lookup cognitive skill
 
 The **Custom Entity Lookup** skill looks for text from a custom, user-defined list of words and phrases. Using this list, it labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not quite exact.  
 

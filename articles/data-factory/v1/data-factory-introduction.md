@@ -3,7 +3,7 @@ title: Introduction to Data Factory, a data integration service
 description: 'Learn what Azure Data Factory is: A cloud data integration service that orchestrates and automates movement and transformation of data.'
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: overview
 ms.date: 01/22/2018

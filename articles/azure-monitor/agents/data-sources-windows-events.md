@@ -25,6 +25,10 @@ As you type the name of an event log, Azure Monitor provides suggestions of comm
 
 [![Configure Windows events](media/data-sources-windows-events/configure.png)](media/data-sources-windows-events/configure.png#lightbox)
 
+> [!IMPORTANT]
+> You can't configure collection of security events from the workspace. You must used [Azure Security Center](../../security-center/security-center-enable-data-collection.md) or [Azure Sentinel](../../sentinel/connect-windows-security-events.md) to collect security events.
+
+
 > [!NOTE]
 > Critical events from the Windows event log will have a severity of "Error" in Azure Monitor Logs.
 

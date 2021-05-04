@@ -21,7 +21,7 @@
     href: tutorial-monitor-your-data.md
   - name: Investigate incidents
     href: tutorial-investigate-cases.md
-  - name: Respond to threats
+  - name: Use automation to respond to threats
     href: tutorial-respond-threats-playbook.md
   - name: Create KQL queries (Learn module)
     href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
@@ -35,8 +35,18 @@
       href: roles.md
     - name: Manage access by resource
       href: resource-context-rbac.md
+    - name: Protect MSSP intellectual property
+      href: mssp-protect-intellectual-property.md
   - name: Advanced multistage attack detection
     href: fusion.md
+  - name: Automation (SOAR)
+    items:
+    - name: SOAR in Azure Sentinel
+      href: automation-in-azure-sentinel.md
+    - name: Automation rules for incident handling
+      href: automate-incident-handling-with-automation-rules.md
+    - name: Advanced automation with playbooks
+      href: automate-responses-with-playbooks.md
   - name: Identify advanced threats with UEBA
     href: identify-threats-with-entity-behavior-analytics.md
   - name: Import threat intelligence into Azure Sentinel
@@ -47,16 +57,16 @@
     href: microsoft-365-defender-sentinel-integration.md
   - name: Use external data with watchlists
     href: watchlists.md
-  - name: Assign permissions using roles
-    href: roles.md
   - name: Extend Azure Sentinel across workspaces and tenants
     href: extend-sentinel-across-workspaces-tenants.md
   - name: Normalize your data across tables
     href: normalization.md
+  - name: Use Azure Data Explorer for long-term log retention
+    href: store-logs-in-azure-data-explorer.md
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json
 - name: How-to guides
   items:
   - name: Connect data sources
@@ -86,6 +96,8 @@
         href: connect-azure-kubernetes-service.md
       - name: Azure SQL database logs
         href: connect-azure-sql-logs.md
+      - name: Azure Storage accounts
+        href: connect-azure-storage-account.md
       - name: Azure Web Application Firewall (WAF)
         href: connect-azure-waf.md
       - name: Defender for IoT (formerly ASC for IoT)
@@ -112,6 +124,8 @@
         href: connect-windows-firewall.md
       - name: Windows security events
         href: connect-windows-security-events.md
+      - name: Windows Virtual Desktop
+        href: connect-windows-virtual-desktop.md
     - name: Connect external solutions
       items:
       - name: Agari Phishing Defense and Brand Protection
@@ -285,6 +299,8 @@
   items:
   - name: Top Azure Sentinel workbooks
     href: top-workbooks.md
+  - name: Azure CLI
+    href: /cli/azure/sentinel
   - name: Azure RBAC roles
     items:
     - name: All Azure roles
@@ -314,9 +330,13 @@
     - name: Kusto Query Language quick reference
       href: /azure/data-explorer/kql-quick-reference
     - name: Azure Monitor log query optimizations
-      href: /azure/azure-monitor/logs/query-optimization
+      href: ../azure-monitor/logs/query-optimization.md
   - name: UEBA enrichments
     href: ueba-enrichments.md
+  - name: CEF log field mapping
+    href: cef-name-mapping.md
+  - name: MCAS alerts not onboarded to Microsoft 365 Defender
+    href: microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md
 - name: Resources
   items:
   - name: Useful resources
@@ -327,4 +347,5 @@
     href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-sentinel/
-
+  - name: Feature availability for US Government clouds
+    href: /azure/security/fundamentals/feature-availability

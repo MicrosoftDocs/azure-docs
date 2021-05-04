@@ -13,9 +13,11 @@ ms.service: iot-edge
 ms.custom: mvc
 ---
 
-# Tutorial: Develop and deploy a Python IoT Edge module for Linux devices
+# Tutorial: Develop and deploy a Python IoT Edge module using Linux containers
 
-Use Visual Studio Code to develop Python code and deploy it to a Linux device running Azure IoT Edge.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
+Use Visual Studio Code to develop Python code and deploy it to a device running Azure IoT Edge.
 
 You can use Azure IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data on the IoT Edge device that you set up in the quickstart. In this tutorial, you learn how to:
 
@@ -32,19 +34,21 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 ## Prerequisites
 
-This tutorial demonstrates how to develop a module in **Python** using **Visual Studio Code**, and how to deploy it to a **Linux device**. IoT Edge does not support Python modules for Windows devices.
+This tutorial demonstrates how to develop a module in **Python** using **Visual Studio Code**, and how to deploy it to an IoT Edge device.
 
-Use the following table to understand your options for developing and deploying Python modules to Linux:
+IoT Edge does not support Python modules using Windows containers.
+
+Use the following table to understand your options for developing and deploying Python modules using Linux containers:
 
 | Python | Visual Studio Code | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Use VS Code for Python modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Use VS Code for Python modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
 
-Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment for Linux container development: [Develop IoT Edge modules for Linux devices](tutorial-develop-for-linux.md). By completing that tutorial, you should have the following prerequisites in place:
+Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment for Linux container development: [Develop IoT Edge modules using Linux containers](tutorial-develop-for-linux.md). By completing that tutorial, you should have the following prerequisites in place:
 
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
-* A [Linux device running Azure IoT Edge](quickstart-linux.md)
+* A device running Azure IoT Edge. You can use the quickstarts to set up a [Linux device](quickstart-linux.md) or [Windows device](quickstart.md).
 * A container registry, like [Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configured to run Linux containers.

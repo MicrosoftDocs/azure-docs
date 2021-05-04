@@ -86,6 +86,17 @@
       href: configure-export-data.md
     - name: Configure Private Link
       href: configure-private-link.md
+  - name: Search
+    expand: false
+    items:
+    - name: Overview of FHIR search
+      href: overview-of-search.md
+    - name: Defining custom search parameters
+      href: how-to-do-custom-search.md
+    - name: How to run a reindex job
+      href: how-to-run-a-reindex.md
+    - name: Search examples for Azure API for FHIR
+      href: search-samples.md
   - name: Export data
     expanded: false
     items:
@@ -137,12 +148,14 @@
     href: fhir-faq.md
   - name: Supported features
     href: fhir-features-supported.md
+  - name: GitHub Projects
+    href: fhir-github-projects.md
   - name: Partner ecosystem
     href: partner-ecosystem.md
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/ext/healthcareapis/healthcareapis
+    href: /cli/azure/healthcareapis
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md

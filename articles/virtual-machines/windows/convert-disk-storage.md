@@ -33,7 +33,7 @@ $rgName = 'yourResourceGroup'
 # Name of the your virtual machine
 $vmName = 'yourVM'
 
-# Choose between Standard_LRS, StandardSDD_LRS and Premium_LRS based on your scenario
+# Choose between Standard_LRS, StandardSSD_LRS and Premium_LRS based on your scenario
 $storageType = 'Premium_LRS'
 
 # Premium capable size

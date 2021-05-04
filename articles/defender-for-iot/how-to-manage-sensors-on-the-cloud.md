@@ -1,15 +1,11 @@
 ---
-title: Onboard and manage sensors and subscriptions in the Defender for IoT portal
+title: Manage sensors in the Defender for IoT portal
 description: Learn how to onboard, view, and manage sensors in the Defender for IoT portal.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 2/18/2021
+ms.date: 04/17/2021
 ms.topic: how-to
-ms.service: azure
 ---
 
-# Onboard and manage sensors and subscriptions in the Defender for IoT portal
+# Manage sensors in the Defender for IoT portal
 
 This article describes how to onboard, view, and manage sensors in the [Defender for IoT portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
@@ -25,16 +21,14 @@ To register:
 1. Select **Onboard sensor**.
 1. Create a sensor name. We recommend that you include the IP address of the sensor you installed as part of the name, or use an easily identifiable name. This will ensure easier tracking and consistent naming between the registration name in the Azure [Defender for IoT portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) and the IP of the deployed sensor displayed in the sensor console.
 1. Associate the sensor with an Azure subscription.
-1. Choose a sensor management mode by using the **Cloud connected** toggle. If the toggle is on, the sensor is cloud connected. If the toggle is off, the sensor is locally managed.
+1. Choose a sensor connection mode by using the **Cloud connected** toggle. If the toggle is on, the sensor is cloud connected. If the toggle is off, the sensor is locally managed.
 
-   - **Cloud-connected sensors**: Information that the sensor detects is displayed in the sensor console. Alert information is delivered through an IoT hub and can be shared with other Azure services, such as Azure Sentinel.
+   - **Cloud-connected sensors**: Information that the sensor detects is displayed in the sensor console. Alert information is delivered through an IoT hub and can be shared with other Azure services, such as Azure Sentinel. In addition, threat intelligence packages can be pushed from the Azure Defender for IoT portal to sensors. Conversely when, the sensor is not cloud connected, you must download  threat intelligence packages and then upload them to your enterprise sensors. To allow Defender for IoT to push packages to sensors, enable the **Automatic Threat Intelligence Updates** toggle. For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md).
+   Choose an IoT hub to serve as a gateway between this sensor and the Azure Defender for IoT portal. Define a site name and zone. You can also add descriptive tags. The site name, zone, and tags are descriptive entries on the [Sites and Sensors page](#view-onboarded-sensors).
 
    - **Locally managed sensors**: Information that sensors detect is displayed in the sensor console. If you're working in an air-gapped network and want a unified view of all information detected by multiple locally managed sensors, work with the on-premises management console.
 
-   For cloud-connected sensors, the name defined during onboarding is the name that appears in the sensor console. You can't change this name from the console directly. For locally managed sensors, the name applied during onboarding will be stored in Azure and can be updated in the sensor console.
-
-1. Choose an IoT hub to serve as a gateway between this sensor and Azure Defender for IoT.
-1. If the sensor is cloud connected, associate it with an IoT hub, and then define a site name and zone. You can also add descriptive tags. The site name, zone, and tags are descriptive entries on the [Sites and Sensors page](#view-onboarded-sensors).
+   For cloud connected sensors, the name defined during onboarding is the name that appears in the sensor console. You can't change this name from the console directly. For locally managed sensors, the name applied during onboarding will be stored in Azure but can be updated in the sensor console.
 
 ### Download the sensor activation file
 
@@ -47,15 +41,16 @@ To download an activation file:
 
 ## View onboarded sensors
 
-On the [Defender for IoT portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started), you can view basic information about onboarded sensors.
+On the [Defender for IoT portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started), you can view important operational information about onboarded sensors.
 
-1. Select **Sites and Sensors**.
-1. Use filter and search tools to find sensor and threat intelligence information that you need.
+1. Select **Sites and Sensors**. The page shows how many sensors were onboarded, the number of sensors that are cloud connected and locally managed, as well as:
 
-- How many sensors were onboarded
-- The number of sensors that are cloud connected and locally managed
-- The hub associated with an onboarded sensor
-- Details added about a sensor, such as the name assigned to the sensor during onboarding, the zone associated with the sensor, or other descriptive information added with tags
+- the sensor name assigned during onboarding.
+- the connection type (cloud connected or locally managed)
+- the zone associated with the sensor.
+- The sensor version installed
+- The sensor connection status to the cloud.
+- The last time the sensor was detected connecting to the cloud.
 
 ## Manage onboarded sensors
 
@@ -118,24 +113,6 @@ To reactivate a sensor:
 
 9. Select **Activate**.
 
-## Offboard a subscription
-
-Subscriptions are managed on a monthly basis. When you offboard a subscription, you will be billed for that subscription until the end of the month. 
-
-Uninstall all sensors that are associated with the subscription prior to offboarding the subscription. For more information on how to delete a sensor, see [Delete a sensor](#delete-a-sensor). 
-
-To offboard a subscription:
-
-1. Navigate to the **Pricing** page.
-1. Select the subscription, and then select the **delete** icon :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/delete-icon.png" border="false":::.
-1. In the confirmation popup, select the checkbox to confirm you have deleted all sensors associated with the subscription.
-
-    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/offboard-popup.png" alt-text="Select the checkbox and select offboard to offboard your sensor.":::
-
-1. Select the **Offboard** button. 
-
-The on-premises environment is not affected, but you should uninstall the sensor from the on-premises environment, or reassign the sensor to another subscription, so as to prevent any related data from flowing to the on-premises management console. 
-
-## See also
+## Next steps
 
 [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md)

@@ -37,13 +37,11 @@ Next, create a function in the new function app.
 
 1. From the left menu of the **Functions** window, select **Functions**, then select **Add** from the top menu. 
  
-1. From the **New Function** window, select **Http trigger**.
+1. From the **Add Function** window, select the **Http trigger** template.
 
     ![Choose HTTP trigger function](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
 
-1. In the **New Function** window, accept the default name for **New Function**, or enter a new name. 
-
-1. Choose **Anonymous** from the **Authorization level** drop-down list, and then select **Create Function**.
+1. Under **Template details** use `HttpExample` for **New Function**, choose **Anonymous** from the **[Authorization level](functions-bindings-http-webhook-trigger.md#authorization-keys)** drop-down list, and then select **Add**.
 
     Azure creates the HTTP trigger function. Now, you can run the new function by sending an HTTP request.
 
@@ -57,17 +55,13 @@ Next, create a function in the new function app.
 
     ![Copy the function URL from the Azure portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-1. Paste the function URL into your browser's address bar. Add the query string value `?name=<your_name>` to the end of this URL and press Enter to run the request. 
-
-    The following example shows the response in the browser:
-
-    ![Function response in the browser.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
+1. Paste the function URL into your browser's address bar. Add the query string value `?name=<your_name>` to the end of this URL and press Enter to run the request. The browser should display a response message that echoes back your query string value. 
 
     If the request URL included an [access key](functions-bindings-http-webhook-trigger.md#authorization-keys) (`?code=...`), it means you choose **Function** instead of **Anonymous** access level when creating the function. In this case, you should instead append `&name=<your_name>`.
 
-1. When your function runs, trace information is written to the logs. To see the trace output, return to the **Code + Test** page in the portal and expand the **Logs** arrow at the bottom of the page.
+1. When your function runs, trace information is written to the logs. To see the trace output, return to the **Code + Test** page in the portal and expand the **Logs** arrow at the bottom of the page. Call your function again to see trace output written to the logs. 
 
-   ![Functions log viewer in the Azure portal.](./media/functions-create-first-azure-function/function-view-logs.png)
+    :::image type="content" source="media/functions-create-first-azure-function/function-view-logs.png" alt-text="Functions log viewer in the Azure portal":::
 
 ## Clean up resources
 

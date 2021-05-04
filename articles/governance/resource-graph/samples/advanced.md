@@ -1,7 +1,7 @@
 ---
 title: Advanced query samples
 description: Use Azure Resource Graph to run some advanced queries, including working with columns, listing tags used, and matching resources with regular expressions.
-ms.date: 01/27/2021
+ms.date: 03/23/2021
 ms.topic: sample
 ---
 # Advanced Resource Graph query samples
@@ -25,7 +25,6 @@ We'll walk through the following advanced queries:
 - [List all extensions installed on a virtual machine](#join-vmextension)
 - [Find storage accounts with a specific tag on the resource group](#join-findstoragetag)
 - [Combine results from two queries into a single result](#unionresults)
-- [Include the tenant and subscription names with DisplayNames](#displaynames)
 - [Summarize virtual machine by the power states extended property](#vm-powerstate)
 - [Count of non-compliant Guest Configuration assignments](#count-gcnoncompliant)
 - [Query details of Guest Configuration assignment reports](#query-gcreports)
@@ -231,8 +230,8 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 
 ## <a name="mvexpand-cosmosdb"></a>List Cosmos DB with specific write locations
 
-The following query limits to Cosmos DB resources, uses `mv-expand` to expand the property bag for
-**properties.writeLocations**, then project specific fields and limit the results further to
+The following query limits to Azure Cosmos DB resources, uses `mv-expand` to expand the property bag
+for **properties.writeLocations**, then project specific fields and limit the results further to
 **properties.writeLocations.locationName** values matching either 'East US' or 'West US'.
 
 ```kusto
@@ -353,15 +352,15 @@ related to those network interfaces.
 ```kusto
 Resources
 | where type =~ 'microsoft.compute/virtualmachines'
-| extend nics=array_length(properties.networkProfile.networkInterfaces) 
-| mv-expand nic=properties.networkProfile.networkInterfaces 
-| where nics == 1 or nic.properties.primary =~ 'true' or isempty(nic) 
-| project vmId = id, vmName = name, vmSize=tostring(properties.hardwareProfile.vmSize), nicId = tostring(nic.id) 
+| extend nics=array_length(properties.networkProfile.networkInterfaces)
+| mv-expand nic=properties.networkProfile.networkInterfaces
+| where nics == 1 or nic.properties.primary =~ 'true' or isempty(nic)
+| project vmId = id, vmName = name, vmSize=tostring(properties.hardwareProfile.vmSize), nicId = tostring(nic.id)
 | join kind=leftouter (
     Resources
     | where type =~ 'microsoft.network/networkinterfaces'
-    | extend ipConfigsCount=array_length(properties.ipConfigurations) 
-    | mv-expand ipconfig=properties.ipConfigurations 
+    | extend ipConfigsCount=array_length(properties.ipConfigurations)
+    | mv-expand ipconfig=properties.ipConfigurations
     | where ipConfigsCount == 1 or ipconfig.properties.primary =~ 'true'
     | project nicId = id, publicIpId = tostring(ipconfig.properties.publicIPAddress.id))
 on nicId
@@ -421,7 +420,7 @@ Resources
 | join kind=leftouter(
     Resources
     | where type == 'microsoft.compute/virtualmachines/extensions'
-    | extend 
+    | extend
         VMId = toupper(substring(id, 0, indexof(id, '/extensions'))),
         ExtensionName = name
 ) on $left.JoinID == $right.VMId
@@ -568,7 +567,6 @@ Search-AzGraph -Query "ResourceContainers | where type=='microsoft.resources/sub
 This query uses the [extended properties](../concepts/query-language.md#extended-properties) on
 virtual machines to summarize by power states.
 
-
 ```kusto
 Resources
 | where type == 'microsoft.compute/virtualmachines'
@@ -597,38 +595,11 @@ Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachi
 
 ---
 
-## <a name="displaynames"></a>Include the tenant and subscription names with DisplayNames
-
-This query uses the **Include** parameter with option _DisplayNames_ to add
-**subscriptionDisplayName** and **tenantDisplayName** to the results. This parameter is only
-available for Azure CLI and Azure PowerShell.
-
-```azurecli-interactive
-az graph query -q "limit 1" --include displayNames
-```
-
-```azurepowershell-interactive
-Search-AzGraph -Query "limit 1" -Include DisplayNames
-```
-
-An alternative to getting the subscription name is to use the `join` operator and connect to the
-**ResourceContainers** table and the `Microsoft.Resources/subscriptions` type. `join` works in Azure
-CLI, Azure PowerShell, portal, and all supported SDK. For an example, see
-[Sample - Key vault with subscription name](#join).
-
-> [!NOTE]
-> If the query doesn't use **project** to specify the returned properties,
-> **subscriptionDisplayName** and **tenantDisplayName** are automatically included in the results.
-> If the query does use **project**, each of the _DisplayName_ fields must be explicitly included in
-> the **project** or they won't be returned in the results, even when the **Include** parameter is
-> used. The **Include** parameter doesn't work with
-> [tables](../concepts/query-language.md#resource-graph-tables).
-
----
-
 ## <a name="count-gcnoncompliant"></a>Count of non-compliant Guest Configuration assignments
 
-Displays a count of non-compliant machines per [Guest Configuration assignment reason](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration). Limits results to first 100 for performance.
+Displays a count of non-compliant machines per
+[Guest Configuration assignment reason](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration).
+Limits results to first 100 for performance.
 
 ```kusto
 GuestConfigurationResources

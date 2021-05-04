@@ -26,7 +26,7 @@ You'll need the following items before creating an image:
 
 * An Azure VM created in the Resource Manager deployment model that uses managed disks. If you haven't yet created a Linux VM, you can use the [portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Resource Manager templates](create-ssh-secured-vm-from-template.md). Configure the VM as needed. For example, [add data disks](add-disk.md), apply updates, and install applications. 
 
-* The latest [Azure CLI](/cli/azure/install-az-cli2) installed and be logged in to an Azure account with [az login](/cli/azure/reference-index#az-login).
+* The latest [Azure CLI](/cli/azure/install-az-cli2) installed and be logged in to an Azure account with [az login](/cli/azure/reference-index#az_login).
 
 ## Prefer a tutorial instead?
 
@@ -71,7 +71,7 @@ Use the Azure CLI to mark the VM as generalized and capture the image. In the fo
 
 	A VM that has been generalized can no longer be restarted.
 
-3. Create an image of the VM resource with [az image create](/cli/azure/image#az-image-create). The following example creates an image named *myImage* in the resource group named *myResourceGroup* using the VM resource named *myVM*.
+3. Create an image of the VM resource with [az image create](/cli/azure/image#az_image_create). The following example creates an image named *myImage* in the resource group named *myResourceGroup* using the VM resource named *myVM*.
    
     ```azurecli
     az image create \
@@ -100,7 +100,7 @@ az vm create \
 
 ### Creating the VM in another resource group 
 
-You can create VMs from an image in any resource group within your subscription. To create a VM in a different resource group than the image, specify the full resource ID to your image. Use [az image list](/cli/azure/image#az-image-list) to view a list of images. The output is similar to the following example.
+You can create VMs from an image in any resource group within your subscription. To create a VM in a different resource group than the image, specify the full resource ID to your image. Use [az image list](/cli/azure/image#az_image_list) to view a list of images. The output is similar to the following example.
 
 ```json
 "id": "/subscriptions/guid/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/images/myImage",
@@ -108,7 +108,7 @@ You can create VMs from an image in any resource group within your subscription.
    "name": "myImage",
 ```
 
-The following example uses [az vm create](/cli/azure/vm#az-vm-create) to create a VM in a resource group other than the source image, by specifying the image resource ID.
+The following example uses [az vm create](/cli/azure/vm#az_vm_create) to create a VM in a resource group other than the source image, by specifying the image resource ID.
 
 ```azurecli
 az vm create \
@@ -122,7 +122,7 @@ az vm create \
 
 ## Step 4: Verify the deployment
 
-SSH into the virtual machine you created to verify the deployment and start using the new VM. To connect via SSH, find the IP address or FQDN of your VM with [az vm show](/cli/azure/vm#az-vm-show).
+SSH into the virtual machine you created to verify the deployment and start using the new VM. To connect via SSH, find the IP address or FQDN of your VM with [az vm show](/cli/azure/vm#az_vm_show).
 
 ```azurecli
 az vm show \

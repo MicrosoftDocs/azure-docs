@@ -5,10 +5,10 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: quickstart
 ms.service: virtual-machine-scale-sets
-ms.subservice: linux
+ms.collection: linux
 ms.date: 03/27/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt, subject-armqs, devx-track-azurecli
+ms.custom: mimckitt, subject-armqs
 
 ---
 

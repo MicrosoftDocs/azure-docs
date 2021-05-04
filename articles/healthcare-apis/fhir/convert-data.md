@@ -124,6 +124,12 @@ Grant AcrPull role to your Azure API for FHIR service instance.
 
 ### Register the ACR servers in Azure API for FHIR
 
+You can register the ACR server using the Azure portal, or using CLI.
+
+#### Registering the ACR server using Azure portal
+Navigate to the _Artifacts_ blade under _Data transformation_ in your Azure API for FHIR instance. You will see the list of currently registered ACR servers. Click on _Add_ and select your registry server from the dropdown. You will need to click on _Save_ for the registration to take effect. It may take a few minutes to apply the change and restart your instance.
+
+#### Registering the ACR server using CLI
 You can register up to twenty ACR servers in the Azure API for FHIR.
 
 Install the healthcareapis CLI from Azure PowerShell if needed:
@@ -134,13 +140,13 @@ az extension add -n healthcareapis
 
 Register the acr servers to Azure API for FHIR following the examples below:
 
-#### Register a single ACR server
+##### Register a single ACR server
 
 ```powershell
 az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io" --resource-group fhir-test --resource-name fhirtest2021
 ```
 
-#### Register multiple ACR servers
+##### Register multiple ACR servers
 
 ```powershell
 az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.azurecr.io" --resource-group fhir-test --resource-name fhirtest2021
@@ -151,8 +157,3 @@ az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.az
 Make a call to the $convert-data API specifying your template reference in the templateCollectionReference parameter.
 
 `<RegistryServer>/<imageName>@<imageDigest>`
-
-## Known issues and workarounds
-
-- Some default template files contain UTF-8 BOM. As a result, the generated ID values will contain a BOM character. This may create an issue with FHIR server. The workaround is to pull Microsoft templates using VS Code Extension, and push those to your own ACR after removing the BOM characters from _ID/_Procedure.liquid_, _ID/_Provenance.liquid_, and _ID/_Immunization.liquid_.
-

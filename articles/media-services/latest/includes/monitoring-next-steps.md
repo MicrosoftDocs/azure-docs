@@ -9,7 +9,7 @@ ms.author: inhenkel
 <!-- Monitoring next steps -->
 ### Concepts
 
-- See [Monitoring Azure resources with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](../../../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
 
 ### How To guides
 

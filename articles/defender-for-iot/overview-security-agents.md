@@ -1,20 +1,8 @@
 ---
 title: Security agents
 description: Get started with understanding, configuring, deploying, and using Azure Defender for IoT security service agents on your IoT devices.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-
-
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 1/24/2021
-ms.author: shhazam
 ---
 
 # Get started with Azure Defender for IoT device micro agents
@@ -42,6 +30,6 @@ Use the following workflow to deploy and test your Defender for IoT security age
 ## Next steps
 
 - Configure your [solution](quickstart-configure-your-solution.md)
-- [Create security modules](quickstart-create-security-twin.md)
+- [Create Defender-IoT-micro-agents](quickstart-create-security-twin.md)
 - Configure [custom alerts](quickstart-create-custom-alerts.md)
 - [Deploy a security agent](how-to-deploy-agent.md)

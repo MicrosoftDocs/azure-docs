@@ -34,7 +34,7 @@ Device Update also uses Azure AD for authentication to publish and manage conten
 
 ### Create client Azure AD App
 
-To integrate an application or service with Azure AD, [first register](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) an application with Azure AD. Client application setup varies depending on the authorization flow used.  Configuration below is for guidance when using the Device Update REST APIs.
+To integrate an application or service with Azure AD, [first register](../active-directory/develop/quickstart-register-app.md) an application with Azure AD. Client application setup varies depending on the authorization flow used.  Configuration below is for guidance when using the Device Update REST APIs.
 
 * Set client authentication: 'redirect URIs for native or web client'.
 * Set API Permissions - Device Update for IoT Hub exposes:

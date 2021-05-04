@@ -5,7 +5,7 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/15/2021
 ms.author: duau
 ---
 
@@ -26,7 +26,7 @@ When your NVA advertises the default route, Azure Route Server programs it for a
 | 0.0.0.0/0 | Internet |
 
 
-### Why can I ping from my NVA to the BGP peer IP on Azure Route Server but after I set up the BGP peering between them, I can’t ping the same IP anymore? Why does the BGP peering goes down?
+### Why can I ping from my NVA to the BGP peer IP on Azure Route Server but after I set up the BGP peering between them, I can’t ping the same IP anymore? Why does the BGP peering go down?
 
 In some NVA, you need to add a static route for the Azure Route Server subnet. For example, if Azure Route Server is in 10.0.255.0/27 and your NVA is in 10.0.1.0/24, you need to add the following route to the routing table in the NVA:
 

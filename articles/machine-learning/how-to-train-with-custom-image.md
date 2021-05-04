@@ -101,7 +101,7 @@ fastai_env.docker.base_dockerfile = "./Dockerfile"
 > Azure Machine Learning only supports Docker images that provide the following software:
 > * Ubuntu 16.04 or greater.
 > * Conda 4.5.# or greater.
-> * Python 3.5+.
+> * Python 3.6+.
 
 For more information about creating and managing Azure Machine Learning environments, see [Create and use software environments](how-to-use-environments.md). 
 
@@ -168,5 +168,5 @@ run.wait_for_completion(show_output=True)
 
 ## Next steps
 In this article, you trained a model by using a custom Docker image. See these other articles to learn more about Azure Machine Learning:
-* [Track run metrics](how-to-track-experiments.md) during training.
+* [Track run metrics](how-to-log-view-metrics.md) during training.
 * [Deploy a model](how-to-deploy-custom-docker-image.md) by using a custom Docker image.

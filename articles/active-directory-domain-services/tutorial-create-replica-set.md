@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/26/2021
+ms.date: 03/22/2021
 ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to create and use replica sets in Azure Active Directory Domain Services to provide resiliency or geographical distributed managed domain data.

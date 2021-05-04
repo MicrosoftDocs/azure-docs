@@ -83,5 +83,5 @@ The following table shows additional notifications that may be sent while mainte
 
 - [Maintenance window](maintenance-window.md)
 - [Maintenance window FAQ](maintenance-window-faq.yml)
-- [Overview of alerts in Microsoft Azure](../../azure-monitor/platform/alerts-overview.md)
-- [Email Azure Resource Manager Role](../../azure-monitor/platform/action-groups.md#email-azure-resource-manager-role)
+- [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md)
+- [Email Azure Resource Manager Role](../../azure-monitor/alerts/action-groups.md#email-azure-resource-manager-role)

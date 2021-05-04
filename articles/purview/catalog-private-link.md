@@ -20,13 +20,16 @@ You can use private endpoints for your Purview accounts to allow clients and use
 
 1. Fill basic information, and set connectivity method to Private endpoint in **Networking** tab. Set up your ingestion private endpoints by providing details of **Subscription, Vnet and Subnet** that you want to pair with your private endpoint.
 
+    > [!NOTE]
+    > Create an ingestion private endpoint only if you intend to enable network isolation for end-to-end scan scenarios, for both your Azure and on-premises sources. We currently do not support ingestion private endpoints working with your AWS sources.
+
     :::image type="content" source="media/catalog-private-link/create-pe-azure-portal.png" alt-text="Create a Private Endpoint in the Azure portal":::
 
 1. You can also optionally choose to set up a **Private DNS zone** for each ingestion private endpoint.
 
 1. Click Add to add a private endpoint for your Purview account.
 
-1. In the Create private endpoint page, set Purview sub-resource to **account**, choose your virtual network and subnet, and select the Private DNS Zone where the DNS will be registered (you can also utilize your won DNS servers or create DNS records using host files on your virtual machines).
+1. In the Create private endpoint page, set Purview sub-resource to **account**, choose your virtual network and subnet, and select the Private DNS Zone where the DNS will be registered (you can also utilize your own DNS servers or create DNS records using host files on your virtual machines).
 
     :::image type="content" source="media/catalog-private-link/create-pe-account.png" alt-text="Private Endpoint creation selections":::
 
@@ -85,6 +88,20 @@ The instructions below are for accessing Purview securely from an Azure VM. Simi
 6. Once the new rule is created, navigate back to the VM and try logging in using your AAD credentials again. If the login succeeds, then Purview portal is ready to use. But in some cases, AAD will redirect to other domains to login based on customer's account type. For e.g. for a live.com account, AAD will redirect to live.com to login, then those requests would be blocked again. For Microsoft employee accounts, AAD will access msft.sts.microsoft.com for login information. Check the networking requests in browser networking tab to see which domain's requests are getting blocked, redo the previous step to get its IP and add outbound port rules in network security group to allow requests for that IP (if possible, add the url and IP to VM's host file to fix the DNS resolution). If you know the exact login domain's IP ranges, you can also directly add them into networking rules.
 
 7. Now login to AAD should be successful. Purview Portal will load successfully but listing all Purview accounts won't work since it can only access a specific Purview account. Enter *web.purview.azure.com/resource/{PurviewAccountName}* to directly visit the Purview account that you successfully set up a private endpoint for.
+ 
+## Ingestion private endpoints and scanning sources in private networks, Vnets and behind private endpoints
+
+If you want to ensure network isolation for your metadata flowing from the source which is being scanned to the Purview DataMap, then you must follow these steps:
+1. Enable an **ingestion private endpoint** by following steps in [this](#creating-an-ingestion-private-endpoint) section
+1. Scan the source using a **self-hosted IR**.
+ 
+    1. All on-premises source types like SQL server, Oracle, SAP and others are currently supported only via self-hosted IR based scans. The self-hosted IR must run within your private network and then be peered with your Vnet in Azure. Your Azure vnet must then be enabled on your ingestion private endpoint by following steps [below](#creating-an-ingestion-private-endpoint) 
+    1. For all **Azure** source types like Azure blob storage, Azure SQL Database and others, you must explicitly choose running the scan using self-hosted IR to ensure network isolation. Follow steps [here](manage-integration-runtimes.md) to set up a self-hosted IR. Then set up your scan on the Azure source by choosing that self-hosted IR in the **connect via integration runtime** dropdown to ensure network isolation. 
+    
+    :::image type="content" source="media/catalog-private-link/shir-for-azure.png" alt-text="Running Azure scan using self-hosted IR":::
+
+> [!NOTE]
+> We currently do not support MSI credential method when you scan your Azure sources using a self-hosted IR. You must use one of the other supported credential method for that Azure source.
 
 ## Enable private endpoint on existing Purview accounts
 
@@ -97,7 +114,7 @@ There are 2 ways you can add Purview private endpoints after creating your Purvi
 
 1. Navigate to the Purview account from the Azure portal, select the Private endpoint connections under the **networking** section of **Settings**.
 
-:::image type="content" source="media/catalog-private-link/pe-portal.png" alt-text="Create portal private endpoint":::
+    :::image type="content" source="media/catalog-private-link/pe-portal.png" alt-text="Create account private endpoint":::
 
 1. Click +Private endpoint to create a new private endpoint.
 
@@ -111,6 +128,20 @@ There are 2 ways you can add Purview private endpoints after creating your Purvi
 
 > [!NOTE]
 > You will need to follow the same steps as above for the target sub-resource selected as **Portal** as well.
+
+#### Creating an ingestion private endpoint
+
+1. Navigate to the Purview account from the Azure portal, select the Private endpoint connections under the **networking** section of **Settings**.
+1. Navigate to the **Ingestion private endpoint connections** tab and Click **+New** to create a new ingestion private endpoint.
+
+1. Fill in basic information and Vnet details.
+ 
+    :::image type="content" source="media/catalog-private-link/ingestion-pe-fill-details.png" alt-text="Fill private endpoint details":::
+
+1. Click **Create** to finish set up.
+
+> [!NOTE]
+> Ingestion private endpoints can be created only via the Purview Azure portal experience described above. It cannot be created from the private link center.
 
 ### Using the Private link center
 
@@ -128,6 +159,15 @@ There are 2 ways you can add Purview private endpoints after creating your Purvi
 
 > [!NOTE]
 > You will need to follow the same steps as above for the target sub-resource selected as **Portal** as well.
+
+## Firewalls to restrict public access
+
+To cut off access to the Purview account completely from public internet, follow the steps below. This setting will apply to both private endpoint and ingestion private endpoint connections.
+
+1. Navigate to the Purview account from the Azure portal, select the Private endpoint connections under the **networking** section of **Settings**.
+1. Navigate to the firewall tab and ensure that the toggle is set to **Deny**.
+
+    :::image type="content" source="media/catalog-private-link/private-endpoint-firewall.png" alt-text="Private endpoint firewall settings":::
 
 ## Next steps
 

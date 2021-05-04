@@ -7,7 +7,7 @@ ms.date: 03/02/2021
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Enable on-demand bursting
@@ -56,7 +56,7 @@ New-AzDiskUpdateConfig -BurstingEnabled $true | Update-AzDisk -ResourceGroupName
 
 # [Azure CLI](#tab/azure-cli)
 
-On-demand bursting cmdlets are available in version 2.19.0 and newer of the [Azure CLI module](https://docs.microsoft.com/cli/azure/install-azure-cli). Alternatively, you may use the [Azure Cloud Shell](https://shell.azure.com/).
+On-demand bursting cmdlets are available in version 2.19.0 and newer of the [Azure CLI module](/cli/azure/install-azure-cli). Alternatively, you may use the [Azure Cloud Shell](https://shell.azure.com/).
 
 ### Create and attach a on-demand bursting data disk
 

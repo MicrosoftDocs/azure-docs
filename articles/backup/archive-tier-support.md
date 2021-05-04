@@ -35,13 +35,15 @@ Supported clients:
 
 ## Get started with PowerShell
 
+1. Download the [latest](https://github.com/PowerShell/PowerShell/releases) version of PowerShell from GitHub.
+
 1. Run the following command in PowerShell:
   
     ```azurepowershell
     install-module -name Az.RecoveryServices -Repository PSGallery -RequiredVersion 4.0.0-preview -AllowPrerelease -force
     ```
 
-1. Connect to Azure using the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet.
+1. Connect to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 1. Sign into your subscription:
 
    `Set-AzContext -Subscription "SubscriptionName"`
@@ -52,7 +54,13 @@ Supported clients:
 
 1. Get the list of backup items:
 
-    `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureVM/AzureWorkload" -WorkloadType "AzureVM/MSSQL"`
+    - For Azure virtual machines:
+
+        `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureVM" -WorkloadType "AzureVM"`
+
+    - For SQL Server in Azure virtual machines:
+
+        `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureWorkload" -WorkloadType "MSSQL"`
 
 1. Get the backup item.
 
@@ -123,7 +131,7 @@ $rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm
 
 For recovery points in archive, Azure Backup provides an integrated restore methodology.
 
-The integrated restore is a two-step process. The first step involves rehydrating the recovery points stored in archive and temporarily storing it in the vault-standard tier for a duration (also known as the rehydration duration) ranging from a period of 10 to 30 days. The default is 15 days. There are two different priorities of rehydration – Standard and High priority. Learn more about [rehydration priority](https://docs.microsoft.com/azure/storage/blobs/storage-blob-rehydration#rehydrate-an-archived-blob-to-an-online-tier).
+The integrated restore is a two-step process. The first step involves rehydrating the recovery points stored in archive and temporarily storing it in the vault-standard tier for a duration (also known as the rehydration duration) ranging from a period of 10 to 30 days. The default is 15 days. There are two different priorities of rehydration – Standard and High priority. Learn more about [rehydration priority](../storage/blobs/storage-blob-rehydration.md#rehydrate-an-archived-blob-to-an-online-tier).
 
 >[!NOTE]
 >

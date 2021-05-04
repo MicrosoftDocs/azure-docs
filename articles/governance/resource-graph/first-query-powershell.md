@@ -1,8 +1,10 @@
 ---
-title: "Quickstart: Your first PowerShell query"
+title: 'Quickstart: Your first PowerShell query'
 description: In this quickstart, you follow the steps to enable the Resource Graph module for Azure PowerShell and run your first query.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: quickstart
+ms.custom:
+  - mode-api
 ---
 # Quickstart: Run your first Resource Graph query using Azure PowerShell
 
@@ -106,7 +108,7 @@ top five results.
 > subscriptions you have access to, one can set the PSDefaultParameterValues for `Search-AzGraph`
 > cmdlet by running
 > `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
-   
+
 ## Clean up resources
 
 If you wish to remove the Resource Graph module from your Azure PowerShell environment, you can do

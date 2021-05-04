@@ -5,12 +5,12 @@ description: 'Learn how to create a new Azure Kubernetes Service cluster through
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
+ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 03/11/2021
+ms.date: 04/08/2021
 ---
 
 # Create and attach an Azure Kubernetes Service cluster
@@ -43,12 +43,8 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
 
 - If you want to use a private AKS cluster (using Azure Private Link), you must create the cluster first, and then **attach** it to the workspace. For more information, see [Create a private Azure Kubernetes Service cluster](../aks/private-clusters.md).
 
-- The compute name for the AKS cluster MUST be unique within your Azure ML workspace.
-    - Name is required and must be between 3 to 24 characters long.
-    - Valid characters are upper and lower case letters, digits, and the - character.
-    - Name must start with a letter.
-    - Name needs to be unique across all existing computes within an Azure region. You will see an alert if the name you choose is not unique.
-   
+- The compute name for the AKS cluster MUST be unique within your Azure ML workspace. It can include letters, digits and dashes. It must start with a letter, end with a letter or digit, and be between 3 and 24 characters in length.
+ 
  - If you want to deploy models to **GPU** nodes or **FPGA** nodes (or any specific SKU), then you must create a cluster with the specific SKU. There is no support for creating a secondary node pool in an existing cluster and deploying models in the secondary node pool.
  
 - When creating or attaching a cluster, you can select whether to create the cluster for __dev-test__ or __production__. If you want to create an AKS cluster for __development__, __validation__, and __testing__ instead of production, set the __cluster purpose__ to __dev-test__. If you do not specify the cluster purpose, a __production__ cluster is created. 
@@ -66,6 +62,10 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
     - [Set up cluster autoscaler in AKS](../aks/cluster-autoscaler.md)
 
 - __Do not directly update the cluster by using a YAML configuration__. While Azure Kubernetes Services supports updates via YAML configuration, Azure Machine Learning deployments will override your changes. The only two YAML fields that will not overwritten are __request limits__ and and __cpu and memory__.
+
+- Creating an AKS cluster using the Azure Machine Learning studio UI, SDK, or CLI extension is __not__ idempotent. Attempting to create the resource again will result in an error that a cluster with the same name already exists.
+    
+    - Using an Azure Resource Manager template and the [Microsoft.MachineLearningServices/workspaces/computes](/azure/templates/microsoft.machinelearningservices/2019-11-01/workspaces/computes) resource to create an AKS cluster is also __not__ idempotent. If you attempt to use the template again to update an already existing resource, you will receive the same error.
 
 ## Azure Kubernetes Service version
 
@@ -193,7 +193,7 @@ For more information on the classes, methods, and parameters used in this exampl
 az ml computetarget create aks -n myaks
 ```
 
-For more information, see the [az ml computetarget create aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference.
+For more information, see the [az ml computetarget create aks](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_aks) reference.
 
 # [Portal](#tab/azure-portal)
 
@@ -218,7 +218,7 @@ If you already have AKS cluster in your Azure subscription, you can use it with 
 
 For more information on creating an AKS cluster using the Azure CLI or portal, see the following articles:
 
-* [Create an AKS cluster (CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2faks%2fTOC.json#az-aks-create)
+* [Create an AKS cluster (CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2faks%2fTOC.json#az_aks_create)
 * [Create an AKS cluster (portal)](../aks/kubernetes-walkthrough-portal.md)
 * [Create an AKS cluster (ARM Template on Azure Quickstart templates)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute)
 
@@ -270,7 +270,7 @@ To attach the existing cluster to your workspace, use the following command. Rep
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
 ```
 
-For more information, see the [az ml computetarget attach aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/attach#ext-azure-cli-ml-az-ml-computetarget-attach-aks) reference.
+For more information, see the [az ml computetarget attach aks](/cli/azure/ml/computetarget/attach#az_ml_computetarget_attach_aks) reference.
 
 # [Portal](#tab/azure-portal)
 

@@ -669,7 +669,7 @@ Clients can enqueue *operations* for (also known as "signaling") an entity funct
 [FunctionName("EventHubTriggerCSharp")]
 public static async Task Run(
     [EventHubTrigger("device-sensor-events")] EventData eventData,
-    [DurableClient] IDurableOrchestrationClient entityClient)
+    [DurableClient] IDurableEntityClient entityClient)
 {
     var metricType = (string)eventData.Properties["metric"];
     var delta = BitConverter.ToInt32(eventData.Body, eventData.Body.Offset);

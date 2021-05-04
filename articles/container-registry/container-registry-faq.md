@@ -3,7 +3,7 @@ title: Frequently asked questions
 description: Answers for frequently asked questions related to the Azure Container Registry service 
 author: sajayantony
 ms.topic: article
-ms.date: 09/18/2020
+ms.date: 03/15/2021
 ms.author: sajaya
 ---
 
@@ -28,7 +28,7 @@ For registry troubleshooting guidance, see:
 
 ### Can I create an Azure Container Registry using a Resource Manager template?
 
-Yes. Here is [a template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry) that you can use to create a registry.
+Yes. Here is [a template](https://azure.microsoft.com/resources/templates/101-container-registry/) that you can use to create a registry.
 
 ### Is there security vulnerability scanning for images in ACR?
 
@@ -256,11 +256,24 @@ Image quarantine is currently a preview feature of ACR. You can enable the quara
 
 ### How do I enable anonymous pull access?
 
-Setting up an Azure container registry for anonymous (public) pull access is currently a preview feature. If you have any [scope map (user) or token resources](./container-registry-repository-scoped-permissions.md) in your registry, please delete them before raising a support ticket (system scope maps can be ignored). To enable public access, please open a support ticket at https://aka.ms/acr/support/create-ticket. For details, see the [Azure Feedback Forum](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+Setting up an Azure container registry for anonymous (unauthenticated) pull access is currently a preview feature, available in the Standard and Premium [service tiers](container-registry-skus.md). 
+
+To enable anonymous pull access, update a registry using the Azure CLI (version 2.21.0 or later) and pass the `--anonymous-pull-enabled` parameter to the [az acr update](/cli/azure/acr#az_acr_update) command:
+
+```azurecli
+az acr update --name myregistry --anonymous-pull-enabled
+``` 
+
+You may disable anonymous pull access at any time by setting `--anonymous-pull-enabled` to `false`.
 
 > [!NOTE]
-> * Only the APIs required to pull a known image can be accessed anonymously. No other APIs for operations like tag list or repository list are accessible anonymously.
 > * Before attempting an anonymous pull operation, run `docker logout` to ensure that you clear any existing Docker credentials.
+> * Only data-plane operations are available to unauthenticated clients.
+> * The registry may throttle a high rate of unauthenticated requests.
+> * Currently, anonymous pull access isn't supported in [geo-replicated](container-registry-geo-replication.md) registry regions.
+
+> [!WARNING]
+> Anonymous pull access currently applies to all repositories in the registry. If you manage repository access using [repository-scoped tokens](container-registry-repository-scoped-permissions.md), be aware that all users may pull from those repositories in a registry enabled for anonymous pull. We recommend deleting tokens when anonymous pull access is enabled.
 
 ### How do I push non-distributable layers to a registry?
 
@@ -468,7 +481,7 @@ Please contact your network administrator or check your network configuration an
 ### Why does my pull or push request fail with disallowed operation?
 
 Here are some scenarios where operations may be disallowed:
-* Classic registries are no longer supported. Please upgrade to a supported [service tier](./container-registry-skus.md) using [az acr update](/cli/azure/acr#az-acr-update) or the Azure portal.
+* Classic registries are no longer supported. Please upgrade to a supported [service tier](./container-registry-skus.md) using [az acr update](/cli/azure/acr#az_acr_update) or the Azure portal.
 * The image or repository maybe locked so that it can't be deleted or updated. You can use the [az acr show repository](./container-registry-image-lock.md) command to view current attributes.
 * Some operations are disallowed if the image is in quarantine. Learn more about [quarantine](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 * Your registry may have reached its [storage limit](container-registry-skus.md#service-tier-features-and-limits).

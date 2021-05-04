@@ -238,6 +238,8 @@
         href: spatial-io-supported-data-format-details.md
     - name: Web SDK supported browsers
       href: supported-browsers.md
+    - name: Best practices
+      href: web-sdk-best-practices.md
   - name: Develop with the Android SDK
     items:
     - name: Getting started with Android map control

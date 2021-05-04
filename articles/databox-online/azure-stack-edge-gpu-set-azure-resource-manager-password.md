@@ -16,18 +16,16 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to set your Azure Resource Manager password. You need to set this password when you are connecting to the device local APIs via the Azure Resource Manager.
+This article describes how to set your Azure Resource Manager password. You need to set this password when you are [connecting to the device local APIs via the Azure Resource Manager](azure-stack-edge-gpu-connect-resource-manager.md). 
 
 <!--The procedure to set the password can be different depending upon whether you use the Azure portal or the PowerShell cmdlets. Each of these procedures is described in the following sections.-->
 
 
 ## Reset password via the Azure portal
 
-1. In the Azure portal, go to the Azure Stack Edge resource you created to manage your device. Go to **Edge services > Cloud storage gateway**.
+1. In the Azure portal, go to the Azure Stack Edge resource you created to manage your device. 
 
-    ![Reset EdgeARM user password 1](media/azure-stack-edge-gpu-set-azure-resource-manager-password/set-edgearm-password-1.png)
-
-2. In the right pane, from the command bar, select **Reset Edge ARM password**. 
+2. Go to **Properties**. In the right pane, from the command bar, select **Reset Edge ARM password**. 
 
     ![Reset EdgeARM user password 2](media/azure-stack-edge-gpu-set-azure-resource-manager-password/set-edgearm-password-2.png)
 

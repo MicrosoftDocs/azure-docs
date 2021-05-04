@@ -30,7 +30,7 @@ The first time you sign in you need to authenticate twice. For the first authent
 
 Once you are connected, your screen should resemble the following screenshot:
 
-![R studio web console overviews](./media/ml-services-quickstart-job-rstudio/connect-to-r-studio1.png)
+:::image type="content" source="./media/ml-services-quickstart-job-rstudio/connect-to-r-studio1.png" alt-text="R studio web console overviews" border="true":::
 
 ## Use a compute context
 

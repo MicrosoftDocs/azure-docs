@@ -162,4 +162,4 @@ Before you begin, make sure you have:
 
 ## Next Steps
 
-- Learn more about how to [Configure GPU to use a module](azure-stack-edge-j-series-configure-gpu-modules.md).
+- Learn more about how to [Configure GPU to use a module](./azure-stack-edge-gpu-configure-gpu-modules.md).
