@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 04/01/2021
+ms.date: 05/04/2021
 ---
 # Resource functions for ARM templates
 
@@ -539,11 +539,13 @@ You can use the response from pickZones to determine whether to provide null for
 
 Returns an object representing a resource's runtime state.
 
-In Bicep, directly use the symbolic name of the resource definition to get a value from the resource. For example:
+In Bicep, directly use the symbolic name of the resource to get a value from the resource. For example:
 
 ```bicep
 output storageEndpoint object = stg.properties.primaryEndpoints
 ```
+
+For more information, see [Reference resources](./compare-template-syntax.md#reference-resources).
 
 ### Parameters
 
@@ -1017,6 +1019,12 @@ The preceding example returns an object in the following format:
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)`
 
 Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within the same template. The format of the returned identifier varies based on whether the deployment happens at the scope of a resource group, subscription, management group, or tenant.
+
+In Bicep, directly use the symbolic name of the resource to resource id property. For example:
+
+```bicep
+stg.id
+```
 
 ### Parameters
 
