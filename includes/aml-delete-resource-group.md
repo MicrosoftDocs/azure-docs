@@ -14,7 +14,7 @@ ms.date: 12/04/2018
 >The resources that you created can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles. 
 
 
-If you don't plan to use the resources that you created, delete them so you don't incur any charges:
+If you don't plan to use any of the resources that you created, delete them so you don't incur any charges:
 
 1. In the Azure portal, select **Resource groups** on the far left.
  
