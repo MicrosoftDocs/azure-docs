@@ -1,7 +1,7 @@
 ---
 title: Azure Arc overview
 description: Learn about what Azure Arc is and how it helps customers enable management and governance of their hybrid resources with other Azure services and features.
-ms.date: 04/29/2021
+ms.date: 05/04/2021
 ms.topic: overview
 ---
 
@@ -40,9 +40,9 @@ Key features of Azure Arc include:
 
 *  Zero-touch compliance and configuration for your Kubernetes clusters using Azure Policy.
 
-* Run Azure data services on any Kubernetes environment as if it runs in Azure (specifically Azure SQL Managed Instance and Azure Database for PostgreSQL Hyperscale, with benefits such as upgrades, updates, security, and monitoring). Use elastic scale and apply updates without any application downtime, even without continuous connection to Azure.
+* Run [Azure data services](../azure-arc/kubernetes/custom-locations.md) on any Kubernetes environment as if it runs in Azure (specifically Azure SQL Managed Instance and Azure Database for PostgreSQL Hyperscale, with benefits such as upgrades, updates, security, and monitoring). Use elastic scale and apply updates without any application downtime, even without continuous connection to Azure.
 
-* Create [custom locations](./kubernetes/custom-locations.md) on top of your [Azure Arc enabled Kubernetes](./kubernetes/overview.md) clusters, using them as target locations for deploying Azure services instances. 
+* Create [custom locations](./kubernetes/custom-locations.md) on top of your [Azure Arc enabled Kubernetes](./kubernetes/overview.md) clusters, using them as target locations for deploying Azure services instances. Deploy your Azure service cluster extensions for App Services on Azure Arc (including web, function, and logic apps) and Event Grid on Kubernetes. 
 
 * A unified experience viewing your Azure Arc enabled resources whether you are using the Azure portal, the Azure CLI, Azure PowerShell, or Azure REST API.
 

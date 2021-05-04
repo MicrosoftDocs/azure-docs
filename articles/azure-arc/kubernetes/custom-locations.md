@@ -2,7 +2,7 @@
 title: "Custom locations on Azure Arc enabled Kubernetes"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 04/29/2021
+ms.date: 05/04/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
@@ -123,6 +123,6 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 ## Next steps
 
 - Securely connect to the cluster using [Cluster Connect](cluster-connect.md)
-- Continue with Azure App Services on Azure Arc] and create your first web, function, or logic app. 
+- Continue with Azure App Services on Azure Arc to create your first web, function, or logic app. 
 - Create an Event Grid topic and an event subscription for Event Grid on Kubernetes. 
-- Deploy an API Management gateway to your cluster. 
+

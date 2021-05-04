@@ -48,9 +48,9 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 | [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json) | Provides visibility into the performance of workloads deployed on the Kubernetes cluster. Collects memory and CPU utilization metrics from controllers, nodes, and containers. |
 | [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json) | Gathers information related to security like audit log data from the Kubernetes cluster. Provides recommendations and threat alerts based on gathered data. |
 | [Azure Arc Data Services](../../azure-arc/kubernetes/custom-locations.md#create-custom-location) | Makes it possible for you to run Azure data services on-prem, at the edge, and in public clouds using Kubernetes and the infrastructure of your choice. |
-| [Azure App Services on Azure Arc](../../azure-arc/kubernetes/custom-locations.md#create-custom-location) | Allows you to provision an App Service Kubernetes environment on top of Azure Arc enabled Kubernetes. |
-| [Event Grid on Kubernetes](../../azure-arc/kubernetes/custom-locations.md#create-custom-location) | Deploys to an Azure Arc enabled Kubernetes cluster. The attached Kubernetes cluster and Event Grid resources, such as topics and event subscriptions, appear on the Azure Portal, have an Azure Resource Manager Id, and are managed through ARM control plane gestures. |
-| Azure API Management on Azure Arc - TODO(../../api-management/deploy-api-mgmt-gateway.md) | Deploy the API Management gateway component as an extension on an Azure Arc enabled Kubernetes cluster. |
+| Azure App Services on Azure Arc | Allows you to provision an App Service Kubernetes environment on top of Azure Arc enabled Kubernetes. |
+| Event Grid on Kubernetes | Deploys to an Azure Arc enabled Kubernetes cluster. The attached Kubernetes cluster and Event Grid resources, such as topics and event subscriptions, appear on the Azure Portal, have an Azure Resource Manager Id, and are managed through ARM control plane gestures. |
+| Azure API Management on Azure Arc | Deploy the API Management gateway component as an extension on an Azure Arc enabled Kubernetes cluster. |
 
 ## Usage of cluster extensions
 
@@ -261,6 +261,6 @@ Learn more about the cluster extensions currently available for Azure Arc enable
 > [!div class="nextstepaction"]
 > [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json)
 > [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
-> [App Services on Azure Arc](../../azure-arc/kubernetes/custom-locations.md#create-custom-location)
-> [Event Grid on Kubernetes](../../azure-arc/kubernetes/custom-locations.md#create-custom-location)
-> API Management on Azure Arc TODO(../../deploy-api-mgmt-gateway.md)
+> App Services on Azure Arc
+> Event Grid on Kubernetes
+> API Management on Azure Arc
