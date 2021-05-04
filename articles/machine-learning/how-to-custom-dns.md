@@ -166,7 +166,7 @@ The following table shows example IPs from Azure China regions:
 
 ## Example: Custom DNS Server hosted in VNet
 
-One architecture uses the common Hub and Spoke virtual network topology, with one Virtual Network hosting the DNS Server, and one Virtual Network containing the Private Endpoint to the Azure Machine Learning workspace and associated compute resources. There must be a valid route between both of those Virtual Networks through a series of peered Virtual Networks. 
+This architecture uses the common Hub and Spoke virtual network topology. One virtual network contains the DNS server and one contains the private endpoint to the Azure Machine Learning workspace and associated resources. There must be a valid route between both virtual networks. For example, through a series of peered virtual networks.
 
 :::image type="content" source="./media/how-to-custom-dns/custom-dns-topology.svg" alt-text="Diagram of custom DNS hosted in Azure topology":::
 
@@ -190,17 +190,17 @@ The following steps describe how this topology works:
 
     Following creation of the Private DNS Zone, it needs to be linked to the DNS Server Virtual Network. The Virtual Network that contains the DNS Server.
 
-    A Private DNS Zone overrides domain name resolution for all domain names in the scope of the root of the zone, for all Virtual Networks the Private DNS Zone is linked to. For example, if a Private DNS Zone rooted at `privatelink.api.azureml.ms` is linked to Virtual Network foo, all resources in Virtual Network foo that attempt to resolve `bar.workspace.westus2.privatelink.api.azureml.ms` will receive any record that is listed in the `privatelink.api.azureml.ms` zone.
+    A Private DNS Zone overrides name resolution for all names within the scope of the root of the zone. This override applies to all Virtual Networks the Private DNS Zone is linked to. For example, if a Private DNS Zone rooted at `privatelink.api.azureml.ms` is linked to Virtual Network foo, all resources in Virtual Network foo that attempt to resolve `bar.workspace.westus2.privatelink.api.azureml.ms` will receive any record that is listed in the `privatelink.api.azureml.ms` zone.
 
-    However, records listed in Private DNS Zones are only returned to devices resolving domains using the default Azure DNS Virtual Server IP address. So while the custom DNS Server will resolve domains for devices spread throughout your network topology, the custom DNS Server will need to resolve Azure Machine Learning-related domains against the Azure DNS Virtual Server IP address.
+    However, records listed in Private DNS Zones are only returned to devices resolving domains using the default Azure DNS Virtual Server IP address. So the custom DNS Server will resolve domains for devices spread throughout your network topology. But the custom DNS Server will need to resolve Azure Machine Learning-related domains against the Azure DNS Virtual Server IP address.
 
 2. **Create private endpoint with private DNS integration targeting Private DNS Zone linked to DNS Server Virtual Network**:
 
-    The next step is to create a Private Endpoint to the Azure Machine Learning workspace, ensuring Private DNS integration is enabled, and targeting both Private DNS Zones created in step 1. This ensures all communication with the workspace is done via the Private Endpoint in the Azure Machine Learning Virtual Network.
+    The next step is to create a Private Endpoint to the Azure Machine Learning workspace. A private endpoint ensures Private DNS integration is enabled. The private endpoint targets both Private DNS Zones created in step 1. This ensures all communication with the workspace is done via the Private Endpoint in the Azure Machine Learning Virtual Network.
 
 3. **Create conditional forwarder in DNS Server to forward to Azure DNS**: 
 
-    The next step is to create a conditional forwarder to the Azure DNS Virtual Server. This ensures that, for FQDNs related to Private Link for the Azure Machine Learning workspaces, the DNS Server always queries the Azure DNS Virtual Server IP address for the answer – which means the DNS Server will return the corresponding record from the Private DNS Zone.
+    Next, create a conditional forwarder to the Azure DNS Virtual Server. The conditional forwarder ensures that the DNS server always queries the Azure DNS Virtual Server IP address for FQDNs related to your workspace. This means that the DNS Server will return the corresponding record from the Private DNS Zone.
 
     The zones to conditionally forward are listed below. The Azure DNS Virtual Server IP address is 168.63.129.16:
 
@@ -254,7 +254,7 @@ The following steps describe how this topology works:
 
 #### Troubleshooting
 
-If after running through the above steps you are unable to access the workspace from a virtual machine or jobs fail on compute resources in the Virtual Network containing the Private Endpoint to the Azure Machine learning workspace, follow the below steps to try to identify the cause.
+If you cannot access the workspace from a virtual machine or jobs fail on compute resources in the virtual network, use the following steps to identify the cause:
 
 1. **Locate the workspace FQDNs on the Private Endpoint**:
 
@@ -275,7 +275,7 @@ If after running through the above steps you are unable to access the workspace 
 
     ```nslookup <workspace FQDN>```
         
-    The result of each nslookup should yield one of the two private IP addresses on the Private Endpoint to the Azure Machine Learning workspace. If it does not, then there is something misconfigured in the custom DNS solution.
+    The result of each nslookup should return one of the two private IP addresses on the Private Endpoint to the Azure Machine Learning workspace. If it does not, then there is something misconfigured in the custom DNS solution.
 
     Possible causes:
     - The compute resource running the troubleshooting commands is not using DNS Server for DNS resolution
@@ -286,7 +286,7 @@ If after running through the above steps you are unable to access the workspace 
 
 ## Example: Custom DNS Server hosted on-premises
 
-Another architecture uses the common Hub and Spoke virtual network topology, with ExpressRoute connectivity from the On-premises network to the Hub Virtual Network. The Custom DNS server is hosted On-premises, with a separate Virtual Network hosting the Private Endpoint to the Azure Machine Learning workspace and associated compute resources. With this topology, there needs to be another Virtual Network hosting a DNS Server that can send requests to the Azure DNS Virtual Server IP address.
+This architecture uses the common Hub and Spoke virtual network topology. ExpressRoute is used to connect from your on-premises network to the Hub virtual network. The Custom DNS server is hosted on-premises. A separate virtual network contains the private endpoint to the Azure Machine Learning workspace and associated resources. With this topology, there needs to be another virtual network hosting a DNS server that can send requests to the Azure DNS Virtual Server IP address.
 
 :::image type="content" source="./media/how-to-custom-dns/custom-dns-express-route.svg" alt-text="Diagram of custom DNS hosted on-premises topology":::
 
@@ -313,21 +313,21 @@ The following steps describe how this topology works:
     > [!NOTE]
     > The DNS Server in the virtual network is separate from the On-premises DNS Server.
 
-    A Private DNS Zone overrides domain name resolution for all domain names in the scope of the root of the zone, for all Virtual Networks the Private DNS Zone is linked to. For example, if a Private DNS Zone rooted at `privatelink.api.azureml.ms` is linked to Virtual Network foo, all resources in Virtual Network foo that attempt to resolve `bar.workspace.westus2.privatelink.api.azureml.ms` will receive any record that is listed in the privatelink.api.azureml.ms zone.
+    A Private DNS Zone overrides name resolution for all names within the scope of the root of the zone. This override applies to all Virtual Networks the Private DNS Zone is linked to. For example, if a Private DNS Zone rooted at `privatelink.api.azureml.ms` is linked to Virtual Network foo, all resources in Virtual Network foo that attempt to resolve `bar.workspace.westus2.privatelink.api.azureml.ms` will receive any record that is listed in the privatelink.api.azureml.ms zone.
 
-    However, records listed in Private DNS Zones are only returned to devices resolving domains using the default Azure DNS Virtual Server IP address. The Azure DNS Virtual Server IP address is only valid within the context of a Virtual Network, which introduces difficulty when using an On-premises DNS Server – as the On-premises DNS Server is not able to query the Azure DNS Virtual Server IP address for records in Private DNS zones.
+    However, records listed in Private DNS Zones are only returned to devices resolving domains using the default Azure DNS Virtual Server IP address. The Azure DNS Virtual Server IP address is only valid within the context of a Virtual Network. When using an on-premises DNS server, it is not able to query the Azure DNS Virtual Server IP address to retrieve records.
 
-    That difficulty necessitates the creation of an intermediary DNS Server in a Virtual Network, which allows it to query the Azure DNS Virtual Server IP address to retrieve records in any Private DNS Zone linked to the Virtual Network.
+    To get around this behavior, create an intermediary DNS Server in a virtual network. This DNS server can query the Azure DNS Virtual Server IP address to retrieve records for any Private DNS Zone linked to the virtual network.
 
-    While the On-premises DNS Server will resolve domains for devices spread throughout your network topology, the On-premises DNS Server will need to resolve Azure Machine Learning-related domains against the DNS Server, and the DNS Server will proceed to resolve those domains from the Azure DNS Virtual Server IP address.
+    While the On-premises DNS Server will resolve domains for devices spread throughout your network topology, it will resolve Azure Machine Learning-related domains against the DNS Server. The DNS Server will resolve those domains from the Azure DNS Virtual Server IP address.
 
 2. **Create private endpoint with private DNS integration targeting Private DNS Zone linked to DNS Server Virtual Network**:
 
-    The next step is to create a Private Endpoint to the Azure Machine Learning workspace, ensuring Private DNS integration is enabled, and targeting both Private DNS Zones created in step 1. This ensures all communication with the workspace is done via the Private Endpoint in the Azure Machine Learning Virtual Network.
+    The next step is to create a Private Endpoint to the Azure Machine Learning workspace. A private endpoint ensures Private DNS integration is enabled. The private endpoint targets both Private DNS Zones created in step 1. This ensures all communication with the workspace is done via the Private Endpoint in the Azure Machine Learning Virtual Network.
 
 3. **Create conditional forwarder in DNS Server to forward to Azure DNS**:
 
-    The next step is to create a conditional forwarder to the Azure DNS Virtual Server IP address for the zones listed in step 1. This ensures that, for FQDNs related to Private Link for the Azure Machine Learning workspaces, the DNS Server always queries the Azure DNS Virtual Server IP address for the answer – which means the DNS Server will return the corresponding record from the Private DNS Zone.
+    Next, create a conditional forwarder to the Azure DNS Virtual Server. The conditional forwarder ensures that the DNS server always queries the Azure DNS Virtual Server IP address for FQDNs related to your workspace. This means that the DNS Server will return the corresponding record from the Private DNS Zone.
 
     The zones to conditionally forward are listed below. The Azure DNS Virtual Server IP address is 168.63.129.16.
 
@@ -348,7 +348,7 @@ The following steps describe how this topology works:
 
 4. **Create conditional forwarder in On-premises DNS Server to forward to DNS Server**:
 
-    The next step is to create a conditional forwarder to the DNS Server in the DNS Server Virtual Network for the zones listed in step 1. This is similar to step 3, but, instead of forwarding to the Azure DNS Virtual Server IP address, the On-premises DNS Server will be targeting the IP address of the DNS Server. As the On-premises DNS Server is not in Azure, it is not able to directly resolve records in Private DNS Zones. In this case the DNS Server essentially serves to proxy requests from the On-premises DNS Server to the Azure DNS Virtual Server IP, such that the On-premises DNS Server is able to retrieve records in the Private DNS Zones linked to the DNS Server Virtual Network. 
+    Next, create a conditional forwarder to the DNS Server in the DNS Server Virtual Network. This forwarder is for the zones listed in step 1. This is similar to step 3, but, instead of forwarding to the Azure DNS Virtual Server IP address, the On-premises DNS Server will be targeting the IP address of the DNS Server. As the On-premises DNS Server is not in Azure, it is not able to directly resolve records in Private DNS Zones. In this case the DNS Server proxies requests from the On-premises DNS Server to the Azure DNS Virtual Server IP. This allows the On-premises DNS Server to retrieve records in the Private DNS Zones linked to the DNS Server Virtual Network. 
 
     The zones to conditionally forward are listed below. The IP addresses to forward to are the IP addresses of your DNS Servers:
 
@@ -369,7 +369,7 @@ The following steps describe how this topology works:
 
 5. **Resolve workspace domain**:
 
-    At this point, all setup is done. Now any client that uses On-premises DNS Server for name resolution and has a route to the Azure Machine Learning Private Endpoint can proceed to access the workspace.
+    At this point, all setup is done. Any client that uses on-premises DNS Server for name resolution, and has a route to the Azure Machine Learning Private Endpoint, can proceed to access the workspace.
 
     The client will first start by querying On-premises DNS Server for the address of the following FQDNs:
 
