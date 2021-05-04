@@ -136,6 +136,10 @@
       href: custom-translator/what-is-bleu-score.md
     - name: Customer-managed keys
       href: encrypt-data-at-rest.md
+  - name: Reference
+    items:
+    - name: Release notes
+      href: custom-translator/release-notes.md
 - name: Document Translation
   items:
     - name: What is Document Translation?

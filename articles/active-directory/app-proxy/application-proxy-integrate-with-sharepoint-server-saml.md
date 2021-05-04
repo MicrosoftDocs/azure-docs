@@ -35,8 +35,8 @@ To complete this configuration, you need the following resources:
  - An Azure AD tenant with a plan that includes Application Proxy. Learn more about [Azure AD plans and pricing](https://azure.microsoft.com/pricing/details/active-directory/).
  - A [custom, verified domain](../fundamentals/add-custom-domain.md) in the Azure AD tenant. The verified domain must match the SharePoint URL suffix.
  - An SSL certificate is required. See the details in [custom domain publishing](./application-proxy-configure-custom-domain.md).
- - On-premises Active Directory users must be synchronized with Azure AD Connect, and must be configure to [sign in to Azure](../hybrid/plan-connect-user-signin.md).
- - For cloud-only and B2B guest users, you need to [grant access to a guest account to SharePoint on-premises in the Azure portal](../saas-apps/sharepoint-on-premises-tutorial.md#grant-access-to-a-guest-account-to-sharepoint-on-premises-in-the-azure-portal).
+ - On-premises Active Directory users must be synchronized with Azure AD Connect, and must be configure to [sign in to Azure](../hybrid/plan-connect-user-signin.md). 
+ - For cloud-only and B2B guest users, you need to [grant access to a guest account to SharePoint on-premises in the Azure portal](../saas-apps/sharepoint-on-premises-tutorial.md#manage-guest-users-access).
  - An Application Proxy connector installed and running on a machine within the corporate domain.
 
 
@@ -66,7 +66,7 @@ In this step, you create an application in your Azure AD tenant that uses Applic
 
         ![Screenshot that shows the options you use to create the app.](./media/application-proxy-integrate-with-sharepoint-server/create-application-azure-active-directory.png)
 
-2. Assign the [same groups](../saas-apps/sharepoint-on-premises-tutorial.md#create-an-azure-ad-security-group-in-the-azure-portal) you assigned to the on-premises SharePoint Gallery Application.
+2. Assign the [same groups](../saas-apps/sharepoint-on-premises-tutorial.md#grant-permissions-to-a-security-group) you assigned to the on-premises SharePoint Gallery Application.
 
 3. Finally, go to the **Properties** section and set **Visible to users?** to **No**. This option ensures that only the icon of the first application appears on the My Apps Portal (https://myapplications.microsoft.com).
 

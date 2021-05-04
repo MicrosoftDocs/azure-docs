@@ -137,7 +137,7 @@ To create a compute instance you need to have permissions for the following acti
 In your workspace in Azure Machine Learning studio, [create a new compute instance](how-to-create-attach-compute-studio.md#compute-instance) from either the **Compute** section or in the **Notebooks** section when you are ready to run one of your notebooks. 
 
 You can also create an instance
-* Directly from the [integrated notebooks experience](tutorial-1st-experiment-sdk-setup.md#azure)
+* Directly from the [integrated notebooks experience](tutorial-train-models-with-aml.md#azure)
 * In Azure portal
 * From Azure Resource Manager template. For an example template, see the [create an Azure Machine Learning compute instance template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).
 * With [Azure Machine Learning SDK](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/concept-compute-instance.md)
