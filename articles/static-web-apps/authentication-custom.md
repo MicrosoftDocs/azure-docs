@@ -11,7 +11,7 @@ ms.date: 3/24/2021
 
 # Custom authentication in Azure Static Web Apps
 
-Azure Static Web Apps provides managed authentication but also the option to provide your own settings for the providers and even a custom provider that supports [OpenID Connect](https://openid.net/connect/).
+Azure Static Web Apps provides [managed authentication](authentication-authorization.md) which uses provider registrations managed by Azure. To enable more flexibility over the registration ownership these can be overridden to use your own provider details. Additionally, a custom provider that supports [OpenID Connect](https://openid.net/connect/) can be configured to allow additional providers to be enabled in Static Web Apps.
 
 ## Overriding a default provider
 
