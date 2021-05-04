@@ -35,8 +35,8 @@ In this article, you learn how to:
 * Java Azure functions app deployed on Windows consumption plan. [Create your first Azure function in Java](./create-first-function-vs-code-java.md) 
 ::: zone-end
 
+## Bring in dependencies from the project directory
 ::: zone pivot="programming-language-python"
-## Bring Dependencies by putting them in Azure Functions Project Directory
 One of the simplest ways to bring in dependencies is to put the files/artifact together with the functions app code in functions project directory structure. Here is an example of the directory samples in a Python functions project:
 ```
 <project_root>/
