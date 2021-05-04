@@ -112,6 +112,15 @@ If you've made a list of your shares, map each share to the storage account wher
 > Decide on an Azure region, and ensure each storage account and Azure File Sync resource matches the region you selected.
 > Don't configure network and firewall settings for the storage accounts now. Making these configurations at this point would make a migration impossible. Configure these Azure storage settings after the migration is complete.
 
+### Storage account settings
+
+There are many configurations you can make on a storage account. The following checklist should be used for confirming your storage account configurations. You can change for instance the networking configuration after your migration is complete. 
+
+> [!div class="checklist"]
+> * Large file shares: Enabled - Large file shares improve performance and allow you to store up to 100TiB in a share. This setting applies to target storage accounts with Azure file shares.
+> * Firewall and virtual networks: Disabled - do not configure any IP restrictions or limit storage account access to a specific VNET. The public endpoint of the storage account is used during the migration. All IP addresses from Azure VMs must be allowed. It's best to configure any firewall rules on the storage account after the migration. Configure both, your source and target storage accounts this way.
+> * Private Endpoints: Supported - You can enable private endpoints but the public endpoint is used for the migration and must remain available. This consideration applies to both, your source and target storage accounts.
+
 ### Phase 1 summary
 
 At the end of Phase 1:
@@ -198,6 +207,9 @@ Opting for the large, 100-TiB-capacity file shares has several benefits:
 * Your migration will finish significantly faster.
 * You ensure that a file share will have enough capacity to hold all the data you'll migrate into it, including the storage capacity differential backups require.
 * Future growth is covered.
+
+> [!IMPORTANT]
+> Do not apply special networking to your storage account before or during your migration. The public endpoint must be accessible on source and target storage accounts. No limiting to specific IP ranges or VNETs is supported. You can change the storage account networking configurations after the migration.
 
 ### Azure file shares
 
@@ -363,6 +375,23 @@ In the job blade that opens, you can see your job runs in the lower list. Initia
     :::column-end:::
 :::row-end:::
 
+#### Running jobs in parallel
+
+You will likely have multiple StorSimple locations that each need to be copied to a different Azure file share. For a single StorSimple appliance, you can run up to four migration jobs in parallel if they target each a different Azure file share. 
+
+Each job goes through several phases. Starting another job is only possible, when the previous job has entered the file copy phase. Typically within 25 to 35 Minutes after the job was started, another job can be started, up to four in parallel. Jobs targeting the same file share (for subsequent backups) need to be copied one backup after the other.
+
+> [!CAUTION]
+> Start only one migration job at a time for any data going to the same Azure file share.
+
+#### Interpret the log files
+
+A finished migration job displays a link to the copy logs. These are *\*.csv* files listing namespace items succeeded as well as those that failed to get copied.
+
+Once you access the location of the log files, you can locate the logs for failed files by filtering the list with the search term "failed". The result will be a set of logs for files that failed to copy. Then sort them by size. There may be additional logs produced at 17 Bytes in size. They are generally empty and can be ignored. With a sort you can easily focus on the logs with content.
+
+The same process applies for log files recording successful copies.
+
 ### Phase 3 summary
 
 At the end of Phase 3, you'll have run at least one of your migration jobs from StorSimple volumes into Azure file share(s). You will have run the same migration job several time, from oldest to newest backups that must be migrated. You can now focus on either setting up Azure File Sync for the share (once migration jobs for a share have completed) or directing share access for your information workers and apps to the Azure file share.
@@ -501,92 +530,7 @@ At this point, there are differences between your on-premises Windows Server ins
 
 RoboCopy has several parameters. The following example showcases a finished command and a list of reasons for choosing these parameters.
 
-```console
-Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /IT /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
-```
-
-Background:
-
-:::row:::
-   :::column span="1":::
-      /MT
-   :::column-end:::
-   :::column span="1":::
-      Allows for RoboCopy to run multi-threaded. Default is 8, and the maximum is 128.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /UNILOG:<file name>
-   :::column-end:::
-   :::column span="1":::
-      Outputs status to LOG file as UNICODE (overwrites existing log).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /TEE
-   :::column-end:::
-   :::column span="1":::
-      Outputs to console window. Used in conjunction with output to a log file.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /NP
-   :::column-end:::
-   :::column span="1":::
-      Omits the logging of progress to keep the log readable.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /B
-   :::column-end:::
-   :::column span="1":::
-      Runs RoboCopy in the same mode a backup application would use. It allows RoboCopy to move files that the current user doesn't have permissions to.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /MIR
-   :::column-end:::
-   :::column span="1":::
-      Allows for RoboCopy to only consider deltas between source (StorSimple appliance) and target (Windows Server directory).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /IT
-   :::column-end:::
-   :::column span="1":::
-      Ensures fidelity is preserved in certain mirror scenarios.</br>Example: Between two Robocopy runs a file experiences an ACL change and an attribute update, for instance it is also marked *hidden*. Without /IT the ACL change can be missed by Robocopy and thus not transferred to the target location.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPY:copyflag[s]
-   :::column-end:::
-   :::column span="1":::
-      Fidelity of the file copy (default is /COPY:DAT), copy flags: D=Data, A=Attributes, T=Timestamps, S=Security=NTFS ACLs, O=Owner information, U=aUditing information.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPYALL
-   :::column-end:::
-   :::column span="1":::
-      COPY ALL file information (equivalent to /COPY:DATSOU).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /DCOPY:copyflag[s]
-   :::column-end:::
-   :::column span="1":::
-      Fidelity for the copy of directories (default is /DCOPY:DA), copy flags: D=Data, A=Attributes, T=Timestamps.
-   :::column-end:::
-:::row-end:::
+[!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
 
 When you configure source and target locations of the RoboCopy command, make sure you review the structure of the source and target to ensure they match. If you used the directory-mapping feature of the migration job, your root-directory structure might be different than the structure of your StorSimple volume. If that's the case, you might need multiple RoboCopy jobs, one for each subdirectory. If you unsure if the command will perform as expected, you can use the */L* parameter, which will simulate the command without actually making any changes.
 
@@ -598,6 +542,10 @@ If you don't use Azure File Sync to cache the particular Azure file share in que
 
 1. [Mount your Azure file share](storage-how-to-use-files-windows.md#mount-the-azure-file-share) as a network drive to a local Windows machine.
 1. Perform the RoboCopy between your StorSimple and the mounted Azure file share. If files don't copy, fix up their names on the StorSimple side to remove invalid characters. Then retry RoboCopy. The previously listed RoboCopy command can be run multiple times without causing unnecessary recall to StorSimple.
+
+### Troubleshoot and optimize
+
+[!INCLUDE [storage-files-migration-robocopy-optimize](../../../includes/storage-files-migration-robocopy-optimize.md)]
 
 ### User cut-over
 
