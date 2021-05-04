@@ -24,3 +24,6 @@ ms.author: juliako
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)  
 [!INCLUDE [resources](../../../includes/common-includes/azure-resources.md)]
+
+## Set up your development environment
+[!INCLUDE [setup development environment](./includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)]
