@@ -38,5 +38,5 @@ To learn about compliance, privacy and security in Video Analyzer visit the Micr
 
 ## Next steps
 
-* Follow the [Quickstart: Gest started - Azure Video Analyzer](get-started-detect-motion-emit-events.md) article to see how you can run motion detection on a live video feed.
+* Follow the [Quickstart: Get started - Azure Video Analyzer](get-started-detect-motion-emit-events.md) article to see how you can run motion detection on a live video feed.
 * Review [terminology](terminology.md)
