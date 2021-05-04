@@ -14,7 +14,7 @@ Azure Video Analyzer is a platform to make building video analysis programs easi
 * Instances – creation, activation, deactivation, deletion, viewing the JSON
 * Editing a pipeline  – modules, parameters, system variables, connections, validation
 
-If you have not set up the extension to connect to your edge device, follow the [Azure Video Analyzer Visual Studio Code extension](./ create-pipeline-vs-code-extension.md) quickstart.
+If you have not set up the extension to connect to your edge device, follow the [Azure Video Analyzer Visual Studio Code extension](./create-pipeline-vs-code-extension.md) quickstart.
 
 ## Managing pipelines
 
