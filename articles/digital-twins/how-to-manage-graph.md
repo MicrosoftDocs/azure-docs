@@ -145,40 +145,6 @@ You can now call this custom method to delete a relationship like this:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseDeleteRelationship":::
 
-## Runnable twin graph sample
-
-The following runnable code snippet uses the relationship operations from this article to create a twin graph out of digital twins and relationships.
-
-### Set up the runnable sample
-
-The snippet uses the [Room.json](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) and [Floor.json](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) model definitions from [Tutorial: Explore Azure Digital Twins with a sample client app](tutorial-command-line-app.md). You can use these links to go directly to the files, or download them as part of the [full end-to-end sample project](/samples/azure-samples/digital-twins-samples/digital-twins-samples/). 
-
-Before you run the sample, do the following:
-1. Download the model files, place them in your project, and replace the `<path-to>` placeholders in the code below to tell your program where to find them.
-2. Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's host name.
-3. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client), the second provides tools to help with authentication against Azure.
-
-      ```cmd/sh
-      dotnet add package Azure.DigitalTwins.Core
-      dotnet add package Azure.Identity
-      ```
-
-You'll also need to set up local credentials if you want to run the sample directly. The next section walks through this.
-[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
-
-### Run the sample
-
-After completing the above steps, you can directly run the following sample code.
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs":::
-
-Here is the console output of the above program: 
-
-:::image type="content" source="./media/how-to-manage-graph/console-output-twin-graph.png" alt-text="Console output showing the twin details, incoming and outgoing relationships of the twins." lightbox="./media/how-to-manage-graph/console-output-twin-graph.png":::
-
-> [!TIP]
-> The twin graph is a concept of creating relationships between twins. If you want to view the visual representation of the twin graph, see the [Visualization](how-to-manage-graph.md#visualization) section of this article. 
-
 ## Create graph from a CSV file
 
 In practical use cases, twin hierarchies will often be created from data stored in a different database, or perhaps in a spreadsheet or a CSV file. This section illustrates how to read data from a CSV file and create a twin graph out of it.
@@ -197,6 +163,46 @@ One way to get this data into Azure Digital Twins is to convert the table to a C
 In the code below, the CSV file is called *data.csv*, and there is a placeholder representing the **host name** of your Azure Digital Twins instance. The sample also makes use of several packages that you can add to your project to help with this process.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graphFromCSV.cs":::
+
+## Runnable twin graph sample
+
+The following runnable code snippet uses the relationship operations from this article to create a twin graph out of digital twins and relationships.
+
+### Set up sample project files
+
+The snippet uses two sample model definitions, [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/Room.json) and [Floor.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/Floor.json). To **download the model files** so you can use them in your code, use these links to go directly to the files in GitHub. Then, right-click anywhere on the screen, select **Save as** in your browser's right-click menu, and use the Save As window to save the files as **Room.json** and **Floor.json**.
+
+Next, create a **new console app project** in Visual Studio or your editor of choice.
+
+Then, **copy the following code** of the runnable sample into your project:
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs":::
+
+### Configure project
+
+Next, complete the following steps to configure your project code:
+1. Add the **Room.json** and **Floor.json** files you downloaded earlier to your project, and replace the `<path-to>` placeholders in the code to tell your program where to find them.
+1. Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's host name.
+1. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client), and the second provides tools to help with authentication against Azure.
+
+      ```cmd/sh
+      dotnet add package Azure.DigitalTwins.Core
+      dotnet add package Azure.Identity
+      ```
+
+You'll also need to set up local credentials if you want to run the sample directly. The next section walks through this.
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+
+### Run the sample
+
+Now that you've completed setup, you can run the sample code project.
+
+Here is the console output of the program: 
+
+:::image type="content" source="./media/how-to-manage-graph/console-output-twin-graph.png" alt-text="Console output showing the twin details, incoming and outgoing relationships of the twins." lightbox="./media/how-to-manage-graph/console-output-twin-graph.png":::
+
+> [!TIP]
+> The twin graph is a concept of creating relationships between twins. If you want to view the visual representation of the twin graph, see the [Visualization](how-to-manage-graph.md#visualization) section of this article. 
 
 ## Next steps
 
