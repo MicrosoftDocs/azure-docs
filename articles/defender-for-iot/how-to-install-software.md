@@ -1431,7 +1431,7 @@ You can enhance system security by preventing direct user access to the sensor. 
 
 To enable tunneling:
 
-1. Sign in to the on-premises management console's CLI with **CyberX** or **Support** user credentials.
+1. Sign in to the on-premises management console's CLI with the **CyberX**, or the **Support** user credentials.
 
 1. Enter `sudo cyberx-management-tunnel-enable`.
 
