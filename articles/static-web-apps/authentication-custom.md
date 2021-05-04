@@ -201,39 +201,7 @@ You are required to register your application's details with an identity provide
 
 1. You need the OpenID Connect metadata for the provider. This information is often exposed via a [configuration metadata document](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig), which is the provider's _Issuer URL_ suffixed with `/.well-known/openid-configuration`. Gather this configuration URL.
 
-If you are unable to use a configuration metadata document, gather the following values separately:
-
-| Value                                                                                    | Remarks                                      |
-| ---------------------------------------------------------------------------------------- | -------------------------------------------- |
-| Issuer URL                                                                               | Sometimes shown as `issuer`.                 |
-| [OAuth 2.0 Authorization endpoint](https://tools.ietf.org/html/rfc6749#section-3.1)      | Sometimes shown as `authorization_endpoint`. |
-| [OAuth 2.0 Token endpoint](https://tools.ietf.org/html/rfc6749#section-3.2)              | Sometimes shown as `token_endpoint`.         |
-| [OAuth 2.0 JSON Web Key Set](https://tools.ietf.org/html/rfc8414#section-2) document URL | Sometimes shown as `jwks_uri`.               |
-
-1. Add an `auth` section of the [Configuration file](configuration.md) with a configuration block for the OIDC providers, and add your provider to it. Keep note of the provider name (`myProvider` in the sample below), as that will be how Azure Static Web Apps identifies it:
-
-```json
-{
-  "auth": {
-    "identityProviders": {
-      "openIdConnectProviders": {
-        "myProvider": {}
-      }
-    }
-  }
-}
-```
-
-1. Add the configuration for your provider containing the OpenID Connect metadata and client access details you gathered earlier. There are two options for this configuration, based on which information you collected:
-
-- **Option 1**: Set the `wellKnownOpenIdConfiguration` property to the configuration metadata URL you gathered earlier.
-- **Option 2**: Set the four individual values as follows:
-  - Set `issuer` to the issuer URL
-  - Set `authorizationEndpoint` to the authorization Endpoint
-  - Set `tokenEndpoint` to the token endpoint
-  - Set `certificationUri` to the URL of the JSON Web Key Set document
-
-These two options are mutually exclusive.
+1. Add an `auth` section of the [Configuration file](configuration.md) with a configuration block for the OIDC providers, and add your provider to it. Keep note of the provider name (`myProvider` in the sample below), as that will be how Azure Static Web Apps identifies it. Within the configuration block, provide a `registration` object that contains the client ID and client secret and an `openIdConnectConfiguration` with the `wellKnownOpenIdConfiguration` being the path to the _Issuer URL_ of the provider. If the provider requires custom scopes, login parameters or uses a custom claim as the user name, they can be specified in the `login` section of the provider.
 
 ```json
 {
