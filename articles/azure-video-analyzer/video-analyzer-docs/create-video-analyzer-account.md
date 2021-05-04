@@ -18,7 +18,7 @@ To start using Azure Video Analyzer, you will need to create a Video Analyzer ac
 
 [!INCLUDE [the video analyzer account and storage account must be in the same subscription and region](./includes/note-account-storage-same-subscription.md)]
 
-### Create a Video Analyzer account in the Azure Portal
+### Create a Video Analyzer account in the Azure portal
 
 1. Sign in at the [Azure portal](https://portal.azure.com/).
 1. Using the search bar at the top, enter **Video Analyzer**.
@@ -213,7 +213,7 @@ When no longer needed, delete the resource group, which deletes the account and 
 
 ---
 
-## Next steps
+**Next steps**
 
 Learn how to [deploy Video Analyzer on an IoT Edge device][docs-deploy-on-edge].
 
