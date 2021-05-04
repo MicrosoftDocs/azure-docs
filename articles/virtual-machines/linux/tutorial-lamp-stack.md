@@ -5,6 +5,7 @@ author: cynthn
 ms.collection: linux
 ms.service: virtual-machines
 ms.workload: infrastructure-services
+ms.subservice: workload
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial

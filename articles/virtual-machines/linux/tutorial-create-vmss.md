@@ -5,6 +5,7 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
+ms.subservice: availability
 ms.subservice: linux
 ms.date: 06/01/2018
 ms.reviewer: mimckitt
