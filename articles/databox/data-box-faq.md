@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 02/25/2021
+ms.date: 05/04/2021
 ms.author: alkohli
 ms.custom: references_regions
 ---
@@ -21,7 +21,7 @@ Questions and answers are arranged in the following categories:
 - Order device
 - Configure and connect 
 - Track status
-- Copy data 
+- Migrate data 
 - Ship device
 - Verify and upload data 
 - Chain of custody support
@@ -224,6 +224,12 @@ A.  To speed up the copy process:
 ### Q. Can I use multiple storage accounts with Data Box?
 A.  Yes. A maximum of 10 storage accounts, general purpose, classic, or blob storage are supported with Data Box. Both hot and cool blob are supported.
 
+
+
+### Q. I was notified of copy errors during a data upload from my Data Box. What should I do?
+A.  When non-retryable data copy errors prevent any files in your import order from uploading to Azure, the errors are logged in the data copy log and you get a notification. You can't fix the errors. The upload will complete with errors, and then the data will be secure erased from your device. The notification is sent to make sure you know that the files didn't upload so you can fix any configuration errors before you try again. After reviewing the errors, you can confirm that you're ready to proceed. If you don't respond, the order completes automatically in 14 days.
+
+For error information, see [Review copy errors in uploads from Azure Data Box and Azure Data Box Heavy devices](../articles/databox/data-box-troubleshoot-data-upload.md). For steps to proceed with your import order, see [Verify data upload to Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8).  
 
 ## Ship device
 
