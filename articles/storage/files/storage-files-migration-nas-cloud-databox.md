@@ -4,7 +4,7 @@ description: Learn how to migrate files from an on-premises Network Attached Sto
 author: fauhse
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 04/02/2021
 ms.author: fauhse
 ms.subservice: files
 ---
@@ -108,7 +108,7 @@ To save time, you should proceed with this phase while you wait for your DataBox
 * [How to configure a Windows P2S VPN](storage-files-configure-p2s-vpn-windows.md)
 * [How to configure a Linux P2S VPN](storage-files-configure-p2s-vpn-linux.md)
 * [How to configure DNS forwarding](storage-files-networking-dns.md)
-* [Configure DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview)
+* [Configure DFS-N](files-manage-namespaces.md)
    :::column-end:::
 :::row-end:::
 
