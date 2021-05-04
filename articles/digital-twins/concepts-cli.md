@@ -1,12 +1,12 @@
 ---
 # Mandatory fields.
-title: Use the Azure Digital Twins CLI
+title: Azure Digital Twins CLI command set
 titleSuffix: Azure Digital Twins
-description: See how to get started with and use the Azure Digital Twins CLI.
+description: Understand the Azure Digital Twins CLI command set.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 05/25/2020
-ms.topic: how-to
+ms.date: 04/30/2021
+ms.topic: conceptual
 ms.service: digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Use the Azure Digital Twins CLI
+# Azure Digital Twins CLI command set
 
 In addition to managing your Azure Digital Twins instance in the Azure portal, Azure Digital Twins has a **command set for the [Azure CLI](/cli/azure/what-is-azure-cli)** that you can use to perform most major actions with the service, including:
 * Managing an Azure Digital Twins instance

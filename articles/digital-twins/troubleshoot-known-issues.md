@@ -36,7 +36,7 @@ This article provides information about known issues associated with Azure Digit
 
 | Does this affect me? | Cause | Resolution |
 | --- | --- | --- |
-| The&nbsp;affected&nbsp;method&nbsp;is&nbsp;used&nbsp;in&nbsp;the&nbsp;following articles:<br><br>[Tutorial: Code a client app](tutorial-code.md)<br><br>[How-to: Write app authentication code](how-to-authenticate-client.md)<br><br>[How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md) | Some users have had this issue with version **1.2.0** of the `Azure.Identity` library. | To resolve, update your applications to use a [later version](https://www.nuget.org/packages/Azure.Identity) of `Azure.Identity`. After updating the library version, the browser should load and authenticate as expected. |
+| The&nbsp;affected&nbsp;method&nbsp;is&nbsp;used&nbsp;in&nbsp;the&nbsp;following articles:<br><br>[Tutorial: Code a client app](tutorial-code.md)<br><br>[How-to: Write app authentication code](how-to-authenticate-client.md)<br><br>[Concepts: Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md) | Some users have had this issue with version **1.2.0** of the `Azure.Identity` library. | To resolve, update your applications to use a [later version](https://www.nuget.org/packages/Azure.Identity) of `Azure.Identity`. After updating the library version, the browser should load and authenticate as expected. |
 
 ## Issue with default Azure credential authentication on Azure.Identity 1.3.0
 
