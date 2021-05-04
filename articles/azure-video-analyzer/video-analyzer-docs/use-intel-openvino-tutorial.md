@@ -31,16 +31,16 @@ This tutorial uses an Azure VM as an IoT Edge device, and it uses a simulated li
     > When installing Azure IoT Tools, you might be prompted to install Docker. Feel free to ignore the prompt.    
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-* If you didn't complete the [Detect motion and emit events](../../../detect-motion-emit-events-quickstart.md) quickstart, be sure to [set up Azure resources](#set-up-azure-resources).    
+* If you didn't complete the [Detect motion and emit events](detect-motion-emit-events.md) quickstart, be sure to [set up Azure resources](#set-up-azure-resources).    
 
 ## Set up Azure resources
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
 
-[!INCLUDE [resources](../../common-includes/azure-resources.md)]
+[!INCLUDE [resources](./includes/common-includes/azure-resources.md)]
 
 > [!TIP]
-> If you run into issues with Azure resources that get created, review our [troubleshooting guide](../../../troubleshoot.md) to resolve some commonly encountered issues.
+> If you run into issues with Azure resources that get created, review our [troubleshooting guide](troubleshoot.md) to resolve some commonly encountered issues.
 
 ## Review the sample video
 
