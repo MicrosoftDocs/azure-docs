@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/30/2021
+ms.date: 05/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -34,7 +34,7 @@ Azure Active Directory B2C [user flows and custom policies](user-flow-overview.m
 | [Profile editing flow](add-profile-editing-policy.md) | GA | GA | |
 | [Self-Service password reset](add-password-reset-policy.md) | GA| GA| |
 | [Force password reset](force-password-reset.md) | Preview | NA | |
-| [phone sign-up and sign-in](phone-authentication-user-flows.md) | GA | GA | |
+| [Phone sign-up and sign-in](phone-authentication-user-flows.md) | GA | GA | |
 
 ## User experience customization
 
@@ -50,18 +50,22 @@ Azure Active Directory B2C [user flows and custom policies](user-flow-overview.m
 | [Disable email verification](disable-email-verification.md) | GA|  GA| Not recommended for production environments. Disabling email verification in the sign-up process may lead to spam. |
 
 
-## Protocols and authorization flows
+## Protocol and authorization flows
 
-|Feature  |User flow  |Custom policy  |Notes  |
-|---------|:---------:|:---------:|---------|
-|[OAuth2 authorization code](authorization-code-flow.md) | GA | GA |
-|[OAuth2 authorization code with PKCE](authorization-code-flow.md)| GA | GA | Public clients and single-page applications. |
-|[OAuth2 implicit flow](implicit-flow-single-page-application.md) | GA | GA | |
-|[OAuth2 resource owner password credentials](add-ropc-policy.md) | Preview | Preview | |
-|OAuth1 | NA | NA | Not supported. |
-|[OpenId Connect](openid-connect.md) | GA | GA | |
-|[SAML2](saml-service-provider.md) | NA | GA | POST and Redirect bindings. |
-| WSFED | NA | NA | Not supported. |
+| Protocol |Feature  |User flow  |Custom policy  |Notes  |
+|---------||---------|:---------:|:---------:|---------|
+|OAuth 1.0 | | NA | NA | Not supported. |
+|OAuth 2.0 |[Authorization code](authorization-code-flow.md) | GA | GA |
+|OAuth 2.0 |[Authorization code with PKCE](authorization-code-flow.md)| GA | GA | Public clients and single-page applications. |
+|OAuth 2.0 |[Client credentials grant](https://tools.ietf.org/html/rfc6749#section-4.4)| NA | NA |  |
+|OAuth 2.0 |[Device authorization grant](https://tools.ietf.org/html/rfc8628)| NA | NA |  |
+|OAuth 2.0 |[Implicit flow](implicit-flow-single-page-application.md) | GA | GA | |
+|OAuth 2.0 |[On-behalf-of](../active-directory/develop/v2-oauth2-on-behalf-of-flow.md)| NA | NA |  |
+|OAuth 2.0 |[OpenId Connect](openid-connect.md) flow | GA | GA | |
+|OAuth 2.0 |[Resource owner password credentials (ROPC)](add-ropc-policy.md) | Preview | Preview | |
+| SAML2  |[SP initiated](saml-service-provider.md) | NA | GA | POST and Redirect bindings. |
+| SAML2  |[IDP initiated](saml-service-provider-options.md#identity-provider-initiated-flow) | NA | GA | Where the initiating identity provider is Azure AD B2C.  |
+| WS-FED |  | NA | NA | Not supported. |
 
 ## Identity providers
 
