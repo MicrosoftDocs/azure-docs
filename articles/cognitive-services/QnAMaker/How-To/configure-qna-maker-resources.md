@@ -13,7 +13,7 @@ The user can configure QnA Maker to use a different Cognitive search resource. T
 
 # [QnA Maker GA (stable release)](#tab/v1)
 
-### Configure QnA Maker to use different Cognitive Search resource
+## Configure QnA Maker to use different Cognitive Search resource
 
 > [!NOTE]
 > If you change the Azure Search service associated with QnA Maker, you will lose access to all the knowledge bases already present in it. Make sure you export the existing knowledge bases before you change the Azure Search service.
@@ -66,7 +66,7 @@ If you create a Text Analytics resource and its dependencies (such as Search) th
 
 ---
 
-### Get the latest runtime updates
+## Get the latest runtime updates
 
 # [QnA Maker GA (stable release)](#tab/v1)
 
@@ -95,7 +95,7 @@ App service is not deployed with Custom question answering.
 
 ---
 
-### Configure App service idle setting to avoid timeout
+## Configure App service idle setting to avoid timeout
 
 # [QnA Maker GA (stable release)](#tab/v1)
 
@@ -122,7 +122,7 @@ App service is not deployed with Custom question answering.
 
 ---
 
-### Business continuity with traffic manager
+## Business continuity with traffic manager
 
 # [QnA Maker GA (stable release)](#tab/v1)
 
