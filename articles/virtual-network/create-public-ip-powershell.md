@@ -28,7 +28,6 @@ An Azure resource group is a logical container into which Azure resources are de
 Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) named **myResourceGroup** in the **eastus2** location.
 
 ```azurepowershell-interactive
-## Variables for the command ##
 $rg =@{
     Name = 'myResourceGroup'
     Location = 'eastus2'
