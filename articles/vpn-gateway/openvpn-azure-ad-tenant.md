@@ -1,12 +1,13 @@
 ---
-title: 'VPN Gateway: Azure AD tenant for P2S VPN connections: Azure AD authentication'
+title: 'Create an Azure AD tenant for P2S VPN connections: Azure AD authentication'
+titleSuffix: Azure VPN Gateway
 description: Learn how to set up an Azure AD tenant for P2S Open VPN authentication.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
 
 ---

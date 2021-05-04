@@ -145,6 +145,10 @@ The actions that are available in the **Action** column of the **Plan overview**
 - If the plan status is **Draft**, the link in the **Action** column will say **Delete draft**.
 - If the plan status is **Live**, the link in the **Action** column will be either **Stop sell plan** or **Sync private audience**. The **Sync private audience** link will publish only the changes to your private audiences, without publishing any other updates you might have made to the offer.
 
+## Before you publish your offer
+
+If you haven't already done so, create a development and test (DEV) offer to test your offer before publishing your production offer live. To learn more, see [Create a development and test offer](create-saas-dev-test-offer.md).
+
 ## Next steps
 
 - Learn [How to sell your SaaS offer](create-new-saas-offer-marketing.md) through the **Co-sell with Microsoft** and **Resell through CSPs** programs.

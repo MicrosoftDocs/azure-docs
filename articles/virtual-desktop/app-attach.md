@@ -3,30 +3,22 @@ title: Configure Windows Virtual Desktop MSIX app attach PowerShell scripts - Az
 description: How to create PowerShell scripts for MSIX app attach for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/13/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
-# Create PowerShell scripts for MSIX app attach (preview)
-
-> [!IMPORTANT]
-> MSIX app attach is currently in public preview.
-> This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Create PowerShell scripts for MSIX app attach
 
 This topic will walk you through how to set up PowerShell scripts for MSIX app attach.
 
->[!IMPORTANT]
->Before you get started, make sure to fill out and submit [this form](https://aka.ms/enablemsixappattach) to enable MSIX app attach in your subscription. If you don't have an approved request, MSIX app attach won't work. Approval of requests can take up to 24 hours during business days. You'll get an email when your request has been accepted and completed.
-
 ## Install certificates
 
-You must install certificates on all session hosts in the host pool that will host the aps from your MSIX app attach packages.
+You must install certificates on all session hosts in the host pool that will host the apps from your MSIX app attach packages.
 
 If your app uses a certificate that isn't public-trusted or was self-signed, here's how to install it:
 
 1. Right-click the package and select **Properties**.
-2. In the window that appears, select the **Digital signatures** tab. There should be only one item in the list on the tab, as shown in the following image. Select that item to highlight the item, then select **Details**.
+2. In the window that appears, select the **Digital signatures** tab. There should be only one item in the list on the tab. Select that item to highlight the item, then select **Details**.
 3. When the digital signature details window appears, select the **General** tab, then select **View Certificate**, then select **Install certificate**.
 4. When the installer opens, select **local machine** as your storage location, then select **Next**.
 5. If the installer asks you if you want to allow the app to make changes to your device, select **Yes**.

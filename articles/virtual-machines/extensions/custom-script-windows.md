@@ -69,7 +69,7 @@ If your script is on a local server, then you may still need additional firewall
 
 The Custom Script Extension configuration specifies things like script location and the command to be run. You can store this configuration in configuration files, specify it on the command line, or specify it in an Azure Resource Manager template.
 
-You can store sensitive data in a protected configuration, which is encrypted and only decrypted inside the virtual machine. The protected configuration is useful when the execution command includes secrets such as a password.
+You can store sensitive data in a protected configuration, which is encrypted and only decrypted inside the virtual machine. The protected configuration is useful when the execution command includes secrets such as a password or a shared access signature (SAS) file reference, which should be protected.
 
 These items should be treated as sensitive data and specified in the extensions protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine.
 
@@ -92,16 +92,16 @@ These items should be treated as sensitive data and specified in the extensions 
         "typeHandlerVersion": "1.10",
         "autoUpgradeMinorVersion": true,
         "settings": {
-            "fileUris": [
-                "script location"
-            ],
             "timestamp":123456789
         },
         "protectedSettings": {
             "commandToExecute": "myExecutionCommand",
             "storageAccountName": "myStorageAccountName",
             "storageAccountKey": "myStorageAccountKey",
-            "managedIdentity" : {}
+            "managedIdentity" : {},
+            "fileUris": [
+                "script location"
+            ]
         }
     }
 }
@@ -137,7 +137,7 @@ These items should be treated as sensitive data and specified in the extensions 
 #### Property value details
 
 * `commandToExecute`: (**required**, string)  the entry point script to execute. Use this field instead if your command contains secrets such as passwords, or your fileUris are sensitive.
-* `fileUris`: (optional, string array) the URLs for file(s) to be downloaded.
+* `fileUris`: (optional, string array) the URLs for file(s) to be downloaded. If URLs are sensitive (such as URLs containing keys), this field should be specified in protectedSettings
 * `timestamp` (optional, 32-bit integer) use this field only to trigger a rerun of the
 script by changing value of this field.  Any integer value is acceptable; it must only be different than the previous value.
 * `storageAccountName`: (optional, string) the name of storage account. If you specify storage credentials, all `fileUris` must be URLs for Azure Blobs.
@@ -149,6 +149,7 @@ script by changing value of this field.  Any integer value is acceptable; it mus
 The following values can be set in either public or protected settings, the extension will reject any configuration where the values below are set in both public and protected settings.
 
 * `commandToExecute`
+* `fileUris`
 
 Using public settings maybe useful for debugging, but it's recommended that you use protected settings.
 

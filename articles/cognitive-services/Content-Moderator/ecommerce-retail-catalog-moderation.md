@@ -13,7 +13,7 @@ ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
 
-#As a developer at an e-commerce company, I want to use machine learning to both categorize product images and tag objectionable images for further review by my team.
+#Customer intent: As a developer at an e-commerce company, I want to use machine learning to both categorize product images and tag objectionable images for further review by my team.
 ---
 
 # Tutorial: Moderate e-commerce product images with Azure Content Moderator

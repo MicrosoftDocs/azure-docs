@@ -28,7 +28,9 @@ The following wait types (in [sys.dm_os_wait_stats](/sql/relational-databases/sy
 |RBIO_RG_STORAGE        | Occurs when a Hyperscale database primary compute node log generation rate is being throttled due to delayed log consumption at the page server(s).         |
 |RBIO_RG_DESTAGE        | Occurs when a Hyperscale database compute node log generation rate is being throttled due to delayed log consumption by the long-term log storage.         |
 |RBIO_RG_REPLICA        | Occurs when a Hyperscale database compute node log generation rate is being throttled due to delayed log consumption by the readable secondary replica(s).         |
+|RBIO_RG_GEOREPLICA    | Occurs when a Hyperscale database compute node log generation rate is being throttled due to delayed log consumption by the Geo-secondary replica.         |
 |RBIO_RG_LOCALDESTAGE   | Occurs when a Hyperscale database compute node log generation rate is being throttled due to delayed log consumption by the log service.         |
+
 
 ## Page server reads
 
@@ -70,7 +72,7 @@ Local RBPEX cache exists on the compute replica, on local SSD storage. Thus, IO 
 
 `select * from sys.dm_io_virtual_file_stats(0,NULL);`
 
-A ratio of reads done on RBPEX to aggregated reads done on all other data files provides RBPEX cache hit ratio.
+A ratio of reads done on RBPEX to aggregated reads done on all other data files provides RBPEX cache hit ratio. The counter `RBPEX cache hit ratio` is also exposed in the performance counters DMV  `sys.dm_os_performance_counters`.                                                                        
 
 ### Data reads
 
@@ -101,6 +103,7 @@ Data IO against remote page servers is not reported in resource utilization view
 ## Additional resources
 
 - For vCore resource limits for a Hyperscale single database see [Hyperscale service tier vCore Limits](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5)
+- For monitoring Azure SQL Databases, enable [Azure Monitor SQL insights](../../azure-monitor/insights/sql-insights-overview.md)
 - For Azure SQL Database performance tuning, see [Query performance in Azure SQL Database](performance-guidance.md)
 - For performance tuning using Query Store, see [Performance monitoring using Query store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store/)
 - For DMV monitoring scripts, see [Monitoring performance Azure SQL Database using dynamic management views](monitoring-with-dmvs.md)

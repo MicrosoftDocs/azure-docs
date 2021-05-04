@@ -4,7 +4,7 @@ description: Overview of DNS hosting service on Microsoft Azure. Host your domai
 author: rohinkoul
 ms.service: dns
 ms.topic: overview
-ms.date: 3/21/2019
+ms.date: 4/22/2021
 ms.author: rohink
 #Customer intent: As an administrator, I want to evaluate Azure DNS so I can determine if I want to use it instead of my current DNS service.
 ---
@@ -35,7 +35,7 @@ For more information, see [How to protect DNS zones and records](dns-protect-zon
 
 ## DNSSEC
 
-Azure DNS does not currently support DNSSEC. In most cases, you can reduce the need for DNSSEC by consistently using HTTPS/TLS in your applications. If DNSSEC is a critical requirement for your DNS zones, you can host these zones with third party DNS hosting providers.
+Azure DNS does not currently support DNSSEC. In most cases, you can reduce the need for DNSSEC by consistently using HTTPS/TLS in your applications. If DNSSEC is a critical requirement for your DNS zones, you can host these zones with third-party DNS hosting providers.
 
 ## Ease of use
 
@@ -65,4 +65,4 @@ For more information, see [Overview of Azure DNS alias records](dns-alias.md).
 
 * To learn how to create a zone in Azure DNS, see [Create a DNS zone](./dns-getstarted-portal.md).
 
-* For frequently asked questions about Azure DNS, see the [Azure DNS FAQ](dns-faq.md).
+* For frequently asked questions about Azure DNS, see the [Azure DNS FAQ](dns-faq.yml).

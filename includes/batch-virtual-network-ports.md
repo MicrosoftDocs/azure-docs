@@ -10,7 +10,7 @@ ms.service: batch
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
-ms.date: 01/13/2021
+ms.date: 04/23/2021
 ms.author: jenhayes
 ms.custom: include file
 ---
@@ -37,10 +37,10 @@ Additional VNet requirements differ, depending on whether the Batch pool is in t
 
 **Permissions** - Check whether your security policies or locks on the VNet's subscription or resource group restrict a user's permissions to manage the VNet.
 
-**Additional networking resources** - Batch automatically allocates additional networking resources in the resource group containing the VNet.
+**Additional networking resources** - Batch automatically creates additional networking resources in the resource group containing the VNet.
 
 > [!IMPORTANT]
-> For each 100 dedicated or low-priority nodes, Batch allocates: one network security group (NSG), one public IP address, and one load balancer. These resources are limited by the subscription's [resource quotas](../articles/azure-resource-manager/management/azure-subscription-service-limits.md). For large pools, you might need to request a quota increase for one or more of these resources.
+> For each 100 dedicated or low-priority nodes, Batch creates: one network security group (NSG), one public IP address, and one load balancer. These resources are limited by the subscription's [resource quotas](../articles/azure-resource-manager/management/azure-subscription-service-limits.md). For large pools, you might need to request a quota increase for one or more of these resources.
 
 #### Network security groups: Batch default
 
@@ -82,7 +82,7 @@ Outbound to `BatchNodeManagement` is required for contacting the Batch service f
 ### Pools in the Cloud Services configuration
 
 > [!WARNING]
-> Cloud Service Configuration Pools are deprecated. Please use Virtual Machine Configuration Pools instead.
+> Cloud Services Configuration pools are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Please use Virtual Machine Configuration pools instead.
 
 **Supported VNets** - Classic VNets only
 

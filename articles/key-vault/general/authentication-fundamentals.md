@@ -1,9 +1,9 @@
 ---
 title: Azure Key Vault authentication fundamentals
 description: Learn about how key vault's authentication model works
-author: ShaneBala-keyvault
-ms.author: sudbalas
-ms.date: 09/25/2020
+author: msmbaldwin
+ms.author: mbaldwin
+ms.date: 04/15/2021
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 Azure Key Vault allows you to securely store and manage application credentials such as secrets, keys, and certificates in a central and secure cloud repository. Key Vault eliminates the need to store credentials in your applications. Your applications can authenticate to Key Vault at run time to retrieve credentials.
 
-As an administrator, you can tightly control which users and applications can access your key vault and you can limit and audit the operations they perform. This document explains the fundamental concepts of the key vault access model. It will and provide you with an introductory level of knowledge and show you how you can authenticate a user or application to key vault from start to finish.
+As an administrator, you can tightly control which users and applications can access your key vault and you can limit and audit the operations they perform. This document explains the fundamental concepts of the key vault access model. It will provide you with an introductory level of knowledge and show you how you can authenticate a user or application to key vault from start to finish.
 
 ## Required Knowledge
 
@@ -99,7 +99,7 @@ However, classic access policies do not allow per-object level permissions, and 
 > [!IMPORTANT]
 > Classic key vault access policies and Azure Active Directory role assignments are independent of each other. Assigning a security principal a ‘Contributor’ role at a subscription level will not automatically allow the security principal the ability to perform data-plane operations on every key vault within the scope of the subscription. The security principal must still must be granted, or grant themselves access policy permissions to perform data plane operations.
 
-### Data Plane Access Option 2:  Azure RBAC for Key Vault (Preview)
+### Data Plane Access Option 2:  Azure RBAC for Key Vault
 
 A new way to grant access to the key vault data plane is through Azure role-based access control (Azure RBAC) for key vault.
 
@@ -114,7 +114,7 @@ Key Vault role assignments are a set of Azure built-in role assignments that enc
 
 To learn more about Azure RBAC for Key Vault, see the following documents:
 
-* Azure RBAC for Key Vault [link](./secure-your-key-vault.md#management-plane-and-azure-rbac)
+* Azure RBAC for Key Vault [link](rbac-guide.md)
 * Azure RBAC for Key Vault roles [link](../../role-based-access-control/built-in-roles.md#key-vault-administrator)
 
 ## Configure Key Vault Firewall

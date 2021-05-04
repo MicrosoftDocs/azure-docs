@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: nibaccam
-author: aniththa
+author: cartacioS
 ms.reviewer: nibaccam
 ms.date: 12/20/2020
-ms.topic: conceptual
-ms.custom: how-to, automl
+ms.topic: how-to
+ms.custom: automl
 ---
 
 # Create, review, and deploy automated machine learning models with Azure Machine Learning
@@ -32,7 +32,7 @@ For a Python code-based experience, [configure your automated machine learning e
 
 ## Get started
 
-1. Sign in to Azure Machine Learning at https://ml.azure.com. 
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com). 
 
 1. Select your subscription and workspace. 
 
@@ -175,16 +175,16 @@ Drill down on any of the completed models to see training run details, like a mo
 
 [![Iteration details](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
-## Model explanations
+## Model explanations (preview)
 
-To better understand your model, see which data features (raw or engineered) influenced the model's predictions with the model explanations dashboard. 
+To better understand your model, you can see which data features (raw or engineered) influenced the model's predictions with the model explanations dashboard. 
 
-The model explanations dashboard provides an overall analysis of the trained model along with its predictions and explanations. It also lets you drill into an individual data point and its individual feature importances. [Learn more about the explanation dashboard visualizations and specific plots](how-to-machine-learning-interpretability-aml.md#visualizations).
+The model explanations dashboard provides an overall analysis of the trained model along with its predictions and explanations. It also lets you drill into an individual data point and its individual feature importances. [Learn more about the explanation dashboard visualizations](how-to-machine-learning-interpretability-aml.md#visualizations).
 
 To get explanations for a particular model, 
 
-1. On the **Models** tab, select the model you want to use. 
-1. Select the **Explain model** button and provide a compute that can be used to generate the explanations.
+1. On the **Models** tab, select the model you want to understand. 
+1. Select the **Explain model** button, and provide a compute that can be used to generate the explanations.
 1. Check the **Child runs** tab for the status. 
 1. Once complete, navigate to the **Explanations (preview)** tab which contains the explanations dashboard. 
 
@@ -193,6 +193,11 @@ To get explanations for a particular model,
 ## Deploy your model
 
 Once you have the best model at hand, it is time to deploy it as a web service to predict on new data.
+
+>[!TIP]
+> If you are looking to deploy a model that was generated via the `automl` package with the Python SDK, you must [register your model](how-to-deploy-and-where.md?tabs=python#register-a-model-from-an-azure-ml-training-run-1) to the workspace. 
+>
+> Once you're model is registered, find it in the studio by selecting **Models** on the left pane. Once you open your model, you can select the **Deploy** button at the top of the screen, and then follow the instructions as described in **step 2** of the **Deploy your model** section.
 
 Automated ML helps you with deploying the model without writing code:
 

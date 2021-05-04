@@ -46,10 +46,21 @@ For information on how to handle throttling when these limits are exceeded, see 
 
 <sup>1</sup> A subscription-wide limit for all transaction types is five times per key vault limit. For example, HSM-other transactions per subscription are limited to 5,000 transactions in 10 seconds per subscription.
 
+#### Backup keys, secrets, certificates
+
+When you back up a key vault object, such as a secret, key, or certificate, the backup operation will download the object as an encrypted blob. This blob can't be decrypted outside of Azure. To get usable data from this blob, you must restore the blob into a key vault within the same Azure subscription and Azure geography
+
+| Transactions type | Maximum key vault object versions allowed |
+| --- | --- |
+| Backup individual key, secret, certfiicate |500 |
+
+> [!NOTE]
+> Attempting to backup a key, secret, or certificate object with more versions than above limit will result in an error. It is not possible to delete previous versions of a key, secret, or certificate. 
+
 #### Azure Private Link integration
 
 > [!NOTE]
-> The number of key vaults with private endpoints enabled per subscription is an adjustable limit. The limit shown below is the default limit. If you would like to request a limit increase for your service, please send an email to akv-privatelink@microsoft.com. We will approve these requests on a case by case basis.
+> The number of key vaults with private endpoints enabled per subscription is an adjustable limit. The limit shown below is the default limit. If you would like to request a limit increase for your service, please create a support request and it will be assessed on a case by case basis.
 
 | Resource | Limit |
 | -------- | -----:|

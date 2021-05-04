@@ -192,7 +192,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 1. Paste the Well-known open-id configuration endpoint from the sign up and sign in policy into the Issuer URL box (we recorded this configuration earlier).
 1. Click 'Show Secret' and paste the Backend application's client secret into the appropriate box.
 1. Select OK, which takes you back to the identity provider selection blade/screen.
-1. Leave [Token Store](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization#token-store) enabled under advanced settings (default).
+1. Leave [Token Store](../app-service/overview-authentication-authorization.md#token-store) enabled under advanced settings (default).
 1. Click 'Save' (at the top left of the blade).
 
    > [!IMPORTANT]

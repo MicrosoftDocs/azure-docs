@@ -2,14 +2,14 @@
 title: PowerShell sample - Export apps with secrets and certificates expiring beyond the required date in Azure Active Directory tenant.
 description: PowerShell example that exports all apps with secrets and certificates expiring beyond the required date for the specified apps in your Azure Active Directory tenant.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: sample
 ms.date: 03/09/2021
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: mifarca
 ---
 
@@ -18,8 +18,6 @@ ms.reviewer: mifarca
 This PowerShell script example exports all app registrations secrets and certificates expiring beyond a required period for the specified apps from your directory in a CSV file non-interactively.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
-
-This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/azure/active-directory/install-adv2) (AzureAD) or the [AzureAD V2 PowerShell for Graph module preview version](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true) (AzureADPreview).
 
 ## Sample script
 
@@ -35,7 +33,7 @@ The "Add-Member" command is responsible for creating the columns in the CSV file
 
 | Command | Notes |
 |---|---|
-| [Invoke-WebRequest](/powershell/module/azuread/Invoke-WebRequest?view=azureadps-2.0&preserve-view=true) | Sends HTTP and HTTPS requests to a web page or web service. It parses the response and returns collections of links, images, and other significant HTML elements. |
+| [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7.1&preserve-view=true) | Sends HTTP and HTTPS requests to a web page or web service. It parses the response and returns collections of links, images, and other significant HTML elements. |
 
 ## Next steps
 

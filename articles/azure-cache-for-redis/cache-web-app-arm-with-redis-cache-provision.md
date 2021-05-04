@@ -7,7 +7,8 @@ author: yegu-ms
 ms.service: app-service
 ms.topic: conceptual
 ms.date: 01/06/2017
-ms.author: yegu
+ms.author: yegu 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Create a Web App plus Azure Cache for Redis using a template

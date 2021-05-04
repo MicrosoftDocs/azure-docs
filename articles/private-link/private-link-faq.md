@@ -51,6 +51,11 @@ Yes. Private endpoints can connect to Azure PaaS resources across Azure regions.
 ### Can I modify my Private Endpoint Network Interface (NIC) ?
 When a private endpoint is created, a read-only NIC is assigned. This cannot be modified and will remain for the life cycle of the Private endpoint.
 
+### How do I achieve availability while using private endpoints in case of regional failures ?
+
+Private Endpoints are highly available resources with 99.99% SLA [[SLA for Azure Private Link]](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/). However, since they are regional resources, any Azure region outage can impact the availability. To achieve availability in case of regional failures, multiple PEs connected to same destination resource could be deployed in different regions. This way if one region goes down, you can still route the traffic for your recovery scenarios through PE in different region to access the destination resource. For info on how the regional failures are handled on destination service side, please review the service documentation on failover and recovery. Private Link traffic follows the Azure DNS resolution for destination endpoint. 
+
+
 ## Private Link Service
  
 ### What are the pre-requisites for creating a Private Link service? 

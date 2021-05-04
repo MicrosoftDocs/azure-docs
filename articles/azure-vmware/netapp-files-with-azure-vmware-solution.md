@@ -102,7 +102,7 @@ The following are just a few compelling Azure NetApp Files use cases.
 
 Now that you've covered integrating Azure NetApp Files with your Azure VMware Solution workloads, you may want to learn about:
 
-- [Resource limits for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-resource-limits.md#resource-limits).
-- [Guidelines for Azure NetApp Files network planning](../azure-netapp-files/azure-netapp-files-network-topologies.md).
-- [Cross-region replication of Azure NetApp Files volumes](../azure-netapp-files/cross-region-replication-introduction.md). 
-- [FAQs about Azure NetApp Files](../azure-netapp-files/azure-netapp-files-faqs.md).
+- [Resource limitations for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-resource-limits.md#resource-limits)
+- [Guidelines for Azure NetApp Files network planning](../azure-netapp-files/azure-netapp-files-network-topologies.md)
+- [Cross-region replication of Azure NetApp Files volumes](../azure-netapp-files/cross-region-replication-introduction.md) 
+- [FAQs about Azure NetApp Files](../azure-netapp-files/azure-netapp-files-faqs.md)

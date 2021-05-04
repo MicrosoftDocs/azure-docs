@@ -9,13 +9,12 @@ ms.topic: tutorial
 
 author: sdgilley
 ms.author: sgilley
-ms.date: 09/28/2020
+ms.date: 04/26/2021
 ms.custom: seodec18, devx-track-python
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
 # Tutorial: Train image classification models with MNIST data and scikit-learn 
-
 
 In this tutorial, you train a machine learning model on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning in a Python Jupyter Notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
 
@@ -38,15 +37,56 @@ If you don't have an Azure subscription, create a free account before you begin.
 
 ## Prerequisites
 
-* Complete the [Tutorial: Get started creating your first Azure ML experiment](tutorial-1st-experiment-sdk-setup.md) to:
-    * Create a workspace
-    * Clone the tutorials notebook to your folder in the workspace.
-    * Create a cloud-based compute instance.
+* Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to:
+    * Create a workspace.
+    * Create a cloud-based compute instance to use for your development environment.
+    * Create a cloud-based compute cluster to use for training your model.
 
-* In your cloned *tutorials/image-classification-mnist-data* folder, open the *img-classification-part1-training.ipynb* notebook. 
+## <a name="azure"></a>Run a notebook from your workspace
+
+Azure Machine Learning includes a cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment.md#local) if you prefer to have control over your environment, packages, and dependencies.
+
+ Follow along with this video or use the detailed steps to clone and run the tutorial notebook from your workspace.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
+
+### <a name="clone"></a> Clone a notebook folder
+
+You complete the following experiment setup and run steps in Azure Machine Learning studio. This consolidated interface includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
+
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
+
+1. Select your subscription and the workspace you created.
+
+1. On the left, select **Notebooks**.
+
+1. At the top, select the **Samples** tab.
+
+1. Open the **Python** folder.
+
+1. Open the folder with a version number on it. This number represents the current release for the Python SDK.
+
+1. Select the **...** button at the right of the **tutorials** folder, and then select **Clone**.
+
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="Screenshot that shows the Clone tutorials folder.":::
+
+1. A list of folders shows each user who accesses the workspace. Select your folder to clone the **tutorials**  folder there.
+
+### <a name="open"></a> Open the cloned notebook
+
+1. Open the **tutorials** folder that was closed into your **User files** section.
+
+    > [!IMPORTANT]
+    > You can view notebooks in the **samples** folder but you can't run a notebook from there. To run a notebook, make sure you open the cloned version of the notebook in the **User Files** section.
+    
+1. Select the **img-classification-part1-training.ipynb** file in your **tutorials/image-classification-mnist-data** folder.
+
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Screenshot that shows the Open tutorials folder.":::
+
+1. On the top bar, select your compute instance to use to run the notebook.
 
 
-The tutorial and accompanying **utils.py** file is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local). Run `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` to install dependencies for this tutorial.
+The tutorial and accompanying **utils.py** file is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local). If you aren't using the compute instance, run `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` to install dependencies for this tutorial. 
 
 > [!Important]
 > The rest of this article contains the same content as you see in the notebook.  
@@ -89,6 +129,9 @@ ws = Workspace.from_config()
 print(ws.name, ws.location, ws.resource_group, sep='\t')
 ```
 
+>[!NOTE]
+> You may be asked to authenticate to your workspace the first time you run the following code. Follow the on-screen instructions.
+
 ### Create an experiment
 
 Create an experiment to track the runs in your workspace. A workspace can have multiple experiments:
@@ -104,9 +147,12 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 By using Azure Machine Learning Compute, a managed service, data scientists can train machine learning models on clusters of Azure virtual machines. Examples include VMs with GPU support. In this tutorial, you create Azure Machine Learning Compute as your training environment. You will submit Python code to run on this VM later in the tutorial. 
 
-The code below creates the compute clusters for you if they don't already exist in your workspace. It sets up a cluster that will scale down to 0 when not in use, and can scale up to a maximum of 4 nodes. 
+The code below creates the compute clusters for you if they don't already exist in your workspace. It sets up a cluster that will scale down to 0 when not in use, and can scale up to a maximum of 4 nodes.
 
- **Creation of the compute target takes about five minutes.** If the compute resource is already in the workspace, the code uses it and skips the creation process.
+ **Creation of the compute target takes about five minutes.** If the compute resource is already in the workspace, the code uses it and skips the creation process.  
+
+> [!TIP]
+> If you created a compute cluster in the quickstart, make sure `compute_name` in the code below uses the same name.
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -391,7 +437,7 @@ The widget will look like the following at the end of training:
 
 ![Notebook widget](./media/tutorial-train-models-with-aml/widget.png)
 
-If you need to cancel a run, you can follow [these instructions](./how-to-manage-runs.md).
+If you need to cancel a run, you can follow [these instructions](./how-to-track-monitor-analyze-runs.md).
 
 ### Get log results upon completion
 

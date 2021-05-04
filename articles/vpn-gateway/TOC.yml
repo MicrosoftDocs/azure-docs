@@ -60,7 +60,7 @@
   - name: Security
     items:
       - name: Security baseline
-        href: security-baseline.md
+        href: /security/benchmark/azure/baselines/vpn-gateway-security-baseline?toc=/azure/vpn-gateway/TOC.json
   - name: Backend Connectivity Interoperability
     items:
     - name: Preface and Test Setup
@@ -262,6 +262,8 @@
   - name: Troubleshoot
     href: vpn-gateway-troubleshoot.md
     items:
+    - name: Troubleshoot Azure VPN Gateway using diagnostic logs
+      href: troubleshoot-vpn-with-azure-diagnostics.md
     - name: Community-suggested VPN or firewall device settings
       href: vpn-gateway-third-party-settings.md
     - name: Configure and validate VNet or VPN connections

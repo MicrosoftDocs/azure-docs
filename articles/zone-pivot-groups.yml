@@ -323,6 +323,23 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-twenty-seven
+# Owner: dobett
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-ansi-c
+    title: C
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-embedded-c
+    title: Embedded C
 # Service-specific groups
 - id: cogsvcs-text-analytics-features
   title: Text Analytics features
@@ -364,6 +381,14 @@ groups:
     title: Python
   - id: programming-language-typescript
     title: TypeScript
+- id: programming-languages-set-functions-temp
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
 - id: programming-languages-set-functions-full
   title: Programming languages
   prompt: Choose a programming language
@@ -469,7 +494,7 @@ groups:
   - id: programming-language-csharp
     title: C#
   - id: programming-language-cpp
-    title: C+
+    title: C++
   - id: programming-language-java
     title: Java
   - id: programming-language-objectivec
@@ -481,7 +506,7 @@ groups:
   - id: programming-language-csharp
     title: C#
   - id: programming-language-cpp
-    title: C+
+    title: C++
   - id: programming-language-java
     title: Java
 - id: code-editors-set-one
@@ -784,6 +809,16 @@ groups:
   - id: programming-language-python
     title: Python
 # Owner: msangapu
+- id: app-service-ide
+  title: Development experience
+  prompt: Choose a development experience
+  pivots:
+  - id: development-environment-vs
+    title: Visual Studio
+  - id: development-environment-vscode
+    title: Visual Studio Code
+  - id: development-environment-cli
+    title: Command line interface
 - id: app-service-platform-windows-linux
   title: App Service platform
   prompt: Choose a hosting platform
@@ -858,6 +893,19 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
+- id: acs-plat-azp-azcli-net-ps
+  # Owner: mikben (Azure Communication Services)
+  title: JS and C# pivots
+  prompt: Choose a programming language
+  pivots:
+  - id: platform-azp
+    title: Azure portal
+  - id: platform-azcli
+    title: Azure CLI
+  - id: platform-net
+    title: .NET
+  - id: platform-powershell
+    title: PowerShell
 - id: acs-js-csharp-java-python
   title: Programming languages
   prompt: Choose a programming language
@@ -966,6 +1014,14 @@ groups:
     title: Android
   - id: platform-ios
     title: iOS
+- id: acs-plat-ios-android
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-android
+    title: Android
+  - id: platform-ios
+    title: iOS    
 - id: acs-plat-azp-js
   title: Platform
   prompt: Choose a platform
@@ -1000,6 +1056,20 @@ groups:
     title: Go
   - id: platform-powershell
     title: PowerShell
+- id: acs-azp-java-net-python-csharp-js
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-azp
+    title: Azure portal
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
 # Owner: memildin
 - id: non-azure-machines
   title: Non-Azure machines
@@ -1087,6 +1157,8 @@ groups:
   title: Programming languages
   prompt: Choose a programming language
   pivots:
+  - id: rest
+    title: REST
   - id: programming-language-csharp
     title: C#
   - id: programming-language-javascript
@@ -1099,8 +1171,6 @@ groups:
     title: Go
   - id: programming-language-ruby
     title: Ruby
-  - id: rest
-    title: Rest
 - id: azure-maps-android
 # Owner: richbrun
   title: Programming languages
@@ -1123,3 +1193,16 @@ groups:
     title: Android 
   - id: programming-language-ios 
     title: iOS
+# Owner: mbullwin
+- id: anomaly-detector-quickstart-multivariate
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java

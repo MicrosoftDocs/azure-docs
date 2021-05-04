@@ -6,10 +6,10 @@ ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 03/03/2021
+ms.date: 04/22/2021
 ---
 
-# Azure Database for PostgreSQL - Flexible Server
+# Overview - Azure Database for PostgreSQL - Flexible Server
 
 [Azure Database for PostgreSQL](../overview.md) powered by the PostgreSQL community edition is available in three deployment modes:
 
@@ -81,6 +81,10 @@ Flexible servers allows full private access to the servers using Azure virtual n
 
 The flexible server service is equipped with built-in performance monitoring and alerting features. All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. The service exposes host server metrics to monitor resources utilization and allows configuring slow query logs. Using these tools, you can quickly optimize your workloads, and configure your server for best performance.
 
+## Built-in PgBouncer
+
+The flexible server comes with a built-in PgBouncer, a connection pooler. You can optionally enable it and connect your applications to your database server via PgBouncer using the same host name and the port 6432.
+
 ## Azure regions
 
 One of the advantage of running your workload in Azure is it's global reach. The flexible server is available today in following Azure regions:
@@ -96,6 +100,9 @@ One of the advantage of running your workload in Azure is it's global reach. The
 | East US | :heavy_check_mark: | :heavy_check_mark: | 
 | Southeast Asia | :heavy_check_mark: | :heavy_check_mark: |
 | Japan East | :heavy_check_mark: | :heavy_check_mark: | 
+| Australia East | :heavy_check_mark: | :heavy_check_mark: | 
+| Canada Central | :heavy_check_mark: | :heavy_check_mark: | 
+| France Central | :heavy_check_mark: | :heavy_check_mark: | 
 
 We continue to add more regions for flexible server.
 

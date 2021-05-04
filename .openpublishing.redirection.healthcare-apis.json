@@ -2,6 +2,57 @@
   "redirections": [
 
     {
+        "source_path_from_root": "/articles/healthcare-apis/configure-cosmos-db.md",
+        "redirect_url": "/azure/healthcare-apis/configure-database",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/bring-your-own-key.md",
+        "redirect_url": "/azure/healthcare-apis/customer-managed-key",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/tutorial-1-decision-flow.md",
+        "redirect_url": "/azure/healthcare-apis/fhir-app-registration",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/fhir-oss-cli-quickstart.md",
+        "redirect_url": "/azure/healthcare-apis/fhir-paas-cli-quickstart",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/fhir-oss-portal-quickstart.md",
+        "redirect_url": "/azure/healthcare-apis/fhir-paas-portal-quickstart",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/fhir-oss-powershell-quickstart.md",
+        "redirect_url": "/azure/healthcare-apis/fhir-paas-powershell-quickstart",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/overview-open-source-server.md",
+        "redirect_url": "/azure/healthcare-apis/overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/policy-samples.md",
+        "redirect_url": "/azure/healthcare-apis/policy-reference",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/tutorial-2-setup-environment.md",
+        "redirect_url": "/azure/healthcare-apis/tutorial-web-app-fhir-server",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/tutorial-3-connect-to-endpoint.md",
+        "redirect_url": "/azure/healthcare-apis/tutorial-web-app-fhir-server",
+        "redirect_document_id": false
+    },
+
+    {
         "source_path_from_root": "/articles/healthcare-apis/access-fhir-postman-tutorial.md",
         "redirect_url": "/azure/healthcare-apis/fhir/access-fhir-postman-tutorial",
         "redirect_document_id": true

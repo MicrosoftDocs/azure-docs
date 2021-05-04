@@ -1,8 +1,8 @@
 ---
 title: How to move a device to Azure IoT Central from IoT Hub
 description: How to move device to Azure IoT Central from IoT Hub
-author: TheRealJasonAndrew
-ms.author: v-anjaso
+author: philmea
+ms.author: philmea
 ms.date: 02/20/2021 
 ms.topic: how-to
 ms.service: iot-central

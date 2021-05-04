@@ -1,12 +1,8 @@
 ---
 title: Configure Azure Defender for IoT agent-based solution
 description: Learn how to configure data collection in Azure Defender for IoT agent-based solution
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/21/2021
 ms.topic: how-to
-ms.service: azure
 ---
 
 # Configure Azure Defender for IoT agent-based solution  

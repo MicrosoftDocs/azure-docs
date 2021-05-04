@@ -3,12 +3,15 @@ title: Azure Automation Update Management overview
 description: This article provides an overview of the Update Management feature that implements updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
-ms.date: 03/08/2021
+ms.date: 05/04/2021
 ms.topic: conceptual
 ---
+
 # Update Management overview
 
 You can use Update Management in Azure Automation to manage operating system updates for your Windows and Linux virtual machines in Azure, in on-premises environments, and in other cloud environments. You can quickly assess the status of available updates on all agent machines and manage the process of installing required updates for servers.
+
+As a service provider, you may have onboarded multiple customer tenants to [Azure Lighthouse](../../lighthouse/overview.md). Azure Lighthouse allows you to perform operations at scale across several Azure Active Directory (Azure AD) tenants at once, making management tasks like Update Management more efficient across those tenants you're responsible for.
 
 > [!NOTE]
 > You can't use a machine configured with Update Management to run custom scripts from Azure Automation. This machine can only run the Microsoft-signed update script.
@@ -16,9 +19,9 @@ You can use Update Management in Azure Automation to manage operating system upd
 > [!NOTE]
 > At this time, enabling Update Management directly from an Arc enabled server is not supported. See [Enable Update Management from your Automation account](../../automation/update-management/enable-from-automation-account.md) to understand requirements and how to enable for your server.
 
-To download and install available *Critical* and *Security* patches automatically on your Azure VM, review [Automatic VM guest patching](../../virtual-machines/windows/automatic-vm-guest-patching.md) for Windows VMs.
+To download and install available *Critical* and *Security* patches automatically on your Azure VM, review [Automatic VM guest patching](../../virtual-machines/automatic-vm-guest-patching.md) for Windows VMs.
 
-Before deploying Update Management and enabling your machines for management, make sure that you understand the information in the following sections.  
+Before deploying Update Management and enabling your machines for management, make sure that you understand the information in the following sections.
 
 ## About Update Management
 
@@ -34,7 +37,7 @@ The following diagram illustrates how Update Management assesses and applies sec
 
 ![Update Management workflow](./media/overview/update-mgmt-updateworkflow.png)
 
-Update Management can be used to natively deploy to machines in multiple subscriptions in the same tenant.
+Update Management can be used to natively deploy to machines in multiple subscriptions in the same tenant, or across tenants using [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md).
 
 After a package is released, it takes 2 to 3 hours for the patch to show up for Linux machines for assessment. For Windows machines, it takes 12 to 15 hours for the patch to show up for assessment after it's been released. When a machine completes a scan for update compliance, the agent forwards the information in bulk to Azure Monitor logs. On a Windows machine, the compliance scan is run every 12 hours by default. For a Linux machine, the compliance scan is performed every hour by default. If the Log Analytics agent is restarted, a compliance scan is started within 15 minutes.
 
@@ -57,6 +60,10 @@ At the date and time specified in the update deployment, the target machines exe
 
 Having a machine registered for Update Management in more than one Log Analytics workspace (also referred to as multihoming) isn't supported.
 
+## Limits
+
+For limits that apply to Update Management, see [Azure Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#update-management).
+
 ## Clients
 
 ### Supported operating systems
@@ -70,8 +77,8 @@ The following table lists the supported operating systems for update assessments
 |---------|---------|
 |Windows Server 2019 (Datacenter/Standard including Server Core)<br><br>Windows Server 2016 (Datacenter/Standard excluding Server Core)<br><br>Windows Server 2012 R2(Datacenter/Standard)<br><br>Windows Server 2012 | |
 |Windows Server 2008 R2 (RTM and SP1 Standard)| Update Management supports assessments and patching for this operating system. The [Hybrid Runbook Worker](../automation-windows-hrw-install.md) is supported for Windows Server 2008 R2. |
-|CentOS 6 and 7 (x64)      | Linux agents require access to an update repository. Classification-based patching requires `yum` to return security data that CentOS doesn't have in its RTM releases. For more information on classification-based patching on CentOS, see [Update classifications on Linux](view-update-assessments.md#linux).          |
-|Red Hat Enterprise 6 and 7 (x64)     | Linux agents require access to an update repository.        |
+|CentOS 6, 7, and 8 (x64)      | Linux agents require access to an update repository. Classification-based patching requires `yum` to return security data that CentOS doesn't have in its RTM releases. For more information on classification-based patching on CentOS, see [Update classifications on Linux](view-update-assessments.md#linux).          |
+|Red Hat Enterprise 6, 7, and 8 (x64)     | Linux agents require access to an update repository.        |
 |SUSE Linux Enterprise Server 12, 15, and 15.1 (x64)     | Linux agents require access to an update repository. For SUSE 15.x, Python 3 is required on the machine.      |
 |Ubuntu 14.04 LTS, 16.04 LTS, and 18.04 LTS (x64)      |Linux agents require access to an update repository.         |
 
@@ -125,7 +132,7 @@ VMs created from the on-demand Red Hat Enterprise Linux (RHEL) images that are a
 
 ## Permissions
 
-To create and manage update deployments, you need specific permissions. To learn about these permissions, see [Role-based access – Update Management](../automation-role-based-access-control.md#update-management-permissions).
+To create and manage update deployments, you need specific permissions. To learn about these permissions, see [Role-based access - Update Management](../automation-role-based-access-control.md#update-management-permissions).
 
 ## Update Management components
 

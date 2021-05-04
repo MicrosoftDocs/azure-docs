@@ -20,7 +20,10 @@ Debug snapshots are stored for 15 days. This retention policy is set on a per-ap
 ## Enable Application Insights Snapshot Debugger for your application
 Snapshot collection is available for:
 * .NET Framework and ASP.NET applications running .NET Framework 4.5 or later.
-* .NET Core 2.0 and ASP.NET Core 2.0 applications running on Windows.
+* .NET Core and ASP.NET Core applications running .NET Core 2.1 (LTS) or 3.1 (LTS) on Windows.
+* .NET 5.0 applications on Windows.
+
+We don't recommend using .NET Core 2.0, 2.2 or 3.0 since they are out of support.
 
 The following environments are supported:
 
@@ -117,8 +120,8 @@ Version 15.2 (or above) of Visual Studio 2017 publishes symbols for release buil
 For Azure Compute and other types, make sure that the symbol files are in the same folder of the main application .dll (typically, `wwwroot/bin`) or are available on the current path.
 
 > [!NOTE]
-> For more information on the different symbol options that are available consult the [Visual Studio documentation](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
-). For best results, we recommend using “Full”, “Portable” or “Embedded”.
+> For more information on the different symbol options that are available consult the [Visual Studio documentation](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019&preserve-view=true#output
+). For best results, we recommend using "Full", "Portable" or "Embedded".
 
 ### Optimized builds
 In some cases, local variables can't be viewed in release builds because of optimizations that are applied by the JIT compiler.

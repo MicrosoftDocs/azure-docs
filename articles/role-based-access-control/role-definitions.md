@@ -5,16 +5,11 @@ services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
-
-ms.assetid:
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/18/2021
+ms.date: 03/22/2021
 ms.author: rolyon
-ms.reviewer: bagovind
 ms.custom:
 ---
 # Understand Azure role definitions
@@ -58,7 +53,7 @@ The following table describes what the role properties mean.
 | Property | Description |
 | --- | --- |
 | `Name`</br>`roleName` | The display name of the role. |
-| `Id`</br>`name` | The unique ID of the role. |
+| `Id`</br>`name` | The unique ID of the role. Built-in roles have the same role ID across clouds. |
 | `IsCustom`</br>`roleType` | Indicates whether this is a custom role. Set to `true` or `CustomRole` for custom roles. Set to `false` or `BuiltInRole` for built-in roles. |
 | `Description`</br>`description` | The description of the role. |
 | `Actions`</br>`actions` | An array of strings that specifies the management operations that the role allows to be performed. |

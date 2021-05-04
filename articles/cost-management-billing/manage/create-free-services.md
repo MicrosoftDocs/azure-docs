@@ -5,13 +5,13 @@ author: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 03/30/2021
 ms.author: banders
 ---
 
 # Create services included with Azure free account
 
-During the first 30 days after you've created an Azure free account, you have a $200 credit to use on any service, except for third-party Marketplace purchases. You can experiment with different tiers and types of Azure services using the free credit to try out Azure. If you use services or Azure resources that aren’t free during that time, charges are deducted against your credit.
+During the first 30 days after you've created an Azure free account, you have $200 credit in your billing currency to use on any service, except for third-party Marketplace purchases. You can experiment with different tiers and types of Azure services using the free credit to try out Azure. If you use services or Azure resources that aren’t free during that time, charges are deducted against your credit.
 
 If you don’t use all of your credit by the end of the first 30 days, it's lost. After the first 30 days and up to 12 months after sign-up, you can only use a limited quantity of *some services*—not all Azure services are free. If you upgrade before 30 days and have remaining credit, you can use the rest of your credit with a pay-as-you-go subscription for the remaining days. For example, if you sign up for the free account on November 1 and upgrade on November 5, you have until November 30 to use your credit in the new pay-as-you-go subscription. 
 

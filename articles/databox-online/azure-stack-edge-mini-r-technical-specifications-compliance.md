@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 04/12/2021
 ms.author: alkohli
 ---
 # Azure Stack Edge Mini R technical specifications
@@ -19,31 +19,35 @@ The hardware components of your Microsoft Azure Stack Edge Mini R device adhere 
 
 The Azure Stack Edge Mini R device has the following specifications for compute and memory:
 
-| Specification           | Value                  |
-|-------------------------|------------------------|
-| CPU    | 16-core CPU, Intel Xeon-D 1577 |
-| Memory              | 48 GB RAM (2400 MT/s)                  |
+| Specification           | Value                           |
+|-------------------------|---------------------------------|
+| CPU type                | Intel Xeon-D 1577               |
+| CPU: raw                | 16 total cores, 32 total vCPUs  |
+| CPU: usable             | 24 vCPUs                        |
+| Memory type             | 16 GB 2400 MT/s SODIMM          |
+| Memory: raw             | 48 GB RAM (3 x 16 GB)           |
+| Memory: usable          | 32 GB RAM                       |
 
 
 ## Compute acceleration
 
 A Vision Processing Unit (VPU) is included on every Azure Stack Edge Mini R device that enables Kubernetes, deep neural network and computer vision based applications.
 
-| Specification           | Value                  |
-|-------------------------|------------------------|
-| Compute Acceleration card         | Intel Movidius Myriad X VPU <br> For more information, see [Intel Movidius Myriad X VPU](https://www.movidius.com/MyriadX) |
+| Specification             | Value                  |
+|---------------------------|------------------------|
+| Compute Acceleration card | Intel Movidius Myriad X VPU <br> For more information, see [Intel Movidius Myriad X VPU](https://www.movidius.com/MyriadX) |
 
 
 ## Storage
 
 The Azure Stack Edge Mini R device has 1 data disk and 1 boot disk (that serves as operating system storage). The following table shows the details for the storage capacity of the device.
 
-|     Specification                          |     Value             |
-|--------------------------------------------|-----------------------|
-|    Number of solid-state drives (SSDs)     |    2 X 1-TB disks <br> One data disk and one boot disk                  |
-|    Single SSD capacity                     |    1 TB               |
-|    Total capacity (data only)              |    1 TB               |
-|    Total usable capacity*                  |    ~ 750 GB           |
+|     Specification                          |     Value                                              |
+|--------------------------------------------|--------------------------------------------------------|
+|    Number of solid-state drives (SSDs)     |    2 X 1 TB disks <br> One data disk and one boot disk |
+|    Single SSD capacity                     |    1 TB                                                |
+|    Total capacity (data only)              |    1 TB                                                |
+|    Total usable capacity*                  |    ~ 750 GB                                            |
 
 **Some space is reserved for internal use.*
 
@@ -57,7 +61,11 @@ The Azure Stack Edge Mini R device has the following specifications for the netw
 |Network interfaces    |2 x 1 Gbps RJ45 <br> Shown as PORT 1 and PORT 2 in the local UI      |
 |Wi-Fi                 |802.11ac                                                            |
 
-## Router, switches
+|Specification  |Value  |
+|---------|---------|
+|Network interfaces    |2 x 10 GbE SFP+ <br> Shown as PORT 3 and PORT 4 in the local UI           |
+|Network interfaces    |2 x 1 GbE RJ45 <br> Shown as PORT 1 and PORT 2 in the local UI          |
+|Wi-Fi   |802.11ac         |
 
 The following routers and switches are compatible with the 10 Gbps SPF+ network interfaces (Port 3 and Port 4) on your Azure Stack Edge Mini R devices:
 
@@ -120,9 +128,11 @@ The following table lists the dimensions of the device and the USP with the rugg
 
 The following table lists the weight of the device including the battery.
 
-|     Enclosure                     |      Weight         |
+|     Enclosure                     |     Weight          |
 |-----------------------------------|---------------------|
-|    Total weight of the device     |      7 lbs          |
+|    Total weight of the device     |     7 lbs           |
+
+## Enclosure environment specifications
 
 ## Enclosure environment
 
