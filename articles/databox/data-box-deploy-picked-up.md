@@ -365,7 +365,7 @@ If you're using Data Box in US Government, Japan, Singapore, Korea, India, South
     ```
 
    > [!NOTE]
-   > Required information in the email and at pickup may vary by region.
+   > Required information for return may vary by region.
 
 ::: zone target="chromeless"
 

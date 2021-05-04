@@ -71,11 +71,11 @@ When you place a Data Box order, you can choose the self-managed shipping option
 
    The person who is picking up the device needs to provide the following:
 
-   * A government-approved photo ID, which will be validated at the datacenter. The name and details of the person picking up the device must be provided when the pick-up is scheduled.
+   * A copy of the email confirmation for visiting the datacenter from Microsoft Operations.
 
-   * The authorization code. The authorization code is unique for a pick-up or a drop-off and is validated at the datacenter.
+   * The authorization code. The reference number is unique for a pick-up or a drop-off and is validated at the datacenter.
 
-   * In some regions - for example, Brazil - they'll need a copy of the scheduled appointment.
+   * Government-approved photo ID. The ID will be validated at the datacenter, and the name and details of the person picking up the device must be provided when the pickup is scheduled.
 
 8. Your order automatically moves to the **Picked up** state once the device has been picked up from the datacenter.
 
