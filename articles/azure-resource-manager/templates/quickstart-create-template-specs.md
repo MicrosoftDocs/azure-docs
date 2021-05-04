@@ -136,7 +136,7 @@ The template spec is a resource type named `Microsoft.Resources/templateSpecs`. 
               "location": "westus2",
               "dependsOn": [ "storageSpec" ],
               "properties": {
-                "template": {
+                "mainTemplate": {
                   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                   "contentVersion": "1.0.0.0",
                   "parameters": {
@@ -500,7 +500,7 @@ Rather than creating a new template spec for the revised template, add a new ver
               "location": "westus2",
               "dependsOn": [ "storageSpec" ],
               "properties": {
-                "template": {
+                "mainTemplate": {
                   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                   "contentVersion": "1.0.0.0",
                   "parameters": {
