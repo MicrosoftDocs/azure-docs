@@ -83,7 +83,7 @@
       href: analyze-live-video-without-recording.md
 - name: How-to guides
   items:
-  - name: Set up your dev environment
+   - name: Set up your dev environment
     href: set-up-dev-environment.md #404
   - name: Create a new account
     href: create-video-analyzer-account.md
@@ -105,6 +105,10 @@
     href: playback-recordings-how-to.md
   - name: Configure a signal gate
     href: configure-signal-gate.md #404
+  - name: Managed identity
+    href: managed-identity.md
+  - name: Network Security
+    href: network-security.md
   - name: Use widgets
     href: use-widgets.md #404
   - name: Monitor and logging
