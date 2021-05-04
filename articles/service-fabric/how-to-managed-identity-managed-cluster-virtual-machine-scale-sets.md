@@ -92,13 +92,13 @@ New-AzRoleAssignment -PrincipalId fbc587f2-66f5-4459-a027-bcd908b9d278 -RoleDefi
 
 ## Add managed identity properties to node type definition
 
-Finally, add the `vmManagedIdentity` and `userAssignedIdentities` properties to the managed cluster's node type definition. Be sure to use **2021-01-01-preview** or later for the `apiVersion`.
+Finally, add the `vmManagedIdentity` and `userAssignedIdentities` properties to the managed cluster's node type definition. Be sure to use **2021-05-01** or later for the `apiVersion`.
 
 ```json
 
  {
     "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     ...
     "properties": {
         "isPrimary" : true,

@@ -95,25 +95,25 @@ The sample application contains [Azure Resource Manager templates](https://githu
 
 ```json
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applications",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applicationTypes",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applicationTypes/versions",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'), '/', parameters('applicationTypeVersion'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applications/services",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
     "location": "[variables('clusterLocation')]"
