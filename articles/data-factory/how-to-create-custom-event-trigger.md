@@ -74,7 +74,7 @@ Data Factory expects events to follow the [Event Grid event schema](../event-gri
 
 1. The **Subject begins with** and **Subject ends with** properties allow you to filter for trigger events. Both properties are optional.
 
-1. Use **+ New** to add **Event Types** to filter on. The list of custom event triggers use an OR relationship. When a custom event with an `eventType` property that matches one on the list, a pipeline run is triggered. The event type is case insensitive. For example, in See the following screenshot for an example. The trigger matches all `copycompleted` or `copysucceeded` events that have a subject starting with *factories*.
+1. Use **+ New** to add **Event Types** to filter on. The list of custom event triggers uses an OR relationship. When a custom event with an `eventType` property that matches one on the list, a pipeline run is triggered. The event type is case insensitive. For example, in See the following screenshot for an example. The trigger matches all `copycompleted` or `copysucceeded` events that have a subject starting with *factories*.
 
     :::image type="content" source="media/how-to-create-custom-event-trigger/custom-event-2-properties.png" alt-text="Screenshot of Edit Trigger page to explain Event Types and Subject filtering in Data Factory UI.":::
 
@@ -104,7 +104,7 @@ Azure Data Factory uses Azure role-based access control (Azure RBAC) to prohibit
 - Subscribe to updates from events
 - Trigger pipelines linked to custom events
 
-To successfully create a new custom event trigger, or to update an existing one, you need to sign into Data Factory with an Azure account that has appropriate access. Otherwise, the operation will fail with an _Access Denied_ error.
+To successfully create or update custom event trigger, you need to sign into Data Factory with an Azure account that has appropriate access. Otherwise, the operation will fail with an _Access Denied_ error.
 
 Data Factory doesn't require special permission to your Event Grid. You also do *not* need to assign special Azure RBAC permission to the Data Factory service principal for the operation.
 
