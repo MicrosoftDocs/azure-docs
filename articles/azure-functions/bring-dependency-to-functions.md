@@ -212,7 +212,7 @@ az webapp config storage-account add \
 | share-name      |  Pre-existing share |
 | mount-path     |   Path at which the share will be accessible inside the container. Value has to be of the format `/dir-name` and it cannot start with `/home` |
 
-Additional commands to modify/delete the file share configuration can be found [here](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-update)
+Additional commands to modify/delete the file share configuration can be found [here](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-update)
 
 
 ### Uploading the dependencies to Azure Files
