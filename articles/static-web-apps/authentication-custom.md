@@ -46,98 +46,7 @@ The settings used to override the built-in providers are configured in the `auth
 
 To avoid putting secrets in source control, the configuration looks into [Application Settings](application-settings.md) for a matching name in the configuration file.
 
-### Authentication callbacks
-
-Authentication providers often need a URL to redirect to when a login or logout is complete.
-
-The following endpoints are available as redirect destinations.
-
-| Type   | URL pattern                                 |
-| ------ | ------------------------------------------- |
-| Login  | `https://<YOUR-SITE>/.auth/login/complete`  |
-| Logout | `https://<YOUR-SITE>/.auth/logout/complete` |
-
-## Configuring a custom OpenID Connect provider
-
-This section shows you how to configure Azure Static Web Apps to use a custom authentication provider that adheres to the [OpenID Connect specification](https://openid.net/connect/).
-
-- One or more OIDC providers are allowed.
-- Each provider must have a unique name in the configuration.
-- Only one provider can serve as the default redirect target.
-
-### Register your application with the identity provider
-
-You are required to register your application's details with an identity provider. Check with your desired provider regarding the steps needed to generate a **client ID** and **client secret** for your application.
-
-> [!IMPORTANT]
-> Application secrets are sensitive security credentials. Do not share this secret with anyone, distribute it within a client application, or check into source control.
-
-Add the client ID and client secret as [application settings](application-settings.md) for the app, using setting names of your choice. Make note of these names for later.
-
-Additionally, you need the OpenID Connect metadata for the provider. This information is often exposed via a [configuration metadata document](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig), which is the provider's _Issuer URL_ suffixed with `/.well-known/openid-configuration`. Gather this configuration URL.
-
-If you are unable to use a configuration metadata document, gather the following values separately:
-
-| Value                                                                                    | Remarks                                      |
-| ---------------------------------------------------------------------------------------- | -------------------------------------------- |
-| Issuer URL                                                                               | Sometimes shown as `issuer`.                 |
-| [OAuth 2.0 Authorization endpoint](https://tools.ietf.org/html/rfc6749#section-3.1)      | Sometimes shown as `authorization_endpoint`. |
-| [OAuth 2.0 Token endpoint](https://tools.ietf.org/html/rfc6749#section-3.2)              | Sometimes shown as `token_endpoint`.         |
-| [OAuth 2.0 JSON Web Key Set](https://tools.ietf.org/html/rfc8414#section-2) document URL | Sometimes shown as `jwks_uri`.               |
-
-Within the `openIdConnectConfiguration` object, provide the OpenID Connect metadata you gathered earlier. There are two options for this configuration, based on which information you collected:
-
-- **Option 1**: Set the `wellKnownOpenIdConfiguration` property to the configuration metadata URL you gathered earlier.
-- **Option 2**: Set the four individual values as follows:
-  - Set `issuer` to the issuer URL
-  - Set `authorizationEndpoint` to the authorization Endpoint
-  - Set `tokenEndpoint` to the token endpoint
-  - Set `certificationUri` to the URL of the JSON Web Key Set document
-
-These two options are mutually exclusive.
-
-Once the configuration is set, you are ready to use your OpenID Connect provider for authentication in your app.
-
-## Example configuration
-
-```json
-{
-  "auth": {
-    "identityProviders": {
-      "openIdConnectProviders": {
-        "myProvider": {
-          "registration": {
-            "clientIdSettingName": "<MY_PROVIDER_ID>",
-            "clientCredential": {
-              "secretSettingName": "<MY_PROVIDER_CLIENT_SECRET>"
-            },
-            "openIdConnectConfiguration": {
-              "wellKnownOpenIdConfiguration": "https://<MY_ID_SERVER>/.well-known/openid-configuration"
-            }
-          },
-          "login": {
-            "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-            "scope": [],
-            "loginParameterNames": []
-          }
-        }
-      }
-    }
-  }
-}
-```
-
-## Login, logout and purging user details
-
-To use a custom OIDC provider, use the following URL patterns.
-
-| Action             | Pattern                         |
-| ------------------ | ------------------------------- |
-| Login              | `/.auth/<PROVIDER_NAME>/login`  |
-| Logout             | `/.auth/<PROVIDER_NAME>/logout` |
-| Purge user details | `/.auth/<PROVIDER_NAME>/purge`  |
-
-## Default provider configuration
+### Default provider configuration
 
 The following tables contain the different configuration options for each default provider.
 
@@ -317,6 +226,96 @@ For more information on how to configure Google as an authentication provider re
 
 For more information on how to configure Twitter as an authentication provider refer to the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-twitter.md).
 
+### Authentication callbacks
+
+Authentication providers often need a URL to redirect to when a login or logout is complete.
+
+The following endpoints are available as redirect destinations.
+
+| Type   | URL pattern                                 |
+| ------ | ------------------------------------------- |
+| Login  | `https://<YOUR-SITE>/.auth/login/complete`  |
+| Logout | `https://<YOUR-SITE>/.auth/logout/complete` |
+
+## Configuring a custom OpenID Connect provider
+
+This section shows you how to configure Azure Static Web Apps to use a custom authentication provider that adheres to the [OpenID Connect specification](https://openid.net/connect/).
+
+- One or more OIDC providers are allowed.
+- Each provider must have a unique name in the configuration.
+- Only one provider can serve as the default redirect target.
+
+### Register your application with the identity provider
+
+You are required to register your application's details with an identity provider. Check with your desired provider regarding the steps needed to generate a **client ID** and **client secret** for your application.
+
+> [!IMPORTANT]
+> Application secrets are sensitive security credentials. Do not share this secret with anyone, distribute it within a client application, or check into source control.
+
+Add the client ID and client secret as [application settings](application-settings.md) for the app, using setting names of your choice. Make note of these names for later.
+
+Additionally, you need the OpenID Connect metadata for the provider. This information is often exposed via a [configuration metadata document](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig), which is the provider's _Issuer URL_ suffixed with `/.well-known/openid-configuration`. Gather this configuration URL.
+
+If you are unable to use a configuration metadata document, gather the following values separately:
+
+| Value                                                                                    | Remarks                                      |
+| ---------------------------------------------------------------------------------------- | -------------------------------------------- |
+| Issuer URL                                                                               | Sometimes shown as `issuer`.                 |
+| [OAuth 2.0 Authorization endpoint](https://tools.ietf.org/html/rfc6749#section-3.1)      | Sometimes shown as `authorization_endpoint`. |
+| [OAuth 2.0 Token endpoint](https://tools.ietf.org/html/rfc6749#section-3.2)              | Sometimes shown as `token_endpoint`.         |
+| [OAuth 2.0 JSON Web Key Set](https://tools.ietf.org/html/rfc8414#section-2) document URL | Sometimes shown as `jwks_uri`.               |
+
+Within the `openIdConnectConfiguration` object, provide the OpenID Connect metadata you gathered earlier. There are two options for this configuration, based on which information you collected:
+
+- **Option 1**: Set the `wellKnownOpenIdConfiguration` property to the configuration metadata URL you gathered earlier.
+- **Option 2**: Set the four individual values as follows:
+  - Set `issuer` to the issuer URL
+  - Set `authorizationEndpoint` to the authorization Endpoint
+  - Set `tokenEndpoint` to the token endpoint
+  - Set `certificationUri` to the URL of the JSON Web Key Set document
+
+These two options are mutually exclusive.
+
+Once the configuration is set, you are ready to use your OpenID Connect provider for authentication in your app.
+
+## Example configuration
+
+```json
+{
+  "auth": {
+    "identityProviders": {
+      "openIdConnectProviders": {
+        "myProvider": {
+          "registration": {
+            "clientIdSettingName": "<MY_PROVIDER_ID>",
+            "clientCredential": {
+              "secretSettingName": "<MY_PROVIDER_CLIENT_SECRET>"
+            },
+            "openIdConnectConfiguration": {
+              "wellKnownOpenIdConfiguration": "https://<MY_ID_SERVER>/.well-known/openid-configuration"
+            }
+          },
+          "login": {
+            "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+            "scope": [],
+            "loginParameterNames": []
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+## Login, logout and purging user details
+
+To use a custom OIDC provider, use the following URL patterns.
+
+| Action             | Pattern                         |
+| ------------------ | ------------------------------- |
+| Login              | `/.auth/<PROVIDER_NAME>/login`  |
+| Logout             | `/.auth/<PROVIDER_NAME>/logout` |
+| Purge user details | `/.auth/<PROVIDER_NAME>/purge`  |
 ## Next steps
 
 > [!div class="nextstepaction"]
