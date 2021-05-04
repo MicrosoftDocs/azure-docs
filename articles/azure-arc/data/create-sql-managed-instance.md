@@ -1,6 +1,6 @@
 ---
-title: Create an Azure SQL managed instance on Azure Arc
-description: Create an Azure SQL managed instance on Azure Arc
+title: Create an Azure SQL Managed Instance on Azure Arc
+description: Create an Azure SQL Managed Instance on Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,7 +11,7 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ---
 
-# Create an Azure SQL managed instance on Azure Arc
+# Create an Azure SQL Managed Instance on Azure Arc
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
@@ -95,4 +95,4 @@ If you are using AKS or `kubeadm` or OpenShift etc., you can copy the external I
 ## Next steps
 - [Connect to Azure Arc enabled SQL Managed Instance](connect-managed-instance.md)
 - [Register your instance with Azure and upload metrics and logs about your instance](upload-metrics-and-logs-to-azure-monitor.md)
-- [Deploy Azure SQL managed instance using Azure Data Studio](create-sql-managed-instance-azure-data-studio.md)
+- [Deploy Azure SQL Managed Instance using Azure Data Studio](create-sql-managed-instance-azure-data-studio.md)
