@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: overview
-ms.date: 04/14/2021
+ms.date: 05/04/2021
 ms.author: lajanuar
 
 ---
@@ -15,7 +15,7 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD036 -->
 # What's new in Translator
 
-Learn the latest updates to the text Translator service. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
+Review the latest updates to the text Translator service. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
 ## February 2021
 
