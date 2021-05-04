@@ -1,15 +1,15 @@
 ---
 title: UK OFFICIAL & UK NHS blueprint sample overview
 description: Overview and architecture of the UK OFFICIAL and UK NHS blueprint samples. This blueprint sample helps customers assess specific controls.
-ms.date: 02/05/2021
+ms.date: 04/30/2021
 ms.topic: sample
 ---
 # Overview of the UK OFFICIAL and UK NHS blueprint samples
 
-The UK OFFICIAL and UK NHS blueprint samples provides a set of governance guard-rails using [Azure Policy](../../../policy/overview.md)
-that help towards UK OFFICIAL and UK NHS attestation. These blueprint samples help customers deploy a
-core set of policies for any Azure-deployed architecture requiring accreditation or compliance with
-the UK OFFICIAL and UK NHS frameworks.
+The UK OFFICIAL and UK NHS blueprint samples provides a set of governance guardrails using
+[Azure Policy](../../../policy/overview.md) that help toward UK OFFICIAL and UK NHS attestation.
+These blueprint samples help customers deploy a core set of policies for any Azure-deployed
+architecture requiring accreditation or compliance with the UK OFFICIAL and UK NHS frameworks.
 
 ## Control mapping
 

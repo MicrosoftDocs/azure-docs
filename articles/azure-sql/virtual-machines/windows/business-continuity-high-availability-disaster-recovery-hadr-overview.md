@@ -35,6 +35,10 @@ It's possible for the SQL Server instance to fail while the VM is online and hea
 
 Geo-redundant storage (GRS) in Azure is implemented with a feature called geo-replication. GRS might not be an adequate disaster recovery solution for your databases. Because geo-replication sends data asynchronously, recent updates can be lost in a disaster. More information about geo-replication limitations is covered in the [Geo-replication support](#geo-replication-support) section.
 
+> [!NOTE]
+> It's now possible to lift and shift both your [failover cluster instance](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) and [availability group](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md) solution to SQL Server on Azure VMs using Azure Migrate. 
+
+
 ## Deployment architectures
 Azure supports these SQL Server technologies for business continuity:
 

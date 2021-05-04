@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 [!INCLUDE [digital-twins-tutorial-selector.md](../../includes/digital-twins-tutorial-selector.md)]
 
-In this tutorial, you'll build a graph in Azure Digital Twins using models, twins, and relationships. The tool for this tutorial is the [Azure Digital Twins command set for the Azure CLI](how-to-use-cli.md). 
+In this tutorial, you'll build a graph in Azure Digital Twins using models, twins, and relationships. The tool for this tutorial is the [Azure Digital Twins command set for the Azure CLI](concepts-cli.md). 
 
 You can use the CLI commands to perform essential Azure Digital Twins actions such as uploading models, creating and modifying twins, and creating relationships. You can also look at the [reference documentation for az dt command set](/cli/azure/dt) to see the full set of CLI commands.
 
@@ -251,7 +251,7 @@ Run the following queries in the Cloud Shell to answer some questions about the 
     az dt twin query -n <ADT_instance_name> -q "SELECT * FROM DIGITALTWINS"
     ```
 
-    This allows you to take stock of your environment at a glance, and make sure everything is represented as you'd like it to be within Azure Digital Twins. The result of this is an output containing each digital twin with its details. Here is an excerpt:
+    This allows you to take stock of your environment at a glance, and make sure everything is represented as you want it to be within Azure Digital Twins. The result of this is an output containing each digital twin with its details. Here is an excerpt:
 
     :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Screenshot of Cloud Shell showing partial result of twin query, including room0 and room1." lightbox="media/tutorial-command-line/cli/output-query-all.png":::
 
@@ -305,11 +305,11 @@ Run the following queries in the Cloud Shell to answer some questions about the 
 
 ## Clean up resources
 
-After completing this tutorial, you can choose which resources you'd like to remove, depending on what you'd like to do next.
+After completing this tutorial, you can choose which resources you want to remove, depending on what you want to do next.
 
 * **If you plan to continue to the next tutorial**, you can keep the resources you set up here and reuse the Azure Digital Twins instance without clearing anything in between.
 
-* **If you'd like to continue using the Azure Digital Twins instance, but clear out all of its models, twins, and relationships**, you can use the [az dt twin relationship delete](/cli/azure/dt/twin/relationship#az_dt_twin_relationship_delete), [az dt twin delete](/cli/azure/dt/twin#az_dt_twin_delete), and [az dt model delete](/cli/azure/dt/model#az_dt_model_delete) commands to clear the relationships, twins, and models in your instance, respectively.
+* **If you want to continue using the Azure Digital Twins instance, but clear out all of its models, twins, and relationships**, you can use the [az dt twin relationship delete](/cli/azure/dt/twin/relationship#az_dt_twin_relationship_delete), [az dt twin delete](/cli/azure/dt/twin#az_dt_twin_delete), and [az dt model delete](/cli/azure/dt/model#az_dt_model_delete) commands to clear the relationships, twins, and models in your instance, respectively.
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 

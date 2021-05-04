@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 03/15/2021
+ms.date: 04/30/2021
 ms.author: lajanuar
 ---
 
@@ -36,7 +36,7 @@ This table lists the human languages supported by the Form Recognizer service.
 |Danish | `da` |  ✔ | |
 |Dutch | `nl` |✔ | ✔ |
 |English (printed and handwritten) | `en` |✔ | ✔ |
-|Estonian  |`crh`|  ✔ | |
+|Estonian  |`et`|  ✔ | |
 |Fijian |`fj`|  ✔ | |
 |Filipino  |`fil`|  ✔ | |
 |Finnish | `fi` |  ✔ | |

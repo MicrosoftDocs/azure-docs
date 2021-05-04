@@ -4236,6 +4236,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/deployment-manager-health-check.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/deployment-manager-overview.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/deployment-manager-tutorial-health-check.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/deployment-manager-tutorial.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service/web-sites-enable-diagnostic-log.md",
       "redirect_url": "/azure/app-service/troubleshoot-diagnostic-logs",
       "redirect_document_id": false
@@ -5183,6 +5203,11 @@
     {
       "source_path_from_root": "/articles/virtual-network/virtual-networks-dmz-nsg-fw-udr-asm.md",
       "redirect_url": "/azure/architecture/vdc/networking-virtual-datacenter",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/automation-watchers-tutorial.md",
+      "redirect_url": "/azure/automation/automation-scenario-using-watcher-task",
       "redirect_document_id": false
     },
     {
@@ -13456,6 +13481,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/windows-server-failover-cluster.md",
+      "redirect_url": "/azure/azure-vmware/configure-windows-server-failover-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/create-ipsec-tunnel.md",
+      "redirect_url": "/azure/azure-vmware/configure-site-to-site-vpn-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/public-ip-usage.md",
+      "redirect_url": "/azure/azure-vmware/enable-public-internet-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/github-enterprise-server.md",
+      "redirect_url": "/azure/azure-vmware/configure-github-enterprise-server",
+      "redirect_document_id": false
+    },
+        {
       "source_path_from_root": "/articles/azure-vmware/concepts-monitor-repair-private-cloud.md",
       "redirect_url": "/azure/azure-vmware/concepts-private-clouds-clusters",
       "redirect_document_id": false
@@ -19516,8 +19561,18 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/digital-twins/how-to-use-cli.md",
+      "redirect_url": "/azure/digital-twins/concepts-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/digital-twins/how-to-use-apis-sdks.md",
+      "redirect_url": "/azure/digital-twins/concepts-apis-sdks",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/digital-twins/how-to-create-custom-sdks.md",
-      "redirect_url": "/azure/digital-twins/how-to-use-apis-sdks",
+      "redirect_url": "/azure/digital-twins/concepts-apis-sdks",
       "redirect_document_id": false
     },
     {
@@ -33494,7 +33549,7 @@
       "source_path_from_root": "/articles/service-bus-messaging/service-bus-migrate-acs-sas.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/service-bus-messaging/service-bus-dotnet-advanced-message-queuing.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-amqp-dotnet",
@@ -52156,11 +52211,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/active-directory/develop/v2-saml-bearer-assertion.md",
-      "redirect_url": "/azure/active-directory/develop/scenario-token-exchange-saml-oauth",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/active-directory/develop/service-to-service.md",
       "redirect_url": "/azure/active-directory/develop/scenario-web-api-call-api-overview",
       "redirect_document_id": true
@@ -54792,12 +54842,17 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-transition-from-uag-tmg.md",
-      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-migration",
+      "redirect_url": "/azure/active-directory/app-proxy/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/app-proxy/application-proxy-migration.md",
+      "redirect_url": "/azure/active-directory/app-proxy/index",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-migration.md",
-      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-migration",
+      "redirect_url": "/azure/active-directory/app-proxy/index",
       "redirect_document_id": false
     },
     {
@@ -61631,6 +61686,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/personalizer/troubleshooting.md",
+      "redirect_url": "/azure/cognitive-services/personalizer/frequently-asked-questions",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/policy-samples.md",
       "redirect_url": "/azure/cognitive-services/policy-reference",
       "redirect_document_id": false
@@ -65802,6 +65862,21 @@
     {
       "source_path_from_root": "/articles/peering-service/create-connection.md",
       "redirect_url": "/azure/peering-service/azure-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-fabric-mesh/index.yml",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dms/tutorial-oracle-azure-postgresql-online.md",
+      "redirect_url": "/azure/postgresql/howto-migrate-from-oracle",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dms/known-issues-oracle-azure-postgresql-online.md",
+      "redirect_url": "/azure/postgresql/howto-migrate-from-oracle",
       "redirect_document_id": false
     }
   ]
