@@ -134,11 +134,11 @@ If it's acceptable for the IP address to change over time, **Dynamic** IP assign
 >[!NOTE]
 > A basic IPv6 address must always be 'Dynamic'.
 
-## Routing Preference and Tier
+## Routing Preference and tier
 
 Standard SKU static public IPv4 addresses support Routing Preference or the Global Tier feature.
 
-### Routing Preference
+### Routing preference
 
 By default, the routing preference for public IP addresses is set to "Microsoft network", which delivers traffic over Microsoft's global wide area network to the user.  
 
