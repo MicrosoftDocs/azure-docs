@@ -250,7 +250,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         return func.HttpResponse("Unexpected exception happened when executing ffmpeg. Error message:" + str(e),status_code=200)
 ```
 
-When you deploy this code snippet to Azure, you need to configure a custom app setting with key of "FILE_SHARE_MOUNT_PATH" and value of the mounted file share path for example, `/azure-files-share`. To do local debugging, you need to populate the `FILE_SHARE_MOUNT_PATH` with the file path where your dependencies are stored in your local machine. Here is an example to set `FILE_SHARE_MOUNT_PATH` using `local.settings.json`:
+When you deploy this code to a function app in Azure, you need to [create an app setting](functions-how-to-use-azure-function-app-settings.md#settings) with a key name of `FILE_SHARE_MOUNT_PATH` and value of the mounted file share path, which for this example is `/azure-files-share`. To do local debugging, you need to populate the `FILE_SHARE_MOUNT_PATH` with the file path where your dependencies are stored in your local machine. Here is an example to set `FILE_SHARE_MOUNT_PATH` using `local.settings.json`:
 
 ```json
 {
