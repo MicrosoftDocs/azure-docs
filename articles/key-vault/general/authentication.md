@@ -79,7 +79,7 @@ Key Vault SDK is using Azure Identity client library, which allows seamless auth
 |--|--|--|--|
 |[Azure Identity SDK .NET](/dotnet/api/overview/azure/identity-readme)|[Azure Identity SDK Python](/python/api/overview/azure/identity-readme)|[Azure Identity SDK Java](/java/api/overview/azure/identity-readme)|[Azure Identity SDK JavaScript](/javascript/api/overview/azure/identity-readme)|   
 
-More information about best practices and developer examples, see [Authenticate to Key Vault in code](developers-guide#authenticate-to-key-vault-in-code)
+More information about best practices and developer examples, see [Authenticate to Key Vault in code](developers-guide.md#authenticate-to-key-vault-in-code)
 
 ## Next Steps
 
