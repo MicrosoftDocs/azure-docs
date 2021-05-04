@@ -244,7 +244,7 @@ The following endpoints are available as redirect destinations.
 
 ## Configuring a custom OpenID Connect provider
 
-This section shows you how to configure Azure Static Web Apps to use a custom authentication provider that adheres to the [OpenID Connect specification](https://openid.net/connect/).
+This section shows you how to configure Azure Static Web Apps to use a custom authentication provider that adheres to the [OpenID Connect (OIDC) specification](https://openid.net/connect/). This is required if you want to use an OIDC provider other than the built in providers provided by Azure Static Web Apps.
 
 - One or more OIDC providers are allowed.
 - Each provider must have a unique name in the configuration.
@@ -257,9 +257,9 @@ You are required to register your application's details with an identity provide
 > [!IMPORTANT]
 > Application secrets are sensitive security credentials. Do not share this secret with anyone, distribute it within a client application, or check into source control.
 
-Add the client ID and client secret as [application settings](application-settings.md) for the app, using setting names of your choice. Make note of these names for later.
+1. Add the client ID and client secret as [application settings](application-settings.md) for the app, using setting names of your choice. Make note of these names for later. Alternatively, the client ID can be included in the configuration file, as with the built in providers.
 
-Additionally, you need the OpenID Connect metadata for the provider. This information is often exposed via a [configuration metadata document](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig), which is the provider's _Issuer URL_ suffixed with `/.well-known/openid-configuration`. Gather this configuration URL.
+1. You need the OpenID Connect metadata for the provider. This information is often exposed via a [configuration metadata document](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig), which is the provider's _Issuer URL_ suffixed with `/.well-known/openid-configuration`. Gather this configuration URL.
 
 If you are unable to use a configuration metadata document, gather the following values separately:
 
@@ -270,7 +270,21 @@ If you are unable to use a configuration metadata document, gather the following
 | [OAuth 2.0 Token endpoint](https://tools.ietf.org/html/rfc6749#section-3.2)              | Sometimes shown as `token_endpoint`.         |
 | [OAuth 2.0 JSON Web Key Set](https://tools.ietf.org/html/rfc8414#section-2) document URL | Sometimes shown as `jwks_uri`.               |
 
-Within the `openIdConnectConfiguration` object, provide the OpenID Connect metadata you gathered earlier. There are two options for this configuration, based on which information you collected:
+1. Add an `auth` section of the [Configuration file](configuration.md) with a configuration block for the OIDC providers, and add your provider to it. Keep note of the provider name (`myProvider` in the sample below), as that will be how Azure Static Web Apps identifies it:
+
+```json
+{
+  "auth": {
+    "identityProviders": {
+      "openIdConnectProviders": {
+        "myProvider": {}
+      }
+    }
+  }
+}
+```
+
+1. Add the configuration for your provider containing the OpenID Connect metadata and client access details you gathered earlier. There are two options for this configuration, based on which information you collected:
 
 - **Option 1**: Set the `wellKnownOpenIdConfiguration` property to the configuration metadata URL you gathered earlier.
 - **Option 2**: Set the four individual values as follows:
@@ -281,10 +295,6 @@ Within the `openIdConnectConfiguration` object, provide the OpenID Connect metad
 
 These two options are mutually exclusive.
 
-Once the configuration is set, you are ready to use your OpenID Connect provider for authentication in your app.
-
-## Example configuration
-
 ```json
 {
   "auth": {
@@ -292,7 +302,7 @@ Once the configuration is set, you are ready to use your OpenID Connect provider
       "openIdConnectProviders": {
         "myProvider": {
           "registration": {
-            "clientIdSettingName": "<MY_PROVIDER_ID>",
+            "clientIdSettingName": "<MY_PROVIDER_CLIENT_ID>",
             "clientCredential": {
               "secretSettingName": "<MY_PROVIDER_CLIENT_SECRET>"
             },
@@ -316,13 +326,13 @@ Once the configuration is set, you are ready to use your OpenID Connect provider
 
 To use a custom OIDC provider, use the following URL patterns.
 
-| Action             | Pattern                         |
-| ------------------ | ------------------------------- |
-| Login              | `/.auth/<PROVIDER_NAME>/login`  |
-| Logout             | `/.auth/<PROVIDER_NAME>/logout` |
-| Purge user details | `/.auth/<PROVIDER_NAME>/purge`  |
+| Action             | Pattern                                   |
+| ------------------ | ----------------------------------------- |
+| Login              | `/.auth/<PROVIDER_NAME_IN_CONFIG>/login`  |
+| Logout             | `/.auth/<PROVIDER_NAME_IN_CONFIG>/logout` |
+| Purge user details | `/.auth/<PROVIDER_NAME_IN_CONFIG>/purge`  |
 
 ## Next steps
 
-> [!div class="nextstepaction"]
+> [!div class="nextstepaction"]\
 > [Access user authentication and authorization data](user-information.md)
