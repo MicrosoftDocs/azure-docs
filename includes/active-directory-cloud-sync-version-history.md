@@ -2,7 +2,7 @@ This article lists the versions and features of Azure Active Directory Connect P
 
 Microsoft provides direct support for the latest agent version and one version before.
 
-## 1.1.xxx.x
+## 1.1.359.0
 
 ### New features and improvements
 - GMSA Cmdlets to set/reset permission

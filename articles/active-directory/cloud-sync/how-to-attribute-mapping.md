@@ -46,9 +46,9 @@ The following is a list of new mappings that were added.
 
 Attribute Added | Mapping Type | Added with Agent Version
 | ----- | -----| -----|
-|preferredDatalocation|Direct|1.1.xxx.x|
-|EmployeeNumber|Direct|1.1.xxx.x|
-|UserType|Direct|1.1.xxx.1|
+|preferredDatalocation|Direct|1.1.359.0|
+|EmployeeNumber|Direct|1.1.359.0|
+|UserType|Direct|1.1.359.0|
 
 For more information on how to map UserType, see [Map UserType with cloud sync](how-to-map-usertype.md).
 
