@@ -117,13 +117,13 @@ You can also assign the **Azure Digital Twins Data Owner** role using the access
 
 1. Assign the **Azure Digital Twins Data Owner** role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
     
-  | Setting | Value |
-  | --- | --- |
-  | Role | [Azure Digital Twins Data Owner](../role-based-access-control/built-in-roles.md#azure-digital-twins-data-owner) |
-  | Assign access to | User, group, or service principal |
-  | Members | Search for the name or email address of the user to assign. |
-
-  ![Add role assignment page](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    | Setting | Value |
+    | --- | --- |
+    | Role | [Azure Digital Twins Data Owner](../role-based-access-control/built-in-roles.md#azure-digital-twins-data-owner) |
+    | Assign access to | User, group, or service principal |
+    | Members | Search for the name or email address of the user to assign. |
+    
+    ![Add role assignment page](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ### Verify success
 

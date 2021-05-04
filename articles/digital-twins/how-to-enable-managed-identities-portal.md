@@ -103,13 +103,13 @@ To assign a role to the identity, start by opening the [Azure portal](https://po
 
 1. Assign the desired role to the managed identity of your Azure Digital Twins instance, using the information below. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
     
-  | Setting | Value |
-  | --- | --- |
-  | Role | Select the desired role from the dropdown menu. |
-  | Assign access to | Under **System assigned managed identity**, select **Digital Twins**. |
-  | Members | Select the managed identity of your Azure Digital Twins instance that's being assigned the role. The name of the managed identity matches the name of the instance, so choose the name of your Azure Digital Twins instance. |
-
-  ![Add role assignment page](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    | Setting | Value |
+    | --- | --- |
+    | Role | Select the desired role from the dropdown menu. |
+    | Assign access to | Under **System assigned managed identity**, select **Digital Twins**. |
+    | Members | Select the managed identity of your Azure Digital Twins instance that's being assigned the role. The name of the managed identity matches the name of the instance, so choose the name of your Azure Digital Twins instance. |
+    
+    ![Add role assignment page](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## Create an endpoint with identity-based authentication
 
