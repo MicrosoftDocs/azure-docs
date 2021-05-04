@@ -21,6 +21,8 @@ In this section, you configure your local environment, install the Azure IoT Jav
 
 ### Configure your environment
 
+1. Open a console using Windows CMD, PowerShell, or Bash.
+
 1. Set the following environment variables, using the appropriate commands for your console. The simulated device uses these values to connect to IoT Central. For `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY`, and `IOTHUB_DEVICE_DPS_DEVICE_ID`, use the device connection values that you saved previously.
 
     **Windows CMD**
@@ -57,8 +59,6 @@ In this section, you configure your local environment, install the Azure IoT Jav
     ```
 
 ### Install the SDK and samples
-
-1. Open a console using Windows CMD, PowerShell, or Bash. You'll use the console to install the Java SDK, and run the code sample.
 
 1. Copy the Azure IoT Java device SDK to your local machine.
 

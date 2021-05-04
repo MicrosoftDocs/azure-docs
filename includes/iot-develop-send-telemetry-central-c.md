@@ -34,11 +34,12 @@ gcc --version
 ```
 
 ### Windows
-To complete this quickstart on Windows, install the following software on your local Windows environment:
+To complete this quickstart on Windows, install the following components for C and C++ development.
 
-* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure you include the **Desktop Development with C++** workload when you [install](/cpp/build/vscpp-step-0-installation?preserve-view=true&view=vs-2019) Visual Studio.
-* [Git](https://git-scm.com/download/).
-* [CMake](https://cmake.org/download/).
+* [Visual Studio (Community, Professional, or Enterprise) 2019](https://visualstudio.microsoft.com/downloads/). 
+    - For new Visual Studio users, download the edition you want to install, and start the installer. For existing Visual Studio users, select Windows **Start**, type *Visual Studio Installer*, and start the installer.
+    - In the installer **Workloads** tab, select the **Desktop Development with C++** workload.
+    - In the installer **Individual components** tab, select **Git for Windows.**
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
@@ -47,9 +48,11 @@ In this section, you configure your local environment, install the Azure IoT C d
 
 ### Configure your environment
 
+1. Open a console to install the Azure IoT C device SDK, and run the code sample. For Windows, select **Start**, type *Developer Command Prompt for VS 2019*, and open the console. For Linux, open Bash. 
+
 1. Set the following environment variables, using the appropriate commands for your console. The simulated device uses these values to connect to IoT Central. For `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY`, and `IOTHUB_DEVICE_DPS_DEVICE_ID`, use the device connection values that you saved previously.
 
-    **Windows CMD**
+    **CMD**
 
     ```console
     set IOTHUB_DEVICE_SECURITY_TYPE=DPS
@@ -62,17 +65,7 @@ In this section, you configure your local environment, install the Azure IoT C d
     > [!NOTE]
     > For Windows CMD there are no quotation marks surrounding the variable values.
 
-    **PowerShell**
-
-    ```azurepowershell
-    $env:IOTHUB_DEVICE_SECURITY_TYPE='DPS'
-    $env:IOTHUB_DEVICE_DPS_ID_SCOPE='<application ID scope>'
-    $env:IOTHUB_DEVICE_DPS_DEVICE_KEY='<device primary key>'
-    $env:IOTHUB_DEVICE_DPS_DEVICE_ID='<your device ID>'
-    $env:IOTHUB_DEVICE_DPS_ENDPOINT='global.azure-devices-provisioning.net'
-    ```
-
-    **Bash (Linux or Windows)**
+    **Bash**
 
     ```bash
     export IOTHUB_DEVICE_SECURITY_TYPE='DPS'
@@ -84,16 +77,15 @@ In this section, you configure your local environment, install the Azure IoT C d
 
 ### Install the SDK and samples
 
-1. Open a console using Windows CMD, PowerShell, or Bash (for Windows or Linux). You'll use the console to install the C SDK, and run the code sample.
-
 1. Copy the Azure IoT C device SDK to your local machine.
 
     ```console
     git clone https://github.com/Azure/azure-iot-sdk-c.git
     ```
 
-1. In the root folder of the SDK you downloaded, run the following command to update dependencies:
+1. Navigate to the root folder of the SDK, and run the following command to update dependencies:
     ```console
+    cd azure-iot-sdk-c
     git submodule update --init
     ```
     This operation takes a few minutes.
@@ -109,12 +101,12 @@ In this section, you configure your local environment, install the Azure IoT C d
 
 1. Run the sample code, using the appropriate command for your console:
 
-    **Windows CMD or PowerShell**
+    **CMD**
     ```console
     cmake\iothub_client\samples\pnp\pnp_temperature_controller\Debug\pnp_temperature_controller.exe
     ```
 
-    **Bash (Linux or Windows)**
+    **Bash**
     ```bash
     cmake/iothub_client/samples/pnp/pnp_temperature_controller/Debug/pnp_temperature_controller
     ```
@@ -122,20 +114,25 @@ In this section, you configure your local environment, install the Azure IoT C d
     After your simulated device connects to your IoT Central application, it connects to the device instance you created in the application and begins to send telemetry. The connection details and telemetry output are shown in your console: 
     
     ```output
-    Device was assigned
-    iotc-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azure-devices.net
-    my-sdk-device
-    Updating pnp properties for root interface
-    {'serialNumber': 'alohomora'}
-    Updating pnp properties for thermostat1
-    {'thermostat1': {'maxTempSinceLastReboot': 98.34, '__t': 'c'}}
-    Updating pnp properties for thermostat2
-    {'thermostat2': {'maxTempSinceLastReboot': 48.92, '__t': 'c'}}
-    Updating pnp properties for deviceInformation
-    {'deviceInformation': {'swVersion': '5.5', 'manufacturer': 'Contoso Device Corporation', 'model': 'Contoso 4762B-turbo', 'osName': 'Mac Os', 'processorArchitecture': 'x86-64', 'processorManufacturer': 'Intel', 'totalStorage': 1024, 'totalMemory': 32, '__t': 'c'}}
-    Listening for command requests and property updates
-    Press Q to quit
-    Sending telemetry from various components
-    Sent message
-    {"temperature": 33}
+    Info: Initiating DPS client to retrieve IoT Hub connection information
+    -> 17:03:08 CONNECT | VER: 4 | KEEPALIVE: 0 | FLAGS: 194 | USERNAME: xxxxxxxxxxxxxxx/registrations/my-sdk-device/api-version=2019-03-31&ClientVersion=1.6.0 | PWD: XXXX | CLEAN: 1
+    <- 17:03:09 CONNACK | SESSION_PRESENT: false | RETURN_CODE: 0x0
+    -> 17:03:10 SUBSCRIBE | PACKET_ID: 1 | TOPIC_NAME: $dps/registrations/res/# | QOS: 1
+    <- 17:03:11 SUBACK | PACKET_ID: 1 | RETURN_CODE: 1
+    Info: Provisioning callback indicates success.  iothubUri=iotc-xxxxxxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx.azure-devices.net, deviceId=my-sdk-device
+    -> 17:03:27 DISCONNECT
+    Info: DPS successfully registered.  Continuing on to creation of IoTHub device client handle.
+    Info: Successfully created device client.  Hit Control-C to exit program
+    
+    Info: Sending serialNumber property to IoTHub
+    Info: Sending device information property to IoTHub.  propertyName=swVersion, propertyValue="1.0.0.0"
+    Info: Sending device information property to IoTHub.  propertyName=manufacturer, propertyValue="Sample-Manufacturer"
+    Info: Sending device information property to IoTHub.  propertyName=model, propertyValue="sample-Model-123"
+    Info: Sending device information property to IoTHub.  propertyName=osName, propertyValue="sample-OperatingSystem-name"
+    Info: Sending device information property to IoTHub.  propertyName=processorArchitecture, propertyValue="Contoso-Arch-64bit"
+    Info: Sending device information property to IoTHub.  propertyName=processorManufacturer, propertyValue="Processor Manufacturer(TM)"
+    Info: Sending device information property to IoTHub.  propertyName=totalStorage, propertyValue=10000
+    Info: Sending device information property to IoTHub.  propertyName=totalMemory, propertyValue=200
+    Info: Sending maximumTemperatureSinceLastReboot property to IoTHub for component=thermostat1
+    Info: Sending maximumTemperatureSinceLastReboot property to IoTHub for component=thermostat2
     ```
