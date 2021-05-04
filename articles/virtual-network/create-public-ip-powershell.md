@@ -154,7 +154,7 @@ $tag = ${
     IpTagType = 'RoutingPreference'
     Tag = 'Internet'   
 }
-$ipTag = New-AzPublicIpTag @$tag
+$ipTag = New-AzPublicIpTag @tag
 
 ## Create IP. ##
 $ip = @{
