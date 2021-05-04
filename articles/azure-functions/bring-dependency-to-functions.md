@@ -188,7 +188,7 @@ When running your function app on Linux, there's another way to bring in third-p
 
 First, you need to create an Azure Storage Account. In the account, you also need to create file share in Azure files. To create these resources, please follow this [guide](../storage/files/storage-how-to-use-files-portal.md)
 
-Once the storage account and file share are created, using Az CLI, execute the following command to attach the file share to your functions app.
+After the storage account and file share are created, use the [az webapp config storage-account add](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_add) command to attach the file share to your functions app, as shown in the following example.
 
 ```console
 az webapp config storage-account add \
