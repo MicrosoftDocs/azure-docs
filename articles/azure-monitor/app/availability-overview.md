@@ -2,7 +2,7 @@
 title: Application Insights availability overview 
 description: Set up recurring web tests to monitor availability and responsiveness of your app or website.
 ms.topic: conceptual
-ms.date: 04/15/2021
+ms.date: 05/03/2021
 
 ---
 
@@ -35,3 +35,4 @@ Dedicated [troubleshooting article](troubleshoot-availability.md).
 * [Multi-step web tests](availability-multistep.md)
 * [URL tests](monitor-web-app-availability.md)
 * [Create and run custom availability tests using Azure Functions.](availability-azure-functions.md)
+* [Web Tests Azure Resource Manager template](../../templates/microsoft.insights/webtests.md)
