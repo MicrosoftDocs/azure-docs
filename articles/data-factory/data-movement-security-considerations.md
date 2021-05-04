@@ -6,7 +6,7 @@ author: nabhishek
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/26/2020
+ms.date: 05/03/2021
 ---
 
 # Security considerations for data movement in Azure Data Factory
@@ -125,10 +125,11 @@ The credentials can be stored within data factory or be [referenced by data fact
 
 #### Ports used when encrypting linked service on self-hosted integration runtime
 
-By default, PowerShell uses port 8060 on the machine with self-hosted integration runtime for secure communication. If necessary, this port can be changed.  
+By default, when remote access from intranet is enabled, PowerShell uses port 8060 on the machine with self-hosted integration runtime for secure communication. If necessary, this port can be changed from the Integration Runtime Configuration Manager on the Settings tab:
 
-![HTTPS port for the gateway](media/data-movement-security-considerations/https-port-for-gateway.png)
+:::image type="content" source="media/data-movement-security-considerations/integration-runtime-configuration-manager-settings.png" alt-text="Integration Runtime Configuration Manager's Settings tab":::
 
+:::image type="content" source="media/data-movement-security-considerations/https-port-for-gateway.png" alt-text="HTTPS port for the gateway":::
 
 ### Encryption in transit
 
@@ -170,7 +171,7 @@ In an enterprise, a corporate firewall runs on the central router of the organiz
 
 The following table provides outbound port and domain requirements for corporate firewalls:
 
-[!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
+[!INCLUDE [domain-and-outbound-port-requirements](includes/domain-and-outbound-port-requirements.md)]
 
 > [!NOTE]
 > You might have to manage ports or set up allow list for domains at the corporate firewall level as required by the respective data sources. This table only uses Azure SQL Database, Azure Synapse Analytics, and Azure Data Lake Store as examples.   

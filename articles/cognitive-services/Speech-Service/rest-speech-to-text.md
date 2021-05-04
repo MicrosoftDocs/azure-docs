@@ -281,13 +281,20 @@ A typical response for `detailed` recognition:
   "Offset": "1236645672289",
   "Duration": "1236645672289",
   "NBest": [
-      {
-        "Confidence" : "0.87",
-        "Lexical" : "remind me to buy five pencils",
-        "ITN" : "remind me to buy 5 pencils",
-        "MaskedITN" : "remind me to buy 5 pencils",
-        "Display" : "Remind me to buy 5 pencils.",
-      }
+    {
+      "Confidence": 0.9052885,
+      "Display": "What's the weather like?",
+      "ITN": "what's the weather like",
+      "Lexical": "what's the weather like",
+      "MaskedITN": "what's the weather like"
+    },
+    {
+      "Confidence": 0.92459863,
+      "Display": "what is the weather like",
+      "ITN": "what is the weather like",
+      "Lexical": "what is the weather like",
+      "MaskedITN": "what is the weather like"
+    }
   ]
 }
 ```
