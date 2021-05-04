@@ -114,14 +114,6 @@
       href: template-tutorial-deploy-sql-extensions-bacpac.md
     - name: Troubleshoot template deployment
       href: template-tutorial-troubleshoot.md
-  - name: Deployment manager
-    items:
-    - name: Use safe deployment practices
-      displayName: adm
-      href: deployment-manager-tutorial.md
-    - name: Use health check in Deployment Manager
-      displayName: adm
-      href: deployment-manager-tutorial-health-check.md
   - name: Microsoft Learn path about templates
     href: /learn/paths/deploy-manage-resource-manager-templates/
 - name: Samples - Azure services
@@ -354,14 +346,6 @@
     href: deployment-history-deletions.md
   - name: Complete mode deletion
     href: complete-mode-deletion.md
-  - name: Deployment Manager
-    items:
-    - name: Overview
-      displayName: adm, deployment manager
-      href: deployment-manager-overview.md
-    - name: Health check
-      displayName: adm, deployment manager
-      href: deployment-manager-health-check.md
 - name: How to
   items:
   - name: Create templates
