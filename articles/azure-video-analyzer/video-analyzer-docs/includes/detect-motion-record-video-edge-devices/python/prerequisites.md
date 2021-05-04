@@ -26,4 +26,4 @@ ms.author: juliako
 [!INCLUDE [resources](../../../includes/common-includes/azure-resources.md)]
 
 ## Set up your development environment
-[!INCLUDE [setup development environment](./includes/set-up-dev-environment/python/python-set-up-dev-env.md)]
+[!INCLUDE [setup development environment](./../../../includes/set-up-dev-environment/python/python-set-up-dev-env.md)]
