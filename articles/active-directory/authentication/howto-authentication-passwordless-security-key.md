@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/03/2021
+ms.date: 05/04/2021
 
 ms.author: justinha
 author: justinha
@@ -67,7 +67,7 @@ There are some optional settings for managing security keys per tenant.
 
 **Key Restriction Policy**
 
-- **Enforce key restrictions** should be set to **Yes** only if your organization wants to limit the use of FIDO security keys to either allow, or block a certain set of keys, based on the key AAGuids. You can work with your key provider to determine the AAGuids of their devices. AAGUID can also be found—if the key is already registered—by viewing the authentication method details of the key per user.  
+- **Enforce key restrictions** should be set to **Yes** only if your organization wants to only allow or disallow certain FIDO security keys, which are identified by their AAGuids. You can work with your security key provider to determine the AAGuids of their devices. If the key is already registered, AAGUID can also be found by viewing the authentication method details of the key per user. 
 
 ## User registration and management of FIDO2 security keys
 

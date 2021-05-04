@@ -70,7 +70,7 @@
     href: enable-public-internet-access.md
   - name: Configure site-to-site VPN gateway
     href: configure-site-to-site-vpn-gateway.md
-  - name: Windows Server Failover Cluster
+  - name: Configure Windows Server Failover Cluster
     href: configure-windows-server-failover-cluster.md
   - name: Reset vSphere credentials
     href: reset-vsphere-credentials.md
