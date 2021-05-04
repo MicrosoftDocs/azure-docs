@@ -1,6 +1,6 @@
 ---
-title: PowerShell scripts for Azure IoT Edge for Linux on Windows | Microsoft Docs 
-description: Reference information for Azure IoT Edge for Linux on Windows PowerShell scripts to deploy, provision, and status IoT Edge for Linux on Windows virtual machines.
+title: PowerShell functions for Azure IoT Edge for Linux on Windows | Microsoft Docs 
+description: Reference information for Azure IoT Edge for Linux on Windows PowerShell functions to deploy, provision, and status IoT Edge for Linux on Windows virtual machines.
 author: v-tcassi
 manager: philmea
 ms.author: v-tcassi
@@ -11,11 +11,11 @@ services: iot-edge
 monikerRange: "=iotedge-2018-06"
 ---
 
-# PowerShell scripts for IoT Edge for Linux on Windows
+# PowerShell functions for IoT Edge for Linux on Windows
 
 [!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
-Understand the PowerShell scripts that deploy, provision, and get the status your IoT Edge for Linux on Windows virtual machine.
+Understand the PowerShell functions that deploy, provision, and get the status your IoT Edge for Linux on Windows virtual machine.
 
 The commands described in this article are from the `AzureEFLOW.psm1` file, which can be found on your system in your `WindowsPowerShell` directory under `C:\Program Files\WindowsPowerShellModules\AzureEFLOW`.
 
@@ -46,7 +46,7 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 | enableVtpm | None | **Switch parameter**. Create the virtual machine with TPM enabled or disabled. |
 | mobyPackageVersion | No longer than 30 characters |  Version of Moby package to be verified or installed on the virtual machine.  **Default value:** 19.03.11. |
 | iotedgePackageVersion | No longer than 30 characters | Version of IoT Edge package to be verified or installed on the virtual machine. **Default value:** 1.1.0. |
-| installPackages | None | **Switch parameter**. When toggled, the script will attempt to install the Moby and IoT Edge packages rather than only verifying the packages are present. |
+| installPackages | None | **Switch parameter**. When toggled, the function will attempt to install the Moby and IoT Edge packages rather than only verifying the packages are present. |
 
 >[!NOTE]
 >By default, if the process cannot find an external switch with the name `External`, it will search for any existing external switch through which to obtain an IP address. If there is no external switch available, it will search for an internal switch. If there is no internal switch available, it will attempt to create the default switch through which to obtain an IP address.
@@ -149,5 +149,3 @@ The **Ssh-EflowVm** command is used to SSH into the virtual machine. The only ac
 Learn how to use these commands in the following article:
 
 * [Install Azure IoT Edge for Linux on Windows](./how-to-install-iot-edge-windows-on-windows.md)
-
-* Refer to [the IoT Edge for Linux on Windows PowerShell script reference](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) for all the commands available through PowerShell.
