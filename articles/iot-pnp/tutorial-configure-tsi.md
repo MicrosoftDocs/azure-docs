@@ -36,10 +36,6 @@ At this point, you have:
 * A Device Provisioning Service (DPS) instance linked to your IoT hub. The DPS instance should have an individual device enrollment for your IoT Plug and Play device.
 * A connection to your IoT hub from either a single-component device or a multiple-component device that streams simulated data.
 
-To avoid the requirement to install the Azure CLI locally, you can use Azure Cloud Shell to set up the cloud services.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## Prepare your event source
 
 The IoT hub you created previously will be your Time Series Insights environment's [event source](../time-series-insights/concepts-streaming-ingestion-event-sources.md).

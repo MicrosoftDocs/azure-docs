@@ -21,7 +21,7 @@ There are two steps to set up an alert pipeline:
 
 ## Prerequisites
 
-In addition to the Azure Spring requirements, the procedures in this tutorial work with a deployed Azure Spring Cloud instance.  Follow a [quickstart](spring-cloud-quickstart.md) to get started.
+In addition to the Azure Spring requirements, the procedures in this tutorial work with a deployed Azure Spring Cloud instance.  Follow a [quickstart](./quickstart.md) to get started.
 
 The following procedures initialize both **Action Group** and **Alert** starting from the **Alerts** option in the left navigation pane of a Spring Cloud instance. (The procedure can also start from the **Monitor Overview** page of the Azure portal.) 
 
@@ -81,7 +81,7 @@ The previous steps created an **Action Group** that uses email. You could also u
 
 1. Click **Done**.
 
-   For details of the conditions available to monitor, see [User portal metrics options](spring-cloud-concept-metrics.md#user-metrics-options).
+   For details of the conditions available to monitor, see [User portal metrics options](./concept-metrics.md#user-metrics-options).
 
 1. Under **ACTIONS**, click **Select action group**. From the **ACTIONS** pane select the previously defined **Action Group**.
 

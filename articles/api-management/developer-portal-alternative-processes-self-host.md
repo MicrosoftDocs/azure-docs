@@ -47,7 +47,7 @@ Run the publishing step in the cloud as an alternative to executing it locally.
 
 To implement publishing with an Azure Function App, you need the following prerequisites:
 
-- [Create an Azure Function](../azure-functions/functions-create-first-azure-function.md). The Function needs to be a JavaScript language Function.
+- [Create an Azure Function](../azure-functions/functions-get-started.md). The Function needs to be a JavaScript language Function.
 - Install Azure Functions Core Tools:
     ```console
     npm install –g azure-function-core-tools

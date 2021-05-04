@@ -75,7 +75,7 @@
       - name: Security
         items:
         - name: Security baseline
-          href: /security/benchmark/azure/baselines/databox-security-baseline?toc=/azure/databox/TOC.json
+          href: /security/benchmark/azure/baselines/databox-security-baseline?context=/azure/databox/context/context
         - name: Security controls by Azure Policy
           href: ./security-controls-policy.md
         - name: Review security 

@@ -55,13 +55,15 @@
     - name: Security features
       href: security-features.md
     - name: Key Vault authentication fundamentals
-      href: authentication-fundamentals.md
+      href: authentication.md
+    - name: Key Vault authentication
+      href: authentication.md
     - name: Security worlds and geographies
       href: overview-security-worlds.md
     - name: Network Security
       href: network-security.md
-    - name: Azure Security Baseline for Key Vault
-      href: /security/benchmark/azure/baselines/key-vault-security-baseline?context=/azure/key-vault/general/context/context?toc=/azure/key-vault/general/toc.json
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/key-vault-security-baseline?context=/azure/key-vault/general/context/context
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ../security-controls-policy.md?context=/azure/key-vault/general/context/context
@@ -88,10 +90,8 @@
 
 - name: How-to guides
   items:
-  - name: Authenticate & Authorize
+  - name: Authorize access
     items:
-    - name: Authenticate to Key Vault
-      href: authentication.md
     - name: Assign an access policy
       items:
       - name: CLI

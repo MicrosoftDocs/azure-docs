@@ -52,7 +52,7 @@ Set the secret name to `AZURE_CREDENTIALS` and its value to the JSON string that
 
  ![Set secret data](./media/github-actions/actions2.png)
 
-You can also get the Azure login credential from Key Vault in GitHub actions as explained in [Authenticate Azure Spring with Key Vault in GitHub Actions](./spring-cloud-github-actions-key-vault.md).
+You can also get the Azure login credential from Key Vault in GitHub actions as explained in [Authenticate Azure Spring with Key Vault in GitHub Actions](./github-actions-key-vault.md).
 
 ## Provision service instance
 To provision your Azure Spring Cloud service instance, run the following commands using the Azure CLI.
@@ -170,7 +170,7 @@ Set the secret name to `AZURE_CREDENTIALS` and its value to the JSON string that
 
  ![Set secret data](./media/github-actions/actions2.png)
 
-You can also get the Azure login credential from Key Vault in GitHub actions as explained in [Authenticate Azure Spring with Key Vault in GitHub Actions](./spring-cloud-github-actions-key-vault.md).
+You can also get the Azure login credential from Key Vault in GitHub actions as explained in [Authenticate Azure Spring with Key Vault in GitHub Actions](./github-actions-key-vault.md).
 
 ## Provision service instance
 To provision your Azure Spring Cloud service instance, run the following commands using the Azure CLI.
@@ -284,7 +284,7 @@ jobs:
 ```
 
 ## Deploy with Maven Plugin
-Another option is to use the [Maven Plugin](./spring-cloud-quickstart.md) for deploying the Jar and updating App settings. The command `mvn azure-spring-cloud:deploy` is idempotent and will automatically create Apps if needed. You don't need to create corresponding apps in advance.
+Another option is to use the [Maven Plugin](./quickstart.md) for deploying the Jar and updating App settings. The command `mvn azure-spring-cloud:deploy` is idempotent and will automatically create Apps if needed. You don't need to create corresponding apps in advance.
 
 ```
 name: AzureSpringCloud
@@ -334,6 +334,6 @@ If your action runs in error, for example, if you haven't set the Azure credenti
 
 ## Next steps
 
-* [Key Vault for Spring Cloud GitHub actions](./spring-cloud-github-actions-key-vault.md)
+* [Key Vault for Spring Cloud GitHub actions](./github-actions-key-vault.md)
 * [Azure Active Directory service principals](/cli/azure/ad/sp#az_ad_sp_create_for_rbac)
 * [GitHub Actions for Azure](https://github.com/Azure/actions/)

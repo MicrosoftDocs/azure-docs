@@ -24,7 +24,7 @@ You can migrate SQL Server databases running on-premises or on:
 - Compute Engine in Google Cloud Platform (GCP).  
 - Cloud SQL for SQL Server in GCP. 
 
-For other migration guides, see [Database Migration](https://docs.microsoft.com/data-migration). 
+For other migration guides, see [Database Migration](/data-migration). 
 
 ## Overview
 
