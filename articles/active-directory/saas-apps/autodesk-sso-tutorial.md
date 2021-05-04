@@ -142,7 +142,7 @@ In this section, a user called Britta Simon is created in Autodesk SSO. Autodesk
 
 ## Test SSO 
 
-To Test the Autodesk SSO, open the Autodesk console and click **Test Connection** button and authenticate using the test account which you have created in the **Create an Azure AD test user** section.
+To test the Autodesk SSO, open the Autodesk console and click **Test Connection** button and authenticate using the test account which you have created in the **Create an Azure AD test user** section.
 
 ## Next steps
 
