@@ -59,9 +59,9 @@ Data Factory expects events to follow the [Event Grid event schema](../event-gri
 
 1. Switch to the **Edit** tab. Look for the pencil icon.
 
-1. Select **Trigger** on the menu, and then select **New/Edit**.
+1. Select **Trigger** on the menu and then select **New/Edit**.
 
-1. On the **Add Triggers** page, select **Choose trigger...**, andthen select **+New**.
+1. On the **Add Triggers** page, select **Choose trigger...**, and then select **+New**.
 
 1. Select **Custom events** as the **Type**.
 
