@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 04/22/2021
 ms.author: b-juche
 ---
 # Dynamically change the service level of a volume
@@ -37,6 +37,8 @@ The capacity pool that you want to move the volume to must already exist. The ca
 
 The feature to move a volume to another capacity pool is currently in preview. If you are using this feature for the first time, you need to register the feature first.
 
+If you have multiple Azure subscriptions, ensure that you are registering for the intended subscription by using the ['Set-AzContext'](/powershell/module/az.accounts/set-azcontext) command. <!-- GitHub #74191 --> 
+
 1. Register the feature: 
 
     ```azurepowershell-interactive
@@ -46,7 +48,7 @@ The feature to move a volume to another capacity pool is currently in preview. I
 2. Check the status of the feature registration: 
 
     > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange

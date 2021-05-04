@@ -43,7 +43,7 @@ Automatic device management in Azure IoT Hub automates many of the repetitive an
 
 ### Azure Digital Twins
 
-Azure Digital Twins is a platform as a service (PaaS) offering for creating digital representations of real-world things, places, business processes, and people. Build knowledge graphs that represent entire environments, and use them to gain insights to drive better products, optimize operations and costs, and create breakthrough customer experiences. To learn more, see [Azure Digital Twins](../digital-twins/index.yml).
+Azure Digital Twins is a platform as a service (PaaS) offering for creating digital representations of real-world things, places, business processes, and people. Build twin graphs that represent entire environments, and use them to gain insights to drive better products, optimize operations and costs, and create breakthrough customer experiences. To learn more, see [Azure Digital Twins](../digital-twins/index.yml).
 
 ### Azure Digital Twins instance
 
@@ -173,7 +173,7 @@ Device management encompasses the full lifecycle associated with managing the de
 
 ### Device model
 
-A device model is a type of [model](#model) that uses the [Digital Twins Definition Language](#digital-twins-definition-language-dtdl) to describe the capabilities of an IoT Plug and Play device. A simple device model uses a single interface to describe the device capabilities. A more complex device model includes multiple components, each of which describe a set of capabilities. To learn more, see [IoT Plug and Play components in models](../iot-pnp/concepts-components.md).
+A device model is a type of [model](#model) that uses the [Digital Twins Definition Language](#digital-twins-definition-language-dtdl) to describe the capabilities of an IoT Plug and Play device. A simple device model uses a single interface to describe the device capabilities. A more complex device model includes multiple components, each of which describe a set of capabilities. To learn more, see [IoT Plug and Play components in models](../iot-pnp/concepts-modeling-guide.md).
 
 ### Device modeling
 

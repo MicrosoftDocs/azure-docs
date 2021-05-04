@@ -50,7 +50,7 @@ To use the Microsoft Enterprise SSO plug-in for Apple devices:
 
 ### iOS requirements:
 - iOS 13.0 or higher must be installed on the device.
-- A Microsoft application that provides the Microsoft Enterprise SSO plug-in for Apple devices must be installed on the device. For Public Preview, these applications are the [Microsoft Authenticator app](/azure/active-directory/user-help/user-help-auth-app-overview).
+- A Microsoft application that provides the Microsoft Enterprise SSO plug-in for Apple devices must be installed on the device. For Public Preview, these applications are the [Microsoft Authenticator app](../user-help/user-help-auth-app-overview.md).
 
 
 ### macOS requirements:

@@ -24,7 +24,7 @@ items:
   - name: 2 Analyze using serverless SQL pool
     href: get-started-analyze-sql-on-demand.md
     displayName: get, started
-  - name: 3 Analyze using serverless Spark pool
+  - name: 3 Analyze using a serverless Spark pool
     href: get-started-analyze-spark.md
     displayName: get, started
   - name: 4 Analyze using a dedicated SQL pool
@@ -109,8 +109,8 @@ items:
       href: ./cicd/continuous-integration-deployment.md
     - name: Security
       items:
-      # - name: Security baseline
-      #   href: security-baseline.md
+      - name: Security baseline
+        href: /security/benchmark/azure/baselines/synapse-analytics-security-baseline?toc=/azure/synapse-analytics/toc.json
       - name: Security Controls by Azure Policy
         href: ./security-controls-policy.md
       - name: Encryption
@@ -270,6 +270,8 @@ items:
     items:
     - name: Use serverless SQL pool to analyze data
       href: ./sql/tutorial-data-analyst.md
+    - name: Create Logical Data Warehouse with serverless SQL pool
+      href: ./sql/tutorial-logical-data-warehouse.md
     - name: Power BI Desktop
       href: ./sql/tutorial-connect-power-bi-desktop.md  
   - name: Concepts
@@ -453,6 +455,8 @@ items:
         href: ./backuprestore/sqlpool-create-restore-point.md
       - name: Restore a dedicated SQL pool
         href: ./backuprestore/restore-sql-pool.md
+      - name: Pause and resume using Synapse Pipelines
+        href: ./sql/how-to-pause-resume-pipelines.md
     - name: Manage and monitor
       items:
       - name: SQL requests - Synapse Studio
@@ -681,7 +685,7 @@ items:
     - name: Synapse Link supported features
       href: ./synapse-link/concept-synapse-link-cosmos-db-support.md
     - name: Synapse Link FAQ
-      href: ../cosmos-db/synapse-link-frequently-asked-questions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      href: ../cosmos-db/synapse-link-frequently-asked-questions.yml?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Synapse Link use cases
       href: ../cosmos-db/synapse-link-use-cases.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   # - name: Tutorials
@@ -1195,7 +1199,7 @@ items:
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/ext/synapse/
+    href: /cli/azure/
   - name: Database collation types
     href: sql/reference-collation-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Go

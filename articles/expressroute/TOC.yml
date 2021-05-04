@@ -99,13 +99,13 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
-  - name: Security attributes
-    href: ./security-baseline.md
+      href: /security/benchmark/azure/baselines/expressroute-security-baseline?toc=/azure/expressroute/TOC.json
   - name: BFD over ExpressRoute
     href: expressroute-bfd.md
   - name: QoS requirements
     href: expressroute-qos.md
+  - name: Routing Microsoft 365 traffic over ExpressRoute 
+    href: using-expressroute-for-microsoft365.md
   - name: High Availability - Design
     href: designing-for-high-availability-with-expressroute.md
   - name: Disaster Recovery - Design

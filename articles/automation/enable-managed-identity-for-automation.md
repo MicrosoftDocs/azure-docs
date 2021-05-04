@@ -3,7 +3,7 @@ title: Enable a managed identity for your Azure Automation account (preview)
 description: This article describes how to set up managed identity for Azure Automation accounts.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/14/2021
+ms.date: 04/28/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -15,7 +15,7 @@ This topic shows you how to create a managed identity for an Azure Automation ac
 
 - An Azure account and subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Both the managed identity and the target Azure resources that your runbook manages using that identity must be in the same Azure subscription.
 
-- The latest version of Azure Automation account modules. Currently this is 1.6.0. (See [Az.Automation 1.6.0](https://www.powershellgallery.com/packages/Az.Automation/1.6.0) for details about this version.)
+- The latest version of Azure Account modules. Currently this is 2.2.8. (See [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/) for details about this version.)
 
 - An Azure resource that you want to access from your Automation runbook. This resource needs to have a role defined for the managed identity, which helps the Automation runbook authenticate access to the resource. To add roles, you need to be an owner for the resource in the corresponding Azure AD tenant.
 
@@ -27,7 +27,7 @@ This topic shows you how to create a managed identity for an Azure Automation ac
 ## Enable system-assigned identity
 
 >[!IMPORTANT]
->The new Automation account-level identity will override any previous VM-level system-assigned identities (which are described in [Use runbook authentication with managed identities](/automation-hrw-run-runbooks#runbook-auth-managed-identities)). If you're running hybrid jobs on Azure VMs that use a VM's system-assigned identity to access runbook resources, then the Automation account identity will be used for the hybrid jobs. This means your existing job execution may be affected if you've been using the Customer Managed Keys (CMK) feature of your Automation account.<br/><br/>If you wish to continue using the VM's managed identity, you shouldn't enable the Automation account-level identity. If you've already enabled it, you can disable the Automation account managed identity. See [Disable your Azure Automation account managed identity](https://docs.microsoft.com/azure/automation/disable-managed-identity-for-automation).
+>The new Automation account-level identity will override any previous VM-level system-assigned identities which are described in [Use runbook authentication with managed identities](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities). If you're running hybrid jobs on Azure VMs that use a VM's system-assigned identity to access runbook resources, then the Automation account identity will be used for the hybrid jobs. This means your existing job execution may be affected if you've been using the Customer Managed Keys (CMK) feature of your Automation account.<br/><br/>If you wish to continue using the VM's managed identity, you shouldn't enable the Automation account-level identity. If you've already enabled it, you can disable the Automation account managed identity. See [Disable your Azure Automation account managed identity](./disable-managed-identity-for-automation.md).
 
 Setting up system-assigned identities for Azure Automation can be done one of two ways. You can either use the Azure portal, or the Azure REST API.
 
@@ -145,6 +145,10 @@ Write-Output $accessToken.access_token
 
 ### Sample runbook to access a SQL database without using Azure cmdlets
 
+Make sure you've enabled an identity before you try this script. See [Enable system-assigned identity](#enable-system-assigned-identity).
+
+For details on provisioning access to an Azure SQL database, see [Provision Azure AD admin (SQL Database)](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-database).
+
 ```powershell
 $queryParameter = "?resource=https://database.windows.net/" 
 $url = $env:IDENTITY_ENDPOINT + $queryParameter
@@ -174,6 +178,10 @@ $conn.Close()
 
 ### Sample runbook to access a key vault using Azure cmdlets
 
+Make sure you've enabled an identity before you try this script. See [Enable system-assigned identity](#enable-system-assigned-identity).
+
+For more information, see [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret).
+
 ```powershell
 Write-Output "Connecting to azure via  Connect-AzAccount -Identity" 
 Connect-AzAccount -Identity 
@@ -191,7 +199,9 @@ try {
 ```
 
 ### Sample Python runbook to get a token
- 
+
+Make sure you've enabled an identity before you try this runbook. See [Enable system-assigned identity](#enable-system-assigned-identity).
+
 ```python
 #!/usr/bin/env python3 
 import os 
@@ -209,6 +219,8 @@ print(response.text)
 ```
 
 ## Next steps
+
+- If your runbooks aren't completing successfully, review [Troubleshoot Azure Automation managed identity issues (preview)](troubleshoot/managed-identity.md).
 
 - If you need to disable a managed identity, see [Disable your Azure Automation account managed identity (preview)](disable-managed-identity-for-automation.md).
 

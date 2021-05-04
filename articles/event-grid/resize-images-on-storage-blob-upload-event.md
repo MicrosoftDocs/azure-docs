@@ -324,3 +324,4 @@ Advance to part three of the Storage tutorial series to learn how to secure acce
 + To try another tutorial that features Azure Functions, see [Create a function that integrates with Azure Logic Apps](../azure-functions/functions-twitter-email.md).
 
 [previous-tutorial]: ../storage/blobs/storage-upload-process-images.md
+

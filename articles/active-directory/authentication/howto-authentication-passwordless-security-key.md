@@ -30,7 +30,6 @@ This document focuses on enabling security key based passwordless authentication
 
 To use security keys for logging in to web apps and services, you must have a browser that supports the WebAuthN protocol. 
 These include Microsoft Edge, Chrome, Firefox, and Safari.
-Security keys cannot be assigned to guest users in the resource tenant. 
 
 
 ## Prepare devices
