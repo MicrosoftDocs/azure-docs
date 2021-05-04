@@ -1,6 +1,6 @@
 ---
-title: Role instance startup failure for Azure Cloud Services (extended support)
-description: Troubleshoot Role instance startup failure for Azure Cloud Services (extended support)
+title: Role instance startup failure in Azure Cloud Services (extended support)
+description: Troubleshoot role instance startup failure in Azure Cloud Services (extended support).
 ms.topic: article
 ms.service: cloud-services-extended-support
 author: surbhijain
@@ -10,108 +10,131 @@ ms.date: 04/01/2021
 ms.custom: 
 ---
 
-# Troubleshoot Azure Cloud Service (extended support) roles that fail to start
-Here are some common problems and solutions related to Cloud Services (extended support) roles that fail to start.
+# Troubleshoot Azure Cloud Services (extended support) roles that fail to start
 
-## Cloud Service Operation failed with RoleInstanceStartupTimeoutError
-One or more role instances of your could service (extended support) may not start in the stipulated time. These role instances might be taking time to start or might be recycling and the role instance might fail with a RoleInstanceStartupTimeoutError
-This is a role application error. The role application contains two major parts: 'Startup Tasks' and 'Role code (Implementation of RoleEntryPoint)', both of which could cause the role recycling. If the role is crashed, the PaaS Agent will always re-launch it. 
+Here are some common problems and solutions related to Azure Cloud Services (extended support) roles that fail to start.
 
-To get the current state and details of the role instances in case of errors, use :
+## Cloud service operation fails with RoleInstanceStartupTimeoutError
 
-* PowerShell: Use the [Get-AzCloudServiceRoleInstanceView](https://docs.microsoft.com/powershell/module/az.cloudservice/get-azcloudserviceroleinstanceview) cmdlet to retrieve information about the run-time state of a role instance in a cloud service.
-```powershell
-Get-AzCloudServiceRoleInstanceView -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstanceName "WebRole1_IN_0"
- 
-Statuses           PlatformFaultDomain PlatformUpdateDomain
---------           ------------------- --------------------
-{RoleStateStarting} 0                   0
-```
+One or more of your role instances in Azure Cloud Services (extended support) might be slow to start, or they might be recycling and the role instance fails. The role application error `RoleInstanceStartupTimeoutError` appears.
 
-* Azure portal: Go to your cloud service and select Roles and Instances tab. Click on the role instance to get its status details 
- 
-   :::image type="content" source="media/role-startup-failure-1.png" alt-text="Image shows role startup failure on portal.":::
-   
-Here are some common problems and solutions related to Azure Cloud Services (extended support) roles that fail to start or it cycles between the initializing, busy, and stopping states.
+The role application contains two parts that might cause role recycling: *Startup Tasks* and *Role code (Implementation of RoleEntryPoint)*. 
+
+If the role stops, the platform as a service (PaaS) agent restarts the role.
+
+You can get the current state and details for a role instance to diagnose errors by using PowerShell or the Azure portal:
+
+* **PowerShell**: Use the [Get-AzCloudServiceRoleInstanceView](/powershell/module/az.cloudservice/get-azcloudserviceroleinstanceview) cmdlet to get information about the runtime state of the role instance:
+
+    ```powershell
+    Get-AzCloudServiceRoleInstanceView -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstanceName "WebRole1_IN_0"
+     
+    Statuses           PlatformFaultDomain PlatformUpdateDomain
+    --------           ------------------- --------------------
+    {RoleStateStarting} 0                   0
+    ```
+
+* **Azure portal**: In the portal, go to the cloud service instance. To view status details, select **Roles and Instances**, and then select the role instance.
+
+  :::image type="content" source="media/role-startup-failure-portal.png" alt-text="Screenshot that shows a role startup failure in the Azure portal.":::
 
 ## Missing DLLs or dependencies
-Unresponsive roles and roles that are cycling between Initializing, Busy, and Stopping states can be caused by missing DLLs or assemblies.
-Symptoms of missing DLLs or assemblies can be:
 
-* Your role instance is cycling through **Initializing**, **Busy**, and **Stopping** states.
-* Your role instance has moved to **Ready** but if you navigate to your web application, the page does not appear.
+Unresponsive roles and roles that cycle between states might be caused by missing DLLs or assemblies.
 
-There are several recommended methods for investigating these issues.
+Here are some symptoms of missing DLLs or assemblies:
 
-## Diagnose missing DLL issues in a web role
-When you navigate to a website that is deployed in a web role, and the browser displays a server error similar to the following, it may indicate that a DLL is missing.
+* Your role instance cycles through the states **Initializing**, **Busy**, and **Stopping**.
+* Your role instance has moved to the **Ready** state, but if you go to your web application, the page isn't visible.
 
-:::image type="content" source="media/role-startup-failure-2.png" alt-text="Image shows runtime error on role startup failure":::
 
-## Diagnose issues by turning off custom errors
-More complete error information can be viewed by configuring the web.config for the web role to set the custom error mode to Off and redeploying the service.
-To view more complete errors without using Remote Desktop:
-1.	Open the solution in Microsoft Visual Studio.
-2.	In the Solution Explorer, locate the web.config file and open it.
-3.	In the web.config file, locate the system.web section and add the following line:
- ```xml
-<customErrors mode="Off" />
-```
-4.	Save the file.
-5.	Repackage and redeploy the service.
-Once the service is redeployed, you will see an error message with the name of the missing assembly or DLL.
+A website that's deployed in a web role and missing a DLL might display this server runtime error:
 
-## Diagnose issues by viewing the error remotely
-You can use Remote Desktop to access the role and view more complete error information remotely. Use the following steps to view the errors by using Remote Desktop:
-1.	Enable remote desktop extension for Cloud Service (extended support). For more information, see [Apply Remote Desktop extension to Cloud Services (extended support) using Azure portal](enable-rdp.md)
-2.	On the Azure portal, once the instance shows a status of Ready, remote into the instance. For more information on using the remote desktop with Cloud Services (extended support), see [Connect to role instances with Remote Desktop](https://docs.microsoft.com/azure/cloud-services-extended-support/enable-rdp#connect-to-role-instances-with-remote-desktop-enabled)
-3.	Sign in to the virtual machine by using the credentials that were specified during the Remote Desktop configuration.
-4.	Open a command window.
-5.	Type IPconfig.
-6.	Note the IPv4 Address value.
-7.	Open Internet Explorer.
-8.	Type the address and the name of the web application. For example, http://<IPV4 Address>/default.aspx.
-Navigating to the website will now return more explicit error messages:
-* Server Error in '/' Application.
-* Description: An unhandled exception occurred during the execution of the current web request. Please review the stack trace for more information about the error and where it originated in the code.
-* Exception Details: System.IO.FIleNotFoundException: Could not load file or assembly ‘Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35’ or one of its dependencies. The system cannot find the file specified.
-For example:
+  :::image type="content" source="media/role-startup-failure-runtime-error.png" alt-text="Screenshot that shows a runtime error after a role startup failure.":::
 
-  :::image type="content" source="media/role-startup-failure-3.png" alt-text="Image shows exception on role startup failure":::
+### Resolve missing DLLs and assemblies
+
+To resolve errors of missing DLLs and assemblies:
+
+1. In Visual Studio, open the solution.
+2. In Solution Explorer, open the *References* folder.
+3. Select the assembly that's identified in the error.
+4. In **Properties**, set the **Copy Local** property to **True**.
+5. Redeploy the cloud service.
+
+After you verify that errors no longer appear, redeploy the service. When you set up the deployment, don't select the **Enable IntelliTrace for .NET 4 roles** checkbox.
+
+## Diagnose role instance errors
+
+Choose from the following options to diagnose issues with role instances.
+
+### Turn off custom errors
+
+To view complete error information, in the *web.config* file for the web role, set the custom error mode to `off`, and then redeploy the service:
+
+1. In Visual Studio, open the solution.
+2. In Solution Explorer, open the *web.config* file.
+3. In the `system.web` section, add the following code:
+
+   ```xml
+   <customErrors mode="Off" />
+   ```
+
+4. Save the file.
+5. Repackage and redeploy the service.
+
+When the service is redeployed, an error message includes the name of missing assemblies or DLLs.
+
+### Use Remote Desktop
+
+Use Remote Desktop to access the role and view complete error information:
+
+1. [Add the Remote Desktop extension for Azure Cloud Services (extended support)](enable-rdp.md).
+2. In the Azure portal, when the cloud service instance shows a **Ready** status, use Remote Desktop to sign in to the cloud service. For more information, see [Connect to role instances by using Remote Desktop](enable-rdp.md#connect-to-role-instances-with-remote-desktop-enabled).
+3. Sign in to the virtual machine by using the credentials that you used to set up Remote Desktop.
+4. Open a Command Prompt window.
+5. At the command prompt, enter **ipconfig**. Note the returned value for the IPv4 address.
+6. Open Microsoft Internet Explorer.
+7. In the address bar, enter the IPv4 address followed by a slash and the name of the web application default file. For example, `http://<IPv4 address>/default.aspx`.
+
+If you go to the website now, you'll see error messages that contain more information. Here's an example:
+
+:::image type="content" source="media/role-startup-failure-error-message.png" alt-text="Screenshot that shows an example of an error message.":::
   
-## Diagnose issues by using the compute emulator
-You can use the Azure Compute Emulator to diagnose and troubleshoot issues of missing dependencies and web.config errors.
-For best results in using this method of diagnosis, you should use a computer or virtual machine that has a clean installation of Windows. 
-1.	Install the [Azure SDK](https://azure.microsoft.com/downloads/) 
-2.	On the development machine, build the cloud service project.
-3.	In Windows Explorer, navigate to the bin\debug folder of the cloud service project.
-4.	Copy the .csx folder and .cscfg file to the computer that you are using to debug the issues.
-5.	On the clean machine, open an Azure SDK Command Prompt window and type csrun.exe /devstore:start.
-6.	At the command prompt, type run csrun <path to .csx folder> <path to .cscfg file> /launchBrowser.
-7.	When the role starts, you will see detailed error information in Internet Explorer. You can also use standard Windows troubleshooting tools to further diagnose the problem.
+### Use the compute emulator
 
-## Diagnose issues by using IntelliTrace
-For worker and web roles that use .NET Framework 4, you can use [IntelliTrace](https://docs.microsoft.com/visualstudio/debugger/intellitrace), which is available in Microsoft Visual Studio Enterprise.
-Follow these steps to deploy the service with IntelliTrace enabled:
-1.	Confirm that Azure SDK 1.3 or later is installed.
-2.	Deploy the solution by using Visual Studio. During deployment, check the Enable IntelliTrace for .NET 4 roles check box.
-3.	Once the instance starts, open the Server Explorer.
-4.	Expand the Azure\Cloud Services node and locate the deployment.
-5.	Expand the deployment until you see the role instances. Right-click on one of the instances.
-6.	Choose View IntelliTrace logs. The IntelliTrace Summary will open.
-7.	Locate the exceptions section of the summary. If there are exceptions, the section will be labeled Exception Data.
-8.	Expand the Exception Data and look for System.IO.FileNotFoundException errors similar to the following:
+You can use the Azure compute emulator to diagnose and troubleshoot issues of missing dependencies and *web.config* errors. When you use this method to diagnose issues, for best results, use a computer or virtual machine that has a clean installation of Windows.
 
-    :::image type="content" source="media/role-startup-failure-4.png" alt-text="Image shows exception data on role startup failure" lightbox="media/role-startup-failure-4.png":::
+To diagnose issues by using the Azure compute emulator:
 
-## Address missing DLLs and assemblies
-To address missing DLL and assembly errors, follow these steps:
-1.	Open the solution in Visual Studio.
-2.	In Solution Explorer, open the References folder.
-3.	Click the assembly identified in the error.
-4.	In the Properties pane, locate Copy Local property and set the value to True.
-5.	Redeploy the cloud service.
-Once you have verified that all errors have been corrected, you can deploy the service without checking the Enable IntelliTrace for .NET 4 roles check box.
+1. Install the [Azure SDK](https://azure.microsoft.com/downloads/).
+2. On the development computer, build the cloud service project.
+3. In File Explorer, in the cloud service project, go to the *bin\debug* folder.
+4. Copy the *.csx* folder and the *.cscfg* file to the computer that you're using to debug issues.
+5. On the clean machine, open an Azure SDK Command Prompt window.
+6. At the command prompt, enter **csrun.exe /devstore:start**.
+7. Then, enter **run csrun \<path to .csx folder\> \<path to .cscfg file\> /launchBrowser**.
+8. When the role starts, Internet Explorer displays detailed error information.
 
-## Next steps 
-- To learn how to troubleshoot cloud service role issues by using Azure PaaS computer diagnostics data, see [Kevin Williamson's blog series](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
+If more diagnosis is required, you can use standard Windows troubleshooting tools.
+
+### Use IntelliTrace
+
+For worker and web roles that use .NET Framework 4, you can use [IntelliTrace](/visualstudio/debugger/intellitrace). IntelliTrace is available in Visual Studio Enterprise.
+
+To deploy your cloud service with IntelliTrace turned on:
+
+1. Confirm that Azure SDK 1.3 or later is installed.
+2. In Visual Studio, deploy the solution. When you set up the deployment, select the **Enable IntelliTrace for .NET 4 roles** checkbox.
+3. After the role instance starts, open Server Explorer.
+4. Expand the **Azure\Cloud Services** node.
+5. Expand the deployment to list role instances. Right-click a role instance.
+6. Select **View IntelliTrace logs**.
+7. In **IntelliTrace Summary**, go to  **Exception Data**.
+8. Expand **Exception Data** and look for a `System.IO.FileNotFoundException` error:
+
+   :::image type="content" source="media/role-startup-failure-exception-data.png" alt-text="Screenshot of exception data for a role startup failure." lightbox="media/role-startup-failure-exception-data.png":::
+
+## Next steps
+
+- Learn how to [troubleshoot cloud service role issues by using Azure PaaS computer diagnostics data](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).

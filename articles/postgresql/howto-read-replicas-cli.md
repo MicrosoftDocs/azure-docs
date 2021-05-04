@@ -57,7 +57,7 @@ You can create and manage read replicas using the Azure CLI.
 
 ### Create a read replica
 
-The [az postgres server replica create](/cli/azure/postgres/server/replica#az-postgres-server-replica-create) command requires the following parameters:
+The [az postgres server replica create](/cli/azure/postgres/server/replica#az_postgres_server_replica_create) command requires the following parameters:
 
 | Setting | Example value | Description  |
 | --- | --- | --- |
@@ -88,14 +88,14 @@ If you haven't set the `azure.replication_support` parameter to **REPLICA** on a
 > Before a primary server setting is updated to a new value, update the replica setting to an equal or greater value. This action helps the replica keep up with any changes made to the master.
 
 ### List replicas
-You can view the list of replicas of a primary server by using [az postgres server replica list](/cli/azure/postgres/server/replica#az-postgres-server-replica-list) command.
+You can view the list of replicas of a primary server by using [az postgres server replica list](/cli/azure/postgres/server/replica#az_postgres_server_replica_list) command.
 
 ```azurecli-interactive
 az postgres server replica list --server-name mydemoserver --resource-group myresourcegroup 
 ```
 
 ### Stop replication to a replica server
-You can stop replication between a primary server and a read replica by using [az postgres server replica stop](/cli/azure/postgres/server/replica#az-postgres-server-replica-stop) command.
+You can stop replication between a primary server and a read replica by using [az postgres server replica stop](/cli/azure/postgres/server/replica#az_postgres_server_replica_stop) command.
 
 After you stop replication to a primary server and a read replica, it can't be undone. The read replica becomes a standalone server that supports both reads and writes. The standalone server can't be made into a replica again.
 
@@ -104,7 +104,7 @@ az postgres server replica stop --name mydemoserver-replica --resource-group myr
 ```
 
 ### Delete a primary or replica server
-To delete a primary or replica server, you use the [az postgres server delete](/cli/azure/postgres/server#az-postgres-server-delete) command.
+To delete a primary or replica server, you use the [az postgres server delete](/cli/azure/postgres/server#az_postgres_server_delete) command.
 
 When you delete a primary server, replication to all read replicas is stopped. The read replicas become standalone servers that now support both reads and writes.
 

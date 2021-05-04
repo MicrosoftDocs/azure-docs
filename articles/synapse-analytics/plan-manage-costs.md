@@ -5,6 +5,7 @@ author: julieMSFT
 ms.author: jrasnick
 ms.custom: subject-cost-optimization
 ms.service: synapse-analytics
+ms.subservice: overview
 ms.topic: how-to
 ms.date: 12/09/2020
 ---

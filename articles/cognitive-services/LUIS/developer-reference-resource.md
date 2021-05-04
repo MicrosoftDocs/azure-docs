@@ -18,7 +18,7 @@ Use the Azure Cognitive Services Management layer to create, edit, list, and del
 
 Find reference documentation based on the tool:
 
-* [Azure CLI](/cli/azure/cognitiveservices#az-cognitiveservices-list)
+* [Azure CLI](/cli/azure/cognitiveservices#az_cognitiveservices_list)
 
 * [Azure RM PowerShell](/powershell/module/azurerm.cognitiveservices/#cognitive_services)
 

@@ -3,7 +3,7 @@ title: How to create update deployments for Azure Automation Update Management
 description: This article describes how to schedule update deployments and review their status.
 services: automation
 ms.subservice: update-management
-ms.date: 03/19/2021
+ms.date: 04/19/2021
 ms.topic: conceptual
 ---
 
@@ -64,15 +64,30 @@ To schedule a new update deployment, perform the following steps. Depending on t
 
 7. Use the **Update classifications** region to specify [update classifications](view-update-assessments.md#work-with-update-classifications) for products. For each product, deselect all supported update classifications but the ones to include in your update deployment.
 
+   :::image type="content" source="./media/deploy-updates/update-classifications-example.png" alt-text="Example showing selection of specific update classifications.":::
+
     If your deployment is meant to apply only a select set of updates, it is necessary to deselect all the pre-selected update classifications when configuring the **Include/exclude updates** option as described in the next step. This ensures only the updates you have specified to *include* in this deployment are installed on the target machines.
 
+   >[!NOTE]
+   > Deploying updates by update classification doesn't work on RTM versions of CentOS. To properly deploy updates for CentOS, select all classifications to make sure updates are applied. There's currently no supported method to enable native classification-data availability on CentOS. See the following for more information about [Update classifications](overview.md#update-classifications).
+
 8. Use the **Include/exclude updates** region to add or exclude selected updates from the deployment. On the **Include/Exclude** page, you enter KB article ID numbers to include or exclude for Windows updates. For supported Linux distros, you specify the package name.
+
+   :::image type="content" source="./media/deploy-updates/include-specific-updates-example.png" alt-text="Example showing how to include specific updates.":::
 
    > [!IMPORTANT]
    > Remember that exclusions override inclusions. For instance, if you define an exclusion rule of `*`, Update Management excludes all patches or packages from the installation. Excluded patches still show as missing from the machines. For Linux machines, if you include a package that has a dependent package that has been excluded, Update Management doesn't install the main package.
 
    > [!NOTE]
    > You can't specify updates that have been superseded to include in the update deployment.
+
+   Here are some example scenarios to help you understand how to use inclusion/exclusion and update classification simultaneously in update deployments:
+
+   * If you only want to install a specific list of updates, you should not select any **Update classifications** and provide a list of updates to be applied using **Include** option.
+
+   * If you want to install only security and critical updates, along with one or more optional driver updates, you should select **Security** and **Critical** under **Update classifications**. Then for the **Include** option, specify the driver updates.
+
+   * If you want to install only security and critical updates, but skip one or more updates for python to avoid breaking your legacy application, you should select **Security** and **Critical** under **Update classifications**. Then for the **Exclude** option add the python packages to skip.
 
 9. Select **Schedule settings**. The default start time is 30 minutes after the current time. You can set the start time to any time from 10 minutes in the future.
 

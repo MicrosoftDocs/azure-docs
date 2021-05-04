@@ -1,7 +1,6 @@
 ---
 title: Restore an existing dedicated SQL pool
 description: How-to guide for restoring an existing dedicated SQL pool.
-services: synapse-analytics
 author: joannapea
 manager: igorstan
 ms.service: synapse-analytics

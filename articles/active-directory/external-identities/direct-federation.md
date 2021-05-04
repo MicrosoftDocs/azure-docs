@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/06/2021
+ms.date: 04/23/2021
 
 ms.author: mimart
 author: msmimart
@@ -35,7 +35,7 @@ In any of these scenarios, you can update a guest user’s authentication method
 Direct federation is tied to domain namespaces, such as contoso.com and fabrikam.com. When establishing a direct federation configuration with AD FS or a third-party IdP, organizations associate one or more domain namespaces to these IdPs. 
 
 ## End-user experience 
-With direct federation, guest users sign into your Azure AD tenant using their own organizational account. When they are accessing shared resources and are prompted for sign-in, direct federation users are redirected to their IdP. After successful sign-in, they are returned to Azure AD to access resources. Direct federation users’ refresh tokens are valid for 12 hours, the [default length for passthrough refresh token](../develop/active-directory-configurable-token-lifetimes.md#exceptions) in Azure AD. If the federated IdP has SSO enabled, the user will experience SSO and will not see any sign-in prompt after initial authentication.
+With direct federation, guest users sign into your Azure AD tenant using their own organizational account. When they are accessing shared resources and are prompted for sign-in, direct federation users are redirected to their IdP. After successful sign-in, they are returned to Azure AD to access resources. Direct federation users’ refresh tokens are valid for 12 hours, the [default length for passthrough refresh token](../develop/active-directory-configurable-token-lifetimes.md#configurable-token-lifetime-properties) in Azure AD. If the federated IdP has SSO enabled, the user will experience SSO and will not see any sign-in prompt after initial authentication.
 
 ## Sign-in endpoints
 
@@ -175,7 +175,7 @@ Next, you'll configure federation with the identity provider configured in step 
 
 ### To configure direct federation in Azure AD using PowerShell
 
-1. Install the latest version of the Azure AD PowerShell for Graph module ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)). (If you need detailed steps, the quickstart for adding a guest user includes the section [Install the latest AzureADPreview module](b2b-quickstart-invite-powershell.md#install-the-latest-azureadpreview-module).) 
+1. Install the latest version of the Azure AD PowerShell for Graph module ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)). (If you need detailed steps, the Quickstart includes the guidance, [Powershell Module](b2b-quickstart-invite-powershell.md#prerequisites).)
 2. Run the following command: 
    ```powershell
    Connect-AzureAD

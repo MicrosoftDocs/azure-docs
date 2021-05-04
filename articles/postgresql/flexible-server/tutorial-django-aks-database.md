@@ -6,7 +6,7 @@ author: mksuni
 ms.author: sumuth
 ms.topic: tutorial
 ms.date: 12/10/2020
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Tutorial: Deploy Django app on AKS with Azure Database for PostgreSQL - Flexible Server
@@ -26,7 +26,7 @@ In this quickstart, you deploy a Django application on Azure Kubernetes Service 
 
    [![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)  
 - If you prefer, [install](/cli/azure/install-azure-cli) Azure CLI to run CLI reference commands.
-  - If you're using a local install, sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.  To finish the authentication process, follow the steps displayed in your terminal.  See [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) for additional sign-in options.
+  - If you're using a local install, sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az_login) command.  To finish the authentication process, follow the steps displayed in your terminal.  See [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) for additional sign-in options.
   - When you're prompted, install Azure CLI extensions on first use.  For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade). This article requires the latest version of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -62,7 +62,7 @@ The following example output shows the resource group created successfully:
 
 ## Create AKS cluster
 
-Use the [az aks create](/cli/azure/aks#az-aks-create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This will take several minutes to complete.
+Use the [az aks create](/cli/azure/aks#az_aks_create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This will take several minutes to complete.
 
 ```azurecli-interactive
 az aks create --resource-group django-project --name djangoappcluster --node-count 1 --generate-ssh-keys
@@ -75,13 +75,13 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 ## Connect to the cluster
 
-To manage a Kubernetes cluster, you use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az-aks-install-cli) command:
+To manage a Kubernetes cluster, you use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az_aks_install_cli) command:
 
 ```azurecli-interactive
 az aks install-cli
 ```
 
-To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
+To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group django-project --name djangoappcluster

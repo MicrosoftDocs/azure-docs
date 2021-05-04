@@ -4,7 +4,7 @@ description: Learn how to configure Azure CNI (advanced) networking in Azure Kub
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Configure Azure CNI networking in Azure Kubernetes Service (AKS)
@@ -341,7 +341,7 @@ Learn more about networking in AKS in the following articles:
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 
 <!-- LINKS - Internal -->
-[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-create]: /cli/azure/aks#az_aks_create
 [aks-ssh]: ssh.md
 [ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object
 [aks-network-concepts]: concepts-network.md

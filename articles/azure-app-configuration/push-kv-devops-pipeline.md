@@ -28,12 +28,10 @@ A [service connection](/azure/devops/pipelines/library/service-endpoints) allows
 1. Under **Pipelines** select **Service connections** and select **New service connection** in the top right.
 1. Select **Azure Resource Manager**.
 ![Screenshot shows selecting Azure Resource Manager from the New service connection dropdown list.](./media/new-service-connection.png)
-1. In the **Authentication method** dialog, select **Service principal (automatic)**.
-    > [!NOTE]
-    > **Managed identity** authentication is currently unsupported for the App Configuration task.
+1. In the **Authentication method** dialog, select **Service principal (automatic)** to create a new service principal or select **Service principal (manual)** to [use an existing service principal](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops#use-spn).
 1. Fill in your subscription and resource. Give your service connection a name.
 
-Now that your service connection is created, find the name of the service principal assigned to it. You'll add a new role assignment to this service principal in the next step.
+If you created a new service principal, find the name of the service principal assigned to the service connection. You'll add a new role assignment to this service principal in the next step.
 
 1. Go to **Project Settings** > **Service connections**.
 1. Select the service connection that you created in the previous section.

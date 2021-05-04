@@ -28,7 +28,7 @@ An MSIX package is an MSIX file or application.
 
 ## MSIX share
 
-An MSIX share is a network share that holds expanded MSIX packages. MSIX shares support SMB 3 or later. Applications get staged from this MSIX share without having to move application files to the system drive.
+An MSIX share is a network share that holds expanded MSIX packages. MSIX shares must support SMB 3 or later. The shares must also be accessible to the Virtual Machines (VM) in the host pool system account. MSIX packages get staged from the MSIX share without having to move application files to the system drive. 
 
 ## MSIX image
 

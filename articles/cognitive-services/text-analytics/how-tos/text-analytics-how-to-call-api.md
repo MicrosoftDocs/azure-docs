@@ -30,6 +30,14 @@ Before you use the Text Analytics API, you will need to create a Azure resource 
 
 3.	Create the Text Analytics resource and go to the “keys and endpoint blade” in the left of the page. Copy the key to be used later when you call the APIs. You'll add this later as a value for the `Ocp-Apim-Subscription-Key` header.
 
+4. To check the number of text records that have been sent using your Text Analytics resource:
+
+    1. Navigate to your Text Analytics resource in the Azure portal. 
+    2. Click **Metrics**, located under **Monitoring** in the left navigation menu. 
+    3. Select *Processed text records* in the dropdown box for **Metric**.
+    
+A text record is 1000 characters.
+
 ## Change your pricing tier 
 
 If you have an existing Text Analytics resource using the S0 through S4 pricing tier, you should update it to use the Standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). The S0 through S4 pricing tiers will be retired. To update your resource's pricing:
@@ -51,6 +59,8 @@ Starting in v3.1-preview.3, the Text Analytics API provides two asynchronous end
 * The `/analyze` endpoint for Text Analytics allows you to analyze the same set of text documents with multiple text analytics features in one API call. Previously, to use multiple features you would need to make separate API calls for each operation. Consider this capability when you need to analyze large sets of documents with more than one Text Analytics feature.
 
 * The `/health` endpoint for Text Analytics for health, which can extract and label relevant medical information from clinical documents.  
+
+Please note the /analyze and /health endpoints are only available in the following regions: West US 2, East US 2, Central US, North Europe and West Europe.
 
 See the table below to see which features can be used asynchronously. Note that only a few features can be called from the `/analyze` endpoint. 
 

@@ -165,11 +165,11 @@ The Traffic service is a suite of web services that developers can use for web o
 
 For more information, see the [Traffic service documentation](/rest/api/maps/traffic).
 
-### Weather services (Preview) 
+### Weather services
 
 Weather services offer APIs that developers can use to retrieve weather information for a particular location. The information contains details such as observation date and time, brief description of the weather conditions, weather icon, precipitation indicator flags, temperature, and wind speed information. Additional details such as RealFeel™ Temperature and UV index are also returned.
 
-Developers can use the [Get Weather along route API](/rest/api/maps/weather/getweatheralongroutepreview) to retrieve weather information along a particular route. Also, the service supports the generation of weather notifications for waypoints that are affected by weather hazards, such as flooding or heavy rain.
+Developers can use the [Get Weather along route API](/rest/api/maps/weather/getweatheralongroute) to retrieve weather information along a particular route. Also, the service supports the generation of weather notifications for waypoints that are affected by weather hazards, such as flooding or heavy rain.
 
 The [Get Map Tile V2 API](/rest/api/maps/renderv2/getmaptilepreview) allows you to request past, current, and future radar and satellite tiles.
 

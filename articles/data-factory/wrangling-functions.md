@@ -5,7 +5,7 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 04/16/2021
 ---
 
 # Transformation functions in Power Query for data wrangling
@@ -47,7 +47,7 @@ The following M functions add or transform columns: [Table.AddColumn](/powerquer
 
 * Numeric arithmetic
 * Text concatenation
-* Date andTime Arithmetic (Arithmetic operators, [Date.AddDays](/powerquery-m/date-adddays), [Date.AddMonths](/powerquery-m/date-addmonths), [Date.AddQuarters](/powerquery-m/date-addquarters), [Date.AddWeeks](/powerquery-m/date-addweeks), [Date.AddYears](/powerquery-m/date-addyears))
+* Date and Time Arithmetic (Arithmetic operators, [Date.AddDays](/powerquery-m/date-adddays), [Date.AddMonths](/powerquery-m/date-addmonths), [Date.AddQuarters](/powerquery-m/date-addquarters), [Date.AddWeeks](/powerquery-m/date-addweeks), [Date.AddYears](/powerquery-m/date-addyears))
 * Durations can be used for date and time arithmetic, but must be transformed into another type before written to a sink (Arithmetic operators, [#duration](/powerquery-m/sharpduration), [Duration.Days](/powerquery-m/duration-days), [Duration.Hours](/powerquery-m/duration-hours), [Duration.Minutes](/powerquery-m/duration-minutes), [Duration.Seconds](/powerquery-m/duration-seconds), [Duration.TotalDays](/powerquery-m/duration-totaldays), [Duration.TotalHours](/powerquery-m/duration-totalhours), [Duration.TotalMinutes](/powerquery-m/duration-totalminutes), [Duration.TotalSeconds](/powerquery-m/duration-totalseconds))    
 * Most standard, scientific, and trigonometric numeric functions (All functions under [Operations](/powerquery-m/number-functions#operations), [Rounding](/powerquery-m/number-functions#rounding), and [Trigonometry](/powerquery-m/number-functions#trigonometry) *except* Number.Factorial, Number.Permutations, and Number.Combinations)
 * Replacement ([Replacer.ReplaceText](/powerquery-m/replacer-replacetext), [Replacer.ReplaceValue](/powerquery-m/replacer-replacevalue), [Text.Replace](/powerquery-m/text-replace), [Text.Remove](/powerquery-m/text-remove))
@@ -125,6 +125,23 @@ Keep and Remove Top, Keep Range (corresponding M functions,
 | Row level error handling | Row level error handling is currently not supported. For example, to filter out non-numeric values from a column, one approach would be to transform the text column to a number. Every cell which fails to transform will be in an error state and need to be filtered. This scenario isn't possible in scaled-out M. |
 | Table.Transpose | Not supported |
 | Table.Pivot | Not supported |
+| Table.SplitColumn | Partially supported |
+
+## M script workarounds
+
+### For ```SplitColumn``` there is an alternate for split by length and by position
+
+* Table.AddColumn(Source, "First characters", each Text.Start([Email], 7), type text)
+* Table.AddColumn(#"Inserted first characters", "Text range", each Text.Middle([Email], 4, 9), type text)
+
+This option is accessible from the Extract option in the ribbon
+
+![Power Query Add Column](media/wrangling-data-flow/pq-split.png)
+
+### For ```Table.CombineColumns```
+
+* Table.AddColumn(RemoveEmailColumn, "Name", each [FirstName] & " " & [LastName])
+
 
 ## Next steps
 

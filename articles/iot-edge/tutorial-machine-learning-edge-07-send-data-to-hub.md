@@ -245,4 +245,4 @@ In this article, we used our development VM to simulate a leaf device sending se
 To continue learning about IoT Edge capabilities, try this tutorial next:
 
 > [!div class="nextstepaction"]
-> [Create a hierarchy of IoT Edge devices (Preview)](tutorial-nested-iot-edge.md?view=iotedge-2020-11&preserve-view=true)
+> [Create a hierarchy of IoT Edge devices](tutorial-nested-iot-edge.md?view=iotedge-2020-11&preserve-view=true)

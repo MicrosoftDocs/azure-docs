@@ -4,7 +4,8 @@ description: This article gives answers to frequently asked questions about Azur
 services: automation
 ms.subservice: 
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 12/17/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure Automation frequently asked questions
