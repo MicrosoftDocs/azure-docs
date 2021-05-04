@@ -51,13 +51,13 @@ Sample node list depicting FD/UD formats in a virtual machine scale set spanning
 
 **Cluster ReliabilityLevel**:
 
-  This defines the number of seed nodes in the cluster and the replica size of the system services. A cross-Availability Zone setup has a higher number of nodes, which are spread across zones to enable zone resiliency.
+  This value defines the number of seed nodes in the cluster and the replica size of the system services. A cross-Availability Zone setup has a higher number of nodes, which are spread across zones to enable zone resiliency.
   
   A higher ReliabilityLevel value ensures that more seed nodes and system service replicas are present and evenly distributed across zones, so that if a zone fails, the cluster and the system services aren't impacted. **ReliabilityLevel = Platinum** (recommended) ensures that there are nine seed nodes spread across zones in the cluster, with three seeds in each zone.
 
 **Zone down scenario**:
 
-  When a zone goes down, all of the nodes and service replicas for that zone appear as down. Because there are replicas in the other zones, the service continues to respond. Primary replicas fail over to the fuctioning zones. The services appear to be in warning states because the target replica count isn't yet achieved and the virtual machine (VM) count is still higher than the minimum target replica size.
+  When a zone goes down, all of the nodes and service replicas for that zone appear as down. Because there are replicas in the other zones, the service continues to respond. Primary replicas fail over to the functioning zones. The services appear to be in warning states because the target replica count isn't yet achieved and the virtual machine (VM) count is still higher than the minimum target replica size.
 
   The Service Fabric load balancer brings up replicas in the working zones to match the target replica count. At this point, the services appear healthy. When the zone that was down comes back up, the load balancer will spread all of the service replicas evenly across the zones.
 
@@ -302,7 +302,7 @@ Reference the new Load Balancer and IP in the new cross Availability Zone Node T
       -TemplateParameterFile $Parameters
   ```
 
-1. When the resources finish deploying, you can disable the nodes in the primary Node Type from the original cluster. When the nodes are disabled, the system services migrates to the new primary Node Type that you deployed previously.
+1. When the resources finish deploying, you can disable the nodes in the primary Node Type from the original cluster. When the nodes are disabled, the system services migrate to the new primary Node Type that you deployed previously.
 
   ```powershell
   Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName `
@@ -378,12 +378,12 @@ Full sample template is present [here](https://github.com/Azure-Samples/service-
 To enable zones on a virtual machine scale set, include the following three values in the virtual machine scale set resource:
 
 * The first value is the `zones` property, which specifies the Availability Zones that are in the virtual machine scale set.
-* The second value is the `singlePlacementGroup` property, which must be set to **true**. The scale set that's spanned across 3 Availability Zones can scale up to 300 VMs even with `singlePlacementGroup = true`.
-* The third value is `zoneBalance`, which ensures strict zone balancing. This should be **true**. This ensures that the VM distributions across zones are not unbalanced, which means that when one zone goes down, the other two zones have enough VMs to keep the cluster running.
+* The second value is the `singlePlacementGroup` property, which must be set to **true**. The scale set that's spanned across three Availability Zones can scale up to 300 VMs even with `singlePlacementGroup = true`.
+* The third value is `zoneBalance`, which ensures strict zone balancing. This value should be **true**. This ensures that the VM distributions across zones are not unbalanced, which means that when one zone goes down, the other two zones have enough VMs to keep the cluster running.
 
   A cluster with an unbalanced VM distribution might not survive a zone down scenario because that zone might have the majority of the VMs. Unbalanced VM distribution across zones also leads to service placement issues and infrastructure updates getting stuck. Read more about [zoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
 
-The `FaultDomain` and `UpgradeDomain` overrides don't need to be configured.
+You don't need to configure the `FaultDomain` and `UpgradeDomain` overrides.
 
 ```json
 {
@@ -414,8 +414,8 @@ The Service Fabric Node Type must be enabled to support multiple Availability Zo
 * The second value is `sfZonalUpgradeMode` and is optional. This property can't be modified if a Node Type with multiple Availability Zones is already present in the cluster.
   This property controls the logical grouping of VMs in upgrade domains (UDs).
   
-  * If this value is set to `Parallel`: VMs under the Node Type are grouped into UDs and ignore the zone info in five UDs. This results in UDs across all zones being upgraded at the same time. This deployment mode is faster for upgrades but isn't recommended because it goes against the SDP guidelines, which state that the updates should be applied to one zone at a time.
-  * If this value is omitted or set to `Hierarchical`: VMs are grouped to reflect the zonal distribution in up to 15 UDs. Each of the three zones have five UDs. This ensures that the zones are updated one at a time, moving to next zone only after completing five UDs within the first zone. This update process is safer for the cluster and the user application.
+  * If this value is set to `Parallel`: VMs under the Node Type are grouped into UDs and ignore the zone info in five UDs. This setting causes UDs across all zones to be upgraded at the same time. This deployment mode is faster for upgrades but isn't recommended because it goes against the SDP guidelines, which state that the updates should be applied to one zone at a time.
+  * If this value is omitted or set to `Hierarchical`: VMs are grouped to reflect the zonal distribution in up to 15 UDs. Each of the three zones has five UDs. This ensures that the zones are updated one at a time, moving to next zone only after completing five UDs within the first zone. This update process is safer for the cluster and the user application.
   
   This property only defines the upgrade behavior for Service Fabric application and code upgrades. The underlying virtual machine scale set upgrades are still parallel in all Availability Zones. This property doesn't impact the UD distribution for node types that don't have multiple zones enabled.
 * The third value is `vmssZonalUpgradeMode = Parallel`. This property is mandatory if a Node Type with multiple Availability Zones is added. This property defines the upgrade mode for the virtual machine scale set updates that happen in all Availability Zones at once.
