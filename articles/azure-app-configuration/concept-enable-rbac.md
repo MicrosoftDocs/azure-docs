@@ -34,7 +34,7 @@ Azure provides the following Azure built-in roles for authorizing access to App 
 - **Reader**: Use this role to give read access to the App Configuration resource. This does not grant access to the resource's access keys, nor to the data stored in App Configuration.
 
 > [!NOTE]
-> After role assignment is made for an identity, allow 15 minutes for the permission to propagate before accessing data stored in App Configuration using the identity.
+> After a role assignment is made for an identity, allow up to 15 minutes for the permission to propagate before accessing data stored in App Configuration using this identity.
 
 ## Next steps
 Learn more about using [managed identities](howto-integrate-azure-managed-service-identity.md) to administer your App Configuration service.
