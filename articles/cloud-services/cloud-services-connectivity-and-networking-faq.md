@@ -3,6 +3,7 @@ title: Connectivity and networking issues
 description: This article lists the frequently asked questions about connectivity and networking for Microsoft Azure Cloud Services.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: networking-configuration
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
