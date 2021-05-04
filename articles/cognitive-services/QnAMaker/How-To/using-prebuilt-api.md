@@ -15,7 +15,7 @@ ms.custom: "devx-track-js, devx-track-csharp"
 
 The Prebuilt API provides user the capability to ingest text and query over it without having to create knowledgebases, maintain question and answer pairs or incurring cost for underutilized infrastructure. Users can consume this API that users to meet their question and answering needs without having to learn the details about QnA Maker.
 
-Prebuilt API provides question answering independent of the storage type i.e., customer doesn’t need to create a storage specific to QnA Maker in a pre-defined format in Azure. 
+Prebuilt API provides question answering independent of the storage type. A user does not need to create a storage specific to QnA Maker in a pre-defined format in Azure. 
 
 For a given user query and give block of text/passage the API will return an answer and precise answer present at runtime. 
 
@@ -39,7 +39,7 @@ Imagine that you have one or more blocks of text from which you would like to ge
     "Language": "en"
 }
 ```
-In the above request body we query over a single block of text. A sample response received for the above query is shown below,
+In the above request body, we query over a single block of text. A sample response received for the above query is shown below,
 
 ```json
 {
@@ -74,7 +74,7 @@ In the above request body we query over a single block of text. A sample respons
     ]
 }
 ```
-We see that multiple answers are received as part of the API response. Each answer has a specific confidence score which helps understand the overall relevance of the answer. Users can make use of this confidence score to show the answers to the query.
+We see that multiple answers are received as part of the API response. Each answer has a specific confidence score that helps understand the overall relevance of the answer. Users can make use of this confidence score to show the answers to the query.
 
 ## Prebuilt API reference
-Please visit the [Prebuilt API reference](https://docs.microsoft.com/rest/api/cognitiveservices-qnamaker/qnamaker5.0preview2/prebuilt/generateanswer) documentation to understand the input and output parameters required for calling the API.
+Visit the [Prebuilt API reference](https://docs.microsoft.com/rest/api/cognitiveservices-qnamaker/qnamaker5.0preview2/prebuilt/generateanswer) documentation to understand the input and output parameters required for calling the API.
