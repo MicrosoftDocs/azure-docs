@@ -17,9 +17,7 @@ ms.service: digital-twins
 
 # Manage Azure Digital Twins models
 
-You can manage the [models](concepts-models.md) of your Azure Digital Twins instance using the [DigitalTwinModels APIs](/rest/api/digital-twins/dataplane/models), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client), or the [Azure Digital Twins CLI](how-to-use-cli.md). 
-
-Management operations include upload, validation, retrieval, and deletion of models. 
+This article describes how to manage the [models](concepts-models.md) in your Azure Digital Twins instance. Management operations include upload, validation, retrieval, and deletion of models. 
 
 ## Prerequisites
 
@@ -30,7 +28,6 @@ Management operations include upload, validation, retrieval, and deletion of mod
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel.png" alt-text="Screenshot of Azure Digital Twins Explorer showing a sample model graph." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel.png":::
-
 
 ## Create models
 
