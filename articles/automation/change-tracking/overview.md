@@ -55,7 +55,7 @@ Change Tracking and Inventory doesn't support or has the following limitations:
 
 ## Limits
 
-For limits that apply to Change Tracking and Inventory, see [Azure Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
+For limits that apply to Change Tracking and Inventory, see [Azure Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#change-tracking-and-inventory).
 
 ## Supported operating systems
 

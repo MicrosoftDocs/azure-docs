@@ -62,7 +62,7 @@ Having a machine registered for Update Management in more than one Log Analytics
 
 ## Limits
 
-For limits that apply to Update Management, see [Azure Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
+For limits that apply to Update Management, see [Azure Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#update-management).
 
 ## Clients
 
