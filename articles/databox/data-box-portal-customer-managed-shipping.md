@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 05/04/2021
 ms.author: alkohli
 ---
 
@@ -65,36 +65,39 @@ When you place a Data Box order, you can choose the self-managed shipping option
 
    Make a note of this **Authorization code**. The person who picks up the device will need to provide it.
 
-7. Pick up the Data Box from the datacenter at the scheduled time.<!--I repackaged existing materials to make a step, and matched the steps in DB and DBD. The first security requirement actually is something they need to do before the person shows up at the datacenter. It's required in the adbops email for Brazil.-->
+   As per security requirements, at the time of scheduling pick-up, it's necessary to provide the name and details of the person who will be arriving for the pickup. You or the point of contact must carry a government-approved photo ID, which will be validated at the datacenter.
 
-   As per security requirements, at the time of scheduling pick-up, you'll need to provide the following:
 
-   * The name and details of the person who will pick up the device from the datacenter. You or the point of contact must carry a government-approved photo ID, which will be validated at the datacenter.
+7. Pick up the Data Box from the datacenter at the scheduled time.
+
+   The person who is picking up the device needs to provide the following:
+
+   * A government-approved photo ID, which will be validated at the datacenter. The name and details of the person picking up the device must be provided when the pick-up is scheduled.
 
    * The authorization code. The authorization code is unique for a pick-up or a drop-off and is validated at the datacenter.
 
-   * In some regions, you'll need a copy of the scheduled appointment.<!--Brazil only. I asked Emily about this. The datacenter would see this info when they validate the authorization code?-->
+   * In some regions - for example, Brazil - they'll need a copy of the scheduled appointment.
 
-7. Your order automatically moves to the **Picked up** state once the device has been picked up from the datacenter.
+8. Your order automatically moves to the **Picked up** state once the device has been picked up from the datacenter.
 
     ![An order in Picked up state](media\data-box-portal-customer-managed-shipping\data-box-portal-picked-up-boxed-01.png)
 
-8. After the device is picked up, copy data to the Data Box at your site. After the data copy is complete, you can prepare to ship the Data Box. For more information, see [Prepare to ship](data-box-deploy-picked-up.md#prepare-to-ship).
+9. After the device is picked up, copy data to the Data Box at your site. After the data copy is complete, you can prepare to ship the Data Box. For more information, see [Prepare to ship](data-box-deploy-picked-up.md#prepare-to-ship).
 
    The **Prepare to ship** step needs to complete without any critical errors. Otherwise, you'll need to run this step again after making the necessary fixes. After the **Prepare to ship** step completes successfully, you can view the authorization code for the drop-off on the device local user interface.
 
    > [!NOTE]
    > Do not share the authorization code over email. This is only to be verified at the datacenter during drop off.
 
-9. If you've received an appointment for drop-off, the order should have **Ready to receive at Azure datacenter** status in the Azure portal. Follow the instructions under **Schedule drop-off** to return the device.
+10. If you've received an appointment for drop-off, the order should have **Ready to receive at Azure datacenter** status in the Azure portal. Follow the instructions under **Schedule drop-off** to return the device.
 
-   ![Instructions for device drop-off](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
+    ![Instructions for device drop-off](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
 
-10. After your ID and authorization code are verified, and you have dropped off the device at the datacenter, the order status should be **Received**.
+11. After your ID and authorization code are verified, and you have dropped off the device at the datacenter, the order status should be **Received**.
 
     ![An order with Received status](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-01.png)
 
-11. Once the device is received, the data copy will continue. When the copy finishes, the order is complete.
+12. Once the device is received, the data copy will continue. When the copy finishes, the order is complete.
 
 ## Next steps
 

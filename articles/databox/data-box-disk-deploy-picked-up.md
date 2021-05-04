@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 05/01/2021
+ms.date: 05/04/2021
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -233,17 +233,18 @@ If you are using Data Box Disk in US Government, Japan, Singapore, Korea, United
 
 2. Send an email to the Azure Data Box Operations team using the following template when you're ready to return the device.
 
-    ```
-    To: adbops@microsoft.com
-    Subject: Request for Azure Data Box Disk drop-off for order: 'orderName'
-    Body:
-     a. Order name
-     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop-off.
+   ```
+   To: adbops@microsoft.com
+   Subject: Request for Azure Data Box Disk drop-off for order: 'orderName'
+   Body:
+   1. Order name
+   2. Contact name of the person dropping off. You will need to display a government-approved ID during the drop-off.
+   ```
 
-> [!NOTE:]
-> Required information in the email and at pickup may vary by region.<!--This is to cover Brazil's note fiscal requirement in both.-->
+   > [!NOTE]
+   > Required information in the email and at pickup may vary by region.
+  
 
-    ```
 3. Azure Data Box Operations team will work with you to arrange the drop-off to the Azure datacenter.
 
 ---

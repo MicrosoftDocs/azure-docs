@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/01/2021
+ms.date: 05/04/2021
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -361,11 +361,11 @@ If you're using Data Box in US Government, Japan, Singapore, Korea, India, South
     Body:
         1. Order name  
         2. Authorization code available after Prepare to Ship has completed [Yes/No]  
-        3. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
+        3. Contact name of the person dropping off. You will need to display a government-approved ID during the drop off.
     ```
 
-> [!NOTE:]
-> Required information in the email and at pickup may vary by region.<!--This is to cover Brazil's note fiscal requirement in both.-->
+   > [!NOTE]
+   > Required information in the email and at pickup may vary by region.
 
 ::: zone target="chromeless"
 
