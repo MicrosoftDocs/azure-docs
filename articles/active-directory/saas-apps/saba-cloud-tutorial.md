@@ -81,25 +81,25 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Reply URL** text box, type a URL using the following pattern (ENTITY_ID refers to the previous step, usually `<CUSTOMER_NAME>_sp`):
     `https://<CUSTOMER_NAME>.sabacloud.com/Saba/saml/SSO/alias/<ENTITY_ID>`
     
-    c. NOTE: If you specify the reply URL incorrectly, you may have to adjust it in the App Registration section of Azure AD, not the Enterprise Application section.  Making changes to the Basic SAML Configuration section does not always update the Reply URL as it should.
+    > [!NOTE]
+    > If you specify the reply URL incorrectly, you might have to adjust it in the **App Registration** section of Azure AD, not in the **Enterprise Application** section. Making changes to the **Basic SAML Configuration** section doesn't always update the Reply URL.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     a. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<CUSTOMER_NAME>.sabacloud.com`
+       `https://<CUSTOMER_NAME>.sabacloud.com`
 
     b. In the **Relay State** text box, type a URL using the following pattern: `IDP_INIT---SAML_SSO_SITE=<SITE_ID> `or in case SAML is configured for a microsite, type a URL using the following pattern:
-`IDP_INIT---SAML_SSO_SITE=<SITE_ID>---SAML_SSO_MICRO_SITE=<MicroSiteId>`
+       `IDP_INIT---SAML_SSO_SITE=<SITE_ID>---SAML_SSO_MICRO_SITE=<MicroSiteId>`
 
     > [!NOTE]
-    > For more information on configuring the RelayState, please refer to [this](https://help.sabacloud.com/sabacloud/help-system/topics/help-system-idp-and-sp-initiated-sso-for-a-microsite.html) link.
+    > These values are not real. Update these values with the actual Identifier, Reply URL, Sign-on URL and Relay State. Contact [Saba Cloud Client support team](mailto:support@saba.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > 
+    > For more information about configuring the RelayState, see [IdP and SP initiated SSO for a microsite](https://help.sabacloud.com/sabacloud/help-system/topics/help-system-idp-and-sp-initiated-sso-for-a-microsite.html).
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL, Sign-on URL and Relay State. Contact [Saba Cloud Client support team](mailto:support@saba.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+1. In the **User Attributes & Claims** section, adjust the Unique User Identifier to whatever you organization intends to use as the primary username for Saba users.
 
-1. In the User Attributes & Claims section, adjust the Unique User Identifier to whatever you organization intends to use as the primary username for Saba users.
-
-   a. This step is only required if you are attempting to convert from username/password to SSO.  If this is a new Saba Cloud deployment that does not have existing usrs, you can skip this step.
+   This step is required only if you're attempting to convert from username/password to SSO. If this is a new Saba Cloud deployment that doesn't have existing usrs, you can skip this step.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -160,7 +160,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![screenshot for Configure Properties](./media/saba-cloud-tutorial/configure-properties.png) 
     
-    a. You may need to set the "Max Authentication Age (in seconds)" to 7776000 (90 days) to match the default max rolling age Azure AD allows for a login.  Failure to do so could result in the error "(109) Login failed. Please contact system administrator."
+    You might need to set **Max Authentication Age (in seconds)** to **7776000 (90 days)** to match the default max rolling age Azure AD allows for a login. Failure to do so could result in the error `(109) Login failed. Please contact system administrator.`
 
 ### Create Saba Cloud test user
 
