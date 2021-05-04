@@ -30,11 +30,10 @@ You can use an application like [VLC Player](https://www.videolan.org/vlc/), lau
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LUbN]
 
-When you complete the steps below, you will have used Azure Video Analyzer on IoT Edge to detect that motion of the car, 
+When you complete the steps below, you will have used Azure Video Analyzer on IoT Edge to detect that motion of the car, and record a video clip starting at around that 5-second mark. 
 
-```
-and record a video clip starting at around that 5-second mark. The diagram below is the visual representation of the overall flow.
-```
+<!--
+The diagram below is the visual representation of the overall flow.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/quickstarts/topology.svg" alt-text="Event-based video recording to Assets based on motion events":::
@@ -42,7 +41,7 @@ and record a video clip starting at around that 5-second mark. The diagram below
 ```
 Update the above diagram file to pipeline_Diagram1.png
 ```
-
+-->
 ## Use direct method calls
 
 You can use the module to analyze live video streams by invoking direct methods. Read [Direct Methods for Video Analyzer](direct-methods.md) to understand all the direct methods provided by the module. 
