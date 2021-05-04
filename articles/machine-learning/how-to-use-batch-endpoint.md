@@ -19,11 +19,11 @@ ms.custom: how-to
 
 In this article, you learn how to use [Batch Endpoints (preview)](concept-managed-endpoints.md) to run batch scoring. Batch endpoints simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. After you create a batch endpoint, you can use trigger batch scoring jobs with the Azure CLI or from any platform using an HTTP library and the REST API.
 
-In this how-to, you learn to do the following tasks:
+In this article, you learn to do the following tasks:
 
 > [!div class="checklist"]
 > * Create a batch endpoint with no-code experience for MLflow model
-> * Check a batch endpoint detail
+ƒ> * Check a batch endpoint detail
 > * Start a batch scoring job using CLI
 > * Monitor batch scoring job execution progress and check scoring results
 > * Add a new deployment to a batch endpoint
@@ -63,7 +63,7 @@ az ml compute create -n cpu-cluster --type AmlCompute --min-instances 0 --max-in
 
 ## Create a batch endpoint
 
-If you are using an MLflow model, you can use no-code batch endpoint creation. That is, you don't need to prepare a scoring script and environment, both can be auto generated.
+If you're using an MLflow model, you can use no-code batch endpoint creation. That is, you don't need to prepare a scoring script and environment, both can be auto generated.
 
 ```
 az ml endpoint create --type batch --file examples/endpoints/batch/create-batch-endpoint.yml
@@ -112,7 +112,7 @@ az ml endpoint invoke --name mybatchedp --type batch --input-datastore azureml:<
 
 If your data is publicly available, use `--input-path` to specify the public path.
 
-If you are using the provided example, you can run below command to start a batch scoring job.
+If you're using the provided example, you can run below command to start a batch scoring job.
 
 ```
 az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv
@@ -141,7 +141,7 @@ Some settings can be overwritten when you start a batch scoring job to make best
 
 * Use `--mini-batch-size` to overwrite `mini_batch_size` if different size of input data is used. 
 * Use `--instance-count` to overwrite `instance_count` if different compute resource is needed for this job. 
-* Use `--set` to overwrite other settings including `max_retries`, `timeout`, `error_threshold` and `logging_level`.
+* Use `--set` to overwrite other settings including `max_retries`, `timeout`, `error_threshold`, and `logging_level`.
 
 ```
 az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --set retry_settings.max_retries=1
@@ -180,7 +180,7 @@ To view the scoring results:
 * In the tk, go to the batchscoring step tk
 * Go to the batchscoring step’s Outputs + logs tab, click Show data outputs, and click View output icon.
 * On the popup panel, copy the path and click Open Datastore link.
-* On the blobstore page, paste above path in the search box. You will find the scoring outputs in the folder.
+* On the blobstore page, paste the above path in the search box. You'll find the scoring outputs in the folder.
 
 ## Add a deployment to the batch endpoint
 
@@ -194,7 +194,7 @@ Use below command to add a new deployment to an existing batch endpoint.
 az ml endpoint update --name mybatchedp --type batch --deployment mnist_deployment --deployment-file examples/endpoints/batch/add-deployment.yml
 ```
 
-This sample uses a non-MLflow model, you will need to provide environment and scoring script.
+This sample uses a non-MLflow model, you'll need to provide environment and scoring script.
 
 :::code language="yaml" source="~/azureml-examples/blob/cli-preview/cli/endpoints/batch/add-deployment.yml" :::
 
