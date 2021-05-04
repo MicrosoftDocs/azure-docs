@@ -3,7 +3,7 @@ author: alkohli
 ms.service: databox  
 ms.subservice: pod
 ms.topic: include
-ms.date: 04/29/2021
+ms.date: 05/04/2021
 ms.author: alkohli
 ---
 
@@ -13,11 +13,11 @@ After the verification is complete, the Data Box is connected to the network in 
 
 ### Review copy errors from upload
 
-When files fail to upload because of an un-retryable error, you're notified to review the errors before proceeding. The errors are listed in the data copy log.
+When files fail to upload because of an non-retryable error, you're notified to review the errors before proceeding. The errors are listed in the data copy log.
 
 You can't fix these errors. The upload will complete with errors, and the data will then be secure erased from the device. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
 
-After 14 days, the upload will be completed automatically. By acting on the notification, you can move things along more quickly.
+The order is completed automatically in 14 days. By acting on the notification, you can move things along more quickly.
 
 
 To review non-retryable errors and proceed with your order, do the following:
@@ -34,9 +34,7 @@ To review non-retryable errors and proceed with your order, do the following:
 
 3. Review the errors in the data copy log using the path in **DATA COPY DETAILS**.
 
-   - Make sure you have backup copies of the files that failed to upload. After the upload completes, the data will be secure erased from the Data Box.
-
-   - Be sure to fix any configuration issues before you try another upload via a network transfer or a new import order. For guidance, see [Troubleshoot data uploads from Azure Data Box and Azure Data Box Heavy devices](../articles/databox/data-box-troubleshoot-data-upload.md).
+   You'll need to fix any configuration issues before you try another upload via a network transfer or a new import order. For guidance, see [Troubleshoot data uploads from Azure Data Box and Azure Data Box Heavy devices](../articles/databox/data-box-troubleshoot-data-upload.md).
 
 4. Select the check box to acknowledge that you've reviewed the errors, understand that the data will be erased from the Data Box after the upload, and are ready to proceed.
 

@@ -171,7 +171,7 @@
           href: data-box-disk-troubleshoot-data-copy.md
         - name: Validation issues
           href: data-box-disk-troubleshoot.md
-        - name: Upload issues
+        - name: Review upload errors
           href: data-box-disk-troubleshoot-upload.md 
       - name: Contact Support
         href: data-box-disk-contact-microsoft-support.md  

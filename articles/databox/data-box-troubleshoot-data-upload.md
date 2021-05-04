@@ -1,38 +1,36 @@
 ---
-title: Troubleshoot uploads from Azure Data Box, Azure Data Box Heavy devices
-description: Describes how to troubleshoot non-retryable errors that pause a data upload to Azure from an Azure Data Box or Azure Data Box Heavy device.
+title: Review copy errors in uploads from Azure Data Box, Azure Data Box Heavy devices
+description: Describes follow-up for non-retryable errors that prevent files from uploading from an Azure Data Box or Azure Data Box Heavy device.
 services: databox
 author: v-dalc
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 04/29/2021
+ms.date: 05/04/2021
 ms.author: alkohli
 ---
 
-# Troubleshoot uploads from Azure Data Box and Azure Data Box Heavy devices
+# Review copy errors in uploads from Azure Data Box and Azure Data Box Heavy devices
 
-This article describes how to troubleshoot errors during a data upload to the cloud from an Azure Data Box or Azure Data Box Heavy device. 
+This article describes follow-up for non-retryable errors that prevent files from uploading to the cloud from an Azure Data Box or Azure Data Box Heavy device.
 
 > [!NOTE]
 > The information in this article applies to import orders only.
 
 ## Upload errors notification
 
-When data is uploaded to Azure from your device, some file uploads might fail because of configuration errors that can't be resolved through a retry. In that case, you receive a notification to give you a chance to review the errors and make sure you have backup copies of the files that failed to upload.
+When data is uploaded to Azure from your device, some file uploads might fail because of configuration errors that can't be resolved through a retry. In that case, you receive a notification to give you a chance to review and fix the errors for a later upload.
 
-You'll see the following notification in the Azure portal.
+You'll see the following notification in the Azure portal. The errors are listed in the data copy log.
 
 ![Notification of errors during upload](media/data-box-troubleshoot-data-upload/upload-paused-01.png)
 
-The errors are listed in the data copy log. You should review the errors and make sure you have backup copies of the files that failed to upload.
-
-You can't fix these errors. The upload will complete with errors, and the data will then be secure erased from the device. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
+ You can't fix these errors. The upload will complete with errors, and the data will then be secure erased from the device. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
 
 To proceed, you'll need to confirm that you've reviewed the errors and are ready to proceed. For more information, see [Return Azure Data Box and verify data upload to Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8).
 
-If you don't respond, the upload is completed automatically in 14 days. By acting on the notification, you can move things along more quickly.
+If you don't respond, the order is completed automatically in 14 days. By acting on the notification, you can move things along more quickly.
 
 ## Non-retryable upload errors
 
