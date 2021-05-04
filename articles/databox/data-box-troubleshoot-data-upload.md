@@ -1,6 +1,6 @@
 ---
 title: Review copy errors in uploads from Azure Data Box, Azure Data Box Heavy devices
-description: Describes follow-up for non-retryable errors that prevent files from uploading from an Azure Data Box or Azure Data Box Heavy device.
+description: Describes review and follow-up for non-retryable errors that prevent files from uploading from an Azure Data Box or Azure Data Box Heavy device.
 services: databox
 author: v-dalc
 
@@ -13,7 +13,7 @@ ms.author: alkohli
 
 # Review copy errors in uploads from Azure Data Box and Azure Data Box Heavy devices
 
-This article describes follow-up for non-retryable errors that prevent files from uploading to the cloud from an Azure Data Box or Azure Data Box Heavy device.
+This article describes review and follow-up for non-retryable errors that prevent files from uploading to the cloud from an Azure Data Box or Azure Data Box Heavy device.
 
 > [!NOTE]
 > The information in this article applies to import orders only.
