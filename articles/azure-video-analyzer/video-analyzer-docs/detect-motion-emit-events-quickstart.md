@@ -43,11 +43,11 @@ This quickstart walks you through the steps to get started with Azure Video Anal
 ## Set up your development environment
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [setup-development-environment](includes/detect-motion-emit-events-quickstart/csharp/setup-development-environment.md)]
+[!INCLUDE [setup development environment](./includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [setup-development-environment](includes/detect-motion-emit-events-quickstart/python/setup-development-environment.md)]
+[!INCLUDE [setup development environment](./includes/set-up-dev-environment/python/python-set-up-dev-env.md)]
 ::: zone-end
 
 ## Examine the sample files
