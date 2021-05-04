@@ -29,12 +29,12 @@ For sample instructions about how to add a user to a role, see the [Add roles](.
 
 For more info, see the following articles:
 
-- [Data Factory Contributor role](../articles/role-based-access-control/built-in-roles.md#data-factory-contributor)
+- [Data Factory Contributor role](../../articles/role-based-access-control/built-in-roles.md#data-factory-contributor)
 - [Roles and permissions for Azure Data Factory](../concepts-roles-permissions.md)
 
 ### Azure Storage account
 
-You use a general-purpose Azure Storage account (specifically Blob storage) as both *source* and *destination* data stores in this quickstart. If you don't have a general-purpose Azure Storage account, see [Create a storage account](../articles/storage/common/storage-account-create.md) to create one. 
+You use a general-purpose Azure Storage account (specifically Blob storage) as both *source* and *destination* data stores in this quickstart. If you don't have a general-purpose Azure Storage account, see [Create a storage account](../../articles/storage/common/storage-account-create.md) to create one. 
 
 #### Get the storage account name
 
