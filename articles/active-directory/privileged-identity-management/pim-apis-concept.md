@@ -48,9 +48,7 @@ Now in beta, Microsoft has the final iteration of the PIM API before we release 
 - Supporting app-only permissions.
 - New features such as approval and email notification configuration.
 
-## Not supported in the current iteration
-
-Currently, there is *no API support* for PIM alerts and privileged access groups. They are on the roadmap for future development.
+In the current iteration, there is *no API support* for PIM alerts and privileged access groups. They are on the roadmap for future development.
 
 ## Current permissions required
 
