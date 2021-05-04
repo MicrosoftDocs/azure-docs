@@ -319,7 +319,7 @@ Data Factory creates the table in the destination store with the same table name
 | NVarChar | NVarChar (up to 4000) |
 | Xml | Varchar (up to 8000) |
 
-[!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../../includes/data-factory-type-repeatability-for-sql-sources.md)]
+[!INCLUDE [data-factory-type-repeatability-for-sql-sources](includes/data-factory-type-repeatability-for-sql-sources.md)]
 
 ## Type mapping for Azure Synapse Analytics
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from source types to sink types with the following 2-step approach:
