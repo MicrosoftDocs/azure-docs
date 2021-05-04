@@ -13,6 +13,7 @@ A common challenge for developers is the management of secrets and credentials t
 
 When you create an Azure Video Analyzer account, you have to associate an Azure storage account with it. If you use Video Analyzer to record the live video from a camera, that data is stored as blobs in a container in the storage account. You can use a managed identity to grant the Video Analyzer account the appropriate access to the storage account as follows.
 
+## User assigned managed identity for Video Analyzer
 1. Create a [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)
 1. Create an Azure storage account
 [!INCLUDE [the video analyzer account and storage account must be in the same subscription and region](./includes/note-account-storage-same-subscription.md)]
@@ -20,7 +21,7 @@ When you create an Azure Video Analyzer account, you have to associate an Azure 
 
 Video Analyzer can then access storage account on your behalf using the managed identity.
 
-See [this](create-video-analyzer-account.md) article for an example of using an ARM template to accomplish the above.
+See [this](create-video-analyzer-account.md) article for an example of using an Azure Resource Manager (ARM) template to accomplish the above.
 
 ## Next steps
 
