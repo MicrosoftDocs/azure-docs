@@ -2,7 +2,7 @@
 title: Configure and use application managed identity on Service Fabric managed cluster nodes
 description: Learn how to configure, and use an application managed identity on an ARM template deployed Azure Service Fabric managed cluster.
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 5/10/2021
 ---
 
 # Managed identity support in Service Fabric managed cluster

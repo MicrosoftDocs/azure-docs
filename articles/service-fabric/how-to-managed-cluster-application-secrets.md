@@ -2,7 +2,7 @@
 title: Obtain and use application secrets on Service Fabric managed cluster nodes
 description: Learn about Azure Service Fabric application secrets and how to gather info required for use in managed clusters
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 5/10/2021
 ---
 
 # Manage application secrets

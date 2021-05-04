@@ -1,11 +1,11 @@
 ---
-title: Service Fabric managed clusters (preview)
+title: Service Fabric managed clusters
 description: Service Fabric managed clusters are an evolution of the Azure Service Fabric cluster resource model that streamlines deployment and cluster management.
 ms.topic: overview
-ms.date: 02/15/2021
+ms.date: 5/10/2021
 ---
 
-# Service Fabric managed clusters (preview)
+# Service Fabric managed clusters
 
 Service Fabric managed clusters are an evolution of the Azure Service Fabric cluster resource model that streamlines your deployment and cluster management experience.
 
@@ -79,7 +79,7 @@ Features to be added in upcoming releases include:
 To get started with Service Fabric managed clusters, try the quickstart:
 
 > [!div class="nextstepaction"]
-> [Create a Service Fabric managed cluster (preview)](quickstart-managed-cluster-template.md)
+> [Create a Service Fabric managed cluster](quickstart-managed-cluster-template.md)
 
 
 [sf-composition]: ./media/overview-managed-cluster/sfrp-composition-resource.png

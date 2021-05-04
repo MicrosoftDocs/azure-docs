@@ -2,7 +2,7 @@
 title: Deploy a Service Fabric managed cluster across Availability Zones
 description: Learn how to deploy Service Fabric managed cluster across Availability Zones and how to configure in an ARM template.
 ms.topic: how-to
-ms.date: 04/22/2021
+ms.date: 5/10/2021
 ---
 # Deploy an Azure Service Fabric managed cluster across availability zones
 Availability Zones in Azure are a high-availability offering that protects your applications and data from datacenter failures. An Availability Zone is a unique physical location equipped with independent power, cooling, and networking within an Azure region.
