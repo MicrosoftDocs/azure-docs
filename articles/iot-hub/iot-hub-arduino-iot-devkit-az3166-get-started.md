@@ -103,7 +103,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 The DevKit connects to a device-specific endpoint on your IoT hub and sends temperature and humidity telemetry.
 
-1. Download the latest version of [GetStarted firmware](https://github.com/microsoft/devkit-sdk/releases/) for IoT DevKit.
+1. Download the latest version of [GetStarted firmware (devkit-getstarted-*.*.*.bin)](https://github.com/microsoft/devkit-sdk/releases/) for IoT DevKit. At the time of this update, the latest filename is **devkit-getstarted-2.0.0.bin**.
 
 1. Make sure IoT DevKit connect to your computer via USB. Open File Explorer there is a USB mass storage device called **AZ3166**.
 
@@ -113,7 +113,7 @@ The DevKit connects to a device-specific endpoint on your IoT hub and sends temp
 
     ![Copy firmware](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/copy-firmware.png)
 
-1. On the DevKit, Hold down button **B**, push and release the **Reset** button, and then release button **B**. Your DevKit enters AP mode. To confirm, the screen displays the service set identifier (SSID) of the DevKit and the configuration portal IP address.
+1. On the DevKit, Hold down the **B** button, and keep it pressed down. Push and release the **Reset** button. Afterwards, release button **B**. Your DevKit enters AP mode. To confirm, the screen displays the service set identifier (SSID) of the DevKit and the configuration portal IP address.
 
     ![Reset button, button B, and SSID](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/wifi-ap.jpg)
 
@@ -123,7 +123,7 @@ The DevKit connects to a device-specific endpoint on your IoT hub and sends temp
 
     ![Connect SSID](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/connect-ssid.png)
 
-1. Open **192.168.0.1** in the browser. Select the Wi-Fi that you want the IoT DevKit connect to, type the Wi-Fi password, then paste the device connection string you made note of previously. Then click Save.
+1. Open **192.168.0.1** in the browser. Select the Wi-Fi that you want the IoT DevKit connect to, type the Wi-Fi password, then paste the device connection string you made note of previously. Then click **Configure Device**.
 
     ![Configuration UI](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/configuration-ui.png)
 
@@ -181,7 +181,7 @@ Follow these steps to prepare the development environment for the DevKit:
 
     ![Install Azure IoT Tools](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/user-settings-arduino.png)
 
-    The correct path to your Arduino installation must be configured in VS Code. Add following lines to configure Arduino depending on your platform and where you installed the Arduino IDE: 
+    The correct path to your Arduino installation must be configured in VS Code. Add following lines to configure Arduino depending on your platform and the directory path where you installed the Arduino IDE: 
 
     * **Windows**:
 
@@ -202,7 +202,7 @@ Follow these steps to prepare the development environment for the DevKit:
         Replace the **{username}** placeholder below with your username.
 
         ```json
-        "arduino.path": "/home/{username}/Downloads/arduino-1.8.8",
+        "arduino.path": "/home/{username}/Downloads/arduino-1.8.13",
         "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
         ```
 
