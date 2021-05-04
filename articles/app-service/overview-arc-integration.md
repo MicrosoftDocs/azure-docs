@@ -1,6 +1,7 @@
 ---
 title: 'App Service on Azure Arc'
 description: An introduction to App Service integration with Azure Arc for Azure operators.
+ms.topic: article
 ms.date: 05/03/2021
 ---
 
