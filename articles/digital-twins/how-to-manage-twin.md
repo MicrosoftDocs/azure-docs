@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Manage digital twins
 
-Entities in your environment are represented by [digital twins](concepts-twins-graph.md). Managing your digital twins may include creation, modification, and removal. To do these operations, you can use the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client), or the [Azure Digital Twins CLI](how-to-use-cli.md).
+Entities in your environment are represented by [digital twins](concepts-twins-graph.md). Managing your digital twins may include creation, modification, and removal.
 
 This article focuses on managing digital twins; to work with relationships and the [twin graph](concepts-twins-graph.md) as a whole, see [How-to: Manage the twin graph with relationships](how-to-manage-graph.md).
 
@@ -28,9 +28,7 @@ This article focuses on managing digital twins; to work with relationships and t
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-## Ways to manage twins
-
-[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
+[!INCLUDE [digital-twins-developer-interfaces.md](../../includes/digital-twins-developer-interfaces.md)]
 
 ## Create a digital twin
 
@@ -136,11 +134,11 @@ The defined properties of the digital twin are returned as top-level properties 
   - Synchronization status for each writeable property. This is most useful for devices, where it's possible that the service and the device have diverging statuses (for example, when a device is offline). Currently, this property only applies to physical devices connected to IoT Hub. With the data in the metadata section, it is possible to understand the full status of a property, as well as the last modified timestamps. For more information about sync status, see [this IoT Hub tutorial](../iot-hub/tutorial-device-twins.md) on synchronizing device state.
   - Service-specific metadata, like from IoT Hub or Azure Digital Twins. 
 
-You can read more about the serialization helper classes like `BasicDigitalTwin` in [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md).
+You can read more about the serialization helper classes like `BasicDigitalTwin` in [Concepts: Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md).
 
 ## View all digital twins
 
-To view all of the digital twins in your instance, use a [query](how-to-query-graph.md). You can run a query with the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](how-to-use-cli.md).
+To view all of the digital twins in your instance, use a [query](how-to-query-graph.md). You can run a query with the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](concepts-cli.md).
 
 Here is the body of the basic query that will return a list of all digital twins in the instance:
 
@@ -152,7 +150,7 @@ To update properties of a digital twin, you write the information you want to re
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="UpdateTwinCall":::
 
-A patch call can update as many properties on a single twin as you'd like (even all of them). If you need to update properties across multiple twins, you'll need a separate update call for each twin.
+A patch call can update as many properties on a single twin as you want (even all of them). If you need to update properties across multiple twins, you'll need a separate update call for each twin.
 
 > [!TIP]
 > After creating or updating a twin, there may be a latency of up to 10 seconds before the changes will be reflected in [queries](how-to-query-graph.md). The `GetDigitalTwin` API (described [earlier in this article](#get-data-for-a-digital-twin)) does not experience this delay, so use the API call instead of querying to see your newly-updated twins if you need an instant response. 
@@ -227,7 +225,7 @@ The snippet uses the [Room.json](https://github.com/Azure-Samples/digital-twins-
 
 Before you run the sample, do the following:
 1. Download the model file, place it in your project, and replace the `<path-to>` placeholder in the code below to tell your program where to find it.
-2. Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's hostname.
+2. Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's host name.
 3. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client), the second provides tools to help with authentication against Azure.
 
       ```cmd/sh

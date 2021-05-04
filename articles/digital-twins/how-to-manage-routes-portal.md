@@ -23,7 +23,7 @@ In Azure Digital Twins, you can route [event notifications](concepts-event-notif
 
 This article walks you through the process of creating endpoints and routes using the [Azure portal](https://portal.azure.com).
 
-Alternatively, you can also manage endpoints and routes with the [Event Routes APIs](/rest/api/digital-twins/dataplane/eventroutes), the [SDKs](how-to-use-apis-sdks.md#overview-data-plane-apis), or the [Azure Digital Twins CLI](how-to-use-cli.md). For a version of this article that uses these mechanisms instead of the portal, see [How-to: Manage endpoints and routes (APIs and CLI)](how-to-manage-routes-apis-cli.md).
+Alternatively, you can also manage endpoints and routes with the [Event Routes APIs](/rest/api/digital-twins/dataplane/eventroutes), the [SDKs](concepts-apis-sdks.md#overview-data-plane-apis), or the [Azure Digital Twins CLI](concepts-cli.md). For a version of this article that uses these mechanisms instead of the portal, see [How-to: Manage endpoints and routes (APIs and CLI)](how-to-manage-routes-apis-cli.md).
 
 ## Prerequisites
 
@@ -99,7 +99,7 @@ Now the event grid, event hub, or Service Bus topic is available as an endpoint 
 
 When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as **dead-lettering**.
 
-In order to create an endpoint with dead-lettering enabled, you must use the [CLI commands](how-to-use-cli.md) or [control plane APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to create your endpoint, rather than the Azure portal.
+In order to create an endpoint with dead-lettering enabled, you must use the [CLI commands](concepts-cli.md) or [control plane APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to create your endpoint, rather than the Azure portal.
 
 For instructions on how to do this with these tools, see the [APIs and CLI](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) version of this article.
 
@@ -130,13 +130,13 @@ From the instance menu, select _Event routes_. Then from the *Event routes* page
 
 On the *Create an event route* page that opens up, choose at minimum:
 * A name for your route in the _Name_ field
-* The _Endpoint_ you would like to use to create the route 
+* The _Endpoint_ you want to use to create the route 
 
 For the route to be enabled, you must also **Add an event route filter** of at least `true`. (Leaving the default value of `false` will create the route, but no events will be sent to it.) To do this, toggle the switch for the _Advanced editor_ to enable it, and write `true` in the *Filter* box.
 
 :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Screenshot of creating event route for your instance." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
 
-When finished, hit the _Save_ button to create your event route.
+When finished, select the _Save_ button to create your event route.
 
 ## Filter events
 
@@ -160,7 +160,7 @@ You can either select from some basic common filter options, or use the advanced
 
 #### Use the basic filters
 
-To use the basic filters, expand the _Event types_ option and select the checkboxes corresponding to the events you'd like to send to your endpoint. 
+To use the basic filters, expand the _Event types_ option and select the checkboxes corresponding to the events you want to send to your endpoint. 
 
 :::row:::
     :::column:::
