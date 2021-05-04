@@ -17,7 +17,7 @@ ms.reviewer: yuhko, saumadan, marsma
 #Customer intent: As a developer, I want to learn how to stay least privileged and require just enough permissions for my application.
 ---
 
-# Best practices for least privilege
+# Best practices for applying least privilege permissions
 
 The principle of least privilege is an information security concept, which enforces the idea that users should be given the minimum level of access needed to perform required tasks. This concept can be extended to applications that require a set of permissions to access desired data or resources.
 
@@ -31,14 +31,14 @@ This article describes a set of best practices that you can use to enforce least
 
 ## Using consent to control permissions to resources
 
-Consent is becoming an important requirement in most data privacy laws across the World. Most often these laws require developers to obtain consent from end users before allowing an application to access protected data. Every time an application that runs in your user's device or service requests some permission, the app should display an authorization prompt to the user that shows what permission is being requested. The end user is required to allow (or deny) access to that specific permission before the application can progress. As an application developer it's best to request access permission with the least privilege.
+[Consent](../develop/application-consent-experience.md#consent-and-permissions) is becoming an important requirement in most data privacy laws across the World. Most often these laws require developers to obtain consent from end users before allowing an application to access protected data. Every time an application that runs in your user's device or service requests some permission, the app should display an authorization prompt to the user that shows what permission is being requested. The end user is required to allow (or deny) access to that specific permission before the application can progress. As an application developer it's best to request access permission with the least privilege.
 
 ![API permissions](media/least-privilege-best-practice/api-permissions.png)
 
 ## Behaviors of over-privileged and least privileged applications
 
 An over-privileged application may have one of the following characteristics:
-- **Unused permissions**: This arises when extra permission has been granted to an application, but no API call has been made. For example in [MS Graph](/graph/overview), an app might only be reading OneDrive Files (using the "*Files.Read.All*" permission) but has also been granted “*Calendar.Read.All*” permission, despite not integrating with any Calendar APIs.
+- **Unused permissions**: An application could end up with unused permissions when it fails to make API calls that utilize all the permissions granted to it. For example in [MS Graph](/graph/overview), an app might only be reading OneDrive Files (using the "*Files.Read.All*" permission) but has also been granted “*Calendar.Read.All*” permission, despite not integrating with any Calendar APIs.
 - **Reducible permissions**: This implies that the granted permission has a least privileged replacement that can complete the desired API call. For example, an app that is only reading User profiles, but has been granted "*User.ReadWrite.All*" might be considered over-privileged. In this case, the app should be granted "*User.Read.All*" instead, which is the least privileged permission needed to satisfy the request.
 
 For an application to be considered as least privileged, it should have:
