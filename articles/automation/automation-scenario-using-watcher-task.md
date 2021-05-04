@@ -66,7 +66,7 @@ An [Automation variable](./shared-resources/variables.md) is used to store the t
 1. Enter **Watch-NewFileTimestamp** for the name.
 1. Select **DateTime** for the type. It will default to the current date and time.
 
-   :::image type="content" source="./media/automation-watchers-tutorial/create-new-variable.png" alt-text="Create new variable blade.":::
+   :::image type="content" source="./media/automation-watchers-tutorial/create-new-variable.png" alt-text="Screenshot of creating a new variable blade.":::
 
 1. Click **Create** to create the Automation variable.
 
@@ -118,7 +118,7 @@ In this step, you configure the watcher task referencing the watcher and action 
 1. Click **OK**, and then **Select** to return to the Watcher page.
 1. Click **OK** to create the watcher task.
 
-   :::image type="content" source="./media/automation-watchers-tutorial/watchertaskcreation.png" alt-text="Configure watcher action from UI.":::
+   :::image type="content" source="./media/automation-watchers-tutorial/watchertaskcreation.png" alt-text="Screenshot of configuring  watcher action in the Azure portal.":::
 
 
 ## Trigger a watcher
@@ -150,7 +150,7 @@ Mode                LastWriteTime         Length Name
 1. Click on **View watcher streams** under **Streams** to see that the watcher has found the new file and started the action runbook.
 1. To see the action runbook jobs, click on **View watcher action jobs**. Each job can be selected to view the details of the job.
 
-   :::image type="content" source="./media/automation-watchers-tutorial/WatcherActionJobs.png" alt-text="Watcher action jobs from UI.":::
+   :::image type="content" source="./media/automation-watchers-tutorial/WatcherActionJobs.png" alt-text="Screenshot of a watcher action jobs from the Azure portal.":::
 
 
 The expected output when the new file is found can be seen in the following example:

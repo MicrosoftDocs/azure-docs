@@ -5186,6 +5186,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/automation/automation-watchers-tutorial.md",
+      "redirect_url": "/azure/automation/automation-scenario-using-watcher-task",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/automation/automation-scenario-remove-resourcegroup.md",
       "redirect_url": "/azure/automation",
       "redirect_document_id": false
