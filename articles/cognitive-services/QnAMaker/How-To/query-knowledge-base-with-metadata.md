@@ -52,7 +52,7 @@ Because results are required only for the restaurant "Paradise", you can set a f
 # [Custom question answering (preview release)](#tab/v2)
 
 ### Filter by source
-In case you have multiple content sources in your knowledge base and you would like to limit the results to a particular set of sources, you can do that using the reserved keyword `system_sources` as shown below,
+In case you have multiple content sources in your knowledge base and you would like to limit the results to a particular set of sources, you can do that using the reserved keyword `system_sources` as shown below.
 
 ```json
 "strictFilters": [
@@ -75,7 +75,7 @@ With custom question answering, you can additionally provide a filter criteria t
 
 This parameter is optional and by default has a value set to `true`.
 
-In the below example we set the value of `includeUnstructuredSources` property to `false` to exclude all unstructured sources from the GenerateAnswer call.
+In the below example, we set the value of `includeUnstructuredSources` property to `false` to exclude all unstructured sources from the GenerateAnswer call.
 
 ```json
 {
