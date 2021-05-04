@@ -20,6 +20,8 @@ landingContent:
       links:
         - text: What is Azure IoT device development?
           url: about-iot-develop.md
+        - text: Review IoT device types
+          url: concepts-iot-device-types.md
         - text: Which SDK should I use? 
           url: about-iot-sdks.md
   - title: Get started with device application development

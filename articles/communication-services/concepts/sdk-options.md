@@ -23,12 +23,12 @@ Communication Services APIs are documented alongside other Azure REST APIs in [d
 
 | Assembly | Namespaces| Protocols | Capabilities |
 |------------------------|-------------------------------------|---------------------------------|--------------------------------------------------------------------------------------------|
-| Azure Resource Manager | Azure.ResourceManager.Communication | [REST](https://docs.microsoft.com/rest/api/communication/communicationservice)| Provision and manage Communication Services resources|
+| Azure Resource Manager | Azure.ResourceManager.Communication | [REST](/rest/api/communication/communicationservice)| Provision and manage Communication Services resources|
 | Common | Azure.Communication.Common| REST | Provides base types for other SDKs |
-| Identity | Azure.Communication.Identity| [REST](https://docs.microsoft.com/rest/api/communication/communicationidentity)| Manage users, access tokens|
+| Identity | Azure.Communication.Identity| [REST](/rest/api/communication/communicationidentity)| Manage users, access tokens|
 | Phone numbers _(beta)_| Azure.Communication.PhoneNumbers| [REST](/rest/api/communication/phonenumbers)| Acquire and manage phone numbers |
-| Chat | Azure.Communication.Chat| [REST](https://docs.microsoft.com/rest/api/communication/) with proprietary signaling | Add real-time text based chat to your applications |
-| SMS| Azure.Communication.SMS | [REST](https://docs.microsoft.com/rest/api/communication/sms)| Send and receive SMS messages|
+| Chat | Azure.Communication.Chat| [REST](/rest/api/communication/) with proprietary signaling | Add real-time text based chat to your applications |
+| SMS| Azure.Communication.SMS | [REST](/rest/api/communication/sms)| Send and receive SMS messages|
 | Calling| Azure.Communication.Calling | Proprietary transport | Use voice, video, screen-sharing, and other real-time data communication capabilities |
 
 The Azure Resource Manager, Identity, and SMS SDKs are focused on service integration, and in many cases security issues arise if you integrate these functions into end-user applications. The Common and Chat SDKs are suitable for service and client applications. The Calling SDK is designed for client applications. An SDK focused on service scenarios is in development.
@@ -51,13 +51,13 @@ Publishing locations for individual SDK packages are detailed below.
 
 
 ## REST API Throttles
-Certain REST APIs and corresponding SDK methods have throttle limits you should be mindful of. Exceeding these throttle limits will trigger a  `429 - Too Many Requests` error response. These limits can be increased through [a request to Azure Support](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Certain REST APIs and corresponding SDK methods have throttle limits you should be mindful of. Exceeding these throttle limits will trigger a  `429 - Too Many Requests` error response. These limits can be increased through [a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 | API                                                                                                                          | Throttle            |
 |------------------------------------------------------------------------------------------------------------------------------|---------------------|
 | [All Search Telephone Number Plan APIs](/rest/api/communication/phonenumbers)         | 4 requests/day      |
 | [Purchase Telephone Number Plan](/rest/api/communication/phonenumbers/purchasephonenumbers) | 1 purchase a month  |
-| [Send SMS](https://docs.microsoft.com/rest/api/communication/sms/send)                                                       | 200 requests/minute |
+| [Send SMS](/rest/api/communication/sms/send)                                                       | 200 requests/minute |
 
 
 ## SDK platform support details

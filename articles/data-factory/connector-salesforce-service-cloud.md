@@ -46,7 +46,7 @@ You might also receive the "REQUEST_LIMIT_EXCEEDED" error message in both scenar
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to the Salesforce Service Cloud connector.
 

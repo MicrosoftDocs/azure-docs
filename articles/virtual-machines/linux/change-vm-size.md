@@ -1,11 +1,11 @@
 ---
 title: How to resize a Linux VM with the Azure CLI 
 description: How to scale up or scale down a Linux virtual machine, by changing the VM size.
-author: DavidCBerry13
+author: mimckitt
 ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 02/10/2017
-ms.author: daberry
+ms.author: mimckitt
 ms.collection: linux
 
 ---

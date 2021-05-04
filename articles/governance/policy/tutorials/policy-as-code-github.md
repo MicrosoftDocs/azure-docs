@@ -57,7 +57,7 @@ To export a policy definition from Azure portal, follow these steps:
 
 1. On the **Policies** tab, set the scope to search by selecting the ellipsis and picking a
    combination of management groups, subscriptions, or resource groups.
-   
+
 1. Use the **Add policy definition(s)** button to search the scope for which objects to export. In
    the side window that opens, select each object to export. Filter the selection by the search box
    or the type. Once you've selected all objects to export, use the **Add** button at the bottom of
@@ -140,29 +140,27 @@ scheduled time to get the latest compliance status at a convenient time. Optiona
 GitHub action can also generate a report on the compliance state of scanned resources for further
 analysis or for archiving.
 
-The following example runs a compliance scan for a subscription. 
+The following example runs a compliance scan for a subscription.
 
 ```yaml
 
 on:
-  schedule:    
+  schedule:
     - cron:  '0 8 * * *'  # runs every morning 8am
 jobs:
-  assess-policy-compliance:    
+  assess-policy-compliance:
     runs-on: ubuntu-latest
-    steps:         
+    steps:
     - name: Login to Azure
       uses: azure/login@v1
       with:
-        creds: ${{secrets.AZURE_CREDENTIALS}} 
+        creds: ${{secrets.AZURE_CREDENTIALS}}
 
-    
     - name: Check for resource compliance
       uses: azure/policy-compliance-scan@v0
       with:
         scopes: |
           /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-
 ```
 
 ## Review

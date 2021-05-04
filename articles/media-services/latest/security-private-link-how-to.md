@@ -19,7 +19,7 @@ Create a Media Services account and Storage Account with Private Links to a VNet
 
 ## Prerequisites
 
-Read [Quickstart: Create and deploy ARM templates by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).
+Read [Quickstart: Create and deploy ARM templates by using the Azure portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ## Limitations
 

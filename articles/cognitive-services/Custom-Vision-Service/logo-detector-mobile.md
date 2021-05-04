@@ -11,7 +11,7 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 11/23/2020
 ms.author: pafarley
-ms.custom: devx-track-csharp, devx-track-azurecli
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Recognize Azure service logos in camera pictures

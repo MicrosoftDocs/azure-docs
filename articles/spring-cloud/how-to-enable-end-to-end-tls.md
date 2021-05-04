@@ -7,7 +7,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 03/24/2021
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java
 ---
 
 # Enable end-to-end TLS for an application
@@ -19,7 +19,7 @@ After you enable end-to-end TLS and load a cert from keyvault, all communication
 
 ## Prerequisites 
 
-- A deployed Azure Spring Cloud instance. Follow our [quickstart on deploying via the Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) to get started.
+- A deployed Azure Spring Cloud instance. Follow our [quickstart on deploying via the Azure CLI](./quickstart.md) to get started.
 - If you're unfamiliar with end-to-end TLS, see the [end-to-end TLS sample](https://github.com/Azure-Samples/spring-boot-secure-communications-using-end-to-end-tls-ssl).
 - To securely load the required certificates into Spring Boot apps, you can use [keyvault spring boot starter](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-keyvault-certificates).
 

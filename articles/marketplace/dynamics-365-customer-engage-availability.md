@@ -17,7 +17,7 @@ This page lets you define where and how to make your offer available, including 
 
 To specify the markets in which your offer should be available, select **Edit markets**.
 
-On the **Market selection** popup window, select at least one market. Choose **Select all** to make your offer available in every possible market, or select only the specific markets you want. When you're finished, select **Save**.
+On the **Market selection** popup window, select at least one market. Choose **Select all** to make your offer available in every possible market or select only the specific markets you want. When you're finished, select **Save**.
 
 Your selections here apply only to new acquisitions; if someone already has your app in a certain market, and you later remove that market, the people who already have the offer in that market can continue to use it, but no new customers in that market will be able to get your offer.
 
@@ -30,8 +30,11 @@ Before you publish your offer live to the broader marketplace offer, you'll firs
 
 Then, when you're ready to make your offer available and remove the preview restriction, you'll need to remove the **Hide key** and publish again.
 
-Select **Save draft** before continuing to the next tab in the left-nav menu, **Technical configuration**.
+Select **Save draft** before continuing to the next tab in the left-nav menu.
 
 ## Next steps
 
-- [Set offer technical configuration](dynamics-365-customer-engage-technical-configuration.md)
+Do one of the following:
+
+- If you chose to enable app license management through Microsoft, then go to [Create Dynamics 365 for Customer Engagement & Power Apps plans](dynamics-365-customer-engage-plans.md).
+- Otherwise, go to [Set offer technical configuration](dynamics-365-customer-engage-technical-configuration.md).

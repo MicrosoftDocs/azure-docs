@@ -4,7 +4,8 @@ description: Tutorial on creating near-real time metric alerts on popular log an
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 02/14/2021
+ms.date: 02/14/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create Metric Alerts for Logs in Azure Monitor

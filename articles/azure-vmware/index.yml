@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: shortpatti 
   ms.author: v-patsho 
-  ms.date: 04/23/2021 
+  ms.date: 05/04/2021 
 
 
 # card 1
@@ -37,13 +37,12 @@ landingContent:
             url: /azure/azure-vmware/concepts-private-clouds-clusters#host-monitoring-and-remediation
 
 
-# faq card
   - title: FAQ
     linkLists:
       - linkListType: reference
         links:
           - text: General
-            url: /azure/azure-vmware/faq#general
+            url: /azure/azure-vmware/faq
           - text: Customer communication
             url: /azure/azure-vmware/faq#customer-communication
           - text: Configuration and setup 
@@ -102,11 +101,9 @@ landingContent:
         links:
           - text: Request host quota Azure VMware Solution
             url: enable-azure-vmware-solution.md
-          - text: Move EA and CSP subscriptions
-            url: move-ea-csp-subscriptions.md 
           - text: Save costs with a reserved instance
             url: reserved-instance.md
-          - text: Migration assessment
+          - text: Create an Azure VMware Solution assessment
             url: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
       - linkListType: how-to-guide
         links:
@@ -114,14 +111,14 @@ landingContent:
             url: manage-dhcp.md
           - text: Configure NSX network components
             url: configure-nsx-network-components-azure-portal.md
-          - text: Deploy disaster recovery for VMs
-            url: disaster-recovery-for-virtual-machines.md
-          - text: Set up GitHub Enterprise Server
+          - text: Configure GitHub Enterprise Server
             url: github-enterprise-server.md
-          - text: Public IP usage
-            url: public-ip-usage.md
-          - text: Create an IPSec tunnel
-            url: create-ipsec-tunnel.md
+          - text: Enable public internet access
+            url: enable-public-internet-access.md
+          - text: Configure site-to-site VPN gateway
+            url: configure-site-to-site-vpn-gateway.md
+          - text: Configure Windows Server Failover Cluster
+            url: configure-windows-server-failover-cluster.md
 
 # card 4
   - title: Azure native integration
@@ -150,7 +147,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Set up vRealize Operations
+          - text: Configure vRealize Operations
             url: vrealize-operations-for-azure-vmware-solution.md
           - text: Deploy VMware Horizon
             url: azure-vmware-solution-horizon.md
@@ -193,6 +190,15 @@ landingContent:
           - text: Rotate vCenter & NSX-T passwords using Azure Logic App
             url: https://youtu.be/cK1qY3knj88
                             
+# Move resources (card 8)
+  - title: Move Azure VMware Solution resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Move EA and CSP subscriptions
+            url: move-ea-csp-subscriptions.md 
+
+
 
 # card 8
   - title: Troubleshooting

@@ -21,8 +21,9 @@ Use the Azure CLI IoT extension to see messages your devices are sending to IoT 
 
 ## Prerequisites
 
-+ Azure CLI installed and is version 2.7.0 or higher. Check the version of your Azure CLI by running `az --version`. Learn how to install and update from the [Azure CLI docs](/cli/azure/install-azure-cli)
-+ A work or school account in Azure, added as a user in an IoT Central application.
+A work or school account in Azure, added as a user in an IoT Central application.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3](../../../includes/azure-cli-prepare-your-environment-h3.md)]
 
 ## Install the IoT Central extension
 

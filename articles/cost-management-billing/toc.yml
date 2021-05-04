@@ -129,7 +129,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/cost-management-security-baseline
+      href: /security/benchmark/azure/baselines/cost-management-security-baseline?toc=/azure/cost-management-billing/toc.json
 - name: How-to guides
   items:
   - name: Configure Cost Management + Billing
