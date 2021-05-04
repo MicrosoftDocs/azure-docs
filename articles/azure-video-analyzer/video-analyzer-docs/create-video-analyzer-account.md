@@ -213,7 +213,7 @@ When no longer needed, delete the resource group, which deletes the account and 
 
 ---
 
-## Next steps
+### Next steps
 
 Learn how to [deploy Video Analyzer on an IoT Edge device][docs-deploy-on-edge].
 
