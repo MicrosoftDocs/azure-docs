@@ -117,7 +117,7 @@ landingContent:
             url: enable-public-internet-access.md
           - text: Configure site-to-site VPN gateway
             url: configure-site-to-site-vpn-gateway.md
-          - text: Windows Server Failover Cluster
+          - text: Configure Windows Server Failover Cluster
             url: configure-windows-server-failover-cluster.md
 
 # card 4
