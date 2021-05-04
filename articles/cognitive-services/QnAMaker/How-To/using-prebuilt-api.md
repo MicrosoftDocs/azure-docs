@@ -77,4 +77,4 @@ In the above request body we query over a single block of text. A sample respons
 We see that multiple answers are received as part of the API response. Each answer has a specific confidence score which helps understand the overall relevance of the answer. Users can make use of this confidence score to show the answers to the query.
 
 ## Prebuilt API reference
-Please vist the [Prebuilt API reference](http://docs.microsoft.com/rest/api/cognitiveservices-qnamaker/qnamaker5.0preview2/prebuilt/generateanswer) documentation to understand the input and output parameters required for calling the API.
+Please visit the [Prebuilt API reference](http://docs.microsoft.com/rest/api/cognitiveservices-qnamaker/qnamaker5.0preview2/prebuilt/generateanswer) documentation to understand the input and output parameters required for calling the API.
