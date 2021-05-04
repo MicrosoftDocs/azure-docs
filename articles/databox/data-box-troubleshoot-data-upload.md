@@ -38,7 +38,7 @@ The following non-retryable errors result in a pause in an upload and a notifica
 
 |Error category                    |Error code |Error message                                                                             |
 |----------------------------------|-----------|------------------------------------------------------------------------------------------|
-|UploadErrorCloudHttp              |400        |Bad Request (Invalid file name) [Learn more](#bad-request-invalid-file-name).|
+|UploadErrorCloudHttp              |400        |Bad Request (file name not valid) [Learn more](#bad-request-invalid-file-name).|
 |UploadErrorCloudHttp              |400        |The value for one of the HTTP headers is not in the correct format. [Learn more](#the-value-for-one-of-the-http-headers-is-not-in-the-correct-format).|
 |UploadErrorCloudHttp              |409        |This operation is not permitted as the blob is immutable due to a policy. [Learn more](#this-operation-is-not-permitted-as-the-blob-is-immutable-due-to-policy).|
 |UploadErrorCloudHttp              |409        |The total provisioned capacity of the shares cannot exceed the account maximum size limit. [Learn more](#the-total-provisioned-capacity-of-the-shares-cannot-exceed-the-account-maximum-size-limit).|
@@ -53,7 +53,7 @@ For more information about the data log's contents, see [Tracking and event logg
 > The **Follow-up** sections in the error descriptions describe how to update your data configuration before you place a new import order or perform a network transfer. You can't fix these errors in the current upload. The upload will complete with errors.
 
 
-### Bad Request (Invalid file name)
+### Bad Request (file name not valid)
 
 **Error category:** UploadErrorCloudHttp 
 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 04/29/2021
+ms.date: 05/04/2021
 ms.author: alkohli
 ---
 
@@ -270,7 +270,7 @@ The following notification in the Azure portal indicates that non-retryable erro
 
 You can't fix these errors. The upload will complete with errors, and the data will then be secure erased from the device. If you don't take action, the order will complete automatically after 14 days.
 
-The notification gives you time to make sure you have backup copies of the files that didn't upload and can fix any configuration issues for a future order or network transfer.
+The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
 
 For information about these errors, see [Troubleshoot paused data uploads from Azure Data Box and Azure Data Box Heavy devices](data-box-troubleshoot-data-upload.md).
 

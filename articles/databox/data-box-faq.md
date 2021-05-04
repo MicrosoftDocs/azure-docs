@@ -225,12 +225,6 @@ A.  To speed up the copy process:
 A.  Yes. A maximum of 10 storage accounts, general purpose, classic, or blob storage are supported with Data Box. Both hot and cool blob are supported.
 
 
-
-### Q. I was notified of copy errors during a data upload from my Data Box. What should I do?
-A.  When non-retryable data copy errors prevent any files in your import order from uploading to Azure, the errors are logged in the data copy log and you get a notification. You can't fix the errors. The upload will complete with errors, and then the data will be secure erased from your device. The notification is sent to make sure you know that the files didn't upload so you can fix any configuration errors before you try again. After reviewing the errors, you can confirm that you're ready to proceed. If you don't respond, the order completes automatically in 14 days.
-
-For error information, see [Review copy errors in uploads from Azure Data Box and Azure Data Box Heavy devices](data-box-troubleshoot-data-upload.md). For steps to proceed with your import order, see [Verify data upload to Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8).  
-
 ## Ship device
 
 <!--### Q. How do I schedule a pickup for my Data Box?--> 
@@ -282,6 +276,14 @@ A.  When you copy the data to Data Box, depending on whether the data is block b
 A.  If the container names have uppercase letters, those names are automatically converted to lowercase. If the names are not compliant in other ways (special characters, other languages, and so on), the upload will fail. For more guidance for naming shares, containers, and files, go to:
 - [Naming and referencing shares](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
 - [Block blobs and page blob conventions](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+
+
+
+### Q. I was notified of copy errors during a data upload from my Data Box. What should I do?
+A.  When non-retryable data copy errors prevent any files in your import order from uploading to Azure, the errors are logged in the data copy log and you get a notification. You can't fix the errors. The upload will complete with errors, and then the data will be secure erased from your device. The notification is sent to make sure you know that the files didn't upload so you can fix any configuration errors before you try again. After reviewing the errors, you can confirm that you're ready to proceed. If you don't respond, the order completes automatically in 14 days.
+
+For error information, see [Review copy errors in uploads from Azure Data Box and Azure Data Box Heavy devices](data-box-troubleshoot-data-upload.md). For steps to proceed with your import order, see [Verify data upload to Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8).  
+
 
 ### Q. How do I verify the data I copied onto Data Box?
 A.  After the data copy is complete, when you run **Prepare to ship**, your data is validated. Data Box generates a list of files and checksums for the data during the validation process. You can download the list of files and verify the list against the files in the source data. For more information, go to [Prepare to ship](data-box-deploy-picked-up.md#prepare-to-ship).

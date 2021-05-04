@@ -28,13 +28,15 @@ To review non-retryable errors and proceed with your order, do the following:
 
    ![Notification for copy errors during an upload in the Azure portal](media/data-box-verify-upload-return/copy-errors-in-upload-01.png)
 
+   Make a note of the **COPY LOG PATH** in **DATA COPY DETAILS**. You'll review the errors in the data copy log.
+
 2. Select **Review** to open a review panel.
 
    ![Review and proceed panel for upload errors in the Azure portal](media/data-box-verify-upload-return/copy-errors-in-upload-02.png)
 
-3. Review the errors in the data copy log using the path in **DATA COPY DETAILS**.
+3. Review the errors in the data copy log using the copy log path that you made a note of earlier. If you need to, you can select **Close** to display the path again. 
 
-   You'll need to fix any configuration issues before you try another upload via a network transfer or a new import order. For guidance, see [Review copy errors in uploads from Azure Data Box and Azure Data Box Heavy devices](../articles/databox/data-box-troubleshoot-data-upload.md).
+   You'll need to fix any configuration issues before you try another upload via a network transfer or a new import order. For guidance, see [Review copy uploads from Azure Data Box and Azure Data Box Heavy devices](../articles/databox/data-box-troubleshoot-data-upload.md).
 
 4. Select the check box to acknowledge that you've reviewed the errors, understand that the data will be erased from the Data Box after the upload, and are ready to proceed.
 
