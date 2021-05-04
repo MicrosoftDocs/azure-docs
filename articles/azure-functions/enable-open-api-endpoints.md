@@ -4,7 +4,8 @@ description: Create an OpenAPI definition that enables other apps and services t
 ms.service: azure-functions
 ms.topic: conceptual 
 ms.date: 05/03/2021
-#Customer intent: As a developer, I need to know how to ... so that ...
+zone_pivot_groups: development-environment-functions
+#Customer intent: As a developer, I need to know how to configure my C# project to generate OpenAPI/Swagger files so that my APIs can be more easily consumed by client apps.
 ---
 
 # Create an OpenAPI definition for C# class library functions (preview)
@@ -23,36 +24,45 @@ The [Azure Functions OpenAPI Extension][az func openapi extension] lets you gene
 
 ## Prerequisite 
 
+::: zone pivot="development-environment-vscode"  
 Before starting this tutorial, you must complete the article [Quickstart: Create a C# function in Azure using Visual Studio Code](create-first-function-vs-code-csharp.md). 
+::: zone-end  
+::: zone pivot="development-environment-vs"  
+Before starting this tutorial, you must complete the article [Quickstart: Create your first function in Azure using Visual Studio](functions-create-your-first-function-visual-studio.md).
+::: zone-end  
+::: zone pivot="development-environment-cli" 
+Before starting this tutorial, you must complete the article [Quickstart: Create a C# function in Azure from the command line](create-first-function-cli-csharp.md).
+::: zone-end 
+After you've created and published the function app in this previous article, you can use the OpenAPI Extension to generate an OpenAPI definition that describes the HTTP trigger function APIs.
 
-After you've created and published the function app in [this previous article]((create-first-function-vs-code-csharp.md)), you can use the OpenAPI Extension to generate an OpenAPI definition that describes the HTTP trigger function APIs.
+## Install the extension
 
-## Install the NuGet package
-
-To enable OpenAPI document, you will need to install a NuGet package, [Microsoft.Azure.WebJobs.Extensions.OpenApi][az func openapi extension].
+::: zone pivot="development-environment-cli,development-environment-vscode" 
+Install the [Microsoft.Azure.WebJobs.Extensions.OpenApi][az func openapi extension] NuGet package in your project by running the following command in a Terminal window:
 
 ```bash
-dotnet add package Microsoft.Azure.WebJobs.Extensions.OpenApi
+dotnet add package Microsoft.Azure.WebJobs.Extensions.OpenApi --prerelease
 ```
+::: zone-end  
+::: zone pivot="development-environment-vs"
+Install the [Microsoft.Azure.WebJobs.Extensions.OpenApi][az func openapi extension] NuGet package in your project by running the following [Install-Package](/nuget/tools/ps-ref-install-package) command in the Package Manager Console:
+
+```Command
+Install-Package Microsoft.Azure.WebJobs.Extensions.OpenApi -Version 0.7.2-preview
+```
+::: zone-end  
+
+This package supports creating an OpenAPI endpoint in your project.  
 
 ## Enable OpenAPI Document
 
-With [Visual Studio Code][vs code], open your HTTP trigger, `MyHttpTrigger`, to enable the OpenAPI metadata, and add attribute classes on top of the `FunctionName(...)` decorator.
+With [Visual Studio Code][vs code], open your HTTP trigger (`HttpExample`), and add the following attributes to the Run method that defines the function: 
 
 ```csharp
-namespace MyOpenApiFunctionApp
-{
-    public static class MyHttpTrigger
-    {
-        // Add these three attribute classes below
-        [OpenApiOperation(operationId: "getName", tags: new[] { "name" }, Summary = "Gets the name", Description = "This gets the name.", Visibility = OpenApiVisibilityType.Important)]
-        [OpenApiParameter(name: "name", In = ParameterLocation.Query, Required = true, Type = typeof(string), Summary = "The name", Description = "The name", Visibility = OpenApiVisibilityType.Important)]
-        [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
-        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "text/plain", bodyType: typeof(string), Summary = "The response", Description = "This returns the response")]
-        // Add these three attribute classes above
-
-        [FunctionName("MyHttpTrigger")]
-        public static async Task<IActionResult> Run(
+[OpenApiOperation(operationId: "getName", tags: new[] { "name" }, Summary = "Gets the name", Description = "This gets the name.", Visibility = OpenApiVisibilityType.Important)]
+[OpenApiParameter(name: "name", In = ParameterLocation.Query, Required = true, Type = typeof(string), Summary = "The name", Description = "The name", Visibility = OpenApiVisibilityType.Important)]
+[OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
+[OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "text/plain", bodyType: typeof(string), Summary = "The response", Description = "This returns the response")]
 ...
 ```
 
