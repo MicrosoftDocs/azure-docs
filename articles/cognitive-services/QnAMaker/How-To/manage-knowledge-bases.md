@@ -69,13 +69,21 @@ QnA Maker allows you to manage your knowledge bases by providing access to the k
 
 3. On the **Create** page, skip **Step 1** if you already have Custom question answering added to a Text Analytics service.
 
-    If you haven't created the service yet, select **Create a Text Analytics service**. You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to set up the Text Analytics service in your subscription. Add the Custom question answering feature to the service on creation. Remember your Azure Active Directory ID, Subscription, Text Analytics resource name you selected when you created the resource.
+    If you haven't created the service yet, select **Preview** and **Create a QnA service**.
 
-    When you are done creating the resource in the Azure portal, return to the QnA Maker portal, refresh the browser page, and continue to **Step 2**.
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of create a new QnA service](../media/qnamaker-create-publish-knowledge-base/create-qna-service.png)
+
+    You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to set up the Text Analytics service in your subscription. You should add the Custom question answering feature to the service on creation.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of selecting additional features](../media/qnamaker-how-to-setup-service/select-qna-feature-create-flow.png)
+    
+    Remember your Azure Active Directory ID, Subscription, Text Analytics resource name you selected when you created the resource. When you are done creating the resource in the Azure portal, return to the QnA Maker portal, refresh the browser page, and continue to Step 2.
 
 4. In **Step 2**, select your Active directory, subscription, service (resource), and the language for all knowledge bases created in the service.
 
-    ![Screenshot of selecting a Custom Question Answering service](../media/qnamaker-create-publish-knowledge-base/connect-your-knowledge-base.png)
+    ![Screenshot of selecting a Custom Question Answering service](../media/qnamaker-create-publish-knowledge-base/connect-knowledgebase-custom-qna.png)
 
 5. In **Step 2**, if you are creating the first knowledge base for your service, you will have an option to make language setting specific to every knowledge base. Once the language setting has been defined for the first knowledge base, you will not be allowed to modify the settings for the service later.
 
