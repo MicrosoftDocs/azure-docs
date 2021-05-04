@@ -30,7 +30,7 @@ Welcome to what's new in Azure Active Directory application management documenta
 - [Plan Azure Active Directory My Apps configuration](my-apps-deployment-plan.md)
 - [Single sign-on options in Azure AD](sso-options.md)
 - [Azure Active Directory application management: What's new](whats-new-docs.md)
-- [Header-based authentication for single sign-on with Application Proxy and PingAccess](application-proxy-ping-access-publishing-guide.md)
+- [Header-based authentication for single sign-on with Application Proxy and PingAccess](../app-proxy/application-proxy-ping-access-publishing-guide.md)
 - [Managing consent to applications and evaluating consent requests](manage-consent-requests.md)
 - [Configure the admin consent workflow](configure-admin-consent-workflow.md)
 - [Use tenant restrictions to manage access to SaaS cloud applications](tenant-restrictions.md)
