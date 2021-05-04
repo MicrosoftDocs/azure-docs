@@ -565,8 +565,6 @@ The reference function retrieves the runtime state of either a previously deploy
 
 Typically, you use the **reference** function to return a particular value from an object, such as the blob endpoint URI or fully qualified domain name.
 
-# [JSON](#tab/json)
-
 ```json
 "outputs": {
   "BlobUri": {
@@ -580,18 +578,7 @@ Typically, you use the **reference** function to return a particular value from 
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-output BlobUri string = reference(resourceId('Microsoft.Storage/storageAccounts', storageAccountName)).primaryEndpoints.blob
-output FQDN string = reference(resourceId('Microsoft.Network/publicIPAddresses', ipAddressName)).dnsSettings.fqdn
-```
-
----
-
 Use `'Full'` when you need resource values that aren't part of the properties schema. For example, to set key vault access policies, get the identity properties for a virtual machine.
-
-# [JSON](#tab/json)
 
 ```json
 {
@@ -616,33 +603,6 @@ Use `'Full'` when you need resource values that aren't part of the properties sc
     ],
     ...
 ```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-resource myVault 'Microsoft.KeyVault/vaults@2019-09-01' = {
-  name: 'vaultName'
-  properties: {
-    tenantId: subscription().tenantId
-    accessPolicies: [
-      {
-        'tenantId': reference(resourceId('Microsoft.Compute/virtualMachines', vmName), '2019-03-01', 'Full').identity.tenantId
-        'objectId': reference(resourceId('Microsoft.Compute/virtualMachines', vmName), '2019-03-01', 'Full').identity.principalId
-        'permissions': {
-          'keys': [
-            'all'
-          ]
-          'secrets': [
-            'all'
-          ]
-        }
-      }
-    ]
-  }
-}
-```
-
----
 
 ### Valid uses
 
@@ -1074,67 +1034,27 @@ The number of parameters you provide varies based on whether the resource is a p
 
 To get the resource ID for a parent resource in the same subscription and resource group, provide the type and name of the resource.
 
-# [JSON](#tab/json)
-
 ```json
 "[resourceId('Microsoft.ServiceBus/namespaces', 'namespace1')]"
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-resourceId('Microsoft.ServiceBus/namespaces', 'namespace1')
-```
-
----
-
 To get the resource ID for a child resource, pay attention to the number of segments in the resource type. Provide a resource name for each segment of the resource type. The name of the segment corresponds to the resource that exists for that part of the hierarchy.
-
-# [JSON](#tab/json)
 
 ```json
 "[resourceId('Microsoft.ServiceBus/namespaces/queues/authorizationRules', 'namespace1', 'queue1', 'auth1')]"
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-resourceId('Microsoft.ServiceBus/namespaces/queues/authorizationRules', 'namespace1', 'queue1', 'auth1')
-```
-
----
-
 To get the resource ID for a resource in the same subscription but different resource group, provide the resource group name.
-
-# [JSON](#tab/json)
 
 ```json
 "[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts', 'examplestorage')]"
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts', 'examplestorage')
-```
-
----
-
 To get the resource ID for a resource in a different subscription and resource group, provide the subscription ID and resource group name.
-
-# [JSON](#tab/json)
 
 ```json
 "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')
-```
-
----
 
 Often, you need to use this function when using a storage account or virtual network in an alternate resource group. The following example shows how a resource from an external resource group can easily be used:
 
