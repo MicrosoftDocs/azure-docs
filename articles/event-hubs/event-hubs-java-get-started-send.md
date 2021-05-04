@@ -8,7 +8,7 @@ ms.custom: devx-track-java
 
 # Use Java to send events to or receive events from Azure Event Hubs (azure-messaging-eventhubs)
 
-This quickstart shows how to send events to and receive events from an Event Hub using the **azure-messaging-eventhubs** Java package.
+This quickstart shows how to send events to and receive events from an event hub using the **azure-messaging-eventhubs** Java package.
 
 > [!IMPORTANT]
 > This quickstart uses the new **azure-messaging-eventhubs** package. For a quickstart that uses the old **azure-eventhubs** and **azure-eventhubs-eph** packages, see [Send and receive events using azure-eventhubs and azure-eventhubs-eph](event-hubs-java-get-started-send-legacy.md).
@@ -26,7 +26,7 @@ To complete this quickstart, you need the following prerequisites:
 
 ## Send events
 
-This section shows you how to create a Java application to send events an Event Hub.
+This section shows you how to create a Java application to send events an event hub.
 
 ### Add reference to Azure Event Hubs library
 
@@ -48,7 +48,7 @@ The Java client library for Event Hubs is available in the [Maven Central Reposi
 For the following sample, first create a new Maven project for a console/shell application in your favorite Java development environment. Add a class named `Sender`, and add the following code to the class:
 
 > [!IMPORTANT]
-> Update `<Event Hubs namespace connection string>` with the connection string to your Event Hubs namespace. Update `<Event Hub name>` with the name of your event hub in the namespace.
+> Update `<Event Hubs namespace connection string>` with the connection string to your Event Hubs namespace. Update `<Event hub name>` with the name of your event hub in the namespace.
 
 ```java
 import com.azure.messaging.eventhubs.*;
@@ -57,16 +57,17 @@ import java.util.List;
 
 public class Sender {
     private static final String connectionString = "<Event Hubs namespace connection string>";
-    private static final String eventHubName = "<Event Hub name>";
+    private static final String eventHubName = "<Event hub name>";
 
     public static void main(String[] args) {
         publishEvents();
     }
 }
 ```
-### Add code to publish events to the Event Hub
 
-Add a method named `publishEvents` to the `Sender` class as shown below.
+### Add code to publish events to the event hub
+
+Add a method named `publishEvents` to the `Sender` class:
 
 ```java
     /**
@@ -167,13 +168,13 @@ Add the following dependencies in the pom.xml file.
     > [!IMPORTANT]
     > Replace the placeholders with the correct values.
     > - `<Event Hubs namespace connection string>` with the connection string to your Event Hubs namespace. Update
-    > - `<Event Hub name>` with the name of your Event Hub in the namespace.
+    > - `<Event hub name>` with the name of your event hub in the namespace.
     > - `<Storage connection string>` with the connection string to your Azure storage account.
     > - `<Storage container name>` with the name of your container in your Azure Blob storage.
 
     ```java
     private static final String connectionString = "<Event Hubs namespace connection string>";
-    private static final String eventHubName = "<Event Hub name>";
+    private static final String eventHubName = "<Event hub name>";
     private static final String storageConnectionString = "<Storage connection string>";
     private static final String storageContainerName = "<Storage container name>";
     ```
@@ -233,9 +234,11 @@ Add the following dependencies in the pom.xml file.
             errorContext.getThrowable());
     };
     ```
+
 5. Build the program, and ensure that there are no errors.
 
 ## Run the applications
+
 1. Run the **Receiver** application first.
 1. Then, run the **Sender** application.
 1. In the **Receiver** application window, confirm that you see the events that were published by the Sender application.
@@ -246,6 +249,7 @@ Add the following dependencies in the pom.xml file.
     Processing event from partition 0 with sequence number 331 with body: Foo
     Processing event from partition 0 with sequence number 332 with body: Bar
     ```
+    
 1. Press **ENTER** in the receiver application window to stop the application.
 
     ```cmd
@@ -260,6 +264,7 @@ Add the following dependencies in the pom.xml file.
     ```
 
 ## Next steps
+
 See the following samples on GitHub:
 
 - [azure-messaging-eventhubs samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)
