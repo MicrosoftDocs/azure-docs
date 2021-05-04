@@ -40,7 +40,7 @@ This documentation contains the following types of articles:
 
 ## Face detection and analysis
 
-Face detection is required as a first step in all the other scenarios. The Detect API detects human faces in an image and returns the rectangle coordinates of their locations. It also returns a unique ID that represents the stored face data, which is used in later operations to compare different faces. 
+Face detection is required as a first step in all the other scenarios. The Detect API detects human faces in an image and returns the rectangle coordinates of their locations. It also returns a unique ID that represents the stored face data, which is used in later operations to identify or verify faces.
 
 Optionally, face detection can also extract a set of face-related attributes, such as head pose, age, emotion, facial hair, and glasses. These attributes are general predictions, not actual classifications. Some attributes are useful to ensure that your application is getting high-quality face data when users add themselves to a Face service (for example, it could reject photos where the user is wearing sunglasses).
 
