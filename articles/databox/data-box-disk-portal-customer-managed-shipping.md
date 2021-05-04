@@ -52,7 +52,7 @@ When you place a Data Box Disk order, you can choose self-managed shipping optio
 
    ![Schedule pickup](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-user-pickup-02c.png)
 
-   > [!NOTE:]
+   > [!NOTE]
    > Required information in the email may vary by region.<!--How can they get this information?-->  
 
 6. After you've scheduled your device pickup, you can view your authorization code in **Schedule pickup for Azure**.
