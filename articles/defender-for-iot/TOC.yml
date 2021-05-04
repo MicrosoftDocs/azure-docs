@@ -237,7 +237,7 @@
       - name: Import device information
         displayName: import, enrich
         href: how-to-import-device-information.md
-      - name: Define windows endpoint monitoring (WMI)
+      - name: Define Windows endpoint monitoring (WMI)
         displayName: scan, probe, active
         href:  how-to-configure-windows-endpoint-monitoring.md
     - name: Track sensor activity
