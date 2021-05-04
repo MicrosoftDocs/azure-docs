@@ -63,7 +63,7 @@ Private Endpoints support both Proxy and Redirect [connection policy](/connectiv
 - For Redirect mode, outbound traffic is allowed to the private endpoint IP address on port range 1472 to 65535
 
 > [!NOTE]
->For scenarios where the Azure VM and private endpoint are located in different subnets, ensure that the appropriate routes exists to allow traffic between the subnets.
+>For scenarios where the Azure VM and private endpoint are located in different subnets, ensure that the appropriate NSG rules exists to allow traffic between the subnets.
 
 1. [Start a Remote Desktop (RDP) session and connect to the virtual machine](../../virtual-machines/windows/connect-logon.md#connect-to-the-virtual-machine). 
 
