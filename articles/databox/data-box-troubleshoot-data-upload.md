@@ -38,7 +38,7 @@ The following non-retryable errors result in a pause in an upload and a notifica
 
 |Error category                    |Error code |Error message                                                                             |
 |----------------------------------|-----------|------------------------------------------------------------------------------------------|
-|UploadErrorCloudHttp              |400        |Bad Request (file name not valid) [Learn more](#bad-request-invalid-file-name).|
+|UploadErrorCloudHttp              |400        |Bad Request (file name not valid) [Learn more](#bad-request-file-name-not-valid).|
 |UploadErrorCloudHttp              |400        |The value for one of the HTTP headers is not in the correct format. [Learn more](#the-value-for-one-of-the-http-headers-is-not-in-the-correct-format).|
 |UploadErrorCloudHttp              |409        |This operation is not permitted as the blob is immutable due to a policy. [Learn more](#this-operation-is-not-permitted-as-the-blob-is-immutable-due-to-policy).|
 |UploadErrorCloudHttp              |409        |The total provisioned capacity of the shares cannot exceed the account maximum size limit. [Learn more](#the-total-provisioned-capacity-of-the-shares-cannot-exceed-the-account-maximum-size-limit).|
@@ -130,7 +130,7 @@ For more information about the data log's contents, see [Tracking and event logg
 
 **Error description:** Data import to a blob in the cloud will fail if the destination blob has an active lease.
 
-**Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, ensure that the listed blobs do not have an active lease. For more information, see [Pessimistic concurrency for blobs](/azure/storage/blobs/concurrency-manage?tabs=dotnet#pessimistic-concurrency-for-blobs). Then [contact Support](data-box-disk-contact-microsoft-support.md).<!--Do they file a support ticket or send email?-->
+**Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, ensure that the listed blobs do not have an active lease. For more information, see [Pessimistic concurrency for blobs](/azure/storage/blobs/concurrency-manage?tabs=dotnet#pessimistic-concurrency-for-blobs). Then [contact Support](data-box-disk-contact-microsoft-support.md).
 
 
 ### The size of the blob being imported is invalid. The blob size is `<blob-size>` Bytes. Supported sizes are between 20971520 Bytes and 8192 GiB.
