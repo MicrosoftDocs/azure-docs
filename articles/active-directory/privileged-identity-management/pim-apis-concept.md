@@ -77,7 +77,7 @@ In the current iteration, there is *no API support* for PIM alerts and privilege
 
 ## Design of current API iteration
 
-PIM API consists of two categories that are consistent for both the API for Azure AD roles and Azure resource roles:
+PIM API consists of two categories that are consistent for both the API for Azure AD roles and Azure resource roles: assignment and activation API requests, and policy settings.
 
 ### Assignment and activation API
 
