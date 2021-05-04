@@ -1,0 +1,31 @@
+---
+title: Creator Service Geographic Scope
+description: Learn about Creator service's geographic mappings in Azure Maps
+author: anastasia-ms 
+ms.author: v-stharr 
+ms.date: 05/04/2021
+ms.topic: conceptual 
+ms.service: azure-maps 
+services: azure-maps 
+manager: philmea 
+ms.custom: mvc 
+--- 
+
+# Creator service geographic scope
+
+Azure Maps Creator is a geographically scoped service. Creator offers a resource provider API that, given an Azure region, creates an instance of Creator data deployed at the geographical level. The mapping from an Azure region to geography happens behind the scenes as described in the table below. For more details on Azure regions and geographies, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies).
+
+## Data locations
+
+Microsoft may replicate customer data to other regions available within the same geography for disaster recovery and high availability. No matter which geography the customer selected, Microsoft does not control or limit the locations from which customers, or their end users, may access customer data via Azure Maps APIs.
+
+>[!Note]
+> Your data does not cross geographic boundaries, i.e., data residing in Europe is not accessible by anyone outside of Europe.
+
+The following table describes the mapping between geography and supported Azure regions, and the respective geographic API endpoint. For example, if a Creator account is provisioned in the West US 2 region that falls within the United States geography, all API calls to the Conversion service must be made to `us.atlas.microsoft.com/conversion/convert`.
+
+
+| Azure Geographic areas (geos) | Azure datacenters (regions) | API geographic endpoint |
+|------------------------|----------------------|-------------|
+| Europe| West Europe, North Europe | eu.atlas.microsoft.com |
+|United States | West US 2, East US 2 | us.atlas.microsoft.com |
