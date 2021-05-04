@@ -8,7 +8,7 @@ zone_pivot_groups: "bring-third-party-dependency-programming-functions"
 
 # Bring dependencies or third party library to Azure Functions
 
-In this article, you learn to bring in third party dependencies, such as json files, binary files, and machine learning models, into your functions apps.
+In this article, you learn to bring in third-party dependencies, such as json files, binary files, and machine learning models, into your functions apps.
 
 In this article, you learn how to:
 > [!div class="checklist"]
