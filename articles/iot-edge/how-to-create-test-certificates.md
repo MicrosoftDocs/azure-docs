@@ -164,7 +164,7 @@ Before proceeding with the steps in this section, follow the steps in the [Set u
 
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
    
-   This certificate is required before you move forward with creating additional certificates for your IoT Edge devices and leaf devices as described below.
+   This certificate is required before you can create more certificates for your IoT Edge devices and leaf devices as described in the next sections.
 
 ### Linux
 
@@ -204,7 +204,7 @@ The new device identity command creates several certificate and key files, inclu
 * `<WRKDIR>\certs\iot-edge-device-identity-<name>.cert.pem`
 * `<WRKDIR>\private\iot-edge-device-identity-<name>.key.pem`
 
-For individual enrollment of the IoT Edge device in the Device Provisioning Service (DPS), use `iot-edge-device-identity-<name>.cert.pem`, whereas for registering the Iot Edge device to IoT Hub use `iot-edge-device-identity-<name>-full-chain.cert.pem` and `iot-edge-device-identity-<name>.key.pem` certificates. For more information on how to create and provision an IoT Edge device using certificates, refer [Create and provision an IoT Edge device using X.509 certificates](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/iot-edge/how-to-auto-provision-x509-certs.md).
+For individual enrollment of the IoT Edge device in the Device Provisioning Service (DPS), use `iot-edge-device-identity-<name>.cert.pem`. To register the Iot Edge device to IoT Hub, use `iot-edge-device-identity-<name>-full-chain.cert.pem` and `iot-edge-device-identity-<name>.key.pem` certificates. For more information, see [Create and provision an IoT Edge device using X.509 certificates](how-to-auto-provision-x509-certs.md).
 
 
 ### Linux
