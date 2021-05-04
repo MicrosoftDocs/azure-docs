@@ -21,7 +21,7 @@ This quickstart describes how to use PowerShell to create an Azure Data Factory.
 > [!NOTE]
 > This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
 
-[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)]
+[!INCLUDE [data-factory-quickstart-prerequisites](includes/data-factory-quickstart-prerequisites.md)]
 
 ### Azure PowerShell
 
@@ -433,7 +433,7 @@ $RunId = Invoke-AzDataFactoryV2Pipeline `
     "target": "CopyFromBlobToBlob"
     ```
 
-[!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
+[!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](includes/data-factory-quickstart-verify-output-cleanup.md)]
 
 ## Next steps
 

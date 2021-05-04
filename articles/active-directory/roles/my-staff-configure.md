@@ -69,7 +69,7 @@ When a user goes to My Staff, they are shown the names of the [administrative un
 
 ## Reset a user's password
 
-Before you can rest passwords for on-premises users, you must fulfill the following prerequisite conditions. For detailed instructions, see [Enable self-service password reset](../authentication/tutorial-enable-sspr-writeback.md) tutorial.
+Before you can reset passwords for on-premises users, you must fulfill the following prerequisite conditions. For detailed instructions, see [Enable self-service password reset](../authentication/tutorial-enable-sspr-writeback.md) tutorial.
 
 * Configure permissions for password writeback
 * Enable password writeback in Azure AD Connect
