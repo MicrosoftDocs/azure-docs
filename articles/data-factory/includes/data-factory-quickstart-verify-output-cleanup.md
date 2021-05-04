@@ -22,7 +22,7 @@ The pipeline automatically creates the output folder in the adftutorial blob con
 
 ## Clean up resources
 
-You can clean up the resources that you created in the Quickstart in two ways. You can delete the [Azure resource group](../../articles/azure-resource-manager/management/overview.md), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the data factory you created in this tutorial.
+You can clean up the resources that you created in the Quickstart in two ways. You can delete the [Azure resource group](../../azure-resource-manager/management/overview.md), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the data factory you created in this tutorial.
 
 Deleting a resource group deletes all resources including data factories in it. Run the following command to delete the entire resource group: 
 
