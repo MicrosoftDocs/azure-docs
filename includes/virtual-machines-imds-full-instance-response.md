@@ -44,6 +44,9 @@ ms.reviewer: azmetadatadev
         ],
         "publisher": "RDFE-Test-Microsoft-Windows-Server-Group",
         "resourceGroupName": "macikgo-test-may-23",
+        "resourceDisk": {
+            "size": "4096"
+        },
         "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
         "securityProfile": {
             "secureBootEnabled": "true",
@@ -166,6 +169,9 @@ ms.reviewer: azmetadatadev
             }
         ],
         "publisher": "Canonical",
+        "resourceDisk": {
+            "size": "4096"
+        },
         "resourceGroupName": "macikgo-test-may-23",
         "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
         "securityProfile": {
