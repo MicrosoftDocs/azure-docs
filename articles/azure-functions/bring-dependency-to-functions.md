@@ -88,7 +88,6 @@ def main(req: func.HttpRequest,
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-## Bring Dependencies by putting them in Azure Functions Project Directory
 One of the simplest ways to bring in dependencies is to put the files/artifact together with the functions app code in functions project directory structure. Here is an example of the directory samples in a Java functions project:
 ```
 <project_root>/
