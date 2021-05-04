@@ -82,6 +82,8 @@ If your app isn't registered in a tenant, you'll only see the option to verify a
 
 1. Click the **Verify and save domain** button.
 
+You are not required to keep up the resources used for verification after domain has been verified. Once the verification is done you can remove the hosted file.
+
 ### To select a verified domain
 
 - If your tenant has verified domains, select one of the domains from the **Select a verified domain** dropdown.
