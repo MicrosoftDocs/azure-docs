@@ -12,6 +12,15 @@ ms.date: 05/03/2021
 
 This article describes the limits and configuration information for Azure Logic Apps and related resources. Many limits apply to both the multi-tenant and single-tenant (preview) Logic Apps service with noted exceptions when they exist. For Power Automate, see [Limits and configuration in Power Automate](/flow/limits-and-config).
 
+This table provides more information about the terms, *multi-tenant*, *single-tenant*, and *integration service environment*, which appear in this article:
+
+| Environment | Resource sharing and usage | [Pricing model](logic-apps-pricing.md) |
+|-------------|----------------------------|----------------------------------------|
+| Azure Logic Apps <br>(Multi-tenant) | Workflows in logic apps *across multiple tenants* share the same processing (compute), storage, network, and so on. | Consumption |
+| Azure Logic Apps <br>(Preview, single-tenant) | Workflows *in the same logic app and same single tenant* share the same processing (compute), storage, network, and so on. | [App Service or Premium hosting plan](../azure-functions/functions-scale.md) plus [pricing tier](../app-service/overview-hosting-plans.md) <p><p>If you have *stateful* workflows, which use [external storage](../azure-functions/storage-considerations.md#storage-account-requirements), the Azure Logic Apps runtime makes storage transactions that follow [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
+| Integration service environment | Workflows in the *same environment* share the same processing (compute), storage, network, and so on. | Fixed |
+||||
+
 <a name="definition-limits"></a>
 
 ## Workflow definition limits
@@ -64,7 +73,7 @@ For example, suppose that you reduce the retention limit from 90 days to 30 days
 > If a run's duration exceeds the current run history retention limit, the run is removed from the runs history in storage. 
 > To avoid losing run history, make sure that the retention limit is *always* more than the run's longest possible duration.
 
-#### [Multi-tenant | Consumption](#tab/multi-tenant)
+#### [Portal (Consumption)](#tab/azure-portal)
 
 1. In the [Azure portal](https://portal.azure.com) search box, find and select **Logic apps**.
 
@@ -78,7 +87,7 @@ For example, suppose that you reduce the retention limit from 90 days to 30 days
 
 1. When you're done, on the **Workflow settings** toolbar, select **Save**.
 
-#### [ARM template | Consumption](#tab/arm-template)
+#### [Resource Manager Template (Consumption)](#tab/azure-resource-manager)
 
 If you use an Azure Resource Manager template, this setting appears as a property in your workflow's resource definition, which is described in the [Microsoft.Logic workflows template reference](/azure/templates/microsoft.logic/workflows):
 
@@ -140,9 +149,9 @@ The following table lists the limits for a single workflow definition:
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
-| Action - Executions per 5-minute rolling interval | - 100,000 executions (default) <p><p>- 300,000 executions (maximum in high throughput mode)  | To raise the default limit to the maximum limit for your workflow, see [Run in high throughput mode](#run-high-throughput-mode), which is in preview. Or, you can [distribute the workload across more than one logic app](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary. |
+| Action - Executions per 5-minute rolling interval | - 100,000 executions (default) <p><p>- 300,000 executions (maximum in high throughput mode)  | To raise the default limit to the maximum limit for your workflow, see [Run in high throughput mode](#run-high-throughput-mode), which is in preview. Or, you can [distribute the workload across more than one logic app](handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary. |
 | Action - Concurrent outbound calls | ~2,500 calls | You can reduce the number of concurrent requests or reduce the duration as necessary. |
-| Managed connector throttling | - Multi-tenant: Throttling limit varies based on connector <p><p>- Single-tenant: 50 requests per minute per connection | For multi-tenant, review [each managed connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors). <p><p>For more information about handling connector throttling, review [Handle throttling problems ("429 - Too many requests" errors](../handle-throttling-problems-429-errors.md#connector-throttling). |
+| Managed connector throttling | - Multi-tenant: Throttling limit varies based on connector <p><p>- Single-tenant: 50 requests per minute per connection | For multi-tenant, review [each managed connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors). <p><p>For more information about handling connector throttling, review [Handle throttling problems ("429 - Too many requests" errors](handle-throttling-problems-429-errors.md#connector-throttling). |
 | Runtime endpoint - Concurrent inbound calls | ~1,000 calls | You can reduce the number of concurrent requests or reduce the duration as necessary. |
 | Runtime endpoint - Read calls per 5 minutes  | 60,000 read calls | This limit applies to calls that get the raw inputs and outputs from a workflow's run history. You can distribute the workload across more than one workflow as necessary. |
 | Runtime endpoint - Invoke calls per 5 minutes | 45,000 invoke calls | You can distribute workload across more than one workflow as necessary. |
@@ -151,19 +160,19 @@ The following table lists the limits for a single workflow definition:
 
 <a name="run-high-throughput-mode"></a>
 
-#### Run in high throughput mode
+### Run in high throughput mode
 
 For a single workflow definition, the number of actions that run every 5 minutes has a [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). To raise the default limit to the [maximum limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) for your workflow, which is three times the default limit, you can enable high throughput mode, which is in preview. Or, you can [distribute the workload across more than one workflow](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary.
 
-##### [Portal](#tab/azure-portal)
+#### [Portal (Consumption)](#tab/azure-portal)
 
-1. In the Azure portal, on your logic app menu, under **Settings**, select **Workflow settings**.
+1. In the Azure portal, on your logic app's menu, under **Settings**, select **Workflow settings**.
 
 1. Under **Runtime options** > **High throughput**, change the setting to **On**.
 
    ![Screenshot that shows logic app menu in Azure portal with "Workflow settings" and "High throughput" set to "On".](./media/logic-apps-limits-and-config/run-high-throughput-mode.png)
 
-##### [ARM template](#tab/arm-template)
+#### [Resource Manager Template (Consumption)](#tab/azure-resource-manager)
 
 To enable this setting in an ARM template for deploying your logic app, in the `properties` object for your logic app's resource definition, add the `runtimeConfiguration` object with the `operationOptions` property set to `OptimizedForHighThroughput`:
 
@@ -212,7 +221,7 @@ For more information about your logic app resource definition, see [Overview: Au
   | Name | Limit | Notes |
   |------|-------|-------|
   | Base unit execution limit | System-throttled when infrastructure capacity reaches 80% | Provides ~4,000 action executions per minute, which is ~160 million action executions per month |
-  | Scale unit execution limit | System-throttled when infrastructure capacity reaches 80% | Each scale unit can provide ~2,000 additional action executions per minute, which is ~80 million more action executions per month |
+  | Scale unit execution limit | System-throttled when infrastructure capacity reaches 80% | Each scale unit can provide ~2,000 more action executions per minute, which is ~80 million more action executions per month |
   | Maximum scale units that you can add | 10 scale units | |
   ||||
 
@@ -226,7 +235,7 @@ Azure Logic Apps supports write operations, including inserts and updates, throu
 
 ## HTTP limits
 
-The following tables lists the limits for a single inbound or outbound call:
+The following tables list the limits for a single inbound or outbound call:
 
 <a name="http-timeout-limits"></a>
 
@@ -302,7 +311,7 @@ The following table lists the limits for a single workflow definition:
 | Name | Multi-tenant limit | Single-tenant limit (preview) | Notes |
 |------|--------------------|-------------------------------|-------|
 | Maximum number of code characters | 1,024 characters | 100,000 characters | To use the higher limit, create a **Logic App (Preview)** resource type, which runs in single-tenant (preview) Logic Apps, either [by using the Azure portal](create-stateful-stateless-workflows-azure-portal.md) or [by using Visual Studio Code and the **Azure Logic Apps (Preview)** extension](create-stateful-stateless-workflows-visual-studio-code.md). |
-| Maximum duration for runing code | 5 seconds | 15 seconds | To use the higher limit, create a **Logic App (Preview)** resource type, which runs in single-tenant (preview) Logic Apps, either [by using the Azure portal](create-stateful-stateless-workflows-azure-portal.md) or [by using Visual Studio Code and the **Azure Logic Apps (Preview)** extension](create-stateful-stateless-workflows-visual-studio-code.md). |
+| Maximum duration for running code | 5 seconds | 15 seconds | To use the higher limit, create a **Logic App (Preview)** resource type, which runs in single-tenant (preview) Logic Apps, either [by using the Azure portal](create-stateful-stateless-workflows-azure-portal.md) or [by using Visual Studio Code and the **Azure Logic Apps (Preview)** extension](create-stateful-stateless-workflows-visual-studio-code.md). |
 |||||
 
 <a name="custom-connector-limits"></a>
@@ -337,11 +346,11 @@ Each Azure subscription has these integration account limits:
 
 * 1,000 total integration accounts, including integration accounts in any [integration service environments (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) across both [Developer and Premium SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
-* Each ISE, whether [Developer or Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), can use a single integration account at no additional cost, although the included account type varies by ISE SKU. You can create more integration accounts for your ISE up to the total limit for an [additional cost](logic-apps-pricing.md#fixed-pricing):
+* Each ISE, whether [Developer or Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), can use a single integration account at no extra cost, although the included account type varies by ISE SKU. You can create more integration accounts for your ISE up to the total limit for an [additional cost](logic-apps-pricing.md#fixed-pricing):
 
   | ISE SKU | Integration account limits |
   |---------|----------------------------|
-  | **Premium** | 20 total accounts, including one Standard account at no additional cost. With this SKU, you can have only [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) accounts. No Free or Basic accounts are permitted. |
+  | **Premium** | 20 total accounts, including one Standard account at no extra cost. With this SKU, you can have only [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) accounts. No Free or Basic accounts are permitted. |
   | **Developer** | 20 total accounts, including one [Free](../logic-apps/logic-apps-pricing.md#integration-accounts) account (limited to 1). With this SKU, you can have either combination: <p>- A Free account and up to 19 [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) accounts. <br>- No Free account and up to 20 Standard accounts. <p>No Basic or additional Free accounts are permitted. <p><p>**Important**: Use the [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) for experimenting, development, and testing, but not for production or performance testing. |
   |||
 
