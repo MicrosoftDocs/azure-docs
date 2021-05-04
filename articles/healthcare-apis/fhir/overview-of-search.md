@@ -141,7 +141,7 @@ By default, the Azure API for FHIR is set to lenient handling. This means that t
 
 A [chained search](https://www.hl7.org/fhir/search.html#chaining) allows you to search using a search parameter on a resource referenced by another resource. For example, if you want to find encounters where the patient’s name is Jane, use:
 
-`GET {{FHIR URL}}/Encounter?subject:Patient.name=Jane`
+`GET {{FHIR_URL}}/Encounter?subject:Patient.name=Jane`
 
 Similarly, you can do a reverse chained search. This allows you to get resources where you specify criteria on other resources that refer to them. For more examples of chained and reverse chained search, refer to the [FHIR search examples](search-samples.md) page. 
 
