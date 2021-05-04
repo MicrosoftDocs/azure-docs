@@ -9,7 +9,7 @@ ms.date: 04/27/2021
 ms.author: cshoe
 ---
 
-# Securing Secrets in Azure KeyVault
+# Securing secrets in Azure Key Vault
 
 When configuring custom ODIC providers, you may want to store connection secrets in Key Vault. This article demonstrates how to use a managed identity to grant Azure Static Web Apps access to Key Vault secrets.
 
