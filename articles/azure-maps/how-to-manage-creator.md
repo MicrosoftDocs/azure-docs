@@ -66,17 +66,9 @@ Creator inherits Azure Maps Access Control (IAM) settings. All API calls for dat
 
 Creator usage data is incorporated in your Azure Maps usage charts and activity log.  For more information, see [Manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
->[!Important]
->It's recommended to make use of:
->
-> * Azure Active Directory (Azure AD) in all solutions built with an Azure Maps account using Creator services. For more information, on Azure AD, see [Azure AD authentication](azure-maps-authentication.md#azure-ad-authentication)
->
->* Role-based access control settings, to allow map makers to act as the Azure Maps Data Contributor role, and Creator map data users to act as the Azure Maps Data Reader role. For more information, see [Authorization with role-based access control](azure-maps-authentication.md#authorization-with-role-based-access-control).
-
 ## Access to Creator services
 
 Creator services and services that use data hosted in Creator (for example, Render service), are accessible at a geographical URL. The geographical URL is determined by the location selected during creation. For example, if Creator is created in the United States geographical location, all calls to the Conversion service must be submitted to `us.atlas.microsoft.com/conversion/convert`. The table below shows the the mappings of region to geographical location.
-
 
 | Regions                  | Geographical location | Geographical API URl |
 |------------------------|----------------------|-------------|
