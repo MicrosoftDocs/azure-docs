@@ -119,7 +119,7 @@ You can also assign the **Azure Digital Twins Data Owner** role using the access
     
   | Setting | Value |
   | --- | --- |
-  | Role | [Azure Digital Twins Data Owner](../role-based-access-control/built-in-roles.md##azure-digital-twins-data-owner) |
+  | Role | [Azure Digital Twins Data Owner](../role-based-access-control/built-in-roles.md#azure-digital-twins-data-owner) |
   | Assign access to | User, group, or service principal |
   | Members | Search for the name or email address of the user to assign. |
 
