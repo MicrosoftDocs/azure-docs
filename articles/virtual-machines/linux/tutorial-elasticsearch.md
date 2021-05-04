@@ -5,7 +5,6 @@ services: virtual-machines
 author: rloutlaw
 manager: justhe
 ms.service: virtual-machines
-ms.subservice: workload
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.devlang: azurecli
