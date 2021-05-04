@@ -116,6 +116,15 @@ If you want to update to the most recent version of IoT Edge, use the following 
 
 # [Linux for Windows](#tab/linuxforwindows)
 
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>Currently, there is not support for IoT Edge version 1.2 running on Linux for Windows virtual machines.
+
+:::moniker-end
+<!-- end 1.2 -->
+
 With IoT Edge for Linux on Windows, IoT Edge runs in a Linux virtual machine hosted on a Windows device. This virtual machine is pre-installed with IoT Edge, and it is managed with Microsoft Update to keep the components up to date automatically.
 
 To receive IoT Edge for Linux on Windows updates, the Windows host should be configured to receive updates for other Microsoft products. You can turn this option with the following steps:
@@ -130,16 +139,16 @@ To receive IoT Edge for Linux on Windows updates, the Windows host should be con
 
 # [Windows](#tab/windows)
 
-With IoT Edge for Windows, IoT Edge runs directly on the Windows device. For update instructions using the PowerShell scripts, see [Install and manage Azure IoT Edge for Windows](how-to-install-iot-edge-windows-on-windows.md).
-:::moniker-end
-
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
 
-Currently, there is not support for IoT Edge version 1.2 running on Windows devices.
+>[!NOTE]
+>Currently, there is not support for IoT Edge version 1.2 running on Windows devices.
 
 :::moniker-end
 <!-- end 1.2 -->
+
+With IoT Edge for Windows, IoT Edge runs directly on the Windows device. For update instructions using the PowerShell scripts, see [Install and manage Azure IoT Edge for Windows](how-to-install-iot-edge-windows-on-windows.md).
 
 ---
 
@@ -199,7 +208,7 @@ If you use specific tags in your deployment (for example, mcr.microsoft.com/azur
 ## Special case: Update from 1.0 or 1.1 to 1.2
 
 >[!NOTE]
->If you're using IoT Edge for Linux on Windows, this special case section does not apply.
+>If you're using Windows containers or IoT Edge for Linux on Windows, this special case section does not apply.
 
 Starting with version 1.2, the IoT Edge service uses a new package name and has some differences in the installation and configuration processes. If you have an IoT Edge device running version 1.0 or 1.1, use these instructions to learn how to update to 1.2.
 
@@ -275,7 +284,7 @@ Now that the IoT Edge service running on your devices has been updated, follow t
 ## Special case: Update to a release candidate version
 
 >[!NOTE]
->If you're using IoT Edge for Linux on Windows, this special case section does not apply.
+>If you're using Windows containers or IoT Edge for Linux on Windows, this special case section does not apply.
 
 Azure IoT Edge regularly releases new versions of the IoT Edge service. Before each stable release, there is one or more release candidate (RC) versions. RC versions include all the planned features for the release, but are still going through testing and validation. If you want to test a new feature early, you can install an RC version and provide feedback through GitHub.
 
