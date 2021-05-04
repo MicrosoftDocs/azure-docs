@@ -22,9 +22,7 @@ ms.service: digital-twins
 >[!NOTE]
 >This tool is currently in **public preview**.
 
-## Set up
-
-<Add later: how to access it in the portal, any other setup steps>
+[!INCLUDE [digital-twins-access-explorer.md](../../includes/digital-twins-access-explorer.md)]
 
 ## Query your digital twin graph
 
