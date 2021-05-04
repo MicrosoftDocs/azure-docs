@@ -21,8 +21,8 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 ### Computer Vision v3.2 GA
 
 The Computer Vision API v3.2 is now generally available with the following updates:
-* Improved image tagging model: analyzes visual content and generates relevant tags based on objects, actions and content displayed in the image. This is available through the [Tag Image API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200). See the Image Analysis [how-to guide](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) and [overview](https://docs.microsoft.com/azure/cognitive-services/computer-vision/overview-image-analysis) to learn more.
-* Updated content moderation model: detects presence of adult content and provides flags to filter images containing adult, racy and gory visual content. This is available through the [Analyze API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b). See the Image Analysis [how-to guide](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) and [overview](https://docs.microsoft.com/azure/cognitive-services/computer-vision/overview-image-analysis) to learn more.
+* Improved image tagging model: analyzes visual content and generates relevant tags based on objects, actions and content displayed in the image. This is available through the [Tag Image API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200). See the Image Analysis [how-to guide](./vision-api-how-to-topics/howtocallvisionapi.md) and [overview](./overview-image-analysis.md) to learn more.
+* Updated content moderation model: detects presence of adult content and provides flags to filter images containing adult, racy and gory visual content. This is available through the [Analyze API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b). See the Image Analysis [how-to guide](./vision-api-how-to-topics/howtocallvisionapi.md) and [overview](./overview-image-analysis.md) to learn more.
 * [OCR (Read) available for 73 languages](./language-support.md#optical-character-recognition-ocr) including Simplified and Traditional Chinese, Japanese, Korean, and Latin languages.
 * [OCR (Read)](./overview-ocr.md) also available as a [Distroless container](./computer-vision-how-to-install-containers.md?tabs=version-3-2) for on-premise deployment.
 
@@ -36,7 +36,7 @@ The Computer Vision API v3.2 is now generally available with the following updat
 The Computer Vision API v3.2 public preview has been updated. The preview release has all Computer Vision features along with updated Read and Analyze APIs.
 
 > [!div class="nextstepaction"]
-> [See Computer Vision v3.2 public preview 3](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
+> [See Computer Vision v3.2 public preview 3](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
 
 ## February 2021
 
@@ -51,7 +51,7 @@ Computer Vision's Read API v3.2 public preview, available as cloud service and D
 See the [Read API how-to guide](Vision-API-How-to-Topics/call-read-api.md) to learn more.
 
 > [!div class="nextstepaction"]
-> [Use the Read API v3.2 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
+> [Use the Read API v3.2 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
 
 
 ## January 2021

@@ -10,11 +10,6 @@ ms.service: azure-communication-services
 
 In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling SDK for iOS.
 
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-android-ios.md)]
-
-> [!NOTE]
-> This document uses version 1.0.0-beta.12 of the Calling SDK.
-
 ## Prerequisites
 
 To complete this tutorial, you’ll need the following prerequisites:
@@ -43,9 +38,7 @@ In Xcode, create a new iOS project and select the **Single View App** template. 
    use_frameworks!
 
    target 'AzureCommunicationCallingSample' do
-     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.12'
-     pod 'AzureCommunication', '~> 1.0.0-beta.11'
-     pod 'AzureCore', '~> 1.0.0-beta.11'
+     pod 'AzureCommunicationCalling', '~> 1.0.0'
    end
    ```
 
