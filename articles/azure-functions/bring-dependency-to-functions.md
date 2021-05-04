@@ -37,7 +37,7 @@ In this article, you learn how to:
 
 ## Bring in dependencies from the project directory
 ::: zone pivot="programming-language-python"
-One of the simplest ways to bring in dependencies is to put the files/artifact together with the functions app code in functions project directory structure. Here is an example of the directory samples in a Python functions project:
+One of the simplest ways to bring in dependencies is to put the files/artifact together with the functions app code in Functions project directory structure. Here is an example of the directory samples in a Python functions project:
 ```
 <project_root>/
  | - my_first_function/
