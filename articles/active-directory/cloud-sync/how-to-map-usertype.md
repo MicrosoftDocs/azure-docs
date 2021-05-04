@@ -1,5 +1,5 @@
 ---
-title: 'How to use map UserType with cloud sync'
+title: 'How to use map UserType with Azure AD Connect cloud sync'
 description: This article describes how to use map the UserType attribute with cloud sync.
 services: active-directory
 author: billmath

@@ -1,5 +1,5 @@
 ---
-title: 'How to use expression builder with cloud sync'
+title: 'How to use expression builder with Azure AD Connect cloud sync'
 description: This article describes how to use the expression builder with cloud sync.
 services: active-directory
 author: billmath
@@ -45,7 +45,6 @@ Next, we fill in the value for oldValue.  This oldValue will be **@fabrikam.com*
 
 So our expression, basically says, replace the mail attribute on user objects that have a value of @fabrikam.com with the @contoso.com value.  By clicking the **Add expression** button, we can see the syntax in the **Expression input**
 
- ![Build an expression with Azure](media/how-to-expression-builder/expression-3.png)
 
 >[!NOTE]
 >Be sure to place the values in the boxes that would correspond with oldValue and replacementValue based on the syntax that occurs when you have selected Replace.

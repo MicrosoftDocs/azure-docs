@@ -97,7 +97,7 @@ The following document will guide show you how to install the Azure AD Connect p
    ```
    Restart-Service -Name AADConnectProvisioningAgent  
    ```
- 15.  Go to the azure portal to create the cloud sync configuration.
+ 15.  Go to the Azure portal to create the cloud sync configuration.
 
 ## Provisioning agent gMSA PowerShell cmdlets
 Now that you have installed the agent, you can apply more granular permissions to the gMSA.  See [Azure AD Connect cloud provisioning agent gMSA PowerShell cmdlets](how-to-gmsa-cmdlets.md) for information and step-by-step instructions on configuring the permissions.
