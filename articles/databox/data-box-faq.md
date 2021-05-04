@@ -260,16 +260,16 @@ A.  During the transit, the following features on the Data Box help protect the 
  - The device is locked and needs an unlock password to enter and access data.
 For more information, go to [Data Box security features](data-box-security.md).  
 
-### Q. I have finished Prepare to Ship for my import order and shut down the device. Can I still add more data to the Data Box?
-A. Yes. You can turn on the device and add more data. You will need to run **Prepare to Ship** again once you have completed data copy.
+### Q. I finished Prepare to Ship for my import order and shut down the device. Can I still add more data to the Data Box?
+A. Yes. You can turn on the device and add more data. You'll need to run **Prepare to Ship** again once you have completed the data copy.
 
-### Q. I received my device and it is not booting up? How do I ship the device back?
+### Q. I received my device and it's not booting up? How do I ship the device back?
 A. If your device isn't booting, go to your order in the Azure portal. Download a shipping label, and attach it to the device. For more information, go to [Download shipping label](data-box-portal-admin.md#download-shipping-label).
 
 ## Verify and upload
 
 ### Q. How soon can I access my data in Azure once I've shipped the Data Box back? 
-A.  Once the order status for **Data Copy** shows as **Complete**, you should be able to access your data right away.
+A.  Once the order status for **Data Copy** shows as **Complete**, you can access your data right away.
 
 ### Q. Where is my data located in Azure after the upload?
 A.  When you copy the data to Data Box, depending on whether the data is block blob or page blob or Azure files, the data is uploaded to one of the following paths in your Azure Storage account:

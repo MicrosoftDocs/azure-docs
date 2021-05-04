@@ -15,7 +15,7 @@ ms.author: alkohli
 
 A Data Box or Data Box Heavy import order goes through the following steps: order, set up, data copy, return, upload to Azure and verify, and data erasure. Corresponding to each step in the order, you can take multiple actions to control the access to the order, audit the events, track the order, and interpret the various logs that are generated.
 
-The following table shows a summary of the Data Box or Data Box Heavy import order steps and the tools available to track and audit the order during each step.
+The following table gives a summary of each step in processing an import order and the tools available to track and audit the order during the step.
 
 | Data Box import order stage| Tool to track and audit|
 |----------------------------|------------------------|
@@ -74,8 +74,8 @@ During the data copy to Data Box or Data Box Heavy, an error file is generated i
 
 Make sure that the copy jobs have finished with no errors. If there are errors during the copy process, download the logs from the **Connect and copy** page.
 
-- If you copied a file that is not 512 bytes aligned to a managed disk folder on your Data Box, the file isn't uploaded as page blob to your staging storage account. You will see an error in the logs. Remove the file and copy a file that is 512 bytes aligned.
-- If you copied a VHDX, or a dynamic VHD, or a differencing VHD (these files are not supported), you will see an error in the logs.
+- If you copied a file that is not 512 bytes aligned to a managed disk folder on your Data Box, the file isn't uploaded as a page blob to your staging storage account. You will see an error in the logs. Remove the file, and copy a file that is 512 bytes aligned.
+- If you copied a VHDX, or a dynamic VHD, or a differencing VHD (these file types are not supported), you will see an error in the logs.
 
 Here is a sample of the *error.xml* for different errors when copying to managed disks.
 
@@ -157,7 +157,7 @@ For more information on the errors received during prepare to ship, go to [Troub
 
 ### BOM or manifest file
 
-The BOM or manifest file contains the list of all the files that are copied to the Data Box device. The BOM file has file names and the corresponding sizes as well as the checksum. A separate BOM file is created for the block blobs, page blobs, Azure Files, for copy via the REST APIs, and for the copy to managed disks on the Data Box. You can download the BOM files from the local web UI of the device during the prepare to ship.
+The BOM or manifest file contains the list of all the files that are copied to the Data Box device. The BOM file has file names and file sizes, and the checksum. A separate BOM file is created for the block blobs, page blobs, Azure Files, for copy via the REST APIs, and for the copy to managed disks on the Data Box. You can download the BOM files from the local web UI of the device during the prepare to ship.
 
 These files also reside on the Data Box device and are uploaded to the associated storage account in the Azure datacenter.
 
