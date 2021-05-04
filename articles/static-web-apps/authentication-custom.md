@@ -239,6 +239,9 @@ The following endpoints are available as redirect destinations.
 | Login  | `https://<YOUR-SITE>/.auth/login/complete`  |
 | Logout | `https://<YOUR-SITE>/.auth/logout/complete` |
 
+> [!Note]
+> These URLs are provided by Azure Static Web Apps to receive the response from the authentication provider, you don't need to create pages at these routes.
+
 ## Configuring a custom OpenID Connect provider
 
 This section shows you how to configure Azure Static Web Apps to use a custom authentication provider that adheres to the [OpenID Connect specification](https://openid.net/connect/).
