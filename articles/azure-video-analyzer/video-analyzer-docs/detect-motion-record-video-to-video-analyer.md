@@ -224,7 +224,7 @@ Using the same steps as those outlined for invoking pipelineTopologyList, you ca
 }
 ```
 
-The above JSON payload results in the creation of a pipeline topology that defines five parameters (four of which have default values). The topology has one source node ([RTSP source](pipeline.md#rtsp-source)), two processor nodes ([motion detection processor](pipeline.md#motion-detection-processor) and [signal gate processor](pipeline.md#signal-gate-processor), and two sink nodes (IoT Hub sink and [asset sink](pipeline.md#asset-sink)). The visual representation of the topology is shown above.
+The above JSON payload results in the creation of a pipeline topology that defines five parameters (four of which have default values). The topology has one source node ([RTSP source](pipeline.md#rtsp-source)), two processor nodes ([motion detection processor](pipeline.md#motion-detection-processor) and [signal gate processor](pipeline.md#signal-gate-processor), and two sink nodes (IoT Hub sink and [file sink](pipeline.md#file-sink)). The visual representation of the topology is shown above.
 
 Within a few seconds, you will see the following response in the **OUTPUT** window.
 
@@ -550,7 +550,7 @@ Note the following properties in the response payload:
 
 ### Invoke LivePipelineSet
 
-Next, create a pipeline instance that references the above pipeline topology. As explained [here](pipeline.md#media-graph-topologies-and-instances), pipeline instances let you analyze live video streams from many cameras with the same pipeline topology.
+Next, create a pipeline instance that references the above pipeline topology. As explained in [Pipeline topologies](pipeline.md#pipeline-topologies), pipeline instances let you analyze live video streams from many cameras with the same pipeline topology.
 
 Now invoke the LivePipelineSet direct method with the following payload:
 
@@ -624,7 +624,7 @@ The pipeline you created uses the motion detection processor node to detect moti
 
 1. Right-click on avasample-iot-edge-device and chose the option "Start Monitoring Built-in Event Monitoring"
 
-    ![Start Monitoring Built-in Event Monitoring](./media/quickstarts/monitor-iot-hub-events.png)
+    ![Start Monitoring Built-in Event Monitoring](./media/start-monitoring-iot-hub-events/monitor-iot-hub-events.png)
     
     [!NOTE] REPLACE THE ABOVE PICTURE WITH THE ONE ATTACHED IN THE ZIP FOLDER!!!
     
