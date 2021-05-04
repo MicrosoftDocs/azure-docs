@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Publish Azure Static Web Apps using an ARM Template"
+title: "Tutorial: Publish Azure Static Web Apps using an ARM template"
 description: Create and deploy an ARM Template for Static Web Apps
 services: static-web-apps
 author: petender
@@ -29,7 +29,7 @@ In this tutorial, you learn to:
 - **Azure CLI or Azure PowerShell**: Deploying ARM templates requires a command line tool. For the installation instructions, see:
   - [Install Azure CLI on Windows OS](https://docs.microsoft.com/cli/azure/install-azure-cli-windows)
   - [Install Azure CLI on Linux OS](https://docs.microsoft.com/cli/azure/install-azure-cli-linux)
-  - [Install Azure CLI on MacOS](https://docs.microsoft.com/cli/azure/install-azure-cli-macos)
+  - [Install Azure CLI on macOS](https://docs.microsoft.com/cli/azure/install-azure-cli-macos)
   - [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
 
 
@@ -62,7 +62,7 @@ The following steps demonstrate how to create a new repository for a static web 
 > [!NOTE]
 > If you want to use an existing code repository you can skip this section.
 
-1. Log on to [Github](https://github.com) using your GitHub account credentials.
+1. Log on to [GitHub](https://github.com) using your GitHub account credentials.
 
 1. Create a new repository named **myfirstswadeployment**.
 
@@ -102,122 +102,122 @@ With the prerequisites in place, the next step is to define the ARM deployment t
 
 1. Paste the following ARM template snippet into _azuredeploy.json_.
 
-```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "name": {
-                "type": "string"
-            },
-            "location": {
-                "type": "string"
-            },
-            "sku": {
-                "type": "string"
-            },
-            "skucode": {
-                "type": "string"
-            },
-            "repositoryUrl": {
-                "type": "string"
-            },
-            "branch": {
-                "type": "string"
-            },
-            "repositoryToken": {
-                "type": "securestring"
-            },
-            "appLocation": {
-                "type": "string"
-            },
-            "apiLocation": {
-                "type": "string"
-            },
-            "appArtifactLocation": {
-                "type": "string"
-            },
-            "resourceTags": {
-                "type": "object"
-            }
-        },
-        "resources": [
-            {
-                "apiVersion": "2019-12-01-preview",
-                "name": "[parameters('name')]",
-                "type": "Microsoft.Web/staticSites",
-                "location": "[parameters('location')]",
-                "tags": "[parameters('resourceTags')]",
-                "properties": {
-                    "repositoryUrl": "[parameters('repositoryUrl')]",
-                    "branch": "[parameters('branch')]",
-                    "repositoryToken": "[parameters('repositoryToken')]",
-                    "buildProperties": {
-                        "appLocation": "[parameters('appLocation')]",
-                        "apiLocation": "[parameters('apiLocation')]",
-                        "appArtifactLocation": "[parameters('appArtifactLocation')]"
-                    }
+    ```json
+        {
+            "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+            "contentVersion": "1.0.0.0",
+            "parameters": {
+                "name": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
                 },
                 "sku": {
-                    "Tier": "[parameters('sku')]",
-                    "Name": "[parameters('skuCode')]"
+                    "type": "string"
+                },
+                "skucode": {
+                    "type": "string"
+                },
+                "repositoryUrl": {
+                    "type": "string"
+                },
+                "branch": {
+                    "type": "string"
+                },
+                "repositoryToken": {
+                    "type": "securestring"
+                },
+                "appLocation": {
+                    "type": "string"
+                },
+                "apiLocation": {
+                    "type": "string"
+                },
+                "appArtifactLocation": {
+                    "type": "string"
+                },
+                "resourceTags": {
+                    "type": "object"
                 }
-            }
-        ]
-    }
+            },
+            "resources": [
+                {
+                    "apiVersion": "2019-12-01-preview",
+                    "name": "[parameters('name')]",
+                    "type": "Microsoft.Web/staticSites",
+                    "location": "[parameters('location')]",
+                    "tags": "[parameters('resourceTags')]",
+                    "properties": {
+                        "repositoryUrl": "[parameters('repositoryUrl')]",
+                        "branch": "[parameters('branch')]",
+                        "repositoryToken": "[parameters('repositoryToken')]",
+                        "buildProperties": {
+                            "appLocation": "[parameters('appLocation')]",
+                            "apiLocation": "[parameters('apiLocation')]",
+                            "appArtifactLocation": "[parameters('appArtifactLocation')]"
+                        }
+                    },
+                    "sku": {
+                        "Tier": "[parameters('sku')]",
+                        "Name": "[parameters('skuCode')]"
+                    }
+                }
+            ]
+        }
 
-```
+    ```
 
 1. Create a new file and name it **azuredeploy.parameters.json**.
 
 1. Paste the following ARM template snippet into _azuredeploy.parameters.json_.
 
-```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "name": {
-                "value": "myfirstswadeployment"
-            },
-            "location": {
-              "type": "string",
-              "defaultValue": "Central US"
-            },   
-            "sku": {
-                "value": "Free"
-            },
-            "skucode": {
-                "value": "Free"
-            },
-            "repositoryUrl": {
-                "value": "https://github.com/<YOUR-GITHUB-USER-NAME>/<YOUR-GITHUB-REPOSITORY-NAME>"
-            },
-            "branch": {
-                "value": "main"
-            },
-            "repositoryToken": {
-                "value": "<YOUR-GITHUB-PAT>" 
-            },
-            "appLocation": {
-                "value": "/"
-            },
-            "apiLocation": {
-                "value": ""
-            },
-            "appArtifactLocation": {
-                "value": "public"
-            },
-            "resourceTags": {
-                "value": {
-                    "Environment": "Development",
-                    "Project": "Testing SWA with ARM",
-                    "ApplicationName": "myfirstswadeployment"
+    ```json
+        {
+            "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+            "contentVersion": "1.0.0.0",
+            "parameters": {
+                "name": {
+                    "value": "myfirstswadeployment"
+                },
+                "location": {
+                "type": "string",
+                "defaultValue": "Central US"
+                },   
+                "sku": {
+                    "value": "Free"
+                },
+                "skucode": {
+                    "value": "Free"
+                },
+                "repositoryUrl": {
+                    "value": "https://github.com/<YOUR-GITHUB-USER-NAME>/<YOUR-GITHUB-REPOSITORY-NAME>"
+                },
+                "branch": {
+                    "value": "main"
+                },
+                "repositoryToken": {
+                    "value": "<YOUR-GITHUB-PAT>" 
+                },
+                "appLocation": {
+                    "value": "/"
+                },
+                "apiLocation": {
+                    "value": ""
+                },
+                "appArtifactLocation": {
+                    "value": "public"
+                },
+                "resourceTags": {
+                    "value": {
+                        "Environment": "Development",
+                        "Project": "Testing SWA with ARM",
+                        "ApplicationName": "myfirstswadeployment"
+                    }
                 }
             }
         }
-    }
-```
+    ```
 
 1. Update the following parameters.
 
