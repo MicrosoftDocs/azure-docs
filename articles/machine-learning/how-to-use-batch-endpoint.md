@@ -77,7 +77,7 @@ az ml compute create -n cpu-cluster --type AmlCompute --min-instances 0 --max-in
 If you're using an MLflow model, you can use no-code batch endpoint creation. That is, you don't need to prepare a scoring script and environment, both can be auto generated.
 
 ```
-az ml endpoint create --type batch --file examples/endpoints/batch/create-batch-endpoint.yml
+az ml endpoint create --type batch --file cli/endpoints/batch/create-batch-endpoint.yml
 ```
 
 Below is the YAML file defining the MLFlow batch endpoint. To use a registered model, replace the `model` section in the YAML with `model:azureml:<modelName>:<modelVersion>`.
@@ -162,7 +162,7 @@ az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipeli
 
 ## Check batch scoring job execution progress
 
-Batch scoring job usually takes time to process the entire inputs. You can monitor the job progress from Azure portal. The portal link is provided in the response of `invoke`, check `interactionEndpoints.studio`.
+Batch scoring job usually takes substantial time to process the entire set of inputs. You can monitor the job progress from Azure Machine Learning studio. The portal link is provided in the response of `invoke`, as the value of `interactionEndpoints.studio`.
 
 {>> Q: The text says to use portal, while the value refers to `studio`. Is monitoring from portal or studio? <<}
 
