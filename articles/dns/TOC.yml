@@ -59,7 +59,7 @@
     - name: Delegation with Azure DNS
       href: dns-domain-delegation.md
     - name: FAQ
-      href: dns-faq.md
+      href: dns-faq.yml
     - name: DNS metrics and alerts
       href: dns-alerts-metrics.md
     - name: Reverse DNS
@@ -79,7 +79,7 @@
     - name: DNS resolution in virtual networks
       href: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md?toc=%2fazure%2fdns%2ftoc.json
     - name: FAQ
-      href: dns-faq-private.md
+      href: dns-faq-private.yml
 - name: How-to guides
   items:
   - name: Public DNS
@@ -111,9 +111,11 @@
     - name: Import and export a DNS zone file
       href: dns-import-export.md
     - name: Delegate a subdomain
-      href: delegate-subdomain.md
-    - name: Delegate a subdomain using PowerShell
-      href: delegate-subdomain-ps.md
+      items:
+      - name: Azure portal
+        href: delegate-subdomain.md
+      - name: Azure PowerShell
+        href: delegate-subdomain-ps.md
     - name: Integrate with other Azure services
       href: dns-for-azure-services.md
     - name: Protect DNS zones and records
