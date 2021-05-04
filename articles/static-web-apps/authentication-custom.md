@@ -226,6 +226,8 @@ For more information on how to configure Google as an authentication provider re
 
 For more information on how to configure Twitter as an authentication provider refer to the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-twitter.md).
 
+---
+
 ### Authentication callbacks
 
 Authentication providers often need a URL to redirect to when a login or logout is complete.
@@ -316,6 +318,7 @@ To use a custom OIDC provider, use the following URL patterns.
 | Login              | `/.auth/<PROVIDER_NAME>/login`  |
 | Logout             | `/.auth/<PROVIDER_NAME>/logout` |
 | Purge user details | `/.auth/<PROVIDER_NAME>/purge`  |
+
 ## Next steps
 
 > [!div class="nextstepaction"]
