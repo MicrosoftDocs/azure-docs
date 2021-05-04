@@ -1,6 +1,7 @@
 ---
 title: 'Set up Azure Arc for App Service, Functions, and Logic Apps'
 description: For your Azure Arc enabled Kubernetes clusters, learn how to enable App Service apps, function apps, and logic apps.
+ms.topic: article
 ms.date: 05/03/2021
 ---
 # Set up an Azure Arc enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)
@@ -12,7 +13,6 @@ Azure Arc with Kubernetes lets you make your on-premises or cloud Kubernetes clu
 ## Prerequisites
 
 - Create a Kubernetes cluster in a supported Kubernetes distribution and connect it to Azure Arc in a supported region. See [Public preview limitations](overview-arc-integration.md#public-preview-limitations).
-- To optionally ship logs from apps to Log Analytics, create [a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md).
 - [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), or use the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 - [Install kubectl](https://kubernetes.io/docs/tasks/tools/). It's also preinstalled in the Azure Cloud Shell.
 
@@ -29,14 +29,24 @@ groupName="<name-of-resource-group-with-the-arc-connected-cluster>"
 clusterName="<name-of-arc-connected-cluster>"
 ```
 
-To optionally enable shipping logs to Log Analytics, run the following commands to get the encoded workspace ID and shared key for an existing Log Analytics workspace.
+## Create a Log Analytics workspace
+
+While a Log Analytic workspace is not required to run App Service in Azure Arc, it's how developers can get application logs for their apps that are running in the Azure Arc enabled Kubernetes cluster. For simplicity, create the workspace now.
 
 ```azurecli-interactive
-logAnalyticsWorkspaceId=$(az monitor log-analytics workspace show --resource-group <group-name> --name <workspace-name> --query customerId --output tsv)
-logAnalyticsWorkspaceIdEnc=$(printf %s $logAnalyticsWorkspaceId | base64)
-logAnalyticsKey=$(az monitor log-analytics workspace get-shared-keys --resource-group <group-name> --name <workspace-name> --query primarySharedKey --output tsv)
+workspaceName="$groupName-workspace"
+
+az monitor log-analytics workspace create --resource-group $groupName --name $workspaceName
+```
+
+Run the following commands to get the encoded workspace ID and shared key for an existing Log Analytics workspace. You need them in the next step.
+
+```azurecli-interactive
+logAnalyticsWorkspaceId=$(az monitor log-analytics workspace show --resource-group $groupName --name $workspaceName --query customerId --output tsv)
+logAnalyticsWorkspaceIdEnc=$(printf %s $logAnalyticsWorkspaceId | base64) # Needed for the next step
+logAnalyticsKey=$(az monitor log-analytics workspace get-shared-keys --resource-group $groupName --name $workspaceName --query primarySharedKey --output tsv)
 logAnalyticsKeyEncWithSpace=$(printf %s $logAnalyticsKey | base64)
-logAnalyticsKeyEnc=$(echo -n "${logAnalyticsKeyEncWithSpace//[[:space:]]/}")
+logAnalyticsKeyEnc=$(echo -n "${logAnalyticsKeyEncWithSpace//[[:space:]]/}") # Needed for the next step
 ```
 
 ## Install the App Service extension
@@ -47,19 +57,15 @@ Set the following environment variable for the desired name of the App Service e
 extensionName="app-service-ext"
 ```
 
-Your Azure Arc connected cluster needs the App Service extension. To enable Log Analytics for your apps, do it when you enable the extension. Currently, this option can't be updated later.
-
-To install the App Service extension without Log Analytics:
+Install the App Service extension to your Azure Arc connected cluster, with Log Analytics enabled. Again, while Log Analytics are not required, you can't add it to the extension later, so it's easier to do it now.
 
 ```azurecli-interactive
-az k8s-extension create -g $groupName --name $extensionName --cluster-type connectedClusters -c $clusterName --extension-type 'Microsoft.Web.Appservice' --version "0.4.0" --auto-upgrade-minor-version false --scope cluster --release-namespace 'appservice-ns' --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" --configuration-settings "appsNamespace=appservice-ns" --configuration-settings "clusterName=${kubeEnvironmentName}" --configuration-settings "loadBalancerIp=${staticIp}" --configuration-settings "buildService.storageClassName=default" --configuration-settings "buildService.storageAccessMode=ReadWriteOnce" --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${aksClusterGroupName}"  --configuration-settings "customConfigMap=appservice-ns/kube-environment-config"
+az k8s-extension create -g $groupName --name $extensionName --cluster-type connectedClusters -c $clusterName --extension-type 'Microsoft.Web.Appservice' --version "0.4.0" --auto-upgrade-minor-version false --scope cluster --release-namespace 'appservice-ns' --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" --configuration-settings "appsNamespace=appservice-ns" --configuration-settings "clusterName=${kubeEnvironmentName}" --configuration-settings "loadBalancerIp=${staticIp}" --configuration-settings "buildService.storageClassName=default" --configuration-settings "buildService.storageAccessMode=ReadWriteOnce" --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${aksClusterGroupName}" --configuration-settings "logProcessor.appLogs.destination=log-analytics" --configuration-settings "customConfigMap=appservice-ns/kube-environment-config" --configuration-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${logAnalyticsWorkspaceIdEnc}" --configuration-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${logAnalyticsKeyEnc}"
 ```
 
-To install the App Service extension with Log Analytics:
-
-```azurecli-interactive
-az k8s-extension create -g $groupName --name $extensionName --cluster-type connectedClusters -c $clusterName --extension-type 'Microsoft.Web.Appservice' --version "0.4.0" --auto-upgrade-minor-version false --scope cluster --release-namespace 'appservice-ns' --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" --configuration-settings "appsNamespace=appservice-ns" --configuration-settings "clusterName=${kubeEnvironmentName}" --configuration-settings "loadBalancerIp=${staticIp}" --configuration-settings "buildService.storageClassName=default" --configuration-settings "buildService.storageAccessMode=ReadWriteOnce" --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${aksClusterGroupName}" --configuration-settings "logProcessor.appLogs.destination=log-analytics" --configuration-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${logAnalyticsWorkspaceIdEnc}" --configuration-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${logAnalyticsKeyEnc}"  --configuration-settings "customConfigMap=appservice-ns/kube-environment-config"
-```
+> [!NOTE]
+> To install the extension without Log Analytics, remove the last two `--configuration-settings` parameters from the command.
+>
 
 Validate the App Service extension with the following command. It should show the `installState` property as `Installed`. If not, run the command again after a minute.
 
