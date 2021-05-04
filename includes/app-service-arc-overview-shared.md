@@ -32,7 +32,7 @@ The following table describes the role of each pod that is created by default:
 | `<extensionName>-k8se-app-controller` | The core operator pod that creates resources on the cluster and maintains the state of components. |
 | `<extensionName>-k8se-envoy` | A front-end proxy layer for all data-plane requests. It routes the inbound traffic to the correct apps. |
 | `<extensionName>-k8se-activator` | An alternative routing destination to help with apps that have scaled to zero while the system gets the first instance available. |
-| `<extensionName>-k8se-build-service | Supports deployment operations and serves the [Advanced tools feature](https://docs.microsoft.com/azure/app-service/resources-kudu). |
+| `<extensionName>-k8se-build-service` | Supports deployment operations and serves the [Advanced tools feature](https://docs.microsoft.com/azure/app-service/resources-kudu). |
 | `<extensionName>-k8se-http-scaler` | Monitors inbound request volume in order to provide scaling information to [KEDA](https://keda.sh). |
 | `<extensionName>-k8se-img-cacher` | Pulls placeholder and app images into a local cache on the node. |
 | `<extensionName>-k8se-log-processor` | Gathers logs from apps and other components and sends them to Log Analytics. |

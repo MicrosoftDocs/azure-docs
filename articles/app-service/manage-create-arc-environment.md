@@ -57,26 +57,26 @@ Set the following environment variable for the desired name of the App Service e
 extensionName="app-service-ext"
 ```
 
-Install the App Service extension to your Azure Arc connected cluster, with Log Analytics enabled. Again, while Log Analytics are not required, you can't add it to the extension later, so it's easier to do it now.
+Install the App Service extension to your Azure Arc connected cluster, with Log Analytics enabled. Again, while Log Analytics is not required, you can't add it to the extension later, so it's easier to do it now.
 
 ```azurecli-interactive
-az k8s-extension create -g $groupName --name $extensionName --cluster-type connectedClusters -c $clusterName --extension-type 'Microsoft.Web.Appservice' --version "0.4.0" --auto-upgrade-minor-version false --scope cluster --release-namespace 'appservice-ns' --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" --configuration-settings "appsNamespace=appservice-ns" --configuration-settings "clusterName=${kubeEnvironmentName}" --configuration-settings "loadBalancerIp=${staticIp}" --configuration-settings "buildService.storageClassName=default" --configuration-settings "buildService.storageAccessMode=ReadWriteOnce" --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${aksClusterGroupName}" --configuration-settings "logProcessor.appLogs.destination=log-analytics" --configuration-settings "customConfigMap=appservice-ns/kube-environment-config" --configuration-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${logAnalyticsWorkspaceIdEnc}" --configuration-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${logAnalyticsKeyEnc}"
+az k8s-extension create --resource-group $groupName --name $extensionName --cluster-type connectedClusters --cluster-name $clusterName --extension-type 'Microsoft.Web.Appservice' --version "0.4.0" --auto-upgrade-minor-version false --scope cluster --release-namespace 'appservice-ns' --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" --configuration-settings "appsNamespace=appservice-ns" --configuration-settings "clusterName=${kubeEnvironmentName}" --configuration-settings "loadBalancerIp=${staticIp}" --configuration-settings "buildService.storageClassName=default" --configuration-settings "buildService.storageAccessMode=ReadWriteOnce" --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${aksClusterGroupName}" --configuration-settings "customConfigMap=appservice-ns/kube-environment-config" --configuration-settings "logProcessor.appLogs.destination=log-analytics" --configuration-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${logAnalyticsWorkspaceIdEnc}" --configuration-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${logAnalyticsKeyEnc}"
 ```
 
 > [!NOTE]
-> To install the extension without Log Analytics, remove the last two `--configuration-settings` parameters from the command.
+> To install the extension without Log Analytics, remove the last three `--configuration-settings` parameters from the command.
 >
 
 Validate the App Service extension with the following command. It should show the `installState` property as `Installed`. If not, run the command again after a minute.
 
 ```azurecli-interactive
-az k8s-extension show --cluster-type connectedClusters -c $clusterName -g $groupName --name $extensionName
+az k8s-extension show --cluster-type connectedClusters --cluster-name $clusterName --resource-group $groupName --name $extensionName
 ```
 
-Save the "id" property of the App Service extension for later.
+Save the `id` property of the App Service extension for later.
 
 ```azurecli-interactive
-extensionId=$(az k8s-extension show --cluster-type connectedClusters -c $clusterName -g $groupName --name $extensionName --query id -o tsv)
+extensionId=$(az k8s-extension show --cluster-type connectedClusters --cluster-name $clusterName --resource-group $groupName --name $extensionName --query id -o tsv)
 ```
 
 ## Create a custom location
@@ -92,19 +92,19 @@ customLocationName="my-custom-location"
 Run the following to create the custom location:
 
 ```azurecli-interactive
-az customlocation create -g $groupName -n $customLocationName -hr $connectedClusterId -ns appservice-ns -c $extensionId
+az customlocation create --resource-group $groupName --name $customLocationName -hr $connectedClusterId -ns appservice-ns --cluster-extension-ids $extensionId
 ```
 
 Validate that the custom location is successfully created with the following command. The output should show the `provisioningState` property as `Succeeded`. If not, run it again after a minute.
 
 ```azurecli-interactive
-az customlocation show -g $groupName -n $customLocationName
+az customlocation show --resource-group $groupName --name $customLocationName
 ```
 
 Save the custom location ID for the next step.
 
 ```azurecli-interactive
-customLocationId=$(az customlocation show -g $groupName -n $customLocationName --query id -o tsv)
+customLocationId=$(az customlocation show --resource-group $groupName --name $customLocationName --query id -o tsv)
 ```
 
 ## Create the App Service Kubernetes environment
@@ -124,7 +124,7 @@ TODO-CLI
 Validate that the App Service Kubernetes environment is successfully created with the following command. The output should show the `provisioningState` property as `Succeeded`. If not, run it again after a minute.
 
 ```azurecli-interactive
-az appservice kube show -g $groupName -n $kubeEnvironmentName
+az appservice kube show --resource-group $groupName -n $kubeEnvironmentName
 ```
 
 Use `kubectl` to see the resources that are created in your Kubernetes cluster:
