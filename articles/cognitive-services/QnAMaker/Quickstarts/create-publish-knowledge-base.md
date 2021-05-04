@@ -38,7 +38,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
 3. On the **Create** page, skip **Step 1** if you already have your QnA Maker resource.
 
-If you haven't created the resource yet, select **Create a QnA service**. You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) to set up a QnA Maker service in your subscription. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
+If you haven't created the service yet, select **Stable** and **Create a QnA service**. You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) to set up a QnA Maker service in your subscription. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
 
 > [!div class="mx-imgBorder"]
 > ![Create service](../media/qnamaker-create-publish-knowledge-base/create-qna-service.png) 
