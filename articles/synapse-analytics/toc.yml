@@ -270,6 +270,8 @@ items:
     items:
     - name: Use serverless SQL pool to analyze data
       href: ./sql/tutorial-data-analyst.md
+    - name: Create Logical Data Warehouse with serverless SQL pool
+      href: ./sql/tutorial-logical-data-warehouse.md
     - name: Power BI Desktop
       href: ./sql/tutorial-connect-power-bi-desktop.md  
   - name: Concepts
@@ -453,6 +455,8 @@ items:
         href: ./backuprestore/sqlpool-create-restore-point.md
       - name: Restore a dedicated SQL pool
         href: ./backuprestore/restore-sql-pool.md
+      - name: Pause and resume using Synapse Pipelines
+        href: ./sql/how-to-pause-resume-pipelines.md
     - name: Manage and monitor
       items:
       - name: SQL requests - Synapse Studio

@@ -523,7 +523,7 @@
     - name: Daemon applications
       href: ../fundamentals/resilience-daemon-app.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: OpenID Connect metadata refresh
-      href: howto-build-services-resilent-to-metadata-refresh.md
+      href: howto-build-services-resilient-to-metadata-refresh.md
   - name: Bring an app to market
     items:
     - name: Follow the branding guidelines
@@ -601,6 +601,8 @@
       - name: OAuth 2.0 resource owner password credentials grant
         displayName: ROPC
         href: v2-oauth-ropc.md
+      - name: OAuth 2.0 SAML bearer assertion flow
+        href: v2-saml-bearer-assertion.md
       - name: Signing key rollover
         href: active-directory-signing-key-rollover.md
       - name: Token exchange scenarios

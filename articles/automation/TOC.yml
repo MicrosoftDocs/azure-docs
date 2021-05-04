@@ -72,6 +72,8 @@
               href: enable-managed-identity-for-automation.md
             - name: Disable managed identity
               href: disable-managed-identity-for-automation.md
+            - name: Troubleshoot managed identity
+              href: troubleshoot/managed-identity.md
         - name: Run As account
           items:
             - name: Create Run As account
@@ -146,8 +148,6 @@
               href: start-runbooks.md
             - name: Start a runbook from a webhook
               href: automation-webhooks.md
-            - name: Track updated files with watcher task
-              href: automation-watchers-tutorial.md
             - name: Work with the Graphical runbook SDK
               href: graphical-runbook-sdk.md
         - name: Monitor runbooks
@@ -322,7 +322,7 @@
               href: troubleshoot/update-agent-issues.md
             - name: Troubleshoot Linux update agent issues
               href: troubleshoot/update-agent-issues-linux.md
-    - name: Cross-component scenarios
+    - name: Scenarios
       items:
         - name: Send an email from a runbook
           href: automation-send-email.md
@@ -330,6 +330,8 @@
           href: automation-alert-metric.md
         - name: Trigger runbook from Azure alert
           href: automation-create-alert-triggered-runbook.md
+        - name: Track updated files with watcher task
+          href: automation-scenario-using-watcher-task.md
         - name: Manage Office 365 services
           href: manage-office-365.md
         - name: Deploy AWS VM with Automation runbook

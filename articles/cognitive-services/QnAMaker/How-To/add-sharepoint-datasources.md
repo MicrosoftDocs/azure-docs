@@ -47,7 +47,7 @@ When you test the QnA pair in the interactive test panel, in the QnA Maker porta
 
 ## Permissions
 
-Granting permissions happens when a secured file from a SharePoint server is added to a knowledge base. Depending on how the SharePoint is set up and the permissions of the person adding the file, this could require:
+Granting permissions happens when a secured file from a server running SharePoint is added to a knowledge base. Depending on how the SharePoint is set up and the permissions of the person adding the file, this could require:
 
 * no additional steps - the person adding the file has all the permissions needed.
 * steps by both [knowledge base manager](#knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal) and [Active Directory manager](#active-directory-manager-grant-file-read-access-to-qna-maker).

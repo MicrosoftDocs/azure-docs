@@ -12,7 +12,7 @@ manager: philmea
 
 # Manage Azure Maps Creator
 
-Azure Maps Creator lets you create private indoor map data. Using the Azure Maps API and the Indoor Maps module, you can develop interactive and dynamic indoor map web applications. Currently, Creator is only available in the United States using the S1 pricing tier.
+Azure Maps Creator lets you create private indoor map data. Using the Azure Maps API and the Indoor Maps module, you can develop interactive and dynamic indoor map web applications. Currently, Creator is only available in the United States using Gen 2 or Gen 1 (S1) pricing tiers.
 
 This article takes you through the steps to create and delete a Creator resource in an Azure Maps account.
 
