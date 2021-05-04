@@ -103,34 +103,7 @@ In your workspace in Azure Machine Learning studio, select **Compute**, then sel
 
 ![Manage a compute instance](./media/concept-compute-instance/manage-compute-instance.png)
 
-You can perform the following actions:
-
-* [Create a compute instance](#create). 
-* Refresh the compute instances tab.
-* Start, stop, and restart a compute instance.  You do pay for the instance whenever it is running. Stop the compute instance when you are not using it to reduce cost. Stopping a compute instance deallocates it. Then start it again when you need it. Please note stopping the compute instance stops the billing for compute hours but you will still be billed for disk, public IP, and standard load balancer.
-* Delete a compute instance.
-* Filter the list of compute instanced to show only those you have created.
-
-For each compute instance in your workspace that you can use, you can:
-
-* Access Jupyter, JupyterLab, RStudio on the compute instance
-* SSH into compute instance. SSH access is disabled by default but can be enabled at compute instance creation time. SSH access is through public/private key mechanism. The tab will give you details for SSH connection such as IP address, username, and port number.
-* Get details about a specific compute instance such as IP address, and region.
-
-[Azure RBAC](../role-based-access-control/overview.md) allows you to control which users in the workspace can create, delete, start, stop, restart a compute instance. All users in the workspace contributor and owner role can create, delete, start, stop, and restart compute instances across the workspace. However, only the creator of a specific compute instance, or the user assigned if it was created on their behalf, is allowed to access Jupyter, JupyterLab, and RStudio on that compute instance. A compute instance is dedicated to a single user who has root access, and can terminal in through Jupyter/JupyterLab/RStudio. Compute instance will have single-user log in and all actions will use that user’s identity for Azure RBAC and attribution of experiment runs. SSH access is controlled through public/private key mechanism.
-
-These actions can be controlled by Azure RBAC:
-* *Microsoft.MachineLearningServices/workspaces/computes/read*
-* *Microsoft.MachineLearningServices/workspaces/computes/write*
-* *Microsoft.MachineLearningServices/workspaces/computes/delete*
-* *Microsoft.MachineLearningServices/workspaces/computes/start/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
-
-To create a compute instance you need to have permissions for the following actions:
-* *Microsoft.MachineLearningServices/workspaces/computes/write*
-* *Microsoft.MachineLearningServices/workspaces/checkComputeNameAvailability/action*
-
+For more about managing the compute instance, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
 
 ### <a name="create"></a>Create a compute instance
 
@@ -147,24 +120,7 @@ The dedicated cores per region per VM family quota and total regional quota, whi
 
 Compute instance comes with P10 OS disk. Temp disk type depends on the VM size chosen. Currently, it is not possible to change the OS disk type.
 
-
-### Create on behalf of (preview)
-
-As an administrator, you can create a compute instance on behalf of a data scientist and assign the instance to them with:
-* [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  For details on how to find the TenantID and ObjectID needed in this template, see [Find identity object IDs for authentication configuration](../healthcare-apis/fhir/find-identity-object-ids.md).  You can also find these values in the Azure Active Directory portal.
-* REST API
-
-The data scientist you create the compute instance for needs the following Azure RBAC permissions: 
-* *Microsoft.MachineLearningServices/workspaces/computes/start/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action*
-
-The data scientist can start, stop, and restart the compute instance. They can use the compute instance for:
-* Jupyter
-* JupyterLab
-* RStudio
-* Integrated notebooks
+As an administrator, you can [create a compute instance for others in the workspace (preview)](how-to-create-manage-compute-instance.md#on-behalf).  You can also [use a setup script (preview)](how-to-create-manage-compute-instance.md#setup-script)  for an automated way to customize and configure the compute instance.
 
 ## Compute target
 
