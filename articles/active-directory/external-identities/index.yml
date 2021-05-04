@@ -38,7 +38,7 @@ landingContent:
         links:
           - text: Configure your external collaboration settings
             url: delegate-invitations.md
-          - text: Set up direct federation (preview)
+          - text: Set up SAML/WS-Fed IdP federation (preview)
             url: direct-federation.md
           - text: Set up One-time passcodes (preview)
             url: one-time-passcode.md
