@@ -3,16 +3,11 @@ title: Set up Kerberos Key Distribution Center proxy Windows Virtual Desktop - A
 description: How to set up a Windows Virtual Desktop host pool to use a Kerberos Key Distribution Center proxy.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/20/2021
+ms.date: 05/04/2021
 ms.author: helohr
 manager: femila
 ---
-# Configure a Kerberos Key Distribution Center proxy (preview)
-
-> [!IMPORTANT]
-> This feature is currently in public preview.
-> This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Configure a Kerberos Key Distribution Center proxy
 
 Security-conscious customers, such as financial or government organizations, often sign in using Smartcards. Smartcards make deployments more secure by requiring multifactor authentication (MFA). However, for the RDP portion of a Windows Virtual Desktop session, Smartcards require a direct connection, or "line of sight," with an Active Directory (AD) domain controller for Kerberos authentication. Without this direct connection, users can't automatically sign in to the organization's network from remote connections. Users in a Windows Virtual Desktop deployment can use the KDC proxy service to proxy this authentication traffic and sign in remotely. The KDC proxy allows for authentication for the Remote Desktop Protocol of a Windows Virtual Desktop session, letting the user sign in securely. This makes working from home much easier, and allows for certain disaster recovery scenarios to run more smoothly.
 
