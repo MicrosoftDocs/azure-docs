@@ -19,7 +19,7 @@ Learn the latest updates to the text Translator service. Bookmark this page to s
 
 ## February 2021
 
-* **New Release**:  [Document Translation](document-translation/overview.md) is available as a preview feature of the Translator Service. Preview features are still in development and aren't meant for production use. They're made available on a "preview" basis so customers can get early access and provide feedback. Document Translation enables you to translate large documents and process batch files while still preserving the original structure and format. _See_ [Microsoft Translator blog: Introducing Document Translation](https://www.microsoft.com/translator/blog/2021/02/17/introducing-document-translation/)
+* **New release**:  [Document Translation](document-translation/overview.md) is available as a preview feature of the Translator Service. Preview features are still in development and aren't meant for production use. They're made available on a "preview" basis so customers can get early access and provide feedback. Document Translation enables you to translate large documents and process batch files while still preserving the original structure and format. _See_ [Microsoft Translator blog: Introducing Document Translation](https://www.microsoft.com/translator/blog/2021/02/17/introducing-document-translation/)
 
 * Translator service has [text translation language support](language-support.md#text-translation) for the following languages:
 
@@ -45,7 +45,7 @@ Learn the latest updates to the text Translator service. Bookmark this page to s
 
 ## November 2020
 
-* **New Release**: [Custom Translator V2 upgrade](https://azure.microsoft.com/updates/ctnov2020) is now fully available to the general public (GA). The V2 platform enables you to build custom models with all document types (training, testing, tuning, phrase dictionary, and sentence dictionary). _See_  [Microsoft Translator blog: Custom Translator pushes the translation quality bar closer to human parity](https://www.microsoft.com/translator/blog/2020/11/12/microsoft-custom-translator-pushes-the-translation-quality-bar-closer-to-human-parity).
+* **New release**: Custom Translator V2 upgrade is fully available to the general public (GA). The V2 platform enables you to build custom models with all document types (training, testing, tuning, phrase dictionary, and sentence dictionary). _See_  [Microsoft Translator blog: Custom Translator pushes the translation quality bar closer to human parity](https://www.microsoft.com/translator/blog/2020/11/12/microsoft-custom-translator-pushes-the-translation-quality-bar-closer-to-human-parity).
 
 ## October 2020
 
@@ -57,9 +57,9 @@ Learn the latest updates to the text Translator service. Bookmark this page to s
 
 ## August 2020
 
-* **New Release**: [Virtual network](/azure/cognitive-services/cognitive-services-virtual-networks) capabilities and [Azure private links](/azure/private-link/private-link-overview) for Translator are now available to the general public (GA).  Azure private links allow you to access Translator and your Azure hosted services over a private endpoint in your virtual network. You can use private endpoints for Translator to allow clients on a virtual network to securely access data over a private link. _See_ [Microsoft Translator blog: Virtual Networks and Private Links for Translator are generally available](https://www.microsoft.com/translator/blog/2020/08/19/virtual-networks-and-private-links-for-translator-are-now-generally-available/)
+* **New release**: Virtual network capabilities and Azure private links for Translator are available to the general public (GA).  Azure private links allow you to access Translator and your Azure hosted services over a private endpoint in your virtual network. You can use private endpoints for Translator to allow clients on a virtual network to securely access data over a private link. _See_ [Microsoft Translator blog: Virtual Networks and Private Links for Translator are generally available](https://www.microsoft.com/translator/blog/2020/08/19/virtual-networks-and-private-links-for-translator-are-now-generally-available/)
 
-* **New Release**: [Custom Translator V2 phase 1](https://azure.microsoft.com/updates/ctaug2020/). The newest version of Custom Translator will roll out in two phases to provide quicker translation and quality improvements, and allow you to keep your training data in the region of your choice. *See* [Microsoft Translator blog: Custom Translator: Introducing higher quality translations and regional data residency](https://www.microsoft.com/translator/blog/2020/08/05/custom-translator-v2-is-now-available/)
+* **New release**: Custom Translator V2 phase 1 is available. The newest version of Custom Translator will roll out in two phases to provide quicker translation and quality improvements, and allow you to keep your training data in the region of your choice. *See* [Microsoft Translator blog: Custom Translator: Introducing higher quality translations and regional data residency](https://www.microsoft.com/translator/blog/2020/08/05/custom-translator-v2-is-now-available/)
 
 * Translator service has [text translation language support](language-support.md#text-translation)
 for the following languages:
