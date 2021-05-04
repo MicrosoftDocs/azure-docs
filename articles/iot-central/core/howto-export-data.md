@@ -4,7 +4,7 @@ description: How to use the new data export to export your IoT data to Azure and
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 04/09/2021
+ms.date: 05/03/2021
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
@@ -12,10 +12,7 @@ ms.custom: contperf-fy21q1, contperf-fy21q3
 
 # Export IoT data to cloud destinations using data export
 
-> [!Note]
-> This article describes the data export features in IoT Central. For information about the legacy data export features, see [Export IoT data to cloud destinations using data export (legacy)](./howto-export-data-legacy.md).
-
-This article describes how to use the new data export feature in Azure IoT Central. Use this feature to continuously export filtered and enriched IoT data from your IoT Central application. Data export pushes changes in near real time to other parts of your cloud solution for warm-path insights, analytics, and storage.
+This article describes how to use data export in Azure IoT Central. Use this feature to continuously export filtered and enriched IoT data from your IoT Central application. Data export pushes changes in near real time to other parts of your cloud solution for warm-path insights, analytics, and storage.
 
 For example, you can:
 
@@ -129,7 +126,7 @@ Now that you have a destination to export your data to, set up data export in yo
     |  Telemetry | Export telemetry messages from devices in near-real time. Each exported message contains the full contents of the original device message, normalized.   |  [Telemetry message format](#telemetry-format)   |
     | Property changes | Export changes to device and cloud properties in near-real time. For read-only device properties, changes to the reported values are exported. For read-write properties, both reported and desired values are exported. | [Property change message format](#property-changes-format) |
     | Device connectivity | Export device connected and disconnected events. | [Device connectivity message format](#device-connectivity-changes-format) |
-    | Device lifecycle | Export device registered and deleted events. | [Device lifecycle changes message format](#device-lifecycle-changes-format) |
+    | Device lifecycle | Export device registered, deleted, provisioned, enabled, disabled, displayNameChanged, and deviceTemplateChanged events. | [Device lifecycle changes message format](#device-lifecycle-changes-format) |
     | Device template lifecycle | Export published device template changes including created, updated, and deleted. | [Device template lifecycle changes message format](#device-template-lifecycle-changes-format) | 
 
 1. Optionally, add filters to reduce the amount of data exported. There are different types of filter available for each data export type:
@@ -415,7 +412,7 @@ Each message or record represents one change to a single device. Information in 
 
 - `applicationId`: The ID of the IoT Central application.
 - `messageSource`: The source for the message - `deviceLifecycle`.
-- `messageType`: Either `registered` or `deleted`.
+- `messageType`: The type of change that occurred. One of: `registered`, `deleted`, `provisioned`, `enabled`, `disabled`, `displayNameChanged`, and `deviceTemplateChanged`.
 - `deviceId`:  The ID of the device that was changed.
 - `schema`: The name and version of the payload schema.
 - `templateId`: The ID of the device template associated with the device.
@@ -476,11 +473,11 @@ The following example shows an exported device lifecycle message received in Azu
 
 ## Comparison of legacy data export and data export
 
-The following table shows the differences between the [legacy data export](howto-export-data-legacy.md) and the new data export features:
+The following table shows the differences between the [legacy data export](howto-export-data-legacy.md) and data export features:
 
 | Capabilities  | Legacy data export | New data export |
 | :------------- | :---------- | :----------- |
-| Available data types | Telemetry, Devices, Device templates | Telemetry, Property changes, Device lifecycle changes, Device template lifecycle changes |
+| Available data types | Telemetry, Devices, Device templates | Telemetry, Property changes, Device connectivity changes, Device lifecycle changes, Device template lifecycle changes |
 | Filtering | None | Depends on the data type exported. For telemetry, filtering by telemetry, message properties, property values |
 | Enrichments | None | Enrich with a custom string or a property value on the device |
 | Destinations | Azure Event Hubs, Azure Service Bus queues and topics, Azure Blob Storage | Same as for legacy data export plus webhooks|

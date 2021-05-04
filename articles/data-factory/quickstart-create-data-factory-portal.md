@@ -21,7 +21,7 @@ This quickstart describes how to use the Azure Data Factory UI to create and mon
 > [!NOTE]
 > If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md) before doing this quickstart. 
 
-[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
+[!INCLUDE [data-factory-quickstart-prerequisites](includes/data-factory-quickstart-prerequisites.md)] 
 
 ### Video 
 Watching this video helps you understand the Data Factory UI: 
