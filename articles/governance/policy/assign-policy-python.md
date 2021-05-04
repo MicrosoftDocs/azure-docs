@@ -101,7 +101,7 @@ The preceding commands use the following information:
 Assignment details:
 - **display_name** - Display name for the policy assignment. In this case, you're using _Audit VMs
   without managed disks Assignment_.
-- **policy_definition_id** – The policy definition path, based on which you're using to create the
+- **policy_definition_id** - The policy definition path, based on which you're using to create the
   assignment. In this case, it's the ID of policy definition _Audit VMs that do not use managed
   disks_. In this example, the policy definition is a built-in and the path doesn't include
   management group or subscription information.

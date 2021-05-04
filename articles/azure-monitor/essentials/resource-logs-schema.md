@@ -79,7 +79,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Service Bus |[Azure Service Bus logs](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Azure SQL Database logging](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Job logs](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
-| Storage | [Blobs](/azure/storage/blobs/monitor-blob-storage-reference#resource-logs-preview), [Files](/azure/storage/files/storage-files-monitoring-reference#resource-logs-preview), [Queues](/azure/storage/queues/monitor-queue-storage-reference#resource-logs-preview),  [Tables](/azure/storage/tables/monitor-table-storage-reference#resource-logs-preview) |
+| Storage | [Blobs](../../storage/blobs/monitor-blob-storage-reference.md#resource-logs-preview), [Files](../../storage/files/storage-files-monitoring-reference.md#resource-logs-preview), [Queues](../../storage/queues/monitor-queue-storage-reference.md#resource-logs-preview),  [Tables](../../storage/tables/monitor-table-storage-reference.md#resource-logs-preview) |
 | Traffic Manager | [Traffic Manager Log schema](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Virtual Networks | Schema not available. |
 | Virtual Network Gateways | Schema not available. |

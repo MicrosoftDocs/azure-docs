@@ -46,8 +46,9 @@
     - name: Use container instances
       maintainContext: true
       href: ../containers/azure-container-instance-recipe.md
-    - name: Cognitive Services containers documentation
+    - name: All Cognitive Services containers documentation
       href: ../containers/index.yml
+      maintainContext: true
   - name: Back up and recover models
     href: disaster-recovery.md
   - name: Enterprise readiness

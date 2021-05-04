@@ -13,11 +13,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 12/14/2020
+ms.date: 04/21/2021
 ms.author: phjensen
 ---
 
-# Delete using Azure Application Consistent Snapshot tool (preview)
+# Delete using Azure Application Consistent Snapshot tool
 
 This article provides a guide for running the delete command of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 

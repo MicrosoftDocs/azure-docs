@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/20/2021
+ms.date: 05/03/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -60,6 +60,10 @@ Data traffic between NFSv3 or SMB3 clients to Azure NetApp Files volumes is not 
 ### Can the storage be encrypted at rest?
 
 All Azure NetApp Files volumes are encrypted using the FIPS 140-2 standard. All keys are managed by the Azure NetApp Files service. 
+
+### Is Azure NetApp Files cross-region replication traffic encrypted?
+
+Azure NetApp Files cross-region replication uses TLS 1.2 AES-256 GCM encryption to encrypt all data transferred between the source volume and destination volume. This encryption is in addition to the [Azure MACSec encryption](../security/fundamentals/encryption-overview.md) that is on by default for all Azure traffic, including Azure NetApp Files cross-region replication. 
 
 ### How are encryption keys managed? 
 
@@ -128,10 +132,6 @@ See [Performance impact of Kerberos on NFSv4.1 volumes](performance-impact-kerbe
 For an NFS volume to automatically mount at VM start or reboot, add an entry to the `/etc/fstab` file on the host. 
 
 See [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) for details.  
-
-### Why does the DF command on NFS client not show the provisioned volume size?
-
-The volume size reported in DF is the maximum size the Azure NetApp Files volume can grow to. The size of the Azure NetApp Files volume in DF command is not reflective of the quota or size of the volume.  You can get the Azure NetApp Files volume size or quota through the Azure portal or the API.
 
 ### What NFS version does Azure NetApp Files support?
 
@@ -257,12 +257,12 @@ Although SMB encryption has impact to both the client (CPU overhead for encrypti
 
 Azure NetApp Files provides capacity pool and volume usage metrics. You can also use Azure Monitor to monitor usage for Azure NetApp Files. See [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md) for details. 
 
-### Can I manage Azure NetApp Files through Azure Storage Explorer?
-
-No. Azure NetApp Files is not supported by Azure Storage Explorer.
-
 ### How do I determine if a directory is approaching the limit size?
 
+You can use the `stat` command from a client to see whether a directory is approaching the [maximum size limit](azure-netapp-files-resource-limits.md#resource-limits) for directory metadata (320 MB).
+See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#directory-limit) for the limit and calculation. 
+
+<!-- 
 You can use the `stat` command from a client to see whether a directory is approaching the maximum size limit for directory metadata (320 MB).   
 
 For a 320-MB directory, the number of blocks is 655360, with each block size being 512 bytes.  (That is, 320x1024x1024/512.)  This number translates to approximately 4 million files maximum for a 320-MB directory. However, the actual number of maximum files might be lower, depending on factors such as the number of files containing non-ASCII characters in the directory. As such, you should use the `stat` command as follows to determine whether your directory is approaching its limit.  
@@ -282,7 +282,28 @@ Size: 12288           Blocks: 24         IO Block: 65536  directory
 File: 'tmp1'
 Size: 4096            Blocks: 8          IO Block: 65536  directory
 ```
+--> 
 
+### Does snapshot space count towards the usable / provisioned capacity of a volume?
+
+Yes, the [consumed snapshot capacity](azure-netapp-files-cost-model.md#capacity-consumption-of-snapshots) counts towards the provisioned space in the volume. In case the volume runs full, consider taking the following actions:
+
+* [Resize the volume](azure-netapp-files-resize-capacity-pools-or-volumes.md).
+* [Remove older snapshots](azure-netapp-files-manage-snapshots.md#delete-snapshots) to free up space in the hosting volume. 
+
+### Does Azure NetApp Files support auto-grow for volumes or capacity pools?
+
+No, Azure NetApp Files volumes and capacity pool do not auto-grow upon filling up. See [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md).   
+
+You can use the community supported [Logic Apps ANFCapacityManager tool](https://github.com/ANFTechTeam/ANFCapacityManager) to manage capacity-based alert rules. The tool can automatically increase volume sizes to prevent your volumes from running out of space.
+
+### Does the destination volume of a replication count towards hard volume quota?  
+
+No, the destination volume of a replication does not count towards hard volume quota.
+
+### Can I manage Azure NetApp Files through Azure Storage Explorer?
+
+No. Azure NetApp Files is not supported by Azure Storage Explorer.
 
 ## Data migration and protection FAQs
 
@@ -300,9 +321,15 @@ The requirements for data migration from on premises to Azure NetApp Files are a
 - Create the target Azure NetApp Files volume.
 - Transfer the source data to the target volume by using your preferred file copy tool.
 
+### Where does Azure NetApp Files store customer data?   
+
+By default, your data stays within the region where you deploy your Azure NetApp Files volumes. However, you can choose to replicate your data on a volume-by-volume basis to available destination regions using [cross-region replication](cross-region-replication-introduction.md).
+
 ### How do I create a copy of an Azure NetApp Files volume in another Azure region?
 	
 Azure NetApp Files provides NFS and SMB volumes.  Any file based-copy tool can be used to replicate data between Azure regions. 
+
+The [cross-region replication](cross-region-replication-introduction.md) functionality enables you to asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region.  Additionally, you can [create a new volume by using a snapshot of an existing volume](azure-netapp-files-manage-snapshots.md#restore-a-snapshot-to-a-new-volume).
 
 NetApp offers a SaaS based solution, [NetApp Cloud Sync](https://cloud.netapp.com/cloud-sync-service).  The solution enables you to replicate NFS or SMB data to Azure NetApp Files NFS exports or SMB shares. 
 
@@ -331,6 +358,11 @@ You can mount Azure NetApp Files NFS volumes on AVS Windows VMs or Linux VMs. Yo
 ### What regions are supported for using Azure NetApp Files NFS or SMB volumes with Azure VMware Solution (AVS)?
 
 Using Azure NetApp Files NFS or SMB volumes with AVS is supported in the following regions - East US, West US , West Europe, and Australia East.
+
+### Does Azure NetApp Files work with Azure Policy?
+
+Yes. Azure NetApp Files is a first-party service. It fully adheres to Azure Resource Provider standards. As such, Azure NetApp Files can be integrated into Azure Policy via *custom policy definitions*. For information about how to implement custom policies for Azure NetApp Files, see 
+[Azure Policy now available for Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure/azure-policy-now-available-for-azure-netapp-files/m-p/2282258) on Microsoft Tech Community. 
 
 ## Next steps  
 
