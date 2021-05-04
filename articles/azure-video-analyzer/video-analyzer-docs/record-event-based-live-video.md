@@ -9,13 +9,7 @@ ms.date: 04/13/2021
 
 In this tutorial, you'll learn how to use Azure Video Analyzer to selectively record portions of a live video source to Video Analyzer in the cloud. This use case is referred to as [event-based video recording](event-based-video-recording-concept.md) (EVR) in this tutorial. To record portions of a live video, you'll use an object detection AI model to look for objects in the video and record video clips only when a certain type of object is detected. You'll also learn about how to play back the recorded video clips by using Video Analyzer. This capability is useful for a variety of scenarios where there's a need to keep an archive of video clips of interest. 
 
-In this tutorial, you will:
 
-> [!div class="checklist"]
-> * Set up the relevant resources.
-> *	Examine the code that performs EVR.
-> *	Run the sample code.
-> *	Examine the results, and view the video.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,6 +30,12 @@ Read these articles before you begin:
 Prerequisites for this tutorial are:
 
 [!INCLUDE [prerequisites](./includes/common-includes/csharp-prerequisites.md)]
+
+## Set up Azure resources
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
+
+[!INCLUDE [resources](./includes/common-includes/azure-resources.md)]
 
 ## Overview
 
@@ -62,6 +62,14 @@ As the diagram shows, you'll use an [RTSP source](pipeline.md#rtsp-source) node 
 * The objectCounter module is set up to receive messages from the IoT Edge hub, which include the object detection results (vehicles in traffic). The module checks these messages and looks for objects of a certain type, which were configured via a setting. When such an object is found, this module sends a message to the IoT Edge hub. Those "object found" messages are then routed to the IoT Hub source node of the pipeline. Upon receiving such a message, the IoT Hub source node in the pipeline triggers the [signal gate processor](pipeline.md#signal-gate-processor) node. The signal gate processor node then opens for a configured amount of time. Video flows through the gate to the video sink node for that duration. That portion of the live stream is then recorded via the [video sink](pipeline.md#video-sink) node to an [video](terminology.md#video) in your  Video Analyzer account. The video that will be used in this tutorial is [a highway intersection sample video](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
+
+In this tutorial, you will:
+
+1. Setup your development environment.
+1. Deploy the required edge modules.
+1. Create and deploy the live pipeline.
+1. Interpret the results.
+1. Clean up resources.
 
 ## Set up your development environment
 [!INCLUDE [setup development environment](./includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)]
