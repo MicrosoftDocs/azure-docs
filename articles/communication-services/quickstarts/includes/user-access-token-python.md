@@ -101,7 +101,7 @@ Use the `create_user_and_token` method to create a Communication Services identi
 ```python
 # Issue an identity and an access token with the "voip" scope for the new identity
 identity_token_result = client.create_user_and_token(["voip"])
-identity = identity_token_result[0].identifier
+identity = identity_token_result[0].properties['id']
 token = identity_token_result[1].token
 expires_on = identity_token_result[1].expires_on.strftime("%d/%m/%y %I:%M %S %p")
 print("\nCreated an identity with ID: " + identity)
@@ -125,7 +125,7 @@ In some cases, you may explicitly revoke access tokens. For example, when an app
 
 ```python
 client.revoke_tokens(identity)
-print("\nSuccessfully revoked all access tokens for identity with ID: " + identity.identifier)
+print("\nSuccessfully revoked all access tokens for identity with ID: " + identity.properties['id'])
 ```
 
 ## Delete an identity
@@ -134,7 +134,7 @@ Deleting an identity revokes all active access tokens and prevents you from issu
 
 ```python
 client.delete_user(identity)
-print("\nDeleted the identity with ID: " + identity.identifier)
+print("\nDeleted the identity with ID: " + identity.properties['id'])
 ```
 
 ## Run the code
