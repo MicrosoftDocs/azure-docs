@@ -44,7 +44,7 @@ Using the **model** and **swVersion** identified in the previous section, check 
 |---------|---------|---------|---------|
 |PE-101     |2020.108.101.105, <br>2020.108.114.120, <br>2020.109.101.122, <br>2020.109.116.120, <br>2021.101.106.118        |**USB only**         |[USB update package](https://go.microsoft.com/fwlink/?linkid=2155734)         |
 |PE-101     |2021.102.108.112, <br>         |OTA         |[manifest](https://go.microsoft.com/fwlink/?linkid=2155625)<br>[update package](https://go.microsoft.com/fwlink/?linkid=2161538)          |
-|APDK-101     |All swVersions        |OTA         | [manifest](https://go.microsoft.com/fwlink/?linkid=2155734)<br>[update package](https://go.microsoft.com/fwlink/?linkid=2161538)        |
+|APDK-101     |All swVersions        |OTA         | [manifest](https://go.microsoft.com/fwlink/?linkid=2162292)<br>[update package](https://go.microsoft.com/fwlink/?linkid=2161538)        |
 
 
 
