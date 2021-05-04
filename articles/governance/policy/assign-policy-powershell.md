@@ -60,7 +60,7 @@ The preceding commands use the following information:
 - **Name** - The actual name of the assignment. For this example, _audit-vm-manageddisks_ was used.
 - **DisplayName** - Display name for the policy assignment. In this case, you're using _Audit VMs
   without managed disks Assignment_.
-- **Definition** – The policy definition, based on which you're using to create the assignment. In
+- **Definition** - The policy definition, based on which you're using to create the assignment. In
   this case, it's the ID of policy definition _Audit VMs that do not use managed disks_.
 - **Scope** - A scope determines what resources or grouping of resources the policy assignment gets
   enforced on. It could range from a subscription to resource groups. Be sure to replace

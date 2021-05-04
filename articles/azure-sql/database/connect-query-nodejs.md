@@ -135,7 +135,7 @@ Open a command prompt and create a folder named *sqltest*. Open the folder you c
         }
     });
 
-  */
+    */
 
     const connection = new Connection(config);
 
