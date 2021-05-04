@@ -221,20 +221,20 @@ You can use the runnable code sample below to create a twin, update its details,
 
 ### Set up sample project files
 
-The snippet uses a sample model definition, [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/Room.json). Use this links to go directly to the file in GitHub. Then, right-click anywhere on the screen, select **Save as** in your browser's right-click menu, ase the following Save As window to save the file as **Room.json**.
+The snippet uses a sample model definition, [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/Room.json). To **download the model file** so you can use it in your code, use this link to go directly to the file in GitHub. Then, right-click anywhere on the screen, select **Save as** in your browser's right-click menu, and use the Save As window to save the file as **Room.json**.
 
-Next, create a **new console app project** in Visual Studio or your editor of your choice.
+Next, create a **new console app project** in Visual Studio or your editor of choice.
 
-Then, copy the following code of the runnable sample into your project:
+Then, **copy the following code** of the runnable sample into your project:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs":::
 
 ### Configure project
 
 Next, complete the following steps to configure your project code:
-1. Download the model file, place it in your project, and replace the `<path-to>` placeholder in the code to tell your program where to find it.
+1. Add the **Room.json** file you downloaded earlier to your project, and replace the `<path-to>` placeholder in the code to tell your program where to find it.
 2. Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's host name.
-3. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client), the second provides tools to help with authentication against Azure.
+3. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client), and the second provides tools to help with authentication against Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core

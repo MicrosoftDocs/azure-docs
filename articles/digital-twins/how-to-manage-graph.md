@@ -170,20 +170,20 @@ The following runnable code snippet uses the relationship operations from this a
 
 ### Set up sample project files
 
-The snippet uses two sample model definitions, [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/Room.json) and [Floor.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/Floor.json). Use these links to go directly to the files in GitHub. Then, right-click anywhere on the screen, select **Save as** in your browser's right-click menu, and use the following Save As window to save the files as **Room.json** and **Floor.json**.
+The snippet uses two sample model definitions, [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/Room.json) and [Floor.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/Floor.json). To **download the model files** so you can use them in your code, use these links to go directly to the files in GitHub. Then, right-click anywhere on the screen, select **Save as** in your browser's right-click menu, and use the Save As window to save the files as **Room.json** and **Floor.json**.
 
-Next, create a **new console app project** in Visual Studio or your editor of your choice.
+Next, create a **new console app project** in Visual Studio or your editor of choice.
 
-Then, copy the following code of the runnable sample into your project:
+Then, **copy the following code** of the runnable sample into your project:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs":::
 
 ### Configure project
 
 Next, complete the following steps to configure your project code:
-1. Add the **Room.json** and **Floor.json** files to your project, and replace the `<path-to>` placeholders in the code to tell your program where to find them.
+1. Add the **Room.json** and **Floor.json** files you downloaded earlier to your project, and replace the `<path-to>` placeholders in the code to tell your program where to find them.
 1. Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's host name.
-1. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client), the second provides tools to help with authentication against Azure.
+1. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client), and the second provides tools to help with authentication against Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core
