@@ -24,11 +24,11 @@ This article guides you end-to-end through the planning, deployment, and network
 
 ## Migration goals
 
-The goal is to move the shares that you have on your NAS appliance to Azure and have them become native Azure file shares you can use without a need for a Windows Server. This migration needs to be done in a way that guarantees the integrity of the production data and availability during the migration. The latter requires keeping downtime to a minimum, so that it can fit into or only slightly exceed regular maintenance windows.
+The goal is to move the shares on your NAS appliance to Azure and have them become native Azure file shares. You can use native Azure file shares without a need for a Windows Server. This migration needs to be done in a way that guarantees the integrity of the production data and availability during the migration. The latter requires keeping downtime to a minimum, so that it can fit into or only slightly exceed regular maintenance windows.
 
 ## Migration overview
 
-The migration process consists of several phases. You'll need to deploy Azure storage accounts and file shares, configure networking, migrate using Azure DataBox, catch-up with changes via RoboCopy, and finally, cut-over your users to the newly created Azure file shares. The following sections describe the phases of the migration process in detail.
+The migration process consists of several phases. You'll need to deploy Azure storage accounts and file shares and configure networking. Then you'll migrate your files using Azure DataBox, and RoboCopy to catch-up with changes. Finally, you'll cut-over your users and apps to the newly created Azure file shares. The following sections describe the phases of the migration process in detail.
 
 > [!TIP]
 > If you are returning to this article, use the navigation on the right side to jump to the migration phase where you left off.

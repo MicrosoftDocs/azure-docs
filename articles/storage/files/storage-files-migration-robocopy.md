@@ -11,7 +11,7 @@ ms.subservice: files
 
 # Use RoboCopy to migrate to Azure file shares
 
-This migration article describes the use of RoboCopy to move or migrate files to an Azure file share. RoboCopy is a trusted and well known file copy utility with a feature set that makes it well-suited for migrations. It uses the SMB protocol, which makes it broadly applicable to any source and target combination, supporting SMB.
+This migration article describes the use of RoboCopy to move or migrate files to an Azure file share. RoboCopy is a trusted and well-known file copy utility with a feature set that makes it well suited for migrations. It uses the SMB protocol, which makes it broadly applicable to any source and target combination, supporting SMB.
 
 > [!div class="checklist"]
 > * Data sources: Any source supporting the SMB protocol, such as Network Attached Storage (NAS), Windows or Linux servers, another Azure file share and many more
@@ -20,21 +20,21 @@ This migration article describes the use of RoboCopy to move or migrate files to
 There are many different migration routes for different source and deployment combinations. Look through the [table of migration guides](storage-files-migration-overview.md#migration-guides) to find the migration that best suits your needs.
 
 ## AzCopy vs. RoboCopy
-AzCopy and RoboCopy are two very different file copy tools. RoboCopy uses any version of the SMB protocol, while AzCopy is a "born-in-the-cloud" tool that can be used to move data as long as the target is in Azure storage. AzCopy depends on a REST protocol.
+AzCopy and RoboCopy are two fundamentally different file copy tools. RoboCopy uses any version of the SMB protocol. AzCopy is a "born-in-the-cloud" tool that can be used to move data as long as the target is in Azure storage. AzCopy depends on a REST protocol.
 
-RoboCopy, as a trusted, Windows-based copy tool, has the home-turf advantage when it comes to copying files at full fidelity. RoboCopy supports many migration scenarios due to its rich set of features and the ability to copy files and folders in full fidelity. Check out the [file fidelity section in the migration overview article](storage-files-migration-overview.md#migration-basics) to learn more about the importance of copying files at maximum possible fidelity between source and target.
+RoboCopy, as a trusted, Windows-based copy tool, has the home-turf advantage when it comes to copying files at full fidelity. RoboCopy supports many migration scenarios due to its rich set of features and the ability to copy files and folders in full fidelity. Check out the [file fidelity section in the migration overview article](storage-files-migration-overview.md#migration-basics) to learn more about the importance of copying files at maximum possible fidelity.
 
 AzCopy, on the other hand, has only recently expanded to support file copy with some fidelity and added the first features needed to be considered as a migration tool. However, there are still gaps and there can easily be misunderstandings of functionality when comparing AzCopy flags to RoboCopy flags.
 
-An example: *RoboCopy /MIR* will mirror source to target - that means added, changed, and deleted files are considered. An important difference to *AzCopy -sync* is that deleted files on the source will not be removed on the target. That makes for an incomplete differential-copy feature set. AzCopy will continue to evolve - just at this time it is not a recommended tool for migration scenarios with Azure file shares as the target. 
+An example: *RoboCopy /MIR* will mirror source to target - that means added, changed, and deleted files are considered. An important difference to *AzCopy -sync* is that deleted files on the source will not be removed on the target. That makes for an incomplete differential-copy feature set. AzCopy will continue to evolve. At this time AzCopy is not a recommended tool for migration scenarios with Azure file shares as the target. 
 
 ## Migration goals
 
-The goal is to move the data from existing file share locations to Azure. In Azure you'll store you data in native Azure file shares you can use without a need for a Windows Server. This migration needs to be done in a way that guarantees the integrity of the production data and availability during the migration. The latter requires keeping downtime to a minimum, so that it can fit into or only slightly exceed regular maintenance windows.
+The goal is to move the data from existing file share locations to Azure. In Azure, you'll store you data in native Azure file shares you can use without a need for a Windows Server. This migration needs to be done in a way that guarantees the integrity of the production data and availability during the migration. The latter requires keeping downtime to a minimum, so that it can fit into or only slightly exceed regular maintenance windows.
 
 ## Migration overview
 
-The migration process consists of several phases. You'll need to deploy Azure storage accounts and file shares, configure networking, consider a DFS Namespace deployment (DFS-N or update your existing one, catch-up with changes via RoboCopy, and finally, cut-over your users to the newly created Azure file shares. The following sections describe the phases of the migration process in detail.
+The migration process consists of several phases. You'll need to deploy Azure storage accounts and file shares. Furthermore, you'll configure networking, consider a DFS Namespace deployment (DFS-N) or update your existing one. Once it's time for the actual data copy, you'll need to consider repeated, differential RoboCopy runs to minimize downtime, and finally, cut-over your users to the newly created Azure file shares. The following sections describe the phases of the migration process in detail.
 
 > [!TIP]
 > If you are returning to this article, use the navigation on the right side to jump to the migration phase where you left off.
@@ -56,7 +56,7 @@ With the information in this phase, you will be able to decide how your servers 
 - **Networking:** Enable your networks to route SMB traffic.
 - **Authentication:** Configure Azure storage accounts for Kerberos authentication. AdConnect and Domain joining your storage account will allow your apps and users to use their AD identity to for authentication
 - **Authorization:** Share-level ACLs for each Azure file share will allow AD users and groups to access a given share and within an Azure file share, native NTFS ACLs will take over. Authorization based on file and folder ACLs then works like it does for on-premises SMB shares.
-- **Business continuity:** Integration of Azure file shares into an existing environment often entails to preserve existing share addresses. If you are not already using DFS-Namespaces, consider establishing that in your environment. You'd be able to keep share addresses your users and scripts use, unchanged. You would use DFS-N as a namespace routing service for SMB, by redirecting [DFS-Namespace](files-manage-namespaces.md) targets to Azure file shares after their migration.
+- **Business continuity:** Integration of Azure file shares into an existing environment often entails to preserve existing share addresses. If you are not already using [DFS-Namespaces](files-manage-namespaces.md), consider establishing that in your environment. You'd be able to keep share addresses your users and scripts use, unchanged. DFS-N provides a namespace routing service for SMB, by redirecting clients to Azure file shares.
 
 :::row:::
     :::column:::
@@ -85,11 +85,11 @@ Before you can use RoboCopy, you need to make the Azure file share accessible ov
 > [!IMPORTANT]
 > Before you can successfully mount an Azure file share to a local Windows Server, you need to have completed Phase : Preparing to use Azure file shares!
 
-Once you are ready, review the [Use an Azure file share with Windows how-to article](storage-how-to-use-files-windows.md) and mount the Azure file share you want to start the NAS catch-up RoboCopy for.
+Once you are ready, review the [Use an Azure file share with Windows how-to article](storage-how-to-use-files-windows.md). Then mount the Azure file share you want to start the RoboCopy for.
 
 ## Phase 4: RoboCopy
 
-The following RoboCopy command will copy only the differences (updated files and folders) from your NAS storage to your Azure file share. 
+The following RoboCopy command will copy only the differences (updated files and folders) from your source storage to your Azure file share.
 
 [!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
 
