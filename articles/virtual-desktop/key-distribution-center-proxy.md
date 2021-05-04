@@ -3,7 +3,7 @@ title: Set up Kerberos Key Distribution Center proxy Windows Virtual Desktop - A
 description: How to set up a Windows Virtual Desktop host pool to use a Kerberos Key Distribution Center proxy.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/30/2021
+ms.date: 05/04/2021
 ms.author: helohr
 manager: femila
 ---
