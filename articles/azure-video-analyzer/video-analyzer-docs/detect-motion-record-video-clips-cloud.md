@@ -1,5 +1,5 @@
 ---
-title: Detect motion, record video - Azure
+title: Detect motion, record video with Azure Video Analyzer
 description: This quickstart shows how to use Azure Video Analyzer on IoT Edge in order to detect motion in a live video stream and record video clips.
 ms.topic: quickstart
 ms.date: 04/03/2021
@@ -618,21 +618,15 @@ Try the following direct methods as next steps:
 The pipeline you created uses the motion detection processor node to detect motion, and such events are relayed to your IoT Hub. In order to prepare for observing such events, follow these steps
 
 1. Open the Explorer pane in Visual Studio Code and look for Azure IoT Hub at the bottom-left corner.
-
-2. Expand the Devices node
+1. Expand the Devices node
 
 1. Right-click on avasample-iot-edge-device and chose the option "Start Monitoring Built-in Event Monitoring"
 
     ![Start Monitoring Built-in Event Monitoring](./media/start-monitoring-iot-hub-events/monitor-iot-hub-events.png)
     
-    [!NOTE] REPLACE THE ABOVE PICTURE WITH THE ONE ATTACHED IN THE ZIP FOLDER!!!
-    
-    > [!NOTE]
-    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
-    > ```
-    > Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
-    > ```
-    > Within seconds, you will see the following messages in the OUTPUT window:
+    You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  <br/>`Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>`
+
+    Within seconds, you will see the following messages in the OUTPUT window:
 
 ```
 [IoTHubMonitor] Start monitoring message arrived in built-in endpoint for device [avasample-iot-edge-device] ...
