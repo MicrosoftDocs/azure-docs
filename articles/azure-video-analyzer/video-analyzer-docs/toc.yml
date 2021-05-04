@@ -106,7 +106,7 @@
   - name: Configure a signal gate
     href: configure-signal-gate.md #404
   - name: Managed identity
-    href: managed-identity.m
+    href: managed-identity.md
   - name: Network Security
     href: network-security.md
   - name: Use widgets
