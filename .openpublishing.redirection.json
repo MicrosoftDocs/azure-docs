@@ -19516,8 +19516,18 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/digital-twins/how-to-use-cli.md",
+      "redirect_url": "/azure/digital-twins/concepts-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/digital-twins/how-to-use-apis-sdks.md",
+      "redirect_url": "/azure/digital-twins/concepts-apis-sdks",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/digital-twins/how-to-create-custom-sdks.md",
-      "redirect_url": "/azure/digital-twins/how-to-use-apis-sdks",
+      "redirect_url": "/azure/digital-twins/concepts-apis-sdks",
       "redirect_document_id": false
     },
     {
@@ -61634,6 +61644,11 @@
       "source_path_from_root": "/articles/cognitive-services/personalizer/personalizer-container-howto.md",
       "redirect_url": "/azure/cognitive-services/personalizer/what-is-personalizer",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/personalizer/troubleshooting.md",
+      "redirect_url": "/azure/cognitive-services/personalizer/frequently-asked-questions",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/policy-samples.md",
