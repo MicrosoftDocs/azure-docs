@@ -79,40 +79,6 @@ To configure Automatic upgrades and the wave deployment, simply add/validate `Cl
 
 Once you deploy the updated template, your cluster will be enrolled in the specified wave for the next upgrade period and after that.
 
-You can [register for email notifications](#register-for-notifications) with links to further help if a cluster upgrade fails.
-
-### Register for notifications
-
-You can register for notifications when a cluster upgrade fails. An email will be sent to your designated email address(es) with further details on the upgrade failure and links to further help.
-
-> [!NOTE]
-> Enrollment in wave deployment is not required to receive notifications for upgrade failures.
-
-To enroll in notifications, add a `notifications` section to your cluster resource template, and designate one or more email addresses (*receivers*) to receive notifications:
-
-```json
-    "apiVersion": "5-1-2021",
-    "type": "Microsoft.ServiceFabric/managedClusters",
-     ...
-        "upgradeMode": "Automatic",
-        "upgradeWave": "Wave1",
-        "notifications": [
-        {
-            "isEnabled": true,
-            "notificationCategory": "WaveProgress",
-            "notificationLevel": "Critical",
-            "notificationTargets": [
-            {
-                "notificationChannel": "EmailUser",
-                "receivers": [
-                    "devops@contoso.com"
-                ]
-            }]
-        }]
-```
-
-Once you deploy your updated template, you'll be enrolled for upgrade failure notifications.
-
 ## Custom policies for manual upgrades
 
 You can specify custom health policies for manual cluster upgrades. These policies get applied each time you select a new runtime version, which triggers the system to kick off the upgrade of your cluster. If you do not override the policies, the defaults are used.
@@ -121,7 +87,7 @@ You can specify the custom health policies or review the current settings under 
 
 :::image type="content" source="./media/service-fabric-cluster-upgrade/custom-upgrade-policy.png" alt-text="Select the 'Custom' upgrade policy option in the 'Fabric upgrades' section of your cluster resource in Azure portal in order to set custom health policies during upgrade":::
 
-## Query for supported cluster versions UPDATE
+## Query for supported cluster versions
 
 You can use [Azure REST API](/rest/api/azure/) to list all available Service Fabric runtime versions ([clusterVersions](/rest/api/servicefabric/sfrp-api-clusterversions_list)) available for the specified location and your subscription.
 
