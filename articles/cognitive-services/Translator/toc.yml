@@ -139,7 +139,7 @@
   - name: Reference
     items:
     - name: Release notes
-      href: https://azure.microsoft.com/updates/ctmay2021/preview/
+      href: custom-translator/release-notes.md
 - name: Document Translation
   items:
     - name: What is Document Translation?
