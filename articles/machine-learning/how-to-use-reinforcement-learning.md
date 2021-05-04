@@ -428,7 +428,7 @@ The **episode_reward_mean** plot shows the mean number of points scored per trai
 
 If you browse logs of the child run, you can see the evaluation results recorded in driver_log.txt file. You may need to wait several minutes before these metrics become available on the Run page.
 
-In short work, you have learned to configure multiple compute resources to train a reinforcement learning agent to play Pong very well against a computer oppponent.
+In short work, you have learned to configure multiple compute resources to train a reinforcement learning agent to play Pong very well against a computer opponent.
 
 ## Next steps
 
