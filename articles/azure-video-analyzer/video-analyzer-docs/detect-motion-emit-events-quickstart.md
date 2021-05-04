@@ -10,8 +10,6 @@ zone_pivot_groups: ams-lva-edge-programming-languages
 
 This quickstart walks you through the steps to get started with Azure Video Analyzer on IoT Edge. It uses an Azure VM as an IoT Edge device and a simulated live video stream. After completing the setup steps, you'll be able to run a simulated live video stream through a video pipeline that detects and reports any motion in that stream. The following diagram shows a graphical representation of that pipeline.
 
-![Azure Video Analyzer based on motion detection](./media/analyze-live-video/motion-detection.svg) 
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [header](includes/detect-motion-emit-events-quickstart/csharp/header.md)]
 ::: zone-end
@@ -22,13 +20,20 @@ This quickstart walks you through the steps to get started with Azure Video Anal
 
 ## Prerequisites
 
-::: zone pivot="programming-language-csharp"
-[!INCLUDE [prerequisites](includes/detect-motion-emit-events-quickstart/csharp/prerequisites.md)]
-::: zone-end
+[!INCLUDE [prerequisites](./includes/common-includes/csharp-prerequisites.md)]
 
-::: zone pivot="programming-language-python"
-[!INCLUDE [prerequisites](includes/detect-motion-emit-events-quickstart/python/prerequisites.md)]
-::: zone-end
+## Set up Azure resources
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
+
+[!INCLUDE [resources](./includes/common-includes/azure-resources.md)]
+
+## Overview
+
+![Azure Video Analyzer based on motion detection](./media/analyze-live-video/motion-detection.svg) 
+
+This diagram shows you how the signal flows in this quickstart. An [edge module](https://github.com/Azure/azure-video-analyzer/tree/master/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [motion detection processor](pipeline.md#motion-detection-processor) node. The motion detection processor node enables you to detect motion in live video. It examines incoming video frames and determines if there is movement in the video. If motion is detected, it passes on the video frame to the next node in the pipeline, and emits an event. 
+
 
 ## Review the sample video
 
