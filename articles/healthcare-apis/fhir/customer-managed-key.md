@@ -34,8 +34,8 @@ You can choose your key from the KeyPicker:
 You can also specify your Azure Key Vault key here by selecting **Customer-managed key** option.
 
 > [!Important]
-> Ensure all permissions for Azure Key Vault are set appropriately. For more information, see [Add an access policy to your Azure Key Vault instance](https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-setup-cmk#add-access-policy). 
-Additionally, ensure that the soft delete is enable in the properties of the Key Vault. Not completing these steps will result in a deployment error. For more information, see [Verify if soft delete is enabled on a key vault and enable soft delete](https://docs.microsoft.com/en-us/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#verify-if-soft-delete-is-enabled-on-a-key-vault-and-enable-soft-delete). 
+> Ensure all permissions for Azure Key Vault are set appropriately. For more information, see [Add an access policy to your Azure Key Vault instance](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-access-policy). 
+Additionally, ensure that the soft delete is enable in the properties of the Key Vault. Not completing these steps will result in a deployment error. For more information, see [Verify if soft delete is enabled on a key vault and enable soft delete](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#verify-if-soft-delete-is-enabled-on-a-key-vault-and-enable-soft-delete). 
 
 You can also enter the key URI here:
 
