@@ -20,6 +20,8 @@ Azure Static Web Apps provides [managed authentication](authentication-authoriza
 
 The settings used to override the built-in providers are configured in the `auth` section of the [Configuration file](configuration.md).
 
+To avoid putting secrets in source control, the configuration looks into [application settings](application-settings.md) for a matching name in the configuration file.
+
 ### Default provider configuration
 
 The following tables contain the different configuration options for each default provider.
