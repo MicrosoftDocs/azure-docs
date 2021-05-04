@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 05/04/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -36,40 +36,24 @@ If your organization wants to allow users to self-remediate when risks are detec
 
 Organizations must decide the level of risk they are willing to accept balancing user experience and security posture. 
 
-Microsoft's recommendation is to set the user risk policy threshold to **High** and the sign-in risk policy to **Medium and above**.
+Microsoft's recommendation is to set the user risk policy threshold to **High** and the sign-in risk policy to **Medium and above** and allow self-remediation options. Choosing to block access rather than allowing self-remediation options, like password change and multi-factor authentication, will impact your users and administrators. Weigh this choice when configuring your policies.
 
-Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users. However, it excludes **Low** and **Medium** risk detections from the policy, which may not block an attacker from exploiting a compromised identity. Selecting a **Low** threshold introduces additional user interrupts, but increased security posture.
+Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users. However, it excludes **Low** and **Medium** risk detections from the policy, which may not block an attacker from exploiting a compromised identity. Selecting a **Low** threshold introduces extra user interrupts, but increased security posture.
+
+Configured trusted [network locations](../conditional-access/location-condition.md) are used by Identity Protection in some risk detections to reduce false positives.
 
 ## Exclusions
 
 All of the policies allow for excluding users such as your [emergency access or break-glass administrator accounts](../roles/security-emergency-access.md). Organizations may determine they need to exclude other accounts from specific policies based on the way the accounts are used. All exclusions should be reviewed regularly to see if they are still applicable.
 
-Configured trusted [network locations](../conditional-access/location-condition.md) are used by Identity Protection in some risk detections to reduce false positives.
-
 ## Enable policies
 
-To enable the user risk and sign-in risk policies complete the following steps.
+There are two locations where these policies may be configured, Conditional Access and Identity Protection. Configuration using Conditional Access policies is the preferred method, providing more context including: enhanced diagnostic data, report-only mode integration, Graph API support, and the ability to utilize other Conditional Access attributes in the policies.
 
-1. Navigate to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Security** > **Identity Protection** > **Overview**.
-1. Select **User risk policy**.
-   1. Under **Assignments**
-      1. **Users** - Choose **All users** or **Select individuals and groups** if limiting your rollout.
-         1. Optionally you can choose to exclude users from the policy.
-      1. **Conditions** - **User risk** Microsoft's recommendation is to set this option to **High**.
-   1. Under **Controls**
-      1. **Access** - Microsoft's recommendation is to **Allow access** and **Require password change**.
-   1. **Enforce Policy** - **On**
-   1. **Save** - This action will return you to the **Overview** page.
-1. Select **Sign-in risk policy**.
-   1. Under **Assignments**
-      1. **Users** - Choose **All users** or **Select individuals and groups** if limiting your rollout.
-         1. Optionally you can choose to exclude users from the policy.
-      1. **Conditions** - **Sign-in risk** Microsoft's recommendation is to set this option to **Medium and above**.
-   1. Under **Controls**
-      1. **Access** - Microsoft's recommendation is to **Allow access** and **Require multi-factor authentication**.
-   1. **Enforce Policy** - **On**
-   1. **Save**
+To create a sin-in risk-based policy, follow the instructions in the article, [Conditional Access: Sign-in risk-based Conditional Access](../conditional-access/howto-conditional-access-policy-risk.md).
+
+To create a user risk-based policy, follow the instructions in the article, [Conditional Access: User risk-based Conditional Access](../conditional-access/howto-conditional-access-policy-risk-user.md)
+
 
 ## Next steps
 
