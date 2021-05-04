@@ -90,7 +90,7 @@
     - name: Filter QnAs by metadata
       href: How-To/query-knowledge-base-with-metadata.md 
   - name: Use Prebuilt API to query over text
-    href: How-to/use-prebuilt-api.md
+    href: How-to/using-prebuilt-api.md
     displayName: prebuilt, query, answer, text, prebuilt api, ingest, no storage, call, response
   - name: Get suggested alternate questions via active learning
     href: How-to/improve-knowledge-base.md
@@ -135,7 +135,7 @@
     - name: QnA Maker 4.0
       href: /rest/api/cognitiveservices/qnamaker4.0/alterations
     - name: QnA Maker 5.0 Preview 2
-      href: /rest/api/cognitiveservices/qnamakerv5.0-preview.2/alterations
+      href: /rest/api/cognitiveservices-qnamaker/qnamaker5.0preview2/alterations
   - name: SDKs
     items:
     - name: C#
