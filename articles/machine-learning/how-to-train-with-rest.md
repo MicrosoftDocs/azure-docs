@@ -1,0 +1,125 @@
+---
+title: 'Train models (create jobs) with REST'
+description: Learn how to train models (create jobs) with REST.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: how-to
+
+author: wenxwei
+ms.author: wenxwei
+ms.date: 05/25/2021
+ms.reviewer: laobri
+---
+
+# Train models (create jobs) with REST
+
+Training a machine learning model is generally an iterative process. Modern tooling makes it easier than ever to train larger models on more data faster. There are several ways to create and manage your training job. You can use the new Azure Machine Learning CLI, or, you can choose the REST API. 
+
+The REST API uses HTTP verbs in a standard way to create, retrieve, update, and delete resources. The REST API works with any language or tool that can make HTTP requests. REST's straightforward structure often makes it a good choice in scripting environments and for MLOps automation.
+
+In this article, you learn how to use REST to:
+
+> [!div class="checklist"]
+> * Create machine learning assets
+> * Create a basic training job 
+> * Create a sweep job for hyperparameter tuning 
+
+## Prerequisites
+
+- An **Azure subscription** for which you have administrative rights. If you don't have such a subscription, try the [free or paid personal subscription](https://aka.ms/AMLFree)
+- An [Azure Machine Learning Workspace](./how-to-manage-workspace.md)
+- Administrative REST requests use service principal authentication. Follow the steps in [Set up authentication for Azure Machine Learning resources and workflows](./how-to-setup-authentication.md#service-principal-authentication) to create a service principal in your workspace
+- A service principal authentication token. Follow the steps in [Retrieve a service principal authentication token](./how-to-manage-rest.md##retrieve-a-service-principal-authentication-token) to retrieve this token. 
+- The **curl** utility. The **curl** program is available in the [Windows Subsystem for Linux](/windows/wsl/install-win10) or any UNIX distribution. In PowerShell, **curl** is an alias for **Invoke-WebRequest** and `curl -d "key=val" -X POST uri` becomes `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`. 
+
+## Introducing jobs
+
+A Job is a Resource that specifies all aspects of a computation job. It aggregates 3 things:
+
+- What to run
+- How to run it
+- Where to run it
+
+You can execute a job via the Azure Machine Learning REST API. The examples below encapsulate how you might expand your job definition as you progress with your work.
+
+## Create Machine Learning Assets
+
+Create a machine learning model requires You want to create a basic LightGBM training job on Iris dataset running on an Azure Machine Learning compute cluster. You first need to set up different machine learning assets to configure your job.
+
+### Compute
+
+Training and running machine learning models require compute resources. You can list the compute resources of a workspace with:
+
+```bash
+curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/computes?api-version=$API_VERSION&isDefault=true" \
+--header "Authorization: Bearer $TOKEN"
+
+```
+
+For this example, we will use an existing compute cluster named `cpu-cluster`, so we will set compute name for future use:
+
+```bash
+COMPUTE_NAME="cpu-cluster"
+```
+
+You can learn how to [create or overwrite a named compute resource](./how-to-manage-rest.md#create-and-modify-resources-using-put-and-post-requests) with a PUT request. 
+
+### Environment 
+
+The LightGBM example needs to be run on a LightGBM environment. Let's create and define the LightGBM environment we want to run on with a PUT request. You will use a docker image from Microsoft Container Registry. You can configure the docker image with `Docker` and add conda dependencies with `condaFile`. 
+
+:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create environment":::
+
+### Datastore
+
+The training job needs to run on some specific data. In order to set up the data to use, let's first create a new Datastore to house the data. We are going to create a Datastore called `localuploads`.
+
+To create a datastore, you will need to retrieve some values from the storage account. You can get the values associated with your subscription with a GET request. 
+
+```bash
+curl --location --request GET "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/datastores?api-version=$API_VERSION&isDefault=true" \
+--header "Authorization: Bearer $TOKEN"
+
+AZURE_STORAGE_ACCOUNT=<fill in with your storage account here>
+AZUREML_DEFAULT_DATASTORE=<fill in with your default datastore name here>
+AZUREML_DEFAULT_CONTAINER=<fill in with your default container name here>
+AZURE_STORAGE_KEY=<fill in with your storage key here>
+
+```
+
+You can then use these value to create a new datastore with a PUT request. 
+
+:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create datastore":::
+
+### Data
+
+Now that you have a datastore, you can create a data with a dataset. For this example, we will use an open dataset `iris.csv` and point to it in the `path`. 
+
+:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create data":::
+
+### Code
+
+Now that you have the data created, let's create a code. You want to train a LightGBM model and you have your training script. In order to create a code, you should upload the code to the datastore first: 
+
+```bash
+az storage blob upload-batch -d $AZUREML_DEFAULT_CONTAINER/src \
+ -s jobs/train/lightgbm/iris/src --account-name $AZURE_STORAGE_ACCOUNT --account-key $AZURE_STORAGE_KEY
+```
+
+Once you have your code uploaded, you can create a code with a PUT request and refer to the datastore with `datastoreId`. 
+
+:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create code":::
+
+## Basic Python training job
+
+With the machine learning assets created, you can run the basic LightGBM job which outputs a model and accompanying metadata. Let's review the information we need to set up to configure a training job: 
+
+:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create job":::
+
+
+## Sweep hyperparameters
+
+Azure Machine Learning also enables you to more efficiently tune the hyperparameters for your machine learning models. You can create a hyperparameter tuning job, called a sweep job, via the REST APIs. 
+
+:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create a sweep job":::
