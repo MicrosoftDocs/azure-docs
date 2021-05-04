@@ -502,10 +502,12 @@
       href: relyingparty.md
     - name: Claim resolvers
       href: claim-resolver-overview.md
-  - name: Custom policy release notes
+  - name: Release notes
     href: custom-policy-developer-notes.md
   - name: Service limits and restrictions
     href: service-limits.md
+  - name: TLS and cipher suite requirements
+    href: https-cipher-tls-requirements.md
   - name: App registrations
     href: app-registrations-training-guide.md
   - name: Billing model

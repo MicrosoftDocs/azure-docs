@@ -161,13 +161,11 @@ The query results are transformed into a number that is compared against the thr
 ### Frequency
 
 > [!NOTE]
-> There are currently no additional charges for 1-minute frequency log alerts. Pricing for features that are in preview will be announced in the future and a notice provided prior to start of billing. Should you choose to continue using 1-minute frequency log alerts after the notice period, you will be billed at the applicable rate.
+> There are currently no additional charges for 1-minute frequency log alerts preview. Pricing for features that are in preview will be announced in the future and a notice provided prior to start of billing. Should you choose to continue using 1-minute frequency log alerts after the notice period, you will be billed at the applicable rate.
 
-The interval in which the query is run. Can be set from 1 minute to one day. Must be equal to or less than the [query time range](#query-time-range) to not miss log records.
+The interval in which the query is run. Can be set from a minute to a day. Must be equal to or less than the [query time range](#query-time-range) to not miss log records.
 
 For example, if you set the time period to 30 minutes and frequency to 1 hour.  If the query is run at 00:00, it returns records between 23:30 and 00:00. The next time the query would run is 01:00 that would return records between 00:30 and 01:00. Any records created between 00:00 and 00:30 would never be evaluated.
-
-To use 1-minute frequency alerts you need to set a property via the API. When creating new or updating existing log alert rules in API Version `2020-05-01-preview` - in `properties` section, add `evaluationFrequency` with value `PT1M` of type `String`. When creating new or updating existing log alert rules in API Version `2018-04-16` - in `schedule` section, add `frequencyInMinutes` with value `1` of type `Int`. 
 
 ### Number of violations to trigger alert
 

@@ -95,7 +95,7 @@ You can also clone the latest Azure Machine Learning samples to your folder unde
 
 Writing small files can be slower on network drives than writing to the compute instance local disk itself.  If you are writing many small files, try using a directory directly on the compute instance, such as a `/tmp` directory. Note these files will not be accessible from other compute instances. 
 
-You can use the `/tmp` directory on the compute instance for your temporary data.  However, do not write very large files of data on the OS disk of the compute instance. OS disk on compute instance has 128 GB capacity. Use [datastores and datasets](concept-azure-machine-learning-architecture.md#datasets-and-datastores) instead. Do not store training data on notebooks file share. If you have installed JupyterLab git extension, it can also lead to slow down in compute instance performance.
+You can use the `/tmp` directory on the compute instance for your temporary data.  However, do not write very large files of data on the OS disk of the compute instance. OS disk on compute instance has 128 GB capacity. Also, do not store a large training data on the notebooks file share. Use [datastores and datasets](concept-azure-machine-learning-architecture.md#datasets-and-datastores) instead. 
 
 ## Managing a compute instance
 
@@ -137,7 +137,7 @@ To create a compute instance you need to have permissions for the following acti
 In your workspace in Azure Machine Learning studio, [create a new compute instance](how-to-create-attach-compute-studio.md#compute-instance) from either the **Compute** section or in the **Notebooks** section when you are ready to run one of your notebooks. 
 
 You can also create an instance
-* Directly from the [integrated notebooks experience](tutorial-1st-experiment-sdk-setup.md#azure)
+* Directly from the [integrated notebooks experience](tutorial-train-models-with-aml.md#azure)
 * In Azure portal
 * From Azure Resource Manager template. For an example template, see the [create an Azure Machine Learning compute instance template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).
 * With [Azure Machine Learning SDK](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/concept-compute-instance.md)
@@ -179,7 +179,7 @@ A compute instance:
 You can use compute instance as a local inferencing deployment target for test/debug scenarios.
 
 > [!TIP]
-> The compute instance has 120GB OS disk. If you run out of disk space and get into an unusable state, please clear at least 5 GB disk space on OS disk (/dev/sda1/ filesystem mounted on /) through the JupyterLab terminal by removing files/folders and then do sudo reboot. To access the JupyterLab terminal go to https://ComputeInstanceName.AzureRegion.instances.azureml.ms/lab replacing the name of compute instance and Azure region, and then click File->New->Terminal. Please clear at least 5 GB before you [stop or restart](how-to-create-manage-compute-instance.md#manage) the compute instance. You can check available disk space by running df -h on the terminal.
+> The compute instance has 120GB OS disk. If you run out of disk space and get into an unusable state, please clear at least 5 GB disk space on OS disk (/dev/sda1/ filesystem mounted on /) through the JupyterLab terminal by removing files/folders and then do sudo reboot. To access the JupyterLab terminal go to https://ComputeInstanceName.AzureRegion.instances.azureml.ms/lab replacing the name of compute instance and Azure region, and then click File->New->Terminal. Clear at least 5 GB before you [stop or restart](how-to-create-manage-compute-instance.md#manage) the compute instance. You can check available disk space by running df -h on the terminal.
 
 ## Next steps
 

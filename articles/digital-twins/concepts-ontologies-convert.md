@@ -50,7 +50,7 @@ The sample is a .NET Core command-line application called **RdfToDtdlConverter**
 
 You can get the sample here: [RdfToDtdlConverter](/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/). 
 
-To download the code to your machine, select the **Browse code** button underneath the title on the sample page, which will take you to the GitHub repo for the sample. Select the **Code** button and **Download ZIP** to download the sample as a *.ZIP* file called *RdfToDtdlConverter-main.zip*. You can then unzip the file and explore the code.
+To download the code to your machine, select the **Browse code** button underneath the title on the sample page, which will take you to the GitHub repo for the sample. Select the **Code** button and **Download ZIP** to download the sample as a .zip file called *RdfToDtdlConverter-main.zip*. You can then unzip the file and explore the code.
 
 :::image type="content" source="media/concepts-ontologies-convert/download-repo-zip.png" alt-text="Screenshot of the RdfToDtdlConverter repo on GitHub. The Code button is selected, producing a small dialog box where the Download ZIP button is highlighted." lightbox="media/concepts-ontologies-convert/download-repo-zip.png":::
 

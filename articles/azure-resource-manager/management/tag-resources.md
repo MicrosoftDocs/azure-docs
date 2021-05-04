@@ -3,7 +3,7 @@ title: Tag resources, resource groups, and subscriptions for logical organizatio
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
 ms.date: 01/04/2021 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 # Use tags to organize your Azure resources and management hierarchy
 
@@ -706,11 +706,11 @@ The following limitations apply to tags:
 * Tag names can't contain these characters: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
    > [!NOTE]
-   > Currently, Azure DNS zones and Traffic Manager services also don't allow the use of spaces in the tag.
+   > * Azure DNS zones and Traffic Manager doesn't support the use of spaces in the tag or a tag that starts with a number.
    >
-   > Azure Front Door doesn't support the use of `#` in the tag name.
+   > * Azure Front Door doesn't support the use of `#` in the tag name.
    >
-   > Azure Automation and Azure CDN only support 15 tags on resources.
+   > * Azure Automation and Azure CDN only support 15 tags on resources.
 
 ## Next steps
 

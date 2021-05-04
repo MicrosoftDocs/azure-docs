@@ -186,15 +186,15 @@ Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office
 | - Office 365 GCC | Public Preview| -|
 | - Office 365 GCC High |- |Not Available |
 | - Office 365 DoD |- | Not Available|
-| **[Microsoft Cloud App Support (MCAS)](/azure/sentinel/connect-cloud-app-security)**                                      |              |                      |
+| **[Microsoft Cloud App Security (MCAS)](/azure/sentinel/connect-cloud-app-security)**                                      |              |                      |
 | - Office 365 GCC | GA| -|
 | - Office 365 GCC High |-|GA |
 | - Office 365 DoD |- |GA |
-| **[Microsoft Cloud App Support (MCAS)](/azure/sentinel/connect-cloud-app-security)** <br>Shadow IT logs                                  |              |                      |
+| **[Microsoft Cloud App Security (MCAS)](/azure/sentinel/connect-cloud-app-security)** <br>Shadow IT logs                                  |              |                      |
 | - Office 365 GCC | Public Preview| -|
 | - Office 365 GCC High |-|Public Preview |
 | - Office 365 DoD |- |Public Preview |
-| **[Microsoft Cloud App Support (MCAS)](/azure/sentinel/connect-cloud-app-security)**                  <br>Alerts                    |              |                      |
+| **[Microsoft Cloud App Security (MCAS)](/azure/sentinel/connect-cloud-app-security)**                  <br>Alerts                    |              |                      |
 | - Office 365 GCC | Public Preview| -|
 | - Office 365 GCC High |-|Public Preview |
 | - Office 365 DoD |- |Public Preview |

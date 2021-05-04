@@ -3,6 +3,8 @@
   items:
 - name: About the commercial marketplace
   href: overview.md
+- name: What's new
+  href: what-is-new.md  
 - name: Account management
   items:
   - name: General account management
@@ -39,6 +41,8 @@
     href: determine-your-listing-type.md
   - name: Transact capabilities
     href: marketplace-commercial-transaction-capabilities-and-considerations.md
+  - name: License management
+    href: third-party-license.md
   - name: Private offers
     href: private-offers.md
   - name: Plans and pricing
@@ -227,6 +231,8 @@
         href: dynamics-365-customer-engage-offer-listing.md
       - name: Availability
         href: dynamics-365-customer-engage-availability.md
+      - name: Plans
+        href: dynamics-365-customer-engage-plans.md  
       - name: Technical configuration
         href: dynamics-365-customer-engage-technical-configuration.md
       - name: Supplemental content
