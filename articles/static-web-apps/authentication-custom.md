@@ -51,11 +51,11 @@ For more information on how to configure Azure Active Directory refer to the [Ap
 
 # [Apple](#tab/apple)
 
-| Field Path                             | Description                                                                                          |
-| -------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `registration.clientIdSettingName`     | The name of the application setting for the Client ID.                                               |
-| `registration.clientId`                | The value of the Client ID. This can be used as an alternative to the `clientIdSecret`.              |
-| `registration.clientSecretSettingName` | The name of the application setting for the Client Secret.                                           |
+| Field Path                             | Description                                                                             |
+| -------------------------------------- | --------------------------------------------------------------------------------------- |
+| `registration.clientIdSettingName`     | The name of the application setting for the Client ID.                                  |
+| `registration.clientId`                | The value of the Client ID. This can be used as an alternative to the `clientIdSecret`. |
+| `registration.clientSecretSettingName` | The name of the application setting for the Client Secret.                              |
 
 ```json
 {
@@ -74,11 +74,11 @@ For more information on how to configure Apple as an authentication provider ref
 
 # [Facebook](#tab/facebook)
 
-| Field Path                          | Description                                                                                           |
-| ----------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `registration.appIdSettingName`     | The name of the application setting for the App ID.                                                   |
-| `registration.appId`                | The value of the App ID. This can be used as an alternative to the `appIdSecret`.                     |
-| `registration.appSecretSettingName` | The name pf the application setting for the App Secret.                                               |
+| Field Path                          | Description                                                                       |
+| ----------------------------------- | --------------------------------------------------------------------------------- |
+| `registration.appIdSettingName`     | The name of the application setting for the App ID.                               |
+| `registration.appId`                | The value of the App ID. This can be used as an alternative to the `appIdSecret`. |
+| `registration.appSecretSettingName` | The name pf the application setting for the App Secret.                           |
 
 ```json
 {
@@ -97,11 +97,11 @@ For more information on how to configure Facebook as an authentication provider 
 
 # [GitHub](#tab/github)
 
-| Field Path                             | Description                                                                                          |
-| -------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `registration.clientIdSettingName`     | The name of the application setting for the Client ID.                                               |
-| `registration.clientId`                | The value of the Client ID. This can be used as an alternative to the `clientIdSecret`.              |
-| `registration.clientSecretSettingName` | The name of the application setting for the Client Secret.                                           |
+| Field Path                             | Description                                                                             |
+| -------------------------------------- | --------------------------------------------------------------------------------------- |
+| `registration.clientIdSettingName`     | The name of the application setting for the Client ID.                                  |
+| `registration.clientId`                | The value of the Client ID. This can be used as an alternative to the `clientIdSecret`. |
+| `registration.clientSecretSettingName` | The name of the application setting for the Client Secret.                              |
 
 ```json
 {
@@ -120,11 +120,11 @@ For more information on how to configure GitHub as an authentication provider re
 
 # [Google](#tab/google)
 
-| Field Path                             | Description                                                                                          |
-| -------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `registration.clientIdSettingName`     | The name of the application setting for the Client ID.                                               |
-| `registration.clientId`                | The value of the Client ID. This can be used as an alternative to the `clientIdSecret`.              |
-| `registration.clientSecretSettingName` | The name of the application setting for the Client Secret.                                           |
+| Field Path                             | Description                                                                             |
+| -------------------------------------- | --------------------------------------------------------------------------------------- |
+| `registration.clientIdSettingName`     | The name of the application setting for the Client ID.                                  |
+| `registration.clientId`                | The value of the Client ID. This can be used as an alternative to the `clientIdSecret`. |
+| `registration.clientSecretSettingName` | The name of the application setting for the Client Secret.                              |
 
 ```json
 {
@@ -143,11 +143,11 @@ For more information on how to configure Google as an authentication provider re
 
 # [Twitter](#tab/twitter)
 
-| Field Path                               | Description                                                                                            |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `registration.consumerKeySettingName`    | The name of the application setting for the Consumer Key.                                              |
-| `registration.consumerKey`               | The value of the Consumer Key. This can be used as an alternative to the `consumerKeySecret`.          |
-| `registration.consumerSecretSettingName` | The name of the application setting for the Consumer Secret.                                           |
+| Field Path                               | Description                                                                                   |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `registration.consumerKeySettingName`    | The name of the application setting for the Consumer Key.                                     |
+| `registration.consumerKey`               | The value of the Consumer Key. This can be used as an alternative to the `consumerKeySecret`. |
+| `registration.consumerSecretSettingName` | The name of the application setting for the Consumer Secret.                                  |
 
 ```json
 {
@@ -168,14 +168,14 @@ For more information on how to configure Twitter as an authentication provider r
 
 ### Authentication callbacks
 
-Authentication providers often need a URL to redirect to when a login or logout is complete.
+Authentication providers will require a URL to redirect to as the login/logout callback.
 
 The following endpoints are available as redirect destinations.
 
-| Type   | URL pattern                                 |
-| ------ | ------------------------------------------- |
-| Login  | `https://<YOUR-SITE>/.auth/login/complete`  |
-| Logout | `https://<YOUR-SITE>/.auth/logout/complete` |
+| Type   | URL pattern                                                 |
+| ------ | ----------------------------------------------------------- |
+| Login  | `https://<YOUR_SITE>/.auth/login/<PROVIDER_NAME>/callback`  |
+| Logout | `https://<YOUR_SITE>/.auth/logout/<PROVIDER_NAME>/callback` |
 
 > [!Note]
 > These URLs are provided by Azure Static Web Apps to receive the response from the authentication provider, you don't need to create pages at these routes.
@@ -272,5 +272,5 @@ To use a custom OIDC provider, use the following URL patterns.
 
 ## Next steps
 
-> [!div class="nextstepaction"]\
+> [!div class="nextstepaction"]
 > [Access user authentication and authorization data](user-information.md)
