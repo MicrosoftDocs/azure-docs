@@ -39,7 +39,7 @@ To get your endpoint details:
 
     # [Custom question answering (preview release)](#tab/v2)
 
-    ![Screenshot of endpoint details managed](../media/qnamaker-how-to-metadata-usage/view-code.png)
+    ![Screenshot of endpoint details managed](../media/qnamaker-how-to-metadata-usage/view-code-managed.png)
 
     ---
 
