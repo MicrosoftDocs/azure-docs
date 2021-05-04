@@ -450,8 +450,12 @@
           href: functions-scenario-database-table-cleanup.md
         - name: Connect to a virtual Network
           href: ./functions-create-vnet.md
-        - name: Create an Open API 2.0 definition
-          href: ./functions-openapi-definition.md
+        - name: Create an OpenAPI 2.0 definition
+          items:
+            - name: Using API Management
+              href: ./functions-openapi-definition.md
+            - name: Using the OpenAPI Extension (C#)
+              href: enable-open-api-endpoints.md
         - name: Use a managed identity
           href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Customize HTTP function endpoint
