@@ -18,12 +18,12 @@ StorSimple 1200 series will reach its [end-of-life](https://support.microsoft.co
 ## Azure File Sync
 
 > [!IMPORTANT]
-> Microsoft is committed to assist customers in their migration. Email AzureFilesMigration@microsoft .com for a customized migration plan as well as assistance during the migration.
+> Microsoft is committed to assist customers in their migration. Email AzureFilesMigration@microsoft .com for a customized migration plan or assistance during the migration.
 
 Azure File Sync is a Microsoft cloud service, based on two main components:
 
 * File synchronization and cloud tiering.
-* File shares as native storage in Azure, that can be accessed over multiple protocols like SMB and file REST. An Azure file share is comparable to a file share on a Windows Server, that you can natively mount as a network drive. It supports important file fidelity aspects like attributes, permissions, and timestamps. Unlike with StorSimple, no application/service is required to interpret the files and folders stored in the cloud. The ideal, and most flexible approach to store general purpose file server data as well as some application data, in the cloud.
+* File shares as native storage in Azure, that can be accessed over multiple protocols like SMB and file REST. An Azure file share is comparable to a file share on a Windows Server, that you can natively mount as a network drive. It supports important file fidelity aspects like attributes, permissions, and timestamps. Unlike with StorSimple, no application/service is required to interpret the files and folders stored in the cloud. The ideal, and most flexible approach to store general purpose file server data and some application data, in the cloud.
 
 This article focuses on the migration steps. If before migrating you'd like to learn more about Azure File Sync, we recommend the following articles:
 
@@ -32,7 +32,7 @@ This article focuses on the migration steps. If before migrating you'd like to l
 
 ## Migration goals
 
-The goal is to guarantee the integrity of the production data as well as guaranteeing availability. The latter requires keeping downtime to a minimum, so that it can fit into or only slightly exceed regular maintenance windows.
+The goal is to guarantee the integrity of the production data and guaranteeing availability. The latter requires keeping downtime to a minimum, so that it can fit into or only slightly exceed regular maintenance windows.
 
 ## StorSimple 1200 migration path to Azure File Sync
 
