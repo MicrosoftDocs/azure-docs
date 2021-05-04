@@ -224,7 +224,7 @@ One option to upload your dependency into Azure Files is through Azure portal. R
 
 Once your dependencies file is uploaded in the file share, it is time to access your dependencies from your access code. The mounted share will be available at the path specified. Ex: ```/path/to/mount```. The target directory can be accessed by file system APIs.
 
-This example is to access `ffmpeg` library that is stored in Azure file share in HTTP triggered functions
+The following example shows HTTP trigger code that accesses the `ffmpeg` library, which is stored in a mounted file share.
 
 ```python
 import logging
