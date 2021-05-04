@@ -7,9 +7,9 @@ manager: daveba
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/27/2021
+ms.date: 05/03/2021
 ms.author: rolyon
-ms.custom: contperf-fy21q3-portal
+ms.custom: contperf-fy21q3-portal,subject-rbac-steps
 ---
 
 # Assign Azure roles using the Azure portal
@@ -24,13 +24,13 @@ If you need to assign administrator roles in Azure Active Directory, see [View a
 
 ## Choose experience
 
-Azure RBAC has a new experience for assigning Azure roles in the Azure portal that is currently in public preview. If you want to try this new experience, follow the steps on the **Add role assignment (Preview)** tab.
+Azure RBAC has a new experience for assigning Azure roles in the Azure portal that is currently in public preview. If you want to try this new experience, follow the steps on the **(Preview)** tab.
 
-#### [Add role assignment](#tab/add-role-assignment/)
+#### [Current](#tab/current/)
 
 ## Step 1: Identify the needed scope
 
-[!INCLUDE [Scope for Azure RBAC introduction](../../includes/role-based-access-control/scope-intro.md)] For more information about scope, see [Understand scope](scope-overview.md).
+[!INCLUDE [Scope for Azure RBAC introduction](../../includes/role-based-access-control/scope-intro.md)] For more information, see [Understand scope](scope-overview.md).
 
 ![Diagram showing the scope levels for Azure RBAC.](../../includes/role-based-access-control/media/scope-levels.png)
 
@@ -107,7 +107,7 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
     ![Screenshot of role assignment list after assigning role.](./media/role-assignments-portal/rg-role-assignments.png)
 
-#### [Add role assignment (Preview)](#tab/add-role-assignment-preview/)
+#### [(Preview)](#tab/preview/)
 
 ## Step 1: Identify the needed scope (Preview)
 
