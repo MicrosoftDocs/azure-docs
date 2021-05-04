@@ -32,22 +32,16 @@ The following tables contain the different configuration options for each defaul
 | `registration.clientIdSettingName`     | The name of an application setting that is configured with the Application (client) ID for the Azure AD app registration. |
 | `registration.clientId`                | The value of the Application (client) ID. This can be used as an alternative to the `clientIdSecret`.                     |
 | `registration.clientSecretSettingName` | The name of the application setting that is configured with a client secret for the Azure AD app registration.            |
-| `userDetailsClaim`                     | The field to read from the Claims response and expose as user details. The value `name` is expected.                      |
 
 ```json
 {
   "auth": {
     "azureActiveDirectory": {
-      "enabled": true,
       "registration": {
         "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>",
         "clientIdSettingName": "<AAD_CLIENT_ID>",
         "clientSecretSettingName": "<AAD_CLIENT_SECRET>"
-      },
-      "login": {
-        "loginParameters": []
-      },
-      "userDetailsClaim": "name"
+      }
     }
   }
 }
@@ -62,21 +56,15 @@ For more information on how to configure Azure Active Directory refer to the [Ap
 | `registration.clientIdSettingName`     | The name of the application setting for the Client ID.                                               |
 | `registration.clientId`                | The value of the Client ID. This can be used as an alternative to the `clientIdSecret`.              |
 | `registration.clientSecretSettingName` | The name of the application setting for the Client Secret.                                           |
-| `userDetailsClaim`                     | The field to read from the Claims response and expose as user details. The value `name` is expected. |
 
 ```json
 {
   "auth": {
     "apple": {
-      "enabled": true,
       "registration": {
         "clientIdSettingName": "<APPLE_CLIENT_ID>",
         "clientSecretSettingName": "<APPLE_CLIENT_SECRET>"
-      },
-      "login": {
-        "loginParameters": []
-      },
-      "userDetailsClaim": "name"
+      }
     }
   }
 }
@@ -91,21 +79,15 @@ For more information on how to configure Apple as an authentication provider ref
 | `registration.appIdSettingName`     | The name of the application setting for the App ID.                                                   |
 | `registration.appId`                | The value of the App ID. This can be used as an alternative to the `appIdSecret`.                     |
 | `registration.appSecretSettingName` | The name pf the application setting for the App Secret.                                               |
-| `userDetailsClaim`                  | The field to read from the Claims response and expose as user details. The value `email` is expected. |
 
 ```json
 {
   "auth": {
     "facebook": {
-      "enabled": true,
       "registration": {
         "appIdSettingName": "<FACEBOOK_APP_ID>",
         "appSecretSettingName": "<FACEBOOK_APP_SECRET>"
-      },
-      "login": {
-        "loginParameters": []
-      },
-      "userDetailsClaim": "email"
+      }
     }
   }
 }
@@ -120,21 +102,15 @@ For more information on how to configure Facebook as an authentication provider 
 | `registration.clientIdSettingName`     | The name of the application setting for the Client ID.                                               |
 | `registration.clientId`                | The value of the Client ID. This can be used as an alternative to the `clientIdSecret`.              |
 | `registration.clientSecretSettingName` | The name of the application setting for the Client Secret.                                           |
-| `userDetailsClaim`                     | The field to read from the Claims response and expose as user details. The value `name` is expected. |
 
 ```json
 {
   "auth": {
     "github": {
-      "enabled": true,
       "registration": {
         "clientIdSettingName": "<GITHUB_CLIENT_ID>",
         "clientSecretSettingName": "<GITHUB_CLIENT_SECRET>"
-      },
-      "login": {
-        "loginParameters": []
-      },
-      "userDetailsClaim": "name"
+      }
     }
   }
 }
@@ -149,21 +125,15 @@ For more information on how to configure GitHub as an authentication provider re
 | `registration.clientIdSettingName`     | The name of the application setting for the Client ID.                                               |
 | `registration.clientId`                | The value of the Client ID. This can be used as an alternative to the `clientIdSecret`.              |
 | `registration.clientSecretSettingName` | The name of the application setting for the Client Secret.                                           |
-| `userDetailsClaim`                     | The field to read from the Claims response and expose as user details. The value `name` is expected. |
 
 ```json
 {
   "auth": {
     "google": {
-      "enabled": true,
       "registration": {
         "clientIdSettingName": "<GOOGLE_CLIENT_ID>",
         "clientSecretSettingName": "<GOOGLE_CLIENT_SECRET>"
-      },
-      "login": {
-        "loginParameters": []
-      },
-      "userDetailsClaim": "name"
+      }
     }
   }
 }
@@ -178,21 +148,15 @@ For more information on how to configure Google as an authentication provider re
 | `registration.consumerKeySettingName`    | The name of the application setting for the Consumer Key.                                              |
 | `registration.consumerKey`               | The value of the Consumer Key. This can be used as an alternative to the `consumerKeySecret`.          |
 | `registration.consumerSecretSettingName` | The name of the application setting for the Consumer Secret.                                           |
-| `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `handle` is expected. |
 
 ```json
 {
   "auth": {
     "twitter": {
-      "enabled": true,
       "registration": {
         "consumerKeySettingName": "<TWITTER_CONSUMER_KEY>",
         "consumerSecretSettingName": "<TWITTER_CONSUMER_SECRET>"
-      },
-      "login": {
-        "loginParameters": []
-      },
-      "userDetailsClaim": "handle"
+      }
     }
   }
 }
