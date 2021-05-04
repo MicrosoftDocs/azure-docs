@@ -539,6 +539,12 @@ You can use the response from pickZones to determine whether to provide null for
 
 Returns an object representing a resource's runtime state.
 
+In Bicep, directly use the symbolic name of the resource definition to get a value from the resource. For example:
+
+```bicep
+output storageEndpoint object = stg.properties.primaryEndpoints
+```
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
