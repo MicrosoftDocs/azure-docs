@@ -18,33 +18,7 @@ Azure Static Web Apps provides [managed authentication](authentication-authoriza
 > [!NOTE]
 > Custom authentication is only available in the Standard tier of Azure Static Web Apps and is used to override a built-in provider.
 
-The settings used to override the built-in providers are configured in the `auth` section of the [Configuration file](configuration.md). For example, the following snippet shows how a custom Azure Active Directory provider is configured (see [Default provider configuration](#default-provider-configuration) for options across all providers). You can add additional providers as required.
-
-```json
-{
-  "auth": {
-    "azureActiveDirectory": {
-      "enabled": true,
-      "registration": {
-        "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>",
-        "clientIdSettingName": "<AAD_CLIENT_ID>",
-        "clientSecretSettingName": "<AAD_CLIENT_SECRET>"
-      },
-      "login": {
-        "loginParameters": []
-      },
-      "userDetailsClaim": "name"
-    }
-  }
-}
-```
-
-| Property           | Description                                                                                                             |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------- |
-| `enabled`          | Used to control if a provider is available to the application or not. Defaults to `true` when a provider is configured. |
-| `userDetailsClaim` | The name of the claim that contains the `userDetails` identity value.                                                   |
-
-To avoid putting secrets in source control, the configuration looks into [Application Settings](application-settings.md) for a matching name in the configuration file.
+The settings used to override the built-in providers are configured in the `auth` section of the [Configuration file](configuration.md).
 
 ### Default provider configuration
 
