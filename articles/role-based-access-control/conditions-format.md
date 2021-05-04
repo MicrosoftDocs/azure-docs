@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/29/2020
+ms.date: 04/29/2021
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.

@@ -45,7 +45,7 @@ The following shows an example of the output:
 
 ```azurecli
 {
-    "canDelegate": false,
+    "canDelegate": null,
     "condition": "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container'))",
     "conditionVersion": "2.0",
     "description": "Read access if container name equals blobs-example-container",
@@ -91,7 +91,7 @@ The following shows an example of the output:
 
 ```azurecli
 {
-    "canDelegate": false,
+    "canDelegate": null,
     "condition": "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container' OR @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container2'))",
     "conditionVersion": "2.0",
     "description": "Read access if container name equals blobs-example-container or blobs-example-container2",
@@ -112,7 +112,7 @@ To list a role assignment condition, use [az role assignment list](/cli/azure/ro
 
 ## Delete a condition
 
-To delete a role assignment condition, edit the role assignment condition and set both the `condition` and `conditionVersion` properties to either an empty string or null.
+To delete a role assignment condition, edit the role assignment condition and set both the `condition` and `condition-version` properties to either an empty string (`""`) or `null`.
 
 Alternatively, if you want to delete both the role assignment and the condition, you can use the [az role assignment delete](/cli/azure/role/assignment#az_role_assignment_delete) command. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
 

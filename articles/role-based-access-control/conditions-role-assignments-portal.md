@@ -145,7 +145,7 @@ Once you have the Add role assignment condition page open, you can review the ba
 
     ![Condition displayed in editor after clicking View/Edit link.](./media/conditions-role-assignments-portal/condition-edit.png)
 
-1. When finished, click **Update**. To delete the entire condition, click **Delete condition**. Deleting the condition does not remove the role assignment.
+1. When finished, click **Save**. To delete the entire condition, click **Delete condition**. Deleting the condition does not remove the role assignment.
 
 ## Next steps
 

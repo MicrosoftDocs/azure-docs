@@ -172,7 +172,7 @@ To list a role assignment condition, use [Get-AzRoleAssignment](/powershell/modu
 
 ## Delete a condition
 
-To delete a role assignment condition, edit the role assignment condition and set both the `Condition` and `ConditionVersion` properties to either an empty string or null.
+To delete a role assignment condition, edit the role assignment condition and set both the `Condition` and `ConditionVersion` properties to either an empty string (`""`) or `$null`.
 
 Alternatively, if you want to delete both the role assignment and the condition, you can use the [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) command. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
 

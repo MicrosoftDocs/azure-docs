@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/27/2020
+ms.date: 05/03/2021
 ms.author: rolyon
 
 #Customer intent: 
@@ -69,7 +69,7 @@ The description of a condition is limited to 2 KB and the condition is limited t
 
 **Is it possible to create a role assignment with and without a condition, but using the same tuple of security principal, role definition, and scope?**
 
-No, if your try to create these role assignments an error is displayed.
+No, if you try to create this role assignment, an error is displayed.
 
 **Are conditions in role assignments offering an explicit deny effect?**
 
