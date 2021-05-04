@@ -1,5 +1,5 @@
 ---
-title: Network security for Azure Video Analzyer resources
+title: Network security for Azure Video Analyzer resources
 description: This article describes how to use service tags for egress with Azure Video Analyzer
 ms.service: azure-video-analyzer
 ms.topic: how-to
@@ -18,3 +18,7 @@ You can use service tags to define network access controls on [network security 
 | Service tag | Purpose | Can use inbound or outbound? | Can be regional? | Can use with Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|
 | AzureVideoAnalyzer | Azure Video Analyzer | Both | No | No |
+
+## Next steps
+
+<!--Note: Add one to three relevant next steps with links -->
