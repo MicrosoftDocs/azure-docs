@@ -9,7 +9,7 @@ ms.date: 04/03/2021
 
 This article walks you through the steps to use Azure Video Analyzer on IoT Edge for [event-based recording](event-based-video-recording-concept.md). It uses a Linux VM in Azure as an IoT Edge device and a simulated live video stream. This video stream is analyzed for the presence of moving objects. When motion is detected, events are sent to Azure IoT Hub, and the relevant part of the video stream is recorded as video file in Video Analyzer.
 
-This article builds on top of the [Getting Started quickstart](get-started-detect-motion-emit-events-quickstart.md).
+This article builds on top of the [Getting Started quickstart](get-started-detect-motion-emit-events.md).
 
 ## Prerequisites
 
