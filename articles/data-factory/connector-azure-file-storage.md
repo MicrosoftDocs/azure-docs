@@ -208,7 +208,7 @@ Data Factory supports the following properties for using shared access signature
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for Azure File Storage under `location` settings in format-based dataset:
 
@@ -250,7 +250,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### Azure File Storage as source
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for Azure File Storage under `storeSettings` settings in format-based copy source:
 

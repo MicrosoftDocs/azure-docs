@@ -205,7 +205,7 @@ To use multi-factor authentication which is a combination of basic and SSH publi
 
 For a full list of sections and properties that are available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for SFTP under `location` settings in the format-based dataset:
 
@@ -247,7 +247,7 @@ For a full list of sections and properties that are available for defining activ
 
 ### SFTP as source
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for SFTP under the `storeSettings` settings in the format-based Copy source:
 

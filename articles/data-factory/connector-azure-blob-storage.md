@@ -320,7 +320,7 @@ These properties are supported for an Azure Blob storage linked service:
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for Azure Blob storage under `location` settings in a format-based dataset:
 
@@ -364,7 +364,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### Blob storage as a source type
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for Azure Blob storage under `storeSettings` settings in a format-based copy source:
 

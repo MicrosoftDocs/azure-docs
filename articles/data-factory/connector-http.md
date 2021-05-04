@@ -191,7 +191,7 @@ In addition, you can configure request headers for authentication along with the
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for HTTP under `location` settings in format-based dataset:
 
@@ -237,7 +237,7 @@ For a full list of sections and properties that are available for defining activ
 
 ### HTTP as source
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for HTTP under `storeSettings` settings in format-based copy source:
 

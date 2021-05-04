@@ -230,7 +230,7 @@ These properties are supported for the linked service:
 
 For a full list of sections and properties available for defining datasets, see [Datasets](concepts-datasets-linked-services.md).
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for Data Lake Storage Gen2 under `location` settings in the format-based dataset:
 
@@ -274,7 +274,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### Azure Data Lake Storage Gen2 as a source type
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 You have several options to copy data from ADLS Gen2:
 

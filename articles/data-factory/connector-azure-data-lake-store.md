@@ -149,7 +149,7 @@ In Azure Data Factory, you don't need to specify any properties besides the gene
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for Azure Data Lake Store Gen1 under `location` settings in the format-based dataset:
 
@@ -191,7 +191,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### Azure Data Lake Store as source
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for Azure Data Lake Store Gen1 under `storeSettings` settings in the format-based copy source:
 

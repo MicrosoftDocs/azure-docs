@@ -116,7 +116,7 @@ The following properties are supported for FTP linked service:
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for FTP under `location` settings in format-based dataset:
 
@@ -158,7 +158,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### FTP as source
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for FTP under `storeSettings` settings in format-based copy source:
 

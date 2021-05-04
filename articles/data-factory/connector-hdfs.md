@@ -106,7 +106,7 @@ The following properties are supported for the HDFS linked service:
 
 For a full list of sections and properties that are available for defining datasets, see [Datasets in Azure Data Factory](concepts-datasets-linked-services.md). 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for HDFS under `location` settings in the format-based dataset:
 
@@ -148,7 +148,7 @@ For a full list of sections and properties that are available for defining activ
 
 ### HDFS as source
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for HDFS under `storeSettings` settings in the format-based Copy source:
 

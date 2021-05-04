@@ -87,7 +87,7 @@ Here's an example:
 
 ## Dataset properties
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for Google Cloud Storage under `location` settings in a format-based dataset:
 
@@ -131,7 +131,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### Google Cloud Storage as a source type
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for Google Cloud Storage under `storeSettings` settings in a format-based copy source:
 
