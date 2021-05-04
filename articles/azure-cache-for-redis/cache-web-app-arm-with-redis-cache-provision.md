@@ -77,7 +77,7 @@ The template creates the cache in the same location as the resource group.
 ```
 
 
-### Web app (Azure Cache for redis)
+### Web app (Azure Cache for Redis)
 Creates the web app with name specified in the **webSiteName** variable.
 
 Notice that the web app is configured with app setting properties that enable it to work with the Azure Cache for Redis. These app settings are dynamically created based on values provided during deployment.
@@ -118,7 +118,7 @@ Notice that the web app is configured with app setting properties that enable it
 
 
 ### Web app (RedisEnterprise)
-For RedisEnterprise, because the resource types are slightly different, the way to do listKeys is different.
+For RedisEnterprise, because the resource types are slightly different, the way to do **listKeys** is different:
 
 ```json
 {
