@@ -48,7 +48,7 @@ Once you're inside your IoT application, use the left pane to access various fea
 
   :::column-end:::
   :::column span="2":::
-     **Dashboard** displays all application and personal dashboards. 
+     **Dashboards** contain all application and personal dashboards. 
      
      **Devices** lets you manage all your devices.
 
@@ -89,7 +89,7 @@ You can choose between a light theme or a dark theme for the UI:
 
 :::image type="content" source="media/overview-iot-central-tour/themes.png" alt-text="Screenshot of IoT Central Choose a Theme.":::
 
-### Dashboard
+### Dashboards
 
 :::image type="content" source="Media/overview-iot-central-tour/dashboard.png" alt-text="Screenshot of IoT Central Dashboard.":::
 
