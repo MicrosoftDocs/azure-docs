@@ -9,15 +9,15 @@ ms.topic: conceptual
 author: tracych
 ms.author: tracych
 ms.reviewer: laobri
-ms.date: 4/16/2021
+ms.date: 5/20/2021
 ms.custom: how-to
 
 # Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
 ---
 
-# Use Batch Endpoints (Preview) for batch scoring
+# Use Batch Endpoints (preview) for batch scoring
 
-In this article, you learn how to use [Batch Endpoints](concept-managed-endpoints.md) to run batch scoring. Batch endpoints simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. After you create a batch endpoint, you can use trigger batch scoring jobs with the Azure CLI or from any platform using an HTTP library and the REST API.
+In this article, you learn how to use [Batch Endpoints (preview)](concept-managed-endpoints.md) to run batch scoring. Batch endpoints simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. After you create a batch endpoint, you can use trigger batch scoring jobs with the Azure CLI or from any platform using an HTTP library and the REST API.
 
 In this how-to, you learn to do the following tasks:
 
@@ -29,20 +29,27 @@ In this how-to, you learn to do the following tasks:
 > * Add a new deployment to a batch endpoint
 > * Start a batch scoring job using REST
 
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 ## Prerequisites
+
+* An Azure subscription
 
 If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
-* If you don't already have an Azure Machine Learning workspace or notebook virtual machine, complete [setup](https://github.com/Azure/azureml-examples/blob/cli-preview/experimental/using-cli/setup.sh).
-* Install Command Line Interface (CLI) and ML extension.
+* The Azure Command Line Interface (CLI) and ML extension.
 
-The new Machine Learning extension requires Azure CLI version `>=2.15.0`. Check your version:
+The Machine Learning extension requires Azure CLI version `>=2.15.0`. Check your version:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_version":::
 
-If you do not 
-* If you have access to multiple subscriptions and workspace, set the defaults.
-* When you finish the setup, use the assets on [GitHub](https://github.com/Azure/azureml-examples/tree/cli-preview/experimental/using-cli/assets/endpoints/batch) to run the example.
+* An Azure Machine Learning workspace
+
+If you don't already have an Azure Machine Learning workspace or notebook virtual machine, complete [setup](https://github.com/Azure/azureml-examples/blob/cli-preview/experimental/using-cli/setup.sh).
+
+* The example repository
+
+Clone the [AzureML Example repository](https://github.com/Azure/azureml-examples/tree/cli-preview/experimental/using-cli/assets/endpoints/batch). This article uses the assets in `/cli-preview/experiment/using-cli/assets/endpoints/batch`.
 
 ## Create a compute target
 
@@ -56,13 +63,13 @@ az ml compute create -n cpu-cluster --type AmlCompute --min-instances 0 --max-in
 
 ## Create a batch endpoint
 
-If you are using an MLflow model, no-code batch endpoint creation experience is supported, that is, you don't need to prepare a scoring script and environment, both can be auto generated.
+If you are using an MLflow model, you can use no-code batch endpoint creation. That is, you don't need to prepare a scoring script and environment, both can be auto generated.
 
 ```
 az ml endpoint create --type batch --file examples/endpoints/batch/create-batch-endpoint.yml
 ```
 
-Below is the yml file. To use a registered model, replace the model section in yml with **model:azureml:<modelName>:<modelVersion>**.
+Below is the YAML file defining the MLFlow batch endpoint. To use a registered model, replace the `model` section in the YAML with `model:azureml:<modelName>:<modelVersion>`.
 
 :::code language="yaml" source="~/azureml-examples/blob/cli-preview/cli/endpoints/batch/create-batch-endpoint.yml:::
 
@@ -88,6 +95,8 @@ Use `--input-data` to pass in an AML registered data.
 
 > **_NOTE:_** 
 > During Preview, only FileDataset is supported. 
+
+{>> Q: According to Cody, "`FileDataset` is strictly a v1 Python SDK concept.:" Does this require explanation here? <<}
 
 ```
 az ml endpoint invoke --name mybatchedp --type batch --input-data azureml:<dataName>:<dataVersion>
@@ -142,6 +151,8 @@ az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipeli
 
 Batch scoring job usually takes time to process the entire inputs. You can monitor the job progress from Azure portal. The portal link is provided in the response of `invoke`, check `interactionEndpoints.studio`.
 
+{>> Q: The text says to use portal, while the value refers to `studio`. Is monitoring from portal or studio? <<}
+
 You can also check job details along with status using CLI.
 
 Get the job name from the invoke response.
@@ -164,8 +175,9 @@ az ml job stream --name <job_name>
 
 ## Check batch scoring results
 
-Follow below steps to view scoring results.
+To view the scoring results:
 
+* In the tk, go to the batchscoring step tk
 * Go to the batchscoring step’s Outputs + logs tab, click Show data outputs, and click View output icon.
 * On the popup panel, copy the path and click Open Datastore link.
 * On the blobstore page, paste above path in the search box. You will find the scoring outputs in the folder.
