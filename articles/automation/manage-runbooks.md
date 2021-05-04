@@ -48,11 +48,11 @@ New-AzAutomationRunbook @params
 
 ## Import a runbook
 
-You can import a PowerShell or PowerShell Workflow (**.ps1**) script, a graphical runbook (**.graphrunbook**), or a Python 2 or Python 3 script (**.py**) to make your own runbook. You must specify the [type of runbook](automation-runbook-types.md) that is created during import, taking into account the following considerations.
+You can import a PowerShell or PowerShell Workflow (**.ps1**) script, a graphical runbook (**.graphrunbook**), or a Python 2 or Python 3 script (**.py**) to make your own runbook. You specify the [type of runbook](automation-runbook-types.md) that is created during import, taking into account the following considerations.
 
 * You can import a **.ps1** file that doesn't contain a workflow into either a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) or a [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks). If you import it into a PowerShell Workflow runbook, it is converted to a workflow. In this case, comments are included in the runbook to describe the changes made.
 
-* You can import only a **.ps1** file containing a PowerShell Workflow into a [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks). If the file contains multiple PowerShell workflows, the import fails. You must save each workflow to its own file and import each separately.
+* You can import only a **.ps1** file containing a PowerShell Workflow into a [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks). If the file contains multiple PowerShell workflows, the import fails. You have to save each workflow to its own file and import each separately.
 
 * Do not import a **.ps1** file containing a PowerShell Workflow into a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks), as the PowerShell script engine can't recognize it.
 
@@ -73,7 +73,7 @@ You can use the following procedure to import a script file into Azure Automatio
 1. If the **Name** field is enabled, you have the option of changing the runbook name. The name must start with a letter and can contain letters, numbers, underscores, and dashes.
 1. The [runbook type](automation-runbook-types.md) is automatically selected, but you can change the type after taking the applicable restrictions into account.
 1. Click **Create**. The new runbook appears in the list of runbooks for the Automation account.
-1. You must [publish the runbook](#publish-a-runbook) before you can run it.
+1. You have to [publish the runbook](#publish-a-runbook) before you can run it.
 
 > [!NOTE]
 > After you import a graphical runbook, you can convert it to another type. However, you can't convert a graphical runbook to a textual runbook.
@@ -199,7 +199,7 @@ Connect-AzAccount @connection
 $AzureContext = Set-AzContext -SubscriptionId $connection.SubscriptionID
 ```
 
-See [About Splatting](/powershell/module/microsoft.powershell.core/about/about_splatting) for more information.
+For more information, see [about splatting](/powershell/module/microsoft.powershell.core/about/about_splatting).
 
 ## Handle transient errors in a time-dependent script
 
@@ -268,7 +268,7 @@ The procedure to test each [type of runbook](automation-runbook-types.md) is the
 
 ## Publish a runbook
 
-When you create or import a new runbook, you must publish it before you can run it. Each runbook in Azure Automation has a Draft version and a Published version. Only the Published version is available to be run, and only the Draft version can be edited. The Published version is unaffected by any changes to the Draft version. When the Draft version should be made available, you publish it, overwriting the current Published version with the Draft version.
+When you create or import a new runbook, you have to publish it before you can run it. Each runbook in Azure Automation has a Draft version and a Published version. Only the Published version is available to be run, and only the Draft version can be edited. The Published version is unaffected by any changes to the Draft version. When the Draft version should be made available, you publish it, overwriting the current Published version with the Draft version.
 
 ### Publish a runbook in the Azure portal
 
