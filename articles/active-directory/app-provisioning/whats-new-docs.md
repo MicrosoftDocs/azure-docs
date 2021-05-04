@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application provisioning"
 description: "New and updated documentation for the Azure Active Directory application provisioning."
-ms.date: 03/08/2021
+ms.date: 04/05/2021
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -14,6 +14,17 @@ manager: daveba
 # Azure Active Directory application provisioning: What's new
 
 Welcome to what's new in Azure Active Directory application provisioning documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the provisioning service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## March 2021
+
+### Updated articles
+
+- [Syncing extension attributes for app provisioning](user-provisioning-sync-attributes-for-mapping.md)
+- [Application provisioning in quarantine status](application-provisioning-quarantine-status.md)
+- [Managing user account provisioning for enterprise apps in the Azure portal](configure-automatic-user-provisioning-portal.md)
+- [Reference for writing expressions for attribute mappings in Azure AD](functions-for-customizing-application-data.md)
+- [Tutorial: Develop a sample SCIM endpoint](use-scim-to-build-users-and-groups-endpoints.md)
+
 
 ## February 2021
 

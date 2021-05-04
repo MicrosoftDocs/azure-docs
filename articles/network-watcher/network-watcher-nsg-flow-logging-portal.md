@@ -6,7 +6,7 @@ documentationcenter: na
 author: damendo
 
 tags: azure-resource-manager
-Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
+# Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
 
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
 ms.service: network-watcher

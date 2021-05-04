@@ -18,10 +18,10 @@ Follow the instructions in this article to create a GPU optimized Azure virtual 
 
 ## Select an appropriate GPU optimized Azure virtual machine size
 
-Select one of Azure's [NV-series](../virtual-machines/nv-series.md), [NVv3-series](../virtual-machines/nvv3-series.md), or [NVv4-series](../virtual-machines/nvv4-series.md) VM sizes. These are tailored for app and desktop virtualization and enable apps and the Windows user interface to be GPU accelerated. The right choice for your host pool depends on a number of factors, including your particular app workloads, desired quality of user experience, and cost. In general, larger and more capable GPUs offer a better user experience at a given user density, while smaller and fractional-GPU sizes allow more fine-grained control over cost and quality.
+Select one of Azure's [NV-series](../virtual-machines/nv-series.md), [NVv3-series](../virtual-machines/nvv3-series.md), or [NVv4-series](../virtual-machines/nvv4-series.md) VM sizes. These are tailored for app and desktop virtualization and enable most apps and the Windows user interface to be GPU accelerated. The right choice for your host pool depends on a number of factors, including your particular app workloads, desired quality of user experience, and cost. In general, larger and more capable GPUs offer a better user experience at a given user density, while smaller and fractional-GPU sizes allow more fine-grained control over cost and quality.
 
 >[!NOTE]
->Azure's NC, NCv2, NCv3, ND, and NDv2 series VMs are generally not appropriate for Windows Virtual Desktop session hosts. These VMs are tailored for specialized, high-performance compute or machine learning tools, such as those built with NVIDIA CUDA. General app and desktop acceleration with NVIDIA GPUs requires NVIDIA GRID licensing; this is provided by Azure for the recommended VM sizes but needs to be arranged separately for NC/ND-series VMs.
+>Azure's NC, NCv2, NCv3, ND, and NDv2 series VMs are generally not appropriate for Windows Virtual Desktop session hosts. These VMs are tailored for specialized, high-performance compute or machine learning tools, such as those built with NVIDIA CUDA. They do not support GPU acceleration for most apps or the Windows user interface.
 
 ## Create a host pool, provision your virtual machine, and configure an app group
 
@@ -36,9 +36,10 @@ You must also configure an app group, or use the default desktop app group (name
 
 ## Install supported graphics drivers in your virtual machine
 
-To take advantage of the GPU capabilities of Azure N-series VMs in Windows Virtual Desktop, you must install the appropriate graphics drivers. Follow the instructions at [Supported operating systems and drivers](../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) to install drivers from the appropriate graphics vendor, either manually or using an Azure VM extension.
+To take advantage of the GPU capabilities of Azure N-series VMs in Windows Virtual Desktop, you must install the appropriate graphics drivers. Follow the instructions at [Supported operating systems and drivers](../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) to install drivers. Only drivers distributed by Azure are supported.
 
-Only drivers distributed by Azure are supported for Windows Virtual Desktop. For Azure NV-series VMs with NVIDIA GPUs, only [NVIDIA GRID drivers](../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers), and not NVIDIA Tesla (CUDA) drivers, support GPU acceleration for general-purpose apps and desktops.
+* For Azure NV-series or NVv3-series VMs, only NVIDIA GRID drivers, and not NVIDIA CUDA drivers, support GPU acceleration for most apps and the Windows user interface. If you choose to install drivers manually, be sure to install GRID drivers. If you choose to install drivers using the Azure VM extension, GRID drivers will automatically be installed for these VM sizes.
+* For Azure NVv4-series VMs, install the AMD drivers provided by Azure. You may install them automatically using the Azure VM extension, or you may install them manually.
 
 After driver installation, a VM restart is required. Use the verification steps in the above instructions to confirm that graphics drivers were successfully installed.
 

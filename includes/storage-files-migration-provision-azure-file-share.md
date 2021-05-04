@@ -1,12 +1,13 @@
 ---
-title: Considerations for provisioning Azure file shares
-description: Provision Azure file shares for use with Azure File Sync. A common text block, shared across migration docs.
+title: include file
+description: include file
+services: storage
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: include
 ms.date: 2/20/2020
 ms.author: fauhse
-ms.subservice: files
+ms.custom: include file
 ---
 
 An Azure file share is stored in the cloud in an Azure storage account.

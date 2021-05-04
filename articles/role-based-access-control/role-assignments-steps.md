@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/15/2021
+ms.date: 04/14/2021
 ms.author: rolyon
 ---
 
@@ -73,6 +73,8 @@ To assign roles, you must be signed in with a user that is assigned a role that 
 - `Microsoft.Authorization/roleAssignments/delete`
 
 If your user account doesn't have permission to assign a role within your subscription, you see an error message that your account "does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write'." In this case, contact the administrators of your subscription as they can assign the permissions on your behalf.
+
+If you are using a service principal to assign roles, you might get the error "Insufficient privileges to complete the operation." This error is likely because Azure is attempting to look up the assignee identity in Azure Active Directory (Azure AD) and the service principal cannot read Azure AD by default. In this case, you need to grant the service principal permissions to read data in the directory. Alternatively, if you are using Azure CLI, you can create the role assignment by using the assignee object ID to skip the Azure AD lookup. For more information, see [Troubleshoot Azure RBAC](troubleshooting.md).
 
 ## Step 5. Assign role
 

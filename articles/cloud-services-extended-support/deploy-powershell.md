@@ -14,11 +14,6 @@ ms.custom:
 
 This article shows how to use the `Az.CloudService` PowerShell module to deploy Cloud Services (extended support) in Azure that has multiple roles (WebRole and WorkerRole) and remote desktop extension. 
 
-> [!IMPORTANT]
-> Cloud Services (extended support) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Before you begin
 
 Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support) and create the associated resources. 
@@ -69,13 +64,14 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
     $virtualNetwork = New-AzVirtualNetwork -Name “ContosoVNet” -Location “East US” -ResourceGroupName “ContosOrg” -AddressPrefix "10.0.0.0/24" -Subnet $subnet 
     ```
  
-7. Create a public IP address and (optionally) set the DNS label property of the public IP address. If you are using a static IP, it needs to referenced as a Reserved IP in Service Configuration file.  
+7. Create a public IP address and set the DNS label property of the public IP address. Cloud Services (extended support) only supports [Basic](../virtual-network/public-ip-addresses.md#basic) SKU Public IP addresses. Standard SKU Public IPs do not work with Cloud Services.
+If you are using a Static IP you need to reference it as a Reserved IP in Service Configuration (.cscfg) file 
 
     ```powershell
     $publicIp = New-AzPublicIpAddress -Name “ContosIp” -ResourceGroupName “ContosOrg” -Location “East US” -AllocationMethod Dynamic -IpAddressVersion IPv4 -DomainNameLabel “contosoappdns” -Sku Basic 
     ```
 
-8. Create Network Profile Object and associate public IP address to the frontend of the platform created load balancer.  
+8. Create a Network Profile Object and associate the public IP address to the frontend of the load balancer. The Azure platform automatically creates a 'Classic' SKU load balancer resource in the same subscription as the cloud service resource. The load balancer resource is a read-only resource in ARM. Any updates to the resource are supported only via the cloud service deployment files (.cscfg & .csdef)
 
     ```powershell
     $publicIP = Get-AzPublicIpAddress -ResourceGroupName ContosOrg -Name ContosIp  

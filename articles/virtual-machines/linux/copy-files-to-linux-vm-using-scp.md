@@ -1,21 +1,22 @@
 ---
-title: Move files to and from Azure Linux VMs with SCP 
+title: Use SCP to move files to and from a VM
 description: Securely move files to and from a Linux VM in Azure using SCP and an SSH key pair.
 author: cynthn
 ms.service: virtual-machines
 ms.collection: linux
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 07/12/2017
+ms.date: 04/20/2021
 ms.author: cynthn
-ms.subservice: disks
+ms.subservice: 
 ---
 
-# Move files to and from a Linux VM using SCP
+# Use SCP to move files to and from a Linux VM 
 
 This article shows how to move files from your workstation up to an Azure Linux VM, or from an Azure Linux VM down to your workstation, using Secure Copy (SCP). Moving files between your workstation and a Linux VM, quickly and securely, is critical for managing your Azure infrastructure. 
 
-For this article, you need a Linux VM deployed in Azure using [SSH public and private key files](mac-create-ssh-keys.md). You also need an SCP client for your local computer. It is built on top of SSH and included in the default Bash shell of most Linux and Mac computers and some Windows shells.
+For this article, you need a Linux VM deployed in Azure using [SSH public and private key files](mac-create-ssh-keys.md). You also need an SCP client for your local computer. It is built on top of SSH and included in the default Bash shell of most Linux and Mac computers and PowerShell.
+
 
 ## Quick commands
 
@@ -45,7 +46,7 @@ For more information on configuring your `~/.ssh/config` and SSH public and priv
 
 For the first example, we copy an Azure configuration file up to a Linux VM that is used to deploy automation. Because this file contains Azure API credentials, which include secrets, security is important. The encrypted tunnel provided by SSH protects the contents of the file.
 
-The following command copies the local *.azure/config* file to an Azure VM with FQDN *myserver.eastus.cloudapp.azure.com*. The admin user name on the Azure VM is *azureuser*. The file is targeted to the */home/azureuser/* directory. Substitute your own values in this command.
+The following command copies the local *.azure/config* file to an Azure VM with FQDN *myserver.eastus.cloudapp.azure.com*. If you don't have an [FQDN set](../create-fqdn.md), you can also use the IP address of the VM. The admin user name on the Azure VM is *azureuser*. The file is targeted to the */home/azureuser/* directory. Substitute your own values in this command.
 
 ```bash
 scp ~/.azure/config azureuser@myserver.eastus.cloudapp.com:/home/azureuser/config

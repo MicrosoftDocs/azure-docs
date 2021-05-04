@@ -53,7 +53,7 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
 > The commands used in this article create the provisioning service and other resources in the West US location. We recommend that you create your resources in the region nearest you that supports Device Provisioning Service. You can view a list of available locations by running the command `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` or by going to the [Azure Status](https://azure.microsoft.com/status/) page and searching for "Device Provisioning Service". In commands, locations can be specified either in one word or multi-word format; for example: westus, West US, WEST US, etc. The value is not case sensitive. If you use multi-word format to specify location, enclose the value in quotes; for example, `-- location "West US"`.
 >
 
-1. Use the Azure Cloud Shell to create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+1. Use the Azure Cloud Shell to create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
     The following example creates a resource group named *contoso-us-resource-group* in the *westus* region. It is recommended that you use this group for all resources created in this article. This approach will make clean up easier after you're finished.
 
@@ -61,7 +61,7 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
     az group create --name contoso-us-resource-group --location westus
     ```
 
-2. Use the Azure Cloud Shell to create a device provisioning service (DPS) with the [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create) command. The provisioning service will be added to *contoso-us-resource-group*.
+2. Use the Azure Cloud Shell to create a device provisioning service (DPS) with the [az iot dps create](/cli/azure/iot/dps#az_iot_dps_create) command. The provisioning service will be added to *contoso-us-resource-group*.
 
     The following example creates a provisioning service named *contoso-provisioning-service-1098* in the *westus* location. You must use a unique service name. Make up your own suffix in the service name in place of **1098**.
 
@@ -71,7 +71,7 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
 
     This command may take a few minutes to complete.
 
-3. Use the Azure Cloud Shell to create the **Contoso Toasters Division** IoT hub with the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command. The IoT hub will be added to *contoso-us-resource-group*.
+3. Use the Azure Cloud Shell to create the **Contoso Toasters Division** IoT hub with the [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) command. The IoT hub will be added to *contoso-us-resource-group*.
 
     The following example creates an IoT hub named *contoso-toasters-hub-1098* in the *westus* location. You must use a unique hub name. Make up your own suffix in the hub name in place of **1098**. 
 
@@ -84,7 +84,7 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
 
     This command may take a few minutes to complete.
 
-4. Use the Azure Cloud Shell to create the **Contoso Heat Pumps Division** IoT hub with the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command. This IoT hub will also be added to *contoso-us-resource-group*.
+4. Use the Azure Cloud Shell to create the **Contoso Heat Pumps Division** IoT hub with the [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) command. This IoT hub will also be added to *contoso-us-resource-group*.
 
     The following example creates an IoT hub named *contoso-heatpumps-hub-1098* in the *westus* location. You must use a unique hub name. Make up your own suffix in the hub name in place of **1098**. 
 

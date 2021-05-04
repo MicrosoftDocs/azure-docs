@@ -12,30 +12,31 @@
     - name: Architecture & terms
       displayName: architecture, concepts, definitions, glossary
       href: concept-azure-machine-learning-architecture.md
+- name: Quickstart
+  expanded: true
+  items: 
+    - name: Create ML resources to get started
+      href: quickstart-create-resources.md
 - name: Tutorials
   expanded: true
   items: 
     - name: "Python get started (Day 1)"
       expanded: true
       items:
-        - name: 1. Set up local computer
-          href: tutorial-1st-experiment-sdk-setup-local.md
-        - name: '2. "Hello world"'
+        - name: '1. "Hello world"'
           href: tutorial-1st-experiment-hello-world.md
-        - name: 3. Train your model
+        - name: 2. Train your model
           href: tutorial-1st-experiment-sdk-train.md
-        - name: 4. Bring your own data
+        - name: 3. Bring your own data
           href: tutorial-1st-experiment-bring-data.md
     - name: Jupyter Notebooks
       items:
         - name: Image classification (MNIST data)
           items: 
-            - name: 1. Set up compute instance
-              href: tutorial-1st-experiment-sdk-setup.md
-            - name: 2. Train a model
+            - name: 1. Train a model
               displayName: build modeling
               href: tutorial-train-models-with-aml.md
-            - name: 3. Deploy a model
+            - name: 2. Deploy a model
               href: tutorial-deploy-models-with-aml.md
         - name: Regression with Automated ML (NYC Taxi data)
           items: 
@@ -171,7 +172,7 @@
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
         - name: Security baseline
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/machine-learning-security-baseline?context=/azure/machine-learning/context/ml-context
         - name: Security controls by Azure Policy
           href: ./security-controls-policy.md
         - name: Data encryption
@@ -320,9 +321,9 @@
             - name: Get data labeled
               displayName: data, dataset, labeling
               href: how-to-create-labeling-projects.md
-            - name: Label images
+            - name: Label images and text
               displayName: data, dataset, labeling
-              href: how-to-label-images.md
+              href: how-to-label-data.md
             - name: Create datasets with labels
               displayName: data, labels, torchvision
               href: how-to-use-labeled-dataset.md
@@ -390,15 +391,12 @@
           href: how-to-migrate-from-estimators-to-scriptrunconfig.md
         - name: Track & monitor training
           items: 
-            - name: Start, monitor or cancel runs
+            - name: Track, monitor, and analyze runs
               displayName: cancel, fail, status, child run
-              href: how-to-manage-runs.md
-            - name: Enable logs
-              displayName: troubleshoot, log, files, tracing
-              href: how-to-track-experiments.md
-            - name: View logs and metrics for runs
+              href: how-to-track-monitor-analyze-runs.md
+            - name: Log & view metrics and log files
               displayName: troubleshoot, log, files, tracing, metrics
-              href: how-to-monitor-view-training-logs.md
+              href: how-to-log-view-metrics.md
             - name: Visualize runs with TensorBoard
               displayName: log, monitor, metrics
               href: how-to-monitor-tensorboard.md
@@ -440,9 +438,6 @@
         - name: Use automated ML with Databricks
           displayName: automl
           href: how-to-configure-databricks-automl-environment.md
-        - name: Use remote compute targets
-          displayName: automl automated auto ml
-          href: how-to-auto-train-remote.md
         - name: Auto-train a forecast model
           displayName: time series
           href: how-to-auto-train-forecast.md
@@ -450,7 +445,7 @@
           displayName: automl, feature engineering, feature importance
           href: how-to-configure-cross-validation-data-splits.md
         - name: Featurization in automated ML (Python)
-          displayName: automl, feature engineering, feature importance
+          displayName: automl, feature engineering, feature importance, BERT
           href: how-to-configure-auto-features.md
         - name: Use automated ML in ML pipelines (Python)
           displayName: machine learning automl
@@ -468,10 +463,7 @@
         href: how-to-deploy-and-where.md
       - name: Deployment targets
         items:
-        - name: Use existing models
-          displayName: publish existing model
-          href: how-to-deploy-existing-model.md
-        - name: Azure ML compute instances
+        - name: Local
           href: how-to-deploy-local-container-notebook-vm.md
         - name: Azure Kubernetes Service
           displayName: aks, aad, authentication, azure active directory
@@ -556,6 +548,9 @@
             - name: Transform data
               displayName: pipeline
               href: how-to-designer-transform-data.md
+            - name: Use pipeline parameters
+              displayName: designer, pipeline parameters
+              href: how-to-use-pipeline-parameter.md
             - name: Retrain using published pipelines
               displayName: retrain, designer, published pipeline
               href: how-to-retrain-designer.md
@@ -621,6 +616,8 @@
     - name: Curated environments
       displayName: environments, curated environments
       href: resource-curated-environments.md         
+    - name: Azure CLI
+      href: /cli/azure/ml
 - name: Resources
   items: 
     - name: Release notes

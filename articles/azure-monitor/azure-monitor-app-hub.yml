@@ -104,7 +104,7 @@ conceptualContent:
         - url: ./app/tutorial-performance.md
           itemType: how-to-guide
           text: Find and diagnose performance issues
-        - url: /azure/azure-monitor/alerts/tutorial-alert
+        - url: ./app/tutorial-alert.md
           itemType: how-to-guide
           text: Monitor and alert on application health
         - url: ./app/tutorial-users.md
@@ -460,4 +460,4 @@ additionalContent:
         url: /powershell/module/az.applicationinsights/new-azapplicationinsights
       - title: Azure CLI commands for Application Insights
         summary: Application Insights CLI extension commands (az extension add -n application-insights).
-        url: /cli/azure/ext/application-insights/monitor/app-insights/component
+        url: /cli/azure/monitor/app-insights/component

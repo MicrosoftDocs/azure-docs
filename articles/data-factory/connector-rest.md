@@ -34,11 +34,11 @@ Specifically, this generic REST connector supports:
 
 ## Prerequisites
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties you can use to define Data Factory entities that are specific to the REST connector.
 
@@ -490,7 +490,7 @@ The template defines two parameters:
 
     | Property | Description |
     |:--- |:--- |
-    | URL |Specify the url to retrieve OAuth bearer token from. for example, in the sample here it's https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
+    | URL |Specify the url to retrieve OAuth bearer token from. for example, in the sample here it's https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |
     | Method | The HTTP method. Allowed values are **Post** and **Get**. | 
     | Headers | Header is user-defined, which references one header name in the HTTP request. | 
     | Body | The body for the HTTP request. | 

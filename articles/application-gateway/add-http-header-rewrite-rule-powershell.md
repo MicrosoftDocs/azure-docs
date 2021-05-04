@@ -6,7 +6,8 @@ author: abshamsft
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/12/2019
-ms.author: absha
+ms.author: absha 
+ms.custom: devx-track-azurepowershell
 ---
 # Rewrite HTTP request and response headers with Azure Application Gateway - Azure PowerShell
 
@@ -60,9 +61,9 @@ In this example, we'll modify a redirection URL by rewriting the location header
 
 ```azurepowershell
 $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Location" -HeaderValue "{http_resp_Location_1}://contoso.com{http_resp_Location_2}"
-$actionSet = New-AzApplicationGatewayRewriteRuleActionSet -RequestHeaderConfiguration $requestHeaderConfiguration -ResponseHeaderConfiguration $responseHeaderConfiguration
+$actionSet = New-AzApplicationGatewayRewriteRuleActionSet -ResponseHeaderConfiguration $responseHeaderConfiguration
 $condition = New-AzApplicationGatewayRewriteRuleCondition -Variable "http_resp_Location" -Pattern "(https?):\/\/.*azurewebsites\.net(.*)$" -IgnoreCase
-$rewriteRule = New-AzApplicationGatewayRewriteRule -Name LocationHeader -ActionSet $actionSet
+$rewriteRule = New-AzApplicationGatewayRewriteRule -Name LocationHeader -ActionSet $actionSet -Condition $condition
 $rewriteRuleSet = New-AzApplicationGatewayRewriteRuleSet -Name LocationHeaderRewrite -RewriteRule $rewriteRule
 ```
 
@@ -80,9 +81,11 @@ $reqRoutingRule = Get-AzApplicationGatewayRequestRoutingRule -Name rule1 -Applic
 
 ## Update the application gateway with the configuration for rewriting HTTP headers
 
+In this example, the rewrite set would be associated instantly against a basic routing rule. In case of a path based routing rule, the association would not be enabled by default. The rewrite set can be enabled either via checking the paths on which it needs to be applied via portal or by providing a URL path map config specifying the RewriteRuleSet against each path option.  
+
 ```azurepowershell
-Add-AzApplicationGatewayRewriteRuleSet -ApplicationGateway $appgw -Name LocationHeaderRewrite -RewriteRule $rewriteRuleSet.RewriteRules
-Set-AzApplicationGatewayRequestRoutingRule -ApplicationGateway $appgw -Name rule1 -RuleType $reqRoutingRule.RuleType -BackendHttpSettingsId $reqRoutingRule.BackendHttpSettings.Id -HttpListenerId $reqRoutingRule.HttpListener.Id -BackendAddressPoolId $reqRoutingRule.BackendAddressPool.Id -RewriteRuleSetId $rewriteRuleSet.Id
+Add-AzApplicationGatewayRewriteRuleSet -ApplicationGateway $appgw -Name $rewriteRuleSet.Name  -RewriteRule $rewriteRuleSet.RewriteRules
+Set-AzApplicationGatewayRequestRoutingRule -ApplicationGateway $appgw -Name $reqRoutingRule.Name -RuleType $reqRoutingRule.RuleType -BackendHttpSettingsId $reqRoutingRule.BackendHttpSettings.Id -HttpListenerId $reqRoutingRule.HttpListener.Id -BackendAddressPoolId $reqRoutingRule.BackendAddressPool.Id -RewriteRuleSetId $rewriteRuleSet.Id
 Set-AzApplicationGateway -ApplicationGateway $appgw
 ```
 
@@ -98,4 +101,4 @@ set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## Next steps
 
-To learn more about how to set up some common use cases, see [common header rewrite scenarios](./rewrite-http-headers.md).
+To learn more about how to set up some common use cases, see [common header rewrite scenarios](./rewrite-http-headers-url.md).

@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how to join a teams meeting using the Azure Communication Services Teams Embed library for Android.
+In this quickstart, you'll learn how to join a Microsoft Teams meeting using the Azure Communication Services Teams Embed library for Android.
 
 ## Prerequisites
 
@@ -29,14 +29,14 @@ Select "Empty Activity" project template under "Phone and Tablet".
 
 :::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Screenshot showing the 'Empty Activity' option selected in the Project Template Screen.":::
 
-Name the project `TeamsEmbedAndroidGettingStarted`, set language to java and select Minimum client library of "API 21: Android 5.0 (Lollipop)" or greater.
+Name the project `TeamsEmbedAndroidGettingStarted`, set language to java and select Minimum SDK of "API 21: Android 5.0 (Lollipop)" or greater.
 
 :::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Screenshot showing the 'Empty Activity' option selected in the Project Template Screen 2.":::
 
 
 ### Install the Azure package
 
-In your app level build.gradle add the following lines to the dependencies and android sections
+In your app level (**app folder**) `build.gradle`, add the following lines to the dependencies and android sections
 
 ```groovy
 android {
@@ -50,20 +50,34 @@ android {
 ```groovy
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-common:1.0.0-beta.6'
+    implementation 'com.azure.android:azure-communication-common:1.0.0-beta.8'
     ...
 }
 ```
 
+Update the values on the `build.gradle` file
+
+```groovy
+ buildTypes {
+        release {
+        ...
+            minifyEnabled true
+            shrinkResources true
+        ...
+    }
+}
+```
+
+
 ### Install the Teams Embed package
 
-Download the `MicrosoftTeamsSDK` package.
+Download the [`MicrosoftTeamsSDK` package.](https://github.com/Azure/communication)
 
-Then unzip the MicrosoftTeamsSDK folder into your projects app folder. Ex. `TeamsEmbedAndroidGettingStarted/app/MicrosoftTeamsSDK`.
+Then unzip the `MicrosoftTeamsSDK` folder into your projects app folder. Ex. `TeamsEmbedAndroidGettingStarted/app/MicrosoftTeamsSDK`.
 
 ### Add Teams Embed package to your build.gradle
 
-In your app-level `build.gradle` add the following line at the end of the file:
+In your app-level `build.gradle`, add the following line at the end of the file:
 
 ```groovy
 apply from: 'MicrosoftTeamsSDK/MicrosoftTeamsSDK.gradle'
@@ -73,7 +87,7 @@ Sync project with gradle files.
 
 ### Create application class
 
-Create new Java class file named `TeamsEmbedAndroidGettingStarted`. This will be the application class which must extend `TeamsSDKApplication`. [Android Documentation](https://developer.android.com/reference/android/app/Application)
+Create new Java class file named `TeamsEmbedAndroidGettingStarted`. This class will be the application class, which must extend `TeamsSDKApplication`. [Android Documentation](https://developer.android.com/reference/android/app/Application)
 
 :::image type="content" source="../media/android/application-class-location.png" alt-text="Screenshot showing where to create application class in Android Studio":::
 
@@ -139,7 +153,7 @@ Add `.TeamsEmbedAndroidGettingStarted` to `android:name`, `android:name` to `too
 
 ### Set up the layout for the app
 
-Create a button with an ID of `join_meeting`. Navigate to (`app/src/main/res/layout/activity_main.xml`) and replace the content of file with the following:
+Create a button with an ID of `join_meeting`. Navigate to the layout file (`app/src/main/res/layout/activity_main.xml`) and replace the content of file with the following:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -166,7 +180,7 @@ Create a button with an ID of `join_meeting`. Navigate to (`app/src/main/res/lay
 
 With the layout created, the basic scaffolding of the activity along with required bindings can be added. The activity will handle requesting runtime permissions, creating the meeting client, and joining a meeting when the button is pressed. Each will be covered in its own section. 
 
-The `onCreate` method will be overridden to invoke `getAllPermissions` and `createAgent` as well as add the bindings for the `Join Meeting` button. This will occur only once when the activity is created. For more information on `onCreate`, see the guide [Understand the Activity Lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
+The `onCreate` method will be overridden to invoke `getAllPermissions`,  `createAgent` and add the bindings for the `Join Meeting` button. This will occur only once when the activity is created. For more information on `onCreate`, see the guide [Understand the Activity Lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
 
 Navigate to **MainActivity.java** and replace the content with the following code:
 
@@ -184,8 +198,9 @@ import android.widget.Toast;
 
 import com.azure.android.communication.common.CommunicationTokenCredential;
 import com.azure.android.communication.common.CommunicationTokenRefreshOptions;
-import com.azure.android.communication.ui.meetings.MeetingJoinOptions;
+import com.azure.android.communication.ui.meetings.MeetingUIClientJoinOptions;
 import com.azure.android.communication.ui.meetings.MeetingUIClient;
+import com.azure.android.communication.ui.meetings.MeetingUIClientTeamsMeetingLinkLocator;
 
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
@@ -195,14 +210,14 @@ public class MainActivity extends AppCompatActivity {
     private final String displayName = "John Smith";
 
     private MeetingUIClient meetingUIClient;
-    private MeetingJoinOptions meetingJoinOptions;
+    private MeetingUIClientJoinOptions meetingJoinOptions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        meetingJoinOptions = new MeetingJoinOptions(displayName);
+        meetingJoinOptions = new MeetingUIClientJoinOptions(displayName, false);
         
         getAllPermissions();
         createMeetingClient();
@@ -227,7 +242,7 @@ public class MainActivity extends AppCompatActivity {
 
 ### Request permissions at runtime
 
-For Android 6.0 and higher (API level 23) and `targetSdkVersion` 23 or higher, permissions are granted at runtime instead of when the app is installed. In order to support this, `getAllPermissions` can be implemented to call `ActivityCompat.checkSelfPermission` and `ActivityCompat.requestPermissions` for each required permission.
+For Android 6.0 and higher (API level 23) and `targetSdkVersion` 23 or higher, permissions are granted at runtime instead of when the app is installed. To support this, `getAllPermissions` can be implemented to call `ActivityCompat.checkSelfPermission` and `ActivityCompat.requestPermissions` for each required permission.
 
 ```java
 /**
@@ -248,7 +263,7 @@ private void getAllPermissions() {
 ```
 
 > [!NOTE]
-> When designing your app, consider when these permissions should be requested. Permissions should be requested as they are needed, not ahead of time. For more information see the [Android Permissions Guide.](https://developer.android.com/training/permissions/requesting)
+> When designing your app, consider when these permissions should be requested. Permissions should be requested as they are needed, not ahead of time. For more information, see the [Android Permissions Guide.](https://developer.android.com/training/permissions/requesting)
 
 ## Object model
 
@@ -257,15 +272,20 @@ The following classes and interfaces handle some of the major features of the Az
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | MeetingUIClient| The MeetingUIClient is the main entry point to the Teams Embed library. |
-| MeetingJoinOptions | MeetingJoinOptions are used for configurable options such as display name. |
-| CallState | The CallState is used to for reporting call state changes. The options are as follows: `connecting`, `waitingInLobby`, `connected`, and `ended`. |
+| MeetingUIClientJoinOptions | MeetingUIClientJoinOptions are used for configurable options such as display name. |
+| MeetingUIClientTeamsMeetingLinkLocator | MeetingUIClientTeamsMeetingLinkLocator is used to set the meeting URL for joining a meeting. |
+| MeetingUIClientGroupCallLocator | MeetingUIClientGroupCallLocator is used for setting the group ID to join. |
+| MeetingUIClientCallState | The MeetingUIClientCallState is used to for reporting call state changes. The options are as follows: `connecting`, `waitingInLobby`, `connected`, and `ended`. |
+| MeetingUIClientEventListener | The MeetingUIClientEventListener is used to receive events, such as changes in call state. |
+| MeetingUIClientIdentityProvider | The MeetingUIClientIdentityProvider is used to map user details to the users in a meeting. |
+| MeetingUIClientUserEventListener | The MeetingUIClientUserEventListener is used to provides information about user actions in the UI. |
 
 ## Create a MeetingClient from the user access token
 
-An authenticated meeting client can be instantiated with a user access token. This token is usually generated by a service with authentication specific to the application. To learn more about user access tokens, check the [User Access Tokens](../../access-tokens.md) guide. For the quickstart, replace `<USER_ACCESS_TOKEN>` with a user access token generated for your Azure Communication Service resource.
+An authenticated meeting client can be instantiated with a user access token. This token is generated by a service with authentication specific to the application. To learn more about user access tokens, check the [User Access Tokens](../../access-tokens.md) guide. For the quickstart, replace `<USER_ACCESS_TOKEN>` with a user access token generated for your Azure Communication Service resource.
 
 ```java
-private void createMeetingClient() {
+private void createMeetingClient() { 
     try {
         CommunicationTokenRefreshOptions refreshOptions = new CommunicationTokenRefreshOptions(tokenRefresher, true, "<USER_ACCESS_TOKEN>");
         CommunicationTokenCredential credential = new CommunicationTokenCredential(refreshOptions);
@@ -278,7 +298,7 @@ private void createMeetingClient() {
 
 ## Setup Token refreshing
 
-Create a Callable `tokenRefresher` method. Then create a `fetchToken` method to get the user token. [You can find instructions on how to do so here](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-java)
+Create a Callable `tokenRefresher` method. Then create a `fetchToken` method to get the user token. [You can find instructions on how to do so here](../../access-tokens.md?pivots=programming-language-java)
 
 ```java
 Callable<String> tokenRefresher = () -> {
@@ -294,12 +314,12 @@ public String fetchToken() {
 ## Get the Teams meeting link
 
 The Teams meeting link can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
-The Communication Services Calling client library accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
+The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
 You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
 
 ## Start a meeting using the meeting client
 
-Joining a meeting can be done via the `MeetingClient`, and just requires a `meetingURL` and the `JoinOptions`. Replace `<MEETING_URL>` with a teams meeting url.
+Joining a meeting can be done via the `MeetingUIClient`, and just requires a `MeetingUIClientTeamsMeetingLinkLocator` and the `MeetingUIClientJoinOptions`. Replace `<MEETING_URL>` with a teams meeting url.
 
 ```java
 /**
@@ -307,7 +327,8 @@ Joining a meeting can be done via the `MeetingClient`, and just requires a `meet
  */
 private void joinMeeting() {
     try {
-        meetingUIClient.join("<MEETING_URL>", meetingJoinOptions);
+        MeetingUIClientTeamsMeetingLinkLocator meetingUIClientTeamsMeetingLinkLocator = new MeetingUIClientTeamsMeetingLinkLocator(<MEETING_URL>);
+        meetingUIClient.join(meetingUIClientTeamsMeetingLinkLocator, meetingJoinOptions);
     } catch (Exception ex) {
         Toast.makeText(getApplicationContext(), "Failed to join meeting: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
     }

@@ -323,6 +323,23 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-twenty-seven
+# Owner: dobett
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-ansi-c
+    title: C
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-embedded-c
+    title: Embedded C
 # Service-specific groups
 - id: cogsvcs-text-analytics-features
   title: Text Analytics features
@@ -477,7 +494,7 @@ groups:
   - id: programming-language-csharp
     title: C#
   - id: programming-language-cpp
-    title: C+
+    title: C++
   - id: programming-language-java
     title: Java
   - id: programming-language-objectivec
@@ -489,7 +506,7 @@ groups:
   - id: programming-language-csharp
     title: C#
   - id: programming-language-cpp
-    title: C+
+    title: C++
   - id: programming-language-java
     title: Java
 - id: code-editors-set-one
@@ -792,6 +809,16 @@ groups:
   - id: programming-language-python
     title: Python
 # Owner: msangapu
+- id: app-service-ide
+  title: Development experience
+  prompt: Choose a development experience
+  pivots:
+  - id: development-environment-vs
+    title: Visual Studio
+  - id: development-environment-vscode
+    title: Visual Studio Code
+  - id: development-environment-cli
+    title: Command line interface
 - id: app-service-platform-windows-linux
   title: App Service platform
   prompt: Choose a hosting platform
@@ -866,6 +893,19 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
+- id: acs-plat-azp-azcli-net-ps
+  # Owner: mikben (Azure Communication Services)
+  title: JS and C# pivots
+  prompt: Choose a programming language
+  pivots:
+  - id: platform-azp
+    title: Azure portal
+  - id: platform-azcli
+    title: Azure CLI
+  - id: platform-net
+    title: .NET
+  - id: platform-powershell
+    title: PowerShell
 - id: acs-js-csharp-java-python
   title: Programming languages
   prompt: Choose a programming language
@@ -1016,6 +1056,20 @@ groups:
     title: Go
   - id: platform-powershell
     title: PowerShell
+- id: acs-azp-java-net-python-csharp-js
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-azp
+    title: Azure portal
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
 # Owner: memildin
 - id: non-azure-machines
   title: Non-Azure machines
@@ -1139,3 +1193,16 @@ groups:
     title: Android 
   - id: programming-language-ios 
     title: iOS
+# Owner: mbullwin
+- id: anomaly-detector-quickstart-multivariate
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java

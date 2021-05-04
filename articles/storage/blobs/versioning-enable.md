@@ -50,7 +50,7 @@ Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 # [Azure CLI](#tab/azure-cli)
 
-To enable blob versioning for a storage account with Azure CLI, first install the Azure CLI version 2.2.0 or later. Then call the [az storage account blob-service-properties update](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) command to enable versioning, as shown in the following example. Remember to replace the values in angle brackets with your own values:
+To enable blob versioning for a storage account with Azure CLI, first install the Azure CLI version 2.2.0 or later. Then call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) command to enable versioning, as shown in the following example. Remember to replace the values in angle brackets with your own values:
 
 ```azurecli
 az storage account blob-service-properties update \

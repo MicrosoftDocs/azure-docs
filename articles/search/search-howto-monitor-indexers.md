@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 01/28/2021
 ---
 
-# How to monitor Azure Cognitive Search indexer status and results
+# Monitor indexer status and results in Azure Cognitive Search
 
 You can monitor indexer processing in the Azure portal, or programmatically through REST calls or an Azure SDK. In addition to status about the indexer itself, you can review start and end times, and detailed errors and warnings from a particular run.
 

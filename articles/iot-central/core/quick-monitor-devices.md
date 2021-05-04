@@ -14,7 +14,7 @@ ms.custom: mvc
 
 *This article applies to operators, builders, and administrators.*
 
-This quickstart shows you, as an operator, how to use your Microsoft Azure IoT Central application to monitor your devices and change settings.
+This quickstart shows you, as an operator, how to use your Azure IoT Central application to monitor your devices and change settings.
 
 ## Prerequisites
 

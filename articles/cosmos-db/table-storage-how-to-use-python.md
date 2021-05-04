@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: python
 ms.topic: sample
-ms.date: 07/23/2020
+ms.date: 03/23/2021
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
@@ -213,6 +213,18 @@ for task in tasks:
     print(task.description)
 ```
 
+## Query for an entity without partition and row keys
+
+You can also query for entities within a table without using the partition and row keys. Use the `table_service.query_entities` method without the "filter" and "select" parameters as show in the following example:
+
+```python
+print("Get the first item from the table")
+tasks = table_service.query_entities(
+    'tasktable')
+lst = list(tasks)
+print(lst[0])
+```
+
 ## Delete an entity
 
 Delete an entity by passing its **PartitionKey** and **RowKey** to the [delete_entity][py_delete_entity] method.
@@ -250,4 +262,4 @@ table_service.delete_table('tasktable')
 [py_update_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
 [py_delete_table]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
 [py_TableService]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
-[py_TableBatch]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
+[py_TableBatch]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice

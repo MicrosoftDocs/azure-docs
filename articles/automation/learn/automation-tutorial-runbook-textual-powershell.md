@@ -5,7 +5,8 @@ keywords: azure powershell, powershell script tutorial, powershell automation
 services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
-ms.topic: tutorial
+ms.topic: tutorial 
+ms.custom: devx-track-azurepowershell
 ---
 # Tutorial: Create a PowerShell runbook
 
@@ -132,7 +133,7 @@ As shown in the example below, the Run As connection is made with the [Connect-A
 
    ```powershell
    # Ensures you do not inherit an AzContext in your runbook
-   Disable-AzContextAutosave –Scope Process
+   Disable-AzContextAutosave -Scope Process
 
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
 
@@ -164,7 +165,7 @@ As shown in the example below, the Run As connection is made with the [Connect-A
 
    ```powershell
    # Ensures you do not inherit an AzContext in your runbook
-   Disable-AzContextAutosave –Scope Process
+   Disable-AzContextAutosave -Scope Process
 
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
 
@@ -196,7 +197,7 @@ Now that your runbook is authenticating to your Azure subscription, you can mana
 
    ```powershell
    # Ensures you do not inherit an AzContext in your runbook
-   Disable-AzContextAutosave –Scope Process
+   Disable-AzContextAutosave -Scope Process
 
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
    while(!($connectionResult) -and ($logonAttempt -le 10))
@@ -231,7 +232,7 @@ Your runbook currently starts the virtual machine that you hard-coded in the run
     [string]$ResourceGroupName
    )
    # Ensures you do not inherit an AzContext in your runbook
-   Disable-AzContextAutosave –Scope Process
+   Disable-AzContextAutosave -Scope Process
 
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
    while(!($connectionResult) -and ($logonAttempt -le 10))

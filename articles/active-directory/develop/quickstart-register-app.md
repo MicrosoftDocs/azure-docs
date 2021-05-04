@@ -13,9 +13,7 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-# Customer intent: As an enterprise developer or software-as-a-service (SaaS) provider, I want to
-# know how to register my application with the Microsoft identity platform so that the security
-# token service can issue ID and/or access tokens to clients that want to access it.
+# Customer intent: As an enterprise developer or software-as-a-service (SaaS) provider, I want to know how to register my application with the Microsoft identity platform so that the security token service can issue ID and/or access tokens to clients that want to access it.
 ---
 
 # Quickstart: Register an application with the Microsoft identity platform
@@ -55,7 +53,10 @@ Follow these steps to create the app registration:
 
     :::image type="content" source="media/quickstart-register-app/portal-02-app-reg-01.png" alt-text="Screenshot of the Azure portal in a web browser, showing the Register an application pane.":::
 
-When registration finishes, the Azure portal displays the app registration's **Overview** pane. You see the **Application (client) ID**. Also called the *client ID*, this value uniquely identifies your application in the Microsoft identity platform.
+When registration finishes, the Azure portal displays the app registration's **Overview** pane. You see the **Application (client) ID**. Also called the *client ID*, this value uniquely identifies your application in the Microsoft identity platform. 
+
+> [!IMPORTANT]
+> New app registrations are hidden to users by default. When you are ready for users to see the app on their [My Apps page](../user-help/my-apps-portal-end-user-access.md) you can enable it. To enable the app, in the Azure portal navigate to **Azure Active Directory** > **Enterprise applications** and select the app. Then on the **Properties** page toggle **Visible to users?** to Yes.
 
 Your application's code, or more typically an authentication library used in your application, also uses the client ID. The ID is used as part of validating the security tokens it receives from the identity platform.
 
@@ -125,6 +126,7 @@ For more information about application security recommendations, see [Microsoft 
 1. Select **Add**.
 1. *Record the secret's value* for use in your client application code. This secret value is *never displayed again* after you leave this page.
 
+For security reasons, Microsoft limits creation of client secrets longer than 24 months and strongly recommends that you set this to a value less than 12 months.
 
 ## Next steps
 

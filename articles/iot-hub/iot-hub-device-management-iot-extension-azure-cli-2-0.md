@@ -16,13 +16,7 @@ ms.author: menchi
 
 ![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/2.png)
 
-[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
-
-[The IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) is an open-source IoT extension that adds to the capabilities of the [Azure CLI](/cli/azure/overview). The Azure CLI includes commands for interacting with Azure Resource Manager and management endpoints. For example, you can use Azure CLI to create an Azure VM or an IoT hub. A CLI extension enables an Azure service to augment the Azure CLI giving you access to additional service-specific capabilities. The IoT extension gives IoT developers command-line access to all IoT Hub, IoT Edge, and IoT Hub Device Provisioning Service capabilities.
-
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
-[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+In this article, you learn how to use the IoT extension for Azure CLI with various management options on your development machine. [The IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) is an open-source IoT extension that adds to the capabilities of the [Azure CLI](/cli/azure/overview). The Azure CLI includes commands for interacting with Azure Resource Manager and management endpoints. For example, you can use Azure CLI to create an Azure VM or an IoT hub. A CLI extension enables an Azure service to augment the Azure CLI giving you access to additional service-specific capabilities. The IoT extension gives IoT developers command-line access to all IoT Hub, IoT Edge, and IoT Hub Device Provisioning Service capabilities.
 
 | Management option          | Task  |
 |----------------------------|-----------|
@@ -36,21 +30,19 @@ For more detailed explanation on the differences and guidance on using these opt
 
 Device twins are JSON documents that store device state information (metadata, configurations, and conditions). IoT Hub persists a device twin for each device that connects to it. For more information about device twins, see [Get started with device twins](iot-hub-node-node-twin-getstarted.md).
 
-## What you learn
+[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-You learn to use the IoT extension for Azure CLI with various management options on your development machine.
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## What you do
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Run Azure CLI and the IoT extension for Azure CLI with various management options.
+## Prerequisites
 
-## What you need
+* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials. For example, you can go to [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md) or to one of the [Send telemetry](quickstart-send-telemetry-dotnet.md) quickstarts. These articles cover the following requirements:
 
-* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials; for example, [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md). These items cover the following requirements:
-
-  - An active Azure subscription.
-  - An Azure IoT hub under your subscription.
-  - A client application that sends messages to your Azure IoT hub.
+  * An active Azure subscription.
+  * An Azure IoT hub under your subscription.
+  * A client application that sends messages to your Azure IoT hub.
 
 * Make sure your device is running with the client application during this tutorial.
 

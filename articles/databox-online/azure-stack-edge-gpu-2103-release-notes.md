@@ -38,11 +38,11 @@ The following new features are available in the Azure Stack Edge 2103 release.
 - **Improvements for Compute** - Several enhancements and improvements were made including those for:
 
     - **Overall compute platform quality**. This release has bug fixes to improve the overall compute platform quality. See the [Issues fixed in 2103 release](#issues-fixed-in-2103-release). 
-	- **Compute platform components**. Security updates were applied to Compute VM image. IoT Edge and Azure Arc for Kubernetes versions were also updated.
-	- **Diagnostics**. A new API is released to check resource and network conditions. You can connect to the PowerShell interface of the device and use the `Test-HcsKubernetesStatus` command to verify the network readiness of the device.
-	- **Log collection** that would lead to improved debugging. 
-	- **Alerting infrastructure** that will allow you to detect IP address conflicts for compute IP addresses. 
-	- **Mix workload** of Kubernetes and local Azure Resource Manager. 
+    - **Compute platform components**. Security updates were applied to Compute VM image. IoT Edge and Azure Arc for Kubernetes versions were also updated.
+    - **Diagnostics**. A new API is released to check resource and network conditions. You can connect to the PowerShell interface of the device and use the `Test-HcsKubernetesStatus` command to verify the network readiness of the device.
+    - **Log collection** that would lead to improved debugging. 
+    - **Alerting infrastructure** that will allow you to detect IP address conflicts for compute IP addresses. 
+    - **Mix workload** of Kubernetes and local Azure Resource Manager. 
 
 - **Proactive logging by default** - Starting this release, proactive log collection is enabled by default on your device. This feature allows Microsoft to collect logs proactively based on the system health indicators to help efficiently troubleshoot any device issues. For more information, see [Proactive log collection on your device](azure-stack-edge-gpu-proactive-log-collection.md).
 
@@ -94,8 +94,8 @@ The following table provides a summary of known issues carried over from the pre
 |**19.**|Kubernetes + update |Earlier software versions such as 2008 releases have a race condition update issue that causes the update to fail with ClusterConnectionException. |Using the newer builds should help avoid this issue. If you still see this issue, the workaround is to retry the upgrade, and it should work.|
 |**20**|Internet Explorer|If enhanced security features are enabled, you may not be able to access local web UI pages. | Disable enhanced security, and restart your browser.|
 |**21.**|Kubernetes Dashboard | *Https* endpoint for Kubernetes Dashboard with SSL certificate is not supported. | |
-|**22.**|Kubernetes |Kubernetes doesn't support ":" in environment variable names that are used by .NET applications. This is also required for Event grid IoT Edge module to function on Azure Stack Edge device and other applications. For more information, see [ASP.NET core documentation](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration&view=aspnetcore-3.1&preserve-view=true#environment-variables).|Replace ":" by double underscore. For more information,see [Kubernetes issue](https://github.com/kubernetes/kubernetes/issues/53201)|
-|**23.** |Azure Arc + Kubernetes cluster |By default, when resource `yamls` are deleted from the Git repository, the corresponding resources are not deleted from the Kubernetes cluster.  |To allow the deletion of resources when they're deleted from the git repository, set `--sync-garbage-collection` in Arc OperatorParams. For more information, see [Delete a configuration](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters). |
+|**22.**|Kubernetes |Kubernetes doesn't support ":" in environment variable names that are used by .NET applications. This is also required for Event grid IoT Edge module to function on Azure Stack Edge device and other applications. For more information, see [ASP.NET core documentation](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration#environment-variables).|Replace ":" by double underscore. For more information,see [Kubernetes issue](https://github.com/kubernetes/kubernetes/issues/53201)|
+|**23.** |Azure Arc + Kubernetes cluster |By default, when resource `yamls` are deleted from the Git repository, the corresponding resources are not deleted from the Kubernetes cluster.  |To allow the deletion of resources when they're deleted from the git repository, set `--sync-garbage-collection` in Arc OperatorParams. For more information, see [Delete a configuration](../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md#additional-parameters). |
 |**24.**|NFS |Applications that use NFS share mounts on your device to write data should use Exclusive write. That ensures the writes are written to the disk.| |
 |**25.**|Compute configuration |Compute configuration fails in network configurations where gateways or switches or routers respond to Address Resolution Protocol (ARP) requests for systems that do not exist on the network.| |
 |**26.**|Compute and Kubernetes |If Kubernetes is set up first on your device, it claims all the available GPUs. Hence, it is not possible to create Azure Resource Manager VMs using GPUs after setting up the Kubernetes. |If your device has 2 GPUs, then you can create 1 VM that uses the GPU and then configure Kubernetes. In this case, Kubernetes will use the remaining available 1 GPU. |
