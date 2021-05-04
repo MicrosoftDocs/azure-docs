@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 09/02/2020
+ms.date: 05/04/2021
 ms.author: erhopf
 ms.custom: "devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 zone_pivot_groups: programming-languages-speech-services-one-nomore-no-go
