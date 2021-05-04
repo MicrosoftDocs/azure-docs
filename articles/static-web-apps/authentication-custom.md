@@ -264,11 +264,11 @@ These two options are mutually exclusive.
 
 To use a custom OIDC provider, use the following URL patterns.
 
-| Action             | Pattern                                   |
-| ------------------ | ----------------------------------------- |
-| Login              | `/.auth/<PROVIDER_NAME_IN_CONFIG>/login`  |
-| Logout             | `/.auth/<PROVIDER_NAME_IN_CONFIG>/logout` |
-| Purge user details | `/.auth/<PROVIDER_NAME_IN_CONFIG>/purge`  |
+| Action             | Pattern                                  |
+| ------------------ | ---------------------------------------- |
+| Login              | `/.auth/login/<PROVIDER_NAME_IN_CONFIG>` |
+| Logout             | `/.auth/logout`                          |
+| Purge user details | `/.auth/purge/<PROVIDER_NAME_IN_CONFIG>` |
 
 ## Next steps
 
