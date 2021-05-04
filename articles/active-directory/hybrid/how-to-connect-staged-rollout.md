@@ -89,7 +89,7 @@ The following scenarios are not supported for staged rollout:
 
 - If you have Non-Persistent VDI setup with v1903 and above, you need to stay on a Federated domain. Moving to a managed domain isn't supported on Non-Persistent VDI. See [Device identity and desktop virtualization](https://docs.microsoft.com/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
 
-- If you have a WHFB hybrid Certificate trust with certs that are issued via your federation server acting as RA or smart card users, it isn't supported on a staged rollout. 
+- If you have a WHFB hybrid Certificate trust with certs that are issued via your federation server acting as Registration Authority or smart card users, it isn't supported on a staged rollout. 
 
   >[!NOTE]
   >You still need to make the final cutover from federated to cloud authentication by using Azure AD Connect or PowerShell. Staged rollout doesn't switch domains from  federated to managed.  For more information about domain cutover, see [Migrate from federation to password hash synchronization](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) and [Migrate from federation to pass-through authentication](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
