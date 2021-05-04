@@ -59,9 +59,9 @@ Data Factory expects events to follow the [Event Grid event schema](../event-gri
 
 1. Switch to the **Edit** tab. Look for the pencil icon.
 
-1. Select **Trigger** on the menu, then select **New/Edit**.
+1. Select **Trigger** on the menu, and then select **New/Edit**.
 
-1. On the **Add Triggers** page, select **Choose trigger...**, then select **+New**.
+1. On the **Add Triggers** page, select **Choose trigger...**, andthen select **+New**.
 
 1. Select **Custom events** as the **Type**.
 
@@ -70,7 +70,7 @@ Data Factory expects events to follow the [Event Grid event schema](../event-gri
 1. Select your custom topic from the Azure subscription dropdown or manually enter the event topic scope.
 
    > [!NOTE]
-   > To create a new or modify an existing custom event trigger in Data Factory, you need to use an Azure account with appropriate role based access control (Azure RBAC). No additional permission is required: Service Principal for the Azure Data Factory does _not_ need special permission to Event Grid. For more information about access control, see the [Role based access control](#role-based-access-control) section.
+   > To create a new or modify an existing custom event trigger in Data Factory, you need to use an Azure account with appropriate role based access control (Azure RBAC). No additional permission is required. The Data Factory service principle does *not* require special permission to your Event Grid. For more information about access control, see the [Role based access control](#role-based-access-control) section.
 
 1. The **Subject begins with** and **Subject ends with** properties allow you to filter for trigger events. Both properties are optional.
 
