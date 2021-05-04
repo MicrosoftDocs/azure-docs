@@ -57,7 +57,7 @@ The service that enables the Copy activity is available globally in the regions 
 
 ## Configuration
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 In general, to use the Copy activity in Azure Data Factory, you need to:
 

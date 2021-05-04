@@ -42,7 +42,7 @@ For Copy activity, with this connector you can:
 >[!TIP]
 >For a walk-through of how to use the Data Lake Storage Gen2 connector, see [Load data into Azure Data Lake Storage Gen2](load-azure-data-lake-storage-gen2.md).
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide information about properties that are used to define Data Factory entities specific to Data Lake Storage Gen2.
 
