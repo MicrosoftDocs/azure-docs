@@ -17,7 +17,7 @@
   - name: Get started - Azure Video Analyzer
     href: get-started-detect-motion-emit-events.md
   - name: Detect motion, record video in the cloud
-    href: detect-motion-record-video-clips-cloud.md #404
+    href: detect-motion-record-video-clips-cloud.md
   - name: Detect motion, record video on edge devices
     href: detect-motion-record-video-edge-devices.md
   - name: Azure Video Analyzer Visual Studio Code extension
