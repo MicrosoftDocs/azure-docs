@@ -900,9 +900,9 @@ The on-premises management console VM supports the following architectures:
 
 | Architecture | Specifications | Usage | 
 |--|--|--|
-| Corporate <br/>(Default and most common) | CPU: 8 <br/>Memory: 32G RAM<br/> HDD: 1.8 TB | Large production environments | 
-| Enterprise | CPU: 4 <br/> Memory: 8G RAM<br/> HDD: 500 GB | Large production environments |
-| SMB | CPU: 4 <br/>Memory: 8G RAM <br/> HDD: 100 GB | Small test environments | 
+| Enterprise <br/>(Default and most common) | CPU: 8 <br/>Memory: 32G RAM<br/> HDD: 1.8 TB | Large production environments | 
+| Small | CPU: 4 <br/> Memory: 8G RAM<br/> HDD: 500 GB | Large production environments |
+| Office | CPU: 4 <br/>Memory: 8G RAM <br/> HDD: 100 GB | Small test environments | 
    
 ### Prerequisites
 
