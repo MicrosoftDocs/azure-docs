@@ -33,15 +33,15 @@ You can set your cluster to one of the available wave's either through the *Fabr
 
 Using Azure portal, you'll choose between the available automatic waves when creating a new Service Fabric cluster.
 
-:::image type="content" source=".media/how-to-managed-cluster-upgrades/portal-new-cluster-upgrade-waves-setting.png" alt-text="Choose between different available waves when creating a new cluster in Azure portal from the 'Advanced' options":::
+:::image type="content" source="./media/how-to-managed-cluster-upgrades/portal-new-cluster-upgrade-waves-setting.png" alt-text="Choose between different available waves when creating a new cluster in Azure portal from the 'Advanced' options":::
 
 You can also toggle between available automatic waves from the **Fabric upgrades** section of an existing cluster resource.
 
-:::image type="content" source="./media/service-fabric-cluster-upgrade/manage-upgrade-wave-settings.png" alt-text="Select between different Automatic waves in the 'Fabric upgrades' section of your cluster resource in Azure portal":::
+:::image type="content" source="./media/how-to-managed-cluster-upgrades/manage-upgrade-wave-settings.png" alt-text="Select between different Automatic waves in the 'Fabric upgrades' section of your cluster resource in Azure portal":::
 
 ### Resource Manager template
 
-To change your cluster upgrade mode using a Resource Manager template, specify either *Automatic* or *Manual* for the  `ClusterUpgradeMode` property of the *Microsoft.ServiceFabric/clusters* resource definition. If you choose manual upgrades, also set the `clusterCodeVersion` to a currently [supported fabric version](#query-for-supported-cluster-versions).
+To change your cluster upgrade mode using a Resource Manager template, specify either *Automatic* or *Manual* for the  `ClusterUpgradeMode` property of the *Microsoft.ServiceFabric/clusters* resource definition. If you choose manual upgrades, also set the `clusterCodeVersion` to a currently [supported fabric version](#Query-for-supported-cluster-versions).
 
 #### Manual upgrade
 
