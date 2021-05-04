@@ -57,6 +57,10 @@ articles/terraform/ @TomArcherMsft
 articles/virtual-machines/ @cynthn @mimckitt
 articles/virtual-machine-scale-sets/ @ju-shim @mimckitt
 articles/cloud-services/ @mimckitt
+articles/cloud-services-extended-support/ @mimckitt
+articles/service-fabric/ @erikadoyle @mimckitt
+articles/container-instances/ @macolso @mimckitt
+articles/container-registry/ @dlepow @mimckitt
 
 # Requires Internal Review
 articles/best-practices-availability-paired-regions.md @martinekuan @syntaxc4 @snoviking

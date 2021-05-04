@@ -111,9 +111,11 @@
     - name: Import and export a DNS zone file
       href: dns-import-export.md
     - name: Delegate a subdomain
-      href: delegate-subdomain.md
-    - name: Delegate a subdomain using PowerShell
-      href: delegate-subdomain-ps.md
+      items:
+      - name: Azure portal
+        href: delegate-subdomain.md
+      - name: Azure PowerShell
+        href: delegate-subdomain-ps.md
     - name: Integrate with other Azure services
       href: dns-for-azure-services.md
     - name: Protect DNS zones and records
