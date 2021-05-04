@@ -136,3 +136,7 @@ No, currently in order to scan another tenant's data source, you need to create 
 ### Does Azure Purview support column level lineage?
 
 Yes, Azure Purview supports column level lineage.
+
+### Does Azure Purview support Soft-Delete?
+
+Yes, Azure Purview supports Soft Delete for Azure subscription status management perspective. Purview can read subscription states (disabled/warned etc.) and put the account in soft-delete state until the account is restored/deleted. All the data plane API calls will be blocked when the account is in soft delete state and only GET/DELETE control plane API calls will be allowed. You can find additional information in Azure subscription states page [Azure Subscription Status](../cost-management-billing/manage/subscription-states.md)

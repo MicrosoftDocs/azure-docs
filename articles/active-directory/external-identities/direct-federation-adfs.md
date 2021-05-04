@@ -16,7 +16,7 @@ ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
-# Example: Configure SAML/WS-Fed IdP federation with Active Directory Federation Services (AD FS) (preview)
+# Example: Configure SAML/WS-Fed based identity provider federation with AD FS (preview)
 
 >[!NOTE]
 >- *Direct federation* in Azure Active Directory is now referred to as *SAML/WS-Fed identity provider (IdP) federation*.
