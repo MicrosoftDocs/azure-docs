@@ -184,7 +184,7 @@ public class Function {
 ::: zone pivot="programming-language-python"
 ## Bring dependencies by mounting a file share
 
-Another way to bring in third party dependency, available in Linux offering, is to utilize Azure Functions feature to mount a file share using Azure Files. This might be appropriate if you want to decouple dependencies or artifacts from your application code.
+When running your function app on Linux, there's another way to bring in third-party dependencies. Functions lets you mount a file share hosted in Azure Files. Consider this approach when you want to decouple dependencies or artifacts from your application code.
 
 First, you need to create an Azure Storage Account. In the account, you also need to create file share in Azure files. To create these resources, please follow this [guide](../storage/files/storage-how-to-use-files-portal.md)
 
