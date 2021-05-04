@@ -135,8 +135,6 @@ $workspaceDns=Get-AzPrivateEndpoint -Name <endpoint> -resourcegroupname <resourc
 $workspaceDns.CustomDnsConfigs | format-table
 ```
 
----
-
 # [Azure portal](#tab/azure-portal)
 
 1. In the [Azure portal](https://portal.azure.com), select your Azure Machine Learning __workspace__.
