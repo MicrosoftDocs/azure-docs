@@ -53,26 +53,28 @@ landingContent:
   # Card
   - title: Deploy a Service Fabric managed cluster
     linkLists:
-      - linkListType: get-started
+      - linkListType: overview
         links:
           - text: About Service Fabric managed clusters
             url: overview-managed-cluster.md
-          - text: Create a managed cluster
-            url: quickstart-managed-cluster-template.md
           - text: Service Fabric managed clusters FAQ
             url: faq-managed-cluster.md
-      - linkListType: tutorial
+      - linkListType: quickstart
         links:
-          - text: Scale out a managed cluster node types
+          - text: Create a managed cluster
+            url: quickstart-managed-cluster-template.md
+      - linkListType: learn
+        links:
+          - text: Scale out a managed cluster node type
             url: tutorial-managed-cluster-scale.md
           - text: Add and remove managed cluster node types
             url: tutorial-managed-cluster-add-remove-node-type.md
           - text: Deploy an app to a managed cluster
             url: tutorial-managed-cluster-deploy-app.md
-          - text: Add a VM scale set extension to a managed cluster node type
-            url: how-to-managed-cluster-vmss-extension.md
-          - text: Enable disk encryption for managed cluster nodes
-            url: how-to-enable-managed-cluster-disk-encryption.md
+          - text: Configure your managed cluster
+            url: how-to-managed-cluster-configuration.md
+          - text: Deploy managed cluster application secrets
+            url: how-to-managed-cluster-application-secrets.md
 
   # Card
   - title: Get started with Service Fabric applications
