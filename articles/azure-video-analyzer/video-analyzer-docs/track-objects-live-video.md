@@ -41,7 +41,7 @@ In this quickstart, you will:
 1. Clean up resources.
 
 ## Set up your development environment
-[!INCLUDE [setup development environment](./includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)
+[!INCLUDE [setup development environment](./includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)]
 
 ## Deploy the required modules
 
