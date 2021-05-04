@@ -10,7 +10,7 @@ ms.date: 05/01/2021
 
 To start using Azure Video Analyzer, you will need to create a Video Analyzer account. The account needs to be associated with a storage account and [user-assigned managed identity][docs-uami]. The managed identity will need to have the permissions of the [Storage Blob Data Contributor][docs-storage-access] role for the storage account. This article describes the steps for creating a new Video Analyzer account.
 
- You can use either the Azure portal or an [ARM template][docs-arm-template] to create a Video Analyzer account. Choose the tab for the method you would like to use.
+ You can use either the Azure portal or an [Azure Resource Manager (ARM) template][docs-arm-template] to create a Video Analyzer account. Choose the tab for the method you would like to use.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -33,7 +33,7 @@ To start using Azure Video Analyzer, you will need to create a Video Analyzer ac
     |**Account Name**|Enter the name of the new Video Analyzer account. A Video Analyzer account name is all lowercase letters or numbers with no spaces, and is 3 to 24 characters in length.|
     |**Location**|Select the geographic region that will be used to store the video and metadata records for your Video Analyzer account. Only the available Video Analyzer regions appear in the drop-down list box. |
     |**Storage Account**|Select a storage account to provide blob storage of the video content for your Video Analyzer account. You can select an existing storage account in the same geographic region as your Video Analyzer account, or you can create a new storage account. A new storage account is created in the same region. The rules for storage account names are the same as for Video Analyzer accounts.<br/><br/>The Video Analyzer account and the associated storage account must be in the same Azure subscription and region.|
-    |**TODO**| *Add content for managed identities*
+    <!-- |**TODO**| *Add content for managed identities* -->
 
 1. Click **Review + create** at the bottom of the form.
 
@@ -213,7 +213,7 @@ When no longer needed, delete the resource group, which deletes the account and 
 
 ---
 
-**Next steps**
+## Next steps
 
 Learn how to [deploy Video Analyzer on an IoT Edge device][docs-deploy-on-edge].
 
