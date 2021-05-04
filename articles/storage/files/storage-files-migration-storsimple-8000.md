@@ -375,7 +375,7 @@ In the job blade that opens, you can see your job runs in the lower list. Initia
     :::column-end:::
 :::row-end:::
 
-#### Running jobs in parallel
+#### Run jobs in parallel
 
 You will likely have multiple StorSimple locations that each need to be copied to a different Azure file share. For a single StorSimple appliance, you can run up to four migration jobs in parallel if they target each a different Azure file share. 
 
