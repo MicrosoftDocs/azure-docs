@@ -160,7 +160,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the **ADD USER** window, enter the Name and User Name in their respective text boxes and click **ADD**.
 
-	![screenshot for create new user.](./media/check-point-harmony-connect-tutorial/add-user.png)
+	![screenshot for create user.](./media/check-point-harmony-connect-tutorial/add-user.png)
 
 ## Test SSO 
 
