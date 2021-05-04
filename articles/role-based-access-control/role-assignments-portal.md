@@ -111,7 +111,7 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
 ## Step 1: Identify the needed scope (Preview)
 
-[!INCLUDE [Scope for Azure RBAC introduction](../../includes/role-based-access-control/scope-intro.md)] For more information about scope, see [Understand scope](scope-overview.md).
+[!INCLUDE [Scope for Azure RBAC introduction](../../includes/role-based-access-control/scope-intro.md)] For more information, see [Understand scope](scope-overview.md).
 
 ![Diagram showing the scope levels for Azure RBAC for preview experience.](../../includes/role-based-access-control/media/scope-levels.png)
 
