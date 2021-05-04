@@ -1,5 +1,5 @@
 ---
-title: Introduction to Azure IoT Hub | Microsoft Docs
+title: What is Azure IoT Hub | Microsoft Docs
 description: This article explains the uses for an Azure IoT Hub. It allows you to read data in a scalable manner, and enables you to manage devices securely.
 author: robinsh
 ms.author: robinsh
@@ -10,7 +10,7 @@ ms.service: iot-hub
 services: iot-hub
 ---
 
-# Uses for an Azure IoT Hub
+# What is Azure IoT Hub
 
 IoT Hub is a managed service hosted in the cloud that acts as a central message hub for communications in both directions between an IoT application and its attached devices. You can connect millions of devices and their backend solutions reliably and securely. Almost any device can be connected to an IoT Hub. 
 
