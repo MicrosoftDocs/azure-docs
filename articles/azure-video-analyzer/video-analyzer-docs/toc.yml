@@ -20,6 +20,8 @@
     href: detect-motion-record-video-clips-cloud.md #404
   - name: Detect motion, record video on edge devices
     href: detect-motion-record-video-edge-devices.md
+  - name: Detect motion, record video to Video Analyzer
+    href: detect-motion-record-video-to-video-analyer.md
   - name: Azure Video Analyzer Visual Studio Code extension
     href: create-pipeline-vs-code-extension.md
   - name: Analyze live video
