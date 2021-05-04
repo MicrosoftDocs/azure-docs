@@ -10,22 +10,22 @@ ms.date: 05/03/2021
 
 # Limits and configuration information for Azure Logic Apps
 
-This article describes the limits and configuration information for Azure Logic Apps and related resources. Many limits apply to both the multi-tenant and single-tenant (preview) Logic Apps service with noted exceptions when they exist. For Power Automate, see [Limits and configuration in Power Automate](/flow/limits-and-config).
+> For Power Automate, see [Limits and configuration in Power Automate](/flow/limits-and-config).
 
-This table provides more information about the terms, *multi-tenant*, *single-tenant*, and *integration service environment*, which appear in this article:
+This article describes the limits and configuration information for Azure Logic Apps and related resources. Many limits apply to both the multi-tenant and single-tenant (preview) Logic Apps service with noted exceptions where they exist. This table provides more information about the terms, *multi-tenant*, *single-tenant*, and *integration service environment*, which appear in this article:
 
-| Environment | Resource sharing and usage | [Pricing model](logic-apps-pricing.md) |
-|-------------|----------------------------|----------------------------------------|
-| Azure Logic Apps <br>(Multi-tenant) | Workflows in logic apps *across multiple tenants* share the same processing (compute), storage, network, and so on. | Consumption |
-| Azure Logic Apps <br>(Preview, single-tenant) | Workflows *in the same logic app and same single tenant* share the same processing (compute), storage, network, and so on. | Preview, which is either the [Premium hosting plan](../azure-functions/functions-scale.md), or the [App Service hosting plan](../azure-functions/functions-scale.md) with a specific [pricing tier](../app-service/overview-hosting-plans.md) <p><p>If you have *stateful* workflows, which use [external storage](../azure-functions/storage-considerations.md#storage-account-requirements), the Azure Logic Apps runtime makes storage transactions that follow [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
-| Integration service environment | Workflows in the *same environment* share the same processing (compute), storage, network, and so on. | Fixed |
-||||
+| Environment | Resource sharing and usage | [Pricing model](logic-apps-pricing.md) | Notes |
+|-------------|----------------------------|----------------------------------------|-------|
+| Azure Logic Apps <br>(Multi-tenant) | Workflows in logic apps *across multiple tenants* share the same processing (compute), storage, network, and so on. | Consumption | Azure Logic Apps manages the stated limits, but you can change some limits, if the capability exists. |
+| Azure Logic Apps <br>(Preview, single-tenant) | Workflows *in the same logic app and same single tenant* share the same processing (compute), storage, network, and so on. | Preview, which is either the [Premium hosting plan](../azure-functions/functions-scale.md), or the [App Service hosting plan](../azure-functions/functions-scale.md) with a specific [pricing tier](../app-service/overview-hosting-plans.md) <p><p>If you have *stateful* workflows, which use [external storage](../azure-functions/storage-considerations.md#storage-account-requirements), the Azure Logic Apps runtime makes storage transactions that follow [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). | You can change the stated limits, which are the default values, based on your scenario's needs. <p><p>For more information, see [Create workflows for single-tenant Azure Logic Apps using Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md) |
+| Integration service environment | Workflows in the *same environment* share the same processing (compute), storage, network, and so on. | Fixed | Azure Logic Apps manages the stated limits, but you can change some limits, if the capability exists. |
+|||||
 
 <a name="definition-limits"></a>
 
 ## Workflow definition limits
 
-The following table lists the limits for a single workflow definition:
+The following tables list the limits for a single workflow definition:
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
@@ -33,13 +33,14 @@ The following table lists the limits for a single workflow definition:
 | Triggers per workflow | 10 triggers | This limit applies only when you work on the JSON workflow definition, whether in code view or an ARM template, not the designer. |
 | Actions per workflow | 500 actions | To extend this limit, you can use nested workflows as necessary. |
 | Actions nesting depth | 8 actions | To extend this limit, you can use nested workflows as necessary. |
-| Maximum trigger or action name length | 80 characters | |
-| Variables per workflow | 250 variables | |
+| Trigger or action - Maximum name length | 80 characters | |
+| Trigger or action - Maximum input or output size | 104,857,600 bytes |
+| Action - Maximum combined inputs and outputs size | 209,715,200 bytes |
 | Expression character limit | 8,192 characters | |
-| Maximum `description` length | 256 characters | |
-| Maximum number of `parameters` | 50 parameters | |
-| Maximum number of `outputs` | 10 outputs | |
-| Maximum size for `trackedProperties` | 16,000 characters |
+| `description` - Maximum length | 256 characters | |
+| `parameters` - Maximum number of items | 50 parameters | |
+| `outputs` - Maximum number items | 10 outputs | |
+| `trackedProperties` - Maximum size | 16,000 characters |
 ||||
 
 <a name="run-duration-retention-limits"></a>
@@ -48,12 +49,12 @@ The following table lists the limits for a single workflow definition:
 
 The following table lists the limits for a single workflow run:
 
-| Name | Multi-tenant & single-tenant limit | Integration service environment limit | Notes |
-|------|------------------------------------|---------------------------------------|-------|
-| Run duration | 90 days | 366 days | The run duration is calculated by using a run's start time and the limit that's specified in the workflow setting, [**Run history retention in days**](#change-duration) at that start time. <p><p>To change the default limit, see [Change run duration and history retention in storage](#change-duration). |
-| Run history retention in storage | 90 days | 366 days | If a run's duration exceeds the current run history retention limit, the run is removed from the runs history in storage. Whether the run completes or times out, run history retention is always calculated by using the run's start time and the current limit specified in the workflow setting, [**Run history retention in days**](#change-retention). No matter the previous limit, the current limit is always used for calculating retention. <p><p>To change the default limit and for more information, see [Change duration and run history retention in storage](#change-retention). To increase the maximum limit, [contact the Logic Apps team](mailto://logicappspm@microsoft.com) for help with your requirements. |
-| Minimum recurrence interval | 1 second | 1 second ||
-| Maximum recurrence interval | 500 days | 500 days ||
+| Name | Multi-tenant limit | Single-tenant limit | Integration service environment limit | Notes |
+|------|--------------------|---------------------|---------------------------------------|-------|
+| Run duration | 90 days | 90 days | 366 days | The amount of time that a workflow can continue running before forcing a timeout. <p>**Important**: Make sure the run duration value is always less than or equal to the run history retention in storage value. Otherwise, run histories might be deleted before the associated jobs are complete. <p>The run duration is calculated by using a run's start time and the limit that's specified in the workflow setting, [**Run history retention in days**](#change-duration) at that start time. <p><p>To change the default limit, see [Change run duration and history retention in storage](#change-duration). |
+| Run history retention in storage | 90 days | 90 days | 366 days | The amount of time to keep workflow run history in storage after a run starts. If a run's duration exceeds the current run history retention limit, the run is removed from the runs history in storage. <p>Whether the run completes or times out, run history retention is always calculated by using the run's start time and the current limit specified in the workflow setting, [**Run history retention in days**](#change-retention). No matter the previous limit, the current limit is always used for calculating retention. <p><p>To change the default limit and for more information, see [Change duration and run history retention in storage](#change-retention). To increase the maximum limit, [contact the Logic Apps team](mailto://logicappspm@microsoft.com) for help with your requirements. |
+| Recurrence - Minimum interval | 1 second | 1 second | 1 second ||
+| Recurrence - Maximum interval | 500 days | 500 days | 500 days ||
 |||||
 
 <a name="change-duration"></a>
@@ -114,29 +115,29 @@ If you use an Azure Resource Manager template, this setting appears as a propert
 
 <a name="looping-debatching-limits"></a>
 
-## Concurrency, looping, and debatching limits
+## Looping, concurrency, and debatching limits
 
 The following table lists the limits for a single workflow run:
 
-### Loops
+### Loop actions
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
-| **For each** loop array items | 100,000 items | This limit describes the maximum number of array items that a **For each** loop can process. <p><p>To filter larger arrays, you can use the [query action](logic-apps-perform-data-operations.md#filter-array-action). |
-| **For each** loop concurrency | With concurrency off: 20 iterations <p><p>With concurrency on: <p><p>- Default: 20 iterations<br>- Min: 1 iteration<br>- Max: 50 iterations | This limit is maximum number of **For each** loop iterations that can run at the same time, or in parallel. <p><p>To change this limit, see [Change **For each** concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run **For each** loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
-| **Until** loop iterations | - Default: 60 iterations <br>- Min: 1 iteration <br>- Max: 5,000 iterations | The maximum number of cycles that an **Until** loop can have during a workflow run. <p><p>To change this limit, in the **Until** loop shape, select **Change limits**, and specify the value for the **Count** property. |
-| **Until** loop timeout | - Default: PT1H (1 hour) | The most amount of time that the **Until** loop can run before exiting and is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). The timeout value is evaluated for each loop cycle. If any action in the loop takes longer than the timeout limit, the current cycle doesn't stop. However, the next cycle doesn't start because the limit condition isn't met. <p><p>To change this limit, in the **Until** loop shape, select **Change limits**, and specify the value for the **Timeout** property. |
+| **For each** array items | 100,000 items | This limit describes the maximum number of array items that a **For each** loop can process. <p><p>To filter larger arrays, you can use the [query action](logic-apps-perform-data-operations.md#filter-array-action). |
+| **For each** concurrency | With concurrency off: 20 iterations <p><p>With concurrency on: <p><p>- Default: 20 iterations<br>- Min: 1 iteration<br>- Max: 50 iterations | This limit is maximum number of **For each** loop iterations that can run at the same time, or in parallel. <p><p>To change this limit, see [Change **For each** concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run **For each** loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
+| **Until** iterations | - Default: 60 iterations <br>- Min: 1 iteration <br>- Max: 5,000 iterations | The maximum number of cycles that an **Until** loop can have during a workflow run. <p><p>To change this limit, in the **Until** loop shape, select **Change limits**, and specify the value for the **Count** property. |
+| **Until** timeout | - Default: PT1H (1 hour) | The most amount of time that the **Until** loop can run before exiting and is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). The timeout value is evaluated for each loop cycle. If any action in the loop takes longer than the timeout limit, the current cycle doesn't stop. However, the next cycle doesn't start because the limit condition isn't met. <p><p>To change this limit, in the **Until** loop shape, select **Change limits**, and specify the value for the **Timeout** property. |
 ||||
 
 <a name="concurrency-debatching"></a>
 
 ### Concurrency and debatching
 
-| Name | Limit | Notes |
-| ---- | ----- | ----- |
-| Trigger concurrency | With concurrency off: Unlimited <p><p>With concurrency on, which you can't undo after enabling: <p><p>- Default: 25 instances <br>- Min: 1 instance <br>- Max: 100 instances | This limit is the maximum number of workflow instances that can run at the same time, or in parallel. <p><p>**Note**: When concurrency is turned on, the **SplitOn** limit is reduced to 100 items for [debatching arrays](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>To change this limit, see [Change trigger concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) or [Trigger instances sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Name | Multi-tenant limit | Single-tenant limit (preview) | Integration service environment limit | Notes |
+|------|--------------------|-------------------------------|---------------------------------------|-------|
+| Trigger concurrency | With concurrency off: Unlimited <p><p>With concurrency on, which you can't undo after enabling: <p><p>- Default: 25 runs <br>- Min: 1 run <br>- Max: 100 runs | Default: 100 runs | With concurrency off: Unlimited <p><p>With concurrency on, which you can't undo after enabling: <p><p>- Default: 25 runs <br>- Min: 1 run <br>- Max: 100 runs | This limit is the maximum number of concurrent runs that a trigger can start at the same time, or in parallel. <p><p>**Note**: When concurrency is turned on, the **SplitOn** limit is reduced to 100 items for [debatching arrays](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>To change this limit, see [Change trigger concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) or [Trigger instances sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Maximum waiting runs | With concurrency off: <p><p>- Min: 1 run <br>- Max: 50 runs <p><p>With concurrency on: <p><p>- Min: 10 runs plus the number of concurrent runs (trigger concurrency) <br>- Max: 100 runs | This limit is the maximum number of workflow instances that can wait to run when your current workflow instance is already running the maximum concurrent instances. <p><p>To change this limit, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
-| SplitOn items | With concurrency off: 100,000 items <p><p>With concurrency on: 100 items | For triggers that return an array, you can specify an expression that uses a **SplitOn** property that [splits or debatches array items into multiple workflow instances](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) for processing, rather than use a **For each** loop. This expression references the array to use for creating and running a workflow instance for each array item. <p><p>**Note**: When concurrency is turned on, the **SplitOn** limit is reduced to 100 items. |
+| **SplitOn** items | With concurrency off: 100,000 items <p><p>With concurrency on: 100 items | For triggers that return an array, you can specify an expression that uses a **SplitOn** property that [splits or debatches array items into multiple workflow instances](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) for processing, rather than use a **For each** loop. This expression references the array to use for creating and running a workflow instance for each array item. <p><p>**Note**: When concurrency is turned on, the **SplitOn** limit is reduced to 100 items. |
 ||||
 
 <a name="throughput-limits"></a>
@@ -231,17 +232,30 @@ For more information about your logic app resource definition, see [Overview: Au
 
 Azure Logic Apps supports write operations, including inserts and updates, through the on-premises data gateway. However, these operations have [limits on their payload size](/data-integration/gateway/service-gateway-onprem#considerations).
 
+<a name="variables-action-limits"></a>
+
+## Variables action limits
+
+The following table lists the limits for a single workflow definition:
+
+| Name | Limit | Notes |
+|------|-------|-------|
+| Variables per workflow | 250 variables ||
+| Variable - Maximum content size | 104,857,600 bytes ||
+| Variable with Array type - Maximum number of items | 100,000 items ||
+||||
+
 <a name="http-limits"></a>
 
-## HTTP limits
+## HTTP request limits
 
 The following tables list the limits for a single inbound or outbound call:
 
 <a name="http-timeout-limits"></a>
 
-#### Timeout duration
+### Timeout duration
 
-Some connector operations make asynchronous calls or listen for webhook requests, so the timeout for these operations might be longer than these limits. For more information, see the technical details for the specific connector and also [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
+By default, the HTTP action and APIConnection actions follow the [standard asynchronous operation pattern](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply), while the Response action follows the *synchronous operation pattern*. Some managed connector operations make asynchronous calls or listen for webhook requests, so the timeout for these operations might be longer than the followinglimits. For more information, review [each connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors) and also the [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) documentation.
 
 | Name | Multi-tenant | Single-tenant (preview) | Integration service environment | Notes |
 |------|--------------|-------------------------|---------------------------------|-------|
@@ -251,15 +265,28 @@ Some connector operations make asynchronous calls or listen for webhook requests
 
 <a name="message-size-limits"></a>
 
-#### Message size
+### Messages
 
-| Name | Multi-tenant & single-tenant limit | Integration service environment limit | Notes |
-|------|------------------------------------|---------------------------------------|-------|
-| Message size | 100 MB | 200 MB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. <p><p>- Connectors such as AS2, X12, and EDIFACT have their own [B2B message limits](#b2b-protocol-limits). <br>- ISE connectors use the ISE limit, not their non-ISE connector limits. |
-| Message size with chunking | 1 GB | 5 GB | This limit applies to actions that either natively support chunking or let you enable chunking in their runtime configuration. <p><p>If you're using an ISE, the Logic Apps engine supports this limit, but connectors have their own chunking limits up to the engine limit, for example, see the [Azure Blob Storage connector's API reference](/connectors/azureblob/). For more information about chunking, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). |
-|||||
+| Name | Chunking enabled | Multi-tenant limit | Single-tenant limit (preview) | Integration service environment limit | Notes |
+|------|------------------|--------------------|-------------------------------|---------------------------------------|-------|
+| Content download - Maximum number of requests | Yes | ? | 1,000 requests | ? ||
+| Message size | No | 100 MB | 100 MB | 200 MB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs don't support chunking or even the default limit. <p><p>- Connectors such as AS2, X12, and EDIFACT have their own [B2B message limits](#b2b-protocol-limits). <p>- ISE connectors use the ISE limit, not the non-ISE connector limits. |
+| Message size | Yes | 1 GB | 1 GB (1,073,741,824 bytes) | 5 GB | This limit applies to actions that either natively support chunking or let you enable chunking in their runtime configuration. <p><p>If you're using an ISE, the Logic Apps engine supports this limit, but connectors have their own chunking limits up to the engine limit, for example, see the [Azure Blob Storage connector's API reference](/connectors/azureblob/). For more information about chunking, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). |
+| Content chunk size | Yes | Varies per connector | 52,428,800 bytes (52 MB) | Varies per connector | This limit applies to actions that either natively support chunking or let you enable chunking in their runtime configuration. |
+|||||||
 
-#### Character limits
+| Name | Description | Limit |
+|------|-------------|-------|
+| Runtime.FlowRunRetryableActionJobCallback.MaximumContentLengthInBytesForPartialContent	| Sets the maximum size in bytes for downloaded or uploaded content when chunking is enabled. | 1,073,741,824 bytes (1 GB) |
+| Runtime.FlowRunRetryableActionJobCallback.MaxChunkSizeInBytes | Sets the maximum size in bytes for each content chunk when chunking is enabled. | 52,428,800 bytes (52 MB) |
+| Name | Single-tenant limit | Notes |
+|------|---------------------|-------|
+| Maximum downloaded or uploaded content size with chunking enabled | 1,073,741,824 bytes (1 GB) ||
+| Maximum content chunk size with chunking enabled | 52,428,800 bytes (52 MB) ||
+||||
+
+
+### Character limits
 
 | Name | Limit | Notes |
 |------|-------|-------|
@@ -269,7 +296,7 @@ Some connector operations make asynchronous calls or listen for webhook requests
 
 <a name="retry-policy-limits"></a>
 
-#### Retry policy
+### Retry policy
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
@@ -299,7 +326,7 @@ The following table lists the limits for a single workflow definition:
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
-| Maximum number of cases per action | 25 | |
+| Maximum number of cases per action | 25 ||
 ||||
 
 <a name="inline-code-action-limits"></a>
@@ -328,7 +355,7 @@ The following table lists the limits for custom connectors that you can create f
 
 <a name="managed-identity"></a>
 
-## Managed identities
+## Managed identity limits
 
 | Name | Limit |
 |------|-------|
@@ -346,12 +373,12 @@ Each Azure subscription has these integration account limits:
 
 * 1,000 total integration accounts, including integration accounts in any [integration service environments (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) across both [Developer and Premium SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
-* Each ISE, whether [Developer or Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), can use a single integration account at no extra cost, although the included account type varies by ISE SKU. You can create more integration accounts for your ISE up to the total limit for an [additional cost](logic-apps-pricing.md#fixed-pricing):
+* Each ISE, whether [Developer or Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), can use a single integration account at no extra cost, although the included account type varies by ISE SKU. You can create more integration accounts for your ISE up to the total limit for an [extra cost](logic-apps-pricing.md#fixed-pricing).
 
   | ISE SKU | Integration account limits |
   |---------|----------------------------|
   | **Premium** | 20 total accounts, including one Standard account at no extra cost. With this SKU, you can have only [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) accounts. No Free or Basic accounts are permitted. |
-  | **Developer** | 20 total accounts, including one [Free](../logic-apps/logic-apps-pricing.md#integration-accounts) account (limited to 1). With this SKU, you can have either combination: <p>- A Free account and up to 19 [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) accounts. <br>- No Free account and up to 20 Standard accounts. <p>No Basic or additional Free accounts are permitted. <p><p>**Important**: Use the [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) for experimenting, development, and testing, but not for production or performance testing. |
+  | **Developer** | 20 total accounts, including one [Free](../logic-apps/logic-apps-pricing.md#integration-accounts) account (limited to 1). With this SKU, you can have either combination: <p>- A Free account and up to 19 [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) accounts. <br>- No Free account and up to 20 Standard accounts. <p>No Basic or more Free accounts are permitted. <p><p>**Important**: Use the [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) for experimenting, development, and testing, but not for production or performance testing. |
   |||
 
 To learn how pricing and billing work for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
@@ -413,14 +440,6 @@ Here are the message size limits that apply to B2B protocols:
 | X12 | 50 MB | 50 MB | Applies to decode and encode |
 | EDIFACT | 50 MB | 50 MB | Applies to decode and encode |
 ||||
-
-<a name="disable-delete"></a>
-
-## Disabling or deleting logic apps
-
-When you disable a logic app, no new runs are instantiated. All in-progress and pending runs continue until they finish, which might take time to complete.
-
-When you delete a logic app, no new runs are instantiated. All in-progress and pending runs are canceled. If you have thousands of runs, cancellation might take significant time to complete.
 
 <a name="configuration"></a>
 <a name="firewall-ip-configuration"></a>
