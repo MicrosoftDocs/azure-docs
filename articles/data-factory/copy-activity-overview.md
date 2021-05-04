@@ -37,7 +37,7 @@ To copy data from a source to a sink, the service that runs the Copy activity pe
 
 ## Supported data stores and formats
 
-[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores.md)]
+[!INCLUDE [data-factory-v2-supported-data-stores](includes/data-factory-v2-supported-data-stores.md)]
 
 ### Supported file formats
 
