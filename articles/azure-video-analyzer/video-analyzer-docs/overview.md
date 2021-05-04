@@ -25,7 +25,7 @@ With Video Analyzer, you can continue to use your [CCTV cameras](https://en.wiki
 * [Pipeline](pipeline.md)
 * [Video recording](video-recording.md)
 * [Continuous video recording](continuous-video-recording.md)
-* [Event-based video recording](event-based-video-recording.md)
+* [Event-based video recording](event-based-video-recording-concept.md)
 * [Video Analyzer without video recording](analyze-live-video-without-recording.md)
 
 ## Compliance, Privacy and Security
@@ -38,5 +38,5 @@ To learn about compliance, privacy and security in Video Analyzer visit the Micr
 
 ## Next steps
 
-* Follow the [Quickstart: Gest started - Azure Video Analyzer](gest-started-detect-motion-emit-events.md) article to see how you can run motion detection on a live video feed.
+* Follow the [Quickstart: Gest started - Azure Video Analyzer](get-started-detect-motion-emit-events.md) article to see how you can run motion detection on a live video feed.
 * Review [terminology](terminology.md)
