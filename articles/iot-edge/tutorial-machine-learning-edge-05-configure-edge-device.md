@@ -100,7 +100,7 @@ To store our certificates securely and make them accessible from multiple device
 
     ![Screenshot that shows Key Vault script output.](media/tutorial-machine-learning-edge-05-configure-edge-device/key-vault-entries-output.png)
 
-## Create an IoT Edge device
+## Registry an IoT Edge device
 
 To connect an Azure IoT Edge device to an IoT hub, we first create an identity for the device in the hub. We take the connection string from the device identity in the cloud and use it to configure the runtime on our IoT Edge device. After a configured device connects to the hub, we can deploy modules and send messages. We can also change the configuration of the physical IoT Edge device by changing its corresponding device identity in IoT Hub.
 
@@ -202,9 +202,65 @@ We'll deal with the leaf device later in the tutorial. In this section, download
     sudo az keyvault secret download --vault-name $key_vault_name --name azure-iot-test-only-root-ca-cert-pem -f /edgeMlCertificates/azure-iot-test-only.root.ca.cert.pem
     ```
 
+## Update the IoT Edge device configuration
+
+The IoT Edge runtime uses the file /etc/iotedge/config.yaml to persist its configuration. We need to update two pieces of information in this file:
+
+* **Certificates**: The certificates to use for connections made with downstream devices
+* **Hostname**: The fully qualified domain name (FQDN) of the VM IoT Edge device
+
+Update the certificates and hostname by directly editing the config.yaml file.
+
+1. Open the config.yaml file.
+
+    ```bash
+    sudo nano /etc/iotedge/config.yaml
+    ```
+
+1. Update the certificates section of the config.yaml file by removing the leading **#** and setting the path so the file looks like the following example:
+
+    ```yaml
+    certificates:
+      device_ca_cert: "/edgeMlCertificates/new-edge-device-full-chain.cert.pem"
+      device_ca_pk: "/edgeMlCertificates/new-edge-device.key.pem"
+      trusted_ca_certs: "/edgeMlCertificates/azure-iot-test-only.root.ca.cert.pem"
+    ```
+
+    Make sure the **certificates:** line has no preceding white space and that each of the nested certificates is indented by two spaces.
+
+    Right-clicking in nano will paste the contents of your clipboard to the current cursor position. To replace the string, use your keyboard arrows to go to the string you want to replace, delete the string, and then right-click to paste from the buffer.
+
+1. In the Azure portal, go to your virtual machine. Copy the DNS name (FQDN of the machine) from the **Overview** section.
+
+1. Paste the FQDN into the hostname section of the config.yml file. Make sure the name is all lowercase.
+
+    ```yaml
+    hostname: '<machinename>.<region>.cloudapp.azure.com'
+    ```
+
+1. Save and close the file by selecting **Ctrl+X**, **Y**, and **Enter**.
+
+1. Restart the IoT Edge daemon.
+
+    ```bash
+    sudo systemctl restart iotedge
+    ```
+
+1. Check the status of the IoT Edge daemon. After the command, enter **:q** to exit.
+
+    ```bash
+    systemctl status iotedge
+    ```
+
 ## Troubleshooting
 
-If you are having problems with the IoT Edge runtime installation, check out the [troubleshooting](troubleshoot.md) page.
+If you see errors (colored text prefixed with "\[ERROR\]") in the status, examine daemon logs for detailed error information.
+
+   ```bash
+   journalctl -u iotedge --no-pager --no-full
+   ```
+
+For more information on addressing errors, check out the [troubleshooting](troubleshoot.md) page.
 
 ## Clean up resources
 
