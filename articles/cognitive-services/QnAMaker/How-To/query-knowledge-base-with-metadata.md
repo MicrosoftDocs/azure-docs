@@ -86,6 +86,8 @@ In the below example, we set the value of `includeUnstructuredSources` property 
 }
 ```
 
+---
+
 ### Logical AND by default
 
 To combine several metadata filters in the query, add the additional metadata filters to the array of the `strictFilters` property. By default, the values are logically combined (AND). A logical combination requires all filters to matches the QnA pairs in order for the pair to be returned in the answer.
