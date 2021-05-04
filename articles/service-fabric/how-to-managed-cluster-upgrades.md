@@ -71,7 +71,7 @@ To configure Automatic upgrades and the wave deployment, simply add/validate `Cl
 "apiVersion": "2021-05-01",
 "type": "Microsoft.ServiceFabric/managedClusters",
 "properties": {
-        "upgradeMode": "Automatic",
+        "ClusterUpgradeMode": "Automatic",
         "upgradeWave": "Wave1",
         }  
 }
