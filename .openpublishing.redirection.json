@@ -13461,6 +13461,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/windows-server-failover-cluster.md",
+      "redirect_url": "/azure/azure-vmware/configure-windows-server-failover-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/create-ipsec-tunnel.md",
+      "redirect_url": "/azure/azure-vmware/configure-site-to-site-vpn-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/public-ip-usage.md",
+      "redirect_url": "/azure/azure-vmware/enable-public-internet-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/github-enterprise-server.md",
+      "redirect_url": "/azure/azure-vmware/configure-github-enterprise-server",
+      "redirect_document_id": false
+    },
+        {
       "source_path_from_root": "/articles/azure-vmware/concepts-monitor-repair-private-cloud.md",
       "redirect_url": "/azure/azure-vmware/concepts-private-clouds-clusters",
       "redirect_document_id": false
