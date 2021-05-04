@@ -148,7 +148,7 @@ You can now browse https://localhost:8081/_explorer/index.html or https://{your_
 
 Alternatively, for Java-based applications, the certificate must be imported in the Java trusted store. For more information on how to do this, see: <add link>    
 
-## Options
+## Configuration options
 
 |Name  |Default  |Description  |
 |---------|---------|---------|
