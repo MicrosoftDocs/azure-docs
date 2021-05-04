@@ -70,17 +70,18 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 2. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-    In the **Identifier** text box, type a URL using the following pattern:
-    `https://<WorkspaceID>.holmescloud.com`
-    In the **Reply URL (Assertion Consumer Service URL)** text box, type a following URL:
-    `https://holmescloud.com/sso/acs`
-    In the **Logout Url** text box, type a following URL:
-    `https://holmescloud.com/sso/logout`
+   1. In the **Identifier** text box, type a URL using the following pattern:
+
+      `https://<WorkspaceID>.holmescloud.com`
+      
+   1. In the **Reply URL (Assertion Consumer Service URL)** text box, enter `https://holmescloud.com/sso/acs`.
+   
+   1. In the **Logout Url** text box, enter `https://holmescloud.com/sso/logout`.
 
 	> [!NOTE]
-	> Update the value with the actual Identifier referring to the Holmes Admin page. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> Update the value with the actual Identifier, which refers to the Holmes Admin page. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-3. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+3. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
@@ -98,7 +99,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
    1. In the **Name** field, enter `B.Simon`.  
    1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   1. Select **Create**.
 
 ### Assign the Azure AD test user
 
@@ -110,15 +111,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+1. In the **Add Assignment** dialog, select the **Assign** button.
 
 ## Configure Holmes SSO
 
-To configure single sign-on on **Holmes** side, you need to register the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal in Holmes Admin page. 
+To configure single sign-on on the **Holmes** side, you need to register the downloaded **Certificate (Base64)** and the appropriate copied URLs from the Azure portal on the Holmes Admin page. 
 
 ### Create Holmes test user
 
-In this section, you create a user called Britta Simon in Holmes. You can create/invite a user in Holmes Member Management page. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in Holmes. You can create/invite a user on the Holmes Member Management page. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
