@@ -21,7 +21,7 @@ The vocabulary of an Azure Digital Twins solution is defined using [models](conc
 
 Sometimes, when your solution is tied to a particular industry, it can be easier and more effective to start with a set of models for that industry that already exist, instead of authoring your own model set from scratch. These pre-existing model sets are called **ontologies**. 
 
-In general, an ontology is a set of models for a given domain—like a building structure, IoT system, smart city, the energy grid, web content, etc. Ontologies are often used as schemas for knowledge graphs, as they can enable:
+In general, an ontology is a set of models for a given domain—like a building structure, IoT system, smart city, the energy grid, web content, etc. Ontologies are often used as schemas for twin graphs, as they can enable:
 * Harmonization of software components, documentation, query libraries, etc.
 * Reduced investment in conceptual modeling and system development
 * Easier data interoperability on a semantic level
