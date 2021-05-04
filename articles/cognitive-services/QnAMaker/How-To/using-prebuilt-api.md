@@ -1,7 +1,7 @@
 ---
-title: Contextually filter by using metadata
+title: QnA Maker Prebuilt API
 titleSuffix: Azure Cognitive Services
-description: QnA Maker Prebuilt API
+description: Use the Prebuilt API to get answers over text
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
