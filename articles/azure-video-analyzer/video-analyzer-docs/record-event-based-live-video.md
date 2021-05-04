@@ -35,25 +35,9 @@ Read these articles before you begin:
 
 Prerequisites for this tutorial are:
 
-* [Visual Studio Code](https://code.visualstudio.com/) on your development machine with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) and [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) extensions.
+[!INCLUDE [prerequisites](./includes/common-includes/csharp-prerequisites.md)]
 
-    > [!TIP]
-    > You might be prompted to install Docker. Ignore this prompt.
-* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer) on your development machine.
-
-* Run the [Azure Video Analyzer deployment template](set-up-dev-environment.md)
-
-At the end of these steps, you'll have relevant Azure resources deployed in your Azure subscription:
-
-* Azure IoT Hub
-* Azure Storage account
-* Video Analyzer account
-* Linux VM in Azure, with the [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge.md) installed
-
-> [!TIP]
-> If you run into issues with Azure resources that get created, please view our **[troubleshooting guide](troubleshoot.md#common-error-resolutions)** to resolve some commonly encountered issues.
-
-## Concepts
+## Overview
 
 Event-based video recording refers to the process of recording video triggered by an event. That event could be generated from:
 - Processing of the video signal itself, for example, upon detecting a moving object in the video.
