@@ -34,7 +34,7 @@ The steps in this how-to-guide show you how to:
 To follow the steps in this how-to guide, you need:
 
 * Visual Studio Code. You can download [Visual Studio Code for Mac, Linux, and Windows](https://code.visualstudio.com/download).
-* .NET Core. You can download [.NET Core for Mac, Linux, and Windows](https://www.microsoft.com/net/download).
+* .NET Core. You can download [.NET Core for Mac, Linux, and Windows](https://dotnet.microsoft.com/download).
 * Postman. You can download [Postman for Mac, windows, or Linux](https://www.getpostman.com/apps).
 * An [IoT hub deployed to your Azure subscription](../iot-hub/iot-hub-create-through-portal.md). You need the IoT hub's connection string to complete the steps in this guide. You can get the connection string from the Azure portal.
 * A [Cosmos DB database deployed to your Azure subscription](../cosmos-db/create-sql-api-dotnet.md#create-account) that uses the SQL API and that's configured for [strong consistency](../cosmos-db/how-to-manage-database-account.md). You need the Cosmos DB database's connection string to complete the steps in this guide. You can get the connection string from the Azure portal.

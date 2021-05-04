@@ -10,8 +10,9 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/04/2021
-ms.author: justinha
+ms.date: 03/08/2021
+ms.author: justinha 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Harden an Azure Active Directory Domain Services managed domain

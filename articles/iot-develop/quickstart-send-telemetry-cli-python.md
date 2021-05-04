@@ -80,7 +80,7 @@ In this section, you will use the Python SDK to send messages from your simulate
     export IOTHUB_DEVICE_SECURITY_TYPE="connectionString"
     ```
 
-1. In your open CLI shell, run the [az iot hub monitor-events](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-monitor-events) command to begin monitoring for events on your simulated IoT device.  Event messages print in the terminal as they arrive.
+1. In your open CLI shell, run the [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command to begin monitoring for events on your simulated IoT device.  Event messages print in the terminal as they arrive.
 
     ```azurecli
     az iot hub monitor-events --output table --hub-name {YourIoTHubName}
