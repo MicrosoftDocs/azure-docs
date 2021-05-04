@@ -70,7 +70,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Sign on URL** text box, type the URL:
+	a. In the **Sign-on URL** text box, type the URL:
     `https://app.10000ft.com`
 
     b. In the **Identifier (Entity ID)** text box, type the URL:
@@ -117,7 +117,7 @@ To configure single sign-on on **10,000ft Plans** side, you need to send the dow
 
 ### Create 10000ft Plans test user
 
-In this section, a user called Britta Simon is created in 10,000ft Plans. 10,000ft Plans support just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in 10,000ft Plans, a new one is created after authentication.
+In this section, a user called Britta Simon is created in 10,000ft Plans. 10,000ft Plans supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in 10,000ft Plans, a new one is created after authentication.
 
 > [!NOTE]
 > If you need to create a user manually, you need to contact the [10,000ft Plans Client support team](https://www.10000ft.com/plans/support).
@@ -126,11 +126,11 @@ In this section, a user called Britta Simon is created in 10,000ft Plans. 10,000
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to 10,000ft Plans Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to 10,000ft Plans Sign on URL where you can initiate the login flow. 
 
-* Go to 10,000ft Plans Sign-on URL directly and initiate the login flow from there.
+* Go to 10,000ft Plans Sign on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the 10,000ft Plans tile in the My Apps, this will redirect to 10,000ft Plans Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the 10,000ft Plans tile in the My Apps, this will redirect to 10,000ft Plans Sign on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Next steps
 
