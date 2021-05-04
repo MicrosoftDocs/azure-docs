@@ -17,7 +17,7 @@ ms.custom: how-to
 
 # Use Batch Endpoints (preview) for batch scoring
 
-In this article, you learn how to use [Batch Endpoints (preview)](concept-managed-endpoints.md) to run batch scoring. Batch endpoints simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. After you create a batch endpoint, you can use trigger batch scoring jobs with the Azure CLI or from any platform using an HTTP library and the REST API.
+In this article, you learn how to use Batch Endpoints (preview) to run batch scoring. Batch endpoints simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. After you create a batch endpoint, you can use trigger batch scoring jobs with the Azure CLI or from any platform using an HTTP library and the REST API.
 
 In this article, you learn to do the following tasks:
 
@@ -41,7 +41,9 @@ If you don't have an Azure subscription, create a free account before you begin.
 
 The Machine Learning extension requires Azure CLI version `>=2.15.0`. Check your version:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_version":::
+```azurecli
+az -v 
+```
 
 * An Azure Machine Learning workspace
 
@@ -71,7 +73,7 @@ az ml endpoint create --type batch --file examples/endpoints/batch/create-batch-
 
 Below is the YAML file defining the MLFlow batch endpoint. To use a registered model, replace the `model` section in the YAML with `model:azureml:<modelName>:<modelVersion>`.
 
-:::code language="yaml" source="~/azureml-examples/blob/cli-preview/cli/endpoints/batch/create-batch-endpoint.yml:::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/create-batch-endpoint.yml":::
 
 ## Check batch endpoint details
 
@@ -141,7 +143,7 @@ Some settings can be overwritten when you start a batch scoring job to make best
 
 * Use `--mini-batch-size` to overwrite `mini_batch_size` if different size of input data is used. 
 * Use `--instance-count` to overwrite `instance_count` if different compute resource is needed for this job. 
-* Use `--set` to overwrite other settings including `max_retries`, `timeout`, `error_threshold`, and `logging_level`.
+* Use `--set` to overwrite other settings including `max_retries`, `timeout`, and `error_threshold`.
 
 ```
 az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --set retry_settings.max_retries=1
@@ -196,7 +198,7 @@ az ml endpoint update --name mybatchedp --type batch --deployment mnist_deployme
 
 This sample uses a non-MLflow model, you'll need to provide environment and scoring script.
 
-:::code language="yaml" source="~/azureml-examples/blob/cli-preview/cli/endpoints/batch/add-deployment.yml" :::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/add-deployment.yml" :::
 
 ### Activate the new deployment
 
