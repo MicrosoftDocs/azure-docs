@@ -27321,8 +27321,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-virtual-machines.md",
-      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/overview",
+      "source_path_from_root": "/articles/machine-learning/tutorial-1st-experiment-sdk-setup.md",
+      "redirect_url": "/azure/machine-learning/quickstart-create-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/tutorial-1st-experiment-sdk-setup-local.md",
+      "redirect_url": "/azure/machine-learning/quickstart-create-resources",
       "redirect_document_id": false
     },
     {
