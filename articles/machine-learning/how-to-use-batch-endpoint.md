@@ -23,7 +23,7 @@ In this article, you learn to do the following tasks:
 
 > [!div class="checklist"]
 > * Create a batch endpoint with no-code experience for MLflow model
-ƒ> * Check a batch endpoint detail
+> * Check a batch endpoint detail
 > * Start a batch scoring job using CLI
 > * Monitor batch scoring job execution progress and check scoring results
 > * Add a new deployment to a batch endpoint
@@ -39,25 +39,34 @@ If you don't have an Azure subscription, create a free account before you begin.
 
 * The Azure Command Line Interface (CLI) and ML extension.
 
-The Machine Learning extension requires Azure CLI version `>=2.15.0`. Check your version:
+The Machine Learning extension requires Azure CLI version `>=2.15.0`. Ensure this requirement is met:
 
 ```azurecli
-az -v 
+az version
 ```
+
+If required, upgrade the Azure CLI:
+
+```azurecli
+az upgrade
+```
+
+> [!IMPORTANT]
+> The `az upgrade` command was added in version tk. If you are below that version, you need to manually install a newer version.
 
 * An Azure Machine Learning workspace
 
-If you don't already have an Azure Machine Learning workspace or notebook virtual machine, complete [setup](https://github.com/Azure/azureml-examples/blob/cli-preview/experimental/using-cli/setup.sh).
+If you don't already have an Azure Machine Learning workspace or notebook virtual machine, complete your [setup](tk https://github.com/Azure/azureml-examples/blob/main/experimental/using-cli/setup.sh).
 
 * The example repository
 
-Clone the [AzureML Example repository](https://github.com/Azure/azureml-examples/tree/cli-preview/experimental/using-cli/assets/endpoints/batch). This article uses the assets in `/cli-preview/experiment/using-cli/assets/endpoints/batch`.
+Clone the [AzureML Example repository](tk). This article uses the assets in `/cli-preview/experiment/using-cli/assets/endpoints/batch`.
 
 ## Create a compute target
 
 Batch scoring runs only on cloud resources, not locally. The cloud resource is called a "compute target." A compute target is a reusable virtual computer where you can run batch scoring workflows.
 
-Run the following code to create a CPU-enabled [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute) target. For more information about compute targets, see the [conceptual article](./concept-compute-target.md).
+Run the following code to create a CPU-enabled [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute) target {Q: tk this link currently 404s <<}. For more information about compute targets, see [What are compute targets in Azure Machine Learning?](./concept-compute-target.md).
 
 ```
 az ml compute create -n cpu-cluster --type AmlCompute --min-instances 0 --max-instances 5
@@ -87,11 +96,13 @@ az ml endpoint show -n mybatchedp -t batch
 
 A batch scoring workload runs as an offline job. It processes all the data inputs at once, and, by default, stores the scoring outputs. You can start a batch scoring job using CLI by passing in the data inputs. You can also configure the outputs location and overwrite some of the settings to get the best performance.
 
+{>> Q: 'It processes all the data inputs at once' -- really? Should this be "It process each of the data inputs once" or "It processes all the data inputs for a single score at once"? To my reading, "processes all the data inputs at once" makes me worried about memory if my input data are large and I have a large number of queries <<}
+
 ### Start a bath scoring job with different inputs options
 
 You have three options to specify the data inputs.
 
-Option 1: registered data
+Option 1: Registered data
 
 Use `--input-data` to pass in an AML registered data.
 
@@ -104,7 +115,7 @@ Use `--input-data` to pass in an AML registered data.
 az ml endpoint invoke --name mybatchedp --type batch --input-data azureml:<dataName>:<dataVersion>
 ```
 
-Option 2: data in the cloud
+Option 2: Data in the cloud
 
 Use `--input-datastore` to specify an AML registered datastore, and use `--input-path` to specify the relative path in the datastore.
 
@@ -114,19 +125,19 @@ az ml endpoint invoke --name mybatchedp --type batch --input-datastore azureml:<
 
 If your data is publicly available, use `--input-path` to specify the public path.
 
-If you're using the provided example, you can run below command to start a batch scoring job.
+If you're using the provided example, you can run the following command to start a batch scoring job.
 
 ```
 az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv
 ```
 
-Option 3: data in local
+Option 3: Data stored locally
 
 ```
 az ml endpoint invoke --name mybatchedp --type batch --input-local-path <localPath>
 ```
 
-### Configure outputs location
+### Configure the output location
 
 The batch scoring results are by default stored in the workspace's default blob store within a folder named by Job ID (a system-generated GUID). You can configure where to store the scoring outputs when you start a batch scoring job. Use `--output-datastore` to configure any registered datastore, and use `--output-path` to configure the relative path.
 

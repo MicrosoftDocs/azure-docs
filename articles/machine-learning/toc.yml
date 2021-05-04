@@ -532,7 +532,7 @@
       - name: (Preview) No code deployment
         displayName: no code
         href: how-to-deploy-no-code-deployment.md
-      - name: Asynchronous inferencing with batch endpoints
+      - name: Batch scoring with batch endpoints (preview)
         href: how-to-use-batch-endpoint.md
       - name: Package models
         displayName: docker file download
