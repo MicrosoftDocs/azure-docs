@@ -11,20 +11,11 @@ This quickstart shows you how to use Azure Video Analyzer on IoT Edge to track o
 
 The object tracker comes in handy when you need to detect objects in every frame, but the edge device does not have the necessary compute power to be able to apply the vision model on every frame. If the live video feed is at, say 30 frames per second, and you can only run your computer vision model on every 10th frame, the object tracker takes the results from one such frame, and then uses [optical flow](https://en.wikipedia.org/wiki/Optical_flow) techniques to generate results for the 2nd, 3rd,…, 9th frame, until the model is applied again on the next frame.
 
-This quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream. It's based on sample code written in C#, and it builds on the [Quickstart: Analyze live video with your own model - HTTP](analyze-live-video-use-your-model-http.md) quickstart.
+This quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream.
 
 ## Prerequisites
 
-* An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
-    
-    > [!NOTE]
-    > You will need an Azure subscription with permissions for creating service principals (owner role provides this). If you do not have the right permissions, please reach out to your account administrator to grant you the right permissions.   
-* [Visual Studio Code](https://code.visualstudio.com/), with the following extensions:
-
-    * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
-
-> [!TIP] 
-> You might be prompted to install Docker while you're installing the Azure IoT Tools extension. Feel free to ignore the prompt.
+[!INCLUDE [prerequisites](./includes/common-includes/csharp-prerequisites.md)]
 
 ## Set up Azure resources
 
