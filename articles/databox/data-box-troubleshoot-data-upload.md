@@ -130,7 +130,7 @@ For more information about the data log's contents, see [Tracking and event logg
 
 **Error description:** Data import to a blob in the cloud will fail if the destination blob has an active lease.
 
-**Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, ensure that the listed blobs do not have an active lease. For more information, see [Pessimistic concurrency for blobs](/azure/storage/blobs/concurrency-manage?tabs=dotnet#pessimistic-concurrency-for-blobs). Then [contact Support](data-box-disk-contact-microsoft-support.md).
+**Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, ensure that the listed blobs do not have an active lease. For more information, see [Pessimistic concurrency for blobs](/azure/storage/blobs/concurrency-manage?tabs=dotnet#pessimistic-concurrency-for-blobs).
 
 
 ### The size of the blob being imported is invalid. The blob size is `<blob-size>` Bytes. Supported sizes are between 20971520 Bytes and 8192 GiB.
@@ -141,7 +141,7 @@ For more information about the data log's contents, see [Tracking and event logg
 
 **Error description:** The listed page blobs failed to upload because they are not a size that can be converted to a Managed Disk. To be converted to a Managed Disk, a page blob must be from 20 MB (20,971,520 Bytes) to 8192 GiB in size.
 
-**Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, make sure each listed blob is from 20 MB Bytes to 8192 GiB in size.
+**Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, make sure each listed blob is from 20 MB to 8192 GiB in size.
 
 
 ## Next steps
