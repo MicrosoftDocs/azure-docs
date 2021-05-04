@@ -30,7 +30,7 @@ For sample instructions about how to add a user to a role, see the [Add roles](.
 For more info, see the following articles:
 
 - [Data Factory Contributor role](../articles/role-based-access-control/built-in-roles.md#data-factory-contributor)
-- [Roles and permissions for Azure Data Factory](../articles/data-factory/concepts-roles-permissions.md)
+- [Roles and permissions for Azure Data Factory](../concepts-roles-permissions.md)
 
 ### Azure Storage account
 
