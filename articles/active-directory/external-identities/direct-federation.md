@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 # Federation with SAML/WS-Fed identity providers for guest users (preview)
 
 > [!NOTE]
->- "Direct federation" in Azure Active Directory is now being referred to as SAML/WS-Fed identity provider (IdP) federation.
+>- *Direct federation* in Azure Active Directory is now referred to as *SAML/WS-Fed identity provider (IdP) federation*.
 >- SAML/WS-Fed IdP federation is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This article describes how to set up federation with any organization whose identity provider (IdP) supports the SAML 2.0 or WS-Fed protocol. When you set up federation with a partner's IdP, new guest users from that domain can use their own IdP-managed organizational account to sign in to your Azure AD tenant and start collaborating with you. There's no need for the guest user to create a separate Azure AD account.
