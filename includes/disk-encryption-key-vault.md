@@ -121,6 +121,9 @@ Use [az keyvault update](/cli/azure/keyvault#az_keyvault_update) to enable disk 
 
 ## Set up a key encryption key (KEK)
 
+> [!IMPORTANT]
+> The account running to enable disk encryption over the key vault must have "reader" permissions.
+
 If you want to use a key encryption key (KEK) for an additional layer of security for encryption keys, add a KEK to your key vault. When a key encryption key is specified, Azure Disk Encryption uses that key to wrap the encryption secrets before writing to Key Vault.
 
 You can generate a new KEK using the Azure CLI [az keyvault key create](/cli/azure/keyvault/key#az_keyvault_key_create) command, the Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet, or the [Azure portal](https://portal.azure.com/). You must generate an RSA key type; Azure Disk Encryption does not yet support using Elliptic Curve keys.
