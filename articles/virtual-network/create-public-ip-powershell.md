@@ -14,20 +14,15 @@ ms.author: allensu
 
 This article shows you how to create a public IP address resource using Azure PowerShell. 
 
-For more information on which resources this can be associated to, the difference between Basic and Standard SKU, and other related information, please see [Public IP addresses](./public-ip-addresses.md).
-
+For more information on resources that support public IPs, see [Public IP addresses](./public-ip-addresses.md).
 ## Prerequisites
 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installed locally or Azure Cloud Shell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
-
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) named **myResourceGroup** in the **eastus2** location.
@@ -42,7 +37,7 @@ New-AzResourceGroup @rg
 ```
 ## Create standard SKU public IP with zones
 
-In this section, you'll create a standard public IP with zones. Public IP addresses can be zone-redundant or zonal.
+In this section, you'll create a public IP with zones. Public IP addresses can be zone-redundant or zonal.
 
 ### Zone redundant
 
@@ -71,7 +66,7 @@ New-AzPublicIpAddress @ip
 
 ### Zonal
 
-In order to create a standard zonal public IPv4 address in Zone 2 named **myStandardZonalPublicIP** in **myResourceGroup**, use the following command.
+To create a standard zonal public IPv4 address in Zone 2 named **myStandardZonalPublicIP** in **myResourceGroup**, use the following command.
 
 To create an IPv6 address, modify the **version** parameter to **IPv6**.
 
@@ -92,7 +87,7 @@ New-AzPublicIpAddress @ip
 
 ## Create standard public IP without zones
 
-In this section you'll create a non-zonal IP address.  
+In this section, you'll create a non-zonal IP address.  
 
 >[!NOTE]
 >The following command works for Az.Network module version 4.5.0 or later.  For more information about the Powershell modules currently being used, please refer to the [PowerShellGet documentation](/powershell/module/powershellget/).
@@ -112,11 +107,13 @@ $ip = @{
 }
 New-AzPublicIpAddress @ip
 ```
-Omitting the **zone** option in the command is valid in all regions and is the default selection for standard public IP addresses in regions without [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+The removal of the **zone** parameter in the command is valid in all regions.  
+
+The removal of the **zone** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 ## Create a basic public IP
 
-In this section, you'll create a basic public IP address. Basic public IPs don't support availability zones.
+In this section, you'll create a basic IP. Basic public IPs don't support availability zones.
 
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a basic static public IPv4 address named **myBasicPublicIP** in **myResourceGroup**.  
 
@@ -133,7 +130,7 @@ $ip = @{
 }
 New-AzPublicIpAddress @ip
 ```
-If it is acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected by changing the AllocationMethod to **Dynamic**. 
+If it's acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected by changing the AllocationMethod to **Dynamic**. 
 
 >[!NOTE]
 > A basic IPv6 address must always be 'Dynamic'.
@@ -175,11 +172,11 @@ New-AzPublicIpAddress @ip
 ```
 ### Tier
 
-By default, public IP addresses are associated with a single region.  The selection of **Global** for Tier allows for an IP to span across multiple regions by acting as a frontend to a cross-region load balancer.  
+Public IP addresses are associated with a single region. The **Global** tier spans an IP address across multiple regions. **Global** tier is required for the frontends of cross-region load balancers.  
 
 For more information, see [Cross-region load balancer](../load-balancer/cross-region-overview.md).
 
-The following command creates a new standard global tier public IPv4 address that can be attached to a cross-region load balancer front end:
+The following command creates a global IPv4 address. This address can be associated with the frontend of a cross-region load balancer.
 
 ```azurepowershell-interactive
 $ip = @{
@@ -198,7 +195,7 @@ New-AzPublicIpAddress @ip
 
 ## Additional information 
 
-For more details on the individual parameters listed in this how-to, please see [Manage public IP addresses](./virtual-network-public-ip-address.md#create-a-public-ip-address).
+For more information on the individual parameters listed in this how-to, see [Manage public IP addresses](./virtual-network-public-ip-address.md#create-a-public-ip-address).
 
 ## Next steps
 - Associate a [public IP address to a Virtual Machine](./associate-public-ip-address-vm.md#azure-portal)
