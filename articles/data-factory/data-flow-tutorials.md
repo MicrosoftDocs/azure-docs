@@ -106,6 +106,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Dynamically optimize data flow cluster size at runtime](https://www.youtube.com/watch?v=jWSkJdtiJNM)
 
+[Quick cluster start-up time with Azure IR](https://www.youtube.com/watch?v=mxzsOZX6WVY)
+
 ## Mapping data flow scenarios
 
 [Fuzzy lookups](http://youtu.be/7gdwExjHBbw)
@@ -149,3 +151,5 @@ As updates are constantly made to the product, some features have added or diffe
 [Fun with string interpolation and parameters](https://youtu.be/hb3-cn2CMgM)
 
 [Data Flow Script Intro: Copy, Paste, Snippets](https://www.youtube.com/watch?v=3_1I4XdoBKQ)
+
+[Transform complex data types](https://youtu.be/Wk0C76wnSDE)
