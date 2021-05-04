@@ -222,7 +222,7 @@ One option to upload your dependency into Azure Files is through Azure portal. R
 
 ### Accessing the dependencies in your code
 
-Once your dependencies file is uploaded in the file share, it is time to access your dependencies from your access code. The mounted share will be available at the path specified. Ex: ```/path/to/mount```. The target directory can be accessed by file system APIs.
+After your dependencies are uploaded in the file share, you can access the dependencies from your code. The mounted share is available at the specified *mount-path*, such as ```/path/to/mount```. You can also access the target directory by using file system APIs.
 
 The following example shows HTTP trigger code that accesses the `ffmpeg` library, which is stored in a mounted file share.
 
