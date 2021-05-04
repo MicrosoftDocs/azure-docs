@@ -12,7 +12,7 @@ manager: abjork
 
 # Tutorial: Create a water consumption monitoring application with Azure IoT Central
 
-This tutorial shows you how to create an Azure IoT Central water consumption monitoring application by using the Azure IoT Central water consumption monitoring application template.
+This tutorial shows you how to create an Azure IoT Central water consumption monitoring application.
 
 In this tutorial, you will learn how to:
 
@@ -108,11 +108,11 @@ As a builder, you can customize views in the dashboard for operators.
 
      ![Edit dashboard](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-edit-dashboard.png)
 
-1. Select **+ New** to create a new dashboard and configure it from scratch. You can have multiple dashboards, and you can move between your dashboards on the dashboard menu.
+To learn more about how to customize the dashboard see [here](../core/howto-create-personal-dashboards.md).
 
 ## Explore the device template
 
-A device template in Azure IoT Central defines the capability of a device, which can be telemetry, property, or command. As a builder, you can define one or more device templates in Azure IoT Central that represent the capability of the devices that you'll connect.
+ In Azure IoT Central, a device template defines the capabilities of a device. Device capabilities include telemetry sent by device sensors, device properties, and commands the device can execute. As a builder, you can define one or more device templates in Azure IoT Central that represent the capability of the devices that you'll connect.
 
 The water consumption monitoring application comes with two reference device templates that represent a *flow meter* and a *smart valve* device.
 
@@ -136,6 +136,8 @@ To customize the device template:
 1. Update the unit of measurement, or set the **Min value** and **Max value**.
 1. Select **Save** to save any changes.
 
+    ![Customize the device template](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate-customize.png)
+
 ### Add a cloud property
 
 1. Go to **Cloud Properties** on the **Device templates** menu.
@@ -143,20 +145,29 @@ To customize the device template:
     In Azure IoT Central, you can add a property that's relevant to the device. As an example, a cloud property could be an alerting threshold specific to an installation area, asset information, or other maintenance information.
 1. Select **Save** to save any changes.
 
+To learn more about cloud properties see [here](../core/quick-create-simulated-device.md#add-cloud-properties).
+
+
 ### Views
 
-The water consumption monitor device template comes with predefined views. Explore the views, and you can make updates. The views define how operators see the device data but also input cloud properties.
+The water consumption monitor device template comes with predefined views. Explore the views, and you can make updates. The views define how operators see the device data, and set the values of cloud properties
 
   ![Device template views](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate-views.png)
 
-### Publish
+To learn more about views see [here](../core/quick-create-simulated-device.md#views).
 
-If you made any changes, make sure to **Publish** the device template.
+### Publish the device template
+
+Navigate to device templates page and select **Publish** to save any changes made to the device template.
+
+To learn more about how to publish templates see [here](../core/quick-create-simulated-device.md#publish-device-template). 
 
 ### Create a new device template
 
 Select **+ New** to create a new device template and follow the creation process.
 You can create a custom device template from scratch, or you can choose a device template from the Azure Device Catalog.
+
+To learn more about device templates see [here](../core/quick-create-simulated-device.md#add-a-device-template).
 
 ## Explore simulated devices
 
@@ -177,13 +188,15 @@ In Azure IoT Central, you can create simulated devices to test your device templ
 1. Explore the **Device Properties** tab and the **Device Dashboard** tab.
 
 > [!NOTE]
-> Note that all the tabs are configured from the device template views.
+> The views you see on this page are configured using the Device Template > Views. 
 
 ### Add new devices
 
 Add new devices by selecting **+ New** on the **Devices** tab.
 
-## Explore and configure rules
+To learn more about how to add new devices see [here](../core/quick-create-simulated-device.md#add-a-simulated-device).
+
+## Explore rules
 
 In Azure IoT Central, you can create rules to automatically monitor device telemetry and trigger actions when one or more conditions are met. The actions might include sending email notifications or triggering a Microsoft Power Automate action or a webhook action to send data to other services.
 
@@ -199,7 +212,7 @@ The water consumption monitoring application you created has three preconfigured
 
      ![High pH alert](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-highflowalert.png)
 
-    The `High water flow alert` rule is configured to check against the condition `Flow` is `greater than` the `Max flow threshold`. Max flow threshold is a cloud property defined in the **Smart Valve** device template. The value of `Max flow threshold` is set per device instance.
+    The `High water flow alert` rule is configured to check against the condition `Flow` is `greater than` the `Max flow threshold`. Flow threshold is a cloud property defined in the **Smart Valve** device template. The value of `Max flow threshold` is set per device instance.
 
 Now let's create an email action.
 
@@ -220,7 +233,7 @@ Within a few minutes, you should receive an email after the configured condition
   
 To create a new rule:
 
-* Select **+ New** on the **Rules** tab on the left pane.
+1. Select **+ New** on the **Rules** tab on the left pane.
 
 ## Configure jobs
 
@@ -229,19 +242,21 @@ In Azure IoT Central, jobs allow you to trigger device or cloud property updates
 1. Select **Jobs** on the left pane.
 1. Select **+ New**, and configure one or more jobs.
 
+To learn more about how to run a job see [here](../core/howto-run-a-job.md).
+
 ## Customize your application
 
-As a builder, you can change several settings to customize the user experience in your application.
+As a administrator, you can change several settings to customize the user experience in your application.
 
 1. Select **Administration** > **Customize your application**.
 1. To choose an image to upload as the **Application logo**, select the **Change** button.
 1. To choose a **Browser icon** image that will appear on browser tabs, select the **Change** button.
-1. You can also replace the default **Browser colors** by adding HTML hexadecimal color codes.
+1. You can also replace the default **Browser colors** by adding HTML hexadecimal color codes. For more information about **HEX Value** color notation, see [HTML Colors](https://www.w3schools.com/html/html_colors.asp).
 
    ![Selections for application logo, browser icon, and browser colors](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-customize-your-application.png)
 
 1. You can also change application images by selecting **Administration** > **Application settings**. To choose an image to upload as the application image, select the **Select image** button.
-1. Finally, you can also change the **Theme** by selecting the **Settings** icon in the upper-right corner of the application.
+
 
 ## Clean up resources
 
