@@ -1,6 +1,6 @@
 ---
 title: Create custom event triggers in Azure Data Factory 
-description: Learn how to create a custom trigger in Azure Data Factory that runs a pipeline in response to a custom event published to Event Grid.
+description: Learn how to create a trigger in Azure Data Factory that runs a pipeline in response to a custom event published to Event Grid.
 ms.service: data-factory
 author: chez-charlie
 ms.author: chez
@@ -9,27 +9,32 @@ ms.topic: conceptual
 ms.date: 03/11/2021
 ---
 
-# Create a trigger that runs a pipeline in response to a custom event (Preview)
+# Create a custom event trigger to run a pipeline in Azure Data Factory (Preview)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article describes the Custom Event Triggers that you can create in your Data Factory pipelines.
+This article describes custom event triggers you can create in your Data Factory pipelines.
 
-Event-driven architecture (EDA) is a common data integration pattern that involves production, detection, consumption, and reaction to events. Data integration scenarios often require Data Factory customers to trigger pipelines based on certain events happening. Data Factory native integration with [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) now covers [Custom Events](../event-grid/custom-topics.md): customers send arbitrary events to an event grid topic, and Data Factory subscribes and listens to the topic and triggers pipelines accordingly.
+Event-driven architecture (EDA) is a common data integration pattern that involves production, detection, consumption, and reaction to events. Data integration scenarios often require Data Factory customers to trigger pipelines based on certain events happening. Data Factory native integration with [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) now covers [custom topics](../event-grid/custom-topics.md). You send events to an event grid topic. Data Factory subscribes to the topic, listens, and then triggers pipelines accordingly.
 
 > [!NOTE]
-> The integration described in this article depends on [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Make sure that your subscription is registered with the Event Grid resource provider. For more info, see [Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). You must be able to do the *Microsoft.EventGrid/eventSubscriptions/** action. This action is part of the EventGrid EventSubscription Contributor built-in role.
+> The integration described in this article depends on [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Make sure that your subscription is registered with the Event Grid resource provider. For more information, see [Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). You must be able to do the `Microsoft.EventGrid/eventSubscriptions/` action. This action is part of the [EventGrid EventSubscription Contributor](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-contributor) built-in role.
 
-Furthermore, combining pipeline parameters and Custom Event Trigger, customers can parse and reference custom _data_ payload in pipeline runs. _data_ field in Custom Event payload is a free-form json key-value structure, giving customers maximum control over the event driven pipeline runs.
+If you combine pipeline parameters and a custom event trigger, you can parse and reference custom `data` payloads in pipeline runs. Because the `data` field in a custom event payload is a free-form, JSON key-value structure, you can control event-driven pipeline runs.
 
 > [!IMPORTANT]
-> Every so often, a key referenced in parameterization may be missing in custom event payload. The _trigger run_ will fail with an error, stating that expression cannot be evaluated because property _keyName_ doesn't exist. __No__ _pipeline run_ will be triggered by the event.
+> If a key referenced in parameterization is missing in the custom event payload, `trigger run` will fail. You'll get an error that states the expression cannot be evaluated because property `keyName` doesn't exist. In this case, **no** `pipeline run` will be triggered by the event.
 
-## Setup Event Grid Custom Topic
+## Set up a custom topic in Event Grid
 
-To use the Custom Event Trigger in Data Factory, you need to _first_ set up a [Custom Topic in Event Grid](../event-grid/custom-topics.md). The workflow is different from Storage Event Trigger, where Data Factory will set up the topic for you. Here you need to navigate the Azure Event Grid and create the topic yourself. For more information on how to create the custom topic, see Azure Event Grid [Portal Tutorials](../event-grid/custom-topics.md#azure-portal-tutorials) and [CLI Tutorials](../event-grid/custom-topics.md#azure-cli-tutorials)
+To use the custom event trigger in Data Factory, you need to *first* set up a [custom topic in Event Grid](../event-grid/custom-topics.md).
 
-Data Factories expect the events to follow [Event Grid event schema](../event-grid/event-schema.md). Make sure event payloads have following fields.
+Go to Azure Event Grid and create the topic yourself. For more information on how to create the custom topic, see Azure Event Grid [portal tutorials](../event-grid/custom-topics.md#azure-portal-tutorials) and [CLI tutorials](../event-grid/custom-topics.md#azure-cli-tutorials).
+
+> [!NOTE]
+> The workflow is different from Storage Event Trigger. Here, Data Factory doesn't set up the topic for you.
+
+Data Factory expects events to follow the [Event Grid event schema](../event-grid/event-schema.md). Make sure event payloads have the following fields:
 
 ```json
 [
@@ -48,28 +53,30 @@ Data Factories expect the events to follow [Event Grid event schema](../event-gr
 ]
 ```
 
-## Data Factory UI
+## Use Data Factory to create a custom event trigger
 
-This section shows you how to create a storage event trigger within the Azure Data Factory User Interface.
+1. Go to Azure Data Factory and sign in.
 
-1. Switch to the **Edit** tab, shown with a pencil symbol.
+1. Switch to the **Edit** tab. Look for the pencil icon.
 
 1. Select **Trigger** on the menu, then select **New/Edit**.
 
 1. On the **Add Triggers** page, select **Choose trigger...**, then select **+New**.
 
-1. Select trigger type **Custom Events**
+1. Select **Custom events** as the **Type**.
 
     :::image type="content" source="media/how-to-create-custom-event-trigger/custom-event-1-creation.png" alt-text="Screenshot of Author page to create a new custom event trigger in Data Factory UI." lightbox="media/how-to-create-custom-event-trigger/custom-event-1-creation-expanded.png":::
 
 1. Select your custom topic from the Azure subscription dropdown or manually enter the event topic scope.
 
    > [!NOTE]
-   > To create a new or modify an existing Custom Event Trigger, the Azure account used to log into Data Factory and publish the storage event trigger must have appropriate role based access control (Azure RBAC) permission on topic. No additional permission is required: Service Principal for the Azure Data Factory does _not_ need special permission to Event Grid. For more information about access control, see [Role based access control](#role-based-access-control) section.
+   > To create a new or modify an existing custom event trigger in Data Factory, you need to use an Azure account with appropriate role based access control (Azure RBAC). No additional permission is required: Service Principal for the Azure Data Factory does _not_ need special permission to Event Grid. For more information about access control, see the [Role based access control](#role-based-access-control) section.
 
-1. The **Subject begins with** and **Subject ends with** properties allow you to filter events for which you want to trigger pipeline. Both properties are optional.
+1. The **Subject begins with** and **Subject ends with** properties allow you to filter for events you want to trigger the pipeline. Both properties are optional.
 
-1. Use **+ New** to add **Event Types** you want to filter on. Custom Event trigger employee an OR relationship for the list: if a custom event has an _eventType_ property that matches any listed here, it will trigger a pipeline run. The event type is case insensitive. For instance, in the screenshot below, the trigger matches all _copycompleted_ or _copysucceeded_ events with subject starts with _factories_
+***
+
+1. Use **+ New** to add **Event Types** that you want to filter on. Custom Event trigger employee an OR relationship for the list: if a custom event has an _eventType_ property that matches any listed here, it will trigger a pipeline run. The event type is case insensitive. For instance, in the screenshot below, the trigger matches all _copycompleted_ or _copysucceeded_ events with subject starts with _factories_
 
     :::image type="content" source="media/how-to-create-custom-event-trigger/custom-event-2-properties.png" alt-text="Screenshot of Edit Trigger page to explain Event Types and Subject filtering in Data Factory UI.":::
 
