@@ -29,9 +29,8 @@ Read these articles before you begin:
 * [Video Analyzer overview](overview.md)
 * [Video Analyzer on IoT Edge terminology](terminology.md)
 * [Pipeline concepts](pipeline.md)
-* [Event-based video recording](event-based-video-recording-tutorial.md)
+* [Event-based video recording](record-event-based-live-video.md)
 * [Tutorial: Developing an IoT Edge module](../../iot-edge/tutorial-develop-for-linux.md)
-* [Deploy Azure Video Analyzer on Azure Stack Edge](deploy-azure-stack-edge-how-to.md) 
 
 ## Prerequisites
 
@@ -126,7 +125,7 @@ There are a few things you need to pay attention to in the deployment template f
     },
     ```
 1. `IpcMode` in `avaedge` and `spatialanalysis` module createOptions should be same and set to **host**.
-1. For the RTSP simulator to work, ensure that you have set up the Volume Bounds. For more information, see [Setup Docker Volume Mounts](deploy-azure-stack-edge-how-to.md#optional-setup-docker-volume-mounts).
+1. For the RTSP simulator to work, ensure that you have set up the Volume Bounds.
 
     1. [Connect to the SMB share](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) and copy the [sample bulldozer video file](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) to the Local share.  
        
