@@ -22,7 +22,7 @@ When you create an Azure Video Analyzer account, you have to associate an Azure 
 
    [!INCLUDE [the video analyzer account and storage account must be in the same subscription and region](./includes/note-account-storage-same-subscription.md)]
 
-1. Add the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role for the above storage account to the managed identity.
+1. Add the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) and [Reader](../../role-based-access-control/built-in-roles.md#reader) roles for the above storage account to the managed identity.
 
 Video Analyzer can then access storage account on your behalf using the managed identity.
 
