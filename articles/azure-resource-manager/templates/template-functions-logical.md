@@ -322,6 +322,7 @@ The following [example template](https://github.com/krnese/AzureDeploy/blob/mast
 
 # [Bicep](#tab/bicep)
 
+```bicep
 param vmName string
 param location string
 param logAnalytics string = ''
@@ -344,6 +345,7 @@ resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2017
 }
 
 output mgmtStatus string = ((!empty(logAnalytics)) ? 'Enabled monitoring for VM!' : 'Nothing to enable')
+```
 
 ---
 
