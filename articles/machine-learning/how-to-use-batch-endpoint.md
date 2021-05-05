@@ -162,9 +162,7 @@ az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipeli
 
 ## Check batch scoring job execution progress
 
-Batch scoring job usually takes substantial time to process the entire set of inputs. You can monitor the job progress from Azure Machine Learning studio. The portal link is provided in the response of `invoke`, as the value of `interactionEndpoints.studio`.
-
-{>> Q: The text says to use portal, while the value refers to `studio`. Is monitoring from portal or studio? <<}
+Batch scoring job usually takes substantial time to process the entire set of inputs. You can monitor the job progress from Azure Machine Learning studio. The studio link is provided in the response of `invoke`, as the value of `interactionEndpoints.studio`.
 
 You can also check job details along with status using CLI.
 
@@ -190,36 +188,44 @@ az ml job stream --name <job_name>
 
 To view the scoring results:
 
-* In the tk, go to the batchscoring step tk
-* Go to the batchscoring step’s Outputs + logs tab, click Show data outputs, and click View output icon.
-* On the popup panel, copy the path and click Open Datastore link.
-* On the blobstore page, paste the above path in the search box. You'll find the scoring outputs in the folder.
+* In studio, go to the endpoint's run (the value of `interactionEndpoints.studio` in the response to `endpoint invoke`)
+* In the graph of the run, choose the `batchscoring` step
+* Choose the Outputs + logs tab, click Show data outputs, and click View output icon.
+:::image type="content" source="media/how-to-use-batch-endpoint/view-data-outputs.png" alt-text="Studio screenshot showing view data outputs location":::
+* On the popup panel, copy the path and choose the "Open Datastore" link.
+* On the resulting blobstore page, paste the above path into the search box. You'll find the scoring outputs in the folder.
+:::image type="content" source="media/how-to-use-batch-endpoint/scoring-view.gif" alt-text="Screencast of opening the score folder and scoring output":::
 
 ## Add a deployment to the batch endpoint
 
-One batch endpoint can have multiple deployments, and one deployment hosts one model for batch scoring. 
+One batch endpoint can have multiple deployments. Each deployment hosts one model for batch scoring. 
 
 ### Add a new deployment
 
-Use below command to add a new deployment to an existing batch endpoint.
+Use the following command to add a new deployment to an existing batch endpoint.
 
 ```
-az ml endpoint update --name mybatchedp --type batch --deployment mnist_deployment --deployment-file examples/endpoints/batch/add-deployment.yml
+az ml endpoint update --name mybatchedp --type batch --deployment mnist_deployment --deployment-file cli/endpoints/batch/add-deployment.yml
 ```
+{>> TODO: Confirm this command with final path <<}
 
-This sample uses a non-MLflow model, you'll need to provide environment and scoring script.
+This sample uses a non-MLflow model. When using non-MLflow, you'll need to specify the environment and a scoring script in the YAML file:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/add-deployment.yml" :::
 
+In studio, you'll see that you now have two deployments: `mnist_deployment` and your original `autolog_model` deployment. The `autolog_model` deployment receives 100% of traffic. 
+
+:::image type="content" source="media/how-to-use-batch-endpoint/two-deployments.png" alt-text="Screenshot showing that the one endpoint has two deployments, and that the original is receiving 100% of traffic" :::
+
 ### Activate the new deployment
 
-When invoking an endpoint, the deployment with 100 traffic is in use. Use the command below to activate the new deployment by switching the traffic (can only be 0 or 100). 
+For batch inference, you must send 100% of inquiries to the desired deployment. To set your newly-created deployment as the target, use:
 
 ```
 az ml endpoint update --name mybatchedp --type batch --traffic mnist_deployment:100
 ```
 
-Now you can invoke a batch scoring job with this new deployment.
+Now you can invoke a batch scoring job with this new deployment:
 
 ```
 az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/mnist --mini-batch-size 10 --instance-count 2
@@ -227,21 +233,21 @@ az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipeli
 
 ## Start a batch scoring job using REST
 
-After you create a batch endpoint, you can get a `scoring_uri`. Use it from any HTTP library on any platform to start a batch scoring job.
+Batch endpoints have scoring URIs for REST access. This lets you use any HTTP library on any platform to start a batch scoring job.
 
-Get the scoring_uri.
+1. Get the `scoring_uri`:  
 
 ```
 az ml endpoint show --name mybatchedp --type batch --query scoring_uri
 ```
 
-Get the access token.
+1. Get the access token:
 
 ```
 az account get-access-token
 ```
 
-Use the scoring_uri and the token to POST a request and start a batch scoring job.
+1. Use the `scoring_uri` and access token to POST a request and start a batch scoring job:
 
 ```JSON
 {
@@ -258,15 +264,21 @@ Use the scoring_uri and the token to POST a request and start a batch scoring jo
 }
 ```
 
+```bash
+tk curl command here
+```
+
 ## Clean up resources
 
+{>> Q: We didn't create a compute instance, so delete this? There is an idle compute cluster. <<}
+~~
 Don't complete this section if you plan to run other Azure Machine Learning tutorials.
+
 
 ### Stop the compute instance
 
 [!INCLUDE [aml-stop-server](../../includes/aml-stop-server.md)]
-
-### Delete everything
+~~
 
 If you don't plan to use the resources you created, delete them, so you don't incur any charges:
 
@@ -276,3 +288,7 @@ If you don't plan to use the resources you created, delete them, so you don't in
 1. Enter the resource group name. Then, select **Delete**.
 
 You can also keep the resource group but delete a single workspace. Display the workspace properties, and then select **Delete**.
+
+## Next steps
+
+tk
