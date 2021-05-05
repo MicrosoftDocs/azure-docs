@@ -44,8 +44,6 @@ The explorer's main purpose is to help you visualize and understand your graph, 
 
 ## Features and capabilities
 
-<Open to other suggestions of how to organize this section. Thought describing the layout of the interface might help orient/ground the information and be as good a place as any to start./>
-
 Azure Digital Twins Explorer is organized into panels, each with a different set of capabilities for exploring and managing your models, twins, and relationships.
 
 The sections of the explorer are as follows:

@@ -345,8 +345,6 @@ In the file selector box that appears, navigate on your machine to a folder cont
 >[!IMPORTANT]
 >If a model references another model in its definition, like when you're defining relationships or components, the model being referenced needs to be present in the instance in order to upload the model that uses it. If you're uploading models one-by-one, that means that you should upload the model being referenced **before** uploading any models that use it. If you're uploading models in bulk, you can select them both in the same import and Azure Digital Twins will infer the order to upload them in.
 
-<Information about support for uploading large model sets? Maybe we'd like to indicate how many you can upload at a time.>
-
 ### Delete models
 
 You can use the MODELS panel to delete individual models, or all of the models in your instance at once.
@@ -409,8 +407,6 @@ Use the following columns to structure the twin or relationship data. The column
 | ModelID | ID | Relationship (source) | Relationship Name | Init Data |
 | --- | --- | --- | --- | --- |
 | *Optional*<br>The DTMI model ID for a twin that should be created.<br><br>You can leave this column blank for a row if you want that row to create only a relationship (no twins). | *Required*<br>The unique ID for a twin.<br><br>If a new twin is being created in this row, this will be the ID of the new twin.<br>If there is relationship information in the row, this ID will be used as the **target** of the relationship. | *Optional*<br>The ID of a twin that should be the **source** twin for a new relationship.<br><br>You can leave this column blank for a row if you want that row to create only a twin (no relationships). | *Optional*<br>The name for the new relationship to create. The relationship direction will be **from** the twin in column C **to** the twin in column B. | *Optional*<br>A JSON string containing property settings for the twin to be created. The properties must match those defined in the model from column A. |
-
-<can you specify relationship properties with this graph?>
 
 Here is an example .xlsx file creating a small graph of two floors and two rooms.
 
