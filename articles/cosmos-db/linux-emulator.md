@@ -188,7 +188,7 @@ You can now browse https://localhost:8081/_explorer/index.html or https://{your_
     - Try to access the endpoint and port for the emulator using the Docker container's IP address instead of "localhost".
     - Make sure that the emulator self-signed certificate has been properly added to [KeyChain](linux-emulator.md#consuming-endpoint-via-ui).
     - Ensure that the emulator self-signed certificate has been properly imported into the expected location:
-        - .NET: See the [certificates section](linux-emulator.md#Run-the-Cosmos-DB-Linux-Emulator-on-Linux)
+        - .NET: See the [certificates section](linux-emulator.md#run-the-cosmos-db-linux-emulator-on-linux)
         - Java: See the [Java Certificates Store section](linux-emulator.md#run-the-cosmos-db-linux-emulator-on-linux)
 
 2. My app received too many connectivity-related timeouts.
@@ -196,12 +196,12 @@ You can now browse https://localhost:8081/_explorer/index.html or https://{your_
     - Ensure the number of TCP connections does not exceed your current OS settings.
     - Try reducing the size of the documents in your application. 
 1. My app could not provision databases/containers.
-    - The number of physical partitions provisioned on the emulator is too low. Either delete your unused databases/collections or start the emulator with a [larger number of physical partitions](inux-emulator.md#configuration-options).
+    - The number of physical partitions provisioned on the emulator is too low. Either delete your unused databases/collections or start the emulator with a [larger number of physical partitions](linux-emulator.md#configuration-options).
 
 
 ### Reliability/Crashes
 1. The emulator fails to start.
-    - Please make sure you are [running the latest image of the Cosmos DB emulator for Linux](linux-emulator.md#Refresh-Linux-Container). Otherwise, see the section above regarding connectivity-related issues.
+    - Please make sure you are [running the latest image of the Cosmos DB emulator for Linux](linux-emulator.md#refresh-linux-container). Otherwise, see the section above regarding connectivity-related issues.
     - If the Cosmos DB emulator data folder is "volume mounted", ensure that the volume has enough space and is read/write.
     - Confirm that creating a container with the recommended settings works. If yes, most likely the cause of failure was the additional settings passed via the respective Docker command upon starting the container.
     
