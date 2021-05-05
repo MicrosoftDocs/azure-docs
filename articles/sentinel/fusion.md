@@ -512,3 +512,4 @@ Now you've learned more about advanced multistage attack detection, you might be
 
 If you're ready to investigate the incidents that are created for you, see the following tutorial: [Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md).
 
+For more information about reducing false positives, see [Handle false positives in Azure Sentinel](false-positives.md).

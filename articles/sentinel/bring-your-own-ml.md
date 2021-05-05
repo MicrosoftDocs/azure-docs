@@ -172,3 +172,4 @@ Once you've set up the analytics rule based on the ML results, if there are resu
 In this document, you learned how to use Azure Sentinel's BYO-ML platform for creating or importing your own machine learning algorithms to analyze data and detect threats.
 
 - See posts about machine learning and lots of other relevant topics in the [Azure Sentinel Blog](https://aka.ms/azuresentinelblog).
+- For more information about reducing false positives, see [Handle false positives in Azure Sentinel](false-positives.md).

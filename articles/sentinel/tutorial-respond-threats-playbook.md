@@ -206,3 +206,4 @@ To run a playbook on-demand:
 
 In this tutorial, you learned how to use playbooks and automation rules in Azure Sentinel to respond to threats. 
 - Learn how to [proactively hunt for threats](hunting.md) using Azure Sentinel.
+- See how to [handle false positives](false-positives.md) in Azure Sentinel.
