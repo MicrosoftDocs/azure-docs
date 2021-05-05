@@ -116,6 +116,7 @@ If you use an Azure Resource Manager template, this setting appears as a propert
 ---
 
 <a name="concurrency-looping-debatching-limits"></a>
+<a name="looping-debatching-limits"></a>
 
 ## Looping, concurrency, and debatching limits
 
@@ -128,7 +129,7 @@ The following table lists the values for a single workflow run:
 | Name | Multi-tenant | Single-tenant (preview) | Notes |
 |------|--------------|-------------------------|-------|
 | **For each** array items | 100,000 items | - Stateful workflow: 100,000 items <p>- Stateless workflow: 100 items | The number of array items that a **For each** loop can process. <p><p>To filter larger arrays, you can use the [query action](logic-apps-perform-data-operations.md#filter-array-action). |
-| **For each** concurrency | With concurrency off: 20 iterations <p><p>With concurrency on: <p><p>- Default: 20 iterations<br>- Min: 1 iteration<br>- Max: 50 iterations | 20 iterations | Th number of **For each** loop iterations that can run at the same time, or in parallel. <p><p>To change this value in the multi-tenant service, see [Change **For each** concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run **For each** loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). <p><p>To change this value in the single-tenant service (preview), see [Create workflows for single-tenant Azure Logic Apps using Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md). |
+| **For each** concurrency | Concurrency off: 20 iterations <p><p>Concurrency on: <p><p> 20 iterations<br>- Min: 1 iteration<br>- Max: 50 iterations | Concurrency on: 20 iterations | The number of **For each** loop iterations that can run at the same time, or in parallel. <p><p>To change this value in the multi-tenant service, see [Change **For each** concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run **For each** loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). <p><p>To change this value in the single-tenant service (preview), see [Create workflows for single-tenant Azure Logic Apps using Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md). |
 ||||
 
 #### Until loop
