@@ -71,14 +71,14 @@ additionalContent:
       items:
         - title: Support & Help
           links:
-            - text: Submit Feedback on UserVoice
+            - text: Submit feedback on UserVoice
               url: https://aka.ms/AppliedAIUserVoice
-            - text: Ask Questions on Microsoft Q&A
+            - text: Ask questions on Microsoft Q&A
               url: https://aka.ms/AppliedAIMSFTQandA
             # Card
             - text: Troubleshoot on StackOverflow
               url: https://aka.ms/AppliedAIStackOverflow
-        - title: Get Coding with Quickstarts
+        - title: Get coding with quickstarts
           links:
           - text: Azure Form Recognizer
             url: https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool
@@ -93,7 +93,7 @@ additionalContent:
           - text: Azure Bot Service
             url: https://docs.microsoft.com/composer/quickstart-create-bot
             
-          - text: Start For Free
+          - text: Start For free
             url: https://azure.microsoft.com/free/ai
         - title: Explore other Azure AI Services
           links:
