@@ -19,7 +19,7 @@ Each Azure Applied AI service addresses a common need and generates new opportun
 
 By building on top of the AI models from Azure Cognitive Services as well as providing task-specific AI models and built-in business logic, Azure Applied AI Services enable developers to quickly deploy common scenarios versus building from scratch.
 
-## Benefits: ​​
+## Benefits ​​
 -	Modernize business process – Use task-specific AI to solve your scenario
 -	Accelerate development – Go live with your AI solutions quickly
 -	Run responsibly anywhere – Enterprise-grade responsible and secure services from the cloud to the edge 
