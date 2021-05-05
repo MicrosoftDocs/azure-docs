@@ -13,7 +13,7 @@ This article describes how to define and use parameters in your Bicep file. By p
 
 Resource Manager resolves parameter values before starting the deployment operations. Wherever the parameter is used in Bicep, Resource Manager replaces it with the resolved value.
 
-Each parameter must be set to one of the [data types](./data-types.md). You can add one or more [decorators](./file.dm#prameter-decorators) for each parameter. These decorators define the values that are allowed for the parameter.
+Each parameter must be set to one of the [data types](./data-types.md). You can add one or more [decorators](./file.md#parameter-decorators) for each parameter. These decorators define the values that are allowed for the parameter.
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
@@ -81,7 +81,7 @@ Expressions aren't allowed with other parameter properties.
 param location string = resourceGroup().location
 ```
 
-You can use another parameter value to build a default value. The following template constructs a host plan name from the site name.
+You can use another parameter value to build a default value. The following Bicep constructs a host plan name from the site name.
 
 ```bicep
 param siteName string = 'site${uniqueString(resourceGroup().id)}'
@@ -116,7 +116,7 @@ param month int
 
 ## Description
 
-You can add a description to a parameter to help users of your template understand the value to provide. When deploying the template through the portal, the text you provide in the description is automatically used as a tip for that parameter. Only add a description when the text provides more information than can be inferred from the parameter name.
+You can add a description to a parameter to help users of your Bicep file understand the value to provide. When deploying the template through the portal, the text you provide in the description is automatically used as a tip for that parameter. Only add a description when the text provides more information than can be inferred from the parameter name.
 
 ```bicep
 @description('Must be at least Standard_A3 to support 2 NICs.')
@@ -138,7 +138,7 @@ resource keyvault 'Microsoft.KeyVault/vaults@2019-09-01' = {
 
 ## Objects as parameters
 
-It can be easier to organize related values by passing them in as an object. This approach also reduces the number of parameters in the template.
+It can be easier to organize related values by passing them in as an object. This approach also reduces the number of parameters in the Bicep file.
 
 The following example shows a parameter that is an object. The default value shows the expected properties for the object. Those properties are used when defining the resource to deploy.
 
@@ -190,14 +190,14 @@ resource vnet 'Microsoft.Network/virtualNetworks@2020-06-01' = {
 }
 ```
 
-## Example templates
+## Example Bicep files
 
 The following examples demonstrate scenarios for using parameters.
 
-|Template  |Description  |
+|Bicep  |Description  |
 |---------|---------|
-|[parameters with functions for default values](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.bicep) | Demonstrates how to use template functions when defining default values for parameters. The template doesn't deploy any resources. It constructs parameter values and returns those values. |
-|[parameter object](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.bicep) | Demonstrates using an object for a parameter. The template doesn't deploy any resources. It constructs parameter values and returns those values. |
+|[parameters with functions for default values](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.bicep) | Demonstrates how to use Bicep functions when defining default values for parameters. The Bicep file doesn't deploy any resources. It constructs parameter values and returns those values. |
+|[parameter object](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.bicep) | Demonstrates using an object for a parameter. The Bicep file doesn't deploy any resources. It constructs parameter values and returns those values. |
 
 ## Next steps
 

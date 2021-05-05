@@ -14,7 +14,7 @@ This article describes the data types supported in [Bicep](./overview.md).
 
 ## Supported types
 
-Within an ARM template, you can use these data types:
+Within a Bicep, you can use these data types:
 
 * array
 * bool
@@ -51,8 +51,6 @@ var mixedArray = [
 
 When specifying boolean values, use `true` or `false`. Don't surround the value with quotation marks.
 
-# [Bicep](#tab/bicep)
-
 ```bicep
 param exampleBool bool = true
 ```
@@ -61,13 +59,11 @@ param exampleBool bool = true
 
 When specifying integer values, don't use quotation marks.
 
-# [Bicep](#tab/bicep)
-
 ```bicep
 param exampleInt int = 1
 ```
 
-For integers passed as inline parameters, the range of values may be limited by the SDK or command-line tool you use for deployment. For example, when using PowerShell to deploy a template, integer types can range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameter file](parameter-files.md). Resource types apply their own limits for integer properties.
+For integers passed as inline parameters, the range of values may be limited by the SDK or command-line tool you use for deployment. For example, when using PowerShell to deploy a Bicep, integer types can range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameter file](parameter-files.md). Resource types apply their own limits for integer properties.
 
 ## Objects
 

@@ -67,7 +67,7 @@ landingContent:
           - text: Use functions
             url: template-functions.md
           - text: Define parameters
-            url: template-parameters.md
+            url: parameters.md
           - text: Define variables
             url: template-variables.md
           - text: Define resources
