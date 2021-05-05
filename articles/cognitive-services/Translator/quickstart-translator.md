@@ -42,7 +42,7 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 * Run the program from the project directory: ``dotnet run``
 
 > [!div class="nextstepaction"]
-> [I created a project](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?success=platform-setup#headers) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=platform-setup)
+> [I created a project](#headers) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=platform-setup)
 
 # [Go](#tab/go)
 
@@ -55,7 +55,7 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 * Run the file, for example: 'example-code'.
 
 > [!div class="nextstepaction"]
-> [I created a project](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?success=platform-setup#headers) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=platform-setup)
+> [I created a project](#headers) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=platform-setup)
 
 # [Java](#tab/java)
 
@@ -82,7 +82,7 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 * Run the sample: `gradle run`.
 
 > [!div class="nextstepaction"]
-> [I created a project](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?success=platform-setup#headers) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=platform-setup)
+> [I created a project](#headers) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=platform-setup)
 
 # [Node.js](#tab/nodejs)
 
@@ -92,7 +92,7 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 * Run the program. For example: `node Translate.js`.
 
 > [!div class="nextstepaction"]
-> [I created a project](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?success=platform-setup#headers) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=platform-setup)
+> [I created a project](#headers) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=platform-setup)
 
 # [Python](#tab/python)
 
@@ -102,7 +102,7 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 * Run the program. For example: `python translate.py`.
 
 > [!div class="nextstepaction"]
-> [I created a project](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?success=platform-setup#headers) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=platform-setup)
+> [I created a project](#headers) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=platform-setup)
 
 ---
 
