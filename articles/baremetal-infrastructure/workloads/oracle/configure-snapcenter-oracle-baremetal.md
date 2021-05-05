@@ -30,7 +30,7 @@ To add your production storage virtual machine (SVM):
 
       - Storage System: Enter the SVM IP address provided by Microsoft Operations.
       - Enter username created; the default is **snap center**.
-      - Enter the password created when Microsoft Operations [modified customer password using REST](set-up-snapcenter-to-route-traffic.md#modify-customer-password-using-rest).
+      - Enter the password created when Microsoft Operations [modified customer password using REST](set-up-snapcenter-to-route-traffic.md#steps-to-integrate-snapcenter).
       - Leave **Send Autosupport notification for failed operations to storage system** unchecked.
       - Select **Log SnapCenter events to syslog**.
 

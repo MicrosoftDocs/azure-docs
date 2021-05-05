@@ -81,7 +81,7 @@ Here are the steps you'll need to complete to set up NetApp SnapCenter to route 
 
     No proxy:
 
-    :::image type="content" source="media/netapp-snapcenter-integration-oracle-baremetal/connection-test.png" alt-text="Screenshot showing unset http proxy to ensure there is no proxy variable active on BareMetal instance in creating *.pem file.":::
+    :::image type="content" source="media/netapp-snapcenter-integration-oracle-baremetal/connection-test.png" alt-text="Screenshot showing test of connection and enabled REST commands without username/password.":::
 
 
        >[!NOTE]
