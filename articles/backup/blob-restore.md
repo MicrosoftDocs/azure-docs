@@ -2,11 +2,11 @@
 title: Restore Azure Blobs
 description: Learn how to restore Azure Blobs (in preview).
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 05/05/2021
 
 ---
 
-# Restore Azure Blobs (in preview)
+# Restore Azure Blobs
 
 Block blobs in storage accounts with operational backup configured can be restored to any point in time within the retention range. Also, you can scope your restores to all block blobs in the storage account or to a subset of blobs.
 

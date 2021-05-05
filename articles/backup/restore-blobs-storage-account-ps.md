@@ -2,15 +2,15 @@
 title: Restore Azure blobs via Azure Powershell
 description: Learn how to restore Azure blobs to any point-in-time using Azure Powershell.
 ms.topic: conceptual
-ms.date: 05/04/2021
+ms.date: 05/05/2021
 ---
 
 # Restore Azure blobs to point-in-time using Azure Powershell
 
-This article explains how to restore [blobs](blob-backup-overview.md) to any point-in-time using Azure Backup.
+This article describes how to restore [blobs](blob-backup-overview.md) to any point-in-time using Azure Backup.
 
 > [!IMPORTANT]
-> Please refer to these [important points](blob-restore.md#before-you-start) to be considered before proceeding to restore Azure blobs using Azure backup.
+> Before proceeding to restore Azure blobs using Azure Backup, see [important points](blob-restore.md#before-you-start).
 
 In this article, you'll learn how to:
 
@@ -18,7 +18,7 @@ In this article, you'll learn how to:
 
 - Track the restore operation status
 
-We will refer to an existing backup vault "TestBkpVault" under the resource group "testBkpVaultRG" in the examples
+We will refer to an existing backup vault _TestBkpVault_, under the resource group _testBkpVaultRG_ in the examples.
 
 ```azurepowershell-interactive
 $TestBkpVault = Get-AzDataProtectionBackupVault -VaultName TestBkpVault -ResourceGroupName "testBkpVaultRG"
@@ -28,20 +28,20 @@ $TestBkpVault = Get-AzDataProtectionBackupVault -VaultName TestBkpVault -Resourc
 
 ### Fetching the valid time range for restore
 
-Since the operational backup for blobs is continuous, there are no distinct points to restore from. Instead, we need to fetch the valid time-range under which blobs can be restored to any point-in-time. In this example, let's check for valid time-ranges to restore within the last 30 days.
+As the operational backup for blobs is continuous, there are no distinct points to restore from. Instead, we need to fetch the valid time-range under which blobs can be restored to any point-in-time. In this example, let's check for valid time-ranges to restore within the last 30 days.
 
 ```azurepowershell-interactive
 $startDate = (Get-Date).AddDays(-30)
 $endDate = Get-Date
 ```
 
-First fetch all instances using [Get-AzDataProtectionBackupInstance](/powershell/module/az.dataprotection/get-azdataprotectionbackupinstance?view=azps-5.7.0) command and identify the relevant instance.
+First fetch all instances using [Get-AzDataProtectionBackupInstance](/powershell/module/az.dataprotection/get-azdataprotectionbackupinstance?view=azps-5.7.0&preserve-view=true) command and identify the relevant instance.
 
 ```azurepowershell-interactive
 $AllInstances = Get-AzDataProtectionBackupInstance -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name
 ```
 
-You can also use Az.Resourcegraph and the [Search-AzDataProtectionBackupInstanceInAzGraph](/powershell/module/az.dataprotection/search-azdataprotectionbackupinstanceinazgraph?view=azps-5.7.0) command to search across instances in many vaults and subscriptions.
+You can also use Az.Resourcegraph and the [Search-AzDataProtectionBackupInstanceInAzGraph](/powershell/module/az.dataprotection/search-azdataprotectionbackupinstanceinazgraph?view=azps-5.7.0&preserve-view=true) command to search across instances in many vaults and subscriptions.
 
 ```azurepowershell-interactive
 $AllInstances = Search-AzDataProtectionBackupInstanceInAzGraph -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -DatasourceType AzureBlob -ProtectionStatus ProtectionConfigured
@@ -57,7 +57,7 @@ $DesiredPIT = (Get-Date -Date "2021-04-23T02:47:02.9500000Z")
 
 ### Preparing the restore request
 
-Once the point-in-time to restore is fixed, there are multiple options to restore. Use the [Initialize-AzDataProtectionRestoreRequest](/powershell/module/az.dataprotection/initialize-azdataprotectionrestorerequest?view=azps-5.7.0) command to prepare the restore request with all relevant details.
+Once the point-in-time to restore is fixed, there are multiple options to restore. Use the [Initialize-AzDataProtectionRestoreRequest](/powershell/module/az.dataprotection/initialize-azdataprotectionrestorerequest?view=azps-5.7.0&preserve-view=true) command to prepare the restore request with all relevant details.
 
 #### Restoring all the blobs to a point-in-time
 
@@ -82,7 +82,7 @@ This option lets you restore a subset of blobs using a prefix match. You can spe
 - You can use a forward slash (/) to delineate the container name from the blob prefix
 - The start of the range specified is inclusive, however the specified range is exclusive.
 
-For more information on using prefixes to restore blob ranges, see [this section](blob-restore.md#use-prefix-match-for-restoring-blobs).
+[Learn more](blob-restore.md#use-prefix-match-for-restoring-blobs) about using prefixes to restore blob ranges.
 
 ```azurepowershell-interactive
 $restorerequest = Initialize-AzDataProtectionRestoreRequest -DatasourceType AzureBlob -SourceDataStore OperationalStore -RestoreLocation $TestBkpVault.Location  -RestoreType OriginalLocation -PointInTime (Get-Date -Date "2021-04-23T02:47:02.9500000Z") -BackupInstance $AllInstances[2] -ItemLevelRecovery -FromPrefixPattern "containerabc/aaa","containerabc/ccc" -ToPrefixPattern "containerabc/bbb","containerabc/ddd"
@@ -90,7 +90,7 @@ $restorerequest = Initialize-AzDataProtectionRestoreRequest -DatasourceType Azur
 
 ### Trigger the restore
 
-Use the [Start-AzDataProtectionBackupInstanceRestore](/powershell/module/az.dataprotection/start-azdataprotectionbackupinstancerestore?view=azps-5.7.0) command to trigger the restore with the request prepared above.
+Use the [Start-AzDataProtectionBackupInstanceRestore](/powershell/module/az.dataprotection/start-azdataprotectionbackupinstancerestore?view=azps-5.7.0&preserve-view=true) command to trigger the restore with the request prepared above.
 
 ```azurepowershell-interactive
 Start-AzDataProtectionBackupInstanceRestore -BackupInstanceName $AllInstances[2].BackupInstanceName -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -Parameter $restorerequest
@@ -98,9 +98,9 @@ Start-AzDataProtectionBackupInstanceRestore -BackupInstanceName $AllInstances[2]
 
 ## Tracking job
 
-Track all the jobs using the [Get-AzDataProtectionJob](/powershell/module/az.dataprotection/get-azdataprotectionjob?view=azps-5.7.0) command. You can list all jobs and fetch a particular job details.
+Track all jobs using the [Get-AzDataProtectionJob](/powershell/module/az.dataprotection/get-azdataprotectionjob?view=azps-5.7.0&preserve-view=true) command. You can list all jobs and fetch a particular job details.
 
-You can also use Az.ResourceGraph to track all jobs across all backup vaults. Use the [Search-AzDataProtectionJobInAzGraph](/powershell/module/az.dataprotection/search-azdataprotectionjobinazgraph?view=azps-5.7.0) command to get the relevant job which can be across any backup vault.
+You can also use Az.ResourceGraph to track all jobs across all backup vaults. Use the [Search-AzDataProtectionJobInAzGraph](/powershell/module/az.dataprotection/search-azdataprotectionjobinazgraph?view=azps-5.7.0&preserve-view=true) command to get the relevant job which can be across any backup vault.
 
 ```azurepowershell-interactive
 $job = Search-AzDataProtectionJobInAzGraph -Subscription $sub -ResourceGroupName "testBkpVaultRG" -Vault $TestBkpVault.Name -DatasourceType AzureBlob -Operation Restore
@@ -108,4 +108,4 @@ $job = Search-AzDataProtectionJobInAzGraph -Subscription $sub -ResourceGroupName
 
 ## Next steps
 
-- [Overview of Azure blob backup](blob-backup-overview.md)
+[Overview of Azure blob backup](blob-backup-overview.md)
