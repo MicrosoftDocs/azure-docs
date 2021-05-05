@@ -30,7 +30,7 @@ Most functions work the same when deployed to a resource group, subscription, ma
 
 ## Any function
 
-The [any function](template-functions-any.md) is available in Bicep to help resolve issues around data type warnings.
+The [any function](../bicep/template-functions-any.md) is available in Bicep to help resolve issues around data type warnings.
 
 ## Array functions
 

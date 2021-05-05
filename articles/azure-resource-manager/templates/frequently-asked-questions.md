@@ -83,7 +83,7 @@ This article answers frequently asked questions about Azure Resource Manager tem
 
 * **I've heard you're working on a new template language. Where can I find out more about it?**
 
-  To learn about the new language, see [What is Bicep (Preview)?](bicep-overview.md).
+  To learn about the new language, see [What is Bicep (Preview)?](../bicep/overview.md).
 
 * **Is there a plan to support creating templates in YAML?**
 
@@ -95,7 +95,7 @@ This article answers frequently asked questions about Azure Resource Manager tem
 
 * **Will you offer a tool to convert my JSON templates to the new template language?**
 
-  Yes. See [Converting ARM templates between JSON and Bicep](bicep-decompile.md).
+  Yes. See [Converting ARM templates between JSON and Bicep](../bicep/decompile.md).
 
 ## Template Specs
 

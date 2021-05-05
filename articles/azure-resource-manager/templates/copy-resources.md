@@ -269,7 +269,7 @@ The `mode` property also accepts **parallel**, which is the default value.
 
 # [Bicep](#tab/bicep)
 
-To serially deploy more than one instance of a resource, set the `batchSize` [decorator](./bicep-file.md#resource-and-module-decorators) to the number of instances to deploy at a time. With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
+To serially deploy more than one instance of a resource, set the `batchSize` [decorator](../bicep/file.md#resource-and-module-decorators) to the number of instances to deploy at a time. With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
 
 ```bicep
 @batchSize(2)

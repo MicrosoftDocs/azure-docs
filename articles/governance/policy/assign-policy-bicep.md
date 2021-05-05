@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: New policy assignment with Bicep (Preview) file"
 description: In this quickstart, you use a Bicep (Preview) file to create a policy assignment to identify non-compliant resources.
-ms.date: 04/01/2021
+ms.date: 04/30/2021
 ms.topic: quickstart
 ms.custom: subject-bicepqs
 ---
@@ -26,7 +26,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/)
   account before you begin.
 - Bicep version `0.3` or higher installed. If you don't yet have Bicep CLI or need to update, see
-  [Install Bicep (Preview)](../../azure-resource-manager/templates/bicep-install.md).
+  [Install Bicep (Preview)](../../azure-resource-manager/bicep/install.md).
 
 ## Review the Bicep file
 

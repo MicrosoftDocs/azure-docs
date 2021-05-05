@@ -4,14 +4,11 @@
   items:
   - name: What are ARM templates?
     href: overview.md
-  - name: Bicep overview
-    href: bicep-overview.md
 - name: Quickstarts
   items:
   - name: Create JSON templates - VS Code
     href: quickstart-create-templates-use-visual-studio-code.md
-  - name: Create Bicep templates - VS Code
-    href: quickstart-create-bicep-use-visual-studio-code.md
+
   - name: Create JSON templates - portal
     href: quickstart-create-templates-use-the-portal.md
   - name: Create template specs
@@ -40,38 +37,6 @@
       href: template-tutorial-add-tags.md
     - name: 10 - Use parameter file
       href: template-tutorial-use-parameter-file.md
-  - name: Beginner Bicep
-    items:
-    - name: 1 - Create first template
-      displayName: Bicep
-      href: bicep-tutorial-create-first-bicep.md
-    - name: 2 - Add parameters
-      displayName: Bicep
-      href: bicep-tutorial-add-parameters.md
-    - name: 3 - Add template functions
-      displayName: Bicep
-      href: bicep-tutorial-add-functions.md
-    - name: 4 - Add variables
-      displayName: Bicep
-      href: bicep-tutorial-add-variables.md
-    - name: 5 - Add outputs
-      displayName: Bicep
-      href: bicep-tutorial-add-outputs.md
-    - name: 6 - Use exported template
-      displayName: Bicep
-      href: bicep-tutorial-export-template.md
-    - name: 7 - Use Quickstart template
-      displayName: Bicep
-      href: bicep-tutorial-quickstart-template.md
-    - name: 8 - Add tags
-      displayName: Bicep
-      href: bicep-tutorial-add-tags.md
-    - name: 9 - Use parameter file
-      displayName: Bicep
-      href: bicep-tutorial-use-parameter-file.md
-    - name: 10 - Add modules
-      displayName: Bicep
-      href: bicep-tutorial-add-modules.md
   - name: Deployment
     items:
     - name: 1 - Deploy a local template
@@ -326,14 +291,6 @@
   items:
   - name: Template best practices
     href: template-best-practices.md
-  - name: Bicep
-    items:
-    - name: Install Bicep
-      href: bicep-install.md
-    - name: Convert between JSON and Bicep
-      href: bicep-decompile.md
-    - name: Compare JSON and Bicep
-      href: compare-template-syntax.md
   - name: Data types
     href: data-types.md
   - name: Frequently asked questions
@@ -353,9 +310,6 @@
     - name: JSON structure
       displayName: parameters,variables,resources,outputs,condition
       href: template-syntax.md
-    - name: Bicep structure
-      displayName: parameters,variables,resources,outputs,condition
-      href: bicep-file.md
     - name: Write template expressions
       href: template-expressions.md
     - name: Parameters
@@ -390,8 +344,6 @@
       - name: Modularize templates
         displayName: linked templates, nested templates
         href: linked-templates.md
-      - name: Bicep modules
-        href: bicep-modules.md
     - name: Create multiple instances
       items:
       - name: Resources
@@ -530,8 +482,6 @@
     items:
     - name: All functions
       href: template-functions.md
-    - name: Any function (Bicep)
-      href: template-functions-any.md
     - name: Array functions
       href: template-functions-array.md
     - name: Comparison functions
@@ -550,16 +500,6 @@
       href: template-functions-resource.md
     - name: String functions
       href: template-functions-string.md
-  - name: Bicep operators
-    items:
-    - name: All operators
-      href: bicep-operators.md
-    - name: Comparison operators
-      href: bicep-operators-comparison.md
-    - name: Logical operators
-      href: bicep-operators-logical.md
-    - name: Numeric operators
-      href: bicep-operators-numeric.md
   - name: REST
     href: /rest/api/resources/
   - name: Azure PowerShell
