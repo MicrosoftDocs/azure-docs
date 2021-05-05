@@ -137,7 +137,7 @@ For more information, see [Failover cluster: Cluster Network Object](https://blo
 
 ## Configure quorum
 
-Since the disk witness is the most resilient quorum option, and the fci solution uses Azure shared disks, it's recommended to configure a disk witness as the quorum solution. 
+Since the disk witness is the most resilient quorum option, and the FCI solution uses Azure shared disks, it's recommended to configure a disk witness as the quorum solution. 
 
 If you have an even number of votes in the cluster, configure the [quorum solution](hadr-cluster-quorum-configure-how-to.md) that best suits your business needs. For more information, see [Quorum with SQL Server VMs](hadr-windows-server-failover-cluster-overview.md#quorum). 
 

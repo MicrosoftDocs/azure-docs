@@ -44,7 +44,9 @@ Placing a set of VMs in the same availability set protects from outages within a
 
 Availability Zones protect against the failure of an entire data center, with each Zone representing a set of data centers within a region.  By ensuring resources are placed in different Availability Zones, no data center-level outage can take all of your VMs offline.
 
-When creating Azure VMs, you must choose between configuring Availability Sets vs Availability Zones.  An Azure VM cannot participate in both.
+When creating Azure VMs, you must choose between configuring Availability Sets vs Availability Zones.  An Azure VM cannot participate in both. 
+
+While Availability Zones may provide better availability than Availability Sets (99.99% vs 99.95%), performance should also be a consideration. VMs within an Availability Set can be placed in a [proximity placement group](../../../virtual-machines/co-location.md) which guarantees that they are close to each other, minimizing network latency between them. VMs located in different Availability Zones will have greater network latency between them, which can increase the time it takes to synchronize data between the primary and secondary replica(s). This may cause delays on the primary replica as well as increase the chance of data loss in the event of an unplanned failover. It is important to test the proposed solution under load and ensure that it meets SLAs for both performance and availability.
 
 ## Connectivity
 
@@ -55,8 +57,8 @@ If you are using DNN or if your AG spans across multiple subnets like multiple A
 Most SQL Server features work transparently with FCI and availability groups when using the DNN, but there are certain features that may require special consideration. See [AG and DNN interoperability](availability-group-dnn-interoperability.md) to learn more. 
 
 Additionally, there are some behavior differences between the functionality of the VNN  listener and DNN listener that are important to note: 
-- **Failover time**: Failover time is faster since there is no need to wait for the network load balancer to detect the failure event, and change its routing. 
-- **Existing connections**: Connections made to a specific database within a failing-over availability group will close, but otherwise connections to the primary replica will remain open since the DNN stays online during the failover process. This is different to a traditional VNN environment as connections to the primary replica typically close when the availability group fails over, the listener goes offline, and the primary replica transitions to the secondary role. 
+- **Failover time**: Failover time is faster when using a DNN listener since there is no need to wait for the network load balancer to detect the failure event and change its routing. 
+- **Existing connections**: Connections made to a *specific database* within a failing-over availability group will close, but other connections to the primary replica will remain open since the DNN stays online during the failover process. This is different than a traditional VNN environment where all connections to the primary replica typically close when the availability group fails over, the listener goes offline, and the primary replica transitions to the secondary role. When using a DNN listener, you may need to adjust application connection strings to ensure that connections are redirected to the new primary replica upon failover.
 - **Open transactions**: Open transactions against a database in a failing-over availability group will close and roll back. You will need to reconnect. In SQL Server Management Studio, close the query window and open a new one. 
 
 ## Lease mechanism 
@@ -67,11 +69,11 @@ The AG resource DLL monitors the status of internal SQL Server components. Sp_se
 
 Unlike other failover mechanisms, the SQL Server instance plays an active role in the lease mechanism. The lease mechanism is used as a Looks-Alive validation between the Cluster resource host and the SQL Server process. The mechanism is used to ensure that the two sides (the Cluster Service and SQL Server service) are in frequent contact, checking each other's state and ultimately preventing a split-brain scenario.
 
-To configure threshold settings, see the [cluster best practices](hadr-cluster-best-practices.md). 
+When configuring an AG in Azure VMs, there is often a need to configure these thresholds differently than they would be configured in an on-premises environment. To configure threshold settings according to best practices for Azure VMs, see the [cluster best practices](hadr-cluster-best-practices.md). 
 
 ## NIC configuration  
 
-On an Azure IaaS VM guest failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM guest failover clusters. 
+On an Azure VM failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure VM failover cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure VM failover clusters. 
 
 ## Basic availability group
 
