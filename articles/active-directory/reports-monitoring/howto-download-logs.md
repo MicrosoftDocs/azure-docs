@@ -70,10 +70,6 @@ While the global administrator works, you should use an account with lower privi
 
 ## How to do it
 
-In Azure AD, you can access the download option in the toolbar of an activity log page.  
-
-![Download log](./media/\howto-download-logs/download-log.png)
-
 
 **To download an activity log:**
 
@@ -92,6 +88,7 @@ In Azure AD, you can access the download option in the toolbar of an activity lo
 
 3. **Download** the data.
 
+    ![Download log](./media/\howto-download-logs/download-log.png)
 
 ## Next steps
 
