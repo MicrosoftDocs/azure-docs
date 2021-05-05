@@ -39,7 +39,7 @@ By default, clients can connect to function endpoints by using both HTTP or HTTP
 
 When you require HTTPS, you should also Require the latest TLS version. To learn how, see [Enforce TLS versions](../app-service/configure-ssl-bindings.md#enforce-tls-versions).
 
-For more information, see [Secure connections (TSL)](../app-service/overview-security.md#https-and-certificates).
+For more information, see [Secure connections (TLS)](../app-service/overview-security.md#https-and-certificates).
 
 ### Function access keys
 

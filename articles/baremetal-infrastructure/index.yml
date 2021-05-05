@@ -119,8 +119,8 @@ landingContent:
         links:
           - text: HA Setup with STONITH
             url: ../virtual-machines/workloads/sap/ha-setup-with-stonith.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
-          - text: OS Backup for Type II SKUs
-            url: ../virtual-machines/workloads/sap/os-backup-type-ii-skus.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+          - text: OS Backup
+            url: ../virtual-machines/workloads/sap/large-instance-os-backup.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
           - text: Enable Kdump for HANA Large Instances
             url: ../virtual-machines/workloads/sap/hana-large-instance-enable-kdump.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
           - text: OS Upgrade for HANA Large Instances

@@ -16,7 +16,7 @@ Azure Data Factory supports the following data stores and formats via Copy, Data
 
 ## Supported data stores
 
-[!INCLUDE [Connector overview](../../includes/data-factory-v2-connector-overview.md)]
+[!INCLUDE [Connector overview](includes/data-factory-v2-connector-overview.md)]
 
 ## Integrate with more data stores
 

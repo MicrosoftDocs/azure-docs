@@ -347,3 +347,5 @@
     href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-sentinel/
+  - name: Feature availability for US Government clouds
+    href: /azure/security/fundamentals/feature-availability

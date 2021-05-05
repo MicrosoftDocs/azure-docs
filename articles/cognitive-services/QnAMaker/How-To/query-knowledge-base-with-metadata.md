@@ -39,8 +39,6 @@ Consider the user question "When does this hotel close?", where the intent is im
 
 Because results are required only for the restaurant "Paradise", you can set a filter in the GenerateAnswer call on the metadata "Restaurant Name". The following example shows this:
 
-# [QnA Maker GA (stable release)](#tab/v1)
-
 ```json
 {
     "question": "When does this hotel close?",
@@ -49,10 +47,9 @@ Because results are required only for the restaurant "Paradise", you can set a f
 }
 ```
 
-# [Custom question answering (preview release)](#tab/v2)
+## Filter by source
 
-### Filter by source
-In case you have multiple content sources in your knowledge base and you would like to limit the results to a particular set of sources, you can do that using the reserved keyword `system_sources` as shown below.
+In case you have multiple content sources in your knowledge base and you would like to limit the results to a particular set of sources, you can do that using the reserved keyword `source_name_metadata` as shown below.
 
 ```json
 "strictFilters": [
@@ -61,31 +58,15 @@ In case you have multiple content sources in your knowledge base and you would l
         "value": "api"
     },
    {
-        "name": "system_sources",
+        "name": "source_name_metadata",
         "value": "boby_brown_docx"
     },
    {
-        "name": "system_sources",
+        "name": "source_name_metadata",
         "value": "chitchat.tsv"
    }
 ]
 ```
-
-With custom question answering, you can additionally provide a filter criteria to either include or exclude unstructured sources in the GenerateAnswer call by using the `includeUnstructuredSources` property.
-
-This parameter is optional and by default has a value set to `true`.
-
-In the below example, we set the value of `includeUnstructuredSources` property to `false` to exclude all unstructured sources from the GenerateAnswer call.
-
-```json
-{
-    "question": "When does this hotel close?",
-    "top": 1,
-    "strictFilters": [ { "name": "restaurant", "value": "paradise"}],
-    "includeUnstructuredSources": false
-}
-```
-
 ---
 
 ### Logical AND by default
