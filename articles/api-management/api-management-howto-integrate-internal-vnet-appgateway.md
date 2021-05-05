@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 ---
 # Integrate API Management in an internal virtual network with Application Gateway
 
-The API Management service can be configured in a [virtual network in internal mode](api-management-using-with-internal-vnet.md), which makes it accessible only from within the virtual network. Azure Application Gateway is a PaaS service, which provides a Layer-7 load balancer. It acts as a reverse-proxy service and provides among its offerings a Web Application Firewall (WAF).
+The API Management service can be configured in a [virtual network in internal mode](api-management-using-with-internal-vnet.md), which makes it accessible only from within the virtual network. [Azure Application Gateway](../application-gateway/overview.md) is a PaaS service, which provides a Layer-7 load balancer. It acts as a reverse-proxy service and provides among its offerings a Web Application Firewall (WAF).
 
 Combining API Management provisioned in an internal virtual network with the Application Gateway front end enables the following scenarios:
 
@@ -38,7 +38,7 @@ To follow the steps described in this article, you must have:
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-* Certificates - PFX files for the API Management service's custom hostnames: gateway, developer portal, and management endpoint. 
+* Certificates - You need PFX files for the API Management service's custom hostnames: gateway, developer portal, and management endpoint. Also needed is a CER file for a root certificate of the PFX certificates.
 * Make sure that you are using the latest version of Azure PowerShell. See [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## Scenario
