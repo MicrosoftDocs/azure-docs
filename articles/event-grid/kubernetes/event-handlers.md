@@ -9,11 +9,9 @@ ms.topic: conceptual
 ---
 
 # Event Handlers and destinations in Event Grid on Kubernetes
-An event handler is the place where the event for further action or to process the event. With the Event Grid on Edge module, the event handler can be on the same edge device, another device, or in the cloud. You may can use any WebHook to handle events, or send events to one of the native handlers like Azure Event Grid.
+An event handler is the place where the event for further action or to process the event. Event subscriptions support the following kind of destinations.
 
-Event Subscriptions support the following kind of destinations.
-
-- Webhooks. The following are supported through webhooks (endpoints):
+- Webhooks. The following destinations are supported through webhooks:
     - Azure Event Grid
     - Azure Functions
     - Functions on Kubernetes

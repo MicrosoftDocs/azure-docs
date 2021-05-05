@@ -4,10 +4,10 @@
   href: ../overview.md
 - name: Concepts
   items:
-  - name: Event schemas
-    href: event-schemas.md
   - name: Event handlers
     href: event-handlers.md    
+  - name: Event schemas
+    href: event-schemas.md
 - name: Reference
   items:
   - name: REST API
