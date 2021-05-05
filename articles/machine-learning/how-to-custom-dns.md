@@ -118,8 +118,7 @@ The following FQDNs are for Azure China regions:
     
 * `<instance-name>.<region>.instances.ml.azure.cn`
 
-    > [!NOTE] 
-    > The IP address for this FQDN is **not** the IP of the compute instance. Instead, use the private IP address of the workspace private endpoint (the IP of the `*.api.azureml.ms` entries.)
+   * The IP address for this FQDN is **not** the IP of the compute instance. Instead, use the private IP address of the workspace private endpoint (the IP of the `*.api.azureml.ms` entries.)
 
 #### Azure US Government
 
