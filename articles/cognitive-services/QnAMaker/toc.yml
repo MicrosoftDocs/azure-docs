@@ -137,7 +137,7 @@
     - name: QnA Maker 5.0 Preview 1
       href: /rest/api/cognitiveservices-qnamaker/qnamakerv5.0-preview.1/alterations      
     - name: QnA Maker 5.0 Preview 2
-      href: /rest/api/cognitiveservices-qnamaker/qnamakerv5.0-preview.2/alterations
+      href: /rest/api/cognitiveservices-qnamaker/qnamakerv5.0-preview2/alterations
   - name: SDKs
     items:
     - name: C#
