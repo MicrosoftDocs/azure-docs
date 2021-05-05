@@ -56,8 +56,8 @@ Open an application such as [VLC media player](https://www.videolan.org/vlc/). S
     Otherwise, near the **AZURE IOT HUB** pane in the lower-left corner, select the **More actions** icon and then select **Set IoT Hub Connection String**. You can copy the string from the *appsettings.json* file. Or, to ensure you've configured the proper IoT hub within Visual Studio Code, use the [Select IoT hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/set-connection-string.png" alt-text="Set IoT Hub Connection String":::
-     `
+    > :::image type="content" source="./media/vscode-common-screenshots/set-connection-string.png" alt-text="Set IoT Hub Connection String":::
+    
     > [!NOTE]
     > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this: <br/>
     > 
@@ -71,10 +71,10 @@ Open an application such as [VLC media player](https://www.videolan.org/vlc/). S
 
     * The Video Analyzer module, named **avaedge**.
     * The **rtspsim** module, which simulates an RTSP server and acts as the source of a live video feed.
-    * The yolov3 module, which is the YoloV3 object detection model that applies computer vision to the images and returns multiple classes of object types
+    * The **avaextension** module, which is the YoloV3 object detection model that applies computer vision to the images and returns multiple classes of object types
 
         > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/analyze-live-video-use-your-model-http/object-detection-model.png" alt-text= "YoloV3 object detection model":::
+        > :::image type="content" source="./media/vscode-common-screenshots/avaextension.png" alt-text= "YoloV3 object detection model":::
     
 ## Prepare to monitor events
 
