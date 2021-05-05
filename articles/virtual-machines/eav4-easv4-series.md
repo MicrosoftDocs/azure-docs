@@ -56,13 +56,13 @@ Easv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs | Expected network bandwidth (Mbps) |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Standard_E2as_v4|2|16|32|4|4000 / 32 (50)|3200 / 48|2 | 800 |
-| Standard_E4as_v4|4|32|64|8|8000 / 64 (100)|6400 / 96|2 | 1600 |
-| Standard_E8as_v4|8|64|128|16|16000 / 128 (200)|12800 / 192|4 | 3200 |
-| Standard_E16as_v4|16|128|256|32|32000 / 255 (400)|25600 / 384|8 | 6400 |
+| Standard_E4as_v4 <sup>1</sup>|4|32|64|8|8000 / 64 (100)|6400 / 96|2 | 1600 |
+| Standard_E8as_v4 <sup>1</sup>|8|64|128|16|16000 / 128 (200)|12800 / 192|4 | 3200 |
+| Standard_E16as_v4 <sup>1</sup>|16|128|256|32|32000 / 255 (400)|25600 / 384|8 | 6400 |
 | Standard_E20as_v4|20|160|320|32|40000 / 320 (500)|32000 / 480|8 | 8000 |
-| Standard_E32as_v4|32|256|512|32|64000 / 510 (800)|51200 / 768|8 | 12800 |
+| Standard_E32as_v4 <sup>1</sup>|32|256|512|32|64000 / 510 (800)|51200 / 768|8 | 12800 |
 | Standard_E48as_v4|48|384|768|32|96000 / 1020 (1200)|76800 / 1148|8 | 19200 |
-| Standard_E64as_v4|64|512|1024|32|128000 / 1020 (1600)|80000 / 1200|8 | 25600 |
+| Standard_E64as_v4 <sup>1</sup>|64|512|1024|32|128000 / 1020 (1600)|80000 / 1200|8 | 25600 |
 | Standard_E96as_v4 <sup>1</sup>|96|672|1344|32|192000 / 1020 (2400)|80000 / 1200|8 | 32000 |
 
 <sup>1</sup> [Constrained core sizes available](./constrained-vcpu.md).
