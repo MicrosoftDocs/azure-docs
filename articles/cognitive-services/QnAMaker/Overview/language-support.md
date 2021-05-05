@@ -38,7 +38,8 @@ Consider the following:
 * The language is used by the Cognitive Search service (ranker #1) and the QnA Maker service (ranker #2) to generate the best answer to a query.
 
 # [Custom question answering (preview release)](#tab/v2)
-![Language Setting in QnA Maker managed](../media/language-support/language-setting-managed.png)
+> [!div class="mx-imgBorder"]
+> ![Multi-lingual knowledge base selection](../media/language-support/language-support-custom-qna.png)
 
 If you **don't select the checkbox to enable knowledge-bases in multiple languages**, consider the following: 
 * A Text Analytics service, and all its knowledge bases, will support one language only.
@@ -59,7 +60,8 @@ This functionality is not supported in our current Generally Available (GA) stab
 * Language setting option cannot be modified for the service, once the first knowledge base is created.
 * If you enable language settings specific to every knowledge base, then instead of having one test index for the service you will have one test index per knowledge base. 
 
-![Language Setting in QnA Maker managed](../media/language-support/language-setting-managed.png)
+> [!div class="mx-imgBorder"]
+> ![Multi-lingual knowledge base setting](../media/language-support/language-support-custom-qna.png)
 
 ---
 
