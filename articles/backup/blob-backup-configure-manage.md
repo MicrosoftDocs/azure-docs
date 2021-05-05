@@ -146,6 +146,7 @@ To start configuring backup:
 
   ![Information of Backup vault permissions](./media/blob-backup-configure-manage/information-of-backup-vault-permissions.png)
 
+
     If validation displays errors (for two of the storage accounts listed in the figure above), you have not assigned the **Storage account backup contributor** role for these [storage accounts](#grant-permissions-to-the-backup-vault-on-storage-accounts). Also, you can assign the required role here, based on your current permissions. The error message can help you understand if you have the required permissions, and take the appropriate action:
 
     - **Role assignment not done:** This error (as shown for the item _blobbackupdemo3_ in the figure above) indicates that you (the user) have permissions to assign the **Storage account backup contributor** role and the other required roles for the storage account to the vault. Select the roles, and click **Assign missing roles** on the toolbar. This will automatically assign the required role to the backup vault, and also trigger an auto-revalidation.<br><br>At times, role propagation may take a  while (up to 10 minutes) causing the revalidation to fail. In such scenario, please wait for a few minutes and click the ‘Revalidate’ button retry validation.
