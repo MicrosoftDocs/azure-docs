@@ -3,7 +3,7 @@ title: Azure Automation Change Tracking and Inventory overview
 description: This article describes the Change Tracking and Inventory feature, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 01/22/2021
+ms.date: 05/04/2021
 ms.topic: conceptual
 ---
 
@@ -52,6 +52,10 @@ Change Tracking and Inventory doesn't support or has the following limitations:
 - If you modify a configuration while a machine or server is shut down, it might post changes belonging to the previous configuration.
 - Collecting Hotfix updates on Windows Server 2016 Core RS3 machines.
 - Linux daemons might show a changed state even though no change has occurred. This issue arises because of the way the `SvcRunLevels` data in the Azure Monitor [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange) table is written.
+
+## Limits
+
+For limits that apply to Change Tracking and Inventory, see [Azure Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#change-tracking-and-inventory).
 
 ## Supported operating systems
 

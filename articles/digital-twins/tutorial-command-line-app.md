@@ -21,7 +21,7 @@ ms.service: digital-twins
 
 In this tutorial, you'll build a graph in Azure Digital Twins using models, twins, and relationships. The tool for this tutorial is the a **sample command-line client application** for interacting with an Azure Digital Twins instance. The client app is similar to the one written in [Tutorial: Code a client app](tutorial-code.md).
 
-You can use this sample to perform essential Azure Digital Twins actions such as uploading models, creating and modifying twins, and creating relationships. You can also look at the [code of the sample](https://github.com/Azure-Samples/digital-twins-samples/tree/master/) to learn about the Azure Digital Twins APIs, and practice implementing your own commands by modifying the sample project however you would like.
+You can use this sample to perform essential Azure Digital Twins actions such as uploading models, creating and modifying twins, and creating relationships. You can also look at the [code of the sample](https://github.com/Azure-Samples/digital-twins-samples/tree/master/) to learn about the Azure Digital Twins APIs, and practice implementing your own commands by modifying the sample project however you want.
 
 In this tutorial, you will...
 > [!div class="checklist"]
@@ -215,12 +215,12 @@ Run the following commands in the running project console to answer some questio
     Query
     ```
 
-    This allows you to take stock of your environment at a glance, and make sure everything is represented as you'd like it to be within Azure Digital Twins. The result of this is an output containing each digital twin with its details. Here is an excerpt:
+    This allows you to take stock of your environment at a glance, and make sure everything is represented as you want it to be within Azure Digital Twins. The result of this is an output containing each digital twin with its details. Here is an excerpt:
 
     :::image type="content" source="media/tutorial-command-line/app/output-query-all.png" alt-text="Screenshot showing a partial result from the twin query, including room0 and floor1.":::
 
     >[!NOTE]
-    >In the sample project, the command `Query` without any additional arguments is the equivalent of `Query SELECT * FROM DIGITALTWINS`. To query all the twins in your instance using the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](how-to-use-cli.md), use the longer (complete) query.
+    >In the sample project, the command `Query` without any additional arguments is the equivalent of `Query SELECT * FROM DIGITALTWINS`. To query all the twins in your instance using the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](concepts-cli.md), use the longer (complete) query.
 
 1. **What are all the rooms in my environment?** (query by model)
 
@@ -264,11 +264,11 @@ Run the following commands in the running project console to answer some questio
 
 ## Clean up resources
 
-After completing this tutorial, you can choose which resources you'd like to remove, depending on what you'd like to do next.
+After completing this tutorial, you can choose which resources you want to remove, depending on what you want to do next.
 
 * **If you plan to continue to the next tutorial**, you can keep the resources you set up here to continue using this Azure Digital Twins instance and configured sample app for the next tutorial
 
-* **If you'd like to continue using the Azure Digital Twins instance, but clear out all of its models, twins, and relationships**, you can use the sample app's `DeleteAllTwins` and `DeleteAllModels` commands to clear the twins and models in your instance, respectively.
+* **If you want to continue using the Azure Digital Twins instance, but clear out all of its models, twins, and relationships**, you can use the sample app's `DeleteAllTwins` and `DeleteAllModels` commands to clear the twins and models in your instance, respectively.
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
