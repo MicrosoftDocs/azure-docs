@@ -310,7 +310,7 @@ For the certificate subject name match, the DC will use the Azure ADDS domain na
 
 The client attempts to establish the TLS connection using the name you provided. The traffic needs to get all the way through. The DC sends the public key of the server auth cert. The cert needs to have the right usage in the certificate, the name signed in the subject name must be compatible for the client to trust that the server is the DNS name which you’re connecting to (that is, a wildcard will work, with no spelling mistakes), and the client must trust the issuer. You can check for any problems in that chain in the System log in Event Viewer, and filter the events where source equals Schannel. Once those pieces are in place, they form a session key.  
 
-For more information, see [TLS Handshake](https://docs.microsoft.com/windows/win32/secauthn/tls-handshake-protocol).
+For more information, see [TLS Handshake](/windows/win32/secauthn/tls-handshake-protocol).
 
 ## Next steps
 

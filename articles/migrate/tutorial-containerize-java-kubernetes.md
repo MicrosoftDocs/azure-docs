@@ -14,7 +14,7 @@ In this article, you'll learn how to containerize Java web applications (running
 
 The Azure Migrate: App Containerization tool currently supports -
 
-- Containerizing ASP.NET apps and deploying them on Windows containers on AKS. [Learn more](./tutorial-containerize-aspnet-kubernetes.md)
+- Containerizing ASP.NET apps and deploying them on Windows containers on AKS. [Learn more](./tutorial-app-containerization-aspnet-kubernetes.md)
 - Containerizing Java Web Apps on Apache Tomcat (on Linux servers) and deploying them on Linux containers on AKS.
 
 
@@ -255,4 +255,4 @@ To troubleshoot any issues with the tool, you can look at the log files on the W
 
 ## Next steps
 
-- Containerizing ASP.NET apps and deploying them on Windows containers on AKS. [Learn more](./tutorial-containerize-aspnet-kubernetes.md)
+- Containerizing ASP.NET apps and deploying them on Windows containers on AKS. [Learn more](./tutorial-app-containerization-aspnet-kubernetes.md)

@@ -21,6 +21,8 @@
       href: single-server-overview.md
     - name: Supported versions
       href: concepts-supported-versions.md
+    - name: What's new in Single Server?
+      href: single-server-whats-new.md
     - name: Pricing Tiers
       items:
       - name: Pricing tiers
@@ -178,7 +180,7 @@
       - name: Security overview
         href: concepts-security.md
       - name: Security baseline
-        href: /security/benchmark/azure/baselines/mysql-security-baseline
+        href: /security/benchmark/azure/baselines/mysql-security-baseline?toc=/azure/mysql/TOC.json
       - name: Authentication
         items:
         - name: Azure AD authentication

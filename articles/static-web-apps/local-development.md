@@ -108,7 +108,7 @@ Once logged in:
 
 - You can use the `/.auth/me` endpoint, or a function endpoint to retrieve the user's [client principal](./user-information.md).
 
-- Navigating to `./auth/logout` clears the client principal and logs out the mock user.
+- Navigating to `/.auth/logout` clears the client principal and logs out the mock user.
 
 ## Debugging
 

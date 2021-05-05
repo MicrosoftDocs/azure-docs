@@ -5,7 +5,7 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 04/30/2021
 
 ms.author: mimart
 author: msmimart
@@ -260,6 +260,8 @@ Your REST API can be based on any platform and written in any programing languag
 
 The request to your REST API service comes from Azure AD B2C servers. The REST API service must be published to a publicly accessible HTTPS endpoint. The REST API calls will arrive from an Azure data center IP address.
 
+[!INCLUDE [active-directory-b2c-https-cipher-tls-requirements](../../includes/active-directory-b2c-https-cipher-tls-requirements.md)]
+
 Design your REST API service and its underlying components (such as the database and file system) to be highly available.
 
 
@@ -278,8 +280,8 @@ Design your REST API service and its underlying components (such as the database
 
 See the following articles for examples of using a RESTful technical profile:
 
-- [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as validation of user input](custom-policy-rest-api-claims-validation.md)
-- [Walkthrough: Add REST API claims exchanges to custom policies in Azure Active Directory B2C](custom-policy-rest-api-claims-validation.md)
+- [Walkthrough: Add an API connector to a sign-up user flow](add-api-connector.md)
+- [Walkthrough: Add REST API claims exchanges to custom policies in Azure Active Directory B2C](custom-policy-rest-api-claims-exchange.md)
 - [Secure your REST API services](secure-rest-api.md)
 - [Reference: RESTful technical profile](restful-technical-profile.md)
 
