@@ -1,0 +1,7 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Applied AI Services
+    tocHref: /azure/cognitive-services/metrics-advisor
+    topicHref: /azure/applied-ai-services/index
