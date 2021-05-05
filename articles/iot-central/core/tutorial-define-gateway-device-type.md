@@ -13,9 +13,7 @@ manager: peterpr
 
 # Tutorial - Define a new IoT gateway device type in your Azure IoT Central application
 
-*This article applies to solution builders and device developers.*
-
-This tutorial shows you, as a solution builder, how to use a gateway device template to define a gateway device in your IoT Central application. You then configure several downstream devices that connect to your IoT Central application through the gateway device. 
+This tutorial shows you how to use a gateway device template to define a gateway device in your IoT Central application. You then configure several downstream devices that connect to your IoT Central application through the gateway device. 
 
 In this tutorial, you create a **Smart Building** gateway device template. A **Smart Building** gateway device has relationships with other downstream devices.
 
@@ -219,7 +217,7 @@ In this tutorial, you learned how to:
 * Add relationships.
 * Publish your device template.
 
-Next, as a device developer, you can learn how to:
+Next you can learn how to:
 
 > [!div class="nextstepaction"]
 > [Add an Azure IoT Edge device to your Azure IoT Central application](tutorial-add-edge-as-leaf-device.md)
