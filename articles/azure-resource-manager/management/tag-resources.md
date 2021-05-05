@@ -488,7 +488,7 @@ param location string = resourceGroup().location
 param utcShort string = utcNow('d')
 
 resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
-  name: concat('storage', uniqueString(resourceGroup().id))
+  name: 'storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
     name: 'Standard_LRS'
@@ -554,7 +554,7 @@ param tagValues object = {
 }
 
 resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
-  name: concat('storage', uniqueString(resourceGroup().id))
+  name: 'storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
     name: 'Standard_LRS'
@@ -607,7 +607,7 @@ To store many values in a single tag, apply a JSON string that represents the va
 param location string = resourceGroup().location
 
 resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
-  name: concat('storage', uniqueString(resourceGroup().id))
+  name: 'storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
     name: 'Standard_LRS'
@@ -663,7 +663,7 @@ To apply tags from a resource group to a resource, use the [resourceGroup()](../
 param location string = resourceGroup().location
 
 resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
-  name: concat('storage', uniqueString(resourceGroup().id))
+  name: 'storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
     name: 'Standard_LRS'
