@@ -20,20 +20,20 @@ ms.topic: how-to
 ## Create a Topic
 1. Create a file called ```topic-1.json``` containing the following request payload that defines the topic you want to create.  
 
-```json
-{
-  "name": "<TOPIC-NAME>",
-  "location": "<REGION>",
-  "kind": "AzureArc",
-  "extendedLocation": {
-    "name": "<YOUR-CUSTOMLOCATION-RESOURCE-ID>",
-    "type": "CustomLocation"
-  },
-  "properties": {
-          "inputschema": "cloudeventschemav1_0"
-  }
-}
- ```
+    ```json
+    {
+      "name": "<TOPIC-NAME>",
+      "location": "<REGION>",
+      "kind": "AzureArc",
+      "extendedLocation": {
+        "name": "<YOUR-CUSTOMLOCATION-RESOURCE-ID>",
+        "type": "CustomLocation"
+      },
+      "properties": {
+              "inputschema": "cloudeventschemav1_0"
+      }
+    }
+    ```
 2. Create a topic by sending the following request.
 
     ```console
@@ -80,29 +80,29 @@ Event Grid on Kubernetes offers a good level of feature parity with respect to A
 1. To create an event subscription with a WebHook (HTTPS endpoint) destination
 create a file called ```event-subscription-1.json``` that will contain the following request payload that defines a basic filter criteria that selects events for routing based on prefix and suffix strings in the event's subject attribute. You should change the values in  ```subjectBeginsWith``` and ```subjectEndsWith``` to suit your needs. You might also remove the filter criteria. If you do, Event Grid will send all events to the defined destination in ```endpointUrl```.
 
-```json
-{
-  "properties": {
-          "destination": {
-             "endpointType": "WebHook",
-             "properties": {
-                     "endpointUrl": "{provide-a-full-url-to-an-http-endpoint}"
+    ```json
+    {
+      "properties": {
+              "destination": {
+                 "endpointType": "WebHook",
+                 "properties": {
+                         "endpointUrl": "{provide-a-full-url-to-an-http-endpoint}"
+                 }
+              },
+              "filter": {
+                 "isSubjectCaseSensitive": false,
+                 "subjectBeginsWith": "ExamplePrefix",
+                 "subjectEndsWith": "ExampleSuffix"
              }
-          },
-          "filter": {
-             "isSubjectCaseSensitive": false,
-             "subjectBeginsWith": "ExamplePrefix",
-             "subjectEndsWith": "ExampleSuffix"
-         }
-  }
-}
-```
+      }
+    }
+    ```
 2. Create an event subscription by sending the following HTTP PUT request with the entity  body defined above:
-  ```console
-  armclient put "https://eastus2euap.management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}/providers/Microsoft.EventGrid/eventSubscriptions/{eventSubscriptionName}?api-version=2020-10-15-preview" @event-subscription-1.json -verbose
-  ```
+  
+    ```console
+    armclient put "https://eastus2euap.management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}/providers/Microsoft.EventGrid/eventSubscriptions/{eventSubscriptionName}?api-version=2020-10-15-preview" @event-subscription-1.json -verbose
+    ```
 
-<br/><br/>
 Following are some request payload examples for different type of destinations.
 
 ### Azure Event Hubs
