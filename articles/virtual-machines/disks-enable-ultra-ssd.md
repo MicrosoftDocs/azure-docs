@@ -29,11 +29,11 @@ To leverage ultra disks, you need to determine which availability zone you are i
 #### CLI
 
 ```azurecli
-subscription="<yourSubID>"
+$subscription="<yourSubID>"
 # example value is southeastasia
-region="<yourLocation>"
+$region="<yourLocation>"
 # example value is Standard_E64s_v3
-vmSize="<yourVMSize>"
+$vmSize="<yourVMSize>"
 
 az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].locationInfo[0].zoneDetails[0].Name" --subscription $subscription
 ```
