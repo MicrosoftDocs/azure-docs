@@ -10061,6 +10061,111 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/compare-template-syntax.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/compare-template-syntax",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-decompile.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/decompile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-file.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-install.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-modules.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/modules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-operators-comparison.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/operators-comparison",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-operators-logical.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/operators-logical",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-operators-numeric.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/operators-numeric",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-overview.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/quickstart-create-bicep-use-visual-studio-code.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/template-functions-any.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/template-functions-any",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-functions.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-modules.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-modules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-outputs.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-outputs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-parameters.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-parameters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-tags.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-tags",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-variables.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-variables",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-create-first-bicep.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-create-first-bicep",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-export-template.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-export-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-quickstart-template.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-quickstart-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-use-parameter-file.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-use-parameter-file",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/grant-access-to-create-subscription.md",
       "redirect_url": "/azure/azure-resource-manager/management/grant-access-to-create-subscription",
       "redirect_document_id": false
@@ -33494,7 +33599,7 @@
       "source_path_from_root": "/articles/service-bus-messaging/service-bus-migrate-acs-sas.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/service-bus-messaging/service-bus-dotnet-advanced-message-queuing.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-amqp-dotnet",
