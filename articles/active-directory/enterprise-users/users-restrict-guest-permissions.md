@@ -29,7 +29,7 @@ When guest access is restricted, guests can view only their own user profile. Pe
 
 ## Permissions and licenses
 
-You must be in the Global Administrator role to configure the external collaboration settings. There are no additional licensing requirements to restrict guest access.
+You must be in the Global Administrator or Privileged Role Administrator role to configure guest user access. There are no additional licensing requirements to restrict guest access.
 
 ## Update in the Azure portal
 
