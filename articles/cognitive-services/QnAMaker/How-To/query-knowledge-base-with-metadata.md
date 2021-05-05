@@ -67,22 +67,6 @@ In case you have multiple content sources in your knowledge base and you would l
    }
 ]
 ```
-
-With custom question answering, you can additionally provide a filter criteria to either include or exclude unstructured sources in the GenerateAnswer call by using the `includeUnstructuredSources` property.
-
-This parameter is optional and by default has a value set to `true`.
-
-In the below example, we set the value of `includeUnstructuredSources` property to `false` to exclude all unstructured sources from the GenerateAnswer call.
-
-```json
-{
-    "question": "When does this hotel close?",
-    "top": 1,
-    "strictFilters": [ { "name": "restaurant", "value": "paradise"}],
-    "includeUnstructuredSources": false
-}
-```
-
 ---
 
 ### Logical AND by default
