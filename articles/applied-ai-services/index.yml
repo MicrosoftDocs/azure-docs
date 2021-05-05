@@ -13,7 +13,7 @@ metadata:
   ms.author: nitinme
   manager: nitinme
   ms.custom: custom-portals-hub
-  ms.date: 04/24/2021
+  ms.date: 05/05/2021
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -73,17 +73,28 @@ additionalContent:
           links:
             - text: Submit Feedback on UserVoice
               url: https://aka.ms/AppliedAIUserVoice
- #           - text: Ask Questions on Microsoft Q&A
- #             url: https://aka.ms/AppliedAIMSFTQandA
+            - text: Ask Questions on Microsoft Q&A
+              url: https://aka.ms/AppliedAIMSFTQandA
             # Card
             - text: Troubleshoot on StackOverflow
               url: https://aka.ms/AppliedAIStackOverflow
-        - title: Get Started
+        - title: Get Started with Quickstarts
           links:
-            - text: How To Guides
-              url: https://aka.ms
-            - text: Start For Free
-              url: https://azure.microsoft.com/free/ai
+          - text: Azure Form Recognizer
+            url: https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool
+          - text: Azure Metrics Advisor
+            url: https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/quickstarts/web-portal
+          - text: Azure Immersive Reader
+            url: https://docs.microsoft.com/azure/cognitive-services/immersive-reader/quickstarts/client-libraries
+          - text: Azure Cognitive Search
+            url: https://docs.microsoft.com/azure/search/search-get-started-portal
+          - text: Azure Video Analyzer
+            url: https://docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/get-started-detect-motion-emit-events
+          - text: Azure Bot Service
+            url: https://docs.microsoft.com/composer/quickstart-create-bot
+            
+          - text: Start For Free
+            url: https://azure.microsoft.com/free/ai
         - title: Explore other Azure AI Services
           links:
             - text: Azure Cognitive Services
