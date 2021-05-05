@@ -150,7 +150,7 @@ Beyond the high-availability architecture that's included in Azure SQL Database,
 ### SQL Agent jobs
 SQL Agent jobs are not directly supported in Azure SQL Database and need to be deployed to [elastic database jobs (preview)](../../database/job-automation-overview.md).
 
-### Logins and groups
+### Logins and groups (Applicable for SQL Managed Instance only)
 Move SQL logins from the SQL Server source to Azure SQL Database by using Database Migration Service in offline mode. Use the **Selected logins** pane in the Migration Wizard to migrate logins to your target SQL database. 
 
 You can also migrate Windows users and groups via Database Migration Service by enabling the corresponding toggle on the Database Migration Service **Configuration** page. 
