@@ -1,13 +1,13 @@
 ---
-title: Customer Spotlight on Use Cases
+title: Customer spotlight on use cases
 titleSuffix: Azure Applied AI Services
-description: Customer Spotlight on Use Cases
+description: Customer spotlight on use cases
 author: jeffme
 manager: jeffme
 ms.service: applied-ai-services
 ms.subservice:
 ms.topic: overview
-ms.date: 04/30/2021
+ms.date: 05/05/2021
 ms.author: jeffme
 ---
 
@@ -37,7 +37,7 @@ Customers are already leveraging Applied AI Services to add AI horsepower to the
 
 <br>
 
-![Chevron logo](./media/Chevron2.png)
+![Chevron logo](./media/chevron-2.png)
 ## Chevron uses Form Recognizer to extract volumes of data from unstructured reports  
 “We only have a finite amount of time to extract data, and oftentimes the data that’s left behind is valuable. With this new technology, we're able to extract everything and then decide what we can use to improve our performance.” 
 
