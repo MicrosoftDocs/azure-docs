@@ -236,16 +236,18 @@ assignment are automatically included.
 
 ## Availability
 
-Guest Configuration service is designed to support Azure
-[availabilty zones](../../../availability-zones/az-overview.md).
 Customers designing a highly available solution should consider the redundancy planning requirements for
 [virtual machines](../../../virtual-machines/availability.md) because guest assignments are extenions of
-machine resources in Azure.
+machine resources in Azure. If a physical region becomes unavailable in Azure, it is not possible
+to view historical reports for a guest assignment until the region is restored.
 
-For Azure regions where zone-redundancy isn't available,
-ensure that machines deployed in distinct regions for the purpose of redundancy
-are within the scope of the same Azure Policy assignments,
-to ensure the audit/configuration requirements are consistent.
+When considering an architecture for highly available applications,
+especially where virtual machines are provisioned in
+[Availability Sets](../../../virtual-machines/availability#availability-sets)
+behind a load balancer solution to provide high availability,
+it is best practice to assign the same policy definitions with the same parameters to all machines
+in the solution. If possible, a single policy assignment spanning all
+machines would offer the least administrative overhead.
 
 For machines protected by
 [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md),
