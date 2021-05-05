@@ -58,7 +58,7 @@ This functionality is not supported in our current Generally Available (GA) stab
 # [Custom question answering (preview release)](#tab/v2)
 * When you are creating the first knowledge base in your service, you get a choice to enable multiple languages per service. Select the checkbox, to create knowledge bases belonging to different languages within one service.
 * Language setting option cannot be modified for the service, once the first knowledge base is created.
-* If you enable language settings specific to every knowledge base, then instead of having one test index for the service you will have one test index per knowledge base. 
+* If you enable multiple languages for the knowledge base, then instead of having one test index for the service you will have one test index per knowledge base. 
 
 > [!div class="mx-imgBorder"]
 > ![Multi-lingual knowledge base setting](../media/language-support/language-support-custom-qna.png)
