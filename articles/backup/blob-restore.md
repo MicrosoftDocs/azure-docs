@@ -1,6 +1,6 @@
 ---
 title: Restore Azure Blobs
-description: Learn how to restore Azure Blobs (in preview).
+description: Learn how to restore Azure Blobs.
 ms.topic: conceptual
 ms.date: 05/05/2021
 
@@ -80,4 +80,4 @@ The restore operation shown in the image performs the following actions:
 
 ## Next steps
 
-- [Overview of operational backup for Azure Blobs (in preview)](blob-backup-overview.md)
+- [Overview of operational backup for Azure Blobs](blob-backup-overview.md)
