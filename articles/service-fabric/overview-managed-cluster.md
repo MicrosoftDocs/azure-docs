@@ -60,22 +60,19 @@ Service Fabric managed clusters are available in both Basic and Standard SKUs.
 | Add/remove node types | No | Yes |
 | Zone redundancy | No | Yes |
 
-## What's new for Service Fabric managed clusters
+## Feature support
 
-The latest features for Service Fabric managed clusters include support for:
+The capabilities of managed clusters will continue to expand. Currently there is support for:
 
-* [Deploying applications using ARM templates](how-to-managed-cluster-app-deployment-template.md)
-* [Automatic OS upgrades](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades)
-* [Disk encryption](how-to-enable-managed-cluster-disk-encryption.md)
-* [Applying NSG rules](how-to-managed-cluster-networking.md)
-
-Features to be added in upcoming releases include:
-
-* Deploying applications using Visual Studio
-* Managed Identities support
-* Availability Zones
-* Reverse Proxy
-* Autoscaling
+* [Application deployment using ARM templates](how-to-managed-cluster-app-deployment-template.md)
+* [Application secrets](how-to-managed-cluster-application-secrets.md)
+* [Automatic OS image upgrades](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades)
+* [Availability zone spanning](how-to-managed-cluster-availability-zones.md)
+* [Disk encryption](how-to-enable-managed-cluster-disk-encryption.md) and [managed disk type](how-to-managed-cluster-managed-disk.md) selection
+* Managed identity support for managed cluster [node types](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) and [application authentication](how-to-managed-cluster-application-managed-identity.md)
+* [NSG rules and other networking options](how-to-managed-cluster-networking.md)
+* [Stateless-only noe types](how-to-managed-cluster-stateless-node-type.md)
+* [Virtual machine scale set extensions](how-to-managed-cluster-vmss-extension.md) for node types
 
 ## Next steps
 

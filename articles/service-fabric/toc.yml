@@ -4,8 +4,14 @@
   items:
   - name: Service Fabric managed clusters
     href: overview-managed-cluster.md
+    items:
+    - name: Service Fabric managed clusters common questions
+      href: faq-managed-cluster.md
   - name: What is Service Fabric?
     href: service-fabric-overview.md
+    items:
+    - name: Common questions
+      href: service-fabric-common-questions.md
 - name: Quickstarts
   expanded: true
   items:
@@ -936,10 +942,6 @@
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Common questions
-    href: service-fabric-common-questions.md
-  - name: Service Fabric managed clusters common questions
-    href: faq-managed-cluster.md
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-service-fabric.html
   - name: Azure Resource Manager Deployment Guardrails

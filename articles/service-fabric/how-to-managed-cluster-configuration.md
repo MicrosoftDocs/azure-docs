@@ -6,13 +6,15 @@ ms.date: 5/10/2021
 ---
 # Service Fabric managed cluster configuration options
 
-In addition to selecting the [Service Fabric managed cluster SKU](overview-managed-cluster.md#service-fabric-managed-cluster-skus) when creating your cluster, there are a number of other ways to configure it. In the current preview, you can:
+In addition to selecting the [Service Fabric managed cluster SKU](overview-managed-cluster.md#service-fabric-managed-cluster-skus) when creating your cluster, there are a number of other ways to configure it, including:
 
-* Configure [networking options](how-to-managed-cluster-networking.md) for your cluster
-* Add a [virtual machine scale set extension](how-to-managed-cluster-vmss-extension.md) to a node type
-* Configure [managed identity](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) on your node types
-* Enable [automatic OS upgrades](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades) for your nodes
-* Enable [OS and data disk encryption](how-to-enable-managed-cluster-disk-encryption.md) on your nodes
+* Adding a [virtual machine scale set extension](how-to-managed-cluster-vmss-extension.md) to a node type
+* Configuring cluster [availability zone spanning](how-to-managed-cluster-availability-zones.md)
+* Configuring cluster [NSG rules and other networking options](how-to-managed-cluster-networking.md)
+* Configuring [managed identity](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md)  on cluster node types
+* Enabling [automatic OS upgrades](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades) for cluster nodes
+* Enabling [OS and data disk encryption](how-to-enable-managed-cluster-disk-encryption.md) on cluster nodes
+* Selecting the cluster [managed disk type](how-to-managed-cluster-managed-disk.md) SKU
 
 ## Enable automatic OS image upgrades
 
