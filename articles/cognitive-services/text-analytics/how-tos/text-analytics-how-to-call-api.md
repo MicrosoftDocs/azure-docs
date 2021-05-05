@@ -10,7 +10,6 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 04/14/2021
 ms.author: aahi
-ms.custom: references_regions
 ---
 
 # How to call the Text Analytics REST API
@@ -26,7 +25,7 @@ Before you use the Text Analytics API, you will need to create a Azure resource 
 
 1.	First, go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) and create a new Text Analytics resource, if you don't have one already. Choose a [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
-2.	Select the region you want to use for your endpoint.  Please note the `/analyze` and `/health` endpoints are only available in the following regions: West US 2, East US 2, Central US, North Europe and West Europe.
+2.	Select the region you want to use for your endpoint.
 
 3.	Create the Text Analytics resource and go to the “keys and endpoint blade” in the left of the page. Copy the key to be used later when you call the APIs. You'll add this later as a value for the `Ocp-Apim-Subscription-Key` header.
 

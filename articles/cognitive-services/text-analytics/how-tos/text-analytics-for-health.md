@@ -8,16 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 04/14/2021
+ms.date: 05/05/2021
 ms.author: aahi
-ms.custom: references_regions 
 ---
 
 # How to: Use Text Analytics for health (preview)
 
 > [!IMPORTANT] 
-> Text Analytics for health is a preview capability provided “AS IS” and “WITH ALL FAULTS.” As such, **Text Analytics for health (preview) should not be implemented or deployed in any production use.** 
-Text Analytics for health is not intended or made available for use as a medical device, clinical support, diagnostic tool, or other technology intended to be used in the diagnosis, cure, mitigation, treatment, or prevention of disease or other conditions, and no license or right is granted by Microsoft to use this capability for such purposes. This capability is not designed or intended to be implemented or deployed as a substitute for professional medical advice or healthcare opinion, diagnosis, treatment, or the clinical judgment of a healthcare professional, and should not be used as such. The customer is solely responsible for any use of Text Analytics for health. Microsoft does not warrant that Text Analytics for health or any materials provided in connection with the capability will be sufficient for any medical purposes or otherwise meet the health or medical requirements of any person. 
+> Customers are solely responsible for the use of Text Analytics for health. Customers must separately license any and all source vocabularies they intend to use under the terms set for the UMLS Metathesaurus License Agreement Appendix (nih.gov) or any future equivalent link. Customers are responsible for ensuring compliance with those license terms, including any geographic or other applicable restrictions. Microsoft does not warrant that Text Analytics for health or any materials provided in connection with the capability will be sufficient for any medical purposes or otherwise meet the health or medical requirements of any person.
 
 
 Text Analytics for health is a feature of the Text Analytics API service that extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records.  There are two ways to utilize this service: 
@@ -70,11 +68,9 @@ The meaning of medical content is highly affected by modifiers, such as negative
 
 See the [entity categories](../named-entity-types.md?tabs=health) returned by Text Analytics for health for a full list of supported entities. For information on confidence scores, see the [Text Analytics transparency note](/legal/cognitive-services/text-analytics/transparency-note#general-guidelines-to-understand-and-improve-performance?context=/azure/cognitive-services/text-analytics/context/context). 
 
-### Supported languages and regions
+### Supported languages
 
 Text Analytics for health only supports English language documents. 
-
-The Text Analytics for health hosted web API is currently only available in these regions: West US 2, East US 2, Central US, North Europe and West Europe.
 
 ## Request access to the public preview
 
@@ -113,9 +109,6 @@ Document size must be under 5,120 characters per document. For the maximum numbe
 ### Structure the API request for the hosted asynchronous web API
 
 For both the container and hosted web API, you must create a POST request. You can [use Postman](text-analytics-how-to-call-api.md), a cURL command or the **API testing console** in the [Text Analytics for health hosted API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/Health) to quickly construct and send a POST request to the hosted web API in your desired region. 
-
-> [!NOTE]
-> Both the asynchronous `/analyze` and `/health` endpoints are only available in the following regions: West US 2, East US 2, Central US, North Europe and West Europe.  To make successful requests to these endpoints, please make sure your resource is created in one of these regions.
 
 Below is an example of a JSON file attached to the Text Analytics for health API request's POST body:
 

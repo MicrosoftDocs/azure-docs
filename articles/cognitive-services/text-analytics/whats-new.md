@@ -20,8 +20,10 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 ## April 2021
 
 ### General API updates
+
 * Release of the new API v3.1-preview.5 which includes 
   * Asynchronous [Analyze API](how-tos/text-analytics-how-to-call-api.md?tabs=analyze) now supports Sentiment Analysis (SA) and Opinion Mining (OM).
+  * Text Analytics for health and Asynchronous operation is now available in all regions
 
 ## March 2021
 
