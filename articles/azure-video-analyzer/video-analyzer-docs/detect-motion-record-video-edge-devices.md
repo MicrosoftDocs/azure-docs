@@ -43,27 +43,6 @@ Complete the following steps to use Live Video Analytics on IoT Edge to detect t
 [!INCLUDE [prerequisites](includes/detect-motion-record-video-edge-devices/python/sample-files.md)]
 ::: zone-end
 
-## Check the modules' status
-
-In the [Generate and deploy the IoT Edge deployment manifest](detect-motion-emit-events-quickstart.md#generate-and-deploy-the-deployment-manifest) step, in Visual Studio Code, expand the **avasample-iot-edge-device** node under **AZURE IOT HUB** (in the lower-left section). You should see the following modules deployed:
-
-* The Azure Video Analyzer module, named avaedge.
-* The rtspsim module, which simulates an RTSP server that acts as the source of a live video feed.
-
-  > [!div class="mx-imgBorder"]
-  > :::image type="content" source="./media/vscode-common-screenshots/avaedge-module.png" alt-text= "Video Analyzer module":::
-
-## Prepare for monitoring events
-
-Make sure you've completed the steps to Prepare to monitor events.
-
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/vscode-common-screenshots/start-monitoring.png" alt-text= "Start Monitoring Built-in Event Endpoint":::
-
-> [!NOTE]
-> You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for ***Built-in endpoints*** option in the left navigation pane. Click there and look for the ***Event Hub-compatible endpoint*** under Event Hub compatible endpoint section. Copy and use the text in the box. The endpoint will look something like this:
-Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
-
 ## Run the sample program
 
 1. In Visual Studio Code, open the Extensions tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
