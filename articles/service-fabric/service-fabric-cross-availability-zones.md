@@ -27,7 +27,7 @@ The recommended topology for the primary node type requires these resources:
   * Each node type should be mapped to its own virtual machine scale set located in a different zone.
   * Each virtual machine scale set should have at least five nodes (Silver Durability).
 * A single public IP resource using Standard SKU
-* A single load-balancer resource using Standard SKU
+* A single load balancer resource using Standard SKU
 * A network security group (NSG) referenced by the subnet in which you deploy your virtual machine scale sets
 
 >[!NOTE]
@@ -63,9 +63,9 @@ The Service Fabric load balancer brings up replicas in the working zones to matc
 
 ## Networking requirements
 
-### Public IP and load-balancer resource
+### Public IP and load balancer resource
 
-To enable the zones property on a virtual machine scale set resource, the load balancer and the IP resource referenced by that virtual machine scale set must both use a Standard SKU. Creating a load balancer or IP resource without the SKU property creates a Basic SKU, which does not support Availability Zones. A Standard SKU load balancer blocks all traffic from the outside by default. To allow outside traffic, deploy an NSG to the subnet.
+To enable the `zones` property on a virtual machine scale set resource, the load balancer and the IP resource referenced by that virtual machine scale set must both use a Standard SKU. Creating a load balancer or IP resource without the SKU property creates a Basic SKU, which does not support Availability Zones. A Standard SKU load balancer blocks all traffic from the outside by default. To allow outside traffic, deploy an NSG to the subnet.
 
 ```json
 {
@@ -117,7 +117,7 @@ To enable the zones property on a virtual machine scale set resource, the load b
 
 ### NAT rules for virtual machine scale sets
 
-The load-balancer inbound network address translation (NAT) rules should match the NAT pools from the virtual machine scale set. Each virtual machine scale set must have a unique inbound NAT pool.
+The inbound network address translation (NAT) rules for the load balancer should match the NAT pools from the virtual machine scale set. Each virtual machine scale set must have a unique inbound NAT pool.
 
 ```json
 {
@@ -178,7 +178,7 @@ To enable a zone on a virtual machine scale set, include the following three val
 
 * The first value is the `zones` property, which specifies which Availability Zone the virtual machine scale set is deployed to.
 * The second value is the `singlePlacementGroup` property, which must be set to `true`.
-* The third value is the `faultDomainOverride` property in the Service Fabric virtual machine scale set extension. This property should include only the zone in which this virtual machine scale set will be placed. Example: `"faultDomainOverride": "az1"`. All virtual machine scale set resources must be placed in the same region because Azure Service Fabric clusters don't have cross region support.
+* The third value is the `faultDomainOverride` property in the Service Fabric virtual machine scale set extension. This property should include only the zone in which this virtual machine scale set will be placed. Example: `"faultDomainOverride": "az1"`. All virtual machine scale set resources must be placed in the same region because Azure Service Fabric clusters don't have cross-region support.
 
 ```json
 {
@@ -367,7 +367,7 @@ Reference the new load balancer and IP in the new cross-Availability Zone node t
 
 The previous solution uses one node type in each Availability Zone. The following solution allows users to deploy three Availability Zones in the same node type.
 
-> [NOTE]
+> [!NOTE]
 > Because this feature is currently in preview, it's not currently supported for production scenarios.
 
 A full sample template is available on [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-Windows-Multiple-AZ-Secure).
@@ -382,7 +382,7 @@ To enable zones on a virtual machine scale set, include the following three valu
 * The second value is the `singlePlacementGroup` property, which must be set to `true`. The scale set that's spanned across three Availability Zones can scale up to 300 VMs even with `singlePlacementGroup = true`.
 * The third value is `zoneBalance`, which ensures strict zone balancing. This value should be `true`. This ensures that the VM distributions across zones are not unbalanced, which means that when one zone goes down, the other two zones have enough VMs to keep the cluster running.
 
-  A cluster with an unbalanced VM distribution might not survive a zone down scenario because that zone might have the majority of the VMs. Unbalanced VM distribution across zones also leads to service placement issues and infrastructure updates getting stuck. Read more about [zoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
+  A cluster with an unbalanced VM distribution might not survive a zone-down scenario because that zone might have the majority of the VMs. Unbalanced VM distribution across zones also leads to service placement issues and infrastructure updates getting stuck. Read more about [zoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
 
 You don't need to configure the `FaultDomain` and `UpgradeDomain` overrides.
 
@@ -452,10 +452,10 @@ The Service Fabric node type must be enabled to support multiple Availability Zo
 
 >[!NOTE]
 >
-> * Public IP and load-balancer resources should use the Standard SKU described earlier in the article.
+> * Public IP and load balancer resources should use the Standard SKU described earlier in the article.
 > * The `multipleAvailabilityZones` property on the node type can only be defined when the node type is created and can't be modified later. Existing node types can't be configured with this property.
 > * When `sfZonalUpgradeMode` is omitted or set to `Hierarchical`, the cluster and application deployments will be slower because there are more upgrade domains in the cluster. It's important to correctly adjust the upgrade policy timeouts to account for the upgrade time required for 15 upgrade domains. The upgrade policy for both the app and the cluster should be updated to ensure that the deployment doesn't exceed the Azure Resource Service deployment time limit of 12 hours. This means that deployment shouldn't take more than 12 hours for 15 UDs (that is, shouldn't take more than 40 minutes for each UD).
-> * Set the cluster reliability level to `Platinum` to ensure that the cluster survives the one zone down scenario.
+> * Set the cluster reliability level to `Platinum` to ensure that the cluster survives the one zone-down scenario.
 
 >[!TIP]
 > We recommend setting `sfZonalUpgradeMode` to `Hierarchical` or omitting it. Deployment will follow the zonal distribution of VMs and affect a smaller amount of replicas or instances, making them safer.
@@ -464,16 +464,12 @@ The Service Fabric node type must be enabled to support multiple Availability Zo
 ### Migrate to the node type with multiple Availability Zones
 
 For all migration scenarios, you need to add a new node type that supports multiple Availability Zones. An existing node type can't be migrated to support multiple zones.
-[Scale up a Service Fabric cluster primary node type](./service-fabric-scale-up-primary-node-type.md) includes detailed steps to add a new node type and the other resources required for the new node type, such as IP and load-balancer resources. That article also describes how to retire the existing node type after a new node type with multiple Availability Zones is added to the cluster.
+The [Scale up a Service Fabric cluster primary node type](./service-fabric-scale-up-primary-node-type.md) article includes detailed steps to add a new node type and the other resources required for the new node type, such as IP and load balancer resources. That article also describes how to retire the existing node type after a new node type with multiple Availability Zones is added to the cluster.
 
-* Migration from a node type that uses basic load-balancer and IP resources:
-  
-  This process is already described in [a previous section](#migrate-to-availability-zones-from-a-cluster-by-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) for the solution with one node type per Availability Zone.
+* Migration from a node type that uses basic load balancer and IP resources: This process is already described in [a previous section](#migrate-to-availability-zones-from-a-cluster-by-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) for the solution with one node type per Availability Zone.
 
   For the new node type, the only difference is that there's only one virtual machine scale set and one node type for all Availability Zones instead of one each per Availability Zone.
-* Migration from a node type that uses the Standard SKU load balancer and IP resources with an NSG:
-  
-  Follow the same procedure described previously. However, there's no need to add new load balancer, IP, and NSG resources. The same resources can be reused in the new node type.
+* Migration from a node type that uses the Standard SKU load balancer and IP resources with an NSG: Follow the same procedure described previously. However, there's no need to add new load balancer, IP, and NSG resources. The same resources can be reused in the new node type.
 
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
 [sf-multi-az-arch]: ./media/service-fabric-cross-availability-zones/sf-multi-az-topology.png
