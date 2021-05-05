@@ -12,13 +12,15 @@ ms.date: 05/03/2021
 
 > For Power Automate, see [Limits and configuration in Power Automate](/flow/limits-and-config).
 
-This article describes the limits and configuration information for Azure Logic Apps and related resources. Many limits apply to both the multi-tenant and single-tenant (preview) Logic Apps service with noted exceptions where they exist. This table provides more information about the terms, *multi-tenant*, *single-tenant*, and *integration service environment*, which appear in this article:
+This article describes the limits and configuration information for Azure Logic Apps and related resources. Many limits are the same for both the multi-tenant and single-tenant (preview) Logic Apps service with noted differences where they exist.
+
+The following table provides more information about the terms, *multi-tenant*, *single-tenant*, and *integration service environment*, that appear in this article:
 
 | Environment | Resource sharing and usage | [Pricing model](logic-apps-pricing.md) | Notes |
 |-------------|----------------------------|----------------------------------------|-------|
-| Azure Logic Apps <br>(Multi-tenant) | Workflows in logic apps *across multiple tenants* share the same processing (compute), storage, network, and so on. | Consumption | Azure Logic Apps manages the stated limits, but you can change some limits, if the capability exists. |
-| Azure Logic Apps <br>(Single-tenant (preview)) | Workflows *in the same logic app and single tenant* share the same processing (compute), storage, network, and so on. | Preview, which is either the [Premium hosting plan](../azure-functions/functions-scale.md), or the [App Service hosting plan](../azure-functions/functions-scale.md) with a specific [pricing tier](../app-service/overview-hosting-plans.md) <p><p>If you have *stateful* workflows, which use [external storage](../azure-functions/storage-considerations.md#storage-account-requirements), the Azure Logic Apps runtime makes storage transactions that follow [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). | You can change the stated limits, which are the default values, based on your scenario's needs. <p><p>For more information, see [Create workflows for single-tenant Azure Logic Apps using Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md). |
-| Integration service environment | Workflows in the *same environment* share the same processing (compute), storage, network, and so on. | Fixed | Azure Logic Apps manages the stated limits, but you can change some limits, if the capability exists. |
+| Azure Logic Apps <br>(Multi-tenant) | Workflows in logic apps *across multiple tenants* share the same processing (compute), storage, network, and so on. | Consumption | Azure Logic Apps manages the default values for these limits, but you can change some of these values, if that option exists for a specific limit. |
+| Azure Logic Apps <br>(Single-tenant (preview)) | Workflows *in the same logic app and single tenant* share the same processing (compute), storage, network, and so on. | Preview, which is either the [Premium hosting plan](../azure-functions/functions-scale.md), or the [App Service hosting plan](../azure-functions/functions-scale.md) with a specific [pricing tier](../app-service/overview-hosting-plans.md) <p><p>If you have *stateful* workflows, which use [external storage](../azure-functions/storage-considerations.md#storage-account-requirements), the Azure Logic Apps runtime makes storage transactions that follow [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). | You can change the default values for many limits, based on your scenario's needs. <p><p>**Important**: Some limits have hard upper maximums. In Visual Studio Code, the changes you make to the default limit values in your logic app project configuration files won't appear in the designer experience. <p><p>For more information, see [Create workflows for single-tenant Azure Logic Apps using Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md). |
+| Integration service environment | Workflows in the *same environment* share the same processing (compute), storage, network, and so on. | Fixed | Azure Logic Apps manages the default values for these limits, but you can change some of these values, if that option exists for a specific limit. |
 |||||
 
 <a name="definition-limits"></a>
@@ -34,8 +36,8 @@ The following tables list the values for a single workflow definition:
 | Actions per workflow | 500 actions | To extend this limit, you can use nested workflows as necessary. |
 | Actions nesting depth | 8 actions | To extend this limit, you can use nested workflows as necessary. |
 | Trigger or action - Maximum name length | 80 characters | |
-| Trigger or action - Maximum input or output size | 104,857,600 bytes |
-| Action - Maximum combined inputs and outputs size | 209,715,200 bytes |
+| Trigger or action - Maximum input or output size | 104,857,600 bytes <br>(105 MB) |
+| Action - Maximum combined inputs and outputs size | 209,715,200 bytes <br>(210 MB) |
 | Expression character limit | 8,192 characters | |
 | `description` - Maximum length | 256 characters | |
 | `parameters` - Maximum number of items | 50 parameters | |
@@ -51,10 +53,9 @@ The following table lists the values for a single workflow run:
 
 | Name | Multi-tenant | Single-tenant (preview) | Integration service environment | Notes |
 |------|--------------|-------------------------|---------------------------------|-------|
-| Run duration | 90 days | - Stateful workflow: 90 days <p><p>- Stateless workflow: 5 min | 366 days | The amount of time that a workflow can continue running before forcing a timeout. <p>**Important**: Make sure the run duration value is always less than or equal to the run history retention in storage value. Otherwise, run histories might be deleted before the associated jobs are complete. <p>The run duration is calculated by using a run's start time and the limit that's specified in the workflow setting, [**Run history retention in days**](#change-duration) at that start time. <p><p>To change the default limit in the multi-tenant service plus more information, see [Change run duration and history retention in storage](#change-duration). |
-| Run history retention in storage | 90 days | 90 days | 366 days | The amount of time to keep workflow run history in storage after a run starts. If a run's duration exceeds the current run history retention limit, the run is removed from the runs history in storage. <p>Whether the run completes or times out, run history retention is always calculated by using the run's start time and the current limit specified in the workflow setting, [**Run history retention in days**](#change-retention). No matter the previous limit, the current limit is always used for calculating retention. <p><p>To change the default limit in the multi-tenant service and for more information, see [Change duration and run history retention in storage](#change-retention). To increase the maximum limit, [contact the Logic Apps team](mailto://logicappspm@microsoft.com) for help with your requirements. |
-| Recurrence - Minimum interval | 1 sec | 1 sec | 1 sec ||
-| Recurrence - Maximum interval | 500 days | 500 days | 500 days ||
+| Run history retention in storage | 90 days | 90 days | 366 days | The amount of time to keep workflow run history in storage after a run starts. If the run's duration exceeds the current run history retention limit, the run is removed from the runs history in storage. <p>Whether the run completes or times out, run history retention is always calculated by using the run's start time and the current limit specified in the workflow setting, [**Run history retention in days**](#change-retention). No matter the previous limit, the current limit is always used for calculating retention. <p><p>To change the default limit in the multi-tenant service and for more information, see [Change duration and run history retention in storage](#change-retention). To increase the maximum limit, [contact the Logic Apps team](mailto://logicappspm@microsoft.com) for help with your requirements. |
+| Run duration | 90 days | - Stateful workflow: 90 days <p><p>- Stateless workflow: 5 min | 366 days | The amount of time that a workflow can continue running before forcing a timeout. <p>The run duration is calculated by using a run's start time and the limit that's specified in the workflow setting, [**Run history retention in days**](#change-duration) at that start time. <p>**Important**: Make sure the run duration value is always less than or equal to the run history retention in storage value. Otherwise, run histories might be deleted before the associated jobs are complete. <p><p>For more information, review [Change run duration and history retention in storage](#change-duration). |
+| Recurrence interval | - Min: 1 sec <p><p>- Max: 500 days | - Min: 1 sec <p><p>- Max: 500 days  | - Min: 1 sec <p><p>- Max: 500 days ||
 |||||
 
 <a name="change-duration"></a>
@@ -62,7 +63,7 @@ The following table lists the values for a single workflow run:
 
 ### Change run duration and history retention in storage
 
-The same setting controls the maximum number of days that a workflow can run and for keeping run history in storage. To change the default or current limit for these properties, follow these steps.
+In the designer, the same setting controls the maximum number of days that a workflow can run and for keeping run history in storage.
 
 * For the multi-tenant service, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
 
@@ -73,8 +74,10 @@ The same setting controls the maximum number of days that a workflow can run and
 For example, suppose that you reduce the retention limit from 90 days to 30 days. A 60-day-old run is removed from the runs history. If you increase the retention period from 30 days to 60 days, a 20-day-old run stays in the runs history for another 40 days.
 
 > [!IMPORTANT]
-> If a run's duration exceeds the current run history retention limit, the run is removed from the runs history in storage. 
+> If the run's duration exceeds the current run history retention limit, the run is removed from the runs history in storage. 
 > To avoid losing run history, make sure that the retention limit is *always* more than the run's longest possible duration.
+
+To change the default value or current limit for these properties, follow these steps:
 
 #### [Portal (Consumption)](#tab/azure-portal)
 
@@ -90,7 +93,7 @@ For example, suppose that you reduce the retention limit from 90 days to 30 days
 
 1. When you're done, on the **Workflow settings** toolbar, select **Save**.
 
-#### [Resource Manager Template (Consumption)](#tab/azure-resource-manager)
+#### [Resource Manager Template](#tab/azure-resource-manager)
 
 If you use an Azure Resource Manager template, this setting appears as a property in your workflow's resource definition, which is described in the [Microsoft.Logic workflows template reference](/azure/templates/microsoft.logic/workflows):
 
@@ -112,7 +115,6 @@ If you use an Azure Resource Manager template, this setting appears as a propert
    }
 }
 ```
-
 ---
 
 <a name="concurrency-looping-and-debatching-limits"></a>
@@ -131,7 +133,7 @@ The following table lists the values for a **For each** loop:
 | Name | Multi-tenant | Single-tenant (preview) | Notes |
 |------|--------------|-------------------------|-------|
 | Array items | 100,000 items | - Stateful workflow: 100,000 items <p><p>- Stateless workflow: 100 items | The number of array items that a **For each** loop can process. <p><p>To filter larger arrays, you can use the [query action](logic-apps-perform-data-operations.md#filter-array-action). |
-| Concurrency | Concurrency off: 20 iterations <p><p>Concurrency on: <p>- Default: 20 iterations <p>- Min: 1 iteration <p>- Max: 50 iterations | Concurrency off: 20 iterations <p><p>Concurrency on: <p>- Default: 20 iterations <p>- Min: 1 iteration <p>- Max: Unlimited | The number of **For each** loop iterations that can run at the same time, or in parallel. <p><p>To change this value in the multi-tenant service, see [Change **For each** concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run **For each** loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). <p><p>To change this value in the single-tenant service (preview), see [Create workflows for single-tenant Azure Logic Apps using Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md). |
+| Concurrent iterations | Concurrency off: 20 <p><p>Concurrency on: <p>- Default: 20 <br>- Min: 1 <br>- Max: 50 | Concurrency off: 20 <p><p>Concurrency on: <p><p>- Default: 20 <br>- Min: 1 <br>- Max: 50 | The number of **For each** loop iterations that can run at the same time, or in parallel. <p><p>To change this value in the multi-tenant service, see [Change **For each** concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run **For each** loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). <p><p>To change this value in the single-tenant service (preview), see [Create workflows for single-tenant Azure Logic Apps using Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md). |
 ||||
 
 #### Until loop
@@ -140,8 +142,8 @@ The following table lists the values for an **Until** loop:
 
 | Name | Multi-tenant | Single-tenant (preview) | Notes |
 |------|--------------|-------------------------|-------|
-| Iterations | - Default: 60 iterations <p><p>- Min: 1 iteration <p><p>- Max: 5,000 iterations | - Stateful workflow: 5,000 iterations <p><p>- Stateless workflow: 100 | The number of cycles that an **Until** loop can have during a workflow run. <p><p>To change this value, in the **Until** loop shape, select **Change limits**, and specify the value for the **Count** property. |
-| Timeout | Default: PT1H (1 hour) | - Stateful workflow: PT1H (1 hour) <p><p>- Stateless workflow: PT5M (5 min) | The amount of time that the **Until** loop can run before exiting and is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). The timeout value is evaluated for each loop cycle. If any action in the loop takes longer than the timeout limit, the current cycle doesn't stop. However, the next cycle doesn't start because the limit condition isn't met. <p><p>To change this value, in the **Until** loop shape, select **Change limits**, and specify the value for the **Timeout** property. |
+| Iterations | - Default: 60 <br>- Min: 1 <br>- Max: 5,000 | Stateful workflow: <p><p>- Default: 60 <br>- Min: 1 <br>- Max: 5,000 <p><p>Stateless workflow: <p><p>- Default: 60 <br>- Min: 1 <br>- Max: 100 | The number of cycles that an **Until** loop can have during a workflow run. <p><p>To change this value, in the **Until** loop shape, select **Change limits**, and specify the value for the **Count** property. |
+| Timeout | Default: PT1H (1 hour) | Stateful workflow: PT1H (1 hour) <p><p>Stateless workflow: PT5M (5 min) | The amount of time that the **Until** loop can run before exiting and is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). The timeout value is evaluated for each loop cycle. If any action in the loop takes longer than the timeout limit, the current cycle doesn't stop. However, the next cycle doesn't start because the limit condition isn't met. <p><p>To change this value, in the **Until** loop shape, select **Change limits**, and specify the value for the **Timeout** property. |
 ||||
 
 <a name="concurrency-debatching"></a>
@@ -150,8 +152,8 @@ The following table lists the values for an **Until** loop:
 
 | Name | Multi-tenant | Single-tenant (preview) | Integration service environment | Notes |
 |------|--------------|-------------------------|---------------------------------|-------|
-| Trigger concurrency | Concurrency off: Unlimited <p><p>Concurrency on, which you can't undo after enabling: <p><p>- Default: 25 runs <p>- Min: 1 run <p>- Max: 100 runs | Concurrency off: Unlimited <p><p>Concurrency on, which you can't undo after enabling: <p><p>- Default: 25 runs <p><p>- Min: 1 run <p><p>- Max: Unlimited | Concurrency off: Unlimited <p><p>Concurrency on, which you can't undo after enabling: <p><p>- Default: 25 runs <p>- Min: 1 run <p>- Max: 100 runs | The number of concurrent runs that a trigger can start at the same time, or in parallel. <p><p>**Note**: When concurrency is turned on, the **SplitOn** limit is reduced to 100 items for [debatching arrays](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>To change this value in the multi-tenant service, see [Change trigger concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) or [Trigger instances sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
-| Maximum waiting runs | Concurrency off: <p><p>- Min: 1 run <p>- Max: 50 runs <p><p>Concurrency on: <p><p>- Min: 10 runs plus the number of concurrent runs (trigger concurrency) <p>- Max: 100 runs | The number of workflow instances that can wait to run when your current workflow instance is already running the maximum concurrent instances. <p><p>To change this value in the multi-tenant service, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
+| Trigger - concurrent runs | Concurrency off: Unlimited <p><p>Concurrency on (irreversible): <p><p>- Default: 25 <br>- Min: 1 <br>- Max: 100 | Concurrency off: Unlimited <p><p>Concurrency on (irreversible): <p><p>- Default: 25 <br>- Min: 1 <br>- Max: 100 | Concurrency off: Unlimited <p><p>Concurrency on (irreversible): <p><p>- Default: 25 <br>- Min: 1 <br>- Max: 100 | The number of concurrent runs that a trigger can start at the same time, or in parallel. <p><p>**Note**: When concurrency is turned on, the **SplitOn** limit is reduced to 100 items for [debatching arrays](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>To change this value in the multi-tenant service, see [Change trigger concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) or [Trigger instances sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Maximum waiting runs | Concurrency off: <p><p>- Min: 1 run <p>- Max: 50 runs <p><p>Concurrency on: <p><p>- Min: 10 runs plus the number of concurrent runs <p>- Max: 100 runs | Concurrency off: <p><p>- Min: 1 run <p>- Max: 50 runs <p><p>Concurrency on: <p><p>- Min: 10 runs plus the number of concurrent runs <p>- Max: 100 runs | Concurrency off: <p><p>- Min: 1 run <p>- Max: 50 runs <p><p>Concurrency on: <p><p>- Min: 10 runs plus the number of concurrent runs <p>- Max: 100 runs | The number of workflow instances that can wait to run when your current workflow instance is already running the maximum concurrent instances. <p><p>To change this value in the multi-tenant service, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | **SplitOn** items | Concurrency off: 100,000 items <p><p>Concurrency on: 100 items | For triggers that return an array, you can specify an expression that uses a **SplitOn** property that [splits or debatches array items into multiple workflow instances](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) for processing, rather than use a **For each** loop. This expression references the array to use for creating and running a workflow instance for each array item. <p><p>**Note**: When concurrency is turned on, the **SplitOn** limit is reduced to 100 items. |
 ||||
 
@@ -161,11 +163,11 @@ The following table lists the values for an **Until** loop:
 
 The following table lists the values for a single workflow definition:
 
-### Multi-tenant & single-tenant (preview) Logic Apps service
+### Multi-tenant & single-tenant (preview)
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
-| Action - Executions per 5-minute rolling interval | - 100,000 executions (default) <p><p>- 300,000 executions (maximum in high throughput mode)  | To raise the default value to the maximum value for your workflow, see [Run in high throughput mode](#run-high-throughput-mode), which is in preview. Or, you can [distribute the workload across more than one workflow](handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary. |
+| Action - Executions per 5-minute rolling interval | - Default: 100,000 executions <p><p>- High throughput mode: 300,000 executions  | To raise the default value to the maximum value for your workflow, see [Run in high throughput mode](#run-high-throughput-mode), which is in preview. Or, you can [distribute the workload across more than one workflow](handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary. |
 | Action - Concurrent outbound calls | ~2,500 calls | You can reduce the number of concurrent requests or reduce the duration as necessary. |
 | Managed connector throttling | - Multi-tenant: Throttling limit varies based on connector <p><p>- Single-tenant: 50 requests per minute per connection | For multi-tenant, review [each managed connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors). <p><p>For more information about handling connector throttling, review [Handle throttling problems ("429 - Too many requests" errors](handle-throttling-problems-429-errors.md#connector-throttling). |
 | Runtime endpoint - Concurrent inbound calls | ~1,000 calls | You can reduce the number of concurrent requests or reduce the duration as necessary. |
@@ -180,7 +182,7 @@ The following table lists the values for a single workflow definition:
 
 For a single workflow definition, the number of actions that run every 5 minutes has a [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). To raise the default value to the [maximum value](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) for your workflow, which is three times the default value, you can enable high throughput mode, which is in preview. Or, you can [distribute the workload across more than one workflow](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary.
 
-#### [Portal (Consumption)](#tab/azure-portal)
+#### [Portal (Multi-tenant)](#tab/azure-portal)
 
 1. In the Azure portal, on your logic app's menu, under **Settings**, select **Workflow settings**.
 
@@ -188,7 +190,7 @@ For a single workflow definition, the number of actions that run every 5 minutes
 
    ![Screenshot that shows logic app menu in Azure portal with "Workflow settings" and "High throughput" set to "On".](./media/logic-apps-limits-and-config/run-high-throughput-mode.png)
 
-#### [Resource Manager Template (Consumption)](#tab/azure-resource-manager)
+#### [Resource Manager Template](#tab/azure-resource-manager)
 
 To enable this setting in an ARM template for deploying your logic app, in the `properties` object for your logic app's resource definition, add the `runtimeConfiguration` object with the `operationOptions` property set to `OptimizedForHighThroughput`:
 
@@ -274,8 +276,8 @@ By default, the HTTP action and APIConnection actions follow the [standard async
 
 | Name | Multi-tenant | Single-tenant (preview) | Integration service environment | Notes |
 |------|--------------|-------------------------|---------------------------------|-------|
-| Outbound request | 120 sec <br>(2 min) | 230 sec <br>(3.9 min) | 240 sec <br>(4 min) | Examples of outbound requests include calls made by the HTTP trigger or action. For more information about the preview version, see [Azure Logic Apps Preview](logic-apps-overview-preview.md). <p><p>**Tip**: For longer running operations, use an [asynchronous polling pattern](../logic-apps/logic-apps-create-api-app.md#async-pattern) or an ["Until" loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). To work around timeout limits when you call another workflow that has a [callable endpoint](logic-apps-http-endpoint.md), you can use the built-in Azure Logic Apps action instead, which you can find in the connector picker under **Built-in**. |
-| Inbound request | 120 sec <br>(2 min) | 230 sec <br>(3.9 min) | 240 sec <br>(4 min) | Examples of inbound requests include calls received by the Request trigger, HTTP Webhook trigger, and HTTP Webhook action. For more information about the preview version, see [Azure Logic Apps Preview](logic-apps-overview-preview.md). <p><p>**Note**: For the original caller to get the response, all steps in the response must finish within the limit unless you call another nested workflow. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). |
+| Outbound request | 120 sec <br>(2 min) | 230 sec <br>(3.9 min) | 240 sec <br>(4 min) | Examples of outbound requests include calls made by the HTTP trigger or action. <p><p>**Tip**: For longer running operations, use an [asynchronous polling pattern](../logic-apps/logic-apps-create-api-app.md#async-pattern) or an ["Until" loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). To work around timeout limits when you call another workflow that has a [callable endpoint](logic-apps-http-endpoint.md), you can use the built-in Azure Logic Apps action instead, which you can find in the designer's operation picker under **Built-in**. |
+| Inbound request | 120 sec <br>(2 min) | 230 sec <br>(3.9 min) | 240 sec <br>(4 min) | Examples of inbound requests include calls received by the Request trigger, HTTP Webhook trigger, and HTTP Webhook action. <p><p>**Note**: For the original caller to get the response, all steps in the response must finish within the limit unless you call another nested workflow. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). |
 ||||||
 
 <a name="message-size-limits"></a>
@@ -286,7 +288,7 @@ By default, the HTTP action and APIConnection actions follow the [standard async
 |------|------------------|--------------|-------------------------|---------------------------------|-------|
 | Content download - Maximum number of requests | Yes | 1,000 requests | 1,000 requests | 1,000 requests ||
 | Message size | No | 100 MB | 100 MB | 200 MB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs don't support chunking or even the default limit. <p><p>- Connectors such as AS2, X12, and EDIFACT have their own [B2B message limits](#b2b-protocol-limits). <p>- ISE connectors use the ISE limit, not the non-ISE connector limits. |
-| Message size | Yes | 1 GB | 1 GB (1,073,741,824 bytes) | 5 GB | This limit applies to actions that either natively support chunking or let you enable chunking in their runtime configuration. <p><p>If you're using an ISE, the Logic Apps engine supports this limit, but connectors have their own chunking limits up to the engine limit, for example, see the [Azure Blob Storage connector's API reference](/connectors/azureblob/). For more information about chunking, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). |
+| Message size | Yes | 1 GB | 1,073,741,824 bytes <br>(1 GB) | 5 GB | This limit applies to actions that either natively support chunking or let you enable chunking in their runtime configuration. <p><p>If you're using an ISE, the Logic Apps engine supports this limit, but connectors have their own chunking limits up to the engine limit, for example, see the [Azure Blob Storage connector's API reference](/connectors/azureblob/). For more information about chunking, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). |
 | Content chunk size | Yes | Varies per connector | 52,428,800 bytes (52 MB) | Varies per connector | This limit applies to actions that either natively support chunking or let you enable chunking in their runtime configuration. |
 |||||||
 
@@ -304,9 +306,9 @@ By default, the HTTP action and APIConnection actions follow the [standard async
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
-| Retry attempts | 90 attempts | The default is 4 attempts. To change the default, use the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). |
-| Retry max delay | 1 day | To change the default, use the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). |
-| Retry min delay | 5 sec | To change the default, use the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+| Retry attempts | - Default: 4 attempts <br> - Max: 90 attempts | To change the default, use the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+| Retry max delay | - Default: 1 day | To change the default, use the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+| Retry min delay | - Default: 5 sec | To change the default, use the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 ||||
 
 <a name="authentication-limits"></a>
@@ -341,8 +343,8 @@ The following table lists the values for a single workflow definition:
 
 | Name | Multi-tenant | Single-tenant (preview) | Notes |
 |------|--------------|-------------------------|-------|
-| Maximum number of code characters | 1,024 characters | 100,000 characters | To use a higher limit, create a **Logic App (Preview)** resource type, which runs in single-tenant (preview) Logic Apps, either [by using the Azure portal](create-stateful-stateless-workflows-azure-portal.md) or [by using Visual Studio Code and the **Azure Logic Apps (Preview)** extension](create-stateful-stateless-workflows-visual-studio-code.md). |
-| Maximum duration for running code | 5 sec | 15 sec | To use a higher limit, create a **Logic App (Preview)** resource type, which runs in single-tenant (preview) Logic Apps, either [by using the Azure portal](create-stateful-stateless-workflows-azure-portal.md) or [by using Visual Studio Code and the **Azure Logic Apps (Preview)** extension](create-stateful-stateless-workflows-visual-studio-code.md). |
+| Maximum number of code characters | 1,024 characters | 100,000 characters | To use the higher limit, create a **Logic App (Preview)** resource, which runs in single-tenant (preview) Logic Apps, either [by using the Azure portal](create-stateful-stateless-workflows-azure-portal.md) or [by using Visual Studio Code and the **Azure Logic Apps (Preview)** extension](create-stateful-stateless-workflows-visual-studio-code.md). |
+| Maximum duration for running code | 5 sec | 15 sec | To use the higher limit, create a **Logic App (Preview)** resource, which runs in single-tenant (preview) Logic Apps, either [by using the Azure portal](create-stateful-stateless-workflows-azure-portal.md) or [by using Visual Studio Code and the **Azure Logic Apps (Preview)** extension](create-stateful-stateless-workflows-visual-studio-code.md). |
 |||||
 
 <a name="custom-connector-limits"></a>
@@ -437,11 +439,11 @@ The following tables list the values for the number of artifacts limited to each
 
 The following table lists the message size limits that apply to B2B protocols:
 
-| Name | Multi-tenant | Integration service environment | Notes |
-|------|--------------|---------------------------------|-------|
-| AS2 | v2 - 100 MB<br>v1 - 25 MB | v2 - 200 MB <br>v1 - 25 MB | Applies to decode and encode |
-| X12 | 50 MB | 50 MB | Applies to decode and encode |
-| EDIFACT | 50 MB | 50 MB | Applies to decode and encode |
+| Name | Multi-tenant | Single-tenant | Integration service environment | Notes |
+|------|--------------|---------------|---------------------------------|-------|
+| AS2 | v2 - 100 MB<br>v1 - 25 MB | Unavailable | v2 - 200 MB <br>v1 - 25 MB | Applies to decode and encode |
+| X12 | 50 MB | Unavailable | 50 MB | Applies to decode and encode |
+| EDIFACT | 50 MB | Unavailable | 50 MB | Applies to decode and encode |
 ||||
 
 <a name="configuration"></a>
