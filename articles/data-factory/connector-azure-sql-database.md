@@ -46,7 +46,7 @@ If you use Azure SQL Database [serverless tier](../azure-sql/database/serverless
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Azure Data Factory entities specific to an Azure SQL Database connector.
 
