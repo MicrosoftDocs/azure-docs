@@ -1,5 +1,5 @@
 ---
-title: "Custom locations on Azure Arc enabled Kubernetes"
+title: "Create and manage custom locations on Azure Arc enabled Kubernetes"
 services: azure-arc
 ms.service: azure-arc
 ms.date: 05/25/2021
@@ -10,11 +10,17 @@ ms.custom: references_regions, devx-track-azurecli
 description: "Use custom locations to deploy Azure PaaS services on Azure Arc enabled Kubernetes clusters"
 ---
 
-# Custom locations on Azure Arc enabled Kubernetes
+# Create and manage custom locations on Azure Arc enabled Kubernetes
 
 As an Azure location extension, *Custom Locations* provides a way for tenant administrators to use their Azure Arc enabled Kubernetes clusters as target locations for deploying Azure services instances. Azure resources examples include Azure Arc enabled SQL Managed Instance and Azure Arc enabled PostgreSQL Hyperscale.
 
 Similar to Azure locations, end users within the tenant with access to Custom Locations can deploy resources there using their company's private compute.
+
+In this article, you learn how to:
+> [!div class="checklist"]
+> * Enable custom locations on your Azure Arc enabled Kubernetes cluster.
+> * Deploy the Azure service cluster extension of the Azure service instance on your cluster.
+> * Create a custom location on your Azure Arc enabled Kubernetes cluster.
 
 A conceptual overview of this feature is available in [Custom locations - Azure Arc enabled Kubernetes](conceptual-custom-locations.md) article.
 
@@ -90,7 +96,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
         > Outbound proxy without authentication and outbound proxy with basic authentication are supported by the Arc enabled Data Services cluster extension. Outbound proxy that expects trusted certificates is currently not supported.
 
 
-    * Azure App Service on Azure Arc
+    * Azure App Service on Azure Arc(../../app-service/overview-arc-integration.md)
 
         ```azurecli
         az k8s-extension create --name <extensionInstanceName> --extension-type 'Microsoft.Web.Appservice' --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName> --scope cluster --release-namespace appservice-ns --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" --configuration-settings "appsNamespace=appservice-ns" 
@@ -123,7 +129,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 ## Next steps
 
 - Securely connect to the cluster using [Cluster Connect](cluster-connect.md).
-- Continue with Azure App Services on Azure Arc to create your first web, function, or logic app. 
+- Continue with Azure App Service on Azure Arc(../../app-service/overview-arc-integration.md) for end-to-end instructions on installing extensions, creating custom locations, and creating the App Service Kubernetes environment. 
 - Create an Event Grid topic and an event subscription for Event Grid on Kubernetes. 
 - Learn more about currently available [Azure Arc enabled Kubernetes extensions](extensions.md#currently-available-extensions).
 

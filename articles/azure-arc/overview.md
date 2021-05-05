@@ -12,7 +12,7 @@ Today, companies struggle to control and govern increasingly complex environment
 In parallel, new DevOps and ITOps operational models are hard to implement, as existing tools fail to provide support for new cloud native patterns.
 
 Azure Arc simplifies governance and management by delivering a consistent multi-cloud and on-premises management platform. Azure Arc enables you to:
-* Manage your entire environment, with a single pane of glass, by projecting your existing resources into Azure Resource Manager. 
+* Manage your entire environment, with a single pane of glass, by projecting your existing non-Azure, on-premises, or other-cloud resources into Azure Resource Manager. 
 * Manage virtual machines, Kubernetes clusters, and databases as if they are running in Azure. 
 * Use familiar Azure services and management capabilities, regardless of where they live. 
 * Continue using traditional ITOps, while introducing DevOps practices to support new cloud native patterns in your environment.

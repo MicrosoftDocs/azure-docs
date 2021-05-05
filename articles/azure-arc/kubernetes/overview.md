@@ -45,7 +45,7 @@ Azure Arc enabled Kubernetes supports the following scenarios:
 
 * Apply policies using Azure Policy for Kubernetes.
 
-* Create [custom locations](./custom-locations.md) as target locations for deploying Azure Arc enabled Data Services, App Services on Azure Arc (including web, function, and logic apps) and Event Grid on Kubernetes.
+* Create [custom locations](./custom-locations.md) as target locations for deploying Azure Arc enabled Data Services, App Service on Azure Arc (including web, function, and logic apps) and Event Grid on Kubernetes.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 

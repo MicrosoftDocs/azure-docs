@@ -9,12 +9,19 @@ ms.author: shasb
 description: "Deploy and manage lifecycle of extensions on Azure Arc enabled Kubernetes"
 ---
 
-# Kubernetes cluster extensions
+# Deploy and manage Azure Arc enabled Kubernetes cluster extensions
 
 The Kubernetes extensions feature enables the following on Azure Arc enabled Kubernetes clusters:
 
 * Azure Resource Manager-based deployment of cluster extension.
 * Lifecycle management of extension Helm charts.
+
+In this article, you learn:
+> [!div class="checklist"]
+> * Current available Azure Arc enabled Kubernetes cluster extensions.
+> * How to create extension instances.
+> * Required and optional parameters.
+> * How to view, list, update, and delete extension instances. 
 
 A conceptual overview of this feature is available in [Cluster extensions - Azure Arc enabled Kubernetes](conceptual-extensions.md) article.
 
@@ -48,7 +55,7 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 | [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json) | Provides visibility into the performance of workloads deployed on the Kubernetes cluster. Collects memory and CPU utilization metrics from controllers, nodes, and containers. |
 | [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json) | Gathers information related to security like audit log data from the Kubernetes cluster. Provides recommendations and threat alerts based on gathered data. |
 | [Azure Arc enabled Data Services](../../azure-arc/kubernetes/custom-locations.md#create-custom-location) | Makes it possible for you to run Azure data services on-prem, at the edge, and in public clouds using Kubernetes and the infrastructure of your choice. |
-| Azure App Services on Azure Arc(../../app-service/overview-arc-integration.md) | Allows you to provision an App Service Kubernetes environment on top of Azure Arc enabled Kubernetes clusters. |
+| Azure App Service on Azure Arc(../../app-service/overview-arc-integration.md) | Allows you to provision an App Service Kubernetes environment on top of Azure Arc enabled Kubernetes clusters. |
 | Event Grid on Kubernetes | Create and manage event grid resources such as topics and event subscriptions on top of Azure Arc enabled Kubernetes clusters. |
 | Azure API Management on Azure Arc(../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md) | Deploy and manage API Management gateway on Azure Arc enabled Kubernetes clusters. |
 
@@ -261,6 +268,6 @@ Learn more about the cluster extensions currently available for Azure Arc enable
 > [!div class="nextstepaction"]
 > [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json)
 > [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
-> App Services on Azure Arc
+> App Service on Azure Arc
 > Event Grid on Kubernetes
 > API Management on Azure Arc
