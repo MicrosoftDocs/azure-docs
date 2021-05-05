@@ -73,7 +73,7 @@ Esv3-series VM’s feature Intel® Hyper-Threading Technology.
 | Standard_E64s_v3 <sup>1</sup>  | 64 | 432 | 864 | 32 | 128000/1024 (1600) | 128000/2000 | 80000/1200 | 80000/2000 | 8/30000 |
 | Standard_E64is_v3 <sup>2</sup> | 64 | 432 | 864 | 32 | 128000/1024 (1600) | 128000/2000 | 80000/1200 | 80000/2000 | 8/30000 |
 
-<sup>1</sup> Constrained core sizes available.
+<sup>1</sup> [Constrained core sizes available](./constrained-vcpu.md).
 
 <sup>2</sup> Instance is isolated to hardware dedicated to a single customer.
 
