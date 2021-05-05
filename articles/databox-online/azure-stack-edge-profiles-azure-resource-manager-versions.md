@@ -20,7 +20,7 @@ The API profile uses three naming conventions:
 - **yyyy-mm-dd-hybrid**
 - **yyyy-mm-dd-profile**
 
-For an explanation of API profiles and version release cadence for Azure Stack Edge, see [Manage API version profiles in Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-2008&preserve-view=true).
+For an explanation of API profiles and version release cadence for Azure Stack Edge, see [Manage API version profiles in Azure Stack Hub](/azure-stack/user/azure-stack-version-profiles?view=azs-2008&preserve-view=true).
 
 
 ## Overview of the 2019-03-01-hybrid profile
@@ -34,13 +34,13 @@ For an explanation of API profiles and version release cadence for Azure Stack E
 |Microsoft.Resources (Azure Resource Manager itself)|2020-06-01  |
 |Microsoft.Authorization (policy operations)        |2016-09-01  |
 
-For a list of the versions for each resource type for the providers in the API profile, see [Details for the 2019-03-01-hybrid profile](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions?view=azs-2008&preserve-view=true#details-for-the-2019-03-01-hybrid-profile).
+For a list of the versions for each resource type for the providers in the API profile, see [Details for the 2019-03-01-hybrid profile](/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions.md?view=azs-2008&preserve-view=true#details-for-the-2019-03-01-hybrid-profile).
 
 ## Details for the 2019-03-01-hybrid profile
 
 ### Microsoft.Compute
 
-The Azure Compute APIs give you programmatic access to virtual machines and their supporting resources. For more information, see [Azure Compute](https://docs.microsoft.com/rest/api/compute/).
+The Azure Compute APIs give you programmatic access to virtual machines and their supporting resources. For more information, see [Azure Compute](/rest/api/compute/).
 
 |Resource Type     |API Version |
 |------------------|------------|
@@ -49,7 +49,7 @@ The Azure Compute APIs give you programmatic access to virtual machines and thei
 
 ### Microsoft.Network
 
-The operations call result is a representation of the available Network cloud operations list. For more information, see [Operation REST API](https://docs.microsoft.com/rest/api/operation/).
+The operations call result is a representation of the available Network cloud operations list. For more information, see [Operation REST API](/rest/api/operation/).
 
 |Resource Types    |API Versions|
 |------------------|------------|
@@ -58,7 +58,7 @@ The operations call result is a representation of the available Network cloud op
 
 ### Microsoft.Resources
 
-Azure Resource Manager lets you deploy and manage the infrastructure for your Azure solutions. You organize related resources in resource groups and deploy your resources with JSON templates. For an introduction to deploying and managing resources with Resource Manager, see the [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/management/overview).
+Azure Resource Manager lets you deploy and manage the infrastructure for your Azure solutions. You organize related resources in resource groups and deploy your resources with JSON templates. For an introduction to deploying and managing resources with Resource Manager, see the [Azure Resource Manager overview](/azure/azure-resource-manager/management/overview).
 
 |Resource Types                        |API Versions|
 |--------------------------------------|------------|
@@ -82,7 +82,7 @@ Azure Resource Manager lets you deploy and manage the infrastructure for your Az
 
 ### Microsoft.Storage
 
-The Storage Resource Provider (SRP) lets you manage your storage account and keys programmatically. For more information, see the [Azure Storage Resource Provider REST API reference](https://docs.microsoft.com/rest/api/storagerp/).
+The Storage Resource Provider (SRP) lets you manage your storage account and keys programmatically. For more information, see the [Azure Storage Resource Provider REST API reference](/rest/api/storagerp/).
 
 |Resource Types       |API Versions|
 |---------------------|------------|
