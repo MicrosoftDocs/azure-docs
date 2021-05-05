@@ -1,21 +1,21 @@
 ---
 title: 'Create an Azure AD tenant for P2S VPN connections: Azure AD authentication'
 titleSuffix: Azure VPN Gateway
-description: Learn how to set up an Azure AD tenant for P2S Open VPN authentication.
+description: Learn how to set up an Azure AD tenant for P2S Azure AD authentication - OpenVPN protocol.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 05/05/2021
 ms.author: cherylmc
 
 ---
 # Create an Azure Active Directory tenant for P2S OpenVPN protocol connections
 
-When connecting to your VNet, you can use certificate-based authentication or RADIUS authentication. However, when you use the Open VPN protocol, you can also use Azure Active Directory authentication. This article helps you set up an Azure AD tenant for P2S Open VPN authentication.
+You can use Azure Active Directory authentication when you connect to your Azure VNet using Point-to-Site and the OpenVPN protocol. Native Azure AD authentication is supported for the OpenVPN protocol only. This article helps you set up an Azure AD tenant. For more information about Point-to-Site, see [About Point-to-Site VPN](point-to-site-about.md).
 
-[!INCLUDE [Windows 10 and OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
+[!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 ## <a name="tenant"></a>1. Verify Azure AD tenant
 
