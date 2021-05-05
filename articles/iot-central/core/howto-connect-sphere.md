@@ -78,7 +78,7 @@ To create a simulated device:
 
 ## Next steps
 
-If you're a device developer, some suggested next steps are to:
+Some suggested next steps are to:
 
 - Read about [Device connectivity in Azure IoT Central](./concepts-get-connected.md)
 - Learn how to [Monitor device connectivity using Azure CLI](./howto-monitor-devices-azure-cli.md)
