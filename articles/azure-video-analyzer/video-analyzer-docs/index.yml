@@ -28,40 +28,63 @@ landingContent:
             url: overview.md
           - text: About Azure Video Analyzer for Media
             url: ../video-analyzer-for-media-docs/video-indexer-overview.md            
-      - linkListType: concept
-        links:
-          - text: Pipeline
-            url: pipeline.md
-          - text: Video recording 
-            url: video-recording.md
       - linkListType: quickstart
         links:
           - text: Get started with Azure Video Analyzer 
             url: get-started-detect-motion-emit-events.md
         
-  # Card
-  - title: Video Analyzer quickstarts/tutorials
+  - title: Record video based on events
     linkLists:
     - linkListType: concept
       links:
-        - text: Pipeline extension
-          url: pipeline-extension.md
-        - text: Event-based video recording
-          url: event-based-video-recording-concept.md 
         - text: Continuous video recording
-          url: continuous-video-recording.md
+          url: event-based-video-recording-concept.md 
+    - linkListType: quickstart
+      links:            
+        - text: Detect motion, record video on edge devices
+          url: detect-motion-record-video-edge-devices.md
+        - text: Detect Motion, record video in the cloud
+          url: detect-motion-record-video-clips-cloud.md
+    - linkListType: tutorial
+      links:            
+        - text: Event-based video recording and playback
+          url: record-event-based-live-video.md    
+
+  - title: Analyzing live videos without recording
+    linkLists:
+    - linkListType: concept
+      links:
         - text: Analyze live videos without recording
           url: analyze-live-video-without-recording.md
     - linkListType: quickstart
       links:            
+        - text: Detect motion and emit events    
+          url: detect-motion-emit-events-quickstart.md
         - text: Track objects in live videos
           url: track-objects-live-video.md
-        - text: Detect motion, record video on edge devices
-          url: detect-motion-record-video-edge-devices.md
     - linkListType: tutorial
-      links:            
+      links:     
+        - text: Analyze live video with OVMS via HTTP extension
+          url: use-intel-openvino-tutorial.md
+        - text: Analyze live video with OV DL Streamer via gRPC extension
+          url: use-intel-grpc-video-analytics-serving-tutorial.md
         - text: Analyze live video with Spatial Analysis
           url: computer-vision-for-spatial-analysis.md    
         - text: Analyze live video with Custom Vision 
           url: analyze-live-video-custom-vision.md 
+
+  - title: References
+    linkLists:
+    - linkListType: reference
+      links:
+        - text: FAQs
+          url: faq-edge.md 
+        - text: Client APIs #404
+          url: client-apis.md
+        - text: Pipeline extension
+          url: pipeline-extension.md
+        - text: Direct methods
+          url: direct-methods.md
+        - text: Quotas and limitations
+          url: quotas-limitations.md           
 

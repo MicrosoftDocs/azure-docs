@@ -8,7 +8,7 @@ zone_pivot_groups: video-analyzer-programming-languages
 
 ---
 
-# Analyze live video with your own model - HTTP
+# Quickstart: Analyze live video with your own model - HTTP
 
 This quickstart shows you how to use Azure Video Analyzer to analyze a live video feed from a (simulated) IP camera. You'll see how to apply a computer vision model to detect objects. A subset of the frames in the live video feed is sent to an inference service. The results are sent to IoT Edge Hub.
 
@@ -31,21 +31,6 @@ When you set up the Azure resources, a short video of highway traffic is copied 
 Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to [the highway intersection sample video](https://www.microsoft.com/videoplayer/embed/RE4LTY4) to start playback. You see the footage of many vehicles moving in highway traffic.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LTY4]
-
-In this quickstart, you'll use Video Analyzer to detect objects such as vehicles and persons. You'll publish associated inference events to IoT Edge Hub.
-
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/analyze-live-video-use-your-model-http/overview.png" alt-text="Publish associated inference events to IoT Edge Hub":::
-
-This above diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555)  simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source node](pipeline.md#rtsp-source)pulls the video feed from this server and sends video frames to the [HTTP extension processor node](pipeline.md#http-extension-processor).
-
-The HTTP extension node plays the role of a proxy. It samples the incoming video frames set by the samplingOptions field and converts the video frames to the specified image type. Then it relays the images over REST to another edge module that runs an AI model behind an HTTP endpoint. In this example, that edge module is built by using the YOLOv3 model, which can detect many types of objects. The HTTP extension processor node gathers the detection results and publishes events to the [IoT Hub message sink node](pipeline.md#iot-hub-message-sink). The node then sends those events to [IoT Edge Hub](https://docs.microsoft.com/azure/iot-fundamentals/iot-glossary?view=iotedge-2018-06&preserve-view=true#iot-edge-hub).
-
-In this quickstart, you will:
-
-* Create and deploy the livePipeline.
-* Interpret the results.
-* Clean up resources.
 
 ## Create and deploy the livePipeline
 
@@ -71,8 +56,8 @@ In this quickstart, you will:
     Otherwise, near the **AZURE IOT HUB** pane in the lower-left corner, select the **More actions** icon and then select **Set IoT Hub Connection String**. You can copy the string from the *appsettings.json* file. Or, to ensure you've configured the proper IoT hub within Visual Studio Code, use the [Select IoT hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/set-connection-string.png" alt-text="Set IoT Hub Connection String":::
-     `
+    > :::image type="content" source="./media/vscode-common-screenshots/set-connection-string.png" alt-text="Set IoT Hub Connection String":::
+    
     > [!NOTE]
     > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this: <br/>
     > 
@@ -86,20 +71,10 @@ In this quickstart, you will:
 
     * The Video Analyzer module, named **avaedge**.
     * The **rtspsim** module, which simulates an RTSP server and acts as the source of a live video feed.
-    
-    > [!NOTE]
-    > The above steps assume you are using the virtual machine created by the setup script. If you are using your own edge device instead, go to your edge device and run the following commands with **admin rights**, to pull and store the sample video file used for this quickstart:
-    
-    ```
-    mkdir /home/localedgeuser/samples
-    mkdir /home/localedgeuser/samples/input    
-    curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lcoaledgeuser/samples/input/camera-300s.mkv  
-    chown -R localedgeuser:localusergroup /home/localedgeuser/samples/  
-    ```
-    * The yolov3 module, which is the YoloV3 object detection model that applies computer vision to the images and returns multiple classes of object types
+    * The **avaextension** module, which is the YoloV3 object detection model that applies computer vision to the images and returns multiple classes of object types
 
         > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/analyze-live-video-use-your-model-http/object-detection-model.png" alt-text= "YoloV3 object detection model":::
+        > :::image type="content" source="./media/vscode-common-screenshots/avaextension.png" alt-text= "YoloV3 object detection model":::
     
 ## Prepare to monitor events
 

@@ -7,7 +7,7 @@ zone_pivot_groups: video-analyzer-programming-languages
 
 ---
 
-# Detect motion and record video on edge devices
+# Quickstart: Detect motion and record video on edge devices
 
 This quickstart shows you how to use Azure Video Analyzer on IoT Edge to analyze the live video feed from a (simulated) IP camera. It shows how to detect if any motion is present, and if so, record an MP4 video clip to the local file system on the edge device. The quickstart uses an Azure VM as an IoT Edge device and also uses a simulated live video stream.
 
@@ -33,21 +33,6 @@ Open an application like [VLC media player](https://www.videolan.org/vlc/), sele
 
 Complete the following steps to use Live Video Analytics on IoT Edge to detect the motion of the car and record a video clip starting around the 5-second mark.
 
-## Overview
-
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/detect-motion-record-video-edge-devices/overview.png" alt-text="Publish associated inference events to IoT Edge Hub":::
-
-The preceding diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera that hosts a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [motion detection processor](pipeline.md#motion-detection-processor)  node. The RTSP source sends the same video frames to a [signal gate processor](pipeline.md#signal-gate-processor) node, which remains closed until it's triggered by an event.
-
-When the motion detection processor detects motion in the video, it sends an event to the signal gate processor node, triggering it. The gate opens for the configured duration of time, sending video frames to the [file sink](pipeline.md#file-sink) node. This sink node records the video as an MP4 file on the local file system of your edge device. The file is saved in the configured location.
-
-In this quickstart, you will:
-
-1. Create and deploy the pipeline.
-1. Interpret the results.
-1. Clean up resources.
-
 ## Examine and edit the sample files
 
 ::: zone pivot="programming-language-csharp"
@@ -57,27 +42,6 @@ In this quickstart, you will:
 ::: zone pivot="programming-language-python"
 [!INCLUDE [prerequisites](includes/detect-motion-record-video-edge-devices/python/sample-files.md)]
 ::: zone-end
-
-## Check the modules' status
-
-In the [Generate and deploy the IoT Edge deployment manifest](detect-motion-emit-events-quickstart.md#generate-and-deploy-the-deployment-manifest) step, in Visual Studio Code, expand the **avasample-iot-edge-device** node under **AZURE IOT HUB** (in the lower-left section). You should see the following modules deployed:
-
-* The Azure Video Analyzer module, named avaedge.
-* The rtspsim module, which simulates an RTSP server that acts as the source of a live video feed.
-
-  > [!div class="mx-imgBorder"]
-  > :::image type="content" source="./media/vscode-common-screenshots/avaedge-module.png" alt-text= "Video Analyzer module":::
-
-## Prepare for monitoring events
-
-Make sure you've completed the steps to Prepare to monitor events.
-
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/vscode-common-screenshots/start-monitoring.png" alt-text= "Start Monitoring Built-in Event Endpoint":::
-
-> [!NOTE]
-> You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for ***Built-in endpoints*** option in the left navigation pane. Click there and look for the ***Event Hub-compatible endpoint*** under Event Hub compatible endpoint section. Copy and use the text in the box. The endpoint will look something like this:
-Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
 
 ## Run the sample program
 
@@ -211,7 +175,7 @@ Here's an example of this message:
 
 In the preceding message:
 
-* In applicationProperties, subject references the node in the media graph from which the message was generated. In this case, the message originates from the file sink node.
+* In applicationProperties, subject references the node in the pipeline from which the message was generated. In this case, the message originates from the file sink node.
 * In applicationProperties, eventType indicates that this event is operational.
 * The eventTime value is the time when the event occurred. This time is 5 to 6 seconds after MediaSessionEstablished and after video starts to flow. This time corresponds to the 5-to-6-second mark when the [car started to move](#review-the-sample-video) into the parking lot.
 * The body section contains data about the operational event. In this case, the data comprises outputType and outputLocation.
@@ -220,7 +184,7 @@ In the preceding message:
 
 ### RecordingStopped and RecordingAvailable events
 
-If you examine the properties of the signal gate processor node in the [graph topology](pipeline.md), you see that the activation times are set to 5 seconds. So about 5 seconds after the RecordingStarted event is received, you get:
+If you examine the properties of the signal gate processor node in the [pipeline topology](pipeline.md), you see that the activation times are set to 5 seconds. So about 5 seconds after the RecordingStarted event is received, you get:
 
 * A RecordingStopped event, indicating that the recording has stopped.
 * A RecordingAvailable event, indicating that the MP4 file can now be used for viewing.

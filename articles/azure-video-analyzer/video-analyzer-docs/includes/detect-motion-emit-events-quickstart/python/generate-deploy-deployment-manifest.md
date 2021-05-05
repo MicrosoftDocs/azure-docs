@@ -35,7 +35,8 @@ Follow these steps to generate the manifest from the template file and then depl
     * Azure Video Analyzer on IoT Edge (module name `avaedge`)
     * Real-Time Streaming Protocol (RTSP) simulator (module name `rtspsim`)
 
-The RTSP simulator module simulates a live video stream by using a video file that was copied to your edge device when you ran the [Azure Video Analyzer resources setup script](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy). 
+The RTSP simulator module simulates a live video stream by using a video file that was copied to your edge device when you ran the [Azure Video Analyzer resources setup script](https://aka.ms/ava-click-to-deploy). 
+
 
 > [!NOTE]
 > If you are using your own edge device instead of the one provisioned by our quickstart, go to your edge device and run the following command with **admin rights**, to pull and store the sample video file used for this quickstart:
