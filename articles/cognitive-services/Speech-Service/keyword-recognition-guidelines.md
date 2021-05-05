@@ -19,7 +19,7 @@ This article outlines how to choose your keyword optimize its accuracy character
 
 ## Choosing an effective keyword
 
-Creating an effective keyword is vital to ensuring your product will consistently and accurately respond. Consider the following guidelines when you choose a keyword. *Note: though the examples below are in English, the guidelines apply to all languages supported by Custom Keyword. For a list of all support languages, see [Keyword recognition language and region support](keyword-recognition-language-region-support.md).*
+Creating an effective keyword is vital to ensuring your product will consistently and accurately respond. Consider the following guidelines when you choose a keyword. *Note: though the examples below are in English, the guidelines apply to all languages supported by Custom Keyword. For a list of all support languages, see [Language support](language-support.md#custom-keyword-and-keyword-verification).*
 - It should take no longer than two seconds to say.
 - Words of 4 to 7 syllables work best. For example, "Hey, Computer" is a good keyword. Just "Hey" is a poor one.
 - Keywords should follow common pronunciation rules specific to the native language of your end-users.
