@@ -238,52 +238,11 @@ The IoT DevKit contains a rich gallery of samples that you can use to learn conn
 
 1. Make sure your IoT DevKit is **not connected** to your computer. Start VS Code first, and then connect the DevKit to your computer.
 
-1. Click `F1` to open the command palette, type and select **Azure IoT Device Workbench: Open Examples...**. Then select **IoT DevKit** as board.
+1. Click `F1` to open the command palette, type and select **Azure IoT Device Workbench: Open Examples...**. Then select **MXChip IoT DevKit** as board.
 
-1. In the IoT Workbench Examples page, find **Get Started** and click **Open Sample**. Then selects the default path to download the sample code.
+1. In the IoT Workbench Examples page, find **Get Started** and click **Open Sample**. Then select the default path to download the sample code.
 
     ![Open sample](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/open-sample.png)
-
-### Provision Azure IoT Hub and device
-
-Instead of provisioning Azure IoT Hub and device from the Azure portal, you can do it in the VS Code without leaving the development environment.
-
-1. In the new opened project window, click `F1` to open the command palette, type and select **Azure IoT Device Workbench: Provision Azure Services...**. Follow the step by step guide to finish provisioning your Azure IoT Hub and creating the IoT Hub device.
-
-    ![Provision command](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/provision.png)
-
-    > [!NOTE]
-    > If you have not signed in Azure. Follow the pop-up notification for signing in.
-
-1. Select the subscription you want to use.
-
-    ![Select sub](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-subscription.png)
-
-1. Then select or create a new [resource group](../azure-resource-manager/management/overview.md#terminology).
-
-    ![Select resource group](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-resource-group.png)
-
-1. In the resource group you specified, follow the guide to select or create a new Azure IoT Hub.
-
-    ![Select IoT Hub steps](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/iot-hub-provision.png)
-
-    ![Select IoT Hub](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-iot-hub.png)
-
-    ![Selected IoT Hub](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/iot-hub-selected.png)
-
-1. In the output window, you will see the Azure IoT Hub provisioned.
-
-    ![IoT Hub Provisioned](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/iot-hub-provisioned.png)
-
-1. Select or create a new device in Azure IoT Hub you provisioned.
-
-    ![Select IoT Device steps](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/iot-device-provision.png)
-
-    ![Select IoT Device Provisioned](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-iot-device.png)
-
-1. Now you have Azure IoT Hub provisioned and device created in it. Also the device connection string will be saved in VS Code for configuring the IoT DevKit later.
-
-    ![Provision done](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/provision-done.png)
 
 ### Configure and compile device code
 
@@ -291,7 +250,7 @@ Instead of provisioning Azure IoT Hub and device from the Azure portal, you can 
 
     ![Select board and COM](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-com.png)
 
-1. Click `F1` to open the command palette, type and select **Azure IoT Device Workbench: Configure Device Settings...**, then select **Config Device Connection String > Select IoT Hub Device Connection String**.
+1. Click `F1` to open the command palette, type and select **Azure IoT Device Workbench: Configure Device Settings...**, select **Config Device Connection String**. Then paste the connection string for your IoT device.  
 
 1. On DevKit, hold down **button A**, push and release the **reset** button, and then release **button A**. Your DevKit enters configuration mode and saves the connection string.
 
@@ -365,6 +324,49 @@ The `GetStarted.ino` is the main Arduino sketch file.
 To see how device telemetry is sent to the Azure IoT Hub, open the `utility.cpp` file in the same folder. View [API Reference](https://microsoft.github.io/azure-iot-developer-kit/docs/apis/arduino-language-reference/) to learn how to use sensors and peripherals on IoT DevKit.
 
 The `DevKitMQTTClient` used is a wrapper of the **iothub_client** from the [Microsoft Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client) to interact with Azure IoT Hub.
+
+## Optional - Provision Azure IoT Hub and device in VS Code
+
+Instead of provisioning an Azure IoT Hub and device from the Azure portal, as you did in the beginning. You can do it in the VS Code without leaving the development environment. The steps in this section show how to do this.
+
+1. In the new opened project window, click `F1` to open the command palette, type and select **Azure IoT Device Workbench: Provision Azure Services...**. Follow the step by step guide to finish provisioning your Azure IoT Hub and creating the IoT Hub device.
+
+    ![Provision command](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/provision.png)
+
+    > [!NOTE]
+    > If you have not signed in Azure. Follow the pop-up notification for signing in.
+
+1. Select the subscription you want to use.
+
+    ![Select sub](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-subscription.png)
+
+1. Then select or create a new [resource group](../azure-resource-manager/management/overview.md#terminology).
+
+    ![Select resource group](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-resource-group.png)
+
+1. In the resource group you specified, follow the guide to select or create a new Azure IoT Hub.
+
+    ![Select IoT Hub steps](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/iot-hub-provision.png)
+
+    ![Select IoT Hub](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-iot-hub.png)
+
+    ![Selected IoT Hub](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/iot-hub-selected.png)
+
+1. In the output window, you will see the Azure IoT Hub provisioned.
+
+    ![IoT Hub Provisioned](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/iot-hub-provisioned.png)
+
+1. Select or create a new device in Azure IoT Hub you provisioned.
+
+    ![Select IoT Device steps](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/iot-device-provision.png)
+
+    ![Select IoT Device Provisioned](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-iot-device.png)
+
+1. Now you have Azure IoT Hub provisioned and device created in it. Also the device connection string will be saved in VS Code for configuring the IoT DevKit later.
+
+    ![Provision done](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/provision-done.png)
+
+
 
 ## Problems and feedback
 
