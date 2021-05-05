@@ -115,7 +115,7 @@ If you use an Azure Resource Manager template, this setting appears as a propert
 
 ---
 
-<a name="concurrency-looping-debatching-limits"></a>
+<a name="concurrency-looping-and-debatching-limits"></a>
 <a name="looping-debatching-limits"></a>
 
 ## Looping, concurrency, and debatching limits
