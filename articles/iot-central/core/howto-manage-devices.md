@@ -9,11 +9,13 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.custom: contperf-fy21q2
+
+# Operator
 ---
 
 # Manage devices in your Azure IoT Central application
 
-This article describes how, as an operator, you manage devices in your Azure IoT Central application. As an operator, you can:
+This article describes how you manage devices in your Azure IoT Central application. You can:
 
 - Use the **Devices** page to view, add, and delete devices connected to your Azure IoT Central application.
 - Import and export devices in bulk.

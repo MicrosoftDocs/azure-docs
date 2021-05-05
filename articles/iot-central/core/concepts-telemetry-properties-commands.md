@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
+
+# This article applies to device developers.
 ---
 
 # Telemetry, property, and command payloads
-
-_This article applies to device developers._
 
 A device template in Azure IoT Central is a blueprint that defines the:
 

@@ -9,11 +9,10 @@ ms.service: iot-central
 services: iot-central
 ms.custom: [device-developer, iot-edge]
 
+# This article applies to solution builders and device developers.
 ---
 
 # Connect Azure IoT Edge devices to an Azure IoT Central application
-
-*This article applies to solution builders and device developers.*
 
 Azure IoT Edge moves cloud analytics and custom business logic to devices so your organization can focus on business insights instead of data management. Scale out your IoT solution by packaging your business logic into standard containers, deploy those containers to your devices, and monitor them from the cloud.
 
