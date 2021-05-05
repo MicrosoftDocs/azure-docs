@@ -26,7 +26,7 @@ In this article you learn how to:
 ## Prerequisites
 
 - Deploy an Azure Machine Learning managed online endpoint
-- At least [Reader access](../role-based-access-control/role-assignments-portal.md) on the endpoint
+- You must have at least [Reader access](../role-based-access-control/role-assignments-portal.md) on the endpoint
 
 ## View metrics
 
@@ -37,9 +37,6 @@ Use the following steps to view metrics for a managed endpoint or deployment:
     Managed online endpoints and deployments are ARM resources that can be found by going to their owning resource group. Look for the resource types **Machine Learning online endpoint** and **Machine Learning online deployment**.
 
 1. In the left-hand column, select **Metrics**.
-
-    [![Metrics button](./media/how-to-monitor-online-endpoints/online-endpoints-choose-metric.png)](./media/how-to-monitor-online-endpoints/online-endpoints-choose-metric.png#lightbox)
-    
 
 ## Available metrics
 
@@ -74,38 +71,24 @@ Slit on the following dimension:
 
 ## Create a dashboard
 
-You can create custom dashboards to save metric views in the Azure portal. For more information, see [Create custom KPI dashboards using Application Insights](../azure-monitor/app/tutorial-app-dashboards.md#add-custom-metric-chart):
-
-1. Select metrics to viewed.
-1. Select the **Pin to dashboard** button in the top right of the metrics window.
-
-    [![Monitoring online endpoints: screenshot showing "Pin to Dashboard" button surrounded by a red box.](./media/how-to-monitor-online-endpoints/online-endpoints-pin-to-dashboard.png)](./media/how-to-monitor-online-endpoints/online-endpoints-pin-to-dashboard.png#lightbox)
-
-1. Select **Apply splitting** to split the metric before adding it to a dashboard.
-
-    Splitting lets you drill down further into metric, which can be useful for troubleshooting. For example,  splitting by status code can answer the questions "Were my 4xx responses a result of high traffic?"
-
-    [![Monitoring online endpoints: screenshot showing "Apply Splitting" button surrounded by a red box.](./media/how-to-monitor-online-endpoints/online-endpoints-apply-splitting.png)](./media/how-to-monitor-online-endpoints/online-endpoints-apply-splitting.png#lightbox)
+You can create custom dashboards to visualize data from multiple sources in the Azure portal, including your the metrics for your managed online endpoint. For more information, see [Create custom KPI dashboards using Application Insights](../azure-monitor/app/tutorial-app-dashboards.md#add-custom-metric-chart).:
     
 ## Create an alert
 
-You can custom alerts to notify you of changes to your metrics:
+You can also create custom alerts to notify you of important status updates to your managed online endpoint:
 
-1. Select **New alert rule** in the top right of the metrics window.
+1. At the top right of the metrics page, select **New alert rule**.
 
-    [![Monitoring online endpoints: screenshot showing "New alert rule" button surrounded by a red box.](./media/how-to-monitor-online-endpoints/online-endpoints-new-alert-rule.png)](./media/how-to-monitor-online-endpoints/online-endpoints-new-alert-rule.png#lightbox)
+    :::image type="content" source="./media/how-to-monitor-online-endpoints/online-endpoints-new-alert-rule.png" alt-text="Monitoring online endpoints: screenshot showing 'New alert rule' button surrounded by a red box":::
 
 1. Select a condition name to specify when your alert should be triggered.
 
-    [![Monitoring online endpoints: screenshot showing "Configure signal logic" button surrounded by a red box.](./media/how-to-monitor-online-endpoints/online-endpoints-configure-signal-logic.png)](./media/how-to-monitor-online-endpoints/online-endpoints-configure-signal-logic.png#lightbox)
+    :::image type="content" source="./media/how-to-monitor-online-endpoints/online-endpoints-configure-signal-logic.png" alt-text="Monitoring online endpoints: screenshot showing 'Configure signal logic' button surrounded by a red box":::
 
 1. Select **Add action groups** > **Create action groups** to specify what should happen when your alert is triggered.
 
-    [![Monitoring online endpoints: screenshot showing "Create action group" button surrounded by a red box.](./media/how-to-monitor-online-endpoints/online-endpoints-create-action-group.png)](./media/how-to-monitor-online-endpoints/online-endpoints-create-action-group.png#lightbox)
-
 1. Choose **Create alert rule** to finish creating your alert.
 
-    [![Monitoring online endpoints: screenshot showing "Create alert rule" button surrounded by a red box.](./media/how-to-monitor-online-endpoints/online-endpoints-create-alert-rule.png)](./media/how-to-monitor-online-endpoints/online-endpoints-create-alert-rule.png#lightbox)
 
 ## Next steps
 
