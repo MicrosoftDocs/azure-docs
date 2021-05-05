@@ -179,7 +179,9 @@ Apply the [latest runtime updates](../how-to/configure-QnA-Maker-resources.md#ge
 
 # [Custom question answering (preview release)](#tab/v2)
 
-In QnA Maker managed (Preview), the runtime is managed by the QnA Maker service itself. So service updates are not applicable.
+In Custom question answering (Preview), the runtime is managed by the QnA Maker service itself. So service updates are not applicable.
+
+---
 
 ### Scaling, throughput, and resiliency
 
@@ -193,7 +195,10 @@ All queries to your knowledge base are stored in Application Insights. Use our [
 
 # [Custom question answering (preview release)](#tab/v2)
 
-In the managed deployment, telemetry is offered through the [Azure Monitor service](../../../azure-monitor/index.yml). Use our [top queries](../how-to/get-analytics-knowledge-base.md) to understand your metrics.
+For Custom question answering, telemetry is offered through the [Azure Monitor service](../../../azure-monitor/index.yml). Use our [top queries](../how-to/get-analytics-knowledge-base.md) to understand your metrics.
+
+
+---
 
 ## Development lifecycle
 
