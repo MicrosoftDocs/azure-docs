@@ -84,6 +84,8 @@
       href: /azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
     - name: Restore VMware virtual machines 
       href: /azure/backup/restore-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
+    - name: Monitoring Azure Backup workloads
+      href: /azure/backup/backup-azure-monitoring-built-in-monitor?context=/azure/azure-vmware/context/context 
   - name: Disaster recovery
     items:
     - name: Deploy disaster recovery for VMs
