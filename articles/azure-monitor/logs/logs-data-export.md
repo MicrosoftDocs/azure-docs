@@ -29,10 +29,10 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 
 ## Limitations
 
-- Configuration can be performed using CLI or REST requests currently. Azure portal or PowerShell are not supported yet.
+- Configuration can currently be performed using CLI or REST requests . Azure portal or PowerShell are not supported yet.
 - The ```--export-all-tables``` option in CLI and REST isn't supported and will be removed. You should provide the list of tables in export rules explicitly.
-- Supported tables are currently limited those specific in the [supported tables](#supported-tables) section below. For example, custom log tables aren't supported currently.
-- If the data export rule includes an unsupported table, the operation will succeed, but no data will be exported for that table until table gets supported. 
+- Supported tables are currently limited those specified in the [supported tables](#supported-tables) section below. For example, custom log tables aren't currently supported .
+- If the data export rule includes an unsupported table, the operation will succeed, but no data will be exported for that table until the table gets supported. 
 - If the data export rule includes a table that doesn't exist, it will fail with error ```Table <tableName> does not exist in the workspace```.
 - Your Log Analytics workspace can be in any region except for the following:
   - Azure Government regions
@@ -40,16 +40,16 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
   - Brazil south east
   - Norway East
   - UAE North
-- You can create two export rules in a workspace -- in can be one rule to event hub and one rule to storage account.
+- You can create two export rules in a workspace -- there can be one rule to event hub and one rule to storage account.
 - The destination storage account or event hub must be in the same region as the Log Analytics workspace.
-- Names of tables to be exported can be no longer than 60 characters for a storage account and no more than 47 characters to an event hub. Tables with longer names will not be exported.
-- Append blob support for Azure Data Lake Storage is now in [limited public preview](https://azure.microsoft.com/updates/append-blob-support-for-azure-data-lake-storage-preview/)
+- Names of tables to be exported can be no longer than 60 characters for a storage account and no more than 47 characters for an event hub. Tables with longer names will not be exported.
+- Append blob support for Azure Data Lake Storage is now in [limited public preview](https://azure.microsoft.com/updates/append-blob-support-for-azure-data-lake-storage-preview/).
 
 ## Data completeness
 Data export will continue to retry sending data for up to 30 minutes in the event that the destination is unavailable. If it's still unavailable after 30 minutes then data will be discarded until the destination becomes available.
 
 ## Cost
-There are currently no additional charges for the data export feature. Pricing for data export will be announced in the future and a notice provided prior to start of billing. If you choose to continue using data export after the notice period, you will be billed at the applicable rate.
+There are currently no additional charges for the data export feature. Pricing for data export will be announced in the future and a notice period provided prior to the start of billing. If you choose to continue using data export after the notice period, you will be billed at the applicable rate.
 
 ## Export destinations
 
@@ -65,7 +65,7 @@ The storage account data format is [JSON lines](../essentials/resource-logs-blob
 Log Analytics data export can write append blobs to immutable storage accounts when time-based retention policies have the *allowProtectedAppendWrites* setting enabled. This allows writing new blocks to an append blob, while maintaining immutability protection and compliance. See [Allow protected append blobs writes](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
 
 > [!NOTE]
-> Append blob support for Azure Data Lake storage is now available in preview in all Azure regions. [Enroll to the limited public preview](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4mEEwKhLjlBjU3ziDwLH-pURDk2NjMzUTVEVzU5UU1XUlRXSTlHSlkxQS4u) before you create an export rule to Azure Data Lake storage. Export will not operate without this enrollment.
+> Append blob support for Azure Data Lake storage is now available in preview in all Azure regions. [Enroll in the limited public preview](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4mEEwKhLjlBjU3ziDwLH-pURDk2NjMzUTVEVzU5UU1XUlRXSTlHSlkxQS4u) before you create an export rule to Azure Data Lake storage. Export will not operate without this enrollment.
 
 ### Event hub
 Data is sent to your event hub in near-real-time as it reaches Azure Monitor. An event hub is created for each data type that you export with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to an event hub named *am-SecurityEvent*. If you want the exported data to reach a specific event hub, or if you have a table with a name that exceeds the 47 character limit, you can provide your own event hub name and export all data for defined tables to it.
@@ -74,18 +74,18 @@ Data is sent to your event hub in near-real-time as it reaches Azure Monitor. An
 > The [number of supported event hubs per namespace is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). If you export more than 10 tables, provide your own event hub name to export all your tables to that event hub.
 
 Considerations:
-1. 'Basic' event hub sku supports lower event size [limit](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) and some logs in your workspace can exceed it and be dropped. We recommend to use 'Standard' or 'Dedicated' event hub as export destination.
-2. The volume of exported data often increase over time, and the event hub scale needs to be increased to handle larger transfer rates and avoid throttling scenarios and data latency. You should use the auto-inflate feature of Event Hubs to automatically scale up and increase the number of throughput units and meet usage needs. See [Automatically scale up Azure Event Hubs throughput units](../../event-hubs/event-hubs-auto-inflate.md) for details.
+1. The 'Basic' event hub sku supports a lower event size [limit](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) and some logs in your workspace can exceed it and be dropped. We recommend using a 'Standard' or 'Dedicated' event hub as an export destination.
+2. The volume of exported data often increases over time, and the event hub scale needs to be increased to handle larger transfer rates and avoid throttling scenarios and data latency. You should use the auto-inflate feature of Event Hubs to automatically scale up and increase the number of throughput units to meet usage needs. See [Automatically scale up Azure Event Hubs throughput units](../../event-hubs/event-hubs-auto-inflate.md) for details.
 
 ## Prerequisites
-Following are prerequisites that must be completed before configuring Log Analytics data export.
+The following  prerequisites must be completed before configuring Log Analytics data export.
 
-- The storage account and event hub must already be created and must be in the same region as the Log Analytics workspace. If you need to replicate your data to other storage accounts, you can use any of the [Azure Storage redundancy options](../../storage/common/storage-redundancy.md).  
-- The storage account must be StorageV1 or StorageV2. Classic storage is not supported  
+- The storage account and event hub must already exist and be in the same region as the Log Analytics workspace. If you need to replicate your data to other storage accounts, you can use any of the [Azure Storage redundancy options](../../storage/common/storage-redundancy.md).  
+- The storage account must be StorageV1 or StorageV2. Classic storage is not supported.  
 - If you have configured your storage account to allow access from selected networks, you need to add an exception in your storage account settings to allow Azure Monitor to write to your storage.
 
 ## Enable data export
-The follow steps must be performed to enable Log Analytics data export. See the following sections for more details on each.
+The following steps must be performed to enable Log Analytics data export. See the following sections for more details on each.
 
 - Register resource provider.
 - Allow trusted Microsoft services.
