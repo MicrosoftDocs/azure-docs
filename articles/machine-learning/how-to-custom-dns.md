@@ -85,7 +85,9 @@ The FQDNs resolve to the IP addresses of the Azure Machine Learning workspace in
 
 ## Manual DNS server integration
 
-### Retrieve IPs for Private Endpoint FQDNs
+This section discusses which Fully Qualified Domains to create A records for in a DNS Server, and which IP address to set the value of the A record to.
+
+### Retrieve Private Endpoint FQDNs
 
 #### Azure Public region
 
@@ -96,7 +98,7 @@ The following list contains the fully qualified domain names (FQDNs) used by you
 * `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.azure.net`
 
     > [!NOTE]
-    > The workspace name for this FQDN may be truncated. Truncation is done to keep `ml-<workspace-name, truncated>-<region>-<workspace-guid>` 63 characters.
+    > The workspace name for this FQDN may be truncated. Truncation is done to keep `ml-<workspace-name, truncated>-<region>-<workspace-guid>` at 63 characters or less.
 * `<instance-name>.<region>.instances.azureml.ms`
 
     > [!NOTE]
@@ -112,8 +114,22 @@ The following FQDNs are for Azure China regions:
 * `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.chinacloudapi.cn`
 
     > [!NOTE]
-    > The workspace name for this FQDN may be truncated. Truncation is done to keep `ml-<workspace-name, truncated>-<region>-<workspace-guid>` 63 characters.
+    > The workspace name for this FQDN may be truncated. Truncation is done to keep `ml-<workspace-name, truncated>-<region>-<workspace-guid>` at 63 characters or less.
 * `<instance-name>.<region>.instances.ml.azure.cn`
+    > * The IP address for this FQDN is **not** the IP of the compute instance. Instead, use the private IP address of the workspace private endpoint (the IP of the `*.api.azureml.ms` entries.)
+
+#### Azure US Government
+
+The following FQDNs are for Azure US Government regions:
+
+* `<workspace-GUID>.workspace.<region>.cert.api.ml.azure.us`
+* `<workspace-GUID>.workspace.<region>.api.ml.azure.us`
+* `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.usgovcloudapi.net`
+
+    > [!NOTE]
+    > The workspace name for this FQDN may be truncated. Truncation is done to keep `ml-<workspace-name, truncated>-<region>-<workspace-guid>` at 63 characters or less.
+* `<instance-name>.<region>.instances.ml.azure.us`
+    > * The IP address for this FQDN is **not** the IP of the compute instance. Instead, use the private IP address of the workspace private endpoint (the IP of the `*.api.azureml.ms` entries.)
 
 ### Find the IP addresses
 
@@ -151,6 +167,7 @@ The information returned from all methods is the same; a list of the FQDN and pr
 | FQDN | IP Address |
 | ----- | ----- |
 | `fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
+| `fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.cert.api.azureml.ms` | `10.1.0.5` |
 | `ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net` | `10.1.0.6` |
 
 The following table shows example IPs from Azure China regions:
@@ -158,9 +175,22 @@ The following table shows example IPs from Azure China regions:
 | FQDN | IP Address |
 | ----- | ----- |
 | `52882c08-ead2-44aa-af65-08a75cf094bd.workspace.chinaeast2.api.ml.azure.cn` | `10.1.0.5` |
+| `52882c08-ead2-44aa-af65-08a75cf094bd.workspace.chinaeast2.cert.api.ml.azure.cn` | `10.1.0.5` |
 | `ml-mype-pltest-chinaeast2-52882c08-ead2-44aa-af65-08a75cf094bd.notebooks.chinacloudapi.cn` | `10.1.0.6` |
 
+The following table shows example IPs from Azure US Government regions:
+
+| FQDN | IP Address |
+| ----- | ----- |
+| `52882c08-ead2-44aa-af65-08a75cf094bd.workspace.chinaeast2.api.ml.azure.us` | `10.1.0.5` |
+| `52882c08-ead2-44aa-af65-08a75cf094bd.workspace.chinaeast2.cert.api.ml.azure.us` | `10.1.0.5` |
+| `ml-mype-plt-usgovvirginia-52882c08-ead2-44aa-af65-08a75cf094bd.notebooks.usgovcloudapi.net` | `10.1.0.6` |
+
 <a id='dns-vnet'></a>
+
+### Create A records in custom DNS server
+
+Once the list of FQDNs and corresponding IP addresses are gathered, proceed to create A records in the configured DNS Server. Refer to the documentation for your DNS server to determine how to create A records. Note it is recommended to create a unique zone for the entire FQDN, and create the A record in the root of the zone.
 
 ## Example: Custom DNS Server hosted in VNet
 
