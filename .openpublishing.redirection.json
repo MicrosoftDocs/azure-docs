@@ -65936,7 +65936,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-develop/quickstart-send-telemetry-python.md",
-      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-central.md",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-central",
       "redirect_document_id": false
     }
   ]
