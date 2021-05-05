@@ -1,7 +1,7 @@
 ---
 title: How to evaluate Azure Arc enabled servers with an Azure VM
 description: Learn how to evaluate Azure Arc enabled servers using an Azure virtual machine.
-ms.date: 04/21/2021
+ms.date: 05/05/2021
 ms.topic: conceptual
 ---
 
@@ -103,3 +103,5 @@ After you install and configure the agent to register with Azure Arc enabled ser
 * Learn [how to plan and enable a large number of machines to Azure Arc enabled servers](plan-at-scale-deployment.md) to simplify configuration of essential security management and monitoring capabilities in Azure.
 
 * Learn about our [supported Azure VM extensions](manage-vm-extensions.md) available to simplify deployment with other Azure services like Automation, KeyVault, and others for your Windows or Linux machine.
+
+* When you have finished testing, see [Remove Arc enabled servers agent](manage-agent.md#remove-the-agent).
