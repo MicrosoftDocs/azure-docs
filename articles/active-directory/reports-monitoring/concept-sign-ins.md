@@ -46,9 +46,9 @@ You can use the the sign-ins log to find answers to questions like:
 
 ## Who can access it?
 
-You can always access your own sign-ins log. 
+You can always access your own sign-ins history using this link: [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
 
-To access the sign-ins log of another user, you need to be:
+To access the sign-ins log, you need to be:
 
 - A global administrator
 
