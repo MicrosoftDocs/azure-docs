@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
+
+# This article applies to solution builders.
 ---
 
 # IoT Central solution builder guide
-
-*This article applies to solution builders.*
 
 An IoT Central application lets you monitor and manage millions of devices throughout their life cycle. This guide is for solution builders who use IoT Central to build integrated solutions. An IoT Central application lets you manage devices, analyze device telemetry, and integrate with other back-end services.
 

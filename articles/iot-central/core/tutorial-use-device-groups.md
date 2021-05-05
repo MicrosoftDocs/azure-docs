@@ -11,7 +11,7 @@ services: iot-central
 
 # Tutorial: Use device groups to analyze device telemetry
 
-This article describes how, as an operator, to use device groups to analyze device telemetry in your Azure IoT Central application.
+This article describes how to use device groups to analyze device telemetry in your Azure IoT Central application.
 
 A device group is a list of devices that are grouped together because they match some specified criteria. Device groups help you manage, visualize, and analyze devices at scale by grouping devices into smaller, logical groups. For example, you can create a device group to list all the air conditioner devices in Seattle to enable a technician to find the devices for which they're responsible.
 
