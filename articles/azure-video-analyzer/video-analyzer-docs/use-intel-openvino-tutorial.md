@@ -21,14 +21,26 @@ This tutorial uses an Azure VM as an IoT Edge device, and it uses a simulated li
 ## Prerequisites
 
 * An Azure account that includes an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
+
+    > [!NOTE]
+    > You will need an Azure subscription with at least a Contributor role. If you do not have the right permissions, please reach out to your account administrator to grant you the right permissions.
 * [Visual Studio Code](https://code.visualstudio.com/), with the following extensions:
     * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+    
+    > [!TIP]
+    > When installing Azure IoT Tools, you might be prompted to install Docker. Feel free to ignore the prompt.    
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-* If you didn't complete the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart, then be sure to complete the steps to [set up Azure resources](detect-motion-emit-events-quickstart.md#set-up-azure-resources).
+* If you didn't complete the [Detect motion and emit events](detect-motion-emit-events.md) quickstart, be sure to [set up Azure resources](#set-up-azure-resources).    
+
+## Set up Azure resources
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
+
+[!INCLUDE [resources](./includes/common-includes/azure-resources.md)]
 
 > [!TIP]
-> When installing Azure IoT Tools, you might be prompted to install Docker. You can ignore the prompt.
+> If you run into issues with Azure resources that get created, review our [troubleshooting guide](troubleshoot.md) to resolve some commonly encountered issues.
 
 ## Review the sample video
 
@@ -130,7 +142,7 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 
 1. Right-click *src/edge/config/deployment.openvino.amd64.json* and select **Create Deployment for Single Device**. 
 
-    ![Create Deployment for Single Device](./media/use-intel-openvino-tutorial/deploy-manifest.png)<!-- needs new screenshot -->
+    ![Create Deployment for Single Device](./media/use-intel-openvino-tutorial/deploy-manifest.png)
 
 1. When you're prompted to select an IoT Hub device, select **avasample-iot-edge-device**.
 1. After about 30 seconds, in the lower-left corner of the window, refresh Azure IoT Hub. The edge device now shows the following deployed modules:
@@ -227,7 +239,6 @@ When a live pipeline is instantiated, the RTSP source node attempts to connect t
   }
 }
 ```
-<!-- Above needs updating with actual ava sample output -->
 In this message, notice these details:
 
 * The message is a diagnostics event. `MediaSessionEstablished` indicates that the RTSP source node (the subject) connected with the RTSP simulator and has begun to receive a (simulated) live feed.
@@ -291,7 +302,7 @@ In the following example, two vehicles were detected, with a confidence values a
   }
 }
 ```
-<!-- above needs to be updated with actual AVA sample output -->
+
 In the messages, notice the following details:
 
 * In `applicationProperties`, `subject` references the node in the pipeline topology from which the message was generated. 
@@ -352,7 +363,6 @@ You can now repeat the steps above to run the sample program again, with the new
   }
 }
 ```
-<!-- above needs updating with actual AVA sample output -->
 ## Run the sample program to detect faces
 In Visual Studio Code, open the local copy of `topology.json` from the previous step, and edit the value of `inferencingUrl` to `http://openvino:4000/faceDetection`. If you have run the previous example to detect persons or vehicles or bikes, you do not need to modify the `operations.json` file again.
 
@@ -389,7 +399,6 @@ You can now repeat the steps above to run the sample program again, with the new
   }
 }
 ```
-<!-- above needs updating with actual AVA sample output -->
 ## Clean up resources
 
 If you intend to try other quickstarts or tutorials, keep the resources you created. Otherwise, go to the Azure portal, go to your resource groups, select the resource group where you ran this tutorial, and delete all the resources.
