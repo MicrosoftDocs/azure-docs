@@ -32,7 +32,7 @@ This tutorial shows you how to use playbooks together with automation rules to a
 
 ## What are automation rules and playbooks?
 
-Automation rules help you triage incidents in Azure Sentinel. You can use them to automatically assign incidents to the right personnel, close noisy incidents or known false positives, change their severity, and add tags. They are also the mechanism by which you can run playbooks in response to incidents.
+Automation rules help you triage incidents in Azure Sentinel. You can use them to automatically assign incidents to the right personnel, close noisy incidents or known [false positives](false-positives.md), change their severity, and add tags. They are also the mechanism by which you can run playbooks in response to incidents.
 
 Playbooks are collections of procedures that can be run from Azure Sentinel in response to an alert or incident. A playbook can help automate and orchestrate your response, and can be set to run automatically when specific alerts or incidents are generated, by being attached to an analytics rule or an automation rule, respectively. It can also be run manually on-demand.
 
@@ -206,4 +206,3 @@ To run a playbook on-demand:
 
 In this tutorial, you learned how to use playbooks and automation rules in Azure Sentinel to respond to threats. 
 - Learn how to [proactively hunt for threats](hunting.md) using Azure Sentinel.
-- See how to [handle false positives](false-positives.md) in Azure Sentinel.

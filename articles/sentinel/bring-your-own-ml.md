@@ -23,7 +23,7 @@ ms.author: yelevin
 
 Machine Learning (ML) is one of the major underpinnings of Azure Sentinel, and one of the main attributes that set it apart. Azure Sentinel offers ML in several experiences: built-in to the [Fusion](fusion.md) correlation engine and Jupyter notebooks, and the newly available Build-Your-Own ML (BYO ML) platform. 
 
-ML detection models can adapt to individual environments and to changes in user behavior, to reduce false positives and identify threats that wouldn't be found with a traditional approach. Many security organizations understand the value of ML for security, though not many of them have the luxury of professionals who have expertise in both security and ML. We designed the framework presented here for security organizations and professionals to grow with us in their ML journey. Organizations new to ML, or without the necessary expertise, can get significant protection value out of Azure Sentinel's built-in ML capabilities.
+ML detection models can adapt to individual environments and to changes in user behavior, to reduce [false positives](false-positives.md) and identify threats that wouldn't be found with a traditional approach. Many security organizations understand the value of ML for security, though not many of them have the luxury of professionals who have expertise in both security and ML. We designed the framework presented here for security organizations and professionals to grow with us in their ML journey. Organizations new to ML, or without the necessary expertise, can get significant protection value out of Azure Sentinel's built-in ML capabilities.
 
 :::image type="content" source="./media/bring-your-own-ml/machine-learning-framework.png" alt-text="machine learning framework":::
 
@@ -172,4 +172,3 @@ Once you've set up the analytics rule based on the ML results, if there are resu
 In this document, you learned how to use Azure Sentinel's BYO-ML platform for creating or importing your own machine learning algorithms to analyze data and detect threats.
 
 - See posts about machine learning and lots of other relevant topics in the [Azure Sentinel Blog](https://aka.ms/azuresentinelblog).
-- For more information about reducing false positives, see [Handle false positives in Azure Sentinel](false-positives.md).
