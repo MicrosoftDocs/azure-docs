@@ -47,6 +47,14 @@ You can execute a job via the Azure Machine Learning REST API. The examples belo
 
 Create a machine learning model requires You want to create a basic LightGBM training job on Iris dataset running on an Azure Machine Learning compute cluster. You first need to set up different machine learning assets to configure your job.
 
+In the following REST API calls, we will use `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, `$LOCATION`,`$WORKSPACE`,  `$TOKEN`as placeholders. Please replace those with your own values. 
+
+The service provider uses the `api-version` argument to ensure compatibility. The `api-version` argument varies from service to service. For the current Azure Machine Learning Service, the API version is `2021-03-01-preview`. We will set the API version as a variable for future use:
+
+```bash
+API_VERSION="2021-03-01-preview"
+```
+
 ### Compute
 
 Training and running machine learning models require compute resources. You can list the compute resources of a workspace with:
@@ -75,16 +83,16 @@ The LightGBM example needs to be run on a LightGBM environment. Let's create and
 
 The training job needs to run on some specific data. In order to set up the data to use, let's first create a new Datastore to house the data. We are going to create a Datastore called `localuploads`.
 
-To create a datastore, you will need to retrieve some values from the storage account. You can get the values associated with your subscription with a GET request. 
+To create a datastore, you will need to retrieve some values from the storage account. You can get the values associated with your subscription with a GET request. This will return a `JSON` file. You can use the tool [jq](.https://stedolan.github.io/jq/) to parse the `JSON` result and get the required values. Or, you can get the values with your own way. 
 
 ```bash
-curl --location --request GET "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/datastores?api-version=$API_VERSION&isDefault=true" \
---header "Authorization: Bearer $TOKEN"
+response=$(curl --location --request GET "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/datastores?api-version=$API_VERSION&isDefault=true" \
+--header "Authorization: Bearer $TOKEN")
 
-AZURE_STORAGE_ACCOUNT=<fill in with your storage account here>
-AZUREML_DEFAULT_DATASTORE=<fill in with your default datastore name here>
-AZUREML_DEFAULT_CONTAINER=<fill in with your default container name here>
-AZURE_STORAGE_KEY=<fill in with your storage key here>
+AZURE_STORAGE_ACCOUNT=$(echo $response | jq '.value[0].properties.contents.accountName')
+AZUREML_DEFAULT_DATASTORE=$(echo $response | jq '.value[0].name')
+AZUREML_DEFAULT_CONTAINER=$(echo $response | jq '.value[0].properties.contents.containerName')
+AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_ACCOUNT | jq '.[0].value')
 
 ```
 
@@ -115,11 +123,36 @@ Once you have your code uploaded, you can create a code with a PUT request and r
 
 With the machine learning assets created, you can run the basic LightGBM job which outputs a model and accompanying metadata. Let's review the information we need to set up to configure a training job: 
 
+- **run_id**: [Optional] The name of the job, which must be unique across all jobs. Unless a name is specified either in the YAML file via the `name` field or the command line via `--name/-n`, a GUID/UUID is automatically generated and used for the name.
+- **jobType**: The job type. For a basic training job, it will be `Command`.
+- **codeId**: The path to the training code you have created.
+- **command**: The command to execute. Input data can be written into the command and can be referred to with data binding. 
+- **environmentId**: The path to the environment you have created. 
+- **inputDataBindings**: Data binding can help you reference the input data. You can create an environment variable and the name of the binding will be added to AZURE_ML_INPUT_, which you can refer to in the `command`. To create a data binding, you will need to add the path to the data you have created as `dataId`. 
+- **experimentName**: [Optional] Tags the job for better organization in the Azure Machine Learning studio. Each job's run record will be organized under the corresponding experiment in the studio's "Experiment" tab. If omitted, it will default to the name of the working directory when the job is created.
+- **compute**: The `target` specifies the compute target you would like to run on, which can be the path to the compute you have created.  The `instanceCount` specifies the number of instances you need for the job.
+
+To create the LightGBM training job:
+
 :::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create job":::
 
 
 ## Sweep hyperparameters
 
-Azure Machine Learning also enables you to more efficiently tune the hyperparameters for your machine learning models. You can create a hyperparameter tuning job, called a sweep job, via the REST APIs. 
+Azure Machine Learning also enables you to more efficiently tune the hyperparameters for your machine learning models. You can create a hyperparameter tuning job, called a sweep job, via the REST APIs. For more information on Azure Machine Learning's hyperparameter tuning offering, see the [Hyperparameters tuning a model](how-to-tune-hyperparameters.md). You will need to specify the hyperparameter tuning parameters in order to sweep your job:
+
+- **jobType**: The job type. For a sweep job, it will be `Sweep`. 
+- **algorithm**: The sampling algorithm - "random" is often a good choice. See the sweep job [schema](https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json) for the enumeration of options. 
+- **trial**: The command job configuration for each trial to be run. 
+- **objective**: The `primaryMetric` is the optimization metric, which must match the name of a metric logged from the training code. The `goal` specifies the direction ("minimize"/"maximize"). See the schema for the full enumeration of options. 
+- **searchSpace**: A dictionary of the hyperparameters to sweep over. The key is a name for the hyperparameter, for example, `learning_rate`. The value is the hyperparameter distribution. See the schema for the enumeration of options.
+- **maxTotalTrials**: The maximum number of individual trials to run.
+- **maxConcurrentTrials**: [Optional] The maximum number of trials to run concurrently on your compute cluster.
+- **timeout**: [Optional] The maximum number of minutes to run the sweep job for.
+
+A sweep job can be specified for sweeping across hyperparameters used in the command. To create a sweep job with the same LightGBM example: 
 
 :::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create a sweep job":::
+
+## Next steps
+- Deploy models with REST
