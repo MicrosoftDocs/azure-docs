@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Evaluate Arc enabled servers on an Azure virtual machine
 
-Azure Arc enabled servers is designed to help you connect servers running on-premises or in other clouds to Azure. Normally, you would not use Azure Arc enabled servers on an Azure virtual machine because all the same capabilities are natively available for these VMs, including a representation of the VM in Azure Resource Manager, VM extensions, managed identities, and Azure Policy. If you attempt to install Azure Arc enabled servers on an Azure VM, you'll receive an error message stating that it is unsupported and the agent installation will be cancelled.
+Azure Arc enabled servers is designed to help you connect servers running on-premises or in other clouds to Azure. Normally, you would not use Azure Arc enabled servers on an Azure virtual machine because all the same capabilities are natively available for these VMs, including a representation of the VM in Azure Resource Manager, VM extensions, managed identities, and Azure Policy. If you attempt to install Azure Arc enabled servers on an Azure VM, you'll receive an error message stating that it is unsupported and the agent installation will be canceled.
 
 While you cannot install Azure Arc enabled servers on an Azure VM for production scenarios, it is possible to configure Azure Arc enabled servers to run on an Azure VM for evaluation and testing purposes only. This article will help you set up an Azure VM before you can enable Azure Arc enabled servers on it.
 
@@ -22,7 +22,7 @@ While you cannot install Azure Arc enabled servers on an Azure VM for production
 
 To start managing your Azure VM as an Arc enabled server, you need to make the following changes to the Azure VM before you can install and configure Arc enabled servers.
 
-1. Remove any VM extensions deployed to the Azure VM, such as the Log Analytics agent. While Arc enabled servers supports many of the same extensions as Azure VMs, the Arc enabled servers agent can't manage VM extensions already deployed to the VM.
+1. Remove any VM extensions deployed to the Azure VM, such as the Log Analytics agent. While Arc enabled servers support many of the same extensions as Azure VMs, the Arc enabled servers agent can't manage VM extensions already deployed to the VM.
 
 2. Disable the Azure Windows or Linux Guest Agent. The Azure VM guest agent serves a similar purpose to the Azure Arc enabled servers Connected Machine agent. To avoid conflicts between the two, the Azure VM Agent needs to be disabled. Once it is disabled, you cannot use VM extensions or some Azure services.
 
@@ -34,7 +34,7 @@ After you've made these changes, your Azure VM behaves like any machine or serve
 
 1. Remove any VM extensions on the Azure VM.
 
-   In the Azure Portal, navigate to your Azure VM resource and select the Extensions tab in the navigation pane. If there are any extensions installed on the VM, select each extension and then Uninstall the extension. Wait for all extensions to finish uninstalling before proceeding.
+   In the Azure portal, navigate to your Azure VM resource and select the **Extensions** tab. If there are any extensions installed on the VM, select each extension and then select **Uninstall**. Wait for all extensions to finish uninstalling before proceeding to step 2.
 
 2. Disable the Azure VM Guest Agent.
 
@@ -63,7 +63,7 @@ After you've made these changes, your Azure VM behaves like any machine or serve
    New-NetFirewallRule -Name BlockAzureIMDS -DisplayName "Block access to Azure IMDS" -Enabled True -Profile Any -Direction Outbound -Action Block -RemoteAddress 169.254.169.254 
    ```
 
-   For Linux, consult your distribution's documentation for the best way to block outbound access to `169.254.169.254/32` over TCP port 80. Normally, you'll do this with the built-in firewall, but you can also temporarily block it with **iptables** or **nftables**. 
+   For Linux, consult your distribution's documentation for the best way to block outbound access to `169.254.169.254/32` over TCP port 80. Normally you'll block outbound access with the built-in firewall, but you can also temporarily block it with **iptables** or **nftables**. 
 
    If your Azure VM is running Ubuntu, perform the following steps to configure its uncomplicated firewall:
 
@@ -88,7 +88,7 @@ After you've made these changes, your Azure VM behaves like any machine or serve
 
    The VM is now ready for you to begin evaluating Arc enabled servers. To install and configure the Arc enabled servers agent, see [Generate an installation script from the Azure portal](onboard-portal.md).
 
-If you missed one of the steps, the installation script detects it is running on an Azure VM and terminates with an error. Verify you've completed steps 1-3, and then re-run the script.
+If you missed one of the steps, the installation script detects it is running on an Azure VM and terminates with an error. Verify you've completed steps 1-3, and then rerun the script.
 
 ## Verify the connection with Azure Arc
 
