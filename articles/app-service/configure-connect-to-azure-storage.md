@@ -78,8 +78,10 @@ Once you've created your [Azure Storage account, file share and directory](#prer
 To mount an Azure Files Share to a directory in your App Service app, you use the [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_add) command. Storage Type must be AzureFiles.
 
 ```azurecli
-az webapp config storage-account add --resource-group <group-name> --name <app-name> --custom-id <custom-id> --storage-type AzureFiles --share-name <share-name> --account-name <storage-account-name> --access-key "<access-key>" --mount-path <mount-path-directory of form c:<directory name> >
+az webapp config storage-account add --resource-group <group-name> --name <app-name> --custom-id <custom-id> --storage-type AzureFiles --share-name <share-name> --account-name <storage-account-name> --access-key "<access-key>" --mount-path <mount-path-directory>
 ```
+
+Note that the `mount-path-directory` should be in the form `/path/to/dir` or `\path\to\dir` with no drive letter, as it will always be mounted on the `C:\` drive.
 
 You should do this for any other directories you want to be linked to an Azure Files share.
 

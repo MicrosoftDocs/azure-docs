@@ -53,7 +53,7 @@ Here are some questions to consider:
     - Azure IoT Hub Device Provisioning Service
 * What other *personal or company apps* do I have that connect to my instance?
 
-You can gather this information by using the [Azure portal](https://portal.azure.com), [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md), [Azure Digital Twins CLI commands](how-to-use-cli.md), or the [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) sample.
+You can gather this information by using the [Azure portal](https://portal.azure.com), [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md), [Azure Digital Twins CLI commands](concepts-cli.md), or the [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) sample.
 
 ## Prepare
 
@@ -75,14 +75,14 @@ This sample isn't a complete tool. It hasn't been stress tested and wasn't built
 
 If the sample isn't able to handle the size of your graph, you can export and import the graph by using other Azure Digital Twins developer tools:
 
-* [Azure Digital Twins CLI commands](how-to-use-cli.md)
-* [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md)
+* [Azure Digital Twins CLI commands](concepts-cli.md)
+* [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md)
 
 ### Set up the Azure Digital Twins Explorer application
 
 To proceed with Azure Digital Twins Explorer, first download the sample application code and set it up to run on your machine.
 
-To get the sample, go to [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Select the **Browse code** button underneath the title, which will take you to the GitHub repo for the sample. Select the **Code** button and **Download ZIP** to download the sample as a *.ZIP* file to your machine.
+To get the sample, go to [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Select the **Browse code** button underneath the title, which will take you to the GitHub repo for the sample. Select the **Code** button and **Download ZIP** to download the sample as a .zip file to your machine.
 
 :::image type="content" source="media/how-to-move-regions/download-repo-zip.png" alt-text="Screenshot of the digital-twins-explorer repo on GitHub. The Code button is selected, producing a small dialog box where the Download ZIP button is highlighted." lightbox="media/how-to-move-regions/download-repo-zip.png":::
 
@@ -96,9 +96,9 @@ Next, set up and configure permissions for Azure Digital Twins Explorer. Follow 
 
 Now you should have the Azure Digital Twins Explorer sample app running in a browser on your machine. The sample should be connected to your original Azure Digital Twins instance.
 
-:::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Browser window showing an app running at localhost:3000. The app is called Azure Digital Twins Explorer and contains boxes for Query Explorer, Model View, Graph View, and Property Explorer. There's no onscreen data yet." lightbox="media/how-to-move-regions/explorer-blank.png":::
+:::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Browser window showing an app running at localhost:3000. The app is called Azure Digital Twins Explorer and contains boxes for Query Explorer, Models, Twin Graph, and Properties. There's no onscreen data yet." lightbox="media/how-to-move-regions/explorer-blank.png":::
 
-To verify the connection, select the **Run Query** button to run the default query that displays all twins and relationships in the graph in the **GRAPH EXPLORER** box.
+To verify the connection, select the **Run Query** button to run the default query that displays all twins and relationships in the graph in the **TWIN GRAPH** box.
 
 :::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="A button reading Run Query in the upper-right corner of the window is highlighted." lightbox="media/how-to-move-regions/run-query.png":::
 
@@ -108,13 +108,13 @@ You can leave Azure Digital Twins Explorer running because you'll use it again l
 
 Next, download the models, twins, and graph in your solution to your machine.
 
-To download all of these items at once, first make sure the full graph appears in the **GRAPH VIEW** box. If the full graph doesn't appear already, rerun the default query of `SELECT * FROM digitaltwins` in the **QUERY EXPLORER** box.
+To download all of these items at once, first make sure the full graph appears in the **TWIN GRAPH** box. If the full graph doesn't appear already, rerun the default query of `SELECT * FROM digitaltwins` in the **QUERY EXPLORER** box.
  
-Then, select the **Export Graph** icon in the **GRAPH VIEW** box.
+Then, select the **Export Graph** icon in the **TWIN GRAPH** box.
 
-:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="In the Graph View box, an icon is highlighted. It shows an arrow pointing down out of a cloud." lightbox="media/how-to-move-regions/export-graph.png":::
+:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="In the Twin Graph box, an icon is highlighted. It shows an arrow pointing down out of a cloud." lightbox="media/how-to-move-regions/export-graph.png":::
 
-This action enables a **Download** link in the **GRAPH VIEW** box. Select it to download a JSON-based representation of the query result, which includes your models, twins, and relationships. This action should download a .json file to your machine.
+This action enables a **Download** link in the **TWIN GRAPH** box. Select it to download a JSON-based representation of the query result, which includes your models, twins, and relationships. This action should download a .json file to your machine.
 
 >[!NOTE]
 >If the downloaded file appears to have a different file extension, try editing the extension directly and changing it to .json.
@@ -156,15 +156,15 @@ Select **Connect**. You might be asked to sign in again with your Azure credenti
 
 Next, upload the solution components that you downloaded earlier to your new instance.
 
-To upload your models, twins, and graph, select the **Import Graph** icon in the **GRAPH VIEW** box. This option uploads all three of these components at once. It even uploads models that aren't currently being used in the graph.
+To upload your models, twins, and graph, select the **Import Graph** icon in the **TWIN GRAPH** box. This option uploads all three of these components at once. It even uploads models that aren't currently being used in the graph.
 
-:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="In the Graph View box, an icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/how-to-move-regions/import-graph.png":::
+:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="In the Twin Graph box, an icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/how-to-move-regions/import-graph.png":::
 
 In the file selector box, go to your downloaded graph. Select the graph **.json** file, and select **Open**.
 
 After a few seconds, Azure Digital Twins Explorer opens an **Import** view that shows a preview of the graph to be loaded.
 
-To confirm the graph upload, select the **Save** icon in the upper-right corner of the **GRAPH VIEW** box.
+To confirm the graph upload, select the **Save** icon in the upper-right corner of the **TWIN GRAPH** box.
 
 :::row:::
     :::column:::
@@ -182,17 +182,15 @@ Azure Digital Twins Explorer now uploads your models and graph (including the tw
     :::column-end:::
     :::column:::
     :::column-end:::
-    :::column:::
-    :::column-end:::
 :::row-end:::
 
-To verify everything was uploaded successfully, select the **Run Query** button in the **GRAPH EXPLORER** box to run the default query that displays all twins and relationships in the graph. This action also refreshes the list of models in the **MODEL VIEW** box.
+To verify everything was uploaded successfully, switch back to the **TWIN GRAPH** tab and select the **Run Query** button in the **QUERY EXPLORER** box to run the default query that displays all twins and relationships in the graph. This action also refreshes the list of models in the **MODELS** box.
 
 :::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Highlight around the Run Query button in the upper-right corner of the window." lightbox="media/how-to-move-regions/run-query.png":::
 
-You should see your graph with all its twins and relationships displayed in the **GRAPH EXPLORER** box. You should also see your models listed in the **MODEL VIEW** box.
+You should see your graph with all its twins and relationships displayed in the **TWIN GRAPH** box. You should also see your models listed in the **MODELS** box.
 
-:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="A view of Azure Digital Twins Explorer showing two models highlighted in the Model View box and a graph highlighted in the Graph Explorer box." lightbox="media/how-to-move-regions/post-upload.png":::
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="A view of Azure Digital Twins Explorer showing two models highlighted in the Models box and a graph highlighted in the Twin Graph box." lightbox="media/how-to-move-regions/post-upload.png":::
 
 These views confirm that your models, twins, and graph were re-uploaded to the new instance in the target region.
 
@@ -232,9 +230,9 @@ After you finish this step, your new instance in the target region should be a c
 To verify that your new instance was set up correctly, use the following tools:
 
 * [Azure portal](https://portal.azure.com). The portal is good for verifying that your new instance exists and is in the correct target region. It's also good for verifying endpoints and routes and connections to other Azure services.
-* [Azure Digital Twins CLI commands](how-to-use-cli.md). These commands are good for verifying that your new instance exists and is in the correct target region. They also can be used to verify instance data.
+* [Azure Digital Twins CLI commands](concepts-cli.md). These commands are good for verifying that your new instance exists and is in the correct target region. They also can be used to verify instance data.
 * [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Azure Digital Twins Explorer is good for verifying instance data like models, twins, and graphs.
-* [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md). These resources are good for verifying instance data like models, twins, and graphs. They're also good for verifying endpoints and routes.
+* [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md). These resources are good for verifying instance data like models, twins, and graphs. They're also good for verifying endpoints and routes.
 
 You can also try running any custom apps or end-to-end flows that you had running with your original instance to help you verify that they're working correctly with the new instance.
 
@@ -242,7 +240,7 @@ You can also try running any custom apps or end-to-end flows that you had runnin
 
 Now that your new instance is set up in the target region with a copy of the original instance's data and connections, you can delete the original instance.
 
-You can use the [Azure portal](https://portal.azure.com), the [Azure CLI](how-to-use-cli.md), or the [control plane APIs](how-to-use-apis-sdks.md#overview-control-plane-apis).
+You can use the [Azure portal](https://portal.azure.com), the [Azure CLI](concepts-cli.md), or the [control plane APIs](concepts-apis-sdks.md#overview-control-plane-apis).
 
 To delete the instance by using the Azure portal, [open the portal](https://portal.azure.com) in a browser window and go to your original Azure Digital Twins instance by searching for the name in the portal search bar.
 

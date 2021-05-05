@@ -20,11 +20,11 @@ To complete this tutorial, **install [Visual Studio 2019](https://visualstudio.m
 >[!NOTE]
 > Ensure your installation of Visual Studio 2019 includes the **[Azure Development Workload](/dotnet/azure/configure-visual-studio)**. This workload enables an application to publish Azure functions and perform other Azure development tasks.
 
-The tutorial is driven by a sample project written in C#. The sample is located here: [Azure Digital Twins end-to-end samples](/samples/azure-samples/digital-twins-samples/digital-twins-samples). **Get the sample project** on your machine by navigating to the sample link, and selecting the *Browse code* button underneath the title. This will take you to the GitHub repo for the samples, which you can download as a *.ZIP* by selecting the *Code* button and *Download ZIP*.
+The tutorial is driven by a sample project written in C#. The sample is located here: [Azure Digital Twins end-to-end samples](/samples/azure-samples/digital-twins-samples/digital-twins-samples). **Get the sample project** on your machine by navigating to the sample link, and selecting the *Browse code* button underneath the title. This will take you to the GitHub repo for the samples, which you can download as a .zip by selecting the *Code* button and *Download ZIP*.
 
 :::image type="content" source="../articles/digital-twins/media/includes/download-repo-zip.png" alt-text="Screenshot of the digital-twins-samples repo on GitHub. The Code button is selected, producing a small dialog box where the Download ZIP button is highlighted." lightbox="../articles/digital-twins/media/includes/download-repo-zip.png":::
 
-This will download a *.ZIP* folder to your machine as **digital-twins-samples-master.zip**. Unzip the folder and extract the files.
+This will download a .zip folder to your machine as **digital-twins-samples-master.zip**. Unzip the folder and extract the files.
 
 ### Prepare an Azure Digital Twins instance
 

@@ -3,7 +3,7 @@ title: Use Azure Monitor logs to monitor Azure HDInsight clusters
 description: Learn how to use Azure Monitor logs to monitor jobs running in an HDInsight cluster.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: seoapr2020, devx-track-azurepowershell
 ms.date: 05/13/2020
 ---
 

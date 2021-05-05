@@ -135,7 +135,7 @@
           displayName: regulatory, compliance, standards, domains
           href: ./security-controls-policy.md
         - name: Security baseline
-          href: /security/benchmark/azure/baselines/event-hubs-security-baseline
+          href: /security/benchmark/azure/baselines/event-hubs-security-baseline?toc=/azure/event-hubs/TOC.json
     - name: AMQP
       items: 
       - name: AMQP 1.0 protocol guide

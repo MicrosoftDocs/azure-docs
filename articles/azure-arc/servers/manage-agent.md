@@ -1,7 +1,7 @@
 ---
 title:  Managing the Azure Arc enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Arc enabled servers Connected Machine agent.
-ms.date: 02/10/2021
+ms.date: 04/27/2021
 ms.topic: conceptual
 ---
 
@@ -176,6 +176,8 @@ The Azcmagent tool (Azcmagent.exe) is used to configure the Azure Arc enabled se
 * **Logs** - Creates a .zip file in the current directory containing logs to assist you while troubleshooting.
 
 * **Version** - Shows the Connected Machine agent version.
+
+* **-useStderr** - Directs error and verbose output to stderr. Include the `-json` parameter to output the results in JSON format.
 
 * **-h or --help** - Shows available command-line parameters
 
