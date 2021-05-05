@@ -140,7 +140,7 @@ Any quota described above is not a Service Prepayment. For purposes of determini
 
 ## Requesting a quota increase
 
-You can request a quota increase at any time by submitting an [online request](https://g.microsoftonline.com/0WAEP00en/6). To process your request, provide the following information:
+You can request a quota increase at any time by submitting an [online request](https://ms.portal.azure.com/). To process your request, provide the following information:
 
 - The Microsoft account or work or school account associated with the account owner of your subscription. This is the email address utilized to sign in to the Microsoft Azure portal to manage your subscription(s). Please also identify that this account is associated with an EA enrollment.
 - The resource(s) and amount for which you desire a quota increase.

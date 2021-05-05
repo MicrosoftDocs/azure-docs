@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: multiple
- author: sharad4u
+ author: duongau
  ms.service: multiple
  ms.topic: include
  ms.date: 10/30/2020
- ms.author: sharadag
+ ms.author: duau
  ms.custom: include file
 ---
 
@@ -49,6 +49,7 @@ The following CAs are allowed when you create your own certificate:
 - GlobalSign Root CA
 - Go Daddy Root Certificate Authority - G2
 - Go Daddy Secure Certificate Authority - G2
+- Hongkong Post Root CA 1
 - Let's Encrypt Authority X3
 - Microsec e-Szigno Root CA 2009
 - QuoVadis Root CA2 G3
@@ -56,6 +57,11 @@ The following CAs are allowed when you create your own certificate:
 - Security Communication RootCA1
 - Security Communication RootCA2
 - Security Communication RootCA3
+- SSL.com Root Certification Authority ECC
+- SSL.com Root Certification Authority RSA
+- SSL.com EV Root Certification Authority ECC
+- SSL.com EV Root Certification Authority RSA R2
+- Staat der Nederlanden EV Root CA
 - Symantec Class 3 EV SSL CA - G3
 - Symantec Class 3 Secure Server CA - G4
 - Symantec Enterprise Mobile Root for Microsoft

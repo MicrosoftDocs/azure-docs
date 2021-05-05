@@ -8,15 +8,15 @@ ms.author: cgronlun
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 11/05/2020
-ms.topic: conceptual
-ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperf-fy21q2
+ms.date: 04/02/2021
+ms.topic: how-to
+ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows
 
 
-Learn how to set up authentication to your Azure Machine Learning workspace. Authentication to your Azure Machine Learning workspace is based on __Azure Active Directory__ (Azure AD) for most things. In general, there three authentication workflows that you can use when connecting to the workspace:
+Learn how to set up authentication to your Azure Machine Learning workspace. Authentication to your Azure Machine Learning workspace is based on __Azure Active Directory__ (Azure AD) for most things. In general, there are three authentication workflows that you can use when connecting to the workspace:
 
 * __Interactive__: You use your account in Azure Active Directory to either directly authenticate, or to get a token that is used for authentication. Interactive authentication is used during _experimentation and iterative development_. Interactive authentication enables you to control access to resources (such as a web service) on a per-user basis.
 
@@ -49,7 +49,7 @@ To use a service principal (SP), you must first create the SP and grant it acces
 >
 > The reason for granting the least access is that a service principal uses a password to authenticate, and the password may be stored as part of an automation script. If the password is leaked, having the minimum access required for a specific tasks minimizes the malicious use of the SP.
 
-The easiest way to create an SP and grant access to your workspace is by using the [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest). To create a service principal and grant it access to your workspace, use the following steps:
+The easiest way to create an SP and grant access to your workspace is by using the [Azure CLI](/cli/azure/install-azure-cli). To create a service principal and grant it access to your workspace, use the following steps:
 
 > [!NOTE]
 > You must be an admin on the subscription to perform all of these steps.
@@ -62,15 +62,9 @@ The easiest way to create an SP and grant access to your workspace is by using t
 
     If the CLI can open your default browser, it will do so and load a sign-in page. Otherwise, you need to open a browser and follow the instructions on the command line. The instructions involve browsing to [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and entering an authorization code.
 
-    If you have multiple Azure subscriptions, you can use the `az account set -s <subscription name or ID>` command to set the subscription. For more information, see [Use multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+    If you have multiple Azure subscriptions, you can use the `az account set -s <subscription name or ID>` command to set the subscription. For more information, see [Use multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli).
 
-    For other methods of authenticating, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest).
-
-1. Install the Azure Machine Learning extension:
-
-    ```azurecli-interactive
-    az extension add -n azure-cli-ml
-    ```
+    For other methods of authenticating, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
 1. Create the service principal. In the following example, an SP named **ml-auth** is created:
 
@@ -138,7 +132,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
 
 1. From the [Azure portal](https://portal.azure.com), select your workspace and then select __Access Control (IAM)__, __Add Role Assignment__, and select __Virtual Machine__ from the __Assign Access To__ dropdown. Finally, select your VM's identity.
 
-1. Select the role to assign to this identity. For example, contributor or a custom role. For more information see, [Control access to resources](how-to-assign-roles.md).
+1. Select the role to assign to this identity. For example, contributor or a custom role. For more information, see, [Control access to resources](how-to-assign-roles.md).
 
 ### Managed identity with compute cluster
 
@@ -231,7 +225,7 @@ ws.get_details()
 
 ### Use a service principal from the Azure CLI
 
-You can use a service principal for Azure CLI commands. For more information, see [Sign in using a service principal](/cli/azure/create-an-azure-service-principal-azure-cli?preserve-view=true&view=azure-cli-latest#sign-in-using-a-service-principal).
+You can use a service principal for Azure CLI commands. For more information, see [Sign in using a service principal](/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal).
 
 ### Use a service principal with the REST API (preview)
 

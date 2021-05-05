@@ -52,7 +52,7 @@ You can use troubleshooting tools to see symptomatic behavior:
 This product was written and tested using PowerShell v5.1.
 This module isn't compatible with PowerShell versions 6 or 7.
 We recommend using PowerShell v5.1 alongside newer versions. 
-For more information, see [Using PowerShell 7 side by side with PowerShell 5.1](/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.1#using-powershell-7-side-by-side-with-windows-powershell-51).
+For more information, see [Using PowerShell 7 side by side with PowerShell 5.1](/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7#using-powershell-7-side-by-side-with-windows-powershell-51).
 
 ### Conflict with IIS shared configuration
 
@@ -149,8 +149,6 @@ Review the [API reference](status-monitor-v2-api-reference.md) for a detailed de
 3. In a command console with Admin privileges, run the `iisreset /start` command to start IIS.
 4. Try to browse to your app.
 5. After your app is loaded, return to PerfView and select **Stop Collection**.
-
-
 
 ## Next steps
 

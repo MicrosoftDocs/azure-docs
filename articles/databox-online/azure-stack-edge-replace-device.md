@@ -7,11 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 
 # Replace your Azure Stack Edge Pro device
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article describes how to replace your Azure Stack Edge Pro device. A replacement device is needed when the existing device has a hardware failure or needs an upgrade. 
 

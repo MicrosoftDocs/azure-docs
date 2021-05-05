@@ -35,11 +35,11 @@ Access to management layer is controlled by [Azure role-based access control](..
 
 | Azure CLI | PowerShell | REST API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Reference](/cli/azure/keyvault)<br>[Quickstart](quick-create-cli.md)|[Reference](/powershell/module/az.keyvault)<br>[Quickstart](quick-create-powershell.md)|[Reference](/rest/api/keyvault/)|[Reference](/azure/templates/microsoft.keyvault/vaults)<br>[Quickstart](https://docs.microsoft.com/azure/key-vault/general/vault-create-template)|[Reference](/dotnet/api/microsoft.azure.management.keyvault)|[Reference](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[Reference](/java/api/com.microsoft.azure.management.keyvault)|[Reference](/javascript/api/@azure/arm-keyvault)|
+|[Reference](/cli/azure/keyvault)<br>[Quickstart](quick-create-cli.md)|[Reference](/powershell/module/az.keyvault)<br>[Quickstart](quick-create-powershell.md)|[Reference](/rest/api/keyvault/)|[Reference](/azure/templates/microsoft.keyvault/vaults)<br>[Quickstart](./vault-create-template.md)|[Reference](/dotnet/api/microsoft.azure.management.keyvault)|[Reference](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[Reference](/java/api/com.microsoft.azure.management.keyvault)|[Reference](/javascript/api/@azure/arm-keyvault)|
 
 See [Client Libraries](client-libraries.md) for installation packages and source code.
 
-For more information about Key Vault management plane, see [Key Vault Management Plane](./secure-your-key-vault.md#management-plane-and-azure-rbac)
+For more information about Key Vault management plane, see [Azure Key Vault security features](security-features.md)
 
 ## Authenticate to Key Vault in code
 
@@ -77,7 +77,7 @@ For tutorials on how to authenticate to Key Vault in applications, see:
 
 ## Manage keys, certificates, and secrets
 
-Access to keys, secrets, and certificates is controlled by data plane. Data plane access control can be done using local vault access policies or Azure RBAC (preview).
+Access to keys, secrets, and certificates is controlled by data plane. Data plane access control can be done using local vault access policies or Azure RBAC.
 
 **Keys API's and SDKs**
 
@@ -99,7 +99,7 @@ Access to keys, secrets, and certificates is controlled by data plane. Data plan
 
 See [Client Libraries](client-libraries.md) for installation packages and source code.
 
-For more information about Key Vault data plane security, see [Key Vault Data Plane and access policies](./secure-your-key-vault.md#data-plane-and-access-policies) and [Key Vault Data Plane and Azure RBAC (preview)](./secure-your-key-vault.md#data-plane-and-azure-rbac-preview)
+For more information about Key Vault data plane security, see [Azure Key Vault security features](security-features.md).
 
 ### Code examples
 

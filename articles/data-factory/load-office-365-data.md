@@ -4,12 +4,13 @@ description: 'Use Azure Data Factory to copy data from Office 365'
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 02/18/2021
 ms.author: jingwang
 ---
+
 # Load data from Office 365 by using Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article shows you how to use the Data Factory _load data from Office 365 into Azure Blob storage_. You can follow similar steps to copy data to Azure Data Lake Gen1 or Gen2. Refer to [Office 365 connector article](connector-office-365.md) on copying data from Office 365 in general.
 

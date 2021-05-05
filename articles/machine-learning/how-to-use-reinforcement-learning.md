@@ -8,8 +8,8 @@ ms.subservice: core
 ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperf-fy21q2
+ms.topic: how-to
+ms.custom: devx-track-python, contperf-fy21q2
 
 ---
 
@@ -38,15 +38,15 @@ Run this code in either of these environments. We recommend you try Azure Machin
 
  - Azure Machine Learning compute instance
 
-     - Learn how to clone sample notebooks in [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
+     - Learn how to clone sample notebooks in [Tutorial: Setup environment and workspace](tutorial-train-models-with-aml.md).
          - Clone the **how-to-use-azureml** folder instead of **tutorials**
      - Run the virtual network setup notebook located at `/how-to-use-azureml/reinforcement-learning/setup/devenv_setup.ipynb` to open network ports used for distributed reinforcement learning.
      - Run the sample notebook `/how-to-use-azureml/reinforcement-learning/atari-on-distributed-compute/pong_rllib.ipynb`
  
  - Your own Jupyter Notebook server
 
-    - Install the [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
-    - Install the [Azure Machine Learning RL SDK](/python/api/azureml-contrib-reinforcementlearning/?preserve-view=true&view=azure-ml-py): `pip install --upgrade azureml-contrib-reinforcementlearning`
+    - Install the [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
+    - Install the [Azure Machine Learning RL SDK](/python/api/azureml-contrib-reinforcementlearning/): `pip install --upgrade azureml-contrib-reinforcementlearning`
     - Create a [workspace configuration file](how-to-configure-environment.md#workspace).
     - Run the virtual network to open network ports used for distributed reinforcement learning.
 
@@ -103,7 +103,7 @@ ws = Workspace.from_config()
 
 ### Create a reinforcement learning experiment
 
-Create an [experiment](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py) to track your reinforcement learning run. In Azure Machine Learning, experiments are logical collections of related trials to organize run logs, history, outputs, and more.
+Create an [experiment](/python/api/azureml-core/azureml.core.experiment.experiment) to track your reinforcement learning run. In Azure Machine Learning, experiments are logical collections of related trials to organize run logs, history, outputs, and more.
 
 ```python
 experiment_name='rllib-pong-multi-node'
@@ -210,7 +210,7 @@ else:
 ```
 
 ## Create a reinforcement learning estimator
-Use the [ReinforcementLearningEstimator](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?preserve-view=true&view=azure-ml-py) to submit a training job to Azure Machine Learning.
+Use the [ReinforcementLearningEstimator](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator) to submit a training job to Azure Machine Learning.
 
 Azure Machine Learning uses estimator classes to encapsulate run configuration information. This lets you specify how to configure a script execution. 
 
@@ -398,7 +398,7 @@ def on_train_result(info):
 
 ## Submit a run
 
-[Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) handles the run history of in-progress or complete jobs. 
+[Run](/python/api/azureml-core/azureml.core.run%28class%29) handles the run history of in-progress or complete jobs. 
 
 ```python
 run = exp.submit(config=rl_estimator)
@@ -428,7 +428,7 @@ The **episode_reward_mean** plot shows the mean number of points scored per trai
 
 If you browse logs of the child run, you can see the evaluation results recorded in driver_log.txt file. You may need to wait several minutes before these metrics become available on the Run page.
 
-In short work, you have learned to configure multiple compute resources to train a reinforcement learning agent to play Pong very well against a computer oppponent.
+In short work, you have learned to configure multiple compute resources to train a reinforcement learning agent to play Pong very well against a computer opponent.
 
 ## Next steps
 

@@ -166,4 +166,4 @@ For information about monitoring container instance CPU and memory resources, se
 [query_lang]: /azure/data-explorer/
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
+[az-container-create]: /cli/azure/container#az_container_create

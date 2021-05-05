@@ -88,9 +88,19 @@ Once your file share has been mounted with the storage account key, you must con
 
 If you have directories or files in on-premises file servers with Windows DACLs configured against the AD DS identities, you can copy it over to Azure Files persisting the ACLs with traditional file copy tools like Robocopy or [Azure AzCopy v 10.4+](https://github.com/Azure/azure-storage-azcopy/releases). If your directories and files are tiered to Azure Files through Azure File Sync, your ACLs are carried over and persisted in their native format.
 
+### Configure Windows ACLs with icacls
+
+Use the following Windows command to grant full permissions to all directories and files under the file share, including the root directory. Remember to replace the placeholder values in the example with your own values.
+
+```
+icacls <mounted-drive-letter>: /grant <user-email>:(f)
+```
+
+For more information on how to use icacls to set Windows ACLs and on the different types of supported permissions, see [the command-line reference for icacls](/windows-server/administration/windows-commands/icacls).
+
 ### Configure Windows ACLs with Windows File Explorer
 
-Use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory.
+Use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory. If you are not able to load the AD domain information correctly in Windows File Explorer, this is likely due to trust configuration in your on-prem AD environment. The client machine was not able to reach the AD domain controller registered for Azure Files authentication. In this case, use icacls for configurating Windows ACLs.
 
 1. Open Windows File Explorer and right click on the file/directory and select **Properties**.
 1. Select the **Security** tab.
@@ -101,15 +111,6 @@ Use Windows File Explorer to grant full permission to all directories and files 
 1.    In the **Security** tab, select all permissions you want to grant your new user.
 1.    Select **Apply**.
 
-### Configure Windows ACLs with icacls
-
-Use the following Windows command to grant full permissions to all directories and files under the file share, including the root directory. Remember to replace the placeholder values in the example with your own values.
-
-```
-icacls <mounted-drive-letter>: /grant <user-email>:(f)
-```
-
-For more information on how to use icacls to set Windows ACLs and on the different types of supported permissions, see [the command-line reference for icacls](/windows-server/administration/windows-commands/icacls).
 
 ## Next steps
 

@@ -15,11 +15,11 @@ ms.date: 12/14/2020
 
 When creating queries, you can opt for the [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntax for specialized query forms: wildcard, fuzzy search, proximity search, regular expressions. Much of the Lucene Query Parser syntax is [implemented intact in Azure Cognitive Search](search-lucene-query-architecture.md), with the exception of *range searches* which are constructed through **`$filter`** expressions. 
 
-The full Lucene syntax is used for query expressions passed in the **`search`** parameter of a [Search Documents (REST API)](/rest/api/searchservice/search-documents) request, not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the [**`$filter`**](search-filters.md) and [**`$orderby`**](search-query-odata-orderby.md) expressions in the same request. OData parameters have different syntax and rules for constructing queries, escaping strings, and so on.
+To use full Lucene syntax, you'll set the queryType to "full" and pass in a query expression patterned for wildcard, fuzzy search, or one of the other query forms supported by the full syntax. In REST, query expressions are provided in the **`search`** parameter of a [Search Documents (REST API)](/rest/api/searchservice/search-documents) request.
 
 ## Example (full syntax)
 
-Set the **`queryType`** parameter to specify full Lucene. The following example invokes in-field search and term boosting. This query looks for hotels where the category field contains the term "budget". Any documents containing the phrase "recently renovated" are ranked higher as a result of the term boost value (3).  
+The following example is a search request constructed using the full syntax. This particular example shows in-field search and term boosting. It looks for hotels where the category field contains the term "budget". Any documents containing the phrase "recently renovated" are ranked higher as a result of the term boost value (3).  
 
 ```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -30,9 +30,9 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 }
 ```
 
-The **`searchMode`** parameter is relevant in this example. Whenever operators are on the query, you should generally set `searchMode=all` to ensure that *all* of the criteria is matched.  
+While not specific to any query type, the **`searchMode`** parameter is relevant in this example. Whenever operators are on the query, you should generally set `searchMode=all` to ensure that *all* of the criteria is matched.  
 
-For additional examples, see [Lucene query syntax examples](search-query-lucene-examples.md). For details about the query request and parameters, see [Search Documents (REST API)](/rest/api/searchservice/Search-Documents).
+For additional examples, see [Lucene query syntax examples](search-query-lucene-examples.md). For details about the query request and parameters, including searchMode, see [Search Documents (REST API)](/rest/api/searchservice/Search-Documents).
 
 ## <a name="bkmk_syntax"></a> Syntax fundamentals  
 

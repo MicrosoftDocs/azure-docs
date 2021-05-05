@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/12/2020
+ms.date: 02/18/2021
 ms.author: radeltch
 
 ---
@@ -78,6 +78,9 @@ Read the following SAP Notes and papers first:
 * [Installation of an (A)SCS Instance on a Failover Cluster](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
 * [Create an SMB volume for Azure NetApp Files](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections)
 * [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]
+
+> [!IMPORTANT]
+> CAUTION: Be aware that the installation of an SAP system with SWPM on SMB share, hosted on [Azure NetApp Files][anf-azure-doc] SMB volume, may fail with installation error for insufficient permissions like "warningPerm is not defined". To avoid the error, the user under which context SWPM is executed, needs elevated privilege "Domain Admin" during the installation of the SAP system.  
 
 ## Overview
 

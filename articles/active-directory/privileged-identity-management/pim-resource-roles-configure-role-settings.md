@@ -73,14 +73,14 @@ You can choose from two assignment duration options for each assignment type (el
 
 You can choose one of these **eligible** assignment duration options:
 
-| | |
+| | Description |
 | --- | --- |
 | **Allow permanent eligible assignment** | Resource administrators can assign permanent eligible assignment. |
 | **Expire eligible assignment after** | Resource administrators can require that all eligible assignments have a specified start and end date. |
 
 And, you can choose one of these **active** assignment duration options:
 
-| | |
+| | Description |
 | --- | --- |
 | **Allow permanent active assignment** | Resource administrators can assign permanent active assignment. |
 | **Expire active assignment after** | Resource administrators can require that all active assignments have a specified start and end date. |

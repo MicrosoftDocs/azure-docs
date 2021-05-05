@@ -16,7 +16,7 @@ Azure Security Center's features cover the two broad pillars of cloud security:
 
 - **Cloud security posture management (CSPM)** - Security Center is available for **free** to all Azure users. The free experience includes CSPM features such as secure score, detection of security misconfigurations in your Azure machines, asset inventory, and more. Use these CSPM features to strengthen your hybrid cloud posture and track compliance with the built-in policies.
 
-- **Cloud workload protection (CWP)** - Security Center's integrated cloud workload protection platform (CWPP), **Azure Defender**, brings advanced, intelligent, protection of your Azure and hybrid resources and workloads. Enabling Azure Defender brings a range of additional security features as described on this page. In addition to the built-in policies, when you've enabled any Azure Defender plan, you can add custom policies and initiatives. You can add regulatory standards - such as NIST and Azure CIS - as well as the Azure Security Benchmark for a truly customized view of your compliance.
+- **Cloud workload protection (CWP)** - Security Center's integrated cloud workload protection platform (CWPP), **Azure Defender**, brings advanced, intelligent, protection of your Azure and hybrid resources and workloads. Enabling Azure Defender brings a range of additional security features as described on this page. In addition to the built-in policies, when you've enabled any Azure Defender plan, you can add custom policies and initiatives. You can add regulatory standards - such as NIST and Azure CIS - as well as the [Azure Security Benchmark](/security/benchmark/azure/introduction) for a truly customized view of your compliance.
 
 The Azure Defender dashboard in Security Center provides visibility and control of the CWP features for your environment:
 
@@ -95,4 +95,4 @@ Learn more on the following pages:
 In this article, you learned about the benefits of Azure Defender. 
 
 > [!div class="nextstepaction"]
-> [Enable Azure Defender](security-center-pricing.md#enable-azure-defender)
+> [Enable Azure Defender](enable-azure-defender.md)

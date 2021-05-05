@@ -228,7 +228,6 @@ In the [How to Leverage the Azure Security Center & Microsoft Operations Managem
 In this document, you learned how to plan for Security Center adoption. To learn more about Security Center, see the following:
 
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
-* [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
 * [Monitoring partner solutions with Azure Security Center](./security-center-partner-integration.md) — Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQ](faq-general.md) — Find frequently asked questions about using the service.
 * [Azure Security blog](/archive/blogs/azuresecurity/) — Find blog posts about Azure security and compliance.

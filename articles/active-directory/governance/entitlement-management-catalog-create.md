@@ -51,7 +51,7 @@ A catalog is a container of resources and access packages. You create a catalog 
 
 ### Creating a catalog programmatically
 
-You can also create a catalog using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [create an accessPackageCatalog](/graph/api/accesspackagecatalog-post?view=graph-rest-beta).
+You can also create a catalog using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [create an accessPackageCatalog](/graph/api/accesspackagecatalog-post?view=graph-rest-beta&preserve-view=true).
 
 ## Add resources to a catalog
 
@@ -79,9 +79,9 @@ To include resources in an access package, the resources must exist in a catalog
 
     These resources can now be included in access packages within the catalog.
 
-### Add a Multi-geo SharePoint Site
+### Add a Multi-geo SharePoint Site (Preview)
 
-1. If you have [Multi-Geo](https://docs.microsoft.com/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365?view=o365-worldwide) enabled for SharePoint, select the environment you would like to select sites from.
+1. If you have [Multi-Geo](/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365) enabled for SharePoint, select the environment you would like to select sites from.
     
     :::image type="content" source="media/entitlement-management-catalog-create/sharepoint-multigeo-select.png" alt-text="Access package - Add resource roles - Select SharePoint Multi-geo sites":::
 
@@ -89,7 +89,7 @@ To include resources in an access package, the resources must exist in a catalog
 
 ### Adding a resource to a catalog programmatically
 
-You can also add a resource to a catalog using Microsoft Graph.  A user in an appropriate role, or a catalog and resource owner, with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [create an accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta).
+You can also add a resource to a catalog using Microsoft Graph.  A user in an appropriate role, or a catalog and resource owner, with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [create an accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta&preserve-view=true).
 
 ## Remove resources from a catalog
 
@@ -162,7 +162,7 @@ You can delete a catalog, but only if it does not have any access packages.
 
 ### Deleting a catalog programmatically
 
-You can also delete a catalog using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [delete an accessPackageCatalog](/graph/api/accesspackagecatalog-delete?view=graph-rest-beta).
+You can also delete a catalog using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [delete an accessPackageCatalog](/graph/api/accesspackagecatalog-delete?view=graph-rest-beta&preserve-view=true).
 
 ## Next steps
 

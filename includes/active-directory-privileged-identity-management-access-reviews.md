@@ -2,11 +2,11 @@
 title: include file
 description: include file
 services: active-directory
-author: barclayn
+author: ajburnle
 ms.service: active-directory
 ms.topic: include
 ms.date: 12/07/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.custom: include file
 ---
 
@@ -33,6 +33,7 @@ ms.custom: include file
     > [!NOTE]
     > - Roles selected here include both [permanent and eligible roles](../articles/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md).
     > - Selecting more than one role will create multiple access reviews. For example, selecting five roles will create five separate access reviews.
+    > - For roles with groups assigned to them, the access of each group linked with the role under review will be reviewed as a part of the access review.
 
     If you are creating an access review of **Azure AD roles**, the following shows an example of the Review membership list.
 
@@ -47,8 +48,8 @@ ms.custom: include file
     ![Reviewers list of selected users or members (self)](./media/active-directory-privileged-identity-management-access-reviews/reviewers.png)
 
     - **Selected users** - Use this option when you don't know who needs access. With this option, you can assign the review to a resource owner or group manager to complete.
-    - **Members (self)** - Use this option to have the users review their own role assignments.
-    - **(Preview) Manager** – Use this option to have the user’s manager review their role assignment. Upon selecting (Preview) Manager, you will also have the option to specify a fallback reviewer. Fallback reviewers are asked to review a user when the user has no manager specified in the directory.
+    - **Members (self)** - Use this option to have the users review their own role assignments. Groups assigned to the role will not be a part of the review when this option is selected.
+    - **Manager** – Use this option to have the user’s manager review their role assignment. Upon selecting Manager, you will also have the option to specify a fallback reviewer. Fallback reviewers are asked to review a user when the user has no manager specified in the directory. Groups assigned to the role will be reviewed by the Fallback reviewer if one is selected. 
 
 ### Upon completion settings
 

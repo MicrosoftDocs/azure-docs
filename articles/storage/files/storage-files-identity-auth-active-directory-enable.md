@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 09/13/2020
+ms.date: 03/15/2021
 ms.author: rogarana
 ---
 
@@ -28,10 +28,14 @@ If you are new to Azure file shares, we recommend reading our [planning guide](s
 
 When you enable AD DS for Azure file shares over SMB, your AD DS-joined machines can mount Azure file shares using your existing AD DS credentials. This capability can be enabled with an AD DS environment hosted either in on-prem machines or hosted in Azure.
 
-> [!NOTE]
-> To help you setup Azure Files AD authentication for some common use cases, we published two videos with step by step guidance for the following scenarios:
-> - [Replacing on-premises file servers with Azure Files (including setup on private link for files and AD authentication)](https://sec.ch9.ms/ch9/3358/0addac01-3606-4e30-ad7b-f195f3ab3358/ITOpsTalkAzureFiles_high.mp4)
-> - [Using Azure Files as the profile container for Windows Virtual Desktop (including setup on AD authentication and FsLogix configuration)](https://www.youtube.com/embed/9S5A1IJqfOQ)
+## Videos
+
+To help you setup Azure Files AD authentication for some common use cases, we published two videos with step by step guidance for the following scenarios:
+
+| Replacing on-premises file servers with Azure Files (including setup on private link for files and AD authentication) | Using Azure Files as the profile container for Windows Virtual Desktop (including setup on AD authentication and FsLogix configuration)  |
+|-|-|
+| [![Screencast of the replacing on-premises file servers video - click to play.](./media/storage-files-identity-auth-active-directory-enable/replace-on-prem-server-thumbnail.png)](https://www.youtube.com/watch?v=jd49W33DxkQ) | [![Screencast of the Using Azure Files as the profile container video - click to play.](./media/storage-files-identity-auth-active-directory-enable/files-ad-ds-fslogix-thumbnail.png)](https://www.youtube.com/watch?v=9S5A1IJqfOQ) |
+
 
 ## Prerequisites 
 
@@ -57,7 +61,7 @@ Before you enable AD DS authentication for Azure file shares, make sure you have
 
 ## Regional availability
 
-Azure Files authentication with AD DS is available in [all Azure Public and Gov regions](https://azure.microsoft.com/global-infrastructure/locations/).
+Azure Files authentication with AD DS is available in [all Azure Public, China and Gov regions](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## Overview
 

@@ -26,7 +26,7 @@ You also need the Azure CLI version 2.0.59 or later installed and configured. Ru
 
 ## Create an Azure disk
 
-When you create an Azure disk for use with AKS, you can create the disk resource in the **node** resource group. This approach allows the AKS cluster to access and manage the disk resource. If you instead create the disk in a separate resource group, you must grant the Azure Kubernetes Service (AKS) service principal for your cluster the `Contributor` role to the disk's resource group. Alternatively, you can use the system assigned managed identity for permissions instead of the service principal. For more information, see [Use managed identities](use-managed-identity.md).
+When you create an Azure disk for use with AKS, you can create the disk resource in the **node** resource group. This approach allows the AKS cluster to access and manage the disk resource. If you instead create the disk in a separate resource group, you must grant the Azure Kubernetes Service (AKS) managed identity for your cluster the `Contributor` role to the disk's resource group.
 
 For this article, create the disk in the node resource group. First, get the resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster name *myAKSCluster* in the resource group name *myResourceGroup*:
 
@@ -131,13 +131,13 @@ For more information about AKS clusters interact with Azure disks, see the [Kube
 [managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
-[az-disk-list]: /cli/azure/disk#az-disk-list
-[az-disk-create]: /cli/azure/disk#az-disk-create
-[az-group-list]: /cli/azure/group#az-group-list
-[az-resource-show]: /cli/azure/resource#az-resource-show
+[az-disk-list]: /cli/azure/disk#az_disk_list
+[az-disk-create]: /cli/azure/disk#az_disk_create
+[az-group-list]: /cli/azure/group#az_group_list
+[az-resource-show]: /cli/azure/resource#az_resource_show
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [install-azure-cli]: /cli/azure/install-azure-cli
 [azure-files-volume]: azure-files-volume.md
 [operator-best-practices-storage]: operator-best-practices-storage.md

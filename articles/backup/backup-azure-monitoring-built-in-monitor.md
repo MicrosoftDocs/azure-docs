@@ -115,6 +115,18 @@ To inactivate/resolve an active alert, you can select the list item correspondin
 
 ![RS Vault alert inactivation](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
 
+## Azure Monitor alerts for Azure Backup (preview)
+
+Azure Backup also provides alerts via Azure Monitor, to enable users to have a consistent experience for alert management across different Azure services, including backup. With Azure Monitor alerts, you can route alerts to any notification channel supported by Azure Backup such as email, ITSM, Webhook, Logic App and so on.
+
+Currently, this feature is available for Azure Databases for PostgreSQL Server, Azure Blobs and Azure Managed Disks. Alerts are generated for the following scenarios and can be accessed by navigating to a Backup vault and clicking on the **Alerts** menu item:
+
+- Delete Backup Data
+- Backup Failure (to get alerts for Backup Failure, you need to register the AFEC flag named **EnableAzureBackupJobFailureAlertsToAzureMonitor** via the preview portal)
+- Restore Failure (to get alerts for Restore Failure, you  need to register the AFEC flag named **EnableAzureBackupJobFailureAlertsToAzureMonitor** via the preview portal)
+
+For more information about Azure Monitor alerts, see [Overview of alerts in Azure](../azure-monitor/alerts/alerts-overview.md).
+
 ## Next steps
 
 [Monitor Azure Backup workloads using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md)

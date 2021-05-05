@@ -37,7 +37,7 @@ If you don't have a reference on Application Insights SDK yet:
   * [ASP.NET Core project](./asp-net-core.md)
   * [Java project](./java-get-started.md)
   * [Node.js project](./nodejs.md)
-  * [JavaScript in each webpage](./javascript.md) 
+  * [JavaScript in each webpage](./javascript.md)
 * In your device or web server code, include:
 
     *C#:* `using Microsoft.ApplicationInsights;`
@@ -61,6 +61,7 @@ If you use AzureFunctions v2+ or Azure WebJobs v3+ - follow this document: https
 ```csharp
 private TelemetryClient telemetry = new TelemetryClient();
 ```
+
 For anyone seeing this method is obsolete messages please visit [microsoft/ApplicationInsights-dotnet#1152](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1152) for further details.
 
 *Visual Basic*
@@ -73,7 +74,7 @@ Private Dim telemetry As New TelemetryClient
 
 ```java
 private TelemetryClient telemetry = new TelemetryClient();
-``` 
+```
 
 *Node.js*
 
@@ -143,8 +144,6 @@ telemetry.trackEvent({name: "WinGame"});
 
 The telemetry is available in the `customEvents` table in [Application Insights Logs tab](../logs/log-query-overview.md) or [Usage Experience](usage-overview.md). Events may come from `trackEvent(..)` or [Click Analytics Auto-collection Plugin](javascript-click-analytics-plugin.md).
 
- 
-
 If [sampling](./sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackEvent(), the sampling process only transmitted one of them. To get a correct count of custom events, you should therefore use code such as `customEvents | summarize sum(itemCount)`.
 
 ## GetMetric
@@ -174,15 +173,15 @@ To send a single metric value:
 
 *JavaScript*
 
- ```javascript
+```javascript
 appInsights.trackMetric("queueLength", 42.0);
- ```
+```
 
 *C#*
 
 ```csharp
 var sample = new MetricTelemetry();
-sample.Name = "metric name";
+sample.Name = "queueLength";
 sample.Value = 42.3;
 telemetryClient.TrackMetric(sample);
 ```
@@ -195,9 +194,9 @@ telemetry.trackMetric("queueLength", 42.0);
 
 *Node.js*
 
- ```javascript
+```javascript
 telemetry.trackMetric({name: "queueLength", value: 42.0});
- ```
+```
 
 ### Custom metrics in Analytics
 
@@ -483,7 +482,11 @@ telemetry.trackTrace({
 *Client/Browser-side JavaScript*
 
 ```javascript
-trackTrace(message: string, properties?: {[string]:string}, severityLevel?: SeverityLevel)
+trackTrace({
+    message: string, 
+    properties?: {[string]:string}, 
+    severityLevel?: SeverityLevel
+})
 ```
 
 Log a diagnostic event such as entering or leaving a method.
@@ -497,7 +500,7 @@ Log a diagnostic event such as entering or leaving a method.
 You can search on message content, but (unlike property values) you can't filter on it.
 
 The size limit on `message` is much higher than the limit on properties.
-An advantage of TrackTrace is that you can put relatively long data in the message. For example, you can encode POST data there.  
+An advantage of TrackTrace is that you can put relatively long data in the message. For example, you can encode POST data there.
 
 In addition, you can add a severity level to your message. And, like other telemetry, you can add property values to help you filter or search for different sets of traces. For example:
 
@@ -594,7 +597,7 @@ finally
 }
 ```
 
-Remember that the server SDKs include a [dependency module](./asp-net-dependencies.md) that discovers and tracks certain dependency calls automatically--for example, to databases and REST APIs. You have to install an agent on your server to make the module work. 
+Remember that the server SDKs include a [dependency module](./asp-net-dependencies.md) that discovers and tracks certain dependency calls automatically--for example, to databases and REST APIs. You have to install an agent on your server to make the module work.
 
 In Java, certain dependency calls can be automatically tracked using [Java Agent](./java-agent.md).
 
@@ -626,7 +629,7 @@ Normally, the SDK sends data at fixed intervals (typically 30 secs) or whenever 
 
 *C#*
 
- ```csharp
+```csharp
 telemetry.Flush();
 // Allow some time for flushing before shutdown.
 System.Threading.Thread.Sleep(5000);
@@ -696,6 +699,9 @@ In [Metrics Explorer](../essentials/metrics-charts.md), you can create a chart t
 
 You can also [Search](./diagnostic-search.md) for client data points with specific user names and accounts.
 
+> [!NOTE]
+> The [EnableAuthenticationTrackingJavaScript property in the ApplicationInsightsServiceOptions class](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) in the .NET Core SDK simplifies the JavaScript configuration needed to inject the username as the Auth Id for each trace sent by the Application Insights JavaScript SDK. When this property is set to true, the username from the user in the ASP.NET Core is printed along with [client-side telemetry](asp-net-core.md#enable-client-side-telemetry-for-web-applications), so adding `appInsights.setAuthenticatedUserContext` manually wouldn't be needed anymore, as it is already injected by the SDK for ASP.NET Core. The Auth Id will also be sent to the server where the SDK in .NET Core will identify it and use it for any server-side telemetry, as described in the [JavaScript API reference](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#setauthenticatedusercontext). However, for JavaScript applications that don't work in the same way as ASP.NET Core MVC (such as SPA web apps), you would still need to add `appInsights.setAuthenticatedUserContext` manually.
+
 ## <a name="properties"></a>Filtering, searching, and segmenting your data by using properties
 
 You can attach properties and measurements to your events (and also to metrics, page views, exceptions, and other telemetry data).
@@ -713,21 +719,23 @@ There are some [limits on the number of properties, property values, and metrics
 *JavaScript*
 
 ```javascript
-appInsights.trackEvent
-    ("WinGame",
-        // String properties:
-        {Game: currentGame.name, Difficulty: currentGame.difficulty},
-        // Numeric metrics:
-        {Score: currentGame.score, Opponents: currentGame.opponentCount}
-        );
+appInsights.trackEvent({
+  name: 'some event',
+  properties: { // accepts any type
+    prop1: 'string',
+    prop2: 123.45,
+    prop3: { nested: 'objects are okay too' }
+  }
+});
 
-appInsights.trackPageView
-    ("page name", "http://fabrikam.com/pageurl.html",
-        // String properties:
-        {Game: currentGame.name, Difficulty: currentGame.difficulty},
-        // Numeric metrics:
-        {Score: currentGame.score, Opponents: currentGame.opponentCount}
-        );
+appInsights.trackPageView({
+  name: 'some page',
+  properties: { // accepts any type
+    prop1: 'string',
+    prop2: 123.45,
+    prop3: { nested: 'objects are okay too' }
+  }
+});
 ```
 
 *C#*
@@ -786,8 +794,6 @@ telemetry.trackEvent("WinGame", properties, metrics);
 
 > [!NOTE]
 > Take care not to log personally identifiable information in properties.
->
->
 
 ### Alternative way to set properties and metrics
 
@@ -808,8 +814,6 @@ telemetry.TrackEvent(event);
 
 > [!WARNING]
 > Don't reuse the same telemetry item instance (`event` in this example) to call Track*() multiple times. This may cause telemetry to be sent with incorrect configuration.
->
->
 
 ### Custom measurements and properties in Analytics
 
@@ -900,7 +904,6 @@ gameTelemetry.TrackEvent("WinGame")
 import com.microsoft.applicationinsights.TelemetryClient;
 import com.microsoft.applicationinsights.TelemetryContext;
 ...
-
 
 TelemetryClient gameTelemetry = new TelemetryClient();
 TelemetryContext context = gameTelemetry.getContext();

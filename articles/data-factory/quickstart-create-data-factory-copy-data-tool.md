@@ -21,7 +21,7 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 > [!NOTE]
 > If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md) before doing this quickstart. 
 
-[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
+[!INCLUDE [data-factory-quickstart-prerequisites](includes/data-factory-quickstart-prerequisites.md)] 
 
 ## Create a data factory
 
@@ -52,7 +52,7 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 
 1. After the creation is complete, you see the **Data Factory** page. Select the **Author & Monitor** tile to start the Azure Data Factory user interface (UI) application on a separate tab.
    
-   ![Home page for the data factory, with the "Author & Monitor" tile](./media/doc-common-process/data-factory-home-page.png)
+:::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Author & Monitor tile.":::
 
 ## Start the Copy Data tool
 

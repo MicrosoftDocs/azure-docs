@@ -914,7 +914,7 @@ Expressions used in the `set-variable` policy must return one of the following b
 The `trace` policy adds a custom trace into the API Inspector output, Application Insights telemetries, and/or Resource Logs.
 
 -   The policy adds a custom trace to the [API Inspector](./api-management-howto-api-inspector.md) output when tracing is triggered, i.e. `Ocp-Apim-Trace` request header is present and set to true and `Ocp-Apim-Subscription-Key` request header is present and holds a valid key that allows tracing.
--   The policy creates a [Trace](../azure-monitor/app/data-model-trace-telemetry.md) telemetry in Application Insights, when [Application Insights integration](./api-management-howto-app-insights.md) is enabled and the `severity` level specified in the policy is at or higher than the `verbosity` level specified in the diagnostic setting.
+-   The policy creates a [Trace](../azure-monitor/app/data-model-trace-telemetry.md) telemetry in Application Insights, when [Application Insights integration](./api-management-howto-app-insights.md) is enabled and the `severity` specified in the policy is equal to or greater than the `verbosity` specified in the diagnostic setting.
 -   The policy adds a property in the log entry when [Resource Logs](./api-management-howto-use-azure-monitor.md#activity-logs) is enabled and the severity level specified in the policy is at or higher than the verbosity level specified in the diagnostic setting.
 
 ### Policy statement

@@ -25,7 +25,7 @@ If Synapse Studio can't establish connection to serverless SQL pool, you'll noti
 ## Query fails because file cannot be opened
 
 If your query fails with the error saying 'File cannot be opened because it does not exist or it is used by another process' and you're sure both file exist and it's not used by another process it means serverless SQL pool can't access the file. This problem usually happens because your Azure Active Directory identity doesn't have rights to access the file. By default, serverless SQL pool is trying to access the file using your Azure Active Directory identity. To resolve this issue, you need to have proper rights to access the file. Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the storage account you're trying to query. 
-- [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). 
+- [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/common/storage-auth-aad-rbac-portal.md). 
 - [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
 ## Query fails because it cannot be executed due to current resource constraints 
@@ -36,7 +36,7 @@ If your query fails with the error message 'This query can't be executed due to 
 
 - If your query targets CSV files, consider [creating statistics](develop-tables-statistics.md#statistics-in-serverless-sql-pool). 
 
-- Visit [performance best practices for serverless SQL pool](best-practices-sql-on-demand.md) to optimize query.  
+- Visit [performance best practices for serverless SQL pool](./best-practices-serverless-sql-pool.md) to optimize query.  
 
 ## CREATE 'STATEMENT' is not supported in master database
 

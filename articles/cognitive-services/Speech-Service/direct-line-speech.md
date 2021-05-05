@@ -55,11 +55,11 @@ Direct Line Speech and its associated functionality for voice assistants are an 
 ## Reference docs
 
 * [Speech SDK](./speech-sdk.md)
-* [Azure Bot Service](/azure/bot-service/?view=azure-bot-service-4.0)
+* [Azure Bot Service](/azure/bot-service/)
 
 ## Next steps
 
 * [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)
 * [Get the Speech SDK](speech-sdk.md)
-* [Create and deploy a basic bot](/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+* [Create and deploy a basic bot](/azure/bot-service/bot-builder-tutorial-basic-deploy)
 * [Get the Virtual Assistant Solution and Enterprise Template](https://github.com/Microsoft/AI)

@@ -7,10 +7,12 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/02/2021
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 # Manage device event alert notifications on Azure Stack Edge Pro resources
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article describes how to create action rules in the Azure portal to trigger or suppress alert notifications for device events that occur within a resource group, an Azure subscription, or an individual Azure Stack Edge resource. This article applies to all models of Azure Stack Edge.  
 
@@ -18,7 +20,7 @@ This article describes how to create action rules in the Azure portal to trigger
 
 An action rule can trigger or suppress alert notifications. The action rule is added to an *action group* - a set of notification preferences that's used to notify users who need to act on alerts triggered in different contexts for a resource or set of resources.
 
-For more information about action rules, see [Configuring an action rule](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#configuring-an-action-rule). For more information about action groups, see [Create and manage action groups in the Azure portal](/azure/azure-monitor/platform/action-groups).
+For more information about action rules, see [Configuring an action rule](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal#configuring-an-action-rule). For more information about action groups, see [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md).
 
 > [!NOTE]
 > The action rules feature is in preview. Some screens and steps might change as the process is refined.
@@ -29,7 +31,7 @@ For more information about action rules, see [Configuring an action rule](/azure
 Take the following steps in the Azure portal to create an action rule for your Azure Stack Edge device.
 
 > [!NOTE]
-> These steps create an action rule that sends notifications to an action group. For details about creating an action rule to suppress notifications, see [Configuring an action rule](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#configuring-an-action-rule).
+> These steps create an action rule that sends notifications to an action group. For details about creating an action rule to suppress notifications, see [Configuring an action rule](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal#configuring-an-action-rule).
 
 1. Go to the Azure Stack Edge device in the Azure portal, and then go to **Monitoring > Alerts**. Select **Manage actions**.
 
@@ -67,7 +69,7 @@ Take the following steps in the Azure portal to create an action rule for your A
 
    2. Under **Filters**, add each filter you want to apply. For each filter, select the filter type, **Operator**, and **Value**.
    
-      For a list of filter options, see [Filter criteria](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#filter-criteria).
+      For a list of filter options, see [Filter criteria](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal#filter-criteria).
 
       The sample filters below apply to all alerts at Severity levels 2, 3, and 4 that the Monitor service raises for Azure Stack Edge resources.
 
@@ -80,11 +82,11 @@ Take the following steps in the Azure portal to create an action rule for your A
    ![Action group option for creating an action rule that sends notifications](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-action-group-01.png)
 
    > [!NOTE]
-   > To create a rule that suppresses notifications, you would choose **Suppression**. For more information, see [Configuring an action rule](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#configuring-an-action-rule).
+   > To create a rule that suppresses notifications, you would choose **Suppression**. For more information, see [Configuring an action rule](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal#configuring-an-action-rule).
 
 6. Select the action group that you want to use with this action rule. Then choose **Select**. Your new action rule will be added to the notification preferences of the selected action group.
 
-   If you need to create a new action group, select **+ Create action group**, and follow the steps in [Create an action group by using the Azure portal](/azure/azure-monitor/platform/action-groups#create-an-action-group-by-using-the-azure-portal).
+   If you need to create a new action group, select **+ Create action group**, and follow the steps in [Create an action group by using the Azure portal](../azure-monitor/alerts/action-groups.md#create-an-action-group-by-using-the-azure-portal).
 
    ![Select an action group to use with the rule, and then choose Select.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-action-group-02.png)
 
@@ -118,8 +120,8 @@ The email notification will look similar to this one.
 
 ## Next steps
 
-<!-- - See [Create and manage action groups in the Azure portal](/azure/azure-monitor/platform/action-groups) for guidance on creating a new action group.
-- See [Configure an action rule](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#configuring-an-action-rule) for more info about creating action rules that send or suppress alert notifications. -2 bullets referenced above. Making room for local tasks in "Next Steps." --> 
+<!-- - See [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md) for guidance on creating a new action group.
+- See [Configure an action rule](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal#configuring-an-action-rule) for more info about creating action rules that send or suppress alert notifications. -2 bullets referenced above. Making room for local tasks in "Next Steps." --> 
 - See [Monitor your Azure Stack Edge Pro](azure-stack-edge-monitor.md) for info about reviewing device events, hardware status, and metrics charts. 
 - See [Using Azure Monitor](azure-stack-edge-gpu-enable-azure-monitor.md) for info about optimizing Azure Monitor for Azure Stack Edge Pro GPU devices.
-- See [Create, view, and manage metric alerts using Azure Monitor Link target](/azure/azure-monitor/platform/alerts-metric) for info about managing individual alerts.
+- See [Create, view, and manage metric alerts using Azure Monitor Link target](../azure-monitor/alerts/alerts-metric.md) for info about managing individual alerts.

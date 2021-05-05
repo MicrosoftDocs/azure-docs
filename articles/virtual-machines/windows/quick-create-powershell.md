@@ -2,7 +2,8 @@
 title: Quickstart - Create a Windows VM with Azure PowerShell 
 description: In this quickstart, you learn how to use Azure PowerShell to create a Windows virtual machine
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 07/02/2019
@@ -48,6 +49,8 @@ New-AzVm `
     -PublicIpAddressName "myPublicIpAddress" `
     -OpenPorts 80,3389
 ```
+
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## Connect to virtual machine
 

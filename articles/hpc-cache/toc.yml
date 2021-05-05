@@ -10,10 +10,14 @@
   items:
   - name: Plan the aggregated namespace
     href: hpc-cache-namespace.md
+  - name: Understand cache usage models
+    href: cache-usage-models.md
+  - name: Decide if HPC Cache is the right solution
+    href: usage-scenarios.md
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/hpc-cache-security-baseline?toc=/azure/hpc-cache/toc.json
 - name: How-to guides
   items:
   - name: Prerequisites
@@ -56,7 +60,7 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/ext/hpc-cache/hpc-cache
+    href: /cli/azure/hpc-cache
   - name: Azure PowerShell
     href: /powershell/module/Az.HPCCache
 
@@ -70,6 +74,8 @@
     href: hpc-cache-blob-firewall-fix.md
   - name: Troubleshoot NFS storage target creation
     href: troubleshoot-nas.md
+  - name: Use NFS-mounted blob storage with Azure HPC Cache
+    href: nfs-blob-considerations.md
   - name: Recover from a regional outage
     href: hpc-region-recovery.md
   - name: Use customer-managed encryption keys
