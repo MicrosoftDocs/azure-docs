@@ -81,7 +81,7 @@ You can structure your QnA Maker resources by language or you can use [Translato
 
 You can now have knowledge bases in different languages within the same Text Analytics resource where the custom question answering feature is enabled. When you create the first knowledge base, you can choose whether you want to use the resource for knowledge bases in a single language or multiple languages.
 
-![QnA Maker managed (Preview) multi-lingual knowledge base selection](../media/concept-plan-your-knowledge-base/qnamaker-v2-select-multilanguage-knowledge-base.png)
+![QnA Maker managed (Preview) multi-lingual knowledge base selection](../media/qnamaker-create-publish-knowledge-base/connect-knowledgebase-custom-qna.png)
 
 > [!NOTE]
 > If you enable language settings per knowledge base, you cannot create as many knowledge bases in your QnA Maker resource. For [more details on language settings limitations](./azure-resources.md).
@@ -95,6 +95,8 @@ You can use one of the following ingested [data sources](../Concepts/data-source
 * Public URL
 * Private SharePoint URL
 * File
+
+Custom question answering also supports unstrucutered content. You can upload a file that has unstructured content.
 
 The ingestion process converts [supported content types](../reference-document-format-guidelines.md) to markdown. All further editing of the *answer* is done with markdown. After you create a knowledge base, you can edit [QnA pairs](question-answer-set.md) in the QnA Maker portal with [rich text authoring](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
 
