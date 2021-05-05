@@ -41,7 +41,7 @@ landingContent:
           - text: Create a cluster - CLI
             url: create-cluster-cli.md
           - text: Create a multi-region cluster - CLI
-            url: create-multi-region-cluster-cli.md            
+            url: create-multi-region-cluster.md            
           - text: Deploy a Spark cluster with Azure Databricks
             url: deploy-cluster-databricks.md 
       - linkListType: concept
