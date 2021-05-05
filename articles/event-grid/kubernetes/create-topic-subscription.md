@@ -60,7 +60,7 @@ Before you create a subscription for the custom topic, create an endpoint for th
    ![View new site](../media/custom-event-quickstart-portal/view-site.png)
 
 ## Create a subscription
-An event subscription defines the filtering criteria to select the events to be routed and the destination to which those events are sent. To learn about all the destinations or handlers supported, see [Event handlers](event-handers.md).
+An event subscription defines the filtering criteria to select the events to be routed and the destination to which those events are sent. To learn about all the destinations or handlers supported, see [Event handlers](event-handlers.md).
 
 To create an event subscription with a WebHook (HTTPS endpoint) destination, follow these steps: 
 
