@@ -27,6 +27,10 @@ This document describes the steps to perform an operating system file level back
 > * The OS backup scripts uses xfsdump utility.  
 > * This document supports complete Root filesystem backup and **no incremental** backups
 > * Do ensure that while taking backups, there are no files being written actively to the system for which you will need a backup, since while the system is being backed up and there is a backup being performed it might not get updated in the backup.
+> * This documentation replaces ReaR tool based backups.
+> * This procedure has been tested inhouse for multiple OS corruption scenarios, since the customer is solely responsible for the OS, it is recommended that they test it out before relying on this documentation for their scenarios.
+> * The process listed out has been tested out on SLES OS.
+> * OS restore, with the process mentioned in this document is not possible without engaging Microsoft for a console access, please create a support ticket with Microsoft to assist in recovery.
 
 
 ## How to take a manual backup?
@@ -90,6 +94,8 @@ To perform a manual backup :
    reboot
    ```
 
+* * In the scenario, any post checks fail, please engage OS vendor and Microsoft for a console access.
+
 ## Post Restore check
 
 * Ensure the system has complete attributes restored.
@@ -114,3 +120,5 @@ To perform a manual backup :
    hdbinfo
    ```
    ![how](media/HowToHLI/OSBackupTypeIISKUs/hana_status.PNG)
+
+* In the scenario, any post checks fail, please engage OS vendor and Microsoft for a console access.
