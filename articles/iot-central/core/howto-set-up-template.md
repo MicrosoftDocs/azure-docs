@@ -1,6 +1,6 @@
 ---
 title: Define a new IoT device type in Azure IoT Central | Microsoft Docs
-description: This article shows you, as a solution builder, how to create a new Azure IoT device template in your Azure IoT Central application. You define the telemetry, state, properties, and commands for your type.
+description: This article shows you how to create a new Azure IoT device template in your Azure IoT Central application. You define the telemetry, state, properties, and commands for your type.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/06/2019
