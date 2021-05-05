@@ -36,7 +36,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Ally.io supports **SP and IDP** initiated SSO
 * Ally.io supports **Just In Time** user provisioning
-* Once you configure Ally.io you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Once you configure Ally.io, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Ally.io from the gallery
 
@@ -44,7 +44,7 @@ To configure the integration of Ally.io into Azure AD, you need to add Ally.io f
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. Go to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Ally.io** in the search box.
 1. Select **Ally.io** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
@@ -90,7 +90,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Ally.io application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/default-attributes.png)
+	![Screenshot that shows the list of default attributes.](common/default-attributes.png)
 
 1. In addition to above, Ally.io application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
@@ -142,22 +142,22 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 To configure single sign-on on Ally.io side, you need to copy the Certificate (Base64) and appropriate URLs from Azure portal and add them in Ally.io.
 
-Login to Ally.io using an Admin account
-Using the navigation bar on the left of the screen select **Admin** followed by **Integrations**
-Scroll to the **Authentication** section and select **Single Sign-On** and click Enable
+1. Log in to Ally.io using an Admin account.
+1. Using the navigation bar on the left of the screen, select **Admin** > **Integrations**.
+1. Scroll to the **Authentication** section and select **Single Sign-On**. Then, select **Enable**.
 
-![image](https://user-images.githubusercontent.com/22195205/116699753-95278e80-a9e3-11eb-8987-dac3c3688b92.png)
+![Screenshot that shows the Enable button in Digital Tones.](./media/ally-tutorial/ally-enable.png)
 
 After you have selected Enable, a new screen will appear where you can configure the certificate and the copied URLs from your Azure portal.
 
-![image](https://user-images.githubusercontent.com/22195205/116699882-bd16f200-a9e3-11eb-90d3-bb65068fb328.png)
+![Screenshot that shows the S S O configuration pane in Ally i o.](./media/ally-tutorial/ally-single-sign-on-configuration.png)
 
 Fill in the SSO Configuration by following the mapping 
 
-**Ally : Azure AD**
-* SAML 2.0 Endpoint URL : Login URL
-* Identity Provider Issuer URL : Azure AD Identifier
-* Public(X.509) Certificate: Certificate (base 64)
+* **Ally**: Azure AD
+* **SAML 2.0 Endpoint URL**: Login URL
+* **Identity Provider Issuer URL**: Azure AD Identifier
+* **Public(X.509) Certificate**: Certificate (base 64)
 
 ## Test SSO 
 
