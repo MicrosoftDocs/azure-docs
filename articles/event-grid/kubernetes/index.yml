@@ -36,8 +36,8 @@ landingContent:
 #          - text: Delivery and retry
 #            url: delivery-retry.md
   # Card
- - title: Scenarios
-   linkLists:
+  - title: Scenarios
+    linkLists:
       - linkListType: quickstart
         links:
           - text: Create a topic and a subscription

@@ -1,6 +1,6 @@
 ---
 title: Azure Event Grid on Kubernetes - create topics and subscriptions
-description: This article describes how to create an Event Grid topic on a Kubernetes cluster connected to Azure Arc and then create a subscription for the topic. 
+description: This article describes how to create an event grid topic on a Kubernetes cluster connected to Azure Arc and then create a subscription for the topic. 
 author: spelluru
 manager: JasonWHowell
 ms.author: spelluru
@@ -49,7 +49,7 @@ ms.topic: how-to
 An event subscription defines the filtering criteria to select the events to be routed and the destination to which those events are sent.
 
 Event Subscriptions support the following kind of destinations.
-* [Webhooks](#WebHook). The following are supported throught webhooks (endpoints):
+* [Webhooks](#WebHook). The following are supported through webhooks (endpoints):
   * Azure Event Grid
   * Azure Functions 
   * Functions on Kubernetes
@@ -79,7 +79,7 @@ Event Grid on Kubernetes offers a good level of feature parity with respect to A
 #### WebHook
 
 1. To create an event subscription with a WebHook (HTTPS endpoint) destination
-create a file called ```event-subscription-1.json``` that will contain the following request payload that defines a basic filter criteria that selects events for routing based on prefix and suffix strings in the event's subject attribute. You should change the values in  ```subjectBeginsWith``` and ```subjectEndsWith``` to suit your needs. You migth also remove the fitler criteria. If you do, Event Grid will send all events to the defined destination in ```endpointUrl```.
+create a file called ```event-subscription-1.json``` that will contain the following request payload that defines a basic filter criteria that selects events for routing based on prefix and suffix strings in the event's subject attribute. You should change the values in  ```subjectBeginsWith``` and ```subjectEndsWith``` to suit your needs. You might also remove the filter criteria. If you do, Event Grid will send all events to the defined destination in ```endpointUrl```.
 
 ```json
 {
@@ -126,7 +126,7 @@ Following are some request payload examples for different type of destinations.
 ```
 ### Service Bus 
 
-The following is a request payload example for creating a event subscription to an **Service Bus Queue** destination.
+The following is a request payload example for creating an event subscription to a **Service Bus Queue** destination.
 ```json
 {
   "properties": {
@@ -144,7 +144,7 @@ The following is a request payload example for creating a event subscription to 
   }
 }
 ```
-The following is a request payload example for creating a event subscription to an **Service Bus Topic** destination.
+The following is a request payload example for creating an event subscription to a **Service Bus Topic** destination.
 ```json
 {
   "properties": {
