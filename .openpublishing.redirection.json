@@ -65928,6 +65928,16 @@
       "source_path_from_root": "/articles/dms/known-issues-oracle-azure-postgresql-online.md",
       "redirect_url": "/azure/postgresql/howto-migrate-from-oracle",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/authentication-fundamentals.md",
+      "redirect_url": "/azure/key-vault/general/authentication.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-send-telemetry-python.md",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-central",
+      "redirect_document_id": false
     }
   ]
 }
