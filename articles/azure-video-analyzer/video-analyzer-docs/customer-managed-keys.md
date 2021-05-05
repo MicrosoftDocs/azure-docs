@@ -15,7 +15,7 @@ Bring Your Own Key (BYOK) is an Azure wide initiative to help customers move the
 
 An account key is created for all Video Analyzer accounts. By default this account key is encrypted by a system key owned by Video Analyzer (i.e. system-managed key). Instead, you can use your own key with Azure Video Analyzer. In that case, your account key is encrypted with your key. Access policies and video resource metadata get encrypted using the account key.
 
-Video Analyzer uses the user assigned managed identity associated with your account to read your key from a Key Vault owned by you. Video Analyzer requires that the Key Vault is in the same region as the account, and that it has soft-delete and purge protection enabled.
+Video Analyzer uses a User Assigned Managed Identity to read your key from a Key Vault owned by you. You must provide the User Assigned Managed Identity when creating or updating the Video Analyzer account and assign appropriate [Azure role-based access control]../../role-based-access-control/overview.md) to the Key Vault. Video Analyzer requires that the Key Vault is in the same region as the account, and that it has soft-delete and purge protection enabled.
 
 Your key can be a 2048, 3072, or a 4096 RSA key, and both HSM and software keys are supported.
 
@@ -29,7 +29,7 @@ You can specify a key name and key version, or just a key name. When you use onl
 
 ## Double encryption
 
-Video Analyzer protects your sensitive data using double encryption as per Azure standard practice - see [Azure double encryption](../../security/fundamentals/double-encryption.md). For data at rest, the first layer of encryption uses a customer managed key or a Microsoft managed key depending on the `Encryption` setting on the account. The second layer of encryption for data at rest is provided automatically using a separate Microsoft managed key.
+Video Analyzer protects your sensitive data using double encryption as per Azure standard practice - see [Azure double encryption](../../security/fundamentals/double-encryption.md). For data at rest, the first layer of encryption uses a customer managed key or a Microsoft managed key depending on the `encryption` setting on the account. The second layer of encryption for data at rest is provided automatically using a separate Microsoft managed key.
 
 > [!NOTE]
 > Double encryption is enabled automatically on the Video Analyzer account. However, you need to configure the customer managed key and double encryption on your storage account separately. See [Storage encryption](../../storage/common/storage-service-encryption.md).
