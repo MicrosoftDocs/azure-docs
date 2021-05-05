@@ -4,7 +4,7 @@ description: Describes the structure and properties of a Bicep file using declar
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 05/05/2021
 ---
 
 # Understand the structure and syntax of Bicep files
@@ -320,4 +320,4 @@ The preceding example is equivalent to the following JSON.
 
 ## Next steps
 
-For an introduction to Bicep, see [What is Bicep?](./overview.md).
+For an introduction to Bicep, see [What is Bicep?](./overview.md). For Bicep data types, see [Data types](./data-types.md).
