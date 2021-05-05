@@ -159,7 +159,7 @@ Use the following steps create a network security group (NSG) and add rules requ
 
 1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
 
-### Enable private endpoint for table storage
+### Enable private endpoint for file storage
 
 While you created a private endpoint for Blob storage in the previous steps, you must also create one for File storage. Since the UI in the previous steps only allow you to create one private endpoint, use the following steps to add another after the Storage Account has been created.
 
