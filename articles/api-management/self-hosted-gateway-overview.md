@@ -9,7 +9,7 @@ editor: ''
 
 ms.service: api-management
 ms.topic: article
-ms.date: 01/25/2021
+ms.date: 05/25/2021
 ms.author: apimpm
 ---
 
@@ -39,7 +39,7 @@ Deploying self-hosted gateways into the same environments where the backend API 
 
 ## Packaging and features
 
-The self-hosted gateway is a containerized, functionally equivalent version of the managed gateway deployed to Azure as part of every API Management service. The self-hosted gateway is available as a Linux-based Docker [container](https://aka.ms/apim/sputnik/dhub) from the Microsoft Container Registry. It can be deployed to Docker, Kubernetes, or any other container orchestration solution running on a server cluster on premises, cloud infrastructure, or for evaluation and development purposes, on a personal computer.
+The self-hosted gateway is a containerized, functionally equivalent version of the managed gateway deployed to Azure as part of every API Management service. The self-hosted gateway is available as a Linux-based Docker [container](https://aka.ms/apim/sputnik/dhub) from the Microsoft Container Registry. It can be deployed to Docker, Kubernetes, Azure Arc enabled Kubernetes, AKS, or any other container orchestration solution running on a server cluster on premises, cloud infrastructure, or for evaluation and development purposes, on a personal computer.
 
 The following functionality found in the managed gateways is **not available** in the self-hosted gateways:
 
