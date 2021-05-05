@@ -22,8 +22,19 @@ An event handler is the place where the event for further action or to process t
 - Azure Service Bus topics and queues
 - Azure Storage queues
 
-## WebHook
+## Parity with event subscriptions on Azure 
+Event Grid on Kubernetes offers a good level of feature parity with respect to Azure Event Grid's support for event subscriptions. The following list enumerates the main differences in event subscription functionality. Apart from those differences, you may use Azure Event Grid's [REST API](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions) to manage event subscriptions as reference documentation when managing event subscriptions on Event Grid on Kubernetes.
 
+1. Use the api version `2020-10-15-preview`.
+2. [Azure Event Grid trigger for Azure Functions](../../azure-functions/functions-bindings-event-grid-trigger.md?tabs=csharp%2Cconsole) isn't supported. You can use a WebHook destination type to deliver events to Azure Functions.
+3. There is no dead letter support.
+4. Azure Relay's Hybrid Connections as a destination isn't supported yet.
+5. Only CloudEvents schema is supported. The supported schema value is "[CloudEventSchemaV1_0](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#eventdeliveryschema)". 
+6. Labels ([properties.labels](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#request-body)) aren't applicable to Event Grid on Kubernetes, so they are not available.
+7. [Delivery with resource identity](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#deliverywithresourceidentity) isn't supported. Therefore, all properties for [Event Subscription Identity](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#eventsubscriptionidentity) aren't supported.
+8. [Destination endpoint validation](../webhook-event-delivery.md#endpoint-validation-with-event-grid-events) is not supported yet.
+
+## WebHook
 To publish to a WebHook endpoint, set the `endpointType` to `WebHook` and provide:
 
 * endpointUrl: The WebHook endpoint URL

@@ -17,7 +17,7 @@ ms.topic: how-to
 1. Create a custom location.
 1. Download and install [Azure Resource Manager client (armclient)](https://github.com/yangl900/armclient-go). This command-line tool will allow you to send request to Azure to create and manage resources.
 
-## Create a Topic
+## Create a topic
 1. Create a file called ```topic-1.json``` containing the following request payload that defines the topic you want to create.  
 
     ```json
@@ -37,48 +37,34 @@ ms.topic: how-to
 2. Create a topic by sending the following request.
 
     ```console
-    armclient put "https://<REGION>.management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroup}/providers/Microsoft.EventGrid/topics/{topic-name}?api-version=2020-10-15-preview" @topic-1.json -verbose
+    armclient put "https://<REGION>.management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-10-15-preview" @topic-1.json -verbose
     ```
 3. Verify that the provisioning state of the topic is ```Succeeded```.
 
    ```console
-   armclient get "https://<REGION>.management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroup}/providers/Microsoft.EventGrid/topics/{topicName}?api-version=2020-10-15-preview"
+   armclient get "https://<REGION>.management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<TOPIC NAME>?api-version=2020-10-15-preview"
    ```
-### Create an Event Subscription
 
-An event subscription defines the filtering criteria to select the events to be routed and the destination to which those events are sent.
+## Create a message endpoint
+Before you create a subscription for the custom topic, create an endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
-Event Subscriptions support the following kind of destinations.
-* Webhooks. The following are supported through webhooks (endpoints):
-  * Azure Event Grid
-  * Azure Functions 
-  * Functions on Kubernetes
-  * App Service on Kubernetes
-  * Logic Apps on Kubernetes
-* Azure Event Grid
-* Azure Event Hubs
-* Azure Service Bus topics and queues
-* Azure Storage queues
+1. In the article page, select **Deploy to Azure** to deploy the solution to your subscription. In the Azure portal, provide values for the parameters.
 
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to Deploy to Aquent." /></a>
+1. The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: 
+`https://<your-site-name>.azurewebsites.net`
 
-### Event Subscriptions on K8s and parity to event subscriptions on Azure 
+    If the deployment fails, check the error message. It may be because the web site name is already taken. Deploy the template again and choose a different name for the site. 
+1. You see the site but no events have been posted to it yet.
 
-Event Grid on Kubernetes offers a good level of feature parity with respect to Azure Event Grid's support for event subscriptions. The following list enumerates the main differences in event subscription functionality. Apart from those differences, you may use Azure Event Grid's [REST API to manage event subscriptions](/rest/api/eventgrid/version2020-04-01-preview/eventsubscriptions) as reference documentation when managing event subscription on Event Grid on Kubernetes.
+   ![View new site](../media/custom-event-quickstart-portal/view-site.png)
 
-1. The api version to use is ```2020-10-15-preview``` as opposed to ```2020-04-01-preview```.
-2. [Azure Event Grid trigger for Azure Functions](../../azure-functions/functions-bindings-event-grid-trigger.md?tabs=csharp%2Cconsole) is not supported. You can use a WebHook destination type to deliver events to Azure Functions.
-3. There is no Dead Letter support.
-4. Azure Relay's Hybrid Connections as a destination is not supported yet.
-5. The supported schema value is "[CloudEventSchemaV1_0](/rest/apieventgrid/version2020-04-01-preview/eventsubscriptions/createorupdate#eventdeliveryschema)".
-6. Labels ([properties.labels](/rest/apieventgrid/version2020-04-01-preview/eventsubscriptions/createorupdate#request-body)) are not a feature applicable to Event Grid on Kubernetes and hence are not available.
-7. [Delivery with resource identity](/rest/apieventgrid/version2020-04-01-preview/eventsubscriptions/createorupdate#deliverywithresourceidentity) is not supported. Hence, all properties for [Event Subscription Identity](/rest/apieventgrid/version2020-04-01-preview/eventsubscriptions/createorupdate#eventsubscriptionidentity) are not supported.
-8. [Destination endpoint validation](../webhook-event-delivery.md#endpoint-validation-with-event-grid-events) is not supported yet.
+## Create a subscription
+An event subscription defines the filtering criteria to select the events to be routed and the destination to which those events are sent. To learn about all the destinations or handlers supported, see [Event handlers](event-handers.md).
 
+To create an event subscription with a WebHook (HTTPS endpoint) destination, follow these steps: 
 
-#### WebHook
-
-1. To create an event subscription with a WebHook (HTTPS endpoint) destination
-create a file called ```event-subscription-1.json``` that will contain the following request payload that defines a basic filter criteria that selects events for routing based on prefix and suffix strings in the event's subject attribute. You should change the values in  ```subjectBeginsWith``` and ```subjectEndsWith``` to suit your needs. You might also remove the filter criteria. If you do, Event Grid will send all events to the defined destination in ```endpointUrl```.
+1. Create a file called ```event-subscription-1.json``` that will contain the following request payload that defines a basic filter criteria that selects events for routing based on prefix and suffix strings in the event's subject attribute. You should change the values in  ```subjectBeginsWith``` and ```subjectEndsWith``` to suit your needs. You might also remove the filter criteria. If you do, Event Grid will send all events to the defined destination in ```endpointUrl```.
 
     ```json
     {
@@ -97,88 +83,14 @@ create a file called ```event-subscription-1.json``` that will contain the follo
       }
     }
     ```
-2. Create an event subscription by sending the following HTTP PUT request with the entity  body defined above:
+2. For the web hook URL, provide the URL of your web app and add `api/updates` to the home page URL.
+1. Create an event subscription by sending the following HTTP PUT request with the entity  body defined above:
   
     ```console
-    armclient put "https://eastus2euap.management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}/providers/Microsoft.EventGrid/eventSubscriptions/{eventSubscriptionName}?api-version=2020-10-15-preview" @event-subscription-1.json -verbose
+    armclient put "https://<REGION>.management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}/providers/Microsoft.EventGrid/eventSubscriptions/{eventSubscriptionName}?api-version=2020-10-15-preview" @event-subscription-1.json -verbose
     ```
 
 Following are some request payload examples for different type of destinations.
 
-### Azure Event Hubs
-```json
-{
-  "properties": {
-    "destination": {
-            "endpointType": "EventHub",
-            "properties": {
-                    "resourceId": "/subscriptions/{subscription id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventHub/namespaces/{event-hubs-namespace-instance-name}/eventhubs/{event-hubs-instance-name}"
-            }
-    },
-    "filter": {
-            "isSubjectCaseSensitive": false,
-            "subjectBeginsWith": "ExamplePrefix",
-            "subjectEndsWith": "ExampleSuffix"
-    }
-  }
-}
-```
-### Service Bus 
-
-The following is a request payload example for creating an event subscription to a **Service Bus Queue** destination.
-```json
-{
-  "properties": {
-    "destination": {
-            "endpointType": "ServiceBusQueue",
-            "properties": {
-                    "resourceId": "/subscriptions/{subscription id}/resourceGroups/{resource-group-name}/providers/Microsoft.ServiceBus/namespaces/{service-bus-namespace-instance-name}/queues/{queue-instance-name}"
-            }
-    },
-    "filter": {
-            "isSubjectCaseSensitive": false,
-            "subjectBeginsWith": "ExamplePrefix",
-            "subjectEndsWith": "ExampleSuffix"
-    }
-  }
-}
-```
-The following is a request payload example for creating an event subscription to a **Service Bus Topic** destination.
-```json
-{
-  "properties": {
-    "destination": {
-            "endpointType": "ServiceBusTopic",
-            "properties": {
-                    "resourceId": "/subscriptions/{subscription id}/resourceGroups/{resource-group-name}/providers/Microsoft.ServiceBus/namespaces/{service-bus-namespace-instance-name}/topics/{topic-instance-name}"
-            }
-    },
-    "filter": {
-            "isSubjectCaseSensitive": false,
-            "subjectBeginsWith": "ExamplePrefix",
-            "subjectEndsWith": "ExampleSuffix"
-    }
-  }
-}
-```
-
-### Azure Storage Queues
-
-```json
-{
-  "properties": {
-    "destination": {
-            "endpointType": "StorageQueue",
-            "properties": {
-                    "resourceId": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/{storage-account-instance-name}",
-                    "queueName": "{queue-instance-name}"
-            }
-    },
-    "filter": {
-            "isSubjectCaseSensitive": false,
-            "subjectBeginsWith": "ExamplePrefix",
-            "subjectEndsWith": "ExampleSuffix"
-    }
-  }
-}
-```
+## Next steps
+See [Event handlers and destinations](event-handlers.md) to learn about all the event handlers and destinations that Event Grid on Kubernetes supports. 
