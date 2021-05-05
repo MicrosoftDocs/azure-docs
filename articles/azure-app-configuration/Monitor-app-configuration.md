@@ -1,10 +1,11 @@
 ---
-title: Monitoring Azure App Configuration
-description: Start here to learn how to monitor App Configuration
-author: AlexandraKemperMS
-ms.author: alkemper
-ms.service: azure-app-configuration
-ms.topic: subject-monitoring
+title: Monitor Azure App Configuration 
+description: Start here to learn how to monitor App Configuration
+services: azure-app-configuration
+author: AlexandraKemperMS
+ms.author: alkemper
+ms.service: azure-app-configuration
+ms.topic: subject-monitoring
 ms.date: 05/05/2021
 ---
 

@@ -1,12 +1,14 @@
 ---
-title: Monitoring Azure App Configuration data reference  
-description: Important reference material needed when you monitor App Configuration 
-author: AlexandraKemperMS
-ms.author: alkemper
-ms.service: azure-app-configuration
-ms.custom: subject-monitoring
-ms.date: 05/01/2021
+title: Monitoring Azure App Configuration data reference
+description: Important Reference material needed when you monitor App Configuration
+services: azure-app-configuration
+author: AlexandraKemperMS
+ms.author: alkemper
+ms.service: azure-app-configuration
+ms.topic: subject-monitoring
+ms.date: 05/05/2021
 ---
+
 
 # Monitoring App Configuration data reference
 See [Monitoring App Configuration](monitor-app-configuration.md) for details on collecting and analyzing monitoring data for App Configuration.
@@ -16,8 +18,8 @@ Resource Provider and Type: [App Configuration Platform Metrics](/azure/azure-mo
 
 | Metric | Unit| Description |
 |--- | ----| ------|      
-| Http Incoming Request Count | Count | Total number of incoming http requests.|  
-| Http Incoming Request Duration | Count |Latency of an Http Request|  
+| Http Incoming Request Count | Count | Total number of incoming http requests.|
+| Http Incoming Request Duration | Count |Latency of an Http Request|
 | Throttled Http Request Count |Count| Throttled requests are Http Requests that return a 429 Status Code (too many requests)| 
  
 
@@ -42,7 +44,7 @@ This section refers to all of the Azure Monitor Logs Kusto tables re
 
 |Resource Type | Notes |
 |-------|-----|
-| [AACHttpRequest](azure/azure-monitor/reference/tables/aachttprequest) | Entries of every Http request sent to a selected app configuration resource. |
+| [AACHttpRequest](/azure/azure-monitor/reference/tables/aachttprequest) | Entries of every Http request sent to a selected app configuration resource. |
 | [AzureActivity](/azure/azure-monitor/reference/tables/tables-resourcetype#virtual-machine-scale-sets) | Entries from the Azure Activity log that provide insight into any subscription-level or management group level events that have occurred in Azure. |
 
 For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
@@ -66,11 +68,12 @@ App Configuration uses the [Azure Diagnostics](/azure/azure-monitor/referenc
 ## Activity log
 
 The following table lists the operations related to App Configuration that may be created in the Activity log.
+
 | Operation | Description |
 |:---|:---|
 | List a key/all keys| |
 | List a feature flag/ all feature flags| |
-|Create a key/feature flag ||
+|Create a key/feature flag | |
 
 For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
 
@@ -80,6 +83,6 @@ The following schemas are in use by App Configuration
 
 ## See Also
 
-- See [Monitoring Azure App Configuration](monitor-app-configuration-name.md) for a description of monitoring Azure App Configuration.
+- See [Monitoring Azure App Configuration](monitor-app-configuration.md) for a description of monitoring Azure App Configuration.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
 
