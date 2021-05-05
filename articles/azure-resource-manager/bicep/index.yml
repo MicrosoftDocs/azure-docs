@@ -73,7 +73,7 @@ landingContent:
           - text: Define resources
             url: ../templates/template-syntax.md#resources
           - text: Define outputs
-            url: template-outputs.md
+            url: outputs.md
 
       - linkListType: reference
         links:
@@ -103,7 +103,7 @@ landingContent:
           - text: Cloud Shell
             url: deploy-cloud-shell.md
           - text: What-if deployment
-            url: template-deploy-what-if.md
+            url: deploy-what-if.md
 
   # Card
   - title: Scoped deployments

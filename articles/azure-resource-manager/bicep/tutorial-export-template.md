@@ -42,7 +42,7 @@ This Bicep file works well for deploying storage accounts, but you might want to
     - **Region**: select an Azure location. For example, **Central US**.
     - **Pricing tier**: to save costs, change the SKU to **Basic B1** (under Dev/Test).
 
-    ![Resource Manager template export template portal](./media/bicep-tutorial-export-template/resource-manager-template-export.png)
+    ![Resource Manager template export template portal](./media/tutorial-export-template/resource-manager-template-export.png)
 1. Select **Review and create**.
 1. Select **Create**. It takes a few moments to create the resource.
 
@@ -52,17 +52,17 @@ Currently, the Azure portal only supports exporting JSON templates. There are to
 
 1. Select **Go to resource**.
 
-    ![Go to resource](./media/bicep-tutorial-export-template/resource-manager-template-export-go-to-resource.png)
+    ![Go to resource](./media/tutorial-export-template/resource-manager-template-export-go-to-resource.png)
 
 1. Select **Export template**.
 
-    ![Resource Manager template export template](./media/bicep-tutorial-export-template/resource-manager-template-export-template.png)
+    ![Resource Manager template export template](./media/tutorial-export-template/resource-manager-template-export-template.png)
 
    The export template feature takes the current state of a resource and generates a template to deploy it. Exporting a template can be a helpful way of quickly getting the JSON you need to deploy a resource.
 
 1. The `Microsoft.Web/serverfarms` definition and the parameter definition are the parts that you need.
 
-    ![Resource Manager template export template exported template](./media/bicep-tutorial-export-template/resource-manager-template-exported-template.png)
+    ![Resource Manager template export template exported template](./media/tutorial-export-template/resource-manager-template-exported-template.png)
 
     > [!IMPORTANT]
     > Typically, the exported template is more verbose than you might want when creating a template. For example, the SKU object in the exported template has five properties. This template works, but you could just use the `name` property. You can start with the exported template, and then modify it as you like to fit your requirements.
