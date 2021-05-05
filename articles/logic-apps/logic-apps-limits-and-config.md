@@ -182,7 +182,7 @@ The following table lists the values for a single workflow definition:
 
 For a single workflow definition, the number of actions that run every 5 minutes has a [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). To raise the default value to the [maximum value](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) for your workflow, which is three times the default value, you can enable high throughput mode, which is in preview. Or, you can [distribute the workload across more than one workflow](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary.
 
-#### [Portal (Multi-tenant)](#tab/azure-portal)
+#### [Portal (Consumption)](#tab/azure-portal)
 
 1. In the Azure portal, on your logic app's menu, under **Settings**, select **Workflow settings**.
 
