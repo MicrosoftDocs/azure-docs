@@ -77,16 +77,14 @@ landingContent:
     linkLists:
     - linkListType: reference
       links:
+        - text: FAQs
+          url: faq-edge.md 
         - text: Client APIs #404
           url: client-apis.md
         - text: Pipeline extension
           url: pipeline-extension.md
         - text: Direct methods
           url: direct-methods.md
-    - linkListType: resources
-      links: 
-        - text: FAQs
-          url: faq-edge.md 
         - text: Quotas and limitations
           url: quotas-limitations.md           
 
