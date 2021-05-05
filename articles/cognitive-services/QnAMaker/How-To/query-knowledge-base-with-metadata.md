@@ -39,8 +39,6 @@ Consider the user question "When does this hotel close?", where the intent is im
 
 Because results are required only for the restaurant "Paradise", you can set a filter in the GenerateAnswer call on the metadata "Restaurant Name". The following example shows this:
 
-# [QnA Maker GA (stable release)](#tab/v1)
-
 ```json
 {
     "question": "When does this hotel close?",
@@ -49,9 +47,10 @@ Because results are required only for the restaurant "Paradise", you can set a f
 }
 ```
 
+## Filter by source
+# [QnA Maker GA (stable release)](#tab/v1)
 # [Custom question answering (preview release)](#tab/v2)
 
-### Filter by source
 In case you have multiple content sources in your knowledge base and you would like to limit the results to a particular set of sources, you can do that using the reserved keyword `system_sources` as shown below.
 
 ```json
