@@ -43,7 +43,7 @@ An MCA billing account is managed by a single tenant/directory. The billing acco
 
 ### Billing ownership transfer
 
-A billing ownership transfer only changes the invoice arrangement for a single subscription. So, the user and resource management for the subscription doesn’t change.
+A billing ownership transfer only changes the invoice arrangement for a single subscription. User and resource management for the subscription do not change.
 
 A billing ownership transfer does two things:
 
