@@ -52,6 +52,7 @@ import java.io.*;
 import com.azure.core.util.Context;
 import com.azure.core.util.polling.PollResponse;
 import com.azure.identity.*;
+import com.azure.core.http.rest.*;
 
 public class App
 {
