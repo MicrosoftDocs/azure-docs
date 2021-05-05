@@ -98,7 +98,7 @@ Start-AzDataProtectionBackupInstanceRestore -BackupInstanceName $AllInstances[2]
 
 ## Tracking job
 
-Track all jobs using the [Get-AzDataProtectionJob](/powershell/module/az.dataprotection/get-azdataprotectionjob?view=azps-5.7.0&preserve-view=true) command. You can list all jobs and fetch a particular job details.
+Track all jobs using the [Get-AzDataProtectionJob](/powershell/module/az.dataprotection/get-azdataprotectionjob?view=azps-5.7.0&preserve-view=true) command. You can list all jobs and fetch a particular job detail.
 
 You can also use Az.ResourceGraph to track all jobs across all backup vaults. Use the [Search-AzDataProtectionJobInAzGraph](/powershell/module/az.dataprotection/search-azdataprotectionjobinazgraph?view=azps-5.7.0&preserve-view=true) command to get the relevant job which can be across any backup vault.
 
