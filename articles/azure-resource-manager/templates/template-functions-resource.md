@@ -539,7 +539,7 @@ You can use the response from pickZones to determine whether to provide null for
 
 Returns an object representing a resource's runtime state.
 
-When referencing a resource that is deploy in the same template In Bicep, directly use the symbolic name of the resource to get a value from the resource. For example:
+When referencing a resource that is deployed in the same template in Bicep, directly use the symbolic name of the resource to get the properties from the resource. For example:
 
 ```bicep
 output storageEndpoint object = myStorageAccount.properties.primaryEndpoints
