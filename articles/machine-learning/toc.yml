@@ -494,6 +494,12 @@
         href: how-to-troubleshoot-deployment.md
       - name: Troubleshooting deployment (local)
         href: how-to-troubleshoot-deployment-local.md
+      - name: Troubleshooting managed online endpoints
+        href: how-to-troubleshoot-managed-online-endpoints.md
+      - name: Monitoring managed online endpoints
+        href: how-to-monitor-online-endpoints.md
+      - name: Viewing managed online endpoint costs
+        href: how-to-view-online-endpoints-costs.md
       - name: Consume web service
         displayName: create client consume request response synchronous
         href: how-to-consume-web-service.md
