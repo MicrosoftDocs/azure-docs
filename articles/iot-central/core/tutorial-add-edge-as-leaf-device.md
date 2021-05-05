@@ -281,7 +281,7 @@ If you plan to continue working with the IoT Edge VM, you can keep and reuse the
 
 ## Next steps
 
-As a device developer, now that you've learned how to work with and manage IoT Edge devices in IoT Central, a suggested next step is to read:
+Now that you've learned how to work with and manage IoT Edge devices in IoT Central, a suggested next step is to read:
 
 > [!div class="nextstepaction"]
 > [Develop IoT Edge modules](../../iot-edge/tutorial-develop-for-linux.md)

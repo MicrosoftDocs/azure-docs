@@ -277,4 +277,4 @@ After you publish a device template, an operator can go to the **Devices** page,
 
 ## Next steps
 
-If you're a device developer, a suggested next step is to read about [device template versioning](./howto-version-device-template.md).
+A suggested next step is to read about [device template versioning](./howto-version-device-template.md).
