@@ -162,7 +162,7 @@ The load-balancer inbound network address translation (NAT) rules should match t
 }
 ```
 
-### Outboud rules for a Standard SKU load balancer
+### Outbound rules for a Standard SKU load balancer
 
 The Standard SKU load balancer and public IP introduce new abilities and different behaviors to outbound connectivity when compared to using Basic SKUs. If you want outbound connectivity when you're working with Standard SKUs, you must explicitly define it with either a Standard SKU public IP addresses or a Standard SKU load balancer. For more information, see [Outbound connections](../load-balancer/load-balancer-outbound-connections.md) and [What is Azure Load Balancer?](../load-balancer/load-balancer-overview.md).
 
