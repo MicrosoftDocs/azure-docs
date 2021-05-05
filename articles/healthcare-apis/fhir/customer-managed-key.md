@@ -25,26 +25,27 @@ To get started, refer to the following links:
 
 ## Using Azure portal
 
-When creating your Azure API for FHIR account on Azure portal, you'll notice **Data Encryption** configuration option under the **Database Settings** on the **Additional Settings** tab. By default, the service-managed key option will be selected. 
+When creating your Azure API for FHIR account on Azure portal, you'll notice **Data Encryption** configuration option under the **Database Settings** on the **Additional Settings** tab. By default, the service-managed key option will be selected.
+
+> [!Important]
+> The data encryption option is only available when the Azure API for FHIR is created and cannot be changed afterwards. However, you can view and update the encryption key if the **Customer-managed key** option is selected. 
+
 
 You can choose your key from the KeyPicker:
 
 :::image type="content" source="media/bring-your-own-key/bring-your-own-key-keypicker.png" alt-text="KeyPicker":::
 
 You can also specify your Azure Key Vault key here by selecting **Customer-managed key** option.
-
-> [!Important]
-> Ensure all permissions for Azure Key Vault are set appropriately. For more information, see [Add an access policy to your Azure Key Vault instance](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-access-policy). 
-Additionally, ensure that the soft delete is enable in the properties of the Key Vault. Not completing these steps will result in a deployment error. For more information, see [Verify if soft delete is enabled on a key vault and enable soft delete](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#verify-if-soft-delete-is-enabled-on-a-key-vault-and-enable-soft-delete). 
-
+ 
 You can also enter the key URI here:
 
 :::image type="content" source="media/bring-your-own-key/bring-your-own-key-create.png" alt-text="Create Azure API for FHIR":::
 
-For existing FHIR accounts, you can view the key encryption choice (**Service-managed key** or **Customer-managed key**) in the **Database** blade as shown below. The configuration option can't be modified once it's selected. However, you can modify and update your key.
-
 > [!Important]
-> The data encryption option is only available when the Azure API for FHIR is created and cannot be changed afterwards. However, you can view and update the encryption key if the **Customer-managed key** option is selected.
+> Ensure all permissions for Azure Key Vault are set appropriately. For more information, see [Add an access policy to your Azure Key Vault instance](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-access-policy). 
+Additionally, ensure that the soft delete is enabled in the properties of the Key Vault. Not completing these steps will result in a deployment error. For more information, see [Verify if soft delete is enabled on a key vault and enable soft delete](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#verify-if-soft-delete-is-enabled-on-a-key-vault-and-enable-soft-delete).
+
+For existing FHIR accounts, you can view the key encryption choice (**Service-managed key** or **Customer-managed key**) in the **Database** blade as shown below. The configuration option can't be modified once it's selected. However, you can modify and update your key.
 
 :::image type="content" source="media/bring-your-own-key/bring-your-own-key-database.png" alt-text="Database":::
 
