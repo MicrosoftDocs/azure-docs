@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 04/08/2021
+ms.date: 05/05/2021
 ---
 
 # What's new in Azure Sentinel
@@ -25,10 +25,8 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 > You can also contribute! Join us in the [Azure Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 >
 
-## April 2021
+## May 2021
 
-- [Azure Policy-based data connectors](#azure-policy-based-data-connectors)
-- [Incident timeline (Public preview)](#incident-timeline-public-preview)
 - [Zero Trust (TIC3.0) workbook](#zero-trust-tic30-workbook)
 
 ### Zero Trust (TIC3.0) workbook
@@ -36,6 +34,8 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 The new, Azure Sentinel Zero Trust (TIC3.0) workbook provides an automated visualization of [Zero Trust](/security/zero-trust/) principles, cross-walked to the [Trusted Internet Connections](https://www.cisa.gov/trusted-internet-connections) (TIC) framework.
 
 We know that compliance isn’t just an annual requirement, and organizations must monitor configurations over time like a muscle. Azure Sentinel's Zero Trust workbook uses the full breadth of Microsoft security offerings across Azure, Office 365, Teams, Intune, Windows Virtual Desktop, and many more.
+
+:::image type="content" source="media/zero-trust-workbook.gif" alt-text="Zero Trust workbook.":::
 
 **The Zero Trust workbook**:
 
@@ -45,7 +45,10 @@ We know that compliance isn’t just an annual requirement, and organizations mu
 
 For more information, see [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md).
 
+## April 2021
 
+- [Azure Policy-based data connectors](#azure-policy-based-data-connectors)
+- [Incident timeline (Public preview)](#incident-timeline-public-preview)
 
 ### Azure Policy-based data connectors
 
