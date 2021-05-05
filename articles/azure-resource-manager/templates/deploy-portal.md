@@ -113,7 +113,7 @@ If you want to execute a deployment but not use any of the templates in the Mark
     - **Subscription**: Select an Azure subscription.
     - **Resource group**: Select **Create new** and give a name.
     - **Location**: Select an Azure location.
-    - **Storage Account Type**: Use the default value. The camel-cased parameter *storageAccountType* name defined in the template is turned into a space-separated string when displayed on the portal.
+    - **Storage Account Type**: Use the default value. The camel-cased parameter name, *storageAccountType*, defined in the template is turned into a space-separated string when displayed on the portal.
     - **Location**: Use the default value.
     - **I agree to the terms and conditions stated above**: (select)
 
