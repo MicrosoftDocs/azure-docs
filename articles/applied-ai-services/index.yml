@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 
 title: Azure Applied AI Services documentation
-summary: High-level service tailored for a specific customer scenario and problem using AI and uses one or more core Cognitive Services skills. ​
+summary: A family of AI services that accelerate development of solutions for common business processes ​
 brand: azure
 
 metadata:
@@ -13,7 +13,7 @@ metadata:
   ms.author: nitinme
   manager: nitinme
   ms.custom: custom-portals-hub
-  ms.date: 04/19/2021
+  ms.date: 05/05/2021
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -21,15 +21,15 @@ highlightedContent:
     - title: What are Applied AI Services?
       itemType: overview # controls the icon image and super-title text
       url: ./what-are-applied-ai-services.md
-    - title: All AI services in Azure - when to use what?
+    - title: Why Applied AI Services?
       itemType: concept
-      url: ./what-are-applied-ai-services.md
-    - title: Language support
-      itemType: reference
-      url: ./what-are-applied-ai-services.md
-    - title: Support and help options
-      itemType: reference
-      url: ./what-are-applied-ai-services.md
+      url: ./why-applied-ai-services.md
+    - title: Customer spotlight on use cases
+      itemType: learn
+      url: ./applied-ai-services-customer-spotlight-use-cases.md
+#    - title: Support and help options
+#      itemType: reference
+#      url: ./what-are-applied-ai-services.md
 
 # productDirectory section 
 productDirectory:
@@ -37,70 +37,67 @@ productDirectory:
   #summary:  # < 160 chars (optional)
   items:
     # Card
-    - title: Form Recognizer
+    - title: Azure Form Recognizer
       # imageSrc should be square in ratio with no whitespace
       imageSrc: ./media/form-recognizer.svg
-      summary: Form Recognizer
+      summary: Turn documents into usable data at a fraction of the time and cost
       url: https://docs.microsoft.com/azure/cognitive-services/form-recognizer/
     # Card
-    - title: Immersive Reader
+    - title: Azure Immersive Reader
       imageSrc: ./media/immersive-reader.svg
-      summary: Immersive Reader
+      summary: Help users read and comprehend text
       url: https://docs.microsoft.com/azure/cognitive-services/immersive-reader/
     # Card
-    - title: Metrics Advisor
+    - title: Azure Metrics Advisor
       imageSrc: ./media/metrics-advisor.svg
-      summary: Metrics Advisor
+      summary: Proactively monitor metrics and diagnose issues
       url: https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/
-    - title: Cognitive Search
+    - title: Azure Cognitive Search
       imageSrc: ./media/cognitive-search.svg
-      summary: Cognitive Search
+      summary: Bring AI-powered cloud search to your mobile and web apps
       url: https://docs.microsoft.com/azure/search/
-    - title: Video Analytics
+    - title: Azure Video Analyzer
       imageSrc: ./media/video-analytics.svg
-      summary: Video analytics
+      summary: Extract actionable insights from your videos
       url: https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview
     - title: Azure Bot Service
       imageSrc: ./media/bot-services.svg
-      summary: Azure Bot Service
+      summary: Create bots and connect them across channels
       url: https://docs.microsoft.com/composer/
 
 additionalContent:
   sections:
     - title: Additional resources
       items:
-        - title: Portals for customization
+        - title: Support & Help
           links:
-            - text: Custom Translator
-              url: https://portal.customtranslator.azure.ai/
-            - text: Custom Vision
-              url: https://www.customvision.ai/
+            - text: Submit feedback on UserVoice
+              url: https://aka.ms/AppliedAIUserVoice
+            - text: Ask questions on Microsoft Q&A
+              url: https://aka.ms/AppliedAIMSFTQandA
             # Card
-            - text: Language Understanding (LUIS)
-              url: https://luis.ai
-            # Card
-            - text: QnA Maker 
-              url: https://www.qnamaker.ai/
-            # Card
-            - text: Speech Studio
-              url: https://speech.microsoft.com/
-        - title: SDKs & REST APIs
+            - text: Troubleshoot on StackOverflow
+              url: https://aka.ms/AppliedAIStackOverflow
+        - title: Get coding with quickstarts
           links:
-            - text: C#
-              url: /dotnet/api/overview/azure/cognitiveservices/client
-            - text: Go
-              url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
-            - text: Java
-              url: /java/api/overview/azure/cognitiveservices/client
-            - text: JavaScript
-              url: /javascript/api/overview/azure/cognitive-services
-            - text: Python
-              url: /python/api/overview/azure/cognitive-services
-            - text: R 
-              url: https://github.com/Azure/AzureCognitive 
-        - title: Tools
+          - text: Azure Form Recognizer
+            url: https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool
+          - text: Azure Metrics Advisor
+            url: https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/quickstarts/web-portal
+          - text: Azure Immersive Reader
+            url: https://docs.microsoft.com/azure/cognitive-services/immersive-reader/quickstarts/client-libraries
+          - text: Azure Cognitive Search
+            url: https://docs.microsoft.com/azure/search/search-get-started-portal
+          - text: Azure Video Analyzer
+            url: https://docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/get-started-detect-motion-emit-events
+          - text: Azure Bot Service
+            url: https://docs.microsoft.com/composer/quickstart-create-bot
+            
+          - text: Start For free
+            url: https://azure.microsoft.com/free/ai
+        - title: Explore other Azure AI Services
           links:
-            - text: Azure CLI
-              url: /cli/azure/cognitiveservices
-            - text: PowerShell
-              url: /powershell/module/az.cognitiveservices/#cognitive_services
+            - text: Azure Cognitive Services
+              url: https://docs.microsoft.com/en-us/azure/cognitive-services/
+            - text: Azure Machine Learning
+              url: https://docs.microsoft.com/en-us/azure/machine-learning/
