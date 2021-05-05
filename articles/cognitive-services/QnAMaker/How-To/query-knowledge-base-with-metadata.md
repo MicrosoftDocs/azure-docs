@@ -48,10 +48,8 @@ Because results are required only for the restaurant "Paradise", you can set a f
 ```
 
 ## Filter by source
-# [QnA Maker GA (stable release)](#tab/v1)
-# [Custom question answering (preview release)](#tab/v2)
 
-In case you have multiple content sources in your knowledge base and you would like to limit the results to a particular set of sources, you can do that using the reserved keyword `system_sources` as shown below.
+In case you have multiple content sources in your knowledge base and you would like to limit the results to a particular set of sources, you can do that using the reserved keyword `source_name_metadata` as shown below.
 
 ```json
 "strictFilters": [
@@ -60,11 +58,11 @@ In case you have multiple content sources in your knowledge base and you would l
         "value": "api"
     },
    {
-        "name": "system_sources",
+        "name": "source_name_metadata",
         "value": "boby_brown_docx"
     },
    {
-        "name": "system_sources",
+        "name": "source_name_metadata",
         "value": "chitchat.tsv"
    }
 ]
