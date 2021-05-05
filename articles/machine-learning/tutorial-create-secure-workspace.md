@@ -126,23 +126,62 @@ To create a virtual network, usee the following steps:
 
 1. From the left navigation, select __Subnets__, and then select __+ Associate__. From the __Virtual network__ dropdown, select your network. Then select the __Training__ subnet. Finally, select __OK__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/nsg-associate-subnet.png" alt-text="Image of the associate config":::
+    > [!TIP]
+    > The rules added in this section only apply to training computes, so do not need to be associated with the scoring subnet.
 
-1. Select __+ Associate__ again, and repeat the previous step. This time, select the __Scoring__ subnet. Select __OK__ to save the association.
+    :::image type="content" source="./media/tutorial-create-secure-workspace/nsg-associate-subnet.png" alt-text="Image of the associate config":::
 
 ## Create a storage account
 
 1. In the Azure portal, select the __Home__ link to return to the homepage. Select __+ Create a resource__ and then enter __storage account__. Select the __Storage Account__ entry, and then select __Create__.
 1. From the __Basics__ tab, select the __subscription__, __resource group__, and __region__ you previously used for the virtual network. Enter a unique __Storage account name__, and set __Redundancy__ to __Locally-redundant storage (LRS)__.
 
-:::image type="content" source="./media/tutorial-create-secure-workspace/create-storage.png" alt-text="Image of storage account basic config":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-storage.png" alt-text="Image of storage account basic config":::
+
+1. From the __Networking__ tab, select __Private endpoint__ and then select __+ Add private endpoint__.
+
+    :::image type="content" source="{source}" alt-text="{alt-text}":::
+
+1. On the __Create private endpoint__ form, use the following values:
+    * __Subscription__: The same Azure subscription that contains the previous resources you've created.
+    * __Resource group__: The same Azure resource group that contains the previous resources you've created.
+    * __Location__: The same Azure region that contains the previous resources you've created.
+    * __Name__: A unique name for this private endpoint.
+    * __Target sub-resource__: blob
+    * __Virtual network__: The virtual network you created earlier.
+    * __Subnet__: Training (172.17.0.0/24)
+    * __Private DNS integration__: Yes
+    * __Private DNS Zone__: privatelink.blob.core.windows.net
+
+    Select __OK__ to create the private endpoint.
 
 1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
 
-    > [!IMPORTANT]
-    > Do not set any network settings or restrict public access yet. If you do, the Azure Machine Learning workspace may not correctly create the default stores.
-    > 
-    > After you have created the workspace, you can then configure the network settings.
+### Enable private endpoint for table storage
+
+While you created a private endpoint for Blob storage in the previous steps, you must also create one for File storage. Since the UI in the previous steps only allow you to create one private endpoint, use the following steps to add another after the Storage Account has been created.
+
+1. Once the Storage Account has been created, select __Go to resource__. From the left navigation, select __Networking__ the __Private endpoint connections__ tab, and then select __+ Private endpoint__.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-file-networking.png" alt-text="{alt-text}":::
+
+1. On the __Create a private endpoint__ form, use the same __subscription__, __resource group__, and __Region__ that you have used for previous resources. Enter a unique __Name__.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-file-private-endpoint.png" alt-text="{alt-text}":::
+
+1. Select __Next : Resource__, and then set __Target sub-resource__ to __file__.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-file-private-endpoint-resource.png" alt-text="{alt-text}":::
+
+1. Select __Next : Configuration__, and then use the following values:
+    * __Virtual network__: The network you created previously
+    * __Subnet__: Training
+    * __Integrate with private DNS zone__: Yes
+    * __Private DNS zone__: privatelink.file.core.windows.net
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-file-private-endpoint-config.png" alt-text="{alt-text}":::
+
+1. Select __Review + Create__. Verify that the information is correct, and then select __Create__.
 
 ## Create a key vault
 
@@ -240,68 +279,9 @@ To create a virtual network, usee the following steps:
 
 1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
 
-## Configure image builds
-
-When Azure Container Registry is behind the virtual network, Azure Machine Learning can't use it to directly build Docker images. Instead, configure the workspace to use an Azure Machine Learning compute cluster to build images. Use the following steps to create a compute cluster and configure the workspace to use it to build images:
-
-> [!NOTE]
-> You can use the same compute cluster to train models.
-
-TBD steps.
-
-## Enable private endpoint for storage
-
-### Enable private endpoint for blob storage
-
-1. In the Azure portal, select the storage account you created earlier. From the left navigation, select __Networking__ the __Private endpoint connections__ tab, and then select __+ Private endpoint__.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-blob-networking.png" alt-text="{alt-text}":::
-
-1. On __Create a private endpoint__, use the same __subscription__, __resource group__, and __Region__ that you have used for previous resources. Enter a unique __Name__.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-blob-private-endpoint.png" alt-text="{alt-text}":::
-
-1. Select __Next : Resource__, and then set __Target sub-resource__ to __blob__.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-blob-private-endpoint-resource.png" alt-text="{alt-text}":::
-
-1. Select __Next : Configuration__, and then use the following values:
-    * __Virtual network__: The network you created previously
-    * __Subnet__: Training
-    * __Integrate with private DNS zone__: Yes
-    * __Private DNS zone__: privatelink.blob.core.windows.net
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-blob-private-endpoint-config.png" alt-text="{alt-text}":::
-
-1. Select __Review + Create__. Verify that the information is correct, and then select __Create__.
-
-### Enable private endpoint for table storage
-
-1. In the Azure portal, select the storage account you created earlier. From the left navigation, select __Networking__ the __Private endpoint connections__ tab, and then select __+ Private endpoint__.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-table-networking.png" alt-text="{alt-text}":::
-
-1. On the __Create a private endpoint__ form, use the same __subscription__, __resource group__, and __Region__ that you have used for previous resources. Enter a unique __Name__.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-table-private-endpoint.png" alt-text="{alt-text}":::
-
-1. Select __Next : Resource__, and then set __Target sub-resource__ to __table__.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-table-private-endpoint-resource.png" alt-text="{alt-text}":::
-
-1. Select __Next : Configuration__, and then use the following values:
-    * __Virtual network__: The network you created previously
-    * __Subnet__: Training
-    * __Integrate with private DNS zone__: Yes
-    * __Private DNS zone__: privatelink.table.core.windows.net
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-table-private-endpoint-config.png" alt-text="{alt-text}":::
-
-1. Select __Review + Create__. Verify that the information is correct, and then select __Create__.
-
 ## Create a VPN gateway
 
-1. In the [Azure portal](https://portal.azure.com), select __+ Create a resource__ and then enter __virtual network gateway__. Select the __Virtual network gateway__ entry, and then select __Create__.
+In the Azure portal, select the __Home__ link to return to the homepage. Select __+ Create a resource__ and then enter __Virtual network gateway__. Select the __Virtual network gateway__ entry, and then select __Create__.
 1. From the __Basics__ tab, select the __subscription__ and __Region__ you used for the virtual network. Use the follow values for the other fields:
     * __Name__: A unique name for your VPN gateway.
     * __Gateway type__: VPN
@@ -355,3 +335,11 @@ To communicate with the resources in the VNet, use the following steps:
     > [!TIP]
     > In some cases there may be entries in two tables under __Custom DNS records__. Copy all the FQDN and matching IP addresses on the page.
 
+## Configure image builds
+
+When Azure Container Registry is behind the virtual network, Azure Machine Learning can't use it to directly build Docker images. Instead, configure the workspace to use an Azure Machine Learning compute cluster to build images. Use the following steps to create a compute cluster and configure the workspace to use it to build images:
+
+> [!NOTE]
+> You can use the same compute cluster to train models.
+
+TBD steps.
