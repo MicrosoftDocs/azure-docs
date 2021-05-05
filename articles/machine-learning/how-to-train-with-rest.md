@@ -14,11 +14,11 @@ ms.reviewer: laobri
 
 # Train models (create jobs) with REST
 
-Training a machine learning model is generally an iterative process. Modern tooling makes it easier than ever to train larger models on more data faster. There are several ways to create and manage your training job. You can use the new Azure Machine Learning CLI, or, you can choose the REST API. 
+Training a machine learning model is generally an iterative process. Modern tooling makes it easier than ever to train larger models on more data faster. There are several ways to create and manage your training job. You can use the new Azure Machine Learning CLI, or, you can choose to use the new REST APIs. 
 
 The REST API uses HTTP verbs in a standard way to create, retrieve, update, and delete resources. The REST API works with any language or tool that can make HTTP requests. REST's straightforward structure often makes it a good choice in scripting environments and for MLOps automation.
 
-In this article, you learn how to use REST to:
+In this article, you learn how to use the new REST APIs to:
 
 > [!div class="checklist"]
 > * Create machine learning assets
@@ -47,7 +47,13 @@ You can execute a job via the Azure Machine Learning REST API. The examples belo
 
 Create a machine learning model requires You want to create a basic LightGBM training job on Iris dataset running on an Azure Machine Learning compute cluster. You first need to set up different machine learning assets to configure your job.
 
-In the following REST API calls, we will use `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, `$LOCATION`,`$WORKSPACE`,  `$TOKEN`as placeholders. Please replace those with your own values. 
+In the following REST API calls, we will use `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, `$LOCATION`,`$WORKSPACE`as placeholders. Please replace those with your own values. 
+
+Administrative REST requests a service principal authentication token. Please substitute `$TOKEN` with your own value to run the following. You can follow the instruction to [Retrieve a service principal authentication token](./how-to-manage-rest.md##retrieve-a-service-principal-authentication-token). Or, you can also retrieve this token by:
+
+```bash
+TOKEN=$(az account get-access-token --query accessToken -o tsv)
+```
 
 The service provider uses the `api-version` argument to ensure compatibility. The `api-version` argument varies from service to service. For the current Azure Machine Learning Service, the API version is `2021-03-01-preview`. We will set the API version as a variable for future use:
 
@@ -60,7 +66,7 @@ API_VERSION="2021-03-01-preview"
 Training and running machine learning models require compute resources. You can list the compute resources of a workspace with:
 
 ```bash
-curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/computes?api-version=$API_VERSION&isDefault=true" \
+curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/computes?api-version=$API_VERSION \
 --header "Authorization: Bearer $TOKEN"
 
 ```
@@ -81,9 +87,9 @@ The LightGBM example needs to be run on a LightGBM environment. Let's create and
 
 ### Datastore
 
-The training job needs to run on some specific data. In order to set up the data to use, let's first create a new Datastore to house the data. We are going to create a Datastore called `localuploads`.
+The training job needs to run on some specific data. In order to set up the data to use, let's first get some information about the default Datastore and Azure Storage account to house the data. You are going to query your account for the default Datastore.
 
-To create a datastore, you will need to retrieve some values from the storage account. You can get the values associated with your subscription with a GET request. This will return a `JSON` file. You can use the tool [jq](.https://stedolan.github.io/jq/) to parse the `JSON` result and get the required values. Or, you can get the values with your own way. 
+You can get the values associated with your workspace with a GET request. This will return a JSON file. You can use the tool [jq](.https://stedolan.github.io/jq/) to parse the JSON result and get the required values. Or, you can get the values with your own way, such as with the Azure Portal.
 
 ```bash
 response=$(curl --location --request GET "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/datastores?api-version=$API_VERSION&isDefault=true" \
@@ -96,13 +102,13 @@ AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_A
 
 ```
 
-You can then use these value to create a new datastore with a PUT request. 
+You can then use these values to get the information about the default Datastore with a PUT request. 
 
 :::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create datastore":::
 
 ### Data
 
-Now that you have a datastore, you can create a data with a dataset. For this example, we will use an open dataset `iris.csv` and point to it in the `path`. 
+Now that you have the datastore, you can create a data with a dataset. For this example, we will use an open dataset `iris.csv` and point to it in the `path`. 
 
 :::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create data":::
 
@@ -150,7 +156,7 @@ Azure Machine Learning also enables you to more efficiently tune the hyperparame
 - **maxConcurrentTrials**: [Optional] The maximum number of trials to run concurrently on your compute cluster.
 - **timeout**: [Optional] The maximum number of minutes to run the sweep job for.
 
-A sweep job can be specified for sweeping across hyperparameters used in the command. To create a sweep job with the same LightGBM example: 
+With these parameters, a sweep job can be specified for sweeping across hyperparameters used in the command. To create a sweep job with the same LightGBM example: 
 
 :::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create a sweep job":::
 
