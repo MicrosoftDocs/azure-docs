@@ -190,7 +190,7 @@ See this alert evaluation example:
 
 Stateful alerts fire once per incident and resolve. You can set this using **Automatically resolve alerts** in the alert details section.
 
-## Meaning of location selection in log alerts rules
+## Location selection in log alerts
 
 Log alerts allow you to set a location for alert rules. In Log Analytics Workspaces, the rule location must match the workspace location. In all other resources, you can select any of the supported locations, which align to [Log Analytics supported region list](https://azure.microsoft.com/global-infrastructure/services/?products=monitor).
 
