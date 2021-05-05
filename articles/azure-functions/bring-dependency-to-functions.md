@@ -8,7 +8,7 @@ zone_pivot_groups: "bring-third-party-dependency-programming-functions"
 
 # Bring dependencies or third party library to Azure Functions
 
-In this article, you learn to bring in third-party dependencies, such as json files, binary files, and machine learning models, into your functions apps.
+In this article, you learn to bring in third-party dependencies into your functions apps. Examples of third-party dependencies are json files, binary files and machine learning models. 
 
 In this article, you learn how to:
 > [!div class="checklist"]
@@ -17,27 +17,10 @@ In this article, you learn how to:
 > [!div class="checklist"]
 > * Bring in dependencies via mounting Azure Fileshare
 ::: zone-end
-## Prerequisites
-*  An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-* The Azure Functions Core Tools
-
-* [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms)
-
-* The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. 
-::: zone pivot="programming-language-python"
-* [Python versions that are supported by Azure Functions](supported-languages.md#languages-by-runtime-version)
-* Python Azure functions app deployed on Linux consumption plan. [Create your first Azure function in Python](./create-first-function-vs-code-python.md)
-::: zone-end
-::: zone pivot="programming-language-java"
-* The [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8 or 11.
-* [Apache Maven](https://maven.apache.org), version 3.0 or above.
-* The [Java extension pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) 
-* Java Azure functions app deployed on Windows consumption plan. [Create your first Azure function in Java](./create-first-function-vs-code-java.md) 
-::: zone-end
 
 ## Bring in dependencies from the project directory
 ::: zone pivot="programming-language-python"
-One of the simplest ways to bring in dependencies is to put the files/artifact together with the functions app code in Functions project directory structure. Here is an example of the directory samples in a Python functions project:
+One of the simplest ways to bring in dependencies is to put the files/artifact together with the functions app code in Functions project directory structure. Here's an example of the directory samples in a Python functions project:
 ```
 <project_root>/
  | - my_first_function/
@@ -50,11 +33,11 @@ One of the simplest ways to bring in dependencies is to put the files/artifact t
  | - host.json
  | - local.settings.json
 ```
-By putting the dependencies in a folder inside functions app project directory, the dependencies folder will get deployed together with the code. This means that your function code will be able to access the dependencies in the cloud via file system api. 
+By putting the dependencies in a folder inside functions app project directory, the dependencies folder will get deployed together with the code. As a result, your function code can access the dependencies in the cloud via file system api. 
 
 ### Accessing the dependencies in your code
 
-Here is an example to access and execute ```ffmpeg``` dependency that is put into ```<project_root>/ffmpeg_lib``` directory. 
+Here's an example to access and execute ```ffmpeg``` dependency that is put into ```<project_root>/ffmpeg_lib``` directory. 
 
 
 ```python
@@ -88,7 +71,7 @@ def main(req: func.HttpRequest,
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-One of the simplest ways to bring in dependencies is to put the files/artifact together with the functions app code in functions project directory structure. Here is an example of the directory samples in a Java functions project:
+One of the simplest ways to bring in dependencies is to put the files/artifact together with the functions app code in functions project directory structure. Here's an example of the directory samples in a Java functions project:
 ```
 <project_root>/
  | - src/
@@ -101,7 +84,7 @@ One of the simplest ways to bring in dependencies is to put the files/artifact t
  | - local.settings.json
  | - pom.xml
 ```
-For java specifically, you need to specifically include the artifacts into the build/target folder when copying resources. Here is an example on how to do it in Maven:
+For java specifically, you need to specifically include the artifacts into the build/target folder when copying resources. Here's  an example on how to do it in Maven:
 
 ```xml
 ...
@@ -128,11 +111,11 @@ For java specifically, you need to specifically include the artifacts into the b
 </execution>
 ...
 ```
-By putting the dependencies in a folder inside functions app project directory, the dependencies folder will get deployed together with the code.This means that your function code will be able to access the dependencies in the cloud via file system api. 
+By putting the dependencies in a folder inside functions app project directory, the dependencies folder will get deployed together with the code. As a result, your function code can access the dependencies in the cloud via file system api. 
 
 ### Accessing the dependencies in your code
 
-Here is an example to access and execute ```ffmpeg``` dependency that is put into ```<project_root>/ffmpeg_lib``` directory. 
+Here's an example to access and execute ```ffmpeg``` dependency that is put into ```<project_root>/ffmpeg_lib``` directory. 
 
 
 ```java
@@ -186,9 +169,9 @@ public class Function {
 
 When running your function app on Linux, there's another way to bring in third-party dependencies. Functions lets you mount a file share hosted in Azure Files. Consider this approach when you want to decouple dependencies or artifacts from your application code.
 
-First, you need to create an Azure Storage Account. In the account, you also need to create file share in Azure files. To create these resources, please follow this [guide](../storage/files/storage-how-to-use-files-portal.md)
+First, you need to create an Azure Storage Account. In the account, you also need to create file share in Azure files. To create these resources, follow this [guide](../storage/files/storage-how-to-use-files-portal.md)
 
-After the storage account and file share are created, use the [az webapp config storage-account add](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_add) command to attach the file share to your functions app, as shown in the following example.
+After you created the storage account and file share, use the [az webapp config storage-account add](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_add) command to attach the file share to your functions app, as shown in the following example.
 
 ```console
 az webapp config storage-account add \
@@ -210,9 +193,9 @@ az webapp config storage-account add \
 | custom-id      |  Any unique string |
 | storage-type      |  Only AzureFiles is supported currently |
 | share-name      |  Pre-existing share |
-| mount-path     |   Path at which the share will be accessible inside the container. Value has to be of the format `/dir-name` and it cannot start with `/home` |
+| mount-path     |   Path at which the share will be accessible inside the container. Value has to be of the format `/dir-name` and it can't start with `/home` |
 
-Additional commands to modify/delete the file share configuration can be found [here](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-update)
+More commands to modify/delete the file share configuration can be found [here](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-update)
 
 
 ### Uploading the dependencies to Azure Files
@@ -222,7 +205,7 @@ One option to upload your dependency into Azure Files is through Azure portal. R
 
 ### Accessing the dependencies in your code
 
-After your dependencies are uploaded in the file share, you can access the dependencies from your code. The mounted share is available at the specified *mount-path*, such as ```/path/to/mount```. You can also access the target directory by using file system APIs.
+After your dependencies are uploaded in the file share, you can access the dependencies from your code. The mounted share is available at the specified *mount-path*, such as ```/path/to/mount```. You can access the target directory by using file system APIs.
 
 The following example shows HTTP trigger code that accesses the `ffmpeg` library, which is stored in a mounted file share.
 
@@ -250,7 +233,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         return func.HttpResponse("Unexpected exception happened when executing ffmpeg. Error message:" + str(e),status_code=200)
 ```
 
-When you deploy this code to a function app in Azure, you need to [create an app setting](functions-how-to-use-azure-function-app-settings.md#settings) with a key name of `FILE_SHARE_MOUNT_PATH` and value of the mounted file share path, which for this example is `/azure-files-share`. To do local debugging, you need to populate the `FILE_SHARE_MOUNT_PATH` with the file path where your dependencies are stored in your local machine. Here is an example to set `FILE_SHARE_MOUNT_PATH` using `local.settings.json`:
+When you deploy this code to a function app in Azure, you need to [create an app setting](functions-how-to-use-azure-function-app-settings.md#settings) with a key name of `FILE_SHARE_MOUNT_PATH` and value of the mounted file share path, which for this example is `/azure-files-share`. To do local debugging, you need to populate the `FILE_SHARE_MOUNT_PATH` with the file path where your dependencies are stored in your local machine. Here's an example to set `FILE_SHARE_MOUNT_PATH` using `local.settings.json`:
 
 ```json
 {
@@ -269,5 +252,6 @@ When you deploy this code to a function app in Azure, you need to [create an app
 
 ## Next steps
 
-+ [Develop Functions in Visual Studio Code](functions-develop-vs-code.md)
-+ [Scale and hosting options](functions-scale.md)
++ [Azure Functions Python developer guide](functions-reference-python.md)
++ [Azure Functions Java developer guide](functions-reference-java.md)
++ [Azure Functions developer reference](functions-reference.md)
