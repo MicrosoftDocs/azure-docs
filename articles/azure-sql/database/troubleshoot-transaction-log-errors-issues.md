@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot common connection issues to Azure SQL Database
+title: Troubleshoot transaction log issues in Azure SQL Database and Azure SQL Managed Instance
 description: Provides steps to troubleshoot Azure SQL Database transaction log issues in Azure SQL Database or Azure SQL Managed Instance 
 services: sql-database
 ms.service: sql-db-mi
@@ -90,7 +90,7 @@ For more information on managing the file space of databases and elastic pools, 
 To resolve this issue, try the following methods:
 
 - The issue can occur because of insert, update, or delete operations. Review the transaction to avoid unnecessary writes. Try to reduce the number of rows that are operated on immediately by implementing batching or splitting into multiple smaller transactions. For more information, see [How to use batching to improve SQL Database application performance](../performance-improve-use-batching.md).
-- The issue can occur because of index rebuild operations. To work around this issue, make sure the number of rows that are affected in the table * (average size of field that's updated in bytes + 80) < 2 gigabytes (GB). For large tables, consider creating partitions and performing index maintenance only on some partitions of the table. For more information, see [Create Partitioned Tables and Indexes](/sql/relational-databases/partitions/create-partitioned-tables-and-indexes?view=azuresqldb-current).
+- The issue can occur because of index rebuild operations. To work around this issue, make sure the number of rows that are affected in the table * (average size of field that's updated in bytes + 80) < 2 gigabytes (GB). For large tables, consider creating partitions and performing index maintenance only on some partitions of the table. For more information, see [Create Partitioned Tables and Indexes](/sql/relational-databases/partitions/create-partitioned-tables-and-indexes?view=azuresqldb-current&preserve-view=true).
 - If you perform bulk inserts using the `bcp.exe` utility or the `System.Data.SqlClient.SqlBulkCopy` class, try using the `-b batchsize` or `BatchSize` options to limit the number of rows copied to the server in each transaction. For more information, see [bcp Utility](/sql/tools/bcp-utility).
 - If you are rebuilding an index with the `ALTER INDEX` statement, use the `SORT_IN_TEMPDB = ON` and `ONLINE = ON` options. For more information, see [ALTER INDEX (Transact-SQL)](/sql/t-sql/statements/alter-index-transact-sql).
 
