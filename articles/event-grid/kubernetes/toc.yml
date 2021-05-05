@@ -6,6 +6,8 @@
   items:
   - name: Event schemas
     href: event-schemas.md
+  - name: Event handlers
+    href: event-handlers.md    
 - name: Reference
   items:
   - name: REST API
