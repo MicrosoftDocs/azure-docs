@@ -37,8 +37,8 @@ landingContent:
     linkLists:
     - linkListType: concept
       links:
-          url: event-based-video-recording-concept.md 
         - text: Continuous video recording
+          url: event-based-video-recording-concept.md 
     - linkListType: quickstart
       links:            
         - text: Detect motion, record video on edge devices
