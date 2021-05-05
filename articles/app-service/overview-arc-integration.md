@@ -16,6 +16,10 @@ Azure App Service can be run on an Azure Arc enabled Kubernetes cluster. The Kub
 
 ## Frequently Asked Questions
 
+### How much does it cost?
+
+App Service on Azure Arc is free during the public preview.
+
 ### Are both Windows and Linux apps supported?
 
 Only Linux-based apps are supported, both code and custom containers. Windows apps are not supported.
