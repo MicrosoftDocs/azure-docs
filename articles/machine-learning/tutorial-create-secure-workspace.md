@@ -80,6 +80,8 @@ To create a virtual network, usee the following steps:
 
 ## Create network security groups
 
+Use the following steps create a network security group (NSG) and add rules required for using Azure Machine Learning compute clusters and compute instances to train models:
+
 1. In the Azure portal, select the __Home__ link to return to the homepage. Select __+ Create a resource__ and then enter __Network security group__. Select the __Network security group__ entry, and then select __Create__.
 1. From the __Basics__ tab, select the __subscription__, __resource group__, and __region__ you previously used for the virtual network. Enter a unique __name__ for the new network security group.
 
