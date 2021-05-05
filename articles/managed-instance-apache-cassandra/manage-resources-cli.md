@@ -130,7 +130,7 @@ The following sections demonstrate how to manage Azure Managed Instance for Apac
 * [Get datacenter details](#get-datacenter-details)
 * [Get datacenters in a cluster](#get-datacenters-cluster)
 * [Update or scale a datacenter](#update-datacenter)
-* [Update YAML config](#update-yaml)
+* [Update Cassandra config](#update-yaml)
 
 
 ### <a id="create-datacenter"></a>Create a datacenter
@@ -200,9 +200,9 @@ az managed-cassandra datacenter update \
     --node-count 13 
 ```
 
-### <a id="update-yaml"></a>Update YAML config
+### <a id="update-yaml"></a>Update Cassandra config
 
-Change YAML configuration on a datacenter by using the [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_update) command. You will need to base64 encode the YAML fragment by using an online tool like [this](https://www.base64encode.org/). We support the following YAML settings:
+Change Cassandra configuration on a datacenter by using the [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_update) command. You will need to base64 encode the YAML fragment by using an online tool like [this](https://www.base64encode.org/). We support the following YAML settings:
 
 - column_index_size_in_kb
 - compaction_throughput_mb_per_sec
