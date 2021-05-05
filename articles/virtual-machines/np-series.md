@@ -34,6 +34,10 @@ VM Generation Support: Generation 1<br>
 
 ##  Frequently asked questions
 
+**Q:** How to request quota for NP VMs?
+
+**A:** Please follow this page [Increase limits by VM series](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests). NP VMs are available in East US, West US2, West Europe and SouthEast Asia.
+
 **Q:** What version of Vitis should I use? 
 
 **A:** Xilinx recommends [Vitis 2020.2](https://www.xilinx.com/products/design-tools/vitis/vitis-platform.html)
