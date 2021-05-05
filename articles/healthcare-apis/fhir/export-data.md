@@ -108,6 +108,9 @@ Azure API for FHIR service is provisioned.
 | West Europe          | 20.61.98.66       |
 | West US 2            | 40.64.135.77      |
 
+> [!NOTE]
+> The above steps are similar to the configuration steps described in the document How to convert data to FHIR (Preview). For more information, see [Host and use templates](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/convert-data#host-and-use-templates)
+
 ### When the Azure storage account is in the same region
 
 The configuration process is the same as above except a specific IP

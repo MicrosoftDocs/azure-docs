@@ -94,12 +94,13 @@ You can use the [FHIR Converter extension](https://marketplace.visualstudio.com/
 
 ## Host and use templates
 
-It is strongly recommended that you host your own copy of templates on ACR. There are four steps involved in hosting your own copy of templates and using those in the $convert-data operation:
+It is strongly recommended that you host your own copy of templates on ACR. There're four steps involved in hosting your own copy of templates and using those in the $convert-data operation:
 
 1. Push the templates to your Azure Container Registry.
 1. Enable Managed Identity on your Azure API for FHIR instance.
 1. Provide access of the ACR to the Azure API for FHIR Managed Identity.
 1. Register the ACR servers in the Azure API for FHIR.
+1. Configure IP in firewall.
 
 ### Push templates to Azure Container Registry
 
@@ -127,10 +128,10 @@ Grant AcrPull role to your Azure API for FHIR service instance.
 You can register the ACR server using the Azure portal, or using CLI.
 
 #### Registering the ACR server using Azure portal
-Navigate to the _Artifacts_ blade under _Data transformation_ in your Azure API for FHIR instance. You will see the list of currently registered ACR servers. Click on _Add_ and select your registry server from the dropdown. You will need to click on _Save_ for the registration to take effect. It may take a few minutes to apply the change and restart your instance.
+Navigate to the _Artifacts_ blade under _Data transformation_ in your Azure API for FHIR instance. You will see the list of currently registered ACR servers. Select _Add_ and then select your registry server from the drop-down . You will need to select _Save_ for the registration to take effect. It may take a few minutes to apply the change and restart your instance.
 
 #### Registering the ACR server using CLI
-You can register up to twenty ACR servers in the Azure API for FHIR.
+You can register up to 20 ACR servers in the Azure API for FHIR.
 
 Install the healthcareapis CLI from Azure PowerShell if needed:
 
@@ -151,6 +152,46 @@ az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io" --resource-gr
 ```powershell
 az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.azurecr.io" --resource-group fhir-test --resource-name fhirtest2021
 ```
+### Configure IP in firewall
+
+Select **Networking** of the Azure storage account from the portal.
+
+   :::image type="content" source="media/convert-data/networking-container-registry.png" alt-text="Container registry.":::
+
+
+Select **Selected networks**. 
+
+Under the **Firewall** section, specify the IP address in the **Address range** box. Add IP ranges to allow access from the internet or your on-premises networks. 
+
+In the table below, you'll find the IP address for the Azure region where the Azure API for FHIR service is provisioned.
+
+|**Azure Region**         |**Public IP Address** |
+|:----------------------|:-------------------|
+| Australia East       | 20.53.44.80       |
+| Canada Central       | 20.48.192.84      |
+| Central US           | 52.182.208.31     |
+| East US              | 20.62.128.148     |
+| East US 2            | 20.49.102.228     |
+| East US 2 EUAP       | 20.39.26.254      |
+| Germany North        | 51.116.51.33      |
+| Germany West Central | 51.116.146.216    |
+| Japan East           | 20.191.160.26     |
+| Korea Central        | 20.41.69.51       |
+| North Central US     | 20.49.114.188     |
+| North Europe         | 52.146.131.52     |
+| South Africa North   | 102.133.220.197   |
+| South Central US     | 13.73.254.220     |
+| Southeast Asia       | 23.98.108.42      |
+| Switzerland North    | 51.107.60.95      |
+| UK South             | 51.104.30.170     |
+| UK West              | 51.137.164.94     |
+| West Central US      | 52.150.156.44     |
+| West Europe          | 20.61.98.66       |
+| West US 2            | 40.64.135.77      |
+
+
+> [!NOTE]
+> The above steps are similar to the configuration steps described in the document How to export FHIR data.  For more information, see [Secure Export to Azure Storage](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/export-data#secure-export-to-azure-storage)
 
 ### Verify
 
