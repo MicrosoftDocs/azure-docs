@@ -83,7 +83,8 @@ The following architecture diagram shows the implementation.
 
 5. Select **Generate App Secret**
 
->[!NOTE] Application ID and Application Secret will be needed later to configure the Identity provider in Azure AD B2C.
+>[!NOTE]
+>Application ID and Application Secret will be needed later to configure the Identity provider in Azure AD B2C.
 
 ### Part - 2 Add a new Identity provider in Azure AD B2C 
 
