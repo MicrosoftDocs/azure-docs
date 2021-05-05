@@ -81,7 +81,7 @@ You can structure your QnA Maker resources by language or you can use [Translato
 
 You can now have knowledge bases in different languages within the same Text Analytics resource where the custom question answering feature is enabled. When you create the first knowledge base, you can choose whether you want to use the resource for knowledge bases in a single language or multiple languages.
 
-![Custom question answering (Preview) multi-lingual knowledge base selection](../media/qnamaker-create-publish-knowledge-base/connect-knowledgebase-custom-qna.png)
+![QnA Maker managed (Preview) multi-lingual knowledge base selection](../media/qnamaker-create-publish-knowledge-base/connect-knowledgebase-custom-qna.png)
 
 > [!NOTE]
 > If you enable multiple languages per knowledge base, you cannot create as many knowledge bases in your Text Analytics resource. For [more details on language settings limitations](./azure-resources.md).
@@ -179,7 +179,7 @@ Apply the [latest runtime updates](../how-to/configure-QnA-Maker-resources.md#ge
 
 # [Custom question answering (preview release)](#tab/v2)
 
-In Custom question answering (preview release), the runtime is managed by the QnA Maker service itself. So service updates are not applicable.
+In QnA Maker managed (Preview), the runtime is managed by the QnA Maker service itself. So service updates are not applicable.
 
 ### Scaling, throughput, and resiliency
 
@@ -193,7 +193,7 @@ All queries to your knowledge base are stored in Application Insights. Use our [
 
 # [Custom question answering (preview release)](#tab/v2)
 
-In the Custom question answering deployment, telemetry is offered through the [Azure Monitor service](../../../azure-monitor/index.yml). Use our [top queries](../how-to/get-analytics-knowledge-base.md) to understand your metrics.
+In the managed deployment, telemetry is offered through the [Azure Monitor service](../../../azure-monitor/index.yml). Use our [top queries](../how-to/get-analytics-knowledge-base.md) to understand your metrics.
 
 ## Development lifecycle
 
