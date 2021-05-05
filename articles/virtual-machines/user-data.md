@@ -15,11 +15,11 @@ ms.reviewer: azmetadata
 
 ## What is "user data"
 
-User data is a set of script or other metadata,  that will be inserted to an Azure virtual machine at provision time. Any application on the virtual machine can access the user data from the Azure instance metadata service (IMDS) after provision. 
+User data is a set of script or other metadata,  that will be inserted to an Azure virtual machine at provision time. Any application on the virtual machine can access the user data from the Azure Instance Metadata Service (IMDS) after provision. 
 
 User data is a new version of [custom data](https://docs.microsoft.com/azure/virtual-machines/custom-data)  and it offers added benefits:
 
-1. User data can be retrieved from Azure instance metadata service(IMDS) after provision.
+1. User data can be retrieved from Azure Instance Metadata Service(IMDS) after provision.
 
 2. User data is persistent. It will be available during the lifetime of the VM.
 
@@ -206,3 +206,7 @@ Custom data will continue to work the same way as today. Note you cannot retriev
 ## Adding user data to an existing VM 
 
 If you have an existing VM/VMSS without user data, you can still add user data to this VM by using the updating commands,  as described in the ["Updating the User data"](#updating-user-data) section. Make sure you upgrade to the latest version of ARM API.
+
+## Next steps 
+ 
+Try out [Azure Instance Metadata Service](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service), learn how to get the VM instance metadata and user data from its endpoint. 
