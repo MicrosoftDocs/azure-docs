@@ -79,15 +79,6 @@ The following table lists the version names of Service Fabric and their correspo
 | 8.0 RTO | 8.0.514.9590 | 8.0.513.1 | 
 | 7.2 CU7 | 7.2.477.9590 | 7.2.476.1 |
 | 7.2 CU6 | 7.2.457.9590 | 7.2.456.1 |
-| 7.2 CU7 | 7.2.477.9590 | 7.2.476.1 |
-
-## Supported .NET runtimes
-
-The following table lists the .NET runtimes supported by Service Fabric:
-
-| Service Fabric runtime | Supported .NET runtimes for Windows |Supported .NET runtimes for Linux |
-| --- | --- | --- |
-| 8.0 RTO | .NET 5.0, >= .NET Core 2.1, All >= .NET Framework 4.5 | >= .NET Core 2.1|
 | 7.2 CU5 | 7.2.452.9590 | 7.2.454.1 |
 | 7.2 CU4 | 7.2.445.9590 | 7.2.447.1 |
 | 7.2 CU3 | 7.2.433.9590 | NA |
