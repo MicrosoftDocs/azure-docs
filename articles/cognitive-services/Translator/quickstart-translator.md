@@ -41,6 +41,8 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 * [Add Newtonsoft.Json using .NET CLI](https://www.nuget.org/packages/Newtonsoft.Json/).
 * Run the program from the project directory: ``dotnet run``
 
+[I created a project](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?success=platform-setup#headers) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=platform-setup)
+
 # [Go](#tab/go)
 
 * Create a new Go project in your favorite code editor.
@@ -50,6 +52,8 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 * Open a command prompt on a computer with Go installed.
 * Build the file, for example: 'go build example-code.go'.
 * Run the file, for example: 'example-code'.
+
+[I created a project](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?success=platform-setup#headers) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=platform-setup)
 
 # [Java](#tab/java)
 
@@ -75,6 +79,8 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 * Create a Java file and copy in the code from the provided sample. Don't forget to add your subscription key.
 * Run the sample: `gradle run`.
 
+[I created a project](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?success=platform-setup#headers) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=platform-setup)
+
 # [Node.js](#tab/nodejs)
 
 * Create a new project in your favorite IDE or editor.
@@ -82,12 +88,16 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 * Set your subscription key.
 * Run the program. For example: `node Translate.js`.
 
+[I created a project](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?success=platform-setup#headers) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=platform-setup)
+
 # [Python](#tab/python)
 
 * Create a new project in your favorite IDE or editor.
 * Copy the code from one of the samples into your project.
 * Set your subscription key.
 * Run the program. For example: `python translate.py`.
+
+[I created a project](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?success=platform-setup#headers) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=platform-setup)
 
 ---
 
