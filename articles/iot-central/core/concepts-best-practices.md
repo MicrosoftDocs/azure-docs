@@ -9,11 +9,10 @@ ms.service: iot-central
 services: iot-central
 ms.custom:  [device-developer]
 
+# This article applies to device developers.
 ---
 
 # Best practices for device development
-
-*This article applies to device developers.*
 
 These recommendations show how to implement devices to take advantage of the built-in disaster recovery and automatic scaling in IoT Central.
 

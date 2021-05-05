@@ -10,11 +10,10 @@ services: iot-central
 manager: philmea
 ms.custom:  [amqp, mqtt, device-developer]
 
+# This article applies to operators and device developers.
 ---
 
 # Get connected to Azure IoT Central
-
-*This article applies to operators and device developers.*
 
 This article describes how devices connect to an Azure IoT Central application. Before a device can exchange data with IoT Central, it must:
 
