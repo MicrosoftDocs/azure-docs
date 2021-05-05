@@ -9,7 +9,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
-ms.date: 03/23/2021
+ms.date: 04/28/2021
 ---
 
 # Maintenance window (Preview)
@@ -18,7 +18,7 @@ ms.date: 03/23/2021
 The maintenance window feature allows you to configure maintenance schedule for [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL managed instance](../managed-instance/sql-managed-instance-paas-overview.md) resources making impactful maintenance events predictable and less disruptive for your workload. 
 
 > [!Note]
-> Maintenance window feature does not protect from unplanned events, like hardware failures, that may cause short connection interruptions.
+> The maintenance window feature only protects from planned impact from upgrades or scheduled maintenance. It does not protect from all failover causes; exceptions that may cause short connection interruptions outside of a maintenance window include hardware failures, cluster load balancing, and database reconfigurations due to events like a change in database Service Level Objective. 
 
 ## Overview
 

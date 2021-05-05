@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 04/23/2021
 ms.author: duau
 
 ---
@@ -32,12 +32,18 @@ If you want to upgrade your gateway to a more powerful gateway SKU, in most case
 ### <a name="aggthroughput"></a>Estimated performances by gateway SKU
 The following table shows the gateway types and the estimated performances. This table applies to both the Resource Manager and classic deployment models.
 
-[!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
-
 > [!IMPORTANT]
 > Application performance depends on multiple factors, such as the end-to-end latency, and the number of traffic flows the application opens. The numbers in the table represent the upper limit that the application can theoretically achieve in an ideal environment.
 >
 >
+
+> [!NOTE]
+> The maximum number of ExpressRoute circuits from the same peering location that can connect to the same virtual network is 4 for all gateways.
+>
+>
+
+[!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
+
 
 ## <a name="gwsub"></a>Gateway subnet
 

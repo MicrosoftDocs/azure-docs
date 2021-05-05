@@ -95,7 +95,7 @@ Set the following RDP property to configure local drive redirection:
 
 You can also select specific drives using a semicolon-delimited list, such as `drivestoredirect:s:C:;E:;`.
 
-To configure web client file transfer, set `drivestoredirect:s:*`.
+To enable web client file transfer, set `drivestoredirect:s:*`. If you set any other value for this RDP property, web client file transfer will be disabled.
 
 ### Printer redirection
 

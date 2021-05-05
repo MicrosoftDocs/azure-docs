@@ -3,8 +3,8 @@ title: Manage runbooks in Azure Automation
 description: This article tells how to manage runbooks in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/24/2021
-ms.topic: conceptual 
+ms.date: 04/22/2021
+ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
 # Manage runbooks in Azure Automation
@@ -187,6 +187,16 @@ if (($jobs.Status -contains 'Running' -and $runningCount -gt 1 ) -or ($jobs.Stat
     # Insert Your code here
 }
 ```
+Alternatively, you can use PowerShell's splatting feature to pass the connection information to `Connect-AzAccount`. In that case, the first few lines of the previous sample would look like this.
+
+```powershell
+# Authenticate to Azure
+$connection = Get-AutomationConnection -Name AzureRunAsConnection
+Connect-AzAccount @connection
+$AzureContext = Get-AzSubscription -SubscriptionId $connection.SubscriptionID
+```
+
+See [About Splatting](/powershell/module/microsoft.powershell.core/about/about_splatting) for more information.
 
 ## Handle transient errors in a time-dependent script
 

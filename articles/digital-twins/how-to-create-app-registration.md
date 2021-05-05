@@ -41,7 +41,7 @@ In the *Register an application* page that follows, fill in the requested values
 * **Supported account types**: Select *Accounts in this organizational directory only (Default Directory only - Single tenant)*
 * **Redirect URI**: An *Azure AD application reply URL* for the Azure AD application. Add a *Public client/native (mobile & desktop)* URI for `http://localhost`.
 
-When you are finished, hit the *Register* button.
+When you are finished, select the *Register* button.
 
 :::image type="content" source="media/how-to-create-app-registration/register-an-application.png" alt-text="View of the 'Register an application' page with the described values filled in":::
 
@@ -59,11 +59,11 @@ Take note of the _**Application (client) ID**_ and _**Directory (tenant) ID**_ s
 
 Next, configure the app registration you've created with baseline permissions to the Azure Digital Twins APIs.
 
-From the portal page for your app registration, select *API permissions* from the menu. On the following permissions page, hit the *+ Add a permission* button.
+From the portal page for your app registration, select *API permissions* from the menu. On the following permissions page, select the *+ Add a permission* button.
 
 :::image type="content" source="media/how-to-create-app-registration/add-permission.png" alt-text="View of the app registration in the Azure portal, highlighting the 'API permissions' menu option and '+ Add a permission' button":::
 
-In the *Request API permissions* page that follows, switch to the *APIs my organization uses* tab and search for *azure digital twins*. Select _**Azure Digital Twins**_ from the search results to proceed with assigning permissions for the Azure Digital Twins APIs.
+In the *Request API permissions* page that follows, switch to the *APIs my organization uses* tab and search for *Azure digital twins*. Select _**Azure Digital Twins**_ from the search results to proceed with assigning permissions for the Azure Digital Twins APIs.
 
 :::image type="content" source="media/how-to-create-app-registration/request-api-permissions-1.png" alt-text="View of the 'Request API Permissions' page search result showing Azure Digital Twins, with an Application (client) ID of 0b07f429-9f4b-4714-9392-cc5e8e80c8b0.":::
 
@@ -75,7 +75,7 @@ Next, you'll select which permissions to grant for these APIs. Expand the **Read
 
 :::image type="content" source="media/how-to-create-app-registration/request-api-permissions-2.png" alt-text="View of the 'Request API Permissions' page selecting 'Read.Write' permissions for the Azure Digital Twins APIs":::
 
-Hit *Add permissions* when finished.
+Select *Add permissions* when finished.
 
 ### Verify success
 
@@ -95,7 +95,7 @@ If these values are missing, retry the steps in the [section for adding the API 
 
 It's possible that your organization requires additional actions from subscription Owners/administrators to successfully set up an app registration. The steps required may vary depending on your organization's specific settings.
 
-Here are some common potential activities that an Owner/administrator on the subscription may need to perform. These and other operations can be performed from the [*Azure AD App registrations*](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal.
+Here are some common potential activities that an Owner/administrator on the subscription may need to perform. These and other operations can be performed from the [Azure AD App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal.
 * Grant admin consent for the app registration. Your organization may have *Admin Consent Required* globally turned on in Azure AD for all app registrations within your subscription. If so, the Owner/administrator will need to select this button for your company on the app registration's *API permissions* page for the app registration to be valid:
 
     :::image type="content" source="media/how-to-create-app-registration/grant-admin-consent.png" alt-text="Portal view of the 'Grant admin consent' button under API permissions":::
@@ -106,11 +106,11 @@ Here are some common potential activities that an Owner/administrator on the sub
 * Set specific reply URLs for web and desktop access
 * Allow for implicit OAuth2 authentication flows
 
-For more information about app registration and its different setup options, see [*Register an application with the Microsoft identity platform*](/graph/auth-register-app-v2).
+For more information about app registration and its different setup options, see [Register an application with the Microsoft identity platform](/graph/auth-register-app-v2).
 
 ## Next steps
 
 In this article, you set up an Azure AD app registration that can be used to authenticate client applications with the Azure Digital Twins APIs.
 
 Next, read about authentication mechanisms, including one that uses app registrations and others that do not:
-* [*How-to: Write app authentication code*](how-to-authenticate-client.md)
+* [How-to: Write app authentication code](how-to-authenticate-client.md)

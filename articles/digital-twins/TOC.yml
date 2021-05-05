@@ -101,8 +101,6 @@
     items:
     - name: Use the APIs and SDKs
       href: how-to-use-apis-sdks.md
-    - name: Create custom-language SDKs with AutoRest
-      href: how-to-create-custom-sdks.md
     - name: Make requests with Postman
       href: how-to-use-postman.md
     - name: Integrate with Azure SignalR Service
@@ -179,6 +177,22 @@
     href: /cli/azure/dt
   - name: DTDL v2 spec
     href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md
+  - name: Query language reference
+    items:
+      - name: Clauses
+        items:
+        - name: SELECT
+          href: reference-query-clause-select.md
+        - name: FROM
+          href: reference-query-clause-from.md
+        - name: JOIN
+          href: reference-query-clause-join.md
+        - name: WHERE
+          href: reference-query-clause-where.md
+      - name: Functions
+        href: reference-query-functions.md
+      - name: Operators
+        href: reference-query-operators.md
 - name: Resources
   items:
   - name: Digital Twins service limits

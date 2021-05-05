@@ -1,8 +1,8 @@
 ---
 title: Connect to your Azure Percept DK over SSH
 description: Learn how to SSH into your Azure Percept DK with PuTTY
-author: elqu20
-ms.author: v-elqu
+author: philmea
+ms.author: philmea
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/18/2021

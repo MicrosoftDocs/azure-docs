@@ -101,7 +101,7 @@ full-image updates that update an entire OS partition at once, or an apt Manifes
 on your device. To import updates into Device Update, you first create an import manifest 
 describing the update, then upload the update file(s) and the import 
 manifest to an Internet-accessible location. After that, you can use the Azure portal or the [Device Update
-REST API](https://docs.microsoft.com/rest/api/deviceupdate/) to initiate the asynchronous process of update import. Device Update uploads the files, processes
+REST API](/rest/api/deviceupdate/) to initiate the asynchronous process of update import. Device Update uploads the files, processes
 them, and makes them available for distribution to IoT devices.
 
 For sensitive content, protect the download using a shared access signature (SAS), such as an ad-hoc SAS for Azure Blob Storage. [Learn more about

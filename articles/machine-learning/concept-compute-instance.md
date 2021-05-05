@@ -95,7 +95,7 @@ You can also clone the latest Azure Machine Learning samples to your folder unde
 
 Writing small files can be slower on network drives than writing to the compute instance local disk itself.  If you are writing many small files, try using a directory directly on the compute instance, such as a `/tmp` directory. Note these files will not be accessible from other compute instances. 
 
-You can use the `/tmp` directory on the compute instance for your temporary data.  However, do not write large files of data on the OS disk of the compute instance.  Use [datastores](concept-azure-machine-learning-architecture.md#datasets-and-datastores) instead. If you have installed JupyterLab git extension, it can also lead to slow down in compute instance performance.
+You can use the `/tmp` directory on the compute instance for your temporary data.  However, do not write very large files of data on the OS disk of the compute instance. OS disk on compute instance has 128 GB capacity. Also, do not store a large training data on the notebooks file share. Use [datastores and datasets](concept-azure-machine-learning-architecture.md#datasets-and-datastores) instead. 
 
 ## Managing a compute instance
 
@@ -145,6 +145,8 @@ You can also create an instance
 
 The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance does not release quota to ensure you will be able to restart the compute instance.
 
+Compute instance comes with P10 OS disk. Temp disk type depends on the VM size chosen. Currently, it is not possible to change the OS disk type.
+
 
 ### Create on behalf of (preview)
 
@@ -177,17 +179,7 @@ A compute instance:
 You can use compute instance as a local inferencing deployment target for test/debug scenarios.
 
 > [!TIP]
-> The compute instance has 120GB OS disk. If you run out of disk space, [use the terminal](how-to-access-terminal.md) to clear at least 1-2 GB before you [stop or restart](how-to-create-manage-compute-instance.md#manage) the compute instance.
-
-
-## <a name="notebookvm"></a>What happened to Notebook VM?
-
-Compute instances are replacing the Notebook VM.  
-
-Any notebook files stored in the workspace file share and data in workspace data stores will be accessible from a compute instance. However, any custom packages previously installed on a Notebook VM will need to be reinstalled on the compute instance. Quota limitations, which apply to compute clusters creation will apply to compute instance creation as well.
-
-New Notebook VMs cannot be created. However, you can still access and use Notebook VMs you have created, with full functionality. Compute instances can be created in same workspace as the existing Notebook VMs.
-
+> The compute instance has 120GB OS disk. If you run out of disk space and get into an unusable state, please clear at least 5 GB disk space on OS disk (/dev/sda1/ filesystem mounted on /) through the JupyterLab terminal by removing files/folders and then do sudo reboot. To access the JupyterLab terminal go to https://ComputeInstanceName.AzureRegion.instances.azureml.ms/lab replacing the name of compute instance and Azure region, and then click File->New->Terminal. Clear at least 5 GB before you [stop or restart](how-to-create-manage-compute-instance.md#manage) the compute instance. You can check available disk space by running df -h on the terminal.
 
 ## Next steps
 

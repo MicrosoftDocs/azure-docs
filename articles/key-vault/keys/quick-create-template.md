@@ -166,8 +166,21 @@ Two resources are defined in the template:
 
 More Azure Key Vault template samples can be found in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault&pageNumber=1&sort=Popular).
 
+## Parameters and definitions
+
+|**Keysize**|Specifies operations that can be performed by using the key. If you do not specify this parameter, all operations can be performed. The acceptable values for this parameter are a comma-separated list of key operations as defined by the [JSON Web Key (JWK) specification](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41): 
+["sign", "verify", "encrypt", "decrypt", " wrapKey ", " unwrapKey "]|
+|**CurveName**| Elliptic curve name for EC key type. See [JsonWebKeyCurveName](https://docs.microsoft.com/rest/api/keyvault/createkey/createkey#jsonwebkeycurvename)|
+|**Kty**|The type of key to create. For valid values, see [JsonWebKeyType](https://docs.microsoft.com/rest/api/keyvault/createkey/createkey#jsonwebkeytype)|
+|**Tags**| Application specific metadata in the form of key-value pairs.|
+|**nbf**| Specifies the time, as a DateTime object, before which the key cannot be used. The format would be Unix time stamp (the number of seconds after Unix Epoch on January 1st, 1970 at UTC)|
+|**exp**| Specifies the expiration time, as a DateTime object. The format would be Unix time stamp (the number of seconds after Unix Epoch on January 1st, 1970 at UTC)|
+||
+
+
+
 ## Deploy the template
-You can use [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal), Azure PowerShell, Azure CLI, or REST API. To learn about deployment methods, see [Deploy templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell).
+You can use [Azure portal](../../azure-resource-manager/templates/deploy-portal.md), Azure PowerShell, Azure CLI, or REST API. To learn about deployment methods, see [Deploy templates](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Review deployed resources
 

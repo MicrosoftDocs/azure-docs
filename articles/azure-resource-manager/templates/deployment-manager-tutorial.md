@@ -4,7 +4,8 @@ description: Learn how to use Resource Manager templates with Azure Deployment M
 author: mumian
 ms.date: 08/25/2020
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurepowershell
 
 ---
 

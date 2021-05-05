@@ -134,6 +134,8 @@
       href: custom-translator/training-and-model.md
     - name: BLEU Score
       href: custom-translator/what-is-bleu-score.md
+    - name: Customer-managed keys
+      href: encrypt-data-at-rest.md
 - name: Document Translation
   items:
     - name: What is Document Translation?
@@ -164,22 +166,12 @@
         href: document-translation/reference/get-translation-status.md
       - name: Cancel translation
         href: document-translation/reference/cancel-translation.md
-- name: How-to guides
-  items:
-  - name: Enterprise readiness
-    items:
-    - name: Set up Virtual Networks
-      href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/translator/context/context
-    - name: Use customer-managed keys
-      href: encrypt-data-at-rest.md
 - name: Resources
   items:
-  - name: Enterprise readiness
-    items:
-    - name: Region support
-      href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-    - name: Compliance and certification
-      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Region support
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+  - name: Compliance and certification
+    href: https://www.microsoft.com/translator/business/notrace/
   - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
   - name: Code samples on GitHub

@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: shortpatti 
   ms.author: v-patsho 
-  ms.date: 04/20/2021 
+  ms.date: 04/23/2021 
 
 
 # card 1
@@ -34,17 +34,15 @@ landingContent:
           - text: Access and identity for private clouds
             url: concepts-identity.md
           - text: Monitor and repair private clouds
-            url: concepts-monitor-repair-private-cloud.md
-          - text: Private cloud upgrades
-            url: concepts-upgrades.md
+            url: /azure/azure-vmware/concepts-private-clouds-clusters#host-monitoring-and-remediation
 
-# faq card
+
   - title: FAQ
     linkLists:
       - linkListType: reference
         links:
           - text: General
-            url: /azure/azure-vmware/faq#general
+            url: /azure/azure-vmware/faq
           - text: Customer communication
             url: /azure/azure-vmware/faq#customer-communication
           - text: Configuration and setup 
@@ -69,13 +67,13 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: 0 - Plan the deployment
+          - text: 1 - Plan the deployment
             url: production-ready-deployment-steps.md
-          - text: 1 - Deploy Azure VMware Solution
+          - text: 2 - Deploy Azure VMware Solution
             url: deploy-azure-vmware-solution.md
-          - text: 2 - Connect to on-premises
-            url: azure-vmware-solution-on-premises.md
-          - text: 3 - Deploy and configure HCX
+          - text: 3 - Connect to on-premises
+            url: tutorial-expressroute-global-reach-private-cloud.md
+          - text: 4 - Deploy and configure HCX
             url: tutorial-deploy-vmware-hcx.md
       - linkListType: tutorial
         links:
@@ -108,7 +106,7 @@ landingContent:
           - text: Save costs with a reserved instance
             url: reserved-instance.md
           - text: Migration assessment
-            url: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
+            url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - linkListType: how-to-guide
         links:
           - text: Manage DHCP
@@ -194,6 +192,15 @@ landingContent:
           - text: Rotate vCenter & NSX-T passwords using Azure Logic App
             url: https://youtu.be/cK1qY3knj88
                             
+# Move resources (card 8)
+  - title: Move Azure VMware Solution resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Move subscriptions
+            url: move-ea-csp-subscriptions.md
+
+
 
 # card 8
   - title: Troubleshooting

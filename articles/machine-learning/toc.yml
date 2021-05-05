@@ -171,7 +171,7 @@
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
         - name: Security baseline
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/machine-learning-security-baseline?context=/azure/machine-learning/context/ml-context
         - name: Security controls by Azure Policy
           href: ./security-controls-policy.md
         - name: Data encryption
@@ -320,9 +320,9 @@
             - name: Get data labeled
               displayName: data, dataset, labeling
               href: how-to-create-labeling-projects.md
-            - name: Label images
+            - name: Label images and text
               displayName: data, dataset, labeling
-              href: how-to-label-images.md
+              href: how-to-label-data.md
             - name: Create datasets with labels
               displayName: data, labels, torchvision
               href: how-to-use-labeled-dataset.md
@@ -462,10 +462,7 @@
         href: how-to-deploy-and-where.md
       - name: Deployment targets
         items:
-        - name: Use existing models
-          displayName: publish existing model
-          href: how-to-deploy-existing-model.md
-        - name: Azure ML compute instances
+        - name: Local
           href: how-to-deploy-local-container-notebook-vm.md
         - name: Azure Kubernetes Service
           displayName: aks, aad, authentication, azure active directory

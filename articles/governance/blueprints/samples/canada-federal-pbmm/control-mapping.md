@@ -1,7 +1,7 @@
 ---
 title: Canada Federal PBMM blueprint sample controls
 description: Control mapping of the Canada Federal PBMM blueprint samples. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 02/05/2021
+ms.date: 04/30/2021
 ms.topic: sample
 ---
 # Control mapping of the Canada Federal PBMM blueprint sample
@@ -51,7 +51,6 @@ appropriate action to ensure account management requirements are met.
 - External accounts with owner permissions should be removed from your subscription
 - External accounts with read permissions should be removed from your subscription
 - External accounts with write permissions should be removed from your subscription
-
 
 ## AC-2 (7) Account Management | Role-Based Schemes
 
@@ -126,12 +125,13 @@ monitor and enforce use of advanced data security on SQL server.
 
 ## AC-17 (1) Remote Access | Automated Monitoring / Control
 
-This blueprint helps you monitor and control remote access by assigning [Azure Policy](../../../policy/overview.md)
-definitions to monitor that remote debugging for Azure App Service application is turned off. The
-blueprint also assigns policy definitions that audit Linux virtual machines that allow remote
-connections from accounts without passwords. Additionally, the blueprint assigns an Azure Policy
-definition that helps you monitor unrestricted access to storage accounts. Monitoring these
-indicators can help you ensure remote access methods comply with your security policy.
+This blueprint helps you monitor and control remote access by assigning
+[Azure Policy](../../../policy/overview.md) definitions to monitor that remote debugging for Azure
+App Service application is turned off. The blueprint also assigns policy definitions that audit
+Linux virtual machines that allow remote connections from accounts without passwords. Additionally,
+the blueprint assigns an Azure Policy definition that helps you monitor unrestricted access to
+storage accounts. Monitoring these indicators can help you ensure remote access methods comply with
+your security policy.
 
 - Show audit results from Linux VMs that allow remote connections from accounts without passwords
 - Storage accounts should restrict network access
@@ -203,10 +203,10 @@ on SQL servers.
 ## CM-7 (5) Least Functionality | Authorized Software / Whitelisting
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
-application allow list solution that can block or prevent specific software from running on your
+application allowlist solution that can block or prevent specific software from running on your
 virtual machines. Application control helps you create approved application lists for your virtual
 machines. This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that
-helps you monitor virtual machines where an application allow list is recommended but has not yet
+helps you monitor virtual machines where an application allowlist is recommended but has not yet
 been configured.
 
 - Adaptive application controls for defining safe applications should be enabled on your machines
@@ -214,11 +214,11 @@ been configured.
 ## CM-11 User-Installed Software
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
-application allow list solution that can block or prevent specific software from running on your
+application allowlist solution that can block or prevent specific software from running on your
 virtual machines. Application control can help you enforce and monitor compliance with software
 restriction policies. This blueprint assigns an [Azure Policy](../../../policy/overview.md)
-definition that helps you monitor virtual machines where an application allow list is recommended
-but has not yet been configured.
+definition that helps you monitor virtual machines where an application allowlist is recommended but
+has not yet been configured.
 
 - Adaptive application controls for defining safe applications should be enabled on your machines
 
@@ -254,7 +254,7 @@ indicators helps you ensure that system authenticators comply with your organiza
 identification and authentication policy.
 
 - Show audit results from Linux VMs that do not have the passwd file permissions set to 0644
-- Show audit results from  Linux VMs that have accounts without passwords
+- Show audit results from Linux VMs that have accounts without passwords
 
 ## IA-5 (1) Authenticator Management | Password-Based Authentication
 
@@ -268,7 +268,8 @@ all virtual machine user accounts comply with your organization's password polic
 - Show audit results from Windows VMs that do not have a maximum password age of 70 days
 - Show audit results from Windows VMs that do not have a minimum password age of 1 day
 - Show audit results from Windows VMs that do not have the password complexity setting enabled
-- Show audit results from Windows VMs that do not restrict the minimum password length to 14 characters
+- Show audit results from Windows VMs that do not restrict the minimum password length to 14
+  characters
 
 ## IA-8 (100) Identification and Authentication (Non-Organizational Users) | Identity and Credential Assurance Levels
 
@@ -303,10 +304,10 @@ vulnerabilities in your deployed resources.
 
 ## SC-5 Denial of Service Protection
 
-Azure's distributed denial of service (DDoS) standard tier provides additional features and
+Azure's distributed denial of service (DDoS) Standard tier provides additional features and
 mitigation capabilities over the basic service tier. These additional features include Azure Monitor
 integration and the ability to review post-attack mitigation reports. This blueprint assigns an
-[Azure Policy](../../../policy/overview.md) definition that audits if the DDoS standard tier is
+[Azure Policy](../../../policy/overview.md) definition that audits if the DDoS Standard tier is
 enabled. Understanding the capability difference between the service tiers can help you select the
 best solution to address denial of service protections for your Azure environment.
 
@@ -357,7 +358,7 @@ properly encrypted can help you meet your organization's requirements or protect
 unauthorized disclosure and modification.
 
 - API App should only be accessible over HTTPS
-- Show audit results from  Windows web servers that are not using secure communication protocols
+- Show audit results from Windows web servers that are not using secure communication protocols
 - Function App should only be accessible over HTTPS
 - Only secure connections to your Azure Cache for Redis should be enabled
 - Web Application should only be accessible over HTTPS
@@ -443,8 +444,8 @@ you can take appropriate action.
 - Deploy Threat Detection on SQL servers
 
 > [!NOTE]
-> Availability of specific Azure Policy definitions may vary in Azure Government and other national 
-> clouds. 
+> Availability of specific Azure Policy definitions may vary in Azure Government and other national
+> clouds.
 
 ## Next steps
 

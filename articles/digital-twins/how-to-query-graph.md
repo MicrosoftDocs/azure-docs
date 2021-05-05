@@ -18,12 +18,14 @@ ms.custom: contperf-fy21q2
 
 # Query the Azure Digital Twins twin graph
 
-This article offers query examples and more detailed instructions for using the **Azure Digital Twins query language** to query your [twin graph](concepts-twins-graph.md) for information. (For an introduction to the query language and a full list of its features, see [*Concepts: Query language*](concepts-query-language.md).)
+This article offers query examples and instructions for using the **Azure Digital Twins query language** to query your [twin graph](concepts-twins-graph.md) for information. (For an introduction to the query language, see [Concepts: Query language](concepts-query-language.md).)
 
-This article begins with sample queries that illustrate the query language structure and common query operations for digital twins. It then describes how to run your queries after you've written them, using the Azure Digital Twins [Query API](/rest/api/digital-twins/dataplane/query) or an [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis).
+It contains sample queries that illustrate the query language structure and common query operations for digital twins. It also describes how to run your queries after you've written them, using the Azure Digital Twins [Query API](/rest/api/digital-twins/dataplane/query) or an [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis).
 
 > [!NOTE]
 > If you're running the sample queries below with an API or SDK call, you'll need to condense the query text into a single line.
+
+[!INCLUDE [digital-twins-query-reference.md](../../includes/digital-twins-query-reference.md)]
 
 ## Show all digital twins
 
@@ -60,7 +62,7 @@ You can also get twins based on the **type of a property**. Here is a query that
 
 ## Query by model
 
-The `IS_OF_MODEL` operator can be used to filter based on the twin's [**model**](concepts-models.md).
+The `IS_OF_MODEL` operator can be used to filter based on the twin's [model](concepts-models.md).
 
 It considers [inheritance](concepts-models.md#model-inheritance) and model [versioning](how-to-manage-model.md#update-models), and evaluates to **true** for a given twin if the twin meets either of these conditions:
 
@@ -150,7 +152,7 @@ You can count the number of items in a result set using the `Select COUNT` claus
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="SelectCount1":::
 
-Add a `WHERE` clause to count the number of items that meet a certain criteria. Here are some examples of counting with an applied filter based on the type of twin model (for more on this syntax, see [*Query by model*](#query-by-model) below):
+Add a `WHERE` clause to count the number of items that meet a certain criteria. Here are some examples of counting with an applied filter based on the type of twin model (for more on this syntax, see [Query by model](#query-by-model) below):
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="SelectCount2":::
 
@@ -228,7 +230,7 @@ You can **combine** any of the above types of query using combination operators 
 
 ## Run queries with the API
 
-Once you have decided on a query string, you execute it by making a call to the [**Query API**](/rest/api/digital-twins/dataplane/query).
+Once you have decided on a query string, you execute it by making a call to the [Query API](/rest/api/digital-twins/dataplane/query).
 
 You can call the API directly, or use one of the [SDKs](how-to-use-apis-sdks.md#overview-data-plane-apis) available for Azure Digital Twins.
 

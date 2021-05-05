@@ -3,7 +3,7 @@ title: Track updated files with an Azure Automation watcher task
 description: This article tells how to create a watcher task in the Azure Automation account to watch for new files created in a folder.
 services: automation
 ms.subservice: process-automation
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/17/2020
 ---
 
@@ -37,21 +37,26 @@ To complete this article, the following are required:
 
 ## Import a watcher runbook
 
-This article uses a watcher runbook called **Watch-NewFile** to look for new files in a directory. The watcher runbook retrieves the last known write time to the files in a folder and looks at any files newer than that watermark.
+This article uses a watcher runbook called **Watcher runbook that looks for new files in a directory** to look for new files in a directory. The watcher runbook retrieves the last known write time to the files in a folder and looks at any files newer than that watermark.
 
-You can download the runbook from the [Azure Automation GitHub organization](https://github.com/azureautomation).
+You can import this runbook into your Automation account from the portal using the following steps.
 
-1. Navigate to the Azure Automation GitHub organization page for [Watch-NewFile.ps1](https://github.com/azureautomation/watcher-action-that-processes-events-triggerd-by-a-watcher-runbook).
-2. To download the runbook from GitHub, select **Code** from the right-hand side of the page, and then select **Download ZIP** to download the whole code in a zip file.
-3. Extract the contents and [import the runbook](manage-runbooks.md#import-a-runbook-from-the-azure-portal).
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for and select **Automation Accounts**. 
+1. On the **Automation Accounts** page, select the name of your Automation account from the list.
+1. In the left pane, select **Runbooks gallery** under **Process Automation**.
+1. Make sure **GitHub** is selected in the **Source** drop-down list.
+1. Search for **Watcher runbook**.
+1. Select **Watcher runbook that looks for new files in a directory**, and select **Import** on the details page.
+1. Give the runbook a name and optionally a description and click **OK** to import the runbook into your Automation account. You should see an **Import successful** message in a pane at the upper right of your window.
+1. The imported runbook appears in the list under the name you gave it when you select Runbooks from the left-hand pane.
+1. Click on the runbook, and on the runbook details page, select **Edit** and then click **Publish**. When prompted, click **Yes** to publish the runbook.
 
-You can also import this runbook into your Automation account from the portal using the following steps.
+You can also download the runbook from the [Azure Automation GitHub organization](https://github.com/azureautomation).
 
-1. Open your Automation account, and click on the Runbooks page.
-2. Click **Browse gallery** and under the **Source** drop-down list select **GitHub**.
-3. Search for **Watcher runbook**, select **Watcher runbook that looks for new files in a directory**, and click **Import**.
-4. Give the runbook a name and description and click **OK** to import the runbook into your Automation account.
-5. Select **Edit** and then click **Publish**. When prompted, click **Yes** to publish the runbook.
+1. Navigate to the Azure Automation GitHub organization page for [Watch-NewFile.ps1](https://github.com/azureautomation/watcher-runbook-that-looks-for-new-files-in-a-directory#watcher-runbook-that-looks-for-new-files-in-a-directory).
+1. To download the runbook from GitHub, select **Code** from the right-hand side of the page, and then select **Download ZIP** to download the whole code in a zip file.
+1. Extract the contents and [import the runbook](manage-runbooks.md#import-a-runbook-from-the-azure-portal).
 
 ## Create an Automation variable
 
@@ -59,26 +64,32 @@ An [Automation variable](./shared-resources/variables.md) is used to store the t
 
 1. Select **Variables** under **Shared Resources** and click **+ Add a variable**.
 1. Enter **Watch-NewFileTimestamp** for the name.
-1. Select DateTime for the type.
+1. Select **DateTime** for the type. It will default to the current date and time.
+
+   :::image type="content" source="./media/automation-watchers-tutorial/create-new-variable.png" alt-text="Create new variable blade.":::
+
 1. Click **Create** to create the Automation variable.
 
 ## Create an action runbook
 
-An action runbook is used in a watcher task to act on the data passed to it from a watcher runbook. You must import a predefined action runbook called **Process-NewFile** from the [Azure Automation GitHub organization](https://github.com/azureautomation).
+An action runbook is used in a watcher task to act on the data passed to it from a watcher runbook. You must import a predefined action runbook, either from the Azure portal of from the [Azure Automation GitHub organization](https://github.com/azureautomation).
 
-To create an action runbook:
+You can import this runbook into your Automation account from the Azure portal:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for and select **Automation Accounts**. 
+1. On the **Automation Accounts** page, select the name of your Automation account from the list.
+1. In the left pane, select **Runbooks gallery** under **Process Automation**.
+1. Make sure **GitHub** is selected in the **Source** drop-down list.
+1. Search for **Watcher action**, select **Watcher action that processes events triggered by a watcher runbook**, and click **Import**.
+1. Optionally, change the name of the runbook on the import page, and then click **OK** to import the runbook. You should see an **Import successful** message in the notification pane in the upper right-hand side of the browser.
+1. Go to your Automation Account page, and click on **Runbooks** on the left. Your new runbook should be listed under the name you gave it in the previous step. Click on the runbook, and on the runbook details page, select **Edit** and then click **Publish**. When prompted, click **Yes** to publish the runbook.
+
+To create an action runbook by downloading it from the [Azure Automation GitHub organization](https://github.com/azureautomation):
 
 1. Navigate to the Azure Automation GitHub organization page for [Process-NewFile.ps1](https://github.com/azureautomation/watcher-action-that-processes-events-triggerd-by-a-watcher-runbook).
-2. To download the runbook from GitHub, select **Code** from the right-hand side of the page, and then select **Download ZIP** to download the whole code in a zip file.
-3. Extract the contents and [import the runbook](manage-runbooks.md#import-a-runbook-from-the-azure-portal).
-
-You can also import this runbook into your Automation account from the Azure portal:
-
-1. Navigate to your Automation account and select **Runbooks** under **Process Automation**.
-1. Click **Browse gallery** and under the **Source** drop-down list select **GitHub**.
-1. Search for **Watcher action**, select **Watcher action that processes events triggered by a watcher runbook**, and click **Import**.
-1. Give the runbook a name and description and click **OK** to import the runbook into your Automation account.
-1. Select **Edit** and then click **Publish**. When prompted, click **Yes** to publish the runbook.
+1. To download the runbook from GitHub, select **Code** from the right-hand side of the page, and then select **Download ZIP** to download the whole code in a zip file.
+1. Extract the contents and [import the runbook](manage-runbooks.md#import-a-runbook-from-the-azure-portal).
 
 ## Create a watcher task
 
@@ -107,14 +118,15 @@ In this step, you configure the watcher task referencing the watcher and action 
 1. Click **OK**, and then **Select** to return to the Watcher page.
 1. Click **OK** to create the watcher task.
 
-    ![Configure watcher action from UI](media/automation-watchers-tutorial/watchertaskcreation.png)
+   :::image type="content" source="./media/automation-watchers-tutorial/watchertaskcreation.png" alt-text="Configure watcher action from UI.":::
+
 
 ## Trigger a watcher
 
 You must run a test as described below to ensure that the watcher task works as expected. 
 
 1. Remote into the Hybrid Runbook Worker.
-2. Open **PowerShell** and create a test file in the folder.
+1. Open **PowerShell** and create a test file in the folder.
 
 ```azurepowerShell-interactive
 New-Item -Name ExampleFile1.txt
@@ -138,7 +150,8 @@ Mode                LastWriteTime         Length Name
 1. Click on **View watcher streams** under **Streams** to see that the watcher has found the new file and started the action runbook.
 1. To see the action runbook jobs, click on **View watcher action jobs**. Each job can be selected to view the details of the job.
 
-   ![Watcher action jobs from UI](media/automation-watchers-tutorial/WatcherActionJobs.png)
+   :::image type="content" source="./media/automation-watchers-tutorial/WatcherActionJobs.png" alt-text="Watcher action jobs from UI.":::
+
 
 The expected output when the new file is found can be seen in the following example:
 

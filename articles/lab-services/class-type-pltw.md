@@ -70,15 +70,15 @@ The size of the virtual machine (VM) that we recommend using for PLTW classes de
 
 | Lab setting | Value and description | Class recommendation |
 | ------------ | ------------------ | --- |
-| Virtual Machine Size | **Small GPU (Visualization)**<br>Best suited for remote visualization, streaming, gaming, and encoding with frameworks such as OpenGL and DirectX. | We recommend using this size for the following PLTW classes: Civil Engineering and Architecture, Digital Electronics, Computer Integrated Manufacturing, and Engineering Design and Development.
-| Virtual Machine Size | **Large**<br>Best suited for applications that need faster CPUs, better local disk performance, large databases, and large memory caches. | We recommend using this size for the following PLTW classes: Introduction to Engineering Design, Principles of Engineering, Computer Science Essentials, Computer Science Principles, and Computer Science A. |
+| Virtual Machine Size | **Small GPU (Visualization)**<br>Best suited for remote visualization, streaming, gaming, and encoding with frameworks such as OpenGL and DirectX. | We recommend using this size for the following PLTW classes: Civil Engineering and Architecture, Digital Electronics, Computer Integrated Manufacturing, Engineering Design and Development, and Introduction to Engineering Design.
+| Virtual Machine Size | **Large**<br>Best suited for applications that need faster CPUs, better local disk performance, large databases, and large memory caches. | We recommend using this size for the following PLTW classes: Principles of Engineering, Computer Science Essentials, Computer Science Principles, and Computer Science A. |
 
 <br>
 
 ### License server
 Most of the software that's used in the earlier-mentioned PLTW classes do *not* require access to a license server.  However, you'll need to access a license server if you plan to use the Autodesk network licensing model for the following software:
 -   Revit
--   Inventor
+-   Inventor CAD
 -   Inventor CAM
 
 To use network licensing with Autodesk software, [PLTW provides detailed steps](https://www.pltw.org/pltw-software) to install Autodesk Network License Manager on your license server.  This license server is ordinarily located in either your on-premises network or hosted on an Azure virtual machine (VM) within in Azure virtual network.
