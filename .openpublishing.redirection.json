@@ -13966,11 +13966,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain/service/migration-guide.md",
-      "redirect_url": "/azure/blockchain/service/overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/blockchain/templates/ethereum-deployment.md",
       "redirect_url": "/azure/blockchain/templates/ethereum-poa-deployment",
       "redirect_document_id": false
