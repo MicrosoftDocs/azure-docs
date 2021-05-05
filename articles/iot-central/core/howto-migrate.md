@@ -1,6 +1,6 @@
 ---
 title: Migrate a V2 Azure IoT Central application to V3 | Microsoft Docs
-description: As an administrator, learn how to migrate your V2 Azure IoT Central application to V3
+description: Learn how to migrate your V2 Azure IoT Central application to V3
 author: troyhopwood
 ms.author: troyhop
 ms.date: 01/18/2021
