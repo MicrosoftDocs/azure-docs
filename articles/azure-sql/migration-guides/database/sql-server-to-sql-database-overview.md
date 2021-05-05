@@ -147,6 +147,10 @@ Manual setup of SQL Server high-availability features like Always On failover cl
 
 Beyond the high-availability architecture that's included in Azure SQL Database, the [auto-failover groups](../../database/auto-failover-group-overview.md) feature allows you to manage the replication and failover of databases in a managed instance to another region. 
 
+### Logins and groups
+
+Windows logins are not supported in Azure SQL Database, create an Azure Active Directory login instead. Manually recreate any SQL logins. 
+
 ### SQL Agent jobs
 SQL Agent jobs are not directly supported in Azure SQL Database and need to be deployed to [elastic database jobs (preview)](../../database/job-automation-overview.md).
 
