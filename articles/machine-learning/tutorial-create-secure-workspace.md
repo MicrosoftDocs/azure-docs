@@ -1,13 +1,13 @@
 ---
-title: Secure an Azure Machine Learning workspace with virtual networks
+title: Create a secure Azure Machine Learning workspace
 titleSuffix: Azure Machine Learning
-description: Use an isolated Azure Virtual Network to secure your Azure Machine Learning workspace and associated resources.
+description: Tutorial of creating a secure Azure Machine Learning workspace
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.author: larryfr
-author: larryfr
+author: blackmist
 ms.date: 03/17/2021
 ms.topic: how-to
 
@@ -22,7 +22,7 @@ In this article, learn how to create and connect to a secure Azure Machine Learn
 
 ## Create a virtual network
 
-To create a virtual network, usee the following steps:
+To create a virtual network, use the following steps:
 
 1. In the [Azure portal](https://portal.azure.com), select __+ Create a resource__ and then enter __Virtual Network__ in the search field. Select the __Virtual Network__ entry, and then select __Create__.
 
@@ -32,7 +32,7 @@ To create a virtual network, usee the following steps:
 
 1. From the __Basics__ tab, select the Azure __subscription__ to use for this resource and then select or create a new __resource group__. Under __Instance details__, enter a friendly __name__ for your virtual network and select the __region__ to create it in.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/create-vnet-basics.png" alt-text="Image of the basic config":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-vnet-basics.png" alt-text="Image of the basic virtual network config":::
 
 1. Select __IP Addresses__ tab. The default settings should be similar to the following image:
 
@@ -41,9 +41,9 @@ To create a virtual network, usee the following steps:
     Use the following steps to configure the IP address and configure a subnet for training and scoring resources:
 
     > [!TIP]
-        > While you can use a single subnet for all Azure ML resources, the steps in this article show how to create two subnets to separate the training & scoring resources.
-        >
-        > The workspace and other dependency services will go into the training subnet. They can still be used by resources in other subnets, such as the scoring subnet.
+    > While you can use a single subnet for all Azure ML resources, the steps in this article show how to create two subnets to separate the training & scoring resources.
+    >
+    > The workspace and other dependency services will go into the training subnet. They can still be used by resources in other subnets, such as the scoring subnet.
 
     1. Make note of the the default __IPv4 address space__. In the screenshot, the value is __172.17.0.0/16__. __The value may be different for you__. While you can use a different value, the rest of the steps in this tutorial are based on the 172.17.0.0/16 value.
     1. Select the __Default__ subnet and then select __Remove subnet__.
@@ -58,7 +58,7 @@ To create a virtual network, usee the following steps:
             * __Microsoft.KeyVault__
             * __Microsoft.ContainerRegistry__
 
-        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-training-subnet.png" alt-text="Training subnet":::
+        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-training-subnet.png" alt-text="Create a Training subnet":::
 
     1. To create a subnet for compute resources used to score your models, select __+ Add subnet__ again, and use the follow values:
         * __Subnet name__: Scoring
@@ -68,7 +68,7 @@ To create a virtual network, usee the following steps:
             * __Microsoft.KeyVault__
             * __Microsoft.ContainerRegistry__
 
-        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-scoring-subnet.png" alt-text="Training subnet":::
+        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-scoring-subnet.png" alt-text="Create a Scoring subnet":::
 
 1. Select __Review + create__.
 
@@ -85,7 +85,7 @@ Use the following steps create a network security group (NSG) and add rules requ
 1. In the Azure portal, select the __Home__ link to return to the homepage. Select __+ Create a resource__ and then enter __Network security group__. Select the __Network security group__ entry, and then select __Create__.
 1. From the __Basics__ tab, select the __subscription__, __resource group__, and __region__ you previously used for the virtual network. Enter a unique __name__ for the new network security group.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/create-nsg.png" alt-text="Image of the basic config":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-nsg.png" alt-text="Image of the basic network security group config":::
 
 1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
 
