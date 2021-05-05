@@ -2,7 +2,7 @@
 title: "Azure Arc enabled Kubernetes cluster extensions"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 04/29/2021
+ms.date: 05/25/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
@@ -47,10 +47,10 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 | --------- | ----------- |
 | [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json) | Provides visibility into the performance of workloads deployed on the Kubernetes cluster. Collects memory and CPU utilization metrics from controllers, nodes, and containers. |
 | [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json) | Gathers information related to security like audit log data from the Kubernetes cluster. Provides recommendations and threat alerts based on gathered data. |
-| [Azure Arc Data Services](../../azure-arc/kubernetes/custom-locations.md#create-custom-location) | Makes it possible for you to run Azure data services on-prem, at the edge, and in public clouds using Kubernetes and the infrastructure of your choice. |
-| Azure App Services on Azure Arc | Allows you to provision an App Service Kubernetes environment on top of Azure Arc enabled Kubernetes. |
-| Event Grid on Kubernetes | Deploys to an Azure Arc enabled Kubernetes cluster. The attached Kubernetes cluster and Event Grid resources, such as topics and event subscriptions, appear on the Azure Portal, have an Azure Resource Manager Id, and are managed through ARM control plane gestures. |
-| Azure API Management on Azure Arc | Deploy the API Management gateway component as an extension on an Azure Arc enabled Kubernetes cluster. |
+| [Azure Arc enabled Data Services](../../azure-arc/kubernetes/custom-locations.md#create-custom-location) | Makes it possible for you to run Azure data services on-prem, at the edge, and in public clouds using Kubernetes and the infrastructure of your choice. |
+| Azure App Services on Azure Arc(../../app-service/overview-arc-integration.md) | Allows you to provision an App Service Kubernetes environment on top of Azure Arc enabled Kubernetes clusters. |
+| Event Grid on Kubernetes | Create and manage event grid resources such as topics and event subscriptions on top of Azure Arc enabled Kubernetes clusters. |
+| Azure API Management on Azure Arc(../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md) | Deploy and manage API Management gateway on Azure Arc enabled Kubernetes clusters. |
 
 ## Usage of cluster extensions
 

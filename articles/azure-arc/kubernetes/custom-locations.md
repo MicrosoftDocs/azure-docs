@@ -2,7 +2,7 @@
 title: "Custom locations on Azure Arc enabled Kubernetes"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 05/04/2021
+ms.date: 05/25/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
@@ -79,13 +79,17 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
 ## Create custom location
 
-1. Deploy the Azure service cluster extension you eventually want on top of the custom location:
+1. Deploy the Azure service cluster extension of the Azure service instance you eventually want on your cluster:
 
-    * Azure Arc Data Services
+    * Azure Arc enabled Data Services
 
         ```azurecli
         az k8s-extension create --name <extensionInstanceName> --extension-type microsoft.arcdataservices --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName> --scope cluster --release-namespace arc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
         ```
+        > [!NOTE]
+        > Outbound proxy without authentication and outbound proxy with basic authentication are supported by the Arc enabled Data Services cluster extension. Outbound proxy that expects trusted certificates is currently not supported.
+
+
     * Azure App Service on Azure Arc
 
         ```azurecli
@@ -97,10 +101,6 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
         ```azurecli
           az k8s-extension create --name <extensionInstanceName> --extension-type Microsoft.EventGrid --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName> --scope cluster --release-namespace eventgrid-ext --configuration-protected-settings-file protected-settings-extension.json --configuration-settings-file settings-extension.json
         ```
-
-       
-    > [!NOTE]
-    > Outbound proxy without authentication and outbound proxy with basic authentication are supported by the Arc enabled Data Services cluster extension. Outbound proxy that expects trusted certificates is currently not supported.
 
 1. Get the Azure Resource Manager identifier of the Azure Arc enabled Kubernetes cluster, referenced in later steps as `connectedClusterId`:
 
@@ -122,7 +122,8 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
 ## Next steps
 
-- Securely connect to the cluster using [Cluster Connect](cluster-connect.md)
+- Securely connect to the cluster using [Cluster Connect](cluster-connect.md).
 - Continue with Azure App Services on Azure Arc to create your first web, function, or logic app. 
 - Create an Event Grid topic and an event subscription for Event Grid on Kubernetes. 
+- Learn more about currently available [Azure Arc enabled Kubernetes extensions](extensions.md#currently-available-extensions).
 
