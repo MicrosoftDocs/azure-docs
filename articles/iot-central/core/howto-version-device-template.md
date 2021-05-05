@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
+
+# This article applies to solution builders and device developers.
 ---
 
 # Create a new device template version
-
-*This article applies to solution builders and device developers.*
 
 A device template includes a schema that describes how a device interacts with IoT Central. These interactions include telemetry, properties, and commands. Both the device and the IoT Central application rely on a shared understanding of this schema to exchange information. You can only make limited changes to the schema without breaking the contract, that's why most schema changes require a new version of the device template. Versioning the device template lets older devices continue with the schema version they understand, while newer or updated devices use a later schema version.
 

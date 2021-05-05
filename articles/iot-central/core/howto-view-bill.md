@@ -8,11 +8,13 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
+
+# Administrator
 ---
 
 # Manage your bill in an IoT Central application
 
-This article describes how, as an administrator, you can manage your Azure IoT Central billing. You can move your application from the free pricing plan to a standard pricing plan, and also upgrade or downgrade your pricing plan.
+This article describes how you can manage your Azure IoT Central billing. You can move your application from the free pricing plan to a standard pricing plan, and also upgrade or downgrade your pricing plan.
 
 To access the **Administration** section, you must be in the *Administrator* role or have a *custom user role* that allows you to view billing. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role.
 
