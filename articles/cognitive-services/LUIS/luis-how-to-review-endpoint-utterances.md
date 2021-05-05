@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 04/16/2021
+ms.date: 05/05/2021
 
 ---
 
