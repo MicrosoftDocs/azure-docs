@@ -15,7 +15,7 @@ ms.author: janders
 
 The database ledger logically leverages a blockchain and merkle tree data structures.  The database ledger incrementally captures the state of the database as it evolves over time while updates occur on Ledger tables. To achieve that, the Database Ledger stores an entry for every transaction capturing metadata about the transaction, such as its commit timestamp and the identity of the user that executed it, but also the Merkle Tree root of the rows updated in each Ledger table. These entries are then appended to a tamper-evident data structure to allow verifying their integrity in the future.
 
-:::image type="content" source="media/sql-ledger/database-ledger-merkle-tree.png" alt-text="sql ledger merkle tree":::
+:::image type="content" source="media/ledger/database-ledger-merkle-tree.png" alt-text="sql ledger merkle tree":::
 
 The data regarding transactions and blocks is physically stored as rows in two new system catalog views:
 
@@ -57,11 +57,11 @@ GO
 
 The below is an example of a ledger table that consists of 4 transactions that made-up one block in the blockchain of the database ledger.
 
-:::image type="content" source="media/sql-ledger/database-ledger-1.png" alt-text="example ledger table":::
+:::image type="content" source="media/ledger/database-ledger-1.png" alt-text="example ledger table":::
 
 A block is closed every 30 seconds, or when the user manually generates a database digest through executing the sys.sp_generate_database_ledger_digest stored procedure. When a block is closed, new transactions will be inserted in a new block. The block generation process then retrieves all transactions that belong to the “closed” block from both the in-memory queue and the sys.database_ledger_transactions system table, computes the Merkle tree root over these transactions and the hash of the previous block and persists the closed block in the sys.database_ledger_blocks system table. Since this is a regular table update, its durability is automatically guaranteed by the system. To maintain the single chain of blocks, this operation is single-threaded, but it is also very efficient, as it only computes the hashes over the transaction information, and happens asynchronously, thus, not impacting the transaction performance.   
 
 ## Next steps
 
-- [Digest management and database verification](sql-ledger-digest-management-and-database-verification.md)   
+- [Digest management and database verification](ledger-digest-management-and-database-verification.md)   
 - [Security Catalog Views (Transact-SQL)](/sql/relational-databases/system-catalog-views/security-catalog-views-transact-sql)

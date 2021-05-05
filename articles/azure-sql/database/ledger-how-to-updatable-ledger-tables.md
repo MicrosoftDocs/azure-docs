@@ -106,7 +106,7 @@ We will create a simple account balance table with the following schema.
    1. ledger_start_transaction_id notes the unique transaction ID associated to the transaction that inserted the data.  Since John, Joe and Mary were inserted using the same transaction, they share the same transaction ID.
    2. ledger_start_sequence_number notes the order by which values were inserted by the transaction.
 
-   :::image type="content" source="media/sql-ledger/sql-updatable-how-to-1.png" alt-text="ledger table example 1":::
+   :::image type="content" source="media/ledger/sql-updatable-how-to-1.png" alt-text="ledger table example 1":::
 
 6. Update Nick's balance from $50 to $100.
 
@@ -130,7 +130,7 @@ We will create a simple account balance table with the following schema.
    JOIN sys.schemas vs ON (vs.[schema_id] = v.[schema_id])
    ```
 
-   :::image type="content" source="media/sql-ledger/sql-updatable-how-to-2.png" alt-text="ledger table example 2":::
+   :::image type="content" source="media/ledger/sql-updatable-how-to-2.png" alt-text="ledger table example 2":::
 
 8. View the the [Account].[Balance] updatable ledger table, along with it's corresponding history table and ledger view.
 
@@ -158,13 +158,13 @@ We will create a simple account balance table with the following schema.
 10. The history table now shows the previous balance of $50 for Nick.
 11. The ledger view shows that updating the ledger table is a DELETE of the original row with $50 as the balance with a corresponding INSERT of a new row with $100 with the new balance for Nick.
 
-   :::image type="content" source="media/sql-ledger/sql-updatable-how-to-3.png" alt-text="ledger table example 3":::
+   :::image type="content" source="media/ledger/sql-updatable-how-to-3.png" alt-text="ledger table example 3":::
 
 
 ## Next steps
 
-- [Database ledger](sql-ledger-database-ledger.md)  
-- [Digest management and database verification](sql-ledger-digest-management-and-database-verification.md)   
-- [Append-only ledger tables](sql-ledger-append-only-ledger-tables.md) 
-- [Create and use append-only updatable ledger tables](sql-ledger-how-to-append-only-ledger-tables.md) 
+- [Database ledger](ledger-database-ledger.md)  
+- [Digest management and database verification](ledger-digest-management-and-database-verification.md)   
+- [Append-only ledger tables](ledger-append-only-ledger-tables.md) 
+- [Create and use append-only updatable ledger tables](ledger-how-to-append-only-ledger-tables.md) 
 

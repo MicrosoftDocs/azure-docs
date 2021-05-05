@@ -41,7 +41,7 @@ Azure SQL Database ledger integrates with [immutable storage for Azure Blob stor
 
 Configuring automatic generation and storage of database digests can be done through either the Azure Portal, or CLI.  When configured, database digests are generated on a pre-defined interval of 30 seconds and uploaded to the storage service selected.  If no transactions occur in the system in the 30 second interval, then a database digest will not be generated and uploaded, ensuring that database digests are only generated when data has been updated in your database.
 
-:::image type="content" source="media/sql-ledger/digest-management.png" alt-text="enable digest storage"::: 
+:::image type="content" source="media/ledger/digest-management.png" alt-text="enable digest storage"::: 
 
 ### Manual generation and storage of database digests
 
@@ -129,7 +129,7 @@ EXECUTE sp_verify_database_ledger N'
 Return codes for `sp_verify_database_ledger` and `sp_verify_database_ledger_from_digest_storage` are **0** (success) or **1** (failure).
 
 ## Next steps
-- [SQL ledger overview](sql-ledger-overview.md)
-- [Updatable ledger tables](sql-ledger-updatable-ledger-tables.md)   
-- [Append-only ledger tables](sql-ledger-append-only-ledger-tables.md)   
-- [Database ledger](sql-ledger-database-ledger.md)   
+- [SQL ledger overview](ledger-overview.md)
+- [Updatable ledger tables](ledger-updatable-ledger-tables.md)   
+- [Append-only ledger tables](ledger-append-only-ledger-tables.md)   
+- [Database ledger](ledger-database-ledger.md)   

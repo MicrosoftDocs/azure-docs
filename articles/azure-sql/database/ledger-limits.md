@@ -31,7 +31,7 @@ This article provides an overview of the limitations when using ledger tables wi
 
 ## Next steps
 
-- [Updatable ledger tables](sql-ledger-updatable-ledger-tables.md)   
-- [Append-only ledger tables](sql-ledger-append-only-ledger-tables.md)   
-- [Database ledger](sql-ledger-database-ledger.md)   
-- [Digest management and database verification](sql-ledger-digest-management-and-database-verification.md)   
+- [Updatable ledger tables](ledger-updatable-ledger-tables.md)   
+- [Append-only ledger tables](ledger-append-only-ledger-tables.md)   
+- [Database ledger](ledger-database-ledger.md)   
+- [Digest management and database verification](ledger-digest-management-and-database-verification.md)   

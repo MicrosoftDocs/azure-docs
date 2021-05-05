@@ -64,5 +64,5 @@ The ledger view's schema matches the columns defined in the updatable ledger and
 
 ## Next steps
  
-- [Create and use updatable ledger tables](sql-ledger-how-to-updatable-ledger-tables.md)
-- [Create and use append-only updatable ledger tables](sql-ledger-how-to-append-only-ledger-tables.md) 
+- [Create and use updatable ledger tables](ledger-how-to-updatable-ledger-tables.md)
+- [Create and use append-only updatable ledger tables](ledger-how-to-append-only-ledger-tables.md) 

@@ -75,10 +75,10 @@ We will create a simple KeyCardEvents table with the following schema.
 
    You will receive and error message stating the updates are not allowed for your append-only ledger table.
 
-   :::image type="content" source="media/sql-ledger/append-only-how-to-1.png" alt-text="append only error message":::
+   :::image type="content" source="media/ledger/append-only-how-to-1.png" alt-text="append only error message":::
 
 ## See Also  
-- [Database ledger](sql-ledger-database-ledger.md)   
-- [Digest management and database verification](sql-ledger-digest-management-and-database-verification.md)      
-- [Updatable ledger tables](sql-ledger-updatable-ledger-tables.md)
-- [Create and use updatable ledger tables](sql-ledger-how-to-updatable-ledger-tables.md)
+- [Database ledger](ledger-database-ledger.md)   
+- [Digest management and database verification](ledger-digest-management-and-database-verification.md)      
+- [Updatable ledger tables](ledger-updatable-ledger-tables.md)
+- [Create and use updatable ledger tables](ledger-how-to-updatable-ledger-tables.md)

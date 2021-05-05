@@ -13,9 +13,9 @@ ms.author: janders
 
 # SQL ledger append-only ledger tables
 
-Append-only ledger tables allow only INSERT operations on your tables, ensuring that privileged users such as DBAs cannot alter data through traditional DML operations.  Append-only ledger tables are ideal for systems that do not update or delete records, such as Security Information Event and Management (SIEM) systems or blockchain systems where data needs to be replicated from the blockchain to a database.  Since there are no UPDATE or DELETE operations on an append-only table, there is no need for a corresponding history table as there is with [Updatable ledger tables](sql-ledger-updatable-ledger-tables.md).
+Append-only ledger tables allow only INSERT operations on your tables, ensuring that privileged users such as DBAs cannot alter data through traditional DML operations.  Append-only ledger tables are ideal for systems that do not update or delete records, such as Security Information Event and Management (SIEM) systems or blockchain systems where data needs to be replicated from the blockchain to a database.  Since there are no UPDATE or DELETE operations on an append-only table, there is no need for a corresponding history table as there is with [Updatable ledger tables](ledger-updatable-ledger-tables.md).
 
-:::image type="content" source="media/sql-ledger/sql-updatable-ledger-tables-overview.png" alt-text="overview of sql ledger updatable tables":::
+:::image type="content" source="media/ledger/sql-updatable-ledger-tables-overview.png" alt-text="overview of sql ledger updatable tables":::
 
 Creating an append-only ledger table can be done through specifying the LEDGER = ON argument in your create database T-SQL statement specifying the the `APPEND_ONLY = ON` option.
 
@@ -52,5 +52,5 @@ For every append-only ledger table, the system automatically generates a view, c
 
 ## Next steps
   
-- [Create and use append-only updatable ledger tables](sql-ledger-how-to-append-only-ledger-tables.md)
-- [Create and use updatable ledger tables](sql-ledger-how-to-updatable-ledger-tables.md)
+- [Create and use append-only updatable ledger tables](ledger-how-to-append-only-ledger-tables.md)
+- [Create and use updatable ledger tables](ledger-how-to-updatable-ledger-tables.md)
