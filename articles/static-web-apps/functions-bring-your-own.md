@@ -15,7 +15,7 @@ Azure Static Web Apps APIs are supported by two possible configurations:
 
 - **Managed functions**:  By default, the API of a static web app is an Azure Functions application managed and deployed by Azure Static Web Apps associated with some restrictions.
 
-- **Bring your own functions**: Optionally, you can provide an existing Azure Functions application, which is accompanied by all the features of Azure Functions. With this configuration, you are responsible to handle a separate deployment for the Functions app.
+- **Bring your own functions**: Optionally, you can provide an existing Azure Functions application, which is accompanied by all the features of Azure Functions. With this configuration, you're responsible to handle a separate deployment for the Functions app.
 
 The following table contrasts the differences between using managed and existing functions.
 
@@ -56,7 +56,7 @@ Before you associate an existing Functions app, you first need to adjust to conf
 
 ## Deployment
 
-You are responsible for setting up a [deployment workflow](../azure-functions/functions-deployment-technologies.md) for your Azure Functions app.
+You're responsible for setting up a [deployment workflow](../azure-functions/functions-deployment-technologies.md) for your Azure Functions app.
 
 ## Security constraints
 
