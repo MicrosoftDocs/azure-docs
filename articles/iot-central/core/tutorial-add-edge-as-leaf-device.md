@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Add an Azure IoT Edge device to Azure IoT Central | Microsoft Docs
-description: Tutorial - As an operator, add an Azure IoT Edge device to your Azure IoT Central application
+description: Tutorial - Add an Azure IoT Edge device to your Azure IoT Central application
 author: rangv
 ms.author: rangv
 ms.date: 05/29/2020
@@ -278,11 +278,6 @@ If you plan to continue working with the IoT Edge VM, you can keep and reuse the
 
 * To delete the IoT Edge VM and its associated resources, delete the the **contoso-edge-rg** resource group in the Azure portal.
 * To delete the IoT Central application, navigate to the **Your application** page in the **Administration** section of the application and select **Delete**.
-
-As a solution developer or operator, now that you've learned how to work with and manage IoT Edge devices in IoT Central, a suggested next step is to:
-
-> [!div class="nextstepaction"]
-> [Use device groups to analyze device telemetry](./tutorial-use-device-groups.md)
 
 ## Next steps
 
