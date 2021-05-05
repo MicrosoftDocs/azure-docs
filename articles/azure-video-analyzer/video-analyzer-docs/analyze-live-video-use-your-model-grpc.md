@@ -69,16 +69,6 @@ In this quickstart, you'll use Video Analyzer to detect objects such as vehicles
 1. After about 30 seconds, in the lower-left corner of the window, refresh Azure IoT Hub. The edge device now shows the following deployed modules:
     * The Video Analyzer module, named **avaedge**.
     * The **rtspsim** module, which simulates an RTSP server and acts as the source of a live video feed.
-    
-    > [!NOTE]
-    > The above steps are assuming you are using the virtual machine created by the setup script. If you are using your own edge device instead, go to your edge device and run the following commands with admin rights, to pull and store the sample video file used for this quickstart:
-    
-    ```
-    mkdir /home/localedgeuser/samples
-    mkdir /home/localedgeuser/samples/input    
-    curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/localedgeuser/samples/input/camera-300s.mkv  
-    chown -R localedgeuser:localusergroup /home/localedgeuser/samples/  
-    ```
     * The **avaextension** module, which is the YOLOv3 object detection model that uses gRPC as the communication method and applies computer vision to the images and returns multiple classes of object types.
 
         > [!div class="mx-imgBorder"]

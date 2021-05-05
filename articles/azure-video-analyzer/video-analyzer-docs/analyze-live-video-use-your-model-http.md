@@ -71,16 +71,6 @@ Open an application such as [VLC media player](https://www.videolan.org/vlc/). S
 
     * The Video Analyzer module, named **avaedge**.
     * The **rtspsim** module, which simulates an RTSP server and acts as the source of a live video feed.
-    
-    > [!NOTE]
-    > The above steps assume you are using the virtual machine created by the setup script. If you are using your own edge device instead, go to your edge device and run the following commands with **admin rights**, to pull and store the sample video file used for this quickstart:
-    
-    ```
-    mkdir /home/localedgeuser/samples
-    mkdir /home/localedgeuser/samples/input    
-    curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lcoaledgeuser/samples/input/camera-300s.mkv  
-    chown -R localedgeuser:localusergroup /home/localedgeuser/samples/  
-    ```
     * The yolov3 module, which is the YoloV3 object detection model that applies computer vision to the images and returns multiple classes of object types
 
         > [!div class="mx-imgBorder"]
