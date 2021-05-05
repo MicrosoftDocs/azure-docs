@@ -240,7 +240,7 @@
     items:
     - name: Overview
       href: blob-backup-overview.md
-    - name: From the Azure Portal
+    - name: From the Azure portal
       items:
       - name: Configure and manage
         href: blob-backup-configure-manage.md

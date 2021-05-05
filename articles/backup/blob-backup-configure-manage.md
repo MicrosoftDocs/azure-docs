@@ -153,7 +153,7 @@ To start configuring backup:
     - **Insufficient permissions for role assignment:** This error (as shown for the item _blobbackupdemo4_ in the figure above)  indicates that the vault doesn’t have the required role to configure backup, and you (the user) don’t have enough permissions to assign the required role. To make the role assignment easier, Backup allows you to download the role assignment template, which you can share with users with permissions to assign roles for storage accounts. To do this, select such storage accounts, and click **Download role assignment template** to download the template.<br><br>Once the roles are assigned, you can share it with the appropriate users. On successful assignment of the role, click **Revalidate** to validate permissions again, and then configure backup.
         >[!NOTE]
         >The template would only contain details for selected storage accounts. So, if there are multiple users that need to assign roles for different storage accounts, you can select and download different templates accordingly.
-1. Once the validation is successful for all selected storage accounts, continue to **Review and configure  backup.<br><br>You'll receive notifications about the status of configuring protection and its completion.
+1. Once the validation is successful for all selected storage accounts, continue to **Review and configure** backup.<br><br>You'll receive notifications about the status of configuring protection and its completion.
 
 ### Using Data protection settings of the storage account
 
