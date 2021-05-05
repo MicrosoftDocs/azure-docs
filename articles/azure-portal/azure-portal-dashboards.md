@@ -108,7 +108,7 @@ The default time settings are **UTC Time**, showing data for the **Past 24 hours
 
 To apply additional filters, select **Add filters**. The options you'll see will vary depending on the tiles in your dashboard. For example, you may be able to show only data for a specific subscription or location. Select the filter you'd like to use and make your selections. The filter will then be applied to your data. To remove a filter, select the **X** in its button.
 
-Tiles which support filtering have a ![filter icon](./media/azure-portal-dashboards/dashboard-filter.png) filter icon in the top-left corner of the tile. Some tiles allow you to override the global filters with filters specific to that tile. To do so, select **Configure tile data** from the context menu, or select the ![filter icon](./media/azure-portal-dashboards/dashboard-filter.png), then apply the desired filters.
+Tiles which support filtering have a ![filter icon](./media/azure-portal-dashboards/dashboard-filter.png) filter icon in the top-left corner of the tile. Some tiles allow you to override the global filters with filters specific to that tile. To do so, select **Configure tile data** from the context menu, or select the filter icon, then apply the desired filters.
 
 If you set filters for a particular tile, the left corner of that tile displays a double filter icon, indicating that the data in that tile reflects its own filters.
 
