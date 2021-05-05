@@ -15,14 +15,14 @@ ms.custom: how-to
 # Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
 ---
 
-# Use Batch Endpoints (preview) for batch scoring
+# Use batch endpoints (preview) for batch scoring
 
-In this article, you learn how to use Batch Endpoints (preview) to run batch scoring. Batch endpoints simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. After you create a batch endpoint, you can use trigger batch scoring jobs with the Azure CLI or from any platform using an HTTP library and the REST API.
+In this article, you learn how to use batch endpoints (preview) to do batch scoring. Batch endpoints simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. After you create a batch endpoint, you can trigger batch scoring jobs with the Azure CLI or from any platform using an HTTP library and the REST API.
 
 In this article, you learn to do the following tasks:
 
 > [!div class="checklist"]
-> * Create a batch endpoint with no-code experience for MLflow model
+> * Create a batch endpoint with a no-code experience for MLflow model
 > * Check a batch endpoint detail
 > * Start a batch scoring job using CLI
 > * Monitor batch scoring job execution progress and check scoring results
@@ -53,20 +53,21 @@ az upgrade
 
 > [!IMPORTANT]
 > The `az upgrade` command was added in version tk. If you are below that version, you need to manually install a newer version.
+{>> 2021-05-05 sent q to teams ML Platform / CLI team <<}
 
 * An Azure Machine Learning workspace
 
-If you don't already have an Azure Machine Learning workspace or notebook virtual machine, complete your [setup](tk https://github.com/Azure/azureml-examples/blob/main/experimental/using-cli/setup.sh).
+If you don't already have an Azure Machine Learning workspace or notebook virtual machine, complete your [setup](https://github.com/Azure/azureml-examples/blob/main/experimental/using-cli/setup.sh).
 
 * The example repository
 
-Clone the [AzureML Example repository](tk). This article uses the assets in `/cli-preview/experiment/using-cli/assets/endpoints/batch`.
+Clone the [AzureML Example repository](https://github.com/Azure/azureml-examples). This article uses the assets in `/cli-preview/experiment/using-cli/assets/endpoints/batch`.
 
 ## Create a compute target
 
 Batch scoring runs only on cloud resources, not locally. The cloud resource is called a "compute target." A compute target is a reusable virtual computer where you can run batch scoring workflows.
 
-Run the following code to create a CPU-enabled [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute) target {Q: tk this link currently 404s <<}. For more information about compute targets, see [What are compute targets in Azure Machine Learning?](./concept-compute-target.md).
+Run the following code to create a CPU-enabled [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) target. For more information about compute targets, see [What are compute targets in Azure Machine Learning?](./concept-compute-target.md).
 
 ```
 az ml compute create -n cpu-cluster --type AmlCompute --min-instances 0 --max-instances 5
@@ -94,9 +95,7 @@ az ml endpoint show -n mybatchedp -t batch
 
 ## Start a batch scoring job using CLI
 
-A batch scoring workload runs as an offline job. It processes all the data inputs at once, and, by default, stores the scoring outputs. You can start a batch scoring job using CLI by passing in the data inputs. You can also configure the outputs location and overwrite some of the settings to get the best performance.
-
-{>> Q: 'It processes all the data inputs at once' -- really? Should this be "It process each of the data inputs once" or "It processes all the data inputs for a single score at once"? To my reading, "processes all the data inputs at once" makes me worried about memory if my input data are large and I have a large number of queries <<}
+A batch scoring workload runs as an offline job. Batch scoring is designed to process large data. Inputs are processed in parallel on the inferencing compute cluster. Any single node is assigned a partition of the total data. By default, batch scoring stores the scoring outputs in blob storage. You can start a batch scoring job using CLI by passing in the data inputs. You can also configure the outputs location and overwrite some of the settings to get the best performance.
 
 ### Start a bath scoring job with different inputs options
 
@@ -269,16 +268,6 @@ tk curl command here
 ```
 
 ## Clean up resources
-
-{>> Q: We didn't create a compute instance, so delete this? There is an idle compute cluster. <<}
-~~
-Don't complete this section if you plan to run other Azure Machine Learning tutorials.
-
-
-### Stop the compute instance
-
-[!INCLUDE [aml-stop-server](../../includes/aml-stop-server.md)]
-~~
 
 If you don't plan to use the resources you created, delete them, so you don't incur any charges:
 
