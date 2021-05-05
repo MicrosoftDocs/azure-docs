@@ -1,13 +1,13 @@
 ---
-title: Back up Azure blobs within a storage account using Azure Powershell
-description: Learn how to back up all Azure blobs within a storage account using Azure Powershell.
+title: Back up Azure blobs within a storage account using Azure PowerShell
+description: Learn how to back up all Azure blobs within a storage account using Azure PowerShell.
 ms.topic: conceptual
 ms.date: 05/05/2021
 ---
 
-# Back up all Azure blobs in a storage account using Azure Powershell
+# Back up all Azure blobs in a storage account using Azure PowerShell
 
-This article describes how to back up all [Azure blobs](/azure/backup/blob-backup-overview) within a storage account using Azure Powershell.
+This article describes how to back up all [Azure blobs](/azure/backup/blob-backup-overview) within a storage account using Azure PowerShell.
 
 In this article, you'll learn how to:
 
@@ -123,7 +123,7 @@ The Backup vault requires permissions on the storage account to enable backups o
 
 ### Assign permissions
 
-You need to assign a few permissions via RBAC to vault (represented by vault MSI) and the relevant storage account. These can be performed via Portal or Powershell. Learn more about all [related permissions](blob-backup-configure-manage.md#grant-permissions-to-the-backup-vault-on-storage-accounts).
+You need to assign a few permissions via RBAC to vault (represented by vault MSI) and the relevant storage account. These can be performed via Portal or PowerShell. Learn more about all [related permissions](blob-backup-configure-manage.md#grant-permissions-to-the-backup-vault-on-storage-accounts).
 
 ### Prepare the request
 
@@ -143,4 +143,4 @@ blobrg-PSTestSA-3df6ac08-9496-4839-8fb5-8b78e594f166 Microsoft.DataProtection/ba
 
 ## Next steps
 
-[Restore Azure blobs using Azure Powershell](restore-blobs-storage-account-ps.md)
+[Restore Azure blobs using Azure PowerShell](restore-blobs-storage-account-ps.md)
