@@ -294,12 +294,12 @@ Select the managed identity that your storage account will use to authorize acce
 To use the system-assigned managed identity of the storage account, select **system-assigned**. 
 
 > [!NOTE]
-> A system-wide managed identity can exist only after the account is created. Therefore, This option doesn't appear in the **Create a storage account** page. It exists only in the **Encryption** settings page of an existing account.
+> A system-assigned managed identity can exist only after the account is created. Therefore, This option doesn't appear in the **Create a storage account** page. It exists only in the **Encryption** settings page of an existing account.
 
 To use a user-assigned managed identity, select **user-assigned**. 
 
 > [!NOTE]
-> This option doesn't appear in the **Create a storage account** page because by default, only user-assigned managed identities are available.  A system-wide managed identity can exist only after the account is created.
+> This option doesn't appear in the **Create a storage account** page because by default, only user-assigned managed identities are available.  A system-assigned managed identity can exist only after the account is created.
 
 Click **select an identity**, locate the identity, and then click **Select**.
 
@@ -359,7 +359,7 @@ To configure customer-managed keys with manual updating of the key version in th
 
 ### [PowerShell](#tab/powershell)
 
-You can configure customer-managed keys for existing or configure them when you create the account.
+You can configure customer-managed keys on existing or new accounts. First, select an identity to authorize the storage account to the key vault. Then, decide how you want key versions to be updated.
 
 #### Select an identity
 
@@ -433,7 +433,7 @@ When you manually update the key version, you'll need to update the storage acco
 
 ### [Azure CLI](#tab/azure-cli)
 
-You can configure customer-managed keys for existing or configure them when you create the account.
+You can configure customer-managed keys on existing or new accounts. First, select an identity to authorize the storage account to the key vault. Then, decide how you want key versions to be updated.
 
 #### Select an identity
 

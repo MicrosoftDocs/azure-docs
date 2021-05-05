@@ -38,9 +38,9 @@ The following diagram shows how Azure Storage uses Azure Active Directory and a 
 
 The following list explains the numbered steps in the diagram:
 
-1. An Azure Key Vault admin grants permissions to encryption keys to the managed identity that's associated with the storage account.
+1. An Azure Key Vault admin grants permissions to encryption keys to either a user-assigned managed identity, or the system-assigned managed identity that's associated with the storage account.
 2. An Azure Storage admin configures encryption with a customer-managed key for the storage account.
-3. Azure Storage uses the managed identity that's associated with the storage account to authenticate access to Azure Key Vault via Azure Active Directory.
+3. Azure Storage uses the managed identity that was used by the Azure Key Vault admin in step one to authenticate access to Azure Key Vault via Azure Active Directory.
 4. Azure Storage wraps the account encryption key with the customer key in Azure Key Vault.
 5. For read/write operations, Azure Storage sends requests to Azure Key Vault to unwrap the account encryption key to perform encryption and decryption operations.
 
@@ -58,7 +58,7 @@ When you configure a customer-managed key, Azure Storage wraps the root data enc
 
 When you enable or disable customer managed keys, or when you modify the key or the key version, the protection of the root encryption key changes, but the data in your Azure Storage account does not need to be re-encrypted.
 
-Customer-managed keys can enabled only on existing storage accounts. The key vault or managed HSM must be configured to grant permissions to the managed identity that is associated with the storage account. The managed identity is available only after the storage account is created.
+Customer-managed keys can enabled on both existing storage accounts or new accounts as you create them. If you plan to enable customer-managed keys while creating an account, only user-assigned managed identities will be available. To use a system-assigned managed identity, you'll have to create the account first, and then enable customer-managed keys. That's because the system-assigned managed identity can exist only after the account is created.
 
 You can switch between customer-managed keys and Microsoft-managed keys at any time. For more information about Microsoft-managed keys, see [About encryption key management](storage-service-encryption.md#about-encryption-key-management).
 
