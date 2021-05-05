@@ -21,6 +21,12 @@ ms.author: b-juche
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
+## May 2021
+
+* [Support for billing tags](manage-billing-tags.md)   
+
+    Azure NetApp Files now supports billing tags to help you cross-reference cost with business units or other internal consumers. Billing tags are assigned at the capacity pool level and not volume level, and they appear on the customer invoice.
+
 ## April 2021
 
 * [Manual volume and capacity pool management](volume-quota-introduction.md) (hard quota) 

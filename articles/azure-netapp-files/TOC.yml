@@ -125,6 +125,8 @@
       href: cross-region-replication-manage-disaster-recovery.md
     - name: Delete volume replications or volumes
       href: cross-region-replication-delete.md
+  - name: Manage billing by using tags
+    href: manage-billing-tags.md
   - name: Develop
     items:
     - name: REST API
