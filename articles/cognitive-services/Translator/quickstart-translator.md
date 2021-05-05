@@ -185,6 +185,9 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I translated text](#detect-language) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=translate-text)
+
 # [Go](#tab/go)
 
 ```go
@@ -250,6 +253,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I translated text](#detect-language) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=translate-text)
+
 
 # [Java](#tab/java)
 
@@ -314,6 +320,9 @@ public class Translate {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I translated text](#detect-language) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=translate-text)
+
 # [Node.js](#tab/nodejs)
 
 ```Javascript
@@ -350,6 +359,10 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [I translated text](#detect-language) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=translate-text)
+
 
 # [Python](#tab/python)
 ```python
@@ -390,6 +403,9 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [I translated text](#detect-language) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=translate-text)
 
 ---
 
@@ -466,6 +482,9 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I detected source language during translation](#detect-source-language-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=detect-source-language-during-translation)
+
 
 # [Go](#tab/go)
 
@@ -531,6 +550,10 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I detected source language during translation](#detect-source-language-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=detect-source-language-during-translation)
+
+
 # [Java](#tab/java)
 
 ```java
@@ -593,6 +616,10 @@ public class Translate {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I detected source language during translation](#detect-source-language-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=detect-source-language-during-translation)
+
+
 # [Node.js](#tab/nodejs)
 
 ```javascript
@@ -629,6 +656,10 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [I detected source language during translation](#detect-source-language-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=detect-source-language-during-translation)
+
 
 # [Python](#tab/python)
 ```python
@@ -668,6 +699,10 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [I detected source language during translation](#detect-source-language-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=detect-source-language-during-translation)
+
 
 ---
 
@@ -744,6 +779,10 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I detected source languages without translation](#transliterate-text) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=detect-source-language-without-translation)
+
+
 # [Go](#tab/go)
 
 ```go
@@ -807,6 +846,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I detected source languages without translation](#transliterate-text) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=detect-source-language-without-translation)
+
 # [Java](#tab/java)
 
 ```java
@@ -867,6 +909,9 @@ public class Detect {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I detected source languages without translation](#transliterate-text) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=detect-source-language-without-translation)
+
 # [Node.js](#tab/nodejs)
 
 ```javascript
@@ -901,6 +946,9 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [I detected source languages without translation](#transliterate-text) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=detect-source-language-without-translation)
 
 # [Python](#tab/python)
 ```python
@@ -939,6 +987,10 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [I detected source languages without translation](#transliterate-text) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=detect-source-language-without-translation)
+
 ---
 
 When using the `/detect` endpoint, the response will include alternate detections, and will let you know if translation and transliteration are supported for all of the detected languages. After a successful call, you should see the following response: 
