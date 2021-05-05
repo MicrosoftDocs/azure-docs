@@ -143,7 +143,7 @@ resource group to which you want to deploy. Then, select **Deploy**.
    ![Deployment settings](./media/logic-apps-serverless-get-started-vs/deploy-to-resource-group.png)
 
 1. If the **Edit Parameters** box appears, provide the resource names 
-to use for your logic app and your Azure function app at deployment, 
+to use for your logic app and your Azure Function App at deployment, 
 and then save your settings. Make sure you use a globally unique name 
 for your function app.
 
