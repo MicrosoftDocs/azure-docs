@@ -8,7 +8,7 @@ zone_pivot_groups: video-analyzer-programming-languages
 
 ---
 
-# Analyze live video with your own model - gRPC
+# Quickstart: Analyze live video with your own model - gRPC
 
 This quickstart shows you how to use Azure Video Analyzer to analyze a live video feed from a (simulated) IP camera. You'll see how to apply a computer vision model to detect objects. A subset of the frames in the live video feed is sent to an inference service. The results are sent to IoT Edge Hub.
 
@@ -33,21 +33,6 @@ Open an application such as [VLC media player](https://www.videolan.org/vlc/). S
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LTY4]
 
 In this quickstart, you'll use Video Analyzer to detect objects such as vehicles and persons. You'll publish associated inference events to IoT Edge Hub.
-
-## Overview
-
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/analyze-live-video-use-your-model-grpc/overview.png" alt-text="gRPC overview":::
- 
-This diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source node](pipeline.md#rtsp-source) pulls the video feed from this server and sends video frames to the [motion detection processor](pipeline.md#motion-detection-processor) node. This processor will detect motion and upon detection will push video frames to the [gRPC extension processor]((pipeline.md#grpc-extension-processor) node.
-
-The gRPC extension node plays the role of a proxy. It converts the video frames to the specified image type. Then it relays the image over gRPC to another edge module that runs an AI model behind a gRPC endpoint over a [shared memory](https://en.wikipedia.org/wiki/Shared_memory). In this example, that edge module is built by using the [YOLOv3](https://github.com/Azure/azure-video-analyzer/tree/main/edge-modules/extensions/yolo/yolov3) model, which can detect many types of objects. The gRPC extension processor node gathers the detection results and publishes events to the [IoT Hub sink](pipeline.md#iot-hub-message-sink) node. The node then sends those events to [IoT Edge Hub](https://docs.microsoft.com/azure/iot-fundamentals/iot-glossary?view=iotedge-2020-11&preserve-view=true#iot-edge-hub).
-
-In this quickstart, you will:
-
-1. Create and deploy the pipeline.
-1. Interpret the results.
-1. Clean up resources.
 
 ## Create and deploy the pipeline
 
@@ -84,16 +69,6 @@ In this quickstart, you will:
 1. After about 30 seconds, in the lower-left corner of the window, refresh Azure IoT Hub. The edge device now shows the following deployed modules:
     * The Video Analyzer module, named **avaedge**.
     * The **rtspsim** module, which simulates an RTSP server and acts as the source of a live video feed.
-    
-    > [!NOTE]
-    > The above steps are assuming you are using the virtual machine created by the setup script. If you are using your own edge device instead, go to your edge device and run the following commands with admin rights, to pull and store the sample video file used for this quickstart:
-    
-    ```
-    mkdir /home/localedgeuser/samples
-    mkdir /home/localedgeuser/samples/input    
-    curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/localedgeuser/samples/input/camera-300s.mkv  
-    chown -R localedgeuser:localusergroup /home/localedgeuser/samples/  
-    ```
     * The **avaextension** module, which is the YOLOv3 object detection model that uses gRPC as the communication method and applies computer vision to the images and returns multiple classes of object types.
 
         > [!div class="mx-imgBorder"]
@@ -176,13 +151,14 @@ In this quickstart, you will:
     * A second call to livePipelineList that shows that the pipeline instance is in the running state.
 1. The output in the TERMINAL window pauses at a Press Enter to continue prompt. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
 1. Switch to the OUTPUT window in Visual Studio Code. You see messages that the Video Analyzer module is sending to the IoT hub. The following section of this quickstart discusses these messages.
-1. The pipeline continues to run and print results. The RTSP simulator keeps looping the source video. To stop the pipeline, return to the TERMINAL window and select Enter.
-1. The next series of calls cleans up resources:
+1. The pipeline continues to run and print results. The RTSP simulator keeps looping the source video. To stop the pipeline, return to the TERMINAL window and select Enter.  
 
-* A call to livePipelineDeactivate deactivates the pipeline instance.
-* A call to livePipelineDelete deletes the instance.
-* A call to pipelineTopologyDelete deletes the topology.
-* A final call to pipelineTopologyList shows that the list is empty.
+    The next series of calls cleans up resources:
+
+    * A call to livePipelineDeactivate deactivates the pipeline instance.
+    * A call to livePipelineDelete deletes the instance.
+    * A call to pipelineTopologyDelete deletes the topology.
+    * A final call to pipelineTopologyList shows that the list is empty.
 
 ## Interpret results
 

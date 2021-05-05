@@ -59,10 +59,10 @@ In this quickstart, you will:
 
     * The Video Analyzer edge module, named **avaedge**.
     * The **rtspsim** module, which simulates an RTSP server and acts as the source of a live video feed. 
-    * The **yolov3** module, which is the YOLOv3 object detection model that applies computer vision to images and returns multiple classes of object types
+    * The **avaextension** module, which is the YOLOv3 object detection model that applies computer vision to images and returns multiple classes of object types
 
         > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/analyze-live-video-use-your-model-http/object-detection-model.png" alt-text= "YoloV3 object detection model":::
+        > :::image type="content" source="./media/vscode-common-screenshots/avaextension.png" alt-text= "YoloV3 object detection model":::
 
 
 ## Create and deploy the live pipeline
