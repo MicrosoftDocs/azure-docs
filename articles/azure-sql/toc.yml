@@ -1414,6 +1414,8 @@
       href: database/troubleshoot-common-connectivity-issues.md
     - name: Import/Export service hangs
       href: database/database-import-export-hang.md
+    - name: Transaction log errors
+      href: database/troubleshoot-transaction-log-errors-issues.md
   - name: Service updates
     items:
     - name: SSL root certificate expiring
