@@ -11,6 +11,9 @@
   - name: What's new
     href: whats-new.md
     displayName: release notes, service updates, videos
+  - name: Personalizer FAQ
+    href: frequently-asked-questions.md
+    displayName: frequently asked questions, troubleshooting, questions
 - name: Quickstart
   href: ./quickstart-personalizer-sdk.md
 - name: Samples
@@ -123,7 +126,5 @@
     href: /learn/browse/?terms=personalizer
   - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/personalizer/context/context
-  - name: Troubleshooting
-    href: troubleshooting.md
   - name: Azure updates
     href: https://go.microsoft.com/fwlink/?linkid=2092153
