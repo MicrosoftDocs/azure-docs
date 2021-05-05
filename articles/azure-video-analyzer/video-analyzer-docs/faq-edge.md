@@ -38,9 +38,9 @@ Yes. For more information, see [Linux containers on Windows 10](/virtualization/
 
 **Do I need to use a special SDK on my device to send in a video stream?**
 
-No, Video Analyzer on IoT Edge supports capturing media by using RTSP (Real-Time Streaming Protocol) for video streaming, which is supported on most IP cameras.
+No, Video Analyzer supports capturing media by using RTSP (Real-Time Streaming Protocol) for video streaming, which is supported on most IP cameras.
 
-**Can I push media to Video Analyzer on IoT Edge by using protocols other than RTSP?**
+**Can I push media to Video Analyzer by using protocols other than RTSP?**
 
 No, Video Analyzer supports only RTSP for capturing video from IP cameras. Any camera that supports RTSP streaming over TCP/HTTP should work. 
 
@@ -62,12 +62,12 @@ Solutions vary depending on the communication protocol that's used by the infere
 
 * Single container (module named as *avaextension*):  
 
-   In your inferencing server, you can use a single port but different endpoints for different AI models. For example, for a Python sample you can use different `route`s per model, as shown here: 
+   In your inferencing server, you can use a single port but different endpoints for different AI models. For example, for a Python sample you can use different `routes` per model as shown here: 
 
    ```
    @app.route('/score/face_detection', methods=['POST']) 
    … 
-   Your code specific to face detection model… 
+   Your code specific to face detection model
 
    @app.route('/score/vehicle_detection', methods=['POST']) 
    … 
@@ -75,7 +75,7 @@ Solutions vary depending on the communication protocol that's used by the infere
    … 
    ```
 
-   And then, in your Video Analyzer deployment, when you activate live pipelines, set the inference server URL for each one, as shown here: 
+   And then in your Video Analyzer deployment, when you activate live pipelines set the inference server URL for each one as shown here: 
 
    1st live pipeline: inference server URL=`http://avaextension:44000/score/face_detection`<br/>
    2nd live pipeline: inference server URL=`http://avaextension:44000/score/vehicle_detection`  
@@ -87,7 +87,7 @@ Solutions vary depending on the communication protocol that's used by the infere
 
    Each container is deployed with a different name. In the quickstarts and tutorials, we showed you how to deploy an extension named *avaextension*. Now you can develop two different containers, each with the same HTTP interface, which means they have the same `/score` endpoint. Deploy these two containers with different names, and ensure that both are listening on *different ports*. 
 
-   For example, one container named `aveExtension1` is listening for the port `44000`, and a second container named `avaextension2` is listening for the port `44001`. 
+   For example, one container named `avaextension1` is listening for the port `44000`, and a second container named `avaextension2` is listening for the port `44001`. 
 
    In your Video Analyzer topology, you instantiate two live pipelines with different inference URLs, as shown here: 
 
@@ -96,7 +96,7 @@ Solutions vary depending on the communication protocol that's used by the infere
    
 *Use the gRPC protocol*: 
 
-* The gRPC extension node has a property, **extensionConfiguration**, an optional string that can be used as a part of the gRPC contract. When you have multiple AI models packaged in a single inference server, you don't need to expose a node for every AI model. Instead, for a live pipeline, you, as the extension provider, can define how to select the different AI models by using the **extensionConfiguration** property. During execution, Video Analyzer passes this string to your inferencing server, which can use it to invoke the desired AI model. 
+* The gRPC extension node has a property `extensionConfiguration`, an optional string that can be used as a part of the gRPC contract. When you have multiple AI models packaged in a single inference server, you don't need to expose a node for every AI model. Instead, for a live pipeline, you, as the extension provider, can define how to select the different AI models by using the `extensionConfiguration` property. During execution Video Analyzer passes this string to your inferencing server, which can use it to invoke the desired AI model. 
 
 **I'm building a gRPC server around an AI model, and I want to be able to support its use by multiple cameras or live pipelines. How should I build my server?** 
 
