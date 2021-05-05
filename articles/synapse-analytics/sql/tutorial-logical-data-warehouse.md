@@ -48,9 +48,9 @@ CREATE EXTERNAL DATA SOURCE ecdc_cases WITH (
 A caller may access data source without credential if an owner of data source allowed anonymous access or give explicit access to Azure AD identity of the caller.
 
 You can explicitly define a custom credential that will be used while accessing data on external data source.
-- Managed Identity of the Synapse workspace
-- Shared Access Signature of the Azure storage
-- Read-only Cosmos Db account key
+- [Managed Identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) of the Synapse workspace
+- [Shared Access Signature](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) of the Azure storage
+- Read-only Cosmos Db account key that enables you to read Cosmos DB analytical storage.
 
 As a prerequisite, you will need to create a master key in the database:
 ```sql
@@ -73,7 +73,8 @@ In order to access Cosmos DB analytical storage, you need to define a credential
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL MyCosmosDbAccountCredential
-WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
+     SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
 ```
 
 ### Define external file formats
@@ -118,19 +119,19 @@ The following external table is referencing the ECDC COVID parquet file placed i
 
 ```sql
 create external table ecdc_adls.cases (
-    date_rep        date,
-    day    smallint,
-    month             smallint,
-    year  smallint,
-    cases smallint,
-    deaths            smallint,
-    countries_and_territories       varchar(256),
-    geo_id             varchar(60),
-    country_territory_code           varchar(16),
-    pop_data_2018           int,
-    continent_exp             varchar(32),
-    load_date      datetime2(7),
-    iso_country   varchar(16)
+    date_rep                   date,
+    day                        smallint,
+    month                      smallint,
+    year                       smallint,
+    cases                      smallint,
+    deaths                     smallint,
+    countries_and_territories  varchar(256),
+    geo_id                     varchar(60),
+    country_territory_code     varchar(16),
+    pop_data_2018              int,
+    continent_exp              varchar(32),
+    load_date                  datetime2(7),
+    iso_country                varchar(16)
 ) with (
     data_source= ecdc_cases,
     location = 'latest/ecdc_cases.parquet',
@@ -195,6 +196,13 @@ The security rules depend on your security policies. Some generic guidelines are
 - You should deny `ADMINISTER DATABASE BULK OPERATIONS` permission to the new users because they should be able to read data only using the external tables and views that you prepared.
 - You should provide `SELECT` permission only to the tables that some user should be able to use.
 - If you are providing access to data using the views, you should grant `REFERENCES` permission to the credential that will be used to access external data source.
+
+This user has minimal permissions needed to query external data. If you want to create a power-user who can set up permissions, external tables and views, you can give 
+`CONTROL` permission to the user:
+
+```sql
+GRANT CONTROL TO [jovan@contoso.com]
+```
 
 ## Next steps
 

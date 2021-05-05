@@ -41,7 +41,7 @@ To access the SQL Managed Instance private endpoint, set up a [self-hosted integ
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Azure Data Factory entities specific to the SQL Managed Instance connector.
 
