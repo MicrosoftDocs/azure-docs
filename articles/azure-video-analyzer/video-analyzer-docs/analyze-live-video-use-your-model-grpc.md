@@ -151,13 +151,14 @@ In this quickstart, you'll use Video Analyzer to detect objects such as vehicles
     * A second call to livePipelineList that shows that the pipeline instance is in the running state.
 1. The output in the TERMINAL window pauses at a Press Enter to continue prompt. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
 1. Switch to the OUTPUT window in Visual Studio Code. You see messages that the Video Analyzer module is sending to the IoT hub. The following section of this quickstart discusses these messages.
-1. The pipeline continues to run and print results. The RTSP simulator keeps looping the source video. To stop the pipeline, return to the TERMINAL window and select Enter.
-1. The next series of calls cleans up resources:
+1. The pipeline continues to run and print results. The RTSP simulator keeps looping the source video. To stop the pipeline, return to the TERMINAL window and select Enter.  
 
-* A call to livePipelineDeactivate deactivates the pipeline instance.
-* A call to livePipelineDelete deletes the instance.
-* A call to pipelineTopologyDelete deletes the topology.
-* A final call to pipelineTopologyList shows that the list is empty.
+    The next series of calls cleans up resources:
+
+    * A call to livePipelineDeactivate deactivates the pipeline instance.
+    * A call to livePipelineDelete deletes the instance.
+    * A call to pipelineTopologyDelete deletes the topology.
+    * A final call to pipelineTopologyList shows that the list is empty.
 
 ## Interpret results
 
