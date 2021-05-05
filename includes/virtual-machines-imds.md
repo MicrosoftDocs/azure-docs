@@ -348,7 +348,7 @@ Schema breakdown:
 | `provider` | Provider of the VM | 2018-10-01
 | `publicKeys` | [Collection of Public Keys](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assigned to the VM and paths | 2018-04-02
 | `publisher` | Publisher of the VM image | 2017-04-02
-| `resourceDisk.size` | Size of the [Local Temp Disk](../articles/virtual-machines/managed-disks-overview#temporary-disk.md) for the VM if it exists, in kilobytes. If there is [no local temp disk for the VM](../articles/virtual-machines/azure-vms-no-temp-disk.md), this value is 0 | 2021-02-01
+| `resourceDisk.size` | Size of the [Local Temp Disk](../articles/virtual-machines/managed-disks-overview.md#temporary-disk) for the VM if it exists, in kilobytes. If there is [no local temp disk for the VM](../articles/virtual-machines/azure-vms-no-temp-disk.md), this value is 0 | 2021-02-01
 | `resourceGroupName` | [Resource group](../articles/azure-resource-manager/management/overview.md) for your Virtual Machine | 2017-08-01
 | `resourceId` | The [fully qualified](/rest/api/resources/resources/getbyid) ID of the resource | 2019-03-11
 | `sku` | Specific SKU for the VM image | 2017-04-02
