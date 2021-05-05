@@ -89,10 +89,10 @@ az aks enable-addons --addons azure-keyvault-secrets-provider --name myAKSCluste
 
 ## Verify Secrets Store CSI Driver installation
 
-These commands will install the Secrets Store CSI Driver and the Azure Key Vault provider on your nodes. Verify by listing all pods from all namespaces and ensuring your output looks similar to the following:
+These commands will install the Secrets Store CSI Driver and the Azure Key Vault provider on your nodes. Verify by listing all pods with the secrets-store-csi-driver and secrets-store-provider-azure labels in the kube-system namespace and ensuring your output looks similar to the following:
 
 ```bash
-kubectl get pods -n kube-system
+kubectl get pods -n kube-system -l 'app in (secrets-store-csi-driver, secrets-store-provider-azure)'
 
 NAMESPACE     NAME                                     READY   STATUS    RESTARTS   AGE
 kube-system   aks-secrets-store-csi-driver-4vpkj       3/3     Running   2          4m25s
