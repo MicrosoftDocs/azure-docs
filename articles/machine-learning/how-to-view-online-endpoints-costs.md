@@ -14,39 +14,44 @@ ms.custom: how-to, deploy
 
 # View costs for an Azure Machine Learning managed online endpoint
 
-Learn how to view costs for an online Azure Machine Learning managed online endpoint. Costs for your endpoints will accrue to the associated workspace. You can see costs for a specific endpoint using tags.
+Learn how to view costs for a managed online endpoint. Costs for your endpoints will accrue to the associated workspace. You can see costs for a specific endpoint using tags.
 
-> [!TIP]
-> This article only applies to Azure Machine Learning managed online endpoints. For viewing the costs of other Azure resources, see [Quickstart: Explore and analyze costs with cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md).
+> [!IMPORTANT]
+> This article only applies to viewing costs for Azure Machine Learning managed online endpoints (preview). Managed online endpoints are different from other resources since they must use tags to track costs. For more information on viewing the costs of other Azure resources, see [Quickstart: Explore and analyze costs with cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md).
 
 ## Prerequisites
 
-In order to use the steps in this article, you must:
-
-- Have a deployed Azure Machine Learning managed online endpoint
+- Deploy an Azure Machine Learning managed online endpoint
 - Have at least [Billing Reader](../role-based-access-control/role-assignments-portal.md) access on the subscription where the endpoint is deployed
 
-## Viewing costs
+## View costs
 
-To view costs for an Azure Machine Learning managed online endpoint:
+Navigate to the **Cost Analysis** page for your subscription:
 
-1. Select **Cost Analysis** for your subscription in the [Azure portal](https://portal.azure.com).
+1. In the [Azure portal](https://portal.azure.com), Select **Cost Analysis** for your subscription.
 
     [![Managed online endpoint cost analysis: screenshot of a subscription in the Azure portal showing red box around "Cost Analysis" button on the left hand side.](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis.png)](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis.png#lightbox)
 
-1. Choose **Add filter** at the top navigation bar.
+Create a filter to scope data to your Azure Machine learning workspace resource:
+
+1. At the top navigation bar, select **Add filter**.
+
+1. In the first filter dropdown, select **Resource** for the filter type.
+
+1. In the second filter dropdown, select your Azure Machine Learning workspace.
 
     [![Managed online endpoint cost analysis: screenshot of the Cost Analysis view showing a red box around the "Add filter" button at the top right.](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-add-filter.png)](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-add-filter.png#lightbox)
 
-1. Select your workspace.
+Create a tag filter to show your managed online endpoint:
+1. Select **Add filter** > **Tag** > **azuremlendpoint**: "<your endpoint name>" 
 
-    [![Managed online endpoint cost analysis: screenshot of the Cost Analysis view showing a red box around the "Resource" dropdown menu.](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-select-workspace.png)](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-select-workspace.png#lightbox)
-
-
-1. Select **Tag**, then **azuremlendpoint**: "<your endpoint name>" and **azuremldeployment**: "<your deployment name>".
+Create a tag filter to show your managed online deployment:
+1. Select **Add filter** > **Tag** > **azuremldeployment**: "<your deployment name>".
 
     [![Managed online endpoint cost analysis: screenshot of the Cost Analysis view showing a red box around the "Tag" buttons in the top right.](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-select-endpoint-deployment.png)](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-select-endpoint-deployment.png#lightbox)
 
+> [!NOTE]
+> Dollar values in this image are fictitious and do not reflect actual pricing costs.
 
 ## Next steps
 
