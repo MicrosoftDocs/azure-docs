@@ -36,6 +36,8 @@ One of the key benefits of migrating to SQL Database is that you can modernize y
 
 You can also save costs by using the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) for SQL Server to migrate your SQL Server on-premises licenses to Azure SQL Database. This option is available if you choose the [vCore-based purchasing model](../../database/service-tiers-vcore.md).
 
+Be sure to review the SQL Server database engine features [available in Azure SQL Database](../../database/features-comparison.md) to confirm the supportability of your migration source.  
+
 ## Considerations 
 
 The key factors to consider when you're evaluating migration options are: 
