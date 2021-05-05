@@ -28,10 +28,10 @@ For an explanation of API profiles and version release cadence for Azure Stack E
 |Resource Provider                                  |API Version |
 |---------------------------------------------------|------------|
 |Microsoft.Compute                                  |2017-12-01  |
-|Microsoft.Network                                  |2017-10-01<br>VPN Gateway: 2017-10-01|
+|Microsoft.Network                                  |2017-10-01<br>VPN Gateway: 2017-10-01 <!--Removed "will be." Translation OK?--|
 |Microsoft.Storage (Data Plane)                     |2019-07-07  |
 |Microsoft.Storage (Control Plane)                  |2019-06-01  |
-|Microsoft.Resources (Azure Resource Manager)       |2020-06-01  |
+|Microsoft.Resources (Azure Resource Manager)<!--Removed "itself." Translation OK?-->       |2020-06-01  |
 |Microsoft.Authorization (policy operations)        |2016-09-01  |
 
 For a list of the versions for each resource type for the providers in the API profile, see [Details for the 2019-03-01-hybrid profile](/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions.md?view=azs-2008&preserve-view=true#details-for-the-2019-03-01-hybrid-profile).
@@ -53,10 +53,10 @@ The Azure Compute APIs give you programmatic access to virtual machines and thei
 
 The operations call result is a representation of the available Network cloud operations list. For more information, see [Operation REST API](/rest/api/operation/).
 
-|Resource Types    |API Versions|
-|------------------|------------|
-|Network Interfaces|2017-10-01  |
-|Virtual Networks  |2017-10-01  |
+|Resource Types     |API Versions|
+|-------------------|------------|
+|Network Interfaces |2017-10-01  |
+|Virtual Networks   |2017-10-01  |
 
 ### Microsoft.Resources
 
@@ -65,22 +65,22 @@ Azure Resource Manager lets you deploy and manage the infrastructure for your Az
 |Resource Types                        |API Versions|
 |--------------------------------------|------------|
 |Deployments                           |2020-06-01  |
-|Deployments/operations                |2018-06-01  |
-|Links                                 |2018-06-01  |
-|Locations                             |2018-06-01  |
-|Operations	                           |2018-06-01  |
-|Providers                             |2018-06-01  |
-|ResourceGroups                        |2018-06-01  |
-|Resources	                           |2018-06-01  |
+|Deployments/operations                |2020-06-01  |
+|Links                                 |2020-06-01  |
+|Locations                             |2020-06-01  |
+|Operations	                           |2020-06-01  |
+|Providers                             |2020-06-01  |
+|ResourceGroups                        |2020-06-01  |
+|Resources	                           |2020-06-01  |
 |Subscriptions	                       |2018-09-01  |
 |Subscriptions/locations               |2018-09-01  |
 |Subscriptions/operationresults        |2020-06-01  |
-|Subscriptions/providers               |2018-06-01  |
-|Subscriptions/ResourceGroups          |2018-06-01  |
-|Subscriptions/resourceGroups/resources|2018-06-01  |
-|Subscriptions/resources               |2018-06-01  |
-|Subscriptions/tagNames                |2018-06-01  |
-|Subscriptions/tagNames/tagValues      |2018-06-01  |
+|Subscriptions/providers               |2020-06-01  |
+|Subscriptions/ResourceGroups          |2020-06-01  |
+|Subscriptions/resourceGroups/resources|2020-06-01  |
+|Subscriptions/resources               |2020-06-01  |
+|Subscriptions/tagNames                |2020-06-01  |
+|Subscriptions/tagNames/tagValues      |2020-06-01  |
 |Tenants                               |2018-09-01  |
 
 ### Microsoft.Storage
