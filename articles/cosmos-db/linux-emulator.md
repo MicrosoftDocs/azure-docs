@@ -244,7 +244,6 @@ docker rmi ID_OF_IMAGE_FROM_ABOVE
 5. Pull the latest image of the Cosmos DB Linux Emulator.
 ```bash
 docker pull mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
-<<<<<<< HEAD
 ```
 6. To start a stopped container run the following:
 ```bash
@@ -261,7 +260,9 @@ Provide as much information as possible detailing your issue:
 - Include the console output from starting the Docker container for the emulator in attached mode
 - Send all of the above to cdbportalfeedback@microsoft.com.
     
-=======
+## Next steps
 
-docker start -ai ID_OF_CONTAINER
->>>>>>> e88b5ccb17760c42664d3f794f31897cd05706d8
+In this article, you've learned how to use the Azure Cosmos DB Linux emulator for free local development. You can now proceed to the next articles:
+
+* [Export the Azure Cosmos DB Emulator certificates for use with Java, Python, and Node.js apps](local-emulator-export-ssl-certificates.md)
+* [Debug issues with the emulator](troubleshoot-local-emulator.md)

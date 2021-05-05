@@ -1350,6 +1350,12 @@
           items:
             - name: Install and use the emulator
               href: local-emulator.md
+            - name: Running the emulator on Docker
+              items:  
+              - name: Running the emulator on Docker for Linux
+                href: linux-emulator.md
+              - name: Running the emulator on Docker for Windows
+                href: local-emulator-on-docker-windows.md
             - name: Export emulator certificates
               href: local-emulator-export-ssl-certificates.md
             - name: Emulator command-line parameters
