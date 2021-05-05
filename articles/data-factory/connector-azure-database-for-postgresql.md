@@ -29,7 +29,7 @@ Currently, data flow supports Azure database for PostgreSQL Single Server but no
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections offer details about properties that are used to define Data Factory entities specific to Azure Database for PostgreSQL connector.
 

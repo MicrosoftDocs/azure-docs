@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 05/03/2021
+ms.date: 05/04/2021
 ms.topic: overview
 ---
 
@@ -122,7 +122,7 @@ export extensionId=$(az k8s-extension show -g ${resourceGroup} -c ${resourceName
 
 az customlocation create -g ${resourceGroup} -n ${clName} --namespace ${clNamespace} \
   --host-resource-id ${hostClusterId} \
-  --cluster-extension-ids ${extensionId} --location eastus2euap
+  --cluster-extension-ids ${extensionId} --location eastus
 ```
 
 #### Windows PowerShell
