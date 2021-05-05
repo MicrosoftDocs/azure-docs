@@ -152,7 +152,7 @@ az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io" --resource-gr
 ```powershell
 az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.azurecr.io" --resource-group fhir-test --resource-name fhirtest2021
 ```
-### Configure IP in firewall
+### Configure ACR firewall
 
 Select **Networking** of the Azure storage account from the portal.
 
