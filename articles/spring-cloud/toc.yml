@@ -15,7 +15,7 @@
       items:
       - name: Introduction to the sample app
         href: quickstart-sample-app-introduction.md
-      - name: Provision Azure Spring Cloud service
+      - name: Provision an Azure Spring Cloud service
         href: quickstart-provision-service-instance.md
       - name: Set up configuration server
         href: quickstart-setup-config-server.md

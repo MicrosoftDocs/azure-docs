@@ -1,6 +1,166 @@
 {
   "redirections": [
     {
+      "source_path": "articles/service-fabric-mesh/move-across-regions.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/move-across-regions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-faq.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-howto-auto-scale-services.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-howto-auto-scale-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-howto-configure-gateways.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-howto-configure-gateways",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-howto-containerize-vs.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-howto-containerize-vs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-howto-deploy-app-azurefiles-volume.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-howto-deploy-app-azurefiles-volume",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-howto-find-samples.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-howto-find-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-howto-manage-secrets.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-howto-manage-secrets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-howto-optimize-vs.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-howto-optimize-vs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-howto-setup-cli.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-howto-setup-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-howto-setup-developer-environment-sdk.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-howto-setup-developer-environment-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-monitoring-diagnostics.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-monitoring-diagnostics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-networks-and-gateways.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-networks-and-gateways",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-overview.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-quickstart-deploy-container.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-quickstart-deploy-container",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-quickstart-dotnet-core.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-quickstart-dotnet-core",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-reference-maven.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-reference-maven",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-scalability.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-scalability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-secrets-overview.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-secrets-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-service-fabric-resources.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-storing-state.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-storing-state",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-terminology.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-terminology",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-tutorial-cleanup-resources.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-tutorial-cleanup-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-tutorial-debug-service-fabric-mesh-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-tutorial-template-deploy-app.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-tutorial-template-deploy-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-tutorial-template-remove-app.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-tutorial-template-remove-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-tutorial-template-scale-services.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-tutorial-template-scale-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-tutorial-template-upgrade-app.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-tutorial-template-upgrade-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric-mesh/service-fabric-mesh-tutorial-upgrade.md",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-tutorial-upgrade",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/tutorial-govern-resources.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-govern-resources",
       "redirect_document_id": false
@@ -4076,6 +4236,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/deployment-manager-health-check.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/deployment-manager-overview.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/deployment-manager-tutorial-health-check.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/deployment-manager-tutorial.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service/web-sites-enable-diagnostic-log.md",
       "redirect_url": "/azure/app-service/troubleshoot-diagnostic-logs",
       "redirect_document_id": false
@@ -5026,6 +5206,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/automation/automation-watchers-tutorial.md",
+      "redirect_url": "/azure/automation/automation-scenario-using-watcher-task",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/automation/automation-scenario-remove-resourcegroup.md",
       "redirect_url": "/azure/automation",
       "redirect_document_id": false
@@ -5443,6 +5628,11 @@
     {
       "source_path_from_root": "/articles/azure-app-configuration/quickstart-azure-function-csharp.md",
       "redirect_url": "/azure/azure-app-configuration/quickstart-azure-functions-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-arc/data/known-issues.md",
+      "redirect_url": "/azure/azure-arc/data/release-notes",
       "redirect_document_id": false
     },
     {
@@ -13291,6 +13481,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/set-up-backup-server-for-azure-vmware-solution.md",
+      "redirect_url": "/azure/backup/backup-azure-microsoft-azure-backup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/backup-azure-vmware-solution-virtual-machines.md",
+      "redirect_url": "/azure/backup/backup-azure-backup-server-vmware",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/windows-server-failover-cluster.md",
+      "redirect_url": "/azure/azure-vmware/configure-windows-server-failover-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/create-ipsec-tunnel.md",
+      "redirect_url": "/azure/azure-vmware/configure-site-to-site-vpn-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/public-ip-usage.md",
+      "redirect_url": "/azure/azure-vmware/enable-public-internet-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/github-enterprise-server.md",
+      "redirect_url": "/azure/azure-vmware/configure-github-enterprise-server",
+      "redirect_document_id": false
+    },
+        {
       "source_path_from_root": "/articles/azure-vmware/concepts-monitor-repair-private-cloud.md",
       "redirect_url": "/azure/azure-vmware/concepts-private-clouds-clusters",
       "redirect_document_id": false
@@ -13743,6 +13963,11 @@
     {
       "source_path_from_root": "/articles/blockchain/service/connect-truffle.md",
       "redirect_url": "/azure/blockchain/service/connect-vscode",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/blockchain/service/migration-guide.md",
+      "redirect_url": "/azure/blockchain/service/overview",
       "redirect_document_id": false
     },
     {
@@ -19346,8 +19571,18 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/digital-twins/how-to-use-cli.md",
+      "redirect_url": "/azure/digital-twins/concepts-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/digital-twins/how-to-use-apis-sdks.md",
+      "redirect_url": "/azure/digital-twins/concepts-apis-sdks",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/digital-twins/how-to-create-custom-sdks.md",
-      "redirect_url": "/azure/digital-twins/how-to-use-apis-sdks",
+      "redirect_url": "/azure/digital-twins/concepts-apis-sdks",
       "redirect_document_id": false
     },
     {
@@ -19884,6 +20119,51 @@
       "source_path_from_root": "/articles/governance/blueprints/samples/iso27001/index.md",
       "redirect_url": "/azure/governance/blueprints/samples/iso-27001-2013",
       "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/governance/blueprints/samples/canada-federal-pbmm/control-mapping.md",
+        "redirect_url": "/azure/governance/blueprints/samples/canada-federal-pbmm",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/governance/blueprints/samples/canada-federal-pbmm/deploy.md",
+        "redirect_url": "/azure/governance/blueprints/samples/canada-federal-pbmm",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/governance/blueprints/samples/canada-federal-pbmm/index.md",
+        "redirect_url": "/azure/governance/blueprints/samples/canada-federal-pbmm",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/governance/blueprints/samples/irs-1075/control-mapping.md",
+        "redirect_url": "/azure/governance/blueprints/samples/irs-1075-sept2016",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/governance/blueprints/samples/irs-1075/deploy.md",
+        "redirect_url": "/azure/governance/blueprints/samples/irs-1075-sept2016",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/governance/blueprints/samples/irs-1075/index.md",
+        "redirect_url": "/azure/governance/blueprints/samples/irs-1075-sept2016",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/governance/blueprints/samples/ukofficial/control-mapping.md",
+        "redirect_url": "/azure/governance/blueprints/samples/ukofficial-uknhs",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/governance/blueprints/samples/ukofficial/deploy.md",
+        "redirect_url": "/azure/governance/blueprints/samples/ukofficial-uknhs",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/governance/blueprints/samples/ukofficial/index.md",
+        "redirect_url": "/azure/governance/blueprints/samples/ukofficial-uknhs",
+        "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/management-groups-create.md",
@@ -24721,6 +25001,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-pnp/howto-use-embedded-c.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device?pivots=programming-language-embedded-c",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/container-instances/container-instances-jenkins.md",
       "redirect_url": "/azure/jenkins/container-instances-jenkins",
       "redirect_document_id": false
@@ -27046,8 +27331,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-virtual-machines.md",
-      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/overview",
+      "source_path_from_root": "/articles/machine-learning/tutorial-1st-experiment-sdk-setup.md",
+      "redirect_url": "/azure/machine-learning/quickstart-create-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/tutorial-1st-experiment-sdk-setup-local.md",
+      "redirect_url": "/azure/machine-learning/quickstart-create-resources",
       "redirect_document_id": false
     },
     {
@@ -28228,6 +28518,11 @@
     {
       "source_path_from_root": "/articles/machine-learning/service/tutorial-first-experiment-automated-ml.md",
       "redirect_url": "/azure/machine-learning/tutorial-first-experiment-automated-ml",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-label-images.md",
+      "redirect_url": "/azure/machine-learning/how-to-label-data",
       "redirect_document_id": true
     },
     {
@@ -33314,7 +33609,7 @@
       "source_path_from_root": "/articles/service-bus-messaging/service-bus-migrate-acs-sas.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/service-bus-messaging/service-bus-dotnet-advanced-message-queuing.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-amqp-dotnet",
@@ -40631,6 +40926,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-machines/linux/sap-hana-overview-troubleshooting-monitoring.md",
+      "redirect_url": "/azure/virtual-machines/workloads/sap/troubleshooting-monitoring",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-machines/windows/sap-high-availability-guide.md",
       "redirect_url": "/azure/virtual-machines/workloads/sap/high-availability-guide",
       "redirect_document_id": false
@@ -40646,19 +40946,19 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/virtual-machines/workloads/sap/suse-quickstart.md",
-      "redirect_url": "/azure/virtual-machines/workloads/sap/sap-deployment-checklist",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/virtual-machines/windows/sap-high-availability-multi-sid.md",
       "redirect_url": "/azure/virtual-machines/workloads/sap/sap-high-availability-multi-sid",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/virtual-machines/linux/sap-hana-overview-troubleshooting-monitoring.md",
-      "redirect_url": "/azure/virtual-machines/workloads/sap/troubleshooting-monitoring",
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/os-backup-type-ii-skus.md",
+      "redirect_url": "/azure/virtual-machines/workloads/sap/large-instance-os-backup",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/suse-quickstart.md",
+      "redirect_url": "/azure/virtual-machines/workloads/sap/sap-deployment-checklist",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md",
@@ -50251,7 +50551,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/active-directory/active-directory-passwords-faq.md",
+      "source_path_from_root": "/articles/active-directory/active-directory-passwords-faq.yml",
       "redirect_url": "/azure/active-directory/authentication/active-directory-passwords-faq",
       "redirect_document_id": true
     },
@@ -51968,11 +52268,6 @@
     {
       "source_path_from_root": "/articles/active-directory/develop/single-page-application.md",
       "redirect_url": "/azure/active-directory/develop/scenario-spa-overview",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/develop/v2-saml-bearer-assertion.md",
-      "redirect_url": "/azure/active-directory/develop/scenario-token-exchange-saml-oauth",
       "redirect_document_id": true
     },
     {
@@ -54506,6 +54801,86 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-powershell-samples.md",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-powershell-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/powershell-get-all-app-proxy-apps-basic.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-get-all-app-proxy-apps-basic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/powershell-get-all-app-proxy-apps-by-connector-group.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-get-all-app-proxy-apps-by-connector-group",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/powershell-get-all-app-proxy-apps-extended.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-get-all-app-proxy-apps-extended",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/powershell-get-all-app-proxy-apps-with-policy.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-get-all-app-proxy-apps-with-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/powershell-get-all-connectors.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-get-all-connectors",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/powershell-get-all-custom-domain-no-cert.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-get-all-custom-domain-no-cert",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/powershell-assign-group-to-app.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-assign-group-to-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/powershell-assign-user-to-app.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-assign-user-to-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/powershell-get-all-custom-domains-and-certs.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-get-all-custom-domains-and-certs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/powershell-get-all-default-domain-apps.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-get-all-default-domain-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/powershell-get-all-wildcard-apps.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-get-all-wildcard-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/powershell-get-custom-domain-identical-cert.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-get-custom-domain-identical-cert",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/powershell-get-custom-domain-replace-cert.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-get-custom-domain-replace-cert",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/powershell-move-all-apps-to-connector-group.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-move-all-apps-to-connector-group",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/powershell-display-users-group-of-app.md",
+      "redirect_url": "/azure/active-directory/app-proxy/powershell-display-users-group-of-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-tableau.md",
       "redirect_url": "/azure/active-directory/app-proxy/application-proxy-integrate-with-tableau",
       "redirect_document_id": false
@@ -54527,7 +54902,22 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-proxy-transition-from-uag-tmg.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-migration",
+      "redirect_url": "/azure/active-directory/app-proxy/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/app-proxy/application-proxy-migration.md",
+      "redirect_url": "/azure/active-directory/app-proxy/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-migration.md",
+      "redirect_url": "/azure/active-directory/app-proxy/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-faq.yml",
+      "redirect_url": "/azure/active-directory/app-proxy/application-proxy-faq",
       "redirect_document_id": false
     },
     {
@@ -61356,6 +61746,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/personalizer/troubleshooting.md",
+      "redirect_url": "/azure/cognitive-services/personalizer/frequently-asked-questions",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/policy-samples.md",
       "redirect_url": "/azure/cognitive-services/policy-reference",
       "redirect_document_id": false
@@ -65527,6 +65922,31 @@
     {
       "source_path_from_root": "/articles/peering-service/create-connection.md",
       "redirect_url": "/azure/peering-service/azure-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-fabric-mesh/index.yml",
+      "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dms/tutorial-oracle-azure-postgresql-online.md",
+      "redirect_url": "/azure/postgresql/howto-migrate-from-oracle",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dms/known-issues-oracle-azure-postgresql-online.md",
+      "redirect_url": "/azure/postgresql/howto-migrate-from-oracle",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/authentication-fundamentals.md",
+      "redirect_url": "/azure/key-vault/general/authentication.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-send-telemetry-python.md",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-central",
       "redirect_document_id": false
     }
   ]

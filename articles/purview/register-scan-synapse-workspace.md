@@ -57,13 +57,13 @@ There are three ways to set up authentication for an Azure Synapse source:
 1. Navigate to your **Synapse workspace**
 1. Navigate to the **Data** section and to one of your serverless SQL databases
 1. Click on the ellipses icon and start a New SQL script
-1. Add the Azure Purview account MSI (represented by the account name) as **db_owner** on the dedicated SQL database by running the command below in your SQL script:
+1. Add the Azure Purview account MSI (represented by the account name) as **db_datareader** on the dedicated SQL database by running the command below in your SQL script:
 
     ```sql
     CREATE USER [PurviewAccountName] FROM EXTERNAL PROVIDER
     GO
     
-    EXEC sp_addrolemember 'db_owner', [PurviewAccountName]
+    EXEC sp_addrolemember 'db_datareader', [PurviewAccountName]
     GO
     ```
 #### Using Managed identity for Serverless SQL databases
@@ -85,13 +85,13 @@ There are three ways to set up authentication for an Azure Synapse source:
 1. Navigate to your **Synapse workspace**
 1. Navigate to the **Data** section and to one of your serverless SQL databases
 1. Click on the ellipses icon and start a New SQL script
-1. Add the **Service Principal ID** as **db_owner** on the dedicated SQL database by running the command below in your SQL script:
+1. Add the **Service Principal ID** as **db_datareader** on the dedicated SQL database by running the command below in your SQL script:
 
     ```sql
     CREATE USER [ServicePrincipalID] FROM EXTERNAL PROVIDER
     GO
     
-    EXEC sp_addrolemember 'db_owner', [ServicePrincipalID]
+    EXEC sp_addrolemember 'db_datareader', [ServicePrincipalID]
     GO
     ```
 

@@ -4,7 +4,6 @@ description: Steps for one-click configuration of  SSO for your application from
 services: active-directory
 author: iantheninja
 manager: CelesteDG
-ms.reviewer: kenwith
 ms.assetid: e0416991-4b5d-4b18-89bb-91b6070ed3ba
 ms.service: active-directory
 ms.subservice: saas-app-tutorial

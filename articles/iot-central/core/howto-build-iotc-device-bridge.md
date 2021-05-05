@@ -8,13 +8,11 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 04/19/2021
 ms.topic: how-to
+
+# Administrator
 ---
 
 # Use the IoT Central device bridge to connect other IoT clouds to IoT Central
-
-*This article applies to administrators.*
-
-## Azure IoT Central device bridge
 
 The IoT Central device bridge is an open-source solution that connects other IoT clouds to your IoT Central application. Examples of other IoT clouds include [Sigfox](https://www.sigfox.com/), [Particle Device Cloud](https://www.particle.io/), and [The Things Network](https://www.thethingsnetwork.org/). The device bridge works by forwarding data from devices connected to other IoT clouds through to your IoT Central application. The device bridge only forwards data to IoT Central, it doesn't send commands or property updates from IoT Central back to the devices.
 

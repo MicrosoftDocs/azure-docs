@@ -80,13 +80,15 @@ Note: USA mixed rates to `+1-425` is $0.013. Refer to the following link for det
 Alice is a doctor meeting with her patient, Bob. Alice will be joining the visit from the Teams Desktop application. Bob will receive a link to join using the healthcare provider website, which connects to the meeting using the Communication Services JavaScript SDK. Bob will use his mobile phone to enter the meeting using a web browser (iPhone with Safari). Chat will be available during the virtual visit.
 
 - The call lasts a total of 30 minutes.
-- Alice and Bob participate for the entire call. Alice turns on her video five minutes after the call starts and shares her screen for 13 minutes. Bob has his video on for the whole call.
+- When Bob joins the meeting, he's placed in the Teams meeting lobby per Teams policy. After one minute, Alice admits him into the meeting.
+- After Bob is admitted to the meeting, Alice and Bob participate for the entire call. Alice turns on her video five minutes after the call starts and shares her screen for 13 minutes. Bob has his video on for the whole call.
 - Alice sends five messages, Bob replies with three messages.
 
 
 **Cost calculations**
 
-- 1 participant (Bob) x 30 minutes x $0.004 per participant per minute = $0.12 [both video and audio are charged at the same rate]
+- 1 Participant (Bob) connected to Teams lobby x 1 minute x $0.004 per participant per minute (lobby charged aat regular rate of meettings) = $0.004
+- 1 participant (Bob) x 29 minutes x $0.004 per participant per minute = $0.116 [both video and audio are charged at the same rate]
 - 1 participant (Alice) x 30 minutes x $0.000 per participant per minute = $0.0*.
 - 1 participant (Bob) x 3 chat messages x $0.0008 = $0.0024.
 - 1 participant (Alice) x 5 chat messages x $0.000  = $0.0*.
@@ -94,7 +96,7 @@ Alice is a doctor meeting with her patient, Bob. Alice will be joining the visit
 *Alice's participation is covered by her Teams license. Your Azure invoice will show the minutes and chat messages that Teams users had with Communication Services Users for your convenience, but those minutes and messages originating from the Teams client will not cost.
 
 **Total cost for the visit**:
-- User joining using the Communication Services JavaScript SDK: $0.12 + $0.0024 = $0.1224
+- User joining using the Communication Services JavaScript SDK: $0.004 + $0.116 + $0.0024 = $0.1224
 - User joining on Teams Desktop Application: $0 (covered by Teams license)
 
 
