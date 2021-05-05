@@ -111,7 +111,7 @@ Once the vault and policy are created, there are two critical points that the us
 
 #### Storage account which contains the blobs to be protected
 
-Fetch the ARM Id of the storage account which contains the blobs to be protected. This will serve as the identifier of the storage account. We will use an example of a storage account named _PSTestSA_, under the resource group _blobrg_, in a different subscription.
+Fetch the Azure Resource Manager ID of the storage account which contains the blobs to be protected. This will serve as the identifier of the storage account. We will use an example of a storage account named _PSTestSA_, under the resource group _blobrg_, in a different subscription.
 
 ```azurepowershell-interactive
 $SAId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/PSTestSA"
