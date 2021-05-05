@@ -133,14 +133,14 @@ $appGwRule1 = New-AzNetworkSecurityRuleConfig -Name appgw-in -Description "AppGw
 $appGwRule2 = New-AzNetworkSecurityRuleConfig -Name appgw-internet -Description "AppGw inbound internet" `
     -Access Allow -Protocol * -Direction Inbound -Priority 110 -SourceAddressPrefix `
     Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 443
-$appgGwNsg = New-AzNetworkSecurityGroup -ResourceGroupName $resGroupName -Location $location -Name `
+$appGwNsg = New-AzNetworkSecurityGroup -ResourceGroupName $resGroupName -Location $location -Name `
     "NSG-APPGW" -SecurityRules $appGwRule1,$appGwRule2
 
 $apimRule1 = New-AzNetworkSecurityRuleConfig -Name apim-in -Description "APIM inbound" `
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix `
     ApiManagement -SourcePortRange * -DestinationAddressPrefix VirtualNetwork -DestinationPortRange 3443
 $apimNsg = New-AzNetworkSecurityGroup -ResourceGroupName $resGroupName -Location $location -Name `
-    "NSG-APIM" -SecurityRules $apimrule1ß
+    "NSG-APIM" -SecurityRules $apimRule1
 ```
 
 ### Step 2
@@ -148,7 +148,7 @@ $apimNsg = New-AzNetworkSecurityGroup -ResourceGroupName $resGroupName -Location
 Assign the address range 10.0.0.0/24 to the subnet variable to be used for Application Gateway while creating a virtual network.
 
 ```powershell
-$appGatewaySubnet = New-AzVirtualNetworkSubnetConfig -Name "appGatewaySubnet" -NetworkSecurityGroup $apgGwNsg -AddressPrefix "10.0.0.0/24"
+$appGatewaySubnet = New-AzVirtualNetworkSubnetConfig -Name "appGatewaySubnet" -NetworkSecurityGroup $appGwNsg -AddressPrefix "10.0.0.0/24"
 ```
 Assign the address range 10.0.1.0/24 to the subnet variable to be used for API Management while creating a virtual network.
 
@@ -161,7 +161,7 @@ $apimSubnet = New-AzVirtualNetworkSubnetConfig -Name "apimSubnet" -NetworkSecuri
 Create a virtual network named **appgwvnet** in resource group **apim-appGw-RG** for the West US region. Use the prefix 10.0.0.0/16 with subnets 10.0.0.0/24 and 10.0.1.0/24.
 
 ```powershell
-$vnet = New-AzVirtualNetwork -Name "appgwvnet" -ResourceGroupName $resGroupName -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $appGatewaySubnet, $apimSubnet
+$vnet = New-AzVirtualNetwork -Name "appgwvnet" -ResourceGroupName $resGroupName -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $appGatewaySubnet,$apimSubnet
 ```
 
 ### Step 4
@@ -171,33 +171,6 @@ Assign subnet variables for the next steps
 ```powershell
 $appGatewaySubnetData = $vnet.Subnets[0]
 $apimSubnetData = $vnet.Subnets[1]
-```
-
-### Step 5
-
-Configure network security groups for the virtual network subnets.
-
-Create NSG rules for the Application Gateway and API Management subnets.
-
-```powershell
-$apimRule1 = New-AzNetworkSecurityRuleConfig -Name apim-in -Description "APIM inbound" `
-    -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix `
-    ApiManagement -SourcePortRange * -DestinationAddressPrefix VirtualNetwork -DestinationPortRange 3443
-$apimNsg = New-AzNetworkSecurityGroup -ResourceGroupName $resGroupName -Location $location -Name `
-    "NSG-APIM" -SecurityRules $apimrule1
-Set-AzVirtualNetworkSubnetConfig -Name apim01 -VirtualNetwork $vnet -NetworkSecurityGroup $apimNsg -AddressPrefix "10.0.1.0/24"
-
-$appgwRule1 = New-AzNetworkSecurityRuleConfig -Name appgw-in -Description "AppGw inbound" `
-    -Access Allow -Protocol * -Direction Inbound -Priority 100 -SourceAddressPrefix `
-    GatewayManager -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 65200-65535
-$appgwRule2 = New-AzNetworkSecurityRuleConfig -Name appgw-internet -Description "AppGw inbound internet" `
-    -Access Allow -Protocol * -Direction Inbound -Priority 110 -SourceAddressPrefix `
-    Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 443
-$appgwmnNsg = New-AzNetworkSecurityGroup -ResourceGroupName $resGroupName -Location $location -Name `
-    "NSG-APPGW" -SecurityRules $appgwrule1,$appgwrule2
-Set-AzVirtualNetworkSubnetConfig -Name appgw01 -VirtualNetwork $vnet -NetworkSecurityGroup $appgwNsg -AddressPrefix "10.0.0.0/24"
-// TODO: CONFIRM THIS WORKS TO UPDATE VNET
-$vnet | Set-AzVirtualNetwork
 ```
 
 ## Create an API Management service inside a virtual network configured in internal mode
@@ -213,8 +186,6 @@ $apimVirtualNetwork = New-AzApiManagementVirtualNetwork -SubnetResourceId $apimS
 ```
 
 ### Step 2
-
-/// TO DO: UPDATE APIM VNET to use public IP address? Don't think supported yet in Psh ///
 
 Create an API Management service inside the virtual network. This example creates the service in the Developer service tier. Substitute a unique name for your API Managment service.
 
@@ -244,7 +215,7 @@ $gatewayCertPfxPassword = "certificatePassword123"   # password for api.contoso.
 $portalCertPfxPassword = "certificatePassword123"    # password for portal.contoso.net pfx certificate
 $managementCertPfxPassword = "certificatePassword123"    # password for management.contoso.net pfx certificate
 # Path to trusted root CER file used in Application Gateway HTTP settings
-$trustedRootCertCerPath = "C:\Users\Contoso\trustedroot.cer" # full path to api.contoso.net .cer file
+$trustedRootCertCerPath = "C:\Users\Contoso\trustedroot.cer" # full path to contoso.net trusted root .cer file
 
 $certGatewayPwd = ConvertTo-SecureString -String $gatewayCertPfxPassword -AsPlainText -Force
 $certPortalPwd = ConvertTo-SecureString -String $portalCertPfxPassword -AsPlainText -Force
@@ -256,11 +227,11 @@ $certManagementPwd = ConvertTo-SecureString -String $managementCertPfxPassword -
 Create and set the hostname configuration objects for the API Management endpoints.  
 
 ```powershell
-$proxyHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $gatewayHostname -HostnameType Proxy -PfxPath $gatewayCertPfxPath -PfxPassword $certGatewayPwd
+$gatewayHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $gatewayHostname -HostnameType Proxy -PfxPath $gatewayCertPfxPath -PfxPassword $certGatewayPwd
 $portalHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $portalHostname -HostnameType DeveloperPortal -PfxPath $portalCertPfxPath -PfxPassword $certPortalPwd
 $managementHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $managementHostname -HostnameType Management -PfxPath $managementCertPfxPath -PfxPassword $certManagementPwd
 
-$apimService.ProxyCustomHostnameConfiguration = $proxyHostnameConfig
+$apimService.ProxyCustomHostnameConfiguration = $gatewayHostnameConfig
 $apimService.PortalCustomHostnameConfiguration = $portalHostnameConfig
 $apimService.ManagementCustomHostnameConfiguration = $managementHostnameConfig
 
@@ -268,11 +239,29 @@ Set-AzApiManagement -InputObject $apimService
 ```
 
 > [!NOTE]
-> To configure the legacy developer portal connectivity you need to replace `-HostnameType DeveloperPortal` with `-HostnameType Portal`.
+> To configure the legacy developer portal connectivity, you need to replace `-HostnameType DeveloperPortal` with `-HostnameType Portal`.
 
 ## Configure a private zone for DNS resolution in the virtual network
 
-/// TO DO: ADD PowerShell steps to create private DNS zone contoso.net and 3 A-records pointing to the private IP address of the APIM instance. ALSO MUST LINK THE VNET TO THE ZONE///
+Create a private DNS zone for name resolution within the virtual network.
+
+```powershell
+$myZone = New-AzPrivateDnsZone -Name "contoso.net" -ResourceGroupName $resGroupName 
+$link = New-AzPrivateDnsVirtualNetworkLink -ZoneName contoso.net `
+  -ResourceGroupName $resGroupName -Name "mylink" `
+  -VirtualNetworkId $vnet.id
+```
+
+Create A-records for the custom domain hostnames, mapping to the private IP address of the API Management service:
+
+```powershell
+$apimIP = $apimService.PrivateIPAddresses[0]
+
+New-AzPrivateDnsRecordSet -Name api -RecordType A -ZoneName contoso.net -ResourceGroupName $resGroupName -Ttl 3600 -PrivateDnsRecords (New-AzPrivateDnsRecordConfig -IPv4Address $apimIP)
+New-AzPrivateDnsRecordSet -Name portal -RecordType A -ZoneName contoso.net -ResourceGroupName $resGroupName -Ttl 3600 -PrivateDnsRecords (New-AzPrivateDnsRecordConfig -IPv4Address $apimIP)
+New-AzPrivateDnsRecordSet -Name management -RecordType A -ZoneName contoso.net -ResourceGroupName $resGroupName -Ttl 3600 -PrivateDnsRecords (New-AzPrivateDnsRecordConfig -IPv4Address $apimIP)
+
+```
 
 ## Create a public IP address for the front-end configuration
 
@@ -349,7 +338,7 @@ $apimManagementProbe = New-AzApplicationGatewayProbeConfig -Name "apimmanagement
 
 ### Step 7
 
-Upload the certificates to be used on the TLS-enabled backend pool resources.
+Upload the trusted root certificate to be configured on the HTTP settings.
 
 ```powershell
 $trustedRootCert = New-AzApplicationGatewayTrustedRootCertificate -Name "whitelistcert1" -CertificateFile $trustedRootCertCerPath
@@ -367,7 +356,7 @@ $apimPoolManagementSetting = New-AzApplicationGatewayBackendHttpSettings -Name "
 
 ### Step 9
 
-Configure a backend IP address pool for each API Management endpoint, configured with its respective domain name.
+Configure a backend IP address pool for each API Management endpoint, using its respective domain name.
 
 ```powershell
 $apimGatewayBackendPool = New-AzApplicationGatewayBackendAddressPool -Name "gatewaybackend" -BackendFqdns $gatewayHostname
@@ -377,7 +366,7 @@ $apimManagementBackendPool = New-AzApplicationGatewayBackendAddressPool -Name "m
 
 ### Step 10
 
-Create rules for the Application Gateway to use basic routing.
+Create rules for the application gateway to use basic routing.
 
 ```powershell
 $gatewayRule = New-AzApplicationGatewayRequestRoutingRule -Name "gatewayrule" -RuleType Basic -HttpListener $gatewayListener -BackendAddressPool $apimGatewayBackendPool -BackendHttpSettings $apimPoolGatewaySetting
@@ -390,9 +379,7 @@ $managementRule = New-AzApplicationGatewayRequestRoutingRule -Name "managementru
 
 ### Step 11
 
-Configure the number of instances and size for the Application Gateway. In this example, we are using the [WAF SKU](../web-application-firewall/ag/ag-overview.md) for increased security of the API Management resource.
-
-//TODO - Confirm WAF works properly?
+Configure the number of instances and size for the application gateway. In this example, we are using the [WAF_v2 SKU](../web-application-firewall/ag/ag-overview.md) for increased security of the API Management resource.
 
 ```powershell
 $sku = New-AzApplicationGatewaySku -Name "WAF_v2" -Tier "WAF_v2" -Capacity 2
@@ -419,7 +406,7 @@ $appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $resGroupN
 
 Once the gateway is created, the next step is to configure the front end for communication. When using a public IP address, Application Gateway requires a dynamically assigned DNS name, which may not be easy to use.
 
-The Application Gateway's DNS name should be used to create a CNAME record which points the API Management gateway hostname (e.g. `api.contoso.net` in the examples above) to this DNS name. To configure the frontend IP CNAME record, retrieve the details of the Application Gateway and its associated IP/DNS name using the `PublicIPAddress` element. The use of A-records is not recommended since the VIP may change on restart of gateway.
+The Application Gateway's DNS name should be used to create a CNAME record which points the API Management gateway hostname (`api.contoso.net` in the preceding examples) to this DNS name. To configure the frontend IP CNAME record, retrieve the details of the Application Gateway and its associated IP/DNS name using the `PublicIPAddress` element. The use of A-records is not recommended since the VIP may change on restart of gateway.
 
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
@@ -428,13 +415,13 @@ Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 For testing purposes, you may update the hosts file on your local machine with entries mapping the Application Gateway's public IP address to each of the API Management endpoint hostnames that you configued (e.g., `api.contoso.net`, `portal.contoso.net`, `management.contoso.net`).
 
 ## Summary
-Azure API Management configured in a VNET provides a single gateway interface for all configured APIs, whether they are hosted on premises or in the cloud. Integrating Application Gateway with API Management provides the flexibility of selectively enabling particular APIs to be accessible on the Internet, as well as providing a Web Application Firewall as a frontend to your API Management instance.
+Azure API Management configured in a virtual network provides a single gateway interface for all configured APIs, whether they are hosted on-premises or in the cloud. Integrating Application Gateway with API Management provides the flexibility of selectively enabling particular APIs to be accessible on the internet, as well as providing a Web Application Firewall as a frontend to your API Management instance.
 
 ## <a name="next-steps"> </a> Next steps
 * Learn more about Azure Application Gateway
   * [Application Gateway Overview](../application-gateway/overview.md)
   * [Application Gateway Web Application Firewall](../web-application-firewall/ag/ag-overview.md)
   * [Application Gateway using Path-based Routing](../application-gateway/tutorial-url-route-powershell.md)
-* Learn more about API Management and VNETs
+* Learn more about API Management and virtual network
   * [Using API Management available only within the VNET](api-management-using-with-internal-vnet.md)
   * [Using API Management in VNET](api-management-using-with-vnet.md)
