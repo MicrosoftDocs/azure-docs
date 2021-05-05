@@ -35,7 +35,7 @@ The new, Azure Sentinel Zero Trust (TIC3.0) workbook provides an automated visua
 
 We know that compliance isn’t just an annual requirement, and organizations must monitor configurations over time like a muscle. Azure Sentinel's Zero Trust workbook uses the full breadth of Microsoft security offerings across Azure, Office 365, Teams, Intune, Windows Virtual Desktop, and many more.
 
-:::image type="content" source="media/zero-trust-workbook.gif" alt-text="Zero Trust workbook.":::
+[ ![Zero Trust workbook.](media/zero-trust-workbook.gif) ](media/zero-trust-workbook.gif#lightbox)
 
 **The Zero Trust workbook**:
 
