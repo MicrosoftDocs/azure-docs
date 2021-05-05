@@ -16,4 +16,4 @@ The core resource to configure for Azure File Sync is called a *Storage Sync Ser
 
 Choose an Azure region for your Storage Sync Service that's close to your location. All other cloud resources must be deployed in the same region. To simplify management, create a new resource group in your subscription that houses sync and storage resources.
 
-For more information, see the [section about deploying the Storage Sync Service](../articles/storage/files/storage-sync-files-deployment-guide.md#deploy-the-storage-sync-service) in the article about deploying Azure File Sync. Follow only this part of the article. There will be links to other sections of the article in later steps.
+For more information, see the [section about deploying the Storage Sync Service](../articles/storage/file-sync/file-sync-deployment-guide.md#deploy-the-storage-sync-service) in the article about deploying Azure File Sync. Follow only this part of the article. There will be links to other sections of the article in later steps.

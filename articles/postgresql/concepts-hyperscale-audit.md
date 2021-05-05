@@ -4,6 +4,7 @@ description: Concepts for pgAudit audit logging in Azure Database for PostgreSQL
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
+ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 01/29/2021
 ---

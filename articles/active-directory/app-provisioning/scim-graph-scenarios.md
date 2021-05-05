@@ -114,5 +114,5 @@ My application creates information about a user that customers need in Azure AD.
 
 ## Related articles
 
-- [Review the synchronization Microsoft Graph documentation](/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [Review the synchronization Microsoft Graph documentation](/graph/api/resources/synchronization-overview)
 - [Integrating a custom SCIM app with Azure AD](use-scim-to-provision-users-and-groups.md)

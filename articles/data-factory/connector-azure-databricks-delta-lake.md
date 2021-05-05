@@ -62,7 +62,7 @@ For cluster configuration details, see [Configure clusters](/azure/databricks/cl
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that define Data Factory entities specific to an Azure Databricks Delta Lake connector.
 

@@ -23,11 +23,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To follow the steps in this how-to guide, you need a deployed instance of Device Simulation in your Azure subscription.
 
-If you haven't deployed Device Simulation yet, see [Device Simulation deployment](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) on GitHub.
+If you haven't deployed Device Simulation yet, see [Device Simulation deployment](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md) on GitHub.
 
 ### Open Device Simulation
 
-If you haven't deployed Device Simulation yet, see [Device Simulation deployment](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) on GitHub.
+If you haven't deployed Device Simulation yet, see [Device Simulation deployment](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md) on GitHub.
 
 ## Device models
 

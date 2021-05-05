@@ -5,11 +5,10 @@ description: This quickstart shows how to quickly get started using the Text Ana
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 04/14/2021
+ms.date: 05/05/2021
 ms.author: aahi
 ---
 

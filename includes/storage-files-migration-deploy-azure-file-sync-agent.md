@@ -12,7 +12,7 @@ ms.custom: include file
 
 In this section, you install the Azure File Sync agent on your Windows Server instance.
 
-The [deployment guide](../articles/storage/files/storage-sync-files-deployment-guide.md) illustrates that you need to turn off **Internet Explorer Enhanced Security Configuration**. This security measure isn't applicable with Azure File Sync. Turning it off allows you to authenticate to Azure without any issues.
+The [deployment guide](../articles/storage/file-sync/file-sync-deployment-guide.md) illustrates that you need to turn off **Internet Explorer Enhanced Security Configuration**. This security measure isn't applicable with Azure File Sync. Turning it off allows you to authenticate to Azure without any issues.
 
 Open PowerShell, and install the required PowerShell modules by using the following commands. Make sure to install the full module and the NuGet provider when you're prompted.
 
@@ -25,12 +25,12 @@ If you have any issues reaching the internet from your server, now is the time t
 
 If configuring a proxy means you need to open your firewalls for this server, that approach might be acceptable to you. At the end of the server installation, after you've completed server registration, a network connectivity report will show you the exact endpoint URLs in Azure that Azure File Sync needs to communicate with for the region you've selected. The report also tells you the reason why communication is needed. You can use the report to lock down the firewalls around this server to specific URLs.
 
-You can also follow a more conservative approach in which you don't open the firewalls wide, but instead limit the server to communicate with higher-level DNS namespaces. For more information, see [Azure File Sync proxy and firewall settings](../articles/storage/files/storage-sync-files-firewall-and-proxy.md). Follow your own networking best practices.
+You can also follow a more conservative approach in which you don't open the firewalls wide, but instead limit the server to communicate with higher-level DNS namespaces. For more information, see [Azure File Sync proxy and firewall settings](../articles/storage/file-sync/file-sync-firewall-and-proxy.md). Follow your own networking best practices.
 
 At the end of the server installation wizard, a server registration wizard will open. Register the server to your Storage Sync Service's Azure resource from earlier.
 
 These steps are described in more detail in the deployment guide, which includes the PowerShell modules that you should install first:
-[Azure File Sync agent installation](../articles/storage/files/storage-sync-files-deployment-guide.md).
+[Azure File Sync agent installation](../articles/storage/file-sync/file-sync-deployment-guide.md).
 
 Use the latest agent. You can download it from the Microsoft Download Center:
 [Azure File Sync Agent](https://aka.ms/AFS/agent "Azure File Sync Agent download").

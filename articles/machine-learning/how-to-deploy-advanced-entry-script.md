@@ -6,7 +6,7 @@ author: gvashishtha
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/17/2020
 ms.author: gopalv
 ms.reviewer: larryfr

@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 1/30/2021
+ms.date: 4/15/2021
 ms.author: cavoeg
 ---
 
@@ -35,9 +35,9 @@ Previous versions also currently supported include: `3.0.2`
 | history                        | Yes       | Yes       | Yes       |                                                     |
 | create                         | Yes       | Yes       | Yes       | Support both POST/PUT                               |
 | create (conditional)           | Yes       | Yes       | Yes       | Issue [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
-| search                         | Partial   | Partial   | Partial   | See Search section below.                           |
-| chained search                 | Yes       | Yes       | Partial   | See Note 2 below.                                   |
-| reverse chained search         | Yes       | Yes       | Partial   | See Note 2 below.                                   |
+| search                         | Partial   | Partial   | Partial   | See [Overview of FHIR Search](overview-of-search.md).                           |
+| chained search                 | Partial       | Yes       | Partial   | See Note 2 below.                                   |
+| reverse chained search         | Partial       | Yes       | Partial   | See Note 2 below.                                   |
 | capabilities                   | Yes       | Yes       | Yes       |                                                     |
 | batch                          | Yes       | Yes       | Yes       |                                                     |
 | transaction                    | No        | Yes       | No        |                                                     |
@@ -52,66 +52,6 @@ Previous versions also currently supported include: `3.0.2`
 * Adds MVP support for Chained and Reverse Chained FHIR Search in CosmosDB. 
 
   In the Azure API for FHIR and the open-source FHIR server backed by Cosmos, the chained search and reverse chained search is an MVP implementation. To accomplish chained search on Cosmos DB, the implementation walks down the search expression and issues sub-queries to resolve the matched resources. This is done for each level of the expression. If any query returns more than 100 results, an error will be thrown. By default, chained search is behind a feature flag. To use the chained searching on Cosmos DB, use the header `x-ms-enable-chained-search: true`. For more details, see [PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
-
-## Search
-
-All search parameter types are supported. 
-
-| Search parameter type | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
-|-----------------------|-----------|-----------|-----------|---------|
-| Number                | Yes       | Yes       | Yes       |         |
-| Date/DateTime         | Yes       | Yes       | Yes       |         |
-| String                | Yes       | Yes       | Yes       |         |
-| Token                 | Yes       | Yes       | Yes       |         |
-| Reference             | Yes       | Yes       | Yes       |         |
-| Composite             | Yes       | Yes       | Yes       |         |
-| Quantity              | Yes       | Yes       | Yes       |         |
-| URI                   | Yes       | Yes       | Yes       |         |
-| Special               | No        | No        | No        |         |
-
-
-| Modifiers             | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
-|-----------------------|-----------|-----------|-----------|---------|
-|`:missing`             | Yes       | Yes       | Yes       |         |
-|`:exact`               | Yes       | Yes       | Yes       |         |
-|`:contains`            | Yes       | Yes       | Yes       |         |
-|`:text`                | Yes       | Yes       | Yes       |         |
-|`:[type]` (reference)  | Yes       | Yes       | Yes       |         |
-|`:not`                 | Yes       | Yes       | Yes       |         |
-|`:below` (uri)         | Yes       | Yes       | Yes       |         |
-|`:above` (uri)         | No        | No        | No        | Issue [#158](https://github.com/Microsoft/fhir-server/issues/158) |
-|`:in` (token)          | No        | No        | No        |         |
-|`:below` (token)       | No        | No        | No        |         |
-|`:above` (token)       | No        | No        | No        |         |
-|`:not-in` (token)      | No        | No        | No        |         |
-
-| Common search parameter | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
-|-------------------------| ----------| ----------| ----------|---------|
-| `_id`                   | Yes       | Yes       | Yes       |         |
-| `_lastUpdated`          | Yes       | Yes       | Yes       |         |
-| `_tag`                  | Yes       | Yes       | Yes       |         |
-| `_list`                 | Yes       | Yes       | Yes       |         |
-| `_type`                 | Yes       | Yes       | Yes       | Issue [#1562](https://github.com/microsoft/fhir-server/issues/1562)        |
-| `_security`             | Yes       | Yes       | Yes       |         |
-| `_profile`              | Partial   | Partial   | Partial   | Supported in STU3. If you created your database **after** February 20th, 2021, you will have support in R4 as well. We are working to enable _profile on databases created prior to February 20th, 2021. |
-| `_text`                 | No        | No        | No        |         |
-| `_content`              | No        | No        | No        |         |
-| `_has`                  | No        | No        | No        |         |
-| `_query`                | No        | No        | No        |         |
-| `_filter`               | No        | No        | No        |         |
-
-| Search result parameters | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
-|-------------------------|-----------|-----------|-----------|---------|
-| `_elements`             | Yes       | Yes       | Yes       | Issue [#1256](https://github.com/microsoft/fhir-server/issues/1256)        |
-| `_count`                | Yes       | Yes       | Yes       | `_count` is limited to 1000 characters. If set to higher than 1000, only 1000 will be returned and a warning will be returned in the bundle. |
-| `_include`              | Yes       | Yes       | Yes       |Included items are limited to 100. Include on PaaS and OSS on Cosmos DB does not include :iterate support.|
-| `_revinclude`           | Yes       | Yes       | Yes       | Included items are limited to 100. Include on PaaS and OSS on Cosmos DB does [not include :iterate support](https://github.com/microsoft/fhir-server/issues/1313). Issue [#1319](https://github.com/microsoft/fhir-server/issues/1319)|
-| `_summary`              | Partial   | Partial   | Partial   | `_summary=count` is supported |
-| `_total`                | Partial   | Partial   | Partial   | `_total=none` and `_total=accurate`      |
-| `_sort`                 | Partial   | Partial   | Partial   |   `_sort=_lastUpdated` is supported       |
-| `_contained`            | No        | No        | No        |         |
-| `containedType`         | No        | No        | No        |         |
-| `_score`                | No        | No        | No        |         |
 
 ## Extended Operations
 
@@ -141,7 +81,7 @@ Currently, the allowed actions for a given role are applied *globally* on the AP
 
 ## Service limits
 
-* [**Request Units (RUs)**](../../cosmos-db/concepts-limits.md) - You can configure up to 10,000 RUs in the portal for Azure API for FHIR. You will need a minimum of 400 RUs or 10 RUs/GB, whichever is larger. If you need more than 10,000 RUs, you can put in a support ticket to have this increased. The maximum available is 1,000,000.
+* [**Request Units (RUs)**](../../cosmos-db/concepts-limits.md) - You can configure up to 10,000 RUs in the portal for Azure API for FHIR. You will need a minimum of 400 RUs or 40 RUs/GB, whichever is larger. If you need more than 10,000 RUs, you can put in a support ticket to have this increased. The maximum available is 1,000,000.
 
 * **Concurrent connections** and **Instances** - By default, you have five concurrent connections on two instances in the cluster (for a total of 10 concurrent requests). If you believe you need more concurrent requests, open a support ticket with details on your needs.
 
@@ -155,12 +95,12 @@ The performance of the system is dependent on the number of RUs, concurrent conn
 
 | # of RUs | Resources/sec |    Max Storage (GB)*    |
 |----------|---------------|--------|                 
-| 400      | 5-10          |     40   |
-| 1,000    | 100-150       |      100  |
-| 10,000   | 225-400       |      1,000  |
-| 100,000  | 2,500-4,000   |      10,000  |
+| 400      | 5-10          |     10   |
+| 1,000    | 100-150       |      25  |
+| 10,000   | 225-400       |      250  |
+| 100,000  | 2,500-4,000   |      2,500  |
 
-Note: Per Cosmos DB requirement, there is a requirement of a minimum throughput of 10 RU/s per GB of storage. For more information, check out [Cosmos DB service quotas](../../cosmos-db/concepts-limits.md).
+Note: Per Cosmos DB requirement, there is a requirement of a minimum throughput of 40 RU/s per GB of storage. 
 
 ## Next steps
 
