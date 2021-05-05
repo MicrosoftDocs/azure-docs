@@ -3,7 +3,7 @@ title: Create an Azure Image Builder template (preview)
 description: Learn how to create a template to use with Azure Image Builder.
 author: danielsollondon
 ms.author: danis
-ms.date: 03/02/2021
+ms.date: 05/04/2021
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -67,18 +67,27 @@ The location is the region where the custom image will be created. For the Image
 - North Europe
 - West Europe
 
+Note, if there is only one region presence in a geography you will need to ensure you have planned for geo-resilence for using AIB in the event there is an outage of the single region/geography.
 
 ```json
     "location": "<region>",
 ```
 ## vmProfile
-By default Image Builder will use a "Standard_D1_v2" build VM, you can override this, for example, if you want to customize an Image for a GPU VM, you need a GPU VM size. This is optional.
+By default Image Builder will use a "Standard_D1_v2" build VM, this is built from the image you speciify in the `source`. You can override this and may wish to do this for these reasons:
+1. Performing customizations that require increased memory and CPU
+2. Running Windows builds, you should use "Standard_D2_v2" or equivilent VM size.
+3. Require [VM isolation](https://docs.microsoft.com/en-us/azure/virtual-machines/isolation).
+4. Customize an Image that require specific hardware, e.g. for a GPU VM, you need a GPU VM size. 
+ 
+This is optional.
 
 ```json
  {
     "vmSize": "Standard_D1_v2"
  },
 ```
+## buildVM
+
 
 ## osDiskSizeGB
 
