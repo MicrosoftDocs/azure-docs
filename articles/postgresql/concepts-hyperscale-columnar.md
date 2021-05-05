@@ -142,9 +142,6 @@ INSERT INTO perf_columnar
 
 VACUUM (FREEZE, ANALYZE) perf_row;
 VACUUM (FREEZE, ANALYZE) perf_columnar;
-
--- checkpoint if superuser; otherwise wait for system to settle
-CHECKPOINT;
 ```
 
 For this data, you can see a compression ratio of better than 8X in the
