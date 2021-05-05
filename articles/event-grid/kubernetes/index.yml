@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Event Grid on Kubernetes documentation # < 60 chars
-summary: Learn how to use Event Grid on Kubernetes to react to relevant events generated on edge devices in near-real time fashion.  # < 160 chars
+summary: Learn how to use Event Grid on Kubernetes to react to relevant events generated on Kubernetes clusters connected to Azure Arc in near-real time fashion.  # < 160 chars
 
 metadata:
   title: Event Grid on Kubernetes documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Learn how to use Event Grid on Kubernetes to react to relevant events generated on edge devices in near-real time fashion. # Required; article description that is displayed in search results. < 160 chars.
+  description: Learn how to use Event Grid on Kubernetes to react to relevant events generated on on Kubernetes clusters connected to Azure Arc in near-real time fashion. # Required; article description that is displayed in search results. < 160 chars.
   services: event-grid
   ms.service: event-grid #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: 
@@ -25,8 +25,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-#          - text: Event handlers and destinations
-#            url: event-handlers.md            
+          - text: Event handlers
+            url: event-handlers.md            
           - text: Event schemas
             url: event-schemas.md
 #          - text: Output batching
@@ -36,11 +36,12 @@ landingContent:
 #          - text: Delivery and retry
 #            url: delivery-retry.md
   # Card
-#  - title: Scenarios
-#    linkLists:
-#      - linkListType: tutorial
-#        links:
-#          - text: Publish and subscribe to events locally
+ - title: Scenarios
+   linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a topic and a subscription
+            url: create-topic-subscription.md
 #            url: pub-sub-events-webhook-local.md
 #          - text: Publish and subscribe to events in the cloud
 #            url: pub-sub-events-webhook-cloud.md            
