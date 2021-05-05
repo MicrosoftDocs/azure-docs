@@ -56,10 +56,11 @@ If you are using DNN or if your AG spans across multiple subnets like multiple A
 
 Most SQL Server features work transparently with FCI and availability groups when using the DNN, but there are certain features that may require special consideration. See [AG and DNN interoperability](availability-group-dnn-interoperability.md) to learn more. 
 
-Additionally, there are some behavior differences between the functionality of the VNN  listener and DNN listener that are important to note: 
+Additionally, there are some behavior differences between the functionality of the VNN listener and DNN listener that are important to note: 
+
 - **Failover time**: Failover time is faster when using a DNN listener since there is no need to wait for the network load balancer to detect the failure event and change its routing. 
 - **Existing connections**: Connections made to a *specific database* within a failing-over availability group will close, but other connections to the primary replica will remain open since the DNN stays online during the failover process. This is different than a traditional VNN environment where all connections to the primary replica typically close when the availability group fails over, the listener goes offline, and the primary replica transitions to the secondary role. When using a DNN listener, you may need to adjust application connection strings to ensure that connections are redirected to the new primary replica upon failover.
-- **Open transactions**: Open transactions against a database in a failing-over availability group will close and roll back. You will need to reconnect. In SQL Server Management Studio, close the query window and open a new one. 
+- **Open transactions**: Open transactions against a database in a failing-over availability group will close and roll back, and you need to *manually* reconnect. For example, in SQL Server Management Studio, close the query window and open a new one. 
 
 ## Lease mechanism 
 

@@ -24,7 +24,7 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 | **HADR content refresh** | We've refreshed and enhanced our high availability and disaster recovery (HADR) content! There's now an [Overview of the Windows Server Failover Cluster](hadr-windows-server-failover-cluster-overview.md), as well as a consolidated [how-to configure quorum](hadr-cluster-quorum-configure-how-to.md) for SQL Server VMs.  Additionally, we've enhanced the [cluster best practices](hadr-cluster-best-practices.md) with more comprehensive setting recommendations adopted to the cloud.| 
 
 
-# April 2021
+## April 2021
 
 | Changes | Details |
 | --- | --- |

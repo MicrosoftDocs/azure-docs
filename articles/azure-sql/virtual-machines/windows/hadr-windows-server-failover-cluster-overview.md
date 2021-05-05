@@ -161,7 +161,7 @@ When you configure an Azure VM, you determine the computing resources limits for
 
 Intensive SQL IO operations or maintenance operations such as backups, index, or statistics maintenance could cause the VM or disk to reach *IOPS* or *MBPS* throughput limits, which could make SQL Server unresponsive to an *IsAlive/LooksAlive* check. 
 
-If your SQL Server is experiencing unexpected failovers, check to make sure you are following all [performance best practices](../performance-guidelines-best-practices-checklist.md) and monitor the server for disk or VM-level capping. 
+If your SQL Server is experiencing unexpected failovers, check to make sure you are following all [performance best practices](performance-guidelines-best-practices-checklist.md) and monitor the server for disk or VM-level capping. 
 
 ## Azure platform maintenance
 
