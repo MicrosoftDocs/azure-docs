@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
+
+# Administrator
 ---
 
 # Change IoT Central application settings
 
-
-
-This article describes how, as an administrator, you can manage application by changing application name and URL, uploading image, and delete an application in your Azure IoT Central application.
+This article describes how you can manage application by changing application name and URL, upload an image, and delete an application in your Azure IoT Central application.
 
 To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application.
 

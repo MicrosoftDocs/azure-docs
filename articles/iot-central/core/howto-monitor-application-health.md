@@ -1,6 +1,6 @@
 ---
 title: Monitor the health of an Azure IoT Central application | Microsoft Docs
-description: As an operator or administrator, monitor the overall health of the devices connected to your IoT Central application.
+description: Monitor the overall health of the devices connected to your IoT Central application.
 author: dominicbetts
 ms.author: dobett
 ms.date: 01/27/2021
@@ -15,8 +15,6 @@ services: iot-central
 
 > [!NOTE]
 > Metrics are only available for version 3 IoT Central applications. To learn how to check your application version, see [About your application](./howto-get-app-info.md).
-
-*This article applies to operators and administrators.*
 
 In this article, you learn how to use the set of metrics provided by IoT Central to assess the health of devices connected to your IoT Central application and the health of your running data exports.
 

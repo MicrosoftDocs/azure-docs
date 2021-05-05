@@ -7,10 +7,10 @@ ms.date: 02/20/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
+
+# This article applies to operators and device developers.
 ---
 # How to transfer a device to Azure IoT Central from IoT Hub
-
-*This article applies to operators and device developers.*  
 
 This article describes how to transfer a device to an Azure IoT Central application from an IoT Hub. 
 
