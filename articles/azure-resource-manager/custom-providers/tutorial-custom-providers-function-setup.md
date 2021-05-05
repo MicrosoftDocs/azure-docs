@@ -11,7 +11,7 @@ ms.author: jobreen
 
 A custom provider is a contract between Azure and an endpoint. With custom providers, you can change workflows in Azure. This tutorial shows how to set up a function app in Azure Functions to work as a custom provider endpoint.
 
-## Create the function app in Azure
+## Create the function app
 
 > [!NOTE]
 > In this tutorial, you create a simple service endpoint that uses a function app in Azure Functions. However, a custom provider can use any publicly accessible endpoint. Alternatives include Azure Logic Apps, Azure API Management, and the Web Apps feature of Azure App Service.
