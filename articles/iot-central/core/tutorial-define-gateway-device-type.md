@@ -217,7 +217,7 @@ In this tutorial, you learned how to:
 * Add relationships.
 * Publish your device template.
 
-Next, as a device developer, you can learn how to:
+Next you can learn how to:
 
 > [!div class="nextstepaction"]
 > [Add an Azure IoT Edge device to your Azure IoT Central application](tutorial-add-edge-as-leaf-device.md)
