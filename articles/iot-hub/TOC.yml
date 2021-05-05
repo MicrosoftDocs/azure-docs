@@ -166,9 +166,9 @@
             - name: Overview
               href: iot-hub-devguide-security.md
             - name: Control access with Azure AD
-              href: iot-hub-devguide-aad-rbac.md
+              href: iot-hub-dev-guide-azure-ad-rbac.md
             - name: Control access with SAS
-              href: iot-hub-devguide-sas.md
+              href: iot-hub-dev-guide-sas.md
         - name: Understand device twins
           href: iot-hub-devguide-device-twins.md
         - name: Understand module twins

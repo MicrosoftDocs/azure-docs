@@ -61,7 +61,7 @@ IoT Hub uses security tokens to authenticate devices and services to avoid sendi
 
 * The direct use of the MQTT, AMQP, or HTTPS surfaces.
 
-* The implementation of the token service pattern, as explained in [Custom device authentication](iot-hub-devguide-sas.md#create-a-token-service-to-integrate-existing-devices).
+* The implementation of the token service pattern, as explained in [Custom device authentication](iot-hub-dev-guide-sas.md#create-a-token-service-to-integrate-existing-devices).
 
 You use security tokens to grant time-bounded access to devices and services to specific functionality in IoT Hub. To get authorization to connect to IoT Hub, devices and services must send security tokens signed with either a shared access or symmetric key. These keys are stored with a device identity in the identity registry.
 
@@ -213,7 +213,7 @@ For SASL PLAIN, the **username** can be:
 * `{policyName}@sas.root.{iothubName}` if using IoT hub-level tokens.
 * `{deviceId}@sas.{iothubname}` if using device-scoped tokens.
 
-In both cases, the password field contains the token, as described in [IoT Hub security tokens](iot-hub-devguide-sas.md#security-tokens).
+In both cases, the password field contains the token, as described in [IoT Hub security tokens](iot-hub-dev-guide-sas.md#security-tokens).
 
 HTTPS implements authentication by including a valid token in the **Authorization** request header.
 
@@ -320,7 +320,7 @@ When you create a token from a shared access policy, set the `skn` field to the 
 The two main scenarios for using shared access policies to access device functionality are:
 
 * [cloud protocol gateways](iot-hub-devguide-endpoints.md),
-* [token services](iot-hub-devguide-sas.md#create-a-token-service-to-integrate-existing-devices) used to implement custom authentication schemes.
+* [token services](iot-hub-dev-guide-sas.md#create-a-token-service-to-integrate-existing-devices) used to implement custom authentication schemes.
 
 Since the shared access policy can potentially grant access to connect as any device, it is important to use the correct resource URI when creating security tokens. This setting is especially important for token services, which have to scope the token to a specific device using the resource URI. This point is less relevant for protocol gateways as they are already mediating traffic for all devices.
 
@@ -349,7 +349,7 @@ A protocol gateway could use the same token for all devices simply setting the r
 
 ## Create a token service to integrate existing devices
 
-You can use the IoT Hub [identity registry](iot-hub-devguide-identity-registry.md) to configure per-device/module security credentials and access control using [tokens](iot-hub-devguide-sas.md#security-tokens). If an IoT solution already has a custom identity registry and/or authentication scheme, consider creating a *token service* to integrate this infrastructure with IoT Hub. In this way, you can use other IoT features in your solution.
+You can use the IoT Hub [identity registry](iot-hub-devguide-identity-registry.md) to configure per-device/module security credentials and access control using [tokens](iot-hub-dev-guide-sas.md#security-tokens). If an IoT solution already has a custom identity registry and/or authentication scheme, consider creating a *token service* to integrate this infrastructure with IoT Hub. In this way, you can use other IoT features in your solution.
 
 A token service is a custom cloud service. It uses an IoT Hub *shared access policy* with **DeviceConnect** or **ModuleConnect** permissions to create *device-scoped* or *module-scoped* tokens. These tokens enable a device and module to connect to your IoT hub.
 
