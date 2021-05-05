@@ -32,7 +32,7 @@ After you've made these changes, your Azure VM behaves like any machine or serve
 
 When Arc enabled servers is configured on the VM, you see two representations of it in Azure. One is the Azure VM resource, with a `Microsoft.Compute/virtualMachines` resource type, and the other is an Azure Arc resource, with a `Microsoft.HybridCompute/machines` resource type. As a result of preventing management of the guest operating system from the shared physical host server, the best way to think about the two resources is the Azure VM resource is the virtual hardware for your VM, and let's you control the power state and view information about its SKU, network, and storage configurations. The Azure Arc resource manages the guest operating system in that VM, and can be used to install extensions, view compliance data for Azure Policy, and complete any other supported task by Arc enabled servers.  
 
-## Reconfigure Azure VM steps
+## Reconfigure Azure VM
 
 1. Remove any VM extensions on the Azure VM.
 
