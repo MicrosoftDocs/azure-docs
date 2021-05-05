@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 04/01/2021
 
 ---
-# Live Video with Computer Vision for Spatial Analysis (preview)
+# Tutorial: Live Video with Computer Vision for Spatial Analysis (preview)
 
 This tutorial shows you how to use Azure Video Analyzer together with [Computer Vision for spatial analysis AI service from Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/computer-vision/) to analyze a live video feed from a (simulated) IP camera. You'll see how this inference server enables you to analyze the streaming video to understand spatial relationships between people and movement in physical space.  A subset of the frames in the video feed is sent to this inference server, and the results are sent to IoT Edge Hub and when some conditions are met, video clips are recorded and stored as Azure Media Services assets.
 

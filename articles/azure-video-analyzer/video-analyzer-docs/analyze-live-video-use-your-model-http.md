@@ -8,7 +8,7 @@ zone_pivot_groups: video-analyzer-programming-languages
 
 ---
 
-# Analyze live video with your own model - HTTP
+# Qiiockstart: Analyze live video with your own model - HTTP
 
 This quickstart shows you how to use Azure Video Analyzer to analyze a live video feed from a (simulated) IP camera. You'll see how to apply a computer vision model to detect objects. A subset of the frames in the live video feed is sent to an inference service. The results are sent to IoT Edge Hub.
 
