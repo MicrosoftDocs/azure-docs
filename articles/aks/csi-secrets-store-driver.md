@@ -70,6 +70,12 @@ az extension update --name aks-preview
 > [!NOTE]
 > If you plan to provide access to the cluster via a user-assigned or system-assigned managed identity, enable Azure Active Directory on your cluster with the flag `enable-managed-identity`. See [Use managed identities in Azure Kubernetes Service][aks-managed-identity] for more.
 
+First, create an Azure resource group:
+
+```azurecli-interactive
+az group create -n myResourceGroup -l westus
+```
+
 To create an AKS cluster with Secrets Store CSI Driver capability, use the [az aks create][az-aks-create] command with the addon `azure-keyvault-secrets-provider`:
 
 ```azurecli-interactive
