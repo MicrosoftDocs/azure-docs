@@ -67,7 +67,7 @@ When Arc enabled servers is configured on the VM, you see two representations of
 
    For Linux, consult your distribution's documentation for the best way to block outbound access to `169.254.169.254/32` over TCP port 80. Normally you'll block outbound access with the built-in firewall, but you can also temporarily block it with **iptables** or **nftables**. 
 
-   If your Azure VM is running Ubuntu, perform the following steps to configure its uncomplicated firewall:
+   If your Azure VM is running Ubuntu, perform the following steps to configure its uncomplicated firewall (UFW):
 
    ```bash
    sudo ufw --force enable
