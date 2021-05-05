@@ -13481,6 +13481,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/set-up-backup-server-for-azure-vmware-solution.md",
+      "redirect_url": "/azure/backup/backup-azure-microsoft-azure-backup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/backup-azure-vmware-solution-virtual-machines.md",
+      "redirect_url": "/azure/backup/backup-azure-backup-server-vmware",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/windows-server-failover-cluster.md",
       "redirect_url": "/azure/azure-vmware/configure-windows-server-failover-cluster",
       "redirect_document_id": false
@@ -65932,6 +65942,11 @@
     {
       "source_path_from_root": "/articles/key-vault/general/authentication-fundamentals.md",
       "redirect_url": "/azure/key-vault/general/authentication.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-send-telemetry-python.md",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-central",
       "redirect_document_id": false
     }
   ]
