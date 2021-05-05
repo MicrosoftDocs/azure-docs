@@ -1,11 +1,12 @@
 ---
-title: Obtain and use application secrets on Service Fabric managed cluster nodes
+title: Use application secrets in Service Fabric managed clusters
 description: Learn about Azure Service Fabric application secrets and how to gather info required for use in managed clusters
 ms.topic: how-to
 ms.date: 5/10/2021
 ---
 
-# Manage application secrets
+# Use application secrets in Service Fabric managed clusters
+
 Secrets can be any sensitive information, such as storage connection strings, passwords, or other values that should not be handled in plain text. This article uses Azure Key Vault to manage keys and secrets as it's for Service Fabric managed clusters. However, *using* secrets in an application is cloud platform-agnostic to allow applications to be deployed to a cluster hosted anywhere.
 
 The recommended way to manage service configuration settings is through [service configuration packages][config-package]. Configuration packages are versioned and updatable through managed rolling upgrades with health-validation and auto rollback. This is preferred to global configuration as it reduces the chances of a global service outage. Encrypted secrets are no exception. Service Fabric has built-in features for encrypting and decrypting values in a configuration package Settings.xml file using certificate encryption.

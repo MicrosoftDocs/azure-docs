@@ -1,17 +1,17 @@
 ---
-title: How to select managed disk types for Service Fabric managed cluster nodes
+title: Select managed disk types for Service Fabric managed cluster nodes
 description: Learn how to select managed disk types for Service Fabric managed cluster nodes and configure in an ARM template.
 ms.topic: how-to
 ms.date: 5/10/2021
 ---
 
+# Select managed disk types for Service Fabric managed cluster nodes
 
-
-# Managed disk types for Service Fabric managed cluster nodes
 Azure Service Fabric managed clusters use managed disks for all storage needs, including application data, for scenarios such as reliable collections and actors. Azure managed disks are block-level storage volumes that are managed by Azure and used with Azure Virtual Machines. Managed disks are like a physical disk in an on-premises server but, virtualized. With managed disks, all you have to do is specify the disk size, the disk type, and provision the disk. Once you provision the disk, Azure handles the rest. For more information about managed disks, see [Introduction to Azure managed disks
 ](../virtual-machines/managed-disks-overview.md).
 
-## Select a managed disk type
+## Managed disk types
+
 Azure Service Fabric manged clusters support the following managed disk types:
 * Standard HDD
     * Standard HDD locally redundant storage. Best for backup, non-critical, and infrequent access. 
@@ -23,8 +23,9 @@ Azure Service Fabric manged clusters support the following managed disk types:
 >[!NOTE]
 > Any temp disk associated with VM Size will *not* be used for storing any Service Fabric or application related data
 
-## Specifying an Azure Service Fabric managed cluster disk type
-To specify an Azure Service Fabric managed cluster disk type you must include the following value in the managed cluster resource definition.
+## Specifying a Service Fabric managed cluster disk type
+
+To specify a Service Fabric managed cluster disk type you must include the following value in the managed cluster resource definition.
 
 * The value **dataDiskType** property, which specifies what managed disk type to use for your nodes.
 
@@ -43,6 +44,5 @@ Possible values are:
     
 }
 ```
+
 Sample templates are available that include this specification: [Service Fabric managed cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates)
-
-
