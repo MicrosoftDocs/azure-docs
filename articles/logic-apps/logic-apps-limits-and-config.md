@@ -51,7 +51,7 @@ The following table lists the values for a single workflow run:
 
 | Name | Multi-tenant | Single-tenant (preview) | Integration service environment | Notes |
 |------|--------------|-------------------------|---------------------------------|-------|
-| Run duration | 90 days | 90 days | 366 days | The amount of time that a workflow can continue running before forcing a timeout. <p>**Important**: Make sure the run duration value is always less than or equal to the run history retention in storage value. Otherwise, run histories might be deleted before the associated jobs are complete. <p>The run duration is calculated by using a run's start time and the limit that's specified in the workflow setting, [**Run history retention in days**](#change-duration) at that start time. <p><p>To change the default limit in the multi-tenant service plus more information, see [Change run duration and history retention in storage](#change-duration). |
+| Run duration | 90 days | - Stateful workflow: 90 days <p>- Stateless workflow: 5 min | 366 days | The amount of time that a workflow can continue running before forcing a timeout. <p>**Important**: Make sure the run duration value is always less than or equal to the run history retention in storage value. Otherwise, run histories might be deleted before the associated jobs are complete. <p>The run duration is calculated by using a run's start time and the limit that's specified in the workflow setting, [**Run history retention in days**](#change-duration) at that start time. <p><p>To change the default limit in the multi-tenant service plus more information, see [Change run duration and history retention in storage](#change-duration). |
 | Run history retention in storage | 90 days | 90 days | 366 days | The amount of time to keep workflow run history in storage after a run starts. If a run's duration exceeds the current run history retention limit, the run is removed from the runs history in storage. <p>Whether the run completes or times out, run history retention is always calculated by using the run's start time and the current limit specified in the workflow setting, [**Run history retention in days**](#change-retention). No matter the previous limit, the current limit is always used for calculating retention. <p><p>To change the default limit in the multi-tenant service and for more information, see [Change duration and run history retention in storage](#change-retention). To increase the maximum limit, [contact the Logic Apps team](mailto://logicappspm@microsoft.com) for help with your requirements. |
 | Recurrence - Minimum interval | 1 sec | 1 sec | 1 sec ||
 | Recurrence - Maximum interval | 500 days | 500 days | 500 days ||
@@ -115,7 +115,7 @@ If you use an Azure Resource Manager template, this setting appears as a propert
 
 ---
 
-<a name="looping-debatching-limits"></a>
+<a name="concurrency-looping-debatching-limits"></a>
 
 ## Looping, concurrency, and debatching limits
 
@@ -136,7 +136,7 @@ The following table lists the values for a single workflow run:
 | Name | Multi-tenant | Single-tenant (preview) | Notes |
 |------|--------------|-------------------------|-------|
 | **Until** iterations | - Default: 60 iterations <p>- Min: 1 iteration <p>- Max: 5,000 iterations | - Stateful workflow: 5,000 iterations <p>- Stateless workflow: 100 | The number of cycles that an **Until** loop can have during a workflow run. <p><p>To change this value, in the **Until** loop shape, select **Change limits**, and specify the value for the **Count** property. |
-| **Until** timeout | Default: PT1H (1 hour) | Default: PT1H (1 hour) | The amount of time that the **Until** loop can run before exiting and is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). The timeout value is evaluated for each loop cycle. If any action in the loop takes longer than the timeout limit, the current cycle doesn't stop. However, the next cycle doesn't start because the limit condition isn't met. <p><p>To change this value, in the **Until** loop shape, select **Change limits**, and specify the value for the **Timeout** property. |
+| **Until** timeout | Default: PT1H (1 hour) | - Stateful workflow: PT1H (1 hour) <p>- Stateless workflow: PT5M (5 min) | The amount of time that the **Until** loop can run before exiting and is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). The timeout value is evaluated for each loop cycle. If any action in the loop takes longer than the timeout limit, the current cycle doesn't stop. However, the next cycle doesn't start because the limit condition isn't met. <p><p>To change this value, in the **Until** loop shape, select **Change limits**, and specify the value for the **Timeout** property. |
 ||||
 
 <a name="concurrency-debatching"></a>
