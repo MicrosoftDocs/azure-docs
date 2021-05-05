@@ -16,7 +16,7 @@ ms.author: chadam
 
 ---
 
-# Configure quorum for SQL Server on Azure VMs
+# Configure cluster quorum for SQL Server on Azure VMs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article teaches you to configure one of the three quorum options for a Windows Server Failover Cluster running on SQL Server on Azure Virtual Machines (VMs) - a disk witness, a cloud witness, and a file share witness.

@@ -213,7 +213,7 @@ Specific to availability groups, review the following parameters:
 |---------|---------|---------|
 |**Lease timeout**|20000|Prevents split-brain. |
 |**Session timeout**|10 |Checks communication issues between replicas. The session-timeout period is a replica property that controls how long (in seconds) that an availability replica waits for a ping response from a connected replica before considering the connection to have failed. By default, a replica waits 10 seconds for a ping response. This replica property applies to only the connection between a given secondary replica and the primary replica of the availability group. |
-| **Max failures in specified period** | 2 | Used to avoid indefinite movement of a clustered resource within multiple node failures. Too low of a value c Increase the value to prevent short disruptions from performance issues as too low a value can lead to the AG being in a failed state. | 
+| **Max failures in specified period** | 2 | Used to avoid indefinite movement of a clustered resource within multiple node failures. Too low of a value can lead to the availability group being in a failed state. Increase the value to prevent short disruptions from performance issues as too low a value can lead to the AG being in a failed state. | 
 
 Before making any changes, consider the following: 
 - Do not lower any timeout values below their default values. 

@@ -72,7 +72,7 @@ Unlike other failover mechanisms, the SQL Server instance plays an active role i
 
 When configuring an AG in Azure VMs, there is often a need to configure these thresholds differently than they would be configured in an on-premises environment. To configure threshold settings according to best practices for Azure VMs, see the [cluster best practices](hadr-cluster-best-practices.md). 
 
-## NIC configuration  
+## Network configuration  
 
 On an Azure VM failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure VM failover cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure VM failover clusters. 
 

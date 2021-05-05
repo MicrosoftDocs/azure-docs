@@ -155,13 +155,14 @@ Use PowerShell to modify the RegisterAllProvidersIp and HostRecordTTL settings:
 
 ```powershell
 Get-ClusterResource yourFCIname | Set-ClusterParameter RegisterAllProvidersIP 0  
-Get-ClusterResource yourFCIname|Set-ClusterParameter HostRecordTTL 300 
+Get-ClusterResource yourFCIname | Set-ClusterParameter HostRecordTTL 300 
 ```
 
 To learn more, see the SQL Server [listener connection timeout](/troubleshoot/sql/availability-groups/listener-connection-times-out) documentation. 
 
->[!TIP]
-> Set the MultiSubnetFailover parameter = true in the connection string even for HADR solutions that span a single subnet to support future spanning of subnets without the need to update connection strings.  
+> [!TIP]
+> - Set the MultiSubnetFailover parameter = true in the connection string even for HADR solutions that span a single subnet to support future spanning of subnets without the need to update connection strings.  
+> - By default, clients cache cluster DNS records for 20 minutes. By reducing HostRecordTTL you reduce the Time to Live (TTL) for the cached record, legacy clients may reconnect more quickly. As such, reducing the HostRecordTTL setting may result in increased traffic to the DNS servers.
 
 
 ## Test failover

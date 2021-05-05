@@ -46,6 +46,7 @@ Before you complete the steps in this article, you should already have:
 - Configured your [Always On availability group](availability-group-overview.md). 
 - Installed the latest version of [PowerShell](/powershell/azure/install-az-ps). 
 - Identified the unique port that you will use for the DNN listener. The port used for a DNN listener must be unique across all replicas of the availability group or failover cluster instance.  No other connection can share the same port.
+- The client connecting to the DNN listener must support the `MultiSubnetFailover=True` parameter in the connection string. 
 
 
 
