@@ -65952,7 +65952,7 @@
     {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-configure-named-locations.md",
       "redirect_url": "/azure/active-directory/conditional-access/location-condition",
-      "redirect_document_id": true
+      "redirect_document_id": false
     }
   ]
 }
