@@ -28,7 +28,7 @@ In the preceding output:
 
 ### MotionDetection event
 
-When motion is detected, the Video Analyzer on IoT Edge module sends an inference event. The `type` is set to `motion` to indicate that it's a result from the motion detection processor. The `eventTime` value tells you when (in UTC) the motion occurred. 
+When motion is detected, the Video Analyzer on IoT Edge module sends an inference event. The `type` is set to `motion` to indicate that it's a result from the motion detection processor.
 
 Here's an example of this message:
 
@@ -53,7 +53,6 @@ Here's an example of this message:
 
 In this example: 
 
-* The `eventTime` value is the time when the event occurred.
 * The `body` value is data about the analytics event. In this case, the event is an inference event, so the body contains `timestamp` and `inferences` data.
 * The `inferences` data indicates that the `type` is `motion`. It has additional data about that `motion` event.
 * The `box` section contains the coordinates for a bounding box around the moving object. The values are normalized by the width and height of the video, in pixels. For example, the width is 1920 and the height is 1080.
