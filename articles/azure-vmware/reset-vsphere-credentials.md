@@ -22,13 +22,13 @@ In addition to this how-to, you can also view the video for [resetting the vCent
 
 2. Run the following command to update your vCenter CloudAdmin password.  You will need to replace {SubscriptionID}, {ResourceGroup}, and {PrivateCloudName} with the actual values of the private cloud that the CloudAdmin account belongs to.
 
-   ```
+   ```azurecli-interactive
    az resource invoke-action --action rotateVcenterPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"
    ```
           
 3. Run the following command to update your NSX-T admin password. You will need to replace **{SubscriptionID}**, **{ResourceGroup}**, and **{PrivateCloudName}** with the actual values of the private cloud that the NSX-T admin account belongs to.
 
-   ```
+   ```azurecli-interactive
    az resource invoke-action --action rotateNSXTPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"
    ```
 
