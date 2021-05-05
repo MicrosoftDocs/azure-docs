@@ -82,12 +82,6 @@
           href: integrate-ci-cd-pipeline.md
     - name: Integrate with Kubernetes deployment using Helm
       href:  integrate-kubernetes-deployment-helm.md    
-    - name: Enable Azure Monitoring
-      items:
-        - name: Monitor App Configuration
-          href: monitor-app-configuration.md 
-        - name: Monitor Data Reference 
-          href: monitor-app-configuration-reference.md
 - name: Samples
   items:
     - name: Azure CLI
