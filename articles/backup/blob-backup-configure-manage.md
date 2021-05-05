@@ -140,12 +140,11 @@ To start configuring backup:
 
     Backup validates if the vault has sufficient permissions to allow configuring backup on the selected storage accounts. This takes a while to finish validations.
     
-    ![Permissions to allow configuring backup ](./media/blob-backup-configure-manage/permissions-for-configuring-backup.png)
+    ![Permissions to allow configuring backup](./media/blob-backup-configure-manage/permissions-for-configuring-backup.png)
 
 1. After validations are complete, the **Backup readiness** column will inform if the Backup vault has enough permissions to configure backups for each storage account.
 
-  ![Information of Backup vault permissions](./media/blob-backup-configure-manage/information-of-backup-vault-permissions.png)
-
+   ![Information of Backup vault permissions](./media/blob-backup-configure-manage/information-of-backup-vault-permissions.png)
 
     If validation displays errors (for two of the storage accounts listed in the figure above), you have not assigned the **Storage account backup contributor** role for these [storage accounts](#grant-permissions-to-the-backup-vault-on-storage-accounts). Also, you can assign the required role here, based on your current permissions. The error message can help you understand if you have the required permissions, and take the appropriate action:
 
