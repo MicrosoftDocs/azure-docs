@@ -198,11 +198,11 @@ storage](https://docs.citusdata.com/en/stable/use_cases/timeseries.html#archivin
 
 ## Limitations
 
-This feature still has a number of significant limitations. See [Hyperscale
+This feature still has significant limitations. See [Hyperscale
 (Citus) limits and limitations](concepts-hyperscale-limits.md#columnar-storage).
 
 ## Next steps
 
-* See an example of columnar storage in a Citus [timeseries
+* See an example of columnar storage in a Citus [time series
   tutorial](https://docs.citusdata.com/en/stable/use_cases/timeseries.html#archiving-with-columnar-storage)
   (external link).
