@@ -37,11 +37,11 @@ Each [Azure resource](azure-resources.md#resource-purposes) created with QnA Mak
 
 The free tier, `F0`, of each resource works and can provide both the authoring and query prediction experience. You can use this tier to learn authoring and query prediction. When you move to a production or live scenario, reevaluate your resource selection.
 
-#### Text Analytics resource
+### Text Analytics resource
 
 A single Text Analytics resource with the custom question answering feature enabled can host more than one knowledge base. The number of knowledge bases is determined by the Cognitive Search pricing tier's quantity of supported indexes. Learn more about the [relationship of indexes to knowledge bases](azure-resources.md#index-usage).
 
-#### Knowledge base size and throughput
+### Knowledge base size and throughput
 
 When you build a real app, plan sufficient resources for the size of your knowledge base and for your expected query prediction requests.
 
@@ -84,7 +84,7 @@ You can now have knowledge bases in different languages within the same Text Ana
 ![QnA Maker managed (Preview) multi-lingual knowledge base selection](../media/qnamaker-create-publish-knowledge-base/connect-knowledgebase-custom-qna.png)
 
 > [!NOTE]
-> If you enable language settings per knowledge base, you cannot create as many knowledge bases in your QnA Maker resource. For [more details on language settings limitations](./azure-resources.md).
+> If you enable multiple languages per knowledge base, you cannot create as many knowledge bases in your Text Analytics resource. For [more details on language settings limitations](./azure-resources.md).
 
 ---
 
@@ -179,7 +179,7 @@ Apply the [latest runtime updates](../how-to/configure-QnA-Maker-resources.md#ge
 
 # [Custom question answering (preview release)](#tab/v2)
 
-In QnA Maker managed (Preview), the runtime is managed by the QnA Maker service itself. So service updates are not applicable.
+In Custom question answering (Preview), the runtime is managed by the QnA Maker service itself. So service updates are not applicable.
 
 ---
 
@@ -195,7 +195,7 @@ All queries to your knowledge base are stored in Application Insights. Use our [
 
 # [Custom question answering (preview release)](#tab/v2)
 
-In the managed deployment, telemetry is offered through the [Azure Monitor service](../../../azure-monitor/index.yml). Use our [top queries](../how-to/get-analytics-knowledge-base.md) to understand your metrics.
+For Custom question answering, telemetry is offered through the [Azure Monitor service](../../../azure-monitor/index.yml). Use our [top queries](../how-to/get-analytics-knowledge-base.md) to understand your metrics.
 
 
 ---
