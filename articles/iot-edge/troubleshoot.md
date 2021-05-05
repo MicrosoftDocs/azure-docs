@@ -4,7 +4,7 @@ description: Use this article to learn standard diagnostic skills for Azure IoT 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/01/2021
+ms.date: 05/04/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -108,7 +108,15 @@ sudo iotedge support-bundle --since 6h
 :::moniker-end
 <!-- end 1.2 -->
 
-You can also use a [direct method](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics) call to your device to upload the output of the support-bundle command to Azure Blob Storage.
+By default, the `support-bundle` command creates a zip file called **support_bundle.zip** in the directory where the command is called. Use the flag `--output` to specify a different path or file name for the output.
+
+For more information about the command, view its help information.
+
+```bash/cmd
+iotedge support-bundle --help
+```
+
+You can also use the built-in direct method call [UploadSupportBundle](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics) to upload the output of the support-bundle command to Azure Blob Storage.
 
 > [!WARNING]
 > Output from the `support-bundle` command can contain host, device and module names, information logged by your modules etc. Please be aware of this if sharing the output in a public forum.
@@ -259,6 +267,21 @@ iotedge logs <container name>
 ```
 
 You can also use a [direct method](how-to-retrieve-iot-edge-logs.md#upload-module-logs) call to a module on your device to upload the logs of that module to Azure Blob Storage.
+
+## Clean up container logs
+
+By default the Moby container engine does not set container log size limits. Over time this can lead to the device filling up with logs and running out of disk space. If large container logs are affecting your IoT Edge device performance, use the following command to force remove the container along with its related logs.
+
+If you're still troubleshooting, wait until after you've inspected the container logs to take this step.
+
+>[!WARNING]
+>If you force remove the edgeHub container while it has an undelivered message backlog and no [host storage](how-to-access-host-storage-from-module.md) set up, the undelivered messages will be lost.
+
+```cmd
+docker rm --force <container name>
+```
+
+For ongoing logs maintenance and production scenarios, [place limits on log size](production-checklist.md#place-limits-on-log-size).
 
 ## View the messages going through the IoT Edge hub
 

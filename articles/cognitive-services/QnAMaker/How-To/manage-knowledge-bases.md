@@ -35,7 +35,7 @@ QnA Maker allows you to manage your knowledge bases by providing access to the k
 
 1. On the **Create** page, skip **Step 1** if you already have your QnA Maker resource.
 
-    If you haven't created the resource yet, select **Create a QnA service**. You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) to set up a QnA Maker service in your subscription. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
+    If you haven't created the resource yet, select **Stable** and **Create a QnA service**. You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) to set up a QnA Maker service in your subscription. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
 
     When you are done creating the resource in the Azure portal, return to the QnA Maker portal, refresh the browser page, and continue to **Step 2**.
 
@@ -85,7 +85,7 @@ QnA Maker allows you to manage your knowledge bases by providing access to the k
 
     ![Screenshot of selecting a Custom Question Answering service](../media/qnamaker-create-publish-knowledge-base/connect-knowledgebase-custom-qna.png)
 
-5. In **Step 2**, if you are creating the first knowledge base for your service, you will have an option to make language setting specific to every knowledge base. Once the language setting has been defined for the first knowledge base, you will not be allowed to modify the settings for the service later.
+5. In **Step 2**, if you are creating the first knowledge base for your service, you can check **Add knowledge bases in multiple languages to this service** property to allow the capability to add knowledge bases in different languages to the same service. You won't be able to modify this later.
 
 6. In **Step 3**, name your knowledge base **My Sample QnA KB**. 
 

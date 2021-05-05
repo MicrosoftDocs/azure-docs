@@ -43,7 +43,7 @@ For Copy activity, this Azure Synapse Analytics connector supports these functio
 > [!TIP]
 > To achieve best performance, use PolyBase or COPY statement to load data into Azure Synapse Analytics. The [Use PolyBase to load data into Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) and [Use COPY statement to load data into Azure Synapse Analytics](#use-copy-statement) sections have details. For a walkthrough with a use case, see [Load 1 TB into Azure Synapse Analytics under 15 minutes with Azure Data Factory](load-azure-sql-data-warehouse.md).
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that define Data Factory entities specific to an Azure Synapse Analytics connector.
 

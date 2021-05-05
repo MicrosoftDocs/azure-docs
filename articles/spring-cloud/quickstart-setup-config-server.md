@@ -6,7 +6,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, fasttrack-edit
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
@@ -46,11 +46,11 @@ Azure Spring Cloud Config server is centralized configuration service for distri
 
 #### [Portal](#tab/Azure-portal)
 
-The following procedure sets up the config server using the Azure portal to deploy the [Piggymetrics sample](./quickstart-sample-app-introduction.md).
+The following procedure sets up the config server using the Azure portal to deploy the [PetClinic sample](https://github.com/azure-samples/spring-petclinic-microservices).
 
 1. Go to the service **Overview** page and select **Config Server**.
 
-2. In the **Default repository** section, set **URI** to "https://github.com/Azure-Samples/piggymetrics-config".
+2. In the **Default repository** section, set **URI** to "https://github.com/azure-samples/spring-petclinic-microservices-config".
 
 3. Click **Validate**.
 
@@ -68,14 +68,14 @@ The following procedure sets up the config server using the Azure portal to depl
 
 #### [CLI](#tab/Azure-CLI)
 
-The following procedure uses the Azure CLI to set up the config server to deploy the [Piggymetrics sample](./quickstart-sample-app-introduction.md).
 
-Set up your config-server with the location of the git repository for the project:
+The following procedure uses the Azure CLI to set up the config server to deploy the [Pet Clinic sample](https://github.com/azure-samples/spring-petclinic-microservices).
+
+Run the following command to set the Default repository.
 
 ```azurecli
-az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/piggymetrics-config
-```
----
+
+az spring-cloud config-server git set -n <service instance name> --uri https://github.com/azure-samples/spring-petclinic-microservices-config
 ::: zone-end
 
 > [!TIP]

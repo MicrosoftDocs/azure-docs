@@ -1,13 +1,13 @@
 ---
-title: 'Connect your on-premises network to an Azure virtual network: Site-to-Site VPN: PowerShell'
-description: Create an IPsec site-to-site VPN Gateway connection from your on-premises network to an Azure virtual network over the public internet using PowerShell.
+title: 'Connect your on-premises network to an Azure VNet: Site-to-Site VPN: PowerShell'
+description: Learn how to create a Site-to-Site VPN Gateway connection between your on-premises network and an Azure VNet using PowerShell.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
 
 ---

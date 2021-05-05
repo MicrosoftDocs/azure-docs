@@ -148,4 +148,4 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 
 ## Next steps
 - Refer [Backup and restore](hana-overview-high-availability-disaster-recovery.md) for OS backup Type I SKU class.
-- Refer [OS Backup for Type II SKUs of Revision 3 stamps](os-backup-type-ii-skus.md) for Type II SKU class.
+- Refer [OS Backup](./large-instance-os-backup.md) for HLI.
