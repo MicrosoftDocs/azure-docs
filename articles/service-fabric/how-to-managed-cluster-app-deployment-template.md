@@ -175,12 +175,10 @@ To delete an application that was deployed by using the application resource mod
 
 ## Next steps
 
-Get information about the application resource model:
+Learn more about managed cluster application deployment:
 
-* [Model an application in Service Fabric](service-fabric-application-model.md)
-* [Service Fabric application and service manifests](service-fabric-application-and-service-manifests.md)
-* [Best practices: Infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources)
-* [Manage applications and services as Azure resources](service-fabric-best-practices-infrastructure-as-code.md)
+* [Deploy managed cluster application secrets](how-to-managed-cluster-application-secrets.md)
+* [Deploy managed cluster applications with managed identity](how-to-managed-cluster-application-managed-identity.md)
 
 
 <!--Image references-->
