@@ -64,7 +64,7 @@
           href: use-key-vault-references-dotnet-core.md
         - name: Spring Boot
           href: use-key-vault-references-spring-boot.md
-    - name: Integrate with build, release, and CI/CD
+    - name: Build, deploy, and CI/CD
       items:
         - name: Push using Azure Pipelines
           href: push-kv-devops-pipeline.md
