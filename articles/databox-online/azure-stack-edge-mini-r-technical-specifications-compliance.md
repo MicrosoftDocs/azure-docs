@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 05/04/2021
 ms.author: alkohli
 ---
 # Azure Stack Edge Mini R technical specifications
@@ -131,8 +131,6 @@ The following table lists the weight of the device including the battery.
 |     Enclosure                     |     Weight          |
 |-----------------------------------|---------------------|
 |    Total weight of the device     |     7 lbs           |
-
-## Enclosure environment specifications
 
 ## Enclosure environment
 
