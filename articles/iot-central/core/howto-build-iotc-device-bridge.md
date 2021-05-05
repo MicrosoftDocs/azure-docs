@@ -32,7 +32,7 @@ Complete the [Create an Azure IoT Central application](./quick-deploy-iot-centra
 
 ## Overview
 
-The IoT Central device bridge is an open-source solution in GitHub. It uses a custom Azure Resource Manager template deploy several resources to your Azure subscription, including an Azure function app.
+The IoT Central device bridge is an open-source solution in GitHub. It uses a custom Azure Resource Manager template deploy several resources to your Azure subscription, including an Azure Function App.
 
 The function app is the core piece of the device bridge. It receives HTTP POST requests from other IoT platforms through a simple webhook. The [Azure IoT Central Device Bridge](https://github.com/Azure/iotc-device-bridge) repository includes examples that show how to connect Sigfox, Particle, and The Things Network clouds. You can extend this solution to connect to your custom IoT cloud if your platform can send HTTP POST requests to your function app.
 
@@ -186,7 +186,7 @@ To connect a Particle device through the device bridge to IoT Central, go to the
 }
 ```
 
-Paste in the **function URL** from your Azure function app, and you see Particle devices appear as unassociated devices in IoT Central. To learn more, see the [Here's how to integrate your Particle-powered projects with Azure IoT Central](https://blog.particle.io/2019/09/26/integrate-particle-with-azure-iot-central/) blog post.
+Paste in the **function URL** from your Azure Function App, and you see Particle devices appear as unassociated devices in IoT Central. To learn more, see the [Here's how to integrate your Particle-powered projects with Azure IoT Central](https://blog.particle.io/2019/09/26/integrate-particle-with-azure-iot-central/) blog post.
 
 ### Example 2: Connecting Sigfox devices through the device bridge
 
@@ -267,7 +267,7 @@ function Decoder(bytes, port) {
 }
 ```
 
-After you define the integration, add the following code before the call to `handleMessage` in line 21 of the *IoTCIntegration/index.js* file of your Azure function app. This code translates the body of your HTTP integration to the expected format.
+After you define the integration, add the following code before the call to `handleMessage` in line 21 of the *IoTCIntegration/index.js* file of your Azure Function App. This code translates the body of your HTTP integration to the expected format.
 
 ```javascript
 device: {
