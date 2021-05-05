@@ -7,11 +7,11 @@ ms.date: 05/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
+
+# This article applies to solution builders.
 ---
 
 # Use workflows to integrate your Azure IoT Central application with other cloud services
-
-*This article applies to solution builders.*
 
 You can create rules in IoT Central that trigger actions, such as sending an email, in response to telemetry-based conditions, such as device temperature exceeding a threshold.
 
