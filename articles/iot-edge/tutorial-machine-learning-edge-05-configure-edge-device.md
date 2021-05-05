@@ -100,11 +100,11 @@ To store our certificates securely and make them accessible from multiple device
 
     ![Screenshot that shows Key Vault script output.](media/tutorial-machine-learning-edge-05-configure-edge-device/key-vault-entries-output.png)
 
-## Registry an IoT Edge device
+## Register an IoT Edge device
 
-To connect an Azure IoT Edge device to an IoT hub, we first create an identity for the device in the hub. We take the connection string from the device identity in the cloud and use it to configure the runtime on our IoT Edge device. After a configured device connects to the hub, we can deploy modules and send messages. We can also change the configuration of the physical IoT Edge device by changing its corresponding device identity in IoT Hub.
+To connect an Azure IoT Edge device to an IoT hub, we first register a device in the hub. We take the connection string from the device identity in the cloud and use it to configure the runtime on our IoT Edge device. After a configured device connects to the hub, we can deploy modules and send messages. We can also change the configuration of the physical IoT Edge device by changing its corresponding device identity in IoT Hub.
 
-For this tutorial, we create the new device identity by using Visual Studio Code. You can also complete these steps by using the Azure portal or the Azure CLI. Whichever method you choose, make sure you obtain the device connection string of your IoT Edge device. The device connection string can be found on the details page of your device on the Azure portal.
+For this tutorial, we register the new device identity by using Visual Studio Code. You can also complete these steps by using the Azure portal or the Azure CLI. Whichever method you choose, make sure you obtain the device connection string of your IoT Edge device. The device connection string can be found on the details page of your device on the Azure portal.
 
 1. On your development machine, open Visual Studio Code.
 
