@@ -27,7 +27,7 @@ Customers are already using Applied AI Services to add AI horsepower to their bu
    ​
 <br>
   
-![Wix Logo](./media/wix-logo.svg)
+![Wix Logo](./media/wix-logo-01.png)
 ## WIX deploys smart search across 150 million websites with Cognitive Search 
 “We really benefitted from choosing Azure Cognitive Search because we could go to market faster than we had with other products. We don’t have to manage infrastructure, and our developers can spend time on higher-value tasks.” 
 
