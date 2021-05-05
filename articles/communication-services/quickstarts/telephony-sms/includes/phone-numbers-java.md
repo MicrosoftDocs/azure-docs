@@ -48,11 +48,11 @@ Use the following code to begin:
 ```java
 import com.azure.communication.phonenumbers.*;
 import com.azure.communication.phonenumbers.models.*;
-import java.io.*;
+import com.azure.core.http.rest.*;
 import com.azure.core.util.Context;
 import com.azure.core.util.polling.PollResponse;
 import com.azure.identity.*;
-import com.azure.core.http.rest.*;
+import java.io.*;
 
 public class App
 {
