@@ -1,6 +1,6 @@
 ---
-title: Configure Azure Arc enabled SQL managed instance
-description: Configure Azure Arc enabled SQL managed instance
+title: Configure Azure Arc enabled SQL Managed instance
+description: Configure Azure Arc enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,9 +11,9 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ---
 
-# Configure Azure Arc enabled SQL managed instance
+# Configure Azure Arc enabled SQL Managed Instance
 
-This article explains how to configure Azure Arc enabled SQL managed instance.
+This article explains how to configure Azure Arc enabled SQL Managed Instance.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -33,7 +33,7 @@ The following example sets the cpu core and memory requests and limits.
 azdata arc sql mi edit --cores-limit 4 --cores-request 2 --memory-limit 4Gi --memory-request 2Gi -n <NAME_OF_SQL_MI>
 ```
 
-To view the changes made to the SQL managed instance, you can use the following commands to view the configuration yaml file:
+To view the changes made to the SQL Managed Instance, you can use the following commands to view the configuration yaml file:
 
 ```
 azdata arc sql mi show -n <NAME_OF_SQL_MI>
@@ -41,7 +41,7 @@ azdata arc sql mi show -n <NAME_OF_SQL_MI>
 
 ## Configure Server options
 
-You can configure server configuration settings for Azure Arc enabled SQL managed instance after creation time. This article describes how to configure settings like enabling or disabling mssql Agent, enable specific trace flags for troubleshooting scenarios.
+You can configure server configuration settings for Azure Arc enabled SQL Managed Instance after creation time. This article describes how to configure settings like enabling or disabling mssql Agent, enable specific trace flags for troubleshooting scenarios.
 
 To change any of these settings, follow these steps:
 
