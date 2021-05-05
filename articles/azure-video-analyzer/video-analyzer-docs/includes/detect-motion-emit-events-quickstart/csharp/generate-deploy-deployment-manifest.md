@@ -44,5 +44,5 @@ The RTSP simulator module simulates a live video stream by using a video file th
 ```
 bash -c "$(curl -sL https://aka.ms/ava/prepare-device)"
 ```
-Or follow the steps outlined in [Deploy Azure Video Analyzer on an IoT Edge device](deploy-iot-edge-device.md)
+Or follow the steps outlined in [Deploy Azure Video Analyzer on an IoT Edge device](../../../deploy-iot-edge-device.md)
 At this stage, the modules are deployed but no media pipelines are active.
