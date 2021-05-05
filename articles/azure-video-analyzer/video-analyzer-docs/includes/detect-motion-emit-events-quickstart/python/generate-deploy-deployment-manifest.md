@@ -2,7 +2,7 @@
 author: fvneerden
 ms.service: azure-video-analyzer
 ms.topic: include
-ms.date: 03/18/2021
+ms.date: 05/05/2021
 ms.author: faneerde
 ---
 
@@ -29,28 +29,19 @@ Follow these steps to generate the manifest from the template file and then depl
 
     ![Create a deployment for a single device](../../../media/quickstarts/create-deployment-single-device.png)
 
-1. When you're prompted to select an IoT Hub device, choose **ava-sample-device** from the drop-down menu.
+1. When you're prompted to select an IoT Hub device, choose **avasample-iot-edge-device** from the drop-down menu.
 1. After about 30 seconds, in the lower-left corner of the window, refresh Azure IoT Hub. The edge device now shows the following deployed modules:
 
-    * Azure Video Analyzer on IoT Edge (module name `avaEdge`)
+    * Azure Video Analyzer on IoT Edge (module name `avaedge`)
     * Real-Time Streaming Protocol (RTSP) simulator (module name `rtspsim`)
 
-The RTSP simulator module simulates a live video stream by using a video file that was copied to your edge device when you ran the [Azure Video Analyzer resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). 
-<!-- Above link will need to be updated to new AVA setup script-->
+The RTSP simulator module simulates a live video stream by using a video file that was copied to your edge device when you ran the [Azure Video Analyzer resources setup script](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy). 
 
 > [!NOTE]
-> If you are using your own edge device instead of the one provisioned by our setup script, go to your edge device and run the following commands with **admin rights**, to pull and store the sample video file used for this quickstart:  
+> If you are using your own edge device instead of the one provisioned by our quickstart, go to your edge device and run the following command with **admin rights**, to pull and store the sample video file used for this quickstart:
 
 ```
-mkdir /home/avaedgeuser/samples      
-mkdir /home/avaedgeuser/samples/input    
-curl https://avamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaedgeuser/samples/input/camera-300s.mkv  
-chown -R avalvaedgeuser:localusergroup /home/avaedgeuser/samples/  
+bash -c "$(curl -sL https://aka.ms/ava/prepare-device)"
 ```
-<!-- I assume that to reflect ava:
-we will change the username to ava...
-we will change the foldername ava...
-We will change the blob name/location to reflect ava
-
--->
-At this stage, the modules are deployed but no media graphs are active.
+Or follow the steps outlined in [Deploy Azure Video Analyzer on an IoT Edge device](deploy-iot-edge-device.md)
+At this stage, the modules are deployed but no media pipelines are active.
