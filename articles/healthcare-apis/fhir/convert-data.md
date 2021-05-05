@@ -100,7 +100,7 @@ It is strongly recommended that you host your own copy of templates on ACR. Ther
 1. Enable Managed Identity on your Azure API for FHIR instance.
 1. Provide access of the ACR to the Azure API for FHIR Managed Identity.
 1. Register the ACR servers in the Azure API for FHIR.
-1. Configure IP in firewall.
+1. Optionally configure ACR firewall for secure access.
 
 ### Push templates to Azure Container Registry
 
@@ -191,7 +191,7 @@ In the table below, you'll find the IP address for the Azure region where the Az
 
 
 > [!NOTE]
-> The above steps are similar to the configuration steps described in the document How to export FHIR data.  For more information, see [Secure Export to Azure Storage](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/export-data#secure-export-to-azure-storage)
+> The above steps are similar to the configuration steps described in the document How to export FHIR data.  For more information, see [Secure Export to Azure Storage](https://docs.microsoft.com/azure/healthcare-apis/fhir/export-data#secure-export-to-azure-storage)
 
 ### Verify
 
