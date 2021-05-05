@@ -5,12 +5,12 @@ author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: subject-monitoring
-ms.date: #Required; mm/dd/yyyy format.
+ms.date: 05/01/2021
 ---
 
-# Monitoring App Configuration data reference
+# Monitoring App Configuration data reference
 See [Monitoring App Configuration](monitor-service.md) for details on collecting and analyzing monitoring data for App Configuration.
-## Metrics
+## Metrics
 <!-- REQUIRED if you support Metrics. If you don't, keep the section but call that out. Some services are only onboarded to logs.
 <!-- Please keep headings in this order -->
 <!-- 2 options here depending on the level of extra content you have. -->
@@ -29,13 +29,13 @@ This section lists all the automatically collected platform metrics col
 <!--  OPTION 2 -  Link to the metrics as above, but work in extra information not found in the automated metric-supported reference article.  NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the metrics-supported link. For highly customized example, see [CosmosDB](https://docs.microsoft.com/azure/cosmos-db/monitor-cosmos-db-reference#metrics). They even regroup the metrics into usage type vs. resource provider and type.
 -->
 <!-- Example format. Mimic the setup of metrics supported, but add extra information -->
-### Virtual Machine metrics
+### Virtual Machine metrics
 Resource Provider and Type: [Microsoft.Compute/virtualMachines](/azure/azure-monitor/platform/metrics-supported#microsoftcomputevirtualmachines)
 | Metric | Unit | Description | *TODO replace this label with other information*  |
 |:-------|:-----|:------------|:------------------|
 |        |      |             | Use this metric for <!-- put your specific information in here -->  |
 |        |      |             |  |
-### Virtual machine scale set metrics
+### Virtual machine scale set metrics
 Namespace- [Microsoft.Compute/virtualMachinesscaleset](/azure/azure-monitor/platform/metrics-supported#microsoftcomputevirtualmachinescalesets) 
 | Metric | Unit | Description | *TODO replace this label with other information*  |
 |:-------|:-----|:------------|:------------------|
@@ -47,7 +47,7 @@ Namespace- [Microsoft.Compute/virtualMachinesscaleset](/azure/azure-monitor/pla
 For more information, see a list of [all platform metrics supported in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
 
 
-## Metric Dimensions
+## Metric Dimensions
 <!-- REQUIRED. Please  keep headings in this order -->
 <!-- If you have metrics with dimensions, outline it here. If you have no dimensions, say so.  Questions email azmondocs@microsoft.com -->
 For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
@@ -63,7 +63,7 @@ Azure Storage supports following dimensions for metrics in Azure Monito
 | **BlobType** | The type of blob for Blob metrics only. The supported values are **BlockBlob**, **PageBlob**, and **Azure Data Lake Storage**. Append blobs are included in **BlockBlob**. |
 | **BlobTier** | Azure storage offers different access tiers, which allow you to store blob object data in the most cost-effective manner. See more in [Azure Storage blob tier](azure/storage/blobs/storage-blob-storage-tiers). The supported values include: <br/> <li>**Hot**: Hot tier</li> <li>**Cool**: Cool tier</li> <li>**Archive**: Archive tier</li> <li>**Premium**: Premium tier for block blob</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Tier types for premium page blob</li> <li>**Standard**: Tier type for standard page Blob</li> <li>**Untiered**: Tier type for general purpose v1 storage account</li> |
 | **GeoType** | Transaction from Primary or Secondary cluster. The available values include **Primary** and **Secondary**. It applies to Read Access Geo Redundant Storage(RA-GRS) when reading objects from secondary tenant. |
-## Resource logs
+## Resource logs
 <!-- REQUIRED. Please  keep headings in this order -->
 This section lists the types of resource logs you can collect for App Configuration. 
 <!-- List all the resource log types you can have and what they are for -->  
@@ -81,14 +81,14 @@ This section lists all the resource log category types collected for 
 <!--  OPTION 2 -  Link to the resource logs as above, but work in extra information not found in the automated metric-supported reference article.  NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the resource-log-categories link. You can group these sections however you want provided you include the proper links back to resource-log-categories article. 
 -->
 <!-- Example format. Add extra information -->
-### Web Sites
+### Web Sites
 Resource Provider and Type: [Microsoft.web/sites](/azure/azure-monitor/platform/resource-logs-categories#microsoftwebsites)
 | Category | Display Name | *TODO replace this label with other information*  |
 |:---------|:-------------|------------------|
 | AppServiceAppLogs   | App Service Application Logs | *TODO other important information about this type* |
 | AppServiceAuditLogs | Access Audit Logs            | *TODO other important information about this type* |
 |  etc.               |                              |                                                   |  
-### Web Site Slots
+### Web Site Slots
 Resource Provider and Type: [Microsoft.web/sites/slots](/azure/azure-monitor/platform/resource-logs-categories#microsoftwebsitesslots)
 | Category | Display Name | *TODO replace this label with other information*  |
 |:---------|:-------------|------------------|
@@ -96,7 +96,7 @@ Resource Provider and Type: [Microsoft.web/sites/slots](/azure/azure-monitor
 | AppServiceAuditLogs | Access Audit Logs            | *TODO other important information about this type* |
 |  etc.               |                              |                                                   |  
 --------------**END Examples** -------------
-## Azure Monitor Logs tables
+## Azure Monitor Logs tables
 <!-- REQUIRED. Please keep heading in this order -->
 This section refers to all of the Azure Monitor Logs Kusto tables relevant to App Configuration and available for query by Log Analytics. 
 ------------**OPTION 1 EXAMPLE** ---------------------
@@ -111,13 +111,13 @@ This section refers to all of the Azure Monitor Logs Kusto tables re
 <!--  OPTION 2 -  List out your tables adding additional information on what each table is for. Individually link to each table using the table name.  For example, link to [AzureMetrics](https://docs.microsoft.com/azure/azure-monitor/reference/tables/azuremetrics).  
 NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the automatically generated list. You can group these sections however you want provided you include the proper links back to the proper tables. 
 -->
-### Virtual Machines
+### Virtual Machines
 | Table |  Description | *TODO replace this label with proper title for your additional information*  |
 |:---------|:-------------|------------------|
 | [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity)   | <!-- description copied from previous link --> Entries from the Azure Activity log that provides insight into any subscription-level or management group level events that have occurred in Azure. | *TODO other important information about this type |
 | [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics) | <!-- description copied from previous link --> Metric data emitted by Azure services that measure their health and performance.    | *TODO other important information about this type |
 |  etc.               |                              |                                                   |  
-### Virtual Machine Scale Sets
+### Virtual Machine Scale Sets
 | Table |  Description | *TODO replace this label with other information*  |
 |:---------|:-------------|------------------|
 | [ADAssessmentRecommendation](/azure/azure-monitor/reference/tables/adassessmentrecommendation)   | <!-- description copied from previous link --> Recommendations generated by AD assessments that are started through a scheduled task. When you schedule the assessment it runs by default every 7 days and upload the data into Azure Log Analytics | *TODO other important information about this type |
@@ -126,7 +126,7 @@ NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make su
 <!-- Add extra information if required -->
 For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
 --------------**END EXAMPLES** -------------
-### Diagnostics tables
+### Diagnostics tables
 <!-- REQUIRED. Please keep heading in this order -->
 <!-- If your service uses the AzureDiagnostics table in Azure Monitor Logs / Log Analytics, list what fields you use and what they are for. Azure Diagnostics is over 500 columns wide with all services using the fields that are consistent across Azure Monitor and then adding extra ones just for themselves.  If it uses service specific diagnostic table, refers to that table. If it uses both, put both types of information in. Most services in the future will have their own specific table. If you have questions, contact azmondocs@microsoft.com -->
 App Configuration uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table and the [TODO whatever additional] table to store resource log information. The following columns are relevant.
@@ -140,7 +140,7 @@ App Configuration uses the [Azure Diagnostics](/azure/azure-monitor/referenc
 |:--- |:---|
 |  |  |
 |  |  |
-## Activity log
+## Activity log
 <!-- REQUIRED. Please keep heading in this order -->
 The following table lists the operations related to App Configuration that may be created in the Activity log.
 <!-- Fill in the table with the operations that can be created in the Activity log for the service. -->
@@ -150,11 +150,11 @@ The following table lists the operations related to App Configuration t
 | | |
 <!-- NOTE: This information may be hard to find or not listed anywhere.  Please ask your PM for at least an incomplete list of what type of messages could be written here. If you can't locate this, contact azmondocs@microsoft.com for help -->
 For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
-## Schemas
+## Schemas
 <!-- REQUIRED. Please keep heading in this order -->
 The following schemas are in use by App Configuration
 <!-- List the schema and their usage. This can be for resource logs, alerts, event hub formats, etc depending on what you think is important. -->
-## See Also
+## See Also
 <!-- replace below with the proper link to your main monitoring service article -->
 - See [Monitoring Azure App Configuration](monitor-service-name.md) for a description of monitoring Azure App Configuration.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
