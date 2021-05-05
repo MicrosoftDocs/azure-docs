@@ -1,5 +1,5 @@
 ---
-title: Resize an Azure Virtual Machine using the Azure portal or PowerShell 
+title: Resize a virual machine using the Azure portal or PowerShell 
 description: Change the VM size used for an Azure virtual machine.
 author: cynthn
 ms.service: virtual-machines
@@ -9,7 +9,7 @@ ms.date: 01/13/2020
 ms.author: cynthn
 
 ---
-# Resize an Azure Virtual Machine using the Azure portal or PowerShell
+# Resize a virtual machine using the Azure portal or PowerShell
 
 This article shows you how to move a VM to a different [VM size](../sizes.md).
 
