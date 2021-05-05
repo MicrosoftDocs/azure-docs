@@ -253,7 +253,7 @@ All data exchanged between devices and your Azure IoT Central is encrypted. IoT 
 
 ## Next steps
 
-If you're a device developer, some suggested next steps are to:
+Some suggested next steps are to:
 
 - Review [best practices](concepts-best-practices.md) for developing devices.
 - Review some sample code that shows how to use SAS tokens in [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md)

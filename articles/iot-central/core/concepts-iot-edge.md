@@ -281,4 +281,4 @@ To learn more, see [How to connect devices through an IoT Edge transparent gatew
 
 ## Next steps
 
-If you're a device developer, a suggested next step is to learn how to [Develop your own IoT Edge modules](../../iot-edge/module-development.md).
+A suggested next step is to learn how to [Develop your own IoT Edge modules](../../iot-edge/module-development.md).
