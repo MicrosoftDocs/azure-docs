@@ -27,17 +27,17 @@ In order to follow the steps in this article, you must:
 
 To view metrics associated with a given endpoint or deployment, open the endpoint or deployment in the [Azure portal](https://portal.azure.com) and select **Metrics** in the left hand column.
 
-[![Metrics button](./media/how-to-monitor-online-endpoints/1.click-metric.png)](./media/how-to-monitor-online-endpoints/1.click-metric.png#lightbox)
+[![Metrics button](./media/how-to-monitor-online-endpoints/1.click-metric.png)](./media/how-to-monitor-online-endpoints/online-endpoints-choose-metric.png#lightbox)
 
 ## Create a dashboard
 
 To create a dashboard from your metrics viewed, select the **Pin to dashboard** button in the top right of the metrics window.
 
-[![Screenshot showing "Pin to Dashboard" button surrounded by a red box](./media/how-to-monitor-online-endpoints/1.pin-to-dashboard.png)](./media/how-to-monitor-online-endpoints/1.pin-to-dashboard.png#lightbox)
+[![Screenshot showing "Pin to Dashboard" button surrounded by a red box](./media/how-to-monitor-online-endpoints/online-endpoints-pin-to-dashboard.png)](./media/how-to-monitor-online-endpoints/1.pin-to-dashboard.png#lightbox)
 
 You can also split the metric before adding it to a dashboard, by clicking **Apply splitting**. Splitting lets you view more granular breakdowns of a given metric, which can be useful for troubleshooting. Splitting by status code, for example, lets you answer questions like "were my 4xx responses a result of high traffic?".
 
-[![Screenshot showing "Apply Splitting" button surrounded by a red box](./media/how-to-monitor-online-endpoints/2.apply-splitting.png)](./media/how-to-monitor-online-endpoints/2.apply-splitting.png#lightbox)
+[![Screenshot showing "Apply Splitting" button surrounded by a red box](./media/how-to-monitor-online-endpoints/online-endpoints-apply-splitting.png)](./media/how-to-monitor-online-endpoints/2.apply-splitting.png#lightbox)
 
 ## Create an alert
 
@@ -45,19 +45,19 @@ To create an alert based on a given metric:
 
 1. Select **New alert rule** in the top right of the metrics window.
 
-    [![Screenshot showing "New alert rule" button surrounded by a red box](./media/how-to-monitor-online-endpoints/3.new-alert-rule.png)](./media/how-to-monitor-online-endpoints/3.new-alert-rule.png#lightbox)
+    [![Screenshot showing "New alert rule" button surrounded by a red box](./media/how-to-monitor-online-endpoints/online-endpoints-new-alert-rule.png)](./media/how-to-monitor-online-endpoints/3.new-alert-rule.png#lightbox)
 
 1. Select the condition name on the resulting screen in order to specify when your alert should be triggered.
 
-    [![Screenshot showing "Configure signal logic" button surrounded by a red box](./media/how-to-monitor-online-endpoints/4.configure-signal-logic.png)](./media/how-to-monitor-online-endpoints/4.configure-signal-logic.png#lightbox)
+    [![Screenshot showing "Configure signal logic" button surrounded by a red box](./media/how-to-monitor-online-endpoints/online-endpoints-configure-signal-logic.png)](./media/how-to-monitor-online-endpoints/4.configure-signal-logic.png#lightbox)
 
 1. Choose **Add action groups** followed by **Create action groups** to specify what should happen when your alert is triggered.
 
-    [![Screenshot showing "Create action group" button surrounded by a red box](./media/how-to-monitor-online-endpoints/5.create-action-group.png)](./media/how-to-monitor-online-endpoints/5.create-action-group.png#lightbox)
+    [![Screenshot showing "Create action group" button surrounded by a red box](./media/how-to-monitor-online-endpoints/online-endpoints-create-action-group.png)](./media/how-to-monitor-online-endpoints/5.create-action-group.png#lightbox)
 
 1. Choose **Create alert rule** to finish creating your alert.
 
-    [![Screenshot showing "Create alert rule" button surrounded by a red box](./media/how-to-monitor-online-endpoints/6.create-alert-rule.png)](./media/how-to-monitor-online-endpoints/6.create-alert-rule.png#lightbox)
+    [![Screenshot showing "Create alert rule" button surrounded by a red box](./media/how-to-monitor-online-endpoints/online-endpoints-create-alert-rule.png)](./media/how-to-monitor-online-endpoints/6.create-alert-rule.png#lightbox)
 
 ## Supported metrics at the endpoint level
 
