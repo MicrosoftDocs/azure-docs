@@ -16,6 +16,8 @@ Azure Arc with Kubernetes lets you make your on-premises or cloud Kubernetes clu
 - [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), or use the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 - [Install kubectl](https://kubernetes.io/docs/tasks/tools/). It's also preinstalled in the Azure Cloud Shell.
 
+`TODO: install CLI extensions`
+
 ## Obtain cluster information
 
 Set the following environment variables based on your Kubernetes cluster deployment:
