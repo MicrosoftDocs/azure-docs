@@ -96,7 +96,7 @@ You can use one of the following ingested [data sources](../Concepts/data-source
 * Private SharePoint URL
 * File
 
-Custom question answering also supports unstrucutered content. You can upload a file that has unstructured content.
+Custom question answering also supports unstructured content. You can upload a file that has unstructured content.
 
 The ingestion process converts [supported content types](../reference-document-format-guidelines.md) to markdown. All further editing of the *answer* is done with markdown. After you create a knowledge base, you can edit [QnA pairs](question-answer-set.md) in the QnA Maker portal with [rich text authoring](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
 
