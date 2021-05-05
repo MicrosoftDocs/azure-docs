@@ -30,7 +30,7 @@ For other migration guides, see [Database Migration](/data-migration).
 
 [Azure SQL Managed Instance](../../managed-instance/sql-managed-instance-paas-overview.md) is a recommended target option for SQL Server workloads that require a fully managed service without having to manage virtual machines or their operating systems. SQL Managed Instance enables you to move your on-premises applications to Azure with minimal application or database changes. It offers complete isolation of your instances with native virtual network support. 
 
-Be sure to review the SQL Server database engine features [available in Azure SQL Managed Instance](../../database/features-comparison.md) to confirm the supportability of your migration source.  
+Be sure to review the SQL Server database engine features [available in Azure SQL Managed Instance](../../database/features-comparison.md) to validate the supportability of your migration target.  
 
 ## Considerations 
 
