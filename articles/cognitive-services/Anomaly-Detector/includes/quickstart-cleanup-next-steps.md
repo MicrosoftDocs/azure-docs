@@ -28,4 +28,4 @@ Concepts:
 Tutorials:
 
 * [Visualize anomalies as a batch using Power BI](../tutorials/batch-anomaly-detection-powerbi.md)
-* [Anomaly detection on streaming data using Azure Databricks](../tutorials/anomaly-detection-streaming-databricks.md)
+* [Anomaly detection on streaming data using Azure Databricks](../overview.md)

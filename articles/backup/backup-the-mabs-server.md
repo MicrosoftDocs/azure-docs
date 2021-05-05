@@ -327,4 +327,4 @@ DpmSync -ReallocateReplica
 ## Next steps
 
 - [MABS support matrix](backup-support-matrix-mabs-dpm.md)
-- [MABS FAQ](backup-azure-dpm-azure-server-faq.md)
+- [MABS FAQ](backup-azure-dpm-azure-server-faq.yml)

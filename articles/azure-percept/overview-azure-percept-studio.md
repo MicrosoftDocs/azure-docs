@@ -1,8 +1,8 @@
 ---
 title: Azure Percept Studio overview
 description: Learn more about Azure Percept Studio
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021
@@ -18,6 +18,8 @@ In the Studio, you can see your edge AI-capable devices as end points for collec
 The workflows in Azure Percept Studio integrate many Azure AI and IoT services, like Azure IoT Hub, Custom Vision, Speech Studio, and Azure ML, so you can use these services to create an end-to-end solution without significant pre-existing knowledge. If you are already familiar with these Azure services, you can also connect to and modify existing Azure service resources outside of Azure Percept Studio.
 
 Regardless of if you are a beginner or an advanced AI model and solution developer, working on a prototype, or moving to a production solution, Azure Percept Studio offers access to workflows you can use to reduce friction around building edge AI solutions.
+
+## Video walkthrough
 
 </br>
 

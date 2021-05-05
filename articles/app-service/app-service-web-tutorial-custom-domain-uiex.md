@@ -7,7 +7,7 @@ ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/25/2020
-ms.custom: mvc, seodec18
+ms.custom: mvc, seodec18, devx-track-azurepowershell
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 

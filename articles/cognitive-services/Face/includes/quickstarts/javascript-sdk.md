@@ -19,7 +19,7 @@ Use the Face client library for JavaScript to:
 
 * [Detect faces in an image](#detect-faces-in-an-image)
 * [Find similar faces](#find-similar-faces)
-* [Create a person group](#create-a-person-group)
+* [Create a PersonGroup](#create-a-persongroup)
 * [Identify a face](#identify-a-face)
 
 [Reference documentation](/javascript/api/@azure/cognitiveservices-face/) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-face) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-face) | [Samples](/samples/browse/?products=azure&term=face&languages=javascript)
@@ -101,7 +101,7 @@ The code snippets below show you how to do the following tasks with the Face cli
 * [Authenticate the client](#authenticate-the-client)
 * [Detect faces in an image](#detect-faces-in-an-image)
 * [Find similar faces](#find-similar-faces)
-* [Create a person group](#create-a-person-group)
+* [Create a PersonGroup](#create-a-persongroup)
 * [Identify a face](#identify-a-face)
 
 > [!TIP]
@@ -158,27 +158,27 @@ The following method detects faces in a set of target images and in a single sou
 
 The [Identify](/javascript/api/@azure/cognitiveservices-face/face#identify_string____FaceIdentifyOptionalParams__ServiceCallback_IdentifyResult____) operation takes an image of a person (or multiple people) and looks to find the identity of each face in the image (facial recognition search). It compares each detected face to a [PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup), a database of different [Person](/javascript/api/@azure/cognitiveservices-face/person) objects whose facial features are known. In order to do the Identify operation, you first need to create and train a [PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup).
 
-### Add faces to person group
+### Add faces to PersonGroup
 
 Create the following function to add faces to the [PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup).
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="add_faces":::
 
-### Wait for training of person group
+### Wait for training of PersonGroup
 
-Create the following helper function to wait for the person group to finish training.
+Create the following helper function to wait for the **PersonGroup** to finish training.
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="wait_for_training":::
 
-### Create a person group
+### Create a PersonGroup
 
 The following code:
 - Creates a [PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup)
-- Adds faces to the person group by calling `AddFacesToPersonGroup`, which you defined previously.
-- Trains the person group.
-- Identifies the faces in the person group.
+- Adds faces to the **PersonGroup** by calling `AddFacesToPersonGroup`, which you defined previously.
+- Trains the **PersonGroup**.
+- Identifies the faces in the **PersonGroup**.
 
-This **Person** group and its associated **Person** objects are now ready to be used in the Verify, Identify, or Group operations.
+This **PersonGroup** and its associated **Person** objects are now ready to be used in the Verify, Identify, or Group operations.
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="identify":::
 

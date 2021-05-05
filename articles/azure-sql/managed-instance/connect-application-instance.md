@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
-ms.date: 11/09/2018
+ms.date: 02/25/2021
 ---
 
 # Connect your application to Azure SQL Managed Instance

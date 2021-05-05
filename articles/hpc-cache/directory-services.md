@@ -39,7 +39,7 @@ Under **Active directory details**, supply these values:
 
 * **AD DNS domain name** - Provide the fully qualified domain name of the AD server that the cache will join to get the credentials.
 
-* **Cache server name (computer account)** - Set the name that will be assigned to this HPC cache when it joins the AD domain. Specify a name that is easy to recognize as this cache. The name can be up to 15 characters long and can include capital or lowercase letters, numbers, and hyphens (-).
+* **Cache server name (computer account)** - Set the name that will be assigned to this HPC Cache when it joins the AD domain. Specify a name that is easy to recognize as this cache. The name can be up to 15 characters long and can include capital or lowercase letters, numbers, and hyphens (-).
 
 In the **Credentials** section, provide an AD administrator username and password that the Azure HPC Cache can use to access the AD server. This information is encrypted when stored, and can't be queried.
 

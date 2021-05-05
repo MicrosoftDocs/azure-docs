@@ -4,7 +4,7 @@ description: Learn how to copy data from file system to supported sink data stor
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 03/29/2021
 ms.author: jingwang
 ---
 
@@ -31,13 +31,16 @@ Specifically, this file system connector supports:
 - Copying files using **Windows** authentication.
 - Copying files as-is or parsing/generating files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
+> [!NOTE]
+> Mapped network drive is not supported when loading data from a network file share. Use the actual path instead e.g. ` \\server\share`.
+
 ## Prerequisites
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to file system.
 
@@ -90,7 +93,7 @@ The following properties are supported for file system linked service:
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for file system under `location` settings in format-based dataset:
 
@@ -132,7 +135,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### File system as source
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for file system under `storeSettings` settings in format-based copy source:
 
@@ -197,7 +200,7 @@ The following properties are supported for file system under `storeSettings` set
 
 ### File system as sink
 
-[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)]
+[!INCLUDE [data-factory-v2-file-sink-formats](includes/data-factory-v2-file-sink-formats.md)]
 
 The following properties are supported for file system under `storeSettings` settings in format-based copy sink:
 

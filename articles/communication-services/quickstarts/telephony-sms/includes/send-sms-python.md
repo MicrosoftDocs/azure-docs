@@ -19,11 +19,11 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 <!--**TODO: update all these reference links as the resources go live**
 
-[API reference documentation](../../../references/overview.md) | [Library source code](#todo-sdk-repo) | [Package (PiPy)](#todo-nuget) | [Samples](#todo-samples)--> 
+[API reference documentation](../../../references/overview.md) | [Library source code](#todo-sdk-repo) | [Package (PiPy)](#todo-nuget) | [Samples](#todo-samples)-->
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python](https://www.python.org/downloads/) 2.7 or 3.6+.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 - An SMS enabled telephone number. [Get a phone number](../get-phone-number.md).
@@ -61,7 +61,7 @@ except Exception as ex:
 While still in the application directory, install the Azure Communication Services SMS SDK for Python package by using the `pip install` command.
 
 ```console
-pip install azure-communication-sms --pre
+pip install azure-communication-sms
 ```
 
 ## Object model
@@ -75,7 +75,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-Instantiate an **SmsClient** with your connection string. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+Instantiate an **SmsClient** with your connection string. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 ```python
 # Create the SmsClient object which will be used to send SMS messages
@@ -100,10 +100,10 @@ sms_responses = sms_client.send(
 
 ```
 
-You should replace `<from-phone-number>` with an SMS enabled phone number associated with your communication service and `<to-phone-number>` with the phone number you wish to send a message to. 
+You should replace `<from-phone-number>` with an SMS enabled phone number associated with your communication service and `<to-phone-number>` with the phone number you wish to send a message to.
 
 > [!WARNING]
-> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +12223334444).
+> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +14255550123).
 
 ## Send a 1:N SMS Message
 
@@ -121,13 +121,16 @@ sms_responses = sms_client.send(
 
 ```
 
-You should replace `<from-phone-number>` with an SMS enabled phone number associated with your communication service and `<to-phone-number-1>` and `<to-phone-number-2>` with the phone numbers you wish to send a message to. 
+You should replace `<from-phone-number>` with an SMS enabled phone number associated with your communication service and `<to-phone-number-1>` `<to-phone-number-2>` with phone number(s) you wish to send a message to.
+
+> [!WARNING]
+> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +14255550123).
 
 ## Optional Parameters
 
 The `enable_delivery_report` parameter is an optional parameter that you can use to configure Delivery Reporting. This is useful for scenarios where you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure Delivery Reporting for your SMS messages.
 
-The `tag` parameter is an optional parameter that you can use to configure custom tagging.
+The `tag` parameter is an optional parameter that you can use to apply a tag to the Delivery Report.
 
 ## Run the code
 Run the application from your application directory with the `python` command.

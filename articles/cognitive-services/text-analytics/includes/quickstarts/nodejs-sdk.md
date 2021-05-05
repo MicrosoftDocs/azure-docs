@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 04/19/2021
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
@@ -705,8 +705,7 @@ ID: 0
 
 # [Version 3.1 preview](#tab/version-3-1)
 
-> [!CAUTION]
-> To use Analyze operations, you must use a Text Analytics resource with the standard (S) pricing tier.  
+[!INCLUDE [Analyze Batch Action pricing](../analyze-operation-pricing-caution.md)]
 
 Create a new function called `analyze_example()`, which calls the `beginAnalyze()` function. The result will be a long running operation which will be polled for results.
 
@@ -763,7 +762,7 @@ The analyze batch actions operation results will expire on Sat Mar 13 2021 09:53
         - Entity Paul Allen of type Person
 ```
 
-You can also use the Analyze operation to detect PII, recognize linked entities and key phrase extraction. See the Analyze samples for [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/javascript) and [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/typescript/src) on GitHub.
+You can also use the Analyze operation to detect PII, recognize linked entities and key phrase extraction. See the Analyze samples for [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/v5/javascript) and [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/v5/typescript/src) on GitHub.
 
 # [Version 3.0](#tab/version-3)
 

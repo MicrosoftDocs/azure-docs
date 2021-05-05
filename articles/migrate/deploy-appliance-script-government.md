@@ -22,7 +22,7 @@ Follow this article to deploy an [Azure Migrate appliance](./migrate-appliance-a
 
 The script sets up the Azure Migrate appliance on an existing physical server or on a virtualized server.
 
-- The server that will act as the appliance must be running Windows Server 2016, with 32 GB of memory, eight vCPUs, around 80 GB of disk storage, and an external virtual switch. It requires a static or dynamic IP address, and access to the internet.
+- The server that will act as the appliance must be running Windows Server 2016, with 32 GB of memory, eight vCPUs, around 80 GB of disk storage, and an external virtual switch. It requires a static or dynamic IP address. 
 - Before you deploy the appliance, review detailed appliance requirements for [servers on VMware](migrate-appliance.md#appliance---vmware), [on Hyper-V](migrate-appliance.md#appliance---hyper-v), and [physical servers](migrate-appliance.md#appliance---physical).
 - Don't run the script on an existing Azure Migrate appliance.
 

@@ -1,7 +1,7 @@
 ---
 title: DoD Impact Level 5 blueprint sample
 description: Deploy steps for the DoD Impact Level 5 blueprint sample including blueprint artifact parameter details.
-ms.date: 01/08/2021
+ms.date: 04/13/2021
 ms.topic: sample
 ---
 # Deploy the DoD Impact Level 5 blueprint sample
@@ -13,8 +13,9 @@ To deploy the Azure Blueprints Department of Defense Impact Level 5 (DoD IL5) bl
 > - Mark your copy of the sample as **Published**
 > - Assign your copy of the blueprint to an existing subscription
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
-before you begin.
+If you don't have an Azure Government subscription, request a
+[trial subscription](https://azure.microsoft.com/global-infrastructure/government/request/) before
+you begin.
 
 ## Create blueprint from sample
 
@@ -137,7 +138,7 @@ The following table provides a list of the blueprint artifact parameters:
 |DoD Impact Level 5|Policy Assignment|Effect for policy: Ensure that '.NET Framework' version is the latest, if used as a part of the Function App|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
 |DoD Impact Level 5|Policy Assignment|Effect for policy: Transparent Data Encryption on SQL databases should be enabled|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
 |DoD Impact Level 5|Policy Assignment|Effect for policy: Vulnerability assessment should be enabled on your SQL managed instances|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
-|DoD Impact Level 5|Policy Assignment|Effect for policy: Ensure that 'PHP version' is the latest, if used as a part of the Api app|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
+|DoD Impact Level 5|Policy Assignment|Effect for policy: Ensure that 'PHP version' is the latest, if used as a part of the API app|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
 |DoD Impact Level 5|Policy Assignment|Effect for policy: An Azure Active Directory administrator should be provisioned for SQL servers|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
 |DoD Impact Level 5|Policy Assignment|Effect for policy: Only secure connections to your Redis Cache should be enabled|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
 |DoD Impact Level 5|Policy Assignment|Effect for policy: Endpoint protection solution should be installed on virtual machine scale sets|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
@@ -158,17 +159,17 @@ The following table provides a list of the blueprint artifact parameters:
 |DoD Impact Level 5|Policy Assignment|Effect for policy: Ensure that 'Python version' is the latest, if used as a part of the Web app|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
 |DoD Impact Level 5|Policy Assignment|Effect for policy: Ensure that 'Python version' is the latest, if used as a part of the Function app|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
 |DoD Impact Level 5|Policy Assignment|Effect for policy: Ensure that 'PHP version' is the latest, if used as a part of the WEB app|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
-|DoD Impact Level 5|Policy Assignment|Effect for policy: Ensure that 'Python version' is the latest, if used as a part of the Api app|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
+|DoD Impact Level 5|Policy Assignment|Effect for policy: Ensure that 'Python version' is the latest, if used as a part of the API app|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
 |DoD Impact Level 5|Policy Assignment|Effect for policy: Vulnerabilities should be remediated by a Vulnerability Assessment solution|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
 |DoD Impact Level 5|Policy Assignment|Effect for policy: Geo-redundant backup should be enabled for Azure Database for MySQL|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
 |DoD Impact Level 5|Policy Assignment|Effect for policy: Ensure that '.NET Framework' version is the latest, if used as a part of the Web app|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
 |DoD Impact Level 5|Policy Assignment|Effect for policy: System updates should be installed on your machines|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
-|DoD Impact Level 5|Policy Assignment|Effect for policy: Ensure that 'Java version' is the latest, if used as a part of the Api app|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
+|DoD Impact Level 5|Policy Assignment|Effect for policy: Ensure that 'Java version' is the latest, if used as a part of the API app|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
 |DoD Impact Level 5|Policy Assignment|Effect for policy: Ensure that 'HTTP Version' is the latest, if used to run the Web app|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
 |DoD Impact Level 5|Policy Assignment|Effect for policy: Latest TLS version should be used in your API App|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
 |DoD Impact Level 5|Policy Assignment|Effect for policy: MFA should be enabled accounts with write permissions on your subscription|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
 |DoD Impact Level 5|Policy Assignment|Effect for policy: Advanced data security settings for SQL server should contain an email address to receive security alerts|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
-|DoD Impact Level 5|Policy Assignment|Effect for policy: Ensure that 'HTTP Version' is the latest, if used to run the Api app|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
+|DoD Impact Level 5|Policy Assignment|Effect for policy: Ensure that 'HTTP Version' is the latest, if used to run the API app|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
 |DoD Impact Level 5|Policy Assignment|Effect for policy: Microsoft IaaSAntimalware extension should be deployed on Windows servers|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
 |DoD Impact Level 5|Policy Assignment|Effect for policy: Ensure that 'Java version' is the latest, if used as a part of the Function app|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|
 |DoD Impact Level 5|Policy Assignment|Effect for policy: Access through Internet facing endpoint should be restricted|Azure Policy effect for this policy; for more information about effects, visit https://aka.ms/policyeffects|

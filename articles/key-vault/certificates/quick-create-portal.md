@@ -3,7 +3,6 @@ title: Azure Quickstart - Set and retrieve a certificate from Key Vault using Az
 description: Quickstart showing how to set and retrieve a certificate from Azure Key Vault using the Azure portal
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -57,7 +56,8 @@ To add a certificate to the vault, you just need to take a couple of additional 
     - **Method of Certificate Creation**: Generate.
     - **Certificate Name**: ExampleCertificate.
     - **Subject**: CN=ExampleDomain
-    - Leave the other values to their defaults. Click **Create**.
+    - Leave the other values to their defaults. (By default, if you don't specify anything special in Advanced policy, it'll be usable as a client auth certificate.)
+ 4. Click **Create**.
 
 Once that you receive the message that the certificate has been successfully created, you may click on it on the list. You can then see some of the properties. If you click on the current version, you can see the value you specified in the previous step.
 
@@ -84,4 +84,4 @@ In this quickstart, you created a Key Vault and stored a certificate in it. To l
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
-- Review the [Key Vault security overview](../general/security-overview.md)
+- Review the [Key Vault security overview](../general/security-features.md)

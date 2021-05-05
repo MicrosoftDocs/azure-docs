@@ -46,7 +46,7 @@ More regions will be announced when they become available.
 
 - Currently, the Azure portal experience to configure the backup of disks is limited to a maximum of 20 disks from the same subscription.
 
-- Currently (during the preview), the use of PowerShell and Azure CLI to configure the backup and restore of disks isn't supported.
+- Azure Disk Backup supports PowerShell. Currently, Azure CLI isn’t supported.
 
 - When configuring backup, the disk selected to be backed up and the snapshot resource group where the snapshots are to be stored must be part of the same subscription. You can't create an incremental snapshot for a particular disk outside of that disk's subscription. Learn more about [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md#restrictions) for managed disk. For more information on how to choose a snapshot resource group, see  [Configure backup](backup-managed-disks.md#configure-backup).
 
@@ -56,7 +56,7 @@ More regions will be announced when they become available.
 
 - [Private Links](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) support for managed disks allows you to restrict the export and import of managed disks so that it only occurs within your Azure virtual network. Azure Disk Backup supports backup of disks that have private endpoints enabled. This doesn't include the backup data or snapshots to be accessible through the private endpoint.
 
-- During the preview, you can't disable the backup, so the option **stop backup and retain backup data** is not supported. You can delete a backup instance, which will not only stop the backup but also delete all the backup data.
+- You can delete a backup instance, which will stop the backup, and also deletes all the backup data. Currently, you can’t disable a backup, as the option **stop backup and retain backup data** isn’t supported.
 
 ## Next steps
 

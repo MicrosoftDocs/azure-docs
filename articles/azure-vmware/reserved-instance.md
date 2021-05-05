@@ -1,8 +1,8 @@
 ---
-title: Save costs with Azure VMware Solution reserved instance
-description: Learn how to buy a reserved instance for Azure VMware Solution.
+title: Reserved instances of Azure VMware Solution
+description: Learn how to buy a reserved instance for Azure VMware Solution. The reserved instance covers only the compute part of your usage and includes software licensing costs.
 ms.topic: how-to
-ms.date: 02/03/2021
+ms.date: 04/09/2021
 ---
 
 # Save costs with Azure VMware Solution
@@ -72,7 +72,7 @@ CSPs that want to purchase reserved instances for their customers must use the *
 
 5. Select **Purchase Now** and then select **Azure VMware Solution**.
 
-   :::image type="content" source="media/reserved-instances/csp-buy-ri-azure-portal.png" alt-text="Microsoft Azure portal reservations" lightbox="media/reserved-instances/csp-buy-ri-azure-portal.png":::
+   :::image type="content" source="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png" alt-text="Microsoft Azure portal reservations" lightbox="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png":::
 
 6. Enter the required fields. The selected attributes that match running Azure VMware Solution hosts qualify for the reservation discount.  Attributes include the SKU, regions (where applicable), and scope. Reservation scope selects where the reservation savings apply.
 
@@ -130,9 +130,9 @@ CSPs can cancel, exchange, or refund reservations, with certain limitations, pur
 
 ## Next steps
 
-Now that you've covered buying a reserved instance of Azure VMware Solution, you may want to learn about:
+Now that you've covered reserved instance of Azure VMware Solution, you may want to learn about:
 
 - [Creating an Azure VMware Solution assessment](../migrate/how-to-create-azure-vmware-solution-assessment.md).
 - [Managing DHCP for Azure VMware Solution](manage-dhcp.md).
-- [Lifecycle management of Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md).
+- [Monitor and manage Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md).
  

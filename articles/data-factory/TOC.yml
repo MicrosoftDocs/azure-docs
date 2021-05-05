@@ -15,6 +15,8 @@
     href: quickstart-create-data-factory-portal.md
   - name: Create data factory - Copy data tool
     href: quickstart-create-data-factory-copy-data-tool.md
+  - name: Create data factory - Azure CLI
+    href: quickstart-create-data-factory-azure-cli.md
   - name: Create data factory - Azure PowerShell
     href: quickstart-create-data-factory-powershell.md
   - name: Create data factory - .NET
@@ -105,6 +107,8 @@
     items:
     - name: Transform data with mapping data flows
       items:
+      - name: Best practices for landing data in the lake with ADLS Gen2
+        href: tutorial-data-flow-write-to-lake.md
       - name: Transform data in the lake with Delta Lake
         href: tutorial-data-flow-delta-lake.md
       - name: Transform data with mapping data flows
@@ -221,7 +225,7 @@
       href: source-control.md
     - name: Continuous integration and delivery
       href: continuous-integration-deployment.md
-    - name: Automated publish
+    - name: Automated publishing for CI/CD
       href: continuous-integration-deployment-improvements.md
   - name: Connectors
     items:
@@ -613,7 +617,7 @@
     - name: Azure private link for Data Factory
       href: data-factory-private-link.md
     - name: Azure security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/data-factory-security-baseline?toc=/azure/data-factory/TOC.json
   - name: Monitor and manage
     items:
     - name: Monitor visually
@@ -792,6 +796,8 @@
       items:
       - name: Data flows overview
         href: data-flow-troubleshoot-guide.md
+      - name: Connector and format
+        href: data-flow-troubleshoot-connector-format.md
     - name: Continuous Integration and Deployment 
       href: ci-cd-github-troubleshoot-guide.md      
     - name: Security and access control
@@ -820,6 +826,8 @@
     href: /python/api/overview/azure/datafactory
   - name: Azure Policy built-ins
     href: policy-reference.md
+  - name: Azure CLI
+    href: /cli/azure/datafactory
 - name: Resources
   items:
   - name: Whitepapers

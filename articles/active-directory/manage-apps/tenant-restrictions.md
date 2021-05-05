@@ -2,14 +2,14 @@
 title: Use tenant restrictions to manage access to SaaS apps - Azure AD
 description: How to use tenant restrictions to manage which users can access apps based on their Azure AD tenant.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 2/23/2021
-ms.author: kenwith
+ms.date: 4/6/2021
+ms.author: iangithinji
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
 ---
@@ -36,7 +36,7 @@ The overall solution comprises the following components:
 
 3. **Client software**: To support tenant restrictions, client software must request tokens directly from Azure AD, so that the proxy infrastructure can intercept traffic. Browser-based Microsoft 365 applications currently support tenant restrictions, as do Office clients that use modern authentication (like OAuth 2.0).
 
-4. **Modern Authentication**: Cloud services must use modern authentication to use tenant restrictions and block access to all non-permitted tenants. You must configure Microsoft 365 cloud services to use modern authentication protocols by default. For the latest information on Microsoft 365 support for modern authentication, read [Updated Office 365 modern authentication](https://www.microsoft.com/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+4. **Modern Authentication**: Cloud services must use modern authentication to use tenant restrictions and block access to all non-permitted tenants. You must configure Microsoft 365 cloud services to use modern authentication protocols by default. For the latest information on Microsoft 365 support for modern authentication, read [Updated Office 365 modern authentication](https://docs.microsoft.com/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016?view=o365-worldwide).
 
 The following diagram illustrates the high-level traffic flow. Tenant restrictions requires TLS inspection only on traffic to Azure AD, not to the Microsoft 365 cloud services. This distinction is important, because the traffic volume for authentication to Azure AD is typically much lower than traffic volume to SaaS applications like Exchange Online and SharePoint Online.
 
@@ -92,6 +92,8 @@ This section describes the experience for both end users and admins.
 
 An example user is on the Contoso network, but is trying to access the Fabrikam instance of a shared SaaS application like Outlook online. If Fabrikam is a non-permitted tenant for the Contoso instance, the user sees an access denial message, which says you're trying to access a resource that belongs to an organization unapproved by your IT department.
 
+![Tenant restrictions error message, from April 2021](./media/tenant-restrictions/error-message.png)
+
 ### Admin experience
 
 While configuration of tenant restrictions is done on the corporate proxy infrastructure, admins can access the tenant restrictions reports in the Azure portal directly. To view the reports:
@@ -108,14 +110,14 @@ The report may contain limited information, such as target directory ID, when a 
 
 Like other reports in the Azure portal, you can use filters to specify the scope of your report. You can filter on a specific time interval, user, application, client, or status. If you select the **Columns** button, you can choose to display data with any combination of the following fields:
 
-- **User** - this field can have personally identifiable information removed, where it will be set to `00000000-0000-0000-0000-000000000000`. 
+- **User** - this field can have personal data removed, where it will be set to `00000000-0000-0000-0000-000000000000`. 
 - **Application**
 - **Status**
 - **Date**
 - **Date (UTC)** - where UTC is Coordinated Universal Time
 - **IP Address**
 - **Client**
-- **Username** - this field can have personally identifiable information removed, where it will be set to `{PII Removed}@domain.com`
+- **Username** - this field can have personal data removed, where it will be set to `{PII Removed}@domain.com`
 - **Location**
 - **Target tenant ID**
 
@@ -202,7 +204,7 @@ Some organizations attempt to fix this by blocking `login.live.com` in order to 
 
 ### Configuration for consumer apps
 
-While the `Restrict-Access-To-Tenants` header functions as an allow-list, the Microsoft account (MSA) block works as a deny signal, telling the Microsoft account platform to not allow users to sign in to consumer applications. To send this signal, the `sec-Restrict-Tenant-Access-Policy` header is injected to traffic visiting `login.live.com` using the same corporate proxy or firewall as [above](#proxy-configuration-and-requirements). The value of the header must be `restrict-msa`. When the header is present and a consumer app is attempting to sign in a user directly, that sign in will be blocked.
+While the `Restrict-Access-To-Tenants` header functions as an allowlist, the Microsoft account (MSA) block works as a deny signal, telling the Microsoft account platform to not allow users to sign in to consumer applications. To send this signal, the `sec-Restrict-Tenant-Access-Policy` header is injected to traffic visiting `login.live.com` using the same corporate proxy or firewall as [above](#proxy-configuration-and-requirements). The value of the header must be `restrict-msa`. When the header is present and a consumer app is attempting to sign in a user directly, that sign in will be blocked.
 
 At this time, authentication to consumer applications does not appear in the [admin logs](#admin-experience), as login.live.com is hosted separately from Azure AD.
 

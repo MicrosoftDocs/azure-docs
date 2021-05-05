@@ -1,6 +1,6 @@
 ---
 title: Define a new IoT device type in Azure IoT Central | Microsoft Docs
-description: This article shows you, as a solution builder, how to create a new Azure IoT device template in your Azure IoT Central application. You define the telemetry, state, properties, and commands for your type.
+description: This article shows you how to create a new Azure IoT device template in your Azure IoT Central application. You define the telemetry, state, properties, and commands for your type.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/06/2019
@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: [contperf-fy21q1, device-developer]
+
+# This article applies to solution builders and device developers.
 ---
 
 # Define a new IoT device type in your Azure IoT Central application
-
-*This article applies to solution builders and device developers.*
 
 A device template is a blueprint that defines the characteristics and behaviors of a type of device that connects to an [Azure IoT Central application](concepts-app-templates.md).
 
@@ -52,7 +52,7 @@ Some [application templates](concepts-app-templates.md) already include device t
 
 ## Create a device template from the device catalog
 
-As a builder, you can quickly start building out your solution by using a certified device. See the list in the [Azure IoT Device Catalog](https://catalog.azureiotsolutions.com/alldevices). IoT Central integrates with the device catalog so you can import a device model from any of the certified devices. To create a device template from one of these devices in IoT Central:
+As a builder, you can quickly start building out your solution by using a certified device. See the list in the [Azure IoT Device Catalog](https://devicecatalog.azure.com). IoT Central integrates with the device catalog so you can import a device model from any of the certified devices. To create a device template from one of these devices in IoT Central:
 
 1. Go to the **Device templates** page in your IoT Central application.
 1. Select **+ New**, and then select any of the certified devices from the catalog. IoT Central creates a device template based on this device model.
@@ -277,4 +277,4 @@ After you publish a device template, an operator can go to the **Devices** page,
 
 ## Next steps
 
-If you're a device developer, a suggested next step is to read about [device template versioning](./howto-version-device-template.md).
+A suggested next step is to read about [device template versioning](./howto-version-device-template.md).

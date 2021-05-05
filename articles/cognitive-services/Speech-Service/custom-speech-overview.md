@@ -76,7 +76,7 @@ To create your first project, select **Speech-to-text/Custom speech**, and then 
 
 ## Model and Endpoint lifecycle
 
-Older models typically become less useful over time because the newest model usually has higher accuracy. Therefore, base models as well as custom models and endpoints created through the portal are subject to expiration after 1 year for adaptation and 2 years for decoding. See a detailed description in the [Model and Endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md) article.
+Older models typically become less useful over time because the newest model usually has higher accuracy. Therefore, base models as well as custom models and endpoints created through the portal are subject to expiration after 1 year for adaptation and 2 years for decoding. See a detailed description in the [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md) article.
 
 ## Next steps
 

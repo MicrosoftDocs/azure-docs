@@ -120,8 +120,8 @@ Version 15.2 (or above) of Visual Studio 2017 publishes symbols for release buil
 For Azure Compute and other types, make sure that the symbol files are in the same folder of the main application .dll (typically, `wwwroot/bin`) or are available on the current path.
 
 > [!NOTE]
-> For more information on the different symbol options that are available consult the [Visual Studio documentation](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
-). For best results, we recommend using “Full”, “Portable” or “Embedded”.
+> For more information on the different symbol options that are available consult the [Visual Studio documentation](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019&preserve-view=true#output
+). For best results, we recommend using "Full", "Portable" or "Embedded".
 
 ### Optimized builds
 In some cases, local variables can't be viewed in release builds because of optimizations that are applied by the JIT compiler.

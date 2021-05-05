@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Deploy a Windows Virtual Desktop (classic) management tool with an Azure Resource Manager template
 

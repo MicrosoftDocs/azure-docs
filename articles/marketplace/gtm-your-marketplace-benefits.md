@@ -95,7 +95,7 @@ In addition to the rewards benefits, business applications partners with Dynamic
 
 ### Publisher Agreement
 
-All the activities described on this page are covered by the Microsoft [publisher agreement](https://go.microsoft.com/fwlink/?LinkID=699560) and are pursuant to the Commercial Benefits Program Addendum.
+All the activities described on this page are covered by the Microsoft [publisher agreement](/legal/marketplace/msft-publisher-agreement) and are pursuant to the Commercial Benefits Program Addendum.
 
 ### Cancellation policy
 

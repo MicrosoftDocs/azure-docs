@@ -26,8 +26,10 @@
         href: quickstarts/chat/meeting-interop.md
   - name: Telephony and SMS
     items:
-      - name: Manage telephone numbers
+      - name: Get a telephone number
         href: quickstarts/telephony-sms/get-phone-number.md
+      - name: Port a telephone number into Azure
+        href: quickstarts/telephony-sms/port-phone-number.md
       - name: Add telephone calling to your app
         href: quickstarts/voice-video-calling/pstn-call.md
       - name: Send an SMS message
@@ -84,10 +86,16 @@
         href: concepts/telephony-sms/telephony-concept.md
       - name: Phone number types
         href: concepts/telephony-sms/plan-solution.md
-      - name: SIP Interface infrastructure requirements
+      - name: Azure direct routing infrastructure requirements
         href: concepts/telephony-sms/sip-interface-infrastructure.md
+      - name: SMS FAQ
+        href: concepts/telephony-sms/sms-faq.md
+      - name: Messaging policy
+        href: concepts/telephony-sms/messaging-policy.md
   - name: Voice and video calling
     items:
+      - name: Known issues
+        href: concepts/known-issues.md
       - name: Calling SDK overview
         href: concepts/voice-video-calling/calling-sdk-features.md
       - name: Voice and video concepts
@@ -104,17 +112,6 @@
         href: concepts/ui-framework/ui-sdk-overview.md
       - name: UI Framework capabilities
         href: concepts/ui-framework/ui-sdk-features.md
-  - name: Data and Operations
-    items:
-      - name: Service Events (EventGrid)
-        href: ../event-grid/event-schema-communication-services.md
-        maintainContext: true
-      - name: Logging and diagnostics
-        href: concepts/logging-and-diagnostics.md
-      - name: Metrics
-        href: concepts/metrics.md
-      - name: Troubleshooting
-        href: concepts/troubleshooting-info.md
   - name: SDKs and REST APIs
     href: concepts/sdk-options.md 
   - name: Client and server architecture
@@ -131,8 +128,15 @@
     href: concepts/notifications.md
   - name: Teams interoperability
     href: concepts/teams-interop.md
-  - name: Known issues
-    href: concepts/known-issues.md
+  - name: Service Events (EventGrid)
+    href: ../event-grid/event-schema-communication-services.md
+    maintainContext: true
+  - name: Logging and diagnostics
+    href: concepts/logging-and-diagnostics.md
+  - name: Metrics
+    href: concepts/metrics.md
+  - name: Troubleshooting
+    href: concepts/troubleshooting-info.md
 - name: Samples
   items:
   - name: Overview
@@ -147,6 +151,8 @@
   items:
   - name: Reference documentation overview
     href: concepts/reference.md
+  - name: Azure CLI
+    href: /cli/azure/communication
   - name: REST API documentation
     href: /rest/api/communication/
   - name: Calling libraries
@@ -154,7 +160,7 @@
     - name: Calling (JavaScript)
       href: /javascript/api/azure-communication-services/@azure/communication-calling/
     - name: Calling (Android/Java)
-      href: /java/api/com.azure.communication.calling
+      href: /java/api/com.azure.android.communication.calling?view=communication-services-java-android
     - name: Calling (iOS)
       href: /objectivec/communication-services/calling/
   - name: Chat libraries
