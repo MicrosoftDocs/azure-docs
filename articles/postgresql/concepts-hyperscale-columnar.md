@@ -25,6 +25,8 @@ columnar table storage for analytic and data warehousing workloads. When
 columns (rather than rows) are stored contiguously on disk, data becomes more
 compressible, and queries can request a subset of columns more quickly.
 
+## Usage
+
 To use columnar storage, specify `USING columnar` when creating a table:
 
 ```postgresql
