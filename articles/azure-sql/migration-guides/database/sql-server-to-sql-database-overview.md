@@ -150,15 +150,6 @@ Beyond the high-availability architecture that's included in Azure SQL Database,
 ### SQL Agent jobs
 SQL Agent jobs are not directly supported in Azure SQL Database and need to be deployed to [elastic database jobs (preview)](../../database/job-automation-overview.md).
 
-### Logins and groups
-Move SQL logins from the SQL Server source to Azure SQL Database by using Database Migration Service in offline mode. Use the **Selected logins** pane in the Migration Wizard to migrate logins to your target SQL database. 
-
-You can also migrate Windows users and groups via Database Migration Service by enabling the corresponding toggle on the Database Migration Service **Configuration** page. 
-
-Alternatively, you can use the [PowerShell utility](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins) specially designed by Microsoft data migration architects. The utility uses PowerShell to create a Transact-SQL (T-SQL) script to re-create logins and select database users from the source to the target. 
-
-The PowerShell utility automatically maps Windows Server Active Directory accounts to Azure Active Directory (Azure AD) accounts, and it can do a UPN lookup for each login against the source Active Directory instance. The utility scripts custom server and database roles, along with role membership and user permissions. Contained databases are not yet supported, and only a subset of possible SQL Server permissions are scripted. 
-
 ### System databases
 For Azure SQL Database, the only applicable system databases are [master](/sql/relational-databases/databases/master-database) and tempdb. To learn more, see [Tempdb in Azure SQL Database](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
 
