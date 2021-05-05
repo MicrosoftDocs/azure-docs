@@ -61,7 +61,7 @@ In this section, you'll add a system-managed identity to an Azure Digital Twins 
 
 1. On this page, select the **On** option to turn on this feature.
 
-1. Hit the **Save** button, and **Yes** to confirm.
+1. Select the **Save** button, and **Yes** to confirm.
 
     :::image type="content" source="media/how-to-enable-managed-identities/identity-digital-twins.png" alt-text="Screenshot of the Azure portal showing the Identity (preview) page for an Azure Digital Twins instance. There's a highlight around the page name in the Azure Digital Twins instance menu, the On option for Status, the Save button, and the Yes confirmation button.":::
 

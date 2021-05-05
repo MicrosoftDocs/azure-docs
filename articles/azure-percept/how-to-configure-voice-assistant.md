@@ -1,8 +1,8 @@
 ---
 title: Configure voice assistant application using Azure IoT Hub
 description: Configure voice assistant application using Azure IoT Hub
-author: elqu20
-ms.author: v-elqu
+author: philmea
+ms.author: philmea
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/15/2021

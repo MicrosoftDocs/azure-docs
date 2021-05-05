@@ -90,7 +90,7 @@ If you want to execute a deployment but not use any of the templates in the Mark
 
     This tutorial provides the instruction for loading a quickstart template.
 
-1. Under **Load a GitHub quickstart template**, type or select **101-storage-account-create**.
+1. Under **Load a GitHub quickstart template**, type or select **storage-account-create**.
 
     You have two options:
 
@@ -124,4 +124,3 @@ If you want to execute a deployment but not use any of the templates in the Mark
 - To view audit logs, see [Audit operations with Resource Manager](../management/view-activity-logs.md).
 - To troubleshoot deployment errors, see [View deployment operations](deployment-history.md).
 - To export a template from a deployment or resource group, see [Export ARM templates](export-template-portal.md).
-- To safely roll out your service across multiple regions, see [Azure Deployment Manager](deployment-manager-overview.md).

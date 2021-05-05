@@ -442,7 +442,7 @@ existing cluster.
      on GitHub.
 
      > [!NOTE]
-     > Because of the relationship between Azure Policy Add-on and the resource group id, Azure
+     > Because of the relationship between Azure Policy Add-on and the resource group ID, Azure
      > Policy supports only one AKS Engine cluster for each resource group.
 
 To validate that the add-on installation was successful and that the _azure-policy_ and _gatekeeper_
@@ -490,7 +490,7 @@ following steps:
 
 1. In the left pane of the Azure Policy page, select **Definitions**.
 
-1. From the Category drop-down list box, use **Select all** to clear the filter and then select
+1. From the Category dropdown list box, use **Select all** to clear the filter and then select
    **Kubernetes**.
 
 1. Select the policy definition, then select the **Assign** button.

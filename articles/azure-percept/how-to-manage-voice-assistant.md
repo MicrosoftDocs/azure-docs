@@ -1,8 +1,8 @@
 ---
 title: Configure voice assistant application within Azure Percept Studio
 description: Configure voice assistant application within Azure Percept Studio
-author: elqu20
-ms.author: v-elqu
+author: philmea
+ms.author: philmea
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/15/2021

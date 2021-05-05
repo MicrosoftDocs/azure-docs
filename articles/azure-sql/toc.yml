@@ -1328,15 +1328,21 @@
   
   - name: Migration guides
     items: 
-      - name: Overview
-        href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md 
       - name: From Db2
         href: migration-guides/virtual-machines/db2-to-sql-on-azure-vm-guide.md
       - name: From Oracle
         href: migration-guides/virtual-machines/oracle-to-sql-on-azure-vm-guide.md
       - name: From SQL Server
-        href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
-
+        items: 
+        - name: Overview
+          href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md 
+        - name: Migration guide
+          href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
+        - name: Availability group (AG)
+          href: migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md 
+        - name: Failover cluster instance (FCI)
+          href: migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md 
+         
         
 - name: Reference
   items:

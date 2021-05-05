@@ -86,7 +86,7 @@ If you use the following Resource Manager templates, two premium data disks are 
 
 You can use the following quickstart template to deploy a SQL Server VM using storage optimization. 
 
-* [Create VM with storage optimization](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-new-storage/)
+* [Create VM with storage optimization](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-new-storage/)
 * [Create VM using UltraSSD](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-new-storage-ultrassd)
 
 ## Existing VMs

@@ -34,7 +34,7 @@ sample as a starter.
    this sample**.
 
 1. Enter the _Basics_ of the blueprint sample:
-   - **Blueprint name** Provide a name for your copy of the CAF migration landing zone blueprint
+   - **Blueprint name** Provide a name for your copy of the CAF Migration landing zone blueprint
      sample.
    - **Definition location** Use the ellipsis and select the management group to save your copy of
      the sample to.

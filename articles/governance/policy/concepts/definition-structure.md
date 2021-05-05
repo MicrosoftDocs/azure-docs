@@ -119,7 +119,7 @@ We recommend that you set **mode** to `all` in most cases. All policy definition
 the portal use the `all` mode. If you use PowerShell or Azure CLI, you can specify the **mode**
 parameter manually. If the policy definition doesn't include a **mode** value, it defaults to `all`
 in Azure PowerShell and to `null` in Azure CLI. A `null` mode is the same as using `indexed` to
-support backwards compatibility.
+support backward compatibility.
 
 `indexed` should be used when creating policies that enforce tags or locations. While not required,
 it prevents resources that don't support tags and locations from showing up as non-compliant in the
@@ -163,7 +163,7 @@ _common_ properties used by Azure Policy and in built-ins. Each `metadata` prope
 ### Common metadata properties
 
 - `version` (string): Tracks details about the version of the contents of a policy definition.
-- `category` (string): Determines under which category in Azure portal the policy definition is
+- `category` (string): Determines under which category in the Azure portal the policy definition is
   displayed.
 - `preview` (boolean): True or false flag for if the policy definition is _preview_.
 - `deprecated` (boolean): True or false flag for if the policy definition has been marked as
@@ -180,7 +180,7 @@ _common_ properties used by Azure Policy and in built-ins. Each `metadata` prope
 ## Parameters
 
 Parameters help simplify your policy management by reducing the number of policy definitions. Think
-of parameters like the fields on a form – `name`, `address`, `city`, `state`. These parameters
+of parameters like the fields on a form - `name`, `address`, `city`, `state`. These parameters
 always stay the same, however their values change based on the individual filling out the form.
 Parameters work the same way when building policies. By including parameters in a policy definition,
 you can reuse that policy for different scenarios by using different values.
@@ -255,9 +255,9 @@ properties](#parameter-properties).
 
 ### strongType
 
-Within the `metadata` property, you can use **strongType** to provide a multi-select list of options
+Within the `metadata` property, you can use **strongType** to provide a multiselect list of options
 within the Azure portal. **strongType** can be a supported _resource type_ or an allowed value. To
-determine if a _resource type_ is valid for **strongType**, use
+determine whether a _resource type_ is valid for **strongType**, use
 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). The format for a
 _resource type_ **strongType** is `<Resource Provider>/<Resource Type>`. For example,
 `Microsoft.Network/virtualNetworks/subnets`.

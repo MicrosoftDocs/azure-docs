@@ -11,12 +11,12 @@ ms.custom: include file
 ---
 
 ```console
-Robocopy /MT:16 /R:5 /W:5 /B /MIR /IT /COPY:DATSO /DCOPY:DAT /NP /NFL /NDL /UNILOG:<FilePathAndName> <SourcePath> <Dest.Path> 
+Robocopy /MT:32 /R:5 /W:5 /B /MIR /IT /COPY:DATSO /DCOPY:DAT /NP /NFL /NDL /UNILOG:<FilePathAndName> <SourcePath> <Dest.Path> 
 ```
 
 | Switch                | Meaning |
 |-----------------------|---------|
-| `/MT:n`               | Allows for RoboCopy to run multi-threaded. Default for n = 8, and the maximum is 128 threads. Match this value to your processor core count and thread count per core. Consider if cores need to be reserved for other tasks a production server may have. |
+| `/MT:n`               | Allows for RoboCopy to run multi-threaded. Default for n = 8, and the maximum is 128 threads. Start with a high thread count for an initial run. A high thread count helps saturate the available bandwidth. Subsequent /MIR runs are progressively impacted by processing items over network transport. For subsequent runs match your thread count value to your processor core count and thread count per core. Consider if cores need to be reserved for other tasks a production server may have. |
 | `/R:n`                | Speed of a RoboCopy run can be improved by specifying a maximum retry count for a file that fails to copy on first attempt. n = maximum number of retries before the file permanently fails to copy in this RoboCopy run. This switch works best in scenarios where it's already clear that there will be more RoboCopy runs. If the file fails to copy in this run, the next RoboCopy job will try again. Often files that failed because they were in use or because of timeout issues, might eventually be copied successfully with this approach. |
 | `/W:n`                | This switch specifies the time RoboCopy waits before attempting to copy a file that didn't successfully copy at the last attempt. n = the number of seconds to wait between retries. `/W:n` is often used together with `/R:n`. |
 | `/B`                  | Runs RoboCopy in the same mode a backup application would use. It allows RoboCopy to move files that the current user doesn't have permissions to. |

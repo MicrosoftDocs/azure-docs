@@ -33,6 +33,8 @@ The following diagram illustrates an availability group for SQL Server on Azure 
 
 ![Availability Group](./media/availability-group-overview/00-EndstateSampleNoELB.png)
 
+> [!NOTE]
+> It's now possible to lift and shift your availability group solution to SQL Server on Azure VMs using Azure Migrate. See [Migrate availability group](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md) to learn more. 
 
 ## VM redundancy 
 
