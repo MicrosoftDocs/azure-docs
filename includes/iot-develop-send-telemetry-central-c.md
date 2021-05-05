@@ -34,13 +34,14 @@ gcc --version
 ```
 
 ### Windows
-To complete this quickstart on Windows, install Visual Studio 2019 and add following components for C and C++ development.
+To complete this quickstart on Windows, install Visual Studio 2019 and add the required components for C and C++ development.
 
-- For new users, install [Visual Studio (Community, Professional, or Enterprise) 2019](https://visualstudio.microsoft.com/downloads/). Download the edition you want to install, and start the installer.
-- For existing Visual Studio 2019 users, select Windows **Start**, type *Visual Studio Installer*, and start the installer.
-- In the installer **Workloads** tab, select the **Desktop Development with C++** workload.
-- In the installer **Individual components** tab, select **Git for Windows.**
-- Run the installation.
+1. For new users, install [Visual Studio (Community, Professional, or Enterprise) 2019](https://visualstudio.microsoft.com/downloads/). Download the edition you want to install, and start the installer.
+    > [!NOTE]
+    > For existing Visual Studio 2019 users, select Windows **Start**, type *Visual Studio Installer*, and start the installer.
+1. In the installer **Workloads** tab, select the **Desktop Development with C++** workload.
+1. In the installer **Individual components** tab, select **Git for Windows.**
+1. Run the installation.
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 

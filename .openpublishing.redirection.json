@@ -65933,6 +65933,11 @@
       "source_path_from_root": "/articles/key-vault/general/authentication-fundamentals.md",
       "redirect_url": "/azure/key-vault/general/authentication.md",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-send-telemetry-python.md",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-central.md",
+      "redirect_document_id": false
     }
   ]
 }
