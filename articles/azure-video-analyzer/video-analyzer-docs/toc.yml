@@ -139,8 +139,8 @@
     href: module-twin-configuration-schema.md
   - name: Production readiness and best practices	
     href: production-readiness.md
-  - name: VS Code extension
-    href: vs-code-extension.md
+  - name: Visual Studio Code extension
+    href: visual-studio-code-extension.md
 - name: Resources
   items:
   - name: Azure roadmap
