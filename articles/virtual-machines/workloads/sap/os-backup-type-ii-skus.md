@@ -70,6 +70,7 @@ To perform a manual backup :
 
 >[!NOTE]
 > * This step requires engaging Microsoft team.
+> * OS restore, with the process mentioned in this document is not possible without engaging Microsoft for a console access, please create a support ticket with Microsoft to assist in recovery.
 > * We will be restoring the complete filesystem:
 
 * Mount OS iso on the system 
