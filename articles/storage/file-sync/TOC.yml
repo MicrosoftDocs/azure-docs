@@ -79,6 +79,10 @@
       href: file-sync-how-to-manage-tiered-files.md
     - name: Move resources to other resource groups, subscriptions and AAD tenants
       href: file-sync-resource-move.md
+    - name: Deprovision Azure File Sync server endpoint
+      href: file-sync-deprovision-server-endpoint.md
+    - name: Modify Azure File Sync topology
+      href: file-sync-modify-sync-topology.md
   - name: Data protection
     items:
     - name: Enable soft delete

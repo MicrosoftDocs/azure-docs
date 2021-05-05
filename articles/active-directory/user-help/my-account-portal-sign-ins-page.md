@@ -25,8 +25,8 @@ You can view all of your recent work or school account sign-in activity, from th
 >[!Note]
 > If you see an error while signing in with a personal Microsoft account, you can still sign in by using the domain name for your organization (such as contoso.com) or the **Tenant ID** of your organization from your administrator in one of the following URLs:
 >
->   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
->   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
+>   - `https://myaccount.microsoft.com?tenantId=<your_domain_name>`
+>   - `https://myaccount.microsoft.com?tenant=<your_tenant_ID>`
 
 ## View your recent sign-in activity
 
@@ -39,7 +39,6 @@ You can view all of your recent work or school account sign-in activity, from th
 1. Expand and review each of the sign-in items, making sure that you recognize each one. If you find a sign-in item that doesn't look familiar, change your password to protect the account in case it's compromised.
 
     ![Recent activity page with expanded sign-in details](media/my-account-portal-sign-ins-page/recent-activity.png)
-
 
 ### If you see a successful sign-in
 

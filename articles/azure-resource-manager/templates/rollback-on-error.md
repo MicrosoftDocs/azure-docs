@@ -2,7 +2,8 @@
 title: Roll back on error to successful deployment
 description: Specify that a failed deployment should roll back to a successful deployment.
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/02/2021 
+ms.custom: devx-track-azurepowershell
 ---
 # Rollback on error to successful deployment
 
