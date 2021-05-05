@@ -186,17 +186,17 @@ You can now browse https://localhost:8081/_explorer/index.html or https://{your_
     netstat -lt
     ```
     - Try to access the endpoint and port for the emulator using the Docker container's IP address instead of "localhost".
-    - Make sure that the emulator self-signed certificate has been properly added to [KeyChain](linux-emulator.md#Consuming-endpoint-via-UI).
+    - Make sure that the emulator self-signed certificate has been properly added to [KeyChain](linux-emulator.md#consuming-endpoint-via-ui).
     - Ensure that the emulator self-signed certificate has been properly imported into the expected location:
         - .NET: See the [certificates section](linux-emulator.md#Run-the-Cosmos-DB-Linux-Emulator-on-Linux)
-        - Java: See the [Java Certificates Store section](linux-emulator.md#Run-the-Cosmos-DB-Linux-Emulator-on-Linux)
+        - Java: See the [Java Certificates Store section](linux-emulator.md#run-the-cosmos-db-linux-emulator-on-linux)
 
 2. My app received too many connectivity-related timeouts.
-    - The Docker container is not provisioned with enough resources [(cores or memory)](linux-emulator.md#Configuration-options). We recommend increasing the number of cores and alternatively, reduce the number of physical partitions provisioned upon start up. 
+    - The Docker container is not provisioned with enough resources [(cores or memory)](linux-emulator.md#configuration-options). We recommend increasing the number of cores and alternatively, reduce the number of physical partitions provisioned upon start up. 
     - Ensure the number of TCP connections does not exceed your current OS settings.
     - Try reducing the size of the documents in your application. 
 1. My app could not provision databases/containers.
-    - The number of physical partitions provisioned on the emulator is too low. Either delete your unused databases/collections or start the emulator with a [larger number of physical partitions](inux-emulator.md#Configuration-options).
+    - The number of physical partitions provisioned on the emulator is too low. Either delete your unused databases/collections or start the emulator with a [larger number of physical partitions](inux-emulator.md#configuration-options).
 
 
 ### Reliability/Crashes
@@ -206,20 +206,20 @@ You can now browse https://localhost:8081/_explorer/index.html or https://{your_
     - Confirm that creating a container with the recommended settings works. If yes, most likely the cause of failure was the additional settings passed via the respective Docker command upon starting the container.
     
 1. The emulator is crashing.
-    - Confirm that creating a container with the [recommended settings](linux-emulator.md#Run-the-Cosmos-DB-Linux-Emulator-on-Linux) works. If yes, most likely the cause of failure is the additional settings passed via the respective Docker command upon starting the container.
+    - Confirm that creating a container with the [recommended settings](linux-emulator.md#run-the-cosmos-db-linux-emulator-on-linux) works. If yes, most likely the cause of failure is the additional settings passed via the respective Docker command upon starting the container.
     - Please start the emulator's Docker container in an attached mode (see `docker start -it`).
-    - Collect the crash related dump/data and follow the [steps outlined](linux-emulator.md#Report-an-emulator-issue) to report the issue.   
+    - Collect the crash related dump/data and follow the [steps outlined](linux-emulator.md#report-an-emulator-issue) to report the issue.   
 ### Data explorer errors
 1. I can't view my data.
     - See section regarding connectivity-related issues above.
     - Make sure that the self-signed emulator certificate is properly imported and manually trusted in order for your browser to access the data explorer page.
-    - Try creating a database/container and inserting an item using the Data Explorer. If successful, most likely the cause of the issue resides within your application. If not, [contact the Cosmos DB team](linux-emulator.md#Report-an-emulator-issue).
+    - Try creating a database/container and inserting an item using the Data Explorer. If successful, most likely the cause of the issue resides within your application. If not, [contact the Cosmos DB team](linux-emulator.md#report-an-emulator-issue).
 2. My data isn't persisting in between docker container restarts.
     - This is a known limitation, we're working on adding support for this in future iterations of the emulator.
 
 ### Performance
 1. Number of requests per second is low, latency of the requests is high. 
-    - The Docker container is not provisioned with enough resources [(cores or memory)](linux-emulator.md#Configuration-options). We recommend increasing the number of cores and alternatively, reduce the number of physical partitions provisioned upon start up.
+    - The Docker container is not provisioned with enough resources [(cores or memory)](linux-emulator.md#configuration-options). We recommend increasing the number of cores and alternatively, reduce the number of physical partitions provisioned upon start up.
 
 
 ## Refresh Linux Container
