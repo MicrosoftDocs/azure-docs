@@ -72,12 +72,24 @@ In this tutorial, you will:
 ## Set up your development environment
 [!INCLUDE [setup development environment](./includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)]
 
+
 ## Examine the sample files
 
-In Visual Studio Code, open src/edge/deployment.template.json. This template defines which edge modules you'll deploy to the edge device (the Azure Linux VM). There are two entries under the **modules** section with the following names:
+In Visual Studio Code, browse to src/edge. You'll see the .env file that you created and a few deployment template files. This template defines which edge modules you'll deploy to the edge device (the Azure Linux VM). The .env file contains values for the variables used in these templates, such as Video Analyzer credentials.
+
+Open src/edge/deployment.objectCounter.template.json. There are four entries under the **modules** section that correspond to the items listed in the previous "Concepts" section
 
 * **avaedge**: This is the Video Analyzer on IoT Edge module.
+* **yolov3**: This is the AI module built by using the YOLO v3 model.
 * **rtspsim**: This is the RTSP simulator.
+* **objectCounter**: This is the module that looks for specific objects in the results from yolov3.
+
+For the objectCounter module, see the string (${MODULES.objectCounter}) used for the "image" value. This is based on the [tutorial](../../iot-edge/tutorial-develop-for-linux.md) on developing an IoT Edge module. Visual Studio Code automatically recognizes that the code for the objectCounter module is under src/edge/modules/objectCounter. 
+
+Read [this section](../../iot-edge/module-composition.md#declare-routes) on how to declare routes in the IoT Edge deployment manifest. Then examine the routes in the template JSON file. Note how:
+
+> [!NOTE]
+> Check the desired properties for the objectCounter module, which are set up to look for objects that are tagged as "truck" with a confidence level of at least 50%.
 
 Next, browse to the src/cloud-to-device-console-app folder. Here you'll see the appsettings.json file that you created along with a few other files:
 
@@ -125,23 +137,6 @@ In about 30 seconds, refresh Azure IoT Hub in the lower-left section in Visual S
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/event-based-video-recording/modules.png" alt-text="Four modules deployed":::
 
-## Prepare for monitoring events
-
-When you use the Video Analyzer on IoT Edge module to record the live video stream, it sends events to IoT Hub. To see these events, follow these steps:
-
-1. Open the Explorer pane in Visual Studio Code, and look for **Azure IoT Hub** in the lower-left corner.
-1. Expand the **Devices** node.
-1. Right-click the avasample-iot-edge-device file, and select **Start Monitoring Built-in Event Endpoint**.
-
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/event-based-video-recording/start-monitoring.png" alt-text="Start monitoring built-in event endpoint":::
-
-    > [!NOTE]
-    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
-        ```
-        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
-        ```
-    
 ## Run the program
 
 1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
