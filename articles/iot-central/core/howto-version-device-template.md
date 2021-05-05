@@ -104,4 +104,4 @@ You can create multiple versions of the device template. Over time, you'll have 
 
 ## Next steps
 
-A suggested next step is to read about [Azure IoT Edge devices and Azure IoT Central](./concepts-iot-edge.md).
+A suggested next step is to learn [how to manage your devices](./howto-manage-devices.md).
