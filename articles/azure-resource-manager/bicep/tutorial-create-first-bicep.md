@@ -69,7 +69,7 @@ Okay, you're ready to start learning about Bicep.
 
     Here's what your Visual Studio Code environment looks like:
 
-    ![Visual Studio Code first Bicep file](./media/Bicep-tutorial-create-first-bicep/resource-manager-visual-studio-code-first-bicep.png)
+    ![Visual Studio Code first Bicep file](./media/tutorial-create-first-bicep/resource-manager-visual-studio-code-first-bicep.png)
 
     The resource declaration has four components:
 
@@ -204,15 +204,15 @@ You can verify the deployment by exploring the resource group from the Azure por
 
 1. Notice in the upper right of the overview, the status of the deployment is displayed. Select **1 Succeeded**.
 
-   ![View deployment status](./media/bicep-tutorial-create-first-bicep/deployment-status.png)
+   ![View deployment status](./media/tutorial-create-first-bicep/deployment-status.png)
 
 1. You see a history of deployment for the resource group. Select **firstbicep**.
 
-   ![Select deployment](./media/bicep-tutorial-create-first-bicep/select-from-deployment-history.png)
+   ![Select deployment](./media/tutorial-create-first-bicep/select-from-deployment-history.png)
 
 1. You see a summary of the deployment. There is one storage account deployed. Notice on the left you can view inputs, outputs, and the template used during deployment.
 
-   ![View deployment summary](./media/bicep-tutorial-create-first-bicep/view-deployment-summary.png)
+   ![View deployment summary](./media/tutorial-create-first-bicep/view-deployment-summary.png)
 
 ## Clean up resources
 

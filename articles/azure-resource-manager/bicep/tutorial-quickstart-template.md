@@ -41,7 +41,7 @@ Currently, the Azure Quickstart templates only provide JSON templates. There are
 1. Browse to **https://bicepdemo.z22.web.core.windows.net/**, Select **Decompile**, and then provide the raw template URL.
 1. Review the Bicep template. In particular, look for the `Microsoft.Web/sites` resource.
 
-    ![Resource Manager template quickstart web site](./media/bicep-tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
+    ![Resource Manager template quickstart web site](./media/tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
 
     There are a couple of important Bicep features to note in this new resource if you have worked on JSON templates.
 
