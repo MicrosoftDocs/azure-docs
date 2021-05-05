@@ -12,3 +12,6 @@
      - name: Site recovery
        tocHref: /azure/site-recovery/
        topicHref: /azure/azure-vmware/
+     - name: Azure Backup Server
+       tocHref: /azure/backup/
+       topicHref: /azure/azure-vmware/
