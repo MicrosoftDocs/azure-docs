@@ -8,11 +8,11 @@ ms.author: sandeepu
 author: sandeeppujar
 ms.date: 04/30/2020
 ms.custom: device-developer
+
+# This article applies to device developers.
 ---
 
 # Connect an Azure Sphere device to your Azure IoT Central application
-
-*This article applies to device developers.*
 
 This article shows you how to connect an Azure Sphere (DevKit) device to an Azure IoT Central application.
 
@@ -78,7 +78,7 @@ To create a simulated device:
 
 ## Next steps
 
-If you're a device developer, some suggested next steps are to:
+Some suggested next steps are to:
 
 - Read about [Device connectivity in Azure IoT Central](./concepts-get-connected.md)
 - Learn how to [Monitor device connectivity using Azure CLI](./howto-monitor-devices-azure-cli.md)

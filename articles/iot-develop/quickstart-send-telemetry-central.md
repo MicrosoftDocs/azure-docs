@@ -14,8 +14,7 @@ zone_pivot_groups: iot-device-application-development-languages
 
 # Quickstart: Send telemetry from a device to Azure IoT Central
 
-**Applies to**: [Device application developers](about-iot-develop.md#device-application-development)<br>
-**Completion time**:  15 minutes
+**Applies to**: [Device application developers](about-iot-develop.md#device-application-development)
 
 In this quickstart, you learn a basic Azure IoT application development workflow. First you create an Azure IoT Central application for hosting devices. Then you use an Azure IoT device SDK sample to run a simulated temperature controller, connect it securely to IoT Central, and send telemetry.
 
