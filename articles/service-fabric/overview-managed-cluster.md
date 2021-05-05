@@ -42,7 +42,10 @@ Service Fabric managed clusters provide a number of advantages over traditional 
 **Best practices by default**
 - Simplified reliability and durability settings
 
-There is no additional cost for Service Fabric managed clusters beyond the cost of underlying resources required for the cluster.
+There is no additional cost for Service Fabric managed clusters beyond the cost of underlying resources required for the cluster, and the same Service Fabric SLA applies for managed clusters.
+
+> [!NOTE]
+> There is no migration path from existing Service Fabric clusters to managed clusters. You will need to create a new Service Fabric managed cluster to use this new resource type.
 
 ## Service Fabric managed cluster SKUs
 
@@ -59,7 +62,7 @@ Service Fabric managed clusters are available in both Basic and Standard SKUs.
 
 ## What's new for Service Fabric managed clusters
 
-The latest features for Service Fabric managed clusters preview include support for:
+The latest features for Service Fabric managed clusters include support for:
 
 * [Deploying applications using ARM templates](how-to-managed-cluster-app-deployment-template.md)
 * [Automatic OS upgrades](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades)
@@ -80,7 +83,6 @@ To get started with Service Fabric managed clusters, try the quickstart:
 
 > [!div class="nextstepaction"]
 > [Create a Service Fabric managed cluster](quickstart-managed-cluster-template.md)
-
 
 [sf-composition]: ./media/overview-managed-cluster/sfrp-composition-resource.png
 [sf-encapsulation]: ./media/overview-managed-cluster/sfrp-encapsulated-resource.png
