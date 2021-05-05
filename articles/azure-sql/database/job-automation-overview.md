@@ -50,7 +50,7 @@ Elastic Jobs can target [Azure SQL Databases](sql-database-paas-overview.md), [A
 
 For T-SQL script job automation in SQL Server and Azure SQL Managed Instance, consider [SQL Agent](job-automation-managed-instances.md). 
 
-For T-SQL script job automation in Azure Synapse Analytics, consider [pipelines with recurring triggers](/azure/synapse-analytics/data-integration/concepts-data-factory-differences.md), which are [based on Azure Data Factory](/azure/synapse-analytics/data-integration/concepts-data-factory-differences).
+For T-SQL script job automation in Azure Synapse Analytics, consider [pipelines with recurring triggers](../../synapse-analytics/data-integration/concepts-data-factory-differences.md), which are [based on Azure Data Factory](../../synapse-analytics/data-integration/concepts-data-factory-differences.md).
 
 It is worth noting differences between SQL Agent (available in SQL Server and as part of SQL Managed Instance), and the Database Elastic Job agent (which can execute T-SQL on Azure SQL Databases or databases in SQL Server and Azure SQL Managed Instance, Azure Synapse Analytics).
 
@@ -153,7 +153,7 @@ The outcome of a job's steps on each target database are recorded in detail, and
 
 #### Job history
 
-View Elastic Job execution history in the *Job database* by [querying the table jobs.job_executions](elastic-jobs-tsql-create-manage.md#monitor-job-execution-status). A system cleanup job purges execution history that is older than 45 days. To remove history less than 45 days old, call the **sp_purge_history** stored procedure in the *Job database*.
+View Elastic Job execution history in the *Job database* by [querying the table jobs.job_executions](elastic-jobs-tsql-create-manage.md#monitor-job-execution-status). A system cleanup job purges execution history that is older than 45 days. To remove history less than 45 days old, call the **sp_purge_jobhistory** stored procedure in the *Job database*.
 
 #### Job status
 

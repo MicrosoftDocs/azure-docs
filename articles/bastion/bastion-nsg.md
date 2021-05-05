@@ -27,6 +27,10 @@ In this diagram:
 
 This section shows you the network traffic between the user and Azure Bastion, and through to target VMs in your virtual network:
 
+> [!IMPORTANT]
+> If you choose to use an NSG with your Azure Bastion resource, you **must** create all of the following ingress and egress traffic rules. Omitting any of the following rules in your NSG will block your Azure Bastion resource from receiving necessary updates in the future and therefore open up your resource to future security vulnerabilities.
+> 
+
 ### <a name="apply"></a>AzureBastionSubnet
 
 Azure Bastion is deployed specifically to ***AzureBastionSubnet***.

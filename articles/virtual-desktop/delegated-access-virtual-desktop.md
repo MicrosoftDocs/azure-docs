@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Delegated access in Windows Virtual Desktop
 

@@ -3,17 +3,15 @@ title: Update of classic alerting & monitoring in Azure Monitor
 description: Description of the retirement of classic monitoring services and functionality, earlier shown in Azure portal under Alerts (classic). 
 author: yanivlavi
 services: azure-monitor
-
 ms.topic: conceptual
-ms.date: 2/7/2019
+ms.date: 02/14/2021
 ms.author: yalavi
-ms.subservice: alerts
 ---
 # Unified alerting & monitoring in Azure Monitor replaces classic alerting & monitoring
 
-Azure Monitor has now become a unified full stack monitoring service, which now supports ‘One Metric’ and ‘One Alerts’ across resources; for more information, see our [blog post on new Azure Monitor](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/).The new Azure monitoring and alerting platforms has been built to be faster, smarter, and extensible – keeping pace with the growing expanse of cloud computing and in-line with Microsoft Intelligent Cloud philosophy.
+Azure Monitor is a unified monitoring stack that supports ‘One Metric’ and ‘One Alerts’ across Azure resources. See more information in this [blog post](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). The new Azure monitoring and alerting platforms has been built to be faster, smarter, and extensible – keeping pace with the growing expanse of cloud computing and in-line with Microsoft Intelligent Cloud philosophy.
 
-With the new Azure monitoring and alerting platform in place, classic alerts in Azure Monitor are retired for public cloud users, though still in limited use for resources that do not yet support the new alerts. The retirement date for those alerts has been further extended. A new date will be announced soon for remaining alerts migration, [Azure Government cloud](../../azure-government/documentation-government-welcome.md), and [Azure China 21Vianet](https://docs.azure.cn/).
+With the new Azure monitoring and alerting platform in place, classic alerts in Azure Monitor are retired for public cloud users, though still in limited use until **31 May 2021**. Classic alerts for Azure Government cloud and Azure China 21Vianet will retire on **29 February 2024**.
 
  ![Classic alert in Azure portal](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
@@ -22,20 +20,10 @@ We encourage you to get started and recreate your alerts in the new platform.
 > [!IMPORTANT]
 > Classic Alert rules created on Activity Log will not be deprecated or migrated. All classic alert rules created on Activity Log can be accessed and used as-is from the new Azure Monitor - Alerts. For more information, see [Create, view, and manage activity log alerts using Azure Monitor](./alerts-activity-log.md). Similarly, Alerts on Service Health can be accessed and used as-is from the new Service Health section. For details, see [alerts on service health notifications](../../service-health/alerts-activity-log-service-notifications-portal.md).
 
-## Unified Metrics and Alerts in Application Insights
+## Unified Metrics and Alerts for Azure resources
 
-Azure Monitor’s newer metric platform will now power monitoring coming from Application Insights. This move means Application Insights will hook to Action Groups, allowing far more options than just the previous email and webhook calls. Alerts can now trigger Voice Calls, Azure Functions, Logic Apps, SMS, and ITSM Tools like ServiceNow and Automation Runbooks. With near real-time monitoring and alerting, the new platform enables Application Insights users to leverage the same technology powering monitoring across other Azure resources and underpinning monitoring of Microsoft products.
+In March 2018, we released the next generation of alerting for Azure resources. The newer metric platform and alerting is faster and provides more granularity using dimensions. Dimensions allow you to slice and filter to specific value combination, condition, or operation. The newer metric alerts use action groups allowing more notifications and automation actions. See more information on [managing metric alerts using Azure Monitor](./alerts-metric.md).
 
-The new unified Monitoring and Alerting for Application Insights will encompass:
-
-- **Application Insights Platform metrics** – which provides popular prebuilt metrics from Application Insights product. For more information, see this article on using [Platform Metrics for Application Insights on new Azure Monitor](../app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics).
-- **Application Insights Availability and Web test** -which provides you the ability to assess the responsiveness and availability of your web app or server. For more information, see this article on using [Availability Tests and Alerts for Application Insights on new Azure Monitor](../app/monitor-web-app-availability.md).
-- **Application Insights Custom metrics** – which lets you define and emit their own metrics for monitoring and alerts. For more information, see this article on using [Custom Metric for Application Insights on new Azure Monitor](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
-- **Application Insights Failure Anomalies (part of Smart Detection)** – which automatically notifies you in near real time if your web app experiences an abnormal rise in the rate of failed HTTP requests or dependency calls. For more information, see this article on using [Smart Detection - Failure Anomalies](../app/proactive-failure-diagnostics.md).
-
-## Unified Metrics and Alerts for other Azure resources
-
-Since March 2018, the next generation of alerting and multi-dimensional monitoring for Azure resources have been in availability. Now the newer metric platform and alerting is faster with near-real time capabilities. More importantly, the newer metric platform alerts provide more granularity, as the newer platform includes the option of dimensions, which allow you to slice and filter to specific value combination, condition, or operation. Like all alerts in the new Azure Monitor, the newer metric alerts are more extensible with the use of ActionGroups – allowing notifications to expand beyond email or webhook to SMS, Voice, Azure Function, Automation Runbook and more. For more information, see [Create, view, and manage metric alerts using Azure Monitor](./alerts-metric.md).
 Newer metrics for Azure resources are available as:
 
 - **Azure Monitor Standard platform metrics** – which provides popular pre-populated metrics from various Azure services and products. For more information, see this article on [Supported metrics on Azure Monitor](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported) and [Support metric alerts on Azure Monitor](./alerts-metric-overview.md#supported-resource-types-for-metric-alerts).
@@ -43,30 +31,26 @@ Newer metrics for Azure resources are available as:
 
 ## Retirement of Classic monitoring and alerting platform
 
-As stated earlier, older classic monitoring and alerting are retired for public cloud users; including the closure of related APIs, Azure portal interface, and services in it, though still in limited use for resources that do not yet support the new alerts. Specifically, these features will be deprecated:
+As stated earlier, older classic monitoring and alerting are retired for public cloud users. It includes the closure of related APIs, Azure portal interface, and services in it, though still in limited use until **31 May 2021**. Classic alerts for Azure Government cloud and Azure China 21Vianet will retire on **29 February 2024**.
 
-- Older (classic) metrics and alerts for Azure resources as currently available via [Alerts (classic) section](./alerts-classic.overview.md) of Azure portal; accessible as [microsoft.insights/alertrules](/rest/api/monitor/alertrules) resource
-- Older (classic) platform and custom metrics for Application Insights as well as alerting on them as currently available via [Alerts (classic) section](./alerts-classic.overview.md) of Azure portal and accessible as [microsoft.insights/alertrules](/rest/api/monitor/alertrules) resource
-- Older (classic) Failure Anomalies alert currently available as [Smart Detection inside Application Insights](../app/proactive-diagnostics.md) in the Azure portal; with alerts configured shown in [Alerts (classic) section](./alerts-classic.overview.md) of Azure portal
+Specifically, the retirement scope is for classic metrics currently available in the [Alerts (classic) section](./alerts-classic.overview.md) of Azure portal and accessible as [microsoft.insights/alertrules](/rest/api/monitor/alertrules) resources.
 
 This means:
 
 - Classic monitoring and alerts service will be retired and no longer available for creation of new alert rules.
 - Any alert rules that continue to exist in Alerts (classic) will continue to execute and fire notifications.
-- Alert rules in classic monitoring & alerting which can be migrated, will be automatically moved by Microsoft to their equivalent in the new Azure monitor platform in phases spanning few weeks. The process will be seamless without any downtime and customers will have no loss in monitoring coverage.
-- Alert rules migrated to the new alerts platform will provide monitoring coverage as before but will fire notification with new payloads. Any email address, webhook endpoint, or logic app link associated with classic alert rule will be carried forward when migrated, but may not behave correctly as alert payload will be different in the new platform.
-- Some [classic alert rules that cannot be automatically migrated](../alerts/alerts-understand-migration.md#manually-migrating-classic-alerts-to-newer-alerts) and require manual action from users will continue to run.
+- Most classic alert rules will be migrated. The process will be seamless without any downtime and customers will have no loss in monitoring coverage.
+- Fired notifications will include new payloads structure. Target will need to be adapted to work with the new structure.
+- Some [classic alert rules that cannot be automatically migrated](alerts-understand-migration.md#manually-migrating-classic-alerts-to-newer-alerts) and will require manual action from users to continue to run.
 
 > [!IMPORTANT]
-> Microsoft Azure Monitor has rolled out in phases [tool to voluntarily migrate](../alerts/alerts-using-migration-tool.md) their classic alert rules on to the new platform soon. And run it by force for all classic alert rules that still exist and can be migrated. Customers will need to ensure automation consuming classic alert rule payload is adapted to handle the new payload from [Unified Metrics and Alerts in Application Insights](#unified-metrics-and-alerts-in-application-insights) or [Unified Metrics and Alerts for other Azure resources](#unified-metrics-and-alerts-for-other-azure-resources), post-migration of the classic alert rules. For more information, see [prepare for classic alert rule migration](../alerts/alerts-prepare-migration.md)
-
-This article will be continually updated with links & details regarding the new Azure monitoring & alerting functionality, as well as the availability of tools to assist users in adopting the new Azure Monitor platform.
+> Azure Monitor has rolled out a [tool to voluntarily migrate](alerts-using-migration-tool.md) their classic alert rules to the new platform. Remaining rules will be migrated automatically once the service is retired. Customers will need to ensure automation consuming classic alert rule payload is adapted to handle the new payload from [Unified Metrics and Alerts for other Azure resources](#unified-metrics-and-alerts-for-azure-resources), after migration of the classic alert rules. For more information, see [prepare for classic alert rule migration](alerts-prepare-migration.md).
 
 ## Pricing for Migrated Alert Rules
 
-We are rolling out a migration tool to help you migrate your Azure Monitor [classic alerts](./alerts-classic.overview.md) to the new alerts experience. The migrated alert rules and corresponding migrated action groups (email, webhook, or LogicApp) will remain free of charge. The functionality you had with classic alerts including the ability to edit the threshold, aggregation type, and the aggregation granularity will continue to be available for free with your migrated alert rule. However, if you edit the migrated alert rule to use any of the new alert platform features, notifications or action types, a corresponding charge will apply. For more information on the pricing for alert rules and notifications, see [Azure Monitor Pricing](https://azure.microsoft.com/pricing/details/monitor/).
+We're rolling out a migration tool to help you migrate your Azure Monitor [classic alerts](./alerts-classic.overview.md) to the new alerts experience. The migrated alert rules and corresponding migrated action groups (email, webhook, or LogicApp) will remain free of charge. The functionality you had with classic alerts including the ability to edit the threshold, aggregation type, and the aggregation granularity will continue to be available for free with your migrated alert rule. However, if you edit the migrated alert rule to use any of the new alert platform features, notifications or action types, a corresponding charge will apply. For more information on the pricing for alert rules and notifications, see [Azure Monitor Pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-The following are examples of cases where you will incur a charge for your alert rule:
+The following are examples of cases where you'll incur a charge for your alert rule:
 
 - Any new (non-migrated) alert rule created beyond free units, on the new Azure Monitor platform
 - Any data ingested and retained beyond free units included by Azure Monitor
@@ -78,5 +62,4 @@ The following are examples of cases where you will incur a charge for your alert
 ## Next steps
 
 * Learn about the [new unified Azure Monitor](../overview.md).
-* Learn more about the new [Azure Alerts](../platform/alerts-overview.md).
-
+* Learn more about the new [Azure Alerts](./alerts-overview.md).

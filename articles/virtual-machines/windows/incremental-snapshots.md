@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: rogarana
 ms.subservice: disks
+ms.collection: windows
 
 ---
 # Back up Azure unmanaged VM disks with incremental snapshots

@@ -1,10 +1,10 @@
 ---
 title: Partners who integrate with Azure Monitor
 description: Learn about Azure Monitor's partners and how you can access documentation for integrating with them.
-ms.subservice: 
+author: rboucher
+ms.author: robb
 ms.topic: conceptual
-ms.date: 09/21/2020
-
+ms.date: 04/14/2021
 ---
 
 # Azure Monitor partner integrations
@@ -97,7 +97,7 @@ Through this unified experience, you will be able to:
 -	Streamline single-sign on (SSO) to Datadog—a separate sign-on from the Datadog portal is no longer required. 
 -	Get unified billing for the Datadog service through Azure subscription invoicing.
 
-Sign up for the [Public Preview](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4z3T2aGXUZPslUNJ3YpcapURFBHSUJIMVJTWDM5VUFPMVkyTVhMVlYzMS4u) of the new Datadog integration with Azure.  Public preview will be available on Azure Marketplace starting October 2020.
+Subscribe to the preview of "Datadog integration with Azure" available in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)
 
 If you are still using the previous manually configured integration, see the [documentation on the DataDog website](https://docs.datadoghq.com/integrations/azure/).
 
@@ -105,9 +105,18 @@ If you are still using the previous manually configured integration, see the [do
 
 ![DynaTrace Logo](./media/partners/dynatrace.png)
 
-The Dynatrace OneAgent integrates with Azure VMs and App Services via the Azure extension mechanism. This way Dynatrace OneAgent can gather performance metrics about hosts, network, and services. Besides just displaying metrics, Dynatrace visualizes environments end-to-end. It shows transactions from the client side to the database layer. Dynatrace provides AI-based correlation of problems and fully integrated root-cause-analysis to give method level insights into code and database. This insight makes troubleshooting and performance optimizations much easier.
+Dynatrace simplifies cloud complexity and is a single source of truth for your cloud platforms, allowing you to monitor the health of your entire Azure applications and infrastructure.  Dynatrace integrates with Azure Monitor/App Insights by enriching the data and extending observability into the platform with additional metrics for cloud infrastructure, load balancers, API Management Services, and more. Dynatrace supports over 80 Azure Monitor services that span application and microservices workloads, as well as infrastructure-related services. 
 
-[Dynatrack documentation](https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/)
+Get automated, AI-assisted observability across Azure environments:
+
+- Full stack observability in minutes, everything in context including metrics, logs, and traces.
+- Auto-discovery, continuous dependency mapping and instant answers to automate monitoring of Azure cloud services including App Service, Database Performance, AKS, HDInsight, and many more.
+- Davis, Dynatrace’s AI, continuously analyzes billions of dependencies to provide precise root cause.
+- Single source of truth for teams to collaborate and innovate, wherever they may reside.
+- Accelerate Azure cloud migrations.
+
+
+[Dynatrace documentation](https://www.dynatrace.com/support/help/technology-support/cloud-platforms/microsoft-azure-services/)
 
 
 ## Elastic
@@ -287,12 +296,19 @@ With Site24x7 Azure Monitoring, you will be able to:
 * Monitor your complete Microsoft ecosphere including SQL, Exchange, Active Directory, Office 365, IIS, and Hyper-V applications.
 * Integrate seamlessly with third party services like Microsoft Teams, PagerDuty, Zapier, and more.
 
-[Site 24X7 documentation](https://www.site24x7.com/)
-
+[Site24X7 documentation](https://www.site24x7.com/azure/?utm_source=microsoft-partner-page&utm_medium=webpage&utm_campaign=ms-partner)
 
 ## SolarWinds
 
 [SolarWinds documentation](https://www.solarwinds.com/topics/azure-monitoring)
+
+## SpearTip
+
+![SpearTip logo](./media/partners/speartip.png)
+
+SpearTip’s 24/7 security operations center continuously monitors Azure environments for cyber threats. Utilizing the ShadowSpear integration with Azure Monitor, security events are collected and analyzed for advanced threats, while SpearTip engineers investigate and respond to stop threat actors in their tracks. The integration is seamless and provides instant value once the integration is deployed.
+
+[SpearTip documentation](https://www.speartip.com/identify/)
 
 ## Splunk
 

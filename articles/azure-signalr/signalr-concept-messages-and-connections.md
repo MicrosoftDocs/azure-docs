@@ -42,9 +42,16 @@ If you have three clients and one application server. One client sends a 4-KB me
 
 There are server connections and client connections with Azure SignalR Service. By default, each application server starts with five initial connections per hub, and each client has one client connection.
 
-The connection count shown in the Azure portal includes both server connections and client connections.
-
 For example, assume that you have two application servers and you define five hubs in code. The server connection count will be 50: 2 app servers * 5 hubs * 5 connections per hub.
+
+The connection count shown in the Azure portal includes server connections, client connections, diagnostic connections, and live trace connections. The connection types are defined in the following list:
+
+- **Server connection**: Connects Azure SignalR Service and the app server.
+- **Client connection**: Connects Azure SignalR Service and the client app.
+- **Diagnostic connection**: A special kind of client connection that can produce a more detailed log, which might affect performance. This kind of client is designed for troubleshooting.
+- **Live trace connection**: Connects to the live trace endpoint and receives live traces of Azure SignalR Service. 
+ 
+Note that a live trace connection isn't counted as a client connection or as a server connection. 
 
 ASP.NET SignalR calculates server connections in a different way. It includes one default hub in addition to hubs that you define. By default, each application server needs five more initial server connections. The initial connection count for the default hub stays consistent with other hubs.
 

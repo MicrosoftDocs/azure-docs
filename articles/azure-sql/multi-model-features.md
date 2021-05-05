@@ -81,7 +81,7 @@ For more information, see [How to work with JSON data](database/json-features.md
 
 Document models can be used instead of the relational models in some specific scenarios:
 
-- High-normalization of schema doesn't bring significant benefits because you access the all fields of objects at once, or you never update normalized parts of the objects. However, the normalized model increases the complexity of your queries due to the large number of tables that you need to join to get the data.
+- High-normalization of schema doesn't bring significant benefits because you access all the fields of the objects at once, or you never update normalized parts of the objects. However, the normalized model increases the complexity of your queries due to the large number of tables that you need to join to get the data.
 - You are working with the applications that natively use JSON documents are communication or data models, and you don't want to introduce additional layers that transforms relational data to JSON and vice versa.
 - You need to simplify your data model by de-normalizing child tables or Entity-Object-Value patterns.
 - You need to load or export data stored in JSON format without some additional tool that parses the data.
@@ -119,7 +119,7 @@ The SQL Server database engine provides a powerful platform for developing rich 
 
 Document models can be used instead of the relational models in some specific scenarios:
 
-- High-normalization of schema doesn't bring significant benefits because you access the all fields of objects at once, or you never update normalized parts of the objects. However, the normalized model increases the complexity of your queries due to the large number of tables that you need to join to get the data.
+- High-normalization of schema doesn't bring significant benefits because you access all the fields of the objects at once, or you never update normalized parts of the objects. However, the normalized model increases the complexity of your queries due to the large number of tables that you need to join to get the data.
 - You are working with the applications that natively use XML documents are communication or data models, and you don't want to introduce additional layers that transforms relational data to XML and vice versa.
 - You need to simplify your data model by de-normalizing child tables or Entity-Object-Value patterns.
 - You need to load or export data stored in XML format without some additional tool that parses the data.

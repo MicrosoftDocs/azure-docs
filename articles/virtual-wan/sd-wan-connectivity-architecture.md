@@ -1,7 +1,7 @@
 ---
 title: 'Virtual WAN and SD-WAN connectivity architectures'
 titleSuffix: Azure Virtual WAN
-description: Learn about interconnecting a private SD-WAN with Azure Virtual WAN
+description: Learn about interconnecting a private SD-WAN with Azure Virtual WAN.
 services: virtual-wan
 author: skishen525
 
@@ -29,11 +29,11 @@ In all of these cases, the interconnection of Virtual WAN with SD-WAN is similar
 
 :::image type="content" source="./media/sd-wan-connectivity-architecture/direct.png" alt-text="Direct interconnect model":::
 
-In this architecture model, the SD-WAN branch customer-premises equipment (CPE) is directly connected to Virtual WAN hubs via IPsec connections. The branch CPE may also be connected to other branches via the private SD-WAN, or leverage Virtual WAN for branch to branch connectivity. Branches that need to access their workloads in Azure will be able to directly and securely access Azure via the IPsec tunnel(s) that are terminated in the Virtual WAN hub(s).
+In this architecture model, the SD-WAN branch customer-premises equipment (CPE) is directly connected to Virtual WAN hubs via IPsec connections. The branch CPE may also be connected to other branches via the private SD-WAN, or use Virtual WAN for branch to branch connectivity. Branches that need to access their workloads in Azure will be able to directly and securely access Azure via the IPsec tunnel(s) that are terminated in the Virtual WAN hub(s).
 
-SD-WAN CPE partners can enable automation in order to automate the normally tedious and error-prone IPsec connectivity from their respective CPE devices. Automation allows the SD-WAN controller to talk to Azure via the Virtual WAN API to configure the Virtual WAN sites, as well as push necessary IPsec tunnel configuration to the branch CPEs. See [Automation guidelines](virtual-wan-configure-automation-providers.md) for the description of Virtual WAN interconnection automation by various SD-WAN partners.
+SD-WAN CPE partners can enable automation in order to automate the normally tedious and error-prone IPsec connectivity from their respective CPE devices. Automation allows the SD-WAN controller to talk to Azure via the Virtual WAN API to configure the Virtual WAN sites, and push necessary IPsec tunnel configuration to the branch CPEs. See [Automation guidelines](virtual-wan-configure-automation-providers.md) for the description of Virtual WAN interconnection automation by various SD-WAN partners.
 
-The SD-WAN CPE continues to be the place where traffic optimization as well as path selection is implemented and enforced. 
+The SD-WAN CPE continues to be the place where traffic optimization and path selection is implemented and enforced. 
 
 In this model, some vendor proprietary traffic optimization based on real-time traffic characteristics may not be supported because the connectivity to Virtual WAN is over IPsec and the IPsec VPN is terminated on the Virtual WAN VPN gateway. For example, dynamic path selection at the branch CPE is feasible due to the branch device exchanging various network packet information with another SD-WAN node, hence identifying the best link to use for various prioritized traffic dynamically at the branch. This feature may be useful in areas where last mile optimization (branch to the closest Microsoft POP) is required.
 
@@ -45,9 +45,9 @@ With Virtual WAN, users can get Azure Path Selection, which is policy-based path
 
 This architecture model supports the deployment of a third-party [Network Virtual Appliance (NVA) directly into the virtual hub](./about-nva-hub.md). This allows customers who want to connect their branch CPE to the same brand NVA in the virtual hub so that they can take advantage of proprietary end-to-end SD-WAN capabilities when connecting to Azure workloads. 
 
-Several Virtual WAN Partners have worked to provide an experience that configures the NVA automatically as part of the deployment process. Once the NVA has been provisioned into the virtual hub, any additional configuration that may be required for the NVA must be done via the NVA partners portal or management application. Direct access to the NVA is not available. The NVAs that are available to be deployed directly into the Azure Virtual WAN hub are engineered specifically to be used in the virtual hub. For partners that support NVA in VWAN hub as well as their deployment guides, please see the [Virtual WAN Partners](virtual-wan-locations-partners.md#partners-with-integrated-virtual-hub-offerings) article.
+Several Virtual WAN Partners have worked to provide an experience that configures the NVA automatically as part of the deployment process. Once the NVA has been provisioned into the virtual hub, any additional configuration that may be required for the NVA must be done via the NVA partners portal or management application. Direct access to the NVA is not available. The NVAs that are available to be deployed directly into the Azure Virtual WAN hub are engineered specifically to be used in the virtual hub. For partners that support NVA in VWAN hub and their deployment guides, please see the [Virtual WAN Partners](virtual-wan-locations-partners.md#partners-with-integrated-virtual-hub-offerings) article.
 
-The SD-WAN CPE continues to be the place where traffic optimization as well as path selection is implemented and enforced.
+The SD-WAN CPE continues to be the place where traffic optimization and path selection is implemented and enforced.
 In this model, vendor proprietary traffic optimization based on real-time traffic characteristics is supported because the connectivity to Virtual WAN is via the SD-WAN NVA in the hub.
 
 ## <a name="indirect"></a>Indirect Interconnect model

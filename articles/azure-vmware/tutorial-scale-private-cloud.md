@@ -1,13 +1,13 @@
 ---
-title: Tutorial - Scale a private cloud
+title: Tutorial - Expand or shrink clusters in a private cloud
 description: In this tutorial, you use the Azure portal to scale an Azure VMware Solution private cloud.
 ms.topic: tutorial
-ms.date: 09/21/2020
+ms.date: 03/13/2021
 
 #Customer intent: As a VMware administrator, I want to learn how to scale an Azure VMware Solution private cloud in the Azure portal.
 ---
 
-# Tutorial: Scale an Azure VMware Solution private cloud
+# Tutorial: Expand or shrink clusters in a private cloud
 
 To get the most out of your Azure VMware Solution private cloud experience, scale the clusters and hosts to reflect what you need for planned workloads. You can scale the clusters and hosts in a private cloud as required for your application workload. Performance and availability limitations for specific services should be addressed on a case by case basis. The cluster and host limits are provided in the [private cloud concept](concepts-private-clouds-clusters.md) article.
 
@@ -19,7 +19,7 @@ In this tutorial, you'll use the Azure portal to:
 
 ## Prerequisites
 
-A private cloud to complete this tutorial. If you haven't created a private cloud, use the [create a private cloud tutorial](tutorial-create-private-cloud.md) to create one. Configure networking for your VMware private cloud in Azure to set up the required virtual network.
+You'll need an existing private cloud to complete this tutorial. If you haven't created a private cloud, use the [create a private cloud tutorial](tutorial-create-private-cloud.md) to create one. 
 
 ## Add a new cluster
 
@@ -43,7 +43,7 @@ A private cloud to complete this tutorial. If you haven't created a private clou
 
    :::image type="content" source="./media/tutorial-scale-private-cloud/ss5-scale-cluster.png" alt-text="In the Edit Cluster page, use the slider to select the number of hosts. Select Save." border="true":::
 
-   The addition of hosts to the cluster will begin.
+   The addition of hosts to the cluster begins.
 
 ## Next steps
 

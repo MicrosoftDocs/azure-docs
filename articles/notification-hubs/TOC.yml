@@ -120,7 +120,7 @@
   - name: Create notification hub using SDKs
     items:
     - name: Create notification hub - .NET
-      href: /dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
+      href: /dotnet/api/overview/azure/notification-hubs
     - name: Create notification hub - Node.js
       href: notification-hubs-nodejs-push-notification-tutorial.md
     - name: Create notification hub - Java
@@ -158,7 +158,7 @@
   - name: .NET
     href: /dotnet/api/microsoft.azure.notificationhubs
   - name: Azure CLI
-    href: /cli/azure/ext/notification-hub/notification-hub
+    href: /cli/azure/notification-hub
   - name: PowerShell
     href: /powershell/module/az.notificationhubs
   - name: REST

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/24/2020
+ms.date: 04/13/2021
 ms.author: jeedes
 ---
 
@@ -32,10 +32,10 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* EasySSO for Confluence supports **SP and IDP** initiated SSO
-* EasySSO for Confluence supports **Just In Time** user provisioning
+* EasySSO for Confluence supports **SP and IDP** initiated SSO.
+* EasySSO for Confluence supports **Just In Time** user provisioning.
 
-## Adding EasySSO for Confluence from the gallery
+## Add EasySSO for Confluence from the gallery
 
 To configure the integration of EasySSO for Confluence into Azure AD, you need to add EasySSO for Confluence from the gallery to your list of managed SaaS apps.
 
@@ -45,7 +45,6 @@ To configure the integration of EasySSO for Confluence into Azure AD, you need t
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **EasySSO for Confluence** in the search box.
 1. Select **EasySSO for Confluence** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for EasySSO for Confluence
 
@@ -66,7 +65,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **EasySSO for Confluence** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -127,9 +126,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **EasySSO for Confluence**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.

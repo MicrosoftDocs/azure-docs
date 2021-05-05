@@ -77,7 +77,7 @@ This option is available only for **Azure CDN Premium from Verizon** profiles. W
    The following sample URL Rewrite rule uses a regular expression pattern with a capturing group and an endpoint named *sasstoragedemo*:
    
    Source:   
-   `(container1\/.*)`
+   `(container1/.*)`
 
 
    Destination:   
@@ -117,7 +117,7 @@ To use Azure CDN security token authentication, you must have an **Azure CDN Pre
    The following sample URL Rewrite rule uses a regular expression pattern with a capturing group and an endpoint named *sasstoragedemo*:
    
    Source:   
-   `(container1\/.*)`
+   `(container1/.*)`
    
    Destination:   
    ```

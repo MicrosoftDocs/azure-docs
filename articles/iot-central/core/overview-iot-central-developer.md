@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: [mvc, device-developer]
+
+# This article applies to device developers.
 ---
 
 # IoT Central device development guide
-
-*This article applies to device developers.*
 
 An IoT Central application lets you monitor and manage millions of devices throughout their life cycle. This guide is intended for device developers who implement code to run on devices that connect to IoT Central.
 
@@ -61,7 +61,7 @@ Using DPS enables:
 - You to use your own device IDs to register devices in IoT Central. Using your own device IDs simplifies integration with existing back-office systems.
 - A single, consistent way to connect devices to IoT Central.
 
-To learn more, see [Get connected to Azure IoT Central](./concepts-get-connected.md).
+To learn more, see [Get connected to Azure IoT Central](./concepts-get-connected.md) and [Best practices](concepts-best-practices.md).
 
 ### Security
 
@@ -98,7 +98,7 @@ A DTDL model can be a _no-component_ or a _multi-component_ model:
 - No-component model: A simple model doesn't use embedded or cascaded components. All the telemetry, properties, and commands are defined a single _default component_. For an example, see the [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) model.
 - Multi-component model. A more complex model that includes two or more components. These components include a single default component, and one or more additional nested components. For an example, see the [Temperature Controller](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) model.
 
-To learn more, see [IoT Plug and Play components in models](../../iot-pnp/concepts-components.md)
+To learn more, see [IoT Plug and Play modeling guide](../../iot-pnp/concepts-modeling-guide.md)
 
 ### Conventions
 
@@ -118,7 +118,7 @@ To learn more about the IoT Plug and Play conventions, see [IoT Plug and Play co
 
 ### Device SDKs
 
-Use one of the [Azure IoT device SDKs](#languages-and-sdks) to implement the behavior of your device. The code should:
+Use one of the [Azure IoT device SDKs](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) to implement the behavior of your device. The code should:
 
 - Register the device with DPS and use the information from DPS to connect to the internal IoT hub in your IoT Central application.
 - Announce the DTMI of the model the device implements.

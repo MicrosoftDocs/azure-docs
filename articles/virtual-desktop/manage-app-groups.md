@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: tutorial
 ms.date: 10/09/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Tutorial: Manage app groups with the Azure portal
 

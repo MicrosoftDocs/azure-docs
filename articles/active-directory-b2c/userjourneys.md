@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/14/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -76,7 +76,7 @@ The following example shows a user journey element with authorization technical 
 
 A user journey is represented as an orchestration sequence that must be followed through for a successful transaction. If any step fails, the transaction fails. These orchestration steps reference both the building blocks and the claims providers allowed in the policy file. Any orchestration step that is responsible to show or render a user experience also has a reference to the corresponding content definition identifier.
 
-Orchestration steps can be conditionally executed based on preconditions defined in the orchestration step element. For example, you can check to perform an orchestration step only if a specific claims exists, or if a claim is equal or not to the specified value.
+Orchestration steps can be conditionally executed based on preconditions defined in the orchestration step element. For example, you can check to perform an orchestration step only if a specific claim exists, or if a claim is equal or not to the specified value.
 
 To specify the ordered list of orchestration steps, an **OrchestrationSteps** element is added as part of the policy. This element is required.
 
@@ -115,18 +115,23 @@ The **Preconditions** element contains the following element:
 
 #### Precondition
 
+Orchestration steps can be conditionally executed based on preconditions defined in the orchestration step. There are two types of preconditions:
+ 
+- **Claims exist** - Specifies that the actions should be performed if the specified claims exist in the user's current claim bag.
+- **Claim equals** - Specifies that the actions should be performed if the specified claim exists, and its value is equal to the specified value. The check performs a case-sensitive ordinal comparison. When checking Boolean claim type, use `True`, or `False`.
+
 The **Precondition** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | `Type` | Yes | The type of check or query to perform for this precondition. The value can be **ClaimsExist**, which specifies that the actions should be performed if the specified claims exist in the user's current claim set, or **ClaimEquals**, which specifies that the actions should be performed if the specified claim exists and its value is equal to the specified value. |
-| `ExecuteActionsIf` | Yes | Use a true or false test to decide if the actions in the precondition should be performed. |
+| `ExecuteActionsIf` | Yes | Use a `true` or `false` test to decide if the actions in the precondition should be performed. |
 
 The **Precondition** elements contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Value | 1:n | A ClaimTypeReferenceId to be queried for. Another value element contains the value to be checked.</li></ul>|
+| Value | 1:2 | The identifier of a claim type. The claim is already defined in the claims schema section in the policy file, or parent policy file. When the precondition is type of `ClaimEquals`, a second `Value` element contains the value to be checked. |
 | Action | 1:1 | The action that should be performed if the precondition check within an orchestration step is true. If the value of the `Action` is set to `SkipThisOrchestrationStep`, the associated `OrchestrationStep` should not be executed. |
 
 #### Preconditions examples
@@ -185,9 +190,12 @@ Preconditions can check multiple preconditions. The following example checks whe
 </OrchestrationStep>
 ```
 
-## ClaimsProviderSelection
+## Claims provider selection
 
-An orchestration step of type `ClaimsProviderSelection` or `CombinedSignInAndSignUp` may contain a list of claims providers that a user can sign in with. The order of the elements inside the `ClaimsProviderSelections` elements controls the order of the identity providers presented to the user.
+Identity provider selection lets users select an action from a list of options. The identity provider selection consists of a pair of two orchestration  steps: 
+
+1. **Buttons** - It starts with type of `ClaimsProviderSelection`, or `CombinedSignInAndSignUp` that contains a list of options a user can choose from. The order of the options inside the `ClaimsProviderSelections` element controls the order of the buttons presented to the user.
+2. **Actions** - Followed by type of `ClaimsExchange`. The ClaimsExchange contains list of actions. The action is a reference to a technical profile, such as [OAuth2](oauth2-technical-profile.md), [OpenID Connect](openid-connect-technical-profile.md), [claims transformation](claims-transformation-technical-profile.md), or [self-asserted](self-asserted-technical-profile.md). The When a user clicks on one of the buttons, the corresponding action is executed.
 
 The **ClaimsProviderSelections** element contains the following element:
 
@@ -208,7 +216,7 @@ The **ClaimsProviderSelection** element contains the following attributes:
 | TargetClaimsExchangeId | No | The identifier of the claims exchange, which is executed in the next orchestration step of the claims provider selection. This attribute or the ValidationClaimsExchangeId attribute must be specified, but not both. |
 | ValidationClaimsExchangeId | No | The identifier of the claims exchange, which is executed in the current orchestration step to validate the claims provider selection. This attribute or the TargetClaimsExchangeId attribute must be specified, but not both. |
 
-### ClaimsProviderSelection example
+### Claims provider selection example
 
 In the following orchestration step, the user can choose to sign in with Facebook, LinkedIn, Twitter, Google, or a local account. If the user selects one of the social identity providers, the second orchestration step executes with the selected claim exchange specified in the `TargetClaimsExchangeId` attribute. The second orchestration step redirects the user to the social identity provider to complete the sign-in process. If the user chooses to sign in with the local account, Azure AD B2C stays on the same orchestration step (the same sign-up page or sign-in page) and skips the second orchestration step.
 
@@ -238,7 +246,7 @@ In the following orchestration step, the user can choose to sign in with Faceboo
   <ClaimsExchanges>
     <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
     <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
-  <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
+    <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
     <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
     <ClaimsExchange Id="TwitterExchange" TechnicalProfileReferenceId="Twitter-OAUTH1" />
   </ClaimsExchanges>

@@ -65,13 +65,13 @@ landingContent:
       - linkListType: reference
         links:
           - text: .NET client library
-            url: /dotnet/api/azure.security.keyvault.keys?view=azure-dotnet
+            url: /dotnet/api/azure.security.keyvault.keys
           - text: Python client library
-            url: /python/api/overview/azure/keyvault-keys-readme?view=azure-python
+            url: /python/api/overview/azure/keyvault-keys-readme
           - text: Java client library
             url: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html
           - text: Node.js client library
-            url: /javascript/api/@azure/keyvault-keys/?view=azure-node-latest
+            url: /javascript/api/@azure/keyvault-keys/
 
 
   # Card
@@ -83,8 +83,8 @@ landingContent:
             url: ../general/overview.md
           - text: Basic concepts
             url: ../general/basic-concepts.md
-          - text: Security overview
-            url: ../general/security-overview.md
+          - text: Security features
+            url: ../general/security-features.md
           - text: Soft-delete overview
             url: ../general/soft-delete-overview.md
 

@@ -1,17 +1,16 @@
 ---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SharingCloud | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and SharingCloud.
+description: Learn how to configure single sign-on between Azure Active Directory and Instant Suite.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
-ms.reviewer: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/09/2021
+ms.date: 03/10/2021
 ms.author: jeedes
-
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with SharingCloud
@@ -27,7 +26,8 @@ In this tutorial, you'll learn how to integrate SharingCloud with Azure Active D
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* SharingCloud single sign-on (SSO) enabled subscription.
+* Sapient single sign-on (SSO) enabled subscription.
+
 
 ## Scenario description
 
@@ -71,37 +71,31 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://<CustomerName>.sharingcloud.net/adfs/<CustomerName>/saml/federation.xml`
+	Upload the metadata file with XML file provided by SharingCloud. Contact the [SharingCloud Client support team](mailto:support@sharingcloud.com) to get the file.
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<CustomerName>.sharingcloud.net/social/complete/saml/`
+	![Screenshot of the Basic SAML Configuration user interface with the **Upload metadata file** link highlighted.](common/upload-metadata.png)
+	
+	Select the metadata file provided and click on **Upload**.
 
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<CustomerName>.sharingcloud.net/accounts/login/`
-
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [SharingCloud Client support team](mailto:support@sharingcloud.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	![Screenshot of the metadata file provided user interface, with the select file icon and **Upload** button highlighted.](common/browse-upload-metadata.png)
 
 1. SharingCloud application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/default-attributes.png)
+	![Screenshot of the User Attributes user interface with the edit icon highlighted.](common/edit_attribute.png)
 
-1. In addition to above, SharingCloud application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
-	
-	| Name |  Source Attribute|
-	| --------------- | --------- |
+1. In addition to above, SharingCloud application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirement.
+
+	| Name | Source Attribute|
+	| ---------------| --------- |
+	| urn:sharingcloud:sso:firstname | user.givenname |
+	| urn:sharingcloud:sso:lastname | user.surname |
 	| urn:sharingcloud:sso:email | user.mail |
-    | urn:sharingcloud:sso:firstname | user.givenname |
-    | urn:sharingcloud:sso:lastname | user.surname |
 
-1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click on **Copy** icon to copy the **Federation Metadata Url** from the given options as per your requirement.
 
-	![The Certificate download link](common/copy-metadataurl.png)
+	![The Metadata Url to copy](common/copy_metadataurl.png)
 
 ### Create an Azure AD test user
 
@@ -129,11 +123,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure SharingCloud SSO
 
-To configure single sign-on on **SharingCloud** side, you need to send the **App Federation Metadata Url** to [SharingCloud support team](mailto:support@sharingcloud.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **SharingCloud** side, you need to send the copied **Federation Metadata Url** from Azure portal to [SharingCloud support team](mailto:support@sharingcloud.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create SharingCloud test user
 
-In this section, a user called Britta Simon is created in SharingCloud. SharingCloud supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in SharingCloud, a new one is created after authentication.
+In this section, a user called Britta Simon is created in SharingCloud. SharingCloud supports Just In Time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in SharingCloud, a new one is created after authentication.
 
 ## Test SSO 
 
@@ -149,11 +143,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the SharingCloud for which you set up the SSO 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the SharingCloud tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the SharingCloud for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+You can also use Microsoft My Apps to test the application in any mode. When you click the SharingCloud tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the SharingCloud for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps
 
-Once you configure SharingCloud you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Once you configure SharingCloud you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

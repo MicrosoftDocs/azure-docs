@@ -17,7 +17,7 @@ The following table includes links to Azure Resource Manager templates for using
 | Template | Description |
 |---|---|
 |**Azure to Azure** | |
-| [Create a Recovery Services vault](https://docs.microsoft.com/azure/site-recovery/quickstart-create-vault-template)| Create a Recovery Services vault. The vault can be used for Azure Backup and Azure Site Recovery. |
+| [Create a Recovery Services vault](./quickstart-create-vault-template.md)| Create a Recovery Services vault. The vault can be used for Azure Backup and Azure Site Recovery. |
 | [Enable Replication for Azure VMs](https://aka.ms/asr-arm-enable-replication) | Enable replication for Azure VMs using the existing Vault and custom Target Settings.|
 | [Trigger Failover and Reprotect](https://aka.ms/asr-arm-failover-reprotect) | Trigger a Failover and Reprotect operation for a set of Azure VMs. |
 | [Run an End to End DR Flow for Azure VMs](https://aka.ms/asr-arm-e2e-flow) | Start a complete End to End Disaster Recovery Flow (Enable Replication + Failover and Reprotect + Failback and Reprotect) for Azure VMs, also called as 540° flow.|

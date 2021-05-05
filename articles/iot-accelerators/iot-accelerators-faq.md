@@ -19,7 +19,7 @@ See also, the [Connected Factory-specific FAQ](iot-accelerators-faq-cf.md).
 The source code is stored in the following GitHub repositories:
 
 * [Connected Factory solution accelerator](https://github.com/Azure/azure-iot-connected-factory)
-* [Device simulation solution accelerator](https://github.com/Azure/device-simulation-dotnet)
+* [Device simulation solution accelerator](https://github.com/Azure/azure-iot-pcs-device-simulation)
 
 ### Where can I find the remote monitoring and predictive maintenance solution accelerators?
 
@@ -31,7 +31,7 @@ Existing deployments aren't impacted by the removal of the remote monitoring and
 
 ### How do I deploy device simulation solution accelerator?
 
-To deploy the device simulation solution accelerator, see the the [device simulation](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) GitHub repository.
+To deploy the device simulation solution accelerator, see the [device simulation](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md) GitHub repository.
 
 ### Where can I find information about the removed solution accelerators?
 

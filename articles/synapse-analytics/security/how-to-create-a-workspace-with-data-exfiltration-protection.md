@@ -1,7 +1,7 @@
 ---
 title: Create a workspace with data exfiltration protection enabled
 description: This article will explain how to create a workspace with data exfiltration protection in Azure Synapse Analytics
-author: NanditaV 
+author: nanditavalsan 
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.subservice: security 
@@ -46,6 +46,8 @@ You can create managed private endpoints to connect to Azure resources that resi
 
 ## Known limitations
 Users can provide an environment configuration file to install Python packages from public repositories like PyPI. In data exfiltration protected workspaces, connections to outbound repositories are blocked. As a result, Python library installed from public repositories like PyPI are not supported. 
+
+As an alternative, users can upload workspace packages or create a private channel within their primary Azure Data Lake Storage account. For more information, visit [Package management in Azure Synapse Analytics](./spark/../../spark/apache-spark-azure-portal-add-libraries.md) 
   
 ## Next steps
 
