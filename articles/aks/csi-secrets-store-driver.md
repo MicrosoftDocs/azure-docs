@@ -141,6 +141,15 @@ Take note of the following properties for use in the next section:
 - Name of Key Vault resource
 - Azure Tenant ID the Subscription belongs to
 
+## Provide identity to access Azure Key Vault
+
+The example in this article uses a Service Principal, but the Azure Key Vault provider offers four methods of access. Review them and choose the one that best fits your use case. Be aware additional steps may be required depending on the chosen method, such as granting the Service Principal permissions to get secrets from key vault.
+
+- [Service Principal][service-principal-access]
+- [Pod Identity][pod-identity-access]
+- [User-assigned Managed Identity][ua-mi-access]
+- [System-assigned Managed Identity][sa-mi-access]
+
 ## Create and apply your own SecretProviderClass object
 
 To use and configure the Secrets Store CSI driver for your AKS cluster, create a SecretProviderClass custom resource.
@@ -172,15 +181,6 @@ spec:
 ```
 
 For more information, see [Create your own SecretProviderClass Object][sample-secret-provider-class]. Be sure to use the values you took note of above.
-
-## Provide identity to access Azure Key Vault
-
-The example in this article uses a Service Principal, but the Azure Key Vault provider offers four methods of access. Review them and choose the one that best fits your use case. Be aware additional steps may be required depending on the chosen method, such as granting the Service Principal permissions to get secrets from key vault.
-
-- [Service Principal][service-principal-access]
-- [Pod Identity][pod-identity-access]
-- [User-assigned Managed Identity][ua-mi-access]
-- [System-assigned Managed Identity][sa-mi-access]
 
 ### Apply the SecretProviderClass to your cluster
 
