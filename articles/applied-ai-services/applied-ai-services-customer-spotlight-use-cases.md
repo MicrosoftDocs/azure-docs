@@ -37,7 +37,7 @@ Customers are already using Applied AI Services to add AI horsepower to their bu
 
 <br>
 
-![Chevron logo](./media/chevron-2.png)
+![Chevron logo](./media/chevron-01.png)
 ## Chevron uses Form Recognizer to extract volumes of data from unstructured reports  
 “We only have a finite amount of time to extract data, and oftentimes the data that’s left behind is valuable. With this new technology, we're able to extract everything and then decide what we can use to improve our performance.” 
 
