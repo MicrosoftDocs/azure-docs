@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/11/2020
+ms.date: 05/05/2021
 ms.author: jeedes
 ---
 
@@ -59,7 +59,6 @@ To configure and test Azure AD SSO with Ally.io, complete the following building
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Ally.io SSO](#configure-allyio-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Ally.io test user](#create-allyio-test-user)** - to have a counterpart of B.Simon in Ally.io that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -72,7 +71,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. In the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://app.ally.io/saml/consume/<CUSTOM_GUID>`
@@ -104,7 +103,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![The Certificate download link](common/certificatebase64.png)
 
-1. On the **Set up Ally.io** section, copy the appropriate URL(s) based on your requirement.
+1. In the **Set up Ally.io** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -142,22 +141,22 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 To configure single sign-on on Ally.io side, you need to copy the Certificate (Base64) and appropriate URLs from Azure portal and add them in Ally.io.
 
-1. Log in to Ally.io using an Admin account.
+1. Sign in to Ally.io using an Admin account.
 1. Using the navigation bar on the left of the screen, select **Admin** > **Integrations**.
 1. Scroll to the **Authentication** section and select **Single Sign-On**. Then, select **Enable**.
 
-![Screenshot that shows the Enable button in Digital Tones.](./media/ally-tutorial/ally-enable.png)
+    ![Screenshot that shows the Enable button in Ally I O.](./media/ally-tutorial/ally-enable.png)
 
-After you have selected Enable, a new screen will appear where you can configure the certificate and the copied URLs from your Azure portal.
+    The **SSO Configuration** page opens, and you can configure the certificate and the copied URLs from the Azure portal.
 
-![Screenshot that shows the S S O configuration pane in Ally i o.](./media/ally-tutorial/ally-single-sign-on-configuration.png)
+    ![Screenshot that shows the S S O configuration pane in Ally I O.](./media/ally-tutorial/ally-single-sign-on-configuration.png)
 
-Fill in the SSO Configuration by following the mapping 
+1. In **SSO Configuration**, enter or select the following settings: 
 
-* **Ally**: Azure AD
-* **SAML 2.0 Endpoint URL**: Login URL
-* **Identity Provider Issuer URL**: Azure AD Identifier
-* **Public(X.509) Certificate**: Certificate (base 64)
+    * **Ally**: Azure AD
+    * **SAML 2.0 Endpoint URL**: Login URL
+    * **Identity Provider Issuer URL**: Azure AD Identifier
+    * **Public(X.509) Certificate**: Certificate (base 64)
 
 ## Test SSO 
 
@@ -169,9 +168,9 @@ A user called B.Simon is created in Ally.io. Ally.io supports just-in-time provi
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
