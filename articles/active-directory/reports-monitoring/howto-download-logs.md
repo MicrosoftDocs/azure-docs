@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/02/2021
+ms.date: 05/05/2021
 ms.author: markvi
 ms.reviewer: besiler 
 
@@ -60,16 +60,15 @@ The option to download the data of an activity log is available in all editions 
 
 ## Who can do it?
 
-To access the audit logs, you need to be in one of the following roles:
+While the global administrator works, you should use an account with lower privileges to perform this task. To access the audit logs, the following roles work:
 
-- Global Reader
 - Report Reader
-- Global Administrator
+- Global Reader
 - Security Administrator
 - Security Reader
 
 
-## Steps
+## How to do it
 
 In Azure AD, you can access the download option in the toolbar of an activity log page.  
 
