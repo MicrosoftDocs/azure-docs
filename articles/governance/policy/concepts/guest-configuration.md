@@ -243,7 +243,7 @@ to view historical reports for a guest assignment until the region is restored.
 
 When considering an architecture for highly available applications,
 especially where virtual machines are provisioned in
-[Availability Sets](../../../virtual-machines/availability#availability-sets)
+[Availability Sets](../../../virtual-machines/availability#availability-sets.md)
 behind a load balancer solution to provide high availability,
 it is best practice to assign the same policy definitions with the same parameters to all machines
 in the solution. If possible, a single policy assignment spanning all
