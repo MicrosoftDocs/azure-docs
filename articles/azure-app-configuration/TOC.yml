@@ -93,8 +93,8 @@
     - name: Enable Azure Monitoring
       items:
         - name: Monitor App Configuration
-          href: monitor-app-configuration.md 
-        - name: Monitor Data Reference 
+          href: monitor-app-configuration.md
+        - name: Monitor Data Reference
           href: monitor-app-configuration-reference.md
 - name: Samples
   items:
