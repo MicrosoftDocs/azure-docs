@@ -1,5 +1,5 @@
 ---
-title: Azure Event Grid on Kubernetes - event Handlers and destinations
+title: Azure Event Grid on Kubernetes - event handlers and destinations
 description: This article describes different types of event handlers and destinations supported by Event Grid on Kubernetes
 author: spelluru
 manager: JasonWHowell
@@ -8,7 +8,7 @@ ms.date: 05/04/2021
 ms.topic: conceptual
 ---
 
-# Event Handlers and destinations in Event Grid on Kubernetes
+# Event handlers and destinations in Event Grid on Kubernetes
 An event handler is the place where the event for further action or to process the event. Event subscriptions support the following kind of destinations.
 
 - Webhooks. The following destinations are supported through webhooks:
