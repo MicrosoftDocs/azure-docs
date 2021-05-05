@@ -42,7 +42,7 @@ There are two strategies for monitoring:
 | Aggressive | Provides rapid failure detection and recovery of hard failures, which delivers the highest levels of availability. The cluster service and SQL Server are both less forgiving of transient failure and in some situations may prematurely fail over resources when there are transient outages. Once failure is detected, the corrective action that follows may take extra time. |
 | Relaxed | Provides more forgiving failure detection with a greater tolerance for brief transient network issues. Avoids transient failures, but also introduces the risk of delaying the detection of a true failure. |
 
-Aggressive settings in a cluster environment in the cloud may lead to premature failures and longer outages. To adjust threshold settings, see [cluster best practices](hadr-cluster-best-practices.md#relaxed-monitoring) for more detail. 
+Aggressive settings in a cluster environment in the cloud may lead to premature failures and longer outages, therefore a relaxed monitoring strategy is recommended for failover clusters on Azure VMs. To adjust threshold settings, see [cluster best practices](hadr-cluster-best-practices.md#relaxed-monitoring) for more detail. 
 
 ## Cluster heartbeat
 
@@ -53,13 +53,13 @@ The primary settings that affect cluster heart beating and health detection betw
 | Delay | This defines the frequency at which cluster heartbeats are sent between nodes. The delay is the number of seconds before the next heartbeat is sent. Within the same cluster there can be different delay settings configured between nodes on the same subnet, and between nodes that are on different subnets. |
 | Threshold | The threshold is the number of heartbeats that can be missed before the cluster takes recovery action. Within the same cluster there can be different threshold settings configured between nodes on the same subnet, and between nodes that are on different subnets. |
 
-By default, these values may be too low for the cloud environment, and could result in unnecessary failures due to transient network issues. To be more tolerant, use relaxed threshold settings. See [cluster best practices](hadr-cluster-best-practices.md#heartbeat-and-threshold) for more detail. 
+The default values for these settings may be too low for cloud environments, and could result in unnecessary failures due to transient network issues. To be more tolerant, use relaxed threshold settings for failover clusters in Azure VMs. See [cluster best practices](hadr-cluster-best-practices.md#heartbeat-and-threshold) for more detail. 
 
 ## Quorum
 
 Although a two-node cluster will function without a [quorum resource](/windows-server/storage/storage-spaces/understand-quorum), customers are strictly required to use a quorum resource to have production support. Cluster validation won't pass any cluster without a quorum resource. 
 
-Technically, a three-node cluster can survive a single node loss (down to two nodes) without a quorum resource. But after the cluster is down to two nodes, there's a risk that the clustered resources will go offline if a node loss or communication failure to prevent a split-brain scenario. Configuring a quorum resource will allow the cluster to continue online with only one node online.
+Technically, a three-node cluster can survive a single node loss (down to two nodes) without a quorum resource. But after the cluster is down to two nodes, there's a risk that the clustered resources will go offline to prevent a split-brain scenario if a node is lost or there's a communication failure between the nodes. Configuring a quorum resource will allow the cluster resources to remain online with only one node online.
 
 The disk witness is the most resilient quorum option, but to use a disk witness on a SQL Server on Azure VM, you must use an Azure Shared Disk which imposes some limitations to the high availability solution. As such, use a disk witness when you're configuring your failover cluster instance with Azure Shared Disks, otherwise use a cloud witness whenever possible. 
 
@@ -153,7 +153,7 @@ To adjust threshold settings, see [cluster best practices](hadr-cluster-best-pra
 
 ## Node location
 
-Nodes in a Windows cluster on virtual machines in Azure may be physically separated within the same Azure region, or they can be in different regions. The distance may introduce network latency, much like having cluster nodes spread between locations in your own facilities would. In cloud environments, the difference is that within a region you may not be aware of the distance between nodes.  Moreover, some other factors like physical and virtual components, number of hops, etc. can also contribute to increased latency.
+Nodes in a Windows cluster on virtual machines in Azure may be physically separated within the same Azure region, or they can be in different regions. The distance may introduce network latency, much like having cluster nodes spread between locations in your own facilities would. In cloud environments, the difference is that within a region you may not be aware of the distance between nodes.  Moreover, some other factors like physical and virtual components, number of hops, etc. can also contribute to increased latency. If latency between the nodes is a concern, consider placing the nodes of the cluster within a [proximity placement group](../../../virtual-machines/co-location.md) to guarantee network proximity.
 
 ## Resource limits
 
@@ -161,6 +161,7 @@ When you configure an Azure VM, you determine the computing resources limits for
 
 Intensive SQL IO operations or maintenance operations such as backups, index, or statistics maintenance could cause the VM or disk to reach *IOPS* or *MBPS* throughput limits, which could make SQL Server unresponsive to an *IsAlive/LooksAlive* check. 
 
+If your SQL Server is experiencing unexpected failovers, check to make sure you are following all [performance best practices](../performance-guidelines-best-practices-checklist.md) and monitor the server for disk or VM-level capping. 
 
 ## Azure platform maintenance
 
@@ -171,6 +172,8 @@ Most platform updates don't affect customer VMs. When a no-impact update isn't p
 Memory-preserving maintenance works for more than 90 percent of Azure VMs. It doesn't work for G, M, N, and H series. Azure increasingly uses live-migration technologies and improves memory-preserving maintenance mechanisms to reduce the pause durations. When the VM is live-migrated to a different host, some sensitive workloads like SQL Server, might show a slight performance degradation in the few minutes leading up to the VM pause.
 
 A resource bottleneck during platform maintenance may make the AG or FCI appear down to the cluster service. See the [resource limits](#resource-limits) section of this article to learn more. 
+
+If you are using aggressive cluster monitoring, an extended VM pause may trigger a failover. A failover will often cause more downtime than the maintenance pause, so it is recommended to use relaxed monitoring to avoid triggering a failover while the VM is paused for maintenance. See the [cluster best practices](hadr-cluster-best-practices.md) for more information on setting cluster thresholds in Azure VMs.
 
 ## Limitations
 
@@ -190,4 +193,3 @@ On Azure Virtual Machines, MSDTC isn't supported for Windows Server 2016 or earl
 ## Next steps
 
 Now that you've familiarized yourself with the differences when using a Windows Failover Cluster with SQL Server on Azure VMs, learn about the high availability features [availability groups](availability-group-overview.md) or [failover cluster instances](failover-cluster-instance-overview.md). If you're ready to get started, be sure to review the [best practices](hadr-cluster-best-practices.md) for configuration recommendations. 
-

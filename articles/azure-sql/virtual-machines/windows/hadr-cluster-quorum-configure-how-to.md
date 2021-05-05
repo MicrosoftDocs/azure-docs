@@ -26,7 +26,7 @@ This article teaches you to configure one of the three quorum options for a Wind
 
 The quorum for a cluster is determined by the number of voting elements that must be part of active cluster membership for the cluster to start properly or continue running. Configuring a quorum resource allows a two-node cluster to continue with only one node online. The Windows Server Failover Cluster is the underlying technology for the SQL Server on Azure VMs high availability options: [failover cluster instances (FCIs)](failover-cluster-instance-overview.md) and [availability groups (AGs)](availability-group-overview.md). 
 
-The disk witness is the most resilient quorum option, but to use a disk witness on a SQL Server on Azure VM, you must use an Azure shared Disk which imposes some imitations to the high availability solution. As such, use a disk witness when you're configuring your failover cluster instance with Azure shared disks, otherwise use a cloud witness whenever possible. Otherwise, use a file share witness. 
+The disk witness is the most resilient quorum option, but to use a disk witness on a SQL Server on Azure VM, you must use an Azure shared disk which imposes some limitations to the high availability solution. As such, use a disk witness when you're configuring your failover cluster instance with Azure shared disks, otherwise use a cloud witness whenever possible. If you are using Windows Server 2012 R2 or older which does not support cloud witness, you can use a file share witness. 
 
 The following quorum options are available to use for SQL Server on Azure VMs: 
 
