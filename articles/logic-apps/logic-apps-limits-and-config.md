@@ -255,12 +255,12 @@ Azure Logic Apps supports write operations, including inserts and updates, throu
 
 The following table lists the values for a single workflow definition:
 
-| Name | Limit | Notes |
-|------|-------|-------|
-| Variables per workflow | 250 variables ||
-| Variable - Maximum content size | 104,857,600 bytes (105 MB) ||
-| Variable with Array type - Maximum number of items | 100,000 items ||
-||||
+| Name | Multi-tenant | Single-tenant (preview) | Integration service environment | Notes |
+|------|--------------|-------------------------|---------------------------------|-------|
+| Variables per workflow | 250 variables | ? | ? ||
+| Variable - Maximum content size | ? | 104,857,600 bytes (105 MB) | ? ||
+| Variable (Array type) - Maximum number of array items | ? | 100,000 items | ? ||
+||||||
 
 <a name="http-limits"></a>
 
@@ -351,13 +351,21 @@ The following table lists the values for a single workflow definition:
 
 ## Custom connector limits
 
-The following table lists the values for custom connectors that you can create from web APIs:
+For multi-tenant and integration service environment only, you can create and use [custom managed connectors](/connectors/custom-connectors), which are wrappers around an existing REST API or SOAP API. For single-tenant (preview) only, you can create and use [custom built-in connectors](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
-| Name | Multi-tenant | Integration service environment | Notes |
-|------|--------------|---------------------------------|-------|
-| Custom connectors | 1,000 per Azure subscription | 1,000 per Azure subscription ||
-| Requests per minute for a custom connector | 500 requests per minute per connection | 2,000 requests per minute per *custom connector* ||
-|||
+The following table lists the values for custom connectors:
+
+| Name | Multi-tenant | Single-tenant (preview) | Integration service environment | Notes |
+|------|--------------|-------------------------|---------------------------------|-------|
+| Custom connectors | 1,000 per Azure subscription | Unlimited | 1,000 per Azure subscription ||
+| Requests per minute for a custom connector | 500 requests per minute per connection | Based on your implementation | 2,000 requests per minute per *custom connector* ||
+| Connection timeout | ? | Idle connection: 4 minutes <p><p>Active connection: 10 minutes | ? ||
+||||||
+
+For more information, review the following documentation:
+
+* [Custom managed connectors overview](/connectors/custom-connectors)
+* [Enable built-in connector authoring - Visual Studio Code with Azure Logic Apps (Preview)](create-stateful-stateless-workflows-visual-studio-code.md#enable-built-in-connector-authoring)
 
 <a name="managed-identity"></a>
 
