@@ -4,16 +4,16 @@ description: Describes the structure and properties of a Bicep file using declar
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 05/05/2021
 ---
 
 # Understand the structure and syntax of Bicep files
 
 This article describes the structure of a Bicep file. It presents the different sections of the file and the properties that are available in those sections.
 
-This article is intended for users who have some familiarity with Bicep files. It provides detailed information about the structure of the template. For a step-by-step tutorial that guides you through the process of creating a Bicep file, see [Tutorial: Create and deploy first Azure Resource Manager Bicep file](./tutorial-create-first-bicep.md).
+This article is intended for users who have some familiarity with Bicep files. It provides detailed information about the structure of the Bicep file. For a step-by-step tutorial that guides you through the process of creating a Bicep file, see [Tutorial: Create and deploy first Azure Resource Manager Bicep file](./tutorial-create-first-bicep.md).
 
-## Template format
+## Bicep format
 
 A Bicep file has the following elements. The elements can appear in any order.
 
@@ -116,16 +116,16 @@ The allowed values are:
 
 Use parameters for values that need to vary for different deployments. You can define a default value for the parameter that is used if no value is provided during deployment.
 
-For example, you might add a SKU parameter to specify different sizes for a resource. You can use template functions for creating the default value, such as getting the resource group location.
+For example, you might add a SKU parameter to specify different sizes for a resource. You can use Bicep functions for creating the default value, such as getting the resource group location.
 
 ```bicep
 param storageSKU string = 'Standard_LRS'
 param location string = resourceGroup().location
 ```
 
-For the available data types, see [Data types in templates](data-types.md).
+For the available data types, see [Data types in Bicep](data-types.md).
 
-For more information, see [Parameters in templates](template-parameters.md).
+For more information, see [Parameters in Bicep](./parameters.md).
 
 ## Parameter decorators
 
@@ -164,7 +164,7 @@ var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
 You don't specify a [data type](data-types.md) for a variable. Instead, the data type is inferred from the value.
 
-For more information, see [Variables in templates](template-variables.md).
+For more information, see [Variables in Bicep](template-variables.md).
 
 ## Resource
 
@@ -188,7 +188,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 
 In your resource declaration, you include properties for the resource type. These properties are unique to each resource type.
 
-For more information, see [Resource declaration in templates](resource-declaration.md).
+For more information, see [Resource declaration in Bicep](resource-declaration.md).
 
 To [conditionally deploy a resource](conditional-resource-deployment.md), add an `if` expression.
 
@@ -267,7 +267,7 @@ output storageEndpoint object = stg.properties.primaryEndpoints
 
 Specify a [data type](data-types.md) for the output value.
 
-For more information, see [Outputs in templates](template-outputs.md).
+For more information, see [Outputs in Bicep](template-outputs.md).
 
 ## Comments
 
@@ -286,7 +286,7 @@ The following example shows a multi-line comment.
 
 ```bicep
 /*
-  This template assumes the key vault already exists and
+  This Bicep file assumes the key vault already exists and
   is in same subscription and resource group as the deployment.
 */
 param existingKeyVaultName string
@@ -320,4 +320,4 @@ The preceding example is equivalent to the following JSON.
 
 ## Next steps
 
-For an introduction to Bicep, see [What is Bicep?](./overview.md).
+For an introduction to Bicep, see [What is Bicep?](./overview.md). For Bicep data types, see [Data types](./data-types.md).
