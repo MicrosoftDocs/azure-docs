@@ -13,7 +13,7 @@ ms.author: jeffme
 
 # Customer spotlight on use cases  
 
-Customers are already leveraging Applied AI Services to add AI horsepower to their business scenarios.  
+Customers are already using Applied AI Services to add AI horsepower to their business scenarios.  
   
 <br>
 
