@@ -30,12 +30,6 @@ In this quickstart, you learn a basic Azure IoT application development workflow
 
 :::zone-end
 
-:::zone pivot="programming-language-java"
-
-[!INCLUDE [iot-develop-send-telemetry-central-java](../../includes/iot-develop-send-telemetry-central-java.md)]
-
-:::zone-end
-
 :::zone pivot="programming-language-nodejs"
 
 [!INCLUDE [iot-develop-send-telemetry-central-nodejs](../../includes/iot-develop-send-telemetry-central-nodejs.md)]
