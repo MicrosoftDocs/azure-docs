@@ -28,7 +28,7 @@
   - name: Data types
     href: data-types.md
   - name: Parameters
-    href: template-parameters.md
+    href: parameters.md
   - name: Variables
     href: template-variables.md
   - name: User-defined functions
