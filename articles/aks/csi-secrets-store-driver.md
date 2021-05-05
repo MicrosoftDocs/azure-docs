@@ -90,7 +90,7 @@ az aks create -n myAKSCluster -g myResourceGroup --enable-addons azure-keyvault-
 To upgrade an existing AKS cluster with Secrets Store CSI Driver capability, use the [az aks enable-addons][az-aks-enable-addons] command with the addon `azure-keyvault-secrets-provider`:
 
 ```azurecli-interactive
-az aks enable-addons --addons azure-keyvault-secrets-provider --name myAKSCluster --group myResourceGroup
+az aks enable-addons --addons azure-keyvault-secrets-provider --name myAKSCluster --resource-group myResourceGroup
 ```
 
 ## Verify Secrets Store CSI Driver installation
@@ -268,6 +268,7 @@ After learning how to use the CSI Secrets Store Driver with an AKS Cluster, see 
 [az-extension-update]: /cli/azure/extension#az_extension_update
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-enable-addons]: /cli/azure/aks#az_aks_enable_addons
+[az-aks-disable-addons]: /cli/azure/aks#az_aks_disable_addons
 [key-vault-provider]: ../key-vault/general/key-vault-integrate-kubernetes.md
 [csi-storage-drivers]: ./csi-storage-drivers.md
 [create-key-vault]: ../key-vault/general/quick-create-cli.md
