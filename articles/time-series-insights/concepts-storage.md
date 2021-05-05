@@ -1,8 +1,8 @@
 ---
 title: 'Storage overview - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Learn about data storage in Azure Time Series Insights Gen2.
-author: deepakpalled
-ms.author: dpalled
+author: jatinas
+ms.author: tvilutis
 manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
@@ -95,17 +95,17 @@ Azure Time Series Insights Gen2 stores copies of your data as follows:
 
 * The `PT=Time` folder is partitioned by ingestion time and stores data roughly in order of arrival. This data is preserved over time and you can directly access it from outside of Azure Time Series Insight Gen2, such as from your Spark notebooks. The timestamp `<YYYYMMDDHHMMSSfff>` corresponds to the ingestion time of the data. The `<MinEventTimeStamp>` and `<MaxEventTimeStamp>` correspond to the range of event timestamps included in the file. The path and filename are formatted as:
 
-  `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<MinEventTimeStamp>_<MaxEventTimeStamp>_<TSI_INTERNAL_SUFFIX>.parquet`
+  `V=1/PT=Time/Y=<YYYY>/M=<MM>/<BlobCreationTimestamp>_<MinEventTimestamp>_<MaxEventTimestamp>_<TsiInternalSuffix>.parquet`
 
 * The `PT=Live` and `PT=Tsid` folders contain a second copy of your data, repartitioned for time series query performance at scale. This data is optimized over time and is not static. During repartitioning, some events could be present in multiple blobs and the blob names might change.  These folders are used by Azure Time Series Insights Gen2 and should not be accessed directly; you should only use `PT=Time` for that purpose.
 
 > [!NOTE]
 >
-> Data in the `PT=Time` folder from before June 2021 might have a filename format with no event time ranges: `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`.  The internal file format is the same and files with both naming schemes can be used together. 
+> Data in the `PT=Time` folder from before June 2021 could have a filename format with no event time ranges: `V=1/PT=Time/Y=<YYYY>/M=<MM>/<BlobCreationTimestamp>_<TsiInternalSuffix>.parquet`.  The internal file format is the same and files with both naming schemes can be used together. 
 >
 > * `<YYYY>` maps to a four-digit year representation.
 > * `<MM>` maps to a two-digit month representation.
-> * `<YYYYMMDDHHMMSSfff>` maps to a time-stamp representation with four-digit year (`YYYY`), two-digit month (`MM`), two-digit day (`DD`), two-digit hour (`HH`), two-digit minute (`MM`), two-digit second (`SS`), and three-digit millisecond (`fff`).
+> * The `<YYYYMMDDHHMMSSfff>` format of the timestamps map to a four-digit year (`YYYY`), two-digit month (`MM`), two-digit day (`DD`), two-digit hour (`HH`), two-digit minute (`MM`), two-digit second (`SS`), and three-digit millisecond (`fff`).
 
 Azure Time Series Insights Gen2 events are mapped to Parquet file contents as follows:
 
