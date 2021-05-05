@@ -18,7 +18,7 @@ ms.author: juliako
         > When installing Azure IoT Tools, you might be prompted to install Docker. Feel free to ignore the prompt.
     * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 * [Python 3](https://www.python.org/downloads/) (3.6.9 or later), [Pip 3](https://pip.pypa.io/en/stable/installing/) and optionally [venv](https://docs.python.org/3/library/venv.html).        
-* Read [Detect motion and emit events](../../../detect-motion-emit-events-quickstart.md) quickstart.    
+   
 ## Set up Azure resources
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)  

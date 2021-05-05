@@ -11,8 +11,6 @@ zone_pivot_groups: video-analyzer-programming-languages
 
 This quickstart shows you how to use Azure Video Analyzer on IoT Edge to analyze the live video feed from a (simulated) IP camera. It shows how to detect if any motion is present, and if so, record an MP4 video clip to the local file system on the edge device. The quickstart uses an Azure VM as an IoT Edge device and also uses a simulated live video stream.
 
-This article is based on sample code written in C#. It builds on the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart.
-
 ## Prerequisites
 
 ::: zone pivot="programming-language-csharp"
@@ -49,11 +47,11 @@ Complete the following steps to use Live Video Analytics on IoT Edge to detect t
 1. Right-click and select Extension Settings.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/vscode-common-screenshots/extension-settings.png" alt-text= "Extension settings"::: <!--change path to common-->
+    > :::image type="content" source="./media/vscode-common-screenshots/extension-settings.png" alt-text= "Extension settings"::: 
 1. Search and enable “Show Verbose Message”.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/vscode-common-screenshots/verbose-message.png" alt-text= "Show Verbose Message"::: <!--change path to common-->
+    > :::image type="content" source="./media/vscode-common-screenshots/verbose-message.png" alt-text= "Show Verbose Message":::
 1. Start a debugging session by selecting the F5 key. The **TERMINAL** window prints some messages.
 1. The *operations.json* code calls the direct methods `pipelineTopologyList` and `livePipelineList`. If you cleaned up resources after previous quickstarts, then this process will return empty lists and then pause. Press the Enter key.
     
@@ -103,28 +101,28 @@ Complete the following steps to use Live Video Analytics on IoT Edge to detect t
           }
         }
         ```
-    * A call to livePipelineActivate that starts the graph instance and the flow of video.
-    * A second call to livePipelineList that shows that the graph instance is in the running state.
+    * A call to livePipelineActivate that starts the live pipeline and the flow of video.
+    * A second call to livePipelineList that shows that the live pipeline is in the running state.
 1. The output in the TERMINAL window pauses at Press Enter to continue. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods that you invoked.
 1. Switch to the OUTPUT window in Visual Studio Code. You see the messages that the Azure Video Analyzer on IoT Edge module is sending to the IoT hub. The following section of this quickstart discusses these messages.
-1. The media graph continues to run and print results. The RTSP simulator keeps looping the source video. To stop the media graph, return to the TERMINAL window and select Enter.
+1. The pipeline topology continues to run and print results. The RTSP simulator keeps looping the source video. To stop the pipeline topology, return to the TERMINAL window and select Enter.
 
 The next series of calls cleans up the resources:
 
-* A call to livePipelineDeactivate deactivates the graph instance.
+* A call to livePipelineDeactivate deactivates the live pipeline.
 * A call to livePipelineDelete deletes the instance.
 * A call to pipelineTopologyDelete deletes the topology.
 * A final call to pipelineTopologyList shows that the list is now empty.
 
 ## Interpret results
 
-When you run the media graph, the results from the motion detector processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the OUTPUT window of Visual Studio Code contain a body section and an applicationProperties section. For more information, see Create and read IoT Hub messages.
+When you run the pipeline topology, the results from the motion detector processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the OUTPUT window of Visual Studio Code contain a body section and an applicationProperties section. For more information, see Create and read IoT Hub messages.
 
 In the following messages, the Azure Video Analyzer module defines the application properties and the content of the body.
 
 ### MediaSessionEstablished event
 
-When a media graph is instantiated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live555 container. If the connection succeeds, the following event is printed.
+When a pipeline topology is instantiated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live555 container. If the connection succeeds, the following event is printed.
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [ava-sample-device/avaadge]:
@@ -152,7 +150,7 @@ In the preceding output:
 
 ### RecordingStarted event
 
-When motion is detected, the signal gate processor node is activated, and the file sink node in the media graph starts to the write an MP4 file. The file sink node sends an operational event. The type is set to motion to indicate that it's a result from the motion detection processor. The eventTime value is the UTC time at which the motion occurred. For more information about this process, see the [overview](detect-motion-record-video-edge-devices.md#overview) section in this quickstart.
+When motion is detected, the signal gate processor node is activated, and the file sink node in the pipeline topology starts to the write an MP4 file. The file sink node sends an operational event. The type is set to motion to indicate that it's a result from the motion detection processor. The eventTime value is the UTC time at which the motion occurred. For more information about this process, see the [overview](detect-motion-record-video-edge-devices.md#overview) section in this quickstart.
 
 Here's an example of this message:
 
@@ -166,7 +164,7 @@ Here's an example of this message:
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoAnalyzers/{ava-account-name}", 
     "subject": "/edgeModules/avaedge/livePipelines/Sample-Pipeline-1/sinks/fileSink",
-    "eventType": "Microsoft.Media.Graph.Operational.RecordingStarted",
+    "eventType": "Microsoft.VideoAnalyzer.Operational.RecordingStarted",
     "eventTime": "2020-05-21T05:37:27.713Z",
     "dataVersion": "1.0"
   }
