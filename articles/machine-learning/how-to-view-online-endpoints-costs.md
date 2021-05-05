@@ -32,20 +32,20 @@ To view costs for an Azure Machine Learning managed online endpoint:
 
 1. Select **Cost Analysis** for your subscription in the [Azure portal](https://portal.azure.com).
 
-    [![Screenshot of a subscription in the Azure portal showing red box around "Cost Analysis" button on the left hand side](./media/how-to-view-online-endpoints-costs/1.cost-analysis.png)](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis.png#lightbox)
+    [![Screenshot of a subscription in the Azure portal showing red box around "Cost Analysis" button on the left hand side](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis.png)](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis.png#lightbox)
 
 1. Choose **Add filter** at the top navigation bar.
 
-    [![Screenshot of the Cost Analysis view showing a red box around the "Add filter" button at the top right](./media/how-to-view-online-endpoints-costs/2.add-filter.png)](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-add-filter.png#lightbox)
+    [![Screenshot of the Cost Analysis view showing a red box around the "Add filter" button at the top right](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-add-filter.png)](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-add-filter.png#lightbox)
 
 1. Select your workspace.
 
-    [![Screenshot of the Cost Analysis view showing a red box around the "Resource" dropdown menu](./media/how-to-view-online-endpoints-costs/3.select-workspace.png)](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-select-workspace.png#lightbox)
+    [![Screenshot of the Cost Analysis view showing a red box around the "Resource" dropdown menu](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-select-workspace.png)](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-select-workspace.png#lightbox)
 
 
 1. Select **Tag**, then **azuremlendpoint**: "<your endpoint name>" and **azuremldeployment**: "<your deployment name>".
 
-    [![Screenshot of the Cost Analysis view showing a red box around the "Tag" buttons in the top right](./media/how-to-view-online-endpoints-costs/4.select-endpoint-deployment.png)](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-select-endpoint-deployment.png#lightbox)
+    [![Screenshot of the Cost Analysis view showing a red box around the "Tag" buttons in the top right](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-select-endpoint-deployment.png)](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-select-endpoint-deployment.png#lightbox)
 
 
 ## Next steps
