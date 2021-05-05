@@ -8,20 +8,22 @@ ms.author: esarroyo
 ms.date: 04/20/2021
 ---
 
-The Azure Cosmos DB Linux Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Currently, the Linux emulator only supports SQL API. Using the Azure Cosmos DB Emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos DB Emulator, you can switch to using an Azure Cosmos account in the cloud. This article describes how to install and use the emulator on macOS and Linux environments.
+# Run the emulator on docker for Linux (Preview)
+
+The Azure Cosmos DB Linux Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Currently, the Linux emulator only supports SQL API. Using the Azure Cosmos DB Emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos DB Linux Emulator, you can switch to using an Azure Cosmos DB account in the cloud. This article describes how to install and use the emulator on macOS and Linux environments.
 
 > [!NOTE]
-> The Cosmos DB Linux Emulator is currently in preview mode and supports only the SQL API. A known limitation when comparing with the Windows emulator is that the Linux emulator data will not be retained between container restarts. Users may experience slight performance degradations in terms of the number of requests per second processed by the emulator when compared to the Windows version. The default number of physical partitions which directly impacts the number of containers that can be provisioned is 10.
+> The Cosmos DB Linux Emulator is currently in preview mode and supports only the SQL API. A known limitation when comparing with the Windows emulator is that data on the Linux emulator will not be retained between container restarts. Users may experience slight performance degradations in terms of the number of requests per second processed by the emulator when compared to the Windows version. The default number of physical partitions which directly impacts the number of containers that can be provisioned is 10.
 > 
-> For more heavy workloads, please use our [Windows emulator](local-emulator.md).
+> We do not recommend use of the emulator (Preview) in production. For heavier workloads, use our [Windows emulator](local-emulator.md).
 
 
-# How does the emulator work?
-The Azure Cosmos DB Emulator provides a high-fidelity emulation of the Azure Cosmos DB service. It supports equivalent functionality as the Azure Cosmos DB, which includes creating data, querying data, provisioning and scaling containers, and executing stored procedures and triggers. You can develop and test applications using the Azure Cosmos DB Linux Emulator, and deploy them to Azure at global scale by updating the Azure Cosmos DB connection endpoint.
+## How does the emulator work?
+The Azure Cosmos DB Linux Emulator provides a high-fidelity emulation of the Azure Cosmos DB service. It supports equivalent functionality as the Azure Cosmos DB, which includes creating data, querying data, provisioning and scaling containers, and executing stored procedures and triggers. You can develop and test applications using the Azure Cosmos DB Linux Emulator, and deploy them to Azure at global scale by updating the Azure Cosmos DB connection endpoint.
 
 Functionality that relies on the Azure infrastructure like global replication, single-digit millisecond latency for reads/writes, and tunable consistency levels are not applicable when you use the emulator.
 
-# Differences between the Linux Emulator and the cloud service
+## Differences between the Linux Emulator and the cloud service
 Since the Azure Cosmos DB Emulator provides an emulated environment that runs on the local developer workstation, there are some differences in functionality between the emulator and an Azure Cosmos account in the cloud:
 
 - Currently, the **Data Explorer** pane in the emulator fully supports SQL API clients only.
@@ -38,12 +40,12 @@ Since the Azure Cosmos DB Emulator provides an emulated environment that runs on
 
 - The Linux emulator supports a maximum ID property size of 254 characters.
 
-# Run Cosmos DB Linux Emulator on macOS
+## Run Cosmos DB Linux Emulator on macOS
 
 1. To get started, visit Docker Hub and install Docker Desktop for macOS. More details here: https://hub.docker.com/editions/community/docker-ce-desktop-mac/ 
 
 
-2. Next, retrieve the IP address of your local machine. This step is required when the Direct mode setting is configured when using Cosmos DB SDKs (.NET, Java).
+2. Next, retrieve the IP address of your local machine. This step is required when Direct mode setting is configured using Cosmos DB SDKs (.NET, Java).
 
     ```bash
     ipaddr="`ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}' | head -n 1`"
@@ -63,7 +65,7 @@ Since the Azure Cosmos DB Emulator provides an emulated environment that runs on
     Alternatively, you can use the Docker compose file available at <ADD GIST LINK>.
 
 
-## Installing the Certificate
+## Install the certificate
  
 1. Once the emulator is running, using a different terminal, load the IP address of your local machine into a variable.
 
@@ -72,12 +74,12 @@ Since the Azure Cosmos DB Emulator provides an emulated environment that runs on
     ```
 
 
-2. Next, download the certificate of the emulator.
+2. Next, download the certificate for the emulator.
 
     ```bash
     curl -k https://$ipaddr:8081/_explorer/emulator.pem > emulatorcert.crt
     ```
-    Alternatively, the endpoint above which downloads the self-signed emulator certificate, it can also be used for signaling when the emulator endpoint is ready to receive requests from another application.
+    Alternatively, the endpoint above which downloads the self-signed emulator certificate, can also be used for signaling when the emulator endpoint is ready to receive requests from another application.
 
 3. Copy the CRT file to the folder that contains custom certificates in your Linux distribution. Commonly on Debian distributions, it is located on `/usr/local/share/ca-certificates/`.
 
@@ -91,7 +93,7 @@ Since the Azure Cosmos DB Emulator provides an emulated environment that runs on
    update-ca-certificates
    ```
 
-Alternatively, for Java-based applications, the certificate must be imported in the Java trusted store. For more information on how to do this, see: <add link>
+For Java-based applications, the certificate must be imported in the [Java trusted store.](local-emulator-export-ssl-certificates.md)
 
 ## Consuming endpoint via UI
 
@@ -102,12 +104,12 @@ In order to consume the endpoint via the UI using your desired web browser, foll
 -	Open Keychain Access
 -	File > Import Items > emulatorcert.crt
 -	Once the emulatorcert.crt is loaded into KeyChain
--	Double-click on the name, it should be easy identified as "localhost"
+-	Double-click on the name, it should be easily identified as "localhost"
 -	Change the trust settings to "Always Trust"
 
-You can now browse https://localhost:8081/_explorer/index.html or https://{your_local_ip}:8081/_explorer/index.html and get the connection string to your Cosmos DB emulator.
+You can now browse https://localhost:8081/_explorer/index.html or https://{your_local_ip}:8081/_explorer/index.html and retrieve the connection string to your Cosmos DB emulator.
 
-# Run Cosmos DB Linux Emulator on Linux
+# Run the Cosmos DB Linux Emulator on Linux
 
 1. To get started, use `apt` package and install the latest version of Docker. 
 
@@ -130,25 +132,37 @@ You can now browse https://localhost:8081/_explorer/index.html or https://{your_
 4. Run the Docker image with the following configurations:
 
     ```bash
-    docker run -p 8081:8081 -p 8900:8900 -p 8901:8901 -p 8902:8902 -p 10250:10250 -p 10251:10251 -p 10252:10252 -p 10253:10253 -p 10254:10254 -p 10255:10255 -p 10350:10350  -m 4g --cpus=2.0 --name=test-linux-emulator -e AZURE_COSMOS_EMULATOR_PARTITION_COUNT=3 -e AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE=$ipaddr -it mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
+    docker run -p 8081:8081 -p 10250:10250 -p 10251:10251 -p 10252:10252 -p 10253:10253 -p 10254:10254 -m 4g --cpus=2.0 --name=test-linux-emulator -e AZURE_COSMOS_EMULATOR_PARTITION_COUNT=3 -e AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE=$ipaddr -it mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
    ```
-    Alternatively, the endpoint above which downloads the self-signed emulator certificate, it can also be used for signaling when the emulator endpoint is ready to receive requests from another application.
+    Alternatively, the endpoint above which downloads the self-signed emulator certificate, can also be used for signaling when the emulator endpoint is ready to receive requests from another application.
 
-5. Copy the CRT file to the folder that contains custom certificates in your Linux distribution. Commonly on Debian distributions, it is located on `/usr/local/share/ca-certificates/`.
+5. Next, download the certificate for the emulator.
+
+    ```bash
+    curl -k https://$ipaddr:8081/_explorer/emulator.pem > emulatorcert.crt
+    ```
+
+
+6. Copy the CRT file to the folder that contains custom certificates in your Linux distribution. Commonly on Debian distributions, it is located on `/usr/local/share/ca-certificates/`.
 
    ```bash
    cp YourCTR.crt /usr/local/share/ca-certificates/
    ```
 
-6. Update the TLS/SSL certificates, which will update the `/etc/ssl/certs/` folder.
+7. Update the TLS/SSL certificates, which will update the `/etc/ssl/certs/` folder.
 
    ```bash
    update-ca-certificates
    ```
 
-Alternatively, for Java-based applications, the certificate must be imported in the Java trusted store. For more information on how to do this, see: <add link>    
+    For Java-based applications, the certificate must be imported in the [Java trusted store.](local-emulator-export-ssl-certificates.md)
 
-## Options
+    ```bash
+    keytool -keystore ~/cacerts -importcert -alias  emulator_cert -file ~/my_emulator.cer
+    java -ea -Djavax.net.ssl.trustStore=~/cacerts -Djavax.net.ssl.trustStorePassword="changeit" $APPLICATION_ARGUMENTS
+    ```
+
+## Configuration options
 
 |Name  |Default  |Description  |
 |---------|---------|---------|
@@ -159,38 +173,90 @@ Alternatively, for Java-based applications, the certificate must be imported in 
 
 ## Troubleshooting
 
-# Connectivity
-1. I can't start data explorer. (ip address setting)
-1. My app can't connect to emulator endpoint.
-1. My app received too many connectivity-related timeouts. 
-1. My app can't provision databases/containers.
+### Connectivity
+1. My app can't connect to emulator endpoint ("The SSL connection could not be established") or I can't start the Data Explorer.
+    - Ensure the emulator is running, execute: 
+    ```bash
+    docker ps --all
+    ```
+    - Verify that the specific emulator container is in a running state.
+    - Verify that no other applications are using emulator ports: 8081 and 10250-10255.
+    - Verify that the container port 8081, is mapped correctly and accessible from an environment outside of the container.  
+     ```bash
+    netstat -lt
+    ```
+    - Try to access the endpoint and port for the emulator using the Docker container's IP address instead of "localhost".
+    - Make sure that the emulator self-signed certificate has been properly added to [KeyChain](linux-emulator.md#Consuming-endpoint-via-UI).
+    - Ensure that the emulator self-signed certificate has been properly imported into the expected location:
+        - .NET: See the [certificates section](linux-emulator.md#Run-the-Cosmos-DB-Linux-Emulator-on-Linux)
+        - Java: See the [Java Certificates Store section](linux-emulator.md#Run-the-Cosmos-DB-Linux-Emulator-on-Linux)
 
-# Reliability/Crashes
-1. Emulator fails to start.
-2. Emulator is crashing.
-3. I can't view my data.
-1. Data explorer errors.
+2. My app received too many connectivity-related timeouts.
+    - The Docker container is not provisioned with enough resources [(cores or memory)](linux-emulator.md#Configuration-options). We recommend increasing the number of cores and alternatively, reduce the number of physical partitions provisioned upon start up. 
+    - Ensure the number of TCP connections does not exceed your current OS settings.
+    - Try reducing the size of the documents in your application. 
+1. My app could not provision databases/containers.
+    - The number of physical partitions provisioned on the emulator is too low. Either delete your unused databases/collections or start the emulator with a [larger number of physical partitions](inux-emulator.md#Configuration-options).
 
-# Performance
+
+### Reliability/Crashes
+1. The emulator fails to start.
+    - Please make sure you are [running the latest image of the Cosmos DB emulator for Linux](linux-emulator.md#Refresh-Linux-Container). Otherwise, see the section above regarding connectivity-related issues.
+    - If the Cosmos DB emulator data folder is "volume mounted", ensure that the volume has enough space and is read/write.
+    - Confirm that creating a container with the recommended settings works. If yes, most likely the cause of failure was the additional settings passed via the respective Docker command upon starting the container.
+    
+1. The emulator is crashing.
+    - Confirm that creating a container with the [recommended settings](linux-emulator.md#Run-the-Cosmos-DB-Linux-Emulator-on-Linux) works. If yes, most likely the cause of failure is the additional settings passed via the respective Docker command upon starting the container.
+    - Please start the emulator's Docker container in an attached mode (see `docker start -it`).
+    - Collect the crash related dump/data and follow the [steps outlined](linux-emulator.md#Report-an-emulator-issue) to report the issue.   
+### Data explorer errors
+1. I can't view my data.
+    - See section regarding connectivity-related issues above.
+    - Make sure that the self-signed emulator certificate is properly imported and manually trusted in order for your browser to access the data explorer page.
+    - Try creating a database/container and inserting an item using the Data Explorer. If successful, most likely the cause of the issue resides within your application. If not, [contact the Cosmos DB team](linux-emulator.md#Report-an-emulator-issue).
+2. My data isn't persisting in between docker container restarts.
+    - This is a known limitation, we're working on adding support for this in future iterations of the emulator.
+
+### Performance
 1. Number of requests per second is low, latency of the requests is high. 
-
-# Refresh Linux Container
-pull the latest image
+    - The Docker container is not provisioned with enough resources [(cores or memory)](linux-emulator.md#Configuration-options). We recommend increasing the number of cores and alternatively, reduce the number of physical partitions provisioned upon start up.
 
 
+## Refresh Linux Container
+
+1. Run the following command to view all Docker containers.
+```bash
 docker ps --all
+```
+2. Remove the container using the ID retrieved from above command.
 
-
+```bash
 docker rm ID_OF_CONTAINER_FROM_ABOVE
-
-
+```
+3. Next list all Docker images.
+```bash
 docker images
-
-
+```
+4. Remove the image using the ID retrieved from previous step.
+```bash
 docker rmi ID_OF_IMAGE_FROM_ABOVE
-
-
-
+```
+5. Pull the latest image of the Cosmos DB Linux Emulator.
+```bash
 docker pull mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
-
+```
+6. To start a stopped container run the following:
+```bash
 docker start -ai ID_OF_CONTAINER
+```
+
+## Report an emulator issue 
+Provide as much information as possible detailing your issue:
+- Description of the error/issue encountered
+- Environment (OS, host configuration)
+- Command used to create and start the emulator (YML file if Docker compose is used)
+- Description of the workload
+- Sample of the database/collection and item used
+- Include the console output from starting the Docker container for the emulator in attached mode
+- Send all of the above to cdbportalfeedback@microsoft.com.
+    
