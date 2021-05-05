@@ -45,7 +45,7 @@ The Machine Learning extension requires Azure CLI version `>=2.15.0`. Ensure thi
 az version
 ```
 
-If required, upgrade the Azure CLI:
+If necessary, upgrade the Azure CLI:
 
 ```azurecli
 az upgrade
@@ -162,7 +162,7 @@ az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipeli
 
 ## Check batch scoring job execution progress
 
-Batch scoring job usually takes substantial time to process the entire set of inputs. You can monitor the job progress from Azure Machine Learning studio. The studio link is provided in the response of `invoke`, as the value of `interactionEndpoints.studio`.
+Batch scoring jobs usually take some time to process the entire set of inputs. You can monitor the job progress from Azure Machine Learning studio. The studio link is provided in the response of `invoke`, as the value of `interactionEndpoints.studio`.
 
 You can also check job details along with status using CLI.
 
@@ -219,7 +219,7 @@ In studio, you'll see that you now have two deployments: `mnist_deployment` and 
 
 ### Activate the new deployment
 
-For batch inference, you must send 100% of inquiries to the desired deployment. To set your newly-created deployment as the target, use:
+For batch inference, you must send 100% of inquiries to the wanted deployment. To set your newly created deployment as the target, use:
 
 ```
 az ml endpoint update --name mybatchedp --type batch --traffic mnist_deployment:100
@@ -233,7 +233,7 @@ az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipeli
 
 ## Start a batch scoring job using REST
 
-Batch endpoints have scoring URIs for REST access. This lets you use any HTTP library on any platform to start a batch scoring job.
+Batch endpoints have scoring URIs for REST access. REST lets you use any HTTP library on any platform to start a batch scoring job.
 
 1. Get the `scoring_uri`:  
 
