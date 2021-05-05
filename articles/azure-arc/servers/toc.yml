@@ -65,6 +65,8 @@
       href: manage-howto-migrate.md
   - name: Scenarios
     items:
+    - name: Test Arc enabled servers with Azure VM
+      href: plan-evaluate-on-azure-virtual-machine.md
     - name: Onboard to Azure Sentinel
       href: scenario-onboard-azure-sentinel.md
     - name: Onboard to Azure Security Center

@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 Azure Arc enabled servers is designed to help you connect servers running on-premises or in other clouds to Azure. Normally, you would not use Azure Arc enabled servers on an Azure virtual machine because all the same capabilities are natively available for these VMs, including a representation of the VM in Azure Resource Manager, VM extensions, managed identities, and Azure Policy. If you attempt to install Azure Arc enabled servers on an Azure VM, you'll receive an error message stating that it is unsupported and the agent installation will be canceled.
 
-While you cannot install Azure Arc enabled servers on an Azure VM for production scenarios, it is possible to configure Azure Arc enabled servers to run on an Azure VM for evaluation and testing purposes only. This article will help you set up an Azure VM before you can enable Azure Arc enabled servers on it.
+While you cannot install Azure Arc enabled servers on an Azure VM for production scenarios, it is possible to configure Azure Arc enabled servers to run on an Azure VM for *evaluation and testing purposes only*. This article will help you set up an Azure VM before you can enable Azure Arc enabled servers on it.
 
 ## Prerequisites
 
@@ -28,13 +28,15 @@ To start managing your Azure VM as an Arc enabled server, you need to make the f
 
 3. Create a security rule to deny access to the Azure Instance Metadata Service (IMDS). IMDS is a REST API that applications can call to get information about the VM's representation in Azure, including its resource ID and location. IMDS also provides access to any managed identities assigned to the machine. Azure Arc enabled servers provides its own IMDS implementation and returns information about the Azure Arc representation of the VM. To avoid situations where both IMDS endpoints are available and apps have to choose between the two, you block access to the Azure VM IMDS so that the Azure Arc enabled server IMDS implementation is the only one available.
 
-After you've made these changes, your Azure VM behaves like any machine or server outside of Azure and is at the necessary starting point to install and evaluate Azure Arc enabled servers. When Arc enabled servers is configured on the VM, you see two representations of it in Azure. One is the Azure VM resource, with a `Microsoft.Compute/virtualMachines` resource type, and the other is an Azure Arc resource, with a `Microsoft.HybridCompute/machines` resource type. As a result of preventing management of the guest operating system from the shared physical host server, the best way to think about the two resources is the Azure VM resource is the virtual hardware for your VM, and let's you control the power state and view information about its SKU, network, and storage configurations. The Azure Arc resource manages the guest operating system in that VM, and can be used to install extensions, view compliance data for Azure Policy, and complete any other supported task by Arc enabled servers.  
+After you've made these changes, your Azure VM behaves like any machine or server outside of Azure and is at the necessary starting point to install and evaluate Azure Arc enabled servers. 
+
+When Arc enabled servers is configured on the VM, you see two representations of it in Azure. One is the Azure VM resource, with a `Microsoft.Compute/virtualMachines` resource type, and the other is an Azure Arc resource, with a `Microsoft.HybridCompute/machines` resource type. As a result of preventing management of the guest operating system from the shared physical host server, the best way to think about the two resources is the Azure VM resource is the virtual hardware for your VM, and let's you control the power state and view information about its SKU, network, and storage configurations. The Azure Arc resource manages the guest operating system in that VM, and can be used to install extensions, view compliance data for Azure Policy, and complete any other supported task by Arc enabled servers.  
 
 ## Reconfigure Azure VM steps
 
 1. Remove any VM extensions on the Azure VM.
 
-   In the Azure portal, navigate to your Azure VM resource and select the **Extensions** tab. If there are any extensions installed on the VM, select each extension and then select **Uninstall**. Wait for all extensions to finish uninstalling before proceeding to step 2.
+   In the Azure portal, navigate to your Azure VM resource and from the left-hand pane, select  **Extensions**. If there are any extensions installed on the VM, select each extension individually and then select **Uninstall**. Wait for all extensions to finish uninstalling before proceeding to step 2.
 
 2. Disable the Azure VM Guest Agent.
 
