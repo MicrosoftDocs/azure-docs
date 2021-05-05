@@ -24,7 +24,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a mu
 
 * [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) with connectivity to your self-hosted or on-premise environment. For more information on connecting on premises environments to Azure, see the [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/) article.
 
-## <a id="create-account"></a>Create a multi-region cluster
+## <a id="create-account"></a>Configure a multi-region cluster
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -143,8 +143,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a mu
     ```
 
 
-
-1. Finally, [connect to your cluster](create-multi-region-cluster#connect-to-your-cluster) using CQLSH, and use the following CQL query to update the replication strategy in each keyspace to include all datacenters across the cluster:
+1. Finally, [connect to your cluster](create-cluster-cli.md#connect-to-your-cluster) using CQLSH, and use the following CQL query to update the replication strategy in each keyspace to include all datacenters across the cluster:
 
    ```bash
    ALTER KEYSPACE "ks" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'dc-eastus2': 3, 'dc-eastus': 3};
