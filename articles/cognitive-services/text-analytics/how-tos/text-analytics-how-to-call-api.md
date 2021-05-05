@@ -35,7 +35,7 @@ Before you use the Text Analytics API, you will need to create a Azure resource 
     2. Click **Metrics**, located under **Monitoring** in the left navigation menu. 
     3. Select *Processed text records* in the dropdown box for **Metric**.
     
-A text record is 1000 characters.
+A text record is a unit of input text up to 1000 characters.  For example, 1500 characters submitted as input text will count as 2 text records.
 
 ## Change your pricing tier 
 
@@ -136,7 +136,7 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
 |`documents` | Includes the `id` and `text` fields below | Required | Contains information for each document being sent, and the raw text of the document. |
 |`id` | String | Required | The IDs you provide are used to structure the output. |
 |`text` | Unstructured raw text, up to 125,000 characters. | Required | Must be in the English language, which is the only language currently supported. |
-|`tasks` | Includes the following Text Analytics features: `entityRecognitionTasks`,`entityLinkingTasks`,`keyPhraseExtractionTasks` or `entityRecognitionPiiTasks`. | Required | One or more of the Text Analytics features you want to use. Note that `entityRecognitionPiiTasks` has an optional `domain` parameter that can be set to `pii` or `phi` and the `pii-categories` for detection of selected entity types. If the `domain` parameter is unspecified, the system defaults to `pii`. |
+|`tasks` | Includes the following Text Analytics features: `entityRecognitionTasks`,`entityLinkingTasks`,`keyPhraseExtractionTasks`,`entityRecognitionPiiTasks` or `sentimentAnalysisTasks`. | Required | One or more of the Text Analytics features you want to use. Note that `entityRecognitionPiiTasks` has an optional `domain` parameter that can be set to `pii` or `phi` and the `pii-categories` for detection of selected entity types. If the `domain` parameter is unspecified, the system defaults to `pii`. Similarly  `sentimentAnalysisTasks` has the `opinionMining` boolean parameter to include Opinion Mining results in the output for Sentiment Analysis. |
 |`parameters` | Includes the `model-version` and `stringIndexType` fields below | Required | This field is included within the above feature tasks that you choose. They contain information about the model version that you want to use and the index type. |
 |`model-version` | String | Required | Specify which version of the model being called that you want to use.  |
 |`stringIndexType` | String | Required | Specify the text decoder that matches your programming environment.  Types supported are `textElement_v8` (default), `unicodeCodePoint`, `utf16CodeUnit`. Please see the [Text offsets article](../concepts/text-offsets.md#offsets-in-api-version-31-preview) for more information.  |
@@ -162,7 +162,19 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElements_v8"
+                    "stringIndexType": "TextElements_v8",
+                    "loggingOptOut": "false"
+                }
+            }
+        ],
+        "entityRecognitionPiiTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "stringIndexType": "TextElements_v8",
+                    "loggingOptOut": "true",
+                    "domain": "phi",
+                    "pii-categories":"default"
                 }
             }
         ],
@@ -170,23 +182,29 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElements_v8"
+                    "stringIndexType": "TextElements_v8",
+                    "loggingOptOut": "false"
                 }
             }
         ],
-        "keyPhraseExtractionTasks": [{
-            "parameters": {
-                "model-version": "latest"
+        "keyPhraseExtractionTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "loggingOptOut": "false"
+                }
             }
-        }],
-        "entityRecognitionPiiTasks": [{
-            "parameters": {
-                "model-version": "latest",
-                "stringIndexType": "TextElements_v8",
-                "domain": "phi",
-                "pii-categories":"default"
+        ],
+        "sentimentAnalysisTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "stringIndexType": "TextElements_v8",
+                    "loggingOptOut": "false",
+                    "opinionMining": "false"
+                }
             }
-        }]
+        ]
     }
 }
 
@@ -236,13 +254,14 @@ In Postman (or another web API test tool), add the endpoint for the feature you 
 
 | Feature | Request type | Resource endpoints |
 |--|--|--|
-| Language detection | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
-| Sentiment analysis | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment` |
-| Opinion Mining | POST | `<your-text-analytics-resource>/text/analytics/v3.1-preview.4/sentiment?opinionMining=true` |
-| Key phrase extraction | POST | `<your-text-analytics-resource>/text/analytics/v3.0/keyPhrases` |
-| Named entity recognition - general | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/general` |
-| Named entity recognition - PII | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii` |
-| Named entity recognition - PHI | POST |  `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii?domain=phi` |
+| Language Detection | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
+| Sentiment Analysis | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment` |
+| Opinion Mining | POST | `<your-text-analytics-resource>/text/analytics/v3.1-preview.5/sentiment?opinionMining=true` |
+| Key Phrase Extraction | POST | `<your-text-analytics-resource>/text/analytics/v3.0/keyPhrases` |
+| Named Entity Recognition - General | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/general` |
+| Named Entity Recognition - PII | POST | `<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/recognition/pii` |
+| Named Entity Recognition - PHI | POST |  `<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/recognition/pii?domain=phi` |
+| Entity Linking | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/linking` |
 
 #### [Asynchronous](#tab/asynchronous)
 
@@ -325,6 +344,7 @@ The synchronous endpoint responses will vary depending on the endpoint you use. 
 If successful, the GET request to the `/analyze` endpoint will return an object containing the assigned tasks. For example `keyPhraseExtractionTasks`. These tasks contain the response object from the appropriate Text Analytics feature. See the following articles for more information.
 
 + [Key phrase extraction](text-analytics-how-to-keyword-extraction.md#step-3-view-results)
++ [Sentiment analysis](text-analytics-how-to-sentiment-analysis.md#view-the-results)
 + [Entity recognition](text-analytics-how-to-entity-linking.md#view-results)
 + [Text Analytics for health](text-analytics-for-health.md#hosted-asynchronous-web-api-response)
 

@@ -108,7 +108,7 @@ Document size must be under 5,120 characters per document. For the maximum numbe
 
 ### Structure the API request for the hosted asynchronous web API
 
-For both the container and hosted web API, you must create a POST request. You can [use Postman](text-analytics-how-to-call-api.md), a cURL command or the **API testing console** in the [Text Analytics for health hosted API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/Health) to quickly construct and send a POST request to the hosted web API in your desired region. 
+For both the container and hosted web API, you must create a POST request. You can [use Postman](text-analytics-how-to-call-api.md), a cURL command or the **API testing console** in the [Text Analytics for health hosted API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/Health) to quickly construct and send a POST request to the hosted web API in your desired region. In the API v3.1-preview.5 endpoint, the `loggingOptOut` boolean query parameter can be used to enable logging for troubleshooting purposes.  It's default is TRUE if not specified in the request query.
 
 Below is an example of a JSON file attached to the Text Analytics for health API request's POST body:
 
