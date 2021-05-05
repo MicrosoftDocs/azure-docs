@@ -73,7 +73,7 @@ Typically there are three parameters you need to consider:
 
 * **Size and the number of knowledge bases**: Choose the appropriate [Azure search SKU](https://azure.microsoft.com/pricing/details/search/) for your scenario. Typically, you decide number of knowledge bases you need based on number of different subject domains. Once subject domain (for a single language) should be in one knowledge base.
 
-    With Custom question anwering (Preview) you have a choice to setup your Text Analytics service for KBs in a single language or multiple languages. You can make this selection when you create the first knowledge base in your Custom question anwering (Preview) feature.
+    With Custom question answering (Preview) you have a choice to setup your Text Analytics service for KBs in a single language or multiple languages. You can make this selection when you create the first knowledge base in your Custom question answering (Preview) feature.
 
 > [!div class="mx-imgBorder"]
 > ![Multi-lingual knowledge base selection](../media/qnamaker-create-publish-knowledge-base/select-language-custom-qna.png)
@@ -82,7 +82,7 @@ You can publish N-1 knowledge bases of a single language or N/2 knowledge bases 
 
 For example, if your tier has 15 allowed indexes, you can publish 14 knowledge bases of the same language (1 index per published knowledge base). The fifteenth index is used for all the knowledge bases for authoring and testing. If you choose to have knowledge bases in different languages, then you can only publish 7 knowledge bases.
 
-* **Number of documents as sources**: Custom question anwering (Preview) is a free feature, and there are no limits to the number of documents you can add as sources. See more details [here](https://aka.ms/qnamaker-pricing).
+* **Number of documents as sources**: Custom question answering (Preview) is a free feature, and there are no limits to the number of documents you can add as sources. See more details [here](https://aka.ms/qnamaker-pricing).
 
 The following table gives you some high-level guidelines.
 
@@ -106,9 +106,9 @@ The following table gives you some high-level guidelines.
 | 100         | P3V2, 10 Replicas  | S3, 12 Replicas, 3 Partitions   |
 | 200 to 250         | P3V2, 20 Replicas | S3, 12 Replicas, 3 Partitions    |
 
-# [Custom question anwering (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
-Custom question anwering (Preview) is a free feature, and the throughput is currently capped at 10 transactions per second for both management APIs and prediction APIs. To target 10 transactions per second for your service we recommend the S1 (1 instance) SKU of Azure Cognitive Search.
+Custom question answering (Preview) is a free feature, and the throughput is currently capped at 10 transactions per second for both management APIs and prediction APIs. To target 10 transactions per second for your service we recommend the S1 (1 instance) SKU of Azure Cognitive Search.
 
 ---
 
@@ -124,7 +124,7 @@ Custom question anwering (Preview) is a free feature, and the throughput is curr
 
 Get the latest runtime updates by [updating your App Service in the Azure portal](../how-to/configure-QnA-Maker-resources.md#get-the-latest-runtime-updates).
 
-# [Custom question anwering (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 [Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service) Azure Cognitive Search service when you plan to have many knowledge bases.
 
@@ -175,9 +175,9 @@ Endpoint keys can be managed from the [QnA Maker portal](https://qnamaker.ai).
     >[!NOTE]
     >Refresh your keys if you think they've been compromised. This may require corresponding changes to your client application or bot code.
 
-# [Custom question anwering (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
-Your Custom question anwering (Preview) feature deals with two kinds of keys: **authoring keys** and **Azure Cognitive Search keys** used to access the service in the customer’s subscription.
+Your Custom question answering (Preview) feature deals with two kinds of keys: **authoring keys** and **Azure Cognitive Search keys** used to access the service in the customer’s subscription.
 
 Use these keys when making requests to the service through APIs.
 
@@ -191,7 +191,7 @@ Use these keys when making requests to the service through APIs.
 
 ### Find authoring keys in the Azure portal
 
-You can view and reset your authoring keys from the Azure portal, where you added the Custom question anwering (Preview) feature in Text Analytics resource.
+You can view and reset your authoring keys from the Azure portal, where you added the Custom question answering (Preview) feature in Text Analytics resource.
 
 1. Go to the Text Analytics resource in the Azure portal and select the resource that has the *Cognitive Services* type:
 
@@ -205,7 +205,7 @@ You can view and reset your authoring keys from the Azure portal, where you adde
 
 ### Update the resources
 
-Learn how to upgrade the resources used by your knowledge base. Custom question anwering (Preview) feature is **free** while in preview. 
+Learn how to upgrade the resources used by your knowledge base. Custom question answering (Preview) feature is **free** while in preview. 
 
 ---
 
@@ -215,9 +215,9 @@ Learn how to upgrade the resources used by your knowledge base. Custom question 
 
 The management service of QnA Maker is used only for the QnA Maker portal and for initial data processing. This service is available only in the **West US** region. No customer data is stored in this West US service.
 
-# [Custom question anwering (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
-In Custom question anwering (Preview) feature both the management and the prediction services are co-located in the same region. Currently Custom question anwering (Preview) is available in **South Central US, North Europe and Australia East**.
+In Custom question answering (Preview) feature both the management and the prediction services are co-located in the same region. Currently Custom question answering (Preview) is available in **South Central US, North Europe and Australia East**.
 
 ---
 
@@ -243,7 +243,7 @@ After the resources are created, they have the same name, except for the optiona
 > [!TIP]
 > Use a naming convention to indicate pricing tiers within the name of the resource or the resource group. When you receive errors from creating a new knowledge base, or adding new documents, the Cognitive Search pricing tier limit is a common issue.
 
-# [Custom question anwering (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 The resource name for the Text Analytics resource, such as `qna-westus-f0-b`, is also used to name the other resources.
 
@@ -333,16 +333,16 @@ QnA Maker creates several Azure resources. To reduce management and benefit from
 |Application Insights|✔|Can be shared|
 |Search service|✔|1. `testkb` is a reserved name for the QnAMaker service; it can't be used by others.<br>2. Synonym map by the name `synonym-map` is reserved for the QnAMaker service.<br>3. The number of published knowledge bases is limited by Search service tier. If there are free indexes available, other services can use them.|
 
-# [Custom question anwering (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
-Each Azure resource created with Custom question anwering (Preview) feature has a specific purpose:
+Each Azure resource created with Custom question answering (Preview) feature has a specific purpose:
 
 * Text Analytics resource
 * Cognitive Search resource
 
 ### Text Analytics resource
 
-The Text Analytics resource with Custom question anwering (Preview) feature provides access to the authoring and publishing APIs, hosts the ranking runtime as well as provides telemetry.
+The Text Analytics resource with Custom question answering (Preview) feature provides access to the authoring and publishing APIs, hosts the ranking runtime as well as provides telemetry.
 
 ### Azure Cognitive Search resource
 
@@ -359,7 +359,7 @@ For example, if your tier has 15 allowed indexes, you can publish 14 knowledge b
 
 #### Language usage
 
-With Custom question anwering (Preview) you have a choice to setup your service for knowledge bases in a single language or multiple languages. You make this choice during the creation of the first knowledge base in your Text Analytics service. See [here](#pricing-tier-considerations) how to enable language setting per knowledge base.
+With Custom question answering (Preview) you have a choice to setup your service for knowledge bases in a single language or multiple languages. You make this choice during the creation of the first knowledge base in your Text Analytics service. See [here](#pricing-tier-considerations) how to enable language setting per knowledge base.
 
 ---
 
