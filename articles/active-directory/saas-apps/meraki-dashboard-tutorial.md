@@ -132,7 +132,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
    ![user role](./media/meraki-dashboard-tutorial/user-role.png)
 
-   > [!NOTE] > **Select a role** option will be disabled and default role is USER for selected user.
+   > [!NOTE]
+   > **Select a role** option will be disabled and default role is USER for selected user.
 
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
