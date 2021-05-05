@@ -108,7 +108,15 @@ sudo iotedge support-bundle --since 6h
 :::moniker-end
 <!-- end 1.2 -->
 
-You can also use a [direct method](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics) call to your device to upload the output of the support-bundle command to Azure Blob Storage.
+By default, the `support-bundle` command creates a zip file called **support_bundle.zip** in the directory where the command is called. Use the flag `--output` to specify a different path or file name for the output.
+
+For more information about the command, view its help information.
+
+```bash/cmd
+iotedge support-bundle --help
+```
+
+You can also use the built-in direct method call, [UploadSupportBundle](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics) to upload the output of the support-bundle command to Azure Blob Storage.
 
 > [!WARNING]
 > Output from the `support-bundle` command can contain host, device and module names, information logged by your modules etc. Please be aware of this if sharing the output in a public forum.
