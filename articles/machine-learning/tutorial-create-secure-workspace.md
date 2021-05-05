@@ -142,7 +142,7 @@ Use the following steps create a network security group (NSG) and add rules requ
 
 1. From the __Networking__ tab, select __Private endpoint__ and then select __+ Add private endpoint__.
 
-    :::image type="content" source="{source}" alt-text="{alt-text}":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-enable-private-endpoint.png" alt-text="UI to add the blob private network":::
 
 1. On the __Create private endpoint__ form, use the following values:
     * __Subscription__: The same Azure subscription that contains the previous resources you've created.
@@ -165,15 +165,15 @@ While you created a private endpoint for Blob storage in the previous steps, you
 
 1. Once the Storage Account has been created, select __Go to resource__. From the left navigation, select __Networking__ the __Private endpoint connections__ tab, and then select __+ Private endpoint__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-file-networking.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-file-networking.png" alt-text="UI for storage account networking":::
 
 1. On the __Create a private endpoint__ form, use the same __subscription__, __resource group__, and __Region__ that you have used for previous resources. Enter a unique __Name__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-file-private-endpoint.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-file-private-endpoint.png" alt-text="UI to add the file private endpoint":::
 
 1. Select __Next : Resource__, and then set __Target sub-resource__ to __file__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-file-private-endpoint-resource.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-file-private-endpoint-resource.png" alt-text="Add the sub-resource of 'file'":::
 
 1. Select __Next : Configuration__, and then use the following values:
     * __Virtual network__: The network you created previously
@@ -181,7 +181,7 @@ While you created a private endpoint for Blob storage in the previous steps, you
     * __Integrate with private DNS zone__: Yes
     * __Private DNS zone__: privatelink.file.core.windows.net
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-file-private-endpoint-config.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-file-private-endpoint-config.png" alt-text="UI to configure the file private endpoint":::
 
 1. Select __Review + Create__. Verify that the information is correct, and then select __Create__.
 
@@ -190,11 +190,11 @@ While you created a private endpoint for Blob storage in the previous steps, you
 1. In the Azure portal, select the __Home__ link to return to the homepage. Select __+ Create a resource__ and then enter __Key Vault__. Select the __Key Vault__ entry, and then select __Create__.
 1. From the __Basics__ tab, select the __subscription__, __resource group__, and __region__ you previously used for the virtual network. Enter a unique __Key vault name__. Leave the other fields at the default value.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/create-key-vault.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-key-vault.png" alt-text="Create a new key vault":::
 
 1. From the __Networking__ tab, select __Private endpoint__ and then select __+ Add__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/key-vault-networking.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/key-vault-networking.png" alt-text="Key vault networking":::
 
 1. On the __Create private endpoint__ form, use the following values:
     * __Subscription__: The same Azure subscription that contains the previous resources you've created.
@@ -209,7 +209,7 @@ While you created a private endpoint for Blob storage in the previous steps, you
 
     Select __OK__ to create the private endpoint.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/key-vault-private-endpoint.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/key-vault-private-endpoint.png" alt-text="Configure a key vault private endpoint":::
 
 1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
 
@@ -218,11 +218,11 @@ While you created a private endpoint for Blob storage in the previous steps, you
 1. In the Azure portal, select the __Home__ link to return to the homepage. Select __+ Create a resource__ and then enter __Container Registry__. Select the __Container Registry__ entry, and then select __Create__.
 1. From the __Basics__ tab, select the __subscription__, __resource group__, and __location__ you previously used for the virtual network. Enter a unique __Registry name__ and set the __SKU__ to __Premium__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/create-container-registry.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-container-registry.png" alt-text="Create a container registry":::
 
 1. From the __Networking__ tab, select __Private endpoint__ and then select __+ Add__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/container-registry-networking.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/container-registry-networking.png" alt-text="Container registry networking":::
 
 1. On the __Create private endpoint__ form, use the following values:
     * __Subscription__: The same Azure subscription that contains the previous resources you've created.
@@ -237,12 +237,12 @@ While you created a private endpoint for Blob storage in the previous steps, you
 
     Select __OK__ to create the private endpoint.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/container-registry-private-endpoint.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/container-registry-private-endpoint.png" alt-text="Configure container registry private endpoint":::
 
 1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
 1. After the container registry has been created, select __Go to resource__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/container-registry-go-to-resource.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/container-registry-go-to-resource.png" alt-text="Select 'go to resource'":::
 
 1. From the left of the page, select __Access keys__, and then enable __Admin user__. This setting is required when using Azure Container Registry inside a virtual network with Azure Machine Learning.
 
@@ -258,11 +258,11 @@ While you created a private endpoint for Blob storage in the previous steps, you
     * __Application insights__: Use the default value.
     * __Container registry__: Use the container registry you created previously.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/create-machine-learning-workspace.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-machine-learning-workspace.png" alt-text="Basic workspace configuration":::
 
 1. From the __Networking__ tab, select __Private endpoint__ and then select __+ add__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/machine-learning-workspace-networking.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/machine-learning-workspace-networking.png" alt-text="Workspace networking":::
 
 1. On the __Create private endpoint__ form, use the following values: 
     * __Subscription__: The same Azure subscription that contains the previous resources you've created.
@@ -277,7 +277,7 @@ While you created a private endpoint for Blob storage in the previous steps, you
 
     Select __OK__ to create the private endpoint.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/machine-learning-workspace-private-endpoint.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/machine-learning-workspace-private-endpoint.png" alt-text="Workspace private network config":::
 
 1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
 
