@@ -7,7 +7,7 @@ author: santoshc
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/01/2021
+ms.date: 05/06/2021
 ms.author: santoshc
 ms.reviewer: jiacfan
 ms.subservice: common
@@ -35,7 +35,7 @@ In this case, the optional suboperation `Blob.Write.WithTagHeaders` can be used 
 Similarly, only select operations on the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` action can have support blob index tags as a precondition for access. This subset of operations is identified by the `Blob.Read.WithTagConditions` suboperation.
 
 > [!NOTE]
-> Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find data on Azure Blob Storage with Blob Index (Preview)](../blobs/storage-manage-find-blobs.md).
+> Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find data on Azure Blob Storage with Blob Index (preview)](../blobs/storage-manage-find-blobs.md).
 
 In this preview, storage accounts support the following suboperations:
 
@@ -131,7 +131,7 @@ The following table lists which attributes you can use in your condition express
 
 ## See also
 
-- [Example Azure role assignment conditions (Preview)](storage-auth-abac-examples.md)
-- [Azure role assignment condition format and syntax (Preview)](../../role-based-access-control/conditions-format.md)
-- [What is Azure attribute-based access control (Azure ABAC)? (Preview)](../../role-based-access-control/conditions-overview.md)
+- [Example Azure role assignment conditions (preview)](storage-auth-abac-examples.md)
+- [Azure role assignment condition format and syntax (preview)](../../role-based-access-control/conditions-format.md)
+- [What is Azure attribute-based access control (Azure ABAC)? (preview)](../../role-based-access-control/conditions-overview.md)
 

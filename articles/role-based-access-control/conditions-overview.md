@@ -1,5 +1,5 @@
 ---
-title: What is Azure attribute-based access control (Azure ABAC)? (Preview)
+title: What is Azure attribute-based access control (Azure ABAC)? (preview)
 description: Get an overview of Azure attribute-based access control (Azure ABAC). Use role assignments with conditions to control access to Azure resources.
 services: active-directory
 author: rolyon
@@ -8,13 +8,13 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: overview
 ms.workload: identity
-ms.date: 05/01/2021
+ms.date: 05/06/2021
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn how to constrain access within a role assignment by using conditions.
 ---
 
-# What is Azure attribute-based access control (Azure ABAC)? (Preview)
+# What is Azure attribute-based access control (Azure ABAC)? (preview)
 
 > [!IMPORTANT]
 > Azure ABAC and Azure role assignment conditions are currently in preview.
@@ -114,6 +114,6 @@ To better understand Azure RBAC and Azure ABAC, you can refer back to the follow
 
 ## Next steps
 
-- [FAQ for Azure role assignment conditions (Preview)](conditions-faq.md)
-- [Example Azure role assignment conditions (Preview)](../storage/common/storage-auth-abac-examples.md)
-- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (Preview)](../storage/common/storage-auth-abac-portal.md)
+- [FAQ for Azure role assignment conditions (preview)](conditions-faq.md)
+- [Example Azure role assignment conditions (preview)](../storage/common/storage-auth-abac-examples.md)
+- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (preview)](../storage/common/storage-auth-abac-portal.md)

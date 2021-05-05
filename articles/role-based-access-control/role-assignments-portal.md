@@ -109,7 +109,7 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
 #### [(Preview)](#tab/preview/)
 
-## Step 1: Identify the needed scope (Preview)
+## Step 1: Identify the needed scope (preview)
 
 [!INCLUDE [Scope for Azure RBAC introduction](../../includes/role-based-access-control/scope-intro.md)] For more information, see [Understand scope](scope-overview.md).
 
@@ -127,7 +127,7 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
     ![Screenshot of Resource group overview page for preview experience.](./media/shared/rg-overview.png)
 
-## Step 2: Open the Add role assignment page (Preview)
+## Step 2: Open the Add role assignment page (preview)
 
 **Access control (IAM)** is the page that you typically use to assign roles to grant access to Azure resources. It's also known as identity and access management (IAM) and appears in several locations in the Azure portal.
 
@@ -139,7 +139,7 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
 1. Click the **Role assignments** tab to view the role assignments at this scope.
 
-1. Click **Add** > **Add role assignment (Preview)**.
+1. Click **Add** > **Add role assignment (preview)**.
 
     If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 
@@ -147,7 +147,7 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
     The Assign a role page opens.
 
-## Step 3: Select the appropriate role (Preview)
+## Step 3: Select the appropriate role (preview)
 
 1. On the **Roles** tab, select a role that you want to use.
 
@@ -161,7 +161,7 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
 1. Click **Next**.
 
-## Step 4: Select who needs access (Preview)
+## Step 4: Select who needs access (preview)
 
 1. On the **Members** tab, select **User, group, or service principal** to assign the selected role to one or more Azure AD users, groups, or service principals (applications).
 
@@ -199,7 +199,7 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
 1. Click **Next**.
 
-## Step 5: (Optional) Add condition (Preview)
+## Step 5: (Optional) Add condition (preview)
 
 If you selected a role that supports conditions, a **Condition** tab will appear and you have the option to add a condition to your role assignment.
 
@@ -216,7 +216,7 @@ Currently, conditions can be added to built-in or custom role assignments that h
 
 1. Click **Next**.
 
-## Step 6: Assign role (Preview)
+## Step 6: Assign role (preview)
 
 1. On the **Review + assign** tab, review the role assignment settings.
 

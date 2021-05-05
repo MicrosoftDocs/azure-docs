@@ -1,5 +1,5 @@
 ---
-title: Add or edit Azure role assignment conditions using the REST API (Preview) - Azure RBAC
+title: Add or edit Azure role assignment conditions using the REST API (preview) - Azure RBAC
 description: Learn how to add, edit, list, or delete attribute-based access control (ABAC) conditions in Azure role assignments using the REST API and Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
@@ -8,11 +8,11 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/27/2021
+ms.date: 05/06/2021
 ms.author: rolyon
 ---
 
-# Add or edit Azure role assignment conditions using the REST API (Preview)
+# Add or edit Azure role assignment conditions using the REST API (preview)
 
 > [!IMPORTANT]
 > Azure ABAC and Azure role assignment conditions are currently in preview.
@@ -125,6 +125,6 @@ Alternatively, if you want to delete both the role assignment and the condition,
 
 ## Next steps
 
-- [Example Azure role assignment conditions (Preview)](../storage/common/storage-auth-abac-examples.md)
-- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (Preview)](../storage/common/storage-auth-abac-portal.md)
-- [Troubleshoot Azure role assignment conditions (Preview)](conditions-troubleshoot.md)
+- [Example Azure role assignment conditions (preview)](../storage/common/storage-auth-abac-examples.md)
+- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (preview)](../storage/common/storage-auth-abac-portal.md)
+- [Troubleshoot Azure role assignment conditions (preview)](conditions-troubleshoot.md)

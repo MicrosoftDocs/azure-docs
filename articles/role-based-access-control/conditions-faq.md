@@ -1,6 +1,6 @@
 ---
-title: FAQ for Azure role assignment conditions (Preview)
-description: Frequently asked questions for Azure role assignment conditions (Preview)
+title: FAQ for Azure role assignment conditions (preview)
+description: Frequently asked questions for Azure role assignment conditions (preview)
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -8,13 +8,13 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/03/2021
+ms.date: 05/06/2021
 ms.author: rolyon
 
 #Customer intent: 
 ---
 
-# FAQ for Azure role assignment conditions (Preview)
+# FAQ for Azure role assignment conditions (preview)
 
 > [!IMPORTANT]
 > Azure ABAC and Azure role assignment conditions are currently in preview.
@@ -77,5 +77,5 @@ No, conditions in role assignments do not have an explicit deny effect. Conditio
 
 ## Next steps
 
-- [Azure role assignment condition format and syntax (Preview)](conditions-format.md)
-- [Troubleshoot Azure role assignment conditions (Preview)](conditions-troubleshoot.md)
+- [Azure role assignment condition format and syntax (preview)](conditions-format.md)
+- [Troubleshoot Azure role assignment conditions (preview)](conditions-troubleshoot.md)

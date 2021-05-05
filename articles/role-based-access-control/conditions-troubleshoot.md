@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure role assignment conditions (Preview)
-description: Troubleshoot Azure role assignment conditions (Preview)
+title: Troubleshoot Azure role assignment conditions (preview)
+description: Troubleshoot Azure role assignment conditions (preview)
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -8,13 +8,13 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 05/03/2021
+ms.date: 05/06/2021
 ms.author: rolyon
 
 #Customer intent: 
 ---
 
-# Troubleshoot Azure role assignment conditions (Preview)
+# Troubleshoot Azure role assignment conditions (preview)
 
 > [!IMPORTANT]
 > Azure ABAC and Azure role assignment conditions are currently in preview.
@@ -33,11 +33,11 @@ Ensure that the security principals don't have multiple role assignments (with o
 
 **Cause 2**
 
-Your role definition has multiple actions that grant a permission and your condition does not target all the actions. For example, you can create a blob if you have either `/blobs/write` or `/blobs/add/action` data actions. If your role definition has both data actions and you target only one of them in a condition, the role assignment will grant the permission to create blobs bypassing the condition.
+Your role assignment has multiple actions that grant a permission and your condition does not target all the actions. For example, you can create a blob if you have either `/blobs/write` or `/blobs/add/action` data actions. If your role assignment has both data actions and you target only one of them in a condition, the role assignment will grant the permission to create blobs and bypass the condition.
 
 **Solution 2**
 
-If your role definition has multiple actions that grant a permission, ensure that you target all relevant actions.
+If your role assignment has multiple actions that grant a permission, ensure that you target all relevant actions.
 
 **Cause 3**
 
@@ -154,6 +154,6 @@ If you are certain that your condition is correct, delete all spaces and returns
 
 ## Next steps
 
-- [Azure role assignment condition format and syntax (Preview)](conditions-format.md)
-- [FAQ for Azure role assignment conditions (Preview)](conditions-faq.md)
-- [Example Azure role assignment conditions (Preview)](../storage/common/storage-auth-abac-examples.md)
+- [Azure role assignment condition format and syntax (preview)](conditions-format.md)
+- [FAQ for Azure role assignment conditions (preview)](conditions-faq.md)
+- [Example Azure role assignment conditions (preview)](../storage/common/storage-auth-abac-examples.md)

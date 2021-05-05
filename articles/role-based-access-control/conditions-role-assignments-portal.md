@@ -1,5 +1,5 @@
 ---
-title: Add or edit Azure role assignment conditions using the Azure portal (Preview) - Azure RBAC
+title: Add or edit Azure role assignment conditions using the Azure portal (preview) - Azure RBAC
 description: Learn how to add, edit, list, or delete attribute-based access control (ABAC) conditions in Azure role assignments using the Azure portal and Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
@@ -8,11 +8,11 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/01/2021
+ms.date: 05/06/2021
 ms.author: rolyon
 ---
 
-# Add or edit Azure role assignment conditions using the Azure portal (Preview)
+# Add or edit Azure role assignment conditions using the Azure portal (preview)
 
 > [!IMPORTANT]
 > Azure ABAC and Azure role assignment conditions are currently in preview.
@@ -90,7 +90,7 @@ Once you have the Add role assignment condition page open, you can review the ba
 
 1. Select the actions you want to allow if the condition is true.
 
-    If you select multiple actions, there might be fewer attributes to choose from for your condition because the attributes you use must apply to all of the selected actions.
+    If you select multiple actions for a single condition, there might be fewer attributes to choose from for your condition because the attributes must be available across the selected actions.
 
 1. Click **Select**.
 
@@ -149,6 +149,6 @@ Once you have the Add role assignment condition page open, you can review the ba
 
 ## Next steps
 
-- [Example Azure role assignment conditions (Preview)](../storage/common/storage-auth-abac-examples.md)
-- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (Preview)](../storage/common/storage-auth-abac-portal.md)
-- [Troubleshoot Azure role assignment conditions (Preview)](conditions-troubleshoot.md)
+- [Example Azure role assignment conditions (preview)](../storage/common/storage-auth-abac-examples.md)
+- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (preview)](../storage/common/storage-auth-abac-portal.md)
+- [Troubleshoot Azure role assignment conditions (preview)](conditions-troubleshoot.md)

@@ -1,5 +1,5 @@
 ---
-title: Azure role assignment condition format and syntax (Preview) - Azure RBAC
+title: Azure role assignment condition format and syntax (preview) - Azure RBAC
 description: Get an overview of the format and syntax of Azure role assignment conditions for Azure attribute-based access control (Azure ABAC).
 services: active-directory
 author: rolyon
@@ -8,13 +8,13 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/29/2021
+ms.date: 05/06/2021
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
-# Azure role assignment condition format and syntax (Preview)
+# Azure role assignment condition format and syntax (preview)
 
 > [!IMPORTANT]
 > Azure ABAC and Azure role assignment conditions are currently in preview.
@@ -75,7 +75,7 @@ Some actions have suboperations. For example, the "Read a blob" data action has 
 
 ### Multiple actions
 
-A condition can include multiple actions that you want to allow if the condition is true. If you select multiple actions, there might be fewer attributes to choose from for your condition because the attributes must be available across the selected actions.
+A condition can include multiple actions that you want to allow if the condition is true. If you select multiple actions for a single condition, there might be fewer attributes to choose from for your condition because the attributes must be available across the selected actions.
 
 ![Format for multiple actions to allow if condition is true.](./media/conditions-format/format-multiple-actions.png)
 
@@ -147,7 +147,7 @@ For a a list of the storage blob actions you can use in conditions, see [Actions
 
 ## Attributes
 
-Depending on the selected actions, the attribute might be found in different places. If you select multiple actions, there might be fewer attributes to choose from for your condition because the attributes must be available across the selected actions. To specify an attribute, you must include the source as a prefix.
+Depending on the selected actions, the attribute might be found in different places. If you select multiple actions for a single condition, there might be fewer attributes to choose from for your condition because the attributes must be available across the selected actions. To specify an attribute, you must include the source as a prefix.
 
 > [!div class="mx-tableFixed"]
 > | Attribute source | Description | Code |
@@ -226,5 +226,5 @@ a AND (b OR c)
 
 ## Next steps
 
-- [Example Azure role assignment conditions (Preview)](../storage/common/storage-auth-abac-examples.md)
+- [Example Azure role assignment conditions (preview)](../storage/common/storage-auth-abac-examples.md)
 - [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/common/storage-auth-abac-attributes.md)

@@ -1,5 +1,5 @@
 ---
-title: Example Azure role assignment conditions (Preview) - Azure RBAC
+title: Example Azure role assignment conditions (preview) - Azure RBAC
 titleSuffix: Azure Storage
 description: Example Azure role assignment conditions for Azure attribute-based access control (Azure ABAC).
 services: storage
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: rolyon
 ms.reviewer: 
 ms.subservice: common
-ms.date: 05/01/2021
+ms.date: 05/06/2021
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
-# Example Azure role assignment conditions (Preview)
+# Example Azure role assignment conditions (preview)
 
 > [!IMPORTANT]
 > Azure ABAC and Azure role assignment conditions are currently in preview.
@@ -609,6 +609,6 @@ $content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "logs/Alp
 
 ## Next steps
 
-- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (Preview)](storage-auth-abac-portal.md)
+- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (preview)](storage-auth-abac-portal.md)
 - [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](storage-auth-abac-attributes.md)
-- [Azure role assignment condition format and syntax (Preview)](../../role-based-access-control/conditions-format.md)
+- [Azure role assignment condition format and syntax (preview)](../../role-based-access-control/conditions-format.md)

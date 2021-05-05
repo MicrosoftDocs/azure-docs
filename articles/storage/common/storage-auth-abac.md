@@ -1,5 +1,5 @@
 ---
-title: Authorize access to blobs using Azure role assignment conditions (Preview)
+title: Authorize access to blobs using Azure role assignment conditions (preview)
 titleSuffix: Azure Storage
 description: Authorize access to Azure blobs using Azure role assignment conditions and Azure attribute-based access control (Azure ABAC). Define conditions on role assignments using Storage attributes.
 services: storage
@@ -7,13 +7,13 @@ author: santoshc
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/16/2021
+ms.date: 05/06/2021
 ms.author: santoshc
 ms.reviewer: jiacfan
 ms.subservice: common
 ---
 
-# Authorize access to blobs using Azure role assignment conditions (Preview)
+# Authorize access to blobs using Azure role assignment conditions (preview)
 
 > [!IMPORTANT]
 > Azure ABAC and Azure role assignment conditions are currently in preview.
@@ -44,4 +44,4 @@ Azure Storage supports a select set of request or resource attributes that may b
 
 - [Security considerations for Azure role assignment conditions in Azure Storage (preview)](storage-auth-abac-security.md)
 - [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](storage-auth-abac-attributes.md)
-- [What is Azure attribute-based access control (Azure ABAC)? (Preview)](../../role-based-access-control/conditions-overview.md)
+- [What is Azure attribute-based access control (Azure ABAC)? (preview)](../../role-based-access-control/conditions-overview.md)

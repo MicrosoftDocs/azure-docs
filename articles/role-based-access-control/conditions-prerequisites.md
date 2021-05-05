@@ -1,6 +1,6 @@
 ---
-title: Prerequisites for Azure role assignment conditions (Preview)
-description: Prerequisites for Azure role assignment conditions (Preview).
+title: Prerequisites for Azure role assignment conditions (preview)
+description: Prerequisites for Azure role assignment conditions (preview).
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -8,13 +8,13 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/29/2021
+ms.date: 05/06/2021
 ms.author: rolyon
 
 #Customer intent: 
 ---
 
-# Prerequisites for Azure role assignment conditions (Preview)
+# Prerequisites for Azure role assignment conditions (preview)
 
 > [!IMPORTANT]
 > Azure ABAC and Azure role assignment conditions are currently in preview.
@@ -48,5 +48,5 @@ Just like role assignments, to add or update conditions, you must be signed in t
 
 ## Next steps
 
-- [Example Azure role assignment conditions (Preview)](../storage/common/storage-auth-abac-examples.md)
-- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (Preview)](../storage/common/storage-auth-abac-portal.md)
+- [Example Azure role assignment conditions (preview)](../storage/common/storage-auth-abac-examples.md)
+- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (preview)](../storage/common/storage-auth-abac-portal.md)
