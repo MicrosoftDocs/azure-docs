@@ -13,7 +13,7 @@ metadata:
   author: KumudD
   ms.author: kumud
   manager: mtillman
-  ms.date: 04/23/2021
+  ms.date: 05/05/2021
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
@@ -92,6 +92,16 @@ additionalContent:
               url: ../dns/dns-delegate-domain-azure-dns.md
             - text: See more
               url: ../dns/index.yml
+           # Card
+        - title: Route between NVA and virtual network
+          links:
+            - text: What is Azure Route server (Preview)?
+              url: ../route-server/overview.md
+            - text: Create and configure Route Server
+              url: ../route-server/quickstart-configure-route-server-portal.md
+            - text: See more
+              url: ../route-server/index.yml
+   
     - title: Application delivery services  # < 60 chars (optional)
       items:
         # Card
