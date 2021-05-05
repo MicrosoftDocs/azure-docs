@@ -4,7 +4,7 @@ description: Learn how automatic anomaly detection for metered billing helps ins
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 2/18/2021
+ms.date: 5/03/2021
 author: sayantanroy83
 ms.author: sroy
 ---
@@ -44,6 +44,10 @@ To help ensure that your customers are billed correctly, use the **Anomaly detec
 
    [![Illustrates the Partner Center unacknowledged anomalies list on the Usage page.](./media/anomaly-detection/unacknowledged-anomalies.png)](./media/anomaly-detection/unacknowledged-anomalies.png#lightbox)
     ***Figure 4: Partner Center unacknowledged anomalies list***
+
+    By default, flagged anomalies that have an estimated financial impact greater than 100 USD are shown in Partner Center. However, you can select **All** from the **Estimated financial impact of anomaly** list to see all flagged anomalies.
+
+    :::image type="content" source="./media/anomaly-detection/all-anomalies.png" alt-text="Screenshot of all metered usage anomalies for the selected offer.":::
 
 1. You would also see an anomaly action log that shows the actions you took on the overage usages. In the action log, you will be able to see which overage usage events were marked as genuine or false.
 

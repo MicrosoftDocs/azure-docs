@@ -1,5 +1,5 @@
 ---
-title: Third-party app license management through Microsoft - Azure
+title: Third-party app license management through Microsoft - Azure and Microsoft AppSource
 description: Learn about managing third-party app licenses through Microsoft.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -47,7 +47,7 @@ This table illustrates the high-level process to manage third-party apps through
 | Step 1: Create offer | The ISV creates an offer in Partner Center and chooses to manage licenses for this offer through Microsoft. This includes defining one or more licensing plans for the offer. For more information, see [Create a Dynamics 365 for Customer Engagement & Power Apps offer on Microsoft AppSource](dynamics-365-customer-engage-offer-setup.md). |
 | Step 2: Update package | The ISV creates a solution package for the offer that includes license plan information as metadata, and uploads it to Partner Center for publication to Microsoft AppSource. To learn more, see [Adding license metadata to your solution](/powerapps/developer/data-platform/appendix-add-license-information-to-your-solution). |
 | Step 3: Purchase licenses | Customers discover the ISV’s offer in AppSource or directly on the ISV’s website. Customers purchase licenses for the plans they want directly from the ISV (these offers are cannot purchasable through AppSource at this time). |
-| Step 4: Register deal | The ISV registers the purchase with Microsoft in Partner Center. As part of [deal registration](/partner-center/csp-commercial-marketplace-licensing), the ISV will specify the type and quantity of each licensing plan purchased by the customer. |
+| Step 4: Register deal | The ISV registers the purchase with Microsoft in Partner Center. As part of [deal registration](/partner-center/csp-commercial-marketplace-licensing#register-isv-connect-deal-in-deal-registration), the ISV will specify the type and quantity of each licensing plan purchased by the customer. |
 | Step 5: Manage licenses | The license plans will appear in Microsoft 365 Admin Center for the customer to [assign to users or groups](/microsoft-365/commerce/licenses/manage-third-party-app-licenses) in their organization. The customer can also install the application in their tenant via the Power Platform Admin Center. |
 | Step 6: Perform license check | When a user within the customer’s organization tries to run an application, Microsoft checks to ensure that user has a license before permitting them to run it. If they don’t have a license, the user sees a message explaining that they need to contact an administrator for a license. |
 | Step 7: View reports | ISVs can view information on provisioned and assigned licenses over a period of time and by geography. |
