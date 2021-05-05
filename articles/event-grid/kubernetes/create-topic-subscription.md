@@ -12,7 +12,7 @@ ms.topic: how-to
 
 ## Prerequisites
 
-1. [Connect your Kubernetes cluster to Azure Arc](..azure-arc/kubernetes/quickstart-connect-cluster.md)
+1. [Connect your Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md)
 1. Deploy the Event Grid Kubernetes extension. 
 1. Create a custom location.
 1. Download and install [Azure Resource Manager client (armclient)](https://github.com/yangl900/armclient-go). This command-line tool will allow you to send request to Azure to create and manage resources.
@@ -49,7 +49,7 @@ ms.topic: how-to
 An event subscription defines the filtering criteria to select the events to be routed and the destination to which those events are sent.
 
 Event Subscriptions support the following kind of destinations.
-* [Webhooks](#WebHook). The following are supported through webhooks (endpoints):
+* Webhooks. The following are supported through webhooks (endpoints):
   * Azure Event Grid
   * Azure Functions 
   * Functions on Kubernetes
@@ -66,7 +66,7 @@ Event Subscriptions support the following kind of destinations.
 Event Grid on Kubernetes offers a good level of feature parity with respect to Azure Event Grid's support for event subscriptions. The following list enumerates the main differences in event subscription functionality. Apart from those differences, you may use Azure Event Grid's [REST API to manage event subscriptions](/rest/api/eventgrid/version2020-04-01-preview/eventsubscriptions) as reference documentation when managing event subscription on Event Grid on Kubernetes.
 
 1. The api version to use is ```2020-10-15-preview``` as opposed to ```2020-04-01-preview```.
-2. [Azure Event Grid trigger for Azure Functions](../azure-functions/functions-bindings-event-grid-trigger.md?tabs=csharp%2Cconsole) is not supported. You can use a WebHook destination type to deliver events to Azure Functions.
+2. [Azure Event Grid trigger for Azure Functions](../../azure-functions/functions-bindings-event-grid-trigger.md?tabs=csharp%2Cconsole) is not supported. You can use a WebHook destination type to deliver events to Azure Functions.
 3. There is no Dead Letter support.
 4. Azure Relay's Hybrid Connections as a destination is not supported yet.
 5. The supported schema value is "[CloudEventSchemaV1_0](/rest/apieventgrid/version2020-04-01-preview/eventsubscriptions/createorupdate#eventdeliveryschema)".
