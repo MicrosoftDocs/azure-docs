@@ -1206,3 +1206,16 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
+- id: iot-device-application-development-languages
+# Owner: timlt
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-ansi-c
+    title: C
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-python
+    title: Python
