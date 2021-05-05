@@ -84,7 +84,7 @@ You can now have knowledge bases in different languages within the same Text Ana
 ![QnA Maker managed (Preview) multi-lingual knowledge base selection](../media/qnamaker-create-publish-knowledge-base/connect-knowledgebase-custom-qna.png)
 
 > [!NOTE]
-> If you enable multiple languages per knowledge base, you cannot create as many knowledge bases in your QnA Maker resource. For [more details on language settings limitations](./azure-resources.md).
+> If you enable multiple languages per knowledge base, you cannot create as many knowledge bases in your Text Analytics resource. For [more details on language settings limitations](./azure-resources.md).
 
 ---
 
