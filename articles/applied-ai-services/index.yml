@@ -78,7 +78,7 @@ additionalContent:
             # Card
             - text: Troubleshoot on StackOverflow
               url: https://aka.ms/AppliedAIStackOverflow
-        - title: Get Started with Quickstarts
+        - title: Get Coding with Quickstarts
           links:
           - text: Azure Form Recognizer
             url: https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool
