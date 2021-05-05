@@ -150,8 +150,9 @@ landingContent:
           - text: Back up VMware VMs
             url: /azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
           - text: Restore VMware VMs 
-            url: /azure/backup/restore-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
-       
+            url: /azure/backup/restore-azure-backup-server-vmware?context=/azure/azure-vmware/context/context       
+          - text: Monitoring Azure Backup workloads 
+            url: /azure/backup/backup-azure-monitoring-built-in-monitor?context=/azure/azure-vmware/context/context
 
 # card 5
   - title: VMware solutions
