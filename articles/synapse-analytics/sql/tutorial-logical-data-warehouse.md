@@ -197,7 +197,7 @@ The security rules depend on your security policies. Some generic guidelines are
 - You should provide `SELECT` permission only to the tables that some user should be able to use.
 - If you are providing access to data using the views, you should grant `REFERENCES` permission to the credential that will be used to access external data source.
 
-This user has minimal permssions needed to query external data. If you want to create a powr-user who can setup permissions, external tables and views, you can give 
+This user has minimal permissions needed to query external data. If you want to create a power-user who can set up permissions, external tables and views, you can give 
 `CONTROL` permission to the user:
 
 ```sql
