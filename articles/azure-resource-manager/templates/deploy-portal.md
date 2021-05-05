@@ -2,7 +2,7 @@
 title: Deploy resources with Azure portal
 description: Use Azure portal and Azure Resource Manage to deploy your resources to a resource group in your subscription.
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 05/05/2021
 ---
 
 # Deploy resources with ARM templates and Azure portal
@@ -113,7 +113,7 @@ If you want to execute a deployment but not use any of the templates in the Mark
     - **Subscription**: Select an Azure subscription.
     - **Resource group**: Select **Create new** and give a name.
     - **Location**: Select an Azure location.
-    - **Storage Account Type**: Use the default value.
+    - **Storage Account Type**: Use the default value. The camel-cased parameter *storageAccountType* name defined in the template is turned into a space-separated string when displayed on the portal.
     - **Location**: Use the default value.
     - **I agree to the terms and conditions stated above**: (select)
 

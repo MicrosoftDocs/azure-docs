@@ -2,7 +2,7 @@
 title: Deploy to Azure button
 description: Use button to deploy Azure Resource Manager templates from a GitHub repository.
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 05/05/2021
 ---
 
 # Use a deployment button to deploy templates from GitHub repository
@@ -111,7 +111,7 @@ To test the full solution, select the following button:
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json)
 
-The portal displays a pane that allows you to easily provide parameter values. The parameters are pre-filled with the default values from the template.
+The portal displays a pane that allows you to easily provide parameter values. The parameters are pre-filled with the default values from the template. The camel-cased parameter *storageAccountType* name defined in the template is turned into a space-separated string when displayed on the portal.
 
 ![Use portal to deploy](./media/deploy-to-azure-button/portal.png)
 
