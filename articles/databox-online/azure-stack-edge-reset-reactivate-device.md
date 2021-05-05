@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/03/2020
+ms.date: 05/04/2021
 ms.author: alkohli
 ---
 
@@ -18,6 +18,8 @@ ms.author: alkohli
 This article describes how to reset, reconfigure, and reactivate an Azure Stack Edge Pro device if you're having issues with the device or need to start fresh for some other reason.
 
 After you reset the device to remove the data, you'll need to reactivate the device as a new resource. Resetting a device removes the device configuration, so you'll need to reconfigure the device via the local web UI.
+
+For example, you might need to move an existing Azure Stack Edge Pro resource to a new subscription. You would first [reset data from the device](#reset-data-from-the-device) following the instructions below. To reactivate the device, you would create a new resource that uses the new subscription with your existing device by following the steps in [Reactive device](#reactivate-device).
 
 In this article, you learn how to:
 
