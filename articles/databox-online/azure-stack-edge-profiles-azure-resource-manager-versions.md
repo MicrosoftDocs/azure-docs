@@ -6,7 +6,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/28/2021
+ms.date: 05/05/2021
 ms.author: alkohli
 ---
 
@@ -20,12 +20,45 @@ The API profile uses three naming conventions:
 - **yyyy-mm-dd-hybrid**
 - **yyyy-mm-dd-profile**
 
-For an explanation of API profiles and version release cadence for Azure Stack Edge, see [Manage API version profiles in Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-2008&preserve-view=true).<!--Article title cites "Hub," not "Edge."-->
+For an explanation of API profiles and version release cadence for Azure Stack Edge, see [Manage API version profiles in Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-2008&preserve-view=true).
 
 
 ## Overview of the 2019-03-01-hybrid profile
 
-<!--This table should list resource providers? Current entries belong in a "Microsoft.Resources" section? Compare with "Resource provider API versions supported by profiles in Azure Stack Hub" (https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions?view=azs-2008#details-for-the-2019-03-01-hybrid-profile). Need to know: Resource providers and versions used with Azure Stack Edge.-->
+|Resource provider                                  |API version |
+|---------------------------------------------------|------------|
+|Microsoft.Compute                                  |2017-12-01  |
+|Microsoft.Network                                  |2017-10-01<br>VPN Gateway will be 2017-10-01|
+|Microsoft.Storage (Data Plane)                     |2019-07-07  |
+|Microsoft.Storage (Control Plane)                  |2019-06-01  |
+|Microsoft.Resources (Azure Resource Manager itself)|2020-06-01  |
+|Microsoft.Authorization (policy operations)        |2016-09-01  |
+
+For a list of the versions for each resource type for the providers in the API profile, see [Details for the 2019-03-01-hybrid profile](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions?view=azs-2008#details-for-the-2019-03-01-hybrid-profile).
+
+## Details for the 2019-03-01-hybrid profile
+
+### Microsoft.Compute
+
+The Azure Compute APIs give you programmatic access to virtual machines and their supporting resources. For more information, see [Azure Compute](https://docs.microsoft.com/rest/api/compute/).
+
+|Resource Type     |API Version |
+|------------------|------------|
+|Locations         |2017-12-01  |
+|Locations/vmSizes |2017-12-01  |
+
+### Microsoft.Network
+
+The operations call result is a representation of the available Network cloud operations list. For more information, see [Operation REST API](https://docs.microsoft.com/rest/api/operation/).
+
+|Resource Types    |API Versions|
+|------------------|------------|
+|Network Interfaces|2017-10-01  |
+|Virtual Networks  |2017-10-01  |
+
+### Microsoft.Resources
+
+Azure Resource Manager lets you deploy and manage the infrastructure for your Azure solutions. You organize related resources in resource groups and deploy your resources with JSON templates. For an introduction to deploying and managing resources with Resource Manager, see the [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/management/overview).
 
 |Resource Types                        |API Versions|
 |--------------------------------------|------------|
@@ -47,21 +80,6 @@ For an explanation of API profiles and version release cadence for Azure Stack E
 |Subscriptions/tagNames/tagValues      |2018-05-01  |
 |Tenants                               |2016-06-01  |
 
-## Details for the 2019-03-01-hybrid profile
-
-### Microsoft.Network
-
-The operations call result is a representation of the available Network cloud operations list. For more information, see [Operation REST API](https://docs.microsoft.com/rest/api/operation/).<!--What is this link expected to provide for the user? It opens an empty "Overview" article with no links to subordinate articles.-->
-
-|Resource Types    |API Versions|
-|------------------|------------|
-|Network Interfaces|2017-10-01  |
-|Virtual Networks  |2017-10-01  |
-
-### Microsoft.Resources
-
-<!--Move in table from "Overview"?-->
-
 ### Microsoft.Storage
 
 The Storage Resource Provider (SRP) lets you manage your storage account and keys programmatically. For more information, see the [Azure Storage Resource Provider REST API reference](https://docs.microsoft.com/rest/api/storagerp/).
@@ -77,4 +95,4 @@ The Storage Resource Provider (SRP) lets you manage your storage account and key
 
 ## Next steps
 
-- XX
+- [Manage an Azure Stack Edge Pro GPU device via Windows PowerShell](azure-stack-edge-gpu-connect-powershell-interface.md)
