@@ -14,6 +14,8 @@ In this quickstart, you create an App Service app to an Azure Arc enabled Kubern
 - [Create an App Service Kubernetes environment](manage-create-arc-environment.md) for an Azure Arc-enabled Kubernetes cluster.
 - 
 
+`TODO: Do we need a CLI extension for this?`
+
 ## 1. Create a resource group
 
 Run the following command. `TODO: Does location matter?`
