@@ -11,19 +11,19 @@ ms.author: rohink
 
 # Use Azure DNS to provide custom domain settings for an Azure service
 
-Azure DNS provides DNS for a custom domain for any of your Azure resources that support custom domains or that have a fully qualified domain name (FQDN). An example is you have an Azure web app and you want your users to access it by either using contoso.com, or www\.contoso.com as an FQDN. This article walks you through configuring your Azure service with Azure DNS for using custom domains.
+Azure DNS provides naming resolution for any of your Azure resources that support custom domains or that have a fully qualified domain name (FQDN). For example, you have an Azure web app you want your users to access using `contoso.com` or `www.contoso.com` as the FQDN. This article walks you through configuring your Azure service with Azure DNS for using custom domains.
 
 ## Prerequisites
 
-In order to use Azure DNS for your custom domain, you must first delegate your domain to Azure DNS. Visit [Delegate a domain to Azure DNS](./dns-delegate-domain-azure-dns.md) for instructions on how to configure your name servers for delegation. Once your domain is delegated to your Azure DNS zone, you are able to configure the DNS records needed.
+To use Azure DNS for your custom domain, you must first delegate your domain to Azure DNS. See [Delegate a domain to Azure DNS](./dns-delegate-domain-azure-dns.md) for instructions on how to configure your name servers for delegation. Once your domain is delegated to your Azure DNS zone, you now can configure your DNS records needed.
 
-You can configure a vanity or custom domain for [Azure Function Apps](#azure-function-app), [Public IP addresses](#public-ip-address), [App Service (Web Apps)](#app-service-web-apps), [Blob storage](#blob-storage), and [Azure CDN](#azure-cdn).
+You can configure a vanity or custom domain for Azure Function Apps, Public IP addresses, App Service (Web Apps), Blob storage, and Azure CDN.
 
 ## Azure Function App
 
-To configure a custom domain for Azure function apps, a CNAME record is created as well as configuration on the function app itself.
+To configure a custom domain for Azure function apps, a CNAME record is created and configured on the function app itself.
  
-Navigate to **Function App** and select your function app. Click **Platform features** and under **Networking** click **Custom domains**.
+Navigate to **Function App** and select your function app. Select **Platform features** and under **Networking** select **Custom domains**.
 
 ![function app blade](./media/dns-custom-domain/functionapp.png)
 
