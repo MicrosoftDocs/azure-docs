@@ -35,9 +35,9 @@ In .NET, consider using the [StringInfo](/dotnet/api/system.globalization.string
 
 The Text Analytics API returns these textual elements as well, for convenience.
 
-## Offsets in API version 3.x
+## Offsets in API version 3.1-preview
 
-In version 3.x of the API, all Text Analytics API endpoints that return an offset will support the `stringIndexType` parameter. This parameter adjusts the `offset` and `length` attributes in the API output to match the requested string iteration scheme. Currently, we support three types:
+In version 3.1 of the API, all Text Analytics API endpoints that return an offset will support the `stringIndexType` parameter. This parameter adjusts the `offset` and `length` attributes in the API output to match the requested string iteration scheme. Currently, we support three types:
 
 1. `textElement_v8` (default): iterates over graphemes as defined by the [Unicode 8.0.0](https://unicode.org/versions/Unicode8.0.0) standard
 2. `unicodeCodePoint`: iterates over [Unicode Code Points](http://www.unicode.org/versions/Unicode13.0.0/ch02.pdf#G25564), the default scheme for Python 3
