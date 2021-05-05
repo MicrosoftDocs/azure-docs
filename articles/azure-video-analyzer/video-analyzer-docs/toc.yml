@@ -14,16 +14,12 @@
   items:
   - name: Get started - Azure Video Analyzer
     href: get-started-detect-motion-emit-events.md
+  - name: Detect motion, record video in the cloud
+    href: detect-motion-record-video-clips-cloud.md #404
+  - name: Detect motion, record video on edge devices
+    href: detect-motion-record-video-edge-devices.md
   - name: Create pipeline topology using VS Code extension
     href: create-topology-vs-code-extension.md #404
-  - name: Detect motion and emit events    
-    href: detect-motion-emit-events-quickstart.md
-  - name: Detect motion, record video
-    items:
-    - name: On the Edge
-      href: detect-motion-record-video-edge-devices.md
-    - name: In the Cloud
-      href: detect-motion-record-video-clips-cloud.md #404
   - name: Analyze live video
     items:
     - name: with your own gRPC model
@@ -34,27 +30,37 @@
       href: analyze-live-video-use-your-model-http.md
   - name: Track objects in live videos
     href: track-objects-live-video.md
+  - name: Detect motion and emit events
+    items:
+    - name: Using direct method calls
+      displayName: Detect motion and emit events    
+      href: detect-motion-emit-events-quickstart.md
+  - name: Detect motion, record video clips on edge devices
+    items:
+    - name: Using direct method calls
+      displayName: Detect motion, record video clips on edge devices
+      href: detect-motion-record-video-clips-edge-devices.md #404      
 - name: Tutorials
   items:
   - name: Use continuous video recording
-    href: use-continuous-video-recording.md
+    href: use-continuous-video-recording.md #404
   - name: Use event-based video recording
-    href: record-event-based-live-video.md
+    href: record-event-based-live-video.md #404
   - name: Use line crossing
     href: use-line-crossing.md #404
   - name: Analyze live video
     items:
+    - name: With Spatial Analysis
+      href: computer-vision-for-spatial-analysis.md    
     - name: With OVMS via HTTP extension
       displayName: analyze live video, intel, OpenVINO 
       href: use-intel-openvino-tutorial.md
     - name: With OV DL Streamer via gRPC extension
       displayName: analyze live video, intel, OpenVINO, DL Streamer, VAS
-      href: use-intel-grpc-vas-tutorial.md
+      href: use-intel-grpc-vas-tutorial.md #404
     - name: With Custom Vision
       displayName: analyze live video    
       href: analyze-live-video-custom-vision.md 
-    - name: With Spatial Analysis
-      href: computer-vision-for-spatial-analysis.md    
 - name: Concepts
   items:
   - name: Pipeline
@@ -75,80 +81,62 @@
       href: analyze-live-video-without-recording.md
 - name: How-to guides
   items:
-  - name: Create a new account
-    href: create-video-analyzer-account.md
   - name: Set up your dev environment
     href: set-up-dev-environment.md #404
+  - name: Create a new account
+    href: create-video-analyzer-account.md
+  - name: Use access policies for playback
+    href: use-access-policies-playback.md #404
+  - name: Record and stream inference data with video
+    href: record-stream-inference-data-with-video.md #404
+  - name: Develop and deploy gRPC inference server
+    href: develop-deploy-grpc-inference-srv.md
+  - name: Manage recording policy
+    href: manage-retention-policy-how-to.md
+  - name: Deploy to an IoT Edge device
+    href: deploy-iot-edge-device.md
+  - name: Invoke direct methods with the portal
+    href: use-azure-portal-to-invoke-direct-methods.md
+  - name: Playback a recording
+    href: playback-recordings-how-to.md
+  - name: Configure a signal gate
+    href: configure-signal-gate.md #404
+  - name: Use widgets
+    href: use-widgets.md #404
+  - name: Monitor and logging
+    href: monitor-log-edge.md 
   - name: Troubleshoot
     href: troubleshoot.md
-  - name: Deploying Video Analyzer
-    items:  
-    - name: Deploy to an IoT Edge device
-      displayName: IoT Edge
-      href: deploy-iot-edge-device.md
-    - name: Install AVA on Windows using EFLOW
-      displayName: Windows using EFLOW
-      href: deploy-windows-eflow.md #404
-  - name: Scenarios
-    items:
-    - name: Record and stream inference data with video
-      href: record-stream-inference-data-with-video.md #404
-    - name: Playback a recording
-      href: playback-recordings-how-to.md
-    - name: Configure a signal gate
-      href: configure-signal-gate.md #404
-    - name: Develop and deploy gRPC inference server
-      href: develop-deploy-grpc-inference-srv.md
-  - name: Back end
-    items:
-    - name: Invoke direct methods with the portal
-      href: use-azure-portal-to-invoke-direct-methods.md
-    - name: Use access policies for playback
-      href: use-access-policies-playback.md #404
-    - name: Manage recording policy
-      href: manage-retention-policy-how-to.md
-    - name: Use widgets
-      href: use-widgets.md #404
-  - name: Azure integration
-    items:
-    - name: Use managed identity with AVA
-      href: managed-identity.md #404
-    - name: Use service tags with AVA
-      href: service-tags.md #404
-    - name: Use BYOK with AVA
-      href: byok.md #404
-    - name: Monitor and logging
-      href: monitor-log-edge.md 
 - name: Reference 
   items:
-  - name: Cookies
-    href: auth-session-cookies.md #404
-  - name: Command Line Interface
-    href: cli.md #404
-  - name: Client APIs #404
+  - name: HTTP extension protocol 
+    href: http-extension-protocol.md
+  - name: gRPC extension protocol
+    href: grpc-extension-protocol.md
+  - name: Inference metadata schema
+    href: inference-metadata-schema.md
+  - name: Direct methods
+    href: direct-methods.md
+  - name: Client APIs
     href: client-apis.md
   - name: Cloud APIs #404
     href: cloud-apis.md
-  - name: Direct methods
-    href: direct-methods.md
-  - name: gRPC extension protocol
-    href: grpc-extension-protocol.md
-  - name: HTTP extension protocol 
-    href: http-extension-protocol.md
-  - name: Inference metadata schema
-    href: inference-metadata-schema.md
   - name: Module Twin configuration schema
     href: module-twin-json-schema.md
   - name: Production readiness and best practices	
-    href: production-readiness.md
-  - name: Visual Studio Code extension
-    href: visual-studio-code-extension.md
+    href: production-readiness.md  #404
+  - name: VS Code extension
+    href: vs-code-extension.md  #404
+  - name: Cookies
+    href: auth-session-cookies.md #404
 - name: Resources
   items:
   - name: Azure roadmap
     href: https://azure.microsoft.com/updates/?category=media
   - name: Pricing
     href: https://azure.microsoft.com/services/media-services/live-video-analytics/
+  - name: Azure Video Analyzer player
+    href: player.md #404
   - name: FAQs
     href: faq-edge.md 
   - name: Quotas and limitations
