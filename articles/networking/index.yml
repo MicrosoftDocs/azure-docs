@@ -46,7 +46,7 @@ additionalContent:
     - title: Connectivity services  # < 60 chars (optional)
       items:
         # Card
-        - title: Virtual Network
+        - title: Virtual network
           links:
             - text: What is Azure Virtual Network?
               url: ../virtual-network/virtual-networks-overview.md
