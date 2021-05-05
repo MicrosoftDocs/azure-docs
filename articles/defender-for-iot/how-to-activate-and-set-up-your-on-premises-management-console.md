@@ -1,7 +1,7 @@
 ---
 title: Activate and set up your on-premises management console 
 description: Activating the management console ensures that sensors are registered with Azure and send information to the on-premises management console, and that the on-premises management console carries out management tasks on connected sensors.
-ms.date: 04/29/2021
+ms.date: 05/05/2021
 ms.topic: how-to
 ---
 
@@ -53,13 +53,17 @@ After you sign in for the first time, you will need to activate the on-premises 
    If you have not already onboarded a subscription, then [Onboard a subscription](how-to-manage-subscriptions.md#onboard-a-subscription).
 
    > [!Note]
-   > If you delete a subscription, you will need to upload a new activation file to all on-premises management consoles that were affiliated with the deleted subscription.
+   > If you delete a subscription, you will need to upload a new activation file to all on-premises management console that was affiliated with the deleted subscription.
 
 1. Navigate back to the **Activation** popup screen and select **Choose File**.
 
 1. Select the downloaded file.
 
-After initial activation, the number of monitored devices can exceed the number of committed devices defined during onboarding. This issue occurs if you connect more sensors to the management console. If there's a discrepancy between the number of monitored devices, and the number of committed devices, a warning will appear on the management console. If this warning appears, you need to upload a new activation file.
+After initial activation, the number of monitored devices can exceed the number of committed devices defined during onboarding. This issue occurs if you connect more sensors to the management console. If there's a discrepancy between the number of monitored devices, and the number of committed devices, a warning will appear on the management console. 
+
+:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/device-commitment-update.png" alt-text="If you see the device commitment warning, you will need to upload a new activation file.":::
+
+If this warning appears, you need to upload a [new activation file](#activate-the-on-premises-management-console).
 
 ### Activate an expired license (versions under 10.0)
 
