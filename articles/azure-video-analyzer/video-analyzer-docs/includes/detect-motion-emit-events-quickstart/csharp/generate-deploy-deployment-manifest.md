@@ -32,19 +32,17 @@ Follow these steps to generate the manifest from the template file and then depl
 1. When you're prompted to select an IoT Hub device, choose **avasample-iot-edge-device** from the drop-down menu.
 1. After about 30 seconds, in the lower-left corner of the window, refresh Azure IoT Hub. The edge device now shows the following deployed modules:
 
-    * Azure Video Analyzer on IoT Edge (module name `avaEdge`)
+    * Azure Video Analyzer on IoT Edge (module name `avaedge`)
     * Real-Time Streaming Protocol (RTSP) simulator (module name `rtspsim`)
 
 The RTSP simulator module simulates a live video stream by using a video file that was copied to your edge device when you ran the [Azure Video Analyzer resources setup script](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy). 
 
 
 > [!NOTE]
-> If you are using your own edge device instead of the one provisioned by our setup script, go to your edge device and run the following commands with **admin rights**, to pull and store the sample video file used for this quickstart:  
+> If you are using your own edge device instead of the one provisioned by our quickstart, go to your edge device and run the following command with **admin rights**, to pull and store the sample video file used for this quickstart:
 
 ```
-mkdir /home/localedgeuser/samples      
-mkdir /home/localedgeuser/samples/input    
-curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/localedgeuser/samples/input/camera-300s.mkv  
-chown -R localedgeuser:localusergroup /home/localedgeuser/samples/  
+bash -c "$(curl -sL https://aka.ms/ava/prepare-device)"
 ```
+Or follow the steps outlined in [Deploy Azure Video Analyzer on an IoT Edge device](../../../deploy-iot-edge-device.md)
 At this stage, the modules are deployed but no media pipelines are active.

@@ -2,7 +2,7 @@
 author: fvneerden
 ms.service: azure-video-analyzer
 ms.topic: include
-ms.date: 05/03/2021
+ms.date: 05/05/2021
 ms.author: faneerde
 ---
 
