@@ -13510,7 +13510,7 @@
       "redirect_url": "/azure/azure-vmware/configure-github-enterprise-server",
       "redirect_document_id": false
     },
-        {
+    {
       "source_path_from_root": "/articles/azure-vmware/concepts-monitor-repair-private-cloud.md",
       "redirect_url": "/azure/azure-vmware/concepts-private-clouds-clusters",
       "redirect_document_id": false
@@ -20121,49 +20121,49 @@
       "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/governance/blueprints/samples/canada-federal-pbmm/control-mapping.md",
-        "redirect_url": "/azure/governance/blueprints/samples/canada-federal-pbmm",
-        "redirect_document_id": false
+      "source_path_from_root": "/articles/governance/blueprints/samples/canada-federal-pbmm/control-mapping.md",
+      "redirect_url": "/azure/governance/blueprints/samples/canada-federal-pbmm",
+      "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/governance/blueprints/samples/canada-federal-pbmm/deploy.md",
-        "redirect_url": "/azure/governance/blueprints/samples/canada-federal-pbmm",
-        "redirect_document_id": false
+      "source_path_from_root": "/articles/governance/blueprints/samples/canada-federal-pbmm/deploy.md",
+      "redirect_url": "/azure/governance/blueprints/samples/canada-federal-pbmm",
+      "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/governance/blueprints/samples/canada-federal-pbmm/index.md",
-        "redirect_url": "/azure/governance/blueprints/samples/canada-federal-pbmm",
-        "redirect_document_id": false
+      "source_path_from_root": "/articles/governance/blueprints/samples/canada-federal-pbmm/index.md",
+      "redirect_url": "/azure/governance/blueprints/samples/canada-federal-pbmm",
+      "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/governance/blueprints/samples/irs-1075/control-mapping.md",
-        "redirect_url": "/azure/governance/blueprints/samples/irs-1075-sept2016",
-        "redirect_document_id": false
+      "source_path_from_root": "/articles/governance/blueprints/samples/irs-1075/control-mapping.md",
+      "redirect_url": "/azure/governance/blueprints/samples/irs-1075-sept2016",
+      "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/governance/blueprints/samples/irs-1075/deploy.md",
-        "redirect_url": "/azure/governance/blueprints/samples/irs-1075-sept2016",
-        "redirect_document_id": false
+      "source_path_from_root": "/articles/governance/blueprints/samples/irs-1075/deploy.md",
+      "redirect_url": "/azure/governance/blueprints/samples/irs-1075-sept2016",
+      "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/governance/blueprints/samples/irs-1075/index.md",
-        "redirect_url": "/azure/governance/blueprints/samples/irs-1075-sept2016",
-        "redirect_document_id": false
+      "source_path_from_root": "/articles/governance/blueprints/samples/irs-1075/index.md",
+      "redirect_url": "/azure/governance/blueprints/samples/irs-1075-sept2016",
+      "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/governance/blueprints/samples/ukofficial/control-mapping.md",
-        "redirect_url": "/azure/governance/blueprints/samples/ukofficial-uknhs",
-        "redirect_document_id": false
+      "source_path_from_root": "/articles/governance/blueprints/samples/ukofficial/control-mapping.md",
+      "redirect_url": "/azure/governance/blueprints/samples/ukofficial-uknhs",
+      "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/governance/blueprints/samples/ukofficial/deploy.md",
-        "redirect_url": "/azure/governance/blueprints/samples/ukofficial-uknhs",
-        "redirect_document_id": false
+      "source_path_from_root": "/articles/governance/blueprints/samples/ukofficial/deploy.md",
+      "redirect_url": "/azure/governance/blueprints/samples/ukofficial-uknhs",
+      "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/governance/blueprints/samples/ukofficial/index.md",
-        "redirect_url": "/azure/governance/blueprints/samples/ukofficial-uknhs",
-        "redirect_document_id": false
+      "source_path_from_root": "/articles/governance/blueprints/samples/ukofficial/index.md",
+      "redirect_url": "/azure/governance/blueprints/samples/ukofficial-uknhs",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/management-groups-create.md",
@@ -65948,6 +65948,11 @@
       "source_path_from_root": "/articles/iot-develop/quickstart-send-telemetry-python.md",
       "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-central",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-configure-named-locations.md",
+      "redirect_url": "/azure/active-directory/conditional-access/location-condition",
+      "redirect_document_id": true
     }
   ]
 }
