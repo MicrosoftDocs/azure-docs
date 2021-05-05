@@ -12,17 +12,17 @@ ms.author: tisande
 # Azure Cosmos DB integrated cache - Overview
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-The Azure Cosmos DB integrated cache is an in-memory cache that helps you ensure manageable costs and low latency as your request volume grows. The integrated cache is easy to set up and you don’t need to spend time writing custom code for cache invalidation or managing backend infrastructure. Your integrated cache uses a [dedicated gateway](dedicated-gateway.md) within your Azure Cosmos DB account. The integrated cache is the first of many Azure Cosmos DB features that will utilize a dedicated gateway for improved performance. You can choose from a variety of dedicated gateway sizes based on the number of cores and memory needed for your workload.
+The Azure Cosmos DB integrated cache is an in-memory cache that helps you ensure manageable costs and low latency as your request volume grows. The integrated cache is easy to set up and you don’t need to spend time writing custom code for cache invalidation or managing backend infrastructure. Your integrated cache uses a [dedicated gateway](dedicated-gateway.md) within your Azure Cosmos DB account. The integrated cache is the first of many Azure Cosmos DB features that will utilize a dedicated gateway for improved performance. You can choose from three possible dedicated gateway sizes based on the number of cores and memory needed for your workload.
 
-An integrated cache is automatically configured within the dedicated gateway. The integrated cache has two components: an item cache for point reads and and a query cache for queries. The integrated cache is a read-through, write-through cache with a Least Recently Used (LRU) eviction policy. The item cache and query cache share the same capacity within the integrated cache and the LRU eviction policy applies to both. In other words, data is evicted from the cache strictly based on when it was least recently used, regardless of whether it is a point read or query.
+An integrated cache is automatically configured within the dedicated gateway. The integrated cache has two components: an item cache for point reads and a query cache for queries. The integrated cache is a read-through, write-through cache with a Least Recently Used (LRU) eviction policy. The item cache and query cache share the same capacity within the integrated cache and the LRU eviction policy applies to both. In other words, data is evicted from the cache strictly based on when it was least recently used, regardless of whether it is a point read or query.
 
 ## Workloads that benefit from the integrated cache
 
 The main goal of the integrated cache is to reduce costs for read-heavy workloads. Low latency, while helpful, is not the main benefit of the integrated cache because Azure Cosmos DB is fast without caching.
 
-Point reads and queries that hit the integrated cache won't use any RU's. In other words, any cache hits will have an RU charge of 0. Cache hits will have a much lower per-operation cost than reads from the backend database.
+Point reads and queries that hit the integrated cache won't use any RUs. In other words, any cache hits will have an RU charge of 0. Cache hits will have a much lower per-operation cost than reads from the backend database.
 
-Workloads that fit one or many of the following characteristics should evaluate if the integrated cache will help lower costs:
+Workloads that fit the following characteristics should evaluate if the integrated cache will help lower costs:
 
 -	Read-heavy workloads
 -	Hot partition key for reads
@@ -31,7 +31,7 @@ Workloads that fit one or many of the following characteristics should evaluate 
 
 The biggest factor in expected savings is the degree to which reads repeat themselves. If your workload consistently executes the same point reads or queries within a short period of time, it is a great candidate for the integrated cache. When using the integrated cache for repeated reads, you would along use RU's for the first read. Subsequent reads routed through that same dedicated gateway node within the cache retention time wouldn't use throughput.
 
-Some workloads should not consider the integrated cache. These include:
+Some workloads should not consider the integrated cache, including:
 
 -	Write-heavy workloads
 -   Rarely repeated point reads or queries
@@ -43,7 +43,7 @@ You can use the item cache for point reads (in other words, key/value look ups b
 ### Populating the item cache:
 
 - New writes, updates, and deletes are automatically applied to the item cache
-- If the app tries to read an specific item that wasn’t previously in the cache (cache miss), the item would now be stored in the item cache
+- If the app tries to read a specific item that wasn’t previously in the cache (cache miss), the item would now be stored in the item cache
 
 ### Item cache invalidation and eviction:
 
@@ -75,14 +75,14 @@ The easiest way to configure eventual consistency for all reads is to [set it at
 
 ## Integrated cache retention time:
 
-The cache retention time is the maximum retention for cached data. You can set the cache retention time by configuring the `MaxCacheStaleness` for each request. 
+The cache retention time is the maximum retention for cached data. You can set the cache retention time by configuring the `MaxIntegratedCacheStaleness` for each request. 
 
-Your`MaxCacheStaleness` is the maximum time in which you are willing to tolerate stale cached data. For example, if you set a `MaxCacheStaleness` of 2 hours, your request will only return cached data if it is less than 2 hours old. To increase the likelihood of repeated reads utilizing the integrated cache, you should set the `MaxCacheStaleness` as high as your business requirements allow.
+Your`MaxIntegratedCacheStaleness` is the maximum time in which you are willing to tolerate stale cached data. For example, if you set a `MaxIntegratedCacheStaleness` of 2 hours, your request will only return cached data if it is less than 2 hours old. To increase the likelihood of repeated reads utilizing the integrated cache, you should set the `MaxIntegratedCacheStaleness` as high as your business requirements allow.
 
 > [!NOTE]
-> When not explicitly configured, the MaxCacheStaleness defaults to 5 minutes
+> When not explicitly configured, the MaxIntegratedCacheStaleness defaults to 5 minutes
 
-To better understand the `MaxCacheStaleness` parameter, consider the following example:
+To better understand the `MaxIntegratedCacheStaleness` parameter, consider the following example:
 
 | Time       | Request                                         | Response                                                     |
 | ---------- | ----------------------------------------------- | ------------------------------------------------------------ |
@@ -97,16 +97,16 @@ To better understand the `MaxCacheStaleness` parameter, consider the following e
 > [!NOTE]
 > Customizing `MaxCacheStaleness` is only supported in the latest .NET and Java SDK's
 
-[Learn to configure the MaxCacheStaleness](how-to-configure-integrated-cache.md#maxcachestaleness)
+[Learn to configure the MaxCacheStaleness](how-to-configure-integrated-cache.md#adjust -maxcachestaleness)
 
 ## Metrics
 
-When using the integrated cache, it is helpful to monitor a few key metrics. These include:
+When using the integrated cache, it is helpful to monitor a few key metrics. Useful integrated cache metrics include:
 
-- IntegratedCacheEvictedEntriesSize – the total amount of data evicted from the cache
-- IntegratedCacheTTLExpirationCount  - the amount of data evicted from the cache specifically due to TTL
-- IntegratedCacheHitRate – the number of requests that used the cache
-- IntegratedCacheSize – the amount of data in the cache
+- `IntegratedCacheEvictedEntriesSize` – the total amount of data evicted from the cache
+- `IntegratedCacheTTLExpirationCount`  - the amount of data evicted from the cache specifically due to cached data exceeding the `MaxCacheStaleness` time
+- `IntegratedCacheHitRate` – the number of requests that used the cache
+- `IntegratedCacheSize` – the amount of data in the cache
 
 All existing metrics are available, by default, in the Metrics blade (not Metrics classic):
 
@@ -118,21 +118,21 @@ The below examples show how to debug some common scenarios:
 
 ### I can’t tell if my requests are hitting the integrated cache:
 
-Check the `IntegratedCacheHitRate`. If this value is zero, then requests are hitting the integrated cache. Check that you are using the right connect string with eventual consistency.
+Check the `IntegratedCacheHitRate`. If this value is zero, then requests are not hitting the integrated cache. Check that you are using the dedicated gateway connection string, connecting with gateway mode, have set eventual consistency.
 
 ### I want to understand if my integrated cache is too small:
 
-Check the `IntegratedCacheHitRate`. If this value is very high (say above 0.7-0.8), this is a good sign that the integrated cache is at least the right size. 
+Check the `IntegratedCacheHitRate`. If this value is high (for example, above 0.6-0.7), this is a good sign that the integrated cache is at least the right size. 
 
-If the IntegratedCacheHitRate is low, compare the `IntegratedCacheEvictedEntriesSize` and `IntegratedCacheTTLExpirationCount`. If `IntegratedCacheTTLExpirationCount` is significantly smaller than `IntegratedCacheEvictedEntriesSize`, it may mean that you could achieve a higher IntegratedCacheHitRate with a larger instance size.
+If the IntegratedCacheHitRate is low, compare the `IntegratedCacheEvictedEntriesSize` and `IntegratedCacheTTLExpirationCount`. If `IntegratedCacheTTLExpirationCount` is much smaller than the `IntegratedCacheEvictedEntriesSize`, it may mean that you could achieve a higher `IntegratedCacheHitRate` with a larger instance size.
 
-### I want to understand if my cache is too big:
+### I want to understand if my cache is too large:
 
-This is tougher to measure. In general, you should start smaller and slowly increase integrated cache size until the IntegratedCacheHitRate stops improving.
+This is tougher to measure. In general, you should start smaller and slowly increase the dedicated gateway size until the `IntegratedCacheHitRate` stops improving.
 
-If most data is evicted from the cache due to TTL, rather than LRU, this may mean your cache is bigger than required. Check if `IntegratedCacheTTLExpirationCount` is nearly as large as `IntegratedCacheEvictedEntriesSize`.
+If most data is evicted from the cache due to exceeding the max integrated cache retention, rather than LRU, your cache might be larger than required. Check if `IntegratedCacheTTLExpirationCount` is nearly as large as `IntegratedCacheEvictedEntriesSize`. If so, you can experiment with a smaller dedicated gateway size and compare performance.
 
-Check the `IntegratedCacheSize`. Is this similar in size to the total integrated cache size? Approx. 70% of dedicated gateway memory can be used for caching. Therefore, if you have a 16 GB dedicated gateway instance, you should expect to have approximately 11 GB of memory available for caching.
+Check the `IntegratedCacheSize`. Is this similar in size to the total integrated cache size? Approx. 70% of dedicated gateway memory can be used for caching. Therefore, if you have a 16 GB dedicated gateway node, you will have approximately 11 GB of memory available for caching.
 
 Next steps:
 
