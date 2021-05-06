@@ -62,6 +62,8 @@ You can associate the following resources to a static public IP address from a p
 | Azure Firewall | You can use a public IP from a prefix for outbound SNAT. All outbound virtual network traffic is translated to the [Azure Firewall](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) public IP. | To associate an IP from a prefix to your firewall: </br> 1. [Create a prefix.](manage-public-ip-address-prefix.md) </br> 2. [Create an IP from the prefix.](manage-public-ip-address-prefix.md) </br> 3. When you [deploy the Azure firewall](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall), be sure to select the IP you previously gave from the prefix.|
 | VPN Gateway (AZ SKU) or Application Gateway v2 | You can use a public IP from a prefix for your zone-redundant VPN or Application gateway v2. | To associate an IP from a prefix to your gateway: </br> 1. [Create a prefix.](manage-public-ip-address-prefix.md) </br> 2. [Create an IP from the prefix.](manage-public-ip-address-prefix.md) </br> 3. When you deploy the [VPN Gateway](../vpn-gateway/tutorial-create-gateway-portal.md) or [Application Gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway), be sure to select the IP you previously gave from the prefix.|
 
+
+
 ## Constraints
 
 - You can't specify the IP addresses for the prefix. Azure gives the IP addresses for the prefix, based on the size that you specify.
