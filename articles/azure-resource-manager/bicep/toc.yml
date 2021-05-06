@@ -6,17 +6,21 @@
     href: overview.md
   - name: Compare JSON and Bicep
     href: compare-template-syntax.md
+- name: Install
+  items:
+  - name: Install Bicep CLI
+    href: install.md
 - name: Quickstarts
   items:
   - name: Create Bicep templates - VS Code
     href: quickstart-create-bicep-use-visual-studio-code.md
+- name: Learn
+  items:
   - name: MSLearn - Deploy Azure resources
     href: /learn/modules/deploy-azure-resources-by-using-bicep-templates/
-- name: How-to
+- name: How to
   items:
-  - name: Install Bicep CLI
-    href: install.md
-  - name: Create Bicep files
+  - name: Create
     items:
     - name: Bicep file structure
       displayName: parameters,variables,resources,outputs,condition
@@ -59,11 +63,11 @@
         href: copy-outputs.md
     - name: Modules
       href: modules.md
-  - name: Compile Bicep files
+  - name: Compile
     items:
     - name: Compile/Decompile
       href: decompile.md
-  - name: Deploy Bicep files
+  - name: Deploy
     items:
     - name: Scopes
       items:
@@ -124,7 +128,7 @@
         href: deployment-tutorial-pipeline.md
     - name: Deployment history deletions
       href: deployment-history-deletions.md
-  - name: Template specs
+  - name: Share templates
     items:
     - name: Create & deploy template specs
       href: template-specs.md
@@ -134,7 +138,7 @@
       href: template-specs-deploy-linked-template.md
     - name: Convert portal template gallery
       href: template-spec-convert.md
-  - name: Deployment scripts
+  - name: Use deployment scripts
     items:
     - name: Deployment script
       displayName: custom script
