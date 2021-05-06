@@ -100,8 +100,8 @@ Azure Cloud Shell is a free, interactive shell that you can use to run the steps
 
 If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.31 or later. Run az --version to find the version. If you need to install or upgrade, see the article [Install Azure CLI](/cli/azure/install-azure-cli).
 
-1. Create a resource group with [az group create](/cli/azure/group#az-group-create). 
-1. Create a VM with [az vm create](/cli/azure/vm#az-vm-create) using a supported distribution in a supported region. 
+1. Create a resource group with [az group create](/cli/azure/group#az_group_create). 
+1. Create a VM with [az vm create](/cli/azure/vm#az_vm_create) using a supported distribution in a supported region. 
 1. Install the Azure AD login VM extension. 
 
 The following example deploys a VM named myVM that uses Win2019Datacenter, into a resource group named myResourceGroup, in the southcentralus region. In the following examples, you can provide your own resource group and VM names as needed.
@@ -123,7 +123,7 @@ az vm create \
 
 It takes a few minutes to create the VM and supporting resources.
 
-Finally, install the Azure AD login VM extension to enable Azure AD login for Windows VM. VM extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines. Use [az vm extension](/cli/azure/vm/extension#az-vm-extension-set) set to install the AADLoginForWindows extension on the VM named `myVM` in the `myResourceGroup` resource group:
+Finally, install the Azure AD login VM extension to enable Azure AD login for Windows VM. VM extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines. Use [az vm extension](/cli/azure/vm/extension#az_vm_extension_set) set to install the AADLoginForWindows extension on the VM named `myVM` in the `myResourceGroup` resource group:
 
 > [!NOTE]
 > You can install AADLoginForWindows extension on an existing Windows Server 2019 or Windows 10 1809 and later VM to enable it for Azure AD authentication. An example of AZ CLI is shown below.
@@ -173,7 +173,7 @@ After a few moments, the security principal is assigned the role at the selected
 
 ### Using the Azure Cloud Shell experience
 
-The following example uses [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign the Virtual Machine Administrator Login role to the VM for your current Azure user. The username of your active Azure account is obtained with [az account show](/cli/azure/account#az-account-show), and the scope is set to the VM created in a previous step with [az vm show](/cli/azure/vm#az-vm-show). The scope could also be assigned at a resource group or subscription level, and normal Azure RBAC inheritance permissions apply. For more information, see [Log in to a Linux virtual machine in Azure using Azure Active Directory authentication](../../virtual-machines/linux/login-using-aad.md).
+The following example uses [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) to assign the Virtual Machine Administrator Login role to the VM for your current Azure user. The username of your active Azure account is obtained with [az account show](/cli/azure/account#az_account_show), and the scope is set to the VM created in a previous step with [az vm show](/cli/azure/vm#az_vm_show). The scope could also be assigned at a resource group or subscription level, and normal Azure RBAC inheritance permissions apply. For more information, see [Log in to a Linux virtual machine in Azure using Azure Active Directory authentication](../../virtual-machines/linux/login-using-aad.md).
 
 ```   AzureCLI
 $username=$(az account show --query user.name --output tsv)
@@ -186,7 +186,7 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> If your AAD domain and logon username domain do not match, you must specify the object ID of your user account with the `--assignee-object-id`, not just the username for `--assignee`. You can obtain the object ID for your user account with [az ad user list](/cli/azure/ad/user#az-ad-user-list).
+> If your AAD domain and logon username domain do not match, you must specify the object ID of your user account with the `--assignee-object-id`, not just the username for `--assignee`. You can obtain the object ID for your user account with [az ad user list](/cli/azure/ad/user#az_ad_user_list).
 
 For more information on how to use Azure RBAC to manage access to your Azure subscription resources, see the following articles:
 

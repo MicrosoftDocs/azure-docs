@@ -137,7 +137,7 @@
       - name: Security recommendations
         href: security-recommendations.md
       - name: Security baseline
-        href: ../common/security-baseline.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: /security/benchmark/azure/baselines/storage-security-baseline?toc=%2fazure%2fstorage%2fblobs%2ftoc.json?toc=/azure/storage/blobs/TOC.json
       - name: Azure Storage encryption at rest
         href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         items:
@@ -221,6 +221,8 @@
         href: blob-inventory.md
     - name: Data migration
       items:
+      - name: Storage migration overview
+        href: ../common/storage-migration-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Compare data transfer solutions
         href: ../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         items:
@@ -264,11 +266,9 @@
     items:
     - name: Create and manage storage accounts
       items:
-      - name: Create a general-purpose storage account
+      - name: Create a storage account
         displayName: Resource Manager, Resource Manager template, template, ARM
         href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Create a block blob storage account
-        href: storage-blob-create-account-block-blob.md
       - name: Upgrade a storage account
         href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Recover a deleted storage account
@@ -411,8 +411,12 @@
         href: soft-delete-container-enable.md
       - name: Enable blob versioning
         href: versioning-enable.md
-      - name: Enable soft delete for blobs
-        href: soft-delete-blob-enable.md
+      - name: Enable and manage soft delete for blobs
+        items:
+        - name: Enable blob soft delete
+          href: soft-delete-blob-enable.md
+        - name: Manage and restore soft-deleted blobs
+          href: soft-delete-blob-manage.md
       - name: Enable point-in-time restore
         href: point-in-time-restore-manage.md
       - name: Create snapshots (.NET)
@@ -439,6 +443,8 @@
       items:
       - name: Use the Azurite open-source emulator
         href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Use Azurite to run automated tests
+        href: use-azurite-to-run-automated-tests.md
       - name: Use the Azure Storage emulator
         href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Host a static website
@@ -461,20 +467,22 @@
           href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Authorize with Azure AD
           href: ../common/storage-use-azcopy-authorize-azure-active-directory.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Optimize performance
+          href: ../common/storage-use-azcopy-optimize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Use logs to find errors and resume jobs
+          href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Upload'
           href: ../common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Download'
           href: ../common/storage-use-azcopy-blobs-download.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 'Examples: Synchronize'
-          href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Copy between accounts'
           href: ../common/storage-use-azcopy-blobs-copy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 'Examples: Synchronize'
+          href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Amazon S3 buckets'
           href: ../common/storage-use-azcopy-s3.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Google Cloud Storage buckets'
           href: ../common/storage-use-azcopy-google-cloud.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Configure, optimize, troubleshoot
-          href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Azure Data Factory
         href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Mount storage by using NFS
@@ -511,6 +519,8 @@
       href: ../blobs/reference.md
     - name: AzCopy v10
       items:
+      - name: Configuration settings
+        href: ../common/storage-ref-azcopy-configuration-settings.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy
         href: ../common/storage-ref-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy bench
@@ -567,12 +577,16 @@
         href: https://azure.microsoft.com/features/storage-explorer/
       - name: Get started with Storage Explorer
         href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Sign in to Storage Explorer
+        href: ../common/storage-explorer-sign-in.md
       - name: Storage Explorer release notes
         href: https://github.com/microsoft/AzureStorageExplorer/releases
       - name: Troubleshoot Storage Explorer
         href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Storage Explorer command line options
         href: ../common/storage-explorer-command-line-options.md
+      - name: Storage Explorer direct link
+        href: ../common/storage-explorer-direct-link.md
       - name: Storage Explorer security
         href: ../common/storage-explorer-security.md
       - name: Storage Explorer blob versioning
@@ -731,18 +745,24 @@
         items:
         - name: Get started
           href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Authorize with Azure AD
+          href: ../common/storage-use-azcopy-authorize-azure-active-directory.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Optimize performance
+          href: ../common/storage-use-azcopy-optimize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Use logs to find errors and resume jobs
+          href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Upload'
           href: ../common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Download'
           href: ../common/storage-use-azcopy-blobs-download.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 'Examples: Synchronize'
-          href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Copy between accounts'
           href: ../common/storage-use-azcopy-blobs-copy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 'Examples: Synchronize'
+          href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Amazon S3 buckets'
           href: ../common/storage-use-azcopy-s3.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Configure, optimize & troubleshoot
-          href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 'Examples: Google Cloud Storage buckets'
+          href: ../common/storage-use-azcopy-google-cloud.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Azure Data Factory
         href: ../../data-factory/connector-azure-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Transfer data with the DistCp tool
@@ -811,6 +831,8 @@
       href: https://www.npmjs.com/package/@azure/storage-file-datalake/v/12.0.0-preview.6
     - name: REST
       href: /rest/api/storageservices/data-lake-storage-gen2
+    - name: Azure CLI
+      href: /cli/azure/dls
     - name: Query acceleration reference
       href: query-acceleration-sql-reference.md
     - name: AzCopy v10

@@ -1,8 +1,8 @@
 ---
 title: Wait activity in Azure Data Factory 
 description: The Wait activity pauses the execution of the pipeline for the specified period. 
-author: dcstwh
-ms.author: weetok
+author: chez-charlie
+ms.author: chez
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/12/2018

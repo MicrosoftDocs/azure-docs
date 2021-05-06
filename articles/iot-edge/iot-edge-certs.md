@@ -20,7 +20,7 @@ IoT Edge certificates are used by the modules and downstream IoT devices to veri
 >[!NOTE]
 >This article talks about the certificates that are used to secure connections between the different components on an IoT Edge device or between an IoT Edge device and any leaf devices. You may also use certificates to authenticate your IoT Edge device to IoT Hub. Those authentication certificates are different, and are not discussed in this article. For more information about authenticating your device with certificates, see [Create and provision an IoT Edge device using X.509 certificates](how-to-auto-provision-x509-certs.md).
 
-This article explains how IoT Edge certificates can work in production, development, and test scenarios. While the scripts are different (PowerShell vs. bash), the concepts are the same between Linux and Windows.
+This article explains how IoT Edge certificates can work in production, development, and test scenarios.
 
 ## IoT Edge certificates
 

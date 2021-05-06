@@ -3,7 +3,7 @@ title: Monitor Azure app services performance | Microsoft Docs
 description: Application performance monitoring for Azure app services. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.custom: "devx-track-js, devx-track-dotnet"
+ms.custom: "devx-track-js, devx-track-dotnet, devx-track-azurepowershell"
 ---
 
 # Monitor Azure App Service performance
@@ -411,7 +411,7 @@ For the latest information on the Application Insights agent/extension, check ou
 
 When you create a web app with the `ASP.NET` or `ASP.NET Core` runtimes in Azure App Services it deploys a single static HTML page as a starter website. The static webpage also loads a ASP.NET managed web part in IIS. This allows for testing codeless server-side monitoring, but does not support automatic client-side monitoring.
 
-If you wish to test out codeless server and client-side monitoring for ASP.NET or ASP.NET Core in a Azure App Services web app we recommend following the official guides for [creating a ASP.NET Core web app](../../app-service/quickstart-dotnetcore.md) and [creating an ASP.NET Framework web app](../../app-service/quickstart-dotnet-framework.md) and then use the instructions in the current article to enable monitoring.
+If you wish to test out codeless server and client-side monitoring for ASP.NET or ASP.NET Core in a Azure App Services web app we recommend following the official guides for [creating a ASP.NET Core web app](../../app-service/quickstart-dotnetcore.md) and [creating an ASP.NET Framework web app](../../app-service/quickstart-dotnetcore.md?tabs=netframework48) and then use the instructions in the current article to enable monitoring.
 
 ### Connection string and instrumentation key
 

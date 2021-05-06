@@ -217,7 +217,7 @@ function subscribeToParticipantVideoStreams(remoteParticipant) {
 You have to subscribe to a `isAvailableChanged` event to render the `remoteVideoStream`. If the `isAvailable` property changes to `true`, a remote participant is sending a stream. Whenever availability of a remote stream changes you can choose to destroy the whole `Renderer`, a specific `RendererView` or keep them, but this will result in displaying blank video frame.
 ```JavaScript
 function handleVideoStream(remoteVideoStream) {
-    remoteVideoStream.on('availabilityChanged', async () => {
+    remoteVideoStream.on('isAvailableChanged', async () => {
         if (remoteVideoStream.isAvailable) {
             remoteVideoView(remoteVideoStream);
         } else {
@@ -333,7 +333,6 @@ If you want to clean up and remove a Communication Services subscription, you ca
 ## Next steps
 For more information, see the following articles:
 
-- Check out our [web calling sample](https://docs.microsoft.com/azure/communication-services/samples/web-calling-sample)
-- Learn about [Calling SDK capabilities](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/calling-client-samples?pivots=platform-web)
-- Learn more about [how calling works](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/about-call-types)
-
+- Check out our [web calling sample](../../samples/web-calling-sample.md)
+- Learn about [Calling SDK capabilities](./calling-client-samples.md?pivots=platform-web)
+- Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)

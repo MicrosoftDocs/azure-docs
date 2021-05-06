@@ -5,7 +5,7 @@ author: rboucher
 ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 01/12/2020
+ms.date: 03/10/2021
 ---
 
 # Azure Monitor Metrics metrics aggregation and display explained
@@ -21,6 +21,7 @@ When you add a metric to a chart, metrics explorer automatically pre-selects its
 Let's define a few terms clearly first:
 
 - **Metric value** – A single measurement value gathered for a specific resource.
+- **Time-Series database** - A database optimized for the storage and retrieval of data points all containing a value and a corresponding time-stamp. 
 - **Time period** – A generic period of time.
 - **Time interval** – The period of time between the gathering of two metric values. 
 - **Time range** – The time period displayed on a chart. Typical default is 24 hours. Only specific ranges are available. 
@@ -28,7 +29,9 @@ Let's define a few terms clearly first:
 - **Aggregation type** – A type of statistic calculated from multiple metric values.  
 - **Aggregate** – The process of taking multiple input values and then using them to produce a single output value via the rules defined by the aggregation type. For example, taking an average of multiple values.  
 
-Metrics are a series of metric values captured at a regular time interval. When you plot a chart, the values of the selected metric are separately aggregated over the time granularity (also known as time grain). You select the size of the time granularity using the [Metrics Explorer time picker panel](../essentials/metrics-getting-started.md#select-a-time-range). If you don’t make an explicit selection, the time granularity is automatically selected based on the currently selected time range. Once selected, the metric values that were captured during each time granularity interval are aggregated and placed onto the chart - one datapoint per interval.
+## Summary of process
+
+Metrics are a series of values stored with a time-stamp. In Azure, most metrics are stored in the Azure Metrics time-series database. When you plot a chart, the values of the selected metrics are retrieved from the database and then separately aggregated based on the chosen time granularity (also known as time grain). You select the size of the time granularity using the [Metrics Explorer time picker panel](../essentials/metrics-getting-started.md#select-a-time-range). If you don’t make an explicit selection, the time granularity is automatically selected based on the currently selected time range. Once selected, the metric values that were captured during each time granularity interval are aggregated and placed onto the chart - one datapoint per interval.
 
 ## Aggregation types 
 
@@ -77,9 +80,11 @@ It is important to establish what's "normal" for your workload to know what time
 
 ## How the system collects metrics
 
-Data collection varies by metric. There are two types of collection periods.
+Data collection varies by metric. 
 
 ### Measurement collection frequency 
+
+There are two types of collection periods.
 
 - **Regular** - The metric is gathered at a consistent time interval that does not vary.
 

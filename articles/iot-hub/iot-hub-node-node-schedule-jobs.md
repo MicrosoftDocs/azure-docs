@@ -9,7 +9,7 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.custom: mqtt, devx-track-js
+ms.custom: mqtt, devx-track-js, devx-track-azurecli
 ---
 
 # Schedule and broadcast jobs (Node.js)

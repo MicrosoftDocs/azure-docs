@@ -52,5 +52,5 @@ SSH with Azure AD
 
 * [OAuth 2.0 device code flow - Microsoft identity platform ](../develop/v2-oauth2-device-code.md)
 
-* [Integrate with Azure Active Directory (akamai.com)](https://learn.akamai.com/webhelp/enterprise-application-access/enterprise-application-access/GUID-6B16172C-86CC-48E8-B30D-8E678BF3325F.html)
+* [Integrate with Azure Active Directory (akamai.com)](https://learn.akamai.com/en-us/webhelp/enterprise-application-access/enterprise-application-access/GUID-6B16172C-86CC-48E8-B30D-8E678BF3325F.html)
 

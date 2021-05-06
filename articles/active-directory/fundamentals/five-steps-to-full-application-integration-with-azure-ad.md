@@ -86,7 +86,7 @@ Traditionally, applications were kept secure by allowing access only while conne
 
 ![A diagram shows the Application Proxy Service in action. A user accesses "https://sales.contoso.com" and their request is redirected through "https://sales-contoso.msappproxy.net" in Azure Active Directory to the on premises address "http://sales"](./media/five-steps-to-full-application-integration-with-azure-ad\app-proxy.png)
 
-You can use [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](../manage-apps/application-proxy-add-on-premises-application.md) to enable Application Proxy and add an on-premises application to your Azure AD tenant.
+You can use [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md) to enable Application Proxy and add an on-premises application to your Azure AD tenant.
 
 In addition, you can integrate application delivery controllers like F5 Big-IP APM or Zscaler Private Access. By integrating these with Azure AD, you get the modern authentication and identity management of Azure AD alongside the traffic management and security features of the partner product. We call this solution [Secure Hybrid Access](../manage-apps/secure-hybrid-access.md). If you use any of the following services today, we have tutorials that will step you through how to integrate them with Azure AD.
 

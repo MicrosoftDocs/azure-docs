@@ -87,4 +87,4 @@ We advise **not** to store sensitive data in custom data. For more information, 
 
 
 ### Is custom data made available in IMDS?
-No, this feature is not currently available.
+Custom data is not available in IMDS. We suggest using user data though IMDS instead. For more information, see [User data through Azure Instance Metadata Service](./linux/instance-metadata-service.md?tabs=linux#get-user-data)

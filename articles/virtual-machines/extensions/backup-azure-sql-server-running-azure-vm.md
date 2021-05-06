@@ -4,8 +4,8 @@ description: In this article, learn how to register Azure Backup in SQL Server r
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-author: dcurwin
-ms.author: dacurwin
+author: v-amallick
+ms.author: v-amallick
 ms.collection: windows
 ms.date: 07/05/2019
 
@@ -110,4 +110,4 @@ The command will return a **backup container** of this resource and the status w
 ## Next steps
 
 - [Learn More](../../backup/backup-sql-server-azure-troubleshoot.md) about Azure SQL Server VM backup troubleshooting guidelines
-- [Common questions](../../backup/faq-backup-sql-server.md) about backing up SQL Server databases that run on Azure virtual machines (VMs) and that use the Azure Backup service.
+- [Common questions](../../backup/faq-backup-sql-server.yml) about backing up SQL Server databases that run on Azure virtual machines (VMs) and that use the Azure Backup service.

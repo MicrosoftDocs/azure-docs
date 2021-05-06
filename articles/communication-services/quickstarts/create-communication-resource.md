@@ -10,16 +10,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-zone_pivot_groups: acs-plat-azp-net
+zone_pivot_groups: acs-plat-azp-azcli-net-ps
 ---
 # Quickstart: Create and manage Communication Services resources
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 Get started with Azure Communication Services by provisioning your first Communication Services resource. Communication services resources can be provisioned through the [Azure portal](https://portal.azure.com) or with the .NET management SDK. The management SDK and the Azure portal allow you to create, configure, update and delete your resources and interface with [Azure Resource Manager](../../azure-resource-manager/management/overview.md), Azure's deployment and management service. All functionality available in the SDKs is available in the Azure portal. 
 
-
-Get started with Azure Communication Services by provisioning your first Communication Services resource. Communication services resources can be provisioned through the [Azure portal](https://portal.azure.com) or with the .NET management SDK. The management SDK and the Azure portal allow you to create, configure, update and delete your resources and interface with [Azure Resource Manager](../../azure-resource-manager/management/overview.md), Azure's deployment and management service. All functionality available in the SDKs is available in the Azure portal.
 
 > [!WARNING]
 > Note that while Communication Services is available in multiple geographies, in order to get a phone number the resource must have a data location set to 'US'. Also note that communication resources cannot be transferred to a different subscription during public preview.
@@ -36,6 +32,11 @@ Get started with Azure Communication Services by provisioning your first Communi
 [!INCLUDE [.NET](./includes/create-resource-net.md)]
 ::: zone-end
 
+::: zone pivot="platform-powershell"
+[!INCLUDE [PowerShell](./includes/create-resource-powershell.md)]
+::: zone-end
+
+
 ## Access your connection strings and service endpoints
 
 Connection strings allow the Communication Services SDKs to connect and authenticate to Azure. You can access your Communication Services connection strings and service endpoints from the Azure portal or programmatically with Azure Resource Manager APIs.
@@ -46,7 +47,7 @@ After navigating to your Communication Services resource, select **Keys** from t
 
 You can also access key information using Azure CLI, like your resource group or the keys for a specific resource. 
 
-Install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?tabs=azure-cli) and use the following command to login. You will need to provide your credentials to connect with your azure account.
+Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli) and use the following command to login. You will need to provide your credentials to connect with your Azure account.
 ```azurecli
 az login
 ```

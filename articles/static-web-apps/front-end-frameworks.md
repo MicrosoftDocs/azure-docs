@@ -47,6 +47,7 @@ The intent of the table columns is explained by the following items:
 | [Polymer](https://www.polymer-project.org/) | `build/default` | n/a |
 | [Preact](https://preactjs.com/) | `build` | n/a |
 | [React](https://reactjs.org/) | `build` | n/a |
+| [RedwoodJS](https://redwoodjs.com/) | `web/dist` | `yarn rw build` |
 | [Stencil](https://stenciljs.com/) | `www` | n/a |
 | [Svelte](https://svelte.dev/) | `public` | n/a |
 | [Three.js](https://threejs.org/) | `/` | n/a |

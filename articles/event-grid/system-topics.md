@@ -25,6 +25,7 @@ Here is the current list of Azure services that support creation of system topic
 - [Azure Machine Learning](event-schema-machine-learning.md)
 - [Azure Maps](event-schema-azure-maps.md)
 - [Azure Media Services](event-schema-media-services.md)
+- [Azure Policy](./event-schema-policy.md)
 - [Azure resource groups](event-schema-resource-groups.md)
 - [Azure Service Bus](event-schema-service-bus.md)
 - [Azure SignalR](event-schema-azure-signalr.md)

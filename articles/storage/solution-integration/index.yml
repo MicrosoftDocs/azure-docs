@@ -40,6 +40,8 @@ landingContent:
             url: .\validated-partners\backup-archive-disaster-recovery\commvault\commvault-solution-guide.md
           - text: Veeam getting started guide
             url: .\validated-partners\backup-archive-disaster-recovery\veeam\veeam-solution-guide.md
+          - text: DobiProtect getting started guide
+            url: .\validated-partners\backup-archive-disaster-recovery\datadobi\datadobi-solution-guide.md
    # Card
   - title: Container solution partners
     linkLists:
@@ -54,6 +56,12 @@ landingContent:
         links:
           - text: Validated data management and migration partners
             url: .\validated-partners\data-management\partner-overview.md
+          - text: Migration tools comparison
+            url: ./validated-partners/data-management/migration-tools-comparison.md
+      - linkListType: get-started
+        links:
+          - text: DobiMigrate getting started guide
+            url: ./validated-partners/data-management/dobimigrate-quick-start-guide.md
                      # Card
   - title: Primary and secondary storage partners
     linkLists:
