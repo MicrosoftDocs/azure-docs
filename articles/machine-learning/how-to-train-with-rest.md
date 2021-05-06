@@ -125,7 +125,7 @@ Once you upload your code, you can specify your code with a PUT request and refe
 
 :::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_code":::
 
-## Basic Python training job
+## Submit a training job
 
 Now that your assets are in place, you can run the LightGBM job, which outputs a trained model and metadata. You need the following information to configure the training job: 
 
@@ -142,7 +142,7 @@ Use the following commands to submit the training job:
 
 :::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_job":::
 
-## Sweep hyperparameters
+## Submit a hyperparameter sweep job
 
 Azure Machine Learning also lets you efficiently tune training hyperparameterss. You can create a hyperparameter tuning sweet, with the REST APIs. For more information on Azure Machine Learning's hyperparameter tuning options, see [Hyperparameter tuning a model](how-to-tune-hyperparameters.md). Specify the hyperparameter tuning parameters to configure the sweep:
 
