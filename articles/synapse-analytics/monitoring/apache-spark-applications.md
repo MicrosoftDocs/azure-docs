@@ -106,11 +106,14 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
         f. Click on **More** button, the **Copy path/Show in explorer/Properties** show the context menu.
       
+         ![input more](./media/how-to-monitor-spark-applications/input-more.png)
+
          * Copy path: can copy **Full path** and **Relative path**.
          * Show in explorer: can jump to the linked storage account (Data->Linked).
          * Properties: show the basic properties of the file (File name/File path/Read format/Size/Modified).
 
-            ![input more](./media/how-to-monitor-spark-applications/input-more.png)
+           ![properties image](./media/how-to-monitor-spark-applications/properties.png)
+
 
 
     - **Output tab**
