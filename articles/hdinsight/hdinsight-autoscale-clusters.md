@@ -248,7 +248,7 @@ The running jobs will continue. The pending jobs will wait for scheduling with f
 
 ### Configure Schedule-based Autoscale based on Usage Pattern
 
-You need to understand your cluster usage pattern when you configure schedule based Autoscale. [Grafana dashboard](https://docs.microsoft.com/en-us/azure/hdinsight/interactive-query/hdinsight-grafana)  can help you understand your query load and execution slots. Here is an example.
+You need to understand your cluster usage pattern when you configure schedule based Autoscale. [Grafana dashboard](https://docs.microsoft.com/azure/hdinsight/interactive-query/hdinsight-grafana)  can help you understand your query load and execution slots. Here is an example.
 
     :::image type="content" source="./media/hdinsight-autoscale-clusters/hive-view-of-grafana-to-understand-usage-pattern.png " alt-text="Hive view of Grafana to understand usage pattern" border="true":::
 
