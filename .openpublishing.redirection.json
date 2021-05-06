@@ -65955,7 +65955,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/virtual-network/manage-public-ip-prefix.md",
+      "source_path_from_root": "/articles/virtual-network/manage-public-ip-address-prefix.md",
       "redirect_url": "/azure/virtual-network/create-public-ip-prefix-portal",
       "redirect_document_id": false
     }
