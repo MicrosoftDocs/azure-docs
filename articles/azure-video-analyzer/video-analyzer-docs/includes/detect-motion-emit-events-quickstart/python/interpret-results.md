@@ -77,7 +77,7 @@ In this example:
 
 * The `body` value is data about the analytics event. In this case, the event is an inference event, so the body contains `timestamp` and `inferences` data.
 * The `inferences` data indicates that the `type` is `motion`. It has additional data about that `motion` event.
-* The `box` section contains the coordinates for a bounding box around the moving object. The values are normalized by the width and height of the video, in pixels. For example, to get the original pixel coordinates you would multiply the width by 1920 and the height by 1080.
+* The `box` section contains the coordinates for a bounding box around the moving object. The values are normalized by the width and height of the video, in pixels. For example, to get the original pixel coordinates you would multiply the horizontal dimensions by 1920 and the vertical dimensions by 1080.
 
     ```
     l - distance from left of image
