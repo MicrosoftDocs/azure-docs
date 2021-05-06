@@ -19,11 +19,6 @@ ms.author: bagol
 ---
 # Integrate Azure Data Explorer for long-term log retention
 
-<!--Info not included:>
-
-Script - can't xref out to a private github repo from docs
--->
-
 By default, logs ingested into Azure Sentinel are stored in Azure Monitor Log Analytics. This article explains how to reduce retention costs in Azure Sentinel by sending them to Azure Data Explorer for long-term retention.
 
 Storing logs in Azure Data Explorer reduces costs while retains your ability to query your data, and is especially useful as your data grows. For example, while security data may lose value over time, you may be required to retain logs for regulatory requirements or to run periodic investigations on older data.

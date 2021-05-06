@@ -7,11 +7,11 @@ author: viv-liu
 ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
+
+# This topic applies to administrators and solution developers.
 ---
 
 # Visualize and analyze your Azure IoT Central data in a Power BI dashboard
-
-*This topic applies to administrators and solution developers.*
 
 > [!Note] 
 > This solution uses [legacy data export features](./howto-export-data-legacy.md). Stay tuned for updated guidance on how to connect to Power BI using the latest data export.

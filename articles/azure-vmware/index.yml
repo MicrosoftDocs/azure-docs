@@ -34,7 +34,11 @@ landingContent:
           - text: Access and identity for private clouds
             url: concepts-identity.md
           - text: Monitor and repair private clouds
-            url: /azure/azure-vmware/concepts-private-clouds-clusters#host-monitoring-and-remediation
+            url: concepts-private-clouds-clusters.md#host-monitoring-and-remediation
+          - text: API Management
+            url: concepts-api-management.md
+          - text: Hub and spoke
+            url: concepts-hub-and-spoke.md
 
 
   - title: FAQ
@@ -89,7 +93,7 @@ landingContent:
             url: tutorial-nsx-t-network-segment.md
           - text: Peer on-premises to private cloud 
             url: tutorial-expressroute-global-reach-private-cloud.md
-          - text: Scale a private cloud 
+          - text: Expand or shrink clusters in a private cloud 
             url: tutorial-scale-private-cloud.md
           - text: Delete a private cloud
             url: tutorial-delete-private-cloud.md
@@ -115,7 +119,7 @@ landingContent:
             url: github-enterprise-server.md
           - text: Enable public internet access
             url: enable-public-internet-access.md
-          - text: Configure site-to-site VPN gateway
+          - text: Configure a site-to-site VPN in vWAN
             url: configure-site-to-site-vpn-gateway.md
           - text: Configure Windows Server Failover Cluster
             url: configure-windows-server-failover-cluster.md
@@ -125,22 +129,30 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: API Management
-            url: concepts-api-management.md
-          - text: Hub and spoke
-            url: concepts-hub-and-spoke.md
-          - text: Azure Security Center
+          - text: Protect VMs with Azure Security Center
             url: azure-security-integration.md
-          - text: Azure Backup Server
-            url: set-up-backup-server-for-azure-vmware-solution.md
-          - text: Lifecycle management on VMs
+          - text: Monitor and manage VMs
             url: lifecycle-management-of-azure-vmware-solution-vms.md
-          - text: Application Gateway
+          - text: Integrate Azure NetApp Files
+            url: netapp-files-with-azure-vmware-solution.md
+          - text: Protect web apps with Azure Application Gateway
             url: protect-azure-vmware-solution-with-application-gateway.md
-          - text: Traffic Manager
+          - text: Deploy Traffic Manager to balance workloads
             url: deploy-traffic-manager-balance-workloads.md
           - text: Configure alerts and work with metrics 
             url: configure-alerts-for-azure-vmware-solution.md
+
+# backup and restore
+  - title: Backup and restore with Azure Backup Server
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Back up VMware VMs
+            url: /azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
+          - text: Restore VMware VMs 
+            url: /azure/backup/restore-azure-backup-server-vmware?context=/azure/azure-vmware/context/context       
+          - text: Monitor Azure Backup workloads 
+            url: /azure/backup/backup-azure-monitoring-built-in-monitor?context=/azure/azure-vmware/context/context
 
 # card 5
   - title: VMware solutions
