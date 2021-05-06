@@ -1,5 +1,5 @@
 ---
-title: WebSocket and Azure API Management
+title: WebSocket and Azure API Management (preview)
 description: Learn how API Management supports WebSocket, add a WebSocket API, and WebSocket limitations.
 ms.service: api-management
 author: v-hhunter
@@ -9,13 +9,15 @@ ms.date: 05/25/2021
 ms.custom: template-how-to 
 ---
 
-# WebSocket and Azure API Management
+# WebSocket and Azure API Management (preview)
 
 With APIM’s new solution, you can now manage, protect, observe, and expose both WebSocket and REST APIs with APIM and provide a central hub for discovering and consuming all APIs. API publishers can quickly add a WebSocket API in APIM via:
 * A simple gesture in the Azure portal or APIM Visual Studio Code extension, and 
 * The management API and Azure Resource Manager. 
 
 You can secure WebSocket APIs by applying existing access control policies, like [JWT validation](./policies/authorize-request-based-on-jwt-claims.md). You can also test WebSocket APIs using the API test consoles in both Azure portal and developer portal. Building on existing observability capabilities, APIM provides metrics and logs for monitoring and troubleshooting WebSocket APIs. 
+
+[!INCLUDE [preview](./includes/preview/preview-callout-websocket-api.md)]
 
 In this article, you will:
 > [!div class="checklist"]
