@@ -29,6 +29,6 @@ Dedicated [troubleshooting article](troubleshoot-availability.md).
 
 ## Next Steps
 
-* [Availability Alerts](availability-alerts)
+* [Availability Alerts](availability-alerts.md)
 * [URL tests](monitor-web-app-availability.md)
 * [Create and run custom availability tests using Azure Functions](availability-azure-functions.md)
