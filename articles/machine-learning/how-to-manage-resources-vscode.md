@@ -18,11 +18,11 @@ Learn how to manage Azure Machine Learning resources with the VS Code extension.
 
 ![Azure Machine Learning VS Code Extension](media/how-to-manage-resources-vscode/azure-machine-learning-vscode-extension.png)
 
+## Prerequisites
+
 # [Enhanced CLI](#tab/enhanced-cli)
 
 # [CLI](#tab/cli)
-
-## Prerequisites
 
 - Azure subscription. If you don't have one, sign up to try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 - Visual Studio Code. If you don't have it, [install it](https://code.visualstudio.com/docs/setup/setup-overview).
@@ -30,7 +30,13 @@ Learn how to manage Azure Machine Learning resources with the VS Code extension.
 
 All of the processes below assume that you are in the Azure Machine Learning view in Visual Studio Code. To launch the extension, select the **Azure** icon in the VS Code activity bar.
 
+---
+
 ## Workspaces
+
+# [Enhanced CLI](#tab/enhanced-cli)
+
+# [CLI](#tab/cli)
 
 For more information, see [workspaces](concept-workspace.md).
 
@@ -57,6 +63,8 @@ Alternative methods to create a workspace include:
     - *Only the workspace*: This option deletes **only** the workspace Azure resource. The resource group, storage accounts, and any other resources the workspace was attached to are still in Azure.
     - *With associated resources*: This option deletes the workspace **and** all resources associated with it.
 
+---
+
 ## Datastores
 
 The VS Code extension currently supports datastores of the following types:
@@ -67,6 +75,10 @@ The VS Code extension currently supports datastores of the following types:
 When you create a workspace, a datastore is created for each of these types.
 
 For more information, see [datastores](concept-data.md#datastores).
+
+# [Enhanced CLI](#tab/enhanced-cli)
+
+# [CLI](#tab/cli)
 
 ### Create a datastore
 
@@ -90,6 +102,8 @@ For more information, see [datastores](concept-data.md#datastores).
     - *Inspect read-only settings*.
     - *Modify*. Change the authentication type and credentials. Supported authentication types include account key and SAS token.
 
+---
+
 ## Datasets
 
 The extension currently supports the following dataset types:
@@ -98,6 +112,10 @@ The extension currently supports the following dataset types:
 - *File*: A file or collection of files. Allows you to download or mount files to your compute.
 
 For more information, see [datasets](concept-data.md#datasets)
+
+# [Enhanced CLI](#tab/enhanced-cli)
+
+# [CLI](#tab/cli)
 
 ### Create dataset
 
@@ -145,9 +163,15 @@ To remove a dataset and all version of it, unregister it. To do so in the VS Cod
 1. Expand the **Datasets** node.
 1. Right-click the dataset you want to unregister and select **Unregister dataset**.
 
+---
+
 ## Environments
 
 For more information, see [environments](concept-environments.md).
+
+# [Enhanced CLI](#tab/enhanced-cli)
+
+# [CLI](#tab/cli)
 
 ### Create environment
 
@@ -182,9 +206,15 @@ To edit the dependencies and configurations for a specific environment in the ex
 1. Right-click the environment you want to view and select **Edit Environment**.
 1. After making the modifications, if you're satisfied with your configuration, select **Save and continue** or open the VS Code command palette (**View > Command Palette**) and type **Azure ML: Save and Continue**.
 
+---
+
 ## Experiments
 
 For more information, see [experiments](concept-azure-machine-learning-architecture.md#experiments).
+
+# [Enhanced CLI](#tab/enhanced-cli)
+
+# [CLI](#tab/cli)
 
 ### Create experiment
 
@@ -242,9 +272,15 @@ Once a run is complete, you may want to download the logs and assets such as the
 
 In the extension, you can inspect metadata such as the run configuration used for the run as well as run details.
 
+---
+
 ## Compute instances
 
 For more information, see [compute instances](concept-compute-instance.md).
+
+# [Enhanced CLI](#tab/enhanced-cli)
+
+# [CLI](#tab/cli)
 
 ### Create compute instance
 
@@ -275,6 +311,8 @@ For more information, see [compute instances](concept-compute-instance.md).
 1. Expand the **Compute instance** node inside your workspace.
 1. Right-click the compute instance you want to delete and select **Delete compute instance**.
 
+---
+
 ## Compute clusters
 
 The extension supports the following compute types:
@@ -283,6 +321,10 @@ The extension supports the following compute types:
 - Azure Kubernetes Service
 
 For more information, see [compute targets](concept-compute-target.md#train).
+
+# [Enhanced CLI](#tab/enhanced-cli)
+
+# [CLI](#tab/cli)
 
 ### Create compute
 
@@ -343,9 +385,15 @@ To create a run configuration in the extension:
 1. Expand the compute cluster node of interest inside the **Compute clusters** node.
 1. Right-click the run configuration you want to edit and select **Delete Run Configuration**.
 
+---
+
 ## Models
 
 For more information, see [models](concept-azure-machine-learning-architecture.md#models)
+
+# [Enhanced CLI](#tab/enhanced-cli)
+
+# [CLI](#tab/cli)
 
 ### Register model
 
@@ -376,6 +424,8 @@ For more information, see [models](concept-azure-machine-learning-architecture.m
 1. Expand the **Models** node inside your workspace.
 1. Right-click the model you want to delete and select **Remove Model**.
 
+---
+
 ## Endpoints
 
 The VS Code extension supports the following deployment targets:
@@ -384,6 +434,10 @@ The VS Code extension supports the following deployment targets:
 - Azure Kubernetes Service
 
 For more information, see [web service endpoints](concept-azure-machine-learning-architecture.md#web-service-endpoint).
+
+# [Enhanced CLI](#tab/enhanced-cli)
+
+# [CLI](#tab/cli)
 
 ### Create deployments
 
@@ -422,6 +476,8 @@ In addition to creating and deleting deployments, you can view and edit settings
     - To edit settings, select **Edit service**.
         - A configuration file for your deployment appears in the editor. If you're satisfied with your configuration, select **Save and continue** or open the VS Code command palette (**View > Command Palette**) and type **Azure ML: Save and Continue**.
     - To view deployment configuration settings, select **View service properties**.
+
+---
 
 ## Next steps
 
