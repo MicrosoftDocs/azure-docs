@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 04/13/2018
  ms.author: genli
- ms.custom: include file, devx-track-azurecli
+ ms.custom: include file
 
 ---
 

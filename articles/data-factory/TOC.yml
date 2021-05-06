@@ -225,7 +225,7 @@
       href: source-control.md
     - name: Continuous integration and delivery
       href: continuous-integration-deployment.md
-    - name: Automated publish
+    - name: Automated publishing for CI/CD
       href: continuous-integration-deployment-improvements.md
   - name: Connectors
     items:
@@ -617,7 +617,7 @@
     - name: Azure private link for Data Factory
       href: data-factory-private-link.md
     - name: Azure security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/data-factory-security-baseline?toc=/azure/data-factory/TOC.json
   - name: Monitor and manage
     items:
     - name: Monitor visually

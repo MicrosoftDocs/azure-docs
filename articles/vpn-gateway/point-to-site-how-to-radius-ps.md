@@ -1,6 +1,7 @@
 ---
-title: 'Connect a computer to a virtual network using Point-to-Site and RADIUS authentication: PowerShell | Azure'
-description: Connect Windows and OS X clients securely to a virtual network using P2S and RADIUS authentication.
+title: 'Connect a computer to a virtual network using Point-to-Site and RADIUS authentication: PowerShell'
+titleSuffix: Azure VPN Gateway
+description: Learn how to connect Windows and OS X clients securely to a virtual network using P2S and RADIUS authentication.
 services: vpn-gateway
 author: cherylmc
 

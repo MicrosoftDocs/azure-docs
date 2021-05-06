@@ -53,10 +53,10 @@ landingContent:
 
   - title: Develop
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: concept
         links:
-          - text: Use the Azure Digital Twins CLI
-            url: how-to-use-cli.md
+          - text: Azure Digital Twins CLI command set
+            url: concepts-cli.md
       - linkListType: how-to-guide
         links:
           - text: Set up an instance and authentication
@@ -72,18 +72,14 @@ landingContent:
         links:
           - text: REST APIs
             url:  /rest/api/azure-digitaltwins/
-      - linkListType: how-to-guide
+      - linkListType: concept
         links:
-          - text: Use the Azure Digital Twins APIs and SDKs 
-            url: how-to-use-apis-sdks.md
+          - text: Azure Digital Twins APIs and SDKs 
+            url: concepts-apis-sdks.md
       - linkListType: how-to-guide
         links:
           - text: Make requests with Postman 
             url: how-to-use-postman.md
-      - linkListType: how-to-guide
-        links:
-          - text: Create custom SDKs with AutoRest
-            url: how-to-create-custom-sdks.md
 
   - title: Explore code samples
     linkLists:

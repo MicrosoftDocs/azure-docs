@@ -51,7 +51,7 @@
     - name: Security
       items:
         - name: Security Baseline
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/aks-security-baseline?context=/azure/aks/context/aks-context
         - name: Security for applications and clusters
           href: concepts-security.md
         - name: Security controls by Azure Policy
@@ -209,6 +209,8 @@
               href: azure-disk-csi.md
             - name: Azure Files CSI drivers (preview)
               href: azure-files-csi.md
+            - name: CSI Secrets Store driver (preview)
+              href: csi-secrets-store-driver.md
     - name: Configure networking
       items:
         - name: Create or use existing virtual network

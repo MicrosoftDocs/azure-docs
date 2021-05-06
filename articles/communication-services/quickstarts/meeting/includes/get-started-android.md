@@ -71,7 +71,7 @@ Update the values on the `build.gradle` file
 
 ### Install the Teams Embed package
 
-Download the [`MicrosoftTeamsSDK` package.](https://github.com/Azure/communication-teams-embed/releases)
+Download the [`MicrosoftTeamsSDK` package.](https://github.com/Azure/communication)
 
 Then unzip the `MicrosoftTeamsSDK` folder into your projects app folder. Ex. `TeamsEmbedAndroidGettingStarted/app/MicrosoftTeamsSDK`.
 
@@ -298,7 +298,7 @@ private void createMeetingClient() {
 
 ## Setup Token refreshing
 
-Create a Callable `tokenRefresher` method. Then create a `fetchToken` method to get the user token. [You can find instructions on how to do so here](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-java)
+Create a Callable `tokenRefresher` method. Then create a `fetchToken` method to get the user token. [You can find instructions on how to do so here](../../access-tokens.md?pivots=programming-language-java)
 
 ```java
 Callable<String> tokenRefresher = () -> {
