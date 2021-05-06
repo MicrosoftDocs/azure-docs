@@ -6,141 +6,141 @@
     href: overview.md
   - name: Compare JSON and Bicep
     href: compare-template-syntax.md
-- name: Install
-  items:
-  - name: Install Bicep
-    href: install.md
-- name: Learn Bicep
+- name: Quickstarts
   items:
   - name: Create Bicep templates - VS Code
     href: quickstart-create-bicep-use-visual-studio-code.md
   - name: MSLearn - Deploy Azure resources
     href: /learn/modules/deploy-azure-resources-by-using-bicep-templates/
-- name: Create Bicep files
+- name: How-to
   items:
-  - name: Bicep file structure
-    displayName: parameters,variables,resources,outputs,condition
-    href: file.md
-  - name: Data types
-    href: data-types.md
-  - name: Parameters
-    href: parameters.md
-  - name: Variables
-    href: variables.md
-  - name: Resources
+  - name: Install Bicep CLI
+    href: install.md
+  - name: Create Bicep files
     items:
-    - name: Resource declaration
-      href: resource-declaration.md
-    - name: Child resource name and type
-      href: child-resource-name-type.md
-    - name: Conditional deployment
-      href: conditional-resource-deployment.md
-    - name: Set resource dependencies
-      href: resource-dependency.md
-    - name: Set resource location
-      href: resource-location.md
-    - name: Use template extensions
-      href: resource-extensions.md
-  - name: Outputs
-    href: outputs.md
-  - name: Loops
-    items:
-    - name: Resources
-      displayName: iteration,copy,multiple
-      href: copy-resources.md
-    - name: Properties
-      displayName: iteration,copy,multiple
-      href: copy-properties.md
+    - name: Bicep file structure
+      displayName: parameters,variables,resources,outputs,condition
+      href: file.md
+    - name: Data types
+      href: data-types.md
+    - name: Parameters
+      href: parameters.md
     - name: Variables
-      displayName: iteration,copy,multiple
-      href: copy-variables.md
+      href: variables.md
+    - name: Resources
+      items:
+      - name: Resource declaration
+        href: resource-declaration.md
+      - name: Child resource name and type
+        href: child-resource-name-type.md
+      - name: Conditional deployment
+        href: conditional-resource-deployment.md
+      - name: Set resource dependencies
+        href: resource-dependency.md
+      - name: Set resource location
+        href: resource-location.md
+      - name: Use template extensions
+        href: resource-extensions.md
     - name: Outputs
-      displayName: iteration,copy,multiple
-      href: copy-outputs.md
-  - name: Modules
-    href: modules.md
-- name: Compile Bicep files
-  items:
-  - name: Compile/Decompile
-    href: decompile.md
-- name: Deploy Bicep files
-  items:
-  - name: Scopes
+      href: outputs.md
+    - name: Loops
+      items:
+      - name: Resources
+        displayName: iteration,copy,multiple
+        href: copy-resources.md
+      - name: Properties
+        displayName: iteration,copy,multiple
+        href: copy-properties.md
+      - name: Variables
+        displayName: iteration,copy,multiple
+        href: copy-variables.md
+      - name: Outputs
+        displayName: iteration,copy,multiple
+        href: copy-outputs.md
+    - name: Modules
+      href: modules.md
+  - name: Compile Bicep files
     items:
-    - name: Resource group
-      href: deploy-to-resource-group.md
-    - name: Subscription
-      href: deploy-to-subscription.md
-    - name: Management group
-      href: deploy-to-management-group.md
-    - name: Tenant
-      href: deploy-to-tenant.md
-    - name: Extension resources
-      href: scope-extension-resources.md
-    - name: Functions across scopes
-      href: scope-functions.md
-  - name: Predeployment checks
+    - name: Compile/Decompile
+      href: decompile.md
+  - name: Deploy Bicep files
     items:
-    - name: What-if deployment
-      href: deploy-what-if.md
-    - name: Test toolkit
-      href: test-toolkit.md
-    - name: Test cases
-      href: test-cases.md
-  - name: Deployment commands
+    - name: Scopes
+      items:
+      - name: Resource group
+        href: deploy-to-resource-group.md
+      - name: Subscription
+        href: deploy-to-subscription.md
+      - name: Management group
+        href: deploy-to-management-group.md
+      - name: Tenant
+        href: deploy-to-tenant.md
+      - name: Extension resources
+        href: scope-extension-resources.md
+      - name: Functions across scopes
+        href: scope-functions.md
+    - name: Predeployment checks
+      items:
+      - name: What-if deployment
+        href: deploy-what-if.md
+      - name: Test toolkit
+        href: test-toolkit.md
+      - name: Test cases
+        href: test-cases.md
+    - name: Deployment commands
+      items:
+      - name: Deploy - portal
+        href: deploy-portal.md
+      - name: Deploy - CLI
+        href: deploy-cli.md
+      - name: Deploy - PowerShell
+        href: deploy-powershell.md
+      - name: Deploy - REST API
+        href: deploy-rest.md
+      - name: Deploy - GitHub
+        href: deploy-to-azure-button.md
+      - name: Deploy - Cloud Shell
+        href: deploy-cloud-shell.md
+    - name: Modes
+      items:
+      - name: Complete & incremental
+        href: deployment-modes.md
+      - name: Complete mode deletion
+        href: deployment-complete-mode-deletion.md
+    - name: Parameters
+      items:
+      - name: Create parameter file
+        href: parameter-files.md
+      - name: Pass sensitive values
+        displayname: key vault
+        href: key-vault-parameter.md
+    - name: CI/CD
+      items:
+      - name: ARM templates with pipelines
+        href: add-template-to-azure-pipelines.md
+      - name: Deploy - GitHub Actions
+        href: deploy-github-actions.md
+      - name: Tutorial - Continuous integration with Azure Pipelines
+        href: deployment-tutorial-pipeline.md
+    - name: Deployment history deletions
+      href: deployment-history-deletions.md
+  - name: Template specs
     items:
-    - name: Deploy - portal
-      href: deploy-portal.md
-    - name: Deploy - CLI
-      href: deploy-cli.md
-    - name: Deploy - PowerShell
-      href: deploy-powershell.md
-    - name: Deploy - REST API
-      href: deploy-rest.md
-    - name: Deploy - GitHub
-      href: deploy-to-azure-button.md
-    - name: Deploy - Cloud Shell
-      href: deploy-cloud-shell.md
-  - name: Modes
+    - name: Create & deploy template specs
+      href: template-specs.md
+    - name: Create with linked templates
+      href: template-specs-create-linked.md
+    - name: Deploy as linked template
+      href: template-specs-deploy-linked-template.md
+    - name: Convert portal template gallery
+      href: template-spec-convert.md
+  - name: Deployment scripts
     items:
-    - name: Complete & incremental
-      href: deployment-modes.md
-    - name: Complete mode deletion
-      href: deployment-complete-mode-deletion.md
-  - name: Parameters
-    items:
-    - name: Create parameter file
-      href: parameter-files.md
-    - name: Pass sensitive values
-      displayname: key vault
-      href: key-vault-parameter.md
-  - name: CI/CD
-    items:
-    - name: ARM templates with pipelines
-      href: add-template-to-azure-pipelines.md
-    - name: Deploy - GitHub Actions
-      href: deploy-github-actions.md
-    - name: Tutorial - Continuous integration with Azure Pipelines
-      href: deployment-tutorial-pipeline.md
-  - name: Deployment history deletions
-    href: deployment-history-deletions.md
-- name: Template specs
-  items:
-  - name: Create & deploy template specs
-    href: template-specs.md
-  - name: Create with linked templates
-    href: template-specs-create-linked.md
-  - name: Deploy as linked template
-    href: template-specs-deploy-linked-template.md
-  - name: Convert portal template gallery
-    href: template-spec-convert.md
-- name: Deployment scripts
-  items:
-  - name: Deployment script
-    displayName: custom script
-    href: deployment-script-template.md
-  - name: Create deployment script dev environment
-    href: deployment-script-template-configure-dev.md
+    - name: Deployment script
+      displayName: custom script
+      href: deployment-script-template.md
+    - name: Create deployment script dev environment
+      href: deployment-script-template-configure-dev.md
 - name: Reference
   items:
   - name: Template reference

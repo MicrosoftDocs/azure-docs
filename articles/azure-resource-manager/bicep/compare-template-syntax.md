@@ -273,5 +273,5 @@ To separate a solution into multiple files:
 
 ## Next steps
 
-* For information about the Bicep, see [Bicep tutorial](./tutorial-create-first-bicep.md).
+* For information about the Bicep, see [Bicep quickstart](./quickstart-create-bicep-use-visual-studio-code.md).
 * To learn about converting templates between the languages, see [Converting ARM templates between JSON and Bicep](decompile.md).

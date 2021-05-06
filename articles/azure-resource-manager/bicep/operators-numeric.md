@@ -9,7 +9,7 @@ ms.date: 04/07/2021
 
 # Bicep numeric operators
 
-The numeric operators use integers to do calculations and return integer values. To run the examples, use Azure CLI or Azure PowerShell to [deploy a Bicep file](./quickstart-create-bicep-use-visual-studio-code.md#deploy-bicep-file).
+The numeric operators use integers to do calculations and return integer values. To run the examples, use Azure CLI or Azure PowerShell to [deploy Bicep file](./quickstart-create-bicep-use-visual-studio-code.md#deploy-the-bicep-file).
 
 | Operator | Name |
 | ---- | ---- |
