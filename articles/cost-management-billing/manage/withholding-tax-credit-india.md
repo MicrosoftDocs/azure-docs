@@ -15,7 +15,7 @@ ms.author: banders
 
 Customers in India receive Web Direct (Azure and Microsoft 365) invoices billed by Microsoft Regional Sales Pte Ltd. Singapore (MRS) and make cross-border payments to Singapore to settle the invoice. If you withheld taxes when remitting the payment, this article explains the process for claiming a credit for the Withholding Tax (WHT) in your account with MRS.
 
-## Invoice pay customers who pay by check and wire
+## Invoice payment by check and wire
 
 If you withheld tax when remitting payment to MRS and deposited the withheld tax with the Income Tax Department, you must submit a WHT request to settle the tax amount withheld in your account.
 
@@ -26,7 +26,7 @@ Your WHT request must include the following items:
 
 Submit the WHT request by opening a ticket with Microsoft support.
 
-## Customers who pay by credit card
+## Credit card payment
 
 If your payment method is a credit card and you made a full payment to MRS, and paid WHT to the Income Tax Department, you must submit a WHT request to claim the refund of the tax amount.
 
@@ -37,11 +37,11 @@ Your WHT request must include the following items:
 
 Submit the WHT request by opening a ticket with Microsoft support
 
-## Timelines to submit the TDS Certificate together with the Withholding Tax Credit Form
+## Timelines to send TDS Certificate with Withholding Tax Credit form
 
 The following table shows the due dates and timelines to submit digitally signed TDS Certificate (Form 16A) forms for each quarter.
 
-| Quarter | Period | Due date for issuance of TDS Certificate (Form 16A) | Extended timelines to submit Form 16A together with the Withholding Tax Credit Form |
+| Quarter | Period | Due date for issuance of TDS Certificate (Form 16A) | Extended timelines to submit Form 16A together with the Withholding Tax Credit form |
 |-|-|-|-|
 | 1 | April - June | 15-Aug | 31-Aug |
 | 2 | July - September | 15-Nov | 30-Nov |
