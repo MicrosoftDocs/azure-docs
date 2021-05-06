@@ -34,7 +34,7 @@ Outbound rules enable you to explicitly define SNAT (source network address tran
 This configuration enables:
 
 - IP masquerading
-- Simplifying your allow lists.
+- Simplifying your allowlists.
 - Reduces the number of public IP resources for deployment
 
 With outbound rules, you have full declarative control over outbound internet connectivity. Outbound rules allow you to scale and tune this ability to your specific needs.
