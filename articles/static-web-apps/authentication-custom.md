@@ -11,9 +11,9 @@ ms.date: 3/24/2021
 
 # Custom authentication in Azure Static Web Apps
 
-Azure Static Web Apps provides [managed authentication](authentication-authorization.md) which uses provider registrations managed by Azure. To enable more flexibility over the registration, you can override the defaults with a custom registration. By using your own provider registration, there is no need to use the [invitation flow](./authentication-authorization.md#role-management) within Static Web Apps for group management.
+Azure Static Web Apps provides [managed authentication](authentication-authorization.md) which uses provider registrations managed by Azure. To enable more flexibility over the registration, you can override the defaults with a custom registration. By using your own provider registration, there is no need to use the [invitation flow](./authentication-authorization.md#role-management) within Static Web Apps for group management. One or more of the providers can be overridden using the configuration outlined below.
 
-In addition, custom authentication allows you to [configure custom providers](#configure-a-custom-openid-connect-provider) that support [OpenID Connect](https://openid.net/connect/).
+In addition, custom authentication allows you to [configure custom providers](#configure-a-custom-openid-connect-provider) that support [OpenID Connect](https://openid.net/connect/). This allows the registration of multiple external providers, in addition to the built-in providers.
 
 > [!NOTE]
 > Custom authentication is only available in the Standard tier of Azure Static Web Apps.
