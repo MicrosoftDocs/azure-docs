@@ -22,7 +22,7 @@ For more information on how to update your device, see these articles:
 
 - An [Azure Percept DK](https://go.microsoft.com/fwlink/?linkid=2155270) that has been [set up and connected to Azure Percept Studio and IoT Hub](https://docs.microsoft.com/azure/azure-percept/quickstart-percept-dk-set-up).
 
-## Identify the current model name and software version on your Azure Percept DK
+## Identify the model name and software version of your dev kit
 To ensure you apply the correct update package to your dev kit, you must first determine which software version it's currently running.
 
 > [!WARNING]
