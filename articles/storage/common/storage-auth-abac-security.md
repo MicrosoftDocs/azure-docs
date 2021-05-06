@@ -93,6 +93,12 @@ For the [Copy Blob](/rest/api/storageservices/Copy-Blob) and [Copy Blob From URL
 
 For conditions on the source blob, `@Resource` conditions on the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` action are evaluated.
 
+### Behavior for Get Page Ranges
+
+For the [Get Page Ranges](/rest/api/storageservices/get-page-ranges) operation, `@Resource` conditions using `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags` as an attribute on the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` action and its suboperations are evaluated only for the destination blob.
+
+Conditions don't apply for access to the blob specified by the `prevsnapshot` URI parameter in the API.
+
 ## See also
 
 - [Authorize access to blobs using Azure role assignment conditions (preview)](storage-auth-abac.md)
