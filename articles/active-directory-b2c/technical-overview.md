@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 04/27/2021
+ms.date: 05/06/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -218,6 +218,10 @@ Azure AD B2C multi-factor authentication (MFA) helps safeguard access to data an
 Your users may or may not be challenged for MFA based on configuration decisions that you can make as an administrator.
 
 See how to enable MFA in user flows in [Enable multi-factor authentication in Azure Active Directory B2C](multi-factor-authentication.md).
+
+### Identity Protection and Conditional Access
+
+Azure AD Identity Protection risk-detection features, including risky users and risky sign-ins, are automatically detected and displayed in your Azure AD B2C tenant. You can create Conditional Access policies that use these risk detections to determine remediation actions and enforce organizational policies. See [Identity Protection and Conditional Access](conditional-access-identity-protection-overview).
 
 ### Smart account lockout
 
