@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory service principal with Azure SQL
-description: Utilize AD Applications (service principals) support Azure AD user creation in Azure SQL Database and Azure SQL Managed Instance
+description: Azure AD Applications (service principals) support Azure AD user creation in Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics
 ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse
@@ -13,16 +13,16 @@ ms.date: 05/10/2021
 
 # Azure Active Directory service principal with Azure SQL
 
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Azure Active Directory (Azure AD) supports user creation in Azure SQL Database (SQL DB) on behalf of Azure AD applications (service principals).
+Azure Active Directory (Azure AD) supports user creation in Azure SQL Database (SQL DB) and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) on behalf of Azure AD applications (service principals).
 
 > [!NOTE]
 > This functionality is already supported for SQL Managed Instance.
 
 ## Service principal (Azure AD applications) support
 
-This article applies to applications that are integrated with Azure AD, and are part of Azure AD registration. These applications often need authentication and authorization access to Azure SQL to perform various tasks. This feature allows service principals to create Azure AD users in SQL Database. There was a limitation preventing Azure AD object creation on behalf of Azure AD applications that was removed.
+This article applies to applications that are integrated with Azure AD, and are part of Azure AD registration. These applications often need authentication and authorization access to Azure SQL to perform various tasks. This feature allows service principals to create Azure AD users in SQL Database and Azure Synapse. There was a limitation preventing Azure AD object creation on behalf of Azure AD applications that was removed.
 
 When an Azure AD application is registered using the Azure portal or a PowerShell command, two objects are created in the Azure AD tenant:
 
