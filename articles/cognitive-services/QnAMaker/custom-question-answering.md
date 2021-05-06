@@ -23,7 +23,7 @@ As part of our effort to consolidate the language offerings from Cognitive Servi
 Now when you create a new Text Analytics resource, you can select features that you want included. Select **Custom question answering (preview)** and continue to create your resource.  
 
 > [!div class="mx-imgBorder"]
-> [ ![Screenshot of create a Text Analytics resource UI menu with custom question answering feature selected]( ../media/select-feature.png) ]( ../media/select-feature.png#lightbox)
+> [ ![Screenshot of create a Text Analytics resource UI menu with custom question answering feature selected]( ./media/select-feature.png) ]( ./media/select-feature.png#lightbox)
 
 
 You can no longer create a QnA Maker managed resource from the QnA Maker create flow, instead you will be redirected to the Text Analytics service. There is no change to the QnA Maker stable release. 
