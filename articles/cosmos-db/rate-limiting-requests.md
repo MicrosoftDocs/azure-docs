@@ -22,11 +22,11 @@ Consider the following scenario:
 * Your application processes an ingestion job that contains 10K records, each of which
 costs 10 RU. Thus, the total capacity required to complete this job is 100K RU.
 * If you simply send the entire job to Cosmos DB, you should expect a large number of transient faults and a large buffer of requests that you must retry. This is because the total number of RUs needed for the job (100K) is much greater than the provisioned maximum (20K). ~2K of the records will be accepted into the database, but ~8K will be rejected. You will send ~8K records to Cosmos on retry, of which ~2K will be accepted, and so on. You should expect this pattern would send ~30K records instead of 10K records.
-* Instead if you parcel the job into 5 batches, and send those requests evenly across 5 seconds, you should expect no faults and overall faster throughput as each batch would be at or under the provisioned 20K.
+* Instead if you send those requests evenly across 5 seconds, you should expect no faults and overall faster throughput as each batch would be at or under the provisioned 20K.
 
 Spreading the requests across a period of time can be accomplished by introducing a rate limiting mechanism in your code.
 
-Its important to keep in mind that RU throughout characteristics are effected to the number of physical partitions in a given container. In the example above, that 20K RU provisioned throughput would be evenly shared across the number of partitions in the target container. For example, if Cosmos DB provisioned 2 physical partitions, each would have 10K RU. This could further inform the way you'd want to parcel the overall workload.
+Its important to keep in mind that RU throughput characteristics are affected by the number of physical partitions in a given container. In the example above, that 20K RU provisioned throughput would be evenly shared across the number of partitions in the target container. For example, if Cosmos DB provisioned 2 physical partitions, each would have 10K RU.
 
 For more information about Resource Units, see [Request Units in Azure Cosmos DB
 ](request-units.md).
@@ -49,11 +49,11 @@ An approach to implementing rate limiting might look like this:
 
 ## Indexing
 
-Unlike other SQL and NoSQL databases you may be familiar with, Cosmos DB's default indexing policy for newly created containers indexes **every** property. This will affect the number of RUs that a write operation consumes, and that is naturally very related to the number of properties in such records.
+Unlike other SQL and NoSQL databases you may be familiar with, Cosmos DB's default indexing policy for newly created containers indexes **every** property. This will affect the number of RUs that a write operation consumes, and that is naturally related to the number of properties in such records.
 
-The default indexing policy helps foster lower latency in read-heavy systems where query filter conditions are well distributed across all of the stored fields (e.g. systems where Cosmos DB is spending most of its time serving end-user crafted ad-hoc searches, like searching retail order history for a hyper-targeted market segment a researcher is interested in).
+The default indexing policy helps foster lower latency in read-heavy systems where query filter conditions are well distributed across all of the stored fields. For example, systems where Cosmos DB is spending most of its time serving end-user crafted ad-hoc searches, like searching retail order history for a hyper-targeted market segment a researcher is interested in.
 
-This could be an opportunity to improve overall system performance (cost and time) for systems that are more write-heavy, and where record retrieval patterns are more constrained and/or well known. This is especially applicable where records many many properties but are only ever fetched by only a few properties. Put another way, you might want to exclude properties that are never searched against from being indexed.
+This could be an opportunity to improve overall system performance (cost and time) for systems that are more write-heavy, and where record retrieval patterns are more constrained and/or well known. This is especially applicable where records have many properties but are only ever fetched by only a few properties. Put another way, you might want to exclude properties that are never searched against from being indexed.
 
 Before measuring any costs, you should intentionally consider and configure indexes. Also, if you later change indexes, you will need to re-run all cost calculations. 
 
@@ -66,9 +66,9 @@ For more information about indexes, see [Indexing policies in Azure Cosmos DB](i
 There are some key concepts when measuring cost:
 
 * Consider all factors that affect RU usage, as described in [request unit considerations](request-units.md#request-unit-considerations).
-* Keep in mind that all simultaneous read and write operations across all client connections for given database or container will be held to the single provisioned throughput set for that target.
+* Keep in mind that all simultaneous read and write operations across all client connections for a given database or container will be held to the single provisioned throughput set for that target.
 * RU consumption is incurred, regardless of the Cosmos DB APIs being used.
-* The partition strategy for a collection can have a significant impact on the cost of a system. In write-heavy systems balancing the partition key and the number of partitions can improve both the price of the system and the time it takes to complete workloads. Again, rate-limiting ingest clients to match whats provisioned is important, but ensuring that the inbound records fan-out to write into distinct partitions (via the partition key) is critical, too, and help ease the need for rate-limiting. For more information , see [Partitioning and horizontal scaling in Azure Cosmos DB](partitioning-overview#choose-partitionkey).
+* The partition strategy for a collection can have a significant impact on the cost of a system. For more information, see [Partitioning and horizontal scaling in Azure Cosmos DB](partitioning-overview#choose-partitionkey).
 * Use representative documents and representative queries.
   * These are documents and queries that you think are close to what the operational system will encounter.
   * The best way to get these representative documents and queries is to instrument the usage of your application. It is always better to make this a data-driven decision.
@@ -141,12 +141,12 @@ For more information about this pattern, see [Queue-Based Load Leveling pattern]
 
 ### Cache-Aside pattern
 
-Load data on demand into a cache from a data store. This can improve performance and also helps to maintain consistency between data held in the cache and data in the underlying data store.
+You might consider loading data on demand into a cache instead of querying Cosmos DB every time. This can improve performance and also helps to maintain consistency between data held in the cache and data in the underlying data store.
 
 For more information, see: [Cache-Aside pattern](architecture/patterns/cache-aside)
 
 ### Materialized View pattern
 
-Generate pre-populated views over the data in one or more data stores when the data isn't ideally formatted for required query operations. This can help support efficient querying and data extraction, and improve application performance.
+You might pre-populated views into other collections after storing the data in Cosmos DB when the data isn't ideally formatted for required query operations. This can help support efficient querying and data extraction, and improve application performance.
 
 For more information, see [Materialized View pattern](architecture/patterns/materialized-view).
