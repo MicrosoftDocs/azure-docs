@@ -1,7 +1,7 @@
 ---
 title: Azure Blockchain Service retirement notification and guidance
 description: Migrate Azure Blockchain Service to a managed or self-managed blockchain offering
-ms.date: 04/28/2021
+ms.date: 05/10/2021
 ms.topic: how-to
 
 #Customer intent: As a network operator, I want to migrate Azure Blockchain Service to an alterative offering so that I can use blockchain after Azure Blockchain Service retirement.
@@ -40,7 +40,7 @@ There are several blockchain resource management templates you can use to deploy
 
 If you are starting to develop a new solution or are in an evaluation phase, consider the following alternatives based on your scenario requirements.
 
-- [Quorum template from Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.quorum-dev-quickstart?tab=Overview) 
+- [Quorum template from Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.quorum-dev-quickstart?tab=Overview)
 - [Besu template from Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.hyperledger-besu-quickstart?tab=Overview)
 
 ## Migrate data from Azure Blockchain Service
@@ -49,12 +49,12 @@ Based on your current development state, you can either opt to use existing ledg
 
 ### Open support case
 
-Open a Microsoft Support ticket to pause the consortium and export your blockchain data. 
+Open a Microsoft Support ticket to pause the consortium and export your blockchain data.
 
 1. Use the Azure portal to open a support ticket. In *Problem description*, enter the following details:
 
     ![Support ticket problem description form in the Azure portal](./media/migration-guide/problem-description.png)
-    
+
     | Field | Response |
     |-------|--------- |
     | Issue type | Technical |
@@ -65,7 +65,7 @@ Open a Microsoft Support ticket to pause the consortium and export your blockcha
 1. In *Additional details*, include the following details:
 
     ![Support ticket additional details form in the Azure portal](./media/migration-guide/additional-details.png)
-    
+
     - Subscription ID or Azure Resource Manager resource ID
     - Tenant
     - Consortium name
@@ -138,8 +138,8 @@ A transaction node has two components. Tessera is used for the private transacti
 
     ```bash
     export NETWORK_ID='' # Get network ID from metadata. The network ID is the same for consortium.
-    
-    PRIVATE_CONFIG=tm.ipc geth --config /geth/config.toml --datadir /opt/blockchain/data/working-dir/dd --networkid $NETWORK_ID --istanbul.blockperiod 5 --nodiscover --nousb --allow-insecure-unlock --verbosity 3 --txpool.globalslots 80000 --txpool.globalqueue 80000 --txpool.accountqueue 50000 --txpool.accountslots 50000 --targetgaslimit 700000000 --miner.gaslimit 800000000 --syncmode full --rpc --rpcaddr 0.0.0.0 --rpcport 3100 --rpccorsdomain '*' --rpcapi admin,db,eth,debug,net,shh,txpool,personal,web3,quorum,istanbul --ws --wsaddr 0.0.0.0 --wsport 3000 --wsorigins '*' --wsapi admin,db,eth,debug,net,shh,txpool,personal,web3,quorum,istanbul 
+
+    PRIVATE_CONFIG=tm.ipc geth --config /geth/config.toml --datadir /opt/blockchain/data/working-dir/dd --networkid $NETWORK_ID --istanbul.blockperiod 5 --nodiscover --nousb --allow-insecure-unlock --verbosity 3 --txpool.globalslots 80000 --txpool.globalqueue 80000 --txpool.accountqueue 50000 --txpool.accountslots 50000 --targetgaslimit 700000000 --miner.gaslimit 800000000 --syncmode full --rpc --rpcaddr 0.0.0.0 --rpcport 3100 --rpccorsdomain '*' --rpcapi admin,db,eth,debug,net,shh,txpool,personal,web3,quorum,istanbul --ws --wsaddr 0.0.0.0 --wsport 3000 --wsorigins '*' --wsapi admin,db,eth,debug,net,shh,txpool,personal,web3,quorum,istanbul
     ```
 
 ### Validator Node
@@ -147,7 +147,7 @@ A transaction node has two components. Tessera is used for the private transacti
 Validator node steps are similar to the transaction node except that Geth startup command will have the additional flag `-mine`. Tessera is not started on a validator node. To run Geth without a paired Tessera, you pass `PRIVATE_CONFIG=ignore` in the Geth command. Run Geth using the following commands:
 
 ```bash
-export NETWORK_ID=`j q '.APP_SETTINGS | fromjson | ."network-id"' env.json` 
+export NETWORK_ID=`j q '.APP_SETTINGS | fromjson | ."network-id"' env.json`
 
 PRIVATE_CONFIG=ignore geth --config /geth/config.toml --datadir /opt/blockchain/data/working-dir/dd --networkid $NETWORK_ID --istanbul.blockperiod 5 --nodiscover --nousb --allow-insecure-unlock --verbosity 3 --txpool.globalslots 80000 --txpool.globalqueue 80000 --txpool.accountqueue 50000 --txpool.accountslots 50000 --targetgaslimit 700000000 --miner.gaslimit 800000000 --syncmode full --rpc --rpcaddr 0.0.0.0 --rpcport 3100 --rpccorsdomain '*' --rpcapi admin,db,eth,debug,net,shh,txpool,personal,web3,quorum,istanbul --ws --wsaddr 0.0.0.0 --wsport 3000 --wsorigins '*' --wsapi admin,db,eth,debug,net,shh,txpool,personal,web3,quorum,istanbul –mine
 ```
@@ -170,7 +170,7 @@ For versions 2.5.0, there are some minor genesis file changes. Make the followin
 
 1. The value `byzantiumBlock` was set to 1 and it cannot be less than `constantinopleBlock` which is 0. Set the `byzantiumBlock` value to 0.
 1. Set `petersburgBlock`, `istanbulBlock` to a future block. This value should be same across all nodes.
-1. This step is optional. `ceil2Nby3Block` was incorrectly placed in Azure Blockchain Service Quorum 2.5.0 version. This needs to be inside the istanbul config and set the value future block. This value should be same across all nodes. 
+1. This step is optional. `ceil2Nby3Block` was incorrectly placed in Azure Blockchain Service Quorum 2.5.0 version. This needs to be inside the istanbul config and set the value future block. This value should be same across all nodes.
 1. Run geth to reinitialize genesis block using following command:
 
     ```bash
