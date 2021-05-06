@@ -7,7 +7,7 @@ manager: lizross
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 05/05/2021
 ms.author: helohr
 ---
 # Configure AD FS single sign-on for Windows Virtual Desktop
@@ -37,7 +37,6 @@ Before configuring AD FS single sign-on, you must have the following setup runni
 The following Windows Virtual Desktop clients support this feature:
 
 * [Windows Desktop client](connect-windows-7-10.md)
-* [Windows Store client](connect-microsoft-store.md)
 * [Web client](connect-web.md)
 
 ## Configure the certificate authority to issue certificates
@@ -73,7 +72,7 @@ Import-Module adfs
    * If you set up AD FS using Azure AD Connect, the service account will be named "aadcsvc$".
 8. After the service account is added and is visible in the **Security** tab, select it in the **Group or user names** pane, select **Allow** for both "Enroll" and "Autoenroll" in the **Permissions for the AD FS service account** pane, then select **OK** to save.
 
-   ![A screenshot showing the security tab of the Enrollment Agent certificate template after it is properly configured](media/adfs-enrollment-properties-security.png)
+   :::image type="content" source="media/adfs-enrollment-properties-security.png" alt-text="A screenshot showing the security tab of the Enrollment Agent certificate template after it is properly configured.":::
 
 #### Update an existing enrollment agent certificate template
 
@@ -97,13 +96,13 @@ Import-Module adfs
    > Since this certificate is requested on-demand, we recommend shortening the validity period to 8 hours and the renewal period to 1 hour.
 
 5. Select the **Subject name** tab and then select **Supply in the request**. When you see a warning message, select **OK**.
-  
-   [ ![A screenshot showing the subject name tab of the SSO certificate template and what it should look like when properly configured](media/adfs-sso-properties-subject-inline.png) ](media/adfs-sso-properties-subject-expanded.png#lightbox)
+
+   :::image type="content" source="media/adfs-sso-properties-subject-inline.png" alt-text="A screenshot showing the subject name tab of the SSO certificate template and what it should look like when properly configured." lightbox="media/adfs-sso-properties-subject-expanded.png":::
 
 6. Select the **Issuance Requirements** tab.
 7. Select **This number of authorized signatures** and enter the value of **1**.
-   
-   [ ![A screenshot showing the issuance requirements tab of the SSO certificate template and what it should look like when properly configured](media/adfs-sso-properties-issuance-inline.png) ](media/adfs-sso-properties-issuance-expanded.png#lightbox)
+
+   :::image type="content" source="media/adfs-sso-properties-issuance-inline.png" alt-text="A screenshot showing the issuance requirements tab of the SSO certificate template and what it should look like when properly configured." lightbox="media/adfs-sso-properties-issuance-expanded.png":::
 
 8. For **Application policy**, select **Certificate Request Agent**.
 9.  Select the **Security** tab, then select **Add...**.
@@ -113,7 +112,7 @@ Import-Module adfs
     * If you set up AD FS using Azure AD Connect, the service account will be named "aadcsvc$".
 1. After the service account is added and is visible in the **Security** tab, select it in the **Group or user names** pane, select **Allow** for both "Enroll" and "Autoenroll", then select **OK** to save.
 
-   ![A screenshot showing the security tab of the SSO certificate template after it is properly configured](media/adfs-sso-properties-security.png)
+   :::image type="content" source="media/adfs-sso-properties-security.png" alt-text="A screenshot showing the security tab of the SSO certificate template after it is properly configured.":::
 
 ### To enable the new certificate templates:
 
@@ -122,7 +121,8 @@ Import-Module adfs
 3. Expand the Certification Authority on the left-hand pane and open **Certificate Templates**.
 4. Right-click in the middle pane that shows the list of certificate templates, select **New**, then select **Certificate Template to Issue**.
 5. Select both **ADFS Enrollment Agent** and **ADFS SSO**, then select **OK**. You should see both templates in the middle pane.
-   ![A screenshot showing list of certificate templates that can be issued, including the new "ADFS Enrollment Agent" and "ADFS SSO".](media/adfs-certificate-templates.png)
+
+   :::image type="content" source="media/adfs-certificate-templates.png" alt-text="A screenshot showing list of certificate templates that can be issued, including the new ADFS Enrollment Agent and ADFS SSO.":::
 
    > [!NOTE]
    > If you already have an enrollment agent certificate template configured, you only need to add the ADFS SSO template.
