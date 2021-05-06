@@ -1,11 +1,11 @@
 ---
 title: XML format in Azure Data Factory 
 description: 'This topic describes how to deal with XML format in Azure Data Factory.'
-author: 
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/29/2021
-ms.author: 
+ms.author: jianleishen
 ---
 
 # XML format in Azure Data Factory
