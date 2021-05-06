@@ -56,7 +56,7 @@ The rest of this section walks you through these steps.
 
 ### Open instance in Azure Digital Twins Explorer
 
-Next, navigate to **Azure Digital Twins Explorer** in the [Azure portal](https://portal.azure.com). 
+Next, navigate to **Azure Digital Twins Explorer** in the [Azure portal](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_DigitalTwins=tip2#home). 
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/explorer-blank.png" alt-text="Screenshot of the Azure portal in an internet browser. The portal is showing the Azure Digital Twins Explorer, which contains no data." lightbox="media/quickstart-azure-digital-twins-explorer/explorer-blank.png":::
 
