@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/05/2021
-ms.author: dplessMSFT
+ms.author: dpless
 ms.custom: contperf-fy21q3
 ms.reviewer: jroth
 ---
@@ -104,12 +104,12 @@ The following is a quick checklist of best practices for Azure-specific guidance
 - Register with [the SQL IaaS Agent Extension](sql-agent-extension-manually-register-single-vm.md) to unlock a number of [feature benefits](sql-server-iaas-agent-extension-automate-management.md#feature-benefits).
 - Leverage the best [backup and restore strategy](backup-restore.md#decision-matrix) for your SQL Server workload.
 - Ensure [Accelerated Networking is enabled](../../../virtual-network/create-vm-accelerated-networking-cli.md#portal-creation) on the virtual machine.
-- Leverage [Azure Security Center](../../../security-center/) to improve the overall security posture of your virtual machine deployment.
-- Leverage [Azure Defender](../../../security-center/azure-defender), integrated with [Azure Security Center](https://azure.microsoft.com/services/security-center/), for specific [SQL Server VM coverage](../../../security-center/defender-for-sql-introduction.md) including [vulnerability assessments](sql-vulnerability-assessment-enable.md) and [advanced threat protection](../../../azure-sql/database/threat-detection-overview.md).
+- Leverage [Azure Security Center](../../../security-center/index.yml) to improve the overall security posture of your virtual machine deployment.
+- Leverage [Azure Defender](../../../security-center/azure-defender.md), integrated with [Azure Security Center](https://azure.microsoft.com/services/security-center/), for specific [SQL Server VM coverage](../../../security-center/defender-for-sql-introduction.md) including [vulnerability assessments](sql-vulnerability-assessment-enable.md) and [advanced threat protection](../../../azure-sql/database/threat-detection-overview.md).
 - Leverage [Azure Advisor](../../../advisor/advisor-overview.md) to address [performance](../../../advisor/advisor-performance-recommendations.md), [cost](../../../advisor/advisor-cost-recommendations.md), [reliability](../../../advisor/advisor-high-availability-recommendations.md), [operational excellence](../../../advisor/advisor-operational-excellence-recommendations.md), and [security recommendations](../../../advisor/advisor-security-recommendations.md).
 - Leverage [Azure Monitor](../../../azure-monitor/vm/quick-monitor-azure-vm.md) to collect, analyze, and act on telemetry data from your SQL Server environment. This includes identifying infrastructure issues with [VM insights](../../../azure-monitor/vm/vminsights-overview.md) and monitoring data with [Log Analytics](../../../azure-monitor/logs/log-query-overview.md) for deeper diagnostics.
 - Enable [Auto-shutdown](../../../automation/automation-solution-vm-management.md) for development and test environments. 
-- In the Azure portal, under [Disaster Recovery](../../../site-recovery/azure-to-azure-architecture.md) consider [Azure Site Recovery](../../../site-recovery/) to replicate virtual machines to another Azure region for business continuity and disaster recovery needs. Technologies such as [distributed availability groups](/sql/database-engine/availability-groups/windows/distributed-availability-groups) and [log shipping](/sql/database-engine/log-shipping/configure-log-shipping-sql-server) can also be used to improve  recover capabilities.
+- In the Azure portal, under [Disaster Recovery](../../../site-recovery/azure-to-azure-architecture.md) consider [Azure Site Recovery](../../../site-recovery/index.yml) to replicate virtual machines to another Azure region for business continuity and disaster recovery needs. Technologies such as [distributed availability groups](/sql/database-engine/availability-groups/windows/distributed-availability-groups) and [log shipping](/sql/database-engine/log-shipping/configure-log-shipping-sql-server) can also be used to improve  recover capabilities.
 - Use the Azure portal (support + troubleshooting) to evaluate [resource health](../../../service-health/resource-health-overview.md) and history; submit new support requests when needed.
 
 ## Next steps
