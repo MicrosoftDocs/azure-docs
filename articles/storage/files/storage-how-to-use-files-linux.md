@@ -10,12 +10,12 @@ ms.subservice: files
 ---
 
 # Use Azure Files with Linux
-[Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure file shares can be mounted in Linux distributions using the [SMB kernel client](https://wiki.samba.org/index.php/LinuxCIFS). This article shows two ways to mount an Azure file share: on-demand with the `mount` command and on-boot by creating an entry in `/etc/fstab`.
+[Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure file shares can be mounted in Linux distributions using the [SMB kernel client](https://wiki.samba.org/index.php/LinuxCIFS).
 
-The recommended way to mount an Azure file share on Linux is using SMB 3.0. By default, Azure Files requires encryption in transit, which is only supported by SMB 3.0. Azure Files also supports SMB 2.1, which does not support encryption in transit, but you may not mount Azure file shares with SMB 2.1 from another Azure region or on-premises for security reasons. Unless your application specifically requires SMB 2.1, there is little reason to use it since most popular, recently released Linux distributions support SMB 3.0:  
+The recommended way to mount an Azure file share on Linux is using SMB 3.1.1. By default, Azure Files requires encryption in transit, which is supported by SMB 3.0+. Azure Files also supports SMB 2.1, which does not support encryption in transit, but you may not mount Azure file shares with SMB 2.1 from another Azure region or on-premises for security reasons. Unless your application specifically requires SMB 2.1, use SMB 3.1.1.
 
-|     | SMB 3.1.1 | SMB 3.0 |
-|-----|-----------|---------|
+| | SMB 3.1.1 | SMB 3.0 |
+|-|-----------|---------|
 | Linux kernel | <ul><li>**Basic 3.1.1 support**: 4.17</li><li>**Default protocol version**: 5.0</li><li>**AES-128-GCM encryption**: 5.3</li></ul> | <ul><li>**Basic 3.0 support**: 3.12</li><li>**AES-128-CCM encryption**: 4.11</li></ul> |
 | [Ubuntu](https://wiki.ubuntu.com/Releases) | 18.04.5 LTS+ (AES-128-GCM encryption) | 16.04.4 LTS+ (AES-128-CCM encryption) |
 | [Red Hat Enterprise Linux (RHEL)](https://access.redhat.com/articles/3078) | 8+ (Basic) | 7.5+ |
@@ -91,90 +91,90 @@ uname -r
 
     If you are unable to open up port 445 on your corporate network or are blocked from doing so by an ISP, you may use a VPN connection or ExpressRoute to work around port 445. For more information, see [Networking considerations for direct Azure file share access](storage-files-networking-overview.md).
 
-## Mounting Azure file share
-To use an Azure file share with your Linux distribution, you must create a directory to serve as the mount point for the Azure file share. A mount point can be created anywhere on your Linux system, but it's common convention to create this under /mount. After the mount point, you use the `mount` command to access the Azure file share.
+## Mount the Azure file share on-demand with `mount`
+When you mount a file share on a Linux OS, your remote file share is represented as a folder in your local file system. You can mount file shares to anywhere on your system, but by custom, the following example mounts under the `/mount` path. You can change this to whatever path you want by modifying the `$mntRoot` variable.
 
-You can mount the same Azure file share to multiple mount points if desired.
-
-### Mount the Azure file share on-demand with `mount`
-1. **Create a folder for the mount point**: Replace `<your-resource-group>`, `<your-storage-account>`, and `<your-file-share>` with the appropriate information for your environment:
-
-    ```bash
-    resourceGroupName="<your-resource-group>"
-    storageAccountName="<your-storage-account>"
-    fileShareName="<your-file-share>"
-
-    mntPath="/mount/$storageAccountName/$fileShareName"
-
-    sudo mkdir -p $mntPath
-    ```
-
-1. **Use the mount command to mount the Azure file share**. In the example below, the local Linux file and folder permissions default 0755, which means read, write, and execute for the owner (based on the file/directory Linux owner), read and execute for users in owner group, and read and execute for others on the system. You can use the `uid` and `gid` mount options to set the user ID and group ID for the mount. You can also use `dir_mode` and `file_mode` to set custom permissions as desired. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) on Wikipedia. 
-
-    # [SMB 3.1.1](#tab/smb3.1.1)
-    ```bash
-    # This command assumes you have logged in with az login
-    httpEndpoint=$(az storage account show \
-        --resource-group $resourceGroupName \
-        --name $storageAccountName \
-        --query "primaryEndpoints.file" | tr -d '"')
-    smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
-
-    storageAccountKey=$(az storage account keys list \
-        --resource-group $resourceGroupName \
-        --account-name $storageAccountName \
-        --query "[0].value" | tr -d '"')
-
-    sudo mount -t cifs $smbPath $mntPath -o username=$storageAccountName,password=$storageAccountKey,serverino
-    ```
-
-    > [!Note]  
-    > Starting in Linux kernel version 5.0, SMB 3.1.1 is the default negotiated protocol. If you're using a version of the Linux kernel prior to 5.0, specify `vers=3.1.1` in the mount options list.  
-
-    # [SMB 3.0](#tab/smb3.0)
-    ```bash
-    # This command assumes you have logged in with az login
-    httpEndpoint=$(az storage account show \
-        --resource-group $resourceGroupName \
-        --name $storageAccountName \
-        --query "primaryEndpoints.file" | tr -d '"')
-    smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
-
-    storageAccountKey=$(az storage account keys list \
-        --resource-group $resourceGroupName \
-        --account-name $storageAccountName \
-        --query "[0].value" | tr -d '"')
-
-    sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
-    ```
-
-    # [SMB 2.1](#tab/smb2.1)
-    ```bash
-    # This command assumes you have logged in with az login
-    httpEndpoint=$(az storage account show \
-        --resource-group $resourceGroupName \
-        --name $storageAccountName \
-        --query "primaryEndpoints.file" | tr -d '"')
-    smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
-
-    storageAccountKey=$(az storage account keys list \
-        --resource-group $resourceGroupName \
-        --account-name $storageAccountName \
-        --query "[0].value" | tr -d '"')
-
-    sudo mount -t cifs $smbPath $mntPath -o vers=2.1,username=$storageAccountName,password=$storageAccountKey,serverino
-    ```
-
-    ---
-
-When you are done using the Azure file share, you may use `sudo umount $mntPath` to unmount the share.
-
-### Automatically mount file shares
-When you mount a file share on a Linux OS, your remote file share is represented as a folder in your local file system. You can mount file shares to anywhere on your system, but by custom, the following example mounts under the `/mount` path. You can change this to whatever path you want by modifying the `$mountRoot` variable.
+Remember to replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with the appropriate information for your environment:
 
 ```bash
-mountRoot="/mount"
-sudo mkdir -p $mountRoot
+resourceGroupName="<resource-group-name>"
+storageAccountName="<storage-account-name>"
+fileShareName="<file-share-name>"
+
+mntRoot="/mount"
+mntPath="$mntRoot/$storageAccountName/$fileShareName"
+
+sudo mkdir -p $mntPath
+```
+
+Next, mount the file share using the `mount` command. In the example below, the `$smbPath` command is populated using the fully qualified domain name for the storage account's file endpoint and `$storageAccountKey` is populated with the storage account key for the storage account. 
+
+# [SMB 3.1.1](#tab/smb3.1.1)
+```bash
+# This command assumes you have logged in with az login
+httpEndpoint=$(az storage account show \
+    --resource-group $resourceGroupName \
+    --name $storageAccountName \
+    --query "primaryEndpoints.file" | tr -d '"')
+smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
+
+storageAccountKey=$(az storage account keys list \
+    --resource-group $resourceGroupName \
+    --account-name $storageAccountName \
+    --query "[0].value" | tr -d '"')
+
+sudo mount -t cifs $smbPath $mntPath -o username=$storageAccountName,password=$storageAccountKey,serverino
+```
+
+> [!Note]  
+> Starting in Linux kernel version 5.0, SMB 3.1.1 is the default negotiated protocol. If you're using a version of the Linux kernel prior to 5.0, specify `vers=3.1.1` in the mount options list.  
+
+# [SMB 3.0](#tab/smb3.0)
+```bash
+# This command assumes you have logged in with az login
+httpEndpoint=$(az storage account show \
+    --resource-group $resourceGroupName \
+    --name $storageAccountName \
+    --query "primaryEndpoints.file" | tr -d '"')
+smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
+
+storageAccountKey=$(az storage account keys list \
+    --resource-group $resourceGroupName \
+    --account-name $storageAccountName \
+    --query "[0].value" | tr -d '"')
+
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
+```
+
+# [SMB 2.1](#tab/smb2.1)
+```bash
+# This command assumes you have logged in with az login
+httpEndpoint=$(az storage account show \
+    --resource-group $resourceGroupName \
+    --name $storageAccountName \
+    --query "primaryEndpoints.file" | tr -d '"')
+smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
+
+storageAccountKey=$(az storage account keys list \
+    --resource-group $resourceGroupName \
+    --account-name $storageAccountName \
+    --query "[0].value" | tr -d '"')
+
+sudo mount -t cifs $smbPath $mntPath -o vers=2.1,username=$storageAccountName,password=$storageAccountKey,serverino
+```
+
+---
+
+You can use provide `uid`/`gid` or `dir_mode` and `file_mode` in the mount options for the `mount` command to set permissions as desired. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) on Wikipedia.
+
+You can also mount the same Azure file share to multiple mount points if desired. When you are done using the Azure file share, you may use `sudo umount $mntPath` to unmount the share.
+
+## Automatically mount file shares
+When you mount a file share on a Linux OS, your remote file share is represented as a folder in your local file system. You can mount file shares to anywhere on your system, but by custom, the following example mounts under the `/mount` path. You can change this to whatever path you want by modifying the `$mntRoot` variable.
+
+```bash
+mntRoot="/mount"
+sudo mkdir -p $mntRoot
 ```
 
 To mount an Azure file share on Linux, you use the storage account name as the username of the file share, and the storage account key as the password. When you use the `mount` command to ad-hoc mount a file share, you supply the username and password as options to the `mount` command. When you automatically mount a file share, you can provide options as well, but since the storage account credentials may change over time, you should store the credentials for the storage account separately from the mount configuration. 
@@ -213,13 +213,13 @@ sudo chmod 600 $smbCredentialFile
 
 To automatically mount a file share, you have a choice between using a static mount via the `/etc/fstab` utility or using a dynamically mounting via the `autofs` utility. 
 
-#### Static mount with `/etc/fstab`
+### Static mount with `/etc/fstab`
 Using the environment from above, create a folder for your storage account/file share under your mount folder. Remember to populate `<file-share-name>` with the appropriate name for your Azure file share.
 
 ```bash
 fileShareName="<file-share-name>"
 
-mntPath="$mountRoot/$storageAccountName/$fileShareName"
+mntPath="$mntRoot/$storageAccountName/$fileShareName"
 sudo mkdir -p $mntPath
 ```
 
@@ -244,7 +244,7 @@ sudo mount -a
 > [!Note]  
 > Starting in Linux kernel version 5.0, SMB 3.1.1 is the default negotiated protocol. You can specify alternate protocol versions using the `vers` mount option (protocol versions are `3.1.1`, `3.0`, and `2.1`).
 
-#### Dynamically mount with `autofs`
+### Dynamically mount with `autofs`
 To dynamically mount a file share with the `autofs` utility, install it using the package manager on the Linux distribution of your choice.  
 
 On **Ubuntu** and **Debian** distributions, use the `apt` package manager:
