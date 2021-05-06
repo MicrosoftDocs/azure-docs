@@ -35,7 +35,7 @@ Billing tags are assigned at the capacity pool level, not volume level.
 
       ![Snapshot that shows the Tags window of a capacity pool.](../media/azure-netapp-files/billing-tags-capacity-pool.png)
 
-3. You can display and download tagged resources by using the [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) portal: 
+3. You can display and download information about tagged resources by using the [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) portal: 
     1. Click **Cost Analysis** and select the **Cost by resource** view.    
       [ ![Screenshot that shows Cost Analysis of Azure Cost Management](../media/azure-netapp-files/cost-analysis.png) ](../media/azure-netapp-files/cost-analysis.png#lightbox)  
 
