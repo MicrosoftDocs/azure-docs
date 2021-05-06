@@ -1,5 +1,5 @@
 ---
-title: WebSocket and Azure API Management (preview)
+title: WebSocket and Azure API Management
 description: Learn how API Management supports WebSocket, add a WebSocket API, and WebSocket limitations.
 ms.service: api-management
 author: v-hhunter
