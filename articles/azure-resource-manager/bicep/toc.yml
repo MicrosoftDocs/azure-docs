@@ -63,10 +63,6 @@
         href: copy-outputs.md
     - name: Modules
       href: modules.md
-  - name: Compile
-    items:
-    - name: Compile/Decompile
-      href: decompile.md
   - name: Deploy
     items:
     - name: Scopes
@@ -128,6 +124,10 @@
         href: deployment-tutorial-pipeline.md
     - name: Deployment history deletions
       href: deployment-history-deletions.md
+  - name: Decompile Bicep
+    items:
+    - name: Compile/Decompile
+      href: decompile.md
   - name: Share templates
     items:
     - name: Create & deploy template specs

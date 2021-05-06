@@ -53,7 +53,7 @@ bicep decompile main.json
 
 # [Portal](#tab/azure-portal)
 
-[Export the template](export-template-portal.md) through the portal.
+[Export the template](../templates/export-template-portal.md) through the portal.
 
 Use `bicep decompile <filename>` on the downloaded file.
 
