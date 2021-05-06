@@ -3,7 +3,7 @@ title: What is Azure IoT Central | Microsoft Docs
 description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions and helps to reduce the burden and cost of IoT management operations, and development. This article provides an overview of the features of Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/23/2020
+ms.date: 04/19/2021
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
@@ -36,13 +36,18 @@ The IoT Central documentation refers to four user roles that interact with an Io
 
 ## Create your IoT Central application
 
-You can quickly deploy a new IoT Central application and then customize it to your specific requirements. Start with a generic _application template_ or with one of the industry-focused application templates for [Retail](../retail/overview-iot-central-retail.md), [Energy](../energy/overview-iot-central-energy.md), [Government](../government/overview-iot-central-government.md), or [Healthcare](../healthcare/overview-iot-central-healthcare.md).
+You can quickly deploy a new IoT Central application and then customize it to your specific requirements. Start with a generic _application template_ or with one of the industry-focused application templates:
 
-See the [Create a new application](quick-deploy-iot-central.md) quickstart for a walk through of how to create your first application.
+- [Retail](../retail/overview-iot-central-retail.md)
+- [Energy](../energy/overview-iot-central-energy.md)
+- [Government](../government/overview-iot-central-government.md)
+- [Healthcare](../healthcare/overview-iot-central-healthcare.md).
+
+See the [Create a new application](quick-deploy-iot-central.md) quickstart for a walk-through of how to create your first application.
 
 ## Connect devices
 
-After creating your application, the first step is to create an connect devices. Every device connected to IoT Central uses a _device template_. A device template is the blueprint that defines the characteristics and behavior of a type of device such as the:
+After creating your application, the first step is to create and connect devices. Every device connected to IoT Central uses a _device template_. A device template is the blueprint that defines the characteristics and behavior of a type of device such as the:
 
 - Telemetry it sends. Examples include temperature and humidity. Telemetry is streaming data.
 - Business properties that an operator can modify. Examples include a customer address and a last serviced date.
@@ -68,7 +73,7 @@ You have several options for creating device templates:
 - Create a device model using Visual Studio code and publish the model to a repository. Implement your device code from the model, and connect your device to your IoT Central application. IoT Central finds the device model from the repository and creates a simple device template for you.
 - Create a device model using Visual Studio code. Implement your device code from the model. Manually import the device model into your IoT Central application and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
 
-See the [Add a simulated device](quick-create-simulated-device.md) quickstart for a walk through of how to create and connect your first device.
+See the [Add a simulated device](quick-create-simulated-device.md) quickstart for a walk-through of how to create and connect your first device.
 
 ### Customize the UI
 
@@ -88,7 +93,7 @@ As an operator, you use the IoT Central application to [manage the devices](howt
 
 You can [define custom rules and actions](howto-configure-rules.md) that operate over data streaming from connected devices. An operator can enable or disable these rules at the device level to control and automate tasks within the application.
 
-With any IoT solution designed to operate at scale, a structured approach to device management is important. It's not enough just to connect your devices to the cloud, you need to keep your devices connected and healthy. Use the following IoT Central capabilities to manage your devices throughout the application life cycle:
+As with any IoT solution designed to operate at scale, a structured approach to device management is important. It's not enough just to connect your devices to the cloud, you need to keep your devices connected and healthy. Use the following IoT Central capabilities to manage your devices throughout the application life cycle:
 
 ### Dashboards
 

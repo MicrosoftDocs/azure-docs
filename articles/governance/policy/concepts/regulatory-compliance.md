@@ -42,7 +42,7 @@ To link a custom Regulatory Compliance initiative to your Azure Security Center 
 
 When an initiative definition has been created with
 [groups](./initiative-definition-structure.md#policy-definition-groups), the **Compliance** details
-page in portal for that initiative has additional information. 
+page in portal for that initiative has additional information.
 
 A new tab, **Controls** is added to the page. Filtering is available by **compliance domain** and
 policy definitions are grouped by the `title` field from the **policyMetadata** object. Each row

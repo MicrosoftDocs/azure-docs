@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 04/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -32,7 +32,7 @@ To use MS Graph API, and interact with resources in your Azure AD B2C tenant, yo
 
 ## User phone number management (beta)
 
-A phone number that can be used by a user to sign-in using [SMS or voice calls](identity-provider-local.md#phone-sign-in-preview), or [multi-factor authentication](multi-factor-authentication.md). For more information, see [Azure AD authentication methods API](/graph/api/resources/phoneauthenticationmethod).
+A phone number that can be used by a user to sign-in using [SMS or voice calls](identity-provider-local.md#phone-sign-in), or [multi-factor authentication](multi-factor-authentication.md). For more information, see [Azure AD authentication methods API](/graph/api/resources/phoneauthenticationmethod).
 
 - [Add](/graph/api/authentication-post-phonemethods)
 - [List](/graph/api/authentication-list-phonemethods)
@@ -43,6 +43,9 @@ A phone number that can be used by a user to sign-in using [SMS or voice calls](
 Note, the [list](/graph/api/authentication-list-phonemethods) operation returns  only enabled phone numbers. The following phone number should be enabled to use with the list operations. 
 
 ![Enable phone sign-in](./media/microsoft-graph-operations/enable-phone-sign-in.png)
+
+> [!NOTE]
+> In the current beta version, this API works only if the phone number is stored with a space between the country code and the phone number. The Azure AD B2C service doesn't currently add this space by default.
 
 ## Self-service password reset email address (beta)
 

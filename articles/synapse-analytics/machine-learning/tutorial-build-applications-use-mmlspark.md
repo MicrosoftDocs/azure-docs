@@ -247,5 +247,5 @@ display(anamoly_detector.transform(df_timeseriesdata).select("timestamp", "value
 
 ## Next steps
 
-* [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks) 
+* [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/main/MachineLearning) 
 * [MMLSpark GitHub Repo](https://github.com/Azure/mmlspark)

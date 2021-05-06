@@ -9,7 +9,7 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: tamram 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage storage account access keys
@@ -50,7 +50,7 @@ $storageAccountKey = `
 
 # [Azure CLI](#tab/azure-cli)
 
-To list your account access keys with Azure CLI, call the [az storage account keys list](/cli/azure/storage/account/keys#az-storage-account-keys-list) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values. 
+To list your account access keys with Azure CLI, call the [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values. 
 
 ```azurecli-interactive
 az storage account keys list \
@@ -112,7 +112,7 @@ To rotate your storage account access keys with PowerShell:
 To rotate your storage account access keys with Azure CLI:
 
 1. Update the connection strings in your application code to reference the secondary access key for the storage account.
-1. Call the [az storage account keys renew](/cli/azure/storage/account/keys#az-storage-account-keys-renew) command to regenerate the primary access key, as shown in the following example:
+1. Call the [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) command to regenerate the primary access key, as shown in the following example:
 
     ```azurecli-interactive
     az storage account keys renew \

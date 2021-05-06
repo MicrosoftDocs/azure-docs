@@ -113,14 +113,6 @@ If you initiate the failover, two steps are required:
 
 If you made a mistake; for example, you paired the wrong regions during the initial setup, you can break the pairing of the two namespaces at any time. If you want to use the paired namespaces as regular namespaces, delete the alias.
 
-## Samples
-
-The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) shows how to set up and initiate a failover. This sample demonstrates the following concepts:
-
-- Settings required in Azure Active Directory to use Azure Resource Manager with Event Hubs. 
-- Steps required to execute the sample code. 
-- Send and receive from the current primary namespace. 
-
 ## Considerations
 
 Note the following considerations to keep in mind:

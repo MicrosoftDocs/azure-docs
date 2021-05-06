@@ -52,7 +52,7 @@ The following data connection methods are supported by Azure Sentinel:
     - [Azure Web Application Firewall (WAF)](connect-azure-waf.md) (formerly Microsoft WAF)
     - [Cloud App Security](connect-cloud-app-security.md)
     - [Domain name server](connect-dns.md)
-    - [Microsoft 365 Defender](connect-microsoft-365-defender.md) - includes M365D incidents and MDE raw data
+    - [Microsoft 365 Defender](connect-microsoft-365-defender.md) - includes M365D incidents and Defender for Endpoint raw data
     - [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md) (formerly Microsoft Defender Advanced Threat Protection)
     - [Microsoft Defender for Identity](connect-azure-atp.md) (formerly Azure Advanced Threat Protection)
     - [Microsoft Defender for Office 365](connect-office-365-advanced-threat-protection.md) (formerly Office 365 Advanced Threat Protection)

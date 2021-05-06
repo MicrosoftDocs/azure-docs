@@ -270,13 +270,13 @@ To disable auto-collection of Micrometer metrics (including Spring Boot Actuator
 }
 ```
 
-## Auto-collected Azure SDK telemetry
+## Auto-collected Azure SDK telemetry (preview)
 
-This feature is in preview.
+Many of the latest Azure SDK libraries emit telemetry (see the [full list](./java-in-process-agent.md#azure-sdks-preview)).
 
-Many of the latest Azure SDK libraries emit telemetry.
+Starting from Application Insights Java 3.0.3, you can enable capturing this telemetry.
 
-Starting from version 3.0.3, you can enable collection of this telemetry:
+If you want to enable this feature:
 
 ```json
 {
@@ -290,8 +290,8 @@ Starting from version 3.0.3, you can enable collection of this telemetry:
 }
 ```
 
-You can also enable this feature using the environment variable 
-`APPLICATIONINSIGHTS_PREVIEW_INSTRUMENTATION_AZURE_SDK_ENABLED`
+You can also enable this feature by setting the environment variable 
+`APPLICATIONINSIGHTS_PREVIEW_INSTRUMENTATION_AZURE_SDK_ENABLED` to `true`
 (which will then take precedence over enabled specified in the json configuration).
 
 ## Suppressing specific auto-collected telemetry
@@ -329,7 +329,7 @@ Starting from version 3.0.3, specific auto-collected telemetry can be suppressed
 }
 ```
 
-You can also suppress these instrumentations using these environment variables:
+You can also suppress these instrumentations by setting these environment variables to `false`:
 
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_CASSANDRA_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JDBC_ENABLED`
@@ -342,7 +342,7 @@ You can also suppress these instrumentations using these environment variables:
 
 (which will then take precedence over enabled specified in the json configuration).
 
-> NOTE
+> [!NOTE]
 > If you are looking for more fine-grained control, e.g. to suppress some redis calls but not all redis calls,
 > see [sampling overrides](./java-standalone-sampling-overrides.md).
 
@@ -375,7 +375,8 @@ If your application is behind a firewall and cannot connect directly to Applicat
 }
 ```
 
-Application Insights Java 3.0 also respects the global `-Dhttps.proxyHost` and `-Dhttps.proxyPort` if those are set.
+Application Insights Java 3.0 also respects the global `https.proxyHost` and `https.proxyPort` system properties
+if those are set (and `http.nonProxyHosts` if needed).
 
 ## Metric interval
 

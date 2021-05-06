@@ -12,3 +12,13 @@
   href: oracle-baremetal-architecture.md
 - name: Provision
   href: oracle-baremetal-provision.md
+- name: High availability and disaster recovery
+  items: 
+    - name: Overview
+      href: concepts-oracle-high-availability.md
+    - name: High availability features
+      href: high-availability-features.md
+    - name: Options and considerations
+      href: options-considerations-high-availability.md
+    - name: Choose how to recover 
+      href: oracle-high-availability-recovery.md

@@ -106,7 +106,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI
-            url: /cli/azure/ext/resource-graph/graph
+            url: /cli/azure/graph
           - text: Azure PowerShell
             url: /powershell/module/az.resourcegraph/#resourcegraph
           - text: Azure SDK for .NET

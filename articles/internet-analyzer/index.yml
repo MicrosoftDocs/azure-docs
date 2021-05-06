@@ -54,4 +54,4 @@ landingContent:
           - text: Internet Analyzer troubleshooting
             url: troubleshoot.md
           - text: Internet Analyzer CLI reference
-            url: /cli/azure/ext/internet-analyzer/internet-analyzer
+            url: /cli/azure/internet-analyzer
