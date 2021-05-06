@@ -601,6 +601,7 @@ static class StreamData {
 ## Call state update
 In this quickstart we will handle the changes of `CallState`. When the call is connected we handle the remote participant and when the call is disconnected we dispose the `previewRenderer` to stop local video. 
 
+```groovy
 private void handleCallOnStateChanged(PropertyChangedEvent args) {
     if (call.getState() == CallState.CONNECTED) {
         LinearLayout participantVideoContainer = findViewById(R.id.remotevideocontainer);
@@ -612,6 +613,7 @@ private void handleCallOnStateChanged(PropertyChangedEvent args) {
         }
     }
 }
+```
 
 ## End a call
 End the call by calling the `hangUp()` function on call instance and dispose the `previewRenderer` to stop local video. 

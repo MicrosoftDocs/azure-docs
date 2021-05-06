@@ -311,7 +311,7 @@ startVideoButton.addEventListener("click", async () => {
 });
 ```
 ## Run the code
-Use the `webpack-dev-server` to build and run your app. Run the following command to bundle application host in on a local webserver:
+Use the `webpack-dev-server` to build and run your app. Run the following command to bundle the application host in a local webserver:
 
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
@@ -322,5 +322,5 @@ Open your browser and navigate to http://localhost:8080/. You should see the fol
 
 You can make an 1:1 outgoing video call by providing a user ID in the text field and clicking the Start Call button. 
 
-## Sample Code
+## Sample code
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling).
