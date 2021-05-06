@@ -12,7 +12,7 @@ ms.date: 05/25/2021
 
 With the integration between Azure API Management (APIM) and Azure Arc on Kubernetes, you can deploy the API Management gateway component as an extension in an Azure Arc enabled Kubernetes cluster. 
 
-[!INCLUDE [preview](./api-management/includes/preview/preview-callout.md)]
+[!INCLUDE [preview](./includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
