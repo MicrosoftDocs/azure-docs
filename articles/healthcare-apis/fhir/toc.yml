@@ -97,7 +97,7 @@
       href: how-to-run-a-reindex.md
     - name: Search examples for Azure API for FHIR
       href: search-samples.md
-  - name: $validate resources against profiles
+  - name: Profile validation
     href: validation-against-profiles.md
   - name: Export data
     expanded: false
