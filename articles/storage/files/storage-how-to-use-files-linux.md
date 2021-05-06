@@ -109,7 +109,7 @@ sudo mkdir -p $mntPath
 
 Next, mount the file share using the `mount` command. In the example below, the `$smbPath` command is populated using the fully qualified domain name for the storage account's file endpoint and `$storageAccountKey` is populated with the storage account key for the storage account. 
 
-# [SMB 3.1.1](#tab/smb3.1.1)
+# [SMB 3.1.1](#tab/smb311)
 ```bash
 # This command assumes you have logged in with az login
 httpEndpoint=$(az storage account show \
@@ -129,7 +129,7 @@ sudo mount -t cifs $smbPath $mntPath -o username=$storageAccountName,password=$s
 > [!Note]  
 > Starting in Linux kernel version 5.0, SMB 3.1.1 is the default negotiated protocol. If you're using a version of the Linux kernel prior to 5.0, specify `vers=3.1.1` in the mount options list.  
 
-# [SMB 3.0](#tab/smb3.0)
+# [SMB 3.0](#tab/smb30)
 ```bash
 # This command assumes you have logged in with az login
 httpEndpoint=$(az storage account show \
@@ -146,7 +146,7 @@ storageAccountKey=$(az storage account keys list \
 sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
 ```
 
-# [SMB 2.1](#tab/smb2.1)
+# [SMB 2.1](#tab/smb21)
 ```bash
 # This command assumes you have logged in with az login
 httpEndpoint=$(az storage account show \
