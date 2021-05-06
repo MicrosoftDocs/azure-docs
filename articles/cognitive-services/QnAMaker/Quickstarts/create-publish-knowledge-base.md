@@ -53,7 +53,7 @@ When you are done creating the resource in the Azure portal, return to the QnA M
     |Setting|Value|
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files.**|Checked|
-    |**Multi-turn default text**| Select and option|
+    |**Multi-turn default text**| Select an option|
     |**+ Add URL**|`https://www.microsoft.com/en-us/software-download/faq`|
     |**Chit-chat**|Select **Professional**|
 
@@ -97,9 +97,14 @@ You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Micro
     |Setting|Value|
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files.**|Checked|
+<<<<<<< HEAD
     |**Multi-turn default text**| Select and option|
     |**+ Add File**| Download Surface laptop manual from: 'https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf' | 
     |**Unstructured**| When adding a file, if you check the unstructured box, the document will be ingested entirely into the service. If you leave this unchecked, QnA pairs      are extracted from the file.|
+=======
+    |**Multi-turn default text**| Select an option|
+    |**+ Add File**| Download Surface laptop manual from: 'https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf' 
+>>>>>>> c2026297fd9095e0409dbc4a278d274b8f5aa2bc
     |**Chit-chat**|Select **Professional**|
 
 8. In **Step 5**, Select **Create your KB**.

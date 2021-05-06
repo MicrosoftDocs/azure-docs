@@ -1,6 +1,41 @@
 {
   "redirections": [
     {
+      "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-advanced-device.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-advanced-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-choose-hub.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-choose-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-create-custom-device.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-create-custom-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-create-simulation.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-create-simulation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-overview.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-protobuf.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-protobuf",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-time-series-insights.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-time-series-insights",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/service-fabric-mesh/move-across-regions.md",
       "redirect_url": "/previous-versions/azure/service-fabric-mesh/move-across-regions",
       "redirect_document_id": false
@@ -65952,6 +65987,21 @@
     {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-configure-named-locations.md",
       "redirect_url": "/azure/active-directory/conditional-access/location-condition",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/overview-reports",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-send-telemetry-cli-python.md",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-send-telemetry-cli-node.md",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub",
       "redirect_document_id": false
     }
   ]

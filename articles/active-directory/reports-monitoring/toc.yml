@@ -110,7 +110,5 @@
     href: reference-reports-latencies.md
   - name: Frequently asked questions
     href: reports-faq.md
-  - name: Audit log schema
-    href: reference-azure-monitor-audit-log-schema.md
   - name: Sign-in log schema
     href: reference-azure-monitor-sign-ins-log-schema.md
