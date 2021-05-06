@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 11/18/2020
+ms.date: 05/06/2021
 ms.custom: devx-track-python
 ---
 
@@ -71,6 +71,7 @@ For more information, see [Create an Azure Batch pool in a virtual network](../b
     * Storage.region
     * KeyVault.region
     * ContainerRegistry.region
+    * AzureMonitor
 
     If you plan on using the default Docker images provided by Microsoft, and enabling user-managed dependencies, you must also add the following service tags:
 
@@ -95,10 +96,15 @@ For more information, see [Create an Azure Batch pool in a virtual network](../b
     | **cloud.r-project.org** | Used when installing CRAN packages for R development. |
     | **\*pytorch.org** | Used by some examples based on PyTorch. |
     | **\*.tensorflow.org** | Used by some examples based on Tensorflow. |
+    | **dc.applicationinsights.azure.com** | Azure Monitor. |
+    | **dc.applicationinsights.microsoft.com** | Azure Monitor. |
+    | **dc.services.visualstudio.com** | Azure Monitor. |
 
     For __Protocol:Port__, select use __http, https__.
 
     For more information on configuring application rules, see [Deploy and configure Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
+
+    For a list of IP addresses for the Azure Monitor hosts, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
 
 1. To restrict access to models deployed to Azure Kubernetes Service (AKS), see [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
 
