@@ -5,7 +5,7 @@ author: sethmanheim
 ms.author: sethm
 ms.service: notification-hubs
 ms.topic: conceptual
-ms.date: 04/22/2021
+ms.date: 05/06/2021
 ms.custom: template-concept
 ---
 
@@ -60,7 +60,7 @@ The following sections provide an overview of the components that comprise the s
 
 The following methods in AuthenticateController.cs are used to authenticate a logged-in user:
 
-```css
+```cs
 [HttpPost]
 [Route("login")]
 public async Task<IActionResult> Login([FromBody] LoginModel model)
@@ -143,7 +143,7 @@ public async Task<IActionResult> Register([FromBody] RegisterModel model)
 
 The dashboard controller in DashboardController.cs returns all notification information:
 
-```css
+```cs
 public class DashboardController : ControllerBase
 {
     private readonly ApplicationDbContext _db;
@@ -335,13 +335,37 @@ public interface INotificationService
 }
 ```
 
+## Deploy the solution
+
+To run the sample, the following prerequisites are required:
+
+- An Azure subscription. If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Firebase account to set up push notifications for Android.
+- Apple developer account to set up push notifications for iOS.
+- A Windows computer with Visual Studio 2019 installed, along with ASP.NET Core and UWP application development support.
+- The Android SDK and Android Studio on your development machine if running the Android application.
+- A Mac OSX machine with XCode and the latest iOS SDK, if running the iOS application.
+
+### Deploy resources
+
+- **[Azure Notification Hub instance](#create-resource-notification-hub):** a notification hub configured on Azure.
+- **[SQL Server database instance](#create-resource-sql-database):** A SQL Server database hosted on Azure.
+- **ASP.NET app backend:** Web API backend built over .NET 5 which connects with Azure Notification Hub hosted as Azure App Service. For more information, see [Quickstart: Deploy an ASP.NET web app](/azure/app-service/quickstart-dotnetcore?tabs=net50&pivots=development-environment-vs).
+
+If you don't want to deploy all the resources manually, you can use the Azure Resource Manager template.json file provided in the GitHub repository to deploy all the necessary instances in one step. The template file is available in the repo in /azure-template. For more information about how to use resource manager templates, see [Tutorial: Use Azure Quickstart templates](/azure/azure-resource-manager/templates/template-tutorial-quickstart-template?tabs=azure-powershell).
+
+### Set up notifications for Android and iOS
+
+- **Firebase:** To receive notifications on Android, configure the Firebase service and connect it with your Azure notification hub instance. For more information, see [Configure Google Firebase settings](configure-google-firebase-cloud-messaging.md).
+- **Apple Push Notification Service (APNS):** To receive notifications on iOS, configure the APNS service using your Apple developer account and connect it with your Azure notification hub instance. For more information, see [Configure Apple Push Notification Service settings](configure-apple-push-notification-service.md).
+
 ## Build the solution
 
 To build the sample, follow these steps.
 
 ### Create resource: SQL database
 
-Create a SQL Server database instance in the Azure portal. For example:
+[Create a SQL Server database instance](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal) in the Azure portal. For example:
 
 :::image type="content" source="media/uwpreact/resources-sql.png" alt-text="SQL instance resources":::
 
@@ -363,27 +387,52 @@ To configure the app backend, locate the **/NotificationHub.Sample.API/appsettin
   },
 ```
 
+Replace `<SERVER_NAME>` with the name of your SQL server, `<DB_NAME>` with your deployed database URL, `<DB_USER_NAME>` with configured username, and `<PASSWORD>` with the configured password.
+
 You can run the API solution locally or on any IIS server, or deploy it as an Azure Web App Service. Keep the URL of the API handy.
+
+### Build the NotificationHub.Sample.API application
+
+1. In Visual Studio, load the /NotificationHubSample/NotificationHub.Sample.API/NotificationHub.Sample.API.sln solution.
+2. From the **Build** menu, select **Build Solution**.
+3. Publish the solution to Azure: in Solution Explorer, right click the **NotificationHub.Sample.API** project, then select **Publish**.
+4. In the **Publish** dialog, select **Azure** (first option), then select **Next**.
+5. Select **Azure App Service (Windows)**, then select **Next**.
+6. You are redirected to the following dialog, from which you can select the appropriate subscription name and AppService instances. Your backend will be deployed to Azure, and you will be redirected to a new URL.
+
+   :::image type="content" source="media/uwpreact/publish.png" alt-text="Publish project":::
+
+7. Once the backend is published, add the generated URL into **config.js**, located under the **/app** folder. Be sure to append `/api/` after the URL.
 
 ## Run React native frontend application for Windows
 
+The application requires both the mobile application (either Android or iOS) and UWP manager application running simultaneously. Follow these steps to run both of them:
+
 Open the **app** folder in your preferred terminal or shell window. Then, do the following:
 
-1. Run `npm install`.
-2. Run `npm run start` from one terminal window.
-3. Open a new terminal window in parallel, and run `npx react-native run-windows` to run the UWP application.
+### Windows
 
-## Run React native frontend application for iOS or Android
+1. Run `npm install` to install all the package dependencies.
+2. Run `npm run start` to start the metro server in one console window.
+3. Open another terminal window, and run `npx react-native run-windows` to run the UWP application.
+4. If the deployment or build fails, see the troubleshooting guide.
 
-To run the iOS or Android client application, run the following two commands in two separate terminal windows, inside the **\app** folder. Note that you cannot receive notifications in the iOS simulator:
+### Android/iOS
 
-```shell
-$ npm run start
+1. Configure Firebase and APNS on your React-Native project to make sure you are able to use the notification capabilities.
+2. For Android, after you have successfully configured the Firebase project, download the **google-services.json** file from the Firebase portal. Replace **./app/android/app/google-services.json** with this new file. Make sure the application package name matches the one configured in Firebase. The package name is configured in the **AndroidManifest.xml** file.
+3. For iOS, notifications can only be received by applications signed and installed via the App Store or TestFlight. You must create an application in your Apple developer account. The application's bundle identifier configured in your Apple developer account should be configured in your application's **Info.plist** and **Entitlements.plist** files.
+4. For more information about how to configure notifications in a React Native application, see [Tutorial: Send push notifications to React Native](/azure/developer/mobile-apps/notification-hubs-backend-service-react-native).
+5. After the notifications are configured, run `npm run start` to start the metro server in one console window. If your Windows application is already running, you can skip this step.
+6. In a new console window, run `npx react-native run-android` to run Android, or `npx react-native run-ios` to run the iOS application. As previously mentioned, the notifications won't work on iOS if deployed locally. You cannot receive notifications in the iOS simulator.
 
-$ npx react-native run-android
-or
-$ npx react-native run-ios
-```
+## Troubleshooting
+
+You might get the following error while running the React Native for Windows application:
+
+`error MSB4057: The target "Deploy" does not exist in the project`
+
+This is a known issue with React Native for Windows. To fix this, unload the .csproj file for the **CheckboxWindows** and **ReactNativeAsyncStorage** projects in Visual Studio after opening **app.sln** in the **app/windows** folder, and then add the following line just before ...</Project> and reload the project.
 
 ## Next steps
 
