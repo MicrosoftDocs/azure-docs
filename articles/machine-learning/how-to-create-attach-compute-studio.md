@@ -74,7 +74,7 @@ Follow the previous steps to view the list of compute targets. Then use these st
     :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="View compute status from a list":::
 
 
-### Compute instance
+### <a name="compute-instance"></a> Compute instance
 
 Use the [steps above](#portal-create) to create the compute instance.  Then fill out the form as follows:
 
@@ -87,7 +87,7 @@ Use the [steps above](#portal-create) to create the compute instance.  Then fill
 |Virtual machine type |  Choose CPU or GPU. This type cannot be changed after creation     |
 |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Enable/disable SSH access     |   SSH access is disabled by default.  SSH access cannot be. changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md)   |
-|Advanced settings     |  Optional. Configure a virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](./how-to-secure-training-vnet.md) for vnet.  |
+|Advanced settings     |  Optional. Configure a virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](./how-to-secure-training-vnet.md) for vnet.  Also use advanced settings to specify a [setup script](how-to-create-manage-compute-instance.md#setup-script). |
 
 ### <a name="amlcompute"></a> Compute clusters
 

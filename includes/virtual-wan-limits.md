@@ -19,7 +19,7 @@
 | Point-to-Site users per hub| 10,000 |
 | Aggregate throughput per Virtual WAN User VPN (Point-to-site) gateway | 20 Gbps |
 | Aggregate throughput per Virtual WAN ExpressRoute gateway | 20 Gbps |
-| ExpressRoute Circuit connections per hub | 4 |
+| ExpressRoute Circuit connections per hub | 8 |
 | VNet connections per hub  | 500 minus total number of hubs in Virtual WAN |
 | Aggregate throughput per Virtual WAN Hub Router | 50 Gbps for VNet to VNet transit |
 | VM workload across all VNets connected to a single Virtual WAN hub | 2000 

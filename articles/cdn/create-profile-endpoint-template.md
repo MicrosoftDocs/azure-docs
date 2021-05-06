@@ -9,7 +9,7 @@ ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurecli
+ms.custom: subject-armqs
 ms.date: 06/25/2020
 ms.author: allensu
 
