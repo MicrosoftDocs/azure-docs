@@ -15,10 +15,11 @@ keywords: on-premises, Docker, container, identify
 
 # Install and run Translator containers (Preview)
 
-  Containers package everything an application needs to run—dependencies, configurations, libraries, and other binaries—and to enable seamless and consistent deployment across any computing environment. The Translator container works in collaboration with  [Docker](/dotnet/architecture/microservices/container-docker-introduction/docker-defined),  an open-source platform for the development lifecycle of containerized applications, to enable you to run features of the Translator API in your own environment.
+  Containers package everything an application needs to run—dependencies, configurations, libraries, and other binaries—and to enable smooth and consistent deployment across any computing environment. The Translator container works in collaboration with  [Docker](/dotnet/architecture/microservices/container-docker-introduction/docker-defined),  an open-source platform for the development lifecycle of containerized applications, to enable you to run features of the Translator API in your own environment.
 
 > [!NOTE]
  > Containers offer encapsulation, isolation, and portability in a predictable environment and can add a layer of security to your application. However, containers should only be considered one part of the overall program for securing your app. To learn more about container security, *see* our [**Container security**](/azure/security-center/container-security) documentation.
+<!-- markdownlint-disable MD033 -->
 
 The following Translator container is in gated preview:
 
@@ -44,7 +45,7 @@ You'll also need the following to use Translator containers:
 
 |Optional|Purpose|
 |---------|----------|
-|Azure CLI (command-line interface) |<ul><li> The [Azure CLI](/cli/azure/install-azure-cli) enables you to use a set of online commands to create and manage Azure resources. It is available to install in Windows, macOS and Linux environments and can be run in a Docker container and Azure Cloud Shell.</li></ul> |
+|Azure CLI (command-line interface) |<ul><li> The [Azure CLI](/cli/azure/install-azure-cli) enables you to use a set of online commands to create and manage Azure resources. It is available to install in Windows, macOS, and Linux environments and can be run in a Docker container and Azure Cloud Shell.</li></ul> |
 |||
 
 ## Required elements
@@ -69,14 +70,14 @@ To use containers, you'll need and x64-based computer with a Linux OS that runs 
 
 ## Container requirements and recommendations
 
-The following table describes the minimum and recommended specifications for Translator containers. At least 2 gigabytes (GB) of memory are required and each CPU must be at least 2.6 gigahertz (GHz) or faster. and memory, in gigabytes (GB), to allocate for each Translator.The following table describes the minimum and recommended allocation of resources for each Translator container.
+The following table describes the minimum and recommended specifications for Translator containers. At least 2 gigabytes (GB) of memory are required and each CPU must be at least 2.6 gigahertz (GHz) or faster. and memory, in gigabytes (GB), to allocate for each Translator. The following table describes the minimum and recommended allocation of resources for each Translator container.
 
 | Container | Minimum |Recommended | Language Pair |
 |-----------|---------|---------------|----------------------|
 | Text Translator |2 core, 2-GB memory |4 core, 8-GB memory | 4 |
 |||
 
-For every language pair, it's recommended to have 2 GB of memory. By default, the Translator offline container has 4 language pairs. See [supported languages and translation](#supported-languages-and-translation) for the details. The core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
+For every language pair, it's recommended to have 2 GB of memory. By default, the Translator offline container has four language pairs. See [supported languages and translation](#supported-languages-and-translation) for the details. The core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 > [!NOTE]
 > * CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the docker run command.
@@ -123,7 +124,7 @@ The following table lists the language supported by each container image:
 
 ### Text translation support
 
- The `POST /translate` method supports the following language conversions to and from *English*. Please note that while the process can translate from English to one of the languages listed, it *cannot*  process a translation from a *non-English* language to another *non-English* language.
+ The `POST /translate` method supports the following language conversions to and from *English*. </br>**NOTE**: while the process can translate from English to one of the languages listed, it *cannot*  process a translation from a *non-English* language to another *non-English* language.
 
 > For optimal quality consumers should only send one sentence per request.
 
@@ -144,7 +145,7 @@ The following table lists the language supported by each container image:
 
 ## Get container images with **docker  pull**
 
-* To perform the [**docker pull**](https://docs.docker.com/engine/reference/commandline/pull/) command, you first need to access the container registry. From the Azure CLI, you can login to the Azure Container Registry using the following command:
+* To perform the [**docker pull**](https://docs.docker.com/engine/reference/commandline/pull/) command, you first need to access the container registry. From the Azure CLI, you can log in to the Azure Container Registry using the following command:
 
 ```azurecli
  [az acr login](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-login) 
@@ -192,9 +193,9 @@ ApiKey={API_KEY}
 The above command:
 
 * Runs a Translator offline container from the container image.
-* Allocates 8 gigabytes (GB) of memory and 4 CPU core.
+* Allocates eight gigabytes (GB) of memory and four CPU core.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
-* Accepts the end user agreement (EULA)
+* Accepts the end-user agreement (EULA)
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
 ### Run multiple containers on the same host
@@ -232,8 +233,8 @@ There are several ways to validate that the container is running:
 | Request URL | Purpose |
 |--|--|
 | `http://localhost:5000/` | The container provides a home page. |
-| `http://localhost:5000/ready` | Requested with GET, this provides a verification that the container is ready to accept a query against the model.  This request can be used for Kubernetes [liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/). |
-| `http://localhost:5000/status` | Also requested with GET, this verifies if the api-key used to start the container is valid without causing an endpoint query. This request can be used for Kubernetes [liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/). |
+| `http://localhost:5000/ready` | Requested with GET. Provides a verification that the container is ready to accept a query against the model.  This request can be used for Kubernetes [liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/). |
+| `http://localhost:5000/status` | Requested with GET.  Verifies if the api-key used to start the container is valid without causing an endpoint query. This request can be used for Kubernetes [liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/). |
 | `http://localhost:5000/swagger` | The container provides a full set of documentation for the endpoints and a **Try it out** feature. With this feature, you can enter your settings into a web-based HTML form and make the query without having to write any code. After the query returns, an example CURL command is provided to demonstrate the HTTP headers and body format that's required. |
 
 :::image type="content" source="../../../includes/media/cognitive-services-containers-api-documentation/container-webpage.png" alt-text="Container home page":::
@@ -286,7 +287,7 @@ Navigate to the swagger page: <http://localhost:5000/swagger/index.html>
     ]
 ```
 
-1. Select **Execute**, the resulting translations are output in the **Response Body**. You should expect something similar to the following:
+1. Select **Execute**, the resulting translations are output in the **Response Body**. You should expect something similar to the following response:
 
 ```json
 "translations": [
@@ -319,7 +320,7 @@ print(json.dumps(
 
 ### Translate text with C#/.NET console app
 
-Launch Visual Studio, and create a new console application. Edit the `*.csproj` file to add the `<LangVersion>7.1</LangVersion>` node - this specifies C# 7.1. Add the [Newtoonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) NuGet package, version 11.0.2.
+Launch Visual Studio, and create a new console application. Edit the `*.csproj` file to add the `<LangVersion>7.1</LangVersion>` node—specifies C# 7.1. Add the [Newtoonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) NuGet package, version 11.0.2.
 
 In the `Program.cs` replace all the existing code with the following:
 
@@ -377,7 +378,7 @@ In this article, you learned concepts and workflows for downloading, installing,
 * Translator provides Linux containers for Docker that support 12 language pairs.
 * Container images are downloaded from the Container Preview Registry.
 * Container images run in Docker.
-* You can use either the REST API or SDK to call operations in Translator offline containers by specifying the host URI of the container.
+* You can use either the REST API or SDK to call operations in Translator offline containers by specifying the container's host URI.
 
 ## Next steps
 
