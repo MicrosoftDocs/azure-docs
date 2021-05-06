@@ -153,13 +153,13 @@ To get started with FIDO2 security keys, complete the following how-to:
 
 The following considerations apply:
 
-- Administrators can enable passwordless authentication methods for their tenant
+- Administrators can enable passwordless authentication methods for their tenant.
 
-- Administrators can target all users or select users/groups within their tenant for each method
+- Administrators can target all users or select users/groups within their tenant for each method.
 
-- End users can register and manage these passwordless authentication methods in their account portal
+- Users can register and manage these passwordless authentication methods in their account portal.
 
-- End users can sign in with these passwordless authentication methods:
+- Users can sign in with these passwordless authentication methods:
    - Microsoft Authenticator App: Works in scenarios where Azure AD authentication is used, including across all browsers, during Windows 10 setup, and with integrated mobile apps on any operating system.
    - Security keys: Work on lock screen for Windows 10 and the web in supported browsers like Microsoft Edge (both legacy and new Edge).
 
