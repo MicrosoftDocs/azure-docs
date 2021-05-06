@@ -15,7 +15,7 @@ ms.reviewer: azmetadata
 
 ## What is "user data"
 
-User data is a set of script or other metadata,  that will be inserted to an Azure virtual machine at provision time. Any application on the virtual machine can access the user data from the Azure Instance Metadata Service (IMDS) after provision. 
+User data is a set of scripts or other metadata,  that will be inserted to an Azure virtual machine at provision time. Any application on the virtual machine can access the user data from the Azure Instance Metadata Service (IMDS) after provision. 
 
 User data is a new version of [custom data](https://docs.microsoft.com/azure/virtual-machines/custom-data)  and it offers added benefits:
 
@@ -29,17 +29,17 @@ User data is a new version of [custom data](https://docs.microsoft.com/azure/vir
 
  In addition, if user data is not added at provision time, you can still add it after provision.
 
-**Security warning**
+**Warning**
 
-> Note user data will not be encrypted, and any process on the VM can query this data. You should not store confidential information in user data.
+> User data will not be encrypted, and any process on the VM can query this data. You should not store confidential information in user data.
 
-Make sure you get the latest Azure ARM API to use the new user data features. The contents should be base64 encoded before passed to the API. The size cannot exceed 64 KB.
+Make sure you get the latest Azure Resource Manager API to use the new user data features. The contents should be base64 encoded before passed to the API. The size cannot exceed 64 KB.
 
 ## Create user data for Azure VM/VMSS
 
 **Adding user data when creating new VM**
 
-Use [this ARM template](https://aka.ms/ImdsUserDataArmTemplate) to create a new VM with user data.
+Use [this Azure Resource Manager template](https://aka.ms/ImdsUserDataArmTemplate) to create a new VM with user data.
 If you are using rest API, for single VMs, add 'UserData' to the "properties" section with the PUT request to create the VM.
 
 ```json
