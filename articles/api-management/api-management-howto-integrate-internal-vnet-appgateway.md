@@ -122,7 +122,7 @@ Azure Resource Manager requires that all resource groups specify a location. Thi
 
 The following example shows how to create a virtual network using Resource Manager. The virtual network in this example consists of separate subnets for Application Gateway and API Management.
 
-## Step 1
+### Step 1
 
 Create network security groups and NSG rules for the Application Gateway and API Management subnets.
 
@@ -130,11 +130,8 @@ Create network security groups and NSG rules for the Application Gateway and API
 $appGwRule1 = New-AzNetworkSecurityRuleConfig -Name appgw-in -Description "AppGw inbound" `
     -Access Allow -Protocol * -Direction Inbound -Priority 100 -SourceAddressPrefix `
     GatewayManager -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 65200-65535
-$appGwRule2 = New-AzNetworkSecurityRuleConfig -Name appgw-internet -Description "AppGw inbound internet" `
-    -Access Allow -Protocol TCP -Direction Inbound -Priority 110 -SourceAddressPrefix `
-    Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 443
 $appGwNsg = New-AzNetworkSecurityGroup -ResourceGroupName $resGroupName -Location $location -Name `
-    "NSG-APPGW" -SecurityRules $appGwRule1,$appGwRule2
+    "NSG-APPGW" -SecurityRules $appGwRule1
 
 $apimRule1 = New-AzNetworkSecurityRuleConfig -Name apim-in -Description "APIM inbound" `
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix `
@@ -247,6 +244,8 @@ Set-AzApiManagement -InputObject $apimService
 
 ## Configure a private zone for DNS resolution in the virtual network
 
+### Step 1
+
 Create a private DNS zone and link the virtual network.
 
 ```powershell
@@ -255,6 +254,8 @@ $link = New-AzPrivateDnsVirtualNetworkLink -ZoneName contoso.net `
   -ResourceGroupName $resGroupName -Name "mylink" `
   -VirtualNetworkId $vnet.id
 ```
+
+### Step 2
 
 Create A-records for the custom domain hostnames, mapping to the private IP address of the API Management service:
 
