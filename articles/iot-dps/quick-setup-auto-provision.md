@@ -32,22 +32,7 @@ You'll need an Azure subscription to begin with this article. You can create a [
 
 ## Create a new IoT Hub Device Provisioning Service
 
-1. Select the **+ Create a resource** button again.
-
-2. *Search the Marketplace* for the **Device Provisioning Service**. Select **IoT Hub Device Provisioning Service** and hit the **Create** button. 
-
-3. Provide the following information for your new Device Provisioning Service instance and hit **Create**.
-
-    * **Name:** Provide a unique name for your new Device Provisioning Service instance. If the name you enter is available, a green check mark appears.
-    * **Subscription:** Choose the subscription that you want to use to create this Device Provisioning Service instance.
-    * **Resource group:** This field allows you to create a new resource group, or choose an existing one to contain the new instance. Choose the same resource group that contains the Iot hub you created above, for example, **TestResources**. By putting all related resources in a group together, you can manage them together. For example, deleting the resource group deletes all resources contained in that group. For more information, see [Manage Azure Resource Manager resource groups](../azure-resource-manager/management/manage-resource-groups-portal.md).
-    * **Location:** Select the closest location to your devices.
-
-      ![Enter basic information about your Device Provisioning Service instance in the portal blade](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
-
-4. Select the notification button to monitor the creation of the resource instance. Once the service is successfully deployed, select **Pin to dashboard**, and then **Go to resource**.
-
-    ![Monitor the deployment notification](./media/quick-setup-auto-provision/pin-to-dashboard.png)
+[!INCLUDE [iot-dps-include-create-service](../../includes/iot-dps-include-create-service.md)]
 
 ## Link the IoT hub and your Device Provisioning Service
 

@@ -32,11 +32,11 @@ Follow these steps to create a new Device Provisioning Service instance.
 
 1. In the upper left-hand corner of the Azure portal, click **Create a resource**.
 
-2. In the Search box, type **device provisioning**. 
+1. In the Search box, type **device provisioning**. 
 
-3. Click **IoT Hub Device Provisioning Service**.
+1. Click **IoT Hub Device Provisioning Service**.
 
-4. Fill out the **IoT Hub Device Provisioning Service** form with the following information:
+1. Fill out the **Basics** tab of the **IoT Hub Device Provisioning Service** creation with the following information:
 	
    | Setting       | Suggested value | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
@@ -47,11 +47,25 @@ Follow these steps to create a new Device Provisioning Service instance.
 
    ![Enter basic information about your Device Provisioning service in the portal](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
-5. Click **Create**. After a few moments, the Device Provisioning Service instance is created and the **Overview** page is displayed.
+1. Select **Next: Networking** to continue creating your service.
 
-6. On the **Overview** page for the new service instance, copy the value for the **ID scope** for use later. That value is used to identify registration IDs, and provides a guarantee that the registration ID is unique.
+   Choose the endpoints that can connect to your Device Provisioning Service. You can select the default setting **Public endpoint (all networks)** or **Private endpoint**. Accept the default setting for this tutorial.
 
-7. Also, copy the **Service endpoint** value for later use. 
+1. Select **Next: Management** to continue creating your service. This tab is purely informational: you can only create a Device Provisioning Service in the S1 tier as described.
+
+1. Select **Next: Tags** to continue to the next screen.
+
+   Tags are name/value pairs. You can assign the same tag to multiple resources and resource groups to categorize resources and consolidate billing. For more information, see [Use tags to organize your Azure resources](../articles/azure-resource-manager/management/tag-resources.md).
+
+   :::image type="content" source="./media/tutorial-set-up-cloud/create-iot-dps-portal-tags.png" alt-text="Assign tags for the service using the Azure portal.":::
+
+1. Select **Next: Review + Create**. On the review page, confirm that the information you entered is correct and click **Create**. After a few moments, the Device Provisioning Service instance is created.
+
+1. After the deployment is complete, click **Go to resource** to go to the **Overview** page for the new service instance.
+
+1. On the **Overview** page for the new service instance, copy the value for the **ID scope** for use later. That value is used to identify registration IDs, and provides a guarantee that the registration ID is unique.
+
+1. Also, copy the **Service endpoint** value for later use. 
 
 ## Create an IoT hub
 
