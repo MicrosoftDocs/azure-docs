@@ -104,7 +104,7 @@ If a guest user has not yet redeemed their invitation, you can resend the invita
 5. Select the user account.
 6. In the **Identity** section, under **Invitation accepted**, Select the **(manage)** link. 
 7. If the user has not yet accepted the invitation, Select the **Yes** option to resend.
-    ![Resend Invitation](./media/add-users-administrator/b2b-user-resend-invitation.png)
+    ![Resend Invitation](./media/add-users-administrator/resend-invitation.png)
 
 > [!NOTE]
 > An invitation URL will be generated.
