@@ -58,7 +58,7 @@ The following scenarios are not supported right now:
 - Use the new [Exchange Admin Center](https://admin.exchange.microsoft.com/) for role assignments via group membership. The old Exchange Admin Center doesn’t support this feature yet. Exchange PowerShell cmdlets will work as expected.
 - Azure Information Protection Portal (the classic portal) doesn't recognize role membership via group yet. You can [migrate to the unified sensitivity labeling platform](/azure/information-protection/configure-policy-migrate-labels) and then use the Office 365 Security & Compliance center to use group assignments to manage roles.
 - [Apps Admin Center](https://config.office.com/) doesn't support this feature yet. Assign users directly to Office Apps Administrator role.
-- [M365 Compliance Center](https://compliance.microsoft.com/) doesn't support this feature yet. Assign users directly to appropriate Azure AD roles to use this portal.
+- [Microsoft 365 Compliance Center](https://compliance.microsoft.com/) doesn't support this feature yet. Assign users directly to appropriate Azure AD roles to use this portal.
 
 We are fixing these issues.
 
