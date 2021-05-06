@@ -50,7 +50,10 @@ In the *Remediation* phase that follows, the user is challenged with MFA. Once c
 
 The remediation may also happen through other channels. For example, when the account's password is reset, either by the administrator or by the user. You can check the the user *Risk state* in the [risky users report](identity-protection-investigate-risk.md#navigating-the-risky-users-report).
 
-To remediate the risk successfully, within the journey make sure the *Remediation* technical profile is called after *Evaluation* is executed. If only the *Evaluation* technical profile invoked, the risk state is *At risk*.  When the *Evaluation* technical profile recommendation is `Block`, the call to *Evaluation* technical profile is not required. The status risk state is *At risk*.
+> [!IMPORTANT]
+> To remediate the risk successfully within the journey, make sure the *Remediation* technical profile is called after *Evaluation* is executed. If only the *Evaluation* technical profile invoked without the Remediation, the risk state will be *At risk*.
+
+When the *Evaluation* technical profile recommendation returns `Block`, the call to *Evaluation* technical profile is not required. The risk state is set will be *At risk*.
 
 ::: zone pivot="b2c-custom-policy"
 
@@ -234,9 +237,6 @@ When adding Conditional Access to a user flow, consider the use of **Multi-facto
    - **Always on** - MFA is always required regardless of your Conditional Access setup. If users aren't already enrolled in MFA, they're prompted to enroll during sign-in. During sign-up, users are prompted to enroll in MFA.
    - **Conditional (Preview)** - MFA is required only when an active Conditional Access Policy requires it. If the result of the Conditional Access evaluation is an MFA challenge with no risk, MFA is enforced during sign-in. If the result is an MFA challenge due to risk *and* the user is not enrolled in MFA, sign-in is blocked. During sign-up, users aren't prompted to enroll in MFA.
 
-> [!IMPORTANT]
-> If your Conditional Access policy grants access with MFA but the user hasn't enrolled a phone number, the user may be blocked.
-
 ::: zone pivot="b2c-user-flow"
 
 To enable Conditional Access for a user flow, make sure the version supports Conditional Access. These user flow versions are labeled **Recommended**.
@@ -269,6 +269,21 @@ To enable Conditional Access for a user flow, make sure the version supports Con
 1. Get the example of a conditional access policy on [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/conditional-access).
 1. In each file, replace the string `yourtenant` with the name of your Azure AD B2C tenant. For example, if the name of your B2C tenant is *contosob2c*, all instances of `yourtenant.onmicrosoft.com` become `contosob2c.onmicrosoft.com`.
 1. Upload the policy files.
+
+### Configure the remediation technical profile
+
+The claim used inside the `IsMfaRegisteredCT` claims transformation must not be empty to ensure `IsMfaRegistered` evaluates to `True`. If it evaluates to `False`, the evaluate always results in a `Block` grant type. Also, you can use any valid claim within `IsMfaRegisteredCT` which carries a MFA value (Email or Phone). 
+
+```XML
+ <ClaimsTransformation Id="IsMfaRegisteredCT" TransformationMethod="DoesClaimExist">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="strongAuthenticationEmailAddress" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="IsMfaRegistered" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+ </ClaimsTransformation>
+```
 
 ## Test your custom policy
 
