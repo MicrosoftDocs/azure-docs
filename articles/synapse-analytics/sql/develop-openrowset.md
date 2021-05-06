@@ -65,7 +65,7 @@ Caller must have `REFERENCES` permission on credential to use it to authenticate
 ## Syntax
 
 ```syntaxsql
---OPENROWSET syntax for reading Parquet or Delta Lake files
+--OPENROWSET syntax for reading Parquet or Delta Lake (preview) files
 OPENROWSET  
 ( { BULK 'unstructured_data_path' , [DATA_SOURCE = <data source name>, ]
     FORMAT= ['PARQUET' | 'DELTA'] }  
@@ -103,7 +103,7 @@ You have two choices for input files that contain the target data for querying. 
 
 - 'PARQUET' - Binary file in Parquet format 
 
-- 'DELTA' - A set of Parquet files organized in Delta Lake format 
+- 'DELTA' - A set of Parquet files organized in Delta Lake (preview) format 
 
 **'unstructured_data_path'**
 
