@@ -26,7 +26,7 @@ This quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated 
 ## Overview
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/track-objects-live-video/overview.png" alt-text="Track objects in live video":::
+> :::image type="content" source="./media/track-objects-live-video/object-tracker-topology.svg" alt-text="Track objects in live video":::
 
 This diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/azure-video-analyzer/tree/master/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline.md#http-extension-processor) node.
 
