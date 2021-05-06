@@ -407,16 +407,25 @@ To create an example Conditional Access policy to use with the cluster, complete
 1. In the menu for Enterprise applications on the left-hand side, select *Conditional Access*.
 1. In the menu for Conditional Access on the left-hand side, select *Policies* then *New policy*.
 1. In the menu for Conditional Access on the left-hand side, select *Policies* then *New policy*.
-    :::image type="content" source="./media/azure-rbac/conditional-access-new-policy.png" alt-text="Adding a Conditional Access policy":::
+    
+    [ ![Adding conditional access policy](./media/azure-rbac/conditional-access-new-policy.png) ](./media/azure-rbac/conditional-access-new-policy.png#lightbox)
+
 1. Enter a name for the policy such as *arc-k8s-policy*.
 1. Select *Users and groups*, then under *Include* select *Select users and groups*. Choose the users and groups where you want to apply the policy. For this example, choose the same Azure AD group that has administration access to your cluster.
-    :::image type="content" source="./media/azure-rbac/conditional-access-users-groups.png" alt-text="Selecting users or groups to apply the Conditional Access policy":::
+
+    [ ![Selecting users or groups to apply the Conditional Access policy](./media/azure-rbac/conditional-access-users-groups.png) ](./media/azure-rbac/conditional-access-users-groups.png#lightbox)
+
 1. Select *Cloud apps or actions*, then under *Include* select *Select apps*. Search and select the server application you created earlier.
-    :::image type="content" source="./media/azure-rbac/conditional-access-apps.png" alt-text="Select server application for applying the Conditional Access policy":::
+
+    [ ![Select server application for applying the Conditional Access policy](./media/azure-rbac/conditional-access-apps.png) ](./media/azure-rbac/conditional-access-apps.png#lightbox)
+
 1. Under *Access controls*, select *Grant*. Select *Grant access* then *Require device to be marked as compliant*.
-    :::image type="content" source="./media/azure-rbac/conditional-access-grant-compliant.png" alt-text="Selecting to only allow compliant devices for the Conditional Access policy":::
+
+    [ ![Selecting to only allow compliant devices for the Conditional Access policy](./media/azure-rbac/conditional-access-grant-compliant.png) ](./media/azure-rbac/conditional-access-grant-compliant.png#lightbox)
+    
 1. Under *Enable policy*, select *On* then *Create*.
-    :::image type="content" source="./media/azure-rbac/conditional-access-enable-policies.png" alt-text="Enabling the Conditional Access policy":::
+
+    [ ![Enabling the Conditional Access policy](./media/azure-rbac/conditional-access-enable-policies.png) ](./media/azure-rbac/conditional-access-enable-policies.png#lightbox)
 
 Access the cluster again. For example by running `kubectl get nodes` command to view nodes in the cluster:
 
@@ -428,7 +437,7 @@ Follow the instructions to sign in again. Notice there is an error message stati
 
 In the Azure portal, navigate to Azure Active Directory, select *Enterprise applications* then under *Activity* select *Sign-ins*. Notice an entry at the top with a *Status* of *Failed* and a *Conditional Access* of *Success*. Select the entry then select *Conditional Access* in *Details*. Notice your Conditional Access policy is listed.
 
-:::image type="content" source="./media/azure-rbac/conditional-access-sign-in-activity.png" alt-text="Failed sign-in entry due to Conditional Access policy":::
+[ ![Failed sign-in entry due to Conditional Access policy](./media/azure-rbac/conditional-access-sign-in-activity.png) ](./media/azure-rbac/conditional-access-sign-in-activity.png#lightbox)
 
 ## Configure just-in-time cluster access with Azure AD
 
@@ -440,22 +449,37 @@ Another option for cluster access control is to use Privileged Identity Manageme
 To configure just-in-time access requests for your cluster, complete the following steps:
 
 1. At the top of the Azure portal, search for and select Azure Active Directory.
-1. Take note of the Tenant ID, referred to for the rest of these instructions as `<tenant-id>`
-    :::image type="content" source="./media/azure-rbac/jit-get-tenant-id.png" alt-text="In a web browser, the Azure portal screen for Azure Active Directory is shown with the tenant's ID highlighted.":::
+1. Take note of the Tenant ID, referred to for the rest of these instructions as `<tenant-id>
+
+    [ ![AAD tenant details](./media/azure-rbac/jit-get-tenant-id.png) ](./media/azure-rbac/jit-get-tenant-id.png#lightbox)
+
 1. In the menu for Azure Active Directory on the left-hand side, under *Manage* select *Groups* then *New Group*.
-    :::image type="content" source="./media/azure-rbac/jit-create-new-group.png" alt-text="Shows the Azure portal Active Directory groups screen with the 'New Group' option highlighted.":::
+
+    [ ![Select new group](./media/azure-rbac/jit-create-new-group.png) ](./media/azure-rbac/jit-create-new-group.png#lightbox)
+
 1. Make sure a Group Type of *Security* is selected and enter a group name, such as *myJITGroup*. Under *Azure AD Roles can be assigned to this group (Preview)*, select *Yes*. Finally, select *Create*.
-    :::image type="content" source="./media/azure-rbac/jit-new-group-created.png" alt-text="Shows the Azure portal's new group creation screen.":::
+
+    [ ![New group creation](./media/azure-rbac/jit-new-group-created.png) ](./media/azure-rbac/jit-new-group-created.png#lightbox)
+
 1. You will be brought back to the *Groups* page. Select your newly created group and take note of the Object ID, referred to for the rest of these instructions as `<object-id>`.
-    :::image type="content" source="./media/azure-rbac/jit-get-object-id.png" alt-text="Shows the Azure portal screen for the just-created group, highlighting the Object Id":::
+
+    [ ![Created group](./media/azure-rbac/jit-get-object-id.png) ](./media/azure-rbac/jit-get-object-id.png#lightbox)
+
 1. Back in the Azure portal, in the menu for *Activity* on the left-hand side, select *Privileged Access (Preview)* and select *Enable Privileged Access*.
-    :::image type="content" source="./media/azure-rbac/jit-enabling-priv-access.png" alt-text="The Azure portal's Privileged access (Preview) page is shown, with 'Enable privileged access' highlighted":::
+
+    [ ![Enable privileged access](./media/azure-rbac/jit-enabling-priv-access.png) ](./media/azure-rbac/jit-enabling-priv-access.png#lightbox)
+
 1. Select *Add Assignments* to begin granting access.
-    :::image type="content" source="./media/azure-rbac/jit-add-active-assignment.png" alt-text="The Azure portal's Privileged access (Preview) screen after enabling is shown. The option to 'Add assignments' is highlighted.":::
+
+    [ ![Add active assignment](./media/azure-rbac/jit-add-active-assignment.png) ](./media/azure-rbac/jit-add-active-assignment.png#lightbox)
+
 1. Select a role of *member*, and select the users and groups to whom you wish to grant cluster access. These assignments can be modified at any time by a group admin. When you're ready to move on, select *Next*.
-    :::image type="content" source="./media/azure-rbac/jit-adding-assignment.png" alt-text="The Azure portal's Add assignments Membership screen is shown, with a sample user selected to be added as a member. The option 'Next' is highlighted.":::
+
+    [ ![Adding assignment](./media/azure-rbac/jit-adding-assignment.png) ](./media/azure-rbac/jit-adding-assignment.png#lightbox)
+
 1. Choose an assignment type of *Active*, the desired duration, and provide a justification. When you're ready to proceed, select *Assign*. For more on assignment types, see [Assign eligibility for a privileged access group (preview) in Privileged Identity Management](../../active-directory/privileged-identity-management/groups-assign-member-owner.md#assign-an-owner-or-member-of-a-group).
-    :::image type="content" source="./media/azure-rbac/jit-set-active-assignment.png" alt-text="The Azure portal's Add assignments Setting screen is shown. An assignment type of 'Active' is selected and a sample justification has been given. The option 'Assign' is highlighted.":::
+
+    [ ![Choosing properties for assignment](./media/azure-rbac/jit-set-active-assignment.png) ](./media/azure-rbac/jit-set-active-assignment.png#lightbox)
 
 Once the assignments have been made, verify just-in-time access is working by accessing the cluster. For example:
 
