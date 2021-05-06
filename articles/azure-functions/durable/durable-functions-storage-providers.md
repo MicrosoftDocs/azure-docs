@@ -53,15 +53,15 @@ You can learn more about the technical details of the Netherite storage provider
 
 ## Microsoft SQL Server (MSSQL) (preview)
 
-The Microsoft SQL Server storage provider persists all state into a Microsoft SQL Server (MSSQL) database. It's compatible with both on-premise and cloud-hosted deployments of SQL Server, including [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md).
+The Microsoft SQL Server (MSSQL) storage provider persists all state into a Microsoft SQL Server database. It's compatible with both on-premise and cloud-hosted deployments of SQL Server, including [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md).
 
 The key benefits of the MSSQL storage provider include:
 
-* Supports disconnected environments - no Azure connectivity is required.
+* Supports disconnected environments - no Azure connectivity is required when using a SQL Server installation.
 * Portable across multiple environments and clouds, including Azure-hosted and on-premises.
 * Strong data consistency, enabling backup/restore and failover without data loss.
 * Native support for custom data encryption (a feature of SQL Server).
-* Integrates with existing MSSQL applications via built-in stored procedures.
+* Integrates with existing database applications via built-in stored procedures.
 
 You can learn more about the technical details of the MSSQL storage provider, including how to get started using it, in the [Microsoft SQL provider documentation](https://microsoft.github.io/durabletask-mssql). The source code for the MSSQL storage provider can be found in the [microsoft/durabletask-mssql](https://github.com/microsoft/durabletask-mssql) GitHub repo.
 
@@ -133,18 +133,18 @@ For more detailed setup instructions, see the [MSSQL provider's getting started 
 
 There are many significant tradeoffs between the various supported storage providers. The following table can be used to help you understand these tradeoffs and decide which storage provider is best for your needs.
 
-|  | Azure Storage | Netherite | MSSQL |
+| Storage provider | Azure Storage | Netherite | MSSQL |
 |- |-              |-          |-      |
 | Official support status | ✅ Generally available (GA) | ⚠ Public preview | ⚠ Public preview |
-| External dependencies | Azure Storage account (general purpose v1) | Azure Event Hubs<br/>Azure Blob Storage | [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) or Azure SQL Database |
-| Local development and emulation options | [Azurite v3.12+](../../storage/common/storage-use-azurite.md) (cross platform)<br/>[Azure Storage Emulator](../../storage/common/storage-use-emulator.md) (Windows only) | Azure subscription and internet connectivity required for Event Hubs | SQL Server Developer Edition (supports [Windows](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server), [Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-setup), and [Docker containers](https://docs.microsoft.com/sql/linux/sql-server-linux-docker-container-deployment)) |
+| External dependencies | Azure Storage account (general purpose v1) | Azure Event Hubs<br/>Azure Storage account (general purpose) | [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) or Azure SQL Database |
+| Local development and emulation options | [Azurite v3.12+](../../storage/common/storage-use-azurite.md) (cross platform)<br/>[Azure Storage Emulator](../../storage/common/storage-use-emulator.md) (Windows only) | In-memory emulation ([more information](https://microsoft.github.io/durabletask-netherite/#/emulation)) | SQL Server Developer Edition (supports [Windows](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server), [Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-setup), and [Docker containers](https://docs.microsoft.com/sql/linux/sql-server-linux-docker-container-deployment)) |
 | Task hub configuration | Explicit | Explicit | Implicit by default ([more information](https://microsoft.github.io/durabletask-mssql/#/taskhubs)) |
 | Maximum throughput | Moderate | Very high | Moderate |
 | Maximum orchestration/entity scale-out (nodes) | 16 | 32 | N/A |
 | Maximum activity scale-out (nodes) | N/A | 32 | N/A |
 | Consumption plan support | ✅ Fully supported | ❌ Not supported | ❌ Not supported |
 | Elastic Premium plan support | ✅ Fully supported | ⚠ Requires [runtime scale monitoring](../functions-networking-options.md#premium-plan-with-virtual-network-triggers) | ⚠ Requires [runtime scale monitoring](../functions-networking-options.md#premium-plan-with-virtual-network-triggers) |
-| [KEDA](../azure-functions/functions-kubernetes-keda) 2.0 scaling support | ❌ Not supported | ❌ Not supported | ✅ Supported using the [MSSQL scaler](https://keda.sh/docs/scalers/mssql/) ([more information](https://microsoft.github.io/durabletask-mssql/#/scaling)) |
+| [KEDA 2.0](https://keda.sh/) scaling support<br/>([more information](../functions-kubernetes-keda.md)) | ❌ Not supported | ❌ Not supported | ✅ Supported using the [MSSQL scaler](https://keda.sh/docs/scalers/mssql/) ([more information](https://microsoft.github.io/durabletask-mssql/#/scaling)) |
 | Support for [extension bundles](../functions-bindings-register.md#extension-bundles) (recommended for non-.NET apps) | ✅ Fully supported | ❌ Not supported | ❌ Not supported |
 | Price-performance configurable? | ❌ No | ✅ Yes (Event Hubs TUs and CUs) | ✅ Yes (SQL vCPUs) |
 | Disconnected environment support | ❌ Azure connectivity required | ❌ Azure connectivity required | ✅ Fully supported |
