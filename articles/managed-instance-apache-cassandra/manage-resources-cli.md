@@ -200,7 +200,7 @@ az managed-cassandra datacenter update \
     --node-count 13 
 ```
 
-### <a id="update-yaml"></a>Update Cassandra config
+### <a id="update-yaml"></a>Update Cassandra configuration
 
 Change Cassandra configuration on a datacenter by using the [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_update) command. You will need to base64 encode the YAML fragment by using an online tool like [this](https://www.base64encode.org/). We support the following YAML settings:
 
