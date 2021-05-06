@@ -16,7 +16,7 @@ Azure Managed Instance for Apache Cassandra provides automated deployment and sc
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This quickstart demonstrates how to use the Azure CLI commands to configure a multi-region cluster in Azure. As all datacenters provisioned with this service must be deployed into dedicated subnets using VNet injection, it is necessary to configure appropriate network peering in advance of deployment to ensure that your multi-region cluster will function properly. 
+This quickstart demonstrates how to use the Azure CLI commands to configure a multi-region cluster in Azure.  
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -24,7 +24,9 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a mu
 
 * [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) with connectivity to your self-hosted or on-premise environment. For more information on connecting on premises environments to Azure, see the [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/) article.
 
-## <a id="create-account"></a>Configure a multi-region cluster
+## <a id="create-account"></a>Setting up the network environment
+
+As all datacenters provisioned with this service must be deployed into dedicated subnets using VNet injection, it is necessary to configure appropriate network peering in advance of deployment to ensure that your multi-region cluster will function properly. We are going to create a cluster with two datacenters in separate regions: East US and East US 2. First, we need to create the Virtual Networks for each region. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -34,7 +36,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a mu
         az group create -l eastus2 -n cassandra-mi-multi-region
     ```
 
-1. We are going to create a cluster with two datacenters in separate regions: East US and East US 2. First, we need to create the Virtual Networks for each region. Create the first VNet in East US 2 with a dedicated subnet:
+1. Create the first VNet in East US 2 with a dedicated subnet:
 
     ```azurecli-interactive
         az network vnet create -n vnetEastUs2 -l eastus2 -g cassandra-mi-multi-region --address-prefix 10.0.0.0/16 --subnet-name dedicated-subnet
@@ -66,7 +68,15 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a mu
    > [!NOTE]
    > If adding more regions, each VNet will require peering from it to all other VNets, and from all other VNets to it. 
 
-1. Check the output of the previous command, and make sure the value of "peeringState" is now "Connected".
+1. Check the output of the previous command, and make sure the value of "peeringState" is now "Connected". You can also check this by running the following command:
+
+    ```azurecli-interactive
+        az network vnet peering show \
+          --name MyVnet1ToMyVnet2 \
+          --resource-group cassandra-mi-multi-region \
+          --vnet-name vnetEastUs2 \
+          --query peeringState
+    ``` 
 
 1. Next, apply some special permissions to both Virtual Networks, which are required by Azure Managed Instance for Apache Cassandra. Run the following and make sure to replace `<Subscription ID>` with your subscription ID:
 
@@ -77,7 +87,9 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a mu
    > [!NOTE]
    > The `assignee` and `role` values in the previous command are fixed values, enter these values exactly as mentioned in the command. Not doing so will lead to errors when creating the cluster. If you encounter any errors when executing this command, you may not have permissions to run it, please reach out to your admin for permissions.
 
-1. Now we are ready to deploy the cluster resource (replace `<Subscription ID>` with your subscription ID). The can take between 5-10 minutes:
+## <a id="create-account"></a>Create a multi-region cluster
+
+1. Now that we have the appropriate networking in place, we are ready to deploy the cluster resource (replace `<Subscription ID>` with your subscription ID). The can take between 5-10 minutes:
 
     ```azurecli-interactive
         resourceGroupName='cassandra-mi-multi-region'
