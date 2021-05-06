@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory service principal with Azure SQL
-description: Azure AD Applications (service principals) support Azure AD user creation in Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics
+description: Utilize AD Applications (service principals) support Azure AD user creation in Azure SQL Database and Azure SQL Managed Instance
 ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse
@@ -8,21 +8,21 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 02/11/2021
+ms.date: 05/10/2021
 ---
 
 # Azure Active Directory service principal with Azure SQL
 
-[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Support for Azure Active Directory (Azure AD) user creation in Azure SQL Database (SQL DB) and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) on behalf of Azure AD applications (service principals) are currently in **public preview**.
+Azure Active Directory (Azure AD) supports user creation in Azure SQL Database (SQL DB) on behalf of Azure AD applications (service principals).
 
 > [!NOTE]
 > This functionality is already supported for SQL Managed Instance.
 
 ## Service principal (Azure AD applications) support
 
-This article applies to applications that are integrated with Azure AD, and are part of Azure AD registration. These applications often need authentication and authorization access to Azure SQL to perform various tasks. This feature in **public preview** now allows service principals to create Azure AD users in SQL Database and Azure Synapse. There was a limitation preventing Azure AD object creation on behalf of Azure AD applications that was removed.
+This article applies to applications that are integrated with Azure AD, and are part of Azure AD registration. These applications often need authentication and authorization access to Azure SQL to perform various tasks. This feature allows service principals to create Azure AD users in SQL Database. There was a limitation preventing Azure AD object creation on behalf of Azure AD applications that was removed.
 
 When an Azure AD application is registered using the Azure portal or a PowerShell command, two objects are created in the Azure AD tenant:
 
@@ -80,7 +80,7 @@ To enable an Azure AD object creation in SQL Database and Azure Synapse on behal
 >
 > In **public preview**, you can assign the **Directory Readers** role to a group in Azure AD. The group owners can then add the managed identity as a member of this group, which would bypass the need for a **Global Administrator** or **Privileged Roles Administrator** to grant the **Directory Readers** role. For more information on this feature, see [Directory Readers role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md).
 
-## Troubleshooting and limitations for public preview
+## Troubleshooting and limitations
 
 - When creating Azure AD objects in Azure SQL on behalf of an Azure AD application without enabling server identity and granting **Directory Readers** permission, the operation will fail with the following possible errors. The example error below is for a PowerShell command execution to create a SQL Database user `myapp` in the article [Tutorial: Create Azure AD users using Azure AD applications](authentication-aad-service-principal-tutorial.md).
     - `Exception calling "ExecuteNonQuery" with "0" argument(s): "'myapp' is not a valid login or you do not have permission. Cannot find the user 'myapp', because it does not exist, or you do not have permission."`
