@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric application model
+title: Azure Service Fabric StarupServices model
 description: Introducing StartupServices.xml in Service Fabric Application Model.
 
 ms.topic: conceptual
