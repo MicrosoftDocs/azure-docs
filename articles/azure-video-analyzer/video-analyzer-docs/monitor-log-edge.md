@@ -328,12 +328,13 @@ The agent can be used to collect metrics from any module which exposes a Prometh
    In this case, in the Azure portal, go to the IoT hub and select **Metrics** in the left pane. You should see the metrics there. 
 
 ### Log Analytics metrics collection
+
 Using [Prometheus endpoint](https://prometheus.io/docs/practices/naming/) along with [Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md), you can generate and [monitor metrics](../../azure-monitor/essentials/metrics-supported.md) such as used CPUPercent, MemoryUsedPercent, etc.   
 
 > [!NOTE]
 > The configuration below does not collect logs, **only metrics**. It is feasible to extend the collector module to also collect and upload logs.
 
-[ ![Diagram that shows the metrics collection using Log Analytics.](./media/telemetry-schema/log-analytics.png)](./media/telemetry-schema/log-analytics.png#lightbox)
+[![Diagram that shows the metrics collection using Log Analytics.](./media/telemetry-schema/log-analytics.svg)](./media/telemetry-schema/log-analytics.svg#lightbox)
 
 1. Learn how to [collect metrics](https://github.com/Azure/iotedge/tree/master/edge-modules/MetricsCollector)
 1. Use Docker CLI commands to build the [Docker file](https://github.com/Azure/iotedge/tree/master/edge-modules/MetricsCollector/docker/linux) and publish the image to your Azure container registry.

@@ -106,7 +106,7 @@
     - name: Use access policies for playback
       href: use-access-policies-playback.md #404
     - name: Manage recording policy
-      href: manage-retention-policy-how-to.md
+      href: manage-recording-policy.md
     - name: Use widgets
       href: use-widgets.md #404
   - name: Azure integration
