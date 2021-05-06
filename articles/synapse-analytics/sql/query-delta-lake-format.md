@@ -13,11 +13,11 @@ ms.reviewer: jrasnick
 
 # Query Delta Lake files (preview) using serverless SQL pool in Azure Synapse Analytics
 
-In this article, you'll learn how to write a query using a serverless Synapse SQL pool that will read Apache Delta Lake files.
+In this article, you'll learn how to write a query using serverless Synapse SQL pool to read Apache Delta Lake files.
 Delta Lake is an open-source storage layer that brings ACID (atomicity, consistency, isolation, and durability) transactions to Apache Spark and big data workloads.
 
 The serverless SQL pool in Synapse workspace enables you to read the data stored in Delta Lake format, and serve it to reporting tools. 
-A serverless SQL pool can the read Delta Lake files that are created using Apache Spark, Azure Databricks, or any other producer of the Delta Lake format.
+A serverless SQL pool can read Delta Lake files that are created using Apache Spark, Azure Databricks, or any other producer of the Delta Lake format.
 
 Apache Spark pools in Azure Synapse enable data engineers to modify Delta Lake files using Scala, PySpark, and .NET. Serverless SQL pools help data analysts to create reports
 on Delta Lake files created by data engineers.
@@ -30,7 +30,7 @@ The [OPENROWSET](develop-openrowset.md) function enables you to read the content
 
 ### Read Delta Lake folder
 
-The easiest way to see to the content of your `DELTA` file is to provide the file URL to the [OPENROWSET](develop-openrowset.md) function and specify `DELTA` format. If the file is publicly available or if your Azure AD identity can access this file, you should be able to see the content of the file using the query like the one shown in the following example:
+The easiest way to see to the content of your `DELTA` file is to provide the file URL to the [OPENROWSET](develop-openrowset.md) function and specify `DELTA` format. If the file is publicly available or if your Azure AD identity can access this file, you should be able to see the content of the file using a query like the one shown in the following example:
 
 ```sql
 select top 10 *
@@ -39,7 +39,7 @@ from openrowset(
     format = 'delta') as rows
 ```
 
-Column names and data types are automatically read from Delta Lake files. Note that the `OPENROWSET` function uses best guess types like VARCHAR(1000) for the string columns.
+Column names and data types are automatically read from Delta Lake files. The `OPENROWSET` function uses best guess types like VARCHAR(1000) for the string columns.
 
 To improve the performance of your queries, consider specifying explicit types in [the `WITH` cause](#explicitly-specify-schema).
 
@@ -47,7 +47,7 @@ To improve the performance of your queries, consider specifying explicit types i
 > The serverless Synapse SQL pool uses schema inference to automatically determine columns and their types. The rules for schema inference are the same used for Parquet files.
 > For Delta Lake type mapping to SQL native type check [type mapping for Parquet](develop-openrowset.md#type-mapping-for-parquet). 
 
-Make sure that you can access your file. If your file is protected with SAS key or custom Azure identity, you would need to setup [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+Make sure you can access your file. If your file is protected with SAS key or custom Azure identity, you will need to set up a [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
 > [!IMPORTANT]
 > Ensure you are using a UTF-8 database collation (for example `Latin1_General_100_BIN2_UTF8`) because string values in Delta Lake files are encoded using UTF-8 encoding.
@@ -57,12 +57,12 @@ Make sure that you can access your file. If your file is protected with SAS key 
 
 ### Data source usage
 
-The previous examples used the full path to the file. As an alternative, you can create an external data source with the location that points to the root folder of the storage. Once you have created the external data source, use the data source and the relative path to the file in the `OPENROWSET` function. This way you don't need to use the full absolute URI to your files. You can also then define custom credentials to access the storage location.
+The previous examples used the full path to the file. As an alternative, you can create an external data source with the location that points to the root folder of the storage. Once you've created the external data source, use the data source and the relative path to the file in the `OPENROWSET` function. This way you don't need to use the full absolute URI to your files. You can also then define custom credentials to access the storage location.
 
 > [!IMPORTANT]
 > Data sources can be created only in custom databases (not in master of the databases replicated from Apache Spark). 
 
-To use the samples below you will need to complete the following step:
+To use the samples below, you will need to complete the following step:
 1. **Create a database** with a datasource that references [NYC Yellow Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) storage account. 
 1. Initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on the database you created in step 1. This setup script will create the data sources, database scoped credentials, and external file formats that are used in these samples.
 
@@ -82,7 +82,7 @@ from openrowset(
     ) as rows
 ```
 
-If a data source is protected with SAS key or custom identity you can configure [data source with database scoped credential](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential).
+If a data source is protected with SAS key or custom identity, you can configure [data source with database scoped credential](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential).
 
 ### Explicitly specify schema
 
@@ -144,13 +144,13 @@ ORDER BY
     passengerCount;
 ```
 
-The `OPENROWSET` function will eliminate partitions that do not match the `year` and `month` in the where clause. This file/partition pruning technique will significantly
-reduce your data set, improve performance and decrease the cost of the query.
+The `OPENROWSET` function will eliminate partitions that don't match the `year` and `month` in the where clause. This file/partition pruning technique will significantly
+reduce your data set, improve performance, and reduce the cost of the query.
 
 ## Limitation
 
-- Schema inference doesn't work if you have complex data types. For complex data types use explicit `WITH` schema and specify `VARCHAR(MAX)` type. 
-- The `OPENROWSET` function does not support updating Delta Lake file and time travel. Use Apache Spark engine to perform these action.
+- Schema inference doesn't work if you have complex data types. For complex data types, use explicit `WITH` schema and specify `VARCHAR(MAX)` type. 
+- The `OPENROWSET` function doesn't support updating a Delta Lake file or time travel. Use Apache Spark engine to perform these actions.
 
 ## Next steps
 
