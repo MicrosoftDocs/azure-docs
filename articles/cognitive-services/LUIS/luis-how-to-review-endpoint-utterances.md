@@ -40,7 +40,7 @@ Use the LUIS portal to construct the correct endpoint query.
 
 ## Correct predictions to align utterances
 
-Each utterance has a suggested intent displayed in the **Predicted Intent** column, and the suggested entities in dotted bounidng boxes.
+Each utterance has a suggested intent displayed in the **Predicted Intent** column, and the suggested entities in dotted bounding boxes.
 
 > [!div class="mx-imgBorder"]
 > [![Review endpoint utterances that LUIS is unsure of](./media/label-suggested-utterances/review-endpoint-utterances.png)](./media/label-suggested-utterances/review-endpoint-utterances.png#lightbox)
