@@ -191,38 +191,40 @@ Once you have the registration credentials, use the following steps to create a 
 
 1. You need the OpenID Connect metadata for the provider. This information is often exposed via a [configuration metadata document](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig), which is the provider's _Issuer URL_ suffixed with `/.well-known/openid-configuration`. Gather this configuration URL.
 
-1. Add an `auth` section of the [configuration file](configuration.md) with a configuration block for the OIDC providers, and your provider definition. 
+1. Add an `auth` section of the [configuration file](configuration.md) with a configuration block for the OIDC providers, and your provider definition.
 
-```json
-{
-  "auth": {
-    "identityProviders": {
-      "openIdConnectProviders": {
-        "myProvider": {
-          "registration": {
-            "clientIdSettingName": "<MY_PROVIDER_CLIENT_ID>",
-            "clientCredential": {
-              "secretSettingName": "<MY_PROVIDER_CLIENT_SECRET>"
-            },
-            "openIdConnectConfiguration": {
-              "wellKnownOpenIdConfiguration": "https://<MY_ID_SERVER>/.well-known/openid-configuration"
-            }
-          },
-          "login": {
-            "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-            "scope": [],
-            "loginParameterNames": []
-          }
-        }
-      }
-    }
-  }
-}
-```
-- The provider name,  `myProvider` in this example, is the unique identifier used by Azure Static Web Apps.
+   ```json
+   {
+     "auth": {
+       "identityProviders": {
+         "openIdConnectProviders": {
+           "myProvider": {
+             "registration": {
+               "clientIdSettingName": "<MY_PROVIDER_CLIENT_ID>",
+               "clientCredential": {
+                 "secretSettingName": "<MY_PROVIDER_CLIENT_SECRET>"
+               },
+               "openIdConnectConfiguration": {
+                 "wellKnownOpenIdConfiguration": "https://<MY_ID_SERVER>/.well-known/openid-configuration"
+               }
+             },
+             "login": {
+               "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+               "scope": [],
+               "loginParameterNames": []
+             }
+           }
+         }
+       }
+     }
+   }
+   ```
+
+- The provider name, `myProvider` in this example, is the unique identifier used by Azure Static Web Apps.
 - The `registration` object that contains the client ID and client secret.
 - The `wellKnownOpenIdConfiguration` uses the path to the _Issuer URL_ of the provider.
 - The `login` object allows you to provide values for: custom scopes, login parameters, or custom claims.
+
 ## Authentication callbacks
 
 Authentication providers require redirect URL to complete the login or logout request. The following endpoints are available as redirect destinations.
