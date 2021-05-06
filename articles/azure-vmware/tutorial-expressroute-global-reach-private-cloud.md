@@ -8,9 +8,7 @@ ms.date: 04/27/2021
 
 # Peer on-premises environments to Azure VMware Solution
 
-In this step of the quick start, you'll use the [information gathered during the planning phase](production-ready-deployment-steps.md) to connect Azure VMware Solution to your on-premises environment.
-
-ExpressRoute Global Reach connects your on-premises environment to your Azure VMware Solution private cloud. The ExpressRoute Global Reach connection is established between the private cloud ExpressRoute circuit and an existing ExpressRoute connection to your on-premises environments. 
+In this step of the quick start, you'll connect Azure VMware Solution to your on-premises environment. ExpressRoute Global Reach connects your on-premises environment to your Azure VMware Solution private cloud. The ExpressRoute Global Reach connection is established between the private cloud ExpressRoute circuit and an existing ExpressRoute connection to your on-premises environments. 
 
 
 >[!NOTE]

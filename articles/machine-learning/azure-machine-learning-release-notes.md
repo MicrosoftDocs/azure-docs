@@ -436,7 +436,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 The image instance segmentation (polygon annotations) project type in data labeling is available now, so users can draw and annotate with polygons around the contour of the objects in the images. Users will be able assign a class and a polygon to each object which of interest within an image.
 
-Learn more about [image instance segmentation labeling](how-to-label-images.md).
+Learn more about [image instance segmentation labeling](how-to-label-data.md).
 
 
 

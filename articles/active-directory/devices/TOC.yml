@@ -68,7 +68,7 @@
     - name: FAQs
       href: faq.yml
     - name: Enable enterprise state FAQs
-      href: enterprise-state-roaming-faqs.md
+      href: enterprise-state-roaming-faqs.yml
 - name: Reference
   items:
   - name: Enforce TLS 1.2

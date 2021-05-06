@@ -502,7 +502,7 @@
   - name: Accept sign-ins from multiple tenants
     items:
     - name: Modify accounts supported by an app
-      href: quickstart-modify-supported-accounts.md
+      href: ./howto-modify-supported-accounts.md
     - name: Enable multi-tenant log-ins
       href: howto-convert-app-to-be-multi-tenant.md
     - name: Configure the publisher domain
@@ -525,7 +525,7 @@
     - name: Daemon applications
       href: ../fundamentals/resilience-daemon-app.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: OpenID Connect metadata refresh
-      href: howto-build-services-resilent-to-metadata-refresh.md
+      href: howto-build-services-resilient-to-metadata-refresh.md
   - name: Bring an app to market
     items:
     - name: Follow the branding guidelines
@@ -560,9 +560,9 @@
     - name: Diagnose errors during authentication
       href: vs-active-directory-error.md
   - name: Remove an app registration
-    href: quickstart-remove-app.md
+    href: ./howto-remove-app.md
   - name: Restore or remove a deleted app registration
-    href: quickstart-restore-app.md
+    href: ./howto-restore-app.md
 - name: Reference
   items:
   - name: Glossary
@@ -603,6 +603,8 @@
       - name: OAuth 2.0 resource owner password credentials grant
         displayName: ROPC
         href: v2-oauth-ropc.md
+      - name: OAuth 2.0 SAML bearer assertion flow
+        href: v2-saml-bearer-assertion.md
       - name: Signing key rollover
         href: active-directory-signing-key-rollover.md
       - name: Token exchange scenarios

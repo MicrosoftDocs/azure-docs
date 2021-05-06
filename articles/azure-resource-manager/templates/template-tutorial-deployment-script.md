@@ -62,7 +62,7 @@ The template used in this quickstart is called [Create an Azure Key Vault and a 
 2. In **File name**, paste the following URL:
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-key-vault-create/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.keyvault/key-vault-create/azuredeploy.json
     ```
 
 3. Select **Open** to open the file.

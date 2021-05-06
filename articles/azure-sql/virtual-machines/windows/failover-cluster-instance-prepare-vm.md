@@ -23,6 +23,9 @@ This article describes how to prepare Azure virtual machines (VMs) to use them w
 
 To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [cluster best practices](hadr-cluster-best-practices.md). 
 
+> [!NOTE]
+> It's now possible to lift and shift your failover cluster instance solution to SQL Server on Azure VMs using Azure Migrate. See [Migrate failover cluster instance](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) to learn more. 
+
 ## Prerequisites 
 
 - A Microsoft Azure subscription. Get started for [free](https://azure.microsoft.com/free/). 

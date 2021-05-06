@@ -49,4 +49,4 @@ In the above example, the Azure NVA and the on-premises NVA communicate and lear
 In the next section, you'll find details on subnet extension solutions we've tested on Azure.
 
 ## Next steps 
-[Extend your on-premises subnets into Azure using Azure Extended Network](https://docs.microsoft.com/windows-server/manage/windows-admin-center/azure/azure-extended-network).
+[Extend your on-premises subnets into Azure using Azure Extended Network](/windows-server/manage/windows-admin-center/azure/azure-extended-network).

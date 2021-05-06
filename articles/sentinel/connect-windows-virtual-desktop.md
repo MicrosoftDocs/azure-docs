@@ -39,13 +39,13 @@ Windows Virtual Desktop data in Azure Sentinel includes the following types:
 
 To start ingesting Windows Virtual Desktop data into Azure Sentinel, use the instructions from the Windows Virtual Desktop documentation.
 
-For more information, see [Push Windows Virtual Desktop data to your Log Analytics workspace](/azure/virtual-desktop/diagnostics-log-analytics).
+For more information, see [Push Windows Virtual Desktop data to your Log Analytics workspace](../virtual-desktop/diagnostics-log-analytics.md).
 
 ## Find your data
 
 After a successful connection is established, run queries in Azure Sentinel against your Log Analytics data.
 
-For example, see sample queries from the [Windows Virtual Desktop documentation](/azure/virtual-desktop/diagnostics-log-analytics).
+For example, see sample queries from the [Windows Virtual Desktop documentation](../virtual-desktop/diagnostics-log-analytics.md).
 
 
 Azure Sentinel also provides built-in queries in the **General** > **Logs** > **WINDOWS VIRTUAL DESKTOP** area:
@@ -55,4 +55,4 @@ Azure Sentinel also provides built-in queries in the **General** > **Logs** > **
 ## Next steps
 
 
-For more information, see the [Azure Monitor for Windows Virtual Desktop glossary](/azure/virtual-desktop/azure-monitor-glossary).
+For more information, see the [Azure Monitor for Windows Virtual Desktop glossary](../virtual-desktop/azure-monitor-glossary.md).
