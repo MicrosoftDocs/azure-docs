@@ -42,10 +42,8 @@ Create a filter to scope data to your Azure Machine learning workspace resource:
 
     [![Managed online endpoint cost analysis: screenshot of the Cost Analysis view showing a red box around the "Add filter" button at the top right.](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-add-filter.png)](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-add-filter.png#lightbox)
 
-Create a tag filter to show your managed online endpoint:
+Create a tag filter to show your managed online endpoint and/or managed online deployment:
 1. Select **Add filter** > **Tag** > **azuremlendpoint**: "\<your endpoint name>" 
-
-Create a tag filter to show your managed online deployment:
 1. Select **Add filter** > **Tag** > **azuremldeployment**: "\<your deployment name>".
 
     > [!NOTE]

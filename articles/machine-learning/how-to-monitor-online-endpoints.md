@@ -34,13 +34,13 @@ Use the following steps to view metrics for a managed endpoint or deployment:
 1. Go to the [Azure portal](https://portal.azure.com).
 1. Navigate to the managed online endpoint or deployment resource.
 
-    Managed online endpoints and deployments are ARM resources that can be found by going to their owning resource group. Look for the resource types **Machine Learning online endpoint** and **Machine Learning online deployment**.
+    Managed online endpoints and deployments are Azure Resource Manager (ARM) resources that can be found by going to their owning resource group. Look for the resource types **Machine Learning online endpoint** and **Machine Learning online deployment**.
 
 1. In the left-hand column, select **Metrics**.
 
 ## Available metrics
 
-Depending on the resource that you select, the metrics that you can see will be different. Metrics are scoped differently for managed online endpoints and managed online deployments.
+Depending on the resource that you select, the metrics that you see will be different. Metrics are scoped differently for managed online endpoints and managed online deployments.
 
 ### Metrics at endpoint scope
 
@@ -71,7 +71,7 @@ Slit on the following dimension:
 
 ## Create a dashboard
 
-You can create custom dashboards to visualize data from multiple sources in the Azure portal, including your the metrics for your managed online endpoint. For more information, see [Create custom KPI dashboards using Application Insights](../azure-monitor/app/tutorial-app-dashboards.md#add-custom-metric-chart).:
+You can create custom dashboards to visualize data from multiple sources in the Azure portal, including the metrics for your managed online endpoint. For more information, see [Create custom KPI dashboards using Application Insights](../azure-monitor/app/tutorial-app-dashboards.md#add-custom-metric-chart).
     
 ## Create an alert
 
