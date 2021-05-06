@@ -417,7 +417,7 @@ To create an example Conditional Access policy to use with the cluster, complete
 1. Under *Access controls*, select *Grant*. Select *Grant access* then *Require device to be marked as compliant*.
     :::image type="content" source="./media/azure-rbac/conditional-access-grant-compliant.png" alt-text="Selecting to only allow compliant devices for the Conditional Access policy":::
 1. Under *Enable policy*, select *On* then *Create*.
-    :::image type="content" source="./media/azure-rbac/conditional-access-enable-policy.png" alt-text="Enabling the Conditional Access policy":::
+    :::image type="content" source="./media/azure-rbac/conditional-access-enable-policies.png" alt-text="Enabling the Conditional Access policy":::
 
 Access the cluster again. For example by running `kubectl get nodes` command to view nodes in the cluster:
 
@@ -456,7 +456,7 @@ To configure just-in-time access requests for your cluster, complete the followi
 1. Select a role of *member*, and select the users and groups to whom you wish to grant cluster access. These assignments can be modified at any time by a group admin. When you're ready to move on, select *Next*.
     :::image type="content" source="./media/azure-rbac/jit-adding-assignment.png" alt-text="The Azure portal's Add assignments Membership screen is shown, with a sample user selected to be added as a member. The option 'Next' is highlighted.":::
 1. Choose an assignment type of *Active*, the desired duration, and provide a justification. When you're ready to proceed, select *Assign*. For more on assignment types, see [Assign eligibility for a privileged access group (preview) in Privileged Identity Management](../../active-directory/privileged-identity-management/groups-assign-member-owner.md#assign-an-owner-or-member-of-a-group).
-    :::image type="content" source="./media/azure-rbac/jit-set-active-assignment-details.png" alt-text="The Azure portal's Add assignments Setting screen is shown. An assignment type of 'Active' is selected and a sample justification has been given. The option 'Assign' is highlighted.":::
+    :::image type="content" source="./media/azure-rbac/jit-set-active-assignment.png" alt-text="The Azure portal's Add assignments Setting screen is shown. An assignment type of 'Active' is selected and a sample justification has been given. The option 'Assign' is highlighted.":::
 
 Once the assignments have been made, verify just-in-time access is working by accessing the cluster. For example:
 
