@@ -189,7 +189,7 @@ You can add a REST API call at any step in the user journey defined by a custom 
 
 To see how to use custom policies for RESTful API integration in Azure AD B2C, see [Integrate REST API claims exchanges in your Azure AD B2C custom policy](api-connectors-overview.md).
 
-## Protect customer identities
+## Protect resources and customer identities
 
 Azure AD B2C complies with the security, privacy, and other commitments described in the [Microsoft Azure Trust Center](https://www.microsoft.com/trustcenter/cloudservices/azure).
 
