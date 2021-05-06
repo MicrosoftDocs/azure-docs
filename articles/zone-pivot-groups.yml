@@ -1219,3 +1219,12 @@ groups:
     title: Node.js
   - id: programming-language-python
     title: Python
+- id: iot-develop-set2
+# Owner: timlt
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-python
+    title: Python
