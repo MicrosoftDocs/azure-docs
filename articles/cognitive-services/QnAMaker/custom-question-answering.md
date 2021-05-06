@@ -1,7 +1,7 @@
 ---
-title: What's new in QnA Maker service?
+title: QnA Maker managed is now renamed Custom question answering
 titleSuffix: Azure Cognitive Services
-description: This article contains news about QnA Maker.
+description: This article contains news about QnA Maker feature changes.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -23,15 +23,15 @@ As part of our effort to consolidate the language offerings from Cognitive Servi
 Now when you create a new Text Analytics resource, you can select features that you want included. Select **Custom question answering (preview)** and continue to create your resource.  
 
 > [!div class="mx-imgBorder"]
-> [ ![alt-text]( ../media/select-feature.png) ]( ../media/select-feature.png#lightbox)
+> [ ![Screenshot of create a Text Analytics resource UI menu with custom question answering feature selected]( ../media/select-feature.png) ]( ../media/select-feature.png#lightbox)
 
 
 You can no longer create a QnA Maker managed resource from the QnA Maker create flow, instead you will be redirected to the Text Analytics service. There is no change to the QnA Maker stable release. 
 
 > [!div class="mx-imgBorder"]
-> [ ![alt-text]( ../media/create-resource.png) ]( ../media/create-resource.png#lightbox)
+> [ ![Screenshot of resource creation menu]( ./media/create-resource.png) ]( ./media/create-resource.png#lightbox)
 
-## Additional details
+## Details
 
 1.	All existing QnA Maker managed (preview) resources continue to work as before. There is no action required for these resources at this time.
 2.	The creation flow for Custom question answering (preview) is the primary change. The service, portal, endpoints, SDK, etc. remain as before.
