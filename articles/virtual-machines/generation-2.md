@@ -3,10 +3,10 @@ title: Azure support for generation 2 VMs
 description: Overview of Azure support for generation 2 VMs
 author: ju-shim
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: generation-2-vm
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 02/26/2021
 ms.author: jushiman
 ---
 
@@ -60,10 +60,10 @@ Generation 2 VMs support the following Marketplace images:
 * Windows 10 Pro, Windows 10 Enterprise
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
-* Ubuntu Server 16.04, 18.04, 19.04, 19.10 
-* RHEL 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 7.0
-* Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4
-* Oracle Linux 7.7, 7.7-CI
+* Ubuntu Server 16.04, 18.04, 19.04, 19.10, 20.04 
+* RHEL 8.2, 8.1, 8.0, 7.9, 7.7, 7.6, 7.5, 7.4, 7.0, 8.3
+* Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 8.2, 8.3
+* Oracle Linux 7.7, 7.7-CI, 7.8
 
 > [!NOTE]
 > Specific Virtual machine sizes like Mv2-Series may only support a subset of these images - please look at the relevant virtual machine size documentation for complete details.
@@ -74,11 +74,13 @@ Azure doesn't currently support some of the features that on-premises Hyper-V su
 
 | Generation 2 feature                | On-premises Hyper-V | Azure |
 |-------------------------------------|---------------------|-------|
-| Secure boot                         | :heavy_check_mark:  | :x:   |
+| Secure boot                         | :heavy_check_mark:  | With trusted launch (preview)   |
 | Shielded VM                         | :heavy_check_mark:  | :x:   |
-| vTPM                                | :heavy_check_mark:  | :x:   |
-| Virtualization-based security (VBS) | :heavy_check_mark:  | :x:   |
+| vTPM                                | :heavy_check_mark:  | With trusted launch (preview)  |
+| Virtualization-based security (VBS) | :heavy_check_mark:  | With trusted launch (preview)   |
 | VHDX format                         | :heavy_check_mark:  | :x:   |
+
+For more information, see [Trusted launch (preview)](trusted-launch.md).
 
 ## Features and capabilities
 
@@ -100,7 +102,7 @@ Azure doesn't currently support some of the features that on-premises Hyper-V su
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Backup/restore                    | :heavy_check_mark: | :heavy_check_mark: |
 | Shared image gallery              | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure disk encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :x:                |
+| [Azure disk encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :heavy_check_mark:                |
 | [Server-side encryption](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
 
 ## Creating a generation 2 VM
@@ -201,7 +203,7 @@ You can also create generation 2 VMs by using virtual machine scale sets. In the
     Yes. For more information, see [Create a VM with accelerated networking](../virtual-network/create-vm-accelerated-networking-cli.md).
 
 * **Do generation 2 VMs support Secure Boot or vTPM in Azure?**
-    Both generation 1 and generation 2 VMs in Azure do not support Secure Boot or vTPM. 
+    Both vTPM and Secure Boot are features of trusted launch (preview) for generation 2 VMs. For more information, see [Trusted launch](trusted-launch.md).
     
 * **Is VHDX supported on generation 2?**  
     No, generation 2 VMs support only VHD.
@@ -220,5 +222,7 @@ You can also create generation 2 VMs by using virtual machine scale sets. In the
     1. Verify you are searching for a [VM size which supports Gen2 VMs](#generation-2-vm-sizes).
 
 ## Next steps
+
+Learn more about the [trusted launch (preview)](trusted-launch-portal.md) with gen 2 VMs.
 
 Learn about [generation 2 virtual machines in Hyper-V](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).

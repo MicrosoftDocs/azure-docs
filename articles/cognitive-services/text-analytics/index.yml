@@ -13,7 +13,7 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: text-analytics
   ms.topic: landing-page
-  ms.date: 01/29/2019
+  ms.date: 02/09/2019
   ms.author: aahi
 
 landingContent:
@@ -154,22 +154,22 @@ landingContent:
   linkLists:
     - linkListType: reference
       links:
-        - text: REST API
-          url: https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7
+        - text: REST API (v3.1-preview)
+          url: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/
+        - text: REST API (v3.0)
+          url: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0
         - text: .NET client library
-          url: /dotnet/api/overview/azure/ai.textanalytics-readme?view=azure-dotnet
+          url: /dotnet/api/overview/azure/ai.textanalytics-readme
         - text: Python client library
-          url: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python
+          url: /python/api/overview/azure/ai-textanalytics-readme
         - text: JavaScript client library
-          url: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest
+          url: /javascript/api/overview/azure/ai-text-analytics-readme
         - text: Java client library
-          url: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable
-        - text: Go client library
-          url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics
+          url: /java/api/overview/azure/ai-textanalytics-readme
         - text: Azure PowerShell 
           url: /powershell/module/az.cognitiveservices
         - text: Azure CLI 
-          url: /cli/azure/cognitiveservices?view=azure-cli-latest
+          url: /cli/azure/cognitiveservices
 
 - title: Help and feedback
   linkLists:

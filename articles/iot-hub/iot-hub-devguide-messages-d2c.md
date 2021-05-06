@@ -52,7 +52,7 @@ IoT Hub supports writing data to Azure Storage in the [Apache Avro](https://avro
 
 The encoding format can be only set when the blob storage endpoint is configured; it can't be edited for an existing endpoint. To switch encoding formats for an existing endpoint, you'll need to delete and re-create the custom endpoint with the format you want. One helpful strategy might be to create a new custom endpoint with your desired encoding format and add a parallel route to that endpoint. In this way you can verify your data before deleting the existing endpoint.
 
-You can select the encoding format using the IoT Hub Create or Update REST API, specifically the [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), the Azure portal, [Azure CLI](/cli/azure/iot/hub/routing-endpoint), or the [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint). The following image shows how to select the encoding format in the Azure portal.
+You can select the encoding format using the IoT Hub Create or Update REST API, specifically the [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), the [Azure portal](https://portal.azure.com), [Azure CLI](/cli/azure/iot/hub/routing-endpoint), or [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint). The following image shows how to select the encoding format in the Azure portal.
 
 ![Blob storage endpoint encoding](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -64,7 +64,7 @@ IoT Hub batches messages and writes data to storage whenever the batch reaches a
 
 You may use any file naming convention, however you must use all listed tokens. IoT Hub will write to an empty blob if there is no data to write.
 
-We recommend listing the blobs or files and then iterating over them, to ensure all blobs or files are read without making any assumptions of partition. The partition range could potentially change during a [Microsoft-initiated failover](iot-hub-ha-dr.md#microsoft-initiated-failover) or IoT Hub [manual failover](iot-hub-ha-dr.md#manual-failover). You can use the [List Blobs API](/rest/api/storageservices/list-blobs) to enumerate the list of blobs or [List ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/list) for the list of files. Please see the following sample as guidance.
+We recommend listing the blobs or files and then iterating over them, to ensure all blobs or files are read without making any assumptions of partition. The partition range could potentially change during a [Microsoft-initiated failover](iot-hub-ha-dr.md#microsoft-initiated-failover) or IoT Hub [manual failover](iot-hub-ha-dr.md#manual-failover). You can use the [List Blobs API](/rest/api/storageservices/list-blobs) to enumerate the list of blobs or [List ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path) for the list of files. Please see the following sample as guidance.
 
 ```csharp
 public void ListBlobsInContainer(string containerName, string iothub)
@@ -98,7 +98,7 @@ Apart from the built-in-Event Hubs compatible endpoint, you can also route data 
 
 You can configure a route by following this [tutorial](tutorial-routing.md).
 
-Use the following tutorials to learn how to read message from an endpoint.
+Use the following tutorials to learn how to read messages from an endpoint.
 
 * Reading from [Built-in-endpoint](quickstart-send-telemetry-node.md)
 
@@ -119,7 +119,7 @@ You can enable/disable the fallback route in the Azure portal->Message Routing b
 
 ## Non-telemetry events
 
-In addition to device telemetry, message routing also enables sending device twin change events, device lifecycle events, and digital twin change events. For example, if a route is created with data source set to **device twin change events**, IoT Hub sends messages to the endpoint that contain the change in the device twin. Similarly, if a route is created with data source set to **device lifecycle events**, IoT Hub sends a message indicating whether the device was deleted or created. Finally, as part of [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md), a developer can create routes with data source set to **digital twin change events** and IoT Hub sends messages whenever a digital twin [property](../iot-pnp/iot-plug-and-play-glossary.md) is set or changed, a [digital twin](../iot-pnp/iot-plug-and-play-glossary.md) is replaced, or when a change event happens for the underlying device twin.
+In addition to device telemetry, message routing also enables sending device twin change events, device lifecycle events, and digital twin change events. For example, if a route is created with data source set to **device twin change events**, IoT Hub sends messages to the endpoint that contain the change in the device twin. Similarly, if a route is created with data source set to **device lifecycle events**, IoT Hub sends a message indicating whether the device was deleted or created. Finally, as part of [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md), a developer can create routes with data source set to **digital twin change events** and IoT Hub sends messages whenever a digital twin property is set or changed, a digital twin is replaced, or when a change event happens for the underlying device twin.
 
 [IoT Hub also integrates with Azure Event Grid](iot-hub-event-grid.md) to publish device events to support real-time integrations and automation of workflows based on these events. See key [differences between message routing and Event Grid](iot-hub-event-grid-routing-comparison.md) to learn which works best for your scenario.
 

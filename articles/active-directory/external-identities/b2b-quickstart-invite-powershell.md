@@ -1,22 +1,21 @@
 ---
-
 title: 'Quickstart: Add a guest user with PowerShell - Azure AD'
 description: In this quickstart, you learn how to use PowerShell to send an invitation to an external Azure AD B2B collaboration user.
-
 services: active-directory
-ms.service: active-directory
-ms.subservice: B2B
-ms.topic: quickstart
-ms.date: 08/28/2018
-
-ms.author: mimart
 author: msmimart
+ms.author: mimart
 manager: celestedg
 ms.reviewer: mal
-ms.custom: "it-pro, seo-update-azuread-jan"
-#customer intent: As a tenant admin, I want to walk through the B2B invitation workflow so that I can understand how to add a user through PowerShell.
-
+ms.date: 08/28/2018
+ms.topic: quickstart
+ms.service: active-directory
+ms.subservice: B2B
+ms.custom:
+  - it-pro
+  - seo-update-azuread-jan
+  - mode-api
 ms.collection: M365-identity-device-management
+# Customer intent: As a tenant admin, I want to walk through the B2B invitation workflow so that I can understand how to add a user through PowerShell.
 ---
 
 # Quickstart: Add a guest user with PowerShell
@@ -27,36 +26,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-### Install the latest AzureADPreview module
-Make sure that you install the latest version of the Azure AD PowerShell for Graph module (AzureADPreview). 
-
-First, check which modules you have installed. Open Windows PowerShell as an elevated user (Run as administrator), and run the following command:
- 
-```powershell  
-Get-Module -ListAvailable AzureAD*
-```
-
-If the AzureADPreview module displays with no message indicating there’s a later version, you’re set. Otherwise, based on the output, do one of the following:
-
-- If no results are returned, run the following command to install the AzureADPreview module:
-  
-   ```powershell  
-   Install-Module AzureADPreview
-   ```
-- If only the AzureAD module shows up in the results, run the following commands to install the AzureADPreview module: 
-
-   ```powershell 
-   Uninstall-Module AzureAD 
-   Install-Module AzureADPreview 
-   ```
-- If only the AzureADPreview module shows up in the results, but you receive a message that indicates there's a later version, run the following commands to update the module: 
-
-   ```powershell 
-   Uninstall-Module AzureADPreview 
-   Install-Module AzureADPreview 
-  ```
-
-You might receive a prompt that you're installing the module from an untrusted repository. This occurs if you haven't previously set the PSGallery repository as a trusted repository. Press **Y** to install the module.
+### PowerShell Module
+Install the [Azure AD V2 PowerShell for Graph module](/powershell/azure/active-directory/install-adv2) (AzureAD) or the [Azure AD V2 PowerShell for Graph module preview version](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true) (AzureADPreview).
 
 ### Get a test email account
 

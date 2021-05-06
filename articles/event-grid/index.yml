@@ -69,7 +69,7 @@ landingContent:
           - text: Stream data from Event Hubs
             url: event-grid-event-hubs-integration.md
           - text: Route Media Services events
-            url: ..//media-services/latest/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json
+            url: ..//media-services/latest/monitoring/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json
           - text: Route to Hybrid Connections
             url: custom-event-to-hybrid-connection.md
   

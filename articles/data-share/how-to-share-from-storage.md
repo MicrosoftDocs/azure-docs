@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 04/20/2021
 ---
 # Share and receive data from Azure Blob Storage and Azure Data Lake Storage
 
@@ -13,11 +13,12 @@ ms.date: 12/16/2020
 
 Azure Data Share supports snapshot-based sharing from a storage account. This article explains how to share and receive data from Azure Blob Storage, Azure Data Lake Storage Gen1, and Azure Data Lake Storage Gen2.
 
-Azure Data Share supports the sharing of files, folders, and file systems from Azure Data Lake Gen1 and Azure Data Lake Gen2. It also supports the sharing of blobs, folders, and containers from Azure Blob Storage. Only block blobs are currently supported. Data shared from these sources can be received by Azure Data Lake Gen2 or Azure Blob Storage.
+Azure Data Share supports the sharing of files, folders, and file systems from Azure Data Lake Gen1 and Azure Data Lake Gen2. It also supports the sharing of blobs, folders, and containers from Azure Blob Storage. You can share block, append, or page blobs, and they are received as block blobs. Data shared from these sources can be received by Azure Data Lake Gen2 or Azure Blob Storage.
 
 When file systems, containers, or folders are shared in snapshot-based sharing, data consumers can choose to make a full copy of the share data. Or they can use the incremental snapshot capability to copy only new or updated files. The incremental snapshot capability is based on the last modified time of the files. 
 
 Existing files that have the same name are overwritten during a snapshot. A file that is deleted from the source isn't deleted on the target. Empty subfolders at the source aren't copied over to the target. 
+
 ## Share data
 
 Use the information in the following sections to share data by using Azure Data Share. 
@@ -171,14 +172,14 @@ Follow the steps in this section to configure a location to receive data.
 
    ![Screenshot showing where to select a target storage account.](./media/map-target.png "Target storage.") 
 
-1. For snapshot-based sharing, if the data provider uses a snapshot schedule to regularly update the data, you can enable the schedule from the **Snapshot Schedule** tab. Select the box next to the snapshot schedule. Then select **Enable**.
+1. For snapshot-based sharing, if the data provider uses a snapshot schedule to regularly update the data, you can enable the schedule from the **Snapshot Schedule** tab. Select the box next to the snapshot schedule. Then select **Enable**. Note that the first scheduled snapshot will start within one minute of the schedule time and subsequent snapshots will start within seconds of the scheduled time.
 
    ![Screenshot showing how to enable a snapshot schedule.](./media/enable-snapshot-schedule.png "Enable snapshot schedule.")
 
 ### Trigger a snapshot
 The steps in this section apply only to snapshot-based sharing.
 
-1. You can trigger a snapshot from the **Details** tab. On the tab, select **Trigger snapshot**. You can choose to trigger a full snapshot or incremental snapshot of your data. If you're receiving data from your data provider for the first time, select **Full copy**. 
+1. You can trigger a snapshot from the **Details** tab. On the tab, select **Trigger snapshot**. You can choose to trigger a full snapshot or incremental snapshot of your data. If you're receiving data from your data provider for the first time, select **Full copy**. When a snapshot is executing, subsequent snapshots will not start until the previous one complete.
 
    ![Screenshot showing the Trigger snapshot selection.](./media/trigger-snapshot.png "Trigger snapshot.") 
 
@@ -188,6 +189,14 @@ The steps in this section apply only to snapshot-based sharing.
 
 ### View history
 You can view the history of your snapshots only in snapshot-based sharing. To view the history, open the **History** tab. Here you see the history of all of the snapshots that were generated in the past 30 days. 
+
+## Storage snapshot performance
+Storage snapshot performance is impacted by a number of factors in addition to number of files and size of the shared data. It is always recommended to conduct your own performance testing. Below are some example factors impacting performance.
+
+* Concurrent access to the source and target data stores.  
+* Location of source and target data stores. 
+* For incremental snapshot, the number of files in the shared dataset can impact the time it takes to find the list of files with last modified time after the last successful snapshot. 
+
 
 ## Next steps
 You've learned how to share and receive data from a storage account by using the Azure Data Share service. To learn about sharing from other data sources, see [Supported data stores](supported-data-stores.md).

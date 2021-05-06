@@ -1,10 +1,15 @@
 ---
 title: Use Azure Service Bus queues with Java (azure-messaging-servicebus)
-description: In this tutorial, you learn how to use Java to send messages to and receive messages from an Azure Service Bus queue. You use the new azure-messaging-servicebus package. 
-ms.devlang: Java
-ms.topic: quickstart
+description: In this tutorial, you learn how to use Java to send messages to and receive messages from an Azure Service Bus queue. You use the new azure-messaging-servicebus package.
 ms.date: 02/13/2021
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.topic: quickstart
+ms.devlang: Java
+ms.custom:
+  - seo-java-july2019
+  - seo-java-august2019
+  - seo-java-september2019
+  - devx-track-java
+  - mode-api
 ---
 
 # Send messages to and receive messages from Azure Service Bus queues (Java)
@@ -281,7 +286,7 @@ See the following documentation and samples:
 - [Samples on GitHub](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Java API reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-servicebus/7.0.0/index.html)
 
-[Azure SDK for Java]: /azure/developer/java/sdk/java-sdk-azure-get-started
+[Azure SDK for Java]: /azure/developer/java/sdk/get-started
 [Azure Toolkit for Eclipse]: /azure/developer/java/toolkit-for-eclipse/installation
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

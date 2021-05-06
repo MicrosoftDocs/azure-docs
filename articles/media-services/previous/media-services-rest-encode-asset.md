@@ -3,19 +3,17 @@ title: How to encode an Azure asset by using Media Encoder Standard | Microsoft 
 description: Learn how to use Media Encoder Standard to encode media content on Azure Media Services. Code samples use REST API.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 2a7273c6-8a22-4f82-9bfe-4509ff32d4a4
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 # How to encode an asset by using Media Encoder Standard
 

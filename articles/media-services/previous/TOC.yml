@@ -414,7 +414,7 @@
   - name: Azure PowerShell (Resource Manager)
     href: /powershell/module/az.media
   - name: Azure PowerShell 
-    href: /powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0
+    href: /powershell/module/servicemanagement/azure.service/
   - name: .NET
     href: /dotnet/api/microsoft.windowsazure.mediaservices.client
   - name: REST

@@ -3,7 +3,7 @@ title: Set up WinRM access for an Azure VM
 description: Setup WinRM access for use with an Azure virtual machine created in the Resource Manager deployment model.
 author: mimckitt
 manager: vashan
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/16/2016
@@ -53,11 +53,12 @@ $fileContentBytes = Get-Content $fileName -Encoding Byte
 $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
 
 [System.Collections.HashTable]$TableForJSON = @{
-    "data"     = $filecontentencoded;
+    "data"     = $fileContentEncoded;
     "dataType" = "pfx";
     "password" = "<password>";
 }
-[System.String]$JSONObject = $TableForJSON | ConvertTo-Json
+[System.String]$jsonObject = $TableForJSON | ConvertTo-Json
+$jsonEncoded = [System.Convert]::ToBase64String($jsonObject)
 
 $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText –Force
 Set-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValue $secret

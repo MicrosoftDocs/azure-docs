@@ -2,7 +2,7 @@
 title: Template functions - deployment
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve deployment information.
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 03/02/2021
 ---
 # Deployment functions for ARM templates
 
@@ -502,7 +502,7 @@ Typically, you use variables to simplify your template by constructing complex v
 # [Bicep](#tab/bicep)
 
 ```bicep
-var storageName = concat('storage', uniqueString(resourceGroup().id))
+var storageName = 'storage${uniqueString(resourceGroup().id)}'
 
 resource myStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: storageName

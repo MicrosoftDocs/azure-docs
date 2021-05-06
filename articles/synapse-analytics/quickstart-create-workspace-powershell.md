@@ -5,7 +5,7 @@ services: synapse-analytics
 author: alehall
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: overview
+ms.subservice: workspace
 ms.date: 10/19/2020
 ms.author: alehall
 ms.reviewer: jrasnick
@@ -24,7 +24,7 @@ before you begin.
 
 ## Prerequisites
 
-- [Azure Data Lake Storage Gen2 storage account](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Azure Data Lake Storage Gen2 storage account](../storage/common/storage-account-create.md)
 
     > [!IMPORTANT]
     > The Azure Synapse workspace needs to be able to read and write to the selected ADLS Gen2

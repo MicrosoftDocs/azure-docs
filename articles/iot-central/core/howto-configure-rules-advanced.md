@@ -7,11 +7,11 @@ ms.date: 05/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
+
+# This article applies to solution builders.
 ---
 
 # Use workflows to integrate your Azure IoT Central application with other cloud services
-
-*This article applies to solution builders.*
 
 You can create rules in IoT Central that trigger actions, such as sending an email, in response to telemetry-based conditions, such as device temperature exceeding a threshold.
 
@@ -175,14 +175,14 @@ Use this action to update cloud property values for a specific device.
 
 ### Update device properties
 
-Use this action to update writeable property values for a specific device.
+Use this action to update writable property values for a specific device.
 
 | Field | Description |
 | ----- | ----------- |
 | Application | Choose from your list of IoT Central applications. |
 | Device | The unique ID of the device to delete. |
 | Device Template | Choose from the list of device templates in your IoT Central application. |
-| Writeable properties | After you choose a device template, a field is added for each writeable property defined in the template. |
+| Writable properties | After you choose a device template, a field is added for each writable property defined in the template. |
 
 ## Next steps
 

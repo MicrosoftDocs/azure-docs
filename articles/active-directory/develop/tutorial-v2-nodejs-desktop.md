@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
-ms.date: 01/12/2021
+ms.date: 02/17/2021
 ms.author: v-doeris
 ---
 
@@ -390,16 +390,16 @@ const path = require('path');
 const url = require('url');
 
 /**
- * To demonstrate best security practices, this Electron sample application makes use of 
- * a custom file protocol instead of a regular web (https://) redirect URI in order to 
+ * To demonstrate best security practices, this Electron sample application makes use of
+ * a custom file protocol instead of a regular web (https://) redirect URI in order to
  * handle the redirection step of the authorization flow, as suggested in the OAuth2.0 specification for Native Apps.
  */
 const CUSTOM_FILE_PROTOCOL_NAME = process.env.REDIRECT_URI.split(':')[0]; // e.g. msal://redirect
 
 /**
- * Configuration object to be passed to MSAL instance on creation. 
+ * Configuration object to be passed to MSAL instance on creation.
  * For a full list of MSAL Node configuration parameters, visit:
- * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md 
+ * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md
  */
 const MSAL_CONFIG = {
     auth: {
@@ -430,7 +430,7 @@ class AuthProvider {
     constructor() {
         /**
          * Initialize a public client application. For more information, visit:
-         * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-public-client-application.md 
+         * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-public-client-application.md
          */
         this.clientApplication = new PublicClientApplication(MSAL_CONFIG);
         this.account = null;
@@ -480,9 +480,9 @@ class AuthProvider {
 
     async getToken(authWindow, tokenRequest) {
         let authResponse;
-        
+
         authResponse = await this.getTokenInteractive(authWindow, tokenRequest);
-        
+
         return authResponse.accessToken || null;
     }
 
@@ -491,16 +491,16 @@ class AuthProvider {
 
         /**
          * Proof Key for Code Exchange (PKCE) Setup
-         * 
+         *
          * MSAL enables PKCE in the Authorization Code Grant Flow by including the codeChallenge and codeChallengeMethod parameters
          * in the request passed into getAuthCodeUrl() API, as well as the codeVerifier parameter in the
          * second leg (acquireTokenByCode() API).
-         * 
+         *
          * MSAL Node provides PKCE Generation tools through the CryptoProvider class, which exposes
          * the generatePkceCodes() asynchronous API. As illustrated in the example below, the verifier
          * and challenge values should be generated previous to the authorization flow initiation.
-         * 
-         * For details on PKCE code generation logic, consult the 
+         *
+         * For details on PKCE code generation logic, consult the
          * PKCE specification https://tools.ietf.org/html/rfc7636#section-4
          */
 
@@ -509,11 +509,11 @@ class AuthProvider {
         this.pkceCodes.verifier = verifier;
         this.pkceCodes.challenge = challenge;
 
-        const authCodeUrlParams = { 
-            ...this.authCodeUrlParams, 
+        const authCodeUrlParams = {
+            ...this.authCodeUrlParams,
             scopes: tokenRequest.scopes,
             codeChallenge: this.pkceCodes.challenge, // PKCE Code Challenge
-            codeChallengeMethod: this.pkceCodes.challengeMethod // PKCE Code Challenge Method 
+            codeChallengeMethod: this.pkceCodes.challengeMethod // PKCE Code Challenge Method
         };
 
         const authCodeUrl = await this.clientApplication.getAuthCodeUrl(authCodeUrlParams);
@@ -524,20 +524,20 @@ class AuthProvider {
         });
 
         const authCode = await this.listenForAuthCode(authCodeUrl, authWindow);
-        
-        const authResponse = await this.clientApplication.acquireTokenByCode({ 
-            ...this.authCodeRequest, 
-            scopes: tokenRequest.scopes, 
+
+        const authResponse = await this.clientApplication.acquireTokenByCode({
+            ...this.authCodeRequest,
+            scopes: tokenRequest.scopes,
             code: authCode,
-            codeVerifier: this.pkceCodes.verifier // PKCE Code Verifier 
+            codeVerifier: this.pkceCodes.verifier // PKCE Code Verifier
         });
-        
+
         return authResponse;
     }
 
     // Listen for authorization code response from Azure AD
     async listenForAuthCode(navigateUrl, authWindow) {
-        
+
         authWindow.loadURL(navigateUrl);
 
         return new Promise((resolve, reject) => {
@@ -555,7 +555,7 @@ class AuthProvider {
 
     /**
      * Handles the response from a popup or redirect. If response is null, will check if we have any accounts and attempt to sign in.
-     * @param response 
+     * @param response
      */
     async handleResponse(response) {
         if (response !== null) {
@@ -606,8 +606,8 @@ const axios = require('axios');
 
 /**
  * Makes an Authorization 'Bearer' request with the given accessToken to the given endpoint.
- * @param endpoint 
- * @param accessToken 
+ * @param endpoint
+ * @param accessToken
  */
 async function callEndpointWithToken(endpoint, accessToken) {
     const options = {

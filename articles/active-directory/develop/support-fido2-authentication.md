@@ -45,12 +45,12 @@ The sign-in method that was most recently used by a user will be presented to th
 The recommended options for implementing authentication are, in order:
 
 - .NET desktop applications that are using the Microsoft Authentication Library (MSAL) should use the Windows Authentication Manager (WAM). This integration and its benefits are [documented on GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/wam).
-- Use [WebView2](https://docs.microsoft.com/microsoft-edge/webview2/) to support FIDO2 in an embedded browser.
+- Use [WebView2](/microsoft-edge/webview2/) to support FIDO2 in an embedded browser.
 - Use the system browser. The MSAL libraries for desktop platforms use this method by default. You can consult our page on FIDO2 browser compatibility to ensure the browser you use supports FIDO2 authentication.
 
 ### Mobile
 
-As of February 2020, FIDO2 is not currently supported for native iOS or Android apps, but it is in development.
+As of February 2021, FIDO2 is not currently supported for native iOS or Android apps, but it is in development.
 
 To prepare applications for its availability, and as a general best practice, iOS and Android applications should use MSAL with its default configuration of using the system web browser.
 

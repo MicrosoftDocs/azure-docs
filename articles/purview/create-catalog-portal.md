@@ -3,10 +3,12 @@ title: 'Quickstart: Create an Azure Purview account in the Azure portal (preview
 description: This Quickstart describes how to create an Azure Purview account and configure permissions to begin using it.
 author: nayenama
 ms.author: nayenama
+ms.date: 10/23/2020
+ms.topic: quickstart
 ms.service: purview
 ms.subservice: purview-data-catalog
-ms.topic: quickstart
-ms.date: 10/23/2020
+ms.custom:
+  - mode-portal
 # Customer intent: As a data steward, I want create a new Azure Purview Account so that I can scan and classify my data.
 ---
 # Quickstart: Create an Azure Purview account in the Azure portal
@@ -113,7 +115,7 @@ If necessary, follow these steps to configure your subscription to enable Azure 
    :::image type="content" source="./media/create-catalog-portal/add-purview-instance.png" alt-text="Screenshot showing how to create an Azure Purview account instance in the Azure portal.":::
 
     > [!Note] 
-    > Azure Purview does not support moving its account across regions. You can find out more information about this in [Azure supported services page](https://docs.microsoft.com/azure/azure-resource-manager/management/region-move-support).
+    > Azure Purview does not support moving its account across regions. You can find out more information about this in [Move operation support for resources](../azure-resource-manager/management/move-support-resources.md).
 
 1. On the **Basics** tab, do the following:
     1. Select a **Resource group**.

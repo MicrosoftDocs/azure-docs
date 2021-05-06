@@ -2,7 +2,7 @@
 title: Geo-disaster recovery - Azure Event Hubs| Microsoft Docs
 description: How to use geographical regions to fail over and perform disaster recovery in Azure Event Hubs
 ms.topic: article
-ms.date: 02/10/2021
+ms.date: 04/14/2021
 ---
 
 # Azure Event Hubs - Geo-disaster recovery 
@@ -39,11 +39,7 @@ The following terms are used in this article:
 -  *Alias*: The name for a disaster recovery configuration that you set up. The alias provides a single stable Fully Qualified Domain Name (FQDN) connection string. Applications use this alias connection string to connect to a namespace. 
 
 -  *Primary/secondary namespace*: The namespaces that correspond to the alias. The primary namespace is "active" and receives messages (can be an existing or new namespace). The secondary namespace is "passive" and doesn't receive messages. The metadata between both is in sync, so both can seamlessly accept messages without any application code or connection string changes. To ensure that only the active namespace receives messages, you must use the alias.
-
-    > [!IMPORTANT]
-    > The geo-disaster recovery feature requires the subscription and the resource group to be the same for primary and secondary namespaces. 
 -  *Metadata*: Entities such as event hubs and consumer groups; and their properties of the service that are associated with the namespace. Only entities and their settings are replicated automatically. Messages and events aren't replicated. 
-
 -  *Failover*: The process of activating the secondary namespace.
 
 ## Supported namespace pairs
@@ -70,13 +66,13 @@ The following section is an overview of the failover process, and explains how t
 You first create or use an existing primary namespace, and a new secondary namespace, then pair the two. This pairing gives you an alias that you can use to connect. Because you use an alias, you don't have to change connection strings. Only new namespaces can be added to your failover pairing. 
 
 1. Create the primary namespace.
-1. Create the secondary namespace in the subscription and the resource group that has the primary namespace, but in a different region. This step is optional. You can create the secondary namespace while creating the pairing in the next step. 
+1. Create the secondary namespace in a different region. This step is optional. You can create the secondary namespace while creating the pairing in the next step. 
 1. In the Azure portal, navigate to your primary namespace.
 1. Select **Geo-recovery** on the left menu, and select **Initiate pairing** on the toolbar. 
 
     :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Initiate pairing from the primary namespace":::    
 1. On the **Initiate pairing** page, follow these steps:
-    1. Select an existing secondary namespace or create one in the subscription and the resource group that has the primary namespace. In this example, an existing namespace is selected.  
+    1. Select an existing secondary namespace or create one in a different region. In this example, an existing namespace is selected.  
     1. For **Alias**, enter an alias for the geo-dr pairing. 
     1. Then, select **Create**. 
 
@@ -116,14 +112,6 @@ If you initiate the failover, two steps are required:
 ## Management
 
 If you made a mistake; for example, you paired the wrong regions during the initial setup, you can break the pairing of the two namespaces at any time. If you want to use the paired namespaces as regular namespaces, delete the alias.
-
-## Samples
-
-The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) shows how to set up and initiate a failover. This sample demonstrates the following concepts:
-
-- Settings required in Azure Active Directory to use Azure Resource Manager with Event Hubs. 
-- Steps required to execute the sample code. 
-- Send and receive from the current primary namespace. 
 
 ## Considerations
 
@@ -193,19 +181,17 @@ Advantage of this approach is that failover can happen at the application layer 
 > For guidance on geo-disaster recovery of a virtual network, see [Virtual Network - Business Continuity](../virtual-network/virtual-network-disaster-recovery-guidance.md).
  
 ## Next steps
-
-* The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) walks through a simple workflow that creates a geo-pairing and initiates a failover for a disaster recovery scenario.
-* The [REST API reference](/rest/api/eventhub/) describes APIs for performing the Geo-disaster recovery configuration.
-
-For more information about Event Hubs, visit the following links:
-
-- Get started with Event Hubs
-    - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
-    - [Java](event-hubs-java-get-started-send.md)
-    - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-java-get-started-send.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
-* [Sample applications that use Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
+Review the following samples or reference documentation. 
+- [.NET GeoDR sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/DotNet/GeoDRClient) 
+- [Java GeoDR sample](https://github.com/Azure-Samples/eventhub-java-manage-event-hub-geo-disaster-recovery)
+- [.NET - Azure.Messaging.EventHubs samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)
+- [.NET - Microsoft.Azure.EventHubs samples](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet)
+- [Java - azure-messaging-eventhubs samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)
+- [Java - azure-eventhubs samples](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java)
+- [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples)
+- [JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/javascript)
+- [TypeScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/typescript)
+- [REST API reference](/rest/api/eventhub/)
 
 [1]: ./media/event-hubs-geo-dr/geo1.png
 [2]: ./media/event-hubs-geo-dr/geo2.png

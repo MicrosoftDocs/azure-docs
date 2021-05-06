@@ -188,8 +188,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 2. Go to SAP Business ByDesign Sign-on URL directly and initiate the login flow from there.
 
-3. You can use Microsoft My Apps. When you click the SAP Business ByDesign tile in the My Apps, this will redirect to SAP Business ByDesign Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. You can use Microsoft My Apps. When you click the SAP Business ByDesign tile in the My Apps, this will redirect to SAP Business ByDesign Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-* Once you configure the SAP Business ByDesign you can enforce session controls, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure the SAP Business ByDesign you can enforce session controls, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -6,7 +6,8 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 12/07/2020
+ms.reviewer: stmummer
+ms.date: 3/04/2021
 ---
 
 # Migration of co-sell solutions from OCP GTM to the commercial marketplace
@@ -26,11 +27,11 @@ As a Microsoft partner enrolled in the commercial marketplace, you can:
 Ensure you have an active Microsoft Partner Network membership and are enrolled in the commercial marketplace in Partner Center.
 
 - Join the Microsoft Partner Network [at no cost](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership). As a partner, you’ll have access to exclusive resources, programs, tools, and connections to grow your business.
-- If you do not have an account in commercial marketplace, [enroll now](partner-center-portal/create-account.md) to continue co-selling with Microsoft and access the full publishing experience.
+- If you do not have an account in commercial marketplace, [enroll now](create-account.md) to continue co-selling with Microsoft and access the full publishing experience.
 
 ## Publishing updates for attaining co-sell-ready status
 
-For your solution to be discoverable to Microsoft sellers and partners, it must meet the [co-sell ready requirements](marketplace-co-sell.md). For a Microsoft seller to be incentivized, your solution must meet the [incentive-eligible requirements](marketplace-co-sell.md). Complete these requirements on the co-sell tab in Partner Center (see [this image](#cosell-tab) later in this article).
+For your solution to be discoverable to Microsoft sellers and partners, it must meet the [co-sell ready requirements](./co-sell-overview.md). For a Microsoft seller to be incentivized, your solution must meet the [incentive-eligible requirements](./co-sell-overview.md). Complete these requirements on the co-sell tab in Partner Center (see [this image](#cosell-tab) later in this article).
 
 > [!NOTE]
 > In commercial marketplace, your solutions are referred to as “offers” throughout the publishing experience.
@@ -39,7 +40,7 @@ After you’ve enrolled in the commercial marketplace, prepare to migrate your s
 
 Follow these steps before importing your solutions from OCP GTM:
 
-1. Visit your company's [publisher list](https://partner.microsoft.com/dashboard/account/v3/publishers/list). It includes the account owner, managers, and developers who have publishing access. Learn more about [Partner Center user roles](./partner-center-portal/manage-account.md#define-user-roles-and-permissions).
+1. Visit your company's [publisher list](https://partner.microsoft.com/dashboard/account/v3/publishers/list). It includes the account owner, managers, and developers who have publishing access. Learn more about [Partner Center user roles](user-roles.md).
 2. Ask one of the listed contacts to [add users](https://partner.microsoft.com/dashboard/account/usermanagement) to the commercial marketplace as *managers* or *developers*, since only these roles can edit and publish solutions.
 3. Work with your developers to move your solutions from your OCP GTM account to the commercial marketplace.
 4. Decide which of the following you want to do:
@@ -92,7 +93,7 @@ Select this option when you may have an OCP GTM solution that does not yet have 
 
     [![The Action 1 tab of the migrate process.](media/co-sell-migrate/action-1-migrate.png)](media/co-sell-migrate/action-1-migrate.png#lightbox)
 
-1. On the **Action 2** tab, select the [publisher profile](partner-center-portal/create-account.md) from the list provided. If you do not have a publisher account, create one at [Partner Center](https://partner.microsoft.com/solutions/migration), select it here.
+1. On the **Action 2** tab, select the [publisher profile](create-account.md) from the list provided. If you do not have a publisher account, create one at [Partner Center](https://partner.microsoft.com/solutions/migration), select it here.
 
     [![The Action 2 tab of the migrate process.](media/co-sell-migrate/action-2-migrate.png)](media/co-sell-migrate/action-2-migrate.png#lightbox)
 
@@ -132,7 +133,7 @@ For detailed instructions on the information you need to provide before your off
 
     :::image type="content" source="media/co-sell-migrate/offer-setup.png" alt-text="The offer overview setup tabs in Partner Center.":::
 
-3. Some of the Microsoft seller-facing details were copied over from the OCP GTM solution. Complete the remaining required information in the **Co-sell with Microsoft** tab to make your offer co-sell ready. When complete, select **Review and publish**. For more information, see [How to submit co-sell materials in partner center](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center).
+3. Some of the Microsoft seller-facing details were copied over from the OCP GTM solution. Complete the remaining required information in the **Co-sell with Microsoft** tab to make your offer co-sell ready. When complete, select **Review and publish**. For more information, see [Configure co-sell for a commercial marketplace offer](./co-sell-configure.md).
 
     :::image type="content" source="media/co-sell-migrate/co-sell-page.png" alt-text="The offer co-sell tab in Partner Center.":::
 
@@ -150,5 +151,5 @@ For detailed instructions on the information you need to provide before your off
 ## Next steps
 
 - [Resell through CSP Partners](cloud-solution-providers.md)
-- [How to submit co-sell materials in partner center](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center)
+- [Configure co-sell for a commercial marketplace offer](./co-sell-configure.md)
 - View these [FAQs](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) (PDF)

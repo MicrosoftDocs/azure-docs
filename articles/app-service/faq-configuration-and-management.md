@@ -8,7 +8,8 @@ tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: genli
+ms.author: genli 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Configuration and management FAQs for Web Apps in Azure

@@ -3,7 +3,7 @@ title: Diagnose and troubleshoot the availability of Azure Cosmos SDKs in multir
 description: Learn all about the Azure Cosmos SDK availability behavior when operating in multi regional environments.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 02/16/2021
+ms.date: 02/18/2021
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
@@ -41,13 +41,13 @@ If you **don't set a preferred region**, the SDK client defaults to the primary 
 > If the values specified as regional preference do not match with any existing Azure regions, they will be ignored. If they match an existing region but the account is not replicated to it, then the client will connect to the next preferred region that matches or to the primary region.
 
 > [!WARNING]
-> Disabling the endpoint rediscovery (that is setting it to false) on the client configuration will disable all failover and availability logic described in this document.
-> This configuration can be accessed by the following parameters in each Azure Cosmos SDK:
+> The failover and availability logic described in this document can be disabled on the client configuration, which is not advised unless the user application is going to handle availability errors itself. This can be achieved by:
 >
-> * The [ConnectionPolicy.EnableEndpointRediscovery](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.enableendpointdiscovery) property in .NET V2 SDK.
-> * The [CosmosClientBuilder.endpointDiscoveryEnabled](/java/api/com.azure.cosmos.cosmosclientbuilder.endpointdiscoveryenabled) method in Java V4 SDK.
-> * The [CosmosClient.enable_endpoint_discovery](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) parameter in Python SDK.
-> * The [CosmosClientOptions.ConnectionPolicy.enableEndpointDiscovery](/javascript/api/@azure/cosmos/connectionpolicy#enableEndpointDiscovery) parameter in JS SDK.
+> * Setting the [ConnectionPolicy.EnableEndpointRediscovery](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.enableendpointdiscovery) property in .NET V2 SDK to false.
+> * Setting the [CosmosClientOptions.LimitToEndpoint](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.limittoendpoint) property in .NET V3 SDK to true.
+> * Setting the [CosmosClientBuilder.endpointDiscoveryEnabled](/java/api/com.azure.cosmos.cosmosclientbuilder.endpointdiscoveryenabled) method in Java V4 SDK to false.
+> * Setting the [CosmosClient.enable_endpoint_discovery](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) parameter in Python SDK to false.
+> * Setting the [CosmosClientOptions.ConnectionPolicy.enableEndpointDiscovery](/javascript/api/@azure/cosmos/connectionpolicy#enableEndpointDiscovery) parameter in JS SDK to false.
 
 Under normal circumstances, the SDK client will connect to the preferred region (if a regional preference is set) or to the primary region (if no preference is set), and the operations will be limited to that region, unless any of the below scenarios occur.
 

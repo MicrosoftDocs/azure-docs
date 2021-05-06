@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a management group with Go"
 description: In this quickstart, you use Go to create a management group to organize your resources into a resource hierarchy.
-ms.date: 09/30/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ---
@@ -75,27 +75,27 @@ can be used, including [bash on Windows 10](/windows/wsl/install-win10) or local
 
 ## Application setup
 
-With the Go packages added to your environment of choice, it's time to setup the Go application that
-can create a management group.
+With the Go packages added to your environment of choice, it's time to set up the Go application
+that can create a management group.
 
 1. Create the Go application and save the following source as `mgCreate.go`:
 
-   ```Go
+   ```go
    package main
-   
+
    import (
    	"context"
    	"fmt"
    	"os"
-   
+
    	mg "github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups"
    	"github.com/Azure/go-autorest/autorest/azure/auth"
    )
-   
+
    func main() {
    	// Get variables from command line arguments
    	var mgName = os.Args[1]
-   
+
    	// Create and authorize a client
    	mgClient := mg.NewClient()
    	authorizer, err := auth.NewAuthorizerFromCLI()
@@ -104,12 +104,12 @@ can create a management group.
    	} else {
    		fmt.Printf(err.Error())
    	}
-   
+
    	// Create the request
    	Request := mg.CreateManagementGroupRequest{
    		Name: &mgName,
    	}
-   
+
    	// Run the query and get the results
    	var results, queryErr = mgClient.CreateOrUpdate(context.Background(), mgName, Request, "no-cache")
    	if queryErr == nil {

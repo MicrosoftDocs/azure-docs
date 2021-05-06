@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor for Azure Data Explorer (preview)| Microsoft Docs
-description: This article describes Azure Monitor Insights for Azure Data Explorer Clusters. 
+title: Azure Data Explorer Insights (ADX Insights preview)| Microsoft Docs
+description: This article describes Azure Data Explorer Insights (ADX Insights)
 services: azure-monitor 
 ms.topic: conceptual
 ms.date: 01/05/2021
@@ -9,12 +9,12 @@ ms.author: lagayhar
 
 ---
 
-# Azure Monitor for Azure Data Explorer (preview)
+# Azure Data Explorer Insights (preview)
 
-Azure Monitor for Azure Data Explorer (preview) provides comprehensive monitoring of your clusters by delivering a unified view of your cluster performance, operations, usage, and failures.
-This article will help you understand how to onboard and use Azure Monitor for Azure Data Explorer (preview).
+Azure Data Explorer Insights (preview) provides comprehensive monitoring of your clusters by delivering a unified view of your cluster performance, operations, usage, and failures.
+This article will help you understand how to onboard and use Azure Data Explorer Insights (preview).
 
-## Introduction to Azure Monitor for Azure Data Explorer (preview)
+## Introduction to Azure Data Explorer Insights (preview)
 
 Before jumping into the experience, you should understand how it presents and visualizes information.
 -    **At scale perspective** showing a snapshot view of your clusters' primary metrics, to easily track performance of queries, ingestion, and export operations.
@@ -69,7 +69,7 @@ This tab provides information on exported records, lateness, pending count, and 
 
 ## View from an Azure Data Explorer Cluster resource (drill down analysis)
 
-To access Azure Monitor for Azure Data Explorer Clusters directly from an Azure Data Explorer Cluster:
+To access Azure Data Explorer Insights directly from an Azure Data Explorer Cluster:
 
 1. In the Azure portal, select **Azure Data Explorer Clusters**.
 
@@ -77,7 +77,7 @@ To access Azure Monitor for Azure Data Explorer Clusters directly from an Azure 
 
 These views are also accessible by selecting the resource name of an Azure Data Explorer cluster from within the Azure Monitor insights view.
 
-Azure Monitor for Azure Data Explorer combines both logs and metrics to provide a global monitoring solution. The inclusion of logs-based visualizations requires users to [enable diagnostic logging of their Azure Data Explorer cluster and send them to a Log Analytics workspace.](/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs). The diagnostic logs that should be enabled are: **Command**, **Query**, **TableDetails**, and **TableUsageStatistics**.
+Azure Data Explorer Insights combines both logs and metrics to provide a global monitoring solution. The inclusion of logs-based visualizations requires users to [enable diagnostic logging of their Azure Data Explorer cluster and send them to a Log Analytics workspace.](/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs). The diagnostic logs that should be enabled are: **Command**, **Query**, **TableDetails**, and **TableUsageStatistics**.
 
 ![Screenshot of blue button that displays the text "Enable Logs for Monitoring"](./media/data-explorer/enable-logs.png)
 
@@ -99,10 +99,10 @@ The **Key Metrics** tab shows a unified view of some of the cluster's metrics, g
 
 The **Usage** tab allows users to deep dive into the performance of the cluster's commands and queries. On this page, you can:
  
- - See which users and applications are sending the most queries or consuming the most CPU and memory (so you can understand which users are submitting the heaviest queries for the cluster to process).
- - Identify top users and applications by failed queries.
- - Identify recent changes in the number of queries, compared to the historical daily average (over the past 16 days), by user and application.
- - Identify trends and peaks in the number of queries, memory, and CPU consumption by user, application and command type.
+ - See which workload groups, users and applications are sending the most queries or consuming the most CPU and memory (so you can understand which workloads are submitting the heaviest queries for the cluster to process).
+ - Identify top workload groups, users and applications by failed queries.
+ - Identify recent changes in the number of queries, compared to the historical daily average (over the past 16 days), by workload group, user and application.
+ - Identify trends and peaks in the number of queries, memory, and CPU consumption by workload group, user, application and command type.
 
 [![Screenshot of operations view with donut charts of top application by command and query count, top principals by command and query count, and top commands by command types](./media/data-explorer/usage.png)](./media/data-explorer/usage.png#lightbox)
 
@@ -114,13 +114,18 @@ The **cache** tab allows users to analyze their actual queries' look back patter
 
 [![Screenshot of cache details](./media/data-explorer/cache-tab.png)](./media/data-explorer/cache-tab.png#lightbox)
 
+The **cluster boundaries** tab displays the cluster boundaries based on your usage. In this tab you can inspect the CPU, ingestion and cache utilization. These metrics are scored as "Low", "Medium" or "High". These metrics and scores are important when deciding on the optimal SKU and instances count for your cluster, and they are taken into account in Azure Advisor SKU/size recommendation. In this tab you can select a metric tile and deep dive to understand its trend and how its score is decided. You can also view the Azure Advisor SKU/size recommendation for your cluster. For example, in the following image you can see that all metrics are scored as "Low", and thereby the cluster receives a cost recommendation allowing it to scale in/down and save cost.
+
+> [!div class="mx-imgBorder"]
+> [![Screenshot of cluster boundaries.](./media/data-explorer/cluster-boundaries.png)](./media/data-explorer/cluster-boundaries.png#lightbox)
+
 ## Pin to Azure dashboard
 
 You can pin any one of the metric sections (of the "at-scale" perspective) to an Azure dashboard by selecting the pushpin icon at the top right of the section.
 
 ![Screenshot of pin icon selected](./media/data-explorer/pin.png)
 
-## Customize Azure Monitor for Azure Data Explorer Cluster
+## Customize Azure Data Explorer Insights
 
 This section highlights common scenarios for editing the workbook to customize in support of your data analytics needs:
 * Scope the workbook to always select a particular subscription or Azure Data Explorer Cluster(s)
@@ -139,7 +144,7 @@ Customizations are saved to a custom workbook to prevent overwriting the default
 
 For general troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](troubleshoot-workbooks.md).
 
-This section will help you with the diagnosis and troubleshooting of some of the common issues you may encounter when using Azure Monitor for Azure Data Explorer Cluster (preview). Use the list below to locate the information relevant to your specific issue.
+This section will help you with the diagnosis and troubleshooting of some of the common issues you may encounter when using Azure Data Explorer Insights (preview). Use the list below to locate the information relevant to your specific issue.
 
 ### Why don't I see all my subscriptions in the subscription picker?
 

@@ -1,7 +1,7 @@
 ---
 title: Capture a browser trace for troubleshooting
 description: Capture network information from a browser trace to help troubleshoot issues with the Azure portal.
-ms.date: 05/11/2020
+ms.date: 03/25/2021
 ms.topic: troubleshooting
 ---
 
@@ -185,13 +185,13 @@ The following steps show how to use the developer tools in Firefox. For more inf
 
     ![Screenshot of browser trace results](media/capture-browser-trace/firefox-browser-trace-results.png)
 
-1. After you have reproduced the unexpected portal behavior, select **HAR Export/Import** then **Save All As HAR**.
+1. After you have reproduced the unexpected portal behavior, select **Save All As HAR**.
 
     ![Screenshot of "Export HAR"](media/capture-browser-trace/firefox-network-export-har.png)
 
 1. Stop Steps Recorder on Windows or the screen recording on Mac, and save the recording.
 
-1. Back in the browser developer tools pane, select the **Console** tab. Right-click one of the messages, then select **Export Visible Message To**, and save the console output to a text file.
+1. Back in the browser developer tools pane, select the **Console** tab. Right-click one of the messages, then select **Export Visible Messages To**, and save the console output to a text file.
 
     ![Screenshot of console output](media/capture-browser-trace/firefox-console-select.png)
 

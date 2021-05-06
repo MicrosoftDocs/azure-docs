@@ -5,7 +5,7 @@ ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 02/11/2021
+ms.date: 03/05/2021
 ---
 
 # Get started with Document Translation (Preview)
@@ -14,25 +14,28 @@ ms.date: 02/11/2021
 
 ## Prerequisites
 
+> [!NOTE]
+>
+> 1. Generally, when you create a Cognitive Service resource in the Azure portal, you have the option to create a multi-service subscription key or a single-service subscription key. However, Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
+> 2. Document Translation is currently available in the **S1 Standard Service Plan**. _See_ [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
+>
+
 To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) service resource (**not** a Cognitive Services resource). 
+* A [**Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) service resource (**not** a Cognitive Services resource).
 
-* An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). All access to Azure Storage takes place through a storage account.
-
-> [!NOTE]
-> Document Translation is currently only supported in the Translator (single-service) resource, **not** the Cognitive Services (multi-service) resource.
+* An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You will create containers to store and organize your blob data within your storage account.
 
 ## Get your custom domain name and subscription key
 
 > [!IMPORTANT]
 >
-> * You can't use the endpoint found on your Azure portal resource _Keys and Endpoint_ page nor the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation.
 > * **All API requests to the Document Translation service require a custom domain endpoint**.
+> * You won't use the endpoint found on your Azure portal resource _Keys and Endpoint_ page nor the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation.
 
-### What is the custom domain endpoint? 
+### What is the custom domain endpoint?
 
 The custom domain endpoint is a URL formatted with your resource name, hostname, and Translator subdirectories:
 
@@ -59,15 +62,15 @@ Requests to the Translator service require a read-only key for authenticating ac
 
 ## Create your Azure blob storage containers
 
-You'll need to  [**create containers**](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in your [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) for source, target, and optional glossary files.
+You'll need to  [**create containers**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) for source, target, and optional glossary files.
 
 * **Source container**. This container is where you upload your files for translation (required).
 * **Target container**. This container is where your translated files will be stored (required).  
 * **Glossary container**. This container is where you upload your glossary files (optional).  
 
-*See* **Create SAS access tokens for Document Translation**
+### **Create SAS access tokens for Document Translation**
 
-The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs.
+The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs. *See* [**Create SAS tokens for Document Translation process**](create-sas-tokens.md).
 
 * Your **source** container or blob must have designated  **read** and **list** access.
 * Your **target** container or blob must have designated  **write** and **list** access.
@@ -85,7 +88,7 @@ The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Share
 
 * Create a new project.
 * Replace Program.cs with the C# code shown below.
-* Set your endpoint. subscription key, and container URL values in Program.cs.
+* Set your endpoint, subscription key, and container URL values in Program.cs.
 * To process JSON data, add [Newtonsoft.Json package using .NET CLI](https://www.nuget.org/packages/Newtonsoft.Json/).
 * Run the program from the project directory.
 
@@ -93,7 +96,7 @@ The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Share
 
 * Create a new Node.js project.
 * Install the Axios library with `npm i axios`.
-* Copy paste the code below into your project.
+* Copy/paste the code below into your project.
 * Set your endpoint, subscription key, and container URL values.
 * Run the program.
 
@@ -166,7 +169,7 @@ gradle run
 * Set your endpoint, subscription key, and container URL values.
 * Save the file with a '.go' extension.
 * Open a command prompt on a computer with Go installed.
-* Build the file, for example: 'go build example-code.go'.
+* Build the file. For example: 'go build example-code.go'.
 * Run the file, for example: 'example-code'.
 
  ---
@@ -196,48 +199,52 @@ The following headers are included with each Document Translator API request:
 >[!NOTE]
 > If a file with the same name already exists in the destination, it will be overwritten.
 
-### POST a translation request
-
-> [!IMPORTANT]
->
-> * For the code samples, below, you may need to update the following fields, depending upon the operation:
-
->> [!div class="checklist"]
->>
->> * `endpoint`
->> * `subscriptionKey`
->> * `sourceURL`
->> * `targetURL`
->> * `glossaryURL`
->> * `id`  (job ID)
->>
-> * You can find the job `id`  in the The POST method's  response Header `Operation-Location`  URL value. The last parameter of the URL is the operation's job **`id`**.  
-> * You can also use a GET Jobs request to retrieve the  job `id`  for a Document Translation operation.
-> * For the samples below, you'll hard-code your key and endpoint where indicated; remember to remove the key from your code when you're done, and never post it publicly.  
->
-> See [Azure Cognitive Services security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) for ways to securely store and access your credentials.
+## POST a translation request
 
 <!-- markdownlint-disable MD024 -->
-### POST request body without optional glossaryURL
+### POST request body to translate all documents in a container
 
 ```json
 {
     "inputs": [
         {
             "source": {
-                "sourceUrl": "<https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS>",
-                "storageSource": "AzureBlob",
-                "filter": {
-                    "prefix": "News",
-                    "suffix": ".txt"
-                },
-                "language": "en"
+                "sourceUrl": https://my.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D
             },
             "targets": [
                 {
-                    "targetUrl": "<https://YOUR-SOURCE-URL-WITH-WRITE-LIST-ACCESS-SAS>",
-                    "storageSource": "AzureBlob",
-                    "category": "general",
+                    "targetUrl": https://my.blob.core.windows.net/target-fr?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D,
+                    "language": "fr"
+                }
+            ]
+        }
+    ]
+}
+```
+
+
+### POST request body to translate a specific document in a container
+
+* Ensure you have specified "storageType": "File"
+* Ensure you have created source URL & SAS token for the specific blob/document (not for the container) 
+* Ensure you have specified the target filename as part of the target URL – though the SAS token is still for the container.
+* Sample request below shows a single document getting translated into two target languages
+
+```json
+{
+    "inputs": [
+        {
+            "storageType": "File",
+            "source": {
+                "sourceUrl": https://my.blob.core.windows.net/source-en/source-english.docx?sv=2019-12-12&st=2021-01-26T18%3A30%3A20Z&se=2021-02-05T18%3A30%3A00Z&sr=c&sp=rl&sig=d7PZKyQsIeE6xb%2B1M4Yb56I%2FEEKoNIF65D%2Fs0IFsYcE%3D
+            },
+            "targets": [
+                {
+                    "targetUrl": https://my.blob.core.windows.net/target/try/Target-Spanish.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D,
+                    "language": "es"
+                },
+                {
+                    "targetUrl": https://my.blob.core.windows.net/target/try/Target-German.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D,
                     "language": "de"
                 }
             ]
@@ -246,42 +253,34 @@ The following headers are included with each Document Translator API request:
 }
 ```
 
-### POST request body with optional glossaryURL
 
-```json
-{
-  "inputs":[
-    {
-      "source":{
-        "sourceUrl":"<https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS>",
-        "storageSource":"AzureBlob",
-        "filter":{
-          "prefix":"News",
-          "suffix":".txt"
-        },
-        "language":"en"
-      },
-      "targets":[
-        {
-          "targetUrl":"<https://YOUR-SOURCE-URL-WITH-WRITE-LIST-ACCESS-SAS>",
-          "storageSource":"AzureBlob",
-          "category":"general",
-          "language":"de",
-          "glossaries":[
-            {
-              "glossaryUrl":"<https://YOUR-GLOSSARY-URL-WITH-READ-LIST-ACCESS-SAS>",
-              "format":"xliff",
-              "version":"1.2"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
+> [!IMPORTANT]
+>
+> For the code samples below, you'll hard-code your key and endpoint where indicated; remember to remove the key from your code when you're done, and never post it publicly.  See [Azure Cognitive Services security](../../cognitive-services-security.md?tabs=command-line%2ccsharp) for ways to securely store and access your credentials.
+>
+> You may need to update the following fields, depending upon the operation:
+>>>
+>> * `endpoint`
+>> * `subscriptionKey`
+>> * `sourceURL`
+>> * `targetURL`
+>> * `glossaryURL`
+>> * `id`  (job ID)
+>>
 
-## _POST Document Translation_ request code samples
+#### Locating  the `id` value
+
+* You'll find the job `id`  in the POST method response Header `Operation-Location`  URL value. The last parameter of the URL is the operation's job **`id`**:
+
+|**Response header**|**Result URL**|
+|-----------------------|----------------|
+Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/9dce0aa9-78dc-41ba-8cae-2e2f3c2ff8ec</span>
+
+* You can also use a **GET Jobs** request to retrieve a Document Translation  job `id` .
+
+>
+
+## _POST Document Translation_ request
 
 Submit a batch Document Translation request to the translation service.
 
@@ -514,7 +513,7 @@ if err != nil {
 
 ---
 
-## _GET file formats_ code samples
+## _GET file formats_ 
 
 Retrieve a list of supported file formats. If successful, this method returns a `200 OK` response code.
 
@@ -691,7 +690,7 @@ func main() {
 
 ---
 
-## _GET job status_ code samples
+## _GET job status_ 
 
 Get the current status for a single job and a summary of all jobs in a Document Translation request. If successful, this method returns a `200 OK` response code.
 <!-- markdownlint-disable MD024 -->
@@ -870,7 +869,7 @@ func main() {
 
 ---
 
-## _GET document status_ code samples
+## _GET document status_
 
 ### Brief overview
 
@@ -1050,7 +1049,7 @@ func main() {
 
 ---
 
-## _DELETE job_ code samples
+## _DELETE job_ 
 
 ### Brief overview
 
@@ -1232,7 +1231,7 @@ func main() {
 
 ## Content limits
 
-The table below lists the limits for data that you send to Document Translation.
+The table below lists the limits for data that you send to Document Translation (Preview).
 
 |Attribute | Limit|
 |---|---|
@@ -1249,7 +1248,7 @@ The table below lists the limits for data that you send to Document Translation.
 
 * [Translator v3 API reference](../reference/v3-0-reference.md)
 * [Language support](../language-support.md)
-* [Subscriptions in Azure API Management](/azure/api-management/api-management-subscriptions).
+* [Subscriptions in Azure API Management](../../../api-management/api-management-subscriptions.md).
 
 ## Next steps
 

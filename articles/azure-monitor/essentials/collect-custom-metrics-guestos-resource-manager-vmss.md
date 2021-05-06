@@ -7,7 +7,6 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
-ms.subservice: metrics
 ---
 # Send guest OS metrics to the Azure Monitor metric store by using an Azure Resource Manager template for a Windows virtual machine scale set
 
@@ -25,7 +24,7 @@ If you're new to Resource Manager templates, learn about [template deployments](
 
 - You need to have [Azure PowerShell](/powershell/azure) installed, or you can use [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-- Your VM resource must be in a [region that supports custom metrics](../platform/metrics-custom-overview.md#supported-regions).
+- Your VM resource must be in a [region that supports custom metrics](./metrics-custom-overview.md#supported-regions).
 
 ## Set up Azure Monitor as a data sink 
 The Azure Diagnostics extension uses a feature called **data sinks** to route metrics and logs to different locations. The following steps show how to use a Resource Manager template and PowerShell to deploy a VM by using the new Azure Monitor data sink. 
@@ -247,7 +246,7 @@ To deploy the Resource Manager template, use Azure PowerShell:
    ```
 
    > [!NOTE]  
-   > Remember to use an Azure region that's enabled for custom metrics. Remember to use an [Azure region that's enabled for custom metrics](../platform/metrics-custom-overview.md#supported-regions).
+   > Remember to use an Azure region that's enabled for custom metrics. Remember to use an [Azure region that's enabled for custom metrics](./metrics-custom-overview.md#supported-regions).
  
 1. Run the following commands to deploy the VM:  
 
@@ -287,4 +286,4 @@ You can then also choose to use the dimensions on this metric to chart it for a 
 
 
 ## Next steps
-- Learn more about [custom metrics](../platform/metrics-custom-overview.md).
+- Learn more about [custom metrics](./metrics-custom-overview.md).

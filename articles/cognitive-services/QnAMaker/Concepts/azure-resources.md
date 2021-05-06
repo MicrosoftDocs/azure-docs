@@ -121,7 +121,7 @@ QnA Maker managed is a free service, and the throughput is currently capped at 1
 |[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) App Service SKU and check Cognitive Search tier and [create Cognitive Search replicas](../../../search/search-capacity-planning.md)|Your knowledge base needs to serve more requests from your client app, such as a chat bot.|
 |[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service) Azure Cognitive Search service|You plan to have many knowledge bases.|
 
-Get the latest runtime updates by [updating your App Service in the Azure portal](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
+Get the latest runtime updates by [updating your App Service in the Azure portal](../how-to/configure-QnA-Maker-resources.md#get-the-latest-runtime-updates).
 
 # [QnA Maker managed (preview release)](#tab/v2)
 
@@ -303,7 +303,7 @@ The first knowledge base created in the QnA Maker resource is used to determine 
 
 If you create a QnA service and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the QnA Maker service. After these resources are created, you can update the App Service setting to use a previously existing Search service and remove the one you just created.
 
-Learn [how to configure](../How-To/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) QnA Maker to use a different Cognitive Service resource than the one created as part of the QnA Maker resource creation process.
+Learn [how to configure](../How-To/configure-QnA-Maker-resources.md#configure-qna-maker-to-use-different-cognitive-search-resource) QnA Maker to use a different Cognitive Service resource than the one created as part of the QnA Maker resource creation process.
 
 ### App service and App service plan
 

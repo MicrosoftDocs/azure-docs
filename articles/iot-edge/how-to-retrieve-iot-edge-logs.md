@@ -13,6 +13,8 @@ services: iot-edge
 ---
 # Retrieve logs from IoT Edge deployments
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 Retrieve logs from your IoT Edge deployments without needing physical or SSH access to the device by using the direct methods included in the IoT Edge agent module. Direct methods are implemented on the device, and then can be invoked from the cloud. The IoT Edge agent includes direct methods that help you monitor and manage your IoT Edge devices remotely. The direct methods discussed in this article are generally available with the 1.0.10 release.
 
 For more information about direct methods, how to use them, and how to implement them in your own modules, see [Understand and invoke direct methods from IoT Hub](../iot-hub/iot-hub-devguide-direct-methods.md).
@@ -27,7 +29,18 @@ While not required, for best compatibility with this feature, the recommended lo
 <{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{Log Level}` should follow the [Syslog severity level format](https://wikipedia.org/wiki/Syslog#Severity_level) and `{Timestamp}` should be formatted as `yyyy-MM-dd hh:mm:ss.fff zzz`.
+`{Timestamp}` should be formatted as `yyyy-MM-dd hh:mm:ss.fff zzz`, and `{Log Level}` should follow the table below, which derives its severity levels from the [Severity code in the Syslog standard](https://wikipedia.org/wiki/Syslog#Severity_level).
+
+| Value | Severity |
+|-|-|
+| 0 | Emergency |
+| 1 | Alert |
+| 2 | Critical |
+| 3 | Error |
+| 4 | Warning |
+| 5 | Notice |
+| 6 | Informational |
+| 7 | Debug |
 
 The [Logger class in IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs) serves as a canonical implementation.
 

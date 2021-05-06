@@ -52,7 +52,7 @@ No, we don't support Open Network Video Interface Forum (ONVIF) discovery of dev
 
 **Can I play back assets recorded to Azure Media Services from the edge by using streaming technologies such as HLS or DASH?**
 
-Yes. You can stream recorded assets like any other asset in Azure Media Services. To stream the content, you must have a streaming endpoint created and in the running state. Using the standard Streaming Locator creation process will give you access to an Apple HTTP Live Streaming (HLS) or Dynamic Adaptive Streaming over HTTP (DASH, also known as MPEG-DASH) manifest for streaming to any capable player framework. For more information about creating and publishing HLS or DASH manifests, see [dynamic packaging](../latest/dynamic-packaging-overview.md).
+Yes. You can stream recorded assets like any other asset in Azure Media Services. To stream the content, you must have a streaming endpoint created and in the running state. Using the standard Streaming Locator creation process will give you access to an Apple HTTP Live Streaming (HLS) or Dynamic Adaptive Streaming over HTTP (DASH, also known as MPEG-DASH) manifest for streaming to any capable player framework. For more information about creating and publishing HLS or DASH manifests, see [dynamic packaging](../latest/encode-dynamic-packaging-concept.md).
 
 **Can I use the standard content protection and DRM features of Media Services on an archived asset?**
 
@@ -64,7 +64,7 @@ All standard players that support compliant HLS version 3 or version 4 are suppo
 
 Recommended players for testing include:
 
-* [Azure Media Player](../latest/use-azure-media-player.md)
+* [Azure Media Player](../latest/player-use-azure-media-player-how-to.md)
 * [HLS.js](https://hls-js.netlify.app/demo/)
 * [Video.js](https://videojs.com/)
 * [Dash.js](https://github.com/Dash-Industry-Forum/dash.js/wiki)
@@ -124,7 +124,7 @@ Solutions vary depending on the communication protocol that's used by the infere
    
 *Use the gRPC protocol*: 
 
-* With Live Video Analytics module 1.0, when you use a general-purpose remote procedure call (gRPC) protocol, the only way to do so is if the gRPC server exposes different AI models via different ports. In [this code example](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/topology.json), a single port, 44000, exposes all the yolo models. In theory, the yolo gRPC server could be rewritten to expose some models at port 44000 and others at port 45000. 
+* With Live Video Analytics module 1.0, when you use a general-purpose remote procedure call (gRPC) protocol, the only way to do so is if the gRPC server exposes different AI models via different ports. In [this code example](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtensionOpenVINO/2.0/topology.json), a single port, 44000, exposes all the yolo models. In theory, the yolo gRPC server could be rewritten to expose some models at port 44000 and others at port 45000. 
 
 * With Live Video Analytics module 2.0, a new property is added to the gRPC extension node. This property, **extensionConfiguration**, is an optional string that can be used as a part of the gRPC contract. When you have multiple AI models packaged in a single inference server, you don't need to expose a node for every AI model. Instead, for a graph instance, you, as the extension provider, can define how to select the different AI models by using the **extensionConfiguration** property. During execution, Live Video Analytics passes this string to the inferencing server, which can use it to invoke the desired AI model. 
 
@@ -225,7 +225,7 @@ Yes. You can consume Prometheus metrics and publish them to your event grid.
 
 **Can I use Azure Monitor to view the health, metrics, and performance of my media graphs in the cloud or on the edge?**
 
-Yes, we support this approach. To learn more, see [Azure Monitor Metrics overview](../../azure-monitor/platform/data-platform-metrics.md).
+Yes, we support this approach. To learn more, see [Azure Monitor Metrics overview](../../azure-monitor/essentials/data-platform-metrics.md).
 
 **Are there any tools to make it easier to monitor the Media Services IoT Edge module?**
 

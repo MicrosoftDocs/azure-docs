@@ -1,8 +1,8 @@
-﻿- name: IoT device and application development
+﻿- name: IoT device development
   href: index.yml
 - name: Overview
   items:
-  - name: What is IoT device and application development?
+  - name: What is IoT device development?
     href: about-iot-develop.md
   - name: Which SDK should I use?
     href: about-iot-sdks.md
@@ -11,18 +11,22 @@
   items:
     - name: Get started with device application development
       items: 
-      - name: Send telemetry to IoT Central (Python)
-        href: quickstart-send-telemetry-python.md
+      - name: Send telemetry to IoT Central
+        href: quickstart-send-telemetry-central.md
       - name: Send telemetry to IoT Hub (Python)
         href: quickstart-send-telemetry-cli-python.md
       - name: Send telemetry to IoT Hub (Node)
         href: quickstart-send-telemetry-cli-node.md
     - name: Get started with embedded development
-      href: quickstart-device-development.md
+      items:
+      - name: Embedded device development quickstarts
+        href: quickstart-device-development.md
+      - name: Connect an MXCHIP AZ3166 to IoT Central
+        href: quickstart-devkit-mxchip-az3166.md
 - name: Tutorials
   items:
     - name: Securely connect IoT devices to the cloud
-      href: https://docs.microsoft.com/learn/paths/securely-connect-iot-devices/
+      href: /learn/paths/securely-connect-iot-devices/?wt.mc_id=iothub_connect_docs_tutorials
 - name: Concepts
   items:
   - name: Connection options for device developers
@@ -76,7 +80,7 @@
 - name: Resources
   items:
     - name: Support and help options
-      href: ../iot-fundamentals/iot-support-help.md
+      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-develop/toc.json&bc=/azure/iot-develop/breadcrumb/toc.json
     - name: Azure IoT samples
       items:
       - name: C# (.NET)
@@ -90,7 +94,7 @@
       - name: iOS Platform
         href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
     - name: Azure Certified for IoT device catalog
-      href: https://catalog.azureiotsolutions.com/
+      href: https://devicecatalog.azure.com/
     - name: Azure IoT Developer Center
       href: https://azure.microsoft.com/develop/iot/
     - name: Azure Roadmap

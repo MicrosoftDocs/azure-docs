@@ -4,7 +4,7 @@ description: You use Azure Cost Management + Billing features to conduct billing
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/28/2021
+ms.date: 03/03/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
@@ -28,6 +28,8 @@ With Azure products and services, you only pay for what you use. As you create a
 
 To learn more about how to approach cost management as an organization, take a look at the [Azure Cost Management best practices](./costs/cost-mgt-best-practices.md) article.
 
+![Diagram of the Cost Management + Billing optimization process.](./media/cost-management-optimization-process.png)
+
 ## Understand Azure Billing
 
 Azure Billing features are used to review your invoiced costs and manage access to billing information. In larger organizations, procurement and finance teams usually conduct billing tasks.
@@ -43,32 +45,6 @@ The Azure portal currently supports the following types of billing accounts:
 - **Enterprise Agreement**: A billing account for an Enterprise Agreement is created when your organization signs an Enterprise Agreement (EA) to use Azure.
 
 - **Microsoft Customer Agreement**: A billing account for a Microsoft Customer Agreement is created when your organization works with a Microsoft representative to sign a Microsoft Customer Agreement. Some customers in select regions, who sign up through the Azure website for an account with pay-as-you-go rates or upgrade their [Azure Free Account](./manage/create-free-services.md) may have a billing account for a Microsoft Customer Agreement as well.
-
-### Scopes for billing accounts
-A scope is a node in a billing account that you use to view and manage billing. It's where you manage billing data, payments, invoices, and conduct general account management.
-
-#### Microsoft Online Services Program
-
-|Scope  |Definition  |
-|---------|---------|
-|Billing account     | Represents a single owner (Account administrator) for one or more Azure subscriptions. An Account Administrator is authorized to do various billing tasks like create subscriptions, view invoices or change the billing for subscriptions.  |
-|Subscription     |  Represents a grouping of Azure resources. An invoice is generated at the subscription scope. It has its own payment methods that are used to pay its invoice.|
-
-#### Enterprise Agreement
-
-|Scope  |Definition  |
-|---------|---------|
-|Billing account    | Represents an Enterprise Agreement enrollment. Invoice is generated at the billing account scope. It's structured using departments and enrollment accounts.  |
-|Department     |  Optional grouping of enrollment accounts.      |
-|Enrollment account     |  Represents a single account owner. Azure subscriptions are created under the enrollment account scope.  |
-
-#### Microsoft Customer Agreement
-
-|Scope  |Tasks  |
-|---------|---------|
-|Billing account     |   Represents a customer agreement for multiple Microsoft products and services. The billing account is structured using billing profiles and invoice sections.   |
-|Billing profile     |  Represents an invoice and its payment methods. Invoice is generated at this scope. The billing profile can have multiple invoice sections.      |
-|Invoice section     |   Represents a group of costs in an invoice. Subscriptions and other purchases are associated to the invoice section scope.    |
 
 ## Understand Azure Cost Management
 

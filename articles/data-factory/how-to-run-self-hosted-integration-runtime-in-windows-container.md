@@ -20,7 +20,7 @@ Azure Data Factory are delivering the official windows container support of Self
 ## Prerequisites 
 - [Windows container requirements](/virtualization/windowscontainers/deploy-containers/system-requirements)
 - Docker Version 2.3 and later 
-- Self-Hosted Integration Runtime Version 4.11.7512.1 and later 
+- Self-Hosted Integration Runtime Version 5.2.7713.1 and later 
 ## Get started 
 1.	Install Docker and enable Windows Container 
 2.	Download the source code from https://github.com/Azure/Azure-Data-Factory-Integration-Runtime-in-Windows-Container
@@ -36,7 +36,7 @@ docker build . -t "yourDockerImageName" 
 ```
 6.	Run docker container: 
 ```console
-docker run -d -e NODE_NAME="irNodeName" -e AUTH_KEY="IR_AUTHENTICATION_KEY" -e ENABLE_HA=true HA_PORT=8060 "yourDockerImageName"    
+docker run -d -e NODE_NAME="irNodeName" -e AUTH_KEY="IR_AUTHENTICATION_KEY" -e ENABLE_HA=true -e HA_PORT=8060 "yourDockerImageName"    
 ```
 > [!NOTE]
 > AUTH_KEY is mandatory for this command. NODE_NAME, ENABLE_HA and HA_PORT are optional. If you don't set the value, the command will use default values. The default value of ENABLE_HA is false and HA_PORT is 8060.

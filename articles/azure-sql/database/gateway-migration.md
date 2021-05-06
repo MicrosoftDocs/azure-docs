@@ -16,16 +16,38 @@ ms.date: 07/01/2019
 
 As Azure infrastructure improves, Microsoft will periodically refresh hardware to ensure we provide the best possible customer experience. In the coming months, we plan to add gateways built on newer hardware generations, migrate traffic to them, and eventually decommission gateways built on older hardware in some regions.  
 
-Customers will be notified via service health notifications well in advance of any change to gateways available in each region. Customers can [use the Azure portal to set up activity log alerts](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal).
+Customers will be notified via service health notifications well in advance of any change to gateways available in each region. Customers can [use the Azure portal to set up activity log alerts](../../service-health/alerts-activity-log-service-notifications-portal.md).
 
 The most up-to-date information will be maintained in the [Azure SQL Database gateway IP addresses](connectivity-architecture.md#gateway-ip-addresses) table.
 
 ## Status updates
 
 # [In progress](#tab/in-progress-ip)
+## May 2021
+New SQL Gateways are being added to the following regions:
+- UK South:  51.140.144.36, 51.105.72.32  
+- West Central US: 13.71.193.32, 13.71.193.33 
+
+This SQL Gateway shall start accepting customer traffic on 17 May 2021.
+
+## April 2021
+New SQL Gateways are being added to the following regions:
+- East US 2:  40.70.144.193
+
+This SQL Gateway shall start accepting customer traffic on 30 April 2021.
+
+New SQL Gateways are being added to the following regions:
+- Norway East: 51.120.96.33
+- South East Asia: 13.67.16.193
+- South Africa North: 102.133.152.32
+- Korea South: 52.231.151.96
+- North Central: US 52.162.105.9
+- Australia South East: 13.77.49.32 
+
+These SQL Gateways shall start accepting customer traffic on 5 April 2021.
+
 ## March 2021
 The following SQL Gateways in multiple regions are in the process of being deactivated:
-
 - Brazil South: 104.41.11.5
 - East Asia: 191.234.2.139
 - East US: 191.238.6.43
@@ -38,6 +60,9 @@ The following SQL Gateways in multiple regions are in the process of being deact
 - West US: 23.99.34.75
 
 No customer impact is anticipated since these Gateways (running on older hardware) are not routing any customer traffic. The IP addresses for these Gateways shall be deactivated on 15th March 2021.
+
+# [Completed](#tab/completed-ip)
+The following gateway migrations are complete: 
 
 ## February 2021
 New SQL Gateways are being added to the following regions:
@@ -62,8 +87,7 @@ New SQL Gateways are being added to the following regions:
 
 These SQL Gateways shall start accepting customer traffic on 31 January 2021.
 
-# [Completed](#tab/completed-ip)
-The following gateway migrations are complete: 
+
 
 ### October 2020
 

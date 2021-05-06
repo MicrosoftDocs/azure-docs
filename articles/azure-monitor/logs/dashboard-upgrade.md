@@ -1,7 +1,6 @@
 ---
 title: Upgrading your Log Analytics Dashboard visualizations
 description: Learn how to upgrade your Log Analytics Dashboard visualizations with queries that can provide powerful insights. 
-ms.subservice: logs
 ms.topic: article
 author: rboucher
 ms.author: robb
@@ -77,4 +76,4 @@ Dashboards are refreshed upon load. All queries related to dashboard-pinned Log 
 
 ## Next steps
 
-[Create and share dashboards in Log Analytics](../learn/tutorial-logs-dashboards.md)
+[Create and share dashboards in Log Analytics](../visualize/tutorial-logs-dashboards.md)

@@ -72,7 +72,7 @@ In this tutorial, you'll use Live Video Analytics on IoT Edge to detect such toy
 
 This diagram shows how the signals flow in this tutorial. An [edge module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](media-graph-concept.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](media-graph-concept.md#http-extension-processor) node.
 
-The HTTP extension node plays the role of a proxy.  It samples the incoming video frames set by you using the `samplingOptions` field and also converts the video frames to the specified image type. Then it relays the image over REST to another edge module that runs an AI model behind an HTTP endpoint. In this example, that edge module is the toy truck detector model built by using Custom Vision. The HTTP extension processor node gathers the detection results and publishes events to the [Azure IoT Hub sink](media-graph-concept.md#iot-hub-message-sink) node. The node then sends those events to the [IoT Edge hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
+The HTTP extension node plays the role of a proxy.  It samples the incoming video frames set by you using the `samplingOptions` field and also converts the video frames to the specified image type. Then it relays the image over REST to another edge module that runs an AI model behind an HTTP endpoint. In this example, that edge module is the toy truck detector model built by using Custom Vision. The HTTP extension processor node gathers the detection results and publishes events to the [Azure IoT Hub sink](media-graph-concept.md#iot-hub-message-sink) node. The node then sends those events to the [IoT Edge hub](../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
 
 ## Build and deploy a Custom Vision toy detection model 
 
@@ -216,7 +216,7 @@ If you open the graph topology for this tutorial in a browser, you'll see that t
         
    ```
         {
-          "@apiVersion": "1.0",
+          "@apiVersion": "2.0",
           "name": "Sample-Graph-1",
           "properties": {
             "topologyName": "CustomVisionWithHttpExtension",

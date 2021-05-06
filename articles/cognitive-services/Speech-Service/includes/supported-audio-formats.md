@@ -14,3 +14,4 @@ using GStreamer.
 - FLAC
 - ALAW in wav container
 - MULAW in wav container
+- ANY (For the scenario where the media format is not known)

@@ -87,9 +87,9 @@ Each SQL managed instance pod that is created has three containers:
 
 |Container name|CPU Request|Memory Request|CPU Limit|Memory Limit|Notes|
 |---|---|---|---|---|---|
-|fluentbit|100m|100Mi|Not specified|Not specified|The fluentbit container resource requests are _in addition to_ the requests specified for the SQL managed instance.||
-|arc-sqlmi|User specified or not specified.|User specified or not specified.|User specified or not specified.|User specified or not specified.||
-|collectd|Not specified|Not specified|Not specified|Not specified||
+|fluentbit|100m|100Mi|Not specified|Not specified|The fluentbit container resource requests are _in addition to_ the requests specified for the SQL managed instance.|
+|arc-sqlmi|User specified or not specified.|User specified or not specified.|User specified or not specified.|User specified or not specified.|
+|collectd|Not specified|Not specified|Not specified|Not specified|
 
 The default volume size for all persistent volumes is 5Gi.
 
