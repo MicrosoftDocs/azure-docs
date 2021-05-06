@@ -20,7 +20,7 @@ Learn how to manage Azure Machine Learning resources with the VS Code extension.
 
 ## Prerequisites
 
-# [Enhanced CLI](#tab/enhanced-cli)
+# [CLI UI](#tab/cli-ui)
 
 # [CLI](#tab/cli)
 
