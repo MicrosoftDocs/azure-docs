@@ -1206,7 +1206,7 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
-- id: iot-device-application-development-languages
+- id: iot-develop-set1
 # Owner: timlt
   title: Programming languages
   prompt: Choose a programming language
