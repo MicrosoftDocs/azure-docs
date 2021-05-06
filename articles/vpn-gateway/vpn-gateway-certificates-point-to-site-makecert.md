@@ -1,13 +1,13 @@
 ---
-title: 'Generate and export certificates for Point-to-Site: MakeCert : Azure | Microsoft Docs'
-description: Create a self-signed root certificate, export the public key, and generate client certificates using MakeCert.
+title: 'Generate & export certificates for P2S: MakeCert'
+titleSuffix: Azure VPN Gateway
+description: Learn how to create a self-signed root certificate, export a public key, and generate client certificates using MakeCert.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 09/05/2018
+ms.topic: how-to
+ms.date: 09/02/2020
 ms.author: cherylmc
 
 ---
@@ -23,17 +23,17 @@ While we recommend using the [Windows 10 PowerShell steps](vpn-gateway-certifica
 
 The following steps show you how to create a self-signed certificate using MakeCert. These steps are not deployment-model specific. They are valid for both Resource Manager and classic.
 
-1. Download and install [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx).
+1. Download and install [MakeCert](/windows/win32/seccrypto/makecert).
 2. After installation, you can typically find the makecert.exe utility under this path: 'C:\Program Files (x86)\Windows Kits\10\bin\<arch>'. Although, it's possible that it was installed to another location. Open a command prompt as administrator and navigate to the location of the MakeCert utility. You can use the following example, adjusting for the proper location:
 
-  ```cmd
-  cd C:\Program Files (x86)\Windows Kits\10\bin\x64
-  ```
+   ```cmd
+   cd C:\Program Files (x86)\Windows Kits\10\bin\x64
+   ```
 3. Create and install a certificate in the Personal certificate store on your computer. The following example creates a corresponding *.cer* file that you upload to Azure when configuring P2S. Replace 'P2SRootCert' and 'P2SRootCert.cer' with the name that you want to use for the certificate. The certificate is located in your 'Certificates - Current User\Personal\Certificates'.
 
-  ```cmd
-  makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha256 -len 2048 -ss My
-  ```
+   ```cmd
+   makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha256 -len 2048 -ss My
+   ```
 
 ## <a name="cer"></a>Export the public key (.cer)
 
@@ -57,14 +57,14 @@ The following steps walk you through generating a client certificate from a self
  
 1. On the same computer that you used to create the self-signed certificate, open a command prompt as administrator.
 2. Modify and run the sample to generate a client certificate.
-  * Change *"P2SRootCert"* to the name of the self-signed root that you are generating the client certificate from. Make sure you are using the name of the root certificate, which is whatever the 'CN=' value was that you specified when you created the self-signed root.
-  * Change *P2SChildCert* to the name you want to generate a client certificate to be.
+   * Change *"P2SRootCert"* to the name of the self-signed root that you are generating the client certificate from. Make sure you are using the name of the root certificate, which is whatever the 'CN=' value was that you specified when you created the self-signed root.
+   * Change *P2SChildCert* to the name you want to generate a client certificate to be.
 
-  If you run the following example without modifying it, the result is a client certificate named P2SChildcert in your Personal certificate store that was generated from root certificate P2SRootCert.
+   If you run the following example without modifying it, the result is a client certificate named P2SChildcert in your Personal certificate store that was generated from root certificate P2SRootCert.
 
-  ```cmd
-  makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha256
-  ```
+   ```cmd
+   makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha256
+   ```
 
 ### <a name="clientexport"></a>Export a client certificate
 

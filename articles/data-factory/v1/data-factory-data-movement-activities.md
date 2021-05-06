@@ -1,21 +1,11 @@
 ---
-title: Move data by using Copy Activity | Microsoft Docs
+title: Move data by using Copy Activity 
 description: 'Learn about data movement in Data Factory pipelines: data migration between cloud stores, and between an on-premises store and a cloud store. Use Copy Activity.'
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
-
-
-ms.assetid: 67543a20-b7d5-4d19-8b5e-af4c1fd7bc75
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
-
 robots: noindex
 ---
 # Move data by using Copy Activity
@@ -68,7 +58,7 @@ Copy Activity in Data Factory copies data from a source data store to a sink dat
 > [!NOTE] 
 > If you need to move data to/from a data store that Copy Activity doesn't support, use a **custom activity** in Data Factory with your own logic for copying/moving data. For details on creating and using a custom activity, see [Use custom activities in an Azure Data Factory pipeline](data-factory-use-custom-activities.md).
 
-[!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
 
 > [!NOTE]
 > Data stores with * can be on-premises or on Azure IaaS, and require you to install [Data Management Gateway](data-factory-data-management-gateway.md) on an on-premises/Azure IaaS machine.
@@ -80,7 +70,7 @@ Copy Activity also reads from and writes to files in specified formats: **Text, 
 
 For example, you can do the following copy activities:
 
-* Copy data in on-premises SQL Server and write to Azure Data Lake Store in ORC format.
+* Copy data in a SQL Server database and write to Azure Data Lake Store in ORC format.
 * Copy files in text (CSV) format from on-premises File System and write to Azure Blob in Avro format.
 * Copy zipped files from on-premises File System and decompress then land to Azure Data Lake Store.
 * Copy data in GZip compressed text (CSV) format from Azure Blob and write to Azure SQL Database.
@@ -136,7 +126,7 @@ You can create a pipeline with Copy Activity in a couple of ways:
 The Data Factory Copy Wizard helps you to create a pipeline with Copy Activity. This pipeline allows you to copy data from supported sources to destinations *without writing JSON* definitions for linked services, datasets, and pipelines. See [Data Factory Copy Wizard](data-factory-copy-wizard.md) for details about the wizard.  
 
 ### By using JSON scripts
-You can use Data Factory Editor in the Azure portal, Visual Studio, or Azure PowerShell to create a JSON definition for a pipeline (by using Copy Activity). Then, you can deploy it to create the pipeline in Data Factory. See [Tutorial: Use Copy Activity in an Azure Data Factory pipeline](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for a tutorial with step-by-step instructions.    
+You can use Data Factory Editor in Visual Studio, or Azure PowerShell to create a JSON definition for a pipeline (by using Copy Activity). Then, you can deploy it to create the pipeline in Data Factory. See [Tutorial: Use Copy Activity in an Azure Data Factory pipeline](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for a tutorial with step-by-step instructions.    
 
 JSON properties (such as name, description, input and output tables, and policies) are available for all types of activities. Properties that are available in the `typeProperties` section of the activity vary with each activity type.
 
@@ -207,7 +197,7 @@ Different data stores have different native type systems. Copy Activity performs
 1. Convert from native source types to a .NET type.
 2. Convert from a .NET type to a native sink type.
 
-The mapping from a native type system to a .NET type for a data store is in the respective data store article. (Click the specific link in the [Supported data stores](#supported-data-stores) table). You can use these mappings to determine appropriate types while creating your tables, so that Copy Activity performs the right conversions.
+The mapping from a native type system to a .NET type for a data store is in the respective data store article. (Click the specific link in the Supported data stores table). You can use these mappings to determine appropriate types while creating your tables, so that Copy Activity performs the right conversions.
 
 ## Next steps
 * To learn about the Copy Activity more, see [Copy data from Azure Blob storage to Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

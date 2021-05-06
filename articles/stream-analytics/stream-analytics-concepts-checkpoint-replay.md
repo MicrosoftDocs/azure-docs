@@ -1,14 +1,12 @@
 ---
-title: Checkpoint and replay job recovery concepts in Azure Stream Analytics
+title: Checkpoint and replay recovery concepts in Azure Stream Analytics
 description: This article describes checkpoint and replay job recovery concepts in Azure Stream Analytics.
-services: stream-analytics
-author: zhongc
-ms.author: zhongc
-manager: kfile
-ms.reviewer: jasonh
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 12/06/2018
+ms.custom: seodec18
 ---
 # Checkpoint and replay concepts in Azure Stream Analytics jobs
 This article describes the internal checkpoint and replay concepts in Azure Stream Analytics, and the impact those have on job recovery. Each time a Stream Analytics job runs, state information is maintained internally. That state information is saved in a checkpoint periodically. In some scenarios, the checkpoint information is used for job recovery if a job failure or upgrade occurs. In other circumstances, the checkpoint cannot be used for recovery, and a replay is necessary.
@@ -53,7 +51,7 @@ To estimate the length of the delay due to a service upgrade, you can follow thi
 
 3. Measure the time between the start time and when the first output is generated. The time is rough how much delay the job would incur during a service upgrade.
 
-4. If the delay is too long, try to partition your job and increase number of SUs, so the load is spread out to more nodes. Alternatively, consider reducing the window sizes in your query, and perform further aggregation or other stateful processing on the output produced by the Stream Analytics job in the downstream sink (for example, using Azure SQL database).
+4. If the delay is too long, try to partition your job and increase number of SUs, so the load is spread out to more nodes. Alternatively, consider reducing the window sizes in your query, and perform further aggregation or other stateful processing on the output produced by the Stream Analytics job in the downstream sink (for example, using Azure SQL Database).
 
 For general service stability concern during upgrade of mission critical jobs, consider running duplicate jobs in paired Azure regions. For more information, see [Guarantee Stream Analytics job reliability during service updates](stream-analytics-job-reliability.md).
 

@@ -1,61 +1,73 @@
 ---
-title: Configure OS patching schedule for Linux-based HDInsight clusters - Azure
+title: Configure OS patching schedule for Azure HDInsight clusters
 description: Learn how to configure OS patching schedule for Linux-based HDInsight clusters.
-services: hdinsight
-author: omidm1
-ms.author: omidm
 ms.service: hdinsight
+ms.topic: how-to
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 03/21/2017
+ms.date: 01/21/2020
 ---
 
-# OS patching for HDInsight 
-As a managed Hadoop service, HDInsight takes care of patching the OS of the underlying VMs used by HDInsight clusters. As of August 1, 2016, we have changed the guest OS patching policy for Linux-based HDInsight clusters (version 3.4 or greater). The goal of the new policy is to significantly reduce the number of reboots due to patching. The new policy will continue to patch virtual machines (VMs) on Linux clusters every Monday or Thursday starting at 12AM UTC in a staggered fashion across nodes in any given cluster. However, any given VM will only reboot at most once every 30 days due to guest OS patching. In addition, the first reboot for a newly created cluster will not happen sooner than 30 days from the cluster creation date. Patches will be effective once the VMs are rebooted.
+# Configure the OS patching schedule for Linux-based HDInsight clusters
 
-## How to configure the OS patching schedule for Linux-based HDInsight clusters
-The virtual machines in an HDInsight cluster need to be rebooted occasionally so that important security patches can be installed. As of August 1, 2016, new Linux-based HDInsight clusters (version 3.4 or greater,) are rebooted using the following schedule:
+> [!IMPORTANT]
+> Ubuntu images become available for new Azure HDInsight cluster creation within three months of being published. Running clusters aren't auto-patched. Customers must use script actions or other mechanisms to patch a running cluster. As a best practice, you can run these script actions and apply security updates right after the cluster creation.
 
-1. A virtual machine in the cluster can only reboot for patches at most, once within a 30-day period.
-2. The reboot occurs starting at 12AM UTC.
-3. The reboot process is staggered across virtual machines in the cluster, so the cluster is still available during the reboot process.
-4. The first reboot for a newly created cluster will not happen sooner than 30 days after the cluster creation date.
+HDInsight provides support for you to perform common tasks on your cluster such as installing OS patches, security updates, and rebooting nodes. These tasks are accomplished using the following two scripts that can be run as [script actions](hdinsight-hadoop-customize-cluster-linux.md), and configured with parameters:
 
-Using the script action described in this article, you can modify the OS patching schedule as follows:
-1. Enable or disable automatic reboots
-2. Set the frequency of reboots (days between reboots)
-3. Set the day of the week when a reboot occurs
+- `schedule-reboots.sh` - Do an immediate restart, or schedule a restart on the cluster nodes.
+- `install-updates-schedule-reboots.sh` - Install all updates, only kernel + security updates, or only kernel updates.
 
-> [!NOTE]
-> This script action will only work with Linux-based HDInsight clusters created after August 1st, 2016. Patches will be effective only when VMs are rebooted. 
->
+> [!NOTE]  
+> Script actions won't automatically apply updates for all future update cycles. Run the scripts each time new updates must be applied to install the updates, and then restart the VM.
 
-## How to use the script 
+## Preparation
 
-When using this script requires the following information:
-1. The script location: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.
- 	HDInsight uses this URI to find and run the script on all the virtual machines in the cluster.
+Patch on a representative non-production environment prior to  deploying to production. Develop a plan to adequately test your system prior to your actual patching.
+
+From time-to-time, from an ssh session with your cluster, you may receive a message that security updates are available. The message may looks something like:
+
+```
+89 packages can be updated.
+82 updates are security updates.
+
+*** System restart required ***
+
+Welcome to Spark on HDInsight.
+
+```
+
+Patching is optional and at your discretion.
+
+## Restart nodes
   
-2. The cluster node types that the script is applied to: headnode, workernode, zookeeper. This script must be applied to all node types in the cluster. If it is not applied to a node type, then the virtual machines for that node type will continue to use the previous patching schedule.
+The script [schedule-reboots](https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh), sets the type of reboot that will be performed on the machines in the cluster. When submitting the script action, set it to apply on all three node types: head node, worker node, and zookeeper. If the script isn't applied to a node type, the VMs for that node type won't be updated or restarted.
 
+The `schedule-reboots script` accepts one numeric parameter:
 
-3.  Parameter: This script accepts three numeric parameters:
+| Parameter | Accepted values | Definition |
+| --- | --- | --- |
+| Type of restart to perform | 1 or 2 | A value of 1 enables schedule restart (scheduled in 12-24 hours). A value of 2 enables immediate restart (in 5 minutes). If no parameter is given, the default is 1. |  
 
-    | Parameter | Definition |
-    | --- | --- |
-    | Enable/disable automatic reboots |0 or 1. A value of 0 disables automatic reboots while 1 enables automatic reboots. |
-    | Frequency |7 to 90 (inclusive). The number of days to wait before rebooting the virtual machines for patches that require a reboot. |
-    | Day of week |1 to 7 (inclusive). A value of 1 indicates the reboot should occur on a Monday, and 7 indicates a Sunday.For example, using parameters of 1 60 2 results in automatic reboots every 60 days (at most) on Tuesday. |
-    | Persistence |When applying a script action to an existing cluster, you can mark the script as persisted. Persisted scripts are applied when new workernodes are added to the cluster through scaling operations. |
+## Install updates and restart nodes
+
+The script [install-updates-schedule-reboots.sh](https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/install-updates-schedule-reboots.sh) provides options to install different types of updates and restart the VM.
+
+The `install-updates-schedule-reboots` script accepts two numeric parameters, as described in the following table:
+
+| Parameter | Accepted values | Definition |
+| --- | --- | --- |
+| Type of updates to install | 0,  1, or 2 | A value of 0 installs only kernel updates. A value of 1 installs kernel + security updates and 2 installs all updates. If no parameter is provided, the default is 0. |
+| Type of restart to perform | 0, 1, or 2 | A value of 0 disables restart. A value of 1 enables schedule restart, and 2 enables immediate restart. If no parameter is provided, the default is 0. The user must change input parameter 1 to input parameter 2. |
 
 > [!NOTE]
-> You must mark this script as persisted when applying to an existing cluster. Otherwise, any new nodes created through scaling      operations will use the default patching schedule.
- 	If you apply the script as part of the cluster creation process, it is persisted automatically.
->
+> You must mark a script as persisted after you apply it to an existing cluster. Otherwise, any new nodes created through scaling operations will use the default patching schedule. If you apply the script as part of the cluster creation process, it's persisted automatically.
+
+> [!NOTE]
+> The Scheduled Restart option does an automated rolling restart of the patched cluster nodes over a period of 12 to 24 hours and takes into account high availability, update domain, and fault domain considerations. Scheduled Restart does not terminate running workloads but may take away cluster capacity in the interim when nodes are unavailable, leading to longer processing times. 
 
 ## Next steps
 
-For specific steps on using the script action, see the following sections in the [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md):
+For specific steps on using script actions, see the following sections in [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md):
 
-* [Use a script action during cluster creation](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
-* [Apply a script action to a running cluster](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)
+- [Use a script action during cluster creation](hdinsight-hadoop-customize-cluster-linux.md#script-action-during-cluster-creation)
+- [Apply a script action to a running cluster](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster)

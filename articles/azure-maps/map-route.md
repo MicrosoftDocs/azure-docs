@@ -1,9 +1,9 @@
 ---
-title: Show directions with Azure Maps | Microsoft Docs
-description: How to display directions between two locations on a Javascript map
-author: jingjing-z
-ms.author: jinzh
-ms.date: 09/07/2018
+title: Show route directions on a map | Microsoft Azure Maps
+description: In this article, you'll learn how to display directions between two locations on a map using the Microsoft Azure Maps Web SDK.
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -15,48 +15,61 @@ ms.custom: codepen
 
 This article shows you how to make a route request and show the route on the map.
 
-There are two ways to do so. The first way is to query the [Azure Maps Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) through a service module. The second way is to make a [XMLHttpRequest](https://xhr.spec.whatwg.org/) to the API. Both ways are discussed below.
+There are two ways to do so. The first way is to query the [Azure Maps Route API](/rest/api/maps/route/getroutedirections) through a service module. The second way is to use the [Fetch API](https://fetch.spec.whatwg.org/) to make a search request to the [Azure Maps Route API](/rest/api/maps/route/getroutedirections). Both ways are discussed below.
 
 ## Query the route via service module
 
-<iframe height='500' scrolling='no' title='Show directions from A to B on a map (Service Module)' src='//codepen.io/azuremaps/embed/RBZbep/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/RBZbep/'>Show directions from A to B on a map (Service Module)</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Show directions from A to B on a map (Service Module)' src='//codepen.io/azuremaps/embed/RBZbep/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/RBZbep/'>Show directions from A to B on a map (Service Module)</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-The first block of code constructs a Map object. You can see [create a map](./map-create.md) for instructions.
+In the above code, the first block constructs a map object and sets the authentication mechanism to use the access token. You can see [create a map](./map-create.md) for instructions.
 
-The line in the second block of code instantiates a service client.
+The second block of code creates a `TokenCredential` to authenticate HTTP requests to Azure Maps with the access token. It then passes the `TokenCredential` to `atlas.service.MapsURL.newPipeline()` and creates a [Pipeline](/javascript/api/azure-maps-rest/atlas.service.pipeline) instance. The `routeURL` represents a URL to Azure Maps [Route](/rest/api/maps/route) operations.
 
-The third code block initializes the [line String Layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addlinestrings) on the map.
+The third block of code creates and adds a [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource) object to the map.
 
-The fourth block of code creates and adds pins on the map to represent the start and end point of the route. You can see [add a pin on the map](map-add-pin.md) for instructions about using [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins).
+The fourth block of code creates start and end [points](/javascript/api/azure-maps-control/atlas.data.point) objects and adds them to the dataSource object.
 
-The next block of code uses [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds) function of the map class to set the bounding box of the map based on the start and end point of the route.
+A line is a [Feature](/javascript/api/azure-maps-control/atlas.data.feature) for LineString. A [LineLayer](/javascript/api/azure-maps-control/atlas.layer.linelayer) renders line objects wrapped in the  [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource) as lines on the map. The fourth block of code creates and adds a line layer to the map. See properties of a line layer at [LinestringLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions).
 
-The sixth code block constructs a route query.
+A [symbol layer](/javascript/api/azure-maps-control/atlas.layer.symbollayer) uses texts or icons to render point-based data wrapped in the [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource). The texts or the icons render as symbols on the map. The fifth block of code creates and adds a symbol layer to the map.
 
-The last block of code queries the Azure Maps routing service through the [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) method to get a route between the start and destination point. The response is then parsed into GeoJSON format using the [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes) method. It adds all those lines onto the map to render the route. You can see [add a line on the map](./map-add-shape.md#addALine) for more information.
+The sixth block of code queries the Azure Maps routing service, which is part of the [service module](how-to-use-services-module.md). The [calculateRouteDirections](/javascript/api/azure-maps-rest/atlas.service.routeurl#methods) method of the RouteURL is used to get a route between the start and end points. A GeoJSON feature collection from the response is then extracted using the `geojson.getFeatures()` method and is added to the datasource. It then renders the response as a route on the map. For more information about adding a line to the map, see [add a line on the map](map-add-line-layer.md).
 
-## Query the route via XMLHttpRequest
+The last block of code sets the bounds of the map using the Map's [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) property.
 
-<iframe height='500' scrolling='no' title='Show directions from A to B on a map' src='//codepen.io/azuremaps/embed/zRyNmP/?height=469&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/zRyNmP/'>Show directions from A to B on a map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+The route query, data source, symbol, line layers, and camera bounds are created inside the [event listener](/javascript/api/azure-maps-control/atlas.map#events). This code structure ensures the results are displayed only after the map fully loads.
+
+## Query the route via Fetch API
+
+<iframe height='500' scrolling='no' title='Show directions from A to B on a map' src='//codepen.io/azuremaps/embed/zRyNmP/?height=469&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/zRyNmP/'>Show directions from A to B on a map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-The first block of code constructs a Map object. You can see [create a map](./map-create.md) for instructions.
+In the code above, the first block of code constructs a map object and sets the authentication mechanism to use the access token. You can see [create a map](./map-create.md) for instructions.
 
-The second block of code creates and adds pins on the map to represent the start and end point of the route. You can see [add a pin on the map](map-add-pin.md) for instructions about using [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins).
+The second block of code creates and adds a [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource) object to the map.
 
-The third block of code uses [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds) function of the Map class to set the bounding box of the map based on the start and end point of the route.
+The third code block creates the start and destination points for the route. Then, it adds them to the data source. You can see [add a pin on the map](map-add-pin.md) for instructions about using [addPins](/javascript/api/azure-maps-control/atlas.map).
 
-The fourth block of code sends an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
+A [LineLayer](/javascript/api/azure-maps-control/atlas.layer.linelayer) renders line objects wrapped in the  [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource) as lines on the map. The fourth block of code creates and adds a line layer to the map. See properties of a line layer at [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions).
 
-The last block of code parses the incoming response. For a successful response, it collects the latitude and longitude information for each waypoint. It creates an array of lines by connecting each waypoint to its subsequent waypoint. It adds all those lines onto the map to render the route. You can see [add a line on the map](./map-add-shape.md#addALine) for instructions.
+A [symbol layer](/javascript/api/azure-maps-control/atlas.layer.symbollayer) uses text or icons to render point-based data wrapped in the [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource) as symbols on the map. The fifth block of code creates and adds a symbol layer to the map. See properties of a symbol layer at [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions).
+
+The next code block creates `SouthWest` and `NorthEast` points from the start and destination points and sets the bounds of the map using the Map's [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) property.
+
+The last block of code uses the [Fetch API](https://fetch.spec.whatwg.org/) to make a search request to the [Azure Maps Route API](/rest/api/maps/route/getroutedirections). The response is then parsed. If the response was successful, the latitude and longitude information is used to create an array a line by connecting those points. The line data is then added to data source to render the route on the map. You can see [add a line on the map](map-add-line-layer.md) for instructions.
+
+The route query, data source, symbol, line layers, and camera bounds are created inside the [event listener](/javascript/api/azure-maps-control/atlas.map#events). Again, we want to ensure that results are displayed after the map loads fully.
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Best practices for using the routing service](how-to-use-best-practices-for-search.md)
 
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Map](/javascript/api/azure-maps-control/atlas.map)
 
 See the following articles for full code examples:
 

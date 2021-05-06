@@ -1,20 +1,20 @@
 ---
-title: Diagnose a communication problem between networks - tutorial - Azure portal | Microsoft Docs
-description: Learn how to diagnose a communication problem between an Azure virtual network connected to an on-premises, or other virtual network, through an Azure virtual network gateway, using Network Watcher's VPN diagnostics capability.
+title: 'Tutorial - Diagnose communication problem between networks using the Azure portal'
+titleSuffix: Azure Network Watcher
+description: In this tutorial, learn how to diagnose a communication problem between an Azure virtual network connected to an on-premises, or other virtual network, through an Azure virtual network gateway, using Network Watcher's VPN diagnostics capability.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
-editor:
-Customer intent: I need to determine why resources in a virtual network can't communicate with resources in a different network. 
+author: damendo
+
+# Customer intent: I need to determine why resources in a virtual network can't communicate with resources in a different network. 
 
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 04/27/2018
-ms.author: jdial
+ms.date: 01/07/2021
+ms.author: damendo
 ms.custom: mvc
 ---
 
@@ -29,11 +29,14 @@ A virtual network gateway connects an Azure virtual network to an on-premises, o
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Prerequisites
 
 To use VPN diagnostics, you must have an existing, running VPN gateway. If you don't have an existing VPN gateway to diagnose, you can deploy one using a [PowerShell script](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). You can run the PowerShell script from:
-    - **A local PowerShell installation**: The script requires the AzureRM PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
-    - **The Azure Cloud Shell**: The [Azure Cloud Shell](https://shell.azure.com/powershell) has the latest version of PowerShell installed and configured, and logs you into Azure.
+- **A local PowerShell installation**: The script requires the Azure PowerShell `Az` module. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+- **The Azure Cloud Shell**: The [Azure Cloud Shell](https://shell.azure.com/powershell) has the latest version of PowerShell installed and configured, and logs you into Azure.
 
 The script takes approximately an hour to create a VPN gateway. The remaining steps assume that the gateway you're diagnosing is the one deployed by this script. If you diagnose your own existing gateway instead, your results will vary.
 
@@ -67,12 +70,12 @@ If you already have a network watcher enabled in the East US region, skip to [Di
 8. While the test is running, **Running** appears in the **TROUBLESHOOTING STATUS** column where **Not started** is shown, in the previous picture. The test may take several minutes to run.
 9. View the status of a completed test. The following picture shows the status results of a completed diagnostic test:
 
-    ![Status](./media/diagnose-communication-problem-between-networks/status.png)
+    ![Screenshot shows the status results of a diagnostic test, unhealthy in this example, including a summary and detail.](./media/diagnose-communication-problem-between-networks/status.png)
 
     You can see that the **TROUBLESHOOTING STATUS** is **Unhealthy**, as well as a **Summary** and **Detail** of the problem on the **Status** tab.
 10. When you select the **Action** tab, VPN diagnostics provides additional information. In the example, shown in the following picture, VPN diagnostics lets you know that you should check the health of each connection:
 
-  ![Action](./media/diagnose-communication-problem-between-networks/action.png)
+    ![Screenshot shows the Action tab, which gives you additional information.](./media/diagnose-communication-problem-between-networks/action.png)
 
 ## Diagnose a gateway connection
 
@@ -80,7 +83,7 @@ A gateway is connected to other networks via a gateway connection. Both the gate
 
 1. Complete step 7 of [Diagnose a gateway](#diagnose-a-gateway) again, this time, selecting a connection. In the following example, a connection named **VNet1toSite1** is tested:
 
-    ![Connection](./media/diagnose-communication-problem-between-networks/connection.png)
+    ![Screenshot shows how to start troubleshooting for a selected connection.](./media/diagnose-communication-problem-between-networks/connection.png)
 
     The test runs for several minutes.
 2. After the test of the connection is complete, you receive results similar to the results shown in the following pictures on the **Status** and **Action** tabs:

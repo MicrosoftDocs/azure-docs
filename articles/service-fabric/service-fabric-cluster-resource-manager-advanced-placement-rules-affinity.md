@@ -1,21 +1,14 @@
 ---
-title: Service Fabric Cluster Resource Manager - Affinity | Microsoft Docs
-description: Overview of configuring affinity for Service Fabric Services
+title: Service Fabric Cluster Resource Manager - Affinity 
+description: Overview of service affinity for Azure Service Fabric services and guidance on service affinity configuration.
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
-editor: ''
 
-ms.assetid: 678073e1-d08d-46c4-a811-826e70aba6c4
-ms.service: Service-Fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-
+ms.custom: devx-track-csharp
 ---
 # Configuring and using service affinity in Service Fabric
 Affinity is a control that is provided mainly to help ease the transition of larger monolithic applications into the cloud and microservices world. It is also used as an optimization for improving the performance of services, although doing so can have side effects.
@@ -55,6 +48,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 Affinity is represented via one of several correlation schemes, and has two different modes. The most common mode of affinity is what we call NonAlignedAffinity. In NonAlignedAffinity, the replicas or instances of the different services are placed on the same nodes. The other mode is AlignedAffinity. Aligned Affinity is useful only with stateful services. Configuring two stateful services to have aligned affinity ensures that the primaries of those services are placed on the same nodes as each other. It also causes each pair of secondaries for those services to be placed on the same nodes. It is also possible (though less common) to configure NonAlignedAffinity for stateful services. For NonAlignedAffinity, the different replicas of the two stateful services would run on the same nodes, but their primaries could end up on different nodes.
 
 <center>
+
 ![Affinity Modes and Their Effects][Image1]
 </center>
 
@@ -65,10 +59,11 @@ An affinity relationship is best effort. It does not provide the same guarantees
 Today the Cluster Resource Manager isn't able to model chains of affinity relationships. What this means is that a service that is a child in one affinity relationship can’t be a parent in another affinity relationship. If you want to model this type of relationship, you effectively have to model it as a star, rather than a chain. To move from a chain to a star, the bottommost child would be parented to the first child’s parent instead. Depending on the arrangement of your services, you may have to do this multiple times. If there's no natural parent service, you may have to create one that serves as a placeholder. Depending on your requirements, you may also want to look into [Application Groups](service-fabric-cluster-resource-manager-application-groups.md).
 
 <center>
+
 ![Chains vs. Stars in the Context of Affinity Relationships][Image2]
 </center>
 
-Another thing to note about affinity relationships today is that they are directional. This means that the affinity rule only enforces that the child placed with the parent. It does not ensure that the parent is located with the child. It is also important to note that the affinity relationship can't be perfect or instantly enforced since different services have with different lifecycles and can fail and move independently. For example, let's say the parent suddenly fails over to another node because it crashed. The Cluster Resource Manager and Failover Manager handle the failover first, since keeping the services up, consistent, and available is the priority. Once the failover completes, the affinity relationship is broken, but the Cluster Resource Manager thinks everything is fine until it notices that the child is not located with the parent. These sorts of checks are performed periodically. More information on how the Cluster Resource Manager evaluates constraints is available in [this article](service-fabric-cluster-resource-manager-management-integration.md#constraint-types), and [this one](service-fabric-cluster-resource-manager-balancing.md) talks more about how to configure the cadence on which these constraints are evaluated.   
+Another thing to note about affinity relationships today is that they are directional by default. This means that the affinity rule only enforces that the child placed with the parent. It does not ensure that the parent is located with the child. Therefore, if there is an affinity violation and to correct the violation for some reason it is not feasible to move the child to the parent's node, then -- even if moving the parent to the child's node would have corrected the violation -- the parent will not be moved to the child's node. Setting the config [MoveParentToFixAffinityViolation](service-fabric-cluster-fabric-settings.md) to true would remove the directionality. It is also important to note that the affinity relationship can't be perfect or instantly enforced since different services have with different lifecycles and can fail and move independently. For example, let's say the parent suddenly fails over to another node because it crashed. The Cluster Resource Manager and Failover Manager handle the failover first, since keeping the services up, consistent, and available is the priority. Once the failover completes, the affinity relationship is broken, but the Cluster Resource Manager thinks everything is fine until it notices that the child is not located with the parent. These sorts of checks are performed periodically. More information on how the Cluster Resource Manager evaluates constraints is available in [this article](service-fabric-cluster-resource-manager-management-integration.md#constraint-types), and [this one](service-fabric-cluster-resource-manager-balancing.md) talks more about how to configure the cadence on which these constraints are evaluated.   
 
 
 ### Partitioning support

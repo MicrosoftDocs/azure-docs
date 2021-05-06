@@ -4,7 +4,7 @@ description: Explains the declarative provisioning configuration model in Azure 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
@@ -12,11 +12,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Understanding Declarative Provisioning
 This topic explains the configuration model in Azure AD Connect. The model is called Declarative Provisioning and it allows you to make a configuration change with ease. Many things described in this topic are advanced and not required for most customer scenarios.
@@ -24,22 +25,22 @@ This topic explains the configuration model in Azure AD Connect. The model is ca
 ## Overview
 Declarative provisioning is processing objects coming in from a source connected directory and determines how the object and attributes should be transformed from a source to a target. An object is processed in a sync pipeline and the pipeline is the same for inbound and outbound rules. An inbound rule is from a connector space to the metaverse and an outbound rule is from the metaverse to a connector space.
 
-![Sync pipeline](./media/concept-azure-ad-connect-sync-declarative-provisioning/sync1.png)  
+![Diagram that shows a sync pipeline example.](./media/concept-azure-ad-connect-sync-declarative-provisioning/sync1.png)  
 
 The pipeline has several different modules. Each one is responsible for one concept in object synchronization.
 
-![Sync pipeline](./media/concept-azure-ad-connect-sync-declarative-provisioning/pipeline.png)  
+![Diagram that shows the modules in the pipeline.](./media/concept-azure-ad-connect-sync-declarative-provisioning/pipeline.png)  
 
 * Source, The source object
 * [Scope](#scope), Finds all sync rules that are in scope
 * [Join](#join), Determines relationship between connector space and metaverse
-* [Transform](#transform), Calculates how attributes should be transformed and flow
+* Transform, Calculates how attributes should be transformed and flow
 * [Precedence](#precedence), Resolves conflicting attribute contributions
 * Target, The target object
 
 ## Scope
 The scope module is evaluating an object and determines the rules that are in scope and should be included in the processing. Depending on the attributes values on the object, different sync rules are evaluated to be in scope. For example, a disabled user with no Exchange mailbox does have different rules than an enabled user with a mailbox.  
-![Scope](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
+![Diagram that shows the scope module for an object.](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
 
 The scope is defined as groups and clauses. The clauses are inside a group. A logical AND is used between all clauses in a group. For example, (department =IT AND country = Denmark). A logical OR is used between groups.
 
@@ -73,7 +74,7 @@ The joins are defined as one or more groups. Inside a group, you have clauses. A
 The joins in this picture are processed from top to bottom. First the sync pipeline sees if there is a match on employeeID. If not, the second rule sees if the account name can be used to join the objects together. If that is not a match either, the third and final rule is a more fuzzy match by using the name of user.
 
 If all join rules have been evaluated and there is not exactly one match, the **Link Type** on the **Description** page is used. If this option is set to **Provision**, then a new object in the target is created.  
-![Provision or join](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
+![Screenshot that shows the "Link Type" drop-down menu open.](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
 
 An object should only have one single sync rule with join rules in scope. If there are multiple sync rules where join is defined, an error occurs. Precedence is not used to resolve join conflicts. An object must have a join rule in scope for attributes to flow with the same inbound/outbound direction. If you need to flow attributes both inbound and outbound to the same object, you must have both an inbound and an outbound sync rule with join.
 
@@ -96,7 +97,7 @@ The **Apply once** checkbox defines that the attribute should only be set when t
 ### Merging attribute values
 In the attribute flows there is a setting to determine if multi-valued attributes should be merged from several different Connectors. The default value is **Update**, which indicates that the sync rule with highest precedence should win.
 
-![Merge Types](./media/concept-azure-ad-connect-sync-declarative-provisioning/mergetype.png)  
+![Screenshot that shows the "Add transformations" section with the "Merge Types" drop-down menu open.](./media/concept-azure-ad-connect-sync-declarative-provisioning/mergetype.png)  
 
 There is also **Merge** and **MergeCaseInsensitive**. These options allow you to merge values from different sources. For example, it can be used to merge the member or proxyAddresses attribute from several different forests. When you use this option, all sync rules in scope for an object must use the same merge type. You cannot define **Update** from one Connector and **Merge** from another. If you try, you receive an error.
 
@@ -141,7 +142,7 @@ Precedence can be defined between Connectors. That allows Connectors with better
 
 ### Multiple objects from the same connector space
 If you have several objects in the same connector space joined to the same metaverse object, precedence must be adjusted. If several objects are in scope of the same sync rule, then the sync engine is not able to determine precedence. It is ambiguous which source object should contribute the value to the metaverse. This configuration is reported as ambiguous even if the attributes in the source have the same value.  
-![Multiple objects joined to the same mv object](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple1.png)  
+![Diagram that shows multiple objects joined to the same mv object with a transparent red X overlay. ](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple1.png)  
 
 For this scenario, you need to change the scope of the sync rules so the source objects have different sync rules in scope. That allows you to define different precedence.  
 ![Multiple objects joined to the same mv object](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple2.png)  

@@ -1,21 +1,11 @@
 ---
-title: Move data from Amazon Simple Storage Service by using Data Factory | Microsoft Docs
+title: Move data from Amazon Simple Storage Service by using Data Factory 
 description: Learn about how to move data from Amazon Simple Storage Service (S3) by using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
-
-
-ms.assetid: 636d3179-eba8-4841-bcb4-3563f6822a26
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Move data from Amazon Simple Storage Service by using Azure Data Factory
@@ -36,14 +26,14 @@ To copy data from Amazon S3, make sure you have been granted the following permi
 * `s3:GetObject` and `s3:GetObjectVersion` for Amazon S3 Object Operations.
 * `s3:ListBucket` for Amazon S3 Bucket Operations. If you are using the Data Factory Copy Wizard, `s3:ListAllMyBuckets` is also required.
 
-For details about the full list of Amazon S3 permissions, see [Specifying Permissions in a Policy](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
+For details about the full list of Amazon S3 permissions, see [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data from an Amazon S3 source by using different tools or APIs.
 
 The easiest way to create a pipeline is to use the **Copy Wizard**. For a quick walkthrough, see [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
 
-You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. For step-by-step instructions to create a pipeline with a copy activity, see the [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+You can also use the following tools to create a pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. For step-by-step instructions to create a pipeline with a copy activity, see the [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Whether you use tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
@@ -67,7 +57,7 @@ A linked service links a data store to a data factory. You create a linked servi
 | secretAccessKey |The secret access key itself. |Encrypted secret string |Yes |
 
 >[!NOTE]
->This connector requires access keys for IAM account to copy data from Amazon S3. [Temporary Security Credential](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) is not supported.
+>This connector requires access keys for IAM account to copy data from Amazon S3. [Temporary Security Credential](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) is not supported.
 >
 
 Here is an example:
@@ -96,8 +86,8 @@ Sections such as structure, availability, and policy are similar for all dataset
 | key |The S3 object key. |String |No |
 | prefix |Prefix for the S3 object key. Objects whose keys start with this prefix are selected. Applies only when key is empty. |String |No |
 | version |The version of the S3 object, if S3 versioning is enabled. |String |No |
-| format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see the [Text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections. <br><br> If you want to copy files as-is between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No | |
-| compression | Specify the type and level of compression for the data. The supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**. The supported levels are: **Optimal** and **Fastest**. For more information, see [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No | |
+| format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see the [Text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections. <br><br> If you want to copy files as-is between file-based stores (binary copy), skip the format section in both input and output dataset definitions. | |No |
+| compression | Specify the type and level of compression for the data. The supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**. The supported levels are: **Optimal** and **Fastest**. For more information, see [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). | |No |
 
 
 > [!NOTE]
@@ -178,7 +168,7 @@ For a full list of sections and properties available for defining activities, se
 ## JSON example: Copy data from Amazon S3 to Azure Blob storage
 This sample shows how to copy data from Amazon S3 to an Azure Blob storage. However, data can be copied directly to [any of the sinks that are supported](data-factory-data-movement-activities.md#supported-data-stores-and-formats) by using the copy activity in Data Factory.
 
-The sample provides JSON definitions for the following Data Factory entities. You can use these definitions to create a pipeline to copy data from Amazon S3 to Blob storage, by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).   
+The sample provides JSON definitions for the following Data Factory entities. You can use these definitions to create a pipeline to copy data from Amazon S3 to Blob storage, by using the [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).   
 
 * A linked service of type [AwsAccessKey](#linked-service-properties).
 * A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).

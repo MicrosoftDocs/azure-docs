@@ -2,20 +2,15 @@
 title: Azure CLI Script Sample - Rotate storage account access keys | Microsoft Docs
 description: Create an Azure Storage account, then retrieve and rotate its account access keys.
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
 
-ms.assetid:
-ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: azurecli
+ms.subservice: blobs
+ms.devlang: cli
 ms.topic: sample
-ms.date: 06/22/2017
-ms.author: tamram
+ms.date: 10/20/2020
+ms.author: tamram 
+ms.custom: devx-track-azurecli
 ---
 
 # Create a storage account and rotate its account access keys
@@ -30,7 +25,7 @@ This script creates an Azure Storage account, displays the new storage account's
 
 [!code-azurecli-interactive[main](../../../cli_scripts/storage/rotate-storage-account-keys/rotate-storage-account-keys.sh "Rotate storage account keys")]
 
-## Clean up deployment 
+## Clean up deployment
 
 Run the following command to remove the resource group, storage account, and all related resources.
 
@@ -44,10 +39,10 @@ This script uses the following commands to create the storage account and retrie
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Creates an Azure Storage account in the specified resource group. |
-| [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Displays the storage account access keys for the specified account. |
-| [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) | Regenerates the primary or secondary storage account access key. |
+| [az group create](/cli/azure/group) | Creates a resource group in which all resources are stored. |
+| [az storage account create](/cli/azure/storage/account) | Creates an Azure Storage account in the specified resource group. |
+| [az storage account keys list](/cli/azure/storage/account/keys) | Displays the storage account access keys for the specified account. |
+| [az storage account keys renew](/cli/azure/storage/account/keys) | Regenerates the primary or secondary storage account access key. |
 
 ## Next steps
 

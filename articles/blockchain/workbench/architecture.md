@@ -1,22 +1,16 @@
 ---
 title: Azure Blockchain Workbench architecture
-description: Overview of Azure Blockchain Workbench architecture and its components.
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
-ms.date: 10/1/2018
-ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: zeyadr
-manager: femila
+description: Overview of Azure Blockchain Workbench Preview architecture and its components.
+ms.date: 09/05/2019
+ms.topic: conceptual
+ms.reviewer: brendal
 #Customer intent: As a developer, I want to understand the architecture and components of Azure Blockchain Workbench.
 ---
 # Azure Blockchain Workbench architecture
 
-Azure Blockchain Workbench simplifies blockchain application development by providing a solution using several Azure components. Blockchain Workbench can be deployed using a solution template in the Azure Marketplace. The template allows you to pick modules and components to deploy including blockchain stack, type of client application, and support for IoT integration. Once deployed, Blockchain Workbench provides access to a web app, iOS app, and Android app.
+Azure Blockchain Workbench Preview simplifies blockchain application development by providing a solution using several Azure components. Blockchain Workbench can be deployed using a solution template in the Azure Marketplace. The template allows you to pick modules and components to deploy including blockchain stack, type of client application, and support for IoT integration. Once deployed, Blockchain Workbench provides access to a web app, iOS app, and Android app.
 
-![Blockchain Workbench Architecture](./media/architecture/architecture.png)
+![Blockchain Workbench architecture](./media/architecture/architecture.png)
 
 ## Identity and authentication
 
@@ -41,14 +35,16 @@ In the web application, authorized users can access the Administrator Console. T
 * Upload and deploy their own smart contracts.
 * Assign a user access to the smart contract in the context of a specific role.
 
+For more information, see the [Azure Blockchain Workbench sample client applications on GitHub](https://github.com/Azure-Samples/blockchain-devkit/tree/master/connect/mobile).
+
 ## Gateway service API
 
-Blockchain Workbench includes a REST-based gateway service API. When writing to a blockchain, the API generates and delivers messages to an event broker. When data is requested by the API, queries are sent to the off-chain SQL database. The SQL database contains a replica of on-chain data and metadata that provides context and configuration information for supported smart contracts. Queries return the required data from the off-chain replica in a format informed by the metadata for the contract.
+Blockchain Workbench includes a REST-based gateway service API. When writing to a blockchain, the API generates and delivers messages to an event broker. When data is requested by the API, queries are sent to the off-chain database. The database contains a replica of on-chain data and metadata that provides context and configuration information for supported smart contracts. Queries return the required data from the off-chain replica in a format informed by the metadata for the contract.
 
 Developers can access the gateway service API to build or integrate blockchain solutions without relying on Blockchain Workbench client apps.
 
 > [!NOTE]
-> To enable authenticated access to the API, two client applications are registered in Azure Active Directory. Azure Active Directory requires distinct application registrations each application type (native and web). 
+> To enable authenticated access to the API, two client applications are registered in Azure Active Directory. Azure Active Directory requires distinct application registrations each application type (native and web).
 
 ## Message broker for incoming messages
 
@@ -70,7 +66,7 @@ Distributed ledger technology (DLT) messages contain the metadata for transactio
 
 ### Database consumer
 
-The database consumer takes messages from Service Bus and pushes the data to an attached database, such as SQL database.
+The database consumer takes messages from Service Bus and pushes the data to an attached database, such as a database in Azure SQL Database.
 
 ### Storage consumer
 
@@ -91,15 +87,12 @@ Transaction routers and ledgers take signed transactions and route them to the a
 A distributed ledger technology (DLT) watcher monitors events occurring on block chains attached to Blockchain Workbench.
 Events reflect information relevant to individuals and systems. For example, the creation of new contract instances, execution of transactions, and changes of state. The events are captured and sent to the outbound message broker, so they can be consumed by downstream consumers.
 
-For example, the SQL consumer monitors events, consumes them, and
-populates the SQL database with the included values. The copy enables recreation of a replica of on-chain data in an off-chain store.
+For example, the SQL consumer monitors events, consumes them, and populates the database with the included values. The copy enables recreation of a replica of on-chain data in an off-chain store.
 
-## Azure SQL database
+## Azure SQL Database
 
-The Azure SQL database attached to Blockchain Workbench stores contract definitions, configuration metadata, and a SQL-accessible replica of data stored in the blockchain. This data can easily be queried, visualized, or analyzed by directly
-accessing the database. Developers and other users can use
-the database for reporting, analytics, or other data-centric
-integrations. For example, users can visualize transaction data using Power BI.
+The database attached to Blockchain Workbench stores contract definitions, configuration metadata, and a SQL-accessible replica of data stored in the blockchain. This data can easily be queried, visualized, or analyzed by directly accessing the database. Developers and other users can use
+the database for reporting, analytics, or other data-centric integrations. For example, users can visualize transaction data using Power BI.
 
 This off-chain storage provides the ability for enterprise organizations to query data in SQL rather than in a blockchain ledger. Also, by standardizing on a standard schema that's agnostic of blockchain technology stacks, the off-chain storage enables the reuse of reports and other artifacts across projects, scenarios, and organizations.
 
@@ -121,4 +114,4 @@ Azure Monitor provides information on the health of the blockchain network.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deploy Azure Blockchain Workbench](../../blockchain-workbench/blockchain-workbench-deploy.md)
+> [Deploy Azure Blockchain Workbench](./deploy.md)

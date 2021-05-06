@@ -3,18 +3,18 @@ title: Azure CDN POP locations by abbreviation | Microsoft Docs
 description: This article lists Azure CDN POP locations, sorted by POP abbreviation, for Azure CDN from Verizon.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: asudbring
+manager: danielgi
 editor: ''
 
 ms.assetid: 
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
-ms.author: mazha
+ms.author: allensu
 
 ---
 # Azure CDN POP locations by abbreviation
@@ -37,7 +37,7 @@ AMS | Amsterdam, Netherlands | Europe
 ARN | Stockholm, Sweden | Europe
 ATL | Atlanta, Georgia, USA | North America: East Coast U.S.
 BAQ | Barranquilla, Colombia | Latin America
-BLR | Bangalore, India | Asia
+BLR | Bengaluru (Bangalore), India | Asia
 BNJ | Newark, New Jersey, USA | North America: East Coast U.S.
 BOS | Boston, Massachusetts, USA | North America: East Coast U.S.
 BTH | Batam, Indonesia | Asia
@@ -73,9 +73,9 @@ FTY | Atlanta, Georgia, USA | North America: East Coast U.S.
 GIG | Rio de Janeiro, Brazil | Latin America
 GRU | São Paulo, Brazil | Latin America
 HEL | Helsinki, Finland | Europe
-HHP | Hong Kong | Asia
-HKC | Hong Kong | Asia
-HKG | Hong Kong | Asia
+HHP | Hong Kong SAR | Asia
+HKC | Hong Kong SAR | Asia
+HKG | Hong Kong SAR | Asia
 HND | Tokyo, Japan | Asia
 IAD | Ashburn, Virginia, USA | North America: East Coast U.S.
 ICN | Seoul, Korea | Asia

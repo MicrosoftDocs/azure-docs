@@ -2,236 +2,197 @@
 title: 'Tutorial: Azure Active Directory integration with BGS Online | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and BGS Online.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-
-ms.assetid: 4fd6b29b-1b46-4fd1-9f5e-16b1c9d892cd
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/09/2017
+ms.topic: tutorial
+ms.date: 02/07/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with BGS Online
 
 In this tutorial, you learn how to integrate BGS Online with Azure Active Directory (Azure AD).
-
 Integrating BGS Online with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to BGS Online
-- You can enable your users to automatically get signed-on to BGS Online (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
+* You can control in Azure AD who has access to BGS Online.
+* You can enable your users to be automatically signed-in to BGS Online (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
 To configure Azure AD integration with BGS Online, you need the following items:
 
-- An Azure AD subscription
-- A BGS Online single-sign on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* BGS Online single sign-on enabled subscription
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding BGS Online from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+
+* BGS Online supports **IDP** initiated SSO
 
 ## Adding BGS Online from the gallery
+
 To configure the integration of BGS Online into Azure AD, you need to add BGS Online from the gallery to your list of managed SaaS apps.
 
 **To add BGS Online from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![Active Directory][1]
+    ![The Azure Active Directory button](common/select-azuread.png)
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+    ![The Enterprise applications blade](common/enterprise-applications.png)
 
-	![Applications][3]
+3. To add new application, click **New application** button on the top of dialog.
 
-1. In the search box, type **BGS Online**.
+    ![The New application button](common/add-new-app.png)
 
-	![Creating an Azure AD test user](./media/bgsonline-tutorial/tutorial_bgsonline_search.png)
+4. In the search box, type **BGS Online**, select **BGS Online** from result panel then click **Add** button to add the application.
 
-1. In the results panel, select **BGS Online**, and then click **Add** button to add the application.
+    ![BGS Online in the results list](common/search-new-app.png)
 
-	![Creating an Azure AD test user](./media/bgsonline-tutorial/tutorial_bgsonline_addfromgallery.png)
+## Configure and test Azure AD single sign-on
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with BGS Online based on a test user called "Britta Simon."
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in BGS Online is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in BGS Online needs to be established.
-
-In BGS Online, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+In this section, you configure and test Azure AD single sign-on with BGS Online based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in BGS Online needs to be established.
 
 To configure and test Azure AD single sign-on with BGS Online, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a BGS Online test user](#creating-a-bgs-online-test-user)** - to have a counterpart of Britta Simon in BGS Online that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Configure BGS Online Single Sign-On](#configure-bgs-online-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create BGS Online test user](#create-bgs-online-test-user)** - to have a counterpart of Britta Simon in BGS Online that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD single sign-on
+### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your BGS Online application.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-**To configure Azure AD single sign-on with BGS Online, perform the following steps:**
+To configure Azure AD single sign-on with BGS Online, perform the following steps:
 
-1. In the Azure portal, on the **BGS Online** application integration page, click **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **BGS Online** application integration page, select **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure single sign-on link](common/select-sso.png)
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/bgsonline-tutorial/tutorial_bgsonline_samlbase.png)
+2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
-1. On the **BGS Online Domain and URLs** section, perform the following steps:
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-	![Configure Single Sign-On](./media/bgsonline-tutorial/tutorial_bgsonline_url.png)
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
+
+4. On the **Set up Single Sign-On with SAML** page, perform the following steps:
+
+    ![BGS Online Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** textbox, type a URL using the following pattern:
 
-    For production environment, use this pattern `https://<company name>.millwardbrown.report` 
+    For production environment, use this pattern `https://<company name>.millwardbrown.report`
 
     For test environment, use this pattern `https://millwardbrown.marketingtracker.nl/mt5/`
 
     b. In the **Reply URL** textbox, type a URL using the following pattern:
-	
-    For production environment, use this pattern `https://<company name>.millwardbrown.report/sso/saml/AssertionConsumerService.aspx` 
-      
+
+    For production environment, use this pattern `https://<company name>.millwardbrown.report/sso/saml/AssertionConsumerService.aspx`
+
     For test environment, use this pattern `https://millwardbrown.marketingtracker.nl/mt5/sso/saml/AssertionConsumerService.aspx`
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [BGS Online support team](mailTo:bgsdashboardteam@millwardbrown.com) to get these values.
- 
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [BGS Online support team](mailTo:bgsdashboardteam@millwardbrown.com) to get these values.
 
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-	![Configure Single Sign-On](./media/bgsonline-tutorial/tutorial_bgsonline_certificate.png) 
+    ![The Certificate download link](common/metadataxml.png)
 
-1. Click **Save** button.
+6. On the **Set up BGS Online** section, copy the appropriate URL(s) as per your requirement.
 
-	![Configure Single Sign-On](./media/bgsonline-tutorial/tutorial_general_400.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-1. On the **BGS Online Configuration** section, click **Configure BGS Online** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
+    a. Login URL
 
-	![Configure Single Sign-On](./media/bgsonline-tutorial/tutorial_bgsonline_configure.png) 
+    b. Azure Ad Identifier
 
-1. To configure single sign-on on **BGS Online** side, you need to send the downloaded **Metadata XML** and **SAML Single Sign-On Service URL** to [BGS Online support team](mailto:bgsdashboardteam@millwardbrown.com). 
+    c. Logout URL
 
+### Configure BGS Online Single Sign-On
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+To configure single sign-on on **BGS Online** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [BGS Online support team](mailto:bgsdashboardteam@millwardbrown.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Creating an Azure AD test user
+### Create an Azure AD test user
+
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-![Create Azure AD User][100]
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-**To create a test user in Azure AD, perform the following steps:**
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
+2. Select **New user** at the top of the screen.
 
-	![Creating an Azure AD test user](./media/bgsonline-tutorial/create_aaduser_01.png) 
+    ![New user Button](common/new-user.png)
 
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/bgsonline-tutorial/create_aaduser_02.png) 
+3. In the User properties, perform the following steps.
 
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/bgsonline-tutorial/create_aaduser_03.png) 
+    ![The User dialog box](common/user-properties.png)
 
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/bgsonline-tutorial/create_aaduser_04.png) 
+    a. In the **Name** field enter **BrittaSimon**.
 
-    a. In the **Name** textbox, type **BrittaSimon**.
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
+    For example, BrittaSimon@contoso.com
 
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
     d. Click **Create**.
- 
-### Creating a BGS Online test user
 
-In this section, you create a user called Britta Simon in BGS Online. Work with [BGS Online support team](mailto:bgsdashboardteam@millwardbrown.com) to add the users in the BGS Online platform.
-
-### Assigning the Azure AD test user
+### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to BGS Online.
 
-![Assign User][200] 
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **BGS Online**.
 
-**To assign Britta Simon to BGS Online, perform the following steps:**
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+2. In the applications list, select **BGS Online**.
 
-	![Assign User][201] 
+    ![The BGS Online link in the Applications list](common/all-applications.png)
 
-1. In the applications list, select **BGS Online**.
+3. In the menu on the left, select **Users and groups**.
 
-	![Configure Single Sign-On](./media/bgsonline-tutorial/tutorial_bgsonline_app.png) 
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
-1. In the menu on the left, click **Users and groups**.
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![Assign User][202] 
+    ![The Add Assignment pane](common/add-assign-user.png)
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-	![Assign User][203]
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+7. In the **Add Assignment** dialog click the **Assign** button.
 
-1. Click **Select** button on **Users and groups** dialog.
+### Create BGS Online test user
 
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
+In this section, you create a user called Britta Simon in BGS Online. Work with [BGS Online support team](mailto:bgsdashboardteam@millwardbrown.com) to add the users in the BGS Online platform. Users must be created and activated before you use single sign-on.
 
-In this section, you test your Azure AD SSO configuration using the Access Panel.
+### Test single sign-on
 
-When you click the BGS Online tile in the Access Panel, you should get automatically signed-on to your BGS Online application.
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-## Additional resources
+When you click the BGS Online tile in the Access Panel, you should be automatically signed in to the BGS Online for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+## Additional Resources
 
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-<!--Image references-->
-
-[1]: ./media/bgsonline-tutorial/tutorial_general_01.png
-[2]: ./media/bgsonline-tutorial/tutorial_general_02.png
-[3]: ./media/bgsonline-tutorial/tutorial_general_03.png
-[4]: ./media/bgsonline-tutorial/tutorial_general_04.png
-
-[100]: ./media/bgsonline-tutorial/tutorial_general_100.png
-
-[200]: ./media/bgsonline-tutorial/tutorial_general_200.png
-[201]: ./media/bgsonline-tutorial/tutorial_general_201.png
-[202]: ./media/bgsonline-tutorial/tutorial_general_202.png
-[203]: ./media/bgsonline-tutorial/tutorial_general_203.png
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

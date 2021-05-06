@@ -2,228 +2,158 @@
 title: 'Tutorial: Azure Active Directory integration with Keeper Password Manager & Digital Vault | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Keeper Password Manager & Digital Vault.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-
-ms.assetid: e1a98f6a-2dae-4734-bdbf-4fba742a61d2
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/09/2017
+ms.topic: tutorial
+ms.date: 11/13/2020
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Keeper Password Manager & Digital Vault
 
 In this tutorial, you learn how to integrate Keeper Password Manager & Digital Vault with Azure Active Directory (Azure AD).
+This integration provides you with the following benefits:
 
-Integrating Keeper Password Manager & Digital Vault with Azure AD provides you with the following benefits:
+* You can control in Azure AD who has access to Keeper Password Manager & Digital Vault.
+* You can enable your users to be automatically signed in to Keeper Password Manager & Digital Vault (single sign-on) with their Azure AD accounts.
+* You can manage your accounts in one central location: the Azure portal.
 
-- You can control in Azure AD who has access to Keeper Password Manager & Digital Vault
-- You can enable your users to automatically get signed-on to Keeper Password Manager & Digital Vault (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
-To configure Azure AD integration with Keeper Password Manager & Digital Vault, you need the following items:
+To configure Azure AD integration with Keeper Password Manager & Digital Vault, you need:
 
-- An Azure AD subscription
-- A Keeper Password Manager & Digital Vault single-sign on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* Keeper Password Manager & Digital Vault subscription, enabled for single sign-on (SSO).
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Keeper Password Manager & Digital Vault from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-## Adding Keeper Password Manager & Digital Vault from the gallery
-To configure the integration of Keeper Password Manager & Digital Vault into Azure AD, you need to add Keeper Password Manager & Digital Vault from the gallery to your list of managed SaaS apps.
+* Keeper Password Manager & Digital Vault supports SP-initiated SSO.
 
-**To add Keeper Password Manager & Digital Vault from the gallery, perform the following steps:**
+* Keeper Password Manager & Digital Vault supports just-in-time user provisioning.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+## Add Keeper Password Manager & Digital Vault from the gallery
 
-	![Active Directory][1]
+To configure the integration of Keeper Password Manager & Digital Vault into Azure AD, add the application from the gallery to your list of managed software as a service (SaaS) apps.
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Sign in to the Azure portal by using either a work or school account, or a personal Microsoft account.
+1. On the left pane, select the **Azure Active Directory** service.
+1. Go to **Enterprise Applications**, and then select **All Applications**.
+1. To add a new application, select **New application**.
+1. In **Add from the gallery**, type **Keeper Password Manager & Digital Vault** in the search box.
+1. Select **Keeper Password Manager & Digital Vault** from results panel, and then add the app. Wait a few seconds while the app is added to your tenant.
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+## Configure and test Azure AD SSO for Keeper Password Manager & Digital Vault
 
-	![Applications][3]
+Configure and test Azure AD SSO with Keeper Password Manager & Digital Vault by using a test user called **B.Simon**. For SSO to work, you need to establish a linked relationship between an Azure AD user and the related user in Keeper Password Manager & Digital Vault.
 
-1. In the search box, type **Keeper Password Manager & Digital Vault**.
+To configure and test Azure AD SSO with Keeper Password Manager & Digital Vault:
 
-	![Creating an Azure AD test user](./media/keeperpasswordmanager-tutorial/tutorial_keeper_search.png)
+1. [Configure Azure AD SSO](#configure-azure-ad-sso) to enable your users to use this feature.
 
-1. In the results panel, select **Keeper Password Manager & Digital Vault**, and then click **Add** button to add the application.
+    * [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on with Britta Simon.
+    * [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable Britta Simon to use Azure AD single sign-on.
 
-	![Creating an Azure AD test user](./media/keeperpasswordmanager-tutorial/tutorial_keeper_addfromgallery.png)
+1. [Configure Keeper Password Manager & Digital Vault SSO](#configure-keeper-password-manager--digital-vault-sso) to configure the SSO settings on the application side.
+    * [Create a Keeper Password Manager & Digital Vault test user](#create-a-keeper-password-manager--digital-vault-test-user) to have a counterpart of Britta Simon in Keeper Password Manager & Digital Vault linked to the Azure AD representation of the user.
+1. [Test SSO](#test-sso) to verify whether the configuration works.
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Keeper Password Manager & Digital Vault based on a test user called "Britta Simon."
+### Configure Azure AD SSO
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Keeper Password Manager & Digital Vault is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Keeper Password Manager & Digital Vault needs to be established.
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-In Keeper Password Manager & Digital Vault, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+1. In the Azure portal, on the **Keeper Password Manager & Digital Vault** application integration page, find the **Manage** section. Select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-To configure and test Azure AD single sign-on with Keeper Password Manager & Digital Vault, you need to complete the following building blocks:
+   ![Screenshot of Set up Single Sign-On with SAML, with pencil icon highlighted.](common/edit-urls.png)
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a Keeper Password Manager & Digital Vault test user](#creating-a-keeperpasswordmanager-test-user)** - to have a counterpart of Britta Simon in Keeper Password Manager & Digital Vault that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+4. In the **Basic SAML Configuration** section, perform the following steps:
 
-### Configuring Azure AD single sign-on
+	a. For **Sign on URL**, type a URL that uses the following pattern:
+    * For cloud SSO: `https://keepersecurity.com/api/rest/sso/saml/sso/<CLOUD_INSTANCE_ID>`
+    * For on-premises SSO: `https://<KEEPER_FQDN>/sso-connect/saml/login`
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Keeper Password Manager & Digital Vault application.
+    b. For **Identifier (Entity ID)**, type a URL that uses the following pattern:
+    * For cloud SSO: `https://keepersecurity.com/api/rest/sso/saml/<CLOUD_INSTANCE_ID>`
+    * For on-premises SSO: `https://<KEEPER_FQDN>/sso-connect`
 
-**To configure Azure AD single sign-on with Keeper Password Manager & Digital Vault, perform the following steps:**
+    c. For **Reply URL**, type a URL that uses the following pattern:
+    * For cloud SSO: `https://keepersecurity.com/api/rest/sso/saml/sso/<CLOUD_INSTANCE_ID>`
+    * For on-premises SSO: `https://<KEEPER_FQDN>/sso-connect/saml/sso`
 
-1. In the Azure portal, on the **Keeper Password Manager & Digital Vault** application integration page, click **Single sign-on**.
+	> [!NOTE]
+	> These values aren't real. Update these values with the actual sign-on URL, identifier, and reply URL. To get these values, contact the [Keeper Password Manager & Digital Vault Client support team](https://keepersecurity.com/contact.html). You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-	![Configure Single Sign-On][4]
+1. The Keeper Password Manager & Digital Vault application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/keeperpasswordmanager-tutorial/tutorial_keeper_samlbase.png)
+	![Screenshot of User Attributes & Claims.](common/default-attributes.png)
 
-1. On the **Keeper Password Manager & Digital Vault Domain and URLs** section, perform the following steps:
+1. In addition, the Keeper Password Manager & Digital Vault application expects a few more attributes to be passed back in SAML response. These are shown in the following table. These attributes are also pre-populated, but you can review them per your requirements.
 
-	![Configure Single Sign-On](./media/keeperpasswordmanager-tutorial/tutorial_keeper_url.png)
+	| Name | Source attribute|
+	| ------------| --------- |
+	| First | user.givenname |
+	| Last | user.surname |
+    | Email | user.mail |
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://{SSO CONNECT SERVER}/sso-connect/saml/login`
+5. On **Set up Single Sign-On with SAML**, in the **SAML Signing Certificate** section, select **Download**. This downloads **Federation Metadata XML** from the options per your requirement, and saves it on your computer.
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://{SSO CONNECT SERVER}/sso-connect/saml/sso`
+	![Screenshot of SAML Signing Certificate, with Download highlighted.](common/metadataxml.png)
 
-	c. In the **Identifier** textbox, type a URL using the following pattern: `https://{SSO CONNECT SERVER}/sso-connect`
+6. On **Set up Keeper Password Manager & Digital Vault**, copy the appropriate URLs, per your requirement.
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Reply URL, and Sign-On URL. Contact [Keeper Password Manager & Digital Vault Client support team](https://keepersecurity.com/contact.html) to get these values. 
+	![Screenshot of Set up Keeper Password Manager & Digital Vault, with URLs highlighted.](common/copy-configuration-urls.png)
 
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+### Create an Azure AD test user 
 
-	![Configure Single Sign-On](./media/keeperpasswordmanager-tutorial/tutorial_keeper_certificate.png) 
+In this section, you create a test user in the Azure portal called `B.Simon`.
 
-1. Click **Save** button.
+1. From the left pane in the Azure portal, select **Azure Active Directory** > **Users** > **All users**.
+1. At the top of the screen, select **New user**.
+1. In the **User** properties, follow these steps:
+   1. For **Name**, enter `B.Simon`.  
+   1. For **User name**, enter the `username@companydomain.extension`. For example, `B.Simon@contoso.com`.
+   1. Select **Show password**, and then write down the value shown.
+   1. Select **Create**.
 
-	![Configure Single Sign-On](./media/keeperpasswordmanager-tutorial/tutorial_general_400.png)
-	
-1. On the **Keeper Password Manager & Digital Vault Configuration** section, click **Configure Keeper Password Manager & Digital Vault** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+### Assign the Azure AD test user
 
-	![Configure Single Sign-On](./media/keeperpasswordmanager-tutorial/tutorial_keeper_configure.png) 
+In this section, you enable B.Simon to use Azure single sign-on by granting access to Keeper Password Manager & Digital Vault.
 
-1. To configure single sign-on on **Keeper Password Manager & Digital Vault Configuration** side, follow the guidelines given at [Keeper Support Guide](https://keepersecurity.com/assets/pdf/KeeperSSOConnect_v11.pdf).
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-![Create Azure AD User][100]
-
-**To create a test user in Azure AD, perform the following steps:**
-
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
-
-	![Creating an Azure AD test user](./media/keeperpasswordmanager-tutorial/create_aaduser_01.png) 
-
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/keeperpasswordmanager-tutorial/create_aaduser_02.png) 
-
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/keeperpasswordmanager-tutorial/create_aaduser_03.png) 
-
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/keeperpasswordmanager-tutorial/create_aaduser_04.png) 
-
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
-
-    d. Click **Create**.
- 
-### Creating a Keeper Password Manager & Digital Vault test user
-
-To enable Azure AD users to log in to Keeper Password Manager & Digital Vault, they must be provisioned into Keeper Password Manager & Digital Vault. Application supports Just in time user provisioning and after authentication users will be created in the application automatically. You can contact [Keeper Support](https://keepersecurity.com/contact.html), if you want to setup users manually.
-
-### Assigning the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Keeper Password Manager & Digital Vault.
-
-![Assign User][200] 
-
-**To assign Britta Simon to Keeper Password Manager & Digital Vault, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
-
+1. In the Azure portal, select **Enterprise Applications** > **All applications**.
 1. In the applications list, select **Keeper Password Manager & Digital Vault**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**. In **Add Assignment**, select **Users and groups**.
+1. In **Users and groups**, select **B.Simon** from the list of users. Then choose **Select** at the bottom of the screen.
+1. If you're expecting a role to be assigned to the users, you can select it from the **Select a role** list. If no role has been set up for this app, the **Default Access** role is selected.
+1. In **Add Assignment**, select **Assign**.
 
-	![Configure Single Sign-On](./media/keeperpasswordmanager-tutorial/tutorial_keeper_app.png) 
 
-1. In the menu on the left, click **Users and groups**.
+## Configure Keeper Password Manager & Digital Vault SSO
 
-	![Assign User][202] 
+To configure SSO for the app, see the guidelines in the [Keeper support guide](https://docs.keeper.io/sso-connect-guide/).
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+### Create a Keeper Password Manager & Digital Vault test user
 
-	![Assign User][203]
+To enable Azure AD users to sign in to Keeper Password Manager & Digital Vault, you must provision them. The application supports just-in-time user provisioning, and after authentication users are created in the application automatically. If you want to set up users manually, contact [Keeper support](https://keepersecurity.com/contact.html).
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+## Test SSO
 
-1. Click **Select** button on **Users and groups** dialog.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
+* In the Azure portal, select **Test this application**. This redirects to the sign-on URL for Keeper Password Manager & Digital Vault, where you can initiate the sign-on. 
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+* You can go directly to the sign-on URL for the application, and initiate the sign-in from there.
 
-When you click the Keeper Password Manager & Digital Vault tile in the Access Panel, you should get login page of Keeper Password Manager & Digital Vault application. Upon successful authentication, you should get into the application. 
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+* You can use Microsoft Access Panel. When you select the **Keeper Password Manager & Digital Vault** tile in Access Panel, this redirects you to the sign-on URL for the application. For more information about Access Panel, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
 
-## Additional resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+## Next steps
 
-<!--Image references-->
-
-[1]: ./media/keeperpasswordmanager-tutorial/tutorial_general_01.png
-[2]: ./media/keeperpasswordmanager-tutorial/tutorial_general_02.png
-[3]: ./media/keeperpasswordmanager-tutorial/tutorial_general_03.png
-[4]: ./media/keeperpasswordmanager-tutorial/tutorial_general_04.png
-
-[100]: ./media/keeperpasswordmanager-tutorial/tutorial_general_100.png
-
-[200]: ./media/keeperpasswordmanager-tutorial/tutorial_general_200.png
-[201]: ./media/keeperpasswordmanager-tutorial/tutorial_general_201.png
-[202]: ./media/keeperpasswordmanager-tutorial/tutorial_general_202.png
-[203]: ./media/keeperpasswordmanager-tutorial/tutorial_general_203.png
-
+After you configure Keeper Password Manager & Digital Vault, you can enforce session control. This protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. For more information, see [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

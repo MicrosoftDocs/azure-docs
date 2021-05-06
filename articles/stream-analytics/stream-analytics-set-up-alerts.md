@@ -1,49 +1,65 @@
 ---
 title: Set up monitoring alerts for Azure Stream Analytics jobs
 description: This article describes how to use the Azure portal to set up monitoring and alerts for Azure Stream Analytics jobs.
-services: stream-analytics
 author: jseb225
-ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.author: sidram
+
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 06/26/2017
+ms.topic: how-to
+ms.custom: contperf-fy21q1
+ms.date: 06/21/2019
 ---
 # Set up alerts for Azure Stream Analytics jobs
-You can set up alerts to trigger an alert when a metric reaches a condition that you specify. For example, you might set up an alert for a condition like the following:
 
-`If there are zero input events in the last 5 minutes, send email notification to sa-admin@example.com`
+It's important to monitor your Azure Stream Analytics job to ensure the job is running continuously without any problems. This article describes how to set up alerts for common scenarios that should be monitored. 
 
-Rules can be set up on metrics through the portal, or can be configured [programmatically](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) over Operation Logs data.
+You can define rules on metrics from Operation Logs data through the portal, as well as [programmatically](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a).
 
 ## Set up alerts in the Azure portal
-1. In the Azure portal, open the Stream Analytics job you want to create an alert for. 
+### Get alerted when a job stops unexpectedly
 
-2. In the **Job** blade, click the **Monitoring** section.  
+The following example demonstrates how to set up alerts for when your job enters a failed state. This alert is recommended for all jobs.
 
-3. In the **Metric** blade, click the **Add alert** command.
+1. In the Azure portal, open the Stream Analytics job you want to create an alert for.
 
-      ![Azure portal setup](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)  
+2. On the **Job** page, navigate to the **Monitoring** section.  
 
-4. Enter a name and a description.
+3. Select **Metrics**, and then **New alert rule**.
 
-5. Use the selectors to define the condition under which the alert will be sent.
+   ![Azure portal Stream Analytics alerts setup](./media/stream-analytics-set-up-alerts/stream-analytics-set-up-alerts.png)  
 
-6. Provide information about where the alert should go.
+4. Your Stream Analytics job name should automatically appear under **RESOURCE**. Click **Add condition**, and select **All Administrative operations** under **Configure signal logic**.
 
-      ![Setting up an alert for an Azure Streaming Analytics job](./media/stream-analytics-set-up-alerts/stream-analytics-add-alert.png)  
+   ![Select signal name for Stream Analytics alert](./media/stream-analytics-set-up-alerts/stream-analytics-condition-signal.png)  
 
-For more detail on configuring alerts in the Azure portal, see [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).  
+5. Under **Configure signal logic**, change **Event Level** to **All** and change **Status** to **Failed**. Leave **Event initiated by** blank and select **Done**.
 
+   ![Configure signal logic for Stream Analytics alert](./media/stream-analytics-set-up-alerts/stream-analytics-configure-signal-logic.png) 
 
-## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
+6. Select an existing action group or create a new group. In this example, a new action group called **TIDashboardGroupActions** was created with an **Emails** action that sends an email to users with the **Owner** Azure Resource Manager Role.
+
+   ![Setting up an alert for an Azure Streaming Analytics job](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
+
+7. The **RESOURCE**, **CONDITION**, and **ACTION GROUPS** should each have an entry. Note that in order for the alerts to fire, the conditions defined need to be met. For example, you can measure a metric's average value of over the last 15 minutes, every 5 minutes.
+
+   ![Screenshot shows the Create rule dialog box with RESOURCE, CONDITION, and ACTION GROUP.](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
+
+   Add an **Alert rule name**, **Description**, and your **Resource Group** to the **ALERT DETAILS** and click **Create alert rule** to create the rule for your Stream Analytics job.
+
+   ![Screenshot shows the Create rule dialog box with ALERT DETAILS.](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
+   
+## Scenarios to monitor
+
+The following alerts are recommended for monitoring the performance of your Stream Analytics job. These metrics should be evaluated every minute over the last 5-minute period.
+
+|Metric|Condition|Time Aggregation|Threshold|Corrective Actions|
+|-|-|-|-|-|
+|SU% Utilization|Greater than|Maximum|80|There are multiple factors that increase SU% Utilization. You can scale with query parallelization or increase the number of streaming units. For more information, see [Leverage query parallelization in Azure Stream Analytics](stream-analytics-parallelization.md).|
+|Runtime errors|Greater than|Total|0|Examine the activity or resource logs and make appropriate changes to the inputs, query, or outputs.|
+|Watermark delay|Greater than|Maximum|When average value of this metric over the last 15 minutes is greater than late arrival tolerance (in seconds). If you have not modified the late arrival tolerance, the default is set to 5 seconds.|Try increasing the number of SUs or parallelizing your query. For more information on SUs, see [Understand and adjust Streaming Units](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job). For more information on parallelizing your query, see [Leverage query parallelization in Azure Stream Analytics](stream-analytics-parallelization.md).|
+|Input deserialization errors|Greater than|Total|0|Examine the activity or resource logs and make appropriate changes to the input. For more information on resource logs, see [Troubleshoot Azure Stream Analytics using resource logs](stream-analytics-job-diagnostic-logs.md)|
 
 ## Next steps
-* [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-* [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
-* [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
+* [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)

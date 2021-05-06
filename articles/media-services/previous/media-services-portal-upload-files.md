@@ -3,35 +3,36 @@ title: Upload files to a Media Services account in the Azure portal | Microsoft 
 description: This tutorial walks you through the steps of uploading files to a Media Services account in the Azure portal.
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: cfowler
+author: IngridAtMicrosoft
+manager: femila
 editor: ''
-
 ms.assetid: 3ad3dcea-95be-4711-9aae-a455a32434f6
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 08/07/2017
-ms.author: juliako
-
+ms.topic: conceptual
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 # Upload files to a Media Services account in the Azure portal
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-upload-files.md)
 > * [.NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)
 > 
+
 > [!NOTE]
-> To complete this tutorial, you need an Azure account. For details, see [Azure free trial](https://azure.microsoft.com/pricing/free-trial/). 
-> 
+> No new features or functionality are being added to Media Services v2. For the up-to-date upload files with portal, see [Use portal to upload, encode, and stream content](../latest/asset-create-asset-upload-portal-quickstart.md).<br/>Also, check out: [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 In Azure Media Services, you upload your digital files to an asset. The asset can contain video, audio, images, thumbnail collections, text tracks, and closed caption files (and the metadata for these files). After the files are uploaded, your content is stored securely in the cloud for further processing and streaming.
 
-> [!NOTE]
-> Media Services has a maximum file size for processing files. For details about file size limits, see [Media Services quotas and limitations](media-services-quotas-and-limitations.md).
->
+Media Services has a maximum file size for processing files. For details about file size limits, see [Media Services quotas and limitations](media-services-quotas-and-limitations.md).
+
+To complete this tutorial, you need an Azure account. For details, see [Azure free trial](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## Upload files
 1. In the [Azure portal](https://portal.azure.com/), select your Azure Media Services account.
@@ -60,5 +61,3 @@ When the upload is finished, the new asset is listed in the **Assets** pane.
 * Learn how to [encode your uploaded assets](media-services-portal-encode.md).
 
 * You also can use Azure Functions to trigger an encoding job when a file arrives in the configured container. For more information, see the sample at [Media Services: Integrating Azure Media Services with Azure Functions and Logic Apps](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/).
-
-

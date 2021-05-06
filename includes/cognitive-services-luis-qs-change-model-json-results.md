@@ -2,15 +2,15 @@
 title: include file
 description: include file 
 services: cognitive-services
-author: diberry
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: luis
+ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 08/16/2018
-ms.author: diberry
---- 
+ms.date: 12/29/2020
+ms.author: aahi
+---
 The `response` array for adding the example utterances indicates success or failure for each example utterance with the `hasError` property. The following JSON response shows both utterances were added successfully. 
 
 ```json

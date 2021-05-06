@@ -1,32 +1,28 @@
 ---
 title: Cognitive Services on Azure Government | Microsoft Docs
-description: This provides a comparision of features and guidance on developing applications for Azure Government
+description: Guidance for developing Cognitive Services applications for Azure Government
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: yujhongmicrosoft
 
-
-ms.assetid: cba97199-851d-43ae-a75a-c601f3f81601
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 9/28/2018
-ms.author: yujhong
-
+ms.date: 10/10/2020
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 
-# Cognitive Services on Azure Government – Computer Vision, Face, Translator Text APIs
+# Cognitive Services on Azure Government – Computer Vision, Face, and Translator
 
-To see an overview of Cognitive Services on Azure Government, [click here](documentation-government-services-aiandcognitiveservices.md).
-
-> [!IMPORTANT]
-> Billing for the Computer Vision API, Face API, and Translator Text API will begin on 11/1/2018.
+For feature variations and limitations, see [Compare Azure Government and global Azure](compare-azure-government-global-azure.md).
 
 ## Prerequisites
-* Install and Configure [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+* Install and Configure [Azure PowerShell](/powershell/azure/install-az-ps)
 * Connect [PowerShell with Azure Government](documentation-government-get-started-connect-with-ps.md)
 
 ## Part 1: Provision Cognitive Services Accounts
@@ -40,29 +36,29 @@ In order to access any of the Cognitive Services APIs, you must first provision 
 
 1. Make sure that you have the **Cognitive Services resource provider registered on your account**. 
 
-You can do this by **running the following PowerShell command:**
+   You can do this by **running the following PowerShell command:**
 
-   ```PowerShell
-   Get-AzureRmResourceProvider
+   ```powershell
+   Get-AzResourceProvider
    ```
    If you do **not see `Microsoft.CognitiveServices`**, you have to register the resource provider by **running the following command**:
-   ```PowerShell
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.CognitiveServices
+   ```powershell
+   Register-AzResourceProvider -ProviderNamespace Microsoft.CognitiveServices
    ```
 2. In the PowerShell command below, replace "rg-name", "name-of-your-api", and "location-of-resourcegroup" with your relevant account information. 
 
    Replace the "type of API" tag with any of the three following APIs you want to access:
-       * ComputerVision
-       * Face
-       * TextTranslation
+   * ComputerVision
+   * Face
+   * TextTranslation
 
-   ```PowerShell
-   New-AzureRmCognitiveServicesAccount -ResourceGroupName 'rg-name' -name 'name-of-your-api' -Type <type of API> -SkuName S0 -Location 'location-of-resourcegroup'
+   ```powershell
+   New-AzCognitiveServicesAccount -ResourceGroupName 'rg-name' -name 'name-of-your-api' -Type <type of API> -SkuName S0 -Location 'location-of-resourcegroup'
    ```
    Example: 
 
-   ```PowerShell
-   New-AzureRmCognitiveServicesAccount -ResourceGroupName 'resourcegrouptest' -name 'myFaceAPI' -Type Face -SkuName S0 -Location 'usgovvirginia'
+   ```powershell
+   New-AzCognitiveServicesAccount -ResourceGroupName 'resourcegrouptest' -name 'myFaceAPI' -Type Face -SkuName S0 -Location 'usgovvirginia'
    ```
 
    After you run the command, you should see something like this: 
@@ -77,13 +73,13 @@ You must retrieve an account key to access the specific API.
 
 In the PowerShell command below, replace the "youraccountname" tag with the name that you gave the Account that you created above. Replace the 'rg-name' tag with the name of your resource group.
 
-```PowerShell
-Get-AzureRmCognitiveServicesAccountKey -Name <youraccountname> -ResourceGroupName 'rg-name'
+```powershell
+Get-AzCognitiveServicesAccountKey -Name <youraccountname> -ResourceGroupName 'rg-name'
 ```
 
 Example:
-```PowerShell
-Get-AzureRmCognitiveServicesAccountKey -Name myFaceAPI -ResourceGroupName 'resourcegrouptest'
+```powershell
+Get-AzCognitiveServicesAccountKey -Name myFaceAPI -ResourceGroupName 'resourcegrouptest'
 ```
 Copy and save the first key somewhere as you will need it to make calls to the API.
 
@@ -100,18 +96,15 @@ The Quickstarts below will help you to get started with the APIs available throu
 * Get the Microsoft Computer Vision API Windows SDK [here](https://github.com/Microsoft/Cognitive-vision-windows).
 
 * Make sure Visual Studio has been installed:
-    -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
-    
+  - [Visual Studio 2019](https://www.visualstudio.com/vs/), including the **Azure development** workload.
+    
     >[!NOTE] 
-    > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
+    > After you install or upgrade to Visual Studio 2019, you might also need to manually update the Visual Studio 2019 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > **Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
     >
     >
     
 ### Variations
-* The URI for accessing the Face API in Azure Government is :
-   - `https://(resource-group-location).api.cognitive.microsoft.us/face/v1.0`
-   - The main difference between this URI and the URI used in Commercial Azure is the ending of **.us** and the location at the beginning of the uri
-
+* The URI for accessing the Computer Vision API in Azure Government is different than in Azure.  For a list of Azure Government endpoints, see [Compare Azure Government and global Azure](compare-azure-government-global-azure.md#guidance-for-developers).
 
 ### Analyze an Image With Computer Vision API using C# <a name="AnalyzeImage"> </a>
 
@@ -368,17 +361,16 @@ For more information, please see [public documentation](../cognitive-services/co
 * Get the Microsoft Face API Windows SDK [here](https://www.nuget.org/packages/Microsoft.ProjectOxford.Face/)
 
 * Make sure Visual Studio has been installed:
-    -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
-    
+  - [Visual Studio 2019](https://www.visualstudio.com/vs/), including the **Azure development** workload.
+    
     >[!NOTE] 
-    > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
+    > After you install or upgrade to Visual Studio 2019, you might also need to manually update the Visual Studio 		2019 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
     >
     >
     
 ### Variations 
-* The URI for accessing the Face API in Azure Government is :
-   - `https://(resource-group-location).api.cognitive.microsoft.us/face/v1.0`
-   - The main difference between this URI and the URI used in Commercial Azure is the ending of **.us** and the location at the beginning of the uri
+* The URI for accessing the Face API in Azure Government is different than in Azure.  For a list of Azure Government endpoints, see [Compare Azure Government and global Azure](compare-azure-government-global-azure.md#guidance-for-developers).
+
 
 ### Detect Faces in images with Face API using C# <a name="Detect"> </a>
 Use the [Face - Detect method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
@@ -607,22 +599,26 @@ Response:
 ```
 For more information, please see [public documentation](../cognitive-services/Face/index.yml), and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
 
-## Text Translation API 
+## Translator API 
 ### Prerequisites
 
 * Make sure Visual Studio has been installed:
-    -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
-    
+  - [Visual Studio 2019](https://www.visualstudio.com/vs/), including the **Azure development** workload.
+    
     >[!NOTE] 
-    > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
+    > After you install or upgrade to Visual Studio 2019, you might also need to manually update the Visual Studio 		2019 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
     >
     >
     
 ### Variations
-* The URI for accessing the Text Translation API in Azure Government is: 
-   - `https://dev.microsofttranslator.us/translate?api-version=3.0`
+* The URI for accessing the Translator API in Azure Government is different than in Azure.  For a list of Azure Government endpoints, see [Compare Azure Government and global Azure](compare-azure-government-global-azure.md#guidance-for-developers).
+* [Virtual Network support](../cognitive-services/cognitive-services-virtual-networks.md) for Translator service is limited to only `US Gov Virginia` region. 
+  The URI for accessing the API is:
+  - `https://<your-custom-domain>.cognitiveservices.azure.us/translator/text/v3.0`
+  - You can find your custom domain endpoint in the overview blade on the Azure portal once the resource is created. 
+* There are 2 regions `US Gov Virginia` and `US Gov Arizona`
 ### Text Translation Method
-This sample will use the [Text Translation - Translate method](../cognitive-services/translator/reference/v3-0-translate.md) to translate a string of text from a language into another specified language. There are multiple [language codes](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration) that can be used with the Text Translation API. 
+The below example uses [Text Translation - Translate method](../cognitive-services/translator/reference/v3-0-translate.md) to translate a string of text from a language into another specified language. There are multiple [language codes](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation) that can be used with the Text Translation API. 
 
 ### Text Translation C# example request
 
@@ -630,16 +626,16 @@ The sample is written in C#.
 
 1. Create a new Console solution in Visual Studio.
 2. Replace Program.cs with the corresponding code below.
-3. Replace the `subscriptionKey` value with the key value that you retrieved above.
-4. Replace the `text` value with text that you want to translate.
-5. Run the program.
+3. Replace the `endpoint` value with the URI as explained in the `Variations` section. 
+4. Replace the `subscriptionKey` value with the key value that you retrieved above.
+5. Replace the `region` value with the region value where you created your translator resource.
+6. Replace the `text` value with text that you want to translate.
+7. Run the program.
 
 You can also test out different languages and texts by replacing the "text", "from", and "to" variables in Program.cs. 
 
 ```csharp
 using System;
-using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
-using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
 using System.Collections.Generic;
 using Microsoft.Rest;
 using System.Net.Http;
@@ -654,7 +650,7 @@ namespace TextTranslator
 {
     class Program
     {
-        static string host = "https://dev.microsofttranslator.us";
+        static string host = "PASTE ENDPOINT HERE";
         static string path = "/translate?api-version=3.0";
         // Translate to German.
         static string params_ = "&to=de";
@@ -663,7 +659,10 @@ namespace TextTranslator
 
         // NOTE: Replace this example key with a valid subscription key.
         static string key = "PASTE KEY HERE";
-
+        
+        // NOTE: Replace this example region with a valid region.
+        static string region = "PASTE REGION HERE";
+         
         static string text = "Hello world!";
 
         async static void Translate()
@@ -678,6 +677,7 @@ namespace TextTranslator
                 request.RequestUri = new Uri(uri);
                 request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
                 request.Headers.Add("Ocp-Apim-Subscription-Key", key);
+                request.Headers.Add("Ocp-Apim-Subscription-Region", region);
 
                 var response = await client.SendAsync(request);
                 var responseBody = await response.Content.ReadAsStringAsync();
@@ -696,7 +696,7 @@ namespace TextTranslator
     }
 }
 ```
-For more information, please see [public documentation](../cognitive-services/translator/translator-info-overview.md) and [public API documentation](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) for Translator Text API.
+For more information, please see [public documentation](../cognitive-services/translator/translator-info-overview.md) and [public API documentation](../cognitive-services/translator/reference/v3-0-reference.md) for Translator Text API.
 
 ### Next Steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)

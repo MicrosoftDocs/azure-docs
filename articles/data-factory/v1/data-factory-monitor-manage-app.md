@@ -1,23 +1,14 @@
 ---
-title: Monitor and manage data pipelines - Azure | Microsoft Docs
+title: Monitor and manage data pipelines - Azure 
 description: Learn how to use the Monitoring and Management app to monitor and manage Azure data factories and pipelines.
-services: data-factory
-documentationcenter: ''
-author: sharonlo101
-manager: craigg
-
-
-ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
 ---
+
 # Monitor and manage Azure Data Factory pipelines by using the Monitoring and Management app
 > [!div class="op_single_selector"]
 > * [Using Azure portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
@@ -123,7 +114,7 @@ You can click an activity window to see details for it in the **Properties** win
 
 In the right pane, switch to the **Activity Window Explorer** tab to see more details.
 
-![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
+![Screenshot that shows how to access the Activity Window Explorer tab.](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
 
 You also see **resolved variables** for each run attempt for an activity in the **Attempts** section.
 
@@ -216,7 +207,7 @@ Activity windows can be in one of the following statuses:
 
 When you click an activity window in the list, you see details about it in the **Activity Windows Explorer** or the **Properties** window on the right.
 
-![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
+![Screenshot that shows how to view details about an activity window.](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
 ### Refresh activity windows
 The details aren't automatically refreshed, so use the refresh button (the second button) on the command bar to manually refresh the activity windows list.  

@@ -1,33 +1,42 @@
 ---
-title: Windows authentication and Azure MFA Server | Microsoft Docs
+title: Windows authentication and Azure MFA Server - Azure Active Directory
 description: Deploying Windows Authentication and Azure Multi-Factor Authentication Server.
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
-ms.topic: conceptual
+ms.subservice: authentication
+ms.topic: how-to
 ms.date: 07/11/2018
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: mtillman
+ms.author: justinha
+author: justinha
+manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Windows Authentication and Azure Multi-Factor Authentication Server
 
 Use the Windows Authentication section of the Azure Multi-Factor Authentication Server to enable and configure Windows authentication for applications. Before you set up Windows Authentication, keep the following list in mind:
 
 * After setup, reboot the Azure Multi-Factor Authentication for Terminal Services to take effect.
-* If ‘Require Azure Multi-Factor Authentication user match’ is checked and you are not in the user list, you will not be able to log into the machine after reboot.
+* If 'Require Azure Multi-Factor Authentication user match' is checked and you are not in the user list, you will not be able to log into the machine after reboot.
 * Trusted IPs is dependent on whether the application can provide the client IP with the authentication. Currently only Terminal Services is supported.  
+
+> [!IMPORTANT]
+> As of July 1, 2019, Microsoft no longer offers MFA Server for new deployments. New customers that want to require multi-factor authentication (MFA) during sign-in events should use cloud-based Azure AD Multi-Factor Authentication.
+>
+> To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+>
+> Existing customers that activated MFA Server before July 1, 2019 can download the latest version, future updates, and generate activation credentials as usual.
 
 > [!NOTE]
 > This feature is not supported to secure Terminal Services on Windows Server 2012 R2.
 
-## To secure an application with Windows Authentication, use the following procedure.
+## To secure an application with Windows Authentication, use the following procedure
+
 1. In the Azure Multi-Factor Authentication Server click the Windows Authentication icon.
-   ![Windows Authentication](./media/howto-mfaserver-windows/windowsauth.png)
+   ![Windows Authentication in MFA Server](./media/howto-mfaserver-windows/windowsauth.png)
 2. Check the **Enable Windows Authentication** checkbox. By default, this box is unchecked.
 3. The Applications tab allows the administrator to configure one or more applications for Windows Authentication.
 4. Select a server or application – specify whether the server/application is enabled. Click **OK**.

@@ -1,45 +1,48 @@
 ---
-title: Azure portal keyboard shortcuts | Microsoft Docs
-description: Learn about the keyboard shortcuts that work in the Azure portal. 
-services: azure-portal
-documentationcenter: ''
-author: adamabmsft
-manager: lwelicki
-editor: ''
-
+title: Azure portal keyboard shortcuts
+description: The Azure portal supports global keyboard shortcuts to help you perform actions, navigate, and go to locations in the Azure portal. 
 ms.assetid: d9f58c69-9163-458d-a339-ab0855e342c6
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 08/24/2017
-ms.author: cwatson
+ms.date: 12/20/2019
 ms.custom: accessibility
 ---
+
 # Keyboard shortcuts in the Azure portal
-This article shows the keyboard shortcuts that work throughout the Azure portal. Individual services may have their own keyboard shortcuts.
+
+This article lists the keyboard shortcuts that work everywhere in the Azure portal. Individual services may have their own keyboard shortcuts.
 
 ## Actions
-|To do this |Press |
+
+|To do this action |Press |
 | --- | --- |
-|Create a new resource|G+N|
-|Open the 'All services' pane|G+B|
-|Search resources|G+/| 
+|Create a resource|G+N|
+|Open **All services**|G+B|
+|Search resources, services, and docs|G+/|
 |Search resource menu items|CTRL+/ |
-|Move the selected left pane item up |ALT+Shift+Up Arrow|
-|Move the selected left pane item down |ALT+Shift+Down Arrow|
+|Move up the selected left sidebar item |ALT+Shift+Up Arrow|
+|Move the selected left sidebar item down |ALT+Shift+Down Arrow|
 
 ## Navigation
-|To do this |Press |
+
+|To do this navigation |Press |
 | --- | --- |
 |Move focus to command bar |G+, |
-|Toggle focus between top bar and side bar | G+. |
+|Toggle focus between header and left sidebar | G+. |
 
 ## Go to
-|To do this |Press |
+
+|To go to this location |Press |
 | --- | --- |
-|Go to dashboard |G+D |
-|Go to all resources|G+A |
-|Go to resource groups|G+R |
-|Open the left pane item at this position |G+number|
+|Go to **Dashboard** |G+D |
+|Go to **All resources**|G+A |
+|Go to **Resource groups**|G+R |
+|Open the left sidebar item at this position |G+number|
+
+## Keyboard shortcuts for specific pages in the Azure portal
+
+- [Azure Resource Graph Explorer](../governance/resource-graph/reference/keyboard-shortcuts.md)
+
+## Next steps
+
+- [Turn on high contrast or change theme](set-preferences.md#choose-a-theme-or-enable-high-contrast)
+- [Supported browsers and devices](azure-portal-supported-browsers-devices.md)

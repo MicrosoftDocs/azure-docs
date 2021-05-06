@@ -1,3 +1,10 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+---
 
 1. In Visual Studio Solution Explorer, right-click the Windows Store app project. Then select **Store** > **Associate App with the Store**.
 

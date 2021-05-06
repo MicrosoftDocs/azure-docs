@@ -1,20 +1,17 @@
 ---
-title: Visualize network traffic patterns with Azure Network Watcher and open source tools | Microsoft Docs
+title: Visualize network traffic patterns with open source tools
+titleSuffix: Azure Network Watcher
 description: This page describes how to use Network Watcher packet capture with Capanalysis to visualize traffic patterns to and from your VMs.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor:
-
-ms.assetid: 936d881b-49f9-4798-8e45-d7185ec9fe89
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
+ms.author: damendo
 ---
 
 # Visualize network traffic patterns to and from your VMs using open-source tools
@@ -45,7 +42,7 @@ You can directly upload a packet capture taken by network watcher using the “I
 
 When providing a link to CapAnalysis, make sure to append a SAS token to the storage blob URL.  To do this, navigate to Shared access signature from the storage account, designate the allowed permissions, and press the Generate SAS button to create a token. You can then append the SAS token to the packet capture storage blob URL.
 
-The resulting URL will look something like the following URL: http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
+The resulting URL will look something like the following URL: `http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere`
 
 
 ### Analyzing packet captures
@@ -72,7 +69,7 @@ CapAnalysis offers various options to visualize your packet capture, each provid
 
 1. Geomap
 
-    This pane provides you with a map view of your network traffic, with colors scaling to the volume of traffic from each country. You can select highlighted countries to view additional flow statistics such as the proportion of data sent and received from IPs in that country.
+    This pane provides you with a map view of your network traffic, with colors scaling to the volume of traffic from each country/region. You can select highlighted countries/regions to view additional flow statistics such as the proportion of data sent and received from IPs in that country/region.
 
     ![geomap][8]
 

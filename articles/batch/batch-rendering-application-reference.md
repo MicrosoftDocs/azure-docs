@@ -1,16 +1,15 @@
 ---
-title: Use rendering applications with Azure Batch
-description: How to use rendering applications with Azure Batch
-services: batch
+title: Use rendering applications
+description: How to use rendering applications with Azure Batch. This article provides a brief description of how to run each rendering application.
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Rendering applications
 
-Rendering applications are used by creating Batch jobs and tasks. The task command line property specifies the appropriate command line and parameters.  The easiest way to create the job tasks is to use the Batch Explorer templates as specified in [this article](https://docs.microsoft.com/azure/batch/batch-rendering-using#using-batch-explorer).  The templates can be viewed and modified versions created if necessary.
+Rendering applications are used by creating Batch jobs and tasks. The task command line property specifies the appropriate command line and parameters.  The easiest way to create the job tasks is to use the Batch Explorer templates as specified in [this article](./batch-rendering-using.md#using-batch-explorer).  The templates can be viewed and modified versions created if necessary.
 
 This article provides a brief description of how to run each rendering application.
 
@@ -53,7 +52,7 @@ In addition to the renderers built into Maya, the following renderers are availa
 
 ### Task command line
 
-The `renderer.exe` command-line renderer is used in the task command line. The command-line renderer is documented in [Maya help](http://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4).
+The `renderer.exe` command-line renderer is used in the task command line. The command-line renderer is documented in [Maya help](https://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4).
 
 In the following example, a job preparation task is used to copy the scene files and assets to the job preparation working directory, an output folder is used to store the rendering image, and frame 10 is rendered.
 

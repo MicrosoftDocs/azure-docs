@@ -2,13 +2,9 @@
 title: Kubernetes on Azure tutorial  - Prepare an application
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to prepare and build a multi-container app with Docker Compose that you can then deploy to AKS.
 services: container-service
-author: iainfoulds
-manager: jeconnoc
-
-ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
-ms.author: iainfou
+ms.date: 01/12/2021
+
 ms.custom: mvc
 
 #Customer intent: As a developer, I want to learn how to build a container-based application so that I can deploy the app to Azure Kubernetes Service.
@@ -25,9 +21,9 @@ In this tutorial, part one of seven, a multi-container application is prepared f
 
 Once completed, the following application runs in your local development environment:
 
-![Image of Kubernetes cluster on Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
+:::image type="content" source="./media/container-service-kubernetes-tutorials/azure-vote-local.png" alt-text="Screenshot showing the container image Azure Voting App running locally opened in a local web browser" lightbox="./media/container-service-kubernetes-tutorials/azure-vote-local.png":::
 
-In subsequent tutorials, the container image is uploaded to an Azure Container Registry, and then deployed into an AKS cluster.
+In later tutorials, the container image is uploaded to an Azure Container Registry, and then deployed into an AKS cluster.
 
 ## Before you begin
 
@@ -35,11 +31,12 @@ This tutorial assumes a basic understanding of core Docker concepts such as cont
 
 To complete this tutorial, you need a local Docker development environment running Linux containers. Docker provides packages that configure Docker on a [Mac][docker-for-mac], [Windows][docker-for-windows], or [Linux][docker-for-linux] system.
 
-Azure Cloud Shell does not include the Docker components required to complete every step in these tutorials. Therefore, we recommend using a full Docker development environment.
+> [!NOTE]
+> Azure Cloud Shell does not include the Docker components required to complete every step in these tutorials. Therefore, we recommend using a full Docker development environment.
 
 ## Get application code
 
-The sample application used in this tutorial is a basic voting app. The application consists of a front-end web component and a back-end Redis instance. The web component is packaged into a custom container image. The Redis instance uses an unmodified image from Docker Hub.
+The [sample application][sample-application] used in this tutorial is a basic voting app consisting of a front-end web component and a back-end Redis instance. The web component is packaged into a custom container image. The Redis instance uses an unmodified image from Docker Hub.
 
 Use [git][] to clone the sample application to your development environment:
 
@@ -47,13 +44,41 @@ Use [git][] to clone the sample application to your development environment:
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-Change directories so that you are working from the cloned directory.
+Change into the cloned directory.
 
 ```console
 cd azure-voting-app-redis
 ```
 
-Inside the directory is the application source code, a pre-created Docker compose file, and a Kubernetes manifest file. These files are used throughout the tutorial set.
+Inside the directory is the application source code, a pre-created Docker compose file, and a Kubernetes manifest file. These files are used throughout the tutorial set. The contents and structure of the directory are as follows:
+
+```output
+azure-voting-app-redis
+│   azure-vote-all-in-one-redis.yaml
+│   docker-compose.yaml
+│   LICENSE
+│   README.md
+│
+├───azure-vote
+│   │   app_init.supervisord.conf
+│   │   Dockerfile
+│   │   Dockerfile-for-app-service
+│   │   sshd_config
+│   │
+│   └───azure-vote
+│       │   config_file.cfg
+│       │   main.py
+│       │
+│       ├───static
+│       │       default.css
+│       │
+│       └───templates
+│               index.html
+│
+└───jenkins-tutorial
+        config-jenkins.sh
+        deploy-jenkins-vm.sh
+```
 
 ## Create container images
 
@@ -65,15 +90,15 @@ Use the sample `docker-compose.yaml` file to create the container image, downloa
 docker-compose up -d
 ```
 
-When completed, use the [docker images][docker-images] command to see the created images. Three images have been downloaded or created. The *azure-vote-front* image contains the front-end application and uses the `nginx-flask` image as a base. The `redis` image is used to start a Redis instance.
+When completed, use the [docker images][docker-images] command to see the created images. Three images have been downloaded or created. The *azure-vote-front* image contains the front-end application and uses the *nginx-flask* image as a base. The *redis* image is used to start a Redis instance.
 
 ```
 $ docker images
 
-REPOSITORY                   TAG        IMAGE ID            CREATED             SIZE
-azure-vote-front             latest     9cc914e25834        40 seconds ago      694MB
-redis                        latest     a1b99da73d05        7 days ago          106MB
-tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
+REPOSITORY                                     TAG                 IMAGE ID            CREATED             SIZE
+mcr.microsoft.com/azuredocs/azure-vote-front   v1                  84b41c268ad9        9 seconds ago       944MB
+mcr.microsoft.com/oss/bitnami/redis            6.0.8               3a54a920bb6c        2 days ago          103MB
+tiangolo/uwsgi-nginx-flask                     python3.6           a16ce562e863        6 weeks ago         944MB
 ```
 
 Run the [docker ps][docker-ps] command to see the running containers:
@@ -81,20 +106,20 @@ Run the [docker ps][docker-ps] command to see the running containers:
 ```
 $ docker ps
 
-CONTAINER ID        IMAGE             COMMAND                  CREATED             STATUS              PORTS                           NAMES
-82411933e8f9        azure-vote-front  "/usr/bin/supervisord"   57 seconds ago      Up 30 seconds       443/tcp, 0.0.0.0:8080->80/tcp   azure-vote-front
-b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago      Up 30 seconds       0.0.0.0:6379->6379/tcp          azure-vote-back
+CONTAINER ID        IMAGE                                             COMMAND                  CREATED             STATUS              PORTS                           NAMES
+d10e5244f237        mcr.microsoft.com/azuredocs/azure-vote-front:v1   "/entrypoint.sh /sta…"   3 minutes ago       Up 3 minutes        443/tcp, 0.0.0.0:8080->80/tcp   azure-vote-front
+21574cb38c1f        mcr.microsoft.com/oss/bitnami/redis:6.0.8         "/opt/bitnami/script…"   3 minutes ago       Up 3 minutes        0.0.0.0:6379->6379/tcp          azure-vote-back
 ```
 
 ## Test application locally
 
-To see the running application, enter http://localhost:8080 in a local web browser. The sample application loads, as shown in the following example:
+To see the running application, enter `http://localhost:8080` in a local web browser. The sample application loads, as shown in the following example:
 
-![Image of Kubernetes cluster on Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
+:::image type="content" source="./media/container-service-kubernetes-tutorials/azure-vote-local.png" alt-text="Screenshot showing the container image Azure Voting App running locally opened in a local web browser" lightbox="./media/container-service-kubernetes-tutorials/azure-vote-local.png":::
 
 ## Clean up resources
 
-Now that the application's functionality has been validated, the running containers can be stopped and removed. Do not delete the container images - in the next tutorial, the *azure-vote-front* image is uploaded to an Azure Container Registry instance.
+Now that the application's functionality has been validated, the running containers can be stopped and removed. ***Do not delete the container images*** - in the next tutorial, the *azure-vote-front* image is uploaded to an Azure Container Registry instance.
 
 Stop and remove the container instances and resources with the [docker-compose down][docker-compose-down] command:
 
@@ -102,7 +127,7 @@ Stop and remove the container instances and resources with the [docker-compose d
 docker-compose down
 ```
 
-When the local application has been removed, you have a Docker image that contains the Azure Vote application, *azure-front-front*, for use with the next tutorial.
+When the local application has been removed, you have a Docker image that contains the Azure Vote application, *azure-vote-front*, for use with the next tutorial.
 
 ## Next steps
 
@@ -128,6 +153,7 @@ Advance to the next tutorial to learn how to store container images in Azure Con
 [docker-ps]: https://docs.docker.com/engine/reference/commandline/ps/
 [docker-compose-down]: https://docs.docker.com/compose/reference/down
 [git]: https://git-scm.com/downloads
+[sample-application]: https://github.com/Azure-Samples/azure-voting-app-redis
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md

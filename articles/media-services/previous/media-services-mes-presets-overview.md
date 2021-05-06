@@ -1,24 +1,24 @@
 ---
 title: Task Presets for Media Encoder Standard (MES) | Microsoft Docs
 description: The topic gives and overview of the service-defined sample presets for Media Encoder Standard (MES).
-author: Juliako
-manager: cfow
+author: IngridAtMicrosoft
+manager: femila
 editor: johndeu
 services: media-services
 documentationcenter: ''
-
 ms.assetid: f243ed1c-ac9c-4300-a5f7-f092cf9853b9
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 
 # Sample Presets for Media Encoder Standard (MES)
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 **Media Encoder Standard** defines a set of pre-defined system encoding presets you can use when creating encoding jobs. It is recommended to use the "Adaptive Streaming" preset if you want to encode a video for streaming with Media Services. When you specify this preset, Media Encoder Standard will [auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md). 
 
@@ -26,7 +26,7 @@ ms.author: juliako
 Media Services fully supports customizing all values in presets to meet your specific encoding needs and requirements. If you need to customize an encoding preset, you should start with one of the below system presets that are provided in this section as a template for your custom configuration. For explanations of what each element in these presets means, and the valid values for each element, see the [Media Encoder Standard schema](media-services-mes-schema.md) topic.  
   
 > [!NOTE]
->  When using a preset for 4k encodes, you should get the `S3` reserved unit type. For more information, see [How to Scale Encoding](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+>  When using a preset for 4k encodes, you should get the `S3` reserved unit type. For more information, see [How to Scale Encoding](./media-services-scale-media-processing-overview.md).  
 
 #### Video Rotation Default Setting in Presets:
 When working with Media Encoder Standard, video rotation is enabled by default. If your video has been recorded on a mobile device in Portrait mode, then these presets will rotate them to Landscape mode prior to encoding.
@@ -83,4 +83,4 @@ When working with Media Encoder Standard, video rotation is enabled by default. 
   
  [H264 Single Bitrate Low Quality SD for Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md) produces a single MP4 file with a bitrate of 56 kbps, and stereo AAC audio.  
   
- For more information related to Media Services encoders, see [Encoding On-Demand with Azure Media Services](https://azure.microsoft.com/documentation/articles/media-services-encode-asset/).
+ For more information related to Media Services encoders, see [Encoding On-Demand with Azure Media Services](./media-services-encode-asset.md).

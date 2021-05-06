@@ -1,10 +1,10 @@
-﻿---
-title: Azure PowerShell script sample - Create a network for multi-tier applications | Microsoft Docs
-description: Azure PowerShell script sample - Create a virtual network for multi-tier applications.
+---
+title: Create a VNet for multi-tier applications - Azure PowerShell script sample
+description: Create a virtual network for multi-tier applications - Azure PowerShell script sample.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags:
 
@@ -14,8 +14,9 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload: infrastructure
-ms.date: 03/20/2018
-ms.author: jdial
+ms.date: 12/13/2018
+ms.author: kumud 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -23,21 +24,25 @@ ms.author: jdial
 
 This script sample creates a virtual network with front-end and back-end subnets. Traffic to the front-end subnet is limited to HTTP and SSH, while traffic to the back-end subnet is limited to MySQL, port 3306. After running the script, you will have two virtual machines, one in each subnet that you can deploy web server and MySQL software to.
 
-You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/powershell), or from a local PowerShell installation. If you use PowerShell locally, this script requires the AzureRM PowerShell module version 5.4.1 or later. To find the installed version, run `Get-Module -ListAvailable AzureRM`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
+You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/powershell), or from a local PowerShell installation. If you use PowerShell locally, this script requires the Azure PowerShell module version 1.0.0 or later. To find the installed version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+<!-- gitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/17748 -->
+A subnet ID is assigned after you have created a virtual network; specifically, using the New-AzVirtualNetwork cmdlet with the -Subnet option. If you configure the subnet using the New-AzVirtualNetworkSubnetConfig cmdlet before the call to New-AzVirtualNetwork, you won't see the subnet ID until after you call New-AzVirtualNetwork.
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1  "Virtual network for multi-tier application")]
 
-## Clean up deployment 
+## Clean up deployment
 
 Run the following command to remove the resource group, VM, and all related resources:
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## Script explanation
@@ -46,18 +51,18 @@ This script uses the following commands to create a resource group, virtual netw
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
-| [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) | Creates an Azure virtual network and front-end subnet. |
-| [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) | Creates a back-end subnet. |
-| [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) | Creates a public IP address to access the VM from the internet. |
-| [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) | Creates virtual network interfaces and attaches them to the virtual network's front-end and back-end subnets. |
-| [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) | Creates network security groups (NSG) that are associated to the front-end and back-end subnets. |
-| [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) |Creates NSG rules that allow or block specific ports to specific subnets. |
-| [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Creates virtual machines and attaches a NIC to each VM. This command also specifies the virtual machine image to use and administrative credentials. |
-| [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Deletes a resource group and all resources it contains. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
+| [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Creates an Azure virtual network and front-end subnet. |
+| [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Creates a back-end subnet. |
+| [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Creates a public IP address to access the VM from the internet. |
+| [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) | Creates virtual network interfaces and attaches them to the virtual network's front-end and back-end subnets. |
+| [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) | Creates network security groups (NSG) that are associated to the front-end and back-end subnets. |
+| [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) |Creates NSG rules that allow or block specific ports to specific subnets. |
+| [New-AzVM](/powershell/module/az.compute/new-azvm) | Creates virtual machines and attaches a NIC to each VM. This command also specifies the virtual machine image to use and administrative credentials. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group and all resources it contains. |
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional virtual network PowerShell script samples can be found in [Virtual network PowerShell samples](../powershell-samples.md).

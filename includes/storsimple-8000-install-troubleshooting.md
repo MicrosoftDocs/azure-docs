@@ -1,4 +1,10 @@
-<!--author=alkohli last changed: 08/29/17-->
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 
 ## Troubleshooting update failures
 **What if you see a notification that the pre-upgrade checks have failed?**

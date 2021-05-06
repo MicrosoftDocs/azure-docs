@@ -1,25 +1,16 @@
 ---
-title: Microsoft Azure StorSimple Data Manager UI | Microsoft Docs
-description: Describes how to use StorSimple Data Manager serivce UI
-services: storsimple
-documentationcenter: NA
+title: Microsoft Azure StorSimple Data Manager UI
+description: Learn how you can use the StorSimple Data Manager UI to transform the data residing on the StorSimple 8000 series devices.
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
 ---
 
 # Manage the StorSimple Data Manager service in Azure portal
 
-This article explains how you can use the StorSimple Data Manager UI to transform the data residing on the StorSimple 8000 series devices. The transformed data can then be consumed by other Azure services such as Azure Media Services, Azure HDInsight, Azure Machine Learning, and Azure Search.
+This article explains how you can use the StorSimple Data Manager UI to transform the data residing on the StorSimple 8000 series devices. The transformed data can then be consumed by other Azure services such as Azure Media Services, Azure HDInsight, Azure Machine Learning, and Azure Cognitive Search.
 
 
 ## Use StorSimple Data Transformation
@@ -42,19 +33,19 @@ Perform the following steps to create a StorSimple Data Manager service.
 
 3. For the new service, specify the following:
 
-    1. Provide a unique **Service name** for your StorSimple Data Manager. This is a friendly name that can be used to identify the service. The name can have between 3 and 24 characters that can be letters, numbers, and hyphens. The name must start and end with a letter or a number.
+   1. Provide a unique **Service name** for your StorSimple Data Manager. This is a friendly name that can be used to identify the service. The name can have between 3 and 24 characters that can be letters, numbers, and hyphens. The name must start and end with a letter or a number.
 
-    2. Choose a **Subscription** from the dropdown list. The subscription is linked to your billing account. This field is automatically populated (and not selectable) if you have only one subscription.
+   2. Choose a **Subscription** from the dropdown list. The subscription is linked to your billing account. This field is automatically populated (and not selectable) if you have only one subscription.
 
-    3. Select an existing resource group or create a new group. For more information, see [Azure resource groups](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
+   3. Select an existing resource group or create a new group. For more information, see [Azure resource groups](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
-    4. Specify the **Location** for your service that houses your storage accounts and your StorSimple Data Manager service. Your StorSimple Device Manager service, Data Manager service, and the associated storage account should all be in the supported regions.
+   4. Specify the **Location** for your service that houses your storage accounts and your StorSimple Data Manager service. Your StorSimple Device Manager service, Data Manager service, and the associated storage account should all be in the supported regions.
     
-    5. To get a link to this service on your dashboard, select **Pin to dashboard**.
+   5. To get a link to this service on your dashboard, select **Pin to dashboard**.
     
-    6. Click **Create**.
+   6. Click **Create**.
 
-    ![Create a StorSimple Data Manager service 3](./media/storsimple-data-manager-ui/create-service-4.png)
+      ![Create a StorSimple Data Manager service 3](./media/storsimple-data-manager-ui/create-service-4.png)
 
 The service creation takes a few minutes. You see a notification after the service is successfully created and the new service is displayed.
 
@@ -84,33 +75,33 @@ Perform the following steps to create a job definition.
 
     ![Add new data repo](./media/storsimple-data-manager-ui/create-job-definition-3.png)
   
-    1. Choose **StorSimple 8000 series Manager** as the data repository type.
+   1. Choose **StorSimple 8000 series Manager** as the data repository type.
     
-    2. Enter a friendly name for your source data repository.
+   2. Enter a friendly name for your source data repository.
     
-    3. From the dropdown list, choose a subscription associated with your StorSimple Device Manager service.
+   3. From the dropdown list, choose a subscription associated with your StorSimple Device Manager service.
     
-    4. Provide the name of the StorSimple Device Manager for the **Resource**.
+   4. Provide the name of the StorSimple Device Manager for the **Resource**.
 
-    5. Enter the **Service data encryption** key for the StorSimple Device Manager service. 
+   5. Enter the **Service data encryption** key for the StorSimple Device Manager service. 
 
-    ![Configure source data repo 1](./media/storsimple-data-manager-ui/create-job-definition-4.png)
+      ![Configure source data repo 1](./media/storsimple-data-manager-ui/create-job-definition-4.png)
 
-    Click **OK** when done. This saves your data repository. Reuse this StorSimple Device Manager in other job definitions without entering these parameters again. It takes a few seconds after you click **OK** for the newly created source data repository to show up in the dropdown.
+      Click **OK** when done. This saves your data repository. Reuse this StorSimple Device Manager in other job definitions without entering these parameters again. It takes a few seconds after you click **OK** for the newly created source data repository to show up in the dropdown.
 
 7. From the dropdown list for **Data repository**, select the data repository you created. 
 
-    1. Enter the name of the StorSimple 8000 series device that contains the data of interest.
+   1. Enter the name of the StorSimple 8000 series device that contains the data of interest.
 
-    2. Specify the name of the volume residing on the StorSimple device that has your data of interest.
+   2. Specify the name of the volume residing on the StorSimple device that has your data of interest.
 
-    3. In the **Filter** subsection, enter the root directory that contains your data of interest in _\MyRootDirectory\Data_ format. Drive letters such _\C:\Data_ are not supported. You can also add any file filters here.
+   3. In the **Filter** subsection, enter the root directory that contains your data of interest in _\MyRootDirectory\Data_ format. Drive letters such _\C:\Data_ are not supported. You can also add any file filters here.
 
-    4. The data transformation service works on the data that is pushed up to the Azure via snapshots. When you run this job, you can choose to take a backup every time this job is run (to work on latest data) or use the last existing backup in the cloud (if you are working on some archived data).
+   4. The data transformation service only works on the latest snapshot of the data that is pushed up to Azure.
 
-    5. Click **OK**.
+   5. Click **OK**.
 
-    ![Configure source data repo 2](./media/storsimple-data-manager-ui/create-job-definition-8.png)
+      ![Configure source data repo 2](./media/storsimple-data-manager-ui/create-job-definition-8.png)
 
 8. Next, the target data repository needs to be configured. Choose storage accounts to put files into blobs in that account. In the dropdown, select **Add new** and then **Configure settings**.
 
@@ -154,6 +145,11 @@ Whenever you need to move data from StorSimple to the storage account that you h
 4. To monitor this job, go to **Jobs** in your StorSimple Data Manager. In addition to monitoring in the **Jobs** blade, you can also listen on the storage queue where a message is added every time a file is moved from StorSimple to the storage account.
 
     ![Start job run 4](./media/storsimple-data-manager-ui/start-job-run4.png)
+
+### View logs after job completion
+
+After completion of a job, you can view the status of the job. Job status can be **Succeeded**, **Partially Succeeded** and **Failed**. You can view the list of files that were successfully copied and files that failed to be copied. These lists are available in a container called **"storsimple-data-manager-joblogs"** within your target storage account. Within this container, you can look for a folder with the same name as your job definition. Within this, a folder will be created for every job run which will contain your lists. The name of this folder will be the GUID of the job, which you can get from the job details page. Alternatively, in most cases you will see a link for the copy logs within the jobs page itself.
+There are 2 set of csv files that you will see in this folder. All files that start with **copiedfilelist...** will contain the list of successfully copied files. All files that start with **failedfilelist...** contain files that were not able to be copied, along with an error message.
 
 
 ## Next steps

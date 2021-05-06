@@ -3,22 +3,23 @@ title: Configuring Azure Media Services telemetry with .NET| Microsoft Docs
 description: This article shows you how to use the Azure Media Services telemetry using .NET SDK.
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: cfowler
+author: IngridAtMicrosoft
+manager: femila
 editor: ''
-
 ms.assetid: f8f55e37-0714-49ea-bf4a-e6c1319bec44
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.custom: devx-track-csharp
 ---
 
 # Configuring Azure Media Services telemetry with .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 This article describes general steps that you might take when configuring the Azure Media Services (AMS) telemetry using .NET SDK. 
 
@@ -27,7 +28,7 @@ This article describes general steps that you might take when configuring the Az
 
 You can consume telemetry data in one of the following ways:
 
-- Read data directly from Azure Table Storage (for example, using the Storage SDK). For the description of telemetry storage tables, see the **Consuming telemetry information** in [this](https://msdn.microsoft.com/library/mt742089.aspx) article.
+- Read data directly from Azure Table Storage (for example, using the Storage SDK). For the description of telemetry storage tables, see the **Consuming telemetry information** in [this](/previous-versions/azure/mt742089(v=azure.100)) article.
 
 Or
 

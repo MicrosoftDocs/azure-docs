@@ -1,20 +1,13 @@
 ---
-title: DNS Name resolution options for Linux virtual machines in Azure
+title: DNS Name resolution options for Linux VMs
 description: Name Resolution scenarios for Linux virtual machines in Azure IaaS, including provided DNS services, hybrid external DNS and Bring Your Own DNS server.
-services: virtual-machines
-documentationcenter: na
 author: RicksterCDN
-manager: jeconnoc
-editor: tysonn
-
-ms.assetid: 787a1e04-cebf-4122-a1b4-1fcf0a2bbf5f
-ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.service: virtual-machines
+ms.subservice: networking
+ms.topic: conceptual
 ms.date: 10/19/2016
 ms.author: rclaus
+ms.collection: linux
 
 ---
 # DNS Name Resolution options for Linux virtual machines in Azure
@@ -29,7 +22,7 @@ The following table illustrates scenarios and corresponding name resolution solu
 
 | **Scenario** | **Solution** | **Suffix** |
 | --- | --- | --- |
-| Name resolution between role instances or virtual machines in the same virtual network |[Name resolution that Azure provides](#azure-provided-name-resolution) |hostname or fully-qualified domain name (FQDN) |
+| Name resolution between role instances or virtual machines in the same virtual network |Name resolution that Azure provides |hostname or fully-qualified domain name (FQDN) |
 | Name resolution between role instances or virtual machines in different virtual networks |Customer-managed DNS servers that forward queries between virtual networks for resolution by Azure (DNS proxy). See [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server). |FQDN only |
 | Resolution of on-premises computers and service names from role instances or virtual machines in Azure |Customer-managed DNS servers (for example, on-premises domain controller, local read-only domain controller, or a DNS secondary synced by using zone transfers). See [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server). |FQDN only |
 | Resolution of Azure hostnames from on-premises computers |Forward queries to a customer-managed DNS proxy server in the corresponding virtual network. The proxy server forwards queries to Azure for resolution. See [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server). |FQDN only |
@@ -96,12 +89,14 @@ DNS is primarily a UDP protocol. Because the UDP protocol doesn't guarantee mess
 
 To check the current settings on a Linux virtual machine, 'cat /etc/resolv.conf', and look at the 'options' line, for example:
 
-    options timeout:1 attempts:5
+```config-conf
+options timeout:1 attempts:5
+```
 
 The resolv.conf file is auto-generated and should not be edited. The specific steps that add the 'options' line vary by distribution:
 
 **Ubuntu** (uses resolvconf)
-1. Add the options line to '/etc/resolveconf/resolv.conf.d/head'.
+1. Add the options line to '/etc/resolvconf/resolv.conf.d/head'.
 2. Run 'resolvconf -u' to update.
 
 **SUSE** (uses netconf)
@@ -123,7 +118,7 @@ DNS forwarding also enables DNS resolution between virtual networks and enables 
 
 When you use name resolution that Azure provides, the internal DNS suffix is provided to each virtual machine by using DHCP. When you use your own name resolution solution, this suffix is not supplied to virtual machines because the suffix interferes with other DNS architectures. To refer to machines by FQDN or to configure the suffix on your virtual machines, you can use PowerShell or the API to determine the suffix:
 
-* For virtual networks that are managed by Azure Resource Manager, the suffix is available via the [network interface card](https://msdn.microsoft.com/library/azure/mt163668.aspx) resource. You can also run the `azure network public-ip show <resource group> <pip name>` command to display the details of your public IP, which includes the FQDN of the NIC.
+* For virtual networks that are managed by Azure Resource Manager, the suffix is available via the [network interface card](/rest/api/virtualnetwork/networkinterfaces) resource. You can also run the `azure network public-ip show <resource group> <pip name>` command to display the details of your public IP, which includes the FQDN of the NIC.
 
 If forwarding queries to Azure doesn't suit your needs, you need to provide your own DNS solution.  Your DNS solution needs to:
 
@@ -133,6 +128,6 @@ If forwarding queries to Azure doesn't suit your needs, you need to provide your
 * Be secured against access from the Internet to mitigate threats posed by external agents.
 
 > [!NOTE]
-> For best performance, when you use virtual machines in Azure DNS servers, disable IPv6 and assign an [Instance-Level Public IP](../../virtual-network/virtual-networks-instance-level-public-ip.md) to each DNS server virtual machine.  
+> For best performance, when you use virtual machines in Azure DNS servers, disable IPv6 and assign an [Instance-Level Public IP](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) to each DNS server virtual machine.  
 >
 >

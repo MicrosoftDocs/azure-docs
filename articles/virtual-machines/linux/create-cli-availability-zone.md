@@ -1,37 +1,26 @@
 ---
-title: Create a zoned Linux VM with the Azure CLI | Microsoft Docs
-description: Create a Linux VM in an availability zone with the Azure CLI
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: dlepow
-manager: jeconnoc
-editor: 
-tags: 
-
-ms.assetid: 
-ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
+title: Create a zoned VM with the Azure CLI 
+description: Create a virtual machine in an availability zone with the Azure CLI
+author: cynthn
+ms.service: virtual-machines
+ms.topic: how-to
 ms.date: 04/05/2018
-ms.author: danlep
-ms.custom: 
+ms.author: cynthn
 ---
 
-# Create a Linux virtual machine in an availability zone with the Azure CLI
+# Create a virtual machine in an availability zone using Azure CLI
 
 This article steps through using the Azure CLI to create a Linux VM in an Azure availability zone. An [availability zone](../../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
 
-To use an availability zone, create your virtual machine in a [supported Azure region](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
+To use an availability zone, create your virtual machine in a [supported Azure region](../../availability-zones/az-region.md).
 
-Make sure that you have installed the latest [Azure CLI](/cli/azure/install-az-cli2) and logged in to an Azure account with [az login](/cli/azure/reference-index#az_login).
+Make sure that you have installed the latest [Azure CLI](/cli/azure/install-az-cli2) and logged in to an Azure account with [az login](/cli/azure/reference-index).
 
 
 ## Check VM SKU availability
-The availability of VM sizes, or SKUs, may vary by region and zone. To help you plan for the use of Availability Zones, you can list the available VM SKUs by Azure region and zone. This ability makes sure that you choose an appropriate VM size, and obtain the desired resiliency across zones. For more information on the different VM types and sizes, see [VM Sizes overview](sizes.md).
+The availability of VM sizes, or SKUs, may vary by region and zone. To help you plan for the use of Availability Zones, you can list the available VM SKUs by Azure region and zone. This ability makes sure that you choose an appropriate VM size, and obtain the desired resiliency across zones. For more information on the different VM types and sizes, see [VM Sizes overview](../sizes.md).
 
-You can view the available VM SKUs with the [az vm list-skus](/cli/azure/vm#az_vm_list_skus) command. The following example lists available VM SKUs in the *eastus2* region:
+You can view the available VM SKUs with the [az vm list-skus](/cli/azure/vm) command. The following example lists available VM SKUs in the *eastus2* region:
 
 ```azurecli
 az vm list-skus --location eastus2 --output table
@@ -39,7 +28,7 @@ az vm list-skus --location eastus2 --output table
 
 The output is similar to the following condensed example, which shows the Availability Zones in which each VM size is available:
 
-```azurecli
+```output
 ResourceType      Locations  Name               [...]    Tier       Size     Zones
 ----------------  ---------  -----------------           ---------  -------  -------
 virtualMachines   eastus2    Standard_DS1_v2             Standard   DS1_v2   1,2,3
@@ -58,7 +47,7 @@ virtualMachines   eastus2    Standard_E4_v3              Standard   E4_v3    1,2
 
 ## Create resource group
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command.  
+Create a resource group with the [az group create](/cli/azure/group) command.  
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named *myResourceGroupVM* is created in the *eastus2* region. East US 2 is one of the Azure regions that supports availability zones.
 
@@ -70,17 +59,17 @@ The resource group is specified when creating or modifying a VM, which can be se
 
 ## Create virtual machine
 
-Create a virtual machine with the [az vm create](/cli/azure/vm#az_vm_create) command. 
+Create a virtual machine with the [az vm create](/cli/azure/vm) command. 
 
 When creating a virtual machine, several options are available such as operating system image, disk sizing, and administrative credentials. In this example, a virtual machine is created with a name of *myVM* running Ubuntu Server. The VM is created in availability zone *1*. By default, the VM is created in the *Standard_DS1_v2* size.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create --resource-group myResourceGroupVM --name myVM --location eastus2 --image UbuntuLTS --generate-ssh-keys --zone 1
 ```
 
 It may take a few minutes to create the VM. Once the VM has been created, the Azure CLI outputs information about the VM. Take note of the `zones` value, which indicates the availability zone in which the VM is running. 
 
-```azurecli 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -98,7 +87,7 @@ It may take a few minutes to create the VM. Once the VM has been created, the Az
 
 When the VM is deployed in an availability zone, a managed disk for the VM is created in the same availability zone. By default, a public IP address is also created in that zone. The following examples get information about these resources.
 
-To verify that the VM's managed disk is in the availability zone, use the [az vm show](/cli/azure/vm#az_vm_show) command to return the disk id. In this example, the disk id is stored in a variable that is used in a later step. 
+To verify that the VM's managed disk is in the availability zone, use the [az vm show](/cli/azure/vm) command to return the disk ID. In this example, the disk ID is stored in a variable that is used in a later step. 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)
@@ -111,7 +100,7 @@ az disk show --resource-group myResourceGroupVM --name $osdiskname
 
 The output shows that the managed disk is in the same availability zone as the VM:
 
-```azurecli
+```output
 {
   "creationData": {
     "createOption": "FromImage",
@@ -145,7 +134,7 @@ The output shows that the managed disk is in the same availability zone as the V
 }
 ```
 
-Use the [az vm list-ip-addresses](/cli/azure/vm#az_vm_list_ip_addresses) command to return the name of public IP address resource in *myVM*. In this example, the name is stored in a variable that is used in a later step.
+Use the [az vm list-ip-addresses](/cli/azure/vm) command to return the name of public IP address resource in *myVM*. In this example, the name is stored in a variable that is used in a later step.
 
 ```azurecli
 ipaddressname=$(az vm list-ip-addresses -g myResourceGroupVM -n myVM --query "[].virtualMachine.network.publicIpAddresses[].name" -o tsv)
@@ -159,7 +148,7 @@ az network public-ip show --resource-group myResourceGroupVM --name $ipaddressna
 
 The output shows that the IP address is in the same availability zone as the VM:
 
-```azurecli
+```output
 {
   "dnsSettings": null,
   "etag": "W/\"b7ad25eb-3191-4c8f-9cec-c5e4a3a37d35\"",
@@ -194,8 +183,4 @@ The output shows that the IP address is in the same availability zone as the VM:
 
 ## Next steps
 
-In this article, you learned how to create a VM in an availability zone. Learn more about [regions and availability](regions-and-availability.md) for Azure VMs.
-
-
-
-
+In this article, you learned how to create a VM in an availability zone. Learn more about [availability](../availability.md) for Azure VMs.

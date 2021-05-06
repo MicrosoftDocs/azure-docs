@@ -1,19 +1,25 @@
 ---
-title: Search the web for trending images - Bing Image Search API
+title: Get trending images with the Bing Image Search API
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the Bing Image Search API to search the web for trending images.
+description: Search for today's trending images from the web with the Bing Image Search API.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.assetid: EAB92D35-5C0B-4A0A-8F49-02DF7FAD44B4
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 03/04/2019
 ms.author: scottwhi
+ms.custom: seodec2018
 ---
 
-# Get trending images from the Bing Image Search API
+# Get trending images from the web
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 To get today's trending images, send the following GET request:  
 
@@ -33,7 +39,7 @@ The Trending Images API currently supports only the following markets:
 - en-AU (English, Australia)  
 - zh-CN (Chinese, China)
 
-The response contains a [TrendingImages](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#trendingimages) object that lists images by category. Use the category's `title` to group the images in your user experience. The categories may change daily.  
+The response contains a [TrendingImages](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#trendingimages) object that lists images by category. Use the category's `title` to group the images in your user experience. The categories may change daily.  
 
 ```json
 {
@@ -82,9 +88,9 @@ The response contains a [TrendingImages](https://docs.microsoft.com/rest/api/cog
 }  
 ```  
 
-Each tile contains an image and options for getting related images. To get the related images, you can use the query `text` to call the [Image Search API](./search-the-web.md) and display the related images yourself. Or, you can use the URL in `webSearchUrl` to take the user to Bing's images search results page, which contains the related images.
+Each tile contains an image and options for getting related images. To get the related images, you can use the query `text` to call the [Image Search API](./overview.md) and display the related images yourself. Or, you can use the URL in `webSearchUrl` to take the user to Bing's images search results page, which contains the related images.
 
-If you call the Image Search API to get the related images, set the [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#id) query parameter to the ID in the `id` field. Specifying the ID ensures that the response contains the image (it is the first image in the response) and its related images. Also, set the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#q) query parameter to the text in the `query` object's `text` field.
+If you call the Image Search API to get the related images, set the [id](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#id) query parameter to the ID in the `id` field. Specifying the ID ensures that the response contains the image (it is the first image in the response) and its related images. Also, set the [q](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) query parameter to the text in the `query` object's `text` field.
 
 The following example shows how to use the image ID to get related images of Mr. Smith in the preceding Trending Images API response.
 
@@ -95,4 +101,4 @@ X-MSEdge-ClientIP: 999.999.999.999
 X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
-```  
+```

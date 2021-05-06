@@ -1,18 +1,9 @@
 ---
-title: Overview of the lifecycle of Azure Service Fabric Reliable Services | Microsoft Docs
-description: Learn about the different lifecycle events in Service Fabric Reliable Services
-services: Service-Fabric
-documentationcenter: .net
+title: Overview of the lifecycle of Reliable Services 
+description: Learn about the lifecycle events in an Azure Service Fabric Reliable Services application for stateful and stateless services.
 author: masnider
-manager: timlt
-editor: vturecek;
 
-ms.assetid:
-ms.service: Service-Fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ---
@@ -95,7 +86,7 @@ Like stateless services, the lifecycle events during shutdown are the same as du
 3. After `StatefulServiceBase.OnCloseAsync()` finishes, the service object is destructed.
 
 ## Stateful service Primary swaps
-While a stateful service is running, only the Primary replicas of that stateful services have their communication listeners opened and their **RunAsync** method called. Secondary replicas are constructed, but see no further calls. While a stateful service is running, the replica that's currently the Primary can change. What does this mean in terms of the lifecycle events that a replica can see? The behavior the stateful replica sees depends on whether it is the replica being demoted or promoted during the swap.
+While a stateful service is running, only the Primary replicas of that stateful services have their communication listeners opened and their **RunAsync** method called. Secondary replicas are constructed, but see no further calls. While a stateful service is running, the replica that's currently the Primary can change as a result of fault or cluster balancing optimization. What does this mean in terms of the lifecycle events that a replica can see? The behavior the stateful replica sees depends on whether it is the replica being demoted or promoted during the swap.
 
 ### For the Primary that's demoted
 For the Primary replica that's demoted, Service Fabric needs this replica to stop processing messages and quit any background work it is doing. As a result, this step looks like it did when the service is shut down. One difference is that the service isn't destructed or closed because it remains as a Secondary. The following APIs are called:
@@ -118,7 +109,7 @@ Service Fabric changes the Primary of a stateful service for a variety of reason
 
 Services that do not handle cancellation cleanly can experience several issues. These operations are slow because Service Fabric waits for the services to stop gracefully. This can ultimately lead to failed upgrades that time out and roll back. Failure to honor the cancellation token can also cause imbalanced clusters. Clusters become unbalanced because nodes get hot, but the services can't be rebalanced because it takes too long to move them elsewhere. 
 
-Because the services are stateful, it is also likely that they use the [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). In Service Fabric, when a Primary is demoted, one of the first things that happens is that write access to the underlying state is revoked. This leads to a second set of issues that can affect the service lifecycle. The collections return exceptions based on the timing and whether the replica is being moved or shut down. These exceptions should be handled correctly. Exceptions thrown by Service Fabric fall into permanent [(`FabricException`)](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception?view=azure-dotnet) and transient [(`FabricTransientException`)](https://docs.microsoft.com/dotnet/api/system.fabric.fabrictransientexception?view=azure-dotnet) categories. Permanent exceptions should be logged and thrown while the transient exceptions can be retried based on some retry logic.
+Because the services are stateful, it is also likely that they use the [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). In Service Fabric, when a Primary is demoted, one of the first things that happens is that write access to the underlying state is revoked. This leads to a second set of issues that can affect the service lifecycle. The collections return exceptions based on the timing and whether the replica is being moved or shut down. These exceptions should be handled correctly. Exceptions thrown by Service Fabric fall into permanent [(`FabricException`)](/dotnet/api/system.fabric.fabricexception) and transient [(`FabricTransientException`)](/dotnet/api/system.fabric.fabrictransientexception) categories. Permanent exceptions should be logged and thrown while the transient exceptions can be retried based on some retry logic.
 
 Handling the exceptions that come from use of the `ReliableCollections` in conjunction with service lifecycle events is an important part of testing and validating a Reliable Service. We recommend that you always run your service under load while performing upgrades and [chaos testing](service-fabric-controlled-chaos.md) before deploying to production. These basic steps help ensure that your service is correctly implemented and handles lifecycle events correctly.
 

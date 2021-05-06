@@ -1,6 +1,6 @@
 ---
 title: Use the Connected Factory dashboard - Azure | Microsoft Docs
-description: Understand how to use features of the Connected Factory dashboard.
+description: This article describes how to use features of the Connected Factory dashboard to monitor and manage your industrial IoT devices.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -10,6 +10,9 @@ ms.date: 07/10/2018
 ms.author: dobett
 ---
 # Use features in the Connected Factory solution accelerator dashboard
+
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
 
 The [Deploy a cloud-based solution to manage my industrial IoT devices](quickstart-connected-factory-deploy.md) quickstart showed you how to navigate the dashboard and respond to alarms. This how-to guide shows you some additional dashboard features you can use to monitor and manage your industrial IoT devices.
 
@@ -36,7 +39,7 @@ You can filter the information displayed on the dashboard either in the **Factor
 
 ## Browse an OPC UA server
 
-When you deploy the solution accelerator, you automatically provision a set of simulated OPC UA servers that you can browse from the dashboard. Simulated servers make it easy for you to experiment with the solution accelerator without the need to deploy real servers. If you do want to connect a real OPC UA server to the solution, see the [Connect your OPC UA device to the Connected Factory solution accelerator](iot-accelerators-connected-factory-gateway-deployment.md) tutorial.
+When you deploy the solution accelerator, you automatically provision a set of simulated OPC UA servers that you can browse from the dashboard. Simulated servers make it easy for you to experiment with the solution accelerator without the need to deploy real servers.
 
 1. Click the **browser icon** in the dashboard navigation bar:
 
@@ -105,6 +108,5 @@ When you're done, you can delete the solution accelerator from your Azure subscr
 
 Now that you’ve deployed a working solution accelerator, you can continue getting started with IoT solution accelerators by reading the following articles:
 
-* [Connected Factory solution accelerator walkthrough](iot-accelerators-connected-factory-sample-walkthrough.md)
-* [Connect your device to the Connected Factory solution accelerator](iot-accelerators-connected-factory-gateway-deployment.md)
+* [Configure the Connected Factory solution accelerator](iot-accelerators-connected-factory-configure.md)
 * [Permissions on the azureiotsolutions.com site](iot-accelerators-permissions.md)

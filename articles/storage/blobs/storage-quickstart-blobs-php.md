@@ -1,15 +1,13 @@
 ---
 title: Azure Quickstart - Create a blob in object storage using PHP | Microsoft Docs 
-description: Quickly learn to transfer objects to/from Azure Blob storage using PHP
-services: storage
-author: roygara
+description: Quickly learn to transfer objects to/from Azure Blob storage using PHP. Upload, download, and list block blobs in a container in Azure Blob storage.
+author: twooley
 
-
+ms.author: twooley
+ms.date: 11/14/2018
 ms.service: storage
-ms.devlang: php
+ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 04/09/2018
-ms.author: rogarana
 ---
 
 #  Transfer objects to/from Azure Blob storage using PHP
@@ -17,14 +15,12 @@ In this quickstart, you learn how to use PHP to upload, download, and list block
 
 ## Prerequisites
 
-To complete this quickstart: 
-* Install [PHP](http://php.net/downloads.php)
-* Install [the Azure Storage SDK for PHP](https://github.com/Azure/azure-storage-php)
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
+Make sure you have the following additional prerequisites installed:
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+* [PHP](https://php.net/downloads.php)
+* [Azure Storage SDK for PHP](https://github.com/Azure/azure-storage-php)
 
 ## Download the sample application
 The [sample application](https://github.com/Azure-Samples/storage-blobs-php-quickstart.git) used in this quickstart is a basic PHP application.  
@@ -42,14 +38,14 @@ This command clones the repository to your local git folder. To open the PHP sam
 ## Configure your storage connection string
 In the application, you must provide your storage account name and account key to create the **BlobRestProxy** instance for your application. It is recommended to store these identifiers within an environment variable on the local machine running the application. Use one of the following examples depending on your Operating System to create the environment variable. Replace the **youraccountname** and **youraccountkey** values with your account name and key.
 
-# [Linux] (#tab/linux)
+# [Linux](#tab/linux)
 
 ```bash
 export ACCOUNT_NAME=<youraccountname>
 export ACCOUNT_KEY=<youraccountkey>
 ```
 
-# [Windows] (#tab/windows)
+# [Windows](#tab/windows)
 
 ```cmd
 setx ACCOUNT_NAME=<youraccountname>
@@ -73,7 +69,7 @@ This is the content of the blob uploaded: Hello Azure!
 ```
 When you press the button displayed, the sample program deletes the storage container and the files. Before you continue, check your server's folder for the two files. You can open them and see they are identical.
 
-You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
+You can also use a tool such as the [Azure Storage Explorer](https://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
 
 After you've verified the files, hit any key to finish the demo and delete the test files. Now that you know what the sample does, open the example.rb file to look at the code. 
 
@@ -91,7 +87,7 @@ The first thing to do is create the references to the objects used to access and
 Once you have the **blobClient** container object, you can create the **Block** blob object that points to the specific blob in which you are interested. Then you can perform operations such as upload, download, and copy.
 
 > [!IMPORTANT]
-> Container names must be lowercase. See [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
+> Container names must be lowercase. See [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
 
 In this section, you set up an instance of Azure storage client, instantiate the blob service object, create a new container, and set permissions on the container so the blobs are public. The container is called **quickstartblobs**. 
 

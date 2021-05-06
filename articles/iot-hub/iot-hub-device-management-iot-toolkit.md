@@ -1,20 +1,19 @@
 ---
-title: Azure IoT device management with Azure IoT Toolkit extension for Visual Studio Code | Microsoft Docs
-description: Use the Azure IoT Toolkit extension for Visual Studio Code for Azure IoT Hub device management, featuring the Direct methods and the Twin's desired properties management options.
+title: Azure IoT device management with Azure IoT Tools for VSCode
+description: Use the Azure IoT Tools for Visual Studio Code for Azure IoT Hub device management, featuring the Direct methods and the Twin's desired properties management options.
 author: formulahendry
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.tgt_pltfrm: arduino
-ms.date: 8/3/2018
+ms.date: 01/04/2019
 ms.author: junhan
 ---
 
-# Use Azure IoT Toolkit extension for Visual Studio Code for Azure IoT Hub device management
+# Use Azure IoT Tools for Visual Studio Code for Azure IoT Hub device management
 
 ![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/2.png)
 
-[Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) is a useful Visual Studio Code extension that makes IoT Hub management easier. It comes with management options that you can use to perform various tasks.
+In this article, you learn how to use Azure IoT Tools for Visual Studio Code with various management options on your development machine. [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) is a useful Visual Studio Code extension that makes IoT Hub management and IoT application development easier. It comes with management options that you can use to perform various tasks.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -29,20 +28,14 @@ For more detailed explanation on the differences and guidance on using these opt
 
 Device twins are JSON documents that store device state information (metadata, configurations, and conditions). IoT Hub persists a device twin for each device that connects to it. For more information about device twins, see [Get started with device twins](iot-hub-node-node-twin-getstarted.md).
 
-## What you learn
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-You learn using Azure IoT Toolkit extension for Visual Studio Code with various management options on your development machine.
-
-## What you do
-
-Run Azure IoT Toolkit extension for Visual Studio Code with various management options.
-
-## What you need
+## Prerequisites
 
 * An active Azure subscription.
 * An Azure IoT hub under your subscription.
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
+* [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or copy this URL and paste it into a browser window:`vscode:extension/vsciot-vscode.azure-iot-tools`.
 
 ## Sign in to access your IoT hub
 
@@ -57,7 +50,7 @@ Run Azure IoT Toolkit extension for Visual Studio Code with various management o
 5. The device list will be shown in **Azure IoT Hub Devices** tab in a few seconds.
 
    > [!Note]
-   > You can also complete the set up by choosing **Set IoT Hub Connection String**. Enter the connection string for the IoT hub that your IoT device connects to in the pop-up window.
+   > You can also complete the set up by choosing **Set IoT Hub Connection String**. Enter the **iothubowner** policy connection string for the IoT hub that your IoT device connects to in the pop-up window.
 
 ## Direct methods
 
@@ -65,7 +58,7 @@ Run Azure IoT Toolkit extension for Visual Studio Code with various management o
 
 2. Enter the method name and payload in input box.
 
-3. Results will be shown in **OUTPUT** > **Azure IoT Toolkit** view.
+3. Results will be shown in **OUTPUT** > **Azure IoT Hub** view.
 
 ## Read device twin
 
@@ -89,10 +82,10 @@ To send a message from your IoT hub to your device, follow these steps:
 
 2. Enter the message in input box.
 
-3. Results will be shown in **OUTPUT** > **Azure IoT Toolkit** view.
+3. Results will be shown in **OUTPUT** > **Azure IoT Hub** view.
 
 ## Next steps
 
-You've learned how to use Azure IoT Toolkit extension for Visual Studio Code with various management options.
+You've learned how to use Azure IoT Tools extension for Visual Studio Code with various management options.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

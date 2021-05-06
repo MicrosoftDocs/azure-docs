@@ -1,29 +1,24 @@
 ---
-title: Service Fabric Backup and Restore | Microsoft Docs
-description: Conceptual documentation for Service Fabric Backup and Restore
-services: service-fabric
-documentationcenter: .net
+title: Service Fabric Backup and Restore 
+description: Conceptual documentation for Service Fabric Backup and Restore, a service for configuring backup of Reliable Stateful services and Reliable Actors.
 author: mcoskun
-manager: timlt
-editor: subramar,zhol
 
-ms.assetid: 91ea6ca4-cc2a-4155-9823-dcbd0b996349
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/6/2017
+ms.date: 10/29/2018
 ms.author: mcoskun
-
+ms.custom: devx-track-csharp
 ---
-# Back up and restore Reliable Services and Reliable Actors
+# Backup and restore Reliable Services and Reliable Actors
 Azure Service Fabric is a high-availability platform that replicates the state across multiple nodes to maintain this high availability.  Thus, even if one node in the cluster fails, the services continue to be available. While this in-built redundancy provided by the platform may be sufficient for some, in certain cases it is desirable for the service to back up data (to an external store).
 
 > [!NOTE]
 > It is critical to backup and restore your data (and test that it works as expected) so you can recover from data loss scenarios.
 > 
+
+> [!NOTE]
+> Microsoft recommends to use [Periodic backup and restore](service-fabric-backuprestoreservice-quickstart-azurecluster.md) for configuring data backup of Reliable Stateful services and Reliable Actors. 
 > 
+
 
 For example, a service may want to back up data in order to protect from the following scenarios:
 
@@ -47,7 +42,7 @@ Each time it backs up it needs to copy 16 GB of checkpoints in addition to 50 MB
 
 ![Full Backup Example.](media/service-fabric-reliable-services-backup-restore/FullBackupExample.PNG)
 
-The solution to this problem is incremental backups, where backup only contains the changed log records since the last backup.
+The solution to this problem is incremental backups, where back up only contains the changed log records since the last backup.
 
 ![Incremental Backup Example.](media/service-fabric-reliable-services-backup-restore/IncrementalBackupExample.PNG)
 
@@ -65,7 +60,7 @@ As shown below, `BackupAsync` takes in a `BackupDescription` object, where one c
 
 ```csharp
 
-BackupDescription myBackupDescription = new BackupDescription(backupOption.Incremental,this.BackupCallbackAsync);
+BackupDescription myBackupDescription = new BackupDescription(BackupOption.Incremental,this.BackupCallbackAsync);
 
 await this.BackupAsync(myBackupDescription);
 
@@ -78,7 +73,7 @@ Request to take an incremental backup can fail with `FabricMissingFullBackupExce
 - replica passed the `MaxAccumulatedBackupLogSizeInMB` limit.
 
 Users can increase the likelihood of being able to do incremental backups by configuring `MinLogSizeInMB` or `TruncationThresholdFactor`.
-Note that increasing these values increases the per replica disk usage.
+Increasing these values increases the per replica disk usage.
 For more information, see [Reliable Services Configuration](service-fabric-reliable-services-configuration.md)
 
 `BackupInfo` provides information regarding the backup, including the location of the folder where the runtime saved the backup (`BackupInfo.Directory`). The callback function can move the `BackupInfo.Directory` to an external store or another location.  This function also returns a bool that indicates whether it was able to successfully move the backup folder to its target location.
@@ -150,7 +145,7 @@ For example, if it contains the full backup, the first incremental and the third
 > 
 
 ## Deleted or lost service
-If a service is removed, you must first re-create the service before the data can be restored.  It is important to create the service with the same configuration, for example, partitioning scheme, so that the data can be restored seamlessly.  Once the service is up, the API to restore data (`OnDataLossAsync` above) has to be invoked on every partition of this service. One way of achieving this is by using [FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx) on every partition.  
+If a service is removed, you must first re-create the service before the data can be restored.  It is important to create the service with the same configuration, for example, partitioning scheme, so that the data can be restored seamlessly.  Once the service is up, the API to restore data (`OnDataLossAsync` above) has to be invoked on every partition of this service. One way of achieving this is by using [FabricClient.TestManagementClient.StartPartitionDataLossAsync](/dotnet/api/system.fabric.fabricclient.testmanagementclient#System_Fabric_FabricClient_TestManagementClient_StartPartitionDataLossAsync_System_Guid_System_Fabric_PartitionSelector_System_Fabric_DataLossMode_) on every partition.  
 
 From this point, implementation is the same as the above scenario. Each partition needs to restore the latest relevant backup from the external store. One caveat is that the partition ID may have now changed, since the runtime creates partition IDs dynamically. Thus, the service needs to store the appropriate partition information and service name to identify the correct latest backup to restore from for each partition.
 
@@ -172,7 +167,7 @@ Note that:
   - When you restore, there is a chance that the backup being restored is older than the state of the partition before the data was lost. Because of this, you should restore only as a last resort to recover as much data as possible.
   - The string that represents the backup folder path and the paths of files inside the backup folder can be greater than 255 characters, depending on the FabricDataRoot path and Application Type name's length. This can cause some .NET methods, like `Directory.Move`, to throw the `PathTooLongException` exception. One workaround is to directly call kernel32 APIs, like `CopyFile`.
 
-## Backup and restore Reliable Actors
+## Back up and restore Reliable Actors
 
 
 Reliable Actors Framework is built on top of Reliable Services. The ActorService, which hosts the actor(s) is a stateful reliable service. Hence, all the backup and restore functionality available in Reliable Services is also available to Reliable Actors (except behaviors that are state provider specific). Since backups will be taken on a per-partition basis, states for all actors in that partition will be backed up (and restoration is similar and will happen on a per-partition basis). To perform backup/restore, the service owner should create a custom actor service class that derives from ActorService class and then do backup/restore similar to Reliable Services as described above in previous sections.
@@ -180,13 +175,13 @@ Reliable Actors Framework is built on top of Reliable Services. The ActorService
 ```csharp
 class MyCustomActorService : ActorService
 {
-     public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
-            : base(context, actorTypeInfo)
-     {                  
-     }
+    public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
+          : base(context, actorTypeInfo)
+    {
+    }
     
     //
-   // Method overrides and other code.
+    // Method overrides and other code.
     //
 }
 ```
@@ -195,7 +190,7 @@ When you create a custom actor service class, you need to register that as well 
 
 ```csharp
 ActorRuntime.RegisterActorAsync<MyActor>(
-   (context, typeInfo) => new MyCustomActorService(context, typeInfo)).GetAwaiter().GetResult();
+    (context, typeInfo) => new MyCustomActorService(context, typeInfo)).GetAwaiter().GetResult();
 ```
 
 The default state provider for Reliable Actors is `KvsActorStateProvider`. Incremental backup is not enabled by default for `KvsActorStateProvider`. You can enable incremental backup by creating `KvsActorStateProvider` with the appropriate setting in its constructor and then passing it to ActorService constructor as shown in following code snippet:
@@ -203,13 +198,13 @@ The default state provider for Reliable Actors is `KvsActorStateProvider`. Incre
 ```csharp
 class MyCustomActorService : ActorService
 {
-     public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
-            : base(context, actorTypeInfo, null, null, new KvsActorStateProvider(true)) // Enable incremental backup
-     {                  
-     }
+    public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
+          : base(context, actorTypeInfo, null, null, new KvsActorStateProvider(true)) // Enable incremental backup
+    {
+    }
     
     //
-   // Method overrides and other code.
+    // Method overrides and other code.
     //
 }
 ```
@@ -219,7 +214,7 @@ After incremental backup has been enabled, taking an incremental backup can fail
   - The replica has never taken a full backup since it became primary.
   - Some of the log records were truncated since last backup was taken.
 
-When incremental backup is enabled, `KvsActorStateProvider` does not use circular buffer to manage its log records and periodically truncates it. If no backup is taken by user for a period of 45 minutes, the system automatically truncates the log records. This interval can be configured by specifying `logTrunctationIntervalInMinutes` in `KvsActorStateProvider` constructor (similar to when enabling incremental backup). The log records may also get truncated if primary replica needs to build another replica by sending all its data.
+When incremental backup is enabled, `KvsActorStateProvider` does not use circular buffer to manage its log records and periodically truncates it. If no backup is taken by user for a period of 45 minutes, the system automatically truncates the log records. This interval can be configured by specifying `logTruncationIntervalInMinutes` in `KvsActorStateProvider` constructor (similar to when enabling incremental backup). The log records may also get truncated if primary replica needs to build another replica by sending all its data.
 
 When doing restore from a backup chain, similar to Reliable Services, the BackupFolderPath should contain subdirectories with one subdirectory containing full backup and others subdirectories containing incremental backup(s). The restore API will throw FabricException with appropriate error message if the backup chain validation fails. 
 
@@ -227,7 +222,7 @@ When doing restore from a backup chain, similar to Reliable Services, the Backup
 > `KvsActorStateProvider` currently ignores the option RestorePolicy.Safe. Support for this feature is planned in an upcoming release.
 > 
 
-## Testing Backup and Restore
+## Testing Back up and Restore
 It is important to ensure that critical data is being backed up, and can be restored from. This can be done by invoking the `Start-ServiceFabricPartitionDataLoss` cmdlet in PowerShell that can induce data loss in a particular partition to test whether the data backup and restore functionality for your service is working as expected.  It is also possible to programmatically invoke data loss and restore from that event as well.
 
 > [!NOTE]
@@ -256,13 +251,12 @@ Until a service completes this API successfully (by returning true or false) and
 Then the Reliable State Manager creates all the Reliable objects that exist in the backup folder. 
 Next, the Reliable objects are instructed to restore from their checkpoints in the backup folder. 
 Finally, the Reliable State Manager recovers its own state from the log records in the backup folder and performs recovery. 
-As part of the recovery process, operations starting from the "starting point" that have commit log records in the backup folder are replayed to the Reliable objects. This step ensures that the recovered state is consistent.
+As part of the recovery process, operations starting from the "starting point" that have committed log records in the backup folder are replayed to the Reliable objects. This step ensures that the recovered state is consistent.
 
 ## Next steps
   - [Reliable Collections](service-fabric-work-with-reliable-collections.md)
-  - [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
+  - [Reliable Services quickstart](service-fabric-reliable-services-quick-start.md)
   - [Reliable Services notifications](service-fabric-reliable-services-notifications.md)
   - [Reliable Services configuration](service-fabric-reliable-services-configuration.md)
-  - [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  - [Developer reference for Reliable Collections](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)
   - [Periodic backup and restore in Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
-

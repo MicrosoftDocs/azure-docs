@@ -1,253 +1,217 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with InsideView | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and InsideView.
+description: In this tutorial, you'll learn how to configure single sign-on between Azure Active Directory and InsideView.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-
-ms.assetid: c489a7ab-6b1f-4efb-8a66-8bc13bca78c3
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/29/2017
+ms.topic: tutorial
+ms.date: 03/20/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with InsideView
 
-In this tutorial, you learn how to integrate InsideView with Azure Active Directory (Azure AD).
+In this tutorial, you'll learn how to integrate InsideView with Azure Active Directory (Azure AD).
+This integration provides these benefits:
 
-Integrating InsideView with Azure AD provides you with the following benefits:
+* You can use Azure AD to control who has access to InsideView.
+* You can enable your users to be automatically signed in to InsideView (single sign-on) with their Azure AD accounts.
+* You can manage your accounts in one central location: the Azure portal.
 
-- You can control in Azure AD who has access to InsideView
-- You can enable your users to automatically get signed-on to InsideView (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
+To learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
-To configure Azure AD integration with InsideView, you need the following items:
+To configure Azure AD integration with InsideView, you need to have:
 
-- An Azure AD subscription
-- A InsideView single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
+* An InsideView subscription that has single sign-on enabled.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding InsideView from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you'll configure and test Azure AD single sign-on in a test environment.
 
-## Adding InsideView from the gallery
-To configure the integration of InsideView in to Azure AD, you need to add InsideView from the gallery to your list of managed SaaS apps.
+* InsideView supports IdP-initiated SSO.
 
-**To add InsideView from the gallery, perform the following steps:**
+## Add InsideView from the gallery
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+To set up the integration of InsideView into Azure AD, you need to add InsideView from the gallery to your list of managed SaaS apps.
 
-	![Active Directory][1]
+1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**:
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+	![Select Azure Active Directory](common/select-azuread.png)
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+2. Go to **Enterprise applications** > **All applications**:
 
-	![Applications][3]
+	![Enterprise applications blade](common/enterprise-applications.png)
 
-1. In the search box, type **InsideView**.
+3. To add an application, select **New application** at the top of the window:
 
-	![Creating an Azure AD test user](./media/insideview-tutorial/tutorial_insideview_search.png)
+	![Select New application](common/add-new-app.png)
 
-1. In the results panel, select **InsideView**, and then click **Add** button to add the application.
+4. In the search box, enter **InsideView**. Select **InsideView** in the search results and then select **Add**.
 
-	![Creating an Azure AD test user](./media/insideview-tutorial/tutorial_insideview_addfromgallery.png)
+	![Search results](common/search-new-app.png)
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with InsideView based on a test user called "Britta Simon."
+## Configure and test Azure AD single sign-on
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in InsideView is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in InsideView needs to be established.
+In this section, you'll configure and test Azure AD single sign-on with InsideView by using a test user named Britta Simon.
+To enable single sign-on, you need to establish a relationship between an Azure AD user and the corresponding user in InsideView.
 
-In InsideView, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+To configure and test Azure AD single sign-on with InsideView, you need to complete these steps:
 
-To configure and test Azure AD single sign-on with InsideView, you need to complete the following building blocks:
+1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable the feature for your users.
+2. **[Configure InsideView single sign-on](#configure-insideview-single-sign-on)** on the application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Azure AD single sign-on for the user.
+5. **[Create an InsideView test user](#create-an-insideview-test-user)** that's linked to the Azure AD representation of the user.
+6. **[Test single sign-on](#test-single-sign-on)** to verify that the configuration works.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a InsideView test user](#creating-a-insideview-test-user)** - to have a counterpart of Britta Simon in InsideView that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+### Configure Azure AD single sign-on
 
-### Configuring Azure AD single sign-on
+In this section, you'll enable Azure AD single sign-on in the Azure portal.
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your InsideView application.
+To configure Azure AD single sign-on with InsideView, take these steps:
 
-**To configure Azure AD single sign-on with InsideView, perform the following steps:**
+1. In the [Azure portal](https://portal.azure.com/), on the InsideView application integration page, select **Single sign-on**:
 
-1. In the Azure portal, on the **InsideView** application integration page, click **Single sign-on**.
+    ![Select single sign-on](common/select-sso.png)
 
-	![Configure Single Sign-On][4]
+2. In the **Select a single sign-on method** dialog box, select **SAML/WS-Fed** mode to enable single sign-on:
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/insideview-tutorial/tutorial_insideview_samlbase.png)
+    ![Select a single sign-on method](common/select-saml-option.png)
 
-1. On the **InsideView Domain and URLs** section, perform the following steps:
+3. On the **Set up Single Sign-On with SAML** page, select the **Edit** icon to open the **Basic SAML Configuration** dialog box:
 
-	![Configure Single Sign-On](./media/insideview-tutorial/tutorial_insideview_url.png)
-	
-   	In the **Reply URL** textbox, type a URL using the following pattern: `https://my.insideview.com/iv/<STS Name>/login.iv`
+	![Edit icon](common/edit-urls.png)
 
-	> [!NOTE] 
-	> This value is not real. Update this value with the actual Reply URL. Contact [InsideView support team ](mailto:support@insideview.com) to get this value.
- 
-1. On the **SAML Signing Certificate** section, click **Certificate (Raw)** and then save the certificate file on your computer.
+4. In the **Basic SAML Configuration** dialog box, take the following steps.
 
-	![Configure Single Sign-On](./media/insideview-tutorial/tutorial_insideview_certificate.png) 
+    ![Basic SAML Configuration dialog box](common/idp-reply.png)
 
-1. Click **Save** button.
+    In the **Reply URL** box, enter a URL in this pattern:
 
-	![Configure Single Sign-On](./media/insideview-tutorial/tutorial_general_400.png)
+    `https://my.insideview.com/iv/<STS Name>/login.iv`
 
-1. On the **InsideView Configuration** section, click **Configure InsideView** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
+	> [!NOTE]
+	> This value is a placeholder. You need to use the actual reply URL. Contact the [InsideView support team](mailto:support@insideview.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
 
-	![Configure Single Sign-On](./media/insideview-tutorial/tutorial_insideview_configure.png) 
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Certificate (Raw)**, per your requirements, and save the certificate on your computer:
 
-1. In a different web browser window, log in to your InsideView company site as an administrator.
+	![Certificate download link](common/certificateraw.png)
 
-1. In the toolbar on the top, click **Admin**, **SingleSignOn Settings**, and then click **Add SAML**.
+6. In the **Set up InsideView** section, copy the appropriate URLs, based on your requirements:
+
+	![Copy the configuration URLs](common/copy-configuration-urls.png)
+
+	1. **Login URL**.
+
+    1. **Azure AD Identifier**.
+
+    1. **Logout URL**.
+
+### Configure InsideView single sign-on
+
+1. In a new web browser window, sign in to your InsideView company site as an admin.
+
+1. At the top of the window, select **Admin**, **SingleSignOn Settings**, and then **Add SAML**.
    
-   ![SAML Single Sign On Settings](./media/insideview-tutorial/ic794135.png "SAML Single Sign On Settings")
+   ![SAML single sign-on settings](./media/insideview-tutorial/ic794135.png "SAML single sign-on settings")
 
-1. In the **Add a New SAML** section, perform the following steps:
+1. In the **Add a New SAML** section, take the following steps.
 
-	![Add a New SAML](./media/insideview-tutorial/ic794136.png "Add a New SAML")
-   
-	a. In the **STS Name** textbox, type a name for your configuration.
+	![Add a New SAML section](./media/insideview-tutorial/ic794136.png "Add a New SAML section")
 
-	b. In **SamlP/WS-Fed Unsolicited EndPoint** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
-	
-	c. Open your base-64 encoded certificate, which you have downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **STS Certificate** textbox.
+	1. In the **STS Name** box, enter a name for your configuration.
 
-	d. In the **Crm User Id Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
-		
-	e. In the **Crm Email Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+	1. In the **SamlP/WS-Fed Unsolicited EndPoint** box, paste the **Login URL** value that you copied from the Azure portal.
 
-	f. In the **Crm First Name Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
-	
-	g. In the **Crm lastName Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.  
+	1. Open the Raw certificate that you downloaded from the Azure portal. Copy the contents of the certificate to the clipboard, and then paste the contents into the **STS Certificate** box.
 
-	h. Click **Save**.
+	1. In the **Crm User Id Mapping** box, enter **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`**.
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
- 
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+	1. In the **Crm Email Mapping** box, enter **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`**.
 
-![Create Azure AD User][100]
+	1. In the **Crm First Name Mapping** box, enter **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`**.
 
-**To create a test user in Azure AD, perform the following steps:**
+	1. In the **Crm lastName Mapping** box, enter **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`**.  
 
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
+	1. Select **Save**.
 
-	![Creating an Azure AD test user](./media/insideview-tutorial/create_aaduser_01.png) 
+### Create an Azure AD test user
 
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/insideview-tutorial/create_aaduser_02.png) 
+In this section, you'll create a test user named Britta Simon in the Azure portal.
 
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/insideview-tutorial/create_aaduser_03.png) 
+1. In the Azure portal, select **Azure Active Directory** in the left pane, select **Users**, and then select **All users**:
 
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/insideview-tutorial/create_aaduser_04.png) 
+    ![Select All users](common/users.png)
 
-    a. In the **Name** textbox, type **BrittaSimon**.
+2. Select **New user** at the top of the window:
 
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
+    ![Select New user](common/new-user.png)
 
-	c. Select **Show Password** and write down the value of the **Password**.
+3. In the **User** dialog box, take the following steps.
 
-    d. Click **Create**.
- 
-### Creating a InsideView test user
+    ![User dialog box](common/user-properties.png)
 
-To enable Azure AD users to log in to InsideView, they must be provisioned in to InsideView. In the case of InsideView, provisioning is a manual task.
+    1. In the **Name** box, enter **BrittaSimon**.
+  
+    1. In the **User name** box, enter **BrittaSimon@\<yourcompanydomain>.\<extension>**. (For example, BrittaSimon@contoso.com.)
 
-To get users or contacts created in InsideView, Contact [InsideView support team](mailto:support@insideview.com).
+    1. Select **Show Password**, and then write down the value that's in the **Password** box.
 
->[!NOTE]
->You can use any other InsideView user account creation tools or APIs provided by InsideView to provision Azure AD user accounts.
+    1. Select **Create**.
 
-### Assigning the Azure AD test user
+### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to InsideView.
+In this section, you'll enable Britta Simon to use Azure single sign-on by granting her access to InsideView.
 
-![Assign User][200] 
+1. In the Azure portal, select **Enterprise applications**, select **All applications**, and then select **InsideView**.
 
-**To assign Britta Simon to InsideView, perform the following steps:**
+	![Enterprise applications blade](common/enterprise-applications.png)
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+2. In the list of applications, select **InsideView**.
 
-	![Assign User][201] 
+	![List of applications](common/all-applications.png)
 
-1. In the applications list, select **InsideView**.
+3. In the left pane, select **Users and groups**:
 
-	![Configure Single Sign-On](./media/insideview-tutorial/tutorial_insideview_app.png) 
+    ![Select Users and groups](common/users-groups-blade.png)
 
-1. In the menu on the left, click **Users and groups**.
+4. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
 
-	![Assign User][202] 
+    ![Select Add user](common/add-assign-user.png)
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+5. In the **Users and groups** dialog box, select **Britta Simon** in the users list, and then click the **Select** button at the bottom of the window.
 
-	![Assign User][203]
+6. If you expect a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Click the **Select** button at the bottom of the window.
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+7. In the **Add Assignment** dialog box, select **Assign**.
 
-1. Click **Select** button on **Users and groups** dialog.
+### Create an InsideView test user
 
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
+To enable Azure AD users to sign in to InsideView, you need to add them to InsideView. You need to add them manually.
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+To create users or contacts in InsideView, contact the [InsideView support team](mailto:support@insideview.com).
 
-When you click the InsideView tile in the Access Panel, you should get automatically signed-on to your InsideView application.
+> [!NOTE]
+> You can use any user account creation tool or API provided by InsideView to provision Azure AD user accounts.
+
+### Test single sign-on
+
+Now you need to test your Azure AD single sign-on configuration by using the Access Panel.
+
+When you select the InsideView tile in the Access Panel, you should be automatically signed in to the InsideView instance for which you set up SSO. For more information about the Access Panel, see [Access and use apps on the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Tutorials for integrating SaaS applications with Azure Active Directory](./tutorial-list.md)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-[1]: ./media/insideview-tutorial/tutorial_general_01.png
-[2]: ./media/insideview-tutorial/tutorial_general_02.png
-[3]: ./media/insideview-tutorial/tutorial_general_03.png
-[4]: ./media/insideview-tutorial/tutorial_general_04.png
-
-[100]: ./media/insideview-tutorial/tutorial_general_100.png
-
-[200]: ./media/insideview-tutorial/tutorial_general_200.png
-[201]: ./media/insideview-tutorial/tutorial_general_201.png
-[202]: ./media/insideview-tutorial/tutorial_general_202.png
-[203]: ./media/insideview-tutorial/tutorial_general_203.png
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

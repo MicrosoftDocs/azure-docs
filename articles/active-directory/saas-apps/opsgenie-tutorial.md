@@ -2,259 +2,190 @@
 title: 'Tutorial: Azure Active Directory integration with OpsGenie | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and OpsGenie.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: femila
-
-ms.assetid: 41b59b22-a61d-4fe6-ab0d-6c3991d1375f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/16/2018
+ms.topic: tutorial
+ms.date: 12/28/2020
 ms.author: jeedes
-
 ---
-# Tutorial: Azure Active Directory integration with OpsGenie
 
-In this tutorial, you learn how to integrate OpsGenie with Azure Active Directory (Azure AD).
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with OpsGenie
 
-Integrating OpsGenie with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate OpsGenie with Azure Active Directory (Azure AD). When you integrate OpsGenie with Azure AD, you can:
 
-- You can control in Azure AD who has access to OpsGenie
-- You can enable your users to automatically get signed-on to OpsGenie (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Control in Azure AD who has access to OpsGenie.
+* Enable your users to be automatically signed-in to OpsGenie with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
-To configure Azure AD integration with OpsGenie, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- A OpsGenie single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* OpsGenie single sign-on (SSO) enabled subscription.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding OpsGenie from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD SSO in a test environment.
+
+* OpsGenie supports **IDP** initiated SSO
 
 ## Adding OpsGenie from the gallery
+
 To configure the integration of OpsGenie into Azure AD, you need to add OpsGenie from the gallery to your list of managed SaaS apps.
 
-**To add OpsGenie from the gallery, perform the following steps:**
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **OpsGenie** in the search box.
+1. Select **OpsGenie** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+## Configure and test Azure AD SSO for OpsGenie
 
-	![Active Directory][1]
+Configure and test Azure AD SSO with OpsGenie using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in OpsGenie.
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+To configure and test Azure AD SSO with OpsGenie, perform the following steps:
 
-	![Applications][2]
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure OpsGenie SSO](#configure-opsgenie-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create OpsGenie test user](#create-opsgenie-test-user)** - to have a counterpart of B.Simon in OpsGenie that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+
+## Configure Azure AD SSO
+
+Follow these steps to enable Azure AD SSO in the Azure portal.
+
+1. In the Azure portal, on the **OpsGenie** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
+
+1. On the **Basic SAML Configuration** section, perform the following steps:
+
+    a. In the **Identifier** text box, type a URL using the following pattern:
+    `https://app.opsginie.com/auth/saml/<UNIQUEID>`
+
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://app.opsginie.com/auth/saml?id=<UNIQUEID>`
+
+    > [!NOTE]
+	> These values are not real. Update these values with the actual Identifier and Reply URL, which is explained later in this tutorial.
+
+5. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+
+	![The Certificate download link](common/copy-metadataurl.png)
+
+1. On the **Set up OpsGenie** section, copy the appropriate URL(s) based on your requirement.
+
+	![Copy configuration URLs](common/copy-configuration-urls.png)
+
+### Create an Azure AD test user
+
+In this section, you'll create a test user in the Azure portal called B.Simon.
+
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
+
+### Assign the Azure AD test user
+
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to OpsGenie.
+
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **OpsGenie**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
+
+## Configure OpsGenie SSO
+
+1. To automate the configuration within OpsGenie, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+
+	![My apps extension](common/install-myappssecure-extension.png)
+
+2. After adding extension to the browser, click on **Set up OpsGenie** will direct you to the OpsGenie application. From there, provide the admin credentials to sign into OpsGenie. The browser extension will automatically configure the application for you and automate steps 3-7.
+
+	![Setup configuration](common/setup-sso.png)
+
+3. If you want to setup OpsGenie manually, in a different web browser window, sign in to your OpsGenie company site as an administrator.
+
+2. Click **Settings**, and then click the **Single Sign On** tab.
+   
+    ![OpsGenie Single Sign-On](./media/opsgenie-tutorial/tutorial-opsgenie-06.png)
+
+3. To enable SSO, select **Enabled**.
+   
+    ![Screenshot that shows the "Enabled" checkbox selected.](./media/opsgenie-tutorial/tutorial-opsgenie-07.png) 
+
+4. In the **Provider** section, click the **Azure Active Directory** tab.
+   
+    ![Screenshot that shows the "Provider" section with the "Azure Active Directory" tab selected.](./media/opsgenie-tutorial/tutorial-opsgenie-08.png) 
+
+5. On the Azure Active Directory dialog page, perform the following steps:
+   
+    ![Screenshot that shows the "Single sign-on" section with the "Enable single sign-on" toggle, "S A M L 2.0 Endpoint", and "Metadata U R L".](./media/opsgenie-tutorial/tutorial-opsgenie-09.png)
 	
-1. To add new application, click **New application** button on the top of dialog.
+    a. Copy the **App ID URI** value and paste it into **Identifier (Entity ID)** textbox in the **Basic SAML Configuration** section in the Azure portal.
 
-	![Applications][3]
+    a. Copy the **Reply URL** value and paste it into **Reply URL** textbox in the **Basic SAML Configuration** section in the Azure portal.
 
-1. In the search box, type **OpsGenie**.
-
-	![Creating an Azure AD test user](./media/opsgenie-tutorial/tutorial_opsgenie_search.png)
-
-1. In the results panel, select **OpsGenie**, and then click **Add** button to add the application.
-
-	![Creating an Azure AD test user](./media/opsgenie-tutorial/tutorial_opsgenie_addfromgallery.png)
-
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with OpsGenie based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in OpsGenie is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in OpsGenie needs to be established.
-
-In OpsGenie, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
-
-To configure and test Azure AD single sign-on with OpsGenie, you need to complete the following building blocks:
-
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a OpsGenie test user](#creating-a-opsgenie-test-user)** - to have a counterpart of Britta Simon in OpsGenie that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
-
-### Configuring Azure AD single sign-on
-
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your OpsGenie application.
-
-**To configure Azure AD single sign-on with OpsGenie, perform the following steps:**
-
-1. In the Azure portal, on the **OpsGenie** application integration page, click **Single sign-on**.
-
-	![Configure Single Sign-On][4]
-
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/opsgenie-tutorial/tutorial_opsgenie_samlbase.png)
-
-1. On the **OpsGenie Domain and URLs** section, perform the following steps:
-
-	![Configure Single Sign-On](./media/opsgenie-tutorial/tutorial_opsgenie_url.png)
-
-    In the **Sign-on URL** textbox, type the URL: `https://app.opsgenie.com/auth/login`
-
-1. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
-
-	![The Certificate download link](./media/opsgenie-tutorial/tutorial_opsgenie_certificate.png)
-
-1. Click **Save** button.
-
-	![Configure Single Sign-On](./media/opsgenie-tutorial/tutorial_general_400.png)
-
-1. On the **OpsGenie Configuration** section, click **Configure OpsGenie** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the Quick Reference section.
-
-    ![Configure Single Sign-On](./media/opsgenie-tutorial/tutorial_opsgenie_configure.png)
-
-1. Open another browser instance, and then log-in to OpsGenie as an administrator.
-
-1. Click **Settings**, and then click the **Single Sign On** tab.
-   
-    ![OpsGenie Single Sign-On](./media/opsgenie-tutorial/tutorial_opsgenie_06.png)
-
-1. To enable SSO, select **Enabled**.
-   
-    ![OpsGenie Settings](./media/opsgenie-tutorial/tutorial_opsgenie_07.png) 
-
-1. In the **Provider** section, click the **Azure Active Directory** tab.
-   
-    ![OpsGenie Settings](./media/opsgenie-tutorial/tutorial_opsgenie_08.png) 
-
-1. On the Azure Active Directory dialog page, perform the following steps:
-   
-    ![OpsGenie Settings](./media/opsgenie-tutorial/tutorial_opsgenie_09.png)
-	
-	a. In the **SAML 2.0 Endpoint** textbox, paste **Single Sign On Service URL**value which you have copied from the Azure portal.
+	a. In the **SAML 2.0 Endpoint** textbox, paste **Login URL**value which you have copied from the Azure portal.
 	
 	b. In the **Metadata Url:** textbox, paste **App Federation Metadata Url** value which you have copied from the Azure portal.
     
-    c. Click **Save Changes**.
+    c. To enable SSO, turn on the **Enable single sign-on** toggle.
 
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+    d. Click **Apply SSO settings**.
 
-![Create Azure AD User][100]
+### Create OpsGenie test user
 
-**To create a test user in Azure AD, perform the following steps:**
+The objective of this section is to create a user called B.Simon in OpsGenie. 
 
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
+1. In a web browser window, sign into your OpsGenie tenant as an administrator.
 
-	![Creating an Azure AD test user](./media/opsgenie-tutorial/create_aaduser_01.png) 
-
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/opsgenie-tutorial/create_aaduser_02.png) 
-
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/opsgenie-tutorial/create_aaduser_03.png) 
-
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/opsgenie-tutorial/create_aaduser_04.png) 
-
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
-
-    d. Click **Create**.
- 
-### Creating a OpsGenie test user
-
-The objective of this section is to create a user called Britta Simon in OpsGenie. 
-
-1. In a web browser window, log into your OpsGenie tenant as an administrator.
-
-1. Navigate to Users list by clicking **User** in left panel.
+2. Navigate to Users list by clicking **Users** in left panel.
    
-   ![OpsGenie Settings](./media/opsgenie-tutorial/tutorial_opsgenie_10.png) 
+    ![OpsGenie Settings](./media/opsgenie-tutorial/tutorial-opsgenie-10.png) 
 
-1. Click **Add User**.
+3. Click **Add User**.
 
-1. On the **Add User** dialog, perform the following steps:
+4. On the **Add User** dialog, perform the following steps:
    
-   ![OpsGenie Settings](./media/opsgenie-tutorial/tutorial_opsgenie_11.png)
+    ![Screenshot that shows the "Add User" dialog with the "Email" and "Full name" text boxes highlighted, and the "Save" button selected.](./media/opsgenie-tutorial/tutorial-opsgenie-11.png)
    
-   a. In the **Email** textbox, type the email address of BrittaSimon addressed in Azure Active Directory.
+    a. In the **Email** textbox, type the email address of B.Simon addressed in Azure Active Directory.
    
-   b. In the **Full Name** textbox, type **Britta Simon**.
+    b. In the **Full Name** textbox, type **B.Simon**.
    
-   c. Click **Save**. 
+    c. Click **Save**. 
 
->[!NOTE]
->Britta gets an email with instructions for setting up her profile.
+> [!NOTE]
+> B.Simon gets an email with instructions for setting up their profile.
 
-### Assigning the Azure AD test user
+## Test SSO 
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to OpsGenie.
+In this section, you test your Azure AD single sign-on configuration with following options.
 
-![Assign User][200] 
+* Click on Test this application in Azure portal and you should be automatically signed in to the OpsGenie for which you set up the SSO
 
-**To assign Britta Simon to OpsGenie, perform the following steps:**
+* You can use Microsoft My Apps. When you click the OpsGenie tile in the My Apps, you should be automatically signed in to the OpsGenie for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+## Next steps
 
-	![Assign User][201] 
-
-1. In the applications list, select **OpsGenie**.
-
-	![Configure Single Sign-On](./media/opsgenie-tutorial/tutorial_opsgenie_app.png) 
-
-1. In the menu on the left, click **Users and groups**.
-
-	![Assign User][202] 
-
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![Assign User][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
-
-The objective of this section is to test your Azure AD SSO configuration using the Access Panel.
-
-When you click the OpsGenie tile in the Access Panel, you should get automatically signed-on to your OpsGenie application.
-
-## Additional resources
-
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-<!--Image references-->
-
-[1]: ./media/opsgenie-tutorial/tutorial_general_01.png
-[2]: ./media/opsgenie-tutorial/tutorial_general_02.png
-[3]: ./media/opsgenie-tutorial/tutorial_general_03.png
-[4]: ./media/opsgenie-tutorial/tutorial_general_04.png
-
-[100]: ./media/opsgenie-tutorial/tutorial_general_100.png
-
-[200]: ./media/opsgenie-tutorial/tutorial_general_200.png
-[201]: ./media/opsgenie-tutorial/tutorial_general_201.png
-[202]: ./media/opsgenie-tutorial/tutorial_general_202.png
-[203]: ./media/opsgenie-tutorial/tutorial_general_203.png
-
+* Once you configure OpsGenie you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

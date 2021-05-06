@@ -1,21 +1,23 @@
 ---
 title: Using applications in Azure Blockchain Workbench
-description: How to use application contracts in Azure Blockchain Workbench.
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
-ms.date: 10/1/2018
-ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: zeyadr
-manager: femila
-#customer intent: As a developer, I want to use a blockchain application I created in Azure Blockchain Workbench.
+description: Tutorial on how to use application contracts in Azure Blockchain Workbench Preview.
+ms.date: 10/14/2019
+ms.topic: tutorial
+ms.reviewer: brendal
+#Customer intent: As a developer, I want to use a blockchain application I created in Azure Blockchain Workbench.
 ---
 
-# Using applications in Azure Blockchain Workbench
+# Tutorial: Using applications in Azure Blockchain Workbench
 
 You can use Blockchain Workbench to create and take actions on contracts. You can also view contract details such as status and transaction history.
+
+You'll learn how to:
+
+> [!div class="checklist"]
+> * Create a new contract
+> * Take an action on a contract
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -28,11 +30,11 @@ You can use Blockchain Workbench to create and take actions on contracts. You ca
 
 You need to sign in as a member of the Blockchain Workbench. If there are no applications listed, you are a member of Blockchain Workbench but not a member of any applications. The Blockchain Workbench administrator can assign members to applications.
 
-## Create new contract 
+## Create new contract
 
-To create a new contract, you need to be a member specified as an contract **initiator**. For information defining application roles and initiators for the contract, see [workflows in the configuration overview](configuration.md#workflows). For information on assigning members to application roles, see [add a member to application](manage-users.md#add-member-to-application).
+To create a new contract, you need to be a member specified as a contract **initiator**. For information defining application roles and initiators for the contract, see [workflows in the configuration overview](configuration.md#workflows). For information on assigning members to application roles, see [add a member to application](manage-users.md#add-member-to-application).
 
-1. In Blockchain Workbench application section, select the application tile that contains the contract you want to create. A list of active contracts are displayed.
+1. In Blockchain Workbench application section, select the application tile that contains the contract you want to create. A list of active contracts is displayed.
 
 2. To create a new contract, select **New contract**.
 
@@ -78,4 +80,4 @@ Depending on the state the contract is in, members can take actions to transitio
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to troubleshoot Azure Blockchain Workbench](troubleshooting.md)
+> [Azure Blockchain Workbench application versioning](version-app.md)

@@ -1,36 +1,26 @@
 ---
-title: Connect to a Windows Server VM | Microsoft Docs
-description: Learn how to connect and log on to a Windows VM using the Azure portal and the Resource Manager deployment model.
-services: virtual-machines-windows
-documentationcenter: ''
+title: Connect to a Windows Server VM 
+description: Learn how to connect and sign on to a Windows VM using the Azure portal and the Resource Manager deployment model.
 author: cynthn
-manager: jeconnoc
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: ef62b02e-bf35-468d-b4c3-71b63fe7f409
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
-ms.date: 09/13/2018
-ms.author: cynthn
+ms.topic: how-to
+ms.date: 11/26/2018
+ms.author: cynthn 
+ms.custom: devx-track-azurepowershell
 
 ---
-# How to connect and log on to an Azure virtual machine running Windows
-You'll use the **Connect** button in the Azure portal to start a Remote Desktop (RDP) session from a Windows desktop. First you connect to the virtual machine, and then you log on.
+# How to connect and sign on to an Azure virtual machine running Windows
+You'll use the **Connect** button in the Azure portal to start a Remote Desktop (RDP) session from a Windows desktop. First you connect to the virtual machine, and then you sign on.
 
-To connect to a Windows VM from a Mac, you will need to install an RDP client for Mac such as [Microsoft Remote Desktop](https://itunes.apple.com/app/microsoft-remote-desktop/id715768417).
+To connect to a Windows VM from a Mac, you will need to install an RDP client for Mac such as [Microsoft Remote Desktop](https://aka.ms/rdmac).
 
 ## Connect to the virtual machine
-1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com/).
-2. On the left menu, select **Virtual Machines**.
-3. Select the virtual machine from the list.
-4. On the top of the page for the virtual machine, select **Connect**.
-2. On the **Connect to virtual machine** page, select the appropriate options and select **Download RDP file**.
-2. Open the downloaded RDP file and select **Connect** when prompted. 
-2. You will get a warning that the .rdp file is from an unknown publisher. This is expected. In the **Remote Desktop Connection** window, select **Connect** to continue.
+1. Go to the [Azure portal](https://portal.azure.com/) to connect to a VM. Search for and select **Virtual machines**.
+2. Select the virtual machine from the list.
+3. At the beginning of the virtual machine page, select **Connect**.
+4. On the **Connect to virtual machine** page, select **RDP**, and then select the appropriate **IP address** and **Port number**. In most cases, the default IP address and port should be used. Select **Download RDP File**. If the VM has a just-in-time policy set, you first need to select the **Request access** button to request access before you can download the RDP file. For more information about the just-in-time policy, see [Manage virtual machine access using the just in time policy](../../security-center/security-center-just-in-time.md).
+5. Open the downloaded RDP file and select **Connect** when prompted. You will get a warning that the `.rdp` file is from an unknown publisher. This is expected. In the **Remote Desktop Connection** window, select **Connect** to continue.
    
     ![Screenshot of a warning about an unknown publisher.](./media/connect-logon/rdp-warn.png)
 3. In the **Windows Security** window, select **More choices** and then **Use a different account**. Enter the credentials for an account on the virtual machine and then select **OK**.
@@ -46,11 +36,27 @@ To connect to a Windows VM from a Mac, you will need to install an RDP client fo
 
 
    > [!TIP]
-   > If the **Connect** button in the portal is grayed-out and you are not connected to Azure via an [Express Route](../../expressroute/expressroute-introduction.md) or [Site-to-Site VPN](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) connection, you will need to create and assign your VM a public IP address before you can use RDP. For more information, see [Public IP addresses in Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md).
+   > If the **Connect** button in the portal is grayed-out and you are not connected to Azure via an [Express Route](../../expressroute/expressroute-introduction.md) or [Site-to-Site VPN](../../vpn-gateway/tutorial-site-to-site-portal.md) connection, you will need to create and assign your VM a public IP address before you can use RDP. For more information, see [Public IP addresses in Azure](../../virtual-network/public-ip-addresses.md).
    > 
    > 
 
+## Connect to the virtual machine using PowerShell
+
+ 
+
+If you are using PowerShell and have the Azure PowerShell  module installed you may also connect using the `Get-AzRemoteDesktopFile` cmdlet, as shown below.
+
+This example will immediately launch the RDP connection, taking you through similar prompts as above.
+
+```powershell
+Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -Launch
+```
+
+You may also save the RDP file for future use.
+
+```powershell
+Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder"
+```
 
 ## Next steps
-If you have difficulty connecting, see [Troubleshoot Remote Desktop connections](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-
+If you have difficulty connecting, see [Troubleshoot Remote Desktop connections](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

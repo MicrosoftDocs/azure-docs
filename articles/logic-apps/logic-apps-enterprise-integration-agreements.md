@@ -1,76 +1,148 @@
 ---
-title: Agreements for B2B communication - Azure Logic Apps | Microsoft Docs
-description: Create agreements for B2B trading partner communication with Azure Logic Apps and Enterprise Integration Pack
+title: Trading partner agreements
+description: Create and manage agreements between trading partners by using Azure Logic Apps and Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 447ffb8e-3e91-4403-872b-2f496495899d
-ms.date: 06/29/2016
+ms.date: 06/22/2019
 ---
 
-# Partner agreements for B2B communication with Azure Logic Apps and Enterprise Integration Pack
+# Create and manage trading partner agreements in Azure Logic Apps
 
-Agreements let business entities communicate seamlessly using industry 
-standard protocols and are the cornerstone for business-to-business (B2B) communication. 
-When enabling B2B scenarios for logic apps with the Enterprise Integration Pack, 
-an agreement is a communications arrangement between B2B trading partners. 
-This agreement is based on the communications that the partners want to 
-establish and is protocol or transport-specific.
+A [trading partner](../logic-apps/logic-apps-enterprise-integration-partners.md) 
+*agreement* helps organizations and businesses communicate seamlessly with each 
+other by defining the specific industry-standard protocol to use when exchanging 
+business-to-business (B2B) messages. Agreements provide common benefits, for example:
 
-Enterprise integration supports these protocol or transport standards:
+* Enable organizations to exchange information by using a well-known format.
+* Improve efficiency when conducting B2B transactions.
+* Are easy to create, manage, and use for building enterprise integration solutions.
 
-* [AS2](logic-apps-enterprise-integration-as2.md)
-* [X12](logic-apps-enterprise-integration-x12.md)
-* [EDIFACT](logic-apps-enterprise-integration-edifact.md)
+This article shows how to create an AS2, EDIFACT, or X12 agreement that you can use 
+when building enterprise integration solutions for B2B scenarios by using the 
+[Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md) 
+and [Azure Logic Apps](../logic-apps/logic-apps-overview.md). After you create 
+an agreement, you can then use the AS2, EDIFACT, or X12 connectors for exchanging 
+B2B messages.
 
-## Why use agreements
+To create agreements for exchanging RosettaNet messages, see [Exchange RosettaNet messages](../logic-apps/logic-apps-enterprise-integration-rosettanet.md).
 
-Here are some common benefits when using agreements:
+## Prerequisites
 
-* Enables different organizations and businesses to exchange information in a well-known format.
-* Improves efficiency when conducting B2B transactions
-* Easy to create, manage, and use when creating enterprise integration apps
+* An Azure subscription. If you don't have an Azure subscription yet, 
+[sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-## How to create agreements
+* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
+for storing your agreement and other B2B artifacts. This integration 
+account must be associated with your Azure subscription.
 
-* [Create an AS2 agreement](logic-apps-enterprise-integration-as2.md)
-* [Create an X12 agreement](logic-apps-enterprise-integration-x12.md)
-* [Create an EDIFACT agreement](logic-apps-enterprise-integration-edifact.md)
+* At least two [trading partners](../logic-apps/logic-apps-enterprise-integration-partners.md) 
+that you've already created in your integration account. 
+An agreement requires both a host partner and a guest partner. 
+Both partners must use the same "business identity" qualifier 
+as the agreement you want to create, such as AS2, X12, or EDIFACT.
 
-## How to use an agreement
+* Optional: The logic app where you want to use your agreement 
+and a trigger that starts your logic app's workflow. To just 
+create your integration account and B2B artifacts, you don't need a logic app. 
+However, before your logic app can use the B2B artifacts 
+in your integration account, you must link your integration 
+account to your logic app. If you're new to logic apps, review 
+[What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and 
+[Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-You can create 
-[logic apps](logic-apps-overview.md "Learn about Logic apps") with B2B capabilities by using an agreement that you created.
+## Create agreements
 
-## How to edit an agreement
+1. Sign in to the [Azure portal](https://portal.azure.com).
+On the main Azure menu, select **All services**. 
+In the search box, enter "integration" as your filter. 
+From the results, select this resource: **Integration accounts**
 
-You can edit any agreement by following these steps:
+   ![Find your integration account](./media/logic-apps-enterprise-integration-agreements/find-integration-accounts.png)
 
-1. Select the integration account that has the agreement you want to update.
+1. Under **Integration accounts**, select the integration 
+account where you want to create the agreement.
 
-2. Choose the **Agreements** tile.
+   ![Select the integration account where to create the agreement](./media/logic-apps-enterprise-integration-agreements/select-integration-account.png)
 
-3. On the **Agreements** blade, select the agreement.
+1. In the right-hand pane, under **Components**, 
+choose the **Agreements** tile.
 
-4. Choose **Edit**. Make your changes.
+   ![Choose "Agreements"](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
 
-5. To save your changes, choose **OK**.
+1. Under **Agreements**, choose **Add**. 
+In the **Add** pane, provide information 
+about your agreement, for example:
 
-## How to delete an agreement
+   ![Choose "Add"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
 
-You can delete any agreement by following these steps:
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **Name** | Yes | <*agreement-name*> | The name for your agreement |
+   | **Agreement type** | Yes | **AS2**, **X12**, or **EDIFACT** | The protocol type for your agreement. When you create your agreement file, the content in that file must match the agreement type. |
+   | **Host Partner** | Yes | <*host-partner-name*> | The host partner represents the organization that specifies the agreement |
+   | **Host Identity** | Yes | <*host-partner-identifier*> | The host partner's identifier |
+   | **Guest Partner** | Yes | <*guest-partner-name*> | The guest partner represents the organization that's doing business with the host partner |
+   | **Guest Identity** | Yes | <*guest-partner-identifier*> | The guest partner's identifier |
+   | **Receive Settings** | Varies | Varies | These properties specify how the host partner receives all incoming messages from the guest partner in the agreement. For more information, see the respective agreement type: <p>- [AS2 message settings](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT message settings](logic-apps-enterprise-integration-edifact.md) <br>- [X12 message settings](logic-apps-enterprise-integration-x12.md) |
+   | **Send Settings** | Varies | Varies | These properties specify how the host partner sends all outgoing messages to the guest partner in the agreement. For more information, see the respective agreement type: <p>- [AS2 message settings](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT message settings](logic-apps-enterprise-integration-edifact.md) <br>- [X12 message settings](logic-apps-enterprise-integration-x12.md) |
 
-1. Select the integration account that has the agreement you want to delete.
-2. Choose the **Agreements** tile.
-3. On the **Agreements** blade, select the agreement.
-4. Choose **Delete**.
-5. Confirm that you want to delete the selected agreement.
+   > [!IMPORTANT]
+   > The resolution for an agreement depends on matching these items that are defined in the partner and incoming message:
+   >
+   > * The sender's qualifier and identifier
+   > * The receiver's qualifier and identifier
+   >
+   > If these values change for your partner, make sure that you update the agreement too.
 
-	The Agreements blade no longer shows the deleted agreement.
+1. When you're done creating your agreement, on the **Add** page, 
+choose **OK**, and return to your integration account.
+
+   The **Agreements** list now shows your new agreement.
+
+## Edit agreements
+
+1. In the [Azure portal](https://portal.azure.com), 
+on the main Azure menu, select **All services**.
+
+1. In the search box, enter "integration" as your filter. 
+From the results, select this resource: **Integration accounts**
+
+1. Under **Integration accounts**, select the integration 
+account that has the agreement you want to edit.
+
+1. In the right-hand pane, under **Components**, 
+choose the **Agreements** tile.
+
+1. Under **Agreements**, select your agreement, 
+and choose **Edit**.
+
+1. Make and then save your changes.
+
+## Delete agreements
+
+1. In the [Azure portal](https://portal.azure.com), 
+on the main Azure menu, select **All services**.
+
+1. In the search box, enter "integration" as your filter. 
+From the results, select this resource: **Integration accounts**
+
+1. Under **Integration accounts**, select the integration 
+account that has the agreement you want to delete.
+
+1. In the right-hand pane, under **Components**, 
+choose the **Agreements** tile.
+
+1. Under **Agreements**, select your agreement, 
+and choose **Delete**.
+
+1. Confirm that you want to delete the selected agreement.
 
 ## Next steps
-* [Create an AS2 agreement](logic-apps-enterprise-integration-as2.md)
+
+* [Exchange AS2 messages](logic-apps-enterprise-integration-as2.md)
+* [Exchange EDIFACT messages](logic-apps-enterprise-integration-edifact.md)
+* [Exchange X12 messages](logic-apps-enterprise-integration-x12.md)

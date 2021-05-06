@@ -1,28 +1,25 @@
 ---
-title: Connect a Cloud Service to a custom Domain Controller | Microsoft Docs
+title: Connect a Cloud Service (classic) to a custom Domain Controller | Microsoft Docs
 description: Learn how to connect your web/worker roles to a custom AD Domain using PowerShell and AD Domain Extension
-services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-
-ms.assetid: 1e2d7c87-d254-4e7a-a832-67f84411ec95
-ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
-ms.author: jeconnoc
-
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Connecting Azure Cloud Services Roles to a custom AD Domain Controller hosted in Azure
+
+# Connecting Azure Cloud Services (classic) Roles to a custom AD Domain Controller hosted in Azure
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 We will first set up a Virtual Network (VNet) in Azure. We will then add an Active Directory Domain Controller (hosted on an Azure Virtual Machine) to the VNet. Next, we will add existing cloud service roles to the pre-created VNet, then connect them to the Domain Controller.
 
 Before we get started, couple of things to keep in mind:
 
-1. This tutorial uses PowerShell, so make sure you have Azure PowerShell installed and ready to go. To get help with setting up Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+1. This tutorial uses PowerShell, so make sure you have Azure PowerShell installed and ready to go. To get help with setting up Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/).
 2. Your AD Domain Controller and Web/Worker Role instances need to be in the VNet.
 
 Follow this step-by-step guide and if you run into any issues, leave us a comment at the end of the article. Someone will get back to you (yes, we do read comments).
@@ -37,7 +34,7 @@ You can create a Virtual Network in Azure using the Azure portal or PowerShell. 
 
 $vnetStr =
 @"<?xml version="1.0" encoding="utf-8"?>
-<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+<NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
     <VirtualNetworkConfiguration>
     <VirtualNetworkSites>
         <VirtualNetworkSite name="[your-vnet-name]" Location="West US">
@@ -91,7 +88,7 @@ To log in to the VM, you can get the RDP file through PowerShell, use the follow
 Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-path>
 ```
 
-Once you are signed in to the VM, set up your Virtual Machine as an AD Domain Controller by following the step-by-step guide on [How to set up your customer AD Domain Controller](http://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
+Once you are signed in to the VM, set up your Virtual Machine as an AD Domain Controller by following the step-by-step guide on [How to set up your customer AD Domain Controller](https://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
 
 ## Add your Cloud Service to the Virtual Network
 Next, you need to add your cloud service deployment to the new VNet. To do this, modify your cloud service cscfg by adding the relevant sections to your cscfg using Visual Studio or the editor of your choice.
@@ -152,3 +149,6 @@ Your cloud services should be joined to your custom domain controller. If you wo
 help Set-AzureServiceADDomainExtension
 help New-AzureServiceADDomainExtensionConfig
 ```
+
+
+

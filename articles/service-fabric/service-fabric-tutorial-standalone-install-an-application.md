@@ -1,29 +1,17 @@
 ---
-title: Tutorial install an application on your standalone Service Fabric cluster - Azure Service Fabric | Microsoft Docs
-description: In this tutorial you learn how to install an application into your standalone Service Fabric cluster.
-services: service-fabric
-documentationcenter: .net
-author: david-stanford
-manager: timlt
-editor: ''
-
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotNet
+title: Install an app on a standalone cluster
+description: In this tutorial, you learn how to install an application into your standalone Service Fabric cluster.
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 05/11/2018
-ms.author: dastanfo
+ms.date: 07/22/2019
 ms.custom: mvc
 ---
 # Tutorial: Deploy an application on your Service Fabric standalone cluster
 
-Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series you create a standalone cluster hosted on AWS and deploy an application into it.
+Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series, you create a standalone cluster hosted on AWS and deploy an application into it.
 
-This tutorial is part three of a series.  Service Fabric standalone clusters offers you the option to choose your own environment and create a cluster as part of our "any OS, any cloud" approach with Service Fabric. This tutorial shows you how to create the AWS infrastructure necessary to host this standalone cluster.
+This tutorial is part three of a series.  Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of our "any OS, any cloud" approach with Service Fabric. This tutorial shows you how to create the AWS infrastructure necessary to host this standalone cluster.
 
-In part three of the series, you learn how to:
+In this article, you'll learn how to:
 
 > [!div class="checklist"]
 > * Download the sample app
@@ -33,7 +21,7 @@ In part three of the series, you learn how to:
 
 Before you begin this tutorial:
 
-* [Install Visual Studio 2017](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
+* [Install Visual Studio 2019](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
 * [Install the Service Fabric SDK](service-fabric-get-started.md)
 
 ## Download the voting sample application
@@ -56,7 +44,7 @@ Once the application is downloaded, you can deploy it to a cluster directly from
 
 4. Right-click on the `Voting` application project in the Solution Explorer and choose **Publish**
 
-5. Select the dropdown for the **Connection Endpoint** and enter the public DNS Name of one of the nodes in your cluster.  For example, `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`
+5. Select the dropdown for the **Connection Endpoint** and enter the public DNS Name of one of the nodes in your cluster.  For example, `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`. In Azure, a fully qualified domain name (FQDN) is not given automatically, but can easily [be set in VM Overview page.](../virtual-machines/create-fqdn.md)
 
 6. Open you preferred browser and type in the cluster address (the connection endpoint, this app deploys on port 8080 - for example, ec2-34-215-183-77.us-west-2.compute.amazonaws.com:8080).
 
@@ -64,7 +52,7 @@ Once the application is downloaded, you can deploy it to a cluster directly from
 
 ## Next steps
 
-In part three of the series, you learned how to deploy an application to your cluster:
+In this article, you learned how to deploy an application to your cluster:
 
 > [!div class="checklist"]
 > * Download the sample app

@@ -1,356 +1,298 @@
 ---
-title: How to use Azure Service Bus topics with Java | Microsoft Docs
-description: Use Service Bus topics and subscriptions in Azure.
-services: service-bus-messaging
-documentationcenter: java
-author: spelluru
-manager: timlt
-editor: ''
-
-ms.assetid: 63d6c8bd-8a22-4292-befc-545ffb52e8eb
-ms.service: service-bus-messaging
-ms.workload: tbd
-ms.tgt_pltfrm: na
+title: Use Azure Service Bus topics and subscriptions with Java (azure-messaging-servicebus)
+description: In this quickstart, you write Java code using the azure-messaging-servicebus package to send messages to an Azure Service Bus topic and then receive messages from subscriptions to that topic.
+ms.date: 02/13/2021
+ms.topic: quickstart
 ms.devlang: Java
-ms.topic: article
-ms.date: 09/17/2018
-ms.author: spelluru
-
+ms.custom:
+  - mode-api
 ---
-# How to use Service Bus topics and subscriptions with Java
 
-[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+# Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (Java)
+In this quickstart, you write Java code using the azure-messaging-servicebus package to send messages to an Azure Service Bus topic and then receive messages from subscriptions to that topic.
 
-This guide describes how to use Service Bus topics and subscriptions. The samples are written in Java and use the [Azure SDK for Java][Azure SDK for Java]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and **deleting topics and subscriptions**.
+> [!IMPORTANT]
+> This quickstart uses the new azure-messaging-servicebus package. For a quickstart that uses the old azure-servicebus package, see [Send and receive messages using azure-servicebus](service-bus-java-how-to-use-topics-subscriptions-legacy.md).
 
-## What are Service Bus topics and subscriptions?
-Service Bus topics and subscriptions support a *publish/subscribe*
-messaging communication model. When using topics and subscriptions,
-components of a distributed application do not communicate directly with
-each other; instead they exchange messages via a topic, which acts as an
-intermediary.
+## Prerequisites
 
-![TopicConcepts](./media/service-bus-java-how-to-use-topics-subscriptions/sb-topics-01.png)
+- An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md). Note down the connection string, topic name, and a subscription name. You'll use only one subscription for this quickstart. 
+- Install [Azure SDK for Java][Azure SDK for Java]. If you're using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project. If you're using IntelliJ, see [Install the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/installation). 
 
-In contrast with Service Bus queues, in which each message is processed by a
-single consumer, topics and subscriptions provide a one-to-many form
-of communication, using a publish/subscribe pattern. It is possible to
-register multiple subscriptions to a topic. When a message is sent to a
-topic, it is then made available to each subscription to handle/process
-independently.
-
-A subscription to a topic resembles a virtual queue that receives copies of
-the messages that were sent to the topic. You can optionally register
-filter rules for a topic on a per-subscription basis, which allows you
-to filter or restrict which messages to a topic are received by which topic
-subscriptions.
-
-Service Bus topics and subscriptions enable you to scale to process a
-large number of messages across a large number of users and
-applications.
-
-## Create a service namespace
-To begin using Service Bus topics and subscriptions in Azure,
-you must first create a *namespace*, which provides
-a scoping container for addressing Service Bus resources within your
-application.
-
-To create a namespace:
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-## Configure your application to use Service Bus
-Make sure you have installed the [Azure SDK for Java][Azure SDK for Java] before building this sample. If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project:
-
-![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
-
-Add the following `import` statements to the top of the Java file:
-
-```java
-import com.microsoft.windowsazure.services.servicebus.*;
-import com.microsoft.windowsazure.services.servicebus.models.*;
-import com.microsoft.windowsazure.core.*;
-import javax.xml.datatype.*;
-```
-
-Add the Azure Libraries for Java to your build path and include it in your project deployment assembly.
-
-## Create a topic
-Management operations for Service Bus topics can be performed via the
-**ServiceBusContract** class. A **ServiceBusContract** object is
-constructed with an appropriate configuration that encapsulates the
-SAS token with permissions to manage it, and the **ServiceBusContract** class is
-the sole point of communication with Azure.
-
-The **ServiceBusService** class provides methods to create, enumerate,
-and delete topics. The following example shows how a **ServiceBusService** object
-can be used to create a topic named `TestTopic`, with a namespace called `HowToSample`:
-
-```java
-Configuration config =
-    ServiceBusConfiguration.configureWithSASAuthentication(
-      "HowToSample",
-      "RootManageSharedAccessKey",
-      "SAS_key_value",
-      ".servicebus.windows.net"
-      );
-
-ServiceBusContract service = ServiceBusService.create(config);
-TopicInfo topicInfo = new TopicInfo("TestTopic");
-try  
-{
-    CreateTopicResult result = service.createTopic(topicInfo);
-}
-catch (ServiceException e) {
-    System.out.print("ServiceException encountered: ");
-    System.out.println(e.getMessage());
-    System.exit(-1);
-}
-```
-
-There are methods on **TopicInfo** that enable properties of the topic to
-be set (for example: to set the default time-to-live (TTL) value to be
-applied to messages sent to the topic). The following example shows how
-to create a topic named `TestTopic` with a maximum size of 5 GB:
-
-```java
-long maxSizeInMegabytes = 5120;  
-TopicInfo topicInfo = new TopicInfo("TestTopic");  
-topicInfo.setMaxSizeInMegabytes(maxSizeInMegabytes);
-CreateTopicResult result = service.createTopic(topicInfo);
-```
-
-You can use the **listTopics** method on
-**ServiceBusContract** objects to check if a topic with a specified name
-already exists within a service namespace.
-
-## Create subscriptions
-Subscriptions to topics are also created with the **ServiceBusService**
-class. Subscriptions are named and can have an optional filter that
-restricts the set of messages passed to the subscription's virtual
-queue.
-
-### Create a subscription with the default (MatchAll) filter
-If no filter is specified when a new subscription is created, the **MatchAll** filter is the default filter that is used. When the **MatchAll** filter is used, all messages published to the topic are placed in the subscription's virtual queue. The following example creates a subscription named `AllMessages` and uses the default `MatchAll` filter.
-
-```java
-SubscriptionInfo subInfo = new SubscriptionInfo("AllMessages");
-CreateSubscriptionResult result =
-    service.createSubscription("TestTopic", subInfo);
-```
-
-### Create subscriptions with filters
-You can also create filters that enable you to scope which messages sent
-to a topic should show up within a specific topic subscription.
-
-The most flexible type of filter supported by subscriptions is the
-[SqlFilter][SqlFilter], which implements a subset of SQL92. SQL filters operate
-on the properties of the messages that are published to the topic. For
-more details about the expressions that can be used with a SQL filter,
-review the [SqlFilter.SqlExpression][SqlFilter.SqlExpression] syntax.
-
-The following example creates a subscription named `HighMessages` with a
-[SqlFilter][SqlFilter] object that only selects messages that have a custom
-**MessageNumber** property greater than 3:
-
-```java
-// Create a "HighMessages" filtered subscription  
-SubscriptionInfo subInfo = new SubscriptionInfo("HighMessages");
-CreateSubscriptionResult result = service.createSubscription("TestTopic", subInfo);
-RuleInfo ruleInfo = new RuleInfo("myRuleGT3");
-ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber > 3");
-CreateRuleResult ruleResult = service.createRule("TestTopic", "HighMessages", ruleInfo);
-// Delete the default rule, otherwise the new rule won't be invoked.
-service.deleteRule("TestTopic", "HighMessages", "$Default");
-```
-
-Similarly, the following example creates a subscription named `LowMessages` with a [SqlFilter][SqlFilter] object that only selects messages that have a **MessageNumber** property less than or equal to 3:
-
-```java
-// Create a "LowMessages" filtered subscription
-SubscriptionInfo subInfo = new SubscriptionInfo("LowMessages");
-CreateSubscriptionResult result = service.createSubscription("TestTopic", subInfo);
-RuleInfo ruleInfo = new RuleInfo("myRuleLE3");
-ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber <= 3");
-CreateRuleResult ruleResult = service.createRule("TestTopic", "LowMessages", ruleInfo);
-// Delete the default rule, otherwise the new rule won't be invoked.
-service.deleteRule("TestTopic", "LowMessages", "$Default");
-```
-
-When a message is now sent to `TestTopic`, it is always delivered to receivers subscribed to the `AllMessages` subscription, and selectively delivered to receivers subscribed to the `HighMessages` and `LowMessages` subscriptions (depending upon the message content).
 
 ## Send messages to a topic
-To send a message to a Service Bus topic, your application obtains a
-**ServiceBusContract** object. The following code demonstrates how to send a
-message for the `TestTopic` topic created previously within the `HowToSample` namespace:
+In this section, you'll create a Java console project, and add code to send messages to the topic you created. 
 
-```java
-BrokeredMessage message = new BrokeredMessage("MyMessage");
-service.sendTopicMessage("TestTopic", message);
+### Create a Java console project
+Create a Java project using Eclipse or a tool of your choice. 
+
+### Configure your application to use Service Bus
+Add references to Azure Core and Azure Service Bus libraries. 
+
+If you are using Eclipse and created a Java console application, convert your Java project to a Maven: right-click the project in the **Package Explorer** window, select **Configure** -> **Convert to Maven project**. Then, add dependencies to these two libraries as shown in the following example.
+
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.myorg.sbusquickstarts</groupId>
+	<artifactId>sbustopicqs</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<build>
+    	<sourceDirectory>src</sourceDirectory>
+    	<plugins>
+      		<plugin>
+        		<artifactId>maven-compiler-plugin</artifactId>
+        		<version>3.8.1</version>
+        		<configuration>
+          			<release>15</release>
+        		</configuration>
+      		</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+  		<dependency>
+    		<groupId>com.azure</groupId>
+    		<artifactId>azure-core</artifactId>
+    		<version>1.13.0</version>
+		</dependency>
+		<dependency>
+    		<groupId>com.azure</groupId>
+    		<artifactId>azure-messaging-servicebus</artifactId>
+    		<version>7.0.2</version>
+		</dependency>
+	</dependencies>
+</project>
 ```
 
-Messages sent to Service Bus Topics are instances of the
-[BrokeredMessage][BrokeredMessage] class. [BrokeredMessage][BrokeredMessage]* objects have a set of
-standard methods (such as **setLabel** and **TimeToLive**), a dictionary
-that is used to hold custom application-specific properties, and a body
-of arbitrary application data. An application can set the body of the
-message by passing any serializable object into the constructor of the
-[BrokeredMessage][BrokeredMessage], and the appropriate **DataContractSerializer** is then used to serialize the object. Alternatively, a
-**java.io.InputStream** can be provided.
+### Add code to send messages to the topic
+1. Add the following `import` statements at the topic of the Java file. 
 
-The following example demonstrates how to send five test messages to the
-`TestTopic` **MessageSender** we obtained in the previous code snippet.
-Note how the **MessageNumber** property value of each message varies on
-the iteration of the loop (this value determines which subscriptions receive it):
+    ```java
+    import com.azure.messaging.servicebus.*;
+    
+    import java.util.concurrent.CountDownLatch;
+    import java.util.concurrent.TimeUnit;
+    import java.util.Arrays;
+    import java.util.List;
+    ```    
+5. In the class, define variables to hold connection string and topic name as shown below: 
 
-```java
-for (int i=0; i<5; i++)  {
-// Create message, passing a string message for the body
-BrokeredMessage message = new BrokeredMessage("Test message " + i);
-// Set some additional custom app-specific property
-message.setProperty("MessageNumber", i);
-// Send message to the topic
-service.sendTopicMessage("TestTopic", message);
-}
-```
+    ```java
+    static String connectionString = "<NAMESPACE CONNECTION STRING>";
+    static String topicName = "<TOPIC NAME>";    
+    static String subName = "<SUBSCRIPTION NAME>";
+    ```
 
-Service Bus topics support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
-a maximum size of 64 KB. There is no limit on the number of messages
-held in a topic but there is a limit on the total size of the messages
-held by a topic. This topic size is defined at creation time, with an
-upper limit of 5 GB.
+    Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. And, replace `<TOPIC NAME>` with the name of the topic.
+3. Add a method named `sendMessage` in the class to send one message to the topic. 
 
-## How to receive messages from a subscription
-To receive messages from a subscription, use a
-**ServiceBusContract** object. Received messages can work in two
-different modes: **ReceiveAndDelete** and **PeekLock** (the default).
-
-When using the **ReceiveAndDelete** mode, receive is a single-shot
-operation - that is, when Service Bus receives a read request for a
-message, it marks the message as being consumed and returns it to the
-application. **ReceiveAndDelete** mode is the simplest model and works
-best for scenarios in which an application can tolerate not processing a
-message if a failure occurs. For example, consider a
-scenario in which the consumer issues the receive request and then
-crashes before processing it. Because Service Bus has marked the
-message as being consumed, then when the application restarts and begins
-consuming messages again, it has missed the message that was
-consumed prior to the crash.
-
-In **PeekLock** mode, receive becomes a two stage operation, which makes
-it possible to support applications that cannot tolerate missing
-messages. When Service Bus receives a request, it finds the next message
-to be consumed, locks it to prevent other consumers receiving it, and
-then returns it to the application. After the application finishes
-processing the message (or stores it reliably for future processing), it
-completes the second stage of the receive process by calling **Delete**
-on the received message. When Service Bus sees the **Delete** call, it
-marks the message as being consumed and removes it from the topic.
-
-The following example demonstrates how messages can be received and
-processed using **PeekLock** (the default mode). The example
-performs a loop and processes messages in the `HighMessages` subscription and then exits when there are no more messages (alternatively, it can be set to wait for new messages).
-
-```java
-try
-{
-    ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
-    opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
-
-    while(true)  {
-        ReceiveSubscriptionMessageResult  resultSubMsg =
-            service.receiveSubscriptionMessage("TestTopic", "HighMessages", opts);
-        BrokeredMessage message = resultSubMsg.getValue();
-        if (message != null && message.getMessageId() != null)
-        {
-            System.out.println("MessageID: " + message.getMessageId());
-            // Display the topic message.
-            System.out.print("From topic: ");
-            byte[] b = new byte[200];
-            String s = null;
-            int numRead = message.getBody().read(b);
-            while (-1 != numRead)
-            {
-                s = new String(b);
-                s = s.trim();
-                System.out.print(s);
-                numRead = message.getBody().read(b);
-            }
-            System.out.println();
-            System.out.println("Custom Property: " +
-                message.getProperty("MessageNumber"));
-            // Delete message.
-            System.out.println("Deleting this message.");
-            service.deleteMessage(message);
-        }  
-        else  
-        {
-            System.out.println("Finishing up - no more messages.");
-            break;
-            // Added to handle no more messages.
-            // Could instead wait for more messages to be added.
-        }
+    ```java
+    static void sendMessage()
+    {
+        // create a Service Bus Sender client for the queue 
+        ServiceBusSenderClient senderClient = new ServiceBusClientBuilder()
+                .connectionString(connectionString)
+                .sender()
+                .topicName(topicName)
+                .buildClient();
+        
+        // send one message to the topic
+        senderClient.sendMessage(new ServiceBusMessage("Hello, World!"));
+        System.out.println("Sent a single message to the topic: " + topicName);        
     }
-}
-catch (ServiceException e) {
-    System.out.print("ServiceException encountered: ");
-    System.out.println(e.getMessage());
-    System.exit(-1);
-}
-catch (Exception e) {
-    System.out.print("Generic exception encountered: ");
-    System.out.println(e.getMessage());
-    System.exit(-1);
-}
+    ```
+1. Add a method named `createMessages` in the class to create a list of messages. Typically, you get these messages from different parts of your application. Here, we create a list of sample messages.
+
+    ```java
+    static List<ServiceBusMessage> createMessages()
+    {
+        // create a list of messages and return it to the caller
+        ServiceBusMessage[] messages = {
+        		new ServiceBusMessage("First message"),
+        		new ServiceBusMessage("Second message"),
+        		new ServiceBusMessage("Third message")
+        };
+        return Arrays.asList(messages);
+    }
+    ```
+1. Add a method named `sendMessageBatch` method to send messages to the topic you created. This method creates a `ServiceBusSenderClient` for the topic, invokes the `createMessages` method to get the list of messages, prepares one or more batches, and sends the batches to the topic. 
+
+    ```java
+    static void sendMessageBatch()
+    {
+        // create a Service Bus Sender client for the topic 
+        ServiceBusSenderClient senderClient = new ServiceBusClientBuilder()
+                .connectionString(connectionString)
+                .sender()
+                .topicName(topicName)
+                .buildClient();
+
+        // Creates an ServiceBusMessageBatch where the ServiceBus.
+        ServiceBusMessageBatch messageBatch = senderClient.createMessageBatch();        
+        
+    	// create a list of messages
+        List<ServiceBusMessage> listOfMessages = createMessages();
+        
+        // We try to add as many messages as a batch can fit based on the maximum size and send to Service Bus when
+        // the batch can hold no more messages. Create a new batch for next set of messages and repeat until all
+        // messages are sent.        
+        for (ServiceBusMessage message : listOfMessages) {
+            if (messageBatch.tryAddMessage(message)) {
+                continue;
+            }
+
+            // The batch is full, so we create a new batch and send the batch.
+            senderClient.sendMessages(messageBatch);
+            System.out.println("Sent a batch of messages to the topic: " + topicName);
+            
+            // create a new batch
+            messageBatch = senderClient.createMessageBatch();
+
+            // Add that message that we couldn't before.
+            if (!messageBatch.tryAddMessage(message)) {
+                System.err.printf("Message is too large for an empty batch. Skipping. Max size: %s.", messageBatch.getMaxSizeInBytes());
+            }
+        }
+
+        if (messageBatch.getCount() > 0) {
+            senderClient.sendMessages(messageBatch);
+            System.out.println("Sent a batch of messages to the topic: " + topicName);
+        }
+
+        //close the client
+        senderClient.close();
+    }
+    ```
+
+## Receive messages from a subscription
+In this section, you'll add code to retrieve messages from a subscription to the topic. 
+
+1. Add a method named `receiveMessages` to receive messages from the subscription. This method creates a `ServiceBusProcessorClient` for the subscription by specifying a handler for processing messages and another one for handling errors. Then, it starts the processor, waits for few seconds, prints the messages that are received, and then stops and closes the processor.
+
+    > [!IMPORTANT]
+    > Replace `ServiceBusTopicTest` in `ServiceBusTopicTest::processMessage` in the code with the name of your class. 
+
+    ```java
+    // handles received messages
+    static void receiveMessages() throws InterruptedException
+    {
+        CountDownLatch countdownLatch = new CountDownLatch(1);
+
+        // Create an instance of the processor through the ServiceBusClientBuilder
+        ServiceBusProcessorClient processorClient = new ServiceBusClientBuilder()
+            .connectionString(connectionString)
+            .processor()
+            .topicName(topicName)
+            .subscriptionName(subName)
+            .processMessage(ServiceBusTopicTest::processMessage)
+            .processError(context -> processError(context, countdownLatch))
+            .buildProcessorClient();
+
+        System.out.println("Starting the processor");
+        processorClient.start();
+
+        TimeUnit.SECONDS.sleep(10);
+        System.out.println("Stopping and closing the processor");
+        processorClient.close();    	
+    }  
+    ```
+2. Add the `processMessage` method to process a message received from the Service Bus subscription. 
+
+    ```java
+    private static void processMessage(ServiceBusReceivedMessageContext context) {
+        ServiceBusReceivedMessage message = context.getMessage();
+        System.out.printf("Processing message. Session: %s, Sequence #: %s. Contents: %s%n", message.getMessageId(),
+            message.getSequenceNumber(), message.getBody());
+    }    
+    ```
+3. Add the `processError` method to handle error messages.
+
+    ```java
+    private static void processError(ServiceBusErrorContext context, CountDownLatch countdownLatch) {
+        System.out.printf("Error when receiving messages from namespace: '%s'. Entity: '%s'%n",
+            context.getFullyQualifiedNamespace(), context.getEntityPath());
+
+        if (!(context.getException() instanceof ServiceBusException)) {
+            System.out.printf("Non-ServiceBusException occurred: %s%n", context.getException());
+            return;
+        }
+
+        ServiceBusException exception = (ServiceBusException) context.getException();
+        ServiceBusFailureReason reason = exception.getReason();
+
+        if (reason == ServiceBusFailureReason.MESSAGING_ENTITY_DISABLED
+            || reason == ServiceBusFailureReason.MESSAGING_ENTITY_NOT_FOUND
+            || reason == ServiceBusFailureReason.UNAUTHORIZED) {
+            System.out.printf("An unrecoverable error occurred. Stopping processing with reason %s: %s%n",
+                reason, exception.getMessage());
+
+            countdownLatch.countDown();
+        } else if (reason == ServiceBusFailureReason.MESSAGE_LOCK_LOST) {
+            System.out.printf("Message lock lost for message: %s%n", context.getException());
+        } else if (reason == ServiceBusFailureReason.SERVICE_BUSY) {
+            try {
+                // Choosing an arbitrary amount of time to wait until trying again.
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                System.err.println("Unable to sleep for period of time");
+            }
+        } else {
+            System.out.printf("Error source %s, reason %s, message: %s%n", context.getErrorSource(),
+                reason, context.getException());
+        }
+    }  
+    ```
+1. Update the `main` method to invoke `sendMessage`, `sendMessageBatch`, and `receiveMessages` methods and to throw `InterruptedException`.     
+
+    ```java
+    public static void main(String[] args) throws InterruptedException {    	
+    	sendMessage();
+    	sendMessageBatch();
+    	receiveMessages();
+    }   
+    ```
+
+## Run the app
+Run the program to see the output similar to the following output:
+
+```console
+Sent a single message to the topic: mytopic
+Sent a batch of messages to the topic: mytopic
+Starting the processor
+Processing message. Session: e0102f5fbaf646988a2f4b65f7d32385, Sequence #: 1. Contents: Hello, World!
+Processing message. Session: 3e991e232ca248f2bc332caa8034bed9, Sequence #: 2. Contents: First message
+Processing message. Session: 56d3a9ea7df446f8a2944ee72cca4ea0, Sequence #: 3. Contents: Second message
+Processing message. Session: 7bd3bd3e966a40ebbc9b29b082da14bb, Sequence #: 4. Contents: Third message
 ```
 
-## How to handle application crashes and unreadable messages
-Service Bus provides functionality to help you gracefully recover from
-errors in your application or difficulties processing a message. If a
-receiver application is unable to process the message for some reason,
-then it can call the **unlockMessage** method on the received message
-(instead of the **deleteMessage** method). This method call causes Service Bus
-to unlock the message within the topic and make it available to be
-received again, either by the same consuming application or by another
-consuming application.
+On the **Overview** page for the Service Bus namespace in the Azure portal, you can see **incoming** and **outgoing** message count. You may need to wait for a minute or so and then refresh the page to see the latest values. 
 
-There is also a timeout associated with a message locked within the
-topic, and if the application fails to process the message before the
-lock timeout expires (for example, if the application crashes), then Service
-Bus unlocks the message automatically and makes it available to be
-received again.
+:::image type="content" source="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Incoming and outgoing message count" lightbox="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png":::
 
-In the event that the application crashes after processing the message
-but before the **deleteMessage** request is issued, then the message
-is redelivered to the application when it restarts. This process is often
-called **at least once processing**, that is, each message is processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. You can do so by using the **getMessageId** method of the message, which remains
-constant across delivery attempts.
+Switch to the **Topics** tab in the middle-bottom pane, and select the topic to see the **Service Bus Topic** page for your topic. On this page, you should see four incoming and four outgoing messages in the **Messages** chart. 
 
-## Delete topics and subscriptions
-The primary way to delete topics and subscriptions is to use a
-**ServiceBusContract** object. Deleting a topic also deletes any subscriptions that are registered
-with the topic. Subscriptions can also be deleted independently.
+:::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/topic-page-portal.png" alt-text="Incoming and outgoing messages" lightbox="./media/service-bus-java-how-to-use-topics-subscriptions/topic-page-portal.png":::
 
-```java
-// Delete subscriptions
-service.deleteSubscription("TestTopic", "AllMessages");
-service.deleteSubscription("TestTopic", "HighMessages");
-service.deleteSubscription("TestTopic", "LowMessages");
+If you comment out the `receiveMessages` call in the `main` method and run the app again, on the **Service Bus Topic** page, you see 8 incoming messages (4 new) but four outgoing messages. 
 
-// Delete a topic
-service.deleteTopic("TestTopic");
-```
+:::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/updated-topic-page.png" alt-text="Updated topic page" lightbox="./media/service-bus-java-how-to-use-topics-subscriptions/updated-topic-page.png":::
 
-## Next Steps
-For more information, see [Service Bus queues, topics, and subscriptions][Service Bus queues, topics, and subscriptions] for more information.
+On this page, if you select a subscription, you get to the **Service Bus Subscription** page. You can see the active message count, dead-letter message count, and more on this page. In this example, there are four active messages that haven't been received by a receiver yet. 
 
-[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
-[Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
+:::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/active-message-count.png" alt-text="Active message count" lightbox="./media/service-bus-java-how-to-use-topics-subscriptions/active-message-count.png":::
+
+## Next steps
+See the following documentation and samples:
+
+- [Azure Service Bus client library for Java - Readme](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/README.md)
+- [Samples on GitHub](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Java API reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-servicebus/7.0.0/index.html)
+
+
+[Azure SDK for Java]: /java/api/overview/azure/
+[Azure Toolkit for Eclipse]: /azure/developer/java/toolkit-for-eclipse/installation
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: /dotnet/api/microsoft.azure.servicebus.sqlfilter
 [SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.sqlfilter.sqlexpression
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
-
-[0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png
-[2]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-04.png
-[3]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-09.png

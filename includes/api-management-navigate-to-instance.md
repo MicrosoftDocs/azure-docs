@@ -1,19 +1,17 @@
+---
+author: vladvino
+ms.service: api-management
+ms.topic: include
+ms.date: 04/16/2021
+ms.author: vlvinogr
+---
 ## Go to your API Management instance
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. In the Azure portal, search for and select **API Management services**.
 
-2. Select **All services**.  
+    :::image type="content" source="media/api-management-navigate-to-instance/view-apim-1.png" alt-text="Select API Management services":::
 
-3. In the search box, enter **api**.
+1. On the **API Management services** page, select your API Management instance.
 
-4. In the search results, select **API Management services**.
+    :::image type="content" source="media/api-management-navigate-to-instance/view-apim-2.png" alt-text="Select your API Management instance":::
 
-	![Select API Management services in the search results](./media/api-management-navigate-to-instance/navigate-to-api-management-services.png)
-
-5. Select your API Management service instance.
-
-> [!TIP]
-> To add API Management to your favorites in the Azure portal, select the star.
->
-> The API Management icon (![API Management icon](./media/api-management-navigate-to-instance/apim-icon.png)) now appears in the left menu in the portal.
- 

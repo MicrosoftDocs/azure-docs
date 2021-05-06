@@ -1,19 +1,15 @@
 ---
 title: Use the HBase .NET SDK - Azure HDInsight 
 description: Use the HBase .NET SDK to create and delete tables, and to read and write data.
-services: hdinsight
-author: ashishthaps
-ms.reviewer: jasonh
-
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 12/13/2017
-ms.author: ashishth
+ms.topic: how-to
+ms.custom: "hdinsightactive, devx-track-csharp"
+ms.date: 12/02/2019
 ---
-# Use the HBase .NET SDK
 
-[HBase](apache-hbase-overview.md) provides two primary choices to work with your data: [Hive queries, and calls to HBase's RESTful API](apache-hbase-tutorial-get-started-linux.md). You can work directly with the REST API using the `curl` command or a similar utility.
+# Use the .NET SDK for Apache HBase
+
+[Apache HBase](apache-hbase-overview.md) provides two primary choices to work with your data: [Apache Hive queries, and calls to HBase's RESTful API](apache-hbase-tutorial-get-started-linux.md). You can work directly with the REST API using the `curl` command or a similar utility.
 
 For C# and .NET applications, the [Microsoft HBase REST Client Library for .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/) provides a client library on top of the HBase REST API.
 
@@ -21,7 +17,9 @@ For C# and .NET applications, the [Microsoft HBase REST Client Library for .NET]
 
 The HBase .NET SDK is provided as a NuGet package, which can be installed from the Visual Studio **NuGet Package Manager Console** with the following command:
 
-    Install-Package Microsoft.HBase.Client
+```console
+Install-Package Microsoft.HBase.Client
+```
 
 ## Instantiate a new HBaseClient object
 
@@ -32,7 +30,7 @@ var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdins
 client = new HBaseClient(credentials);
 ```
 
-Replace CLUSTERNAME with your HDInsight HBase cluster name, and USERNAME and PASSWORD with the Hadoop credentials specified on cluster creation. The default Hadoop user name is **admin**.
+Replace CLUSTERNAME with your HDInsight HBase cluster name, and USERNAME and PASSWORD with the Apache Hadoop credentials specified on cluster creation. The default Hadoop user name is **admin**.
 
 ## Create a new table
 
@@ -54,7 +52,7 @@ if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 }
 ```
 
-This new table has two column families, t1 and t2. Since column families are stored separately in different HFiles, it makes sense to have a separate column family for frequently queried data. In the following [Insert data](#insert-data) example, columns are added to the t1 column family.
+This new table has two-column families, t1 and t2. Since column families are stored separately in different HFiles, it makes sense to have a separate column family for frequently queried data. In the following [Insert data](#insert-data) example, columns are added to the t1 column family.
 
 ## Delete a table
 
@@ -108,9 +106,9 @@ set.rows.Add(row);
 await client.StoreCellsAsync("RestSDKTable", set);
 ```
 
-HBase implements BigTable, so the data format looks like the following:
+HBase implements [Cloud BigTable](https://cloud.google.com/bigtable/), so the data format looks like the following image:
 
-![User with Cluster User role](./media/apache-hbase-rest-sdk/table.png)
+:::image type="content" source="./media/apache-hbase-rest-sdk/hdinsight-table-roles.png" alt-text="Apache HBase sample data output" border="true":::
 
 ## Select data
 
@@ -168,7 +166,7 @@ try
     {
 	    foreach (var row in next.rows)
         {
-    	    // ... read the rows
+            // ... read the rows
         }
     }
 }
@@ -184,4 +182,4 @@ finally
 ## Next steps
 
 * [Get started with an Apache HBase example in HDInsight](apache-hbase-tutorial-get-started-linux.md)
-* Build an end-to-end application with [Analyze real-time Twitter sentiment with HBase](../hdinsight-hbase-analyze-twitter-sentiment.md)
+* Build an end-to-end application with [Analyze real-time Twitter sentiment with Apache HBase](./apache-hbase-tutorial-get-started-linux.md)

@@ -1,19 +1,10 @@
-﻿---
-title: StorSimple Support terms | Microsoft Docs
+---
+title: StorSimple Support terms
 description: Describes support options for StorSimple 8000 series enterprise storage customers. 
-services: storsimple
-documentationcenter: NA
 author: GabiSocoteanu
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 02/15/2018
+ms.topic: conceptual
+ms.date: 08/13/2019
 ms.author: alkohli
 
 ---
@@ -32,8 +23,8 @@ Microsoft offers flexible support options for StorSimple enterprise storage cust
 
 ## StorSimple support plans
 
-|                                                                                                                                                     | **STANDARD** <sup>1                                                 |  **PREMIUM** <sup>1                                                                         |
-|---------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| Support feature | STANDARD <sup>1 | PREMIUM <sup>1 |
+| --------------- | --------------- | -------------- |
 | Billing and subscription management                                                                     | ✓                                                                               | ✓                                                                              |
 | Azure portal ticket submission                                                                          | ✓                                                                               | ✓                                                                              |
 | Online support portal access                                                                            | ✓                                                                               | ✓                                                                              |
@@ -78,7 +69,7 @@ To expedite hardware warranty claims, replacement parts are shipped to the custo
 If your support contract has expired, be aware, depending on how long the support contract has been expired, it may take up to three weeks after the renewal processing has completed before a part is delivered as the local stocking location for your contract will not be stocked with replacement parts for your device until after your contract is processed.
 
 ## Local language support
-In addition to English, local language support is provided in the following languages during business hours: Japanese, Korean, Taiwanese, and Traditional Chinese.
+In addition to English, local language support is provided in the following languages during business hours: Spanish, Portuguese, Japanese, Korean, Taiwanese, and Traditional Chinese.
 
 ## Support scope 
 Support for billing and subscription management-related issues is available at all support levels. In order to receive StorSimple support, customer must be actively enrolled for either StorSimple Standard or Premium support plans. StorSimple support team will be responsible for resolving all issues that impact the StorSimple solution. In order to receive support for Azure-related issues that are not directly related to StorSimple, customer needs to be enrolled in an appropriate Azure support plan. Refer [here](https://azure.microsoft.com/support/plans/) for details. The support team refers non-StorSimple support cases to the Azure team for followup based on customer entitlements for Azure support. 
@@ -116,7 +107,7 @@ StorSimple 8000 Series Storage Arrays support is provided based on how the StorS
 
 
 
-*<text> * Premium coverage is not available in all locations. Contact Microsoft at SSSupOps@microsoft.com for geographical coverage before purchasing StorSimple Premium Support.*
+*<text> * Premium coverage is not available in all locations. Contact Microsoft at SSSupOps\@microsoft.com for geographical coverage before purchasing StorSimple Premium Support.*
 
 ***The StorSimple appliance must be deployed in a region where the customer is covered by Premier support in order to be eligible for a free upgrade to premium StorSimple support.*
 

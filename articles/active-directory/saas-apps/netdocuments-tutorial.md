@@ -1,263 +1,203 @@
-﻿---
-title: 'Tutorial: Azure Active Directory integration with NetDocuments | Microsoft Docs'
+---
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with NetDocuments | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and NetDocuments.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-
-ms.assetid: 1a47dc42-1a17-48a2-965e-eca4cfb2f197
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/30/2017
+ms.topic: tutorial
+ms.date: 01/12/2021
 ms.author: jeedes
-
 ---
-# Tutorial: Azure Active Directory integration with NetDocuments
 
-In this tutorial, you learn how to integrate NetDocuments with Azure Active Directory (Azure AD).
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with NetDocuments
 
-Integrating NetDocuments with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate NetDocuments with Azure Active Directory (Azure AD). When you integrate NetDocuments with Azure AD, you can:
 
-- You can control in Azure AD who has access to NetDocuments
-- You can enable your users to automatically get signed-on to NetDocuments (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Control in Azure AD who has access to NetDocuments.
+* Enable your users to be automatically signed-in to NetDocuments with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
-To configure Azure AD integration with NetDocuments, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- A NetDocuments single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* NetDocuments single sign-on (SSO) enabled subscription.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding NetDocuments from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD SSO in a test environment.
+
+* NetDocuments supports **SP** initiated SSO
 
 ## Adding NetDocuments from the gallery
+
 To configure the integration of NetDocuments into Azure AD, you need to add NetDocuments from the gallery to your list of managed SaaS apps.
 
-**To add NetDocuments from the gallery, perform the following steps:**
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **NetDocuments** in the search box.
+1. Select **NetDocuments** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+## Configure and test Azure AD SSO for NetDocuments
 
-	![Active Directory][1]
+Configure and test Azure AD SSO with NetDocuments using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in NetDocuments.
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+To configure and test Azure AD SSO with NetDocuments, complete the following building blocks:
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure NetDocuments SSO](#configure-netdocuments-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create NetDocuments test user](#create-netdocuments-test-user)** - to have a counterpart of B.Simon in NetDocuments that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	![Applications][3]
+## Configure Azure AD SSO
 
-1. In the search box, type **NetDocuments**.
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-	![Creating an Azure AD test user](./media/netdocuments-tutorial/tutorial_netdocuments_search.png)
+1. In the Azure portal, on the **NetDocuments** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
-1. In the results panel, select **NetDocuments**, and then click **Add** button to add the application.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-	![Creating an Azure AD test user](./media/netdocuments-tutorial/tutorial_netdocuments_addfromgallery.png)
+1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with NetDocuments based on a test user called "Britta Simon".
+    a. In the **Sign on URL** text box, type one of the following URL patterns:
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in NetDocuments is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in NetDocuments needs to be established.
+    |Sign on URL|
+    |-----------|
+    |`https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://eu.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://de.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://au.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |
 
-In NetDocuments, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+    b. In the **Identifier (Entity ID)** text box, type one of the URLs:
 
-To configure and test Azure AD single sign-on with NetDocuments, you need to complete the following building blocks:
+    |Identifier|
+    |-----------|
+    |`http://netdocuments.com/VAULT`|
+    |`http://netdocuments.com/EU`|
+    |`http://netdocuments.com/AU`|
+    |`http://netdocuments.com/DE`|
+    |
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a NetDocuments test user](#creating-a-netdocuments-test-user)** - to have a counterpart of Britta Simon in NetDocuments that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+    c. In the **Reply URL** text box, type one of the following URL patterns:
 
-### Configuring Azure AD single sign-on
+    |Reply URL|
+    |-----------|
+    |`https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://eu.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://de.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://au.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your NetDocuments application.
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Sign on URL and Reply URL. Repository ID is a value starting with **CA-** followed by 8 character code associated with your NetDocuments Repository. You can check the [NetDocuments Federated Identity support document](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login) for more information. Alternatively you can contact [NetDocuments Client support team](https://support.netdocuments.com/hc/) to get these values if you have difficulties configuring using the above information . You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-**To configure Azure AD single sign-on with NetDocuments, perform the following steps:**
+1. NetDocuments application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. NetDocuments application expects **nameidentifier** to be mapped with **ObjectID** or any other claim which is applicable to your Organization as **nameidentifier**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
-1. In the Azure portal, on the **NetDocuments** application integration page, click **Single sign-on**.
+	![image](common/edit-attribute.png)
 
-	![Configure Single Sign-On][4]
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **App Federation Metadata URL** and copy the URL.
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/netdocuments-tutorial/tutorial_netdocuments_samlbase.png)
+	![The Certificate download link](common/copy-metadataurl.png)
 
-1. On the **NetDocuments Domain and URLs** section, perform the following steps:
+1. On the **Set up NetDocuments** section, copy the appropriate URL(s) based on your requirement.
 
-	![Configure Single Sign-On](./media/netdocuments-tutorial/tutorial_netdocuments_url.png)
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
+### Create an Azure AD test user
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-on URL and Reply URL. Contact [NetDocuments support team](https://support.netdocuments.com/hc/) to get these values.
- 
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
-	![Configure Single Sign-On](./media/netdocuments-tutorial/tutorial_netdocuments_certificate.png) 
+### Assign the Azure AD test user
 
-1. Click **Save** button.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to NetDocuments.
 
-	![Configure Single Sign-On](./media/netdocuments-tutorial/tutorial_general_400.png)
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **NetDocuments**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-1. In a different web browser window, log into your NetDocuments company site as an administrator.
+## Configure NetDocuments SSO
 
-1. Go to **Admin**.
+1. In a different web browser window, sign into your NetDocuments company site as an administrator.
 
-1. Click **Add and remove users and groups**.
+2. In the upper-right corner, select your name>**Admin**.
+
+3. Select **Security Center**.
    
-    ![Repository](./media/netdocuments-tutorial/ic795047.png "Repository")
+    ![Repository](./media/netdocuments-tutorial/security-center.png "Security Center")
 
-1. Click **Configure advanced authentication options**.
+4. Select **Advanced Authentication**.
     
-    ![Configure advanced authentication options](./media/netdocuments-tutorial/ic795048.png "Configure advanced authentication options")
+    ![Configure advanced authentication options](./media/netdocuments-tutorial/advance-authentication.png "Configure advanced authentication options")
 
-1. On the **Federated Identity** dialog, perform the following steps:
+5.	On the **Federated ID** tab, perform the following steps:   
    
-    ![Federated Identitty](./media/netdocuments-tutorial/ic795049.png "Federated Identitty")
+    [ ![Federated Identity](./media/netdocuments-tutorial/federated-id.png "Federated Identity")](./media/netdocuments-tutorial/federated-id.png#lightbox)
    
-    a. As **Federated identity server type**, select **Active Directory Federation Services**.
-   
-    b. Click **Choose file**, to upload the downloaded metadata file which you have downloaded from Azure portal.
-   
-    c. Click **OK**.
+    a. For **Federated identity server type**, select as **Windows Azure Active Directory**.
+    
+    b.	Select **Choose File**, to upload the downloaded metadata file which you have downloaded from Azure portal.
+    
+    c.	Select **SAVE**.
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+### Create NetDocuments test user
 
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-![Create Azure AD User][100]
-
-**To create a test user in Azure AD, perform the following steps:**
-
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
-
-	![Creating an Azure AD test user](./media/netdocuments-tutorial/create_aaduser_01.png) 
-
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/netdocuments-tutorial/create_aaduser_02.png) 
-
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/netdocuments-tutorial/create_aaduser_03.png) 
-
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/netdocuments-tutorial/create_aaduser_04.png) 
-
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
-
-    d. Click **Create**.
- 
-### Creating a NetDocuments test user
-
-To enable Azure AD users to log in to NetDocuments, they must be provisioned into NetDocuments.  
-In the case of NetDocuments, provisioning is a manual task.
+To enable Azure AD users to sign in to NetDocuments, they must be provisioned into NetDocuments. In the case of NetDocuments, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Sing on to your **NetDocuments** company site as administrator.
+1. Sign on to your **NetDocuments** company site as administrator.
 
-1. In the menu on the top, click **Admin**.
+2. In the upper-right corner, select your name>**Admin**.
    
-    ![Admin](./media/netdocuments-tutorial/ic795051.png "Admin")
+    ![Admin](./media/netdocuments-tutorial/user-admin.png "Admin")
 
-1. Click **Add and remove users and groups**.
+3. Select **Users and groups**.
    
-    ![Repository](./media/netdocuments-tutorial/ic795047.png "Repository")
+    ![Users and groups](./media/netdocuments-tutorial/users-groups.png "Repository")
 
-1. In the **Email Address** textbox, type the email address of a valid Azure Active Directory account you want to provision, and then click **Add User**.
+4. In the **Email Address** textbox, type the email address of a valid Azure Active Directory account you want to provision, and then click **Add User**.
    
-    ![Email Address](./media/netdocuments-tutorial/ic795053.png "Email Address")
+    ![Email Address](./media/netdocuments-tutorial/user-mail.png "Email Address")
    
-   >[!NOTE]
-   >The Azure Active Directory account holder will get an email that includes a link to confirm the account before it becomes active. 
-   You can use any other NetDocuments user account creation tools or APIs provided by NetDocuments to provision Azure Active Directory user accounts.
+    > [!NOTE]
+    > The Azure Active Directory account holder will get an email that includes a link to confirm the account before it becomes active. 
+    You can use any other NetDocuments user account creation tools or APIs provided by NetDocuments to provision Azure Active Directory user accounts.
 
-### Assigning the Azure AD test user
+## Test SSO 
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to NetDocuments.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-![Assign User][200] 
+* Click on **Test this application** in Azure portal. This will redirect to NetDocuments Sign-on URL where you can initiate the login flow. 
 
-**To assign Britta Simon to NetDocuments, perform the following steps:**
+* Go to NetDocuments Sign-on URL directly and initiate the login flow from there.
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+* You can use Microsoft My Apps. When you click the NetDocuments tile in the My Apps, you should be automatically signed in to the NetDocuments for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-	![Assign User][201] 
 
-1. In the applications list, select **NetDocuments**.
+## Next steps
 
-	![Configure Single Sign-On](./media/netdocuments-tutorial/tutorial_netdocuments_app.png) 
-
-1. In the menu on the left, click **Users and groups**.
-
-	![Assign User][202] 
-
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![Assign User][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
-
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the NetDocuments tile in the Access Panel, you should get automatically signed-on to your NetDocuments application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
-
-## Additional resources
-
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-<!--Image references-->
-
-[1]: ./media/netdocuments-tutorial/tutorial_general_01.png
-[2]: ./media/netdocuments-tutorial/tutorial_general_02.png
-[3]: ./media/netdocuments-tutorial/tutorial_general_03.png
-[4]: ./media/netdocuments-tutorial/tutorial_general_04.png
-
-[100]: ./media/netdocuments-tutorial/tutorial_general_100.png
-
-[200]: ./media/netdocuments-tutorial/tutorial_general_200.png
-[201]: ./media/netdocuments-tutorial/tutorial_general_201.png
-[202]: ./media/netdocuments-tutorial/tutorial_general_202.png
-[203]: ./media/netdocuments-tutorial/tutorial_general_203.png
-
+Once you configure NetDocuments you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

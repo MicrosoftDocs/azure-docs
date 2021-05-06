@@ -1,23 +1,18 @@
 ---
 title: Azure Germany images | Microsoft Docs
 description: This article provides an overview of the images included in the Azure Germany Marketplace
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/13/2017
-ms.author: ralfwi
+ms.date: 10/16/2020
+author: gitralf
+ms.author: ralfwi 
+ms.service: germany
+ms.custom: bfdocs
 ---
 
 # Azure Germany images
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
 ## Overview
 When deploying new virtual servers in Azure Germany, customers can choose to deploy prebuilt images from Microsoft or upload their own VHDs. This flexibility means that you can deploy your own standardized images if needed.
 

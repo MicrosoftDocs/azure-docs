@@ -1,16 +1,16 @@
 ---
-title: Create and manage MariaDB firewall rules in Azure Database for MariaDB
+title: Manage firewall rules - Azure portal - Azure Database for MariaDB
 description: Create and manage Azure Database for MariaDB firewall rules using the Azure portal
-author: ajlam
-ms.author: andrela
-editor: jasonwhowell
-services: mariadb
+author: savjani
+ms.author: pariks
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 09/24/2018
+ms.topic: how-to
+ms.date: 3/18/2020
 ---
 # Create and manage Azure Database for MariaDB firewall rules by using the Azure portal
-Server-level firewall rules enable administrators to access an Azure Database for MariaDB Server from a specified IP address or a range of IP addresses. 
+Server-level firewall rules can be used to manage access to an Azure Database for MariaDB Server from a specified IP address or a range of IP addresses.
+
+Virtual Network (VNet) rules can also be used to secure access to your server. Learn more about [creating and managing Virtual Network service endpoints and rules using the Azure portal](howto-manage-vnet-portal.md).
 
 ## Create a server-level firewall rule in the Azure portal
 
@@ -28,7 +28,7 @@ Server-level firewall rules enable administrators to access an Azure Database fo
 
 4. Add additional address ranges. In the firewall rules for the Azure Database for MariaDB, you can specify a single IP address or a range of addresses. If you want to limit the rule to a single IP address, type the same address in the Start IP and End IP fields. Opening the firewall enables administrators, users, and application to access any database on the MariaDB server to which they have valid credentials.
 
-   ![Azure portal - firewall rules ](./media/howto-manage-firewall-portal/4-specify-addresses.png)
+   ![Azure portal - firewall rules](./media/howto-manage-firewall-portal/4-specify-addresses.png)
 
 5. Click **Save** on the toolbar to save this server-level firewall rule. Wait for the confirmation that the update to the firewall rules is  successful.
 
@@ -48,7 +48,6 @@ Repeat the steps to manage the firewall rules.
 * To modify an existing rule, click any of the fields in the rule, and then modify. Click **Save** to save the changes.
 * To delete an existing rule, click the ellipsis […], and then click **Delete**. Click **Save** to save the changes.
 
-<!--
 ## Next steps
- - Similarly, you can script to [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](howto-manage-firewall-using-cli.md).
-- For help in connecting to an Azure Database for MariaDB server, see [Connection libraries for Azure Database for MariaDB](./concepts-connection-libraries.md) -->
+ - Similarly, you can script to [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](howto-manage-firewall-cli.md).
+ - Further secure access to your server by [creating and managing Virtual Network service endpoints and rules using the Azure portal](howto-manage-vnet-portal.md).

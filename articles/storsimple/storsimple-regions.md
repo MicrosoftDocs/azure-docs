@@ -1,23 +1,16 @@
 ---
-title: StorSimple region availability | Microsoft Docs
+title: StorSimple region availability
 description: Explains the Azure regions in which the various StorSimple device models are available.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
 
 ---
 # Available regions for your StorSimple
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## Overview
 
@@ -28,7 +21,7 @@ Choosing an Azure region is very important and the choice of region is influence
 For StorSimple solution, the choice of region is specifically determined by the following factors:
 
 - Regions where the StorSimple Device Manager service is available.
-- The countries where the StorSimple physical, cloud, or virtual device is available.
+- The countries/regions where the StorSimple physical, cloud, or virtual device is available.
 - The regions where the storage accounts that store StorSimple data should be located for optimum performance.
 
 This tutorial describes the region availability for the StorSimple Device Manager service, the on-premises physical and the cloud devices. The information contained in this article is applicable to StorSimple 8000 and 1200 series devices.
@@ -41,7 +34,7 @@ You define a region or location when you first create the StorSimple Device Mana
 
 Here is a list of regions where StorSimple Device Manager service is available for Azure public cloud and can be deployed.
 
-![storsimple-device-manager-service-regions](./media/storsimple-region/storsimple-device-manager-service-regions.png)
+![Screenshot shows the StorSimple Device Manager with the Location list highlighted.](./media/storsimple-region/storsimple-device-manager-service-regions.png)
 
 For Azure Government cloud, the StorSimple Device Manager service is available in US Gov Iowa and US Gov Virginia datacenters.
 
@@ -57,36 +50,36 @@ If you are using a StorSimple Cloud Appliance, then we recommend that the servic
 
 ## Availability of StorSimple device
 
-Depending upon the model, the StorSimple devices can be available in different geographies or countries.
+Depending upon the model, the StorSimple devices can be available in different geographies or countries/regions.
 
 ### StorSimple physical device (Models 8100/8600)
 
-If using a StorSimple 8100 or 8600 physical device, the device is available in the following countries.
+If using a StorSimple 8100 or 8600 physical device, the device is available in the following countries/regions.
 
-| #  | Country        | #  | Country     | #  | Country      | #  | Country              |
-|----|----------------|----|-------------|----|--------------|----|----------------------|
-| 1  | Australia      | 16 | Hong Kong   | 31 | New Zealand  | 46 | South Africa         |
-| 2  | Austria        | 17 | Hungary     | 32 | Nigeria      | 47 | South Korea          |
-| 3  | Bahrain        | 18 | Iceland     | 33 | Norway       | 48 | Spain                |
-| 4  | Belgium        | 19 | India       | 34 | Peru         | 49 | Sri Lanka            |
-| 5  | Brazil         | 20 | Indonesia   | 35 | Philippines  | 50 | Sweden               |
-| 6  | Canada         | 21 | Ireland     | 36 | Poland       | 51 | Switzerland          |
-| 7  | Chile          | 22 | Israel      | 37 | Portugal     | 52 | Taiwan               |
-| 8  | Colombia       | 23 | Italy       | 38 | Puerto Rico  | 53 | Thailand             |
-| 9  | Czech Republic | 24 | Japan       | 39 | Qatar        | 54 | Turkey               |
-| 10 | Denmark        | 25 | Kenya       | 40 | Romania      | 55 | Ukraine              |
-| 11 | Egypt          | 26 | Kuwait      | 41 | Russia       | 56 | United Arab Emirates |
-| 12 | Finland        | 27 | Macau       | 42 | Saudi Arabia | 57 | United Kingdom       |
-| 13 | France         | 28 | Malaysia    | 43 | Singapore    | 58 | United States        |
-| 14 | Germany        | 29 | Mexico      | 44 | Slovakia     | 59 | Vietnam              |
-| 15 | Greece         | 30 | Netherlands | 45 | Slovenia     | 60 | Croatia              |
+| #  | Country/Region        | #  | Country/Region     | #  | Country/Region      | #  | Country/Region             |
+|----|-----------------------|----|--------------------|----|---------------------|----|----------------------------|
+| 1  | Australia             | 16 | Hong Kong SAR      | 31 | New Zealand         | 46 | South Africa               |
+| 2  | Austria               | 17 | Hungary            | 32 | Nigeria             | 47 | South Korea                |
+| 3  | Bahrain               | 18 | Iceland            | 33 | Norway              | 48 | Spain                      |
+| 4  | Belgium               | 19 | India              | 34 | Peru                | 49 | Sri Lanka                  |
+| 5  | Brazil                | 20 | Indonesia          | 35 | Philippines         | 50 | Sweden                     |
+| 6  | Canada                | 21 | Ireland            | 36 | Poland              | 51 | Switzerland                |
+| 7  | Chile                 | 22 | Israel             | 37 | Portugal            | 52 | Taiwan                     |
+| 8  | Colombia              | 23 | Italy              | 38 | Puerto Rico         | 53 | Thailand                   |
+| 9  | Czech Republic        | 24 | Japan              | 39 | Qatar               | 54 | Turkey                     |
+| 10 | Denmark               | 25 | Kenya              | 40 | Romania             | 55 | Ukraine                    |
+| 11 | Egypt                 | 26 | Kuwait             | 41 | Russia              | 56 | United Arab Emirates       |
+| 12 | Finland               | 27 | Macao SAR          | 42 | Saudi Arabia        | 57 | United Kingdom             |
+| 13 | France                | 28 | Malaysia           | 43 | Singapore           | 58 | United States              |
+| 14 | Germany               | 29 | Mexico             | 44 | Slovakia            | 59 | Vietnam                    |
+| 15 | Greece                | 30 | Netherlands        | 45 | Slovenia            | 60 | Croatia                    |
 
-This list changes as more countries are added. For a most up-to-date list of the geographies, go to the Storage Array Terms Appendix in the [Product terms](https://www.microsoft.com/en-us/Licensing/product-licensing).
+This list changes as more countries/regions are added. For a most up-to-date list of the geographies, go to the Storage Array Terms Appendix in the [Product terms](https://www.microsoft.com/en-us/licensing/product-licensing/products).
 
 Microsoft can ship physical hardware and provide hardware spare parts replacement for StorSimple to the geographies in the preceding list.
 
 > [!IMPORTANT]
-> Do not place a StorSimple physical device in a region where StorSimple is not supported. Microsoft will not be able to ship any replacement parts to countries where StorSimple is not supported.
+> Do not place a StorSimple physical device in a region where StorSimple is not supported. Microsoft will not be able to ship any replacement parts to countries/regions where StorSimple is not supported.
 
 ### StorSimple Cloud Appliance (Models 8010/8020)
 

@@ -2,19 +2,15 @@
 title: 'Atlassian Jira/Confluence admin guide - Azure Active Directory| Microsoft Docs'
 description: Admin guide to use Atlassian Jira and Confluence with Azure Active Directory (Azure AD)..
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: joflore
-
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 09/28/2018
+ms.topic: tutorial
+ms.date: 11/19/2018
 ms.author: jeedes
-
 ---
 # Atlassian Jira and Confluence admin guide for Azure Active Directory
 
@@ -63,9 +59,23 @@ Note the following information before you install the plug-in:
 
 The plug-in supports the following versions of Jira and Confluence:
 
-* Jira Core and Software: 6.0 to 7.8
-* Jira Service Desk: 3.0 to 3.2
+* Jira Core and Software: 6.0 to 7.12
+* Jira Service Desk: 3.0.0 to 3.5.0
+* JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](./jira52microsoft-tutorial.md)
 * Confluence: 5.0 to 5.10
+* Confluence: 6.0.1
+* Confluence: 6.1.1
+* Confluence: 6.2.1
+* Confluence: 6.3.4
+* Confluence: 6.4.0
+* Confluence: 6.5.0
+* Confluence: 6.6.2
+* Confluence: 6.7.0
+* Confluence: 6.8.1
+* Confluence: 6.9.0
+* Confluence: 6.10.0
+* Confluence: 6.11.0
+* Confluence: 6.12.0
 
 ## Installation
 
@@ -75,7 +85,7 @@ To install the plug-in, follow these steps:
 
 2. Go to the Jira/Confluence administration console and select **Add-ons**.
 
-3. From the Atlassian Marketplace, search for **Microsoft SAML SSO Plugin**.
+3. From the Microsoft Download Center, download the [Microsoft SAML SSO Plugin for Jira](https://www.microsoft.com/download/details.aspx?id=56506)/ [Microsoft SAML SSO Plugin for Confluence](https://www.microsoft.com/download/details.aspx?id=56503).
 
    The appropriate version of the plug-in appears in the search results.
 
@@ -91,33 +101,33 @@ The following image shows the configuration screen in both Jira and Confluence:
 
 ![Plug-in configuration screen](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
-*   **Metadata URL**: The URL to get federation metadata from Azure AD.
+* **Metadata URL**: The URL to get federation metadata from Azure AD.
 
-*   **Identifiers**: The URL that Azure AD uses to validate the source of the request. It maps to the **Identifier** element in Azure AD. The plug-in automatically derives this URL as https://*<domain:port>*/.
+* **Identifiers**: The URL that Azure AD uses to validate the source of the request. It maps to the **Identifier** element in Azure AD. The plug-in automatically derives this URL as https://*\<domain:port>*/.
 
-*   **Reply URL**: The reply URL in your identity provider (IdP) that initiates the SAML sign-in. It maps to the **Reply URL** element in Azure AD. The plug-in automatically derives this URL as https://*<domain:port>*/plugins/servlet/saml/auth.
+* **Reply URL**: The reply URL in your identity provider (IdP) that initiates the SAML sign-in. It maps to the **Reply URL** element in Azure AD. The plug-in automatically derives this URL as https://*\<domain:port>*/plugins/servlet/saml/auth.
 
-*   **Sign On URL**: The sign-on URL in your IdP that initiates the SAML sign-in. It maps to the **Sign On** element in Azure AD. The plug-in automatically derives this URL as https://*<domain:port>*/plugins/servlet/saml/auth.
+* **Sign On URL**: The sign-on URL in your IdP that initiates the SAML sign-in. It maps to the **Sign On** element in Azure AD. The plug-in automatically derives this URL as https://*\<domain:port>*/plugins/servlet/saml/auth.
 
-*   **IdP Entity ID**: The entity ID that your IdP uses. This box is populated when the metadata URL is resolved.
+* **IdP Entity ID**: The entity ID that your IdP uses. This box is populated when the metadata URL is resolved.
 
-*   **Login URL**: The sign-in URL from your IdP. This box is populated from Azure AD when the metadata URL is resolved.
+* **Login URL**: The sign-in URL from your IdP. This box is populated from Azure AD when the metadata URL is resolved.
 
-*   **Logout URL**: The logout URL from your IdP. This box is populated from Azure AD when the metadata URL is resolved.
+* **Logout URL**: The logout URL from your IdP. This box is populated from Azure AD when the metadata URL is resolved.
 
-*   **X.509 Certificate**: Your IdP’s X.509 certificate. This box is populated from Azure AD when the metadata URL is resolved.
+* **X.509 Certificate**: Your IdP’s X.509 certificate. This box is populated from Azure AD when the metadata URL is resolved.
 
-*   **Login Button Name**: The name of the sign-in button that your organization wants users to see on the sign-in page.
+* **Login Button Name**: The name of the sign-in button that your organization wants users to see on the sign-in page.
 
-*   **SAML User ID Locations**: The location where the Jira or Confluence user ID is expected in the SAML response. It can be in **NameID** or in a custom attribute name.
+* **SAML User ID Locations**: The location where the Jira or Confluence user ID is expected in the SAML response. It can be in **NameID** or in a custom attribute name.
 
-*   **Attribute Name**: The name of the attribute where the user ID is expected.
+* **Attribute Name**: The name of the attribute where the user ID is expected.
 
-*   **Enable Home Realm Discovery**: The selection to make if the company is using Active Directory Federation Services (AD FS)-based sign-in.
+* **Enable Home Realm Discovery**: The selection to make if the company is using Active Directory Federation Services (AD FS)-based sign-in.
 
-*   **Domain Name**: The domain name if sign-in is AD FS based.
+* **Domain Name**: The domain name if sign-in is AD FS based.
 
-*   **Enable Single Signout**: The selection to make if you want to sign out from Azure AD when a user signs out from Jira or Confluence.
+* **Enable Single Signout**: The selection to make if you want to sign out from Azure AD when a user signs out from Jira or Confluence.
 
 ## Troubleshooting
 
@@ -127,7 +137,7 @@ The following image shows the configuration screen in both Jira and Confluence:
 
 * **You want to disable WebSudo (disable the secure administrator session)**:
 
-  * For Jira, secure administrator sessions (that is, password confirmation before accessing administration functions) are enabled by default. If you want to remove this ability in your Jira instance, specify the following line in your jira-config.properties file: `ira.websudo.is.disabled = true`
+  * For Jira, secure administrator sessions (that is, password confirmation before accessing administration functions) are enabled by default. If you want to remove this ability in your Jira instance, specify the following line in your jira-config.properties file: `jira.websudo.is.disabled = true`
 
   * For Confluence, follow the steps on the [Confluence support site](https://confluence.atlassian.com/doc/configuring-secure-administrator-sessions-218269595.html).
 
@@ -167,9 +177,23 @@ No. The plug-in supports only on-premises versions of Jira and Confluence.
 
 The plug-in supports these versions:
 
-* Jira Core and Software: 6.0 to 7.8
-* Jira Service Desk: 3.0 to 3.2
+* Jira Core and Software: 6.0 to 7.12
+* Jira Service Desk: 3.0.0 to 3.5.0
+* JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](./jira52microsoft-tutorial.md)
 * Confluence: 5.0 to 5.10
+* Confluence: 6.0.1
+* Confluence: 6.1.1
+* Confluence: 6.2.1
+* Confluence: 6.3.4
+* Confluence: 6.4.0
+* Confluence: 6.5.0
+* Confluence: 6.6.2
+* Confluence: 6.7.0
+* Confluence: 6.8.1
+* Confluence: 6.9.0
+* Confluence: 6.10.0
+* Confluence: 6.11.0
+* Confluence: 6.12.0
 
 ### Is the plug-in free or paid?
 

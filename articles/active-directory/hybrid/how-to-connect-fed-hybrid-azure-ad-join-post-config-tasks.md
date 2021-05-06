@@ -4,18 +4,19 @@ description: This document details post configuration tasks needed to complete t
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: billmath
 ms.assetid:
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/10/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 
 # Post configuration tasks for Hybrid Azure AD join
@@ -23,24 +24,24 @@ ms.author: billmath
 After you have run Azure AD Connect to configure your organization for Hybrid Azure AD join, there are a few additional steps that you must complete to finalize that setup.  Carry out only the steps that apply for your devices.
 
 ## 1. Configure controlled rollout (Optional)
-All domain-joined devices running Windows 10 and Windows Server 2016 automatically register with Azure AD once all configuration steps are complete. If you prefer a controlled rollout rather than this auto-registration, you can use group policy to selectively enable or disable automatic rollout.  This group policy should be set before starting the other configuration steps:Azure AD
+All domain-joined devices running Windows 10 and Windows Server 2016 automatically register with Azure AD once all configuration steps are complete. If you prefer a controlled rollout rather than this auto-registration, you can use group policy to selectively enable or disable automatic rollout.  This group policy should be set before starting the other configuration steps:
 * Create a group policy object in your Active Directory.
 * Name it (ex- Hybrid Azure AD join).
-* Edit & go to:  Computer Configuration > Policies > Administrative Templates > Windows Components > Device Registration.
+* Edit and go to:  Computer Configuration > Policies > Administrative Templates > Windows Components > Device Registration.
 
 >[!NOTE]
 >For 2012R2 the policy settings are at **Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers**
 
-* Disable this setting:  Register domain-joined computers as devices.
+* Enable this setting:  Register domain-joined computers as devices.
 * Apply and click OK.
 * Link the GPO to the location of your choice (organizational unit, security group, or to the domain for all devices).
 
 ## 2. Configure network with device registration endpoints
 Make sure that the following URLs are accessible from computers inside your organizational network for registration to Azure AD:
 
-* https://enterpriseregistration.windows.net
-* https://login.microsoftonline.com
-* https://device.login.microsoftonline.com 
+* `https://enterpriseregistration.windows.net`
+* `https://login.microsoftonline.com`
+* `https://device.login.microsoftonline.com` 
 
 ## 3. Implement WPAD for Windows 10 devices
 If your organization accesses the Internet via an outbound proxy, implement Web Proxy Auto-Discovery (WPAD)to enable Windows 10 computers to register to Azure AD.
@@ -72,10 +73,10 @@ To register Windows down-level devices, you need to make sure that the Azure AD 
 ## 8. Add Azure AD endpoint to Windows down-level devices
 
 Add the Azure AD device authentication endpoint to the local Intranet zones on your Windows down-level devices to avoid certificate prompts when authenticating the devices:
-https://device.login.microsoftonline.com 
+`https://device.login.microsoftonline.com` 
 
-If you are using [Seamless SSO](https://aka.ms/hybrid/sso), also enable “Allow status bar updates via script” on that zone and add the following endpoint:
-https://autologon.microsoftazuread-sso.com 
+If you are using [Seamless SSO](how-to-connect-sso.md), also enable “Allow status bar updates via script” on that zone and add the following endpoint:
+`https://autologon.microsoftazuread-sso.com` 
 
 ## 9. Install Microsoft Workplace Join on Windows down-level devices
 
@@ -83,15 +84,7 @@ This installer creates a scheduled task on the device system that runs in the us
 
 ## 10. Configure group policy to allow device registration
 
-* Create a group policy object in your Active Directory--if not already created.
-* Name it (ex- Hybrid Azure AD join).
-* Edit & go to:  Computer Configuration > Policies > Administrative Templates > Windows Components > Device Registration
-* Enable:  Register domain-joined computers as devices
-* Apply and click OK.
-* Link the GPO to the location of your choice (organizational unit, security group, or to the domain for all devices).
-
->[!NOTE]
->For 2012R2 the policy settings are at **Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers**
+For information about how to allow hybrid Azure AD join for individual devices, see [Controlled validation of hybrid Azure AD join](../devices/hybrid-azuread-join-control.md).
 
 ## Next steps
 [Configure device writeback](how-to-connect-device-writeback.md)

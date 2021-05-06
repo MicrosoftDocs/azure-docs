@@ -1,22 +1,27 @@
 ---
 title: Throttling requests - Bing Web Search API
 titleSuffix: Azure Cognitive Services
-description: Learn more about request throttling and when using the Bing Web Search API.
+description: The service and your subscription type determine the number of queries per second (QPS) that you can make.
 services: cognitive-services
-author: erhopf
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.assetid:
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 8/13/2018
-ms.author: erhopf
+ms.date: 03/04/2019
+ms.author: aahi
 ---
 
 # Throttling requests to the Bing Web Search API
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
 
 ## Next steps
 
-* [Bing Web Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+* [Bing Web Search API reference](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

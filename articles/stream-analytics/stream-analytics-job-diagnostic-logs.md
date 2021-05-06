@@ -1,68 +1,91 @@
 ---
-title: Troubleshoot Azure Stream Analytics using diagnostics logs
-description: This article describes how to analyze diagnostics logs in Azure Stream Analytics.
-services: stream-analytics
+title: Troubleshoot Azure Stream Analytics using resource logs
+description: This article describes how to analyze resource logs in Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
-ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 04/20/2017
----
-# Troubleshoot Azure Stream Analytics by using diagnostics logs
 
-Occasionally, an Azure Stream Analytics job unexpectedly stops processing. It's important to be able to troubleshoot this kind of event. The event might be caused by an unexpected query result, by connectivity to devices, or by an unexpected service outage. The diagnostics logs in Stream Analytics can help you identify the cause of issues when they occur, and reduce recovery time.
+ms.service: stream-analytics
+ms.topic: troubleshooting
+ms.custom: contperf-fy21q1
+ms.date: 06/18/2020
+---
+# Troubleshoot Azure Stream Analytics by using resource logs
+
+Occasionally, an Azure Stream Analytics job unexpectedly stops processing. It's important to be able to troubleshoot this kind of event. Failures can be caused by an unexpected query result, by connectivity to devices, or by an unexpected service outage. The resource logs in Stream Analytics can help you identify the cause of issues when they occur and reduce recovery time.
+
+It is highly recommended to enable resource logs for all jobs as this will greatly help with debugging and monitoring.
 
 ## Log types
 
-Stream Analytics offers two types of logs: 
-* [Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) (always on). Activity logs give insights into operations performed on jobs.
-* [Diagnostics logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (configurable). Diagnostics logs provide richer insights into everything that happens with a job. Diagnostics logs start when the job is created, and end when the job is deleted. They cover events when the job is updated and while it’s running.
+Stream Analytics offers two types of logs:
+
+* [Activity logs](../azure-monitor/essentials/platform-logs-overview.md) (always on), which give insights into operations performed on jobs.
+
+* [Resource logs](../azure-monitor/essentials/platform-logs-overview.md) (configurable), which provide richer insights into everything that happens with a job. Resource logs start when the job is created and end when the job is deleted. They cover events when the job is updated and while it’s running.
 
 > [!NOTE]
-> You can use services like Azure Storage, Azure Event Hubs, and Azure Log Analytics to analyze nonconforming data. You are charged based on the pricing model for those services.
->
+> You can use services like Azure Storage, Azure Event Hubs, and Azure Monitor logs to analyze nonconforming data. You are charged based on the pricing model for those services.
 
-## Turn on diagnostics logs
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Diagnostics logs are **off** by default. To turn on diagnostics logs, complete these steps:
+## Debugging using activity logs
 
-1.  Sign in to the Azure portal, and go to the streaming job blade. Under **Monitoring**, select **Diagnostics logs**.
+Activity logs are on by default and give high-level insights into operations performed by your Stream Analytics job. Information present in activity logs may help find the root cause of the issues impacting your job. Do the following steps to use activity logs in Stream Analytics:
 
-    ![Blade navigation to diagnostics logs](./media/stream-analytics-job-diagnostic-logs/image1.png)  
+1. Sign in to the Azure portal and select **Activity log** under **Overview**.
 
-2.  Select **Turn on diagnostics**.
+   ![Stream Analytics activity log](./media/stream-analytics-job-diagnostic-logs/stream-analytics-menu.png)
 
-    ![Turn on diagnostics logs](./media/stream-analytics-job-diagnostic-logs/image2.png)
+2. You can see a list of operations that have been performed. Any operation that caused your job to fail has a red info bubble.
 
-3.  On the **Diagnostics settings** page, for **Status**, select **On**.
+3. Click an operation to see its summary view. Information here is often limited. To learn more details about the operation, click **JSON**.
 
-    ![Change status for diagnostics logs](./media/stream-analytics-job-diagnostic-logs/image3.png)
+   ![Stream Analytics activity log operation summary](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
-4.  Set up the archival target (storage account, event hub, Log Analytics) that you want. Then, select the categories of logs that you want to collect (Execution, Authoring). 
+4. Scroll down to the **Properties** section of the JSON, which provides details of the error that caused the failed operation. In this example, the failure was due to a runtime error from out of bound latitude values. Discrepancy in the data that is processed by a Stream Analytics job causes a data error. You can learn about different [input and output data errors and why they occur](./data-errors.md).
 
-5.  Save the new diagnostics configuration.
+   ![JSON error details](./media/stream-analytics-job-diagnostic-logs/error-details.png)
 
-The diagnostics configuration takes about 10 minutes to take effect. After that, the logs start appearing in the configured archival target (you can see these on the **Diagnostics logs** page):
+5. You can take corrective actions based on the error message in JSON. In this example, checks to ensure latitude value is between -90 degrees and 90 degrees need to be added to the query.
 
-![Blade navigation to diagnostics logs - archival targets](./media/stream-analytics-job-diagnostic-logs/image4.png)
+6. If the error message in the Activity logs isn’t helpful in identifying root cause, enable resource logs and use Azure Monitor logs.
 
-For more information about configuring diagnostics, see [Collect and consume diagnostics data from your Azure resources](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+## Send diagnostics to Azure Monitor logs
 
-## Diagnostics log categories
+Turning on resource logs and sending them to Azure Monitor logs is highly recommended. They are **off** by default. To turn them on, complete these steps:
 
-Currently, we capture two categories of diagnostics logs:
+1.  Create a Log Analytics workspace if you don't already have one. It is recommended to have your Log Analytics workspace in the same region as your Stream Analytics job.
 
-* **Authoring**. Captures log events that are related to job authoring operations: job creation, adding and deleting inputs and outputs, adding and updating the query, starting and stopping the job.
-* **Execution**. Captures events that occur during job execution:
+2.  Sign in to the Azure portal, and navigate to your Stream Analytics job. Under **Monitoring**, select **Diagnostics logs**. Then select **Turn on diagnostics**.
+
+    ![Blade navigation to resource logs](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
+
+2.  Provide a **Name** in **Diagnostic settings name** and check the boxes for **Execution** and **Authoring** under **log**, and **AllMetrics** under **metric**. Then select **Send to Log Analytics** and choose your workspace. Click **Save**.
+
+    ![Settings for resources logs](./media/stream-analytics-job-diagnostic-logs/logs-setup.png)
+
+3. When your Stream Analytics job starts, resource logs are routed to your Log Analytics workspace. To view resource logs for your job, select **Logs** under the **Monitoring** section.
+
+   ![Screenshot shows the General menu with Logs selected.](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
+
+4. Stream Analytics provides pre-defined queries that allows you to easily search for the logs that you are interested in. You can select any pre-defined queries on the left pane and then select **Run**. You will see the results of the query in the bottom pane. 
+
+   ![Screenshot shows Logs for a Stream Analytics job.](./media/stream-analytics-job-diagnostic-logs/logs-example.png)
+
+## Resource log categories
+
+Azure Stream Analytics captures two categories of resource logs:
+
+* **Authoring**: Captures log events that are related to job authoring operations, such as job creation, adding and deleting inputs and outputs, adding and updating the query, and starting or stopping the job.
+
+* **Execution**: Captures events that occur during job execution.
     * Connectivity errors
     * Data processing errors, including:
         * Events that don’t conform to the query definition (mismatched field types and values, missing fields, and so on)
         * Expression evaluation errors
     * Other events and errors
 
-## Diagnostics logs schema
+## Resource logs schema
 
 All logs are stored in JSON format. Each entry has the following common string fields:
 
@@ -74,15 +97,15 @@ category | Log category, either **Execution** or **Authoring**.
 operationName | Name of the operation that is logged. For example, **Send Events: SQL Output write failure to mysqloutput**.
 status | Status of the operation. For example, **Failed** or **Succeeded**.
 level | Log level. For example, **Error**, **Warning**, or **Informational**.
-properties | Log entry-specific detail, serialized as a JSON string. For more information, see the following sections.
+properties | Log entry-specific detail, serialized as a JSON string. For more information, see the following sections in this article.
 
 ### Execution log properties schema
 
-Execution logs have information about events that happened during Stream Analytics job execution. The schema of properties varies, depending on the type of event. Currently, we have the following types of execution logs:
+Execution logs have information about events that happened during Stream Analytics job execution. The schema of properties varies depending on whether the event is a data error or a generic event.
 
 ### Data errors
 
-Any error that occurs while the job is processing data is in this category of logs. These logs most often are created during data read, serialization, and write operations. These logs do not include connectivity errors. Connectivity errors are treated as generic events.
+Any error that occurs while the job is processing data is in this category of logs. These logs most often are created during data read, serialization, and write operations. These logs do not include connectivity errors. Connectivity errors are treated as generic events. You can learn more about the cause of various different [input and output data errors](./data-errors.md).
 
 Name | Description
 ------- | -------
@@ -92,10 +115,14 @@ Type | Type of error. For example, **DataConversionError**, **CsvParserError**, 
 Data | Contains data that is useful to accurately locate the source of the error. Subject to truncation, depending on size.
 
 Depending on the **operationName** value, data errors have the following schema:
-* **Serialize events**. Serialize events occur during event read operations. They occur when the data at the input does not satisfy the query schema for one of these reasons:
-    * *Type mismatch during event (de)serialize*: Identifies the field that's causing the error.
-    * *Cannot read an event, invalid serialization*: Lists information about the location in the input data where the error occurred. Includes blob name for blob input, offset, and a sample of the data.
-* **Send events**. Send events occur during write operations. They identify the streaming event that caused the error.
+
+* **Serialize events** occur during event read operations. They occur when the data at the input does not satisfy the query schema for one of these reasons:
+
+   * *Type mismatch during event (de)serialize*: Identifies the field that's causing the error.
+
+   * *Cannot read an event, invalid serialization*: Lists information about the location in the input data where the error occurred. Includes blob name for blob input, offset, and a sample of the data.
+
+* **Send events** occur during write operations. They identify the streaming event that caused the error.
 
 ### Generic events
 
@@ -103,15 +130,12 @@ Generic events cover everything else.
 
 Name | Description
 -------- | --------
-Error | (optional) Error information. Usually, this is exception information, if it's available.
+Error | (optional) Error information. Usually, this is exception information if it's available.
 Message| Log message.
 Type | Type of message. Maps to internal categorization of errors. For example, **JobValidationError** or **BlobOutputAdapterInitializationFailure**.
-Correlation ID | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) that uniquely identifies the job execution. All execution log entries from the time the job starts until the job stops have the same **Correlation ID** value.
+Correlation ID | GUID that uniquely identifies the job execution. All execution log entries from the time the job starts until the job stops have the same **Correlation ID** value.
 
 ## Next steps
 
-* [Introduction to Stream Analytics](stream-analytics-introduction.md)
-* [Get started with Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Scale Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Stream Analytics data errors](./data-errors.md)
+* [Stream Analytics query language reference](/stream-analytics-query/stream-analytics-query-language-reference)

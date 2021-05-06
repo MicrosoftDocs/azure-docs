@@ -11,15 +11,16 @@ ms.assetid: 3642fd09-ba98-4358-93a6-c48ab0500431
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/04/2019
 ms.author: apimpm
+ms.custom: devx-track-python
 ---
 
 # API templates in Azure API Management
+
 Azure API Management provides you the ability to customize the content of developer portal pages using a set of templates that configure their content. Using [DotLiquid](http://dotliquidmarkup.org/) syntax and the editor of your choice, such as [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), and a provided set of localized [String resources](api-management-template-resources.md#strings), [Glyph resources](api-management-template-resources.md#glyphs), and [Page controls](api-management-page-controls.md), you have great flexibility to configure the content of the pages as you see fit using these templates.  
-  
+
 The templates in this section allow you to customize the content of the API pages in the developer portal.  
   
 -   [API list](#APIList)  
@@ -35,9 +36,13 @@ The templates in this section allow you to customize the content of the API page
     -   [Ruby](#Ruby)  
 
 > [!NOTE]
->  Sample default templates are included in the following documentation, but are subject to change due to continuous improvements. You can view the live default templates in the developer portal by navigating to the desired individual templates. For more information about working with templates, see [How to customize the API Management developer portal using templates](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Sample default templates are included in the following documentation, but are subject to change due to continuous improvements. You can view the live default templates in the developer portal by navigating to the desired individual templates. For more information about working with templates, see [How to customize the API Management developer portal using templates](./api-management-developer-portal-templates.md).  
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="APIList"></a> API list  
+## <a name="APIList"></a> API list  
  The **API list** template allows you to customize the body of the API list page in the developer portal.  
   
  ![Developer Portal API List](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "APIM Developer Portal Templates API List")  
@@ -83,7 +88,7 @@ The templates in this section allow you to customize the content of the API page
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
-|apis|Collection of [API summary](api-management-template-data-model-reference.md#APISummary) entities.|The APIs visible to the current user.|  
+|`apis`|Collection of [API summary](api-management-template-data-model-reference.md#APISummary) entities.|The APIs visible to the current user.|  
   
 ### Sample template data  
   
@@ -105,7 +110,7 @@ The templates in this section allow you to customize the content of the API page
 }  
 ```  
   
-##  <a name="Product"></a> Operation  
+## <a name="Product"></a> Operation  
  The **Operation** template allows you to customize the body of the operation page in the developer portal.  
   
  ![Developer Portal Operation page](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "APIM Developer Portal templates Operation page")  
@@ -338,15 +343,15 @@ The templates in this section allow you to customize the content of the API page
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
-|apiId|string|The id of the current API.|  
-|apiName|string|The name of the API.|  
-|apiDescription|string|A description of the API.|  
-|api|[API summary](api-management-template-data-model-reference.md#APISummary) entity.|The current API.|  
-|operation|[Operation](api-management-template-data-model-reference.md#Operation)|The currently displayed operation.|  
-|sampleUrl|string|The URL for the current operation.|  
-|operationMenu|[Operation menu](api-management-template-data-model-reference.md#Menu)|A menu of operations for this API.|  
-|consoleUrl|URI|The URI for the **Try it** button.|  
-|samples|Collection of [Code sample](api-management-template-data-model-reference.md#Sample) entities.|The code samples for the current operation..|  
+|`apiId`|string|The ID of the current API.|  
+|`apiName`|string|The name of the API.|  
+|`apiDescription`|string|A description of the API.|  
+|`api`|[API summary](api-management-template-data-model-reference.md#APISummary) entity.|The current API.|  
+|`operation`|[Operation](api-management-template-data-model-reference.md#Operation)|The currently displayed operation.|  
+|`sampleUrl`|string|The URL for the current operation.|  
+|`operationMenu`|[Operation menu](api-management-template-data-model-reference.md#Menu)|A menu of operations for this API.|  
+|`consoleUrl`|URI|The URI for the **Try it** button.|  
+|`samples`|Collection of [Code sample](api-management-template-data-model-reference.md#Sample) entities.|The code samples for the current operation..|  
   
 ### Sample template data  
   
@@ -635,7 +640,7 @@ The templates in this section allow you to customize the content of the API page
 }  
 ```  
   
-##  <a name="CodeSamples"></a> Code samples  
+## <a name="CodeSamples"></a> Code samples  
  The following templates allow you to customize the body of the individual code samples on the operation page.  
   
  ![Developer Portal Templates Code samples](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "APIM Developer Portal Templates Code samples")  
@@ -656,7 +661,7 @@ The templates in this section allow you to customize the content of the API page
   
 -   [Ruby](#Ruby)  
   
-###  <a name="Curl"></a> Curl  
+### <a name="Curl"></a> Curl  
  The **DocumentationSamplesCurl** template allows you to customize that code sample in the code samples section of the operation page.  
   
 #### Default template  
@@ -709,12 +714,12 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 }  
 ```  
   
-###  <a name="CSharp"></a> C#  
+### <a name="CSharp"></a> C#  
  The **DocumentationSamplesCsharp** template allows you to customize that code sample in the code samples section of the operation page.  
   
 #### Default template  
   
-```xml  
+```csharp  
 using System;  
 using System.Net.Http.Headers;  
 using System.Text;  
@@ -888,12 +893,12 @@ namespace CSHttpClientSample
 }  
 ```  
   
-###  <a name="Stub"></a> Java  
+### <a name="Stub"></a> Java  
  The **DocumentationSamplesJava** template allows you to customize that code sample in the code samples section of the operation page.  
   
 #### Default template  
   
-```xml  
+```java  
 // // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
 import java.net.URI;  
 import org.apache.http.HttpEntity;  
@@ -984,17 +989,17 @@ public class JavaSample
 }  
 ```  
   
-###  <a name="JavaScript"></a> JavaScript  
+### <a name="JavaScript"></a> JavaScript  
  The **DocumentationSamplesJs** template allows you to customize that code sample in the code samples section of the operation page.  
   
 #### Default template  
   
-```xml  
+```html  
 <!DOCTYPE html>  
 <html>  
 <head>  
     <title>JSSample</title>  
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>  
 </head>  
 <body>  
   
@@ -1073,12 +1078,12 @@ public class JavaSample
 }  
 ```  
   
-###  <a name="ObjectiveC"></a> Objective C  
+### <a name="ObjectiveC"></a> Objective C  
  The **DocumentationSamplesObjc** template allows you to customize that code sample in the code samples section of the operation page.  
   
 #### Default template  
   
-```xml  
+```objective-c  
 #import <Foundation/Foundation.h>  
   
 int main(int argc, const char * argv[])  
@@ -1185,12 +1190,12 @@ int main(int argc, const char * argv[])
 }  
 ```  
   
-###  <a name="PHP"></a> PHP  
+### <a name="PHP"></a> PHP  
  The **DocumentationSamplesPhp** template allows you to customize that code sample in the code samples section of the operation page.  
   
 #### Default template  
   
-```xml  
+```php  
 <?php  
 // This sample uses the HTTP_Request2 PHP library (https://github.com/pear/HTTP_Request2)  
 require_once 'HTTP/Request2.php';  
@@ -1275,12 +1280,12 @@ catch (HttpException $ex)
 }  
 ```  
   
-###  <a name="Python"></a> Python  
+### <a name="Python"></a> Python  
  The **DocumentationSamplesPython** template allows you to customize that code sample in the code samples section of the operation page.  
   
 #### Default template  
   
-```xml  
+```python  
 ########### Python 2.7 #############  
 import httplib, urllib, base64  
   
@@ -1356,7 +1361,7 @@ except Exception as e:
     print("[Errno {0}] {1}".format(e.errno, e.strerror))  
   
 ####################################  
-```  
+```
   
 #### Controls  
  The code sample templates do not allow the use of any [page controls](api-management-page-controls.md).  
@@ -1393,12 +1398,12 @@ except Exception as e:
 }  
 ```  
   
-###  <a name="Ruby"></a> Ruby  
+### <a name="Ruby"></a> Ruby  
  The **DocumentationSamplesRuby** template allows you to customize that code sample in the code samples section of the operation page.  
   
 #### Default template  
   
-```xml  
+```ruby  
 require 'net/http'  
   
 uri = URI('{{scheme}}://{{host}}{{path}}')  

@@ -32,7 +32,7 @@ This section walks through setting up the development environment. This includes
 
 1. In **Solution Explorer**, right-click the project.
 
-2. From the context menu, select **Add** > **Connected Service**.
+1. From the context menu, select **Add** > **Connected Service**.
 
 1. In the **Connected Services** dialog box, select **Cloud Storage with Azure Storage**.
 
@@ -40,8 +40,9 @@ This section walks through setting up the development environment. This includes
 
 1. In the **Azure Storage** dialog box, select the Azure storage account to be used for this tutorial. To create a new Azure storage account, select **Create a New Storage Account**, and complete the form. After selecting either an existing storage account or creating a new one, select **Add**. Visual Studio installs the NuGet package for Azure Storage and a storage connection string to **Web.config**.
 
-> [!TIP]
-> To learn how to create a storage account with the [Azure portal](https://portal.azure.com), see [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
->
-> You can also create a storage account by using [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/common/storage-azure-cli.md), or [Azure Cloud Shell](../articles/cloud-shell/overview.md).
+1. In **Solution Explorer**, right-click on **Dependencies**, choose **Manage NuGet Packages**, and add a NuGet package reference to the latest version of Microsoft.Azure.ConfigurationManager.
 
+> [!TIP]
+> To learn how to create a storage account with the [Azure portal](https://portal.azure.com), see [Create a storage account](../articles/storage/common/storage-account-create.md).
+>
+> You can also create a storage account by using [Azure PowerShell](/powershell/module/az.storage/), [Azure CLI](../articles/storage/blobs/storage-quickstart-blobs-cli.md), or [Azure Cloud Shell](../articles/cloud-shell/overview.md).

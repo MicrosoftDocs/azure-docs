@@ -1,21 +1,8 @@
 ---
-title: Differences between Cloud Services and Service Fabric | Microsoft Docs
+title: Differences between Cloud Services and Service Fabric 
 description: A conceptual overview for migrating applications from Cloud Services to Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: vturecek
-manager: timlt
-editor: ''
-
-ms.assetid: 0b87b1d3-88ad-4658-a465-9f05a3376dee
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/02/2017
-ms.author: vturecek
-
 ---
 # Learn about the differences between Cloud Services and Service Fabric before migrating applications.
 Microsoft Azure Service Fabric is the next-generation cloud application platform for highly scalable, highly reliable distributed applications. It introduces many new features for packaging, deploying, upgrading, and managing distributed cloud applications. 
@@ -74,7 +61,7 @@ With direct communication, tiers can communicate directly through endpoint expos
 
 Service Fabric provides a service discovery mechanism, called the Naming Service, which can be used to resolve endpoint addresses of services. 
 
-![Service Fabric direct communication][6]
+![Diagram that shows how Service Fabric provides a service discovery mechanism, called the Naming Service, which can be used to resolve endpoint addresses of services.][6]
 
 ### Queues
 A common communication mechanism between tiers in stateless environments such as Cloud Services is to use an external storage queue to durably store work tasks from one tier to another. A common scenario is a web tier that sends jobs to an Azure Queue or Service Bus where Worker Role instances can dequeue and process the jobs.
@@ -84,6 +71,24 @@ A common communication mechanism between tiers in stateless environments such as
 The same communication model can be used in Service Fabric. This can be useful when migrating an existing Cloud Services application to Service Fabric. 
 
 ![Service Fabric direct communication][8]
+
+## Parity
+[Cloud Services is similar to Service Fabric in degree of control versus ease of use, but it’s now a legacy service and Service Fabric is recommended for new development](/azure/architecture/guide/technology-choices/compute-decision-tree); the following is an API comparison:
+
+
+| **Cloud Service API** | **Service Fabric API** | **Notes** |
+| --- | --- | --- |
+| RoleInstance.GetID | FabricRuntime.GetNodeContext.NodeId or .NodeName | ID is a property of the NodeName |
+| RoleInstance.GetFaultDomain | FabricClient.QueryManager.GetNodeList | Filter on NodeName and use FD Property |
+| RoleInstance.GetUpgradeDomain | FabricClient.QueryManager.GetNodeList | Filter on NodeName, and use Upgrade property |
+| RoleInstance.GetInstanceEndpoints | FabricRuntime.GetActivationContext or Naming (ResolveService) | CodePackageActivationContext which is provided both by FabricRuntime.GetActivationContext and within the replicas via ServiceInitializationParameters.CodePackageActivationContext provided during .Initialize |
+| RoleEnvironment.GetRoles | FabricClient.QueryManager.GetNodeList | If you want to do the same sort of filtering by type you can get the list of node types from the cluster manifest via FabricClient.ClusterManager.GetClusterManifest and grab the role/node types from there. |
+| RoleEnvironment.GetIsAvailable | Connect-WindowsFabricCluster or create a FabricRuntime pointed to a particular node | * |
+| RoleEnvironment.GetLocalResource | CodePackageActivationContext.Log/Temp/Work | * |
+| RoleEnvironment.GetCurrentRoleInstance | CodePackageActivationContext.Log/Temp/Work | * |
+| LocalResource.GetRootPath | CodePackageActivationContext.Log/Temp/Work | * |
+| Role.GetInstances | FabricClient.QueryManager.GetNodeList or ResolveService | * |
+| RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime.GetActivationContext or Naming (ResolveService) | * |
 
 ## Next Steps
 The simplest migration path from Cloud Services to Service Fabric is to replace only the Cloud Services deployment with a Service Fabric application, keeping the overall architecture of your application roughly the same. The following article provides a guide to help convert a Web or Worker Role to a Service Fabric stateless service.

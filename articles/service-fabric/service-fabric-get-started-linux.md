@@ -1,57 +1,52 @@
 ---
-title: Set up your development environment on Linux | Microsoft Docs
+title: Set up your development environment on Linux 
 description: Install the runtime and SDK and create a local development cluster on Linux. After completing this setup, you'll be ready to build applications.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: timlt
-editor: ''
 
-ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
-
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 2/23/2018
-ms.author: subramar
+ms.date: 10/16/2020
+ms.custom: devx-track-js
 
+# Maintainer notes: Keep these documents in sync:
+# service-fabric-get-started-linux.md
+# service-fabric-get-started-mac.md
+# service-fabric-local-linux-cluster-windows.md
 ---
 # Prepare your development environment on Linux
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md)
 > * [Linux](service-fabric-get-started-linux.md)
-> * [OSX](service-fabric-get-started-mac.md)
->
->  
+> * [Mac OS X](service-fabric-get-started-mac.md)
 
 To deploy and run [Azure Service Fabric applications](service-fabric-application-model.md) on your Linux development machine, install the runtime and common SDK. You can also install optional SDKs for Java and .NET Core development. 
 
-The steps in this article assume that you install natively on Linux or use the Service Fabric OneBox container image, `microsoft/service-fabric-onebox`.
+The steps in this article assume that you install natively on Linux or use the [Service Fabric OneBox container image](https://hub.docker.com/_/microsoft-service-fabric-onebox), i.e. `mcr.microsoft.com/service-fabric/onebox:u18`.
 
-Installing the Service Fabric runtime and SDK on Windows Subsystem for Linux is not supported. You can manage Service Fabric entities hosted elsewhere in the cloud or on-premises with the Azure Service Fabric command-line interface (CLI), which is supported. For information on how to install the CLI, see [Set up the Service Fabric CLI](./service-fabric-cli.md).
+You can manage Service Fabric entities hosted in the cloud or on-premises with the Azure Service Fabric command-line interface (CLI). For information on how to install the CLI, see [Set up the Service Fabric CLI](./service-fabric-cli.md).
 
 
 ## Prerequisites
 
-These operating system versions are supported for development.
+- Ensure you are using a supported [Linux version](service-fabric-versions.md#supported-linux-versions-and-support-end-date).
 
-* Ubuntu 16.04 (`Xenial Xerus`)
-
-    Make sure that the `apt-transport-https` package is installed.
+- Install the `apt-transport-https` package:
          
     ```bash
     sudo apt-get install apt-transport-https
     ```
-* Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
-
 
 ## Installation methods
 
-### Script installation (Ubuntu)
+<!-- markdownlint-disable MD025 -->
+<!-- markdownlint-disable MD024 -->
 
-For convenience, a script is provided to install the Service Fabric runtime and the Service Fabric common SDK along with the **sfctl** CLI. Run the manual installation steps in the next section. You see what is being installed and the associated licenses. Running the script assumes you agree to the licenses for all the software that is being installed.
+# [Ubuntu](#tab/sdksetupubuntu)
+
+## Update your APT sources
+To install the SDK and associated runtime package via the apt-get command-line tool, you must first update your Advanced Packaging Tool (APT) sources.
+
+## Script installation
+
+For convenience, a script is provided to install the Service Fabric runtime and the Service Fabric common SDK along with the [**sfctl** CLI](service-fabric-cli.md). Running the script assumes you agree to the licenses for all the software that is being installed. Alternatively you may run the [Manual installation](#manual-installation) steps in the next section which will present associated licenses as well as the components being installed.
 
 After the script runs successfully, you can skip to [Set up a local cluster](#set-up-a-local-cluster).
 
@@ -59,46 +54,41 @@ After the script runs successfully, you can skip to [Set up a local cluster](#se
 sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
 ```
 
-### Manual installation
+## Manual installation
 For manual installation of the Service Fabric runtime and common SDK, follow the rest of this guide.
 
-## Update your APT sources or Yum repositories
-To install the SDK and associated runtime package via the apt-get command-line tool, you must first update your Advanced Packaging Tool (APT) sources.
-
-### Ubuntu
-
 1. Open a terminal.
-2. Add the Service Fabric repo to your sources list.
+
+2. Add the `dotnet` repo to your sources list corresponding to your distribution.
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
-    ```
-
-3. Add the `dotnet` repo to your sources list.
-
-    ```bash
-    wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
+    wget -q https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb
     sudo dpkg -i packages-microsoft-prod.deb
     ```
 
-4. Add the new Gnu Privacy Guard (GnuPG or GPG) key to your APT keyring.
+3. Add the new MS Open Tech Gnu Privacy Guard (GnuPG or GPG) key to your APT keyring.
 
     ```bash
-    sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+    sudo curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
     ```
 
-5. Add the official Docker GPG key to your APT keyring.
+4. Add the official Docker GPG key to your APT keyring.
 
     ```bash
-    sudo apt-get install curl
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
-6. Set up the Docker repository.
+5. Set up the Docker repository.
 
     ```bash
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    ```
+
+6. Add Azul JDK Key to your APT keyring and setup its repository.
+
+    ```bash
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
+    sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
 7. Refresh your package lists based on the newly added repositories.
@@ -107,8 +97,30 @@ To install the SDK and associated runtime package via the apt-get command-line t
     sudo apt-get update
     ```
 
+## Install and set up the Service Fabric SDK for a local cluster
 
-### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
+After you update your sources, you can install the SDK. Install the Service Fabric SDK package, confirm the installation, and accept the license agreement.
+
+### Ubuntu
+
+```bash
+sudo apt-get install servicefabricsdkcommon
+```
+
+> [!TIP]
+>   The following commands automate accepting the license for Service Fabric packages:
+>   ```bash
+>   echo "servicefabric servicefabric/accepted-eula-ga select true" | sudo debconf-set-selections
+>   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
+>   ```
+
+# [Red Hat Enterprise Linux 7.4](#tab/sdksetuprhel74)
+
+## Update your Yum repositories
+To install the SDK and associated runtime package via the yum command-line tool, you must first update your package sources.
+
+## Manual installation (RHEL)
+For manual installation of the Service Fabric runtime and common SDK, follow the rest of this guide.
 
 1. Open a terminal.
 2. Download and install Extra Packages for Enterprise Linux (EPEL).
@@ -136,44 +148,61 @@ To install the SDK and associated runtime package via the apt-get command-line t
     sudo cp ./microsoft-prod.repo /etc/yum.repos.d/
     ```
 
-6. Install the .NET SDK.
-
-    ```bash
-    yum install rh-dotnet20 -y
-    ```
-
-## Install and set up the Service Fabric SDK for a local cluster
+## Install and set up the Service Fabric SDK for a local cluster (RHEL)
 
 After you update your sources, you can install the SDK. Install the Service Fabric SDK package, confirm the installation, and accept the license agreement.
-
-### Ubuntu
-
-```bash
-sudo apt-get install servicefabricsdkcommon
-```
-
->   [!TIP]
->   The following commands automate accepting the license for Service Fabric packages:
->   ```bash
->   echo "servicefabric servicefabric/accepted-eula-ga select true" | sudo debconf-set-selections
->   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
->   ```
-
-### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
 
 ```bash
 sudo yum install servicefabricsdkcommon
 ```
 
+---
+
+## Included packages
 The Service Fabric runtime that comes with the SDK installation includes the packages in the following table. 
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | OpenJDK 1.8 | Implicit from npm | latest |
-RHEL | - | OpenJDK 1.8 | Implicit from npm | latest |
+**Ubuntu** | 2.0.7 | AzulJDK 1.8 | Implicit from npm | latest |
+**RHEL** | - | OpenJDK 1.8 | Implicit from npm | latest |
 
 ## Set up a local cluster
-Start a local cluster after the installation finishes.
+1. Start a local Service Fabric cluster for development.
+
+# [Container-based local cluster](#tab/localclusteroneboxcontainer)
+
+Start a container-based [Service Fabric Onebox](https://hub.docker.com/_/microsoft-service-fabric-onebox) cluster.
+
+1. Install Moby to be able to deploy Docker containers.
+    ```bash
+    sudo apt-get install moby-engine moby-cli -y
+    ```
+2. Update the Docker daemon configuration on your host with the following settings and restart the Docker daemon. Details: [Enable IPv6 support](https://docs.docker.com/config/daemon/ipv6/)
+
+    ```json
+    {
+        "ipv6": true,
+        "fixed-cidr-v6": "fd00::/64"
+    }
+    ```
+
+3. Start the cluster.<br/>
+    <b>Ubuntu 18.04 LTS:</b>
+    ```bash
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18
+    ```
+
+    <b>Ubuntu 16.04 LTS:</b>
+    ```bash
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u16
+    ```
+
+    >[!TIP]
+    > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) page.
+
+# [Local cluster](#tab/localcluster)
+
+After installing the SDK using steps above, start a local cluster.
 
 1. Run the cluster setup script.
 
@@ -181,7 +210,9 @@ Start a local cluster after the installation finishes.
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-2. Open a web browser and go to [Service Fabric Explorer](http://localhost:19080/Explorer) (`http://localhost:19080/Explorer`). When the cluster starts, you see the Service Fabric Explorer dashboard. It might take several minutes for the cluster to be completely set up. If your browser fails to open the URL or if Service Fabric Explorer doesn't show that the system is ready, wait a few minutes and try again.
+---
+
+2. Open a web browser and go to **Service Fabric Explorer** (`http://localhost:19080/Explorer`). When the cluster starts, you see the Service Fabric Explorer dashboard. It might take several minutes for the cluster to be completely set up. If your browser fails to open the URL or if Service Fabric Explorer doesn't show that the system is ready, wait a few minutes and try again.
 
     ![Service Fabric Explorer on Linux][sfx-linux]
 
@@ -207,37 +238,38 @@ Service Fabric provides scaffolding tools that help you create Service Fabric ap
 1. Install Node.js and npm on your machine.
 
     ```bash
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
-    nvm install node
+    sudo add-apt-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -s -c) main"
+    sudo apt-get update
+    sudo apt-get install nodejs
     ```
-2. Install the [Yeoman](http://yeoman.io/) template generator from npm on your machine.
+2. Install the [Yeoman](https://yeoman.io/) template generator from npm on your machine.
 
     ```bash
-    npm install -g yo
+    sudo npm install -g yo
     ```
 3. Install the Service Fabric Yeo container generator and guest executable generator from npm.
 
     ```bash
-    npm install -g generator-azuresfcontainer  # for Service Fabric container application
-    npm install -g generator-azuresfguest      # for Service Fabric guest executable application
+    sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
+    sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
     ```
 
 After you install the generators, create guest executable or container services by running `yo azuresfguest` or `yo azuresfcontainer`, respectively.
 
-## Set up .NET Core 2.0 development
+## Set up .NET Core 3.1 development
 
-Install the [.NET Core 2.0 SDK for Ubuntu](https://www.microsoft.com/net/core#linuxubuntu) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). NuGet.org hosts packages for .NET Core 2.0 Service Fabric applications, currently in preview.
+Install the [.NET Core 3.1 SDK for Ubuntu](/dotnet/core/install/linux-ubuntu) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). Packages for .NET Core Service Fabric applications are hosted on NuGet.org.
 
 ## Set up Java development
 
-To build Service Fabric services using Java, install JDK 1.8 and Gradle to run build tasks. The following snippet installs Open JDK 1.8 along with Gradle. The Service Fabric Java libraries are pulled from Maven.
+To build Service Fabric services using Java, install Gradle to run build tasks. Run the below command to install Gradle. The Service Fabric Java libraries are pulled from Maven.
 
 
 * Ubuntu
 
     ```bash
-    sudo apt-get install openjdk-8-jdk-headless
-    sudo apt-get install gradle
+    curl -s https://get.sdkman.io | bash
+    sdk install gradle 5.1
     ```
 
 * Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
@@ -267,7 +299,7 @@ You can install the Eclipse plug-in for Service Fabric from within the Eclipse I
 
 2. To install the Service Fabric plug-in, select **Help** > **Install New Software**.
 
-3. In the **Work with** box, enter **http://dl.microsoft.com/eclipse**.
+3. In the **Work with** box, enter **https:\//dl.microsoft.com/eclipse**.
 
 4. Select **Add**.
 
@@ -324,7 +356,6 @@ To remove the Service Fabric SDKs, run the following commands.
 * [Prepare a Linux development environment on Windows](service-fabric-local-linux-cluster-windows.md)
 * [Manage your applications by using the Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 * [Service Fabric Windows and Linux differences](service-fabric-linux-windows-differences.md)
-* [Automate operating system patching on your Linux cluster](service-fabric-patch-orchestration-application-linux.md)
 * [Get started with Service Fabric CLI](service-fabric-cli.md)
 
 <!-- Links -->

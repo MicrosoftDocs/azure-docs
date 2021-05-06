@@ -1,61 +1,109 @@
 ---
-title: Complete an access review of members of a group or users' access to an application with Azure AD| Microsoft Docs
-description: Learn how to complete an access review for members of a group or users with access to an application in Azure Active Directory. 
+title: Complete an access review of groups & applications - Azure AD
+description: Learn how to complete an access review of group members or application access in Azure Active Directory access reviews.
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: ajburnle
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.component: compliance
-ms.date: 05/02/2018
-ms.author: rolyon
+ms.topic: how-to
+ms.subservice: compliance
+ms.date: 02/08/2021
+ms.author: ajburnle
 ms.reviewer: mwahl
+ms.collection: M365-identity-device-management
 ---
 
-# Complete an access review of members of a group or users' access to an application in Azure AD
+# Complete an access review of groups and applications in Azure AD access reviews
 
-Administrators can use Azure Active Directory (Azure AD) to [create an access review](create-access-review.md) for group members or users assigned to an application. Azure AD automatically sends reviewers an email that prompts them to review access. If a user didn't get an email, you can send them the instructions
-in [Review your access](perform-access-review.md). (Note that guests who are assigned as reviewers but have not accepted the invite will not receive an email from access reviews, as they must first accept an invite prior to reviewing.) After the access review period is over or if an administrator stops the access review, follow the steps in this article to see and apply the results.
+As an administrator, you [create an access review of groups or applications](create-access-review.md) and reviewers [perform the access review](perform-access-review.md). This article describes how to see the results of the access review and apply the results.
 
-## View an access review in the Azure portal
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-1. Go to the [access reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), select **Programs**, and select the program that contains the access review control.
+## Prerequisites
 
-2. Select **Manage**, and select the access review control. If there are many controls in the program, you can filter for controls of a specific type and sort by their status. You also can search by the name of the access review control or the display name of the owner who created it. 
+- Azure AD Premium P2
+- Global administrator, User administrator, Security administrator, or Security reader
 
-## Stop a review that hasn't finished
+For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
-If the review hasn't reached the scheduled end date, an administrator can select **Stop** to end the review early. After you stop the review, users can no longer be reviewed. You can't restart a review after it's stopped.
+## View an access review
 
-## Apply the changes 
+You can track the progress as the reviewers complete their reviews.
 
-After an access review is finished, either because it reached the end date or an administrator stopped it manually, and auto-apply wasn't configured for the review, you can select **Apply** to manually apply the changes. The outcome of the review is implemented by updating the group or application. If a user's access was denied in the review, when an administrator selects this option, Azure AD removes their membership or application assignment. 
+1. Sign in to the Azure portal and open the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-After an access review is finished, and auto-apply was configured, then the status of the review will change from Completed through intermediate states and finally will change to state Applied. You should expect to see denied users, if any, being removed from the resource group membership or app assignment in a few minutes.
+1. In the left menu, click **Access reviews**.
 
-A configured auto applying review, or selecting **Apply** doesn't have an effect on a group that originates in an on-premises directory or a dynamic group. If you want to change a group that originates on-premises, download the results and apply those changes to the representation of the group in that directory.
+1. In the list, click an access review.
 
-## Download the results of the review
+    To view future instances of an access reviews, navigate to the access review, and select Scheduled reviews.
 
-To retrieve the results of the review, select **Approvals** and then select **Download**. The resulting CSV file can be viewed in Excel or in other programs that open UTF-8 encoded CSV files.
+    On the **Overview** page, you can see the progress of the current instance. No access rights are changed in the directory until the review is completed.
 
-## Optional: Delete a review
-If you're no longer interested in the review, you can delete it. Select **Delete** to remove the review from Azure AD.
+     ![Review of All company group](./media/complete-access-review/all-company-group.png)
 
-> [!IMPORTANT]
-> There's no warning before deletion occurs, so be sure that you want to delete the review.
-> 
-> 
+    All blades under Current are only viewable during the duration of each review instance. 
+
+    The Results page provides more information on each user under review in the instance, including the ability to Stop, Reset and Download results.
+
+    ![Review guest access across Microsoft 365 groups](./media/complete-access-review/all-company-group-results.png)
+
+
+    If you are viewing an access review that reviews guest access across Microsoft 365 groups, the Overview blade lists each group in the review. 
+   
+    ![review guest access across Microsoft 365 groups](./media/complete-access-review/review-guest-access-across-365-groups.png)
+
+    Click on a group to see the progress of the review on that group, as well as to Stop, Reset, Apply and Delete.
+
+   ![review guest access across Microsoft 365 groups in detail](./media/complete-access-review/progress-group-review.png)
+
+1. If you want to stop an access review before it has reached the scheduled end date, click the **Stop** button.
+
+    When you stop a review, reviewers will no longer be able to give responses. You can't restart a review after it's stopped.
+
+1. If you're no longer interested in the access review, you can delete it by clicking the **Delete** button.
+
+## Apply the changes
+
+If **Auto apply results to resource** was enabled based on your selections in **Upon completion settings**, auto-apply will be executed after the review's end date or when you manually stop the review.
+
+If **Auto apply results to resource** wasn't enabled for the review, navigate to **Review History** under **Series** after the review duration ends or the review was stopped early, and click on the instance of the review you’d like to Apply.
+
+![Apply access review changes](./media/complete-access-review/apply-changes.png)
+
+Click **Apply** to manually apply the changes. If a user's access was denied in the review, when you click **Apply**, Azure AD removes their membership or application assignment.
+
+![Apply access review changes button](./media/complete-access-review/apply-changes-button.png)
+
+
+The status of the review will change from **Completed** through intermediate states such as **Applying** and finally to state **Result applied**. You should expect to see denied users, if any, being removed from the group membership or application assignment in a few minutes.
+
+Manually or automatically applying results doesn't have an effect on a group that originates in an on-premises directory or a dynamic group. If you want to change a group that originates on-premises, download the results and apply those changes to the representation of the group in that directory.
+
+## Retrieve the results
+
+To view the results for a one-time access review, click the **Results** page. To view just a user's access, in the Search box, type the display name or user principal name of a user whose access was reviewed.
+
+![Retrieve results for an access review](./media/complete-access-review/retrieve-results.png) 
+
+To view the progress of an active access review that is recurring, click on the **Results** page.
+
+To view the results of a completed instance of an access review that is recurring, click **Review history**, then select the specific instance from the list of completed access review instances, based on the instance's start and end date. The results of this instance can be obtained from the **Results** page.
+
+To retrieve all the results of an access review, click the **Download** button. The resulting CSV file can be viewed in Excel or in other programs that open UTF-8 encoded CSV files.
+
+## Remove users from an access review
+
+ By default, a deleted user will remain deleted in Azure AD for 30 days, during which time they can be restored by an administrator if necessary.  After 30 days, that user is permanently deleted.  In addition, using the Azure Active Directory portal, a Global Administrator can explicitly [permanently delete a recently deleted user](../fundamentals/active-directory-users-restore.md) before that time period is reached.  One a user has been permanently deleted, subsequently data about that user will be removed from active access reviews.  Audit information about deleted users remains in the audit log.
 
 ## Next steps
 
 - [Manage user access with Azure AD access reviews](manage-user-access-with-access-reviews.md)
 - [Manage guest access with Azure AD access reviews](manage-guest-access-with-access-reviews.md)
-- [Manage programs and controls for Azure AD access reviews](manage-programs-controls.md)
-- [Create an access review for members of a group or access to an application](create-access-review.md)
+- [Create an access review of groups or applications](create-access-review.md)
 - [Create an access review of users in an Azure AD administrative role](../privileged-identity-management/pim-how-to-start-security-review.md)

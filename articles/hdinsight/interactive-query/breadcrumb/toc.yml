@@ -1,0 +1,14 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: HDInsight
+    tocHref: /azure/hdinsight/
+    topicHref: /azure/hdinsight/index
+    items:
+    - name: Interactive Query
+      tocHref: /azure/hdinsight/hadoop/
+      topicHref: /azure/hdinsight/interactive-query/index
+    - name: Interactive Query
+      tocHref: /azure/hdinsight/domain-joined/
+      topicHref: /azure/hdinsight/interactive-query/index

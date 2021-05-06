@@ -1,14 +1,21 @@
+---
+author: mgottein
+ms.service: cognitive-search
+ms.topic: include
+ms.date: 05/02/2019
+ms.author: magottei
+---
 * PDF
-* Microsoft Office formats: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (Outlook emails)  
+* Microsoft Office formats: DOCX/DOC/DOCM, XLSX/XLS/XLSM, PPTX/PPT/PPTM, MSG (Outlook emails), XML(both 2003 and 2006 WORD XML)
+* Open Document formats: ODT, ODS, ODP  
 * HTML
 * XML
+* KML (XML for geographic representations)
 * ZIP
+* GZ
+* EPUB
 * EML
 * RTF
-* Plain text files (see also [Indexing plain text](../articles/search/search-howto-indexing-azure-blob-storage.md#IndexingPlainText))
+* Plain text files (see also [Indexing plain text](../articles/search/search-howto-index-plaintext-blobs.md))
 * JSON (see [Indexing JSON blobs](../articles/search/search-howto-index-json-blobs.md))
-* CSV (see [Indexing CSV blobs](../articles/search/search-howto-index-csv-blobs.md) preview feature)
-
-> [!IMPORTANT]
-> Support for CSV and JSON arrays is currently in preview. These formats are available only using version **2016-09-01-Preview** of the REST API or version 2.x-preview of the .NET SDK. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
->
+* CSV (see [Indexing CSV blobs](../articles/search/search-howto-index-csv-blobs.md))

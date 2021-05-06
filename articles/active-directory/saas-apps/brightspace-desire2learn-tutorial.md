@@ -1,235 +1,142 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Brightspace by Desire2Learn | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Brightspace by Desire2Learn.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-
-ms.assetid: e2d3065b-1f6c-4c45-af78-0d5da3266999
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/23/2017
+ms.topic: tutorial
+ms.date: 03/08/2021
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Brightspace by Desire2Learn
 
-In this tutorial, you learn how to integrate Brightspace by Desire2Learn with Azure Active Directory (Azure AD).
+In this tutorial, you'll learn how to integrate Brightspace by Desire2Learn with Azure Active Directory (Azure AD). When you integrate Brightspace by Desire2Learn with Azure AD, you can:
 
-Integrating Brightspace by Desire2Learn with Azure AD provides you with the following benefits:
-
-- You can control in Azure AD who has access to Brightspace by Desire2Learn
-- You can enable your users to automatically get signed-on to Brightspace by Desire2Learn (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Control in Azure AD who has access to Brightspace by Desire2Learn.
+* Enable your users to be automatically signed-in to Brightspace by Desire2Learn with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
-To configure Azure AD integration with Brightspace by Desire2Learn, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- A Brightspace by Desire2Learn single sign-on enabled subscription
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Brightspace by Desire2Learn single sign-on enabled subscription.
 
 > [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Brightspace by Desire2Learn from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-## Adding Brightspace by Desire2Learn from the gallery
+* Brightspace by Desire2Learn supports **IDP** initiated SSO.
+
+## Add Brightspace by Desire2Learn from the gallery
+
 To configure the integration of Brightspace by Desire2Learn into Azure AD, you need to add Brightspace by Desire2Learn from the gallery to your list of managed SaaS apps.
 
-**To add Brightspace by Desire2Learn from the gallery, perform the following steps:**
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Brightspace by Desire2Learn** in the search box.
+1. Select **Brightspace by Desire2Learn** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+## Configure and test Azure AD SSO for Brightspace by Desire2Learn
 
-	![Active Directory][1]
+Configure and test Azure AD SSO with Brightspace by Desire2Learn using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Brightspace by Desire2Learn.
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+To configure and test Azure AD SSO with Brightspace by Desire2Learn, perform the following steps:
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Brightspace by Desire2Learn SSO](#configure-brightspace-by-desire2learn-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Brightspace by Desire2Learn test user](#create-brightspace-by-desire2learn-test-user)** - to have a counterpart of B.Simon in Brightspace by Desire2Learn that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	![Applications][3]
+## Configure Azure AD SSO
 
-1. In the search box, type **Brightspace by Desire2Learn**.
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-	![Creating an Azure AD test user](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_search.png)
+1. In the Azure portal, on the **Brightspace by Desire2Learn** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-1. In the results panel, select **Brightspace by Desire2Learn**, and then click **Add** button to add the application.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-	![Creating an Azure AD test user](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_addfromgallery.png)
+4. On the **Set up Single Sign-On with SAML** page, perform the following steps:
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Brightspace by Desire2Learn based on a test user called "Britta Simon".
+    a. In the **Identifier** text box, type one of the URL using the following patterns:
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Brightspace by Desire2Learn is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Brightspace by Desire2Learn needs to be established.
+    ```http
+    https://<companyname>.tenants.brightspace.com/samlLogin
+    https://<companyname>.desire2learn.com/shibboleth-sp
+    ```
 
-In Brightspace by Desire2Learn, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<companyname>.desire2learn.com/d2l/lp/auth/login/samlLogin.d2l`
 
-To configure and test Azure AD single sign-on with Brightspace by Desire2Learn, you need to complete the following building blocks:
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Brightspace by Desire2Learn Client support team](https://www.d2l.com/contact/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a Brightspace by Desire2Learn test user](#creating-a-brightspace-by-desire2learn-test-user)** - to have a counterpart of Britta Simon in Brightspace by Desire2Learn that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-### Configuring Azure AD single sign-on
+    ![The Certificate download link](common/metadataxml.png)
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Brightspace by Desire2Learn application.
+6. On the **Set up Brightspace by Desire2Learn** section, copy the appropriate URL(s) as per your requirement.
 
-**To configure Azure AD single sign-on with Brightspace by Desire2Learn, perform the following steps:**
-
-1. In the Azure portal, on the **Brightspace by Desire2Learn** application integration page, click **Single sign-on**.
-
-	![Configure Single Sign-On][4]
-
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_samlbase.png)
-
-1. On the **Brightspace by Desire2Learn Domain and URLs** section, perform the following steps:
-
-	![Configure Single Sign-On](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_url.png)
-
-    a. In the **Identifier** textbox, type a URL using the following pattern:
-	| |
-	|--|
-	| `https://<companyname>.tenants.brightspace.com/samlLogin`|
-	| `https://<companyname>.desire2learn.com/shibboleth-sp`|
-
-	b. In the **Reply URL** textbox, type a URL using the following pattern:
-	`https://<companyname>.desire2learn.com/d2l/lp/auth/login/samlLogin.d2l`
-
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Brightspace by Desire2Learn support team](https://www.d2l.com/contact/) to get these values.
- 
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+### Create an Azure AD test user 
 
-	![Configure Single Sign-On](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_certificate.png) 
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-1. Click **Save** button.
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
-	![Configure Single Sign-On](./media/brightspace-desire2learn-tutorial/tutorial_general_400.png)
+### Assign the Azure AD test user
 
-1. To configure single sign-on on **Brightspace by Desire2Learn** side, you need to send the downloaded **Metadata XML** to [Brightspace by Desire2Learn support team](https://www.d2l.com/contact/).
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Brightspace by Desire2Learn.
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-![Create Azure AD User][100]
-
-**To create a test user in Azure AD, perform the following steps:**
-
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
-
-	![Creating an Azure AD test user](./media/brightspace-desire2learn-tutorial/create_aaduser_01.png) 
-
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/brightspace-desire2learn-tutorial/create_aaduser_02.png) 
-
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/brightspace-desire2learn-tutorial/create_aaduser_03.png) 
-
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/brightspace-desire2learn-tutorial/create_aaduser_04.png) 
-
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
-
-    d. Click **Create**.
- 
-### Creating a Brightspace by Desire2Learn test user
-
-In order to enable Azure AD users to log into Brightspace by Desire2Learn, they must be provisioned into Brightspace by Desire2Learn.  
-
-In the case of Brightspace by Desire2Learn, the user accounts need to be created by your [Brightspace by Desire2Learn support team](https://www.d2l.com/contact/).
-
->[!NOTE]
->You can use any other Brightspace by Desire2Learn user account creation tools or APIs provided by Brightspace by Desire2Learn to provision Azure Active Directory user accounts. 
-
-### Assigning the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Brightspace by Desire2Learn.
-
-![Assign User][200] 
-
-**To assign Britta Simon to Brightspace by Desire2Learn, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
-
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Brightspace by Desire2Learn**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-	![Configure Single Sign-On](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_app.png) 
+## Configure Brightspace by Desire2Learn SSO
 
-1. In the menu on the left, click **Users and groups**.
+To configure single sign-on on **Brightspace by Desire2Learn** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Brightspace by Desire2Learn support team](https://www.d2l.com/contact/). They set this setting to have the SAML SSO connection set properly on both sides.
 
-	![Assign User][202] 
+### Create Brightspace by Desire2Learn test user
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+In this section, you create a user called Britta Simon in Brightspace by Desire2Learn. Work with [Brightspace by Desire2Learn support team](https://www.d2l.com/contact/) to add the users in the Brightspace by Desire2Learn platform. Users must be created and activated before you use single sign-on.
 
-	![Assign User][203]
+> [!NOTE]
+> You can use any other Brightspace by Desire2Learn user account creation tools or APIs provided by Brightspace by Desire2Learn to provision Azure Active Directory user accounts.
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+## Test SSO
 
-1. Click **Select** button on **Users and groups** dialog.
+In this section, you test your Azure AD single sign-on configuration with following options.
 
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
+* Click on Test this application in Azure portal and you should be automatically signed in to the Brightspace by Desire2Learn for which you set up the SSO.
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+* You can use Microsoft My Apps. When you click the Brightspace by Desire2Learn tile in the My Apps, you should be automatically signed in to the Brightspace by Desire2Learn for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-When you click the Brightspace by Desire2Learn tile in the Access Panel, you should get automatically signed-on to your Brightspace by Desire2Learn application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
+## Next steps
 
-## Additional resources
-
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-<!--Image references-->
-
-[1]: ./media/brightspace-desire2learn-tutorial/tutorial_general_01.png
-[2]: ./media/brightspace-desire2learn-tutorial/tutorial_general_02.png
-[3]: ./media/brightspace-desire2learn-tutorial/tutorial_general_03.png
-[4]: ./media/brightspace-desire2learn-tutorial/tutorial_general_04.png
-
-[100]: ./media/brightspace-desire2learn-tutorial/tutorial_general_100.png
-
-[200]: ./media/brightspace-desire2learn-tutorial/tutorial_general_200.png
-[201]: ./media/brightspace-desire2learn-tutorial/tutorial_general_201.png
-[202]: ./media/brightspace-desire2learn-tutorial/tutorial_general_202.png
-[203]: ./media/brightspace-desire2learn-tutorial/tutorial_general_203.png
-
+Once you configure Brightspace by Desire2Learn you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

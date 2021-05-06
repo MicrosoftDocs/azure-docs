@@ -1,289 +1,200 @@
-﻿---
-title: 'Tutorial: Azure Active Directory integration with Canvas Lms | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Canvas LMS.
-services: active-directory
-documentationCenter: na
-author: jeevansd
-manager: mtillman
-
-ms.assetid: bfed291c-a33e-410d-b919-5b965a631d45
-ms.service: active-directory
-ms.component: saas-app-tutorial
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/08/2017
-ms.author: jeedes
-
 ---
-# Tutorial: Azure Active Directory integration with Canvas LMS
+title: 'Tutorial: Azure Active Directory integration with Canvas | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Canvas.
+services: active-directory
+author: jeevansd
+manager: CelesteDG
+ms.reviewer: celested
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
+ms.workload: identity
+ms.topic: tutorial
+ms.date: 01/20/2021
+ms.author: jeedes
+---
+# Tutorial: Azure Active Directory integration with Canvas
 
-In this tutorial, you learn how to integrate Canvas with Azure Active Directory (Azure AD).
+In this tutorial, you'll learn how to integrate Canvas with Azure Active Directory (Azure AD). When you integrate Canvas with Azure AD, you can:
 
-Integrating Canvas with Azure AD provides you with the following benefits:
-
-- You can control in Azure AD who has access to Canvas
-- You can enable your users to automatically get signed-on to Canvas (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Control in Azure AD who has access to Canvas.
+* Enable your users to be automatically signed-in to Canvas with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
-To configure Azure AD integration with Canvas, you need the following items:
-
-- An Azure AD subscription
-- A Canvas single-sign on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+To get started, you need the following items:
+ 
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Canvas single sign-on (SSO)-enabled subscription.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Canvas from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-## Adding Canvas from the gallery
+* Canvas supports **SP** initiated SSO
+
+## Add Canvas from the gallery
+
 To configure the integration of Canvas into Azure AD, you need to add Canvas from the gallery to your list of managed SaaS apps.
 
-**To add Canvas from the gallery, perform the following steps:**
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Canvas** in the search box.
+1. Select **Canvas** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+## Configure and test Azure AD SSO for Canvas
 
-	![Active Directory][1]
+Configure and test Azure AD SSO with Canvas using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Canvas.
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+To configure and test Azure AD SSO with Canvas, perform the following steps:
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Canvas SSO](#configure-canvas-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Canvas test user](#create-canvas-test-user)** - to have a counterpart of B.Simon in Canvas that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	![Applications][3]
+### Configure Azure AD SSO
 
-1. In the search box, type **Canvas**.
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-	![Creating an Azure AD test user](./media/canvas-lms-tutorial/tutorial_canvaslms_search.png)
+1. In the Azure portal, on the **Canvas** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-1. In the results panel, select **Canvas**, and then click **Add** button to add the application.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-	![Creating an Azure AD test user](./media/canvas-lms-tutorial/tutorial_canvaslms_addfromgallery.png)
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Canvas based on a test user called "Britta Simon."
+    ![Canvas Domain and URLs single sign-on information](common/sp-identifier.png)
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Canvas is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Canvas needs to be established.
+    a. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<tenant-name>.instructure.com`
 
-In Canvas, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    `https://<tenant-name>.instructure.com/saml2`
 
-To configure and test Azure AD single sign-on with Canvas, you need to complete the following building blocks:
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Canvas Client support team](https://community.canvaslms.com/community/help) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a Canvas test user](#creating-a-canvas-test-user)** - to have a counterpart of Britta Simon in Canvas that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+5. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog.
 
-### Configuring Azure AD single sign-on
+    ![Edit SAML Signing Certificate](common/edit-certificate.png)
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Canvas application.
+6. In the **SAML Signing Certificate** section, copy the **THUMBPRINT** and save it on your computer.
 
-**To configure Azure AD single sign-on with Canvas, perform the following steps:**
+    ![Copy Thumbprint value](common/copy-thumbprint.png)
 
-1. In the Azure portal, on the **Canvas** application integration page, click **Single sign-on**.
+7. On the **Set up Canvas** section, copy the appropriate URL(s) as per your requirement.
 
-	![Configure Single Sign-On][4]
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/canvas-lms-tutorial/tutorial_canvaslms_samlbase.png)
+### Create an Azure AD test user
 
-1. On the **Canvas Domain and URLs** section, perform the following steps:
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-	![Configure Single Sign-On](./media/canvas-lms-tutorial/tutorial_canvaslms_url.png)
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenant-name>.instructure.com`
+### Assign the Azure AD test user
 
-    b. In the **Identifier** textbox, type the value using the following pattern: `https://<tenant-name>.instructure.com/saml2`
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Canvas.
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Canvas Client support team](https://community.canvaslms.com/community/help) to get these values. 
- 
-1. On the **SAML Signing Certificate** section, copy the **THUMBPRINT** value of certificate.
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Canvas**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-	![Configure Single Sign-On](./media/canvas-lms-tutorial/tutorial_canvaslms_certificate.png) 
+### Configure Canvas SSO
 
-1. Click **Save** button.
-
-	![Configure Single Sign-On](./media/canvas-lms-tutorial/tutorial_general_400.png)
-
-1. On the **Canvas Configuration** section, click **Configure Canvas** to open **Configure sign-on** window. Copy the **Change Password URL, Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
-
-	![Configure Single Sign-On](./media/canvas-lms-tutorial/tutorial_canvaslms_configure.png) 
- 
 1. In a different web browser window, log in to your Canvas company site as an administrator.
 
-1. Go to **Courses \> Managed Accounts \> Microsoft**.
-   
-    ![Canvas](./media/canvas-lms-tutorial/IC775990.png "Canvas")
+2. Go to **Courses \> Managed Accounts \> Microsoft**.
 
-1. In the navigation pane on the left, select **Authentication**, and then click **Add New SAML Config**.
-   
-    ![Authentication](./media/canvas-lms-tutorial/IC775991.png "Authentication")
+    ![Canvas](./media/canvas-lms-tutorial/ic775990.png "Canvas")
 
-1. On the Current Integration page, perform the following steps:
-   
-    ![Current Integration](./media/canvas-lms-tutorial/IC775992.png "Current Integration")
+3. In the navigation pane on the left, select **Authentication**, and then click **Add New SAML Config**.
 
-    a. In **IdP Entity ID** textbox, paste the value of **SAML Entity ID** which you have copied from Azure portal.
+    ![Authentication](./media/canvas-lms-tutorial/ic775991.png "Authentication")
 
-    b. In **Log On URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal .
+4. On the Current Integration page, perform the following steps:
 
-    c. In **Log Out URL** textbox, paste the value of **Sign-Out URL** which you have copied from Azure portal.
+    ![Current Integration](./media/canvas-lms-tutorial/save.png "Current Integration")
 
-    d. In **Change Password Link** textbox, paste the value of **Change Password URL** which you have copied from Azure portal. 
+    a. In **IdP Entity ID** textbox, paste the value of **Azure Ad Identifier** which you have copied from Azure portal.
 
-    e. In **Certificate Fingerprint** textbox, paste the **Thumbprint** value of certificate which you have copied from Azure portal.      
-        
+    b. In **Log On URL** textbox, paste the value of **Login URL** which you have copied from Azure portal .
+
+    c. In **Log Out URL** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
+
+    d. In **Change Password Link** textbox, paste the value of **Change Password URL** which you have copied from Azure portal.
+
+    e. In **Certificate Fingerprint** textbox, paste the **Thumbprint** value of certificate which you have copied from Azure portal.
+
     f. From the **Login Attribute** list, select **NameID**.
 
     g. From the **Identifier Format** list, select **emailAddress**.
 
     h. Click **Save Authentication Settings**.
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+### Create Canvas test user
 
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-![Create Azure AD User][100]
-
-**To create a test user in Azure AD, perform the following steps:**
-
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
-
-	![Creating an Azure AD test user](./media/canvas-lms-tutorial/create_aaduser_01.png) 
-
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/canvas-lms-tutorial/create_aaduser_02.png) 
-
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/canvas-lms-tutorial/create_aaduser_03.png) 
-
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/canvas-lms-tutorial/create_aaduser_04.png) 
-
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
-
-    d. Click **Create**.
- 
-### Creating a Canvas test user
-
-To enable Azure AD users to log in to Canvas, they must be provisioned into Canvas.
-
-In case of Canvas, user provisioning is a manual task.
+To enable Azure AD users to log in to Canvas, they must be provisioned into Canvas. In the case of Canvas, user provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
 1. Log in to your **Canvas** tenant.
 
-1. Go to **Courses \> Managed Accounts \> Microsoft**.
-   
-   ![Canvas](./media/canvas-lms-tutorial/IC775990.png "Canvas")
+2. Go to **Courses \> Managed Accounts \> Microsoft**.
 
-1. Click **Users**.
-   
-   ![Users](./media/canvas-lms-tutorial/IC775995.png "Users")
+   ![Canvas](./media/canvas-lms-tutorial/ic775990.png "Canvas")
 
-1. Click **Add New User**.
-   
-   ![Users](./media/canvas-lms-tutorial/IC775996.png "Users")
+3. Click **Users**.
 
-1. On the Add a New User dialog page, perform the following steps:
-   
-   ![Add User](./media/canvas-lms-tutorial/IC775997.png "Add User")
-   
+   ![Screenshot shows Canvas menu with Users selected.](./media/canvas-lms-tutorial/ic775995.png "Users")
+
+4. Click **Add New User**.
+
+   ![Screenshot shows the Add a new User button.](./media/canvas-lms-tutorial/ic775996.png "Users")
+
+5. On the Add a New User dialog page, perform the following steps:
+
+   ![Add User](./media/canvas-lms-tutorial/ic775997.png "Add User")
+
    a. In the **Full Name** textbox, enter the name of user like **BrittaSimon**.
 
-   b. In the **Email** textbox, enter the email of user like **brittasimon@contoso.com**.
+   b. In the **Email** textbox, enter the email of user like **brittasimon\@contoso.com**.
 
-   c. In the **Login** textbox, enter the user’s Azure AD email address like **brittasimon@contoso.com**.
+   c. In the **Login** textbox, enter the user’s Azure AD email address like **brittasimon\@contoso.com**.
 
    d. Select **Email the user about this account creation**.
 
    e. Click **Add User**.
 
->[!NOTE]
->You can use any other Canvas user account creation tools or APIs provided by Canvas to provision AAD user accounts.
+> [!NOTE]
+> You can use any other Canvas user account creation tools or APIs provided by Canvas to provision Azure AD user accounts.
 
-### Assigning the Azure AD test user
+### Test SSO
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Canvas.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-![Assign User][200] 
+* Click on **Test this application** in Azure portal. This will redirect to Canvas Sign-on URL where you can initiate the login flow. 
 
-**To assign Britta Simon to Canvas, perform the following steps:**
+* Go to Canvas Sign-on URL directly and initiate the login flow from there.
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+* You can use Microsoft My Apps. When you click the Canvas tile in the My Apps, you should be automatically signed in to the Canvas for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-	![Assign User][201] 
+## Next steps
 
-1. In the applications list, select **Canvas**.
-
-	![Configure Single Sign-On](./media/canvas-lms-tutorial/tutorial_canvaslms_app.png) 
-
-1. In the menu on the left, click **Users and groups**.
-
-	![Assign User][202] 
-
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![Assign User][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
-
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the Canvas tile in the Access Panel, you should get automatically signed-on to your Canvas application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
-
-## Additional resources
-
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-<!--Image references-->
-
-[1]: ./media/canvas-lms-tutorial/tutorial_general_01.png
-[2]: ./media/canvas-lms-tutorial/tutorial_general_02.png
-[3]: ./media/canvas-lms-tutorial/tutorial_general_03.png
-[4]: ./media/canvas-lms-tutorial/tutorial_general_04.png
-
-[100]: ./media/canvas-lms-tutorial/tutorial_general_100.png
-
-[200]: ./media/canvas-lms-tutorial/tutorial_general_200.png
-[201]: ./media/canvas-lms-tutorial/tutorial_general_201.png
-[202]: ./media/canvas-lms-tutorial/tutorial_general_202.png
-[203]: ./media/canvas-lms-tutorial/tutorial_general_203.png
-
+Once you configure Canvas you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

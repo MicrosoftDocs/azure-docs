@@ -3,21 +3,22 @@ title: Azure Media Services Community Overview | Microsoft Docs
 description: 'This Azure Media Services (AMS) community page discusses different ways you can get updates about AMS, see new videos and podcasts, ask questions and give feedback. '
 services: media-services
 documentationcenter: ''
-author: juliako
-manager: cfowler
+author: IngridAtMicrosoft
+manager: femila
 editor: ''
-
 ms.assetid: 0df020f4-8297-4f31-92bf-de098283e997
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/29/2018
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 # Azure Media Services Community
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
+
 This Azure Media Services (AMS) community page discusses different ways you can get updates about AMS. You can also view new videos and podcasts, ask questions and give feedback.   
 
 ## Videos and Podcasts
@@ -32,31 +33,28 @@ This Azure Media Services (AMS) community page discusses different ways you can 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## Discussion
+
 ### Twitter
+
 Use the [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) twitter handle to contact us or follow updates on Twitter. 
 You can use the [@AzureSupport](https://twitter.com/azuresupport) twitter handle to request support on Twitter.  
 
 ### Online forums
+
 The following forums can be used for asking questions about current products and features.
 
 Currently, MSDN is Media Services team's primary community forum.
 
-[![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
+[:::image type="icon" source="./media/media-services-community/msdn.png" border="false":::](/answers/topics/azure-media-services.html) 
 
 The team also monitors questions tagged on Stack Overflow with 'azure-media-services'.
-[![StackOverflow](./media/media-services-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-media-services) 
 
-## Contact the team
-Azure Media Services primary support email is: **amshelp@microsoft.com**.
+[:::image type="icon" source="./media/media-services-community/stack-overflow.png" border="false":::](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
-The following table lists email of feature sub teams:
+## Need help?
 
-| Feature | Email |
-| --- | --- |
-| Azure Media Analytics |amsanalytics@microsoft.com |
-| Azure Media Player |ampinfo@microsoft.com |
-| Azure Media Explorer |amse@microsoft.com |
-| Workflow Designer |mepd@microsoft.com |
-| File Streaming and Packaging |amsstreaming@microsoft.com |
-| Live Streaming and Packaging |amslived@microsoft.com |
+You can open a support ticket by navigating to [New support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
+## Next steps
+
+[Overview](media-services-overview.md)

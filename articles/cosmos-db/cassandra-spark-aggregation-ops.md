@@ -1,20 +1,18 @@
 ---
 title: Aggregate operations on Azure Cosmos DB Cassandra API tables from Spark
 description: This article covers basic aggregation operations against Azure Cosmos DB Cassandra API tables from Spark
-services: cosmos-db
-author: anagha-microsoft
-
+author: kanshiG
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.custom: basics, DDL, DML
-ms.devlang: spark-scala
-ms.topic: conceptual
+ms.subservice: cosmosdb-cassandra
+ms.topic: how-to
 ms.date: 09/24/2018
-ms.author: ankhanol
 
 ---
 
 # Aggregate operations on Azure Cosmos DB Cassandra API tables from Spark 
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 This article describes basic aggregation operations against Azure Cosmos DB Cassandra API tables from Spark. 
 
@@ -76,7 +74,7 @@ sc.cassandraTable("books_ks", "books").count
 ```
 
 **Output:**
-```
+```bash
 res48: Long = 5
 ```
 
@@ -257,7 +255,9 @@ spark
 select max(book_price) from books_vw;
 ```
 **Output:**
-```22.45 ```
+```
+22.45
+```
 
 ## Sum operation
 

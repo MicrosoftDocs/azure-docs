@@ -1,146 +1,137 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Perception United States (Non-UltiPro) | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Perception United States (Non-UltiPro).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: joflore
-
-ms.assetid: b4a8f026-cb5f-41eb-9680-68eddc33565e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/20/2017
+ms.topic: tutorial
+ms.date: 03/25/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Perception United States (Non-UltiPro)
 
 In this tutorial, you learn how to integrate Perception United States (Non-UltiPro) with Azure Active Directory (Azure AD).
-
 Integrating Perception United States (Non-UltiPro) with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Perception United States (Non-UltiPro).
-- You can enable your users to automatically get signed-on to Perception United States (Non-UltiPro) (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
+* You can control in Azure AD who has access to Perception United States (Non-UltiPro).
+* You can enable your users to be automatically signed-in to Perception United States (Non-UltiPro) (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
 To configure Azure AD integration with Perception United States (Non-UltiPro), you need the following items:
 
-- An Azure AD subscription
-- A Perception United States (Non-UltiPro) single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* Perception United States (Non-UltiPro) single sign-on enabled subscription
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Perception United States (Non-UltiPro) from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+
+* Perception United States (Non-UltiPro) supports **IDP** initiated SSO
 
 ## Adding Perception United States (Non-UltiPro) from the gallery
+
 To configure the integration of Perception United States (Non-UltiPro) into Azure AD, you need to add Perception United States (Non-UltiPro) from the gallery to your list of managed SaaS apps.
 
 **To add Perception United States (Non-UltiPro) from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button][1]
+	![The Azure Active Directory button](common/select-azuread.png)
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications blade][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+	![The Enterprise applications blade](common/enterprise-applications.png)
 
-	![The New application button][3]
+3. To add new application, click **New application** button on the top of dialog.
 
-1. In the search box, type **Perception United States (Non-UltiPro)**, select **Perception United States (Non-UltiPro)** from result panel then click **Add** button to add the application.
+	![The New application button](common/add-new-app.png)
 
-	![Perception United States (Non-UltiPro) in the results list](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_addfromgallery.png)
+4. In the search box, type **Perception United States (Non-UltiPro)**, select **Perception United States (Non-UltiPro)** from result panel then click **Add** button to add the application.
+
+	 ![Perception United States (Non-UltiPro) in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Perception United States (Non-UltiPro) based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in Perception United States (Non-UltiPro) is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Perception United States (Non-UltiPro) needs to be established.
-
-In Perception United States (Non-UltiPro), assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+In this section, you configure and test Azure AD single sign-on with Perception United States (Non-UltiPro) based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in Perception United States (Non-UltiPro) needs to be established.
 
 To configure and test Azure AD single sign-on with Perception United States (Non-UltiPro), you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create a Perception United States (Non-UltiPro) test user](#create-a-perception-united-states-non-ultipro-test-user)** - to have a counterpart of Britta Simon in Perception United States (Non-UltiPro) that is linked to the Azure AD representation of user.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+2. **[Configure Perception United States (Non-UltiPro) Single Sign-On](#configure-perception-united-states-non-ultipro-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create Perception United States (Non-UltiPro) test user](#create-perception-united-states-non-ultipro-test-user)** - to have a counterpart of Britta Simon in Perception United States (Non-UltiPro) that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Perception United States (Non-UltiPro) application.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-**To configure Azure AD single sign-on with Perception United States (Non-UltiPro), perform the following steps:**
+To configure Azure AD single sign-on with Perception United States (Non-UltiPro), perform the following steps:
 
-1. In the Azure portal, on the **Perception United States (Non-UltiPro)** application integration page, click **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Perception United States (Non-UltiPro)** application integration page, select **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link](common/select-sso.png)
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Single sign-on dialog box](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_samlbase.png)
+2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
-1. On the **Perception United States (Non-UltiPro) Domain and URLs** section, perform the following steps:
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-	![Perception United States (Non-UltiPro) Domain and URLs single sign-on information](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_url.png)
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-    a. In the **Identifier** textbox, type the URL: `https://perception.kanjoya.com/sp`
+	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://perception.kanjoya.com/sso?idp=<entity_id>`
+4. On the **Set up Single Sign-On with SAML** page, perform the following steps:
 
-	> [!NOTE] 
-	> The value is not real. You will update the value with the actual Reply URL, which is explained later in the tutorial.
- 
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+    ![Perception United States (Non-UltiPro) Domain and URLs single sign-on information](common/idp-intiated.png)
 
-	![The Certificate download link](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_certificate.png) 
+    a. In the **Identifier** text box, type a URL:
+    `https://perception.kanjoya.com/sp`
 
-1. Click **Save** button.
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
-	![Configure Single Sign-On Save button](./media/perceptionunitedstates-tutorial/tutorial_general_400.png)
+	c. The **Perception United States (Non-UltiPro)** application requires the **Azure AD Identifier** value as <entity_id>, which you will get from the **Set up Perception United States (Non-UltiPro)** section, to be uri encoded. To get the uri encoded value, use the following link: **http://www.url-encode-decode.com/**.
 
-1. On the **Perception United States (Non-UltiPro) Configuration** section, click **Configure Perception United States (Non-UltiPro)** to open **Configure sign-on** window. Copy the **SAML Entity ID** from the **Quick Reference section.**
-
-	a. The **Perception United States (Non-UltiPro)** application requires the **SAML Entity ID** value, which you have copied, to be uri encoded. To get the uri encoded value, use the following link:**http://www.url-encode-decode.com/**.
-
-	b. After getting the uri encoded value combine it with the **Reply URL** as mentioned below-
+	d. After getting the uri encoded value combine it with the **Reply URL** as mentioned below-
 
 	`https://perception.kanjoya.com/sso?idp=<URI encooded entity_id>`
 	
-	c. Paste the above value in the **Reply URL** textbox in **Perception United States (Non-UltiPro) Domain and URLs** section.
+	e. Paste the above value in the **Reply URL** textbox.
 
-	![Perception United States (Non-UltiPro) Configuration](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_configure.png) 
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+
+	![The Certificate download link](common/metadataxml.png)
+
+6. On the **Set up Perception United States (Non-UltiPro)** section, copy the appropriate URL(s) as per your requirement.
+
+	![Copy configuration URLs](common/copy-configuration-urls.png)
+
+	a. Login URL
+
+	b. Azure AD Identifier
+
+	c. Logout URL	
+
+### Configure Perception United States (Non-UltiPro) Single Sign-On
 
 1. In another browser window, sign on to your Perception United States (Non-UltiPro) company site as an administrator.
 
-1. In the main toolbar, click **Account Settings**.
+2. In the main toolbar, click **Account Settings**.
 
-    ![Perception United States (Non-UltiPro) user](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_user.png)
+    ![Screenshot that shows "Account Settings" selected from the main toolbar.](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_user.png)
 
-1. On the **Account Settings** page, perform the following steps:
+3. On the **Account Settings** page, perform the following steps:
 
 	![Perception United States (Non-UltiPro) user](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_account.png)
 
@@ -152,7 +143,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	d. Select **SSO Identity Provider** as **SAML 2.0**.
 
-1. On the **SSO Configuration** page, perform the following steps:
+4. On the **SSO Configuration** page, perform the following steps:
 
     ![Perception United States (Non-UltiPro) SSOConfig](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_ssoconfig.png)
 
@@ -160,109 +151,78 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **SSO Configuration Name** textbox, type the name of your **Configuration**.
 	
-	c. In **Identity Provider Name** textbox, paste the value of **SAML Entity ID**, which you have copied from Azure portal. 
+	c. In **Identity Provider Name** textbox, paste the value of **Azure AD Identifier**, which you have copied from Azure portal. 
 
-	d. In **SAML Domain textbox**, enter the domain like **@contoso.com**.
+	d. In **SAML Domain textbox**, enter the domain like @contoso.com.
 
 	e. Click on **Upload Again** to upload the **Metadata XML** file.
 
 	f. Click **Update**.
 
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-
-### Create an Azure AD test user
+### Create an Azure AD test user 
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-   ![Create an Azure AD test user][100]
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-**To create a test user in Azure AD, perform the following steps:**
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
+2. Select **New user** at the top of the screen.
 
-    ![The Azure Active Directory button](./media/perceptionunitedstates-tutorial/create_aaduser_01.png)
+    ![New user Button](common/new-user.png)
 
-1. To display the list of users, go to **Users and groups**, and then click **All users**.
+3. In the User properties, perform the following steps.
 
-    ![The "Users and groups" and "All users" links](./media/perceptionunitedstates-tutorial/create_aaduser_02.png)
+    ![The User dialog box](common/user-properties.png)
 
-1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+    a. In the **Name** field enter **BrittaSimon**.
+  
+    b. In the **User name** field type brittasimon@yourcompanydomain.extension. For example, BrittaSimon@contoso.com
 
-    ![The Add button](./media/perceptionunitedstates-tutorial/create_aaduser_03.png)
-
-1. In the **User** dialog box, perform the following steps:
-
-    ![The User dialog box](./media/perceptionunitedstates-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
     d. Click **Create**.
-  
-### Create a Perception United States (Non-UltiPro) test user
-
-In this section, you create a user called Britta Simon in Perception United States (Non-UltiPro). Work with [Perception United States (Non-UltiPro) support team](http://www.ultimatesoftware.com/Contact/ContactUs) to add the users in the Perception United States (Non-UltiPro) platform.
 
 ### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Perception United States (Non-UltiPro).
 
-![Assign the user role][200] 
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Perception United States (Non-UltiPro)**.
 
-**To assign Britta Simon to Perception United States (Non-UltiPro), perform the following steps:**
+	![Enterprise applications blade](common/enterprise-applications.png)
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+2. In the applications list, select **Perception United States (Non-UltiPro)**.
 
-	![Assign User][201] 
+	![The Perception United States (Non-UltiPro) link in the Applications list](common/all-applications.png)
 
-1. In the applications list, select **Perception United States (Non-UltiPro)**.
+3. In the menu on the left, select **Users and groups**.
 
-	![The Perception United States (Non-UltiPro) link in the Applications list](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_app.png)  
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
-1. In the menu on the left, click **Users and groups**.
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The "Users and groups" link][202]
+    ![The Add Assignment pane](common/add-assign-user.png)
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-	![The Add Assignment pane][203]
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+7. In the **Add Assignment** dialog click the **Assign** button.
 
-1. Click **Select** button on **Users and groups** dialog.
+### Create Perception United States (Non-UltiPro) test user
 
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Test single sign-on
+In this section, you create a user called Britta Simon in Perception United States (Non-UltiPro). Work with [Perception United States (Non-UltiPro) support team](https://www.ultimatesoftware.com/Contact/ContactUs) to add the users in the Perception United States (Non-UltiPro) platform.
+
+### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Perception United States (Non-UltiPro) tile in the Access Panel, you should get automatically signed-on to your Perception United States (Non-UltiPro) application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+When you click the Perception United States (Non-UltiPro) tile in the Access Panel, you should be automatically signed in to the Perception United States (Non-UltiPro) for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
-## Additional resources
+## Additional Resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-
-<!--Image references-->
-
-[1]: ./media/perceptionunitedstates-tutorial/tutorial_general_01.png
-[2]: ./media/perceptionunitedstates-tutorial/tutorial_general_02.png
-[3]: ./media/perceptionunitedstates-tutorial/tutorial_general_03.png
-[4]: ./media/perceptionunitedstates-tutorial/tutorial_general_04.png
-
-[100]: ./media/perceptionunitedstates-tutorial/tutorial_general_100.png
-
-[200]: ./media/perceptionunitedstates-tutorial/tutorial_general_200.png
-[201]: ./media/perceptionunitedstates-tutorial/tutorial_general_201.png
-[202]: ./media/perceptionunitedstates-tutorial/tutorial_general_202.png
-[203]: ./media/perceptionunitedstates-tutorial/tutorial_general_203.png
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

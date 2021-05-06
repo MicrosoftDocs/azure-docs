@@ -1,39 +1,36 @@
 ---
-title: Tutorial - Manage web traffic - Azure CLI
+title: Manage web traffic - Azure CLI
 description: Learn how to create an application gateway with a virtual machine scale set to manage web traffic using the Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
-ms.author: victorh
-ms.custom: mvc
+ms.topic: how-to
+ms.date: 07/20/2019
+ms.author: victorh 
+ms.custom: devx-track-azurecli
 ---
-# Tutorial: Manage web traffic with an application gateway using the Azure CLI
 
-Application gateway is used to manage and secure web traffic to servers that you maintain. You can use the Azure CLI to create an [application gateway](overview.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for backend servers to manage web traffic. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
+# Manage web traffic with an application gateway using the Azure CLI
 
-In this tutorial, you learn how to:
+Application gateway is used to manage and secure web traffic to servers that you maintain. You can use the Azure CLI to create an [application gateway](overview.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/overview.md) for backend servers. In this example, the scale set contains two virtual machine instances. The scale set is added to the default backend pool of the application gateway.
 
-> [!div class="checklist"]
-> * Set up the network
-> * Create an application gateway
-> * Create a virtual machine scale set with the default backend pool
+In this article, you learn how to:
 
-If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-manage-web-traffic-powershell.md).
+* Set up the network
+* Create an application gateway
+* Create a virtual machine scale set with the default backend pool
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you prefer, you can complete this procedure using [Azure PowerShell](tutorial-manage-web-traffic-powershell.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+ - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group using [az group create](/cli/azure/group#az-group-create). 
+A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group using [az group create](/cli/azure/group#az_group_create).
 
 The following example creates a resource group named *myResourceGroupAG* in the *eastus* location.
 
@@ -43,7 +40,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## Create network resources 
 
-Create the virtual network named *myVNet* and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet#az-net). You can then add the subnet named *myBackendSubnet* that's needed by the backend servers using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
+Create the virtual network named *myVNet* and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet). You can then add the subnet named *myBackendSubnet* that's needed by the backend servers using [az network vnet subnet create](/cli/azure/network/vnet/subnet). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/network/public-ip).
 
 ```azurecli-interactive
 az network vnet create \
@@ -62,12 +59,14 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## Create an application gateway
 
-Use [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create) to create the application gateway named *myAppGateway*. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The application gateway is assigned to *myAGSubnet* and *myPublicIPSddress* that you previously created. 
+Use [az network application-gateway create](/cli/azure/network/application-gateway) to create the application gateway named *myAppGateway*. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The application gateway is assigned to *myAGSubnet* and *myPublicIPAddress* that you previously created. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -77,7 +76,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGsubnet \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 80 \
   --http-settings-port 80 \
@@ -85,7 +84,7 @@ az network application-gateway create \
   --public-ip-address myAGPublicIPAddress
 ```
 
- It may take several minutes for the application gateway to be created. After the application gateway is created, you will see these new features:
+ It may take several minutes for the application gateway to be created. After the application gateway is created, you'll see these new features:
 
 - *appGatewayBackendPool* - An application gateway must have at least one backend address pool.
 - *appGatewayBackendHttpSettings* - Specifies that port 80 and an HTTP protocol is used for communication.
@@ -95,7 +94,7 @@ az network application-gateway create \
 
 ## Create a Virtual Machine Scale Set
 
-In this example, you create a virtual machine scale set that provides servers for the backend pool in the application gateway. The virtual machines in the scale set are associated with *myBackendSubnet* and *appGatewayBackendPool*. To create the scale set, use [az vmss create](/cli/azure/vmss#az-vmss-create).
+In this example, you create a virtual machine scale set that provides servers for the backend pool in the application gateway. The virtual machines in the scale set are associated with *myBackendSubnet* and *appGatewayBackendPool*. To create the scale set, use [az vmss create](/cli/azure/vmss#az_vmss_create).
 
 ```azurecli-interactive
 az vmss create \
@@ -129,9 +128,9 @@ az vmss extension set \
 
 ## Test the application gateway
 
-To get the public IP address of the application gateway, use [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show). Copy the public IP address, and then paste it into the address bar of your browser.
+To get the public IP address of the application gateway, use [az network public-ip show](/cli/azure/network/public-ip). Copy the public IP address, and then paste it into the address bar of your browser.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
@@ -151,12 +150,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## Next steps
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Set up the network
-> * Create an application gateway
-> * Create a virtual machine scale set with the default backend pool
-
-> [!div class="nextstepaction"]
-> [Restrict web traffic with a web application firewall](./tutorial-restrict-web-traffic-cli.md)
+[Restrict web traffic with a web application firewall](../web-application-firewall/ag/tutorial-restrict-web-traffic-cli.md)

@@ -1,19 +1,21 @@
 ---
-title: Overview of Azure Firewall logs
-description: This article is an overview of the Azure Firewall diagnostic logs.
+title: Overview of Azure Firewall logs and metrics
+description: You can monitor Azure Firewall using firewall logs. You can also use activity logs to audit operations on Azure Firewall resources.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 9/24/2018
+ms.date: 04/02/2021
 ms.author: victorh
 ---
 
-# Azure Firewall logs
+# Azure Firewall logs and metrics
 
 You can monitor Azure Firewall using firewall logs. You can also use activity logs to audit operations on Azure Firewall resources.
 
-You can access some of these logs through the portal. Logs can be sent to [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Storage, and Event Hubs and analyzed in Log Analytics or by different tools such as Excel and Power BI.
+You can access some of these logs through the portal. Logs can be sent to [Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md), Storage, and Event Hubs and analyzed in Azure Monitor logs or by different tools such as Excel and Power BI.
+
+Metrics are lightweight and can support near real-time scenarios making them useful for alerting and fast issue detection.
 
 ## Diagnostic logs
 
@@ -21,12 +23,12 @@ You can access some of these logs through the portal. Logs can be sent to [Log A
 
 * **Application rule log**
 
-   The Application rule log is saved to a storage account, streamed to Event hubs and/or sent to Log Analytics only if you have enabled it for each Azure Firewall. Each new connection that matches one of your configured application rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
+   The Application rule log is saved to a storage account, streamed to Event hubs and/or sent to Azure Monitor logs only if you've enabled it for each Azure Firewall. Each new connection that matches one of your configured application rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following examples:
 
    ```
    Category: application rule logs.
    Time: log timestamp.
-   Properties: currently contains the full message. 
+   Properties: currently contains the full message.
    note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
    ```
 
@@ -42,14 +44,26 @@ You can access some of these logs through the portal. Logs can be sent to [Log A
    }
    ```
 
+   ```json
+   {
+     "category": "AzureFirewallApplicationRule",
+     "time": "2018-04-16T23:45:04.8295030Z",
+     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
+     "operationName": "AzureFirewallApplicationRuleLog",
+     "properties": {
+         "msg": "HTTPS request from 10.11.2.4:53344 to www.bing.com:443. Action: Allow. Rule Collection: ExampleRuleCollection. Rule: ExampleRule. Web Category: SearchEnginesAndPortals"
+     }
+   }
+   ```
+
 * **Network rule log**
 
-   The Network rule log is saved to a storage account, streamed to Event hubs and/or sent Log Analytics only if you have enabled it for each Azure Firewall. Each new connection that matches one of your configured network rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
+   The Network rule log is saved to a storage account, streamed to Event hubs and/or sent to Azure Monitor logs only if you've enabled it for each Azure Firewall. Each new connection that matches one of your configured network rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
 
    ```
    Category: network rule logs.
    Time: log timestamp.
-   Properties: currently contains the full message. 
+   Properties: currently contains the full message.
    note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
    ```
 
@@ -66,19 +80,108 @@ You can access some of these logs through the portal. Logs can be sent to [Log A
 
    ```
 
+* **DNS proxy log**
+
+   The DNS Proxy log is saved to a storage account, streamed to Event hubs, and/or sent to Azure Monitor logs only if you’ve enabled it for each Azure Firewall. This log tracks DNS messages to a DNS server configured using DNS proxy. The data is logged in JSON format, as shown in the following examples:
+
+
+   ```
+   Category: DNS proxy logs.
+   Time: log timestamp.
+   Properties: currently contains the full message.
+   note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
+   ```
+
+   Success:
+   ```json
+   {
+     "category": "AzureFirewallDnsProxy",
+     "time": "2020-09-02T19:12:33.751Z",
+     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
+     "operationName": "AzureFirewallDnsProxyLog",
+     "properties": {
+         "msg": "DNS Request: 11.5.0.7:48197 – 15676 AAA IN md-l1l1pg5lcmkq.blob.core.windows.net. udp 55 false 512 NOERROR - 0 2.000301956s"
+     }
+   }
+   ```
+
+   Failed:
+
+   ```json
+   {
+     "category": "AzureFirewallDnsProxy",
+     "time": "2020-09-02T19:12:33.751Z",
+     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
+     "operationName": "AzureFirewallDnsProxyLog",
+     "properties": {
+         "msg": " Error: 2 time.windows.com.reddog.microsoft.com. A: read udp 10.0.1.5:49126->168.63.129.160:53: i/o timeout”
+     }
+   }
+   ```
+
+   msg format:
+
+   `[client’s IP address]:[client’s port] – [query ID] [type of the request] [class of the request] [name of the request] [protocol used] [request size in bytes] [EDNS0 DO (DNSSEC OK) bit set in the query] [EDNS0 buffer size advertised in the query] [response CODE] [response flags] [response size] [response duration]`
+
 You have three options for storing your logs:
 
 * **Storage account**: Storage accounts are best used for logs when logs are stored for a longer duration and reviewed when needed.
 * **Event hubs**: Event hubs are a great option for integrating with other security information and event management (SEIM) tools to get alerts on your resources.
-* **Log Analytics**: Log Analytics is best used for general real-time monitoring of your application or looking at trends.
+* **Azure Monitor logs**: Azure Monitor logs is best used for general real-time monitoring of your application or looking at trends.
 
 ## Activity logs
 
    Activity log entries are collected by default, and you can view them in the Azure portal.
 
-   You can use [Azure activity logs](../azure-resource-manager/resource-group-audit.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription.
+   You can use [Azure activity logs](../azure-resource-manager/management/view-activity-logs.md) (formerly known as operational logs and audit logs) to view all operations submitted to your Azure subscription.
+
+## Metrics
+
+Metrics in Azure Monitor are numerical values that describe some aspect of a system at a particular time. Metrics are collected every minute, and are useful for alerting because they can be sampled frequently. An alert can be fired quickly with relatively simple logic.
+
+The following metrics are available for Azure Firewall:
+
+- **Application rules hit count** - The number of times an application rule has been hit.
+
+    Unit: count
+
+- **Network rules hit count** - The number of times a network rule has been hit.
+
+    Unit: count
+
+- **Data processed** - Sum of data traversing the firewall in a given time window.
+
+    Unit: bytes
+
+- **Throughput** - Rate of data traversing the firewall per second.
+
+    Unit: bits per second
+
+- **Firewall health state** - Indicates the health of the firewall based on SNAT port availability.
+
+    Unit: percent
+
+   This metric has two dimensions:
+  - Status: Possible values are *Healthy*, *Degraded*, *Unhealthy*.
+  - Reason: Indicates the reason for the corresponding status of the firewall. 
+
+     If SNAT ports are used > 95%, they are considered exhausted and the health is 50% with status=**Degraded** and reason=**SNAT port**. The firewall keeps processing traffic and existing connections are not affected. However, new connections may not be established intermittently.
+
+     If SNAT ports are used < 95%, then firewall is considered healthy and health is shown as 100%.
+
+     If no SNAT ports usage is reported, health is shown as 0%. 
+
+- **SNAT port utilization** - The percentage of SNAT ports that have been utilized by the firewall.
+
+    Unit: percent
+
+   When you add more public IP addresses to your firewall, more SNAT ports are available, reducing the SNAT ports utilization. Additionally, when the firewall scales out for different reasons (for example, CPU or throughput) additional SNAT ports also become available. So effectively, a given percentage of SNAT ports utilization may go down without you adding any public IP addresses, just because the service scaled out. You can directly control the number of public IP addresses available to increase the ports available on your firewall. But, you can't directly control firewall scaling.
+
+   If your firewall is running into SNAT port exhaustion, you should add at least five public IP address. This increases the number of SNAT ports available. For more information, see [Azure Firewall features](features.md#multiple-public-ip-addresses).
 
 
 ## Next steps
 
-To learn how to monitor Azure Firewall logs and metrics, see [Tutorial: Monitor Azure Firewall logs](tutorial-diagnostics.md).
+- To learn how to monitor Azure Firewall logs and metrics, see [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md).
+
+- To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md).

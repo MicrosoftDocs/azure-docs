@@ -1,37 +1,39 @@
 ---
-title: How to use Queue storage from PHP | Microsoft Docs
-description: Learn how to use the Azure Queue storage service to create and delete queues, and insert, get, and delete messages. Samples are written in PHP.
-services: storage
-author: roygara
-ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: php
-ms.topic: article
+title: How to use Queue Storage from PHP - Azure Storage
+description: Learn how to use the Azure Queue Storage service to create and delete queues, and insert, get, and delete messages. Samples are written in PHP.
+author: twooley
+ms.author: twooley
+ms.reviewer: dineshm
 ms.date: 01/11/2018
-ms.author: rogarana
-ms.component: queues
+ms.topic: how-to
+ms.service: storage
+ms.subservice: queues
 ---
-# How to use Queue storage from PHP
+
+# How to use Queue Storage from PHP
+
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
-## Overview
-This guide shows you how to perform common scenarios by using the Azure Queue storage service. The samples are written via classes from the [Azure Storage Client Library for PHP][download]. The covered scenarios include inserting, peeking, getting, and deleting queue messages, as well as creating and deleting queues.
+This guide shows you how to perform common scenarios by using the Azure Queue Storage service. The samples are written via classes from the [Azure Storage client library for PHP](https://github.com/Azure/azure-storage-php). The covered scenarios include inserting, peeking, getting, and deleting queue messages, as well as creating and deleting queues.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## Create a PHP application
-The only requirement for creating a PHP application that accesses Azure Queue storage is the referencing of classes in the [Azure Storage Client Library for PHP][download] from within your code. You can use any development tools to create your application, including Notepad.
 
-In this guide, you use the Queue storage service features that can be called within a PHP application locally, or in code running within an Azure web role, worker role, or website.
+The only requirement for creating a PHP application that accesses Azure Queue Storage is the referencing of classes in the [Azure Storage client library for PHP](https://github.com/Azure/azure-storage-php) from within your code. You can use any development tools to create your application, including Notepad.
 
-## Get the Azure Client Libraries
-### Install via Composer
-1. Create a file named **composer.json** in the root of your project and add the following code to it:
-   
+In this guide, you use the Queue Storage service features that can be called within a PHP application locally, or in code running within a web application in Azure.
+
+## Get the Azure client libraries
+
+### Install via composer
+
+1. Create a file named `composer.json` in the root of your project and add the following code to it:
+
     ```json
     {
       "require": {
@@ -39,32 +41,36 @@ In this guide, you use the Queue storage service features that can be called wit
       }
     }
     ```
-2. Download **[composer.phar][composer-phar]** in your project root.
-3. Open a command prompt and execute the following command in your project root
-   
-    ```
+
+2. Download [`composer.phar`](https://getcomposer.org/composer.phar) in your project root.
+
+3. Open a command prompt and run the following command in your project root:
+
+    ```console
     php composer.phar install
     ```
 
-Alternatively go to the [Azure Storage PHP Client Library][download] on GitHub to clone the source code.
+Alternatively go to the [Azure Storage PHP client library](https://github.com/Azure/azure-storage-php) on GitHub to clone the source code.
 
-## Configure your application to access Queue storage
-To use the APIs for Azure Queue storage, you need to:
+## Configure your application to access Queue Storage
 
-1. Reference the autoloader file by using the [require_once] statement.
+To use the APIs for Azure Queue Storage, you need to:
+
+1. Reference the autoloader file by using the [`require_once`](https://www.php.net/manual/en/function.require-once.php) statement.
 2. Reference any classes that you might use.
 
-The following example shows how to include the autoloader file and reference the **QueueRestProxy** class.
+The following example shows how to include the autoloader file and reference the `QueueRestProxy` class.
 
 ```php
 require_once 'vendor/autoload.php';
 use MicrosoftAzure\Storage\Queue\QueueRestProxy;
 ```
 
-In the following examples, the `require_once` statement is shown always, but only the classes that are necessary for the example to execute are referenced.
+In the following examples, the `require_once` statement is shown always, but only the classes required to run the example are referenced.
 
-## Set up an Azure storage connection
-To instantiate an Azure Queue storage client, you must first have a valid connection string. The format for the queue service connection string is as follows.
+## Set up an Azure Storage connection
+
+To instantiate an Azure Queue Storage client, you must first have a valid connection string. The format for the Queue Storage connection string is as follows.
 
 For accessing a live service:
 
@@ -78,10 +84,11 @@ For accessing the emulator storage:
 UseDevelopmentStorage=true
 ```
 
-To create an Azure Queue service client, you need to use the **QueueRestProxy** class. You can use either of the following techniques:
+To create an Azure Queue Storage client, you need to use the `QueueRestProxy` class. You can use either of the following techniques:
 
-* Pass the connection string directly to it.
-* Use environment variables in your Web App to store the connection string. See [Azure web app configuration settings](../../app-service/web-sites-configure.md) document for configuring connection strings.
+- Pass the connection string directly to it.
+- Use environment variables in your web app to store the connection string. See [Azure web app configuration settings](../../app-service/configure-common.md) document for configuring connection strings.
+
 For the examples outlined here, the connection string is passed directly.
 
 ```php
@@ -94,7 +101,8 @@ $queueClient = QueueRestProxy::createQueueService($connectionString);
 ```
 
 ## Create a queue
-A **QueueRestProxy** object lets you create a queue by using the **createQueue** method. When creating a queue, you can set options on the queue, but doing so is not required. (The example below shows how to set metadata on a queue.)
+
+A `QueueRestProxy` object lets you create a queue by using the `CreateQueue` method. When creating a queue, you can set options on the queue, but doing so is not required. This example shows how to set metadata on a queue.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -120,7 +128,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -129,11 +137,10 @@ catch(ServiceException $e){
 
 > [!NOTE]
 > You should not rely on case sensitivity for metadata keys. All keys are read from the service in lowercase.
-> 
-> 
 
 ## Add a message to a queue
-To add a message to a queue, use **QueueRestProxy->createMessage**. The method takes the queue name, the message text, and message options (which are optional).
+
+To add a message to a queue, use `QueueRestProxy->createMessage`. The method takes the queue name, the message text, and message options (which are optional).
 
 ```php
 require_once 'vendor/autoload.php';
@@ -149,12 +156,12 @@ $queueClient = QueueRestProxy::createQueueService($connectionString);
 
 try    {
     // Create message.
-    $queueClient->createMessage("myqueue", "Hello World!");
+    $queueClient->createMessage("myqueue", "Hello, World");
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -162,7 +169,8 @@ catch(ServiceException $e){
 ```
 
 ## Peek at the next message
-You can peek at a message (or messages) at the front of a queue without removing it from the queue by calling **QueueRestProxy->peekMessages**. By default, the **peekMessage** method returns a single message, but you can change that value by using the **PeekMessagesOptions->setNumberOfMessages** method.
+
+You can peek at one or more messages at the front of a queue without removing them from the queue by calling `QueueRestProxy->peekMessages`. By default, the `peekMessage` method returns a single message, but you can change that value by using the `PeekMessagesOptions->setNumberOfMessages` method.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -186,7 +194,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -210,7 +218,8 @@ else{
 ```
 
 ## De-queue the next message
-Your code removes a message from a queue in two steps. First, you call **QueueRestProxy->listMessages**, which makes the message invisible to any other code that's reading from the queue. By default, this message stays invisible for 30 seconds. (If the message is not deleted in this time period, it becomes visible on the queue again.) To finish removing the message from the queue, you must call **QueueRestProxy->deleteMessage**. This two-step process of removing a message assures that when your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. Your code calls **deleteMessage** right after the message has been processed.
+
+Your code removes a message from a queue in two steps. First, you call `QueueRestProxy->listMessages`, which makes the message invisible to any other code that's reading from the queue. By default, this message stays invisible for 30 seconds. (If the message is not deleted in this time period, it becomes visible on the queue again.) To finish removing the message from the queue, you must call `QueueRestProxy->deleteMessage`. This two-step process of removing a message assures that when your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. Your code calls `deleteMessage` right after the message has been processed.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -243,7 +252,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -251,7 +260,8 @@ catch(ServiceException $e){
 ```
 
 ## Change the contents of a queued message
-You can change the contents of a message in-place in the queue by calling **QueueRestProxy->updateMessage**. If the message represents a work task, you could use this feature to update the status of the work task. The following code updates the queue message with new contents, and it sets the visibility timeout to extend another 60 seconds. This saves the state of work that's associated with the message, and it gives the client another minute to continue working on the message. You could use this technique to track multi-step workflows on queue messages, without having to start over from the beginning if a processing step fails due to hardware or software failure. Typically, you would keep a retry count as well, and if the message is retried more than *n* times, you would delete it. This protects against a message that triggers an application error each time it is processed.
+
+You can change the contents of a message in-place in the queue by calling `QueueRestProxy->updateMessage`. If the message represents a work task, you could use this feature to update the status of the work task. The following code updates the queue message with new contents, and it sets the visibility timeout to extend another 60 seconds. This saves the state of work that's associated with the message, and it gives the client another minute to continue working on the message. You could use this technique to track multistep workflows on queue messages, without having to start over from the beginning if a processing step fails due to hardware or software failure. Typically, you would keep a retry count as well, and if the message is retried more than *n* times, you would delete it. This protects against a message that triggers an application error each time it is processed.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -288,15 +298,16 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
 }
 ```
 
-## Additional options for de-queuing messages
-There are two ways that you can customize message retrieval from a queue. First, you can get a batch of messages (up to 32). Second, you can set a longer or shorter visibility timeout, allowing your code more or less time to fully process each message. The following code example uses the **getMessages** method to get 16 messages in one call. Then it processes each message by using a **for** loop. It also sets the invisibility timeout to five minutes for each message.
+## Additional options for dequeuing messages
+
+There are two ways that you can customize message retrieval from a queue. First, you can get a batch of messages (up to 32). Second, you can set a longer or shorter visibility timeout, allowing your code more or less time to fully process each message. The following code example uses the `getMessages` method to get 16 messages in one call. Then it processes each message by using a `for` loop. It also sets the invisibility timeout to five minutes for each message.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -338,7 +349,7 @@ try{
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -346,7 +357,8 @@ catch(ServiceException $e){
 ```
 
 ## Get queue length
-You can get an estimate of the number of messages in a queue. The **QueueRestProxy->getQueueMetadata** method asks the queue service to return metadata about the queue. Calling the **getApproximateMessageCount** method on the returned object provides a count of how many messages are in a queue. The count is only approximate because messages can be added or removed after the queue service responds to your request.
+
+You can get an estimate of the number of messages in a queue. The `QueueRestProxy->getQueueMetadata` method retrieves metadata about the queue. Calling the `getApproximateMessageCount` method on the returned object provides a count of how many messages are in a queue. The count is only approximate because messages can be added or removed after Queue Storage responds to your request.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -367,7 +379,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -377,7 +389,8 @@ echo $approx_msg_count;
 ```
 
 ## Delete a queue
-To delete a queue and all the messages in it, call the **QueueRestProxy->deleteQueue** method.
+
+To delete a queue and all the messages in it, call the `QueueRestProxy->deleteQueue` method.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -397,7 +410,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -405,15 +418,10 @@ catch(ServiceException $e){
 ```
 
 ## Next steps
-Now that you've learned the basics of Azure Queue storage, follow these links to learn about more complex storage tasks:
 
-* Visit the [API Reference for Azure Storage PHP Client Library](http://azure.github.io/azure-storage-php/)
-* See the [Advanced Queue example](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
+Now that you've learned the basics of Azure Queue Storage, follow these links to learn about more complex storage tasks:
 
-For more information, see also the [PHP Developer Center](https://azure.microsoft.com/develop/php/).
+- Visit the [API reference for Azure Storage PHP client library](https://azure.github.io/azure-storage-php/)
+- See the [advanced queue example](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
 
-[download]: https://github.com/Azure/azure-storage-php
-[require_once]: http://www.php.net/manual/en/function.require-once.php
-[Azure Portal]: https://portal.azure.com
-[composer-phar]: http://getcomposer.org/composer.phar
-
+For more information, see the [PHP developer center](https://azure.microsoft.com/develop/php/).

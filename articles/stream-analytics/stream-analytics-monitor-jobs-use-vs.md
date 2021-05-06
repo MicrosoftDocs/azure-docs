@@ -1,14 +1,13 @@
 ---
-title: Monitor and manage Azure Stream Analytics jobs using Visual Studio
+title: Monitor and manage Azure Stream Analytics with Visual Studio
 description: This article describes how to use Visual Studio to monitor and manage Azure Stream Analytics jobs.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 07/10/2018
+ms.topic: how-to
+ms.date: 12/07/2018
+ms.custom: seodec18
 ---
 
 # Monitor and manage Stream Analytics jobs with Visual Studio
@@ -26,22 +25,20 @@ The **Job Summary** and **Job Metrics** give a quick snapshot of your job. At a 
 
 You can collapse the **Job Summary** and click the **Job Metrics** tab to view a graph with important metrics. Check and un-check metrics types to add and remove them from the graph.
 
-![Stream Analytics metrics](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-metrics.png)
+![Stream Analytics metrics in Visual Studio](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-metrics.png)
 
 
 ## Error monitoring
 
 You can also monitor errors by clicking on the **Errors** tab.
 
-![Stream Analytics errors](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-errors.png)
+![Stream Analytics errors in Visual Studio](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-errors.png)
 
 
 ## Get support
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html). 
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Create an Azure Stream Analytics job with Visual Studio](stream-analytics-quick-create-vs.md)
-* [Install Azure Stream Analytics tools for Visual Studio](stream-analytics-tools-for-visual-studio-install.md) 
-
-
+* [Install Azure Stream Analytics tools for Visual Studio](stream-analytics-tools-for-visual-studio-install.md)

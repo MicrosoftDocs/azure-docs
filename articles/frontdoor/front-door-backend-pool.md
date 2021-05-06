@@ -1,74 +1,94 @@
 ---
-title: Azure Front Door Service - Backends and Backend Pools | Microsoft Docs
-description: This article helps you understand what are backend and backend pools for in Front Door configuration.
+title: Backends and backend pools in Azure Front Door| Microsoft Docs
+description: This article describes what backends and backend pools are in Front Door configuration.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
-ms.author: sharadag
+ms.date: 09/28/2020
+ms.author: duau
 ---
 
-# Backends and backend pools in Azure Front Door Service
-This article explains the different concepts regarding how you can map your application deployment with Front Door. We will also explain you what the different terms in Front Door configuration around application backend mean.
+# Backends and backend pools in Azure Front Door
+This article describes concepts about how to map your web application deployment with Azure Front Door. It also explains the different terminologies used in the Front Door configuration around the application backends.
 
-## Backend pool
-A backend pool in Front Door refers to the set of equivalent backends that can receive the same type of traffic for their application. In other words, it is a logical grouping of your application instances throughout the world that can receive the same traffic and can respond with the expected behavior. These backends are usually deployed across different regions or within the same region. Additionally, these backends can all be in Active-Active deployment mode or otherwise could be defined as an Active/Passive configuration.
+## Backends
+A backend refers to a web application deployment in a region. Front Door supports both Azure and non-Azure resources in the backend pool. The application can either be in your on-premises datacenter or located in another cloud provider.
 
-Backend pool also defines how the different backends should all be evaluated for their health via health probes and correspondingly how the load balancing between the backends should happen.
+Front Door backends refers to the host name or public IP of your application that serves your client requests. Backends shouldn't be confused with your database tier, storage tier, and so on. Backends should be viewed as the public endpoint for your application backend. When you add a backend to a Front Door backend pool, you must also add the following:
 
-### Health probes
-Front Door sends periodic HTTP/HTTPS probe requests to each of your configured backends to determine the proximity and health of each backend to load balance your end-user requests. Health probe settings for a backend pool define how we poll for the health status for your application backends. The following settings are available for configuration for load balancing:
+- **Backend host type**. The type of resource you want to add. Front Door supports autodiscovery of your app backends from app service, cloud service, or storage. If you want a different resource in Azure or even a non-Azure backend, select **Custom host**.
 
-1. **Path**: URL path where the probe requests will be sent to for all the backends in the backend pool. For example, if one of your backends is `contoso-westus.azurewebsites.net` and the path is set to `/probe/test.aspx`, then Front Door environments, assuming protocol is set to HTTP, will send the health probe requests to http://contoso-westus.azurewebsites.net/probe/test.aspx. 
-2. **Protocol**: Defines whether the health probe requests from Front Door to your backends will be sent over HTTP or HTTPS protocol.
-3. **Interval (seconds)**: This field defines the frequency of health probes to your backends, that is, the intervals in which each of the Front Door environments will send a probe. Note - if you are looking for faster failovers, then set this field to a lower value. However, the lower the value more the health probe volume that your backends will receive. To get an idea of how much probe volume Front Door will generate on your backends, let's take an example. Let's say, the interval is set to 30 seconds and there are about 90 Front Door environments or POPs globally. So, each of your backends will approximately receive about 3-5 probe requests per second.
+    >[!IMPORTANT]
+    >During configuration, APIs don't validate if the backend is inaccessible from Front Door environments. Make sure that Front Door can reach your backend.
 
-Read [health probes](front-door-health-probes.md) for details.
+- **Subscription and Backend host name**. If you haven't selected **Custom host** for backend host type, select your backend by choosing the appropriate subscription and the corresponding backend host name in the UI.
 
-### Load balancing settings
-The load balancing settings for the backend pool define how we evaluate the health probes for deciding the backend to be healthy or unhealthy and also how we need to load balance the traffic between the different backends in the backend pool. The following settings are available for configuration for load balancing:
+- **Backend host header**. The host header value sent to the backend for each request. For more information, see [Backend host header](#hostheader).
 
-1. **Sample size**: This property identifies how many samples of health probes we need to consider for backend health evaluation.
-2. **Successful sample size**: This property defines that of the 'sample size' as explained above, how many samples do we need to check for success to call the backend as healthy. 
-</br>For example, let's say for your Front Door you have set the health probe *interval* to 30 seconds, *sample size* is set to '5' and *successful sample size* is set to '3'. Then what this configuration means is that every time we evaluate the health probes for your backend, we will look at the last five samples, which would be spanning last 150 seconds (=5*30 s) and unless there are 3 or more of these probes successful we will declare the backend unhealthy. Let's say there were only two successful probes and, so we will mark the backend as unhealthy. The next time we run the evaluation if we find 3 successful in the last five probes, then we mark the backend as healthy again.
-3. **Latency sensitivity (additional latency)**: The latency sensitivity field defines whether you want Front Door to send the request to backends that are within the sensitivity range in terms of latency measurement or forwarding the request to the closest backend. Read [least latency based routing method](front-door-routing-methods.md#latency) for Front Door to learn more.
+- **Priority**. Assign priorities to your different backends when you want to use a primary service backend for all traffic. Also, provide backups if the primary or the backup backends are unavailable. For more information, see [Priority](front-door-routing-methods.md#priority).
 
-## Backend
-A backend is equivalent to an application's deployment instance in a region. Front Door supports both Azure as well as non-Azure backends and so the region here isn't only restricted to Azure regions but can also be your on-premise datacenter or an application instance in some other cloud.
-
-Backends, in the context of Front Doors, refers to the host name or public IP of your application, which can serve client requests. So, backends should not be confused with your database tier or your storage tier etc. but rather should be viewed as the public endpoint of your application backend.
-
-When you add a backend in a backend pool of your Front Door, you will need to fill in the following details:
-
-1. **Backend host type**: The type of resource you want to add. Front Door supports auto-discovery of your application backends if from app service, cloud service, or storage. If you want a different resource in Azure or even a non-Azure backend, select 'Custom host'. Note - During configuration, the APIs do not validate whether the backend is accessible from Front Door environments, instead you need to ensure that your backend can be reached by Front Door. 
-2. **Subscription and Backend host name**: If you have not selected 'Custom host' for backend host type, then you need to scope down and select your backend by choosing the appropriate subscription and the corresponding backend host name from the user interface.
-3. **Backend host header**: The Host header value sent to the backend for each request. Read [backend host header](#hostheader) for details.
-4. **Priority**: You can assign priorities to your different backends when you want to use a primary service backend for all traffic, and provide backups in case the primary or the backup backends are unavailable. Read more about [priority](front-door-routing-methods.md#priority).
-5. **Weight**: You can assign weights to your different backends when you want to distribute traffic across a set of backends, either evenly or according to weight coefficients. Read more about [weights](front-door-routing-methods.md#weighted).
-
+- **Weight**. Assign weights to your different backends to distribute traffic across a set of backends, either evenly or according to weight coefficients. For more information, see [Weights](front-door-routing-methods.md#weighted).
 
 ### <a name = "hostheader"></a>Backend host header
 
-Requests forwarded by Front Door to a backend have a Host header field that the backend uses to retrieve the targeted resource. The value for this field typically comes from the backend URI and has the host and port. For example, a request made for `www.contoso.com` will have the Host header `www.contoso.com`. If you are configuring your backend using Azure portal, then the default value that gets populated for this field is the host name of the backend. For example, if your backend is `contoso-westus.azurewebsites.net`, then in the Azure portal the auto-populated value for backend host header will be `contoso-westus.azurewebsites.net`. 
-</br>However, if you are using Resource Manager templates or other mechanism and you are not setting this field explicitly then Front Door sends the incoming host name as the value for Host header. For example, if the request was made for `www.contoso.com`, and your backend is `contoso-westus.azurewebsites.net` with the backend host header field as empty, then Front Door will set the Host header as `www.contoso.com`.
+Requests forwarded by Front Door to a backend include a host header field that the backend uses to retrieve the targeted resource. The value for this field typically comes from the backend URI that has the host header and port.
 
-Most application backends (such as Web Apps, Blob Storage, and Cloud Services) require the host header to match the domain of the backend. However, the frontend host that routes to your backend will have a different hostname like www.contoso.azurefd.net. If the backend you are setting up requires the Host header to match the host name of the backend, you should ensure that the 'Backend host header’ also has the host name of the backend.
+For example, a request made for `www.contoso.com` will have the host header www.contoso.com. If you use Azure portal to configure your backend, the default value for this field is the host name of the backend. If your backend is contoso-westus.azurewebsites.net, in the Azure portal, the autopopulated value for the backend host header will be contoso-westus.azurewebsites.net. However, if you use Azure Resource Manager templates or another method without explicitly setting this field, Front Door will send the incoming host name as the value for the host header. If the request was made for www\.contoso.com, and your backend is contoso-westus.azurewebsites.net that has an empty header field, Front Door will set the host header as www\.contoso.com.
+
+Most app backends (Azure Web Apps, Blob storage, and Cloud Services) require the host header to match the domain of the backend. However, the frontend host that routes to your backend will use a different hostname such as www.contoso.net.
+
+If your backend requires the host header to match the backend host name, make sure that the backend host header includes the host name of the backend.
 
 #### Configuring the backend host header for the backend
-The ‘Backend host header’ field can be configured for a backend in the backend pool section.
 
-1. Open your Front Door resource and click on the backend pool that has the backend to be configured.
+To configure the **backend host header** field for a backend in the backend pool section:
 
-2. Add a backend if you have not added any, or edit an existing one. The 'Backend host header' field can be set to a custom value or left blank, which means that the hostname for the incoming request will be used as the Host header value.
+1. Open your Front Door resource and select the backend pool with the backend to configure.
 
+2. Add a backend if you haven't done so, or edit an existing one.
 
+3. Set the backend host header field to a custom value or leave it blank. The hostname for the incoming request will be used as the host header value.
+
+## Backend pools
+A backend pool in Front Door refers to the set of backends that receive similar traffic for their app. In other words, it's a logical grouping of your app instances across the world that receive the same traffic and respond with expected behavior. These backends are deployed across different regions or within the same region. All backends can be in Active/Active deployment mode or what is defined as Active/Passive configuration.
+
+A backend pool defines how the different backends should be evaluated via health probes. It also defines how load balancing occurs between them.
+
+### Health probes
+Front Door sends periodic HTTP/HTTPS probe requests to each of your configured backends. Probe requests determine the proximity and health of each backend to load balance your end-user requests. Health probe settings for a backend pool define how we poll the health status of app backends. The following settings are available for load-balancing configuration:
+
+- **Path**: The URL used for probe requests for all the backends in the backend pool. For example, if one of your backends is contoso-westus.azurewebsites.net and the path is set to /probe/test.aspx, then Front Door environments, assuming the protocol is set to HTTP, will send health probe requests to http\://contoso-westus.azurewebsites.net/probe/test.aspx.
+
+- **Protocol**: Defines whether to send the health probe requests from Front Door to your backends with HTTP or HTTPS protocol.
+
+- **Method**: The HTTP method to be used for sending health probes. Options include GET or HEAD (default).
+    > [!NOTE]
+    > For lower load and cost on your backends, Front Door recommends using HEAD requests for health probes.
+
+- **Interval (seconds)**: Defines the frequency of health probes to your backends, or the intervals in which each of the Front Door environments sends a probe.
+
+    >[!NOTE]
+    >For faster failovers, set the interval to a lower value. The lower the value, the higher the health probe volume your backends receive. For example, if the interval is set to 30 seconds with say, 100 Front Door POPs globally, each backend will receive about 200 probe requests per minute.
+
+For more information, see [Health probes](front-door-health-probes.md).
+
+### Load-balancing settings
+Load-balancing settings for the backend pool define how we evaluate health probes. These settings determine if the backend is healthy or unhealthy. They also check how to load-balance traffic between different backends in the backend pool. The following settings are available for load-balancing configuration:
+
+- **Sample size**. Identifies how many samples of health probes we need to consider for backend health evaluation.
+
+- **Successful sample size**. Defines the sample size as previously mentioned, the number of successful samples needed to call the backend healthy. For example, assume a Front Door health probe interval is 30 seconds, sample size is 5, and successful sample size is 3. Each time we evaluate the health probes for your backend, we look at the last five samples over 150 seconds (5 x 30). At least three successful probes are required to declare the backend as healthy.
+
+- **Latency sensitivity (additional latency)**. Defines whether you want Front Door to send the request to backends within the latency measurement sensitivity range or forward the request to the closest backend.
+
+For more information, see [Least latency based routing method](front-door-routing-methods.md#latency).
 
 ## Next steps
 
-- Learn how to [create a Front Door](quickstart-create-front-door.md).
-- Learn [how Front Door works](front-door-routing-architecture.md).
+- [Create a Front Door profile](quickstart-create-front-door.md)
+- [How Front Door works](front-door-routing-architecture.md)

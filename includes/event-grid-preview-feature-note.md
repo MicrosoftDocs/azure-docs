@@ -2,13 +2,33 @@
  title: include file
  description: include file
  services: event-grid
- author: tfitzmac
+ author: spelluru
  ms.service: event-grid
  ms.topic: include
- ms.date: 06/26/2018
- ms.author: tomfitz
+ ms.date: 11/06/2018
+ ms.author: spelluru
  ms.custom: include file
 ---
 
-> [!IMPORTANT]
-> This feature is in preview. To use it, you must install the [Event Grid extension](/cli/azure/azure-cli-extensions-list) for [Azure CLI](/cli/azure/install-azure-cli). You can install it with `az extension add --name eventgrid`. If you are using the REST API, ensure you are using `api-version=2018-05-01-preview`.
+This feature is in preview. To use it, you must install a preview extension or module.
+
+### Install module for PowerShell
+
+For PowerShell, you need the [AzureRM.EventGrid module](https://www.powershellgallery.com/packages/AzureRM.EventGrid/0.4.1-preview).
+
+In [CloudShell](../articles/cloud-shell/quickstart-powershell.md):
+
+* Install the module `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
+
+For a local installation:
+
+1. Open PowerShell console as administrator
+1. Install the module `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
+
+If the `-AllowPrerelease` parameter isn't available, use the following steps:
+
+1. Run `Install-Module PowerShellGet -Force`
+1. Run `Update-Module PowerShellGet`
+1. Close the PowerShell console
+1. Restart PowerShell as administrator
+1. Install the module `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`

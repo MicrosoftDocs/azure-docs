@@ -1,231 +1,196 @@
 ---
 title: 'Tutorial: Azure Active Directory integration with Predictix Price Reporting | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Predictix Price Reporting.
+description: In this tutorial, you'll learn how to configure single sign-on between Azure Active Directory and Predictix Price Reporting.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: joflore
-
-ms.assetid: 691d0c43-3aa1-4220-9e46-e7a88db234ad
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/08/2017
+ms.topic: tutorial
+ms.date: 03/26/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Predictix Price Reporting
 
-In this tutorial, you learn how to integrate Predictix Price Reporting with Azure Active Directory (Azure AD).
+In this tutorial, you'll learn how to integrate Predictix Price Reporting with Azure Active Directory (Azure AD).
 
-Integrating Predictix Price Reporting with Azure AD provides you with the following benefits:
+This integration provides these benefits:
 
-- You can control in Azure AD who has access to Predictix Price Reporting.
-- You can enable your users to automatically get signed-on to Predictix Price Reporting (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
+* You can use Azure AD to control who has access to Predictix Price Reporting.
+* You can enable your users to be automatically signed in to Predictix Price Reporting (single sign-on) with their Azure AD accounts.
+* You can manage your accounts in one central location: the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+To learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you start.
 
 ## Prerequisites
 
-To configure Azure AD integration with Predictix Price Reporting, you need the following items:
+To configure Azure AD integration with Predictix Price Reporting, you need:
 
-- An Azure AD subscription
-- A Predictix Price Reporting single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can sign up for a [one-month trial](https://azure.microsoft.com/pricing/free-trial/) subscription.
+* A Predictix Price Reporting subscription that has single sign-on enabled.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Predictix Price Reporting from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you'll configure and test Azure AD single sign-on in a test environment.
+
+* Predictix Price Reporting supports SP-initiated SSO.
 
 ## Adding Predictix Price Reporting from the gallery
-To configure the integration of Predictix Price Reporting into Azure AD, you need to add Predictix Price Reporting from the gallery to your list of managed SaaS apps.
 
-**To add Predictix Price Reporting from the gallery, perform the following steps:**
+To set up the integration of Predictix Price Reporting into Azure AD, you need to add Predictix Price Reporting from the gallery to your list of managed SaaS apps.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**:
 
-	![The Azure Active Directory button][1]
+	![Select Azure Active Directory](common/select-azuread.png)
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Go to **Enterprise applications** > **All applications**:
 
-	![The Enterprise applications blade][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+	![The Enterprise applications blade](common/enterprise-applications.png)
 
-	![The New application button][3]
+3. To add an application, select **New application** at the top of the window:
 
-1. In the search box, type **Predictix Price Reporting**, select **Predictix Price Reporting** from result panel then click **Add** button to add the application.
+	![Select New application](common/add-new-app.png)
 
-	![Predictix Price Reporting in the results list](./media/predictixpricereporting-tutorial/tutorial_predictixpricereporting_addfromgallery.png)
+4. In the search box, enter **Predictix Price Reporting**. Select **Predictix Price Reporting** in the search results and then select **Add**.
+
+	 ![Search results](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Predictix Price Reporting based on a test user called "Britta Simon".
+In this section, you'll configure and test Azure AD single sign-on with Predictix Price Reporting by using a test user named Britta Simon.
+To enable single sign-on, you need to establish a relationship between an Azure AD user and the corresponding user in Predictix Price Reporting.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Predictix Price Reporting is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Predictix Price Reporting needs to be established.
+To configure and test Azure AD single sign-on with Predictix Price Reporting, you need to complete these steps:
 
-In Predictix Price Reporting, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
-
-To configure and test Azure AD single sign-on with Predictix Price Reporting, you need to complete the following building blocks:
-
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create a Predictix Price Reporting test user](#create-a-predictix-price-reporting-test-user)** - to have a counterpart of Britta Simon in Predictix Price Reporting that is linked to the Azure AD representation of user.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable the feature for your users.
+2. **[Configure Predictix Price Reporting single sign-on](#configure-predictix-price-reporting-single-sign-on)** on the application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Azure AD single sign-on for the user.
+5. **[Create a Predictix Price Reporting test user](#create-a-predictix-price-reporting-test-user)** that's linked to the Azure AD representation of the user.
+6. **[Test single sign-on](#test-single-sign-on)** to verify that the configuration works.
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Predictix Price Reporting application.
+In this section, you'll enable Azure AD single sign-on in the Azure portal.
 
-**To configure Azure AD single sign-on with Predictix Price Reporting, perform the following steps:**
+To configure Azure AD single sign-on with Predictix Price Reporting, take these steps:
 
-1. In the Azure portal, on the **Predictix Price Reporting** application integration page, click **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Predictix Price Reporting** application integration page, select **Single sign-on**:
 
-	![Configure single sign-on link][4]
+    ![Select Single sign-on](common/select-sso.png)
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Single sign-on dialog box](./media/predictixpricereporting-tutorial/tutorial_predictixpricereporting_samlbase.png)
+2. In the **Select a single sign-on method** dialog box, select **SAML/WS-Fed** mode to enable single sign-on:
 
-1. On the **Predictix Price Reporting Domain and URLs** section, perform the following steps:
+    ![Select a single sign-on method](common/select-saml-option.png)
 
-	![Predictix Price Reporting Domain and URLs single sign-on information](./media/predictixpricereporting-tutorial/tutorial_predictixpricereporting_url.png)
+3. On the **Set up Single Sign-On with SAML** page, select the **Edit** icon to open the **Basic SAML Configuration** dialog box:
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname-pricing>.predictix.com/sso/request`
+	![Edit icon](common/edit-urls.png)
 
-	b. In the **Identifier** textbox, type a URL using the following pattern:
-	| |
-	|--|
-	| `https://<companyname-pricing>.predictix.com` |
-	| `https://<companyname-pricing>.dev.predictix.com` |
+4. In the **Basic SAML Configuration** dialog box, complete the following steps.
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Predictix Price Reporting Client support team](http://www.infor.com/company/customer-center/) to get these values. 
- 
-1. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+    ![Basic SAML Configuration dialog box](common/sp-identifier.png)
 
-	![The Certificate download link](./media/predictixpricereporting-tutorial/tutorial_predictixpricereporting_certificate.png) 
+	1. In the **Sign on URL** box, enter a URL in this pattern:
 
-1. Click **Save** button.
+       `https://<companyname-pricing>.predictix.com/sso/request`
 
-	![Configure Single Sign-On Save button](./media/predictixpricereporting-tutorial/tutorial_general_400.png)
+    1. In the **Identifier (Entity ID)** box, enter a URL in this pattern:
 
-1. On the **Predictix Price Reporting Configuration** section, click **Configure Predictix Price Reporting** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+        ```https
+        https://<companyname-pricing>.predictix.com
+        https://<companyname-pricing>.dev.predictix.com
+        ```
 
-	![Predictix Price Reporting Configuration](./media/predictixpricereporting-tutorial/tutorial_predictixpricereporting_configure.png) 
+	> [!NOTE]
+	> These values are placeholders. You need to use the actual sign-on URL and identifier. Contact the [Predictix Price Reporting support team](https://www.infor.com/company/customer-center/) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
 
-1. To configure single sign-on on **Predictix Price Reporting** side, you need to send the downloaded **Certificate (Base64)**, **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Predictix Price Reporting support team](http://www.infor.com/company/customer-center/). They set this setting to have the SAML SSO connection set properly on both sides.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Certificate (Base64)**, per your requirements, and save the certificate on your computer:
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+	![Certificate download link](common/certificatebase64.png)
+
+6. In the **Set up Predictix Price Reporting** section, copy the appropriate URLs, based on your requirements.
+
+	![Copy the configuration URLs](common/copy-configuration-urls.png)
+
+	1. **Login URL**.
+
+	1. **Azure AD Identifier**.
+
+	1. **Logout URL**.
+
+### Configure Predictix Price Reporting single sign-on
+
+To configure single sign-on on the Predictix Price Reporting side, you need to send the certificate that you downloaded and the URLs that you copied from the Azure portal to the [Predictix Price Reporting support team](https://www.infor.com/company/customer-center/). This team ensures the SAML SSO connection is set properly on both sides.
 
 ### Create an Azure AD test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+In this section, you'll create a test user named Britta Simon in the Azure portal.
 
-   ![Create an Azure AD test user][100]
+1. In the Azure portal, select **Azure Active Directory** in the left pane, select **Users**, and then select **All users**:
 
-**To create a test user in Azure AD, perform the following steps:**
+    ![Select All users](common/users.png)
 
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
+2. Select **New user** at the top of the screen:
 
-    ![The Azure Active Directory button](./media/predictixpricereporting-tutorial/create_aaduser_01.png)
+    ![Select New user](common/new-user.png)
 
-1. To display the list of users, go to **Users and groups**, and then click **All users**.
+3. In the **User** dialog box, take the following steps.
 
-    ![The "Users and groups" and "All users" links](./media/predictixpricereporting-tutorial/create_aaduser_02.png)
+    ![User dialog box](common/user-properties.png)
 
-1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+    1. In the **Name** box, enter **BrittaSimon**.
+  
+    1. In the **User name** box, enter **BrittaSimon@\<yourcompanydomain>.\<extension>**. (For example, BrittaSimon@contoso.com.)
 
-    ![The Add button](./media/predictixpricereporting-tutorial/create_aaduser_03.png)
+    1. Select **Show Password**, and then write down the value that's in the **Password** box.
 
-1. In the **User** dialog box, perform the following steps:
-
-    ![The User dialog box](./media/predictixpricereporting-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
-
-    d. Click **Create**.
- 
-### Create a Predictix Price Reporting test user
-
-In this section, you create a user called Britta Simon in Predictix Price Reporting. Work with [Predictix Price Reporting support team](http://www.infor.com/company/customer-center/) to add the users in the Predictix Price Reporting platform.
+    1. Select **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Predictix Price Reporting.
+In this section, you'll enable Britta Simon to use Azure AD single sign-on by granting her access to Predictix Price Reporting.
 
-![Assign the user role][200] 
+1. In the Azure portal, select **Enterprise applications**, select **All applications**, and then select **Predictix Price Reporting**.
 
-**To assign Britta Simon to Predictix Price Reporting, perform the following steps:**
+	![Enterprise applications](common/enterprise-applications.png)
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+2. In the list of applications, select **Predictix Price Reporting**.
 
-	![Assign User][201] 
+	![List of applications](common/all-applications.png)
 
-1. In the applications list, select **Predictix Price Reporting**.
+3. In the left pane, select **Users and groups**:
 
-	![The Predictix Price Reporting link in the Applications list](./media/predictixpricereporting-tutorial/tutorial_predictixpricereporting_app.png)  
+    ![Select Users and groups](common/users-groups-blade.png)
 
-1. In the menu on the left, click **Users and groups**.
+4. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
 
-	![The "Users and groups" link][202]
+    ![Select Add user](common/add-assign-user.png)
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+5. In the **Users and groups** dialog box, select **Britta Simon** in the users list, and then click the **Select** button at the bottom of the screen.
 
-	![The Add Assignment pane][203]
+6. If you expect a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Click the **Select** button at the bottom of the screen.
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+7. In the **Add Assignment** dialog box, select **Assign**.
 
-1. Click **Select** button on **Users and groups** dialog.
+### Create a Predictix Price Reporting test user
 
-1. Click **Assign** button on **Add Assignment** dialog.
-	
+Next, you need to create a user named Britta Simon in Predictix Price Reporting. Work with the [Predictix Price Reporting support team](https://www.infor.com/company/customer-center/) to add users. Users need to be created and activated before you use single sign-on.
+
 ### Test single sign-on
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+Now you need to test your Azure AD single sign-on configuration by using the Access Panel.
 
-When you click the Predictix Price Reporting tile in the Access Panel, you should get automatically signed-on to your Predictix Price Reporting application.
+When you select the Predictix Price Reporting tile in the Access Panel, you should be automatically signed in to the Predictix Price Reporting instance for which you set up SSO. For more information, see [Access and use apps on the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Tutorials for integrating SaaS applications with Azure Active Directory](./tutorial-list.md)
 
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-
-<!--Image references-->
-
-[1]: ./media/predictixpricereporting-tutorial/tutorial_general_01.png
-[2]: ./media/predictixpricereporting-tutorial/tutorial_general_02.png
-[3]: ./media/predictixpricereporting-tutorial/tutorial_general_03.png
-[4]: ./media/predictixpricereporting-tutorial/tutorial_general_04.png
-
-[100]: ./media/predictixpricereporting-tutorial/tutorial_general_100.png
-
-[200]: ./media/predictixpricereporting-tutorial/tutorial_general_200.png
-[201]: ./media/predictixpricereporting-tutorial/tutorial_general_201.png
-[202]: ./media/predictixpricereporting-tutorial/tutorial_general_202.png
-[203]: ./media/predictixpricereporting-tutorial/tutorial_general_203.png
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

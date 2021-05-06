@@ -3,21 +3,23 @@ title: Configure a content key authorization policy by using the Media Services 
 description: Learn how to configure an authorization policy for a content key by using the Media Services .NET SDK.
 services: media-services
 documentationcenter: ''
-author: mingfeiy
-manager: cfowler
+author: IngridAtMicrosoft
+manager: femila
 editor: ''
-
 ms.assetid: 1a0aedda-5b87-4436-8193-09fc2f14310c
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
-ms.author: juliako;mingfeiy
-
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.custom: devx-track-csharp
 ---
-# Dynamic encryption: Configure a content key authorization policy
+# Configure a content key authorization policy by using the Media Services .NET SDK
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## Overview
@@ -29,7 +31,7 @@ If you want Media Services to encrypt an asset, you need to associate an encrypt
 
 When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content by using AES or DRM encryption. To decrypt the stream, the player requests the key from the key delivery service. To determine whether the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
 
-Media Services supports multiple ways of authenticating users who make key requests. The content key authorization policy can have one or more authorization restrictions. The options are open or token restriction. The token-restricted policy must be accompanied by a token issued by a security token service (STS). Media Services supports tokens in the simple web token ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) format and the JSON Web Token ([JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3)) format.
+Media Services supports multiple ways of authenticating users who make key requests. The content key authorization policy can have one or more authorization restrictions. The options are open or token restriction. The token-restricted policy must be accompanied by a token issued by a security token service (STS). Media Services supports tokens in the simple web token ([SWT](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2)) format and the JSON Web Token ([JWT](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3)) format.
 
 Media Services doesn't provide STS. You can create a custom STS or use Azure Access Control Service to issue tokens. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration (as described in this article). If the token is valid and the claims in the token match those configured for the content key, the Media Services key delivery service returns the encryption key to the client.
 
@@ -84,7 +86,7 @@ The following example creates an open authorization policy and adds it to the co
 
         policy.Options.Add(policyOption);
 
-        // Add ContentKeyAutorizationPolicy to ContentKey
+        // Add ContentKeyAuthorizationPolicy to ContentKey
         contentKey.AuthorizationPolicyId = policy.Id;
         IContentKey updatedKey = contentKey.UpdateAsync().Result;
         Console.WriteLine("Adding Key to Asset: Key ID is " + updatedKey.Id);
@@ -98,7 +100,7 @@ To configure the token restriction option, you need to use an XML to describe th
 ```csharp
 #### Token restriction schema
     <?xml version="1.0" encoding="utf-8"?>
-    <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="https://www.w3.org/2001/XMLSchema">
       <xs:complexType name="TokenClaim">
         <xs:sequence>
           <xs:element name="ClaimType" nillable="true" type="xs:string" />
@@ -181,7 +183,7 @@ The following example creates an authorization policy with a token restriction. 
 
         policy.Options.Add(policyOption);
 
-        // Add ContentKeyAutorizationPolicy to ContentKey
+        // Add ContentKeyAuthorizationPolicy to ContentKey
         contentKey.AuthorizationPolicyId = policy.Id;
         IContentKey updatedKey = contentKey.UpdateAsync().Result;
         Console.WriteLine("Adding Key to Asset: Key ID is " + updatedKey.Id);
@@ -275,7 +277,7 @@ The following example creates an open authorization policy and adds it to the co
 ```
 
 ### Token restriction
-To configure the token restriction option, you need to use an XML to describe the token's authorization requirements. The token restriction configuration XML must conform to the XML schema shown in the "[Token restriction schema](#token-restriction-schema)" section.
+To configure the token restriction option, you need to use an XML to describe the token's authorization requirements. The token restriction configuration XML must conform to the XML schema shown in the "Token restriction schema" section.
 
 ```csharp
     public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
@@ -311,7 +313,7 @@ To configure the token restriction option, you need to use an XML to describe th
 
         policy.Options.Add(policyOption);
 
-        // Add ContentKeyAutorizationPolicy to ContentKey
+        // Add ContentKeyAuthorizationPolicy to ContentKey
         contentKeyAuthorizationPolicy.Options.Add(policyOption);
 
         // Associate the content key authorization policy with the content key
@@ -422,6 +424,10 @@ To get a test token based on the token restriction that was used for the key aut
     }
 ```
 
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
+
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
@@ -430,4 +436,3 @@ To get a test token based on the token restriction that was used for the key aut
 
 ## Next steps
 Now that you have configured the content key's authorization policy, see [Configure an asset delivery policy](media-services-dotnet-configure-asset-delivery-policy.md).
-

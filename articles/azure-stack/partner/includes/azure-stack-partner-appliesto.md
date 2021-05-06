@@ -1,1 +1,0 @@
-*Applies to: Azure Stack integrated systems.*

@@ -1,16 +1,10 @@
 ---
-title: Manage Users in Azure Blockchain Workbench
+title: Manage users in Azure Blockchain Workbench
 description: How to manage users in Azure Blockchain Workbench.
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
-ms.date: 10/1/2018
-ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: zeyadr
-manager: femila
-#customer intent: As a administrator of Blockchain Workbench, I want to manage users for blockchain apps in Azure Blockchain Workbench.
+ms.date: 07/15/2020
+ms.topic: how-to
+ms.reviewer: ravastra
+#Customer intent: As an administrator of Blockchain Workbench, I want to manage users for blockchain apps in Azure Blockchain Workbench.
 ---
 # Manage Users in Azure Blockchain Workbench
 
@@ -26,14 +20,11 @@ The Azure Blockchain Workbench uses Azure Active Directory (Azure AD) for authen
 
 Blockchain Workbench users need to exist in the Azure AD tenant before you can assign them to applications and roles. To add users to Azure AD, use the following steps:
 
-1.  Sign in to the [Azure portal](https://portal.azure.com).
-2.  Select your account in the top right corner, and switch to the Azure AD tenant associated to Blockchain Workbench.
-3.  Select **Azure Active Directory > Users**. You see a list of users in your directory.
-4.  To add users to the directory, select **New user**. For external users, select **New guest user**.
-
-    ![New user](./media/manage-users/add-ad-user.png)
-
-5.  Complete the required fields for the new user. Select **Create**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select your account in the top right corner, and switch to the Azure AD tenant associated to Blockchain Workbench.
+1. Select **Azure Active Directory > Users**. You see a list of users in your directory.
+1. To add users to the directory, select **New user**. For external users, select **New guest user**.
+1. Complete the required fields for the new user. Select **Create**.
 
 Visit [Azure AD](../../active-directory/fundamentals/add-users-azure-active-directory.md) documentation for more details on how to manage users within Azure AD.
 
@@ -43,20 +34,21 @@ Once users have been added to the directory, the next step is to choose which us
 
 To add users to the **Administrator** group in the Azure AD directory:
 
-1.  Sign in to the [Azure portal](https://portal.azure.com).
-2.  Verify you are in the Azure AD tenant associated to Blockchain Workbench by selecting your account in the top right corner.
-3.  Select **Azure Active Directory >  Enterprise applications**.
-4.  Select the Azure AD client application for Blockchain Workbench
-    
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Verify you are in the Azure AD tenant associated to Blockchain Workbench by selecting your account in the top-right corner.
+1. Select **Azure Active Directory >  Enterprise applications**.
+1. Change **Application type** drop-down filter to **All Applications** and select **Apply**.
+1. Select the Azure AD client application for Azure Blockchain Workbench
+
     ![All enterprise application registrations](./media/manage-users/select-blockchain-client-app.png)
 
-5.  Select **Users and groups > Add user**.
-6.  In **Add Assignment**, select **Users**. Choose or search for the user you want to add as an administrator. Click **Select** when finished choosing.
+1. Select **Users and groups > Add user**.
+1. In **Add Assignment**, select **Users**. Choose or search for the user you want to add as an administrator. Click **Select** when finished choosing.
 
     ![Add assignment](./media/manage-users/add-user-assignment.png)
 
-9.  Verify **Role** is set to **Administrator**
-10. Select **Assign**. The added users are displayed in the list with the administrator role assigned.
+1. Verify **Role** is set to **Administrator**
+1. Select **Assign**. The added users are displayed in the list with the administrator role assigned.
 
     ![Blockchain client app users](./media/manage-users/blockchain-admin-list.png)
 
@@ -70,7 +62,7 @@ Use the Blockchain Workbench application to manage users and organizations that 
 
     Members are added to each application. Members can have one or more application roles to initiate contracts or take actions.
 
-2. To manage members for an application, select an application tile in the **Applications** pane.
+1. To manage members for an application, select an application tile in the **Applications** pane.
 
     The number of members associated to the selected application is reflected in the members tile.
 
@@ -80,31 +72,31 @@ Use the Blockchain Workbench application to manage users and organizations that 
 #### Add member to application
 
 1. Select the member tile to display a list of the current members.
-2. Select **Add members**.
+1. Select **Add members**.
 
-    ![Add members](./media/manage-users/application-add-members.png)
+    ![Screenshot shows the application membership window with the Add a member button highlighted.](./media/manage-users/application-add-members.png)
 
-3. Search for the user's name.  Only Azure AD users that exist in the Blockchain Workbench tenant are listed. If the user is not found, you need to [Add Azure AD users](#add-azure-ad-users).
+1. Search for the user's name.  Only Azure AD users that exist in the Blockchain Workbench tenant are listed. If the user is not found, you need to [Add Azure AD users](#add-azure-ad-users).
 
     ![Add members](./media/manage-users/find-user.png)
 
-4. Select a **Role** from the drop-down.
+1. Select a **Role** from the drop-down.
 
     ![Select role members](./media/manage-users/application-select-role.png)
 
-5. Select **Add** to add the member with the associated role to the application.
+1. Select **Add** to add the member with the associated role to the application.
 
 #### Remove member from application
 
 1. Select the member tile to display a list of the current members.
-2. For the user you want to remove, choose **Remove** from the role drop-down.
+1. For the user you want to remove, choose **Remove** from the role drop-down.
 
     ![Remove member](./media/manage-users/application-remove-member.png)
 
 #### Change or add role
 
 1. Select the member tile to display a list of the current members.
-2. For the user you want to change, click the drop-down and select the new role.
+1. For the user you want to change, click the drop-down and select the new role.
 
     ![Change role](./media/manage-users/application-change-role.png)
 

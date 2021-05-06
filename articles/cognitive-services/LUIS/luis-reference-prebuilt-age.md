@@ -1,39 +1,72 @@
 ---
-title: LUIS Prebuilt entities age reference - Azure | Microsoft Docs
-titleSuffix: Azure
+title: Age Prebuilt entity - LUIS
+titleSuffix: Azure Cognitive Services
 description: This article contains age prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
-manager: cgronlun
+
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
-ms.topic: article
-ms.date: 06/20/2018
-ms.author: diberry
+ms.subservice: language-understanding
+ms.topic: reference
+ms.date: 10/04/2019
+
 ---
 
-# Age entity
-The prebuilt age entity captures the age value both numerically and in terms of days, weeks, months, and years. Because this entity is already trained, you do not need to add example utterances containing age to the application intents. Age entity is supported in [many cultures](luis-reference-prebuilt-entities.md). 
+# Age prebuilt entity for a LUIS app
+The prebuilt age entity captures the age value both numerically and in terms of days, weeks, months, and years. Because this entity is already trained, you do not need to add example utterances containing age to the application intents. Age entity is supported in [many cultures](luis-reference-prebuilt-entities.md).
 
 ## Types of age
-Age is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3) Github repository
+Age is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3) GitHub repository
 
 ## Resolution for prebuilt age entity
+
+
+
+#### [V3 response](#tab/V3)
+
+The following JSON is with the `verbose` parameter set to `false`:
+
+```json
+"entities": {
+    "age": [
+        {
+            "number": 90,
+            "unit": "Day"
+        }
+    ]
+}
+```
+#### [V3 verbose response](#tab/V3-verbose)
+The following JSON is with the `verbose` parameter set to `true`:
+
+```json
+"entities": {
+    "age": [
+        {
+            "number": 90,
+            "unit": "Day"
+        }
+    ],
+    "$instance": {
+        "age": [
+            {
+                "type": "builtin.age",
+                "text": "90 day old",
+                "startIndex": 2,
+                "length": 10,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor"
+            }
+        ]
+    }
+}
+```
+#### [V2 response](#tab/V2)
+
 The following example shows the resolution of the **builtin.age** entity.
 
-```JSON
-{
-  "query": "A 90 day old utilities bill is quite late.",
-  "topScoringIntent": {
-    "intent": "None",
-    "score": 0.8236133
-  },
-  "intents": [
-    {
-      "intent": "None",
-      "score": 0.8236133
-    }
-  ],
+```json
   "entities": [
     {
       "entity": "90 day old",
@@ -45,10 +78,11 @@ The following example shows the resolution of the **builtin.age** entity.
         "value": "90"
       }
     }
-  ]
-}
 ```
+* * *
 
 ## Next steps
 
-Learn about the [currency](luis-reference-prebuilt-currency.md), [datetimeV2](luis-reference-prebuilt-datetimev2.md), and [dimension](luis-reference-prebuilt-dimension.md) entities. 
+Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
+
+Learn about the [currency](luis-reference-prebuilt-currency.md), [datetimeV2](luis-reference-prebuilt-datetimev2.md), and [dimension](luis-reference-prebuilt-dimension.md) entities.

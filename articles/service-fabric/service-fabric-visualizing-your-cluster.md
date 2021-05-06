@@ -1,21 +1,8 @@
-﻿---
-title: Visualizing your cluster using Azure Service Fabric Explorer | Microsoft Docs
+---
+title: Visualizing your cluster using Azure Service Fabric Explorer 
 description: Service Fabric Explorer is an application for inspecting and managing cloud applications and nodes in a Microsoft Azure Service Fabric cluster.
-services: service-fabric
-documentationcenter: .net
-author: mikkelhegn
-manager: msfussell
-editor: ''
-
-ms.assetid: c875b993-b4eb-494b-94b5-e02f5eddbd6a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/02/2018
-ms.author: mikhegn
-
+ms.date: 01/24/2019
 ---
 # Visualize your cluster with Service Fabric Explorer
 
@@ -42,28 +29,22 @@ Use the following links to download Service Fabric Explorer as a desktop applica
 
 ### Running Service Fabric Explorer from the cluster
 
-Service Fabric Explorer is also hosted in a Service Fabric cluster's HTTP management endpoint. To launch SFX in a web browser, browse to the cluster's HTTP management endpoint from any browser - for example https://clusterFQDN:19080.
+Service Fabric Explorer is also hosted in a Service Fabric cluster's HTTP management endpoint. To launch SFX in a web browser, browse to the cluster's HTTP management endpoint from any browser - for example https:\//clusterFQDN:19080.
 
 For developer workstation setup, you can launch Service Fabric Explorer on your local cluster by navigating to https://localhost:19080/Explorer. Look at this article to [prepare your development environment](service-fabric-get-started.md).
 
+> [!NOTE]
+> If your cluster is secured by a self-signed certificate you will receive an error message from the web browser "This site is not secure". You can simply proceed through most modern web browsers by overriding the warning. In a production environment your cluster should be secured using common name and a certificate authority issued certificate. 
+>
+>
+
 ## Connect to a Service Fabric cluster
-To connect to a Service Fabric cluster, you need the clusters management endpoint (FQDN/IP) and the HTTP management endpoint port (19080 by default). For example https://mysfcluster.westus.cloudapp.azure.com:19080. Use the "Connect to localhost" checkbox to connect to a local cluster on your workstation.
+To connect to a Service Fabric cluster, you need the clusters management endpoint (FQDN/IP) and the HTTP management endpoint port (19080 by default). For example https\://mysfcluster.westus.cloudapp.azure.com:19080. Use the "Connect to localhost" checkbox to connect to a local cluster on your workstation.
 
 ### Connect to a secure cluster
 You can control client access to your Service Fabric cluster either with certificates or using Azure Active Directory (AAD).
 
-If you attempt to connect to a secure cluster, then depending on the cluster's configuration you will be required to present a client certificate or log in using AAD.
-
-## Video tutorial
-
-To learn how to use Service Fabric Explorer, watch the following Microsoft Virtual Academy video:
-
-> [!NOTE]
-> This video shows Service Fabric Explorer hosted in a Service Fabric cluster, not the desktop version.
->
->
-
-[<center><img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244"></center>](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965)
+If you attempt to connect to a secure cluster, then depending on the cluster's configuration you will be required to present a client certificate or sign in using AAD.
 
 ## Understand the Service Fabric Explorer layout
 You can navigate through Service Fabric Explorer by using the tree on the left. At the root of the tree, the cluster dashboard provides an overview of your cluster, including a summary of application and node health.
@@ -114,14 +95,47 @@ You can also use Service Fabric Explorer to create application instances for a g
 >
 >
 
+## Event Store
+EventStore is a feature offered by the platform that provides Service Fabric platform events available in the Service Fabric Explorer and through REST API. You can see a snapshot view of what's going on in your cluster for each entity e.g. node, service, application and query based on the time of the event. You can also Read more about the EventStore at the [EventStore Overview](service-fabric-diagnostics-eventstore.md).   
+
+![Screenshot shows the Nodes pane with EVENTS selected.][sfx-eventstore]
+
+>[!NOTE]
+>As of Service Fabric version 6.4. EventStore is not enabled by default and must be enabled in the resource manager template
+
+>[!NOTE]
+>As of Service Fabric version 6.4. the EventStore APIs are only available for Windows clusters running on Azure only. We are working on porting this functionality to Linux as well as our Standalone clusters.
+
+## Image Store Viewer
+Image store viewer is a feature offered if using Native Image Store that allows for viewing the current contents of the Image store and get file and folder information, along with removing files/folders.
+
+![Screenshot that shows the Image Store Viewer.][sfx-imagestore]
+
+## Backup and Restore
+Service Fabric Explorer offers the ability to interface with [Backup and Restore](./service-fabric-reliable-services-backup-restore.md). In order to see Backup and Restore features in SFX, advanced mode must be enabled.
+
+![Enable advanced mode][0]
+ 
+The following operations are possible:
+
+* Create, edit, and delete a Backup Policy.
+* Enable and disable Backup for an application, service, or partition.
+* Suspend and resume Backup for an application, service, or partition.
+* Trigger and track Backup of a partition.
+* Trigger and track Restore for a partition.
+
+For more on the Backup and Restore service, see the [REST API reference](/rest/api/servicefabric/sfclient-index-backuprestore).
 ## Next steps
 * [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Service Fabric application deployment using PowerShell](service-fabric-deploy-remove-applications.md)
 
 <!--Image references-->
-[sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/SfxClusterDashboard.png
-[sfx-cluster-map]: ./media/service-fabric-visualizing-your-cluster/SfxClusterMap.png
-[sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/SfxApplicationTree.png
-[sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
-[sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
-[sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
+[sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/sfx-cluster-dashboard.png
+[sfx-cluster-map]: ./media/service-fabric-visualizing-your-cluster/sfx-cluster-map.png
+[sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/sfx-application-tree.png
+[sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/sfx-service-essentials.png
+[sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/sfx-delete-application.png
+[sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/sfx-create-app-instance.png
+[sfx-eventstore]: ./media/service-fabric-diagnostics-eventstore/eventstore.png
+[sfx-imagestore]: ./media/service-fabric-visualizing-your-cluster/sfx-image-store.png
+[0]: ./media/service-fabric-backuprestoreservice/advanced-mode.png

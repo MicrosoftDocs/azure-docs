@@ -1,0 +1,114 @@
+### YamlMime:Landing
+
+title: Azure Blockchain Service documentation
+summary: Learn how to create blockchain applications. Tutorials, API references, and other documentation show you how to use Azure Blockchain Service to create, develop, and manage blockchain applications on Azure.
+
+metadata:
+  title: Azure Blockchain Service documentation
+  description: Learn how to create blockchain applications. Tutorials, API references, and other documentation show you how to use Azure Blockchain Service to create, develop, and manage blockchain applications on Azure.
+  services: azure-blockchain
+  ms.service: azure-blockchain
+  ms.topic: landing-page
+  author: PatAltimore
+  ms.author: patricka
+  ms.date: 11/04/2019
+
+landingContent:
+  - title: About Azure Blockchain Service
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Blockchain Service?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Private consortium blockchain networks
+            url: consortium.md
+          - text: Data access and security
+            url: data-security.md
+          - text: Development tools
+            url: develop.md
+  - title: Get started
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Follow the Microsoft Learn blockchain path
+            url: /learn/paths/ethereum-blockchain-development
+          - text: Watch the beginner's blockchain series
+            url: https://channel9.msdn.com/Series/Beginners-Series-to-Blockchain
+      - linkListType: deploy
+        links:
+          - text: Create a blockchain member - Portal
+            url: create-member.md
+          - text: Create a blockchain member - CLI
+            url: create-member-cli.md
+          - text: Create using ARM template
+            url: create-member-template.md
+      - linkListType: quickstart
+        links:
+          - text: Use Visual Studio Code to connect to a consortium network
+            url: connect-vscode.md
+          - text: Use MetaMask to connect and Remix to deploy a smart contract
+            url: connect-metamask.md
+          - text: Use Geth to connect to a transaction node
+            url: connect-geth.md
+      - linkListType: tutorial
+        links:
+          - text: Use Visual Studio Code to create, build, and deploy smart contracts
+            url: send-transaction.md
+      - linkListType: video
+        links:
+          - text: Deploy and configure your network
+            url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-I-Deploy-and-configure-your-network
+          - text: Write and test smart contracts with VS Code
+            url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-II-Write-and-test-smart-contracts-with-VS-Code
+          - text: Send data to the ledger
+            url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-III-Send-data-to-the-ledger
+          - text: Publish events and ledger data
+            url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-IV-Publish-events-and-ledger-data
+  - title: Integrate
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Send blockchain data to other Azure services using Blockchain Data Manager
+            url: data-manager.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure Blockchain Data Manager using the Azure portal
+            url: data-manager-portal.md
+          - text: Configure Blockchain Data Manager using Azure CLI
+            url: data-manager-cli.md
+          - text: Integrate blockchain using Azure Logic Apps
+            url: ethereum-logic-app.md
+      - linkListType: tutorial
+        links:
+          - text: Use Blockchain Data Manager to send data to Azure Cosmos DB
+            url: data-manager-cosmosdb.md
+      - linkListType: video
+        links:
+          - text: Introduction to Blockchain Data Manager
+            url: https://aka.ms/BTDataManager
+          - text: Use Ethereum Blockchain connector with Azure Logic Apps
+            url: https://channel9.msdn.com/Shows/Blocktalk/Logic-Apps-Connector-to-Ethereum-Blockchain-Networks?term=logic%20apps%20blockchain&lang-en=true
+          - text: Common scenarios connecting blockchain using Azure Logic Apps
+            url: https://channel9.msdn.com/Shows/Blocktalk/Doing-more-with-Logic-Apps?term=logic%20apps%20blockchain&lang-en=true
+          - text: Generate web services from smart contracts
+            url: https://channel9.msdn.com/Shows/Blocktalk/Generating-Web-Services-from-Smart-Contracts-Based-on-Logic-Apps-Flows-and-Azure-Functions?term=logic%20apps%20blockchain&lang-en=true
+          - text: Publish smart contract events to Azure Event Grid or Azure Service Bus
+            url: https://channel9.msdn.com/Shows/Blocktalk/Generate-Logic-Apps-and-Flows-to-Publish-Smart-Contract-Events-to-Event-Grid-and-Service-Bus?term=logic%20apps%20blockchain&lang-en=true
+  - title: Manage
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Manage blockchain members - CLI
+            url: manage-cli.md
+          - text: Manage consortium members - PowerShell
+            url: manage-consortium-powershell.md
+          - text: Configure transaction nodes
+            url: configure-transaction-nodes.md
+          - text: Configure Active Directory access
+            url: configure-aad.md
+      - linkListType: reference
+        links:
+          - text: REST API
+            url: /rest/api/blockchain

@@ -1,27 +1,34 @@
 - name: Bing Custom Search Documentation
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: Overview
   expanded: true
   items:
-    - name: What is Bing Custom Search?
+    - name: What is the Bing Custom Search API?
       href: overview.md
-- name: REST API Quickstarts
+    - name: Compare the Bing Search APIs
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
+- name: Quickstarts
   expanded: true
   items:
-    - name: Create first instance
+    - name: Create a custom search instance
       href: quick-start.md
-    - name: C#
-      href: call-endpoint-csharp.md
-    - name: Java
-      href: call-endpoint-java.md
-    - name: Node.js
-      href: call-endpoint-nodejs.md
-    - name: Python
-      href: call-endpoint-python.md
-- name: SDK Quickstarts
-  items:
-    - name: C# SDK quickstart
-      href: sdk-csharp-quick-start.md
+    - name: Get search results from your instance
+      items:
+      - name: REST API
+        items:
+          - name: Using C#
+            href: call-endpoint-csharp.md
+          - name: Using Java
+            href: call-endpoint-java.md
+          - name: Using Node.js
+            href: call-endpoint-nodejs.md
+          - name: Using Python
+            href: call-endpoint-python.md
+      - name: SDK
+        items:
+          - name: Bing Custom Search client libraries
+            href: ./quickstarts/client-libraries.md
 - name: Tutorials
   items:
     - name: Build a Custom Search web page
@@ -32,55 +39,72 @@
       href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Custom+Search
 - name: How-to guides
   items:
-    - name: Configure custom search experience
+    - name: Configure your custom search experience
       href: define-your-custom-view.md
-    - name: Call custom search
+    - name: Call your custom search instance
       href: search-your-custom-view.md
-    - name: Configure hosted UI experience
+    - name: Configure and integrate a hosted UI
       href: hosted-ui.md
-    - name: Share custom search
+    - name: Share your custom search instance
       href: share-your-custom-search.md
-    - name: Get images from your instance
+    - name: Get images from your search instance
       href: get-images-from-instance.md
-    - name: Get videos from your instance
+    - name: Get videos from your search instance
       href: get-videos-from-instance.md
-    - name: Configure custom autosuggest experience
+    - name: Configure a custom autosuggest experience
       href: define-custom-suggestions.md
     - name: Handle hit highlighting
-      href: hit-highlighting.md
-    - name: Page webpages
-      href: page-webpages.md
+      href: ../Bing-Web-Search/hit-highlighting.md
+      maintainContext: true
+    - name: Page through search results
+      href: ../Bing-Web-Search/paging-search-results.md
+      maintainContext: true
 - name: Reference
   items:
     - name: Bing Custom Autosuggest API Reference
-      href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference
+      href: /rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference
     - name: Bing Custom Image Search API Reference
-      href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference
+      href: /rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference
     - name: Bing Custom Search API Reference
-      href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference
+      href: /rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference
     - name: Bing Custom Video Search API Reference
-      href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference
+      href: /rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference
     - name: Bing Search API use and display requirements
-      href: use-and-display-requirements.md
+      href: ../Bing-Web-Search/use-display-requirements.md
+      maintainContext: true
+    - name: SDKs
+      items:
+      - name: .NET
+        href: /dotnet/api/overview/azure/cognitiveservices/bing-custom-search-readme
+      - name: Java - Custom Search
+        href: /java/api/overview/azure/cognitiveservices/client/bingcustomsearch
+      - name: Java - Custom Image Search
+        href: /java/api/overview/azure/cognitiveservices/client/bingcustomimagesearch
+      - name: Python
+        href: /python/api/azure-cognitiveservices-search-customsearch/
+      - name: Node.js
+        href: /javascript/api/@azure/cognitiveservices-customsearch/
+      - name: Go - Custom Search
+        href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customsearch
+      - name: Go - Custom Image Search
+        href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customimagesearch
 - name: Resources
   items:
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/598147-bing-custom-search-api
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=bing+custom+search
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
   - name: Get API key
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api
+    href: https://azure.microsoft.com/free/cognitive-services
   - name: Try it!
     href: https://aka.ms/bingcustomsearchtryit
   - name: Bing Custom Search endpoint
     href: endpoint-custom.md
-  - name: Language and region support
+  - name: Language support
     href: language-support.md
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

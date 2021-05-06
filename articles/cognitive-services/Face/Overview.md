@@ -1,96 +1,98 @@
 ---
-title: What is the Face API Service?
+title: What is the Azure Face service?
 titleSuffix: Azure Cognitive Services
-description: The glossary explains terms that you might encounter as you work with the Face API Service.
-author: SteveMSFT
-manager: cgronlun
+description: The Azure Face service provides AI algorithms that you use to detect, recognize, and analyze human faces in images.
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: overview
-ms.date: 03/01/2018
-ms.author: sbowles
+ms.date: 04/19/2021
+ms.author: pafarley
+ms.custom: cog-serv-seo-aug-2020
+keywords: facial recognition, facial recognition software, facial analysis, face matching, face recognition app, face search by image, facial recognition search
+#Customer intent: As the developer of an app that deals with images of humans, I want to learn what the Face service does so I can determine if I should use its features.
 ---
-# What is the Face API Service?
 
-Welcome to the Face API Service, a cloud-based service that provides the most advanced face algorithms. Face API has two main functions: face detection with attributes and face recognition.
+# What is the Azure Face service?
 
-## Face Detection
+> [!WARNING]
+> On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or functionality included in Azure Services, such as Face or Video Indexer, if a customer is, or is allowing use of such services by or for, a police department in the United States.
 
-Face API detects up to 64 human faces with high precision face location in an image. And the image can be specified by file in bytes or valid URL.
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-![Overview - Face Detection](./Images/Face.detection.jpg)
+The Azure Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many different scenarios, such as  security, natural user interface, image content analysis and management, mobile apps, and robotics.
 
-Face rectangle (left, top, width, and height) indicating the face location in the image is returned along with each detected face. Optionally, face detection extracts a series of face-related attributes such as pose, gender, age, head pose, facial hair, and glasses. For more information, see [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+The Face service provides several different facial analysis functions which are each outlined in the following sections.
 
-## Face Recognition
+This documentation contains the following types of articles:
+* The [quickstarts](./Quickstarts/client-libraries.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
+* The [how-to guides](./Face-API-How-to-Topics/HowtoDetectFacesinImage.md) contain instructions for using the service in more specific or customized ways.
+* The [conceptual articles](./concepts/face-detection.md) provide in-depth explanations of the service's functionality and features.
+* The [tutorials](./enrollment-overview.md) are longer guides that show you how to use this service as a component in broader business solutions.
 
-Face recognition is widely used in many scenarios including security, natural user interface, image content analysis and management, mobile apps, and robotics. Four face recognition functions are provided: face verification, finding similar faces, face grouping, and person identification.
+## Face detection
 
-### Face Verification
+The Detect API detects human faces in an image and returns the rectangle coordinates of their locations. Optionally, face detection can extract a series of face-related attributes, such as head pose, gender, age, emotion, facial hair, and glasses. These attributes are general predictions, not actual classifications. 
 
-Face API verification performs an authentication against two detected faces or authentication from one detected face to one person object. For more detailed information, see [Face - Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+> [!NOTE]
+> The face detection feature is also available through the [Computer Vision service](../computer-vision/overview.md). However, if you want to do further Face operations like Identify, Verify, Find Similar, or Group, you should use this Face service instead.
 
-### Finding Similar Face
+![An image of a woman and a man, with rectangles drawn around their faces and age and gender displayed](./Images/Face.detection.jpg)
 
-Given a target detected face and a set of candidate faces to search with, the service finds a small set of faces that look most similar to the target face. Two working modes, `matchFace` and `matchPerson` are supported. `matchPerson` mode returns similar faces after applying a same-person threshold derived from [Face - Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). `matchFace` mode ignores the same-person threshold and returns top similar candidate faces. Take the following example, candidate faces are listed.
-![Overview - Face Find Similar](./Images/FaceFindSimilar.Candidates.jpg)
-And query face is
-![Overview - Face Find Similar](./Images/FaceFindSimilar.QueryFace.jpg)
+For more information on face detection, see the [Face detection](concepts/face-detection.md) concepts article. Also see the [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) reference documentation.
 
-To find four similar faces, `matchPerson` mode returns (a) and (b), which belong to the same person with query face. `matchFace` mode returns (a), (b), (c) and (d), exactly four candidates even if low similarity. For more information, see [Face - Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
+## Face verification
 
-### Face Grouping
+The Verify API builds on Detection and addresses the question, "Are these two images the same person?". Verification is also called "one-to-one" matching because the probe image is compared to only one enrolled template. Verification can be used in identity verification or access control scenarios to verify a picture matches a previously captured image (such as from a photo from a government issued ID card). For more information, see the [Facial recognition](concepts/face-recognition.md) concepts guide or the [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) reference documentation.
 
-Given one set of unknown faces, face grouping API automatically divides them into several groups based on similarity. Each group is a disjointed proper subset of the original unknown face set, and contains similar faces. And all the faces in the same group can be considered to belong to the same person object. For more information, see [Face - Group](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
+## Face identification
 
-### Face Identification
+The Identify API also starts with Detection and answers the question, "Can this detected face be matched to any enrolled face in a database?" Because it's like face recognition search, is also called "one-to-many" matching. Candidate matches are returned based on how closely the probe template with the detected face matches each of the enrolled templates.
 
-Face API can be used to identify people based on a detected face and a people database (defined as a LargePersonGroup/PersonGroup). Create this database in advance, which can be edited over time.
+The following image shows an example of a database named `"myfriends"`. Each group can contain up to 1 million different person objects. Each person object can have up to 248 faces registered.
 
-The following figure is an example of a LargePersonGroup/PersonGroup named "myfriends". Each group may contain up to 1,000,000/10,000 person objects. Meanwhile, each person object can have up to 248 faces registered.
+![A grid with three columns for different people, each with three rows of face images](./Images/person.group.clare.jpg)
 
-![Overview - LargePersonGroup/PersonGroup](./Images/person.group.clare.jpg)
+After you create and train a database, you can do identification against the group with a new detected face. If the face is identified as a person in the group, the person object is returned.
 
-After a LargePersonGroup/PersonGroup has been created and trained, identification can be performed against the group and a new detected face. If the face is identified as a person object in the group, the person object is returned.
+For more information about person identification, see the [Facial recognition](concepts/face-recognition.md) concepts guide or the [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) reference documentation.
 
-For more information about person identification, see the following API guides:
+## Find similar faces
 
-[Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)
-[PersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)
-[PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)
-[PersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249)
-[LargePersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)
-[LargePersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40)
-[LargePersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4)
+The Find Similar API does face matching between target face and a set of candidate faces, finding a smaller set of faces that look similar to the target face. This operation is useful for doing a face search by image. 
 
-### Face Storage
+Two working modes, **matchPerson** and **matchFace**, are supported. The **matchPerson** mode returns similar faces after filtering for the same person by using the [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). The **matchFace** mode ignores the same-person filter. It returns a list of similar candidate faces that may or may not belong to the same person.
 
-Face Storage allows a Standard subscription to store additional persisted faces when using LargePersonGroup/PersonGroup Person objects ([PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)/[LargePersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42)) or LargeFaceLists/FaceLists ([FaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)/[LargeFaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3)) for identification or similarity matching with the Face API. The stored images are charged at $0.5 per 1000 faces and this rate is prorated on a daily basis. Free tier subscriptions are free, but limited to 1,000 total persons.
+The following example shows the target face:
 
-Pricing for Face Storage is prorated daily. For example, if your account used 10,000 persisted faces each day for the first half of the month and none the second half, you would be billed only for the 10,000 faces for the days stored. Alternatively, if each day during the month you persist 1,000 faces for a few hours and then delete them each night, you would still be billed for 1,000 persisted faces each day.
+![A woman smiling](./Images/FaceFindSimilar.QueryFace.jpg)
 
-## Getting Started Tutorials
+And these images are the candidate faces:
 
-The following tutorials demonstrate the Face API basic functionalities and subscriptions processes:
+![Five images of people smiling. Images a and b show the same person.](./Images/FaceFindSimilar.Candidates.jpg)
 
-- [Getting Started with Face API in CSharp Tutorial](Tutorials/FaceAPIinCSharpTutorial.md)
-- [Getting Started with Face API in Java for Android Tutorial](Tutorials/FaceAPIinJavaForAndroidTutorial.md)
-- [Getting Started with Face API in Python Tutorial](Tutorials/FaceAPIinPythonTutorial.md)
+To find four similar faces, the **matchPerson** mode returns a and b, which show the same person as the target face. The **matchFace** mode returns a, b, c, and d&mdash;exactly four candidates, even if some aren't the same person as the target or have low similarity. For more information, see the [Facial recognition](concepts/face-recognition.md) concepts guide or the [Find Similar API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) reference documentation.
 
-## Sample Apps
+## Face grouping
 
-Take a look at these sample applications that make use of Face API.
+The Group API divides a set of unknown faces into several groups based on similarity. Each group is a disjoint proper subset of the original set of faces. All of the faces in a group are likely to belong to the same person. There can be several different groups for a single person. The groups are differentiated by another factor, such as expression, for example. For more information, see the [Facial recognition](concepts/face-recognition.md) concepts guide or the [Group API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) reference documentation.
 
-- [Microsoft Face API: Windows Client Library & Sample](https://github.com/Microsoft/Cognitive-Face-Windows)
-  - WPF sample app that demonstrates several scenarios of Face detection, analysis and identification.
-- [FamilyNotes UWP app](https://github.com/Microsoft/Windows-appsample-familynotes)
-  - Universal Windows Platform (UWP) sample app that shows usage of speech, Cortana, ink, and camera through a family note sharing scenario.
-- [Video Frame Analysis Sample](https://github.com/microsoft/cognitive-samples-videoframeanalysis)
-  - Universal Windows Platform (UWP) sample app that shows analyzing live video streams in near real time using the Face, Computer Vision, and Emotion APIs.
 
-## Related Topics
+## Sample apps
 
-- [Face API Version 1.0 Release Notes](ReleaseNotes.md)
-- [How to Detect Faces in Image](Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
-- [How to Identify Faces in Image](Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md)
+The following sample applications show a few ways to use the Face service:
+
+- [Face API: Windows Client Library and sample](https://github.com/Microsoft/Cognitive-Face-Windows) is a WPF app that demonstrates several scenarios of Face detection, analysis, and identification.
+- [FamilyNotes UWP app](https://github.com/Microsoft/Windows-appsample-familynotes) is a Universal Windows Platform (UWP) app that uses face identification along with speech, Cortana, ink, and camera in a family note-sharing scenario.
+
+## Data privacy and security
+
+As with all of the Cognitive Services resources, developers who use the Face service must be aware of Microsoft's policies on customer data. For more information, see the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center.
+
+## Next steps
+
+Follow a quickstart to code the basic components of a face recognition app in the language of your choice.
+
+- [Client library quickstart](quickstarts/client-libraries.md).

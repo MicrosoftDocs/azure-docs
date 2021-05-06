@@ -1,29 +1,30 @@
 ---
 title: Upload files into an Azure Media Services account using REST  | Microsoft Docs
-description: Learn how to get media content into Media Services by creating and uploading assets.
+description: Learn how to get media content into Media Services by creating and uploading assets using REST.
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: cfowler
+author: IngridAtMicrosoft
+manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
-ms.author: juliako
-
+ms.date: 3/10/2021
+ms.author: inhenkel
 ---
 # Upload files into a Media Services account using REST
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)
 > * [Portal](media-services-portal-upload-files.md)
 > 
 
-In Media Services, you upload your digital files into an asset. The [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.)  Once the files are uploaded into the asset, your content is stored securely in the cloud for further processing and streaming. 
+In Media Services, you upload your digital files into an asset. The [Asset](/rest/api/media/operations/asset) entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.)  Once the files are uploaded into the asset, your content is stored securely in the cloud for further processing and streaming. 
 
 In this tutorial, you learn how to upload a file and other operation associated with it:
 
@@ -41,6 +42,7 @@ In this tutorial, you learn how to upload a file and other operation associated 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - [Create an Azure Media Services account using the Azure portal](media-services-portal-create-account.md).
 - Review the [Accessing Azure Media Services API with AAD authentication overview](media-services-use-aad-auth-to-access-ams-api.md) article.
+- Also for more information Review the [Use Azure AD authentication to access the Media Services API with REST](./media-services-rest-connect-with-aad.md) article.
 - Configure **Postman** as described in [Configure Postman for Media Services REST API calls](media-rest-apis-with-postman.md).
 
 ## Considerations
@@ -48,7 +50,7 @@ In this tutorial, you learn how to upload a file and other operation associated 
 The following considerations apply when using Media Services REST API:
  
 * When accessing entities using Media Services REST API, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md). <br/>The Postman collection used in this tutorial takes care of setting all the necessary headers.
-* Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one '.' for the file name extension.
+* Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one '.' for the file name extension.
 * The length of the name should not be greater than 260 characters.
 * There is a limit to the maximum file size supported for processing in Media Services. See [this](media-services-quotas-and-limitations.md) article for details about the file size limitation.
 
@@ -64,7 +66,7 @@ For steps on how to set up Postman for this tutorial, see [Configure Postman](me
 
     To get values for the first five variables, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
-    ![Upload a file](./media/media-services-rest-upload-files/postman-import-env.png)
+    ![Screenshot that shows the "Cog" icon selected from the top-right, and the first five variables selected from the "Management Environments" tab.](./media/media-services-rest-upload-files/postman-import-env.png)
 2. Specify the value for the **MediaFileName** environment variable.
 
     Specify the file name of the media you are planning to upload. In this example, we are going to upload the BigBuckBunny.mp4. 
@@ -84,9 +86,9 @@ For steps on how to set up Postman for this tutorial, see [Configure Postman](me
 	```
 4. On the left of the **Postman** window, click on **1. Get AAD Auth token** -> **Get Azure AD Token for Service Principal**.
 
-    The URL portion is filled with the **AzureADSTSEndpoint** environment variable (earlier in the tutorial, you set the values of [environment variables](#configure-the-environment) that support the [collection](#configure-the-collection)).
+    The URL portion is filled with the **AzureADSTSEndpoint** environment variable (earlier in the tutorial, you set the values of environment variables that support the collection).
 
-    ![Upload a file](./media/media-services-rest-upload-files/postment-get-token.png)
+    ![Screenshot that shows "1. Get A A D Auth token - Get Azure A D Token for Service Principal" selected from the "Postman" window, and the "Send" button selected.](./media/media-services-rest-upload-files/postment-get-token.png)
 
 5. Press **Send**.
 
@@ -101,14 +103,14 @@ For steps on how to set up Postman for this tutorial, see [Configure Postman](me
 >[!NOTE]
 >There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) article.
 
-Before uploading any files into blob storage, set the access policy rights for writing to an asset. To do that, POST an HTTP request to the AccessPolicies entity set. Define a DurationInMinutes value upon creation or you receive a 500 Internal Server error message back in response. For more information on AccessPolicies, see [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
+Before uploading any files into blob storage, set the access policy rights for writing to an asset. To do that, POST an HTTP request to the AccessPolicies entity set. Define a DurationInMinutes value upon creation or you receive a 500 Internal Server error message back in response. For more information on AccessPolicies, see [AccessPolicy](/rest/api/media/operations/accesspolicy).
 
 ### Create an access policy
 
 1. Select **AccessPolicy** -> **Create AccessPolicy for Upload**.
 2. Press **Send**.
 
-    ![Upload a file](./media/media-services-rest-upload-files/postman-access-policy.png)
+    ![Screenshot that shows "AccessPolicy - Create AccessPolicy for Upload" selected from the left-side menu, and the "Send" button selected.](./media/media-services-rest-upload-files/postman-access-policy.png)
 
     The "test" script gets the AccessPolicy Id and sets the appropriate environment variable.
 
@@ -116,7 +118,7 @@ Before uploading any files into blob storage, set the access policy rights for w
 
 ### Overview
 
-An [asset](https://docs.microsoft.com/rest/api/media/operations/asset) is a container for multiple types or sets of objects in Media Services, including video, audio, images, thumbnail collections, text tracks, and closed caption files. In the REST API, creating an Asset requires sending POST request to Media Services and placing any property information about your asset in the request body.
+An [asset](/rest/api/media/operations/asset) is a container for multiple types or sets of objects in Media Services, including video, audio, images, thumbnail collections, text tracks, and closed caption files. In the REST API, creating an Asset requires sending POST request to Media Services and placing any property information about your asset in the request body.
 
 One of the properties that you can add when creating an asset is **Options**. You can specify one of the following encryption options: **None** (default, no encryption is used), **StorageEncrypted** (for content that has been pre-encrypted with client-side storage encryption), **CommonEncryptionProtected**, or **EnvelopeEncryptionProtected**. When you have an encrypted asset, you need to configure a delivery policy. For more information, see [Configuring asset delivery policies](media-services-rest-configure-asset-delivery-policy.md).
 
@@ -129,7 +131,7 @@ In this example, we are creating an unencrypted asset.
 1. Select **Assets** -> **Create Asset**.
 2. Press **Send**.
 
-    ![Upload a file](./media/media-services-rest-upload-files/postman-create-asset.png)
+    ![Screenshot that shows "Assets - Create Asset" selected from the "Collections" menu, and the "Send" button selected.](./media/media-services-rest-upload-files/postman-create-asset.png)
 
     The "test" script gets the Asset Id and sets the appropriate environment variable.
 
@@ -139,13 +141,13 @@ In this example, we are creating an unencrypted asset.
 
 Once you have the AccessPolicy and Locator set, the actual file is uploaded to an Azure Blob Storage container using the Azure Storage REST APIs. You must upload the files as block blobs. Page blobs are not supported by Azure Media Services.  
 
-For more information on working with Azure storage blobs, see [Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
+For more information on working with Azure storage blobs, see [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api).
 
-To receive the actual upload URL, create a SAS Locator (shown below). Locators define the start time and type of connection endpoint for clients that want to access Files in an Asset. You can create multiple Locator entities for a given AccessPolicy and Asset pair to handle different client requests and needs. Each of these Locators uses the StartTime value plus the DurationInMinutes value of the AccessPolicy to determine the length of time a URL can be used. For more information, see [Locator](https://docs.microsoft.com/rest/api/media/operations/locator).
+To receive the actual upload URL, create a SAS Locator (shown below). Locators define the start time and type of connection endpoint for clients that want to access Files in an Asset. You can create multiple Locator entities for a given AccessPolicy and Asset pair to handle different client requests and needs. Each of these Locators uses the StartTime value plus the DurationInMinutes value of the AccessPolicy to determine the length of time a URL can be used. For more information, see [Locator](/rest/api/media/operations/locator).
 
 A SAS URL has the following format:
 
-    {https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}
+`{https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}`
 
 ### Considerations
 
@@ -162,7 +164,7 @@ Some considerations apply:
 
     The "test" script creates the "Upload URL" based on the media file name you specified and SAS locator information and sets the appropriate environment variable.
 
-    ![Upload a file](./media/media-services-rest-upload-files/postman-create-sas-locator.png)
+    ![Screenshot that shows "Locator - Create S A S Locator" selected from the "Collections" menu, and the "Send" button selected.](./media/media-services-rest-upload-files/postman-create-sas-locator.png)
 
 ## Upload a file to blob storage using the upload URL
 
@@ -170,9 +172,9 @@ Some considerations apply:
 
 Now that you have the upload URL, you need to write some code using the Azure Blob APIs directly to upload your file to the SAS container. For more information, see the following articles:
 
-- [Using the Azure Storage REST API](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-- [PUT Blob](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-- [Upload blobs to Blob storage](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage)
+- [Using the Azure Storage REST API](../../storage/common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [PUT Blob](/rest/api/storageservices/put-blob)
+- [Upload blobs to Blob storage](/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
 
 ### Upload a file with Postman
 
@@ -189,7 +191,7 @@ Create and set up a new request:
 4. Choose the file with the name that you specified in the **MediaFileName** environment variable.
 5. Press **Send**.
 
-    ![Upload a file](./media/media-services-rest-upload-files/postman-upload-file.png)
+    ![Screenshot that shows the "(UploadU R L)" tab selected.](./media/media-services-rest-upload-files/postman-upload-file.png)
 
 ##  Create a metadata in the asset
 
@@ -204,22 +206,23 @@ The file should be uploaded and its metadata set.
 
 ## Validate
 
-To validate that the file has been uploaded successfully, you might want to query the [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) and compare the **ContentFileSize** (or other details) to what you expect to see in the new asset. 
+To validate that the file has been uploaded successfully, you might want to query the [AssetFile](/rest/api/media/operations/assetfile) and compare the **ContentFileSize** (or other details) to what you expect to see in the new asset. 
 
 For example, the following **GET** operation brings file data for your asset file (in or case, the BigBuckBunny.mp4 file). The query is using the [environment variables](postman-environment.md) that you set earlier.
 
-    {{RESTAPIEndpoint}}/Assets('{{LastAssetId}}')/Files
+`{{RESTAPIEndpoint}}/Assets('{{LastAssetId}}')/Files`
 
 Response will contain size, name, and other information.
 
-    "Id": "nb:cid:UUID:69e72ede-2886-4f2a-8d36-80a59da09913",
-    "Name": "BigBuckBunny.mp4",
-    "ContentFileSize": "3186542",
-    "ParentAssetId": "nb:cid:UUID:0b8f3b04-72fb-4f38-8e7b-d7dd78888938",
-            
+```console
+"Id": "nb:cid:UUID:69e72ede-2886-4f2a-8d36-80a59da09913",
+"Name": "BigBuckBunny.mp4",
+"ContentFileSize": "3186542",
+"ParentAssetId": "nb:cid:UUID:0b8f3b04-72fb-4f38-8e7b-d7dd78888938",
+```
+  
 ## Next steps
 
 You can now encode your uploaded assets. For more information, see [Encode assets](media-services-portal-encode.md).
 
 You can also use Azure Functions to trigger an encoding job based on a file arriving in the configured container. For more information, see [this sample](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
-

@@ -1,287 +1,186 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Halogen Software | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Halogen Software.
+title: 'Tutorial: Azure Active Directory integration with Saba TalentSpace | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Saba TalentSpace.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-
-ms.assetid: 2ca2298d-9a0c-4f14-925c-fa23f2659d28
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/23/2017
+ms.topic: tutorial
+ms.date: 01/22/2021
 ms.author: jeedes
-
 ---
-# Tutorial: Azure Active Directory integration with Halogen Software
 
-In this tutorial, you learn how to integrate Halogen Software with Azure Active Directory (Azure AD).
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Saba TalentSpace
 
-Integrating Halogen Software with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate Saba TalentSpace with Azure Active Directory (Azure AD). When you integrate Saba TalentSpace with Azure AD, you can:
 
-- You can control in Azure AD who has access to Halogen Software
-- You can enable your users to automatically get signed-on to Halogen Software (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Control in Azure AD who has access to Saba TalentSpace.
+* Enable your users to be automatically signed-in to Saba TalentSpace with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
-To configure Azure AD integration with Halogen Software, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- A Halogen Software single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Saba TalentSpace single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
+In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-1. Adding Halogen Software from the gallery
-1. Configuring and testing Azure AD single sign-on
+* Saba TalentSpace supports **SP** initiated SSO
 
-## Adding Halogen Software from the gallery
+## Add Saba TalentSpace from the gallery
 
-To configure the integration of Halogen Software into Azure AD, you need to add Halogen Software from the gallery to your list of managed SaaS apps.
+To configure the integration of Saba TalentSpace into Azure AD, you need to add Saba TalentSpace from the gallery to your list of managed SaaS apps.
 
-**To add Halogen Software from the gallery, perform the following steps:**
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Saba TalentSpace** in the search box.
+1. Select **Saba TalentSpace** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+## Configure and test Azure AD SSO for Saba TalentSpace
 
-	![Active Directory][1]
+Configure and test Azure AD SSO with Saba TalentSpace using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Saba TalentSpace.
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+To configure and test Azure AD SSO with Saba TalentSpace, perform the following steps:
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Saba TalentSpace SSO](#configure-saba-talentspace-sso)** - to configure the single sign-on settings on application side.
+    * **[Create Saba TalentSpace test user](#create-saba-talentspace-test-user)** - to have a counterpart of B.Simon in Saba TalentSpace that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	![Applications][3]
+## Configure Azure AD SSO
 
-1. In the search box, type **Halogen Software**.
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-	![Creating an Azure AD test user](./media/halogen-software-tutorial/tutorial_halogensoftware_search.png)
+1. In the Azure portal, on the **Saba TalentSpace** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-1. In the results panel, select **Halogen Software**, and then click **Add** button to add the application.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-	![Creating an Azure AD test user](./media/halogen-software-tutorial/tutorial_halogensoftware_addfromgallery.png)
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Halogen Software based on a test user called "Britta Simon".
+    a. In the **Sign on URL** text box, type the URL using the following pattern:
+    `https://global.hgncloud.com/[companyname]/saml/login`
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Halogen Software is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Halogen Software needs to be established.
+	b. In the **Identifier (Entity ID)** text box, type the URL using the following pattern:
+    `https://global.hgncloud.com/[companyname]/saml/metadata`
 
-In Halogen Software, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+    c. In the **Reply URL (Assertion Consumer Service URL)** text box, type the URL using the following pattern:
+    `https://global.hgncloud.com/[companyname]/saml/SSO`
 
-To configure and test Azure AD single sign-on with Halogen Software, you need to complete the following building blocks:
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Saba TalentSpace Client support team](https://support.saba.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a Halogen Software test user](#creating-a-halogen-software-test-user)** - to have a counterpart of Britta Simon in Halogen Software that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-### Configuring Azure AD single sign-on
+	![The Certificate download link](common/metadataxml.png)
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Halogen Software application.
+1. On the **Set up Saba TalentSpace** section, copy the appropriate URL(s) based on your requirement.
 
-**To configure Azure AD single sign-on with Halogen Software, perform the following steps:**
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-1. In the Azure portal, on the **Halogen Software** application integration page, click **Single sign-on**.
+### Create an Azure AD test user
 
-	![Configure Single Sign-On][4]
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/halogen-software-tutorial/tutorial_halogensoftware_samlbase.png)
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
-1. On the **Halogen Software Domain and URLs** section, perform the following steps:
+### Assign the Azure AD test user
 
-	![Configure Single Sign-On](./media/halogen-software-tutorial/tutorial_halogensoftware_url.png)
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Saba TalentSpace.
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://global.hgncloud.com/<companyname>`
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Saba TalentSpace**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://global.halogensoftware.com/<companyname>`, `https://global.hgncloud.com/<companyname>`
+## Configure Saba TalentSpace SSO
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Halogen Software Client support team](https://support.halogensoftware.com/) to get these values. 
- 
+1. In a different browser window, sign-on to your **Saba TalentSpace** application as an administrator.
 
-
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
-
-	![Configure Single Sign-On](./media/halogen-software-tutorial/tutorial_halogensoftware_certificate.png) 
-
-1. Click **Save** button.
-
-	![Configure Single Sign-On](./media/halogen-software-tutorial/tutorial_general_400.png)
-
-1. In a different browser window, sign-on to your **Halogen Software** application as an administrator.
-
-1. Click the **Options** tab. 
-   
-    ![What is Azure AD Connect][12]
-
-1. In the left navigation pane, click **SAML Configuration**. 
-   
-    ![What is Azure AD Connect][13]
-
-1. On the **SAML Configuration** page, perform the following steps: 
-
-    ![What is Azure AD Connect][14]
-
-     a. As **Unique Identifier**, select **NameID**.
-
-     b. As **Unique Identifier Maps To**, select **Username**.
+2. Click the **Options** tab.
   
-     c. To upload your downloaded metadata file, click **Browse** to select the file, and then **Upload File**.
- 
-     d. To test the configuration, click **Run Test**. 
-    
-	>[!NOTE]
-    >You need to wait for the message "*The SAML test is complete. Please close this window*". Then, close the opened browser window. The **Enable SAML** checkbox is only enabled if the test has been completed. 
-     
-	 e. Select **Enable SAML**.
-    
-	 f. Click **Save Changes**. 
+    ![Screenshot that shows the "saba TalentSpace" home page with the "Options" tab selected.](./media/halogen-software-tutorial/tutorial-halogen-12.png)
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+3. In the left navigation pane, click **SAML Configuration**.
+  
+    ![Screenshot that shows the "User Interface" left navigation pane with "S A M L Configuration" selected.](./media/halogen-software-tutorial/tutorial-halogen-13.png)
 
+4. On the **SAML Configuration** page, perform the following steps:
 
-### Creating an Azure AD test user
+    ![Screenshot that shows the "S A M L Configuration" page with the "Settings" options highlighted.](./media/halogen-software-tutorial/tutorial-halogen-14.png)
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+    a. As **Unique Identifier**, select **NameID**.
 
-![Create Azure AD User][100]
+    b. As **Unique Identifier Maps To**, select **Username**.
+  
+    c. To upload your downloaded metadata file, click **Browse** to select the file, and then **Upload File**.
 
-**To create a test user in Azure AD, perform the following steps:**
+    d. To test the configuration, click **Run Test**.
 
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
+    > [!NOTE]
+    > You need to wait for the message "*The SAML test is complete. Please close this window*". Then, close the opened browser window. The **Enable SAML** checkbox is only enabled if the test has been completed.
 
-	![Creating an Azure AD test user](./media/halogen-software-tutorial/create_aaduser_01.png) 
+    e. Select **Enable SAML**.
 
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/halogen-software-tutorial/create_aaduser_02.png) 
+    f. Click **Save Changes**.
 
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/halogen-software-tutorial/create_aaduser_03.png) 
+### Create Saba TalentSpace test user
 
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/halogen-software-tutorial/create_aaduser_04.png) 
+The objective of this section is to create a user called Britta Simon in Saba TalentSpace.
 
-    a. In the **Name** textbox, type name as **BrittaSimon**.
+**To create a user called Britta Simon in Saba TalentSpace, perform the following steps:**
 
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
+1. Sign on to your **Saba TalentSpace** application as an administrator.
 
-	c. Select **Show Password** and write down the value of the **Password**.
+2. Click the **User Center** tab, and then click **Create User**.
 
-    d. Click **Create**.
- 
-### Creating a Halogen Software test user
+    ![Screenshot that shows the "User Center" tab and "Create User" selected.](./media/halogen-software-tutorial/tutorial-halogen-300.png)  
 
-The objective of this section is to create a user called Britta Simon in Halogen Software.
+3. On the **New User** dialog page, perform the following steps:
 
-**To create a user called Britta Simon in Halogen Software, perform the following steps:**
+    ![What is Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-301.png)
 
-1. Sign on to your **Halogen Software** application as an administrator.
+    a. In the **First Name** textbox, type first name of the user like **B**.
 
-1. Click the **User Center** tab, and then click **Create User**.
-   
-    ![What is Azure AD Connect][300]  
+    b. In the **Last Name** textbox, type last name of the user like **Simon**.
 
-1. On the **New User** dialog page, perform the following steps:
-   
-    ![What is Azure AD Connect][301]
+    c. In the **Username** textbox, type **B.Simon**, the user name as in the Azure portal.
 
-    a. In the **First Name** textbox, type first name of the user like **Britta**.
-	
-    b. In the **Last Name** textbox, type last name of the user like **Simon**. 
+    d. In the **Password** textbox, type a password for B.Simon.
 
-    c. In the **Username** textbox, type **Britta Simon**, the user name as in the Azure portal.
+    e. Click **Save**.
 
-    d. In the **Password** textbox, type a password for Britta.
-    
-	e. Click **Save**.
+## Test SSO
 
-### Assigning the Azure AD test user
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Halogen Software.
+* Click on **Test this application** in Azure portal. This will redirect to Saba TalentSpace Sign-on URL where you can initiate the login flow. 
 
-![Assign User][200] 
+* Go to Saba TalentSpace Sign-on URL directly and initiate the login flow from there.
 
-**To assign Britta Simon to Halogen Software, perform the following steps:**
+* You can use Microsoft My Apps. When you click the Saba TalentSpace tile in the My Apps, you should be automatically signed in to the Saba TalentSpace for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+## Next steps
 
-	![Assign User][201] 
-
-1. In the applications list, select **Halogen Software**.
-
-	![Configure Single Sign-On](./media/halogen-software-tutorial/tutorial_halogensoftware_app.png) 
-
-1. In the menu on the left, click **Users and groups**.
-
-	![Assign User][202] 
-
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![Assign User][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
-
-The objective of this section is to test your Azure AD SSO configuration using the Access Panel.
-
-When you click the Halogen Software tile in the Access Panel, you should get automatically signed-on to your Halogen Software application.
-
-## Additional resources
-
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
-
-<!--Image references-->
-
-[1]: ./media/halogen-software-tutorial/tutorial_general_01.png
-[2]: ./media/halogen-software-tutorial/tutorial_general_02.png
-[3]: ./media/halogen-software-tutorial/tutorial_general_03.png
-[4]: ./media/halogen-software-tutorial/tutorial_general_04.png
-
-[12]: ./media/halogen-software-tutorial/tutorial_halogen_12.png
-
-[13]: ./media/halogen-software-tutorial/tutorial_halogen_13.png
-
-[14]: ./media/halogen-software-tutorial/tutorial_halogen_14.png
-
-[100]: ./media/halogen-software-tutorial/tutorial_general_100.png
-
-[200]: ./media/halogen-software-tutorial/tutorial_general_200.png
-[201]: ./media/halogen-software-tutorial/tutorial_general_201.png
-[202]: ./media/halogen-software-tutorial/tutorial_general_202.png
-[203]: ./media/halogen-software-tutorial/tutorial_general_203.png
-
-[300]: ./media/halogen-software-tutorial/tutorial_halogen_300.png
-
-[301]: ./media/halogen-software-tutorial/tutorial_halogen_301.png
+ Once you configure Saba TalentSpace you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -3,7 +3,7 @@ title: Using the Azure Cloud Shell editor | Microsoft Docs
 description: Overview of how to use the Azure Cloud Shell editor.
 services: azure
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
  
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
-ms.author: juluk
+ms.author: damaerte
 ---
 
 # Using the Azure Cloud Shell editor
@@ -48,5 +48,6 @@ To launch the command palette, use the `F1` key when focus is set on the editor.
 Language highlight support in the Cloud Shell editor is supported through upstream functionality in the [Monaco Editor](https://github.com/Microsoft/monaco-editor)'s use of Monarch syntax definitions. To learn how to make contributions, read the [Monaco contributor guide](https://github.com/Microsoft/monaco-editor/blob/master/CONTRIBUTING.md).
 
 ## Next steps
-[Try the quickstart for Bash in Cloud Shell](quickstart.md)
-[View the full list of integrated Cloud Shell tools](features.md)
+
+- [Try the quickstart for Bash in Cloud Shell](quickstart.md)
+- [View the full list of integrated Cloud Shell tools](features.md)

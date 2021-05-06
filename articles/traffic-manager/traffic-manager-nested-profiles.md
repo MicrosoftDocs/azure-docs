@@ -1,20 +1,18 @@
 ---
-title: Nested Traffic Manager Profiles | Microsoft Docs
+title: Nested Traffic Manager Profiles in Azure
+titleSuffix: Azure Traffic Manager
 description: This article explains the 'Nested Profiles' feature of Azure Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: timlt
-editor: ''
-
-ms.assetid: f1b112c4-a3b1-496e-90eb-41e235a49609
+author: duongau
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
-ms.author: kumud
+ms.date: 10/22/2018
+ms.author: duau
 ---
 
 # Nested Traffic Manager profiles
@@ -62,9 +60,7 @@ The following figure illustrates this configuration:
 
 ## Example 3: Prioritized failover regions in 'Performance' traffic routing
 
-The default behavior for the 'Performance' traffic-routing method is designed to avoid over-loading the next nearest endpoint and causing a cascading series of failures. When an endpoint fails, all traffic that would have been directed to that endpoint is evenly distributed to the other endpoints across all regions.
-
-!['Performance' traffic routing with default failover][5]
+The default behavior for the 'Performance' traffic-routing method is when you have endpoints in different geographic locations the end users are routed to the "closest" endpoint in terms of the lowest network latency.
 
 However, suppose you prefer the West Europe traffic failover to West US, and only direct traffic to other regions when both endpoints are unavailable. You can create this solution using a child profile with the 'Priority' traffic-routing method.
 
@@ -94,11 +90,25 @@ The monitoring settings in a Traffic Manager profile apply to all endpoints with
 
 ![Traffic Manager endpoint monitoring with per-endpoint settings][10]
 
+## FAQs
+
+* [How do I configure nested profiles?](./traffic-manager-faqs.md#traffic-manager-nested-profiles)
+
+* [How many layers of nesting does Traffic Manger support?](./traffic-manager-faqs.md#how-many-layers-of-nesting-does-traffic-manger-support)
+
+* [Can I mix other endpoint types with nested child profiles, in the same Traffic Manager profile?](./traffic-manager-faqs.md#can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile)
+
+* [How does the billing model apply for Nested profiles?](./traffic-manager-faqs.md#how-does-the-billing-model-apply-for-nested-profiles)
+
+* [Is there a performance impact for nested profiles?](./traffic-manager-faqs.md#is-there-a-performance-impact-for-nested-profiles)
+
+* [How does Traffic Manager compute the health of a nested endpoint in a parent profile?](./traffic-manager-faqs.md#how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile)
+
 ## Next steps
 
 Learn more about [Traffic Manager profiles](traffic-manager-overview.md)
 
-Learn how to [create a Traffic Manager profile](traffic-manager-create-profile.md)
+Learn how to [create a Traffic Manager profile](./quickstart-create-traffic-manager-profile.md)
 
 <!--Image references-->
 [1]: ./media/traffic-manager-nested-profiles/figure-1.png

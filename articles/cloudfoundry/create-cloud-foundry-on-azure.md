@@ -1,85 +1,99 @@
 ---
-title: Create Cloud Foundry on Azure
-description: Learn how to set up parameters needed to provision a Cloud Foundry PCF cluster on Azure
+title: Create a Pivotal Cloud Foundry cluster on Azure
+description: Learn how to set up the parameters needed to provision a Pivotal Cloud Foundry (PCF) cluster on Azure
 services: Cloud Foundry
 documentationcenter: CloudFoundry
 author: ruyakubu
 manager: brunoborges
 editor: ruyakubu
-
 ms.assetid:
 ms.author: ruyakubu
 ms.date: 09/13/2018
 ms.devlang: 
-ms.service: Cloud Foundry
+ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
 ---
 
-# Create Cloud Foundry on Azure
+# Create a Pivotal Cloud Foundry cluster on Azure
 
-This tutorial provides quick steps on creating and generated parameters needed to provision a Pivotal Cloud Foundry PCF cluster on Azure.  The Pivotal Cloud Foundry solution can be found by performing a search on Azure [MarketPlace](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
+This tutorial provides quick steps to create and generate the parameters you need to provision a Pivotal Cloud Foundry (PCF) cluster on Azure. To find the Pivotal Cloud Foundry solution, perform a search in the Azure [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
 
-![Alt image text](media/deploy/pcf-marketplace.png "Search Pivotal Cloud Foundry in Azure")
+![Search Pivotal Cloud Foundry in Azure](media/deploy/pcf-marketplace.png)
 
 
 ## Generate an SSH public key
 
-There are several ways to generate a public SSH key using Windows, Mac or Linux.
+There are several ways to generate a public secure shell (SSH) key by using Windows, Mac, or Linux.
 
 ```Bash
 ssh-keygen -t rsa -b 2048
 ```
-- Click here to see [instructions]( https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) for your environment.
 
-## Create a Service Principal
+For more information, see [Use SSH keys with Windows on Azure](../virtual-machines/linux/ssh-from-windows.md).
+
+## Create a service principal
 
 > [!NOTE]
 >
-> Creating a service principal requires an owner account permission.  In addition, you can write a script to automate creating the Service Principal. For example, using Azure CLI [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest).
+> To create a service principal, you need owner account permission. You also can write a script to automate creating the service principal. For example, you can use the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp).
 
-1. Log into your Azure account.
+1. Sign in to your Azure account.
 
-    `az login`
+    ```azurecli
+    az login
+    ```
 
-    ![Alt image text](media/deploy/az-login-output.png "Azure CLI login")
+    ![Azure CLI login](media/deploy/az-login-output.png )
  
-    Copy the “id” value as your **subscription ID** and the **tenantId** value to be used later.
+    Copy the "id" value as your **subscription ID**, and copy the "tenantId" value to use later.
 
 2. Set your default subscription for this configuration.
 
-    `az account set -s {id}`
+    ```azurecli
+    az account set -s {id}
+    ```
 
-3. Create an AAD application for your PCF and specify a unique alpha-numeric password.  Store the password as your **clientSecret** to be used later.
+3. Create an Azure Active Directory application for your PCF. Specify a unique alphanumeric password. Store the password as your **clientSecret** to use later.
 
-    `az ad app create --display-name "Svc Prinicipal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}`
+    ```azurecli
+    az ad app create --display-name "Svc Principal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}
+    ```
 
-    The copy “appId” value in the output as your **ClientID** to be used later.
+    Copy the "appId" value in the output as your **clientID** to use later.
 
     > [!NOTE]
     >
-    > Choose your own application homepage and identifier URI.  e.g. http://www.contoso.com.
+    > Choose your own application home page and identifier URI, for example, http\://www\.contoso.com.
 
-4. Create a service principal with your new “appId”.
+4. Create a service principal with your new app ID.
 
-    `az ad sp create --id {appId}`
+    ```azurecli
+    az ad sp create --id {appId}
+    ```
 
-5. Set the permission role of your service principal as a **Contributor**.
+5. Set the permission role of your service principal as a Contributor.
 
-    `az role assignment create --assignee “{enter-your-homepage}” --role “Contributor” `
+    ```azurecli
+    az role assignment create --assignee "{enter-your-homepage}" --role "Contributor"
+    ```
 
-    Or you can also use…
+    Or you also can use
 
-    `az role assignment create --assignee {service-princ-name} --role “Contributor” `
+    ```azurecli
+    az role assignment create --assignee {service-principal-name} --role "Contributor"
+    ```
 
-    ![Alt image text](media/deploy/svc-princ.png "Service Principal role assignment")
+    ![Service principal role assignment](media/deploy/svc-princ.png )
 
-6. Verify that you can successfully log into your Service Principal using the appId, password & tenantId.
+6. Verify that you can successfully sign in to your service principal by using the app ID, password, and tenant ID.
 
-    `az login --service-principal -u {appId} -p {your-passward}  --tenant {tenantId}`
+    ```azurecli
+    az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}
+    ```
 
-7. Create a .json file in the following format using Use all the above **subscription ID**, **tenantId**, **clientID** and **clientSecret** values you’ve copied above.  Save the file.
+7. Create a .json file in the following format. Use the **subscription ID**, **tenantID**, **clientID**, and **clientSecret** values you copied previously. Save the file.
 
     ```json
     {
@@ -90,37 +104,36 @@ ssh-keygen -t rsa -b 2048
     }
     ```
 
-## Get the Pivotal Network Token
+## Get the Pivotal Network token
 
-1. Register or log into your [Pivotal Network](https://network.pivotal.io) account.
-2. Click on your profile name on the top upper right-hand side of the page, the select **Edit Profile”.
-3. Scroll to the bottom of the page and copy the **LEGACY API TOKEN** value.  This is your **Pivotal Network Token** value that will be used later.
+1. Register or sign in to your [Pivotal Network](https://network.pivotal.io) account.
+2. Select your profile name in the upper-right corner of the page. Select **Edit Profile**.
+3. Scroll to the bottom of the page, and copy the **LEGACY API TOKEN** value. This value is your **Pivotal Network Token** value that you use later.
 
-## Provision your Cloud Foundry on Azure
+## Provision your Cloud Foundry cluster on Azure
 
-1. Now you have all the parameters needed to provision your [Pivotal Cloud Foundry on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry) cluster.
-2. Enter the parameters and create your PCF cluster.
+Now you have all the parameters you need to provision your [Pivotal Cloud Foundry cluster on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
+Enter the parameters, and create your PCF cluster.
 
-## Verify the deployment and log into the Pivotal Ops Manager
+## Verify the deployment, and sign in to the Pivotal Ops Manager
 
-1. Your PCF cluster should show a deployment status.
+1. Your PCF cluster shows a deployment status.
 
-    ![Alt image text](media/deploy/deployment.png "Azure deployment status")
+    ![Azure deployment status](media/deploy/deployment.png )
 
-2. Click on the **Deployments** link on the left-hand navigation to get credentials to your PCF Ops Manager, then click on the **Deployment Name** on the next page.
-3. On the left-hand navigation, click on the **Outputs** link to display the URL, Username and Password to the PCF Ops Manager.  The “OPSMAN-FQDN” value is the URL.
+2. Select the **Deployments** link in the navigation on the left to get credentials for your PCF Ops Manager. Select the **Deployment Name** on the next page.
+3. In the navigation on the left, select the **Outputs** link to display the URL, username, and password for the PCF Ops Manager. The "OPSMAN-FQDN" value is the URL.
  
-    ![Alt image text](media/deploy/deploy-outputs.png "Cloud Foundry deployment output")
+    ![Cloud Foundry deployment output](media/deploy/deploy-outputs.png )
  
-4. Launch the URL in a web browser and enter the credentials from the previous step to login.
+4. Start the URL in a web browser. Enter the credentials from the previous step to sign in.
 
-    ![Alt image text](media/deploy/pivotal-login.png "Pivotal Login page")
+    ![Pivotal sign-in page](media/deploy/pivotal-login.png )
          
     > [!NOTE]
     >
-    > If Internet Explorer browser fails due to site not secure warning message, click on “More information” and “Go on to the webpage.  For Firefox, click on Advance and add the certification to proceed.
+    > If the Internet Explorer browser fails due to a "Site not secure" warning message, select **More information** and go to the webpage. For Firefox, select **Advance** and add the certification to proceed.
 
-5. Your PCF Ops Manager should display the deployed Azure instances. Now you can start deploying and managing your applications here!
+5. Your PCF Ops Manager displays the deployed Azure instances. Now you can deploy and manage your applications here.
                
-    ![Alt image text](media/deploy/ops-mgr.png "Deployed Azure imstance in Pivotal")
- 
+    ![Deployed Azure instance in Pivotal](media/deploy/ops-mgr.png )
