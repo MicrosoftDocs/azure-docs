@@ -53,10 +53,13 @@ No, based on our benchmark tests, conditions are not expected to add any user pe
 
 **What new properties have been introduced in the role assignment schema to support conditions?**
 
-Here are the three new properties:
+Here are the new condition properties:
 
 - `condition`: Condition statement built using one or more actions from role definition and attributes.
 - `conditionVersion`: A condition version number. Defaults to 2.0 and is the only publicly supported version.
+
+There is also a new description property for role assignments:
+
 - `description`: The description for the role assignment that can be used to describe the condition.
 
 **Is a condition applied to the entire role assignment or specific actions?**
@@ -65,7 +68,11 @@ A condition is only applied to the specific targeted actions.
 
 **What are the limits for a condition?**
 
-The description of a condition is limited to 2 KB and the condition is limited to 4 KB.
+A condition can be up to to 4 KB long.
+
+**What are the limits for a description?**
+
+A description can be up to 2 KB long.
 
 **Is it possible to create a role assignment with and without a condition, but using the same tuple of security principal, role definition, and scope?**
 
