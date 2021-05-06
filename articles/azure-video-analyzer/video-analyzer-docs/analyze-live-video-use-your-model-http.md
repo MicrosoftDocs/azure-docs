@@ -48,7 +48,7 @@ Open an application such as [VLC media player](https://www.videolan.org/vlc/). S
 1. Right-click the _src/edge/deployment.yolov3.template.json_ file and then select **Generate IoT Edge Deployment Manifest**.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/analyze-live-video-use-your-model-http/generate-deployment-manifest.png" alt-text="Generate IoT Edge Deployment Manifest":::
+   > :::image type="content" source="./media/analyze-live-video-use-your-model-http/generate-deployment-manifest.png" alt-text="Screenshot of Generate IoT Edge Deployment Manifest":::
 
 1. The _deployment.yolov3.amd64.json_ manifest file is created in the _src/edge/config_ folder.
 1. If you completed the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart, then skip this step.
@@ -56,17 +56,17 @@ Open an application such as [VLC media player](https://www.videolan.org/vlc/). S
    Otherwise, near the **AZURE IOT HUB** pane in the lower-left corner, select the **More actions** icon and then select **Set IoT Hub Connection String**. You can copy the string from the _appsettings.json_ file. Or, to ensure you've configured the proper IoT hub within Visual Studio Code, use the [Select IoT hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/vscode-common-screenshots/set-connection-string.png" alt-text="Set IoT Hub Connection String":::
+   > :::image type="content" source="./media/vscode-common-screenshots/set-connection-string.png" alt-text="Screenshot of Set IoT Hub Connection String":::
 
    > [!NOTE]
    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this: <br/>
    >
    > `Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>.`
 
-   1. Right-click _src/edge/config/deployment.yolov3.amd64.json_ and select **Create Deployment for Single Device**.
+   Right-click _src/edge/config/deployment.yolov3.amd64.json_ and select **Create Deployment for Single Device**.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/analyze-live-video-use-your-model-http/deployment-single-device.png" alt-text= "Create Deployment for Single Device":::
+   > :::image type="content" source="./media/analyze-live-video-use-your-model-http/deployment-single-device.png" alt-text= "Screenshot of Create Deployment for Single Device":::
 
 1. When you're prompted to select an IoT Hub device, select **ava-sample-iot-edge-device**.
 1. After about 30 seconds, in the lower-left corner of the window, refresh Azure IoT Hub. The edge device now shows the following deployed modules:
@@ -76,7 +76,7 @@ Open an application such as [VLC media player](https://www.videolan.org/vlc/). S
    - The **avaextension** module, which is the YoloV3 object detection model that applies computer vision to the images and returns multiple classes of object types
 
      > [!div class="mx-imgBorder"]
-     > :::image type="content" source="./media/vscode-common-screenshots/avaextension.png" alt-text= "YoloV3 object detection model":::
+     > :::image type="content" source="./media/vscode-common-screenshots/avaextension.png" alt-text= "Screenshot of YoloV3 object detection model":::
 
 ## Prepare to monitor events
 
@@ -84,17 +84,17 @@ Open an application such as [VLC media player](https://www.videolan.org/vlc/). S
 1. Right-click and select **Extension Settings**.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/vscode-common-screenshots/extension-settings.png" alt-text= "VS Extension Settings":::
+   > :::image type="content" source="./media/vscode-common-screenshots/extension-settings.png" alt-text= "Screenshot of VS Extension Settings":::
 
 1. Search and enable **Show Verbose Message**.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/vscode-common-screenshots/verbose-message.png" alt-text= "Show Verbose Message":::
+   > :::image type="content" source="./media/vscode-common-screenshots/verbose-message.png" alt-text= "Screenshot of Show Verbose Message":::
 
 1. Right-click the Video Analyzer device and select **Start Monitoring Built-in Event Endpoint**. You need this step to monitor the IoT Hub events in the **OUTPUT** window of Visual Studio Code.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/vscode-common-screenshots/start-monitoring.png" alt-text= "Start Monitoring Built-in Event Endpoint":::
+   > :::image type="content" source="./media/vscode-common-screenshots/start-monitoring.png" alt-text= "Screenshot of Start Monitoring Built-in Event Endpoint":::
 
    > [!NOTE]
    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under Event Hub compatible endpoint section. Copy and use the text in the box. The endpoint will look something like this: `Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>`
