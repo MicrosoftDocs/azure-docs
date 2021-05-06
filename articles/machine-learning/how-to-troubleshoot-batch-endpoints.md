@@ -100,20 +100,19 @@ az ml job stream -name <job_name>
 
 Option 2: View logs in studio 
 
-In studio, you can find the logs in the **Outputs + logs** tab of the 
-All logs are in Outputs + logs tab. 
+In studio, choose the **Experiments** asset, and choose the experiment named the same as your endpoint. You can find the logs in the **Outputs + logs** tab of the associated run. 
 
-### Understand logs structure
+### Understand log structure
 
-There are two top level log folders, azureml-logs and logs. 
+There are two top-level log folders, `azureml-logs` and `logs`. 
 
-`~/azureml-logs/70_driver_log.txt` contains information from the controller that launches the scoring script.  
+The file `~/azureml-logs/70_driver_log.txt` contains information from the controller that launches the scoring script.  
 
 Because of the distributed nature of batch scoring jobs, there are logs from several different sources. However, two consolidated files are created that provide high-level information: 
 
-- `~/logs/job_progress_overview.txt`: This file provides a high-level info about the number of mini-batches (also known as tasks) created so far and number of mini-batches processed so far. At this end, it shows the result of the job. If the job failed, it will show the error message and where to start the troubleshooting.
+- `~/logs/job_progress_overview.txt`: This file provides high-level information about the number of mini-batches (also known as tasks) created so far and the number of mini-batches processed so far. As these end, it further shows the results of the job. If the job failed, it will show the error message and where to start the troubleshooting.
 
-- `~/logs/sys/master_role.txt`: This file provides the principal node (also known as the orchestrator) view of the running job. Includes task creation, progress monitoring, the run result.
+- `~/logs/sys/master_role.txt`: This file provides the principal node (also known as the orchestrator) view of the running job. This log provides information on task creation, progress monitoring, the run result.
 
 For a concise understanding of errors in your script there is:
 
@@ -121,26 +120,25 @@ For a concise understanding of errors in your script there is:
 
 For more information on errors in your script, there is:
 
-- `~/logs/user/error/`: Contains full stack traces of exceptions thrown while loading and running entry script.
+- `~/logs/user/error/`: This file contains full stack traces of exceptions thrown while loading and running the entry script.
 
 When you need a full understanding of how each node executed the score script, look at the individual process logs for each node. The process logs can be found in the `sys/node` folder, grouped by worker nodes:
+{>> Q: The only logs I got under logs/ were azureml/ logs. <<}
 
 - `~/logs/sys/node/<ip_address>/<process_name>.txt`: This file provides detailed info about each mini-batch as it's picked up or completed by a worker. For each mini-batch, this file includes:
 
     - The IP address and the PID of the worker process. 
-    - The total number of items, successfully processed items count, and failed item count.
-    - The start time, duration, process time and run method time.
+    - The total number of items, the number of successfully processed items, and the number of failed items.
+    - The start time, duration, process time, and run method time.
 
 You can also view the results of periodical checks of the resource usage for each node. The log files and setup files are in this folder:
 
 - `~/logs/perf`: Set `--resource_monitor_interval` to change the checking interval in seconds. The default interval is `600`, which is approximately 10 minutes. To stop the monitoring, set the value to `0`. Each `<ip_address>` folder includes:
 
-    - `os/`: Information about all running processes in the node. One check runs an operating system command and saves the result to a file. On Linux, the command is `ps`. On Windows, use `tasklist`.
+    - `os/`: Information about all running processes in the node. One check runs an operating system command and saves the result to a file. On Linux, the command is `ps`. On Windows, it's `tasklist`.
         - `%Y%m%d%H`: The sub folder name is the time to hour.
             - `processes_%M`: The file ends with the minute of the checking time.
     - `node_disk_usage.csv`: Detailed disk usage of the node.
     - `node_resource_usage.csv`: Resource usage overview of the node.
     - `processes_resource_usage.csv`: Resource usage overview of each process.
-
-# Next steps
 
