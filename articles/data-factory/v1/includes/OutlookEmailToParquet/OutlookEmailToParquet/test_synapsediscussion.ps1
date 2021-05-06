@@ -1,0 +1,1 @@
+﻿.\bin\Debug\OutlookEmailToParquet --inboxfolder "Community/Azure Synapse Discussion" --outputpath "c:\Scratch" --outputprefix "SynapseDiscussion"  --datestart 2020/06/1 --dateend today --overwrite
