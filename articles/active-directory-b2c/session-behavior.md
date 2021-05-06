@@ -270,7 +270,7 @@ There are two main approaches to single sign-out:
   - Note that even though this is an OAuth2 endpoint, the user will also be signed out of participating SAML applications.
 - **SP/RP-initiated SLO** where the sign-out is triggered by the SAML Service Provider (SP) or Relying Party (RP) application.
   - When using OpenID Connect/OAuth2, the Relying Party application redirects the user to the sign-out endpoint that is also used for IdP-initiated SLO. Ideally, the application also includes an `id_token_hint` representing the currently signed-in user.
-  - When using the SAML protocol, the Service Provider sends a [SAML Logout Request](../active-directory/develop/single-sign-out-saml-protocol) to Azure AD B2C. Note that as explained in the [SamlSSOSessionProvider documentation](custom-policy-reference-sso.md#samlssosessionprovider), Azure AD B2C requires that the logout request includes both the user's `NameID` and `SessionIndex`.
+  - When using the SAML protocol, the Service Provider sends a [SAML Logout Request](../active-directory/develop/single-sign-out-saml-protocol.md) to Azure AD B2C. Note that as explained in the [SamlSSOSessionProvider documentation](custom-policy-reference-sso.md#samlssosessionprovider), Azure AD B2C requires that the logout request includes both the user's `NameID` and `SessionIndex`.
 
 When Azure AD B2C receives the logout request, it uses a front-channel HTML iframe to send an HTTP request to the registered logout URL of each participating application that the user is currently signed in to (both OpenID Connect/OAuth2 and SAML applications, regardless of how single sign-out was initiated).
 - For OpenID Connect/OAuth2 applications, it sends an HTTP GET to the registered logout URL.
