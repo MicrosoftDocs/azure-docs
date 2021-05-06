@@ -20,7 +20,7 @@
     href: /learn/modules/deploy-azure-resources-by-using-bicep-templates/
 - name: How to
   items:
-  - name: Create
+  - name: Author
     items:
     - name: Bicep file structure
       displayName: parameters,variables,resources,outputs,condition
