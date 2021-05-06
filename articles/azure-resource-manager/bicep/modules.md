@@ -11,7 +11,7 @@ ms.date: 03/30/2021
 
 Bicep enables you to break down a complex solution into modules. A Bicep module is a set of one or more resources to be deployed together. Modules abstract away complex details of the raw resource declaration, which can increase readability. You can reuse these modules, and share them with other people. Combined with [template specs](./template-specs.md), it creates a way for modularity and code reuse. Bicep modules are transpiled into a single ARM template with [nested templates](../templates/linked-templates.md#nested-template) for deployment. In Bicep, [_dependsOn_](../templates/template-syntax.md#resources) gets handled automatically.
 
-For a tutorial, see [Tutorial: Add Bicep modules](./tutorial-add-modules.md).
+For a tutorial, see [Deploy Azure resources by using Bicep templates](/learn/modules/deploy-azure-resources-by-using-bicep-templates/).
 
 ## Define modules
 
@@ -150,4 +150,4 @@ output storageEndpoint object = stgModule.outputs.storageEndpoint
 
 ## Next steps
 
-- To go through a tutorial, see [Tutorial: Add Bicep modules](./tutorial-add-modules.md).
+- To go through a tutorial, see [Deploy Azure resources by using Bicep templates](/learn/modules/deploy-azure-resources-by-using-bicep-templates/).

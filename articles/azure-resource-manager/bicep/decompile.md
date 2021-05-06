@@ -4,7 +4,7 @@ description: Describes commands for converting Azure Resource Manager templates 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 03/12/2021 
+ms.date: 03/12/2021
 ms.custom: devx-track-azurepowershell
 ---
 # Converting ARM templates between JSON and Bicep
@@ -65,4 +65,4 @@ The [Bicep playground](https://aka.ms/bicepdemo) enables you to view equivalent 
 
 ## Next steps
 
-For information about the Bicep, see [Bicep tutorial](./tutorial-create-first-bicep.md).
+For information about the Bicep, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).

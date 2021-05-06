@@ -11,7 +11,7 @@ ms.date: 05/05/2021
 
 This article describes the structure of a Bicep file. It presents the different sections of the file and the properties that are available in those sections.
 
-This article is intended for users who have some familiarity with Bicep files. It provides detailed information about the structure of the Bicep file. For a step-by-step tutorial that guides you through the process of creating a Bicep file, see [Tutorial: Create and deploy first Azure Resource Manager Bicep file](./tutorial-create-first-bicep.md).
+This article is intended for users who have some familiarity with Bicep files. It provides detailed information about the structure of the Bicep file. For a step-by-step tutorial that guides you through the process of creating a Bicep file, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
 
 ## Bicep format
 
@@ -164,7 +164,7 @@ var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
 You don't specify a [data type](data-types.md) for a variable. Instead, the data type is inferred from the value.
 
-For more information, see [Variables in Bicep](template-variables.md).
+For more information, see [Variables in Bicep](./variables.md).
 
 ## Resource
 

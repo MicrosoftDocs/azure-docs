@@ -261,7 +261,7 @@ output hostname string = publicIP.properties.dnsSettings.fqdn
 
 To separate a solution into multiple files:
 
-* For Bicep, use [modules](tutorial-add-modules.md).
+* For Bicep, use [modules](/learn/modules/deploy-azure-resources-by-using-bicep-templates/).
 * For JSON, use [linked templates](../templates/linked-templates.md).
 
 ## Recommendations
