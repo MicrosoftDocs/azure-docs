@@ -53,20 +53,25 @@ Before you associate an existing Functions app, you first need to adjust to conf
 
     :::image type="content" source="media/functions-bring-your-own/azure-static-web-apps-link-existing-functions-app.png" alt-text="Link an existing Functions app":::
 
+> [!IMPORTANT]
+> Make sure you blank out the `api_location` value in the [workflow configuration](./github-actions-workflow.md) file before you link an existing Functions application.
+
 ## Deployment
 
 You're responsible for setting up a [deployment workflow](../azure-functions/functions-deployment-technologies.md) for your Azure Functions app.
 
 ## Security constraints
 
-The only supported Azure App Service Authentication and authorization provider is version 2.
-
 If authentication and authorization policies aren't already set up on your existing Functions app, then the static web app has exclusive access to the API. To make your Functions app accessible to other applications, add another identity provider or change the security settings to allow unauthenticated access.
+
+> [!NOTE]
+> If you enable authentication and authorization in your linked Functions app, it must use Azure App Service Authentication and authorization provider is version 2.
 
 ## Restrictions
 
 - Only one Azure Functions app is available to a single static web app.
 - The `api_location` value in the [workflow configuration](./github-actions-workflow.md) must be blank.
+- Only supported in the Static Web Apps production environment.
 
 ## Next steps
 
