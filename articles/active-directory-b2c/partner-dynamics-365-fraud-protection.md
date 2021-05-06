@@ -18,9 +18,9 @@ ms.subservice: B2C
 
 In this sample tutorial, we provide guidance on how to integrate [Microsoft Dynamics 365 Fraud Protection](/dynamics365/fraud-protection/overview) (DFP) with the Azure Active Directory (AD) B2C.
 
-Microsoft DFP provides clients with the capability to assess if the risk of attempts to create new accounts and attempts to login to client's ecosystem are fraudulent. Microsoft DFP assessment can be used by the customer to block or challenge suspicious attempts to create new fake accounts or to compromise existing accounts. Account protection includes artificial intelligence empowered device fingerprinting, APIs for real-time risk assessment, rule and list experience to optimize risk strategy as per client's business needs, and a scorecard to monitor fraud protection effectiveness and trends in client's ecosystem.
+Microsoft DFP provides organizations with the capability to assess if the risk of attempts to create new accounts and attempts to login to the organization's ecosystem are fraudulent. Microsoft DFP assessment can be used by the customer to block or challenge suspicious attempts to create new fake accounts or to compromise existing accounts.
 
-In this sample, we'll be integrating the account protection features of Microsoft DFP with an Azure AD B2C user flow. The service will externally fingerprint every sign-in or sign up attempt and watch for any past or present suspicious behavior. Azure AD B2C invokes a decision endpoint from Microsoft DFP, which returns a result based on all past and present behavior from the identified user, and also the custom rules specified within the Microsoft DFP service. Azure AD B2C makes an approval decision based on this result and passes the same back to Microsoft DFP.
+This sample demonstrates how to incoporate the DFP device fingerprinting and acount creation and sign-in assessment API endpoints into an Azure AD B2C custom policy.
 
 ## Prerequisites
 
@@ -36,17 +36,13 @@ To get started, you'll need:
 
 Microsoft DFP integration includes the following components:
 
-- **Azure AD B2C tenant**: Authenticates the user and acts as a client of Microsoft DFP. Hosts a fingerprinting script collecting identification and diagnostic data of every user that executes a target policy. Later blocks or challenges sign-in or sign-up attempts if Microsoft DFP finds them suspicious.
+- **Azure AD B2C tenant**: Authenticates the user and acts as a client of Microsoft DFP. Hosts a fingerprinting script collecting identification and diagnostic data of every user that executes a target policy. Later blocks or challenges sign-in or sign-up attempts based on the rule evaluation result returned by DFP.
 
-- **Custom app service**: A web application that serves two purposes.
-
-  - Serves HTML pages to be used as Identity Experience Framework's UI. Responsible for embedding the Microsoft Dynamics 365 fingerprinting script.
-
-  - An API controller with RESTful endpoints that connects Microsoft DFP to Azure AD B2C. Handle's data processing, structure, and adheres to the security requirements of both.
+- **Custom UI templates**: Used to customize the HTML content of the pages rendered by Azure AD B2C. These pages include the JavaScript snippet required for DFP fingerprinting
 
 - **Microsoft DFP fingerprinting service**: Dynamically embedded script, which logs device telemetry and self-asserted user details to create a uniquely identifiable fingerprint for the user to be used later in the decision-making process.
 
-- **Microsoft DFP API endpoints**: Provides the decision result and accepts a final status reflecting the operation undertaken by the client application. Azure AD B2C doesn't communicate with the endpoints directly because of varying security and API payload requirements, instead uses the app service as an intermediate.
+- **Microsoft DFP API endpoints**: Provides the decision result and accepts a final status reflecting the operation undertaken by the client application. Azure AD B2C communicates directly with the DFP endpoints using REST API connectors. API authentication occurs via a client_credentials grant to the Azure AD tenant in which DFP is licensed and installed to obtain a bearer token.
 
 The following architecture diagram shows the implementation.
 
