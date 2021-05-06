@@ -6361,6 +6361,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-functions/functions-api-definition.md",
+      "redirect_url": "/azure/azure-functions/functions-openapi-definition",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/functions/index.md",
       "redirect_url": "/azure/azure-functions/index",
       "redirect_document_id": false
