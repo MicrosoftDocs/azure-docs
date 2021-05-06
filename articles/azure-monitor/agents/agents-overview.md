@@ -136,8 +136,9 @@ The following tables list the operating systems that are supported by the Azure 
 | Operating system | Azure Monitor agent | Log Analytics agent | Dependency agent | Diagnostics extension | 
 |:---|:---:|:---:|:---:|:---:|
 | Windows Server 2019                                      | X | X | X | X |
+| Windows Server 2019 Core                                 | X | X | X | X |
 | Windows Server 2016                                      | X | X | X | X |
-| Windows Server 2016 Core                                 |   |   |   | X |
+| Windows Server 2016 Core                                 | X | X | X | X |
 | Windows Server 2012 R2                                   | X | X | X | X |
 | Windows Server 2012                                      | X | X | X | X |
 | Windows Server 2008 R2 SP1                               | X | X | X | X |
