@@ -55,6 +55,7 @@ The following resources are defined in the template:
 -->
 
 ```json
+
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
@@ -106,8 +107,10 @@ The following resources are defined in the template:
                     "variables": {
                         "storageAccountName": "[concat(parameters('namePrefix'),uniqueString(resourceGroup().id))]",
                         "managedIdentityName": "[parameters('managedIdentityName')]",
-                        "roleAssignmentName": "[guid('Storage Blob Data Contributor',variables('managedIdentityName'))]",
-                        "roleDefinitionId": "[concat(resourceGroup().id, '/providers/Microsoft.Authorization/roleDefinitions/', 'ba92f5b4-2d11-453d-a403-e96b0029c9fe')]"
+                        "storageBlobDataContributorAssignment": "[guid('Storage Blob Data Contributor',variables('managedIdentityName'))]",
+                        "storageBlobDataContributorDefinitionId": "[concat(resourceGroup().id, '/providers/Microsoft.Authorization/roleDefinitions/', 'ba92f5b4-2d11-453d-a403-e96b0029c9fe')]",
+                        "readerAssignment": "[guid('Reader',variables('managedIdentityName'))]",
+                        "readerDefinitionId": "[concat(resourceGroup().id, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
                     },
                     "resources": [
                         {
@@ -130,7 +133,7 @@ The following resources are defined in the template:
                             }
                         },
                         {
-                            "name": "[concat(variables('storageAccountName'), '/Microsoft.Authorization/', variables('roleAssignmentName'))]",
+                            "name": "[concat(variables('storageAccountName'), '/Microsoft.Authorization/', variables('storageBlobDataContributorAssignment'))]",
                             "type": "Microsoft.Storage/storageAccounts/providers/roleAssignments",
                             "apiVersion": "2021-04-01-preview",
                             "dependsOn": [
@@ -138,7 +141,21 @@ The following resources are defined in the template:
                                 "[variables('storageAccountName')]"
                             ],
                             "properties": {
-                                "roleDefinitionId": "[variables('roleDefinitionId')]",
+                                "roleDefinitionId": "[variables('storageBlobDataContributorDefinitionId')]",
+                                "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities',variables('managedIdentityName')), '2018-11-30').principalId]",
+                                "principalType": "ServicePrincipal"
+                            }
+                        },
+                        {
+                            "name": "[concat(variables('storageAccountName'), '/Microsoft.Authorization/', variables('readerAssignment'))]",
+                            "type": "Microsoft.Storage/storageAccounts/providers/roleAssignments",
+                            "apiVersion": "2021-04-01-preview",
+                            "dependsOn": [
+                                "[variables('managedIdentityName')]",
+                                "[variables('storageAccountName')]"
+                            ],
+                            "properties": {
+                                "roleDefinitionId": "[variables('readerDefinitionId')]",
                                 "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities',variables('managedIdentityName')), '2018-11-30').principalId]",
                                 "principalType": "ServicePrincipal"
                             }
@@ -180,7 +197,7 @@ The following resources are defined in the template:
 ```
 
 > [!NOTE]
-> The template uses a nested deployment for the role assignment to ensure that it is available before deploying the Video Analyzer account resource.
+> The template uses a nested deployment for the role assignments to ensure that it is available before deploying the Video Analyzer account resource.
 
 ### Deploy the template
 
@@ -224,3 +241,4 @@ Learn how to [deploy Video Analyzer on an IoT Edge device][docs-deploy-on-edge].
 [docs-arm-template]: /azure/azure-resource-manager/templates/overview
 [docs-deploy-on-edge]: deploy-iot-edge-device.md
 [click-to-deploy]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fgist.githubusercontent.com%2Fbennage%2F58523b2e6a4d3bf213f16893d894dcaf%2Fraw%2Fazuredeploy.json
+<!-- TODO update the link above! -->
