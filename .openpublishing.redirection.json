@@ -65953,6 +65953,11 @@
       "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-configure-named-locations.md",
       "redirect_url": "/azure/active-directory/conditional-access/location-condition",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/manage-public-ip-prefix.md",
+      "redirect_url": "/azure/virtual-network/create-public-ip-prefix-portal",
+      "redirect_document_id": false
     }
   ]
 }
