@@ -35,24 +35,28 @@ Before starting this tutorial, you must complete the article [Quickstart: Create
 ::: zone-end 
 After you've created and published the function app in this previous article, you can use the OpenAPI Extension to generate an OpenAPI definition that describes the HTTP trigger function APIs.
 
+::: zone pivot="development-environment-cli,development-environment-vscode" 
 ## Install the extension
 
-::: zone pivot="development-environment-cli,development-environment-vscode" 
 Install the [Microsoft.Azure.WebJobs.Extensions.OpenApi][az func openapi extension] NuGet package in your project by running the following command in a Terminal window:
 
 ```bash
 dotnet add package Microsoft.Azure.WebJobs.Extensions.OpenApi --prerelease
 ```
-::: zone-end  
-::: zone pivot="development-environment-vs"
-Install the [Microsoft.Azure.WebJobs.Extensions.OpenApi][az func openapi extension] NuGet package in your project by running the following [Install-Package](/nuget/tools/ps-ref-install-package) command in the Package Manager Console:
-
-```Command
-Install-Package Microsoft.Azure.WebJobs.Extensions.OpenApi -Version 0.7.2-preview
-```
-::: zone-end  
 
 This package supports creating an OpenAPI endpoint in your project.  
+
+::: zone-end  
+
+## Create the TurbineRepair function
+
+
+::: zone pivot="development-environment-vscode"  
+1. Select F1 to open the command palette, and then search for and run the command **Azure Functions: Create Function**. 
+
+1. Choose your trigger type and define the required attributes of the trigger. 
+
+A new C# class library (.cs) file is added to your project.
 
 ## Enable an OpenAPI endpoint
 
@@ -113,7 +117,9 @@ func host start
 
 1. After deployment completes, you can again use the browser to verify the same OpenAPI endpoints exist in the redeployed function.
 
-## Export OpenAPI definition to API Management
+## Publish the OpenAPI definition
+
+`https://<FUNCTION_AP_NAME>.azurewebsites.net/api/swagger.json`
 
 
 
