@@ -65,7 +65,7 @@ For more information about Azure Virtual Network NAT, see [What is Azure Virtual
 
 
 
-## <a name="outboundrules"></a> Leveraging the frontend IP address of a Load Balancer for outbound (and inbound)
+## <a name="snat"></a> Leveraging the frontend IP address of a Load Balancer for outbound (and inbound)
 >[!NOTE]
 > This method is **NOT recommended** for production workloads as it adds risk of exhausting ports. Please refrain from using this method for production workloads to avoid potential connection failures. 
 
