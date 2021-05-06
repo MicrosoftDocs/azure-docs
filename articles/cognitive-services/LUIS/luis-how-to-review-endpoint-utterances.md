@@ -45,7 +45,7 @@ Each utterance has a suggested intent displayed in the **Predicted Intent** colu
 > [!div class="mx-imgBorder"]
 > [![Review endpoint utterances that LUIS is unsure of](./media/label-suggested-utterances/review-endpoint-utterances.png)](./media/label-suggested-utterances/review-endpoint-utterances.png#lightbox)
 
-If you agree with the predictied intent and entities, select the check mark next to the utternace. If the check mark is disabled, this means that there is nothing to confirm.  
+If you agree with the predicted intent and entities, select the check mark next to the utterance. If the check mark is disabled, this means that there is nothing to confirm.  
 If you disagree with the suggested intent, select the correct intent from the Predicted intent drop-down list. 
 If you disagree with the suggested entities, start labeling them.
 After you are done, select the check mark next to the utterance to confirm what you labeled. Select **save utterance** to move it from the review list and add it its respective intent.
