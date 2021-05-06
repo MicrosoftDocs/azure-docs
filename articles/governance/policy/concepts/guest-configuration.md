@@ -237,7 +237,7 @@ assignment are automatically included.
 ## Availability
 
 Customers designing a highly available solution should consider the redundancy planning requirements for
-[virtual machines](../../../virtual-machines/availability.md) because guest assignments are extenions of
+[virtual machines](../../../virtual-machines/availability.md) because guest assignments are extensions of
 machine resources in Azure. If a physical region becomes unavailable in Azure, it is not possible
 to view historical reports for a guest assignment until the region is restored.
 
