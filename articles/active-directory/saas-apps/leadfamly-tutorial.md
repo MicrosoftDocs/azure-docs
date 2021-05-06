@@ -140,7 +140,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Go to **Account** -> **Users** -> **Invite user**.
 
-![Users](./media/leadfamly-tutorial/users.png "Users") 
+![Users Section](./media/leadfamly-tutorial/users.png "Users Section") 
 
 3. Fill the required values in the following fields and click **Save**.
 
