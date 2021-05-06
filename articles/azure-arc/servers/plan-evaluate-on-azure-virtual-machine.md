@@ -15,7 +15,7 @@ While you cannot install Azure Arc enabled servers on an Azure VM for production
 
 * Your account is assigned to the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role.
 * The Azure virtual machine is running an [operating system supported by Arc enabled servers](agent-overview.md#supported-operating-systems). If you don't have an Azure VM, you can deploy a [simple Windows VM](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-windows%2fazuredeploy.json) or a [simple Ubuntu Linux 18.04 LTS VM](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-linux%2fazuredeploy.json).
-* Your Azure VM can communicate outbound securely to Azure Arc over TCP port 443. For additional information, review the Arc enabled servers [network configuration](agent-overview.md#networking-configuration) requirements.
+* Your Azure VM can communicate outbound to download the Azure Connected Machine agent package for Windows from the [Microsoft Download Center](https://aka.ms/AzureConnectedMachineAgent), and Linux from the Microsoft [package repository](https://packages.microsoft.com/). If outbound connectivity to the Internet is restricted following your IT security policy, you will need to download the agent package manually and copy it to a folder on the Azure VM. 
 * An account with elevated (that is, an administrator or as root) privileges on the VM, and RDP or SSH access to the VM.
 * To register and manage the Azure VM with Arc enabled servers, you are a member of the [Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator) or [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role in the resource group.
 
@@ -90,6 +90,9 @@ When Arc enabled servers is configured on the VM, you see two representations of
 4. Install and configure the Azure Arc enabled servers agent.
 
    The VM is now ready for you to begin evaluating Arc enabled servers. To install and configure the Arc enabled servers agent, see [Connect hybrid machines using the Azure portal](onboard-portal.md) and follow the steps to generate an installation script and install using the scripted method.
+
+   > [!NOTE]
+   > If outbound connectivity to the internet is restricted from your Azure VM, you'll need to download the agent package manually. Copy the agent package to the Azure VM, and modify the Arc enabled servers installation script to reference the source folder. 
 
 If you missed one of the steps, the installation script detects it is running on an Azure VM and terminates with an error. Verify you've completed steps 1-3, and then rerun the script.
 
