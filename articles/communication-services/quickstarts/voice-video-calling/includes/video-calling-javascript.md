@@ -1,9 +1,9 @@
 Get started with Azure Communication Services by using the Communication Services calling SDK to add 1 on 1 video calling to your app. You'll learn how to start and answer a video call using the Azure Communication Services Calling SDK for JavaScript.
 
 
-## Download Code
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling)
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling)
 
 ## Prerequisites
 - Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
