@@ -26,11 +26,11 @@ In this tutorial, you learn how to:
 
 ## Unable to add VM image to Blob container
 
-**Error Description:** In the Azure portal, when trying to upload a VM image to a Blob container, the **Add** button is not available, and the image can't be uploaded to the container.<!--Verify context. Source is not specific about where the image is uploaded to.-->
+**Error Description:** In the Azure portal, when trying to upload a VM image to a Blob container, the **Add** button is not available, and the image can't be uploaded.<!--Verify context. Source is not specific about where the image is uploaded to.-->
 
 Possible causes:
 
-* You don't have the required contributor role permissions to the resource group or subscription for the device.
+* You don't have the required contributor role permissions to the resource group or subscription for the device.<!--Add specifics.-->
 
 * The image name already exists in SCOPE?.<!--1) Unique name required within what scope - on the device, in the container, in the storage account, in the subscription? 2) This is listed as an outlier. Most common cause is permissions issue. List both, or ignore this one?-->
 
@@ -39,9 +39,9 @@ Possible causes:
 
 ## Invalid blob type for the source blob uri
 
-**Error Description:** You picked a block blob virtual hard disk (VHD)<!--Terminology: "block blob VHD" probably isn't a thing--> to download instead of a page blob VHD.
+**Error Description:** A VHD stored as a block blob cannot be downloaded. To be downloaded, a VHD must be stored as a page blob.
 
-**Suggested solution:** Upload the VHD as a page blob. Then download the blob again.
+**Suggested solution:** Upload the VHD to the storage account as a page blob. Then download the blob. For upload instructions, see [Upload VHD to storage account using Storage Explorer](/azure/devtest-labs/devtest-lab-upload-vhd-using-storage-explorer).<!--Instructions are specific to Dev Test Lab. They are referenced from the "Deploy VM" article for Azure Stack Edge Pro.-->
 
 ```xml
 FOR REFERENCE ONLY
@@ -65,12 +65,12 @@ Possible Causes
 "message": "Invalid blob type for source blob uri."
 }
 Recommended Action
-In the local web Ul of the device, go to Troubleshooting > Diagnostic tests and dick Run diagnostic tests. Resolve the reported issues. If the issue persists, contact Microsoft Support.
+In the local web UI of the device, go to Troubleshooting > Diagnostic tests and dick Run diagnostic tests. Resolve the reported issues. If the issue persists, contact Microsoft Support.
 ```
 
 ## Only blobs formatted as VHDs can be imported
 
-**Error Description:** The VHD hasn’t been formatted properly. It needs to be a Generation 1, VHD extension, and fixed size.
+**Error Description:** The VHD can't be imported because it's not formatted correctly. To be imported, a virtual hard disk must be a fixed-size VHD extension<!--Verify: Does this refer to a VHDX? Can the import be either a VHD or a VHDX?--> from a Generation 1 virtual machine.
 
 **Suggested solution:** Go to [Common issues for Image creation on ASE](https://microsoft-my.sharepoint.com/:w:/p/niachary/EQih4TRKTMVFnZmAfvX6qUoBwI-2-v5mRNleGtfwWmGVZg).<!--Solution description TK-->
 
