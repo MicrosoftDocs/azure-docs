@@ -83,7 +83,7 @@ To allow other services to find your IoT hub as a trusted Microsoft service, it 
 
 1. Follow the article [Managed identities support in IoT Hub](./iot-hub-managed-identity.md) to provision a managed identity, grant the Azure RBAC permission, and add the custom endpoint to your IoT Hub.
 
-2. Allow trusted Microsoft service to access your custom endpoint. For example, if you're adding an event hub custom endpoint, navigate to the **Firewalls and virtual networks** tab in your event huband enable **Allow access from selected networks** option. Under the **Exceptions** list, check the box for **Allow trusted Microsoft services to access event hubs**. Click the **Save** button. Follow the same instructions for storage account and service bus.
+2. Allow trusted Microsoft service to access your custom endpoint. For example, if you're adding an event hub custom endpoint, navigate to the **Firewalls and virtual networks** tab in your event hub and enable **Allow access from selected networks** option. Under the **Exceptions** list, check the box for **Allow trusted Microsoft services to access event hubs**. Click the **Save** button. Follow the same instructions for storage account and service bus.
 
 ### Pricing for trusted Microsoft service option
 Trusted Microsoft first party services exception feature is free of charge. Charges for the provisioned storage accounts, event hubs, or service bus resources apply separately.
