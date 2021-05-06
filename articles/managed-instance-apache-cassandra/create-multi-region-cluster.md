@@ -56,7 +56,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a mu
             --remote-vnet vnetEastUs --allow-vnet-access --allow-forwarded-traffic
     ```
 
-1. In order to reach a connected state between the two VNets, we now need to create another peering between the second VNet and the first:
+1. In order to connect the two VNets, create another peering between the second VNet and the first:
 
     ```azurecli-interactive
         az network vnet peering create -g cassandra-mi-multi-region -n MyVnet2ToMyVnet1 --vnet-name vnetEastUs \
