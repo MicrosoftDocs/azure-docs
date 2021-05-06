@@ -32,6 +32,7 @@ Click the image below to watch a [video demonstration](https://azure.microsoft.c
 [![video thumbnail: Azure HPC Cache: Setup (click to visit the video page)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
 
 ## Create the correct sized cache to support your storage targets
+<!-- size your cache correctly for your number of storage targets -->
 
 The number of supported storage targets depends on the cache size, which is set when you create the cache. The size is a combination of throughput capacity (in GB/s) and storage capacity (in TB).
 

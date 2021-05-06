@@ -4,7 +4,7 @@ description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/14/2021
+ms.date: 05/06/2021
 ms.author: v-erkel
 ---
 
@@ -89,6 +89,8 @@ Check these permission-related prerequisites before starting to create your cach
 <!-- heading is linked in create storage target GUI as aka.ms/hpc-cache-prereq#storage-infrastructure - make sure to fix that if you change the wording of this heading -->
 
 The cache supports Azure Blob containers, NFS hardware storage exports, and NFS-mounted ADLS blob containers (currently in preview). Add storage targets after you create the cache.
+
+The size of your cache determines how many storage targets it can support - up to 10 storage targets for most caches, or up to 20 for the largest sizes. Read [Create the correct sized cache to support your storage targets](hpc-cache-add-storage.md#create-the-correct-sized-cache-to-support-your-storage-targets) for details.
 
 Each storage type has specific prerequisites.
 
