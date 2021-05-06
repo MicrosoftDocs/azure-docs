@@ -5,7 +5,7 @@ description: Introducing StartupServices.xml in Service Fabric Application Model
 ms.topic: conceptual
 ms.date: 05/05/2021
 ---
-# Summary
+# Introducing StartupServices.xml in SF Application
 This feature introduces StartupServices.xml file in a Service Fabric Application design. This file hosts DefaultServices section of ApplicationManifest.xml. With this implementation, DefaultServices and Service definition-related parameters are moved from existing ApplicationManifest.xml to this new file called StartupServices.xml. This file is used in each functionalities (Build/Rebuild/F5/Ctrl+F5/Publish) in Visual Studio.
 
 ## Existing Service Fabric Application Design
