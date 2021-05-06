@@ -61,7 +61,7 @@ If you are unsure if you should delete the utterance, either move it to the None
 
 ## Disable active learning
 
-To disable active learning, don't log user queries. This is accomplished by by changing the query paramters as shown above or by setting the `log=false` parameter in the endpoint query, or you may omit the `log` parameter because the defuault value is `false`.
+To disable active learning, don't log user queries. This is accomplished by changing the query parameters as shown above or by setting the `log=false` parameter in the endpoint query, or you may omit the `log` parameter because the default value is `false`.
 
 
 ## Next steps
