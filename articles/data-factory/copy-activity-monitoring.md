@@ -1,11 +1,11 @@
 ---
 title: Monitor copy activity
 description: Learn about how to monitor the copy activity execution in Azure Data Factory. 
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.author: jingwang
+ms.author: jianleishen
 ---
 # Monitor copy activity
 
