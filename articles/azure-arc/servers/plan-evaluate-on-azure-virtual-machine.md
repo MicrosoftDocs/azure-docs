@@ -92,7 +92,7 @@ When Arc enabled servers is configured on the VM, you see two representations of
    The VM is now ready for you to begin evaluating Arc enabled servers. To install and configure the Arc enabled servers agent, see [Connect hybrid machines using the Azure portal](onboard-portal.md) and follow the steps to generate an installation script and install using the scripted method.
 
    > [!NOTE]
-   > If outbound connectivity to the Internet is restricted from your Azure VM, you'll need to download the agent package manually. Copy the agent package to the Azure VM, and modify the Arc enabled servers installation script to reference the source folder. 
+   > If outbound connectivity to the internet is restricted from your Azure VM, you'll need to download the agent package manually. Copy the agent package to the Azure VM, and modify the Arc enabled servers installation script to reference the source folder. 
 
 If you missed one of the steps, the installation script detects it is running on an Azure VM and terminates with an error. Verify you've completed steps 1-3, and then rerun the script.
 
