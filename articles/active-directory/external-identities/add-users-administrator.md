@@ -45,7 +45,7 @@ To add B2B collaboration users to the directory, follow these steps:
    - **Email address (required)**. The email address of the guest user.
    - **Personal message (optional)** Include a personal welcome message to the guest user.
    - **Groups**: You can add the guest user to one or more existing groups, or you can do it later.
-   - **Directory role**: If you require Azure AD administrative permissions for the user, you can add them to an Azure AD role by selecting **User** next to **Roles**. 
+   -  **Roles**: If you require Azure AD administrative permissions for the user, you can add them to an Azure AD role by selecting **User** next to **Roles**.  
 
    > [!NOTE]
    > Group email addresses aren’t supported; enter the email address for an individual. Also, some email providers allow users to add a plus symbol (+) and additional text to their email addresses to help with things like inbox filtering. However, Azure AD doesn’t currently support plus symbols in email addresses. To avoid delivery issues, omit the plus symbol and any characters following it up to the @ symbol.
@@ -64,8 +64,9 @@ If you need to manually add B2B collaboration users to a group, follow these ste
 4. Select a group (or select **New group** to create a new one). It's a good idea to include in the group description that the group contains B2B guest users.
 5. Select the link under **Members**.
 6. Do one of the following:
+
  - If the guest user already exists in the directory, search for the B2B user. Select the user, and then select **Select** to add the user to the group.
-   - If the guest user does not already exist in the directory, invite them to the group by typing their email address in the search box, typing an optional personal message, and then choosing **Select**. The invitation automatically goes out to the invited user.
+ - If the guest user does not already exist in the directory, invite them to the group by typing their email address in the search box, typing an optional personal message, and then choosing **Invite**. The invitation automatically goes out to the invited user.
    
 ![Add invite button to add guest members](./media/add-users-administrator/group-invite.png)
  
@@ -77,12 +78,9 @@ To add B2B collaboration users to an application, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Search for and select **Azure Active Directory** from any page.
-3. Under **Manage**, select **Enterprise applications** > **All applications**.
-4. Select the application to which you want to add guest users.
+3. Under **Manage**, select **Enterprise applications**.
+4. On the **All applications** page, select the application to which you want to add guest users.
 5. Under **Manage**, select **Users and groups**.
-
-    ![Total Users button to add open Users and Groups](./media/add-users-administrator/app-users-and-groups.png)
-
 6. Select **Add user**.
 7. Under **Add Assignment**, select **User and groups**.
 8. Do one of the following:
@@ -91,8 +89,8 @@ To add B2B collaboration users to an application, follow these steps:
                ![Screenshot that highlights where to add the user's email address, the personalized message, and also highlights the Invite button.](./media/add-users-administrator/app-invite-users.png)
 
 10.  The guest user appears in the application's **Users and groups** list with the assigned role of **Default Access**. If the application provides different roles and you want to change the user's role, do the following:
-   - - Select the check box next to the guest user, and then select the **Edit** button. 
-   - On the **Edit Assignment** page, choose the link under **Select a Role**, and select the role you want to assign to the user.
+   - Select the check box next to the guest user, and then select the **Edit** button. 
+   - On the **Edit Assignment** page, choose the link under **Select a role**, and select the role you want to assign to the user.
    - Choose **Select**.
    - Select **Assign**.
  
