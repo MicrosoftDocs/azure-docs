@@ -6,21 +6,17 @@
     href: overview.md
   - name: Compare JSON and Bicep
     href: compare-template-syntax.md
-- name: Quickstarts
-  items:
-  - name: Create Bicep templates - VS Code
-    href: quickstart-create-bicep-use-visual-studio-code.md
-- name: Learn
-  items:
-  - name: Deploy Azure resources
-    href: /learn/modules/deploy-azure-resources-by-using-bicep-templates/
-- name: Install & run commands
+- name: Install
   items:
   - name: Install Bicep
     href: install.md
-  - name: Compile/Decompile
-    href: decompile.md
-- name: Syntax
+- name: Learning Bicep
+  items:
+  - name: Create Bicep templates - VS Code
+    href: quickstart-create-bicep-use-visual-studio-code.md
+  - name: MSLearn - Deploy Azure resources
+    href: /learn/modules/deploy-azure-resources-by-using-bicep-templates/
+- name: Creating Bicep files
   items:
   - name: Bicep file structure
     displayName: parameters,variables,resources,outputs,condition
@@ -63,7 +59,11 @@
       href: copy-outputs.md
   - name: Modules
     href: modules.md
-- name: Deploy
+- name: Compiling Bicep files
+  items:
+  - name: Compile/Decompile
+    href: decompile.md
+- name: Deploying Bicep files
   items:
   - name: Scopes
     items:
