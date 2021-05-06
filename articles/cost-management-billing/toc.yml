@@ -126,6 +126,8 @@
       href: manage/azure-plan-subscription-transfer-partners.md
     - name: Get started in the Azure EA portal
       href: manage/ea-portal-get-started.md
+    - name: Request Withholding Tax credit - India
+      href: manage/withholding-tax-credit-india.md
   - name: Security
     items:
     - name: Security baseline
