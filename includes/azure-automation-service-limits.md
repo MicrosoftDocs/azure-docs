@@ -44,6 +44,7 @@ The following table shows the tracked item limits per machine for change trackin
 | **Resource** | **Limit**| **Notes** |
 |---|---|---|
 |File|500||
+|File size|5 MB||
 |Registry|250||
 |Windows software|250|Doesn't include software updates.|
 |Linux packages|1,250||
