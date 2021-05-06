@@ -1,5 +1,5 @@
 ---
-title: Durable Functions Storage Providers - Azure
+title: Durable Functions storage providers - Azure
 description: Learn about the different storage providers for Durable Functions and how they compare
 author: cgillum
 ms.topic: conceptual
