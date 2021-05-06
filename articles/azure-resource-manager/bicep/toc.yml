@@ -10,13 +10,13 @@
   items:
   - name: Install Bicep
     href: install.md
-- name: Learning Bicep
+- name: Learn Bicep
   items:
   - name: Create Bicep templates - VS Code
     href: quickstart-create-bicep-use-visual-studio-code.md
   - name: MSLearn - Deploy Azure resources
     href: /learn/modules/deploy-azure-resources-by-using-bicep-templates/
-- name: Creating Bicep files
+- name: Create Bicep files
   items:
   - name: Bicep file structure
     displayName: parameters,variables,resources,outputs,condition
@@ -59,11 +59,11 @@
       href: copy-outputs.md
   - name: Modules
     href: modules.md
-- name: Compiling Bicep files
+- name: Compile Bicep files
   items:
   - name: Compile/Decompile
     href: decompile.md
-- name: Deploying Bicep files
+- name: Deploy Bicep files
   items:
   - name: Scopes
     items:
