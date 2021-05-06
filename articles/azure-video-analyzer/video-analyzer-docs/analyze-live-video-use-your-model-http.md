@@ -160,7 +160,7 @@ Open an application such as [VLC media player](https://www.videolan.org/vlc/). S
 
    The next series of calls cleans up resources:
 
-   - A call to `ivePipelineDeactivate` deactivates the pipeline instance.
+   - A call to `livePipelineDeactivate` deactivates the pipeline instance.
    - A call to `livePipelineDelete` deletes the instance.
    - A call to `pipelineTopologyDelete` deletes the topology.
    - A final call to `pipelineTopologyList` shows that the list is empty.
