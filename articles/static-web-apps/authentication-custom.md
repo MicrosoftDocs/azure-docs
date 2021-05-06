@@ -221,7 +221,10 @@ Once you have the registration credentials, use the following steps to create a 
   }
 }
 ```
-
+- The provider name,  `myProvider` in this example, is the unique identifier used by Azure Static Web Apps.
+- The `registration` object that contains the client ID and client secret.
+- The `wellKnownOpenIdConfiguration` uses the path to the _Issuer URL_ of the provider.
+- The `login` object allows you to provide values for: custom scopes, login parameters, or custom claims.
 ## Authentication callbacks
 
 Authentication providers require redirect URL to complete the login or logout request. The following endpoints are available as redirect destinations.
