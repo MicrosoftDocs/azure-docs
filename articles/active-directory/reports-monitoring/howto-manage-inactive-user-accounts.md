@@ -14,7 +14,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/05/2021
+ms.date: 05/06/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -25,6 +25,9 @@ ms.collection: M365-identity-device-management
 In large environments, user accounts are not always deleted when employees leave an organization. As an IT administrator, you want to detect and handle these obsolete user accounts because they represent a security risk.
 
 This article explains a method to handle obsolete user accounts in Azure AD. 
+
+> [!IMPORTANT]
+> APIs under the `/beta` version in Microsoft Graph are subject to change. Use of these APIs in production applications is not supported. To determine whether an API is available in v1.0, use the **Version** selector.
 
 ## What are inactive user accounts?
 
