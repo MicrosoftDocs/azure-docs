@@ -393,7 +393,6 @@ After the proxy process is running, you can open another tab in your console to 
 
     An administrator needs to create a new role assignment authorizing this user to have access on the resource.
 
-
 ## Use Conditional Access with Azure AD
 
 When integrating Azure AD with your Arc enabled Kubernetes cluster, you can also use [Conditional Access](../../active-directory/conditional-access/overview.md) to control access to your cluster.
