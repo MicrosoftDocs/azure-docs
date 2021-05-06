@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 04/28/2021
+ms.date: 05/05/2021
 ms.author: lajanuar
 ---
 
@@ -23,7 +23,7 @@ The **Translator** container runtime environment is configured using the `docker
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
  > [!IMPORTANT]
-> The [**ApiKey**](#apikey-configuration-setting), [**Billing**](#billing-configuration-setting), and [**EULA**](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](translator-how-to-install.md#billing).
+> The [**ApiKey**](#apikey-configuration-setting), [**Billing**](#billing-configuration-setting), and [**EULA**](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](translator-how-to-install-containers.md#billing).
 
 ## ApiKey configuration setting
 
@@ -36,6 +36,18 @@ This setting can be found in the following place:
 ## ApplicationInsights setting
 
 [!INCLUDE [Container shared configuration ApplicationInsights settings](../../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
+
+## Billing configuration setting
+
+The `Billing` setting specifies the endpoint URI of the _Translator_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _Translator_ resource on Azure. The container reports usage about every 10 to 15 minutes.
+
+This setting can be found in the following place:
+
+* Azure portal: **Translator** Overview page, labeled `Endpoint`
+
+| Required | Name | Data type | Description |
+| -------- | ---- | --------- | ----------- |
+| Yes | `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gathering required parameters](translator-how-to-install-containers.md#required-elements). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 ## Eula setting
 
@@ -57,14 +69,14 @@ This setting can be found in the following place:
 
 Use bind mounts to read and write data to and from the container. You can specify an input mount or output mount by specifying the `--mount` option in the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command.
 
-The Translator containers don't use input or output mounts to store training or service data. 
+The Translator containers don't use input or output mounts to store training or service data.
 
-The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](translator-how-to-install-containers.md#host-computer)'s mount location may not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions. 
-
+The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](translator-how-to-install-containers.md#host-computer)'s mount location may not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions.
+<!-- markdownlint-disable MD033 -->
 |Optional| Name | Data type | Description |
 |-------|------|-----------|-------------|
-|Not allowed| `Input` | String | Translator containers do not use this.|
-|Optional| `Output` | String | The target of the output mount. The default value is `/output`. This is the location of the logs. This includes container logs. <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Not allowed| `Input` | String | Translator containers do not use this value.|
+|Optional| `Output` | String | The target of the output mount. The default value is `/output`. Here is where you'll find the location of the logs, including container logs. <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## Next Steps
 

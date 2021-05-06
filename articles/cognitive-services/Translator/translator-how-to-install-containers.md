@@ -28,7 +28,7 @@ The following Translator container is in gated preview:
 |Text Translator| You provide an input sentence in a source language and Azure's pre-trained model translates that sentence into a chosen target language.|[Translator pricing](/pricing/details/cognitive-services/translator/)<ul><li> **S1**</li><li>**S2**</li> <li>**S3**</li> <li>**S3-HD**</li></ul>|v3.0|
 
 > [!NOTE]
-> The Translator container provides multi-language support for text translation. It does not provide support for transliteration, dictionaries, or language detection. **Language detection** container support is available in our[** Text Analytics containers**](text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language#get-the-container-image-with-docker-pull)
+> The Translator container provides multi-language support for text translation. It does not provide support for transliteration, dictionaries, or language detection. **Language detection** container support is available in our[**Text Analytics containers**](../text-analytics/how-tos/text-analytics-how-to-install-containers?tabs=language#get-the-container-image-with-docker-pull)
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ You'll also need the following to use Translator containers:
 | Required | Purpose |
 |--|--|
 | Familiarity with Docker | <ul><li>You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker`  [terminology and commands](/dotnet/architecture/microservices/container-docker-introduction/docker-terminology).</li></ul> |
-| Docker Engine | <ul><li>You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).</li><li> Docker must be configured to allow the containers to connect with and send billing data to Azure. </li><li> On **Windows**, Docker must also be configured to support **Linux** containers.</li></ul> |
+| Docker Engine | <ul><li>You need the Docker Engine installed on a [host computer](#host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).</li><li> Docker must be configured to allow the containers to connect with and send billing data to Azure. </li><li> On **Windows**, Docker must also be configured to support **Linux** containers.</li></ul> |
 | Translator resource | <ul><li>An Azure [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource and the associated API key and endpoint URI. Both values are required to start the container and can be found on the resource overview page.</li></ul>|
 |||
 
@@ -62,7 +62,8 @@ All Cognitive Services containers require three primary elements:
 
 :::image type="content" source="../containers/media/keys-copy-api-key.png" alt-text="API key page and location.":::
 
-> [!IMPORTANT] Subscription keys are used to access your Cognitive Service API. Do not share your keys. Store them securely, for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service. *See* [Azure Cognitive Services security](../cognitive-services-security.md) for ways to securely store and access your credentials.
+> [!IMPORTANT]
+>Subscription keys are used to access your Cognitive Service API. Do not share your keys. Store them securely, for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service. *See* [Azure Cognitive Services security](../cognitive-services-security.md) for ways to securely store and access your credentials.
 
 ## Host computer
 
@@ -77,7 +78,7 @@ The following table describes the minimum and recommended specifications for Tra
 | Text Translator |2 core, 2-GB memory |4 core, 8-GB memory | 4 |
 |||
 
-For every language pair, it's recommended to have 2 GB of memory. By default, the Translator offline container has four language pairs. See [supported languages and translation](#supported-languages-and-translation) for the details. The core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
+For every language pair, it's recommended to have 2 GB of memory. By default, the Translator offline container has four language pairs. See [supported languages](#language-support) and [text-translation](#text-translation-support) for details. The core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 > [!NOTE]
 > * CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the docker run command.
@@ -98,7 +99,6 @@ Container images for Translator are available in the following container registr
 |Container|Repository|
 |-----------|-----------|
 |Text Translator| translatorcontainerpreview.azurecr.io/cognitive-services-offline-translator|
-
 
 > [!TIP]
 > You can use the [**docker images**](https://docs.docker.com/engine/reference/commandline/images/) command to list your downloaded container images. For example, the following command lists the ID, repository, and tag of each downloaded container image, formatted as a table:
@@ -228,7 +228,7 @@ There are several ways to validate that the container is running:
 
 * The container provides a homepage at `\` as a visual validation that the container is running.
 
- * You can open your favorite web browser and navigate to the external IP address and exposed port of the container in question. Use the various request URLs below to validate the container is running. The example request URLs listed below are `http://localhost:5000`, but your specific container may vary. Keep in mind that you're  navigating to your container's **External IP address** and exposed port.
+* You can open your favorite web browser and navigate to the external IP address and exposed port of the container in question. Use the various request URLs below to validate the container is running. The example request URLs listed below are `http://localhost:5000`, but your specific container may vary. Keep in mind that you're  navigating to your container's **External IP address** and exposed port.
 
 | Request URL | Purpose |
 |--|--|
@@ -262,7 +262,7 @@ The Text Analytics containers send billing information to Azure, using a _Transl
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-For more information about these options, see [Configure containers](../translator-container-configuration.md).
+For more information about these options, see [Configure containers](translator-container-configuration.md).
 
 ## Text translation code samples
 
@@ -383,6 +383,4 @@ In this article, you learned concepts and workflows for downloading, installing,
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn to ](code-in-docs.md)
-
-* Review [configure containers](speech-container-configuration.md) for configuration settings
+> [Learn more about Azure Cognitive Services containers ](/azure/cognitive-services/cognitive-services-container-support)
