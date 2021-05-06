@@ -26,7 +26,7 @@ Azure Private Link service is the reference to your own service that is powered 
 
 ### RBAC permissions
 
-The following are specific RBAC permissions the user needs to be able to create a Private Link Service. To find more information on custom roles, please review [Steps to create a custom role](../azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role).
+The following are specific RBAC permissions the user needs to be able to create a Private Link Service. To find more information on custom roles, please review [Steps to create a custom role](../azure/role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
 
 Microsoft.Resources/subscriptions/resourcegroups/resources/read
 Microsoft.Network/virtualNetworks/read
