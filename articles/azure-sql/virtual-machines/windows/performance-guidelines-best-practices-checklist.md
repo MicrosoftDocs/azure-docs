@@ -71,45 +71,46 @@ To learn more, see the comprehensive [Storage best practices](performance-guidel
 
 ## SQL Server features
 
-The following is a quick checklist of best practices for SQL Server configurations when running your SQL Server instances in a production setting:
+The following is a quick checklist of best practices for SQL Server configuration settings when running your SQL Server instances in production: 
 
-- [Enable database page compression](https://docs.microsoft.com/en-us/sql/relational-databases/data-compression/data-compression?view=sql-server-ver15).
-- [Enable backup compression](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/backup-compression-sql-server?view=sql-server-ver15).
-- Enable [instant file initialization](https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-instant-file-initialization?view=sql-server-ver15) for data files.
-- Limit [autogrowth](https://docs.microsoft.com/en-us/troubleshoot/sql/admin/considerations-autogrow-autoshrink#considerations-for-autogrow) of the database.
-- Disable [autoshrink](https://docs.microsoft.com/en-us/troubleshoot/sql/admin/considerations-autogrow-autoshrink#considerations-for-auto_shrink) of the database.
+- Enable [database page compression](/sql/relational-databases/data-compression/data-compression).
+- Enable [backup compression](/sql/relational-databases/backup-restore/backup-compression-sql-server).
+- Enable [instant file initialization](/sql/relational-databases/databases/database-instant-file-initialization) for data files.
+- Limit [autogrowth](/troubleshoot/sql/admin/considerations-autogrow-autoshrink#considerations-for-autogrow) of the database.
+- Disable [autoshrink](/troubleshoot/sql/admin/considerations-autogrow-autoshrink#considerations-for-auto_shrink) of the database.
 - Disable autoclose of the database.
-- Move all databases to data disks, including [system databases](https://docs.microsoft.com/en-us/sql/relational-databases/databases/move-system-databases?view=sql-server-ver15).
+- Move all databases to data disks, including [system databases](/sql/relational-databases/databases/move-system-databases).
 - Move SQL Server error log and trace file directories to data disks.
 - Configure default backup and database file locations.
-- Set max [SQL Server memory limit](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-memory-server-configuration-options?view=sql-server-ver15#use-) to leave enough memory for the Operating System. ([Leverage Memory\Available Bytes](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/monitor-memory-usage?view=sql-server-ver15) to monitor the operating system memory health).
-- Enable [lock pages in memory](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/enable-the-lock-pages-in-memory-option-windows?view=sql-server-ver15).
-- Enable [optimize for adhoc workloads](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-ver15) for OLTP heavy environments.
-- Evaluate and apply the [latest cumulative updates](https://docs.microsoft.com/en-us/sql/database-engine/install-windows/latest-updates-for-microsoft-sql-server?view=sql-server-ver15) for the installed versions of SQL Server.
-- Enable [Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15) on all production SQL Server databases [following best practices](https://docs.microsoft.com/en-us/sql/relational-databases/performance/best-practice-with-the-query-store?view=sql-server-ver15).
-- Enable [automatic tuning](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15) on mission critical application databases.
-- Be aware of the [performance improvements](https://docs.microsoft.com/en-us/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#performance-improvements-in-tempdb-for-sql-server) for tempdb in SQL Server 2016+.
+- Set max [SQL Server memory limit](/sql/database-engine/configure-windows/server-memory-server-configuration-options#use-) to leave enough memory for the Operating System. ([Leverage Memory\Available Bytes](/sql/relational-databases/performance-monitor/monitor-memory-usage) to monitor the operating system memory health).
+- Enable [lock pages in memory](/sql/database-engine/configure-windows/enable-the-lock-pages-in-memory-option-windows).
+- Enable [optimize for adhoc workloads](/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option) for OLTP heavy environments.
+- Evaluate and apply the [latest cumulative updates](/sql/database-engine/install-windows/latest-updates-for-microsoft-sql-server) for the installed versions of SQL Server.
+- Enable [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) on all production SQL Server databases [following best practices](/sql/relational-databases/performance/best-practice-with-the-query-store).
+- Enable [automatic tuning](/sql/relational-databases/automatic-tuning/automatic-tuning) on mission critical application databases.
+- Be aware of the [performance improvements](/sql/relational-databases/databases/tempdb-database#performance-improvements-in-tempdb-for-sql-server) for tempdb in SQL Server 2016 and later.
 - Increase tempdb default sizes to avoid auto growth.
-- [Use the recommended number of files](https://docs.microsoft.com/en-US/troubleshoot/sql/performance/recommendations-reduce-allocation-contention#resolution), using multiple tempdb data files starting with 1 file per core, up to 8 files.
 - Place tempdb on the ephemeral D:/ drive.
-- Schedule SQL Server Agent jobs to run [DBCC CHECKDB](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql?view=sql-server-ver15#a-checking-both-the-current-and-another-database), [index reorganize](https://docs.microsoft.com/en-us/sql/relational-databases/indexes/reorganize-and-rebuild-indexes?view=sql-server-ver15#reorganize-an-index), [index rebuild](https://docs.microsoft.com/en-us/sql/relational-databases/indexes/reorganize-and-rebuild-indexes?view=sql-server-ver15#rebuild-an-index), and [update statistics](https://docs.microsoft.com/en-us/sql/t-sql/statements/update-statistics-transact-sql?view=sql-server-ver15#examples) jobs.
-- Monitor and manage the health and size of the SQL Server [transaction log file](https://docs.microsoft.com/en-us/sql/relational-databases/logs/manage-the-size-of-the-transaction-log-file?view=sql-server-ver15#Recommendations).
-- Take advantage of any new [SQL Server features](https://docs.microsoft.com/en-us/sql/sql-server/what-s-new-in-sql-server-ver15?view=sql-server-ver15) available for the version being used.
-- Be aware of the differences in [supported features](https://docs.microsoft.com/en-us/sql/sql-server/editions-and-components-of-sql-server-version-15?view=sql-server-ver15) between the editions you are considering deploying.
+- [Use the recommended number of files](/troubleshoot/sql/performance/recommendations-reduce-allocation-contention#resolution), using multiple tempdb data files starting with 1 file per core, up to 8 files.
+- Schedule SQL Server Agent jobs to run [DBCC CHECKDB](/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql#a-checking-both-the-current-and-another-database), [index reorganize](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes#reorganize-an-index), [index rebuild](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes#rebuild-an-index), and [update statistics](/sql/t-sql/statements/update-statistics-transact-sql#examples) jobs.
+- Monitor and manage the health and size of the SQL Server [transaction log file](/sql/relational-databases/logs/manage-the-size-of-the-transaction-log-file#Recommendations).
+- Take advantage of any new [SQL Server features](/sql/sql-server/what-s-new-in-sql-server-ver15) available for the version being used.
+- Be aware of the differences in [supported features](/sql/sql-server/editions-and-components-of-sql-server-version-15) between the editions you are considering deploying.
 
 ## Azure features
+
 The following is a quick checklist of best practices for Azure-specific guidance when running your SQL Server on Azure VM:
 
-- Register with [the SQL IaaS Agent Extension](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm?tabs=bash%2Cazure-cli) to unlock a number of [feature benefits](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management?tabs=azure-powershell#feature-benefits).
-- Leverage the [best backup and restore strategy](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/backup-restore#decision-matrix) for your SQL Server workload.
-- Ensure [Accelerated Networking is enabled](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli#portal-creation) on the virtual machine.
-- Leverage [Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/) to improve the overall security posture of your virtual machine deployment.
-- Leverage [Azure Defender](https://docs.microsoft.com/en-us/azure/security-center/azure-defender), integrated with [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/), for specific [SQL Server VM coverage](https://docs.microsoft.com/en-us/azure/security-center/defender-for-sql-introduction) including [vulnerability assessments](https://docs.microsoft.com/en-us/azure/azure-sql/database/sql-vulnerability-assessment) and [advanced threat protection](https://docs.microsoft.com/en-us/azure/azure-sql/database/threat-detection-overview).
-- Leverage [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-overview) to address [performance](https://docs.microsoft.com/en-us/azure/advisor/advisor-performance-recommendations), [cost](https://docs.microsoft.com/en-us/azure/advisor/advisor-cost-recommendations), [reliability](https://docs.microsoft.com/en-us/azure/advisor/advisor-high-availability-recommendations), [operational excellence](https://docs.microsoft.com/en-us/azure/advisor/advisor-operational-excellence-recommendations), and [security recommendations](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations).
-- Leverage [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/vm/quick-monitor-azure-vm) to collect, analyze, and act on telemetry data from your SQL Server environment. This includes identifying infrastructure issues with [VM insights](https://docs.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-overview) and monitoring data with [Log Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-query-overview) for deeper diagnostics.
-- Enable [Auto-shutdown](https://docs.microsoft.com/en-us/azure/automation/automation-solution-vm-management) for development and test environments. 
-- In the Azure portal, under [Disaster Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-architecture) consider [Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/) to replicate virtual machines to another Azure region for business continuity and disaster recovery needs. Technologies such as [Distributed Availability Groups](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-ver15) and [Log Shipping](https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/configure-log-shipping-sql-server?view=sql-server-ver15) can also be used to improve  recoverability capabilities.
-- Use the Azure portal (support + troubleshooting) to evaluate [Resource Health](https://docs.microsoft.com/en-us/azure/service-health/resource-health-overview) and history; submit new support requests when needed.
+- Register with [the SQL IaaS Agent Extension](sql-agent-extension-manually-register-single-vm.md) to unlock a number of [feature benefits](sql-server-iaas-agent-extension-automate-management.md#feature-benefits).
+- Leverage the best [backup and restore strategy](backup-restore.md#decision-matrix) for your SQL Server workload.
+- Ensure [Accelerated Networking is enabled](../../../virtual-network/create-vm-accelerated-networking-cli.md#portal-creation) on the virtual machine.
+- Leverage [Azure Security Center](../../../security-center/) to improve the overall security posture of your virtual machine deployment.
+- Leverage [Azure Defender](../../../security-center/azure-defender), integrated with [Azure Security Center](https://azure.microsoft.com/services/security-center/), for specific [SQL Server VM coverage](../../../security-center/defender-for-sql-introduction.md) including [vulnerability assessments](sql-vulnerability-assessment-enable.md) and [advanced threat protection](../../../azure-sql/database/threat-detection-overview.md).
+- Leverage [Azure Advisor](../../../advisor/advisor-overview.md) to address [performance](../../../advisor/advisor-performance-recommendations.md), [cost](../../../advisor/advisor-cost-recommendations.md), [reliability](../../../advisor/advisor-high-availability-recommendations.md), [operational excellence](../../../advisor/advisor-operational-excellence-recommendations.md), and [security recommendations](../../../advisor/advisor-security-recommendations.md).
+- Leverage [Azure Monitor](../../../azure-monitor/vm/quick-monitor-azure-vm.md) to collect, analyze, and act on telemetry data from your SQL Server environment. This includes identifying infrastructure issues with [VM insights](../../../azure-monitor/vm/vminsights-overview.md) and monitoring data with [Log Analytics](../../../azure-monitor/logs/log-query-overview.md) for deeper diagnostics.
+- Enable [Auto-shutdown](../../../automation/automation-solution-vm-management.md) for development and test environments. 
+- In the Azure portal, under [Disaster Recovery](../../../site-recovery/azure-to-azure-architecture.md) consider [Azure Site Recovery](../../../site-recovery/) to replicate virtual machines to another Azure region for business continuity and disaster recovery needs. Technologies such as [distributed availability groups](/sql/database-engine/availability-groups/windows/distributed-availability-groups) and [log shipping](/sql/database-engine/log-shipping/configure-log-shipping-sql-server) can also be used to improve  recover capabilities.
+- Use the Azure portal (support + troubleshooting) to evaluate [resource health](../../../service-health/resource-health-overview.md) and history; submit new support requests when needed.
 
 ## Next steps
 
