@@ -94,7 +94,7 @@ The access policy is now saved to Key Vault. Next, access the secret's URI to us
 
 1. Determine the secret value in text box for the _Value_ field.
 
-    The secret value is a composite of a few different values. The following template depicts how the final string is built.
+    The secret value is a composite of a few different values. The following template shows how the final string is built.
 
     ```text
     @Microsoft.KeyVault(SecretUri=<YOUR-KEY-VAULT-SECRET-URI>)
