@@ -266,6 +266,7 @@ az account get-access-token
 ```bash
 tk curl command here
 ```
+{>> Q: The JSON properties need to work with the mnist_deployment and use whatever key maps to `--input-path https://pipelinedata.blob.core.windows.net/sampledata/mnist` <<}
 
 ## Clean up resources
 
@@ -280,4 +281,6 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 ## Next steps
 
-tk
+In this article, you learned how to create and call batch endpoints, allowing you to score large amounts of data. See these other articles to learn more about Azure Machine Learning:
+
+* [Troubleshooting batch endpoints](tk)
