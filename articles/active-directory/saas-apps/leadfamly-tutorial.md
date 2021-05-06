@@ -124,11 +124,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ![Information](./media/leadfamly-tutorial/account.png "Information") 
 
-  a. Copy **Identifier** value, paste this value into the **Identifier** URL text box in the Basic SAML Configuration section in the Azure portal.
+  a. Copy **Identifier** value, paste this value into the **Identifier** URL text box in the **Basic SAML Configuration** section in the Azure portal.
 
-  b. Copy **Reply URL** value, paste this value into the **Reply URL** text box in the Basic SAML Configuration section in the Azure portal.
+  b. Copy **Reply URL** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
 
-  c. Copy **Sign on URL** value, paste this value into the **Sign on URL** text box in the Basic SAML Configuration section in the Azure portal.
+  c. Copy **Sign on URL** value, paste this value into the **Sign on URL** text box in the **Basic SAML Configuration** section in the Azure portal.
 
   d. Open the downloaded **Federation Metadata XML** file from the Azure portal into Notepad and upload the content into **Federation Metadata XML**.
 
