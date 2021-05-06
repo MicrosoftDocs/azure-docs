@@ -40,13 +40,13 @@ A job is a resource that specifies all aspects of a computation job. It aggregat
 - How to run it?
 - Where to run it?
 
-There are many ways to submit an Azure Machine Learning job including the SDK, CLI, and visually with the studio. The following examples submit a LightGBM training job with the Azure Machine Learning REST API.
+There are many ways to submit an Azure Machine Learning job including the SDK, CLI, and visually with the studio. The following example submits a LightGBM training job with the REST API.
 
 ## Create machine learning assets
 
-You first need to set up your Azure Machine Learning assets to configure your job.
+First, set up your Azure Machine Learning assets to configure your job.
 
-In the following REST API calls, we use `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, `$LOCATION`,`$WORKSPACE`as placeholders. Replace the placeholders with your own values. 
+In the following REST API calls, we use `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, `$LOCATION`, and `$WORKSPACE` as placeholders. Replace the placeholders with your own values. 
 
 Administrative REST requests a [service principal authentication token](how-to-manage-rest.md#retrieve-a-service-principal-authentication-token). Replace `$TOKEN` with your own value. You can retrieve this token with the following command:
 
@@ -54,7 +54,7 @@ Administrative REST requests a [service principal authentication token](how-to-m
 TOKEN=$(az account get-access-token --query accessToken -o tsv)
 ```
 
-The service provider uses the `api-version` argument to ensure compatibility. The `api-version` argument varies from service to service. The current Azure Machine Learning API version is `2021-03-01-preview`. Set the API version as a variable for future encapsulation:
+The service provider uses the `api-version` argument to ensure compatibility. The `api-version` argument varies from service to service. The current Azure Machine Learning API version is `2021-03-01-preview`. Set the API version as a variable to accommodate future versions:
 
 ```bash
 API_VERSION="2021-03-01-preview"
@@ -62,7 +62,7 @@ API_VERSION="2021-03-01-preview"
 
 ### Compute
 
-Running machine learning jobs requires compute resources. You can list your workspace compute resources:
+Running machine learning jobs requires compute resources. You can list your workspace's compute resources:
 
 ```bash
 curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/computes?api-version=$API_VERSION \
@@ -80,17 +80,17 @@ COMPUTE_NAME="cpu-cluster"
 
 ### Environment 
 
-The LightGBM example needs to run in a LightGBM environment. Create the environment with a PUT request.
+The LightGBM example needs to run in a LightGBM environment. Create the environment with a PUT request. Use a docker image from Microsoft Container Registry.
 
-Use a docker image from Microsoft Container Registry. You can configure the docker image with `Docker` and add conda dependencies with `condaFile`. 
+You can configure the docker image with `Docker` and add conda dependencies with `condaFile`: 
 
 :::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_environment":::
 
 ### Datastore
 
-The training job needs to run on data. In this example, you get the default datastore and Azure Storage account for your workspace. Query your workspace with a GET request to return a JSON file with the information.
+The training job needs to run on data, so you need to specify a datastore. In this example, you get the default datastore and Azure Storage account for your workspace. Query your workspace with a GET request to return a JSON file with the information.
 
-You can use the tool [jq](.https://stedolan.github.io/jq/) to parse the JSON result and get the required values. You can also use the Azure portal to find the same information.
+You can use the tool [jq](https://stedolan.github.io/jq/) to parse the JSON result and get the required values. You can also use the Azure portal to find the same information.
 
 ```bash
 response=$(curl --location --request GET "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/datastores?api-version=$API_VERSION&isDefault=true" \
@@ -100,7 +100,6 @@ AZURE_STORAGE_ACCOUNT=$(echo $response | jq '.value[0].properties.contents.accou
 AZUREML_DEFAULT_DATASTORE=$(echo $response | jq '.value[0].name')
 AZUREML_DEFAULT_CONTAINER=$(echo $response | jq '.value[0].properties.contents.containerName')
 AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_ACCOUNT | jq '.[0].value')
-
 ```
 
 You can then use your storage account values to get the information about the default datastore with a PUT request. 
@@ -115,7 +114,7 @@ Now that you have the datastore, you can create a dataset. For this example, use
 
 ### Code
 
-Now that you have the dataset created, you can upload the training script that will train the LightGBM model to the datastore.
+Now that you have the dataset and datastore, you can upload the training script that will train the LightGBM model.
 
 ```bash
 az storage blob upload-batch -d $AZUREML_DEFAULT_CONTAINER/src \
@@ -142,7 +141,6 @@ Now that your assets are in place, you can run the LightGBM job, which outputs a
 Use the following commands to submit the training job:
 
 :::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_job":::
-
 
 ## Sweep hyperparameters
 
