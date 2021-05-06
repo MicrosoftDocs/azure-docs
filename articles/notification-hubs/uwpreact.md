@@ -350,7 +350,7 @@ To run the sample, the following prerequisites are required:
 
 - **[Azure Notification Hub instance](#create-resource-notification-hub):** a notification hub configured on Azure.
 - **[SQL Server database instance](#create-resource-sql-database):** A SQL Server database hosted on Azure.
-- **ASP.NET app backend:** Web API backend built over .NET 5 which connects with Azure Notification Hub hosted as Azure App Service. For more information, see [Quickstart: Deploy an ASP.NET web app](/azure/app-service/quickstart-dotnetcore?tabs=net50&pivots=development-environment-vs).
+- **ASP.NET app backend:** Web API backend built over .NET 5.0, which connects with Azure Notification Hub hosted as Azure App Service. For more information, see [Quickstart: Deploy an ASP.NET web app](/azure/app-service/quickstart-dotnetcore?tabs=net50&pivots=development-environment-vs).
 
 If you don't want to deploy all the resources manually, you can use the Azure Resource Manager template.json file provided in the GitHub repository to deploy all the necessary instances in one step. The template file is available in the repo in /azure-template. For more information about how to use resource manager templates, see [Tutorial: Use Azure Quickstart templates](/azure/azure-resource-manager/templates/template-tutorial-quickstart-template?tabs=azure-powershell).
 
@@ -395,7 +395,7 @@ You can run the API solution locally or on any IIS server, or deploy it as an Az
 
 1. In Visual Studio, load the /NotificationHubSample/NotificationHub.Sample.API/NotificationHub.Sample.API.sln solution.
 2. From the **Build** menu, select **Build Solution**.
-3. Publish the solution to Azure: in Solution Explorer, right click the **NotificationHub.Sample.API** project, then select **Publish**.
+3. Publish the solution to Azure: in Solution Explorer, right-click the **NotificationHub.Sample.API** project, then select **Publish**.
 4. In the **Publish** dialog, select **Azure** (first option), then select **Next**.
 5. Select **Azure App Service (Windows)**, then select **Next**.
 6. You are redirected to the following dialog, from which you can select the appropriate subscription name and AppService instances. Your backend will be deployed to Azure, and you will be redirected to a new URL.
@@ -432,7 +432,7 @@ You might get the following error while running the React Native for Windows app
 
 `error MSB4057: The target "Deploy" does not exist in the project`
 
-This is a known issue with React Native for Windows. To fix this, unload the .csproj file for the **CheckboxWindows** and **ReactNativeAsyncStorage** projects in Visual Studio after opening **app.sln** in the **app/windows** folder, and then add the following line just before ...</Project> and reload the project.
+This is a known issue with React Native for Windows. To fix this, unload the **.csproj** file for the **CheckboxWindows** and **ReactNativeAsyncStorage** projects in Visual Studio after opening **app.sln** in the **app/windows** folder, and then add the following line just before ...</Project> and reload the project.
 
 ## Next steps
 
