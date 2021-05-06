@@ -73,12 +73,12 @@ CNAME record validation is the recommended way to add a custom domain, however, 
 
 1. Create a new **CNAME** record with the following values.
 
-   | Setting             | Value                     |
-   | ------------------- | ------------------------- |
-   | Type                | CNAME                     |
-   | Host                | www                       |
-   | Value               | Paste from your clipboard |
-   | TTL (if applicable) | Leave as default value    |
+   | Setting             | Value                             |
+   | ------------------- | --------------------------------- |
+   | Type                | CNAME                             |
+   | Host                | www                               |
+   | Value               | Paste the URL from your clipboard |
+   | TTL (if applicable) | Leave as default value            |
 
 1. Save the changes with your DNS provider.
 
@@ -90,9 +90,7 @@ CNAME record validation is the recommended way to add a custom domain, however, 
 
 Azure will attempt to validate the new CNAME with your domain provider. This may take a few minutes depending on your domain provider. If the validation fails immediately, wait a few minutes and try again before proceeding with any troubleshooting.
 
-Now that the custom domain is configured, it may take several hours for the DNS provider to propagate the changes worldwide. You can check the status of the propagation by going to [dnspropagation.net](https://dnspropagation.net). Enter your custom domain including the `www`, select **CNAME** from the drop-down, and select **Start**.
-
-If your DNS changes have populated, the website returns the auto-generated URL of your static web app (for instance, _random-name-123456789c.azurestaticapps.net_).
+Now that the subdomain is configured, it may take several hours for the DNS provider to propagate the changes worldwide.
 
 ## Add domain using TXT record validation
 
@@ -142,12 +140,12 @@ Use TXT record validation when you want to do either of the following...
 
 1. Create a new **TXT** record with the following values...
 
-   | Setting             | Value                     |
-   | ------------------- | ------------------------- |
-   | Type                | TXT                       |
-   | Host                | @                         |
-   | Value               | Paste from your clipboard |
-   | TTL (if applicable) | Leave as default value    |
+   | Setting             | Value                              |
+   | ------------------- | ---------------------------------- |
+   | Type                | TXT                                |
+   | Host                | @                                  |
+   | Value               | Paste the code from your clipboard |
+   | TTL (if applicable) | Leave as default value             |
 
 > [!NOTE]
 > Some DNS providers will change the "@" to your root domain (i.e. mydomain.com) automatically. This is expected and the validation process will still work.
@@ -184,24 +182,17 @@ An ALIAS record maps one domain to another. It is used specifically for root dom
 
 1. Create a new **ALIAS** record with the following values...
 
-   | Setting             | Value                                             |
-   | ------------------- | ------------------------------------------------- |
-   | Type                | ALIAS (use CNAME if ALIAS is not available)       |
-   | Host                | @                                                 |
-   | Value               | Paste from your clipboard and **remove https://** |
-   | TTL (if applicable) | Leave as default value                            |
+   | Setting             | Value                                                          |
+   | ------------------- | -------------------------------------------------------------- |
+   | Type                | ALIAS (use CNAME if ALIAS is not available)                    |
+   | Host                | @                                                              |
+   | Value               | Paste the site URL from your clipboard and **remove https://** |
+   | TTL (if applicable) | Leave as default value                                         |
 
 > [!IMPORTANT]
 > If your domain provider doesn't offer an ALIAS record type, use a CNAME type instead. Many providers offer the same functionality as the ALIAS record type via the CNAME record type and a feature called "CNAME Flattening".
 
-### Validate ALIAS record
-
-The root domain setup is now complete, but it may take some time for the DNS changes to propagate.
-
-You can check the status of the propagation by going to [dnspropagation.net](https://dnspropagation.net). Enter your custom domain, select **A** from the drop-down, and select **Start**. You should see an IP address next to each geographic location. If you see "timeout", the propagation has not yet completed.
-
-> [!NOTE]
-> The IP address that you see when using the DNS Propagation tool will not resolve to your application. However, your root domain will work if you see an IP address value.
+Now that the root domain is configured, it may take several hours for the DNS provider to propagate the changes worldwide.
 
 ## Map a wildcard domain
 
@@ -230,11 +221,8 @@ Sometimes you want all traffic sent to a subdomain to route to another domain. A
 
 5. Save the changes with your DNS provider.
 
-Now that the wildcard domain is configured, it may take several hours for the changes to propagate worldwide. You can check the status of the propagation by going to [dnspropagation.net](https://dnspropagation.net). Enter your domain custom domain with any subdomain (other than `www`), select CNAME from the drop-down, and select **Start**.
-
-If your DNS changes have populated, the website returns your custom domain configured for your Static Web App (for instance, `www.mydomain.com`).
+Now that the wildcard domain is configured, it may take several hours for the changes to propagate worldwide.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Configure app settings](application-settings.md)
+> [!div class="nextstepaction"] > [Configure app settings](application-settings.md)
