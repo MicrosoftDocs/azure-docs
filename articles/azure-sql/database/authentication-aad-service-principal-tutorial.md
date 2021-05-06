@@ -262,6 +262,17 @@ Once a service principal is created in Azure AD, create the user in SQL Database
     myapp	E	EXTERNAL_USER	6d228f48-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     ```
 
+## Permissions required to set or unset the Azure AD admin
+
+If you are planning to have the service principal set or unset an Azure AD admin for Azure SQL, an additional API Permission is necessary. The [Directory.Read.All](/graph/permissions-reference#application-permissions-18) Application API permission will need to be added to your application in Azure AD.
+
+:::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Directory.Reader.All permissions in Azure AD":::
+
+The service principal will also need the [**SQL Server Contributor**](../../role-based-access-control/built-in-roles.md#sql-server-contributor) role for SQL Database, or the [**SQL Managed Instance Contributor**](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) role for SQL Managed Instance.
+
+> [!NOTE]
+> Although Azure AD Graph API is being deprecated, the **Directory.Reader.All** permission still applies to this tutorial. The Microsoft Graph API does not apply to this tutorial.
+
 ## Next steps
 
 - [Azure Active Directory service principal with Azure SQL](authentication-aad-service-principal.md)
