@@ -102,10 +102,6 @@ AZUREML_DEFAULT_CONTAINER=$(echo $response | jq '.value[0].properties.contents.c
 AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_ACCOUNT | jq '.[0].value')
 ```
 
-You can then use your storage account values to get the information about the default datastore with a PUT request. 
-
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_datastore":::
-
 ### Data
 
 Now that you have the datastore, you can create a dataset. For this example, use the common dataset `iris.csv` and point to it in the `path`. 
@@ -114,7 +110,8 @@ Now that you have the datastore, you can create a dataset. For this example, use
 
 ### Code
 
-Now that you have the dataset and datastore, you can upload the training script that will train the LightGBM model.
+Now that you have the dataset and datastore, you can upload the training script that will run on the job. Use the Azure Storage CLI to upload a blob into your default container. You can also use other methods to upload, such as the Azure Portal or Azure Storage Explore
+
 
 ```bash
 az storage blob upload-batch -d $AZUREML_DEFAULT_CONTAINER/src \
