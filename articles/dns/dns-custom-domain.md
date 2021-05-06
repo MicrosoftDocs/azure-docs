@@ -37,7 +37,7 @@ To configure a custom domain for Azure function apps, a CNAME record is created 
     | Type | CNAME | Use a CNAME record is using an alias. |
     | TTL | 1 | 1 is used for 1 hour  |
     | TTL unit | Hours | Hours are used as the time measurement  |
-    | Alias | contosofunction.azurewebsites.net | The DNS name you are creating the alias for, in this example it is the contosofunction.azurewebsites.net DNS name provided by default to the function app.        |
+    | Alias | contosofunction.azurewebsites.net | The DNS name you're creating the alias for, in this example it's the contosofunction.azurewebsites.net DNS name provided by default to the function app.        |
     
 1. Navigate back to your function app, select **Custom domains** under *Settings*. Then select **+ Add custom domain**.
 
@@ -51,7 +51,7 @@ To configure a custom domain for Azure function apps, a CNAME record is created 
 
 To configure a custom domain for services that use a public IP address resource such as Application Gateway, Load Balancer, Cloud Service, Resource Manager VMs, and, Classic VMs, an A record is used.
 
-1. Navigate to **Public IP address**, select the Public IP resource and select **Configuration**. Note the IP address shown.
+1. Navigate to the Public IP resource and select **Configuration**. Note the IP address shown.
 
     :::image type="content" source="./media/dns-custom-domain/public-ip.png" alt-text="Screenshot of public ip configuration page.":::
 
@@ -75,11 +75,11 @@ To configure a custom domain for services that use a public IP address resource 
 
 The following steps take you through configuring a custom domain for an app service web app.
 
-1. Navigate to **App Service** and select the resource you are configuring a custom domain name, and select **Custom domains** under *Settings*. Note the **current url** under *assigned custom domains*, this address is used as the alias for the DNS record created.
+1. Navigate to **App Service** and select the resource you're configuring a custom domain name, and select **Custom domains** under *Settings*. Note the **current url** under *assigned custom domains*, this address is used as the alias for the DNS record created.
 
     :::image type="content" source="./media/dns-custom-domain/web-app.png" alt-text="Screenshot of custom domains for web app.":::
 
-1. Navigate to your DNS Zone and click **+ Record set**. Enter the following information on the **Add record set** page and click **OK** to create it.
+1. Navigate to your DNS Zone and select **+ Record set**. Enter the following information on the **Add record set** page and select **OK** to create it.
 
     :::image type="content" source="./media/dns-custom-domain/web-app.png" alt-text="Screenshot of web app record set page.":::
 
@@ -89,7 +89,7 @@ The following steps take you through configuring a custom domain for an app serv
     | Type | CNAME | Use a CNAME record is using an alias. If the resource used an IP address, an A record would be used. |
     | TTL | 1 | 1 is used for 1 hour |
     | TTL unit | Hours | Hours are used as the time measurement |
-    | Alias | contoso.azurewebsites.net | The DNS name you are creating the alias for, in this example it is the contoso.azurewebsites.net DNS name provided by default to the web app. |
+    | Alias | contoso.azurewebsites.net | The DNS name you're creating the alias for, in this example it's the contoso.azurewebsites.net DNS name provided by default to the web app. |
 
 1. Navigate back to your web app, select **Custom domains** under *Settings*. Then select **+ Add custom domain**.
 
@@ -111,13 +111,13 @@ If you need to purchase a custom domain for your App Service, see [buy a custom 
 
 ## Blob storage
 
-The following steps take you through configuring a CNAME record for a blob storage account using the asverify method. This method ensures there is no downtime.
+The following steps take you through configuring a CNAME record for a blob storage account using the asverify method. This method ensures there's no downtime.
 
 1. Navigate to **Storage Accounts**, select your storage account, and select **Networking** under *Settings*. Then select the **Custom domain** tab. Note the FQDN in step 2, this name is used to create the first CNAME record.
 
     :::image type="content" source="./media/dns-custom-domain/blob-storage.png" alt-text="Screenshot of custom domains for storage account.":::
 
-1. Navigate to your DNS Zone and click **+ Record set**. Fill out the following information on the **Add record set** blade and click **OK** to create it.
+1. Navigate to your DNS Zone and select **+ Record set**. Enter the following information on the **Add record set** page and select **OK** to create it.
 
     :::image type="content" source="./media/dns-custom-domain/storage-account-record.png" alt-text="Screenshot of storage account record set page.":::
 
@@ -127,13 +127,13 @@ The following steps take you through configuring a CNAME record for a blob stora
     | Type | CNAME | Use a CNAME record is using an alias. |
     | TTL | 1 | 1 is used for 1 hour |
     | TTL unit | Hours | Hours are used as the time measurement |
-    | Alias | asverify.contoso.blob.core.windows.net | The DNS name you are creating the alias for, in this example it is the asverify.contoso.blob.core.windows.net DNS name provided by default to the storage account. |
+    | Alias | asverify.contoso.blob.core.windows.net | The DNS name you're creating the alias for, in this example it's the asverify.contoso.blob.core.windows.net DNS name provided by default to the storage account. |
 
 1. Navigate back to your storage account and select **Networking** and then the **Custom domain** tab. Type in the alias you created without the asverify prefix in the text box, check **Use indirect CNAME validation**, and select **Save**. 
 
     :::image type="content" source="./media/dns-custom-domain/blob-storage-add-domain.png" alt-text="Screenshot of storage account add custom domain page.":::
 
-1. Return to your DNS zone and create a CNAME record without the asverify prefix.  After that point, you are safe to delete the CNAME record with the asverify prefix.
+1. Return to your DNS zone and create a CNAME record without the asverify prefix.  After that point, you're safe to delete the CNAME record with the asverify prefix.
 
     :::image type="content" source="./media/dns-custom-domain/storage-account-record-set.png" alt-text="Screenshot of storage account record without asverify prefix.":::
 
@@ -143,13 +143,13 @@ To learn more about mapping a custom domain to a blob storage endpoint visit [Co
 
 ## Azure CDN
 
-The following steps take you through configuring a CNAME record for a CDN endpoint using the cdnverify method. This method ensures there is no downtime.
+The following steps take you through configuring a CNAME record for a CDN endpoint using the cdnverify method. This method ensures there's no downtime.
 
-1. Navigate to your CDN profile and select the endpoint you are working with. Select **+ Custom domain**. Note the **Endpoint hostname** as this value is the record that the CNAME record points to.
+1. Navigate to your CDN profile and select the endpoint you're working with. Select **+ Custom domain**. Note the **Endpoint hostname** as this value is the record that the CNAME record points to.
 
     :::image type="content" source="./media/dns-custom-domain/cdn.png" alt-text="Screenshot of CDN custom domain page.":::
 
-1. Navigate to your DNS Zone and click **+ Record set**. Fill out the following information on the **Add record set** blade and click **OK** to create it.
+1. Navigate to your DNS Zone and select **+ Record set**. Enter the following information on the **Add record set** page and select **OK** to create it.
 
     :::image type="content" source="./media/dns-custom-domain/cdn-record.png" alt-text="Screenshot of CDN record set page.":::
 
@@ -159,13 +159,13 @@ The following steps take you through configuring a CNAME record for a CDN endpoi
     | Type | CNAME | Use a CNAME record is using an alias. |
     | TTL | 1 | 1 is used for 1 hour |
     | TTL unit | Hours | Hours are used as the time measurement |
-    | Alias | cdnverify.contoso.azureedge.net | The DNS name you are creating the alias for, in this example it is the cdnverify.contoso.azureedge.net DNS name provided by default to the CDN endpoint. |
+    | Alias | cdnverify.contoso.azureedge.net | The DNS name you're creating the alias for, in this example it's the cdnverify.contoso.azureedge.net DNS name provided by default to the CDN endpoint. |
 
 1. Navigate back to your CDN endpoint  and select **+ Custom domain**. Enter your CNAME record alias without the cdnverify prefix and select **Add**.
 
     :::image type="content" source="./media/dns-custom-domain/cdn-add.png" alt-text="Screenshot of add a custom domain page for a CDN endpoint.":::
 
-1. Return to your DNS zone and create a CNAME record without the cdnverify prefix.  After that point, you are safe to delete the CNAME record with the cdnverify prefix.
+1. Return to your DNS zone and create a CNAME record without the cdnverify prefix.  After that point, you're safe to delete the CNAME record with the cdnverify prefix.
 
     :::image type="content" source="./media/dns-custom-domain/cdn-record-set.png" alt-text="Screenshot of CDN record without cdnverify prefix.":::
 
