@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/20/2021
+ms.date: 05/05/2021
 ms.author: b-juche
 ---
 # Create an SMB volume for Azure NetApp Files
@@ -162,7 +162,8 @@ You can set permissions for a file or folder by using the **Security** tab of th
 
 * [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
-* [SMB FAQs](./azure-netapp-files-faqs.md#smb-faqs)
+* [Configure ADDS LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md) 
+* [SMB FAQs](azure-netapp-files-faqs.md#smb-faqs)
 * [Troubleshoot SMB or dual-protocol volumes](troubleshoot-dual-protocol-volumes.md)
 * [Learn about virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)
 * [Install a new Active Directory forest using Azure CLI](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)
