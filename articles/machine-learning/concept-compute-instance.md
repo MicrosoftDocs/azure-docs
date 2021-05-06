@@ -81,7 +81,7 @@ Following tools and environments are already installed on the compute instance:
 |ONNX packages|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
 |Azure Machine Learning Python & R SDK samples||
 
-Python packages are all installed in the **Python 3.6 - AzureML** environment.  
+Python packages are all installed in the **Python 3.8 - AzureML** environment. Compute instance has Ubuntu 18.04 as the base OS.
 
 ## Accessing files
 
@@ -136,7 +136,7 @@ A compute instance:
 You can use compute instance as a local inferencing deployment target for test/debug scenarios.
 
 > [!TIP]
-> The compute instance has 120GB OS disk. If you run out of disk space and get into an unusable state, please clear at least 5 GB disk space on OS disk (/dev/sda1/ filesystem mounted on /) through the JupyterLab terminal by removing files/folders and then do sudo reboot. To access the JupyterLab terminal go to https://ComputeInstanceName.AzureRegion.instances.azureml.ms/lab replacing the name of compute instance and Azure region, and then click File->New->Terminal. Clear at least 5 GB before you [stop or restart](how-to-create-manage-compute-instance.md#manage) the compute instance. You can check available disk space by running df -h on the terminal.
+> The compute instance has 120GB OS disk. If you run out of disk space and get into an unusable state, please clear at least 5 GB disk space on OS disk (/dev/sdb1/ filesystem mounted on /) through the compute instance terminal by removing files/folders and then do sudo reboot. To access the terminal go to compute list page or compute instance details page and click on Terminal link. Clear at least 5 GB before you [stop or restart](how-to-create-manage-compute-instance.md#manage) the compute instance. You can check available disk space by running df -h on the terminal.
 
 ## Next steps
 

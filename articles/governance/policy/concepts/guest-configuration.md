@@ -234,6 +234,26 @@ The Audit policy definitions available for Guest Configuration include the
 [Azure Arc for servers](../../../azure-arc/servers/overview.md) that are in the scope of the policy
 assignment are automatically included.
 
+## Availability
+
+Customers designing a highly available solution should consider the redundancy planning requirements for
+[virtual machines](../../../virtual-machines/availability.md) because guest assignments are extensions of
+machine resources in Azure. If a physical region becomes unavailable in Azure, it's not possible
+to view historical reports for a guest assignment until the region is restored.
+
+When considering an architecture for highly available applications,
+especially where virtual machines are provisioned in
+[Availability Sets](../../../virtual-machines/availability.md#availability-sets)
+behind a load balancer solution to provide high availability,
+it's best practice to assign the same policy definitions with the same parameters to all machines
+in the solution. If possible, a single policy assignment spanning all
+machines would offer the least administrative overhead.
+
+For machines protected by
+[Azure Site Recovery](../../../site-recovery/site-recovery-overview.md),
+ensure that machines in a secondary site are within scope of Azure Policy assignments
+for the same definitions using the same parameter values as machines in the primary site.
+
 ## Troubleshooting guest configuration
 
 For more information about troubleshooting Guest Configuration, see
