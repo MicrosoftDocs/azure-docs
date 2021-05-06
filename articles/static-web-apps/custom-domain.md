@@ -113,7 +113,7 @@ Use TXT record validation when you want to do either of the following...
 
 1. In the _Domain name_ field, enter either your root domain (i.e. `mydomain.com`) or your subdomain (i.e. `www.mydomain.com`).
 
-   :::image type="content" source="media/custom-domains/add-domain.png" alt-text="Add domain screen showing the custom domain in the input box":::
+   :::image type="content" source="media/custom-domain/add-domain.png" alt-text="Add domain screen showing the custom domain in the input box":::
 
 1. Click on the **Next** button to move to the _Validate + configure_ step.
 
@@ -123,13 +123,13 @@ Use TXT record validation when you want to do either of the following...
 
 1. Select the **Generate code** button.
 
-   :::image type="content" source="media/custom-domains/generate-code.png" alt-text="Add custom screen with generate code button highlighted":::
+   :::image type="content" source="media/custom-domain/generate-code.png" alt-text="Add custom screen with generate code button highlighted":::
 
    This action generates a unique code, which may take up to a minute to process.
 
 1. Select the clipboard icon next to the code to copy the value to your clipboard.
 
-   :::image type="content" source="media/custom-domains/copy-code.png" alt-text="Add custom domain screen with copy code button highlighted":::
+   :::image type="content" source="media/custom-domain/copy-code.png" alt-text="Add custom domain screen with copy code button highlighted":::
 
 1. Sign in to the website of your domain provider.
 
@@ -156,7 +156,7 @@ Use TXT record validation when you want to do either of the following...
 
 During this step, Azure automatically verifies the TXT record with your DNS provider. Once the validation process is complete, a green indicator appears next to the added domain.
 
-:::image type="content" source="media/custom-domains/txt-record-ready.png" alt-text="Green indicator showing TXT record has been validated":::
+:::image type="content" source="media/custom-domain/txt-record-ready.png" alt-text="Green indicator showing TXT record has been validated":::
 
 When the green indicator appears next to your domain in the _Custom domains_ screen, you can complete the second step, which is to add an ALIAS record.
 
@@ -171,7 +171,7 @@ An ALIAS record maps one domain to another. It is used specifically for root dom
 
 1. Copy the URL of your static web app from the overview screen by hovering over it and selecting the **copy** icon.
 
-   :::image type="content" source="media/custom-domains/overview.png" alt-text="Overview page of a static web app with the copy URL icon highlighted":::
+   :::image type="content" source="media/custom-domain/overview.png" alt-text="Overview page of a static web app with the copy URL icon highlighted":::
 
 1. Sign in to the website of your domain provider.
 
@@ -225,5 +225,4 @@ Now that the wildcard domain is configured, it may take several hours for the ch
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Configure app settings](application-settings.md)
+> [!div class="nextstepaction"] > [Configure app settings](application-settings.md)
