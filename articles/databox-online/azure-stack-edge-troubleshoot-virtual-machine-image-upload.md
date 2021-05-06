@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot virtual machine image uploads in Azure Stack Edge Pro | Microsoft Docs 
-description: Describes how to troubleshoot issues that occur when uploading virtual machine images to Azure Stack Edge Pro.
+description: Describes how to troubleshoot issues that occur when uploading, downloading, or deleting virtual machine images in Azure Stack Edge.
 services: databox
 author: v-dalc
 
@@ -14,7 +14,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]<!--Verify SKUs.-->
 
-This article describes how to troubleshoot issues that occur when uploading <!--and downloading and deleting?--> virtual machine (VM) images on an Azure Stack Edge Pro device.<!--1) Specifically, are they uploading images to a Blob container in a storage account? 2) Although the article is touted as "upload" issues, some of the errors appear to occur during downloads. Could be a step in the upload process.-->
+This article describes how to troubleshoot issues that occur when managing <!--and downloading and deleting?--> virtual machine (VM) images on an Azure Stack Edge Pro device.<!--1) Specifically, are they uploading images to a Blob container in a storage account? 2) Although the article is touted as "upload" issues, some of the errors appear to occur during downloads. Could be a step in the upload process.-->
 
 In this tutorial, you learn how to:
 
@@ -26,13 +26,11 @@ In this tutorial, you learn how to:
 
 ## Unable to add VM image to Blob container
 
-**Error Description:** In the Azure portal, when trying to upload a VM image to a Blob container, the **Add** button is not available, and the image can't be uploaded to the container.
-
-[Screenshot, if applicable](media/azure-stack-edge-troubleshoot-virtual-machine-image-upload/troubleshoot-image-upload-01.png)
+**Error Description:** In the Azure portal, when trying to upload a VM image to a Blob container, the **Add** button is not available, and the image can't be uploaded to the container.<!--Verify context. Source is not specific about where the image is uploaded to.-->
 
 Possible causes:
 
-- The customer does not have the required contributor role permissions to the resource group or subscription for the device.
+* You don't have the required contributor role permissions to the resource group or subscription for the device.
 
 * The image name already exists in SCOPE?.<!--1) Unique name required within what scope - on the device, in the container, in the storage account, in the subscription? 2) This is listed as an outlier. Most common cause is permissions issue.-->
 
@@ -41,9 +39,7 @@ Possible causes:
 
 ## Invalid blob type for the source blob uri
 
-**Error Description:** The customer has picked a block block VHD to download instead of a page blob VHD.
-
-<!--[Screenshot, if applicable](media/azure-stack-edge-troubleshoot-virtual-machine-image-upload/troubleshoot-image-upload-02.png)-->
+**Error Description:** You picked a block blob virtual hard disk (VHD)<!--Terminology: "block blob VHD" probably is't a thing--> to download instead of a page blob VHD.
 
 **Suggested solution:** Upload the VHD as a page blob. Then download the blob again.
 
@@ -53,11 +49,11 @@ Resource
 Status
 Type
 ®	aseimagestorageaccount	MicrosoftStorage/storageAccounts	Completed
-®	aseimagestorageaccount	MiaosoftStorage/storageAccounts	Completed
+®	aseimagestorageaccount	MicrosoftStorage/storageAccounts	Completed
 <B	dbelocal/blockblobblankdiskl	MicrosoftAzure8ndge/1ocatK>ns/inges...	Failed
 X Creation of image failed.
 Possible Causes
-•	DeploymentFailed : At least one resource deployment operation failed. Please list deployment operations for details. Please see httpsy/akajns/DeployOperations for usage details.
+•	DeploymentFailed : At least one resource deployment operation failed. Please list deployment operations for details. Please see https/akajns/DeployOperations for usage details.
 •	Conflict : {
 •status': -Failed-.
 "error": {
@@ -75,10 +71,6 @@ In the local web Ul of the device, go to Troubleshooting > Diagnostic tests and 
 ## Only blobs formatted as VHDs can be imported.
 
 **Error Description:** The VHD hasn’t been formatted properly. It needs to be a Generation 1, VHD extension and fixed size. Most of our ICMs will have this error.
-
-*Error message text*
-
-[Screenshot, if applicable](media/azure-stack-edge-troubleshoot-virtual-machine-image-upload/troubleshoot-image-upload-03.png)
 
 **Suggested solution:** Go to [Common issues for Image creation on ASE](https://microsoft-my.sharepoint.com/:w:/p/niachary/EQih4TRKTMVFnZmAfvX6qUoBwI-2-v5mRNleGtfwWmGVZg).
 
@@ -115,8 +107,6 @@ MicrosoftCompute/images	Failed
 ## The condition specified using HTTP conditional header(s) is not met.
 
 **Error Description:** If any sort of modification is being done on the source VHD in Azure, then the download will fail because the etags between each chunk of download will be different. This can also happen if you are uploading the source VHD into Azure and try to start a download before the upload has completed.
-
-[Screenshot, if applicable](media/azure-stack-edge-troubleshoot-virtual-machine-image-upload/troubleshoot-image-upload-04.png)
 
 **Suggested solution:** Wait until all modifications/uploads are done on the VHD and then try downloading the VHD again.
 
@@ -155,8 +145,6 @@ In the local web Ul of the device, go to Troubleshooting > Diagnostic tests and 
 ## Not able to delete the image through the Azure portal.
 
 **Error Description:** The issue is that there is a bug in the October release build where we return an error if a delete is called on a metadata object that doesn't exist anymore. For example, you could call delete image through the portal and step #1 succeeds but step #2 fails. Then when you call delete again, step #1 will fail immediately saying that the object doesn't exist anymore and this prevents us from proceeding to step #2. 
-
-[Screenshot, if applicable](media/azure-stack-edge-troubleshoot-virtual-machine-image-upload/troubleshoot-image-upload-05.png)
 
 **Suggested solution:** Use the AzureRM Powershell modules to manually delete the image using `Remove-AzureRmImage`. Once this delete completes, the image won’t show up in the portal anymore.
 
