@@ -3,7 +3,7 @@ title: Create Azure NetApp files Windows Virtual Desktop - Azure
 description: This article describes how to create an Azure NetApp file in Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 05/03/2021
+ms.date: 05/07/2021
 ms.author: helohr
 manager: femila
 ---
@@ -22,7 +22,7 @@ To set up an Azure NetApp Files, you'll need the following things:
 
 - A virtual machine (VM) or physical machine joined to Active Directory Domain Services (AD DS), and permissions to access it
 
-- A Windows Virtual Desktop host pool made of domain-joined session hosts. Each session host must be in the same region as the region you create your Azure NetApp files in. For more information, see [regional availability](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). If your existing ession hosts aren't in one of the available regions, you'll need to create new ones.
+- A Windows Virtual Desktop host pool made of domain-joined session hosts. Each session host must be in the same region as the region you create your Azure NetApp files in. For more information, see [regional availability](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). If your existing session hosts aren't in one of the available regions, you'll need to create new ones.
 
 ## Start using Azure NetApp Files
 
