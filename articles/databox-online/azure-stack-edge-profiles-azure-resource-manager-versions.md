@@ -1,16 +1,16 @@
 ---
-title: Resource provider API versions supported by profiles in Azure Stack Edge | Microsoft Docs
+title: Resource provider API profile versions for Azure Stack Edge | Microsoft Docs
 description: Learn about the Azure Resource Manager API versions supported by profiles in Azure Stack Edge.
 services: databox
 author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 05/05/2021
+ms.date: 05/06/2021
 ms.author: alkohli
 ---
 
-# Resource provider API versions supported by profiles in Azure Stack Edge
+# Resource provider API profile versions for Azure Stack Edge
 
 You can find the resource provider and version numbers for each API profile used by Azure Stack Edge in this article. The tables in this article list the versions supported for each resource provider and the API versions of the profiles. Each resource provider contains a set of resource types and specific version numbers.
 
@@ -20,19 +20,17 @@ The API profile uses three naming conventions:
 - **yyyy-mm-dd-hybrid**
 - **yyyy-mm-dd-profile**
 
-For an explanation of API profiles and version release cadence for Azure Stack Edge, see [Manage API version profiles in Azure Stack Hub](/azure-stack/user/azure-stack-version-profiles?view=azs-2008&preserve-view=true).
-
 
 ## Overview of the 2019-03-01-hybrid profile
 
-|Resource Provider                                  |API Version |
-|---------------------------------------------------|------------|
-|Microsoft.Compute                                  |2017-12-01  |
-|Microsoft.Network                                  |2017-10-01<br>VPN Gateway: 2017-10-01 <!--Removed "will be." Translation OK?--|
-|Microsoft.Storage (Data Plane)                     |2019-07-07  |
-|Microsoft.Storage (Control Plane)                  |2019-06-01  |
-|Microsoft.Resources (Azure Resource Manager)<!--Removed "itself." Translation OK?-->       |2020-06-01  |
-|Microsoft.Authorization (policy operations)        |2016-09-01  |
+|Resource Provider                                   |API Version |
+|----------------------------------------------------|------------|
+|Microsoft.Compute                                   |2017-12-01  |
+|Microsoft.Network                                   |2017-10-01<br>VPN Gateway will be 2017-10-01 |
+|Microsoft.Storage (Data Plane)                      |2019-07-07  |
+|Microsoft.Storage (Control Plane)                   |2019-06-01  |
+|Microsoft.Resources (Azure Resource Manager itself) |2020-06-01  |
+|Microsoft.Authorization (policy operations)         |2016-09-01  |
 
 For a list of the versions for each resource type for the providers in the API profile, see [Details for the 2019-03-01-hybrid profile](/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions.md?view=azs-2008&preserve-view=true#details-for-the-2019-03-01-hybrid-profile).
 
@@ -98,4 +96,4 @@ The Storage Resource Provider (SRP) lets you manage your storage account and key
 
 ## Next steps
 
-- [Manage an Azure Stack Edge Pro GPU device via Windows PowerShell](azure-stack-edge-gpu-connect-powershell-interface.md)<!--Guess, based on Hub list-->
+- [Manage an Azure Stack Edge Pro GPU device via Windows PowerShell](azure-stack-edge-gpu-connect-powershell-interface.md)
