@@ -52,7 +52,7 @@ Based on your current development state, you can either opt to use existing ledg
 
 ### Open support case
 
-If you have a support plan, open a Microsoft Support ticket to pause the consortium and export your blockchain data.
+If you have a paid support plan, open a Microsoft Support ticket to pause the consortium and export your blockchain data.
 
 1. Use the Azure portal to open a support ticket. In *Problem description*, enter the following details:
 
@@ -233,16 +233,16 @@ Each node level folder contains a zip file that is encrypted using the encryptio
 
 ### What does service retirement mean for existing customers?
 
-The existing Azure Blockchain Service deployments cannot be continued beyond retirement of the service. Start evaluating alternatives suggested in this article before retirement based on your requirements.
+The existing Azure Blockchain Service deployments cannot be continued beyond September 10th, 2021. Start evaluating alternatives suggested in this article before retirement based on your requirements.
 
 ### What happens to existing deployments after the announcement of retirement?
 
-Existing deployments are supported for 120 days from the day of the retirement announcement. Evaluate the suggested alternatives, migrate the data to the alternate offering, operate your requirement on the alternative offering, and start migrating from the deployment on Azure Blockchain Service.
+Existing deployments are supported until September 10th, 2021. Evaluate the suggested alternatives, migrate the data to the alternate offering, operate your requirement on the alternative offering, and start migrating from the deployment on Azure Blockchain Service.
 
 ### How long will the existing deployments be supported on Azure Blockchain Service?
 
-Existing deployments are supported for 120 days from the day of retirement announcement.
+Existing deployments are supported until September 10th, 2021.
 
 ### Will I be allowed to create new Azure Blockchain members while in retirement phase?
 
-While in retirement phase, no new member creation or deployments are supported.
+After May 10th, 2021, no new member creation or deployments are supported.
