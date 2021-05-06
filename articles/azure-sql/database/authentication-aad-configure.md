@@ -11,7 +11,7 @@ ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
-ms.date: 08/17/2020
+ms.date: 05/10/2021
 ---
 
 # Configure and manage Azure AD authentication with Azure SQL
@@ -168,6 +168,14 @@ else {
     Write-Output "Service principal '$($managedInstanceName)' is already     member of 'Directory Readers' role'."
 }
 ```
+
+### Permissions required to set or unset the Azure AD admin
+
+If you are planning to have the service principal set or unset an Azure AD admin for Azure SQL, an additional API Permission is necessary. The [Directory.Read.All](/graph/permissions-reference#application-permissions-18) Application API permission will need to be added to your application in Azure AD.
+
+:::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Directory.Reader.All permissions in Azure AD":::
+
+The service principal will also need the [**SQL Server Contributor**](../../role-based-access-control/built-in-roles.md#sql-server-contributor) role for SQL Database, or the [**SQL Managed Instance Contributor**](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) role for SQL Managed Instance.
 
 ### PowerShell for SQL Managed Instance
 
