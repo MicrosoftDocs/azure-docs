@@ -2,7 +2,7 @@
 title: Use direct methods in Azure Video Analyzer - Azure
 description: Azure Video Analyzer exposes several direct methods. The direct methods are based on the conventions described in this topic.
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 05/06/2021
 
 ---
 # Azure Video Analyzer Direct methods
@@ -39,18 +39,22 @@ The direct methods are based on the following conventions:
     * No spaces
     * Max of 32 characters
 
-### Example
+### Here is an example of response from a direct method
 
 ```
+-----------------------  Request: livePipelineList  --------------------------------------------------
+
 {
-  "status": 400,
-  "payload": {
-    "error": {
-      "code": "BadRequest",
-      "message": "Pipeline instance is not found."
-    }
-  }
+  "@apiVersion": "1.0"
 }
+
+---------------  Response: livePipelineList - Status: 200  ---------------
+
+{
+  "value": []
+}
+
+--------------------------------------------------------------------------
 ```    
 ### Top-level error codes     
 
@@ -74,62 +78,55 @@ Detailed validations error, such as pipeline module validations, are added as er
   "status": 400,
   "payload": {
     "error": {
-      "code": "InvalidResource",
-      "message": "The resource format is invalid.",
+      "code": "BadRequest",
+      "message": "The request is invalid",
       "details": [
         {
-          "code": "RtspEndpointUrlInvalidScheme",
-          "target": "$.Properties.Sources[0]",
-          "message": "Uri scheme 'http' is not valid for an RTSP source endpoint. Valid values are: rtsp"
-        },
-        {
-          "code": "PropertyValueInvalidPattern",
-          "target": "$.Properties.Sinks[0].AssetNamePattern",
-          "message": "The value must match the regular expression '^[^<>%&:\\\\\\/?*+.']{1,260}$'"
+          "code": "ApiVersionNotSupported",
+          "message": "The API version '1.1' is not supported. Supported version(s): 1.0."
         }
       ]
     }
   }
-}
 }
 ```
 |Status|	Detailed code	|Description|
 |---|---|---|
 |400|	PipelineValidationError|	General Pipeline errors such as cycles or partitioning, etc.|
 |400|	ModuleValidationError|	Module specific validation errors.|
-|409|	PipelineTopologyInUse|	Pipeline topology is still referenced by one or more Pipeline instances.|
+|409|	PipelineTopologyInUse|	Pipeline topology is still referenced by one or more Pipeline.|
 |409|	OperationNotAllowedInState|	Requested operation cannot be performed in the current state.|
 |409|	ResourceValidationError|	Referenced resource (example: asset) is not in a valid state.|
 
 ## Details  
 
-### PipelineTopologyGet
+### pipelineTopologyList
 
 This direct method retrieves a single pipeline topology.
 
 #### Request
 
 ```
-  {
-    "methodName": "pipelineTopologyGet",
-    "payload": {
-        "@apiVersion": "1.0",
-        "name": "{TopologyName}"
-    }
-  }
+{
+  "@apiVersion": "1.0"
+}
 ```
 #### Response
 
 ```
-  {
-    "status": 200,
-    "payload": {
-        "name": "{TopologyName}",
-        "properties": {
-            // Complete Topology
-        }
+{
+  "value": [
+    {
+      "systemData": {
+        "createdAt": "2021-05-05T14:19:22.16Z",
+        "lastModifiedAt": "2021-05-05T16:20:41.505Z"
+      },
+      
+      //Complete Topology
+      
     }
-  }
+  ]
+}
 ```
 
 #### Status codes
@@ -141,7 +138,7 @@ This direct method retrieves a single pipeline topology.
 | Entity not found | 404 |  |
 | General server errors | 500 range |  |
 
-### PipelineTopologySet
+### pipelineTopologySet
 
 Creates a single pipeline topology if there is no existing one with the given name or updates and existing one with the same name.
 
@@ -193,7 +190,7 @@ Pipeline Validation Errors	|400	|PipelineValidationError|
 Module Validation Errors|	400	|ModuleValidationError|
 General server errors	|500 range	||
 
-### PipelineTopologyDelete
+### pipelineTopologyDelete
 
 Deletes a single live pipeline topology.
 
@@ -224,10 +221,10 @@ Deletes a single live pipeline topology.
 | Entity deleted | 200 | N/A |
 | Entity not found | 204 | N/A |
 | General user errors | 400 range |  |
-| Pipeline topology is being referenced by one or more Pipeline instances | 409 | PipelineTopologyInUse |
+| Pipeline topology is being referenced by one or more Pipelines | 409 | PipelineTopologyInUse |
 | General server errors | 500 range |  |
 
-### PipelineTopologyList
+### pipelineTopologyList
 
 Retrieves a list of all the pipelines that matches the filter criteria.
 
@@ -279,9 +276,9 @@ Retrieves a list of all the pipelines that matches the filter criteria.
 | General user errors | 400 range |  |
 | General server errors | 500 range |  |
 
-### LivePipelineGet
+### livePipelineList
 
-Retrieves a single Pipeline Instance:
+Retrieves a single Pipeline:
 
 #### Request
 
@@ -299,7 +296,7 @@ Retrieves a single Pipeline Instance:
     "payload": {
         "name": "{livePipelineName}",
         "properties": {
-            // Complete Stream
+            // Complete pipeline
         }
     }
   }
@@ -313,17 +310,17 @@ Retrieves a single Pipeline Instance:
 | Entity not found | 404 |  |
 | General server errors | 500 range |  |
 
-### LivePipelineSet
+### livePipelineSet
 
-Creates a single Pipeline Instance if there is no existing one with the given name or updates and existing one with the same name.
+Creates a single pipeline if there is no existing one with the given name or updates and existing one with the same name.
 
 Key aspects:
 
-* Pipeline Instance can be freely updated while in "Deactivated" state.
+* Pipeline can be freely updated while in "Deactivated" state.
 
-    * Pipeline is revalidated on every update.
-* Pipeline instance updates are partially restricted while the pipeline is not in the “Inactive” state.
-* Pipeline instance updates are not allowed on active pipeline.
+* Pipeline is revalidated on every update.
+* Pipeline updates are partially restricted while the pipeline is not in the “Inactive” state.
+* Pipeline updates are not allowed on active pipeline.
 
 #### Request
 
@@ -344,7 +341,7 @@ Key aspects:
     "payload": {
         "name": "{livePipelineName}",
         "properties": {
-            // Complete Stream
+            // Complete pipeline
         }
     }
   }
@@ -361,9 +358,9 @@ Key aspects:
 | Resource validation errors | 409 | ResourceValidationError |
 | General server errors | 500 range | N/A |
 
-### LivePipelineDelete
+### livePipelineDelete
 
-Deletes a single pipeline instance.
+Deletes a single pipeline.
 
 Key aspects:
 
@@ -395,10 +392,10 @@ Key aspects:
 | Pipeline is not in the "Stopped" state | 409 | OperationNotAllowedInState |
 | General server errors | 500 range |  |
 
-### LivePipelineList
+### livePipelineList
 
-This is similar to LiveTopologyList. It enables use to enumerate the pipeline instances.
-Retrieves a list of all the pipeline instances that matches the filter criteria.
+This is similar to liveTopologyList. It enables use to enumerate the pipelines.
+Retrieves a list of all the pipelines that matches the filter criteria.
 
 #### Request
 
@@ -412,26 +409,39 @@ Retrieves a list of all the pipeline instances that matches the filter criteria.
 #### Response
 
 ```
-  {
-    "status": 200,
-    "payload": {
-      "@continuationToken": "aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1kUXc0dzlXZ1hjUQ==",
-      "value": [
-        {
-            "name": "{livePipelineName}",
-            "properties": {
-                // Complete Stream
-            }
+{
+  "status": 200,
+  "payload": {
+    "value": [
+      {
+        "systemData": {
+          "createdAt": "2021-05-06T10:28:04.560Z",
+          "lastModifiedAt": "2021-05-06T10:28:04.560Z"
         },
-        {
-            "name": "{livePipelineName}",
-            "properties": {
-                // Complete Stream
+        "name": "Sample-Pipeline-1",
+        "properties": {
+          "state": "Active",
+          "description": "Sample pipeline description",
+          "topologyName": "CVRToVideoSink",
+          "parameters": [
+            {
+              "name": "rtspPassword",
+              "value": "testpassword"
+            },
+            {
+              "name": "rtspUrl",
+              "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+            },
+            {
+              "name": "rtspUserName",
+              "value": "testuser"
             }
+          ]
         }
-      ]
-    }
+      }
+    ]
   }
+}
 ```
 
 #### Filter support
@@ -448,16 +458,16 @@ Retrieves a list of all the pipeline instances that matches the filter criteria.
 | General user errors | 400 range |  |
 | General server errors | 500 range |  |
 
-### LivePipelineActivate
+### livePipelineActivate
 
-Activates a single pipeline instance. 
+Activates a single pipeline. 
 
 Key aspects
 
 * Method only returns when pipeline is activated 
 * Pipeline assumes the “Activating” state while being activated.
 
-    * A List/Get operation on the pipeline would return the pipeline on the proper state.
+* A List/Set operation on the pipeline would return the pipeline on the proper state.
 * Idempotency:
 
     * Starting a pipeline on “Activating” state behaves the same way as if the pipeline was deactivated (that is: call blocks until pipeline is activated)
@@ -491,16 +501,16 @@ Key aspects
 | Pipeline is in deactivating state | 409 | OperationNotAllowedInState |
 | General server errors | 500 range |  |
 
-### LivePipelineDeactivate
+### livePipelineDeactivate
 
-Deactivates a single pipeline instance. Deactivating a pipeline gracefully deactivates the media processing and ensures that all events and media transiently stored on edge is committed to cloud, whenever applicable.
+Deactivates a single pipeline. Deactivating a pipeline gracefully deactivates the video processing and ensures that all events and video transiently stored on edge is committed to cloud, whenever applicable.
 
 Key aspects:
 
 * Method only returns when pipeline is deactivated
 * Pipeline assumes the “Deactivating” state while being deactivated.
 
-    * A List/Get operation on the pipeline would return the pipeline on the proper state.
+    * A List/Set operation on the pipeline would return the pipeline on the proper state.
     * Stop only completes when all media has been uploaded to the cloud.
 * Idempotency:
 
