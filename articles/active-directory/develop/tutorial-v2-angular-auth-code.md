@@ -303,7 +303,7 @@ Add the code from the following sections to invoke login using a popup window or
     ```
 
 > [!NOTE]
-> This rest of this tutorial uses the `loginRedirect` method with Microsoft Internet Explorer because of a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/internet-explorer.md) related to the handling of pop-up windows by Internet Explorer.
+> The rest of this tutorial uses the `loginRedirect` method with Microsoft Internet Explorer because of a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/internet-explorer.md) related to the handling of pop-up windows by Internet Explorer.
 
 ### Sign in using redirects
 
