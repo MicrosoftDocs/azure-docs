@@ -165,7 +165,7 @@ When the green indicator appears next to your domain in the _Custom domains_ scr
 An ALIAS record maps one domain to another. It is used specifically for root domains (i.e. `mydomain.com`). In this section, you will create an ALIAS record that maps your root domain to the auto-generated URL of your static web app.
 
 > [!IMPORTANT]
-> Your domain provider must support [ALIAS records](https://docs.microsoft.com/en-us/azure/dns/dns-alias) or CNAME flattening.
+> Your domain provider must support [ALIAS records](https://docs.microsoft.com/azure/dns/dns-alias) or CNAME flattening.
 
 1. Select **Overview** in the menu.
 
@@ -225,5 +225,4 @@ Now that the wildcard domain is configured, it may take several hours for the ch
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Configure app settings](application-settings.md)
+> [!div class="nextstepaction"] > [Configure app settings](application-settings.md)
