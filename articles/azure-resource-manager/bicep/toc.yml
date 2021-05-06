@@ -31,8 +31,6 @@
     href: parameters.md
   - name: Variables
     href: template-variables.md
-  - name: User-defined functions
-    href: template-user-defined-functions.md
   - name: Resources
     items:
     - name: Resource declaration
@@ -42,13 +40,13 @@
     - name: Conditional deployment
       href: conditional-resource-deployment.md
     - name: Set resource dependencies
-      href: define-resource-dependency.md
+      href: resource-dependency.md
     - name: Set resource location
       href: resource-location.md
     - name: Use template extensions
-      href: add-resource-extensions.md
+      href: resource-extensions.md
   - name: Outputs
-    href: template-outputs.md
+    href: outputs.md
   - name: Export template
     href: export-template-portal.md
 - name: Modules
@@ -80,7 +78,7 @@
   - name: Deploy as linked template
     href: template-specs-deploy-linked-template.md
   - name: Convert portal template gallery
-    href: convert-to-template-spec.md
+    href: template-spec-convert.md
 - name: Deployment scripts
   items:
   - name: Deployment script
@@ -107,7 +105,7 @@
   - name: Predeployment checks
     items:
     - name: What-if deployment
-      href: template-deploy-what-if.md
+      href: deploy-what-if.md
     - name: Test toolkit
       href: test-toolkit.md
     - name: Test cases
@@ -131,7 +129,7 @@
     - name: Complete & incremental
       href: deployment-modes.md
     - name: Complete mode deletion
-      href: complete-mode-deletion.md
+      href: deployment-complete-mode-deletion.md
   - name: Parameters
     items:
     - name: Create parameter file

@@ -82,7 +82,7 @@ You can verify the deployment by exploring the resource group from the Azure por
 1. Select the resource group you deployed to.
 1. Select one of the resources, such as the storage account resource. You see that it now has tags.
 
-   ![Show tags](./media/bicep-tutorial-add-tags/show-tags.png)
+   ![Show tags](./media/tutorial-add-tags/show-tags.png)
 
 ## Clean up resources
 

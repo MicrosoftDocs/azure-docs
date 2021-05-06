@@ -267,7 +267,7 @@ output storageEndpoint object = stg.properties.primaryEndpoints
 
 Specify a [data type](data-types.md) for the output value.
 
-For more information, see [Outputs in Bicep](template-outputs.md).
+For more information, see [Outputs in Bicep](./outputs.md).
 
 ## Comments
 

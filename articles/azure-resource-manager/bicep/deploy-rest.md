@@ -70,7 +70,7 @@ The examples in this article use resource group deployments.
    }
    ```
 
-1. Before deploying your template, you can preview the changes the template will make to your environment. Use the [what-if operation](template-deploy-what-if.md) to verify that the template makes the changes that you expect. What-if also validates the template for errors.
+1. Before deploying your template, you can preview the changes the template will make to your environment. Use the [what-if operation](./deploy-what-if.md) to verify that the template makes the changes that you expect. What-if also validates the template for errors.
 
 1. To deploy a template, provide your subscription ID, the name of the resource group, the name of the deployment in the request URI.
 
