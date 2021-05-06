@@ -23,6 +23,9 @@ Certain on-premises networks are connected to Azure Virtual Network either throu
 > [!NOTE]
 > When creating a Azure Virtual Network that will be peered with a lab account, it's important to understand how the virtual network's region impacts where labs are created.  For more information, see the administrator guide's section on [regions\locations](./administrator-guide.md#regionslocations).
 
+> [!NOTE]
+> If your school needs to perform content filtering, such as for compliance with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act), you will need to use 3rd party software.  For more information, read guidance on [content filtering with Lab Services](./administrator-guide.md#content-filtering).
+
 ## Configure at the time of lab account creation
 
 During the new [lab account creation](tutorial-setup-lab-account.md), you can pick an existing virtual network that shows in the **Peer virtual network** dropdown list on the **Advanced** tab.  The list will only show virtual networks in the same region as the lab account. The selected virtual network is connected (peered) to labs created under the lab account.  All the virtual machines in labs that are created after the making this change will have access to the resources on the peered virtual network.

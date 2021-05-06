@@ -2,7 +2,7 @@
 title: What's new? Release notes - Azure Event Grid
 description: Learn what is new with Azure Event Grid, such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 ms.topic: overview
-ms.date: 07/23/2020
+ms.date: 04/27/2021
 ---
 
 # What's new in Azure Event Grid?
@@ -30,7 +30,7 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
         - StringNotEndsWith
         - NumberInRange
         - NumberNotInRange
-        - IsNull
+        - IsNullOrUndefined
         - IsNotNull
 - [Allow Event Grid schema to CloudEvents 1.0 schema transformations for custom topics and domains](cloudevents-schema.md#configure-event-grid-for-cloudevents)
         

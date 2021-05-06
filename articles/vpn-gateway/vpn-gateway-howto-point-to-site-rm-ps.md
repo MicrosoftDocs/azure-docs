@@ -1,6 +1,6 @@
 ---
 title: 'Connect to a VNet from a computer - P2S VPN and native Azure certificate authentication: PowerShell'
-description: Connect Windows and macOS clients securely to Azure virtual network using P2S and self-signed or CA issued certificates. This article uses PowerShell.
+description: Learn how to connect Windows and macOS clients securely to Azure virtual network using P2S and self-signed or CA issued certificates.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc

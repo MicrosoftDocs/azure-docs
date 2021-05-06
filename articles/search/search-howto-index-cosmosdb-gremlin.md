@@ -28,7 +28,7 @@ This article shows you how to configure Azure Cognitive Search to index content 
 
 ## Get started
 
-You can use the [preview REST API](https://docs.microsoft.com/rest/api/searchservice/index-2020-06-30-preview) to index Azure Cosmos DB data that's available through the Gremlin API by following a three-part workflow common to all indexers in Azure Cognitive Search: create a data source, create an index, create an indexer. In the process below, data extraction from Cosmos DB starts when you submit the Create Indexer request.
+You can use the [preview REST API](https://docs.microsoft.com/rest/api/searchservice/index-preview) to index Azure Cosmos DB data that's available through the Gremlin API by following a three-part workflow common to all indexers in Azure Cognitive Search: create a data source, create an index, create an indexer. In the process below, data extraction from Cosmos DB starts when you submit the Create Indexer request.
 
 By default the Azure Cognitive Search Cosmos DB Gremlin API indexer will make every vertex in your graph a document in the index. Edges will be ignored. Alternatively, you could set the query to only index the edges.
 
