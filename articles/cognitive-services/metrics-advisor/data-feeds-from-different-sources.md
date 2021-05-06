@@ -57,7 +57,6 @@ You can create a **credential entity** to store credential related information, 
 |[**Azure SQL Database / SQL Server**](#sql) | Basic<br>Managed Identity<br>Service principal<br>Service principal from key vault<br>Azure SQL Connection String |
 |[**Azure Table Storage**](#table) | Basic | 
 |[**ElasticSearch**](#es) | Basic |
-|[**Http request**](#http) | Basic | 
 |[**InfluxDB (InfluxQL)**](#influxdb) | Basic |
 |[**MongoDB**](#mongodb) | Basic |
 |[**MySQL**](#mysql) | Basic |
@@ -432,32 +431,6 @@ Check allowed services and allowed resource types checkboxes, then click the **G
     
     ``` SQL
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd
-    ```
-
-    <!-- For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples. -->
-
-
-## <span id="http">HTTP request</span>
-
-* **Request URL**: An HTTP url which can return a JSON. 
-    The following parameters are supported:
-  * `%Y` is the year formatted as `yyyy`
-  * `%m` is the month formatted as `MM`
-  * `%d` is the day formatted as `dd`
-  * `%h` is the hour formatted as `HH`
-  * `%M` is the minute formatted as `mm`
-
-    For example: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
-* **Request HTTP method**: Use GET or POST.
-* **Request header**: Could add basic authentication. 
-* **Request payload**: Only JSON payload is supported. Placeholder `@IntervalStart` is supported in the payload. The response should be in the following JSON format: [{"timestamp": "2018-01-01T00:00:00Z", "market": "en-us", "count": 11, "revenue": 1.23}, {"timestamp": "2018-01-01T00:00:00Z", "market":"zh-cn", "count":22, "revenue":4.56}].(for example, when data of 2020-06-21T00:00:00Z is ingested, @IntervalStart = 2020-06-21T00:00:00Z)
-
-    Sample query:
-    
-    ``` JSON
-    {
-       "[Timestamp]":"@IntervalStart"
-    }
     ```
 
     <!-- For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples. -->
