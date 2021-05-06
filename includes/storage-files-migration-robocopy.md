@@ -16,7 +16,6 @@ Robocopy /MT:32 /R:5 /W:5 /B /MIR /IT /COPY:DATSO /DCOPY:DAT /NP /NFL /NDL /UNIL
 
 | Switch                | Meaning |
 |-----------------------|---------|
-
 | `/MT:n`               | Allows Robocopy to run multithreaded. Default for `n` is 8. The maximum is 128 threads. Start with a high thread count for an initial run. A high thread count helps saturate the available bandwidth. Subsequent `/MIR` runs are progressively affected when you process items over network transport. For subsequent runs, match your thread count value to your processor core count and thread count per core. Consider whether cores need to be reserved for other tasks that a production server might have. |
 | `/R:n`                | Maximum retry count for a file that fails to copy on first attempt. You can improve the speed of a Robocopy run by specifying a maximum number (`n`) of retries before the file permanently fails to copy in the run. This switch works when it's already clear that there will be more Robocopy runs. If the file fails to copy in the current run, the next Robocopy job will try again. Files that failed because they were in use or because of timeout issues might eventually be copied successfully if you use this approach. |
 | `/W:n`                | Specifies the time Robocopy waits before attempting to copy a file that didn't successfully copy during a previous attempt. `n` is the number of seconds to wait between retries. `/W:n` is often used together with `/R:n`. |
