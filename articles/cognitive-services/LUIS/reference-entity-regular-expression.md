@@ -19,7 +19,7 @@ A regular expression is best for raw utterance text. It ignores case and ignores
 
 ![Regular expression entity](./media/luis-concept-entities/regex-entity.png)
 
-### Example JSON
+## Example JSON
 
 When using `kb[0-9]{6}`, as the regular expression entity definition, the following JSON response is an example utterance with the returned regular expression entities for the query:
 
