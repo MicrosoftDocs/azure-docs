@@ -72,7 +72,7 @@
     href: github-enterprise-server.md
   - name: Enable public internet access
     href: enable-public-internet-access.md
-  - name: Configure site-to-site VPN gateway
+  - name: Configure a site-to-site VPN in vWAN 
     href: configure-site-to-site-vpn-gateway.md
   - name: Configure Windows Server Failover Cluster
     href: configure-windows-server-failover-cluster.md

@@ -109,7 +109,7 @@ If you have configured your Storage Account to allow access from selected networ
 A data export rule defines the tables for which data is exported and the destination. You can have 10 enabled rules in your workspace when any additional rule above 10 must be in disable state. A destination must be unique across all export rules in your workspace.
 
 > [!NOTE]
-> Data export sends logs to destinations that you own while these have some limits: [storage accounts scalability](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts), [event hub namespace quota](../../event-hubs/event-hubs-quotas.md). It’s recommended that you monitor your destinations for throttling and apply measures when nearing the destination limit. For example: 
+> Data export sends logs to destinations that you own while these have some limits: [storage accounts scalability](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts), [event hub namespace quota](../../event-hubs/event-hubs-quotas.md). It’s recommended to monitor your destinations for throttling and apply measures when nearing its limit. For example: 
 > - Set auto-inflate feature in event hub to automatically scale up and increase the number of TUs (throughput units). You can request more TUs when auto-inflate is at max
 > - Splitting tables to several export rules where each is to different destinations
 
@@ -617,7 +617,7 @@ Supported tables are currently limited to those specified below. All data from t
 | DnsEvents |  |
 | DnsInventory |  |
 | Dynamics365Activity |  |
-| Event | Partial support – some of the data to this table is ingested through storage account. This portion is missing in export currently. |
+| Event | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics Extension agent is collected though storage while this path isn’t supported in export. |
 | ExchangeAssessmentRecommendation |  |
 | FailedIngestion |  |
 | FunctionAppLogs |  |
@@ -653,7 +653,7 @@ Supported tables are currently limited to those specified below. All data from t
 | SecurityBaseline |  |
 | SecurityBaselineSummary |  |
 | SecurityDetection |  |
-| SecurityEvent | Partial support – some of the data to this table is ingested through storage account. This portion is missing in export currently. |
+| SecurityEvent | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics Extension agent is collected though storage while this path isn’t supported in export. |
 | SecurityIncident |  |
 | SecurityIoTRawEvent |  |
 | SecurityNestedRecommendation |  |
@@ -678,7 +678,7 @@ Supported tables are currently limited to those specified below. All data from t
 | SynapseSqlPoolRequestSteps |  |
 | SynapseSqlPoolSqlRequests |  |
 | SynapseSqlPoolWaits |  |
-| Syslog | Partial support – some of the data to this table is ingested through storage account. This portion is missing in export currently. |
+| Syslog | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics Extension agent is collected though storage while this path isn’t supported in export. |
 | ThreatIntelligenceIndicator |  |
 | Update | Partial support – some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
 | UpdateRunProgress |  |
