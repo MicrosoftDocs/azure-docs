@@ -13,12 +13,14 @@ ms.reviewer: jrasnick
 
 # Create and use native external tables using SQL pools in Azure Synapse Analytics
 
-In this section, you'll learn how to create and use [external tables](develop-tables-external-tables.md) in serverless SQL pool. External tables are useful when you want to control access to external data in serverless SQL pool and if you want to use tools, such as Power BI, in conjunction with serverless SQL pool. External tables can access two types of storage:
+In this section, you'll learn how to create and use [native external tables](develop-tables-external-tables.md) in Synapse SQL pools. The native external tables are the latest technology that will be used in future in Polybase to access external tables. The native external tables have better performance compared to the existing external tables with TYPE=HADOOP in their external data source definition because they are using the native code to access external data. 
+
+External tables are useful when you want to control access to external data in Synapse SQL pool and if you want to use tools, such as Power BI, in conjunction with Synapse SQL pool. External tables can access two types of storage:
 - Public storage where users access public storage files.
 - Protected storage where users access storage files using SAS credential, Azure AD identity, or Managed Identity of Synapse workspace.
 
 > [NOTE!]
-> The native external tables are the latest technology that will be used in future in Polybase to access external tables. However, this technology is in public preview in the dedicated pools. If you want to use generally available functionality in the dedicated pools, use Hadoop external tables.
+>  In the dedicated SQL pools you can use only Parquet native external tables. The native Parquet external tables are in public preview in the dedicated pools. If you want to use generally available functionality in the dedicated pools, or you need to access CSV or ORC files use Hadoop external tables. Native external tables are generaly available in the serverless SQL pools.
 > Learn more about the differences between the native and Hadoop external tables in [this article](develop-tables-external-tables.md).
 
 ## Prerequisites
@@ -40,8 +42,8 @@ Your first step is to create a database where the tables will be created. Then i
         CREDENTIAL = sqlondemand
     );
     GO
-    CREATE EXTERNAL DATA SOURCE YellowTaxi
-    WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/')
+    CREATE EXTERNAL DATA SOURCE nyctlc
+    WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/')
     ```
 
 - File formats `QuotedCSVWithHeaderFormat` and `ParquetFormat` that describe CSV and parquet file types.
@@ -90,6 +92,7 @@ WITH (
 
 You can create external tables that read data from the files placed on publicly available Azure storage. This [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) will create public external data source and Parquet file format definition that is used in the following query:
 
+#### [Serverless SQL pool](#tab/serverless-sql-pool)
 ```sql
 CREATE EXTERNAL TABLE Taxi (
      vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
@@ -102,11 +105,34 @@ CREATE EXTERNAL TABLE Taxi (
      tolls_amount FLOAT,
      total_amount FLOAT
 ) WITH (
-         LOCATION = 'puYear=*/puMonth=*/*.parquet',
-         DATA_SOURCE = YellowTaxi,
+         LOCATION = 'yellow/puYear=*/puMonth=*/*.parquet',
+         DATA_SOURCE = nyctlc,
          FILE_FORMAT = ParquetFormat
 );
 ```
+#### [Dedicated SQL pool](#tab/dedicated-sql-pool)
+
+```sql
+CREATE EXTERNAL TABLE Taxi (
+     vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
+     pickup_datetime DATETIME2, 
+     dropoff_datetime DATETIME2,
+     passenger_count INT,
+     trip_distance FLOAT,
+     fare_amount FLOAT,
+     tip_amount FLOAT,
+     tolls_amount FLOAT,
+     total_amount FLOAT
+) WITH (
+         LOCATION = 'yellow',
+         DATA_SOURCE = nyctlc,
+         FILE_FORMAT = ParquetFormat
+);
+```
+
+The Parquet external tables (preview) in dedicated SQL pools cannot use wildcards in the location.
+---
+
 ## Use an external table
 
 You can use [external tables](develop-tables-external-tables.md) in your queries the same way you use them in SQL Server queries.
