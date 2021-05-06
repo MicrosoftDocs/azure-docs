@@ -60,7 +60,7 @@ Consider the following scenario:
 
 ### Application session
 
-A web, mobile, or single page application can be protected by OAuth access, ID tokens, or SAML tokens. When a user tries to access a protected resource on the app, the app checks whether there is an active session on the application side. If there is no app session or the session has expired, the app will take the user to Azure AD B2C to sign-in page.
+A web, mobile, or single page application can be protected by OAuth2 access tokens, ID tokens, or SAML tokens. When a user tries to access a protected resource on the app, the app checks whether there is an active session on the application side. If there is no app session or the session has expired, the app will take the user to Azure AD B2C to sign-in page.
 
 The application session can be a cookie-based session stored under the application domain name, such as `https://contoso.com`. Mobile applications might store the session in a different way but using a similar approach.
 
@@ -241,15 +241,12 @@ When you want to sign the user out of the application, it isn't enough to clear 
 Upon a sign-out request, Azure AD B2C:
 
 1. Invalidates the Azure AD B2C cookie-based session.
-::: zone pivot="b2c-user-flow"
 2. Attempts to sign out from federated identity providers
-::: zone-end
 ::: zone pivot="b2c-custom-policy"
-3. Attempts to sign out from federated identity providers:
    - OpenId Connect - If the identity provider well-known configuration endpoint specifies an `end_session_endpoint` location. The sign-out request doesn't pass the `id_token_hint` parameter. If the federated identity provider requires this parameter, the sign-out request will fail.
    - OAuth2 - If the [identity provider metadata](oauth2-technical-profile.md#metadata) contains the `end_session_endpoint` location.
    - SAML - If the [identity provider metadata](identity-provider-generic-saml.md) contains the `SingleLogoutService` location.
-4. Optionally, signs-out from other applications. For more information, see the [Single sign-out](#single-sign-out) section.
+3. Optionally, signs-out from other applications. For more information, see the [Single sign-out](#single-sign-out) section.
 
 > [!NOTE]
 > You can disable the sign out from federated identity providers, by setting the identity provider technical profile metadata `SingleLogoutEnabled` to `false`.
@@ -261,9 +258,29 @@ The sign-out clears the user's single sign-on state with Azure AD B2C, but it mi
 
 ### Single sign-out 
 
-When you redirect the user to the Azure AD B2C sign-out endpoint (for both OAuth2 and SAML protocols), Azure AD B2C clears the user's session from the browser. However, the user might still be signed in to other applications that use Azure AD B2C for authentication. To enable those applications to sign the user out simultaneously, Azure AD B2C sends an HTTP GET request to the registered `LogoutUrl` of all the applications that the user is currently signed in to.
+When you redirect the user to the Azure AD B2C sign-out endpoint (for both OAuth2 and SAML protocols), Azure AD B2C clears the user's session from the browser. However, the user might still be signed in to other applications that use Azure AD B2C for authentication. To sign the user out of all applications which have an active session, Azure AD B2C supports *single sign-out*, also known as *Single Log-Out (SLO)*.
 
-Applications must respond to this request by clearing any session that identifies the user and returning a `200` response. If you want to support single sign-out in your application, you must implement a `LogoutUrl` in your application's code. 
+In order for an application to participate in single sign-out, it needs to:
+- Have a registered logout URL, either as a [SingleLogoutService location in its SAML metadata document](saml-service-provider.md?pivots=b2c-custom-policy#override-or-set-the-logout-url-optional) or as the `logoutUrl` property in the application manifest (configured as the **Front-channel logout URL** on the **Authentication** page of the app registration in the Azure Portal).
+- Use custom policies to sign the user in, using OpenID Connect/OAuth2 or SAML as the protocol and with the correct configuration of the token issuer technical profile, as detailed below.
+
+There are two main approaches to single sign-out:
+- **IdP-initiated SLO** where the sign-out is triggered by the Identity Provider (IdP).
+  - The user's browser gets sent to the [Azure AD B2C sign-out endpoint](openid-connect.md#send-a-sign-out-request), which looks like `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?state=foo&post_logout_redirect_uri=https%3A%2F%2Fjwt.ms%2F`.
+  - Note that even though this is an OAuth2 endpoint, the user will also be signed out of participating SAML applications.
+- **SP/RP-initiated SLO** where the sign-out is triggered by the SAML Service Provider (SP) or Relying Party (RP) application.
+  - When using OpenID Connect/OAuth2, the Relying Party application redirects the user to the sign-out endpoint that is also used for IdP-initiated SLO. Ideally, the application also includes an `id_token_hint` representing the currently signed-in user.
+  - When using the SAML protocol, the Service Provider sends a [SAML Logout Request](../active-directory/develop/single-sign-out-saml-protocol) to Azure AD B2C. Note that as explained in the [SamlSSOSessionProvider documentation](custom-policy-reference-sso.md#samlssosessionprovider), Azure AD B2C requires that the logout request includes both the user's `NameID` and `SessionIndex`.
+
+When Azure AD B2C receives the logout request, it uses a front-channel HTML iframe to send an HTTP request to the registered logout URL of each participating application that the user is currently signed in to (both OpenID Connect/OAuth2 and SAML applications, regardless of how single sign-out was initiated).
+- For OpenID Connect/OAuth2 applications, it sends an HTTP GET to the registered logout URL.
+- For SAML applications, it sends a SAML Logout Request to the registered logout URL. Note that in case of SAML SP-initiated sign-out, the application that triggered the sign-out is skipped as it will receive the SAML Logout Response at the end of the flow.
+
+Applications must respond to this request by clearing any session that identifies the user and returning an `HTTP 200` response. If you want to support single sign-out in your application, you must implement such a logout URL in your application's code.
+
+When all applications have been notified of the sign-out, the flow is then finalized:
+- For SAML SP-initiated sign-out, a SAML Logout Response is sent to the application that triggered the sign-out to notify it of the result of the logout request.
+- In all other cases, the browser is redirected to the requested `post_logout_redirect_uri` including the (optional) `state` parameter; for example `https://jwt.ms/?state=foo` for the sign-out request above.
 
 To support single sign-out, the token issuer technical profiles for both JWT and SAML must specify:
 

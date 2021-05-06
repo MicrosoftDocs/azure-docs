@@ -216,7 +216,7 @@ To enable identity provider-initiated flow, set the **IdpInitiatedProfileEnabled
 To sign in or sign up a user through identity provider-initiated flow, use the following URL:
 
 ```
-https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/generic/login?EntityId=app-identifier-uri 
+https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/generic/login?EntityId=app-identifier-uri&RelayState=relay-state
 ```
 
 Replace the following values:
@@ -224,6 +224,7 @@ Replace the following values:
 * **tenant-name** with your tenant name
 * **policy-name** with your SAML relying party policy name
 * **app-identifier-uri** with the `identifierUris` in the metadata file, such as `https://contoso.onmicrosoft.com/app-name`
+* **relay-state** (optional) with a value for the `RelayState` parameter which will then get sent as-is to the Service Provider along with the SAML response
 
 ### Sample policy
 
