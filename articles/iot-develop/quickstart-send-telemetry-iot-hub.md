@@ -7,7 +7,7 @@ ms.service: iot-develop
 ms.topic: quickstart
 ms.date: 05/04/2021
 ms.collection: embedded-developer, application-developer
-zone_pivot_groups: iot-develop-set2
+zone_pivot_groups: iot-develop-set1
 
 #Customer intent: As a device application developer, I want to learn the basic workflow of using an Azure IoT device SDK to build a client app on a device, connect the device securely to Azure IoT Hub, and send telemetry.
 ---
