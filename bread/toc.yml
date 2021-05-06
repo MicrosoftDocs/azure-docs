@@ -83,6 +83,19 @@
     - name: Azure PowerShell
       tocHref: /azure/api-management/scripts/
       topicHref: /azure/api-management/powershell-samples/
+  - name: Applied AI Services
+    tocHref: /azure/applied-ai-services/
+    topicHref: /azure/applied-ai-services/
+    items:
+    - name: Immersive Reader
+      tocHref: /azure/cognitive-services/immersive-reader/
+      topicHref: /azure/cognitive-services/immersive-reader/
+    - name: Metrics Advisor
+      tocHref: /azure/cognitive-services/metrics-advisor/
+      topicHref: /azure/cognitive-services/metrics-advisor/
+    - name: Form Recognizer
+      tocHref: /azure/cognitive-services/form-recognizer/
+      topicHref: /azure/cognitive-services/form-recognizer/
   - name: Avere vFXT for Azure
     tocHref: /azure/avere-vfxt/
     topicHref: /azure/avere-vfxt/
@@ -433,18 +446,12 @@
     - name: Project Acoustics
       tocHref: /azure/cognitive-services/acoustics/
       topicHref: /azure/cognitive-services/acoustics/what-is-acoustics
-    - name: Form Recognizer
-      tocHref: /azure/cognitive-services/form-recognizer/
-      topicHref: /azure/cognitive-services/form-recognizer/
     - name: Ink Recognizer
       tocHref: /azure/cognitive-services/Ink-Recognizer/
       topicHref: /azure/cognitive-services/Ink-Recognizer/
     - name: Personalizer
       tocHref: /azure/cognitive-services/personalizer/
       topicHref: /azure/cognitive-services/personalizer/
-    - name: Immersive Reader
-      tocHref: /azure/cognitive-services/immersive-reader/
-      topicHref: /azure/cognitive-services/immersive-reader/
   - name: Communication Services
     tocHref: /azure/communication-services/
     topicHref: /azure/communication-services/
