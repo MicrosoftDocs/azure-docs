@@ -50,7 +50,7 @@ The following entities are supported:
 | Prebuilt entity | zh-CN |
 | --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
-Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    V2, V3   |
+[Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Dimension](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>weight<br>information (ex: bit/byte)<br>length (ex: meter)<br>speed (ex: mile per hour)  |    V2, V3   |
 [Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
