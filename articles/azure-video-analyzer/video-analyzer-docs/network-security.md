@@ -7,7 +7,7 @@ ms.date: 05/04/2021
 ---
 
 # Network security for Azure Video Analyzer resources
-This article describes how to use service tag feature for Azure Video Analyzer.
+This article describes how to use the service tag feature for Azure Video Analyzer.
 <!--Note: eventually, we will add information about private links here -->
 
 ## Service tags
@@ -19,6 +19,3 @@ You can use service tags to define network access controls on [network security 
 | --- | -------- |:---:|:---:|:---:|
 | AzureVideoAnalyzer | Azure Video Analyzer | Both | No | No |
 
-## Next steps
-
-<!--Note: Add one to three relevant next steps with links -->
