@@ -46,7 +46,7 @@ To create an app role by using the Azure portal's user interface:
 1. Select the **Directory + subscription** filter in top menu, and then choose the Azure Active Directory tenant that contains the app registration to which you want to add an app role.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**, and then select the application you want to define app roles in.
-1. Select **App roles **, and then select **Create app role**.
+1. Select **App roles**, and then select **Create app role**.
 
    :::image type="content" source="media/howto-add-app-roles-in-azure-ad-apps/app-roles-overview-pane.png" alt-text="An app registration's app roles pane in the Azure portal":::
 
