@@ -96,10 +96,6 @@ Kubenet is currently not supported with Windows nodes.
 
 Yes, an ingress-controller that supports Windows Server containers can run on Windows nodes in AKS.
 
-## Can I use Azure Dev Spaces with Windows nodes?
-
-Azure Dev Spaces is currently only available for Linux-based node pools.
-
 ## Can my Windows Server containers use gMSA?
 
 Group managed service accounts (gMSA) support is not currently available in AKS.
