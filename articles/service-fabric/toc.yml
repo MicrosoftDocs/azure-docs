@@ -467,6 +467,32 @@
           href: service-fabric-develop-csharp-applications-with-vs-code.md
         - name: Develop Java Service Fabric applications with VS Code
           href: service-fabric-develop-java-applications-with-vs-code.md
+  - name: Use Service Fabric managed clusters
+    items:
+    - name: Add a virtual machine scale set extension to a managed cluster node type
+      href: how-to-managed-cluster-vmss-extension.md
+    - name: Configure your managed cluster
+      href: how-to-managed-cluster-configuration.md
+    - name: Add NSG rules and other managed cluster networking options
+      href: how-to-managed-cluster-networking.md
+    - name: Deploy managed cluster applications using ARM template
+      href: how-to-managed-cluster-app-deployment-template.md
+    - name: Enable disk encryption for managed cluster nodes
+      href: how-to-enable-managed-cluster-disk-encryption.md
+    - name: Use managed identity for managed cluster nodes
+      href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
+    - name: Deploy a stateless only node type with a managed cluster 
+      href: how-to-managed-cluster-stateless-node-type.md 
+    - name: Deploy managed cluster applications using managed identity
+      href: how-to-managed-cluster-application-managed-identity.md
+    - name: Deploy managed cluster application secrets
+      href: how-to-managed-cluster-application-secrets.md
+    - name: Configure managed cluster Availability Zone spanning
+      href: how-to-managed-cluster-availability-zones.md
+    - name: Select managed cluster managed disk types
+      href: how-to-managed-cluster-managed-disk.md
+    - name: Configure managed cluster upgrades
+      href: how-to-managed-cluster-upgrades.md
   - name: Plan and prepare
     items:
     - name: Plan cluster capacity
