@@ -75,6 +75,8 @@
       items:
         - name: Set up over-the-air updates
           href: how-to-set-up-over-the-air-updates.md
+        - name: Identify your update package
+          href: how-to-select-update-package.md
         - name: Update your Azure Percept DK over-the-air
           href: how-to-update-over-the-air.md
         - name: Update your Azure Percept DK via USB
