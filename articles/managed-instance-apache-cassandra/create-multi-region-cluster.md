@@ -95,7 +95,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a mu
            --debug
     ```
 
-1. When the cluster resource is created, you are ready to create a datacenter. First, we will create a datacenter in East US 2 (replace `<Subscription ID>` with your subscription ID). This can take up to 10 minutes:
+1. When the cluster resource is created, you are ready to create a data center. First, create a datacenter in East US 2 (replace `<Subscription ID>` with your subscription ID). This can take up to 10 minutes:
 
     ```azurecli-interactive
         resourceGroupName='cassandra-mi-multi-region'
