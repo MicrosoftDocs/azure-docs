@@ -1,6 +1,6 @@
 ---
-title: Integrating Key Vault with DigiCert Certificate Authority
-description: How to integrate Key Vault with DigiCert Certificate Authority
+title: Integrating Key Vault with DigiCert certificate authority
+description: This article describes how to integrate Key Vault with DigiCert certificate authority so you can provision, manage, and deploy certificates for your network.
 services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
@@ -12,24 +12,24 @@ ms.date: 06/02/2020
 ms.author: sebansal
 ---
 
-# Integrating Key Vault with DigiCert Certificate Authority
+# Integrating Key Vault with DigiCert certificate authority
 
-Azure Key Vault allows you to easily provision, manage, and deploy digital certificates for your network and to enable secure communications for applications. A Digital certificate is an electronic credential to establish proof of identity in an electronic transaction. 
+Azure Key Vault allows you to easily provision, manage, and deploy digital certificates for your network and to enable secure communications for applications. A digital certificate is an electronic credential that establishes proof of identity in an electronic transaction. 
 
-Azure key vault users can generate DigiCert certificates directly from their Key Vault. Key Vault would ensure end-to-end certificate lifecycle management for those certificates issued by DigiCert through Key Vault’s trusted partnership with DigiCert Certificate Authority.
+Azure Key Vault users can generate DigiCert certificates directly from their key vaults. Key Vault has a trusted partnership with DigiCert certificate authority. This partnership ensures end-to-end certificate lifecycle management for certificates issued by DigiCert.
 
-For more general information about Certificates, see [Azure Key Vault Certificates](./about-certificates.md).
+For more general information about certificates, see [Azure Key Vault certificates](./about-certificates.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you start.
 
 ## Prerequisites
 
-To complete this guide, you must have the following resources.
-* A key vault. You can use an existing key vault, or create a new one by following the steps in one of these quickstarts:
-   - [Create a key vault with the Azure CLI](../general/quick-create-cli.md)
-   - [Create a key vault with Azure PowerShell](../general/quick-create-powershell.md)
-   - [Create a key vault with the Azure portal](../general/quick-create-portal.md).
-*	You need to activate DigiCert CertCentral account. [Sign up](https://www.digicert.com/account/signup/) for your CertCentral account.
+To complete the procedures in this article, you need to have:
+* A key vault. You can use an existing key vault or create one by completing the steps in one of these quickstarts:
+   - [Create a key vault by using the Azure CLI](../general/quick-create-cli.md)
+   - [Create a key vault by using Azure PowerShell](../general/quick-create-powershell.md)
+   - [Create a key vault by using the Azure portal](../general/quick-create-portal.md).
+*	An activated DigiCert CertCentral account. [Sign up](https://www.digicert.com/account/signup/) for your CertCentral account.
 *	Administrator level permissions in your accounts.
 
 
