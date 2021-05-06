@@ -23,7 +23,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## May 2021
 
-* Support for [dynamic change of service level](dynamic-change-volume-service-level) of a replication destination volume   
+* Support for [dynamic change of service level](dynamic-change-volume-service-level.md) of a replication destination volume   
 
     Azure NetApp Files now supports dynamically changing the service level of a replication destination volume.
 
@@ -35,7 +35,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
         * *Pool Consumed Throughput*
         * *Percentage Pool Allocated to Volume Throughput*
         * *Percentage Pool Consumed Throughput*
-
     * Volume throughput metrics
         * *Volume Allocated Throughput*
         * *Volume Consumed Throughput*
