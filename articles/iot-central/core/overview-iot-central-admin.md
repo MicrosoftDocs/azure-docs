@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
+
+# This article applies to administrators.
 ---
 
 # IoT Central administrator guide
-
-*This article applies to administrators.*
 
 An IoT Central application lets you monitor and manage millions of devices throughout their life cycle. This guide is for administrators who manage IoT Central applications.
 
