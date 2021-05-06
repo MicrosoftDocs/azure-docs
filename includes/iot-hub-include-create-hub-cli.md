@@ -14,14 +14,14 @@ In this section, you use Azure CLI to create an IoT hub and a resource group.  A
 To create an IoT hub and a resource group:
 
 1. Launch your CLI app.  To run the CLI commands in the rest of this quickstart, copy the command syntax, paste it into your CLI app, edit variable values, and press Enter.
-    - If you're using Cloud Shell, open a new browser tab and [![Launch Cloud Shell in a new window](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com).
+    - If you prefer to use Cloud Shell, you can select the **Try It** button on the CLI commands to launch Cloud Shell in a new browser window. You can also open Cloud Shell in a separate browser tab by going to https://shell.azure.com/bash.
     - If you're using Azure CLI locally, start your CLI console app and log in to Azure CLI.
 
 1. In your CLI app, run the [az group create](/cli/azure/group#az_group_create) command to create a resource group. The following command creates a resource group named *MyResourceGroup* in the *eastus* location. 
     >[!NOTE]
     > You can optionally set an alternate location. To see available locations, run `az account list-locations`. This tutorial uses *eastus* as shown in the example command. 
 
-    ```azurecli
+    ```azurecli-interactive
     az group create --name MyResourceGroup --location eastus
     ```
 
@@ -29,7 +29,7 @@ To create an IoT hub and a resource group:
 
     *YourIotHubName*. Replace this placeholder and the surrounding braces in the following command, using the name you chose for your IoT hub. An IoT hub name must be globally unique in Azure. Use your IoT hub name in the rest of this quickstart wherever you see the placeholder.
 
-    ```azurecli
+    ```azurecli-interactive
     az iot hub create --resource-group MyResourceGroup --name {YourIoTHubName}
     ```
 
@@ -43,13 +43,13 @@ To create a simulated device:
 
     *myDevice*. You can use this name directly for the simulated device ID in the rest of this article. Optionally, use a different name. 
 
-    ```azurecli
+    ```azurecli-interactive
     az iot hub device-identity create --device-id myDevice --hub-name {YourIoTHubName} 
     ```
 
 1.  Run the [az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az_iot_hub_device_identity_connection_string_show) command. 
 
-    ```azurecli
+    ```azurecli-interactive
     az iot hub device-identity connection-string show --device-id myDevice --hub-name {YourIoTHubName}
     ```
 
