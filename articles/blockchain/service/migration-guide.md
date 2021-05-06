@@ -52,7 +52,7 @@ Based on your current development state, you can either opt to use existing ledg
 
 ### Open support case
 
-If you have a support plan and need technical help, please create a support request. Use the following steps to submit a support request.
+Use the following steps to submit a support request.
 
 Open a Microsoft Support ticket to pause the consortium and export your blockchain data.
 
