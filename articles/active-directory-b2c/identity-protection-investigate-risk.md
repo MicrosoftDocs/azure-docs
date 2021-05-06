@@ -79,6 +79,8 @@ Administrators can then choose to take action on these events. Administrators ca
 - Block user from signing in
 - Investigate further using Azure ATP
 
+**Dismissed** is an operation that is perform by an administrator to dismiss a risk. The administrator dismisses the risk  through the Azure portal, or programmatically through the Microsoft Graph API [Dismiss User Risk](https://docs.microsoft.com/graph/api/riskyusers-dismiss?view=graph-rest-beta&preserve-view=true). The **Dismissed** is considered a privileged action as conducted by an administrator. The **Remediated** is an action performers by the risky user, or by an administrator, on behalf of a user to remediate the risk. For example, password reset.
+
 ### Navigating the risky users report
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).

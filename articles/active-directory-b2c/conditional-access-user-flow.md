@@ -46,7 +46,11 @@ The following example shows a Conditional Access technical profile that is used 
 
 ::: zone-end
 
-In the **Remediation** phase that follows, the user is challenged with MFA. Once complete, Azure AD B2C informs Identity Protection that the identified sign-in threat has been remediated and by which method. In this example, Azure AD B2C signals that the user has successfully completed the multi-factor authentication challenge. 
+In the *Remediation* phase that follows, the user is challenged with MFA. Once complete, Azure AD B2C informs Identity Protection that the identified sign-in threat has been remediated and by which method. In this example, Azure AD B2C signals that the user has successfully completed the multi-factor authentication challenge.
+
+The remediation may also happen through other channels. For example, when the account's password is reset, either by the administrator or by the user. You can check the the user *Risk state* in the [risky users report](identity-protection-investigate-risk.md#navigating-the-risky-users-report).
+
+To remediate the risk successfully, within the journey make sure the *Remediation* technical profile is called after *Evaluation* is executed. If only the *Evaluation* technical profile invoked, the risk state is *At risk*.  When the *Evaluation* technical profile recommendation is `Block`, the call to *Evaluation* technical profile is not required. The status risk state is *At risk*.
 
 ::: zone pivot="b2c-custom-policy"
 
@@ -151,21 +155,15 @@ To add a Conditional Access policy:
 
 1. Enable your test Conditional Access policy by selecting **Create**.
 
-## Add Conditional Access to a user flow
-
-After you've added the Azure AD Conditional Access policy, enable conditional access in your user flow or custom policy. When you enable conditional access, you don't need to specify a policy name.
-
-Multiple Conditional Access policies may apply to an individual user at any time. In this case, the most strict access control policy takes precedence. For example, if one policy requires multi-factor authentication (MFA), while the other blocks access, the user will be blocked.
-
 ## Conditional Access Template 1: Sign-in risk-based Conditional Access
 
 Most users have a normal behavior that can be tracked, when they fall outside of this norm it could be risky to allow them to just sign in. You may want to block that user or maybe just ask them to perform multi-factor authentication to prove that they are really who they say they are.
 
-A sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner. Organizations with P2 licenses can create Conditional Access policies incorporating [Azure AD Identity Protection sign-in risk detections](../active-directory/identity-protection/concept-identity-protection-risks.md#sign-in-risk). Please note the [limitations on Identity Protection detections for B2C](./identity-protection-investigate-risk.md?pivots=b2c-user-flow#service-limitations-and-considerations).
+A sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner. Azure AD B2C tenants with P2 licenses can create Conditional Access policies incorporating [Azure AD Identity Protection sign-in risk detections](../active-directory/identity-protection/concept-identity-protection-risks.md#sign-in-risk). Please note the [limitations on Identity Protection detections for B2C](./identity-protection-investigate-risk.md?pivots=b2c-user-flow#service-limitations-and-considerations).
 
 If risk is detected, users can perform multi-factor authentication to self-remediate and close the risky sign-in event to prevent unnecessary noise for administrators.
 
-Organizations should choose one of the following options to enable a sign-in risk-based Conditional Access policy requiring multi-factor authentication (MFA) when sign-in risk is medium OR high.
+Configure Conditional Access through Azure Portal or Microsoft Graph APIs to enable a sign-in risk-based Conditional Access policy requiring multi-factor authentication (MFA) when sign-in risk is medium OR high.
 
 ### Enable with Conditional Access policy
 
@@ -185,11 +183,11 @@ Organizations should choose one of the following options to enable a sign-in ris
 9. Confirm your settings and set **Enable policy** to **On**.
 10. Select **Create** to create to enable your policy.
 
-### Enable with Conditional Access APIs
+### Enable with Conditional Access APIs (Optional)
 
-To create a Sign-in risk-based Conditional Access policy with Conditional Access APIs, please refer to the documentation for [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api).
+To create a Sign-in risk-based Conditional Access policy with MS Graph APIs. For more information, see [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api).
 
-The following template can be used to create a Conditional Access policy with display name "CA002: Require MFA for medium+ sign-in risk" in report-only mode.
+The following template can be used to create a Conditional Access policy with display name "Template 1: Require MFA for medium+ sign-in risk" in report-only mode.
 
 ```json
 {
@@ -221,6 +219,12 @@ The following template can be used to create a Conditional Access policy with di
     }
 }
 ```
+
+## Add Conditional Access to a user flow
+
+After you've added the Azure AD Conditional Access policy, enable conditional access in your user flow or custom policy. When you enable conditional access, you don't need to specify a policy name.
+
+Multiple Conditional Access policies may apply to an individual user at any time. In this case, the most strict access control policy takes precedence. For example, if one policy requires multi-factor authentication (MFA), while the other blocks access, the user will be blocked.
 
 ## Enable multi-factor authentication (optional)
 
