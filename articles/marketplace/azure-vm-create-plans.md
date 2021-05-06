@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 04/01/2021
+ms.date: 05/06/2021
 ---
 
 # How to create plans for a virtual machine offer
@@ -44,13 +44,6 @@ Select **Create**. This opens the **Plan setup** page.
 ## Plan setup
 
 Set the high-level configuration for the type of plan, specify whether it reuses a technical configuration from another plan, and identify the Azure regions where the plan should be available. Your selections here determine which fields are displayed on other panes for the same plan.
-
-### Reuse technical configuration
-
-If you have more than one plan of the same type, and the packages are identical between them, you can select **This plan reuses technical configuration from another plan**. This option lets you select one of the other plans of the same type for this offer and lets you reuse its technical configuration.
-
-> [!NOTE]
-> When you reuse the technical configuration from another plan, the entire **Technical configuration** tab disappears from this plan. The technical configuration details from the other plan, including any updates you make in the future, will be used for this plan as well. This setting can't be changed after the plan is published.
 
 ### Azure regions
 
@@ -161,6 +154,10 @@ Provide the images and other technical properties associated with this plan.
 
 > [!NOTE]
 > This tab doesn't display if you configured this plan to reuse packages from another on the **Plan setup** tab.
+
+### Reuse technical configuration
+
+If you have more than one plan of the same type, and the packages are identical between them, select **This plan reuses the technical configuration from another plan**. This option lets you select one of the other plans of the same type for this offer and reuse its technical configuration.
 
 ### Operating system
 
