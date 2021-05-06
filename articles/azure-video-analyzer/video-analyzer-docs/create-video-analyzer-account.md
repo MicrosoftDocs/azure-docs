@@ -8,7 +8,7 @@ ms.date: 05/01/2021
 
 # Create a Video Analyzer account
 
-To start using Azure Video Analyzer, you will need to create a Video Analyzer account. The account needs to be associated with a storage account and [user-assigned managed identity][docs-uami]. The managed identity will need to have the permissions of the [Storage Blob Data Contributor][docs-storage-access] role for the storage account. This article describes the steps for creating a new Video Analyzer account.
+To start using Azure Video Analyzer, you will need to create a Video Analyzer account. The account needs to be associated with a storage account and [user-assigned managed identity][docs-uami]. The managed identity will need to have the permissions of the [Storage Blob Data Contributor][docs-storage-access] role and [Reader][docs-role-reader]role for the storage account. This article describes the steps for creating a new Video Analyzer account.
 
  You can use either the Azure portal or an [Azure Resource Manager (ARM) template][docs-arm-template] to create a Video Analyzer account. Choose the tab for the method you would like to use.
 
@@ -30,10 +30,10 @@ To start using Azure Video Analyzer, you will need to create a Video Analyzer ac
     | ---|---|
     |**Subscription**|If you have more than one subscription, select one from the list of Azure subscriptions that you have access to.|
     |**Resource Group**|Select an existing resource or create a new one. A resource group is a collection of resources that share lifecycle, permissions, and policies. Learn more [here](/azure/azure-resource-manager/management/overview.md#resource-groups).|
-    |**Account Name**|Enter the name of the new Video Analyzer account. A Video Analyzer account name is all lowercase letters or numbers with no spaces, and is 3 to 24 characters in length.|
+    |**Video Analyzer account name**|Enter the name of the new Video Analyzer account. A Video Analyzer account name is all lowercase letters or numbers with no spaces, and is 3 to 24 characters in length.|
     |**Location**|Select the geographic region that will be used to store the video and metadata records for your Video Analyzer account. Only the available Video Analyzer regions appear in the drop-down list box. |
-    |**Storage Account**|Select a storage account to provide blob storage of the video content for your Video Analyzer account. You can select an existing storage account in the same geographic region as your Video Analyzer account, or you can create a new storage account. A new storage account is created in the same region. The rules for storage account names are the same as for Video Analyzer accounts.<br/><br/>The Video Analyzer account and the associated storage account must be in the same Azure subscription and region.|
-    <!-- |**TODO**| *Add content for managed identities* -->
+    |**Storage account**|Select a storage account to provide blob storage of the video content for your Video Analyzer account. You can select an existing storage account in the same geographic region as your Video Analyzer account, or you can create a new storage account. A new storage account is created in the same region. The rules for storage account names are the same as for Video Analyzer accounts.<br/><br/>The Video Analyzer account and the associated storage account must be in the same Azure subscription and region.|
+    |**User identity**|Select a user-assigned managed identity that the new Video Analyzer account will use to access the storage account. You can select an existing user-assigned managed identity or you can create a new one. The user-assignment managed identity will be assigned the roles of [Storage Blob Data Contributor][docs-storage-access] and [Reader][docs-role-reader] for the storage account.
 
 1. Click **Review + create** at the bottom of the form.
 
@@ -220,6 +220,7 @@ Learn how to [deploy Video Analyzer on an IoT Edge device][docs-deploy-on-edge].
 <!-- links -->
 [docs-uami]: /azure/active-directory/managed-identities-azure-resources/overview
 [docs-storage-access]: /azure/role-based-access-control/built-in-roles#storage-blob-data-contributor
+[docs-role-reader]: /azure/role-based-access-control/built-in-roles#reader
 [docs-arm-template]: /azure/azure-resource-manager/templates/overview
 [docs-deploy-on-edge]: deploy-iot-edge-device.md
 [click-to-deploy]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fgist.githubusercontent.com%2Fbennage%2F58523b2e6a4d3bf213f16893d894dcaf%2Fraw%2Fazuredeploy.json
