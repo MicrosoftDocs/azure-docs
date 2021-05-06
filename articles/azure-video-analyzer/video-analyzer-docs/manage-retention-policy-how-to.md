@@ -49,7 +49,7 @@ Following are some known limitations with lifecycle management:
 
 * You can have at most 100 rules within the policy, and each rule can specify up to 10 containers. So if you needed to have different recording policies (for example, 3-day archive for the camera facing the parking lot, 30 days for the camera in the loading dock, and 180 days for the camera behind the checkout counter), then with one storage account you can customize the rules for at most 1000 cameras.
 * Lifecycle management policy updates are not immediate. See [this FAQ section](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#faq) for more details.
-* If you choose to apply a policy where blobs get moved to the cool tier, then playback of that portion of the archive may be affected. You may see additional latencies, or sporadic errors. Video Analyzer does not support playback of content in the archive tier.
+* If you choose to apply a policy where blobs get moved to the cool tier, then playback of that portion of the archive may be affected. You may see additional latencies or sporadic errors. Video Analyzer does not support playback of content in the archive tier.
 
 ## Next steps
 
