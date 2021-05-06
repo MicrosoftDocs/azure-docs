@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Securing secrets in Azure Key Vault
 
-When configuring custom ODIC providers, you may want to store connection secrets in Key Vault. This article demonstrates how to use a managed identity to grant Azure Static Web Apps access to Key Vault secrets.
+When configuring custom authentication providers, you may want to store connection secrets in Key Vault. This article demonstrates how to use a managed identity to grant Azure Static Web Apps access to Key Vault secrets.
 
 Security secrets require the following items to be in place.
 
@@ -23,7 +23,7 @@ This article demonstrates how to set up each of these items in your application.
 
 ## Prerequisites
 
-- Existing Azure Static Web App site.
+- Existing Azure Static Web Apps site.
 - Existing Key Vault resource with a secret value.
 
 ## Create identity
@@ -116,7 +116,7 @@ The access policy is now saved to Key Vault. Next, access the secret's URI to us
 
     :::image type="content" source="media/key-vault-secrets/azure-statiic-web-apps-application-settings-save.png" alt-text="Save application settings":::
 
-Now when your application references your newly created application setting, the value is extracted from Azure Key Vault.
+Now when your custom authentication configuration references your newly created application setting, the value is extracted from Azure Key Vault using your static web app's identity.
 
 ## Next Steps
 
