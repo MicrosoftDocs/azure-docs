@@ -26,7 +26,7 @@ With the integration between Azure API Management (APIM) and Azure Arc on Kubern
 1. Select and open your provisioned gateway resource from the list.
 1. In your provisioned gateway resource, click **Deployment** from the side navigation menu.
 1. Make note of the **Token** and **Configuration URL** values for the next step.
-1. In Azure CLI, deploy the gateway extension using the following command. Fill in the `token` and `configuration URL` values.
+1. In Azure CLI, deploy the gateway extension using the `az k8s-extension create` command. Fill in the `token` and `configuration URL` values.
     * The following example uses the `service.Type='NodePort'` extension configuration. See more [available extension configurations](#available-extension-configurations).
 
     ```azurecli
@@ -42,24 +42,13 @@ With the integration between Azure API Management (APIM) and Azure Arc on Kubern
 
 ## Available extension configurations
 
-### Required extension configurations
+The following extension configurations are **required**.
 
 | Setting | Description |
 | ------- | ----------- | 
 | `gateway.endpoint` | The gateway endpoint's Configuration URL. |
 | `gateway.authKey` | Token for access to the gateway. | 
 | `service.Type` | Kubernetes service configuration for the gateway: `LoadBalancer`, `NodePort`, or `ClusterIP`. Example above uses `NodePort`. |
-
-### Optional extension configurations
-
-| Setting | Description |
-| ------- | ----------- | 
-| `gateway.httpPort` |  |
-| `gateway.httpsPort` |  | 
-| `monitoring.ingestionKey` |  |
-| `monitoring.workspaceId` |  |
-| `telemetry.workspace.local` |  | 
-| `telemetry.workspace.cloud` |  |
 
 ## Next Steps
 * To learn more about the self-hosted gateway, see [Azure APIM self-hosted gateway overview](self-hosted-gateway-overview.md).
