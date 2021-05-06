@@ -27,7 +27,8 @@ Outbound connectivity to the internet can be enabled in the following ways:
 | 4 | Leveraging the frontend IP address(es) of a Load Balancer for outbound (and inbound) | Default, implicit | No | Worst
 
 
-## Leveraging the frontend IP address of a Load Balancer for outbound via Outbound rules
+## <a name="outboundrules"></a>Leveraging the frontend IP address of a Load Balancer for outbound via Outbound rules
+
 Outbound rules enable you to explicitly define SNAT (source network address translation) for a Standard public load balancer. This configuration allows you to use the public IP(s) of your load balancer to provide outbound internet connectivity for your backend instances.
 
 This configuration enables:
