@@ -9,11 +9,14 @@ ms.topic: how-to
 
 # Migrate Azure Blockchain Service
 
-You can migrate ledger data from Azure Blockchain Service to an alternate offering. Azure Blockchain Service public preview is being retired and you are advised to evaluate the following alternatives based on your development status of being in production or evaluation.
+You can migrate ledger data from Azure Blockchain Service to an alternate offering.
+
+> [!IMPORTANT]
+> On **September 10th, 2021**, Azure Blockchain will be retired. Please migrate ledger data from Azure Blockchain Service to an alternative offering based on your development status in production or evaluation.
 
 ## Evaluate alternatives
 
-The first step when planning a migration is to evaluate alternative offerings. The following guidance is based on your development phase.
+The first step when planning a migration is to evaluate alternative offerings. Evaluate the following alternatives based on your development status of being in production or evaluation.
 
 ### Production or pilot phase
 
@@ -48,6 +51,8 @@ If you are starting to develop a new solution or are in an evaluation phase, con
 Based on your current development state, you can either opt to use existing ledger data on Azure Blockchain Service or start a new network and use the solution of your choice. We recommend creating a new consortium based on a solution of your choice in all scenarios where you do not need or intend to use existing ledger data on Azure Blockchain Service.
 
 ### Open support case
+
+If you have a support plan and need technical help, please create a support request. Use the following steps to submit a support request.
 
 Open a Microsoft Support ticket to pause the consortium and export your blockchain data.
 
