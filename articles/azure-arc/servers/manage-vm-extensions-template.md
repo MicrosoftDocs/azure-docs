@@ -322,7 +322,6 @@ To use the Azure Monitor Dependency agent extension, the following sample is pro
       "properties": {
         "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
         "type": "DependencyAgentLinux",
-        "typeHandlerVersion": "9.5",
         "autoUpgradeMinorVersion": true
       }
     }
@@ -360,7 +359,6 @@ To use the Azure Monitor Dependency agent extension, the following sample is pro
       "properties": {
         "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
         "type": "DependencyAgentWindows",
-        "typeHandlerVersion": "9.5",
         "autoUpgradeMinorVersion": true
       }
     }
@@ -426,7 +424,6 @@ The following JSON shows the schema for the Key Vault VM extension (preview). Th
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
       "type": "KeyVaultForLinux",
-      "typeHandlerVersion": "1.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
           "secretsManagementSettings": {
@@ -496,7 +493,6 @@ The following JSON shows the schema for the Key Vault VM extension (preview). Th
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
       "type": "KeyVaultForWindows",
-      "typeHandlerVersion": "1.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
         "secretsManagementSettings": {

@@ -33,7 +33,7 @@ For instances marked as "Unhealthy", automatic repairs are triggered by the scal
 
 **Maximum number of instances in the scale set**
 
-This feature is currently available only for scale sets that have a maximum of 200 instances. The scale set can be deployed as either a single placement group or a multi-placement group, however the instance count cannot be above 200 if automatic instance repairs is enabled for the scale set.
+This feature is currently available only for scale sets that have a maximum of 500 instances. The scale set can be deployed as either a single placement group or a multi-placement group, however the instance count cannot be above 200 if automatic instance repairs is enabled for the scale set.
 
 **API version**
 
@@ -57,7 +57,7 @@ The automatic instance repair operations are performed in batches. At any given 
 
 ### Grace period
 
-When an instance goes through a state change operation because of a PUT, PATCH or POST action performed on the scale set (for example reimage, redeploy, update, etc.), then any repair action on that instance is performed only after waiting for the grace period. Grace period is the amount of time to allow the instance to return to healthy state. The grace period starts after the state change has completed. This helps avoid any premature or accidental repair operations. The grace period is honored for any newly created instance in the scale set (including the one created as a result of repair operation). Grace period is specified in minutes in ISO 8601 format and can be set using the property *automaticRepairsPolicy.gracePeriod*. Grace period can range between 30 minutes and 90 minutes, and has a default value of 30 minutes.
+When an instance goes through a state change operation because of a PUT, PATCH or POST action performed on the scale set (for example reimage, redeploy, update, etc.), then any repair action on that instance is performed only after waiting for the grace period. Grace period is the amount of time to allow the instance to return to healthy state. The grace period starts after the state change has completed. This helps avoid any premature or accidental repair operations. The grace period is honored for any newly created instance in the scale set (including the one created as a result of repair operation). Grace period is specified in minutes in ISO 8601 format and can be set using the property *automaticRepairsPolicy.gracePeriod*. Grace period can range between 10 minutes and 90 minutes, and has a default value of 30 minutes.
 
 ### Suspension of Repairs 
 
