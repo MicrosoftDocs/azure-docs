@@ -201,7 +201,7 @@ The following resources are defined in the template:
 
 ### Deploy the template
 
-1. Select the following image to sign in to Azure and open a template.
+1. Click on the *Deploy to Azure* button to sign in to Azure and open a template.
 
     [![Deploy to Azure](https://aka.ms/deploytoazurebutton)][click-to-deploy]
 
@@ -210,7 +210,7 @@ The following resources are defined in the template:
     - **Subscription**: select an Azure subscription.
     - **Resource group**: select an existing resource group from the drop-down, or select **Create new**, enter a unique name for the resource group, and then click **OK**.
     - **Location**: select a location.  For example, **West US 2**.
-    - **Name Prefix**: provide a string that is used to prefix the name of the resources.
+    - **Name Prefix**: provide a string that is used to prefix the name of the resources (the default values are recommended).
 
 1. Select **Review + create**. After validation completes, select **Create** to create and deploy the VM.
 
