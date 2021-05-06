@@ -244,6 +244,7 @@ When you don't specify a version, you get an error with a list of the newest sup
 - 2020-10-01
 - 2020-12-01
 - 2021-01-01
+- 2021-02-01
 
 ### Swagger
 
@@ -348,7 +349,6 @@ Schema breakdown:
 | `provider` | Provider of the VM | 2018-10-01
 | `publicKeys` | [Collection of Public Keys](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assigned to the VM and paths | 2018-04-02
 | `publisher` | Publisher of the VM image | 2017-04-02
-| `resourceDisk.size` | Size of the [Local Temp Disk](../articles/virtual-machines/managed-disks-overview.md#temporary-disk) for the VM if it exists, in kilobytes. If there is [no local temp disk for the VM](../articles/virtual-machines/azure-vms-no-temp-disk.md), this value is 0 | 2021-02-01
 | `resourceGroupName` | [Resource group](../articles/azure-resource-manager/management/overview.md) for your Virtual Machine | 2017-08-01
 | `resourceId` | The [fully qualified](/rest/api/resources/resources/getbyid) ID of the resource | 2019-03-11
 | `sku` | Specific SKU for the VM image | 2017-04-02
@@ -367,7 +367,7 @@ Schema breakdown:
 
 **Storage profile**
 
-The storage profile of a VM is divided into three categories: image reference, OS disk, and data disks.
+The storage profile of a VM is divided into three categories: image reference, OS disk, and data disks, plus an additional object for the local temporary disk.
 
 The image reference object contains the following information about the OS image:
 
@@ -409,6 +409,13 @@ Data | Description |
 | `osType` | Type of OS included in the disk
 | `vhd` | Virtual hard disk
 | `writeAcceleratorEnabled` | Whether or not writeAccelerator is enabled on the disk
+
+The resource disk object contains the size of the [Local Temp Disk](../articles/virtual-machines/managed-disks-overview.md#temporary-disk) attached to the VM, if it has one, in kilobytes.
+If there is [no local temp disk for the VM](../articles/virtual-machines/azure-vms-no-temp-disk.md), this value is 0. 
+
+| Data | Description | Version introduced |
+|------|-------------|--------------------|
+| `resourceDisk.size` | Size of the local temp disk for the VM (in kB) | 2021-02-01
 
 **Network**
 
@@ -651,9 +658,6 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
         }
     ],
     "publisher": "RDFE-Test-Microsoft-Windows-Server-Group",
-    "resourceDisk": {
-        "size": "4096"
-    },
     "resourceGroupName": "macikgo-test-may-23",
     "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
     "securityProfile": {
@@ -710,6 +714,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
                 "uri": ""
             },
             "writeAcceleratorEnabled": "false"
+        },
+        "resourceDisk": {
+            "size": "4096"
         }
     },
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
@@ -755,9 +762,6 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
         }
     ],
     "publisher": "Canonical",
-    "resourceDisk": {
-        "size": "4096"
-    },
     "resourceGroupName": "macikgo-test-may-23",
     "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
     "securityProfile": {
@@ -814,6 +818,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
                 "uri": ""
             },
             "writeAcceleratorEnabled": "false"
+        },
+        "resourceDisk": {
+            "size": "4096"
         }
     },
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
