@@ -120,6 +120,8 @@ Navigate to **Storage** > **Storage Accounts**, select your storage account, and
 
 Navigate to your DNS Zone and click **+ Record set**. Fill out the following information on the **Add record set** blade and click **OK** to create it.
 
+> [!NOTE]
+>
 
 |Property  |Value  |Description  |
 |---------|---------|---------|
