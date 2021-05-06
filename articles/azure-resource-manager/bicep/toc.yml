@@ -30,7 +30,7 @@
   - name: Parameters
     href: parameters.md
   - name: Variables
-    href: template-variables.md
+    href: variables.md
   - name: Resources
     items:
     - name: Resource declaration
