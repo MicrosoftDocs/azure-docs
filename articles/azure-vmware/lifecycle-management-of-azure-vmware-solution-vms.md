@@ -1,11 +1,13 @@
 ---
-title: Lifecycle management of Azure VMware Solution VMs
+title: Monitor and manage Azure VMware Solution VMs
 description: Learn to manage all aspects of the lifecycle of your Azure VMware Solution VMs with Microsoft Azure native tools.
-ms.topic: conceptual
-ms.date: 02/08/2021
+ms.topic: how-to
+ms.date: 05/04/2021
 ---
 
-# Lifecycle management of Azure VMware Solution VMs
+# Monitor and manage Azure VMware Solution VMs
+
+
 
 Microsoft Azure native tools allow you to monitor and manage your virtual machines (VMs) in the Azure environment. Yet they also allow you to monitor and manage your VMs on Azure VMware Solution and your on-premises VMs. In this article, we'll look at the integrated monitoring architecture Azure offers, and how you can use its native tools to manage your Azure VMware Solution VMs throughout their lifecycle.
 

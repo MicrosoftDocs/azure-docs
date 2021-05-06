@@ -145,7 +145,7 @@ Passwords aren't written back in any of the following situations:
 * **Unsupported end-user operations**
    * Any end user resetting their own password by using PowerShell version 1, version 2, or the Microsoft Graph API.
 * **Unsupported administrator operations**
-   * Any administrator-initiated end-user password reset from PowerShell version 1, version 2, or the Microsoft Graph API (the [Microsoft Graph API](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http) is supported).
+   * Any administrator-initiated end-user password reset from PowerShell version 1, or version 2.
    * Any administrator-initiated end-user password reset from the [Microsoft 365 admin center](https://admin.microsoft.com).
    * Any administrator cannot use password reset tool to reset their own password for password writeback.
 
