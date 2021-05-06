@@ -9,11 +9,11 @@ ms.author: mingshen
 ms.date: 05/06/2021
 ---
 
-# How to create plans for a virtual machine offer
+# Create plans for a virtual machine offer
 
 On the **Plan overview** page (select from the left-nav menu in Partner Center) you can provide a variety of plan options within the same offer. An offer requires at least one plan (formerly called a SKU), which can vary by monetization audience, Azure region, features, or VM images.
 
-You can create up to 100 plans for each offer: up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](private-offers.md).
+You can create up to 100 plans for each offer; up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](private-offers.md).
 
 After you create your plans, select the **Plan overview** tab to display:
 
@@ -23,7 +23,7 @@ After you create your plans, select the **Plan overview** tab to display:
 - Current publishing status
 - Available actions
 
-The actions available on the **Plan overview** pane vary depending on the current status of your plan.
+The actions available on this pane vary depending on the current status of your plan.
 
 - If the plan status is a draft, select **Delete draft**.
 - If the plan status is published live, select **Stop sell plan** or **Sync private audience**.
