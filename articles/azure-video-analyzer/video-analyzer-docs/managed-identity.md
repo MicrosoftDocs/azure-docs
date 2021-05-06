@@ -24,9 +24,11 @@ When you create an Azure Video Analyzer account, you have to associate an Azure 
 
 1. Add the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) and [Reader](../../role-based-access-control/built-in-roles.md#reader) roles for the above storage account to the managed identity.
 
+1. Create the Video Analyzer account, providing the user-assigned managed identity and the storage account as values to the relevant properties.
+
 Video Analyzer can then access storage account on your behalf using the managed identity.
 
-See [this](create-video-analyzer-account.md) article for an example of using an Azure Resource Manager (ARM) template to accomplish the above.
+See [this](create-video-analyzer-account.md) article for an example of using the Azure portal to accomplish the above.
 
 
 ## Next steps
