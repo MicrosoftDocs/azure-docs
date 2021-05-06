@@ -27,7 +27,7 @@ The following table contains common problems and solutions you may see during ba
 | The resource was not found. | Ensure you use `-t batch` in your CLI command. Without this, the default `online` type is used.|
 | Unsupported input data. | Batch endpoint accepts input data in 3 forms: 1) registered data 2) data in the cloud 3) data in local. Ensure you are using the right format. For more, see [Use batch endpoints (preview) for batch scoring](how-to-use-batch-endpoint.md)|
 
-#  Scoring script requirements
+##  Scoring script requirements
 
 If you are using a non-MLflow model, you will need to provide a scoring script. The scoring script must contain two functions:
 
