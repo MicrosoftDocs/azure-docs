@@ -52,9 +52,7 @@ Based on your current development state, you can either opt to use existing ledg
 
 ### Open support case
 
-Use the following steps to submit a support request.
-
-Open a Microsoft Support ticket to pause the consortium and export your blockchain data.
+If you have a support plan, open a Microsoft Support ticket to pause the consortium and export your blockchain data.
 
 1. Use the Azure portal to open a support ticket. In *Problem description*, enter the following details:
 
