@@ -34,7 +34,7 @@ The following tables contain the different configuration options for each built-
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | `registration.openIdIssuer`            | The endpoint for the OpenID configuration of the AAD tenant.                                                              |
 | `registration.clientIdSettingName`     | The name of an application setting that is configured with the Application (client) ID for the Azure AD app registration. |
-| `registration.clientId`                | The value of the Application (client) ID. This can be used as an alternative to the `clientIdSecret`.                     |
+| `registration.clientId`                | The value of the Application (client) ID. This can be used as an alternative to the `clientIdSettingName`.                |
 | `registration.clientSecretSettingName` | The name of the application setting that is configured with a client secret for the Azure AD app registration.            |
 
 ```json
@@ -55,11 +55,11 @@ For more information on how to configure Azure Active Directory refer to the [Ap
 
 # [Apple](#tab/apple)
 
-| Field Path                             | Description                                                                             |
-| -------------------------------------- | --------------------------------------------------------------------------------------- |
-| `registration.clientIdSettingName`     | The name of the application setting for the Client ID.                                  |
-| `registration.clientId`                | The value of the Client ID. This can be used as an alternative to the `clientIdSecret`. |
-| `registration.clientSecretSettingName` | The name of the application setting for the Client Secret.                              |
+| Field Path                             | Description                                                                                  |
+| -------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `registration.clientIdSettingName`     | The name of the application setting for the Client ID.                                       |
+| `registration.clientId`                | The value of the Client ID. This can be used as an alternative to the `clientIdSettingName`. |
+| `registration.clientSecretSettingName` | The name of the application setting for the Client Secret.                                   |
 
 ```json
 {
@@ -78,11 +78,11 @@ For more information on how to configure Apple as an authentication provider ref
 
 # [Facebook](#tab/facebook)
 
-| Field Path                          | Description                                                                       |
-| ----------------------------------- | --------------------------------------------------------------------------------- |
-| `registration.appIdSettingName`     | The name of the application setting for the App ID.                               |
-| `registration.appId`                | The value of the App ID. This can be used as an alternative to the `appIdSecret`. |
-| `registration.appSecretSettingName` | The name pf the application setting for the App Secret.                           |
+| Field Path                          | Description                                                                            |
+| ----------------------------------- | -------------------------------------------------------------------------------------- |
+| `registration.appIdSettingName`     | The name of the application setting for the App ID.                                    |
+| `registration.appId`                | The value of the App ID. This can be used as an alternative to the `appIdSettingName`. |
+| `registration.appSecretSettingName` | The name pf the application setting for the App Secret.                                |
 
 ```json
 {
@@ -101,11 +101,11 @@ For more information on how to configure Facebook as an authentication provider 
 
 # [GitHub](#tab/github)
 
-| Field Path                             | Description                                                                             |
-| -------------------------------------- | --------------------------------------------------------------------------------------- |
-| `registration.clientIdSettingName`     | The name of the application setting for the Client ID.                                  |
-| `registration.clientId`                | The value of the Client ID. This can be used as an alternative to the `clientIdSecret`. |
-| `registration.clientSecretSettingName` | The name of the application setting for the Client Secret.                              |
+| Field Path                             | Description                                                                                  |
+| -------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `registration.clientIdSettingName`     | The name of the application setting for the Client ID.                                       |
+| `registration.clientId`                | The value of the Client ID. This can be used as an alternative to the `clientIdSettingName`. |
+| `registration.clientSecretSettingName` | The name of the application setting for the Client Secret.                                   |
 
 ```json
 {
@@ -124,11 +124,11 @@ For more information on how to configure GitHub as an authentication provider re
 
 # [Google](#tab/google)
 
-| Field Path                             | Description                                                                             |
-| -------------------------------------- | --------------------------------------------------------------------------------------- |
-| `registration.clientIdSettingName`     | The name of the application setting for the Client ID.                                  |
-| `registration.clientId`                | The value of the Client ID. This can be used as an alternative to the `clientIdSecret`. |
-| `registration.clientSecretSettingName` | The name of the application setting for the Client Secret.                              |
+| Field Path                             | Description                                                                                  |
+| -------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `registration.clientIdSettingName`     | The name of the application setting for the Client ID.                                       |
+| `registration.clientId`                | The value of the Client ID. This can be used as an alternative to the `clientIdSettingName`. |
+| `registration.clientSecretSettingName` | The name of the application setting for the Client Secret.                                   |
 
 ```json
 {
@@ -147,11 +147,11 @@ For more information on how to configure Google as an authentication provider re
 
 # [Twitter](#tab/twitter)
 
-| Field Path                               | Description                                                                                   |
-| ---------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `registration.consumerKeySettingName`    | The name of the application setting for the Consumer Key.                                     |
-| `registration.consumerKey`               | The value of the Consumer Key. This can be used as an alternative to the `consumerKeySecret`. |
-| `registration.consumerSecretSettingName` | The name of the application setting for the Consumer Secret.                                  |
+| Field Path                               | Description                                                                                        |
+| ---------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `registration.consumerKeySettingName`    | The name of the application setting for the Consumer Key.                                          |
+| `registration.consumerKey`               | The value of the Consumer Key. This can be used as an alternative to the `consumerKeySettingName`. |
+| `registration.consumerSecretSettingName` | The name of the application setting for the Consumer Secret.                                       |
 
 ```json
 {
