@@ -20,7 +20,7 @@
     href: install.md
   - name: Compile/Decompile
     href: decompile.md
-- name: Basic syntax
+- name: Syntax
   items:
   - name: Bicep file structure
     displayName: parameters,variables,resources,outputs,condition
@@ -47,45 +47,22 @@
       href: resource-extensions.md
   - name: Outputs
     href: outputs.md
-  - name: Export template
-    href: export-template-portal.md
-- name: Modules
-  items:
-  - name: Define modules
+  - name: Loops
+    items:
+    - name: Resources
+      displayName: iteration,copy,multiple
+      href: copy-resources.md
+    - name: Properties
+      displayName: iteration,copy,multiple
+      href: copy-properties.md
+    - name: Variables
+      displayName: iteration,copy,multiple
+      href: copy-variables.md
+    - name: Outputs
+      displayName: iteration,copy,multiple
+      href: copy-outputs.md
+  - name: Modules
     href: modules.md
-  - name: Tutorial - add modules
-    href: tutorial-add-modules.md
-- name: Loops
-  items:
-  - name: Resources
-    displayName: iteration,copy,multiple
-    href: copy-resources.md
-  - name: Properties
-    displayName: iteration,copy,multiple
-    href: copy-properties.md
-  - name: Variables
-    displayName: iteration,copy,multiple
-    href: copy-variables.md
-  - name: Outputs
-    displayName: iteration,copy,multiple
-    href: copy-outputs.md
-- name: Template specs
-  items:
-  - name: Create & deploy template specs
-    href: template-specs.md
-  - name: Create with linked templates
-    href: template-specs-create-linked.md
-  - name: Deploy as linked template
-    href: template-specs-deploy-linked-template.md
-  - name: Convert portal template gallery
-    href: template-spec-convert.md
-- name: Deployment scripts
-  items:
-  - name: Deployment script
-    displayName: custom script
-    href: deployment-script-template.md
-  - name: Create deployment script dev environment
-    href: deployment-script-template-configure-dev.md
 - name: Deploy
   items:
   - name: Scopes
@@ -147,6 +124,23 @@
       href: deployment-tutorial-pipeline.md
   - name: Deployment history deletions
     href: deployment-history-deletions.md
+- name: Template specs
+  items:
+  - name: Create & deploy template specs
+    href: template-specs.md
+  - name: Create with linked templates
+    href: template-specs-create-linked.md
+  - name: Deploy as linked template
+    href: template-specs-deploy-linked-template.md
+  - name: Convert portal template gallery
+    href: template-spec-convert.md
+- name: Deployment scripts
+  items:
+  - name: Deployment script
+    displayName: custom script
+    href: deployment-script-template.md
+  - name: Create deployment script dev environment
+    href: deployment-script-template-configure-dev.md
 - name: Reference
   items:
   - name: Template reference
