@@ -45,10 +45,10 @@ To start using Azure Video Analyzer, you will need to create a Video Analyzer ac
 
 The following resources are defined in the template:
 
-- [**Microsoft.Media/videoAnalyzers**](/azure/templates/Microsoft.Media/videoAnalyzers): the account resource for Video Analyzer.
-- [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts): the storage account that will be used by Video Analyzer for storing videos and metadata.
-- [**Microsoft.ManagedIdentity/userAssignedIdentities**](/azure/templates/Microsoft.ManagedIdentity/userAssignedIdentities): the user-assigned managed identity that Video Analyzer will use to access storage.
-- [**Microsoft.Storage/storageAccounts/providers/roleAssignments**](/azure/templates/microsoft.authorization/roleassignment): the role assignment that enables Video Analyzer to access the storage account.
+- [**Microsoft.Media/videoAnalyzers**](https://docs.microsoft.com/azure/templates/Microsoft.Media/videoAnalyzers): the account resource for Video Analyzer.
+- [**Microsoft.Storage/storageAccounts**](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts): the storage account that will be used by Video Analyzer for storing videos and metadata.
+- [**Microsoft.ManagedIdentity/userAssignedIdentities**](https://docs.microsoft.com/azure/templates/Microsoft.ManagedIdentity/userAssignedIdentities): the user-assigned managed identity that Video Analyzer will use to access storage.
+- [**Microsoft.Storage/storageAccounts/providers/roleAssignments**](https://docs.microsoft.com/azure/templates/microsoft.authorization/roleassignment): the role assignments that enables Video Analyzer to access the storage account.
 
 <!-- TODO replace with a reference like this:
 :::code language="json" source="~/quickstart-templates/101-vm-simple-linux/azuredeploy.json":::
