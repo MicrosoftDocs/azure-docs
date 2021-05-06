@@ -125,7 +125,7 @@ To verify if your Azure account is an “owner” or “contributor” within th
     - Select the S1 (standard) pricing tier.
 
     > [!NOTE]
-    > If you end up needing a higher [message throughput](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling#message-throughput) for your edge AI applications, you may [upgrade your IoT Hub to a higher standard tier](https://docs.microsoft.com/azure/iot-hub/iot-hub-upgrade) in the Azure Portal at any time. B and F tiers do NOT support Azure Percept.
+    > If you end up needing a higher [message throughput](../iot-hub/iot-hub-scaling.md#message-throughput) for your edge AI applications, you may [upgrade your IoT Hub to a higher standard tier](../iot-hub/iot-hub-upgrade.md) in the Azure Portal at any time. B and F tiers do NOT support Azure Percept.
 
 1. IoT Hub deployment may take a few minutes. When the deployment is complete, click **Register**.
 

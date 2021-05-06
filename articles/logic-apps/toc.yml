@@ -58,7 +58,7 @@
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/logic-apps-security-baseline?toc=/azure/logic-apps/toc.json
 - name: How-to guides
   items:
   - name: Azure Logic Apps Preview
@@ -133,6 +133,8 @@
         href: logic-apps-custom-api-authentication.md
       - name: Deploy and call custom APIs
         href: logic-apps-custom-api-host-deploy-call.md
+    - name: Support non-UTF-8 character encoding in logic apps
+      href: support-non-unicode-character-encoding.md
     - name: Troubleshoot errors
       href: logic-apps-diagnosing-failures.md
   - name: Access Azure virtual networks
@@ -242,8 +244,6 @@
       href: ../connectors/connectors-create-api-crmonline.md
     - name: EDIFACT
       href: logic-apps-enterprise-integration-edifact.md
-    - name: Excel Online for Business or OneDrive
-      href: ../connectors/connectors-create-api-excel.md
     - name: File system
       href: logic-apps-using-file-connector.md
     - name: Flat file
@@ -394,7 +394,7 @@
   - name: Pricing model & usage metering
     href: logic-apps-pricing.md
   - name: Azure CLI
-    href: /cli/azure/ext/logic/logic
+    href: /cli/azure/logic
   - name: Azure PowerShell
     href: /powershell/module/az.logicapp
   - name: REST API

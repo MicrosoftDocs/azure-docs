@@ -76,10 +76,10 @@
       href: hana-li-portal.md
     - name: HA Setup with STONITH
       href: ha-setup-with-stonith.md
+    - name: OS Backup
+      href: large-instance-os-backup.md
     - name: Azure Large Instances high availability for SAP on RHEL
       href: large-instance-high-availability-rhel.md
-    - name: OS Backup for Type II SKUs
-      href: os-backup-type-ii-skus.md
     - name: Enable Kdump for HANA Large Instances
       href: hana-large-instance-enable-kdump.md
     - name: OS Upgrade for HANA Large Instances
@@ -269,7 +269,9 @@
   items:
   - name: SAP BusinessObjects BI platform planning and implementation guide on Azure 
     href: businessobjects-deployment-guide.md
-  - name: SAP BusinessObjects BI platform deployment guide for linux on Azure
+  - name: SAP BusinessObjects BI platform deployment guide for Windows on Azure
+    href: businessobjects-deployment-guide-windows.md
+  - name: SAP BusinessObjects BI platform deployment guide for Linux on Azure
     href: businessobjects-deployment-guide-linux.md
 - name: Integrate Azure AD with SAP applications
   items:
@@ -332,7 +334,7 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/ext/sap-hana/hanainstance
+    href: /cli/azure/hanainstance
   - name: Azure PowerShell
     href: /powershell/module/az.hanaonazure/#sap-hana-on-azure
 - name: Resources

@@ -800,7 +800,7 @@ key_phrase_extraction_example(client)
 
 [!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
 
-Create a new function called `analyze_batch_actions_example()` that takes the client as an argument, then calls the `begin_analyze_batch_actions()` function. The result will be a long running operation which will be polled for results.
+Create a new function called `analyze_batch_example()` that takes the client as an argument, then calls the `begin_analyze_batch_actions()` function. The result will be a long running operation which will be polled for results.
 
 ```python
 from azure.ai.textanalytics import (

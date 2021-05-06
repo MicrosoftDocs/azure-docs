@@ -1,6 +1,7 @@
 ---
-title: 'Azure VPN Gateway: Overview - Highly Available gateway configurations'
-description: This article provides an overview of highly available configuration options using Azure VPN Gateways.
+title: 'About Highly Available gateway configurations'
+titleSuffix: Azure VPN Gateway
+description: Learn about highly available configuration options using Azure VPN Gateways.
 services: vpn-gateway
 author: yushwang
 

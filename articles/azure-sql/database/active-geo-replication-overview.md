@@ -10,13 +10,17 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 08/27/2020
+ms.date: 04/28/2021
 ---
 
 # Creating and using active geo-replication - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Active geo-replication is an Azure SQL Database feature that allows you to create readable secondary databases of individual databases on a server in the same or different data center (region).
+
+> [!NOTE]
+> Active geo-replication for Azure SQL Hyperscale [is now in public preview](https://aka.ms/hsgeodr). Current limitations include: only one geo-secondary in the same or a different region, only forced failover supported, restore database from geo-secondary not supported, using a geo-secondary as the source database for Database Copy, or as the primary for another geo-secondary is not supported.
+
 
 > [!NOTE]
 > Active geo-replication is not supported by Azure SQL Managed Instance. For geographic failover of instances of SQL Managed Instance, use [Auto-failover groups](auto-failover-group-overview.md).
