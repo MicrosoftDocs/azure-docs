@@ -71,11 +71,11 @@ If a property included in the projection is not present for a particular data ro
 #### Example scenario
 
 For the following examples, consider a twin graph that contains the following data elements:
-* A Factory twin called `FactoryA`
+* A Factory twin called FactoryA
     - Contains a property called `name` with a value of `FactoryA`
-* A Consumer twin called `Contoso`
+* A Consumer twin called Contoso
     - Contains a property called `name` with a value of `Contoso`
-* A consumerRelationship relationship from `FactoryA` to `Contoso`, called `FactoryA-consumerRelationship-Contoso`
+* A consumerRelationship relationship from FactoryA to Contoso, called `FactoryA-consumerRelationship-Contoso`
     - Contains a property called `managedBy` with a value of `Jeff`
 
 Here's a diagram illustrating this scenario:
