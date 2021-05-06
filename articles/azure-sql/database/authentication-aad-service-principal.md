@@ -1,9 +1,8 @@
 ---
 title: Azure Active Directory service principal with Azure SQL
-description: Azure AD Applications (service principals) support Azure AD user creation in Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics
+description: Utilize AD Applications (service principals) support Azure AD user creation in Azure SQL Database and Azure SQL Managed Instance
 ms.service: sql-db-mi
 ms.subservice: security
-ms.custom: azure-synapse
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
@@ -13,16 +12,16 @@ ms.date: 05/10/2021
 
 # Azure Active Directory service principal with Azure SQL
 
-[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Azure Active Directory (Azure AD) supports user creation in Azure SQL Database (SQL DB) and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) on behalf of Azure AD applications (service principals).
+Azure Active Directory (Azure AD) supports user creation in Azure SQL Database (SQL DB) on behalf of Azure AD applications (service principals).
 
 > [!NOTE]
 > This functionality is already supported for SQL Managed Instance.
 
 ## Service principal (Azure AD applications) support
 
-This article applies to applications that are integrated with Azure AD, and are part of Azure AD registration. These applications often need authentication and authorization access to Azure SQL to perform various tasks. This feature allows service principals to create Azure AD users in SQL Database and Azure Synapse. There was a limitation preventing Azure AD object creation on behalf of Azure AD applications that was removed.
+This article applies to applications that are integrated with Azure AD, and are part of Azure AD registration. These applications often need authentication and authorization access to Azure SQL to perform various tasks. This feature allows service principals to create Azure AD users in SQL Database. There was a limitation preventing Azure AD object creation on behalf of Azure AD applications that was removed.
 
 When an Azure AD application is registered using the Azure portal or a PowerShell command, two objects are created in the Azure AD tenant:
 
@@ -31,21 +30,21 @@ When an Azure AD application is registered using the Azure portal or a PowerShel
 
 For more information on Azure AD applications, see [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md) and [Create an Azure service principal with Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 
-SQL Database, Azure Synapse, and SQL Managed Instance support the following Azure AD objects:
+SQL Database and SQL Managed Instance support the following Azure AD objects:
 
 - Azure AD users (managed, federated, and guest)
 - Azure AD groups (managed and federated)
 - Azure AD applications 
 
-The T-SQL command `CREATE USER [Azure_AD_Object] FROM EXTERNAL PROVIDER` on behalf of an Azure AD application is now supported for SQL Database and Azure Synapse.
+The T-SQL command `CREATE USER [Azure_AD_Object] FROM EXTERNAL PROVIDER` on behalf of an Azure AD application is now supported for SQL Database.
 
 ## Functionality of Azure AD user creation using service principals
 
-Supporting this functionality is useful in Azure AD application automation processes where Azure AD objects are created and maintained in SQL Database and Azure Synapse without human interaction. Service principals can be an Azure AD admin for the SQL logical server, as part of a group or an individual user. The application can automate Azure AD object creation in SQL Database and Azure Synapse when executed as a system administrator, and does not require any additional SQL privileges. This allows for a full automation of a database user creation. This feature is also supported for system-assigned managed identity and user-assigned managed identity. For more information, see [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md)
+Supporting this functionality is useful in Azure AD application automation processes where Azure AD objects are created and maintained in SQL Database without human interaction. Service principals can be an Azure AD admin for the SQL logical server, as part of a group or an individual user. The application can automate Azure AD object creation in SQL Database when executed as a system administrator, and does not require any additional SQL privileges. This allows for a full automation of a database user creation. This feature is also supported for system-assigned managed identity and user-assigned managed identity. For more information, see [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md)
 
 ## Enable service principals to create Azure AD users
 
-To enable an Azure AD object creation in SQL Database and Azure Synapse on behalf of an Azure AD application, the following settings are required:
+To enable an Azure AD object creation in SQL Database on behalf of an Azure AD application, the following settings are required:
 
 1. Assign the server identity. The assigned server identity represents the Managed Service Identity (MSI). Currently, the server identity for Azure SQL does not support User Managed Identity (UMI).
     - For a new Azure SQL logical server, execute the following PowerShell command:
@@ -91,7 +90,7 @@ To enable an Azure AD object creation in SQL Database and Azure Synapse on behal
     > The error messages indicated above will be changed before the feature GA to clearly identify the missing setup requirement for Azure AD application support.
 - Setting the Azure AD application as an Azure AD admin for SQL Managed Instance is only supported using the CLI command, and PowerShell command with [Az.Sql 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) or higher. For more information, see the [az sql mi ad-admin create](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_create) and [Set-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) commands. 
     - If you want to use the Azure portal for SQL Managed Instance to set the Azure AD admin, a possible workaround is to create an Azure AD group. Then add the service principal (Azure AD application) to this group, and set this group as an Azure AD admin for the SQL Managed Instance.
-    - Setting the service principal (Azure AD application) as an Azure AD admin for SQL Database and Azure Synapse is supported using the Azure portal, [PowerShell](authentication-aad-configure.md?tabs=azure-powershell#powershell-for-sql-database-and-azure-synapse), and [CLI](authentication-aad-configure.md?tabs=azure-cli#powershell-for-sql-database-and-azure-synapse) commands.
+    - Setting the service principal (Azure AD application) as an Azure AD admin for SQL Database is supported using the Azure portal, [PowerShell](authentication-aad-configure.md?tabs=azure-powershell#powershell-for-sql-database-and-azure-synapse), and [CLI](authentication-aad-configure.md?tabs=azure-cli#powershell-for-sql-database-and-azure-synapse) commands.
 - Using an Azure AD application with service principal from another Azure AD tenant will fail when accessing SQL Database or SQL Managed Instance created in a different tenant. A service principal assigned to this application must be from the same tenant as the SQL logical server or Managed Instance.
 - [Az.Sql 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) module or higher is needed when using PowerShell to set up an individual Azure AD application as Azure AD admin for Azure SQL. Ensure you are upgraded to the latest module.
 

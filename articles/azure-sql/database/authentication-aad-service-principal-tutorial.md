@@ -1,9 +1,8 @@
 ---
 title: Create Azure AD users using service principals
-description: This tutorial walks you through creating an Azure AD user with an Azure AD applications (service principals) in Azure SQL Database and Azure Synapse Analytics
+description: This tutorial walks you through creating an Azure AD user with an Azure AD applications (service principals) in Azure SQL Database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: azure-synapse
 ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
@@ -13,7 +12,7 @@ ms.date: 05/10/2021
 
 # Tutorial: Create Azure AD users using Azure AD applications
 
-[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article takes you through the process of creating Azure AD users in Azure SQL Database, using Azure service principals (Azure AD applications). This functionality already exists in Azure SQL Managed Instance, but is now being introduced in Azure SQL Database. To support this scenario, an Azure AD Identity must be generated and assigned to the Azure SQL logical server.
 
@@ -30,7 +29,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An existing [Azure SQL Database](single-database-create-quickstart.md) or [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) deployment. We assume you have a working SQL Database for this tutorial.
+- An existing [Azure SQL Database](single-database-create-quickstart.md) deployment. We assume you have a working SQL Database for this tutorial.
 - Access to an already existing Azure Active Directory.
 - [Az.Sql 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) module or higher is needed when using PowerShell to set up an individual Azure AD application as Azure AD admin for Azure SQL. Ensure you are upgraded to the latest module.
 
