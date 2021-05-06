@@ -33,10 +33,10 @@ You can no longer create a QnA Maker managed resource from the QnA Maker create 
 
 ## Details
 
-1.	All existing QnA Maker managed (preview) resources continue to work as before. There is no action required for these resources at this time.
-2.	The creation flow for Custom question answering (preview) is the primary change. The service, portal, endpoints, SDK, etc. remain as before.
-3.	Custom question answering (preview) continues to be offered as a free public preview.
-4.	Custom question answering (preview) is available in the following regions:
+- All existing QnA Maker managed (preview) resources continue to work as before. There is no action required for these resources at this time.
+- The creation flow for Custom question answering (preview) is the primary change. The service, portal, endpoints, SDK, etc. remain as before.
+- Custom question answering (preview) continues to be offered as a free public preview.
+- Custom question answering (preview) is available in the following regions:
     - South Central US
 	- North Europe
 	- Australia East.
