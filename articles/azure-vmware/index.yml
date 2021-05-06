@@ -119,7 +119,7 @@ landingContent:
             url: github-enterprise-server.md
           - text: Enable public internet access
             url: enable-public-internet-access.md
-          - text: Configure site-to-site VPN gateway
+          - text: Configure a site-to-site VPN in vWAN
             url: configure-site-to-site-vpn-gateway.md
           - text: Configure Windows Server Failover Cluster
             url: configure-windows-server-failover-cluster.md
