@@ -10,7 +10,7 @@ ms.date: 03/27/2021
 An Azure Video Analyzer pipeline lets you define where input data should be captured from, how it should be processed, and where the results should be delivered. A pipeline consists of nodes that are connected to achieve the desired flow of data. The diagram below provides a graphical representation of a pipeline.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/pipeline/pipeline-representation.png" alt-text="Representation of a pipeline":::
+> :::image type="content" source="./media/pipeline/pipeline-representation.svg" alt-text="Representation of a pipeline":::
 
 A pipeline supports different types of nodes
 
@@ -32,7 +32,7 @@ A pipeline topology enables you to define what nodes are in the pipeline, how th
 The lifecycle of a pipeline is represented in the diagram below.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/pipeline/topology.png" alt-text="Lifecycle of a pipeline":::
+> :::image type="content" source="./media/pipeline/pipeline-activation.svg" alt-text="Lifecycle of a pipeline":::
 
 You start with creating the pipeline topology. Once the topology is defined, you can create pipelines by providing values for the parameters. Upon successful creation a pipeline is in the “Inactive” state. Upon activation, a pipeline enters the “Activating” state and then “Active” state. 
 
