@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 3/30/2021
+ms.date: 5/05/2021
 
 ms.reviewer: lagayhar
 ---
@@ -193,8 +193,11 @@ The volume of data you send can be managed using the following techniques:
  
 * **Daily cap**: When you create an Application Insights resource in the Azure portal, the daily cap is set to 100 GB/day. When you create an Application Insights resource in Visual Studio, the default is small (only 32.3 MB/day). The daily cap default is set to facilitate testing. It's intended that the user will raise the daily cap before deploying the app into production. 
 
-    The maximum cap is 1,000 GB/day unless you request a higher maximum for a high-traffic application.
-    
+    The maximum cap in Application Insights is 1,000 GB/day unless you request a higher maximum for a high-traffic application.
+	
+    > [!TIP]
+    > If you have a workspace-based Application Insights resource, we recommend using the [workspace's daily cap](../logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume) to limit ingestion and costs instead of the cap in Application Insights.
+
     Warning emails about the daily cap are sent to account that are members of these roles for your Application Insights resource: "ServiceAdmin", "AccountAdmin", "CoAdmin", "Owner".
 
     Use care when you set the daily cap. Your intent should be to *never hit the daily cap*. If you hit the daily cap, you lose data for the remainder of the day, and you can't monitor your application. To change the daily cap, use the **Daily volume cap** option. You can access this option in the **Usage and estimated costs** pane (this is described in more detail later in the article).
@@ -206,6 +209,9 @@ The volume of data you send can be managed using the following techniques:
 ## Manage your maximum daily data volume
 
 You can use the daily volume cap to limit the data collected. However, if the cap is met, a loss of all telemetry sent from your application for the remainder of the day occurs. It is *not advisable* to have your application hit the daily cap. You can't track the health and performance of your application after it reaches the daily cap.
+
+> [!WARNING]
+> If you have a workspace-based Application Insights resource, we recommend using the [workspace's daily cap](../logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume) to limit ingestion and costs. The daily cap in Application Insights may not limit ingestion in all cases to the selected level. (If your Application Insights resource is ingesting a lot of data, the Application Insights daily cap might need to be raised.)
 
 Instead of using the daily volume cap, use [sampling](./sampling.md) to tune the data volume to the level you want. Then, use the daily cap only as a "last resort" in case your application unexpectedly begins to send much higher volumes of telemetry.
 
