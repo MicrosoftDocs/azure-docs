@@ -159,6 +159,12 @@
     items:
     - name: Data integration using data factory and data share
       href: lab-data-flow-data-share.md
+  - name: Managed virtual network
+    items:
+    - name: Access on premises SQL Server
+      href: tutorial-managed-virtual-network-on-premise-sql-server.md
+    - name: Access SQL Managed Instance
+      href: tutorial-managed-virtual-network-sql-mi.md 
 - name: Samples
   items:
   - name: Code samples
