@@ -29,11 +29,11 @@ With Device Simulation, you can define device models to simulate your real devic
 
 You can run simulations for one to thousands of devices connecting to any IoT hub. To help with testing, you can optionally deploy an IoT hub along with Device Simulation for a standalone environment.
 
-Device Simulation is free. However, Device Simulation deploys to your Azure subscription in the cloud and does consume Azure resources. If Device Simulation doesn't meet your requirements, the [source code is also available on GitHub](https://github.com/Azure/device-simulation-dotnet) for you to copy and modify.
+Device Simulation is free. However, Device Simulation deploys to your Azure subscription in the cloud and does consume Azure resources. If Device Simulation doesn't meet your requirements, the [source code is also available on GitHub](https://github.com/Azure/azure-iot-pcs-device-simulation) for you to copy and modify.
 
 ## Sample simulations
 
-When you deploy Device Simulation, you get some sample simulations and sample devices. You can use these samples to learn how to use Device Simulation. To get started, run a [sample simulation](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md). You can also [create your own simulation using one of the many sample devices provided](iot-accelerators-device-simulation-create-simulation.md).
+When you deploy Device Simulation, you get some sample simulations and sample devices. You can use these samples to learn how to use Device Simulation. To get started, run a [sample simulation](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md). You can also [create your own simulation using one of the many sample devices provided](iot-accelerators-device-simulation-create-simulation.md).
 
 ![Simulation configuration](media/iot-accelerators-device-simulation-overview/samplesimulation1.png)
 
@@ -60,4 +60,4 @@ Advanced device models let you:
 In this article, you learned about the Device Simulation solution accelerator and its capabilities. To deploy the solution accelerator, visit the GitHub repository:
 
 > [!div class="nextstepaction"]
-> [Deploy and run an IoT device simulation in Azure](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md)
+> [Deploy and run an IoT device simulation in Azure](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md)

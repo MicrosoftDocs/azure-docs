@@ -104,7 +104,7 @@ These items should be treated as sensitive data and specified in the extensions 
 | Name | Value / Example | Data Type | 
 | ---- | ---- | ---- |
 | apiVersion | 2019-03-01 | date |
-| publisher | Microsoft.Compute.Extensions | string |
+| publisher | Microsoft.Azure.Extensions | string |
 | type | CustomScript | string |
 | typeHandlerVersion | 2.1 | int |
 | fileUris (e.g) | `https://github.com/MyProject/Archive/MyPythonScript.py` | array |

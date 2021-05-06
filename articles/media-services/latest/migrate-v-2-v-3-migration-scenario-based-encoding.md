@@ -98,7 +98,7 @@ If you previously used workflows to copy files from Azure blob files into empty 
 
 ## Indexer v1 audio transcription to the new AudioAnalyzer “basic mode”
 
-For customers using the Indexer v1 processor in the v2 API, you need to create a transform that invokes the new `AudioAnalyzer` in [basic mode](how-to-create-basic-audio-transform.md) prior to submitting a Job.
+For customers using the Indexer v1 processor in the v2 API, you need to create a transform that invokes the new `AudioAnalyzer` in [basic mode](transform-create-basic-audio-how-to.md) prior to submitting a Job.
 
 ## Encoding, transforms and jobs concepts, tutorials and how to guides
 
@@ -122,18 +122,18 @@ For customers using the Indexer v1 processor in the v2 API, you need to create a
 
 - [Create a job input from an HTTPS URL](job-input-from-http-how-to.md)
 - [Create a job input from a local file](job-input-from-local-file-how-to.md)
-- [Create a basic audio transform](how-to-create-basic-audio-transform.md)
+- [Create a basic audio transform](transform-create-basic-audio-how-to.md)
 - With .NET
-  - [How to encode with a custom transform - .NET](encode-custom-presets-how-to.md)
-  - [How to create an overlay with Media Encoder Standard](how-to-create-overlay.md)
-  - [How to generate thumbnails using Encoder Standard with .NET](media-services-generate-thumbnails-dotnet.md)
+  - [How to encode with a custom transform - .NET](transform-custom-presets-how-to.md)
+  - [How to create an overlay with Media Encoder Standard](transform-create-overlay-how-to.md)
+  - [How to generate thumbnails using Encoder Standard with .NET](transform-generate-thumbnails-dotnet-how-to.md)
 - With Azure CLI
-  - [How to encode with a custom transform - Azure CLI](encode-custom-preset-cli-how-to.md)
+  - [How to encode with a custom transform - Azure CLI](transform-custom-preset-cli-how-to.md)
 - With REST
-  - [How to encode with a custom transform - REST](encode-custom-preset-rest-how-to.md)
-  - [How to generate thumbnails using Encoder Standard with REST](media-services-generate-thumbnails-rest.md)
-- [Subclip a video when encoding with Media Services - .NET](subclip-video-dotnet-howto.md)
-- [Subclip a video when encoding with Media Services - REST](subclip-video-rest-howto.md)
+  - [How to encode with a custom transform - REST](transform-custom-preset-rest-how-to.md)
+  - [How to generate thumbnails using Encoder Standard with REST](transform-generate-thumbnails-rest-how-to.md)
+- [Subclip a video when encoding with Media Services - .NET](transform-subclip-video-dotnet-how-to.md)
+- [Subclip a video when encoding with Media Services - REST](transform-subclip-video-rest-how-to.md)
 
 ## Samples
 

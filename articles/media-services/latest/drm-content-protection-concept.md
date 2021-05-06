@@ -67,9 +67,9 @@ The example shows how to:
      ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
      ```
 
-2. Create a [streaming locator](streaming-locators-concept.md) that's configured to stream the encrypted asset.
+2. Create a [streaming locator](stream-streaming-locators-concept.md) that's configured to stream the encrypted asset.
   
-   The streaming locator has to be associated with a [streaming policy](streaming-policy-concept.md). In the example, we set `StreamingLocator.StreamingPolicyName` to the "Predefined_MultiDrmCencStreaming" policy.
+   The streaming locator has to be associated with a [streaming policy](stream-streaming-policy-concept.md). In the example, we set `StreamingLocator.StreamingPolicyName` to the "Predefined_MultiDrmCencStreaming" policy.
 
    The PlayReady and Widevine encryptions are applied, and the key is delivered to the playback client based on the configured DRM licenses. If you also want to encrypt your stream with CBCS (FairPlay), use the "Predefined_MultiDrmStreaming" policy.
 

@@ -2,7 +2,7 @@
 title: Test cases for test toolkit
 description: Describes the tests that are run by the ARM template test toolkit.
 ms.topic: conceptual
-ms.date: 12/03/2020
+ms.date: 04/12/2021
 ms.author: tomfitz
 author: tfitzmac
 ---
@@ -632,7 +632,7 @@ The following example **passes** this test.
 
 Test name: **ManagedIdentityExtension must not be used**
 
-Don't apply the ManagedIdentity extension to a virtual machine. For more information, see [How to stop using the virtual machine managed identities extension and start using the Azure Instance Metadata Service](../../active-directory/managed-identities-azure-resources/howto-migrate-vm-extension.md).
+Don't apply the ManagedIdentity extension to a virtual machine. The extension was deprecated in 2019 and should no longer be used.
 
 ## Outputs can't include secrets
 
@@ -693,7 +693,7 @@ Test name: **CommandToExecute Must Use ProtectedSettings For Secrets**
 In a Custom Script Extension, use the encrypted property `protectedSettings` when `commandToExecute` includes secret data such as a password. Examples of secret data types are `secureString`, `secureObject`, `list()` functions, or scripts.
 
 For more information about Custom Script Extension for virtual machines, see [Windows](
-/azure/virtual-machines/extensions/custom-script-windows), [Linux](/azure/virtual-machines/extensions/custom-script-linux), and the schema [Microsoft.Compute virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions).
+/azure/virtual-machines/extensions/custom-script-windows), [Linux](../../virtual-machines/extensions/custom-script-linux.md), and the schema [Microsoft.Compute virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions).
 
 In this example, a template with a parameter named `adminPassword` and type `secureString` **passes** the test because the encrypted property `protectedSettings` includes `commandToExecute`.
 

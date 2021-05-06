@@ -7,8 +7,8 @@ ms.topic: conceptual
 # Understand scope in Azure Policy
 
 There are many settings that determine which resources are capable of being evaluated and which
-resources are evaluated by Azure Policy. The primary concept for these controls is _scope_. For a
-high-level overview, see
+resources are evaluated by Azure Policy. The primary concept for these controls is _scope_. Scope in
+Azure Policy is based on how scope works in Azure Resource Manager. For a high-level overview, see
 [Scope in Azure Resource Manager](../../../azure-resource-manager/management/overview.md#understand-scope).
 This article explains the importance of _scope_ in Azure Policy and it's related objects and
 properties.

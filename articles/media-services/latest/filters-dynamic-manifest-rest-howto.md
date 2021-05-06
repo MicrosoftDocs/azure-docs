@@ -34,9 +34,9 @@ This topic shows how to define a filter for a Video on Demand asset and use REST
 To complete the steps described in this topic, you have to:
 
 - Review [Filters and dynamic manifests](filters-dynamic-manifest-concept.md).
-- [Configure Postman for Azure Media Services REST API calls](media-rest-apis-with-postman.md).
+- [Configure Postman for Azure Media Services REST API calls](setup-postman-rest-how-to.md).
 
-    Make sure to follow the last step in the topic [Get Azure AD Token](media-rest-apis-with-postman.md#get-azure-ad-token). 
+    Make sure to follow the last step in the topic [Get Azure AD Token](setup-postman-rest-how-to.md#get-azure-ad-token). 
 
 ## Define a filter  
 

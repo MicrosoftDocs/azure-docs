@@ -2,23 +2,21 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: mikben
-manager: mikben
+author: ddematheu2
+manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
+ms.author: dademath
 ---
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-android-ios.md)]
 
 The Azure Communication Services **Group Calling Hero Sample for iOS** demonstrates how the Communication Services Calling iOS SDK can be used to build a group calling experience that includes voice and video. In this sample quickstart, you will learn how to set up and run the sample. An overview of the sample is provided for context.
 
 ## Download code
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero).
+Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero). A version of the sample with [Teams Interop](../../concepts/teams-interop.md) can be found on a separate [Branch](https://github.com/Azure-Samples/communication-services-ios-calling-hero/tree/feature/teams_interop).
 
 ## Overview
 
@@ -28,7 +26,7 @@ Here's what the sample looks like:
 
 :::image type="content" source="../media/calling/landing-page-ios.png" alt-text="Screenshot showing the landing page of the sample application.":::
 
-When you press the "Start new call" button, the iOS application creates a new call and joins it. The application allows you to join an existing Azure Communication Services call by specifying the existing call's ID. You can also join a Teams Meeting by providing the join link found in the Meeting's invite.  (The join link has the following format: `https://teams.microsoft.com/l/meetup-join/`). For more information on Teams Interop, visit the [Teams Interop conceptual documentation](../../concepts/teams-interop.md).
+When you press the "Start new call" button, the iOS application creates a new call and joins it. The application allows you to join an existing Azure Communication Services call by specifying the existing call's ID.
 
 After joining a call, you'll be prompted to give the application permission to access your camera and microphone. You'll also be asked to provide a display name.
 
@@ -105,5 +103,5 @@ For more information, see the following articles:
 
 - [Azure Communication GitHub](https://github.com/Azure/communication) - Find more examples and information on the official GitHub page
 - [Samples](./../overview.md) - Find more samples and examples on our samples overview page.
-- [Azure Communication Calling Features](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features) - To learn more about the calling iOS sdk
+- [Azure Communication Calling Features](../../concepts/voice-video-calling/calling-sdk-features.md) - To learn more about the calling iOS sdk
 -[Azure Communication iOS Calling SDK](https://github.com/Azure/Communication/releases/)

@@ -284,7 +284,7 @@ All other codes not in the above set (200-204) are considered failures and will 
 | 503 Service Unavailable | Retry after 30 seconds or more |
 | All others | Retry after 10 seconds or more |
 
-## Delivery with custom headers
+## Custom delivery properties
 Event subscriptions allow you to set up HTTP headers that are included in delivered events. This capability allows you to set custom headers that are required by a destination. You can set up to 10 headers when creating an event subscription. Each header value shouldn't be greater than 4,096 (4K) bytes. You can set custom headers on the events that are delivered to the following destinations:
 
 - Webhooks
@@ -292,7 +292,7 @@ Event subscriptions allow you to set up HTTP headers that are included in delive
 - Azure Event Hubs
 - Relay Hybrid Connections
 
-For more information, see [Delivery with custom headers](delivery-properties.md). 
+For more information, see [Custom delivery properties](delivery-properties.md). 
 
 ## Next steps
 

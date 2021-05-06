@@ -180,8 +180,7 @@ The below table lists the properties supported by a delimited text sink. You can
 | Clear the folder | If the destination folder is cleared prior to write | no | `true` or `false` | truncate |
 | File name option | The naming format of the data written. By default, one file per partition in format `part-#####-tid-<guid>` | no | Pattern: String <br> Per partition: String[] <br> Name file as column data: String <br> Output to single file: `['<fileName>']` <br> Name folder as column data: String | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames <br> rowFolderUrlColumn |
 | Quote all | Enclose all values in quotes | no | `true` or `false` | quoteAll |
-
-rowFolderUrlColumn:
+| Header | Add customer headers to output files | no | `[<string array>]` | header |
 
 ### Sink example
 

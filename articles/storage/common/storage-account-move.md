@@ -50,7 +50,7 @@ To export a template by using Azure portal:
 
 2. Select **All resources** and then select your storage account.
 
-3. Select > **Settings** > **Export template**.
+3. Select > **Automation** > **Export template**.
 
 4. Choose **Download** in the **Export template** blade.
 

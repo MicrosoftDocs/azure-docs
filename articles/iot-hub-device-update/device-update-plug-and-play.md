@@ -20,7 +20,7 @@ Concepts:
 
 The 'ADUCoreInterface' interface is used to send update actions and metadata to devices and receive update status from devices. The 'ADU Core' interface is split into two Object properties.
 
-The expected component name in your model is **"azureDeviceUpdateAgent"** when implementing this interface. [Learn more about Azure IoT PnP Components](../iot-pnp/concepts-components.md)
+The expected component name in your model is **"azureDeviceUpdateAgent"** when implementing this interface. [Learn more about Azure IoT PnP Components](../iot-pnp/concepts-modeling-guide.md)
 
 ### Agent Metadata
 
@@ -86,7 +86,7 @@ Service Metadata contains fields that the Device Update services uses to communi
 |Name|Schema|Direction|Description|
 |----|------|---------|-----------|
 |action|integer|cloud to device|It is an integer that corresponds to an action the agent should perform. Values listed below.|
-|updateManifest|string|cloud to device|Used to describe the content of an update. Generated from the [Import Manifest](import-update.md#create-device-update-import-manifest)|
+|updateManifest|string|cloud to device|Used to describe the content of an update. Generated from the [Import Manifest](import-update.md#create-a-device-update-import-manifest)|
 |updateManifestSignature|JSON Object|cloud to device|A JSON Web Signature (JWS) with JSON Web Keys used for source verification.|
 |fileUrls|Map|cloud to device|Map of `FileHash` to `DownloadUri`. Tells the agent, which files to download and the hash to use to verify the files were downloaded correctly.|
 
@@ -105,7 +105,7 @@ Service Metadata contains fields that the Device Update services uses to communi
 
 The Device Information Interface is a concept used within [IoT Plug and Play architecture](../iot-pnp/overview-iot-plug-and-play.md). It contains device to cloud properties that provide information about the hardware and operating system of the device. Device Update for IoT Hub uses the DeviceInformation.manufacturer and DeviceInformation.model properties for telemetry and diagnostics. To learn more about Device Information interface, see this [example](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
 
-The expected component name in your model is **deviceInformation** when implementing this interface. [Learn about Azure IoT PnP Components](../iot-pnp/concepts-components.md)
+The expected component name in your model is **deviceInformation** when implementing this interface. [Learn about Azure IoT PnP Components](../iot-pnp/concepts-modeling-guide.md)
 
 |Name|Type|Schema|Direction|Description|Example|
 |----|----|------|---------|-----------|-----------|

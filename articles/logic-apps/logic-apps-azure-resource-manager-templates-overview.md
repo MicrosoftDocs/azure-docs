@@ -34,7 +34,7 @@ For template resource information specific to logic apps, integration accounts, 
 For sample logic app templates, see these examples:
 
 * [Full template](#full-example-template) that's used for this topic's examples
-* [Sample quickstart logic app template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create) in GitHub
+* [Sample quickstart logic app template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json) in GitHub
 
 For the Logic Apps REST API, start with the [Azure Logic Apps REST API overview](/rest/api/logic).
 
@@ -62,6 +62,7 @@ For a logic app template, you primarily work with these template objects:
 |-----------|-------------|
 | `parameters` | Declares the [template parameters](../azure-resource-manager/templates/template-syntax.md#parameters) for accepting the values to use when creating and customizing resources for deployment in Azure. For example, these parameters accept the values for your logic app's name and location, connections, and other resources necessary for deployment. You can store these parameter values in a [parameters file](#template-parameter-files), which is described later in this topic. For general details, see [Parameters - Resource Manager template structure and syntax](../azure-resource-manager/templates/template-syntax.md#parameters). |
 | `resources` | Defines the [resources](../azure-resource-manager/templates/template-syntax.md#resources) to create or update and deploy to an Azure resource group, such as your logic app, connections, Azure storage accounts, and so on. For general details, see [Resources - Resource Manager template structure and syntax](../azure-resource-manager/templates/template-syntax.md#resources). |
+|||
 
 Your logic app template uses this file name format:
 
@@ -1118,7 +1119,7 @@ Here is the parameterized sample template that's used by this topic's examples:
          "defaultValue": "",
          "metadata": {
             "description": "Name of the storage account the connector should use."
-         },
+         }
 
       },
       "azureblob_1_accountName": {
@@ -1161,7 +1162,7 @@ Here is the parameterized sample template that's used by this topic's examples:
                            "connection": {
                               "name": "@parameters('$connections')['azureblob']['connectionId']"
                            }
-                        },
+                        }
                      },
                      "method": "post",
                      "body": "@triggerBody()?['Body']",

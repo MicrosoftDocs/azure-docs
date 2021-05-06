@@ -22,7 +22,7 @@ There are two ways to use the domain-specific models: by themselves (scoped anal
 
 ### Scoped analysis
 
-You can analyze an image using only the chosen domain-specific model by calling the [Models/\<model\>/Analyze](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API.
+You can analyze an image using only the chosen domain-specific model by calling the [Models/\<model\>/Analyze](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b) API.
 
 The following is a sample JSON response returned by the **models/celebrities/analyze** API for the given image:
 
@@ -53,7 +53,7 @@ The following is a sample JSON response returned by the **models/celebrities/ana
 
 ### Enhanced categorization analysis
 
-You can also use domain-specific models to supplement general image analysis. You do this as part of [high-level categorization](concept-categorizing-images.md) by specifying domain-specific models in the *details* parameter of the [Analyze](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API call.
+You can also use domain-specific models to supplement general image analysis. You do this as part of [high-level categorization](concept-categorizing-images.md) by specifying domain-specific models in the *details* parameter of the [Analyze](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b) API call.
 
 In this case, the 86-category taxonomy classifier is called first. If any of the detected categories have a matching domain-specific model, the image is passed through that model as well and the results are added.
 
@@ -101,7 +101,7 @@ Currently, Computer Vision supports the following domain-specific models:
 | celebrities | Celebrity recognition, supported for images classified in the `people_` category |
 | landmarks | Landmark recognition, supported for images classified in the `outdoor_` or `building_` categories |
 
-Calling the [Models](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20e) API will return this information along with the categories to which each model can apply:
+Calling the [Models](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f20e) API will return this information along with the categories to which each model can apply:
 
 ```json
 {

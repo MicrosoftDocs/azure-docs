@@ -65,10 +65,10 @@ conceptualContent:
             text: Find out what's new in Media Services v3
     - title: Stream live 
       links: 
-        - url: ./latest/live-streaming-overview.md 
+        - url: ./latest/stream-live-streaming-concept.md 
           itemType: concept
           text: Live streaming 
-        - url: ./latest/recommended-on-premises-live-encoders.md
+        - url: ./latest/encode-recommended-on-premises-live-encoders.md
           itemType: concept
           text: Recommended live streaming encoders
         - url: ./latest/stream-live-tutorial-with-api.md

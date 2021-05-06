@@ -28,7 +28,7 @@ ms.reviewer: bagovind
 
 ## List role assignments for a user
 
-To list the role assignments for a specific user, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list):
+To list the role assignments for a specific user, use [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list):
 
 ```azurecli
 az role assignment list --assignee {assignee}
@@ -59,7 +59,7 @@ az role assignment list --all --assignee patlong@contoso.com --output json --que
 
 ## List role assignments for a resource group
 
-To list the role assignments that exist at a resource group scope, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list):
+To list the role assignments that exist at a resource group scope, use [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list):
 
 ```azurecli
 az role assignment list --resource-group {resourceGroup}
@@ -91,7 +91,7 @@ az role assignment list --resource-group pharma-sales --output json --query '[].
 
 ## List role assignments for a subscription
 
-To list all role assignments at a subscription scope, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list). To get the subscription ID, you can find it on the **Subscriptions** blade in the Azure portal or you can use [az account list](/cli/azure/account#az-account-list).
+To list all role assignments at a subscription scope, use [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list). To get the subscription ID, you can find it on the **Subscriptions** blade in the Azure portal or you can use [az account list](/cli/azure/account#az_account_list).
 
 ```azurecli
 az role assignment list --subscription {subscriptionNameOrId}
@@ -128,7 +128,7 @@ az role assignment list --subscription 00000000-0000-0000-0000-000000000000 --ou
 
 ## List role assignments for a management group
 
-To list all role assignments at a management group scope, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list). To get the management group ID, you can find it on the **Management groups** blade in the Azure portal or you can use [az account management-group list](/cli/azure/account/management-group#az-account-management-group-list).
+To list all role assignments at a management group scope, use [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list). To get the management group ID, you can find it on the **Management groups** blade in the Azure portal or you can use [az account management-group list](/cli/azure/account/management-group#az_account_management_group_list).
 
 ```azurecli
 az role assignment list --scope /providers/Microsoft.Management/managementGroups/{groupId}
@@ -159,19 +159,19 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 
 1. Get the principal ID of the system-assigned or user-assigned managed identity.
 
-    To get the principal ID of a user-assigned managed identity, you can use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) or [az identity list](/cli/azure/identity#az-identity-list).
+    To get the principal ID of a user-assigned managed identity, you can use [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list) or [az identity list](/cli/azure/identity#az_identity_list).
 
     ```azurecli
     az ad sp list --display-name "{name}" --query [].objectId --output tsv
     ```
 
-    To get the principal ID of a system-assigned managed identity, you can use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list).
+    To get the principal ID of a system-assigned managed identity, you can use [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list).
 
     ```azurecli
     az ad sp list --display-name "{vmname}" --query [].objectId --output tsv
     ```
 
-1. To list the role assignments, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list).
+1. To list the role assignments, use [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list).
 
     By default, only role assignments for the current subscription will be displayed. To view role assignments for the current subscription and below, add the `--all` parameter. To view inherited role assignments, add the `--include-inherited` parameter.
 
