@@ -10,7 +10,7 @@ keywords: "Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure K
 # Migrating to Bridge to Kubernetes
 
 > [!IMPORTANT]
-> Azure Dev Spaces will be retired on October 31, 2023. Customers should move to using Bridge to Kubernetes, a client developer tool.
+> Azure Dev Spaces is retired as of May 15, 2021. Customers should use Bridge to Kubernetes, a client developer tool.
 >
 > The purpose of Azure Dev Spaces was about easing users into developing on Kubernetes. A significant tradeoff in the approach of Azure Dev Spaces was putting extra burden on users to understand Docker and Kubernetes configurations as well as Kubernetes deployment concepts. Over time, it also became clear that the approach of Azure Dev Spaces did not effectively decrease the speed of inner loop development on Kubernetes. Bridge to Kubernetes effectively decreases the speed of inner loop development and avoids unnecessary burden on users.
 >
