@@ -52,11 +52,13 @@ The rest of this section walks you through these steps.
 
 ### Set up an Azure Digital Twins instance
 
-[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+To work with Azure Digital Twins in this article, you first need to *set up an Azure Digital Twins instance*. You also need the required permissions for using it.
+
+Follow the instructions in [Set up an instance and authentication](how-to-set-up-instance-portal.md). The instructions contain information to help you verify that you've completed each step successfully.
 
 ### Open instance in Azure Digital Twins Explorer
 
-Next, open **Azure Digital Twins Explorer** for your instance in the [Azure portal](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_DigitalTwins=tip2#home). 
+Next, open Azure Digital Twins Explorer for your instance in the [Azure portal](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_DigitalTwins=tip2#home). 
 
 To do this, go to the Azure portal and navigate to your new Azure Digital Twins instance, by searching for its name in the portal search bar.
 
