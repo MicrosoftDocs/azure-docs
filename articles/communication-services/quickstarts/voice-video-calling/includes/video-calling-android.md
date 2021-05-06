@@ -1,3 +1,11 @@
+---
+author: mikben
+ms.service: azure-communication-services
+ms.topic: include
+ms.date: 03/10/2021
+ms.author: mikben
+---
+
 Get started with Azure Communication Services by using the Communication Services calling client library to add 1 on 1 video calling to your app. You'll learn how to start and answer a video call using the Azure Communication Services Calling SDK for Android.
 
 ## Prerequisites
