@@ -52,7 +52,7 @@ Follow these steps to run the sample code:
      * A call to `pipelineTopologySet` that uses the preceding `topologyUrl`
      * A call to `livePipelineSet` that uses the following body:
          
-    ```
+    ```json
     {
       "@apiVersion": "1.0",
       "name": "Sample-Pipeline-1",

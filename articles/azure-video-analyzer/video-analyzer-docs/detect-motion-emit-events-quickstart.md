@@ -32,7 +32,7 @@ This quickstart walks you through the steps to get started with Azure Video Anal
 
 ![Azure Video Analyzer based on motion detection](./media/analyze-live-video/motion-detection.png) 
 
-This diagram shows you how the signal flows in this quickstart. An [edge module](https://github.com/Azure/azure-video-analyzer/tree/master/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [motion detection processor](pipeline.md#motion-detection-processor) node. The motion detection processor node enables you to detect motion in live video. It examines incoming video frames and determines if there is movement in the video. If motion is detected, it passes on the video frame to the next node in the pipeline, and emits an event. 
+This diagram shows you how the signal flows in this quickstart. An [edge module](https://github.com/Azure/azure-video-analyzer/tree/master/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [motion detection processor](pipeline.md#motion-detection-processor) node. The motion detection processor node enables you to detect motion in live video. It examines incoming video frames and determines if there is movement in the video. If motion is detected, it passes on the video frame to the next node in the pipeline, and emits an event. Finally, any emitted events are sent to the IoT hub message sink where they are published to IoT Hub.
 
 ## Review the sample video
 
