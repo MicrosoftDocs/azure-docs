@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 09/11/2020
+ms.date: 05/06/2021
 ---
 
 # Common questions about the Microsoft commercial marketplace
@@ -305,6 +305,9 @@ For more information, see [Set up your payout account and tax forms](/partner-ce
 ### Are returns and refunds supported with the commercial marketplace?
 
 Refunds are available to customers under certain conditions and for certain charges. Requests for refunds of recurring charges billed monthly must be received within 24 hours of purchase or renewal. Similarly, requests for refunds of recurring charges billed annually must be received within 14 days of purchase or renewal. This type of refunds doesn't apply to charges resulting from usage (either from virtual machine offers or metered billing).
+
+> [!NOTE]
+> Refunds are not granted for metered usage of Virtual Machines, metered billing for SaaS and Azure Apps, or other instances of product consumption (Pay as you Go, etc.).  If a vendor does receive a refund, it will be reflected in the Partner Center [payout reporting](/partner-center/payout-statement?context=/azure/marketplace/context/context).
 
 ## Resources
 
