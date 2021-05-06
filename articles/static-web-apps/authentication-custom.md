@@ -18,16 +18,15 @@ In addition, custom authentication allows you to [configure custom providers](#c
 > [!NOTE]
 > Custom authentication is only available in the Standard tier of Azure Static Web Apps.
 
-## Override a default provider
-
+## Override a built-in provider
 
 The settings used to override the built-in providers are configured in the `auth` section of the [configuration file](configuration.md).
 
 To avoid putting secrets in source control, the configuration looks into [application settings](application-settings.md) for a matching name in the configuration file.
 
-### Default provider configuration
+### Built-in provider configuration
 
-The following tables contain the different configuration options for each default provider.
+The following tables contain the different configuration options for each built-in provider.
 
 # [Azure Active Directory](#tab/aad)
 
