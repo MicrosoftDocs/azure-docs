@@ -19,7 +19,7 @@ External tables are useful when you want to control access to external data in S
 - Public storage where users access public storage files.
 - Protected storage where users access storage files using SAS credential, Azure AD identity, or Managed Identity of Synapse workspace.
 
-> [NOTE!]
+> [!NOTE]
 >  In the dedicated SQL pools you can use only Parquet native external tables. The native Parquet external tables are in public preview in the dedicated pools. If you want to use generally available functionality in the dedicated pools, or you need to access CSV or ORC files use Hadoop external tables. Native external tables are generaly available in the serverless SQL pools.
 > Learn more about the differences between the native and Hadoop external tables in [this article](develop-tables-external-tables.md).
 
