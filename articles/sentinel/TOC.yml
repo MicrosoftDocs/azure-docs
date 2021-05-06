@@ -280,6 +280,8 @@
     href: surface-custom-details-in-alerts.md
   - name: Create incidents from alerts
     href: create-incidents-from-alerts.md
+  - name: Collaborate in Microsoft Teams
+    href: collaborate-in-microsoft-teams.md
   - name: Manage your SOC better with incident metrics
     href: manage-soc-with-incident-metrics.md
   - name: Audit Azure Sentinel queries and activities

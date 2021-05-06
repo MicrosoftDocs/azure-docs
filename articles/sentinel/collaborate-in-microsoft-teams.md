@@ -1,0 +1,87 @@
+---
+title: Collaborate in Microsoft Teams | Microsoft Docs
+description: Learn how to connect to Microsoft Teams from Azure Sentinel to collaborate with others on your team using Azure Sentinel data.
+services: sentinel
+documentationcenter: na
+author: batamig
+manager: rkarlin
+editor: ''
+
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
+ms.devlang: na
+ms.topic: conceptual
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 05/03/2021
+ms.author: bagol
+
+---
+
+# Collaborate in Microsoft Teams (Public preview)
+
+Azure Sentinel supports a direct integration with [Microsoft Teams](/microsoftteams/), enabling you to jump directly into team work on specific incidents.
+
+
+> [!IMPORTANT]
+> Integration with Microsoft Teams is is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+## Overview
+
+Integrating with Microsoft Teams directly from Azure Sentinel enables your teams to collaborate seamlessly across the organization, and with external stakeholders.
+
+Using a *war room* type of team in Microsoft Teams provides a mechanism for central communication and coordination. War rooms are especially helpful when used as a dedicated conference bridge for high-severity, ongoing incidents.
+
+Organizations that already use Microsoft Teams for communication and collaboration can use the Azure Sentinel integration to bring security data directly into their conversations and daily work.
+
+An incident war room in Microsoft Teams always has the most updated and recent data from Azure Sentinel, ensuring that your teams have the most relevant data right at hand.
+
+## Use a war room to investigate incidents with your team
+
+Investigate together with a war room-type team by integrating with Microsoft Teams, directly from your incident.
+
+**To create your war room team**:
+
+1. In Azure Sentinel, in the **Threat management** > **Incidents** grid, select the incident you're currently investigating.
+
+1. At the bottom of the incident pane that appears on the right, select **Actions** > **Create team**.
+
+    [ ![Create a team to collaborate in a war room.](media/collaborate-in-microsoft-teams/create-team.png) ](media/collaborate-in-microsoft-teams/create-team.png#lightbox)
+
+    The **New team** pane opens on the right. Define the following settings for your war room:
+
+    - **Team name**: Automatically defined as the name of your incident. Modify the name as needed so that it's easily identifiable to you.
+    - **Description**: Enter a meaningful description for your war room team.
+    - **Add groups**: Select one or more Azure AD groups to add to your war room. Individual users are not supported.
+
+        > [!TIP]
+        > If you regularly work with the same teams, you may want to select the star :::image type="icon" source="media/collaborate-in-microsoft-teams/save-as-favorite.png" border="false"::: to save them as favorites.
+        >
+        > Favorites are automatically selected the next time you create a team. If you want to remove it from the next team you create, either select **Delete** :::image type="icon" source="media/collaborate-in-microsoft-teams/delete-user-group.png" border="false":::, or select the star :::image type="icon" source="media/collaborate-in-microsoft-teams/save-as-favorite.png" border="false"::: again to remove the team from your favorites altogether.
+        >
+
+1. When you're done adding groups, select **Create** to create your war room team.
+
+    The incident pane refreshes, with a link to your new war room under the **Teams collaboration** title.
+
+    [ ![Click the Teams integration link added to your incident.](media/collaborate-in-microsoft-teams/teams-link-added-to-incident.jpg) ](media/collaborate-in-microsoft-teams/teams-link-added-to-incident.jpg#lightbox)
+
+
+1. Click your Teams integration link to switch into Microsoft teams, where all of the data about your incident is listed on the **Incident page** tab.
+
+    [ ![Incident page in Microsoft Teams.](media/collaborate-in-microsoft-teams/incident-in-teams.jpg) ](media/collaborate-in-microsoft-teams/incident-in-teams.jpg#lightbox)
+
+Continue the conversation about the investigation in Teams for as long as needed. You have the full incident details directly in teams.
+
+> [!TIP]
+> When you [close an incident](tutorial-investigate-cases.md#closing-an-incident), the related war room team you've created in Microsoft Teams is archived.
+>
+> If the incident is ever re-opened, the related war room team is also re-opened in Microsoft Teams so that you can continue your conversation, right where you left off.
+>
+
+## Next steps
+
+For more information, see:
+
+- [Tutorial: Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md)
+- [Overview of teams and channels in Microsoft Teams](/microsoftteams/teams-channels-overview/)
