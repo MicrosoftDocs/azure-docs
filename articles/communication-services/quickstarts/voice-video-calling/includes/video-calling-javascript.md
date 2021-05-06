@@ -8,8 +8,8 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 ## Prerequisites
 - Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/en/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1)
-- Create an active Communication Services resource. [Create a Communication Services resource](../create-communication-resource.md?pivots=platform-azp&tabs=windows).
-- Create a User Access Token to instantiate the call client. [Learn how to create and manage user access tokens](../access-tokens.md?pivots=programming-language-csharp).
+- Create an active Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md?pivots=platform-azp&tabs=windows).
+- Create a User Access Token to instantiate the call client. [Learn how to create and manage user access tokens](../../access-tokens.md?pivots=programming-language-csharp).
 
 ## Setting up
 ### Create a new Node.js application
@@ -310,7 +310,7 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 ```
 Open your browser and navigate to http://localhost:8080/. You should see the following:
 
-:::image type="content" source="./media/javascript/1-on-1-video-calling.png" alt-text="1 on 1 video calling page":::
+:::image type="content" source="../media/javascript/1-on-1-video-calling.png" alt-text="1 on 1 video calling page":::
 
 You can make an 1:1 outgoing video call by providing a user ID in the text field and clicking the Start Call button. 
 
