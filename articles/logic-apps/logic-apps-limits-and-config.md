@@ -263,9 +263,9 @@ The following table lists the values for a single workflow definition:
 
 | Name | Multi-tenant | Single-tenant (preview) | Integration service environment | Notes |
 |------|--------------|-------------------------|---------------------------------|-------|
-| Variables per workflow | 250 variables | ? | ? ||
-| Variable - Maximum content size | ? | 104,857,600 bytes (105 MB) | ? ||
-| Variable (Array type) - Maximum number of array items | ? | 100,000 items | ? ||
+| Variables per workflow | 250 variables | 250 variables | 250 variables ||
+| Variable - Maximum content size | 104,857,600 characters | Stateful workflow: 104,857,600 characters <p><p>Stateless workflow: 1,024 characters | 104,857,600 characters ||
+| Variable (Array type) - Maximum number of array items | 100,000 items | 100,000 items | Premium SKU: 100,000 items <p><p>Developer SKU: 5,000 items ||
 ||||||
 
 <a name="http-limits"></a>
