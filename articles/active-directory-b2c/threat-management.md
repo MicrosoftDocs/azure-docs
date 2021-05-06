@@ -22,9 +22,9 @@ Azure Active Directory B2C (Azure AD B2C) includes built-in features that can he
 
 Azure AD Identity Protection risk-detection features, including risky users and risky sign-ins, are automatically detected and displayed in your Azure AD B2C tenant. You can create Conditional Access policies that use these risk detections to determine remediation actions and enforce organizational policies.
 
-For an overview, see [Identity Protection and Conditional Access](conditional-access-identity-protection-overview).
+For an overview, see [Identity Protection and Conditional Access](conditional-access-identity-protection-overview.md).
 
-For setup steps, see [Add Conditional Access to user flows in Azure AD B2C](conditional-access-user-flow).
+For setup steps, see [Add Conditional Access to user flows in Azure AD B2C](conditional-access-user-flow.md).
 
 ## Denial-of-service attacks
 
