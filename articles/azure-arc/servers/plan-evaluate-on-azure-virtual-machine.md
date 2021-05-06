@@ -15,7 +15,7 @@ While you cannot install Azure Arc enabled servers on an Azure VM for production
 
 * Your account is assigned to the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role.
 * The Azure virtual machine is running an [operating system supported by Arc enabled servers](agent-overview.md#supported-operating-systems). If you don't have an Azure VM, you can deploy a [simple Windows VM](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-windows%2fazuredeploy.json) or a [simple Ubuntu Linux 18.04 LTS VM](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-linux%2fazuredeploy.json).
-* Your Azure VM can communicates outbound securely to Azure Arc over TCP port 443. For additional information, review the Arc enabled servers [network configuration](agent-overview.md#networking-configuration) requirements.
+* Your Azure VM can communicate outbound securely to Azure Arc over TCP port 443. For additional information, review the Arc enabled servers [network configuration](agent-overview.md#networking-configuration) requirements.
 * An account with elevated (that is, an administrator or as root) privileges on the VM, and RDP or SSH access to the VM.
 * To register and manage the Azure VM with Arc enabled servers, you are a member of the [Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator) or [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role in the resource group.
 
