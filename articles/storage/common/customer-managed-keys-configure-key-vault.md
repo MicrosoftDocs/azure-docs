@@ -365,7 +365,7 @@ You can configure customer-managed keys on existing or new accounts. First, sele
 
 Select the managed identity that your storage account will use to authorize access to the key vault. If you've [configured the key vault access policy](#configure-a-key-vault-access-policy), then you've already chosen the identity. Use that same identity in this step. 
 
-To use the system-assigned managed identity of the storage account, If you configured the key vault access policy by using the system-assigned managed identity of the storage account, then call the  [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `-IdentityType` parameter to `SystemAssigned`:
+To use the system-assigned managed identity of the storage account, then call the  [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `-IdentityType` parameter to `SystemAssigned`:
 
 ```powershell
 Set-AzStorageAccount 
@@ -439,23 +439,19 @@ You can configure customer-managed keys on existing or new accounts. First, sele
 
 Select the managed identity that your storage account will use to authorize access to the key vault. If you've [configured the key vault access policy](#configure-a-key-vault-access-policy), then you've already chosen the identity. Use that same identity in this step. 
 
-To use the system-assigned managed identity of the storage account, If you configured the key vault access policy by using the system-assigned managed identity of the storage account, then call the  [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `-IdentityType` parameter to `SystemAssigned`:
+To use the system-assigned managed identity of the storage account, If you configured the key vault access policy by using the system-assigned managed identity of the storage account, then call the `<need api names here>`:
 
 ```powershell
-Set-AzStorageAccount 
--IdentityType SystemAssigned 
+Code goes here.
 ```          
 
 > [!TIP]
-> This parameter is also available with the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command.
+> This parameter is also available with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
 
-To use a user-assigned managed identity, call the  [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `-IdentityType` parameter to `UserAssigned`. Then, set the `UserAssignedIdentities` and `-KeyVaultUserAssignedIdentity` parameters to the object ID of the user-assigned managed identity: 
+To use a user-assigned managed identity, call the `<need api names here>` 
 
 ```powershell
-Set-AzStorageAccount 
-    -IdentityType UserAssigned ` 
-    -UserAssignedIdentities @($UserAssignedIdentity) `  
-    -KeyVaultUserAssignedIdentity $UserAssignedIdentity 
+code goes here.
 ```
 #### Decide how to update key versions
 
