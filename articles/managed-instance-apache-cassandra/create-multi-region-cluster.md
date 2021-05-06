@@ -68,7 +68,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a mu
 
 1. Check the output of the previous command, and make sure the value of "peeringState" is now "Connected".
 
-1. Next, we need to apply some special permissions to both Virtual Networks, which are required by Azure Managed Instance for Apache Cassandra. Run the following and ensure you replace `<Subscription ID>` with your subscription ID:
+1. Next, apply some special permissions to both Virtual Networks, which are required by Azure Managed Instance for Apache Cassandra. Run the following and make sure to replace `<Subscription ID>` with your subscription ID:
 
     ```azurecli-interactive
         az role assignment create --assignee a232010e-820c-4083-83bb-3ace5fc29d0b --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<Subscription ID>/resourceGroups/cassandra-mi-multi-region/providers/Microsoft.Network/virtualNetworks/vnetEastUs2
