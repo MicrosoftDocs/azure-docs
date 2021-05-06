@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/05/2021
+ms.date: 05/06/2021
 ms.author: dpless
 ms.custom: contperf-fy21q3
 ms.reviewer: jroth
@@ -105,7 +105,7 @@ The following is a quick checklist of best practices for Azure-specific guidance
 - Leverage the best [backup and restore strategy](backup-restore.md#decision-matrix) for your SQL Server workload.
 - Ensure [Accelerated Networking is enabled](../../../virtual-network/create-vm-accelerated-networking-cli.md#portal-creation) on the virtual machine.
 - Leverage [Azure Security Center](../../../security-center/index.yml) to improve the overall security posture of your virtual machine deployment.
-- Leverage [Azure Defender](../../../security-center/azure-defender.md), integrated with [Azure Security Center](https://azure.microsoft.com/services/security-center/), for specific [SQL Server VM coverage](../../../security-center/defender-for-sql-introduction.md) including [vulnerability assessments](sql-vulnerability-assessment-enable.md) and [advanced threat protection](../../../azure-sql/database/threat-detection-overview.md).
+- Leverage [Azure Defender](../../../security-center/azure-defender.md), integrated with [Azure Security Center](https://azure.microsoft.com/services/security-center/), for specific [SQL Server VM coverage](../../../security-center/defender-for-sql-introduction.md) including [vulnerability assessments](https://docs.microsoft.com/en-us/azure/security-center/defender-for-sql-on-machines-vulnerability-assessment) and [just-in-time access](https://docs.microsoft.com/en-us/azure/security-center/just-in-time-explained) which reduces the attack service while allowing legitimate users to access virtual machines when necessary. 
 - Leverage [Azure Advisor](../../../advisor/advisor-overview.md) to address [performance](../../../advisor/advisor-performance-recommendations.md), [cost](../../../advisor/advisor-cost-recommendations.md), [reliability](../../../advisor/advisor-high-availability-recommendations.md), [operational excellence](../../../advisor/advisor-operational-excellence-recommendations.md), and [security recommendations](../../../advisor/advisor-security-recommendations.md).
 - Leverage [Azure Monitor](../../../azure-monitor/vm/quick-monitor-azure-vm.md) to collect, analyze, and act on telemetry data from your SQL Server environment. This includes identifying infrastructure issues with [VM insights](../../../azure-monitor/vm/vminsights-overview.md) and monitoring data with [Log Analytics](../../../azure-monitor/logs/log-query-overview.md) for deeper diagnostics.
 - Enable [Auto-shutdown](../../../automation/automation-solution-vm-management.md) for development and test environments. 
