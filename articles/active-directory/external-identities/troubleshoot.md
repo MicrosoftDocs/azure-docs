@@ -120,6 +120,15 @@ If you accidentally deleted the `aad-extensions-app`, you have 30 days to recove
 
 You should now see the restored app in the Azure portal.
 
+## A guest user was invited succesfully but the email attribute is not populating
+
+When there is contact object in the directory, the mail address in contact object would conflict with external user object. To avoid conflict, an external user object will be created without mail & proxyAddresses property populated instead the email address will be added otherMail property.  You can search for a conflicting contact object in your Azure AD tennat using PowerShell steps below
+
+1. Launch the Azure AD PowerShell module and run `Connect-AzureAD`.
+1. Sign in as a global administrator for the Azure AD tenant that you want to recover the deleted app for.
+1. Run the PowerShell command `Get-AzureADContact -All $true | ? {$_.ProxyAddresses -match 'user@domain.com'}`.
+1. Run the PowerShell command `Get-AzureADContact -All $true | ? {$_.Mail -match 'user@domain.com'}`.
+
 ## Next steps
 
 [Get support for B2B collaboration](../fundamentals/active-directory-troubleshooting-support-howto.md)
