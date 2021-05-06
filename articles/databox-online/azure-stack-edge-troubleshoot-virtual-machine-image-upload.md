@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 05/05/2021
+ms.date: 05/06/2021
 ms.author: alkohli
 ---
 # Troubleshoot virtual machine image uploads in Azure Stack Edge Pro
@@ -32,19 +32,19 @@ Possible causes:
 
 * You don't have the required contributor role permissions to the resource group or subscription for the device.
 
-* The image name already exists in SCOPE?.<!--1) Unique name required within what scope - on the device, in the container, in the storage account, in the subscription? 2) This is listed as an outlier. Most common cause is permissions issue.-->
+* The image name already exists in SCOPE?.<!--1) Unique name required within what scope - on the device, in the container, in the storage account, in the subscription? 2) This is listed as an outlier. Most common cause is permissions issue. List both, or ignore this one?-->
 
 **Suggested solution:** Make sure you have the required contributor permissions to add files to the resource group or storage account. For more information, see [Prerequisites for the Azure Stack Edge resource](azure-stack-edge-deploy-prep.md#prerequisites).
 
 
 ## Invalid blob type for the source blob uri
 
-**Error Description:** You picked a block blob virtual hard disk (VHD)<!--Terminology: "block blob VHD" probably is't a thing--> to download instead of a page blob VHD.
+**Error Description:** You picked a block blob virtual hard disk (VHD)<!--Terminology: "block blob VHD" probably isn't a thing--> to download instead of a page blob VHD.
 
 **Suggested solution:** Upload the VHD as a page blob. Then download the blob again.
 
-=================
-GRAB TEXT: Error B
+```xml
+FOR REFERENCE ONLY
 Resource
 Status
 Type
@@ -66,19 +66,18 @@ Possible Causes
 }
 Recommended Action
 In the local web Ul of the device, go to Troubleshooting > Diagnostic tests and dick Run diagnostic tests. Resolve the reported issues. If the issue persists, contact Microsoft Support.
-=================
+```
 
-## Only blobs formatted as VHDs can be imported.
+## Only blobs formatted as VHDs can be imported
 
-**Error Description:** The VHD hasn’t been formatted properly. It needs to be a Generation 1, VHD extension and fixed size. Most of our ICMs will have this error.
+**Error Description:** The VHD hasn’t been formatted properly. It needs to be a Generation 1, VHD extension, and fixed size.
 
-**Suggested solution:** Go to [Common issues for Image creation on ASE](https://microsoft-my.sharepoint.com/:w:/p/niachary/EQih4TRKTMVFnZmAfvX6qUoBwI-2-v5mRNleGtfwWmGVZg).
+**Suggested solution:** Go to [Common issues for Image creation on ASE](https://microsoft-my.sharepoint.com/:w:/p/niachary/EQih4TRKTMVFnZmAfvX6qUoBwI-2-v5mRNleGtfwWmGVZg).<!--Solution description TK-->
 
-=================
-GRAB TEXT: Error C
-
+```xml
+FOR REFERENCE ONLY
 Resource
-Q aseimagestorageaccount ® aseimagestorageaccount ® dbelocal/ubuntuBdynamic ! ubuntu13dynamic
+aseimagestorageaccount ® aseimagestorageaccount ® dbelocal/ubuntuBdynamic ! ubuntu13dynamic
 X Creation of image failed.
 Possible Causes
 • DeploymentFailed : At least one resource deployment operation failed. Please list deployment operations for details. Please ! https://aka.ms/DeployOperations for usage details.
@@ -101,18 +100,16 @@ MurosoftStorage/st orage Accounts	Completed
 MiaosofLStorage/storageAccounts	Completed
 MiaosofLAzureBridge/locations/inges... Completed
 MicrosoftCompute/images	Failed
-=================
+```
 
-
-## The condition specified using HTTP conditional header(s) is not met.
+## The condition specified using HTTP conditional header(s) is not met
 
 **Error Description:** If any sort of modification is being done on the source VHD in Azure, then the download will fail because the etags between each chunk of download will be different. This can also happen if you are uploading the source VHD into Azure and try to start a download before the upload has completed.
 
-**Suggested solution:** Wait until all modifications/uploads are done on the VHD and then try downloading the VHD again.
+**Suggested solution:** Wait until all modifications/uploads are done on the VHD. Then try downloading the VHD again.
 
-=================
-GRAB TEXT: Error D
-
+```xml
+FOR REFERENCE ONLY
 Resource
 Type
 Status
@@ -137,12 +134,12 @@ Possible Causes
 Î
 Recommended Action
 In the local web Ul of the device, go to Troubleshooting > Diagnostic tests and click Run diagnostic tests. Resolve the reported issues. If the issue persists, contact Microsoft Support.
-=================
+```
 
 <!--Product team note to self: Todo – document this storage account so they can clean up if the ingestion job fails, every failed job – see if IDC can delete the container.-->
 
 
-## Not able to delete the image through the Azure portal.
+## Not able to delete the image through the Azure portal
 
 **Error Description:** The issue is that there is a bug in the October release build where we return an error if a delete is called on a metadata object that doesn't exist anymore. For example, you could call delete image through the portal and step #1 succeeds but step #2 fails. Then when you call delete again, step #1 will fail immediately saying that the object doesn't exist anymore and this prevents us from proceeding to step #2. 
 
