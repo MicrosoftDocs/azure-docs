@@ -68,9 +68,9 @@ First, open **Azure Digital Twins Explorer** for your Azure Digital Twins instan
 
 :::image type="content" source="media/includes/azure-digital-twins-explorer-portal-access.png" alt-text="Screenshot of the Azure portal showing the Overview page for an Azure Digital Twins instance. There's a highlight around the Go to Explorer (Preview) button." lightbox="media/includes/azure-digital-twins-explorer-portal-access.png":::
 
-This will open an Azure Digital Twins Explorer window with the data for this instance loaded into it.
+This will open an Azure Digital Twins Explorer window connected to this instance.
 
-:::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Screenshot of the Azure portal in an internet browser. The portal is showing the Azure Digital Twins Explorer, which contains no data." lightbox="media/how-to-move-regions/explorer-blank.png":::
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/explorer-blank.png" alt-text="Screenshot of the Azure portal in an internet browser. The portal is showing the Azure Digital Twins Explorer, which contains no data." lightbox="media/quickstart-azure-digital-twins-explorer/explorer-blank.png":::
 
 Follow the Azure Digital Twins Explorer instructions to [Export graph and models](how-to-use-azure-digital-twins-explorer.md#export-graph-and-models). This will download a JSON file to your machine that contains the code for your models, twins, and relationships (including models that aren't currently being used in the graph).
 
