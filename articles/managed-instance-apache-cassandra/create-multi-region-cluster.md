@@ -131,7 +131,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a mu
            --node-count 3 
     ```
 
-1. Once the second datacenter is created, get the node status to verify that all Cassandra nodes came up successfully:
+1. Once the second datacenter is created, get the node status to verify that all the Cassandra nodes came up successfully:
 
     ```azurecli-interactive
     resourceGroupName='cassandra-mi-multi-region'
