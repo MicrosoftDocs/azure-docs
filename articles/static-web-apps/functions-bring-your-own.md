@@ -21,16 +21,15 @@ The following table contrasts the differences between using managed and existing
 
 | Feature | Managed Functions | Bring your own Functions |
 | --- | --- | --- |
-| Access to [HTTP trigger and input/output bindings](../azure-functions/functions-triggers-bindings.md) | ✔ | ✔ |
+| Access to Azure Functions triggers | Http only | [All](../azure-functions/functions-triggers-bindings.md#supported-bindings) |
+| Supported runtimes | Node.js<br>.NET<br>Python | [All](../azure-functions/supported-languages.md#languages-by-runtime-version) |
 | [Integrated security](user-information.md) with direct access to user authentication and role-based authorization data | ✔ | ✔ |
 | [Routing integration](./configuration.md?#routes) that makes the _api_ route available to the web app securely without requiring custom CORS rules. | ✔ | ✔ |
 | [Azure Functions Premium plan](../azure-functions/functions-premium-plan.md) | | ✔ |
 | [Durable Functions](../azure-functions/durable/durable-functions-overview.md) programming model | | ✔ |
 | [Managed identity](../app-service/overview-managed-identity.md) | | ✔ |
 | [Azure App Service Authentication and Authorization](../app-service/configure-authentication-provider-aad.md) token management | | ✔ |
-| [Custom handlers](../azure-functions/functions-custom-handlers.md) | | ✔ |
 | API functions available outside Azure Static Web Apps |  | ✔ |
-| Access to all Azure Functions [triggers and bindings](../azure-functions/functions-triggers-bindings.md) | | ✔ |
 
 ## Link an existing Azure Functions app
 
