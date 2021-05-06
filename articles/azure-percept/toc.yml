@@ -67,14 +67,16 @@
           href: how-to-view-telemetry.md
     - name: Speech solution development with Azure Percept DK
       items:
-        - name: Configure your voice assistant in Azure Percept Studio
-          href: how-to-configure-voice-assistant.md
         - name: Configure your voice assistant in IoT Hub
+          href: how-to-configure-voice-assistant.md
+        - name: Configure your voice assistant in Azure Percept Studio
           href: how-to-manage-voice-assistant.md
     - name: Update your Azure Percept devices
       items:
         - name: Set up over-the-air updates
           href: how-to-set-up-over-the-air-updates.md
+        - name: Identify your update package
+          href: how-to-select-update-package.md
         - name: Update your Azure Percept DK over-the-air
           href: how-to-update-over-the-air.md
         - name: Update your Azure Percept DK via USB
@@ -87,7 +89,7 @@
           href: how-to-connect-to-percept-dk-over-serial.md     
     - name: Tools
       items:
-        - name: Devtools pack installer
+        - name: Dev Tools Pack Installer
           href: dev-tools-installer.md
     - name: Troubleshooting
       items:

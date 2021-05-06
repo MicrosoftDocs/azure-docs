@@ -87,6 +87,8 @@
           href: app/resource-manager-web-app.md
         - name: Azure Functions
           href: app/resource-manager-function-app.md
+    - name: Container insights
+      href: containers/resource-manager-container-insights.md
     - name: Data collection rules
       href: agents/resource-manager-data-collection-rules.md
     - name: Diagnostic settings
@@ -95,10 +97,10 @@
       href: logs/resource-manager-workspace.md
     - name: Log queries
       href: logs/resource-manager-log-queries.md
+    - name: SQL insights
+      href: insights/resource-manager-sql-insights.md
     - name: Workbooks
       href: visualize/resource-manager-workbooks.md
-    - name: Container insights
-      href: containers/resource-manager-container-insights.md
     - name: VM insights
       href: vm/resource-manager-vminsights.md
   - name: Azure CLI
@@ -146,7 +148,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/monitor-security-baseline?toc=/azure/azure-monitor/toc.json
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: .//security-controls-policy.md
@@ -640,7 +642,7 @@
       - name: Non-HTTP/Background apps
         displayname: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
         href: app/worker-service.md  
-      - name: ASP.NET Console
+      - name: .NET Console
         displayname: console, .NET, dotnet console, dotnet, c#, csharp, NET
         href: app/console.md
       - name: Java
@@ -777,6 +779,8 @@
       displayname: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
     - name: Availability
       items:
+      - name: Overview
+        href: app/availability-overview.md
       - name: URL tests
         displayname: ping, ping tests, availability, GSM, up/down
         href: app/monitor-web-app-availability.md
@@ -1391,7 +1395,7 @@
       href: /cli/azure/azure-cli-reference-for-monitor
       displayName: Action Groups, Autoscale, Diagnostic Settings, Metrics, Private Link Scope
     - name: Application Insights
-      href: /cli/azure/ext/application-insights/monitor/app-insights
+      href: /cli/azure/monitor/app-insights
     - name: Activity Logs
       href: /cli/azure/monitor/activity-log
     - name: Log Analytics

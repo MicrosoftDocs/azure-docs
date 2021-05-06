@@ -41,14 +41,14 @@ The tutorial shows you how to:
 The following items are required to complete the tutorial:
 
 - Install Visual Studio Code or Visual Studio.
-- [Create a Media Services account](./create-account-howto.md).<br/>Make sure to copy the API Access details in JSON format or store the values needed to connect to the Media Services account in the .env file format used in this sample.
+- [Create a Media Services account](./account-create-how-to.md).<br/>Make sure to copy the API Access details in JSON format or store the values needed to connect to the Media Services account in the .env file format used in this sample.
 - Follow the steps in [Access Azure Media Services API with the Azure CLI](./access-api-howto.md) and save the credentials. You'll need to use them to access the API in this sample, or enter them into the .env file format. 
 - A camera or a device (like a laptop) that's used to broadcast an event.
-- An on-premises software encoder that encodes your camera stream and sends it to the Media Services live streaming service using the RTMP protocol, see [recommended on-premises live encoders](recommended-on-premises-live-encoders.md). The stream has to be in **RTMP** or **Smooth Streaming** format.  
+- An on-premises software encoder that encodes your camera stream and sends it to the Media Services live streaming service using the RTMP protocol, see [recommended on-premises live encoders](encode-recommended-on-premises-live-encoders.md). The stream has to be in **RTMP** or **Smooth Streaming** format.  
 - For this sample, it is recommended to start with a software encoder like the free [Open Broadcast Software OBS Studio](https://obsproject.com/download) to make it simple to get started. 
 
 > [!TIP]
-> Make sure to review [Live streaming with Media Services v3](live-streaming-overview.md) before proceeding. 
+> Make sure to review [Live streaming with Media Services v3](stream-live-streaming-concept.md) before proceeding. 
 
 ## Download and configure the sample
 
@@ -83,15 +83,15 @@ To start using Media Services APIs with .NET, you need to create an **AzureMedia
 
 ### Create a live event
 
-This section shows how to create a **pass-through** type of Live Event (LiveEventEncodingType set to None). For more information about the other available types of Live Events, see [Live Event types](live-events-outputs-concept.md#live-event-types). In addition to pass-through, you can use a live transcoding Live Event for 720P or 1080P adaptive bitrate cloud encoding. 
+This section shows how to create a **pass-through** type of Live Event (LiveEventEncodingType set to None). For more information about the other available types of Live Events, see [Live Event types](live-event-outputs-concept.md#live-event-types). In addition to pass-through, you can use a live transcoding Live Event for 720P or 1080P adaptive bitrate cloud encoding. 
  
 Some things that you might want to specify when creating the live event are:
 
 * The ingest protocol for the Live Event (currently, the RTMP(S) and Smooth Streaming protocols are supported).<br/>You can't change the protocol option while the Live Event or its associated Live Outputs are running. If you require different protocols, create separate Live Event for each streaming protocol.  
 * IP restrictions on the ingest and preview. You can define the IP addresses that are allowed to ingest a video to this Live Event. Allowed IP addresses can be specified as either a single IP address (for example '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (for example, '10.0.0.1/22'), or an IP range using an IP address and a dotted decimal subnet mask (for example, '10.0.0.1(255.255.252.0)').<br/>If no IP addresses are specified and there's no rule definition, then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.<br/>The IP addresses have to be in one of the following formats: IpV4 address with four numbers or CIDR address range.
-* When creating the event, you can specify to autostart it. <br/>When autostart is set to true, the Live Event will be started after creation. That means the billing starts as soon as the Live Event starts running. You must explicitly call Stop on the Live Event resource to halt further billing. For more information, see [Live Event states and billing](live-event-states-billing.md).
+* When creating the event, you can specify to autostart it. <br/>When autostart is set to true, the Live Event will be started after creation. That means the billing starts as soon as the Live Event starts running. You must explicitly call Stop on the Live Event resource to halt further billing. For more information, see [Live Event states and billing](live-event-states-billing-concept.md).
 There are also standby modes available to start the Live Event in a lower cost 'allocated' state that makes it faster to move to a 'Running' state. This is useful for situations like hotpools that need to hand out channels quickly to streamers.
-* For an ingest URL to be predictive and easier to maintain in a hardware based live encoder, set the "useStaticHostname" property to true. For detailed information, see [Live Event ingest URLs](live-events-outputs-concept.md#live-event-ingest-urls).
+* For an ingest URL to be predictive and easier to maintain in a hardware based live encoder, set the "useStaticHostname" property to true. For detailed information, see [Live Event ingest URLs](live-event-outputs-concept.md#live-event-ingest-urls).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateLiveEvent)]
 
@@ -141,7 +141,7 @@ Live Outputs start on creation and stop when deleted. This is going to be the "t
 #### Create a Streaming Locator
 
 > [!NOTE]
-> When your Media Services account is created, a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of [dynamic packaging](dynamic-packaging-overview.md) and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state.
+> When your Media Services account is created, a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of [dynamic packaging](encode-dynamic-packaging-concept.md) and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state.
 
 When you publish the Asset using a Streaming Locator, the Live Event (up to the DVR window length) will continue to be viewable until the Streaming Locator's expiry or deletion, whichever comes first. This is how you make the virtual "tape" recording available for your viewing audience to see live and on-demand. The same URL can be used to watch the live event, DVR window, or the on-demand asset when the recording is complete (when the Live Output is deleted.)
 

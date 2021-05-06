@@ -30,10 +30,10 @@ After you select IoT Hub or IoT Central to host your IoT application, you have s
 |---------|---------|---------|---------|
 |Central web UI     | Central | [Central quickstart](../iot-central/core/quick-deploy-iot-central.md) | Browser-based portal for IoT Central. |
 |Azure portal     | Hub, Central      | [Create an IoT hub with Azure portal](../iot-hub/iot-hub-create-through-portal.md), [Manage IoT Central from the Azure portal](../iot-central/core/howto-manage-iot-central-from-portal.md)| Browser-based portal for IoT Hub and devices. Also works with other Azure resources including IoT Central. |
+|Azure IoT Explorer     | Hub | [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer#azure-iot-explorer-preview) | Cannot create IoT hubs. Connects to an existing IoT hub to manage devices. Often used with CLI or Portal.|
 |Azure CLI     | Hub, Central          | [Create an IoT hub with CLI](../iot-hub/iot-hub-create-using-cli.md), [Manage IoT Central from Azure CLI](../iot-central/core/howto-manage-iot-central-from-cli.md) | Command-line interface for creating and managing IoT applications. |
 |Azure PowerShell     | Hub, Central   | [Create an IoT hub with PowerShell](../iot-hub/iot-hub-create-using-powershell.md), [Manage IoT Central from Azure PowerShell](../iot-central/core/howto-manage-iot-central-from-powershell.md) | PowerShell interface for creating and managing IoT applications |
 |Azure IoT Tools for VS Code  | Hub | [Create an IoT hub with Tools for VS Code](../iot-hub/iot-hub-create-use-iot-toolkit.md) | VS Code extension for IoT Hub applications. |
-|Azure IoT Explorer     | Hub | [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer) | Cannot create IoT hubs. Connects to an existing IoT hub to manage devices. Often used with CLI or Portal.|
 
 ## Next steps
 To learn more about your options for connecting devices to Azure IoT, explore the following quickstarts:

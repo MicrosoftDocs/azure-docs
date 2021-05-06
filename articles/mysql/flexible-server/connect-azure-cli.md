@@ -4,7 +4,7 @@ description: This quickstart provides several ways to connect with Azure CLI wit
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.topic: quickstart
 ms.date: 03/01/2021
 ---
@@ -152,5 +152,6 @@ Your preference of  are now saved to local context. To learn more, type in `az l
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Manage the server](./how-to-manage-server-cli.md)
+* [Connect to Azure Database for MySQL - Flexible Server with encrypted connections](how-to-connect-tls-ssl.md)
+* [Manage the server](./how-to-manage-server-cli.md)
 

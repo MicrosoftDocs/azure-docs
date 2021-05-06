@@ -7,7 +7,8 @@ ms.subservice: dsc
 author: mgoedtel
 ms.author: magoedte
 ms.date: 11/06/2018
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 manager: carmonm
 ---
 # Integrate with Azure Monitor logs

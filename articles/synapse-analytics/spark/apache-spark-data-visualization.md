@@ -28,6 +28,7 @@ To access the chart options:
    ![built-in-charts](./media/apache-spark-development-using-notebooks/synapse-built-in-charts.png#lightbox)
 
 3. You can now customize your visualization by specifying the following values:
+
    | Configuration | Description |
    |--|--| 
    | Chart Type | The ```display``` function supports a wide range of chart types, including bar charts, scatter plots, line graphs, and more |

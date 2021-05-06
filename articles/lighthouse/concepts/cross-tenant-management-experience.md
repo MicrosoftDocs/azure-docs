@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
-ms.date: 03/23/2021
+ms.date: 03/29/2021
 ms.topic: conceptual
 ---
 
@@ -30,7 +30,7 @@ You can perform management tasks on delegated resources either directly in the p
 
 The Azure PowerShell [Get-AzSubscription cmdlet](/powershell/module/Az.Accounts/Get-AzSubscription) will show the `TenantId` for the managing tenant by default. You can use the `HomeTenantId` and `ManagedByTenantIds` attributes for each subscription, allowing you to identify whether a returned subscription belongs to a managed tenant or to your managing tenant.
 
-Similarly, Azure CLI commands such as [az account list](/cli/azure/account#az-account-list) show the `homeTenantId` and `managedByTenants` attributes. If you don't see these values when using Azure CLI, try clearing your cache by running `az account clear` followed by `az login --identity`.
+Similarly, Azure CLI commands such as [az account list](/cli/azure/account#az_account_list) show the `homeTenantId` and `managedByTenants` attributes. If you don't see these values when using Azure CLI, try clearing your cache by running `az account clear` followed by `az login --identity`.
 
 In the Azure REST API, the [Subscriptions - Get](/rest/api/resources/subscriptions/get) and [Subscriptions - List](/rest/api/resources/subscriptions/list) commands include `ManagedByTenant`.
 
@@ -72,7 +72,7 @@ Most tasks and services can be performed on delegated resources across managed t
 
 [Azure Cost Management + Billing](../../cost-management-billing/index.yml):
 
-- From the managing tenant, CSP partners can view, manage, and analyze pre-tax consumption costs (not inclusive of purchases) for customers who are under the Azure plan. The cost will be based on retail rates and the Azure role-based access control (Azure RBAC) access that the partner has for the customer's subscription.
+- From the managing tenant, CSP partners can view, manage, and analyze pre-tax consumption costs (not inclusive of purchases) for customers who are under the Azure plan. The cost will be based on retail rates and the Azure role-based access control (Azure RBAC) access that the partner has for the customer's subscription. Currently, you can view consumption costs at retail rates for each individual customer subscription based on Azure RBAC access.
 
 [Azure Key Vault](../../key-vault/general/index.yml):
 
@@ -99,7 +99,7 @@ Most tasks and services can be performed on delegated resources across managed t
 - Create [diagnostic settings](../..//azure-monitor/essentials/diagnostic-settings.md) in customer tenants to send resource logs to workspaces in the managing tenant
 - For SAP workloads, [monitor SAP Solutions metrics with an aggregated view across customer tenants](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
-[Azure Networking](../../networking/networking-overview.md):
+[Azure Networking](../../networking/fundamentals/networking-overview.md):
 
 - Deploy and manage [Azure Virtual Network](../../virtual-network/index.yml) and virtual network interface cards (vNICs) within managed tenants
 - Deploy and configure [Azure Firewall](../../firewall/overview.md) to protect customers’ Virtual Network resources

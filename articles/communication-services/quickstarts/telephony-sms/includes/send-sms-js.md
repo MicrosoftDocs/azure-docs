@@ -68,15 +68,15 @@ The following classes and interfaces handle some of the major features of the Az
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | SmsClient | This class is needed for all SMS functionality. You instantiate it with your subscription information, and use it to send SMS messages. |
-| SmsSendResult               | This class contains the result from the SMS service.                                          |
-| SmsSendOptions | This interface provides options to configure delivery reporting. If `enableDeliveryReport` is set to `true`, then an event will be emitted when delivery is successful. |
 | SmsSendRequest | This interface is the model for building the sms request (eg. configure the to and from phone numbers and the sms content). |
+| SmsSendOptions | This interface provides options to configure delivery reporting. If `enableDeliveryReport` is set to `true`, then an event will be emitted when delivery is successful. |
+| SmsSendResult               | This class contains the result from the SMS service.                                          |
 
 ## Authenticate the client
 
-Import the **SmsClient** from the SDK and instantiate it with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+Import the **SmsClient** from the SDK and instantiate it with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
-Add the following code to **send-sms.js**:
+Create and open a file named **send-sms.js** and add the following code:
 
 ```javascript
 const { SmsClient } = require('@azure/communication-sms');
@@ -91,7 +91,7 @@ const smsClient = new SmsClient(connectionString);
 
 ## Send a 1:N SMS message
 
-To send an SMS message to a list of recipients, call the `send` function from the SmsClient with a list of recipients phone numbers (if you wish to send a message to a single recipient, only include one number in the list). Add this code to the end of the **send-sms.js**:
+To send an SMS message to a list of recipients, call the `send` function from the SmsClient with a list of recipients phone numbers (if you wish to send a message to a single recipient, only include one number in the list). Add this code to the end of **send-sms.js**:
 
 ```javascript
 async function main() {
@@ -114,7 +114,10 @@ async function main() {
 
 main();
 ```
-You should replace `<from-phone-number>` with an SMS-enabled phone number associated with your Communication Services resource and `<to-phone-number>` with the phone number you wish to send a message to.
+You should replace `<from-phone-number>` with an SMS-enabled phone number associated with your Communication Services resource and `<to-phone-number-1>` and `<to-phone-number-2>` with the phone number(s) you wish to send a message to.
+
+> [!WARNING]
+> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +14255550123).
 
 ## Send a 1:N SMS message with options
 
@@ -123,12 +126,12 @@ You may also pass in an options object to specify whether the delivery report sh
 ```javascript
 
 async function main() {
-  await smsClient.send({
+  const sendResults = await smsClient.send({
     from: "<from-phone-number>",
     to: ["<to-phone-number-1>", "<to-phone-number-2>"],
     message: "Weekly Promotion!"
   }, {
-    //Optional parameter
+    //Optional parameters
     enableDeliveryReport: true,
     tag: "marketing"
   });
@@ -146,6 +149,11 @@ async function main() {
 
 main();
 ```
+
+You should replace `<from-phone-number>` with an SMS-enabled phone number associated with your Communication Services resource and `<to-phone-number-1>` and `<to-phone-number-2>` with phone number(s) you wish to send a message to.
+
+> [!WARNING]
+> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +14255550123).
 
 The `enableDeliveryReport` parameter is an optional parameter that you can use to configure Delivery Reporting. This is useful for scenarios where you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure Delivery Reporting for your SMS messages.
 `tag` is an optional parameter that you can use to apply a tag to the Delivery Report.

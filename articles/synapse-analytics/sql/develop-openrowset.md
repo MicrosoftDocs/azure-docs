@@ -134,9 +134,9 @@ You can instruct serverless SQL pool to traverse folders by specifying /* at the
 `https://sqlondemandstorage.blob.core.windows.net/csv/population/**`
 
 > [!NOTE]
-> Unlike Hadoop and PolyBase, serverless SQL pool doesn't return subfolders unless you specify /** at the end of path. Also, unlike Hadoop and PolyBase, serverless SQL pool does return files for which the file name begins with an underline (_) or a period (.).
+> Unlike Hadoop and PolyBase, serverless SQL pool doesn't return subfolders unless you specify /** at the end of path. Just like Hadoop and PolyBase, it doesn't return files for which the file name begins with an underline (_) or a period (.).
 
-In the example below, if the unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, a serverless SQL pool query will return rows from mydata.txt and _hidden.txt. It won't return mydata2.txt and mydata3.txt because they're located in a subfolder.
+In the example below, if the unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, a serverless SQL pool query will return rows from mydata.txt. It won't return mydata2.txt and mydata3.txt because they're located in a subfolder.
 
 ![Recursive data for external tables](./media/develop-openrowset/folder-traversal.png)
 
@@ -223,6 +223,7 @@ CSV parser version 2.0 specifics:
 - Maximum row size limit is 8 MB.
 - Following options aren't supported: DATA_COMPRESSION.
 - Quoted empty string ("") is interpreted as empty string.
+- DATEFORMAT SET option is not honored.
 - Supported format for DATE data type: YYYY-MM-DD
 - Supported format for TIME data type: HH:MM:SS[.fractional seconds]
 - Supported format for DATETIME2 data type: YYYY-MM-DD HH:MM:SS[.fractional seconds]
@@ -237,7 +238,7 @@ Specifies encoding: char is used for UTF8, widechar is used for UTF16 files.
 
 CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' }
 
-Specifies the code page of the data in the data file. The default value is 65001 (UTF-8 encoding). See more details about this option [here](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15#codepage).
+Specifies the code page of the data in the data file. The default value is 65001 (UTF-8 encoding). See more details about this option [here](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15&preserve-view=true#codepage).
 
 ## Fast delimited text parsing
 
@@ -252,7 +253,7 @@ Parquet files contain column metadata which will be read, type mappings can be f
 For CSV files column names can be read from header row. You can specify whether header row exists using HEADER_ROW argument. If HEADER_ROW = FALSE, generic column names will be used: C1, C2, ... Cn where n is number of columns in file. Data types will be inferred from first 100 data rows. Check [reading CSV files without specifying schema](#read-csv-files-without-specifying-schema) for samples.
 
 > [!IMPORTANT]
-> There are cases when appropriate data type cannot be inferred due to lack of information and larger data type will be used instead. This brings performance overhead and is particularly important for character columns which will be inferred as varchar(8000). For optimal performance, please [check inferred data types](best-practices-sql-on-demand.md#check-inferred-data-types) and [use appropriate data types](best-practices-sql-on-demand.md#use-appropriate-data-types).
+> There are cases when appropriate data type cannot be inferred due to lack of information and larger data type will be used instead. This brings performance overhead and is particularly important for character columns which will be inferred as varchar(8000). For optimal performance, please [check inferred data types](./best-practices-serverless-sql-pool.md#check-inferred-data-types) and [use appropriate data types](./best-practices-serverless-sql-pool.md#use-appropriate-data-types).
 
 ### Type mapping for Parquet
 
@@ -302,19 +303,19 @@ The following example reads CSV file that contains header row without specifying
 
 ```sql
 SELECT 
-	*
+    *
 FROM OPENROWSET(
     BULK 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
     FORMAT = 'CSV',
     PARSER_VERSION = '2.0',
-	HEADER_ROW = TRUE) as [r]
+    HEADER_ROW = TRUE) as [r]
 ```
 
 The following example reads CSV file that doesn't contain header row without specifying column names and data types: 
 
 ```sql
 SELECT 
-	*
+    *
 FROM OPENROWSET(
     BULK 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
     FORMAT = 'CSV',
@@ -341,7 +342,7 @@ The following example returns only two columns with ordinal numbers 1 and 4 from
 
 ```sql
 SELECT 
-	* 
+    * 
 FROM OPENROWSET(
         BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population*.csv',
         FORMAT = 'CSV',
@@ -366,8 +367,8 @@ FROM
         FORMAT='PARQUET'
     )
 WITH (
-	[stateName] VARCHAR (50),
-	[population] bigint
+    [stateName] VARCHAR (50),
+    [population] bigint
 ) AS [r]
 ```
 
@@ -384,19 +385,19 @@ FROM
         FORMAT='PARQUET'
     )
 WITH (
-	--lax path mode samples
-	[stateName] VARCHAR (50), -- this one works as column name casing is valid - it targets the same column as the next one
-	[stateName_explicit_path] VARCHAR (50) '$.stateName', -- this one works as column name casing is valid
-	[COUNTYNAME] VARCHAR (50), -- STATEname column will contain NULLs only because of wrong casing - it targets the same column as the next one
-	[countyName_explicit_path] VARCHAR (50) '$.COUNTYNAME', -- STATEname column will contain NULLS only because of wrong casing and default path mode being lax
+    --lax path mode samples
+    [stateName] VARCHAR (50), -- this one works as column name casing is valid - it targets the same column as the next one
+    [stateName_explicit_path] VARCHAR (50) '$.stateName', -- this one works as column name casing is valid
+    [COUNTYNAME] VARCHAR (50), -- STATEname column will contain NULLs only because of wrong casing - it targets the same column as the next one
+    [countyName_explicit_path] VARCHAR (50) '$.COUNTYNAME', -- STATEname column will contain NULLS only because of wrong casing and default path mode being lax
 
-	--strict path mode samples
-	[population] bigint 'strict $.population' -- this one works as column name casing is valid
-	--,[population2] bigint 'strict $.POPULATION' -- this one fails because of wrong casing and strict path mode
+    --strict path mode samples
+    [population] bigint 'strict $.population' -- this one works as column name casing is valid
+    --,[population2] bigint 'strict $.POPULATION' -- this one fails because of wrong casing and strict path mode
 )
 AS [r]
 ```
 
 ## Next steps
 
-For more samples, see the [query data storage quickstart](query-data-storage.md) to learn how to use `OPENROWSET` to read [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md), and [JSON](query-json-files.md) file formats. Check [best practices](best-practices-sql-on-demand.md) for achieving optimal performance. You can also learn how to save the results of your query to Azure Storage using [CETAS](develop-tables-cetas.md).
+For more samples, see the [query data storage quickstart](query-data-storage.md) to learn how to use `OPENROWSET` to read [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md), and [JSON](query-json-files.md) file formats. Check [best practices](./best-practices-serverless-sql-pool.md) for achieving optimal performance. You can also learn how to save the results of your query to Azure Storage using [CETAS](develop-tables-cetas.md).

@@ -6,7 +6,7 @@ documentationcenter: na
 author: KumudD
 manager: mtillman
 ms.service: virtual-network
-Customer intent: As an Azure customer, I want to learn more about routing choices for my internet egress traffic.
+# Customer intent: As an Azure customer, I want to learn more about routing choices for my internet egress traffic.
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -72,5 +72,6 @@ The price difference between both options is reflected in the internet egress da
 
 ## Next steps
 
+* [Learn more about how optimize connectivity to your Microsoft Azure services over the internet - Video](https://www.youtube.com/watch?v=j6A_Mbpuh6s&list=PLLasX02E8BPA5V-waZPcelhg9l3IkeUQo&index=12) 
 * [Configure routing preference for a VM using the Azure PowerShell](configure-routing-preference-virtual-machine-powershell.md)
 * [Configure routing preference for a VM using the Azure CLI](configure-routing-preference-virtual-machine-cli.md)

@@ -13,7 +13,7 @@ ms.date: 01/27/2021
 
 # Collect and analyze log data for Azure Cognitive Search
 
-Diagnostic logs provide insight into the detailed operations of Azure Cognitive Search and are useful for monitoring service and workload processes. Internally, basic system information exists on the backend for a short period of time, sufficient for investigation and analysis if you file a support ticket. However, if you want self-direction over operational data, you should configure a diagnostic setting to specify where logging information is collected.
+Diagnostic or operational logs provide insight into the detailed operations of Azure Cognitive Search and are useful for monitoring service health and processes. Internally, Microsoft preserves system information on the backend for a short period of time (about 30 days), sufficient for investigation and analysis if you file a support ticket. However, if you want ownership over operational data, you should configure a diagnostic setting to specify where logging information is collected.
 
 Diagnostic logging is enabled through back-end integration with [Azure Monitor](../azure-monitor/index.yml). When you set up diagnostic logging, you will be asked to specify a storage option for persisting the log. The following table enumerates your options.
 
@@ -73,8 +73,13 @@ Two tables contain logs and metrics for Azure Cognitive Search: **AzureDiagnosti
 1. Enter the following query to return a tabular result set.
 
    ```kusto
+<<<<<<< HEAD
       AzureMetrics
     | project MetricName, Total, Count, Maximum, Minimum, Average
+=======
+   AzureMetrics
+   | project MetricName, Total, Count, Maximum, Minimum, Average
+>>>>>>> d31fdc38f152729afd12eb77f6a27b60301a868a
    ```
 
 1. Repeat the previous steps, starting with **AzureDiagnostics** to return all columns for informational purposes, followed by a more selective query that extracts more interesting information.
