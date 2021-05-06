@@ -67,7 +67,7 @@ Clone the [AzureML Example repository](https://github.com/Azure/azureml-examples
 
 Batch scoring runs only on cloud resources, not locally. The cloud resource is called a "compute target." A compute target is a reusable virtual computer where you can run batch scoring workflows.
 
-Run the following code to create a CPU-enabled [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) target. For more information about compute targets, see [What are compute targets in Azure Machine Learning?](./concept-compute-target.md).
+Run the following code to create a CPU-enabled [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py&preserve-view=true) target. For more information about compute targets, see [What are compute targets in Azure Machine Learning?](./concept-compute-target.md).
 
 ```
 az ml compute create -n cpu-cluster --type AmlCompute --min-instances 0 --max-instances 5
@@ -187,12 +187,15 @@ az ml job stream --name <job_name>
 
 To view the scoring results:
 
-* In studio, go to the endpoint's run (the value of `interactionEndpoints.studio` in the response to `endpoint invoke`)
-* In the graph of the run, choose the `batchscoring` step
-* Choose the Outputs + logs tab, click Show data outputs, and click View output icon.
+1. Go to studio
+1. Navigate to **Experiments**
+1. Navigate to your endpoint's run (the value of `interactionEndpoints.studio` in the response to `endpoint invoke`)
+1. In the graph of the run, click inside the `batchscoring` step
+1. Choose the Outputs + logs tab and choose **Show data outputs** 
+1. Choose the **View output** icon
 :::image type="content" source="media/how-to-use-batch-endpoint/view-data-outputs.png" alt-text="Studio screenshot showing view data outputs location":::
-* On the popup panel, copy the path and choose the "Open Datastore" link.
-* On the resulting blobstore page, paste the above path into the search box. You'll find the scoring outputs in the folder.
+1. On the popup panel, copy the path and choose the "Open Datastore" link.
+1. On the resulting blobstore page, paste the above path into the search box. You'll find the scoring outputs in the folder.
 :::image type="content" source="media/how-to-use-batch-endpoint/scoring-view.gif" alt-text="Screencast of opening the score folder and scoring output":::
 
 ## Add a deployment to the batch endpoint
