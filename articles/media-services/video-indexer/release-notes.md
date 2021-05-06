@@ -51,7 +51,7 @@ Video Indexer has a new upload experience in the portal:
 
 * New developer portal in available in Fairfax
 
-Video Indexer new Developer Portal, is now also available in Gov-cloud.
+Video Indexer new [Developer Portal](https://api-portal.videoindexer.ai), is now also available in Gov-cloud.
 
 ## March 2021
 
