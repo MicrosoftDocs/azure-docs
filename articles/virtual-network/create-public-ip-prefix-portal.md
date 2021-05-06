@@ -66,7 +66,7 @@ Once you create a prefix, you must create static IP addresses from the prefix. I
 
 4. In **Overview** of **myPublicIPPrefix**, select **+ Add IP address**.
 
-:::image type="content" source="./media/create-public-ip-prefix-portal/add-ip-address.png" alt-text="Create public IP address prefix in Azure portal" border="true":::
+:::image type="content" source="./media/create-public-ip-prefix-portal/add-ip-address.png" alt-text="Create public IP address from prefix in Azure portal" border="true":::
 
 5. Enter **myPublicIP** in **Name**. 
 
