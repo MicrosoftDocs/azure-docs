@@ -129,12 +129,13 @@ In this section, you'll create a Private Link service behind a standard load bal
 4. In **Overview** under **Private Link Center**, select the blue **Create private link service** button.
 5. In the **Basics** tab under **Create private link service**, enter, or select the following 
 information:
-    |Setting |Value|
+
+    |Setting |Value |
     |---------|--------|
-    |**Project details**
+    |**Project details**||
     |Subscription |Select your subscription.|
     |Resource Group |Select your resource group.|
-    |**Instance details**
+    |**Instance details**||
     |Name  |Enter **myPrivateLinkService**.|
     |Region  |Select **East US**.|
 
@@ -148,8 +149,8 @@ bottom of the page.
     |Load balancer frontend IP address|Select **LoadBalancerFrontEnd**.|
     |Source NAT subnet|Select **pls-subnet**.|
     |Enable TCP proxy V2|Leave the default of **No**.|
-    |**Private IP address settings**
-    |Leave the default settings.|
+    |**Private IP address settings**||
+    |Leave the default settings.||
 
 8. Select the **Access security** tab or select **Next: Access security** at the bottom of 
 the page.
@@ -164,12 +165,13 @@ the page.
 
 1. On the upper-left side of the portal, select **Create a resource > Compute > Virtual machine**.
 2. In **Create a virtual machine**, type or select the values in the **Basics** tab:
+
     |Setting |Value|
     |---------|--------|
-    |**Project details**|
+    |**Project details**||
     |Subscription |Select your Azure subscription.|
     |Resource Group |Select your resource group.|
-    |**Instance details**|
+    |**Instance details**||
     |Virtual machine name  |Enter **myVM1**.|
     |Region  |Select **East US**.|
     |Availability Options  |Select **Availability zones**.|
@@ -177,25 +179,26 @@ the page.
     |Image  |Select **Ubuntu Server 18.04LTS – Gen1**.| 
     |Azure Spot instance  |Select **No**.| 
     |Size   |Choose VM size or take default setting.| 
-    |**Administrator account**|
+    |**Administrator account**||
     |Username |Enter a username.|
     |SSH public key source  |Generate new key pair.|
     |Key pair name  |mySSHKey.|    
-    |**Inbound port rules**|
+    |**Inbound port rules**||
     |Public inbound ports |None|   
 
 3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
 4. In the Networking tab, select or enter:
+
     | Setting |Value|
     |---------|--------|
-    |**Network interface**
+    |**Network interface**||
     |Virtual network |Select your virtual network.|
     |Subnet |**be-subnet**.|
     |Public IP |Select **None**.|
     |NIC network security group |Select **None**.|
-    |**Load balancing**
+    |**Load balancing**||
     |Place this virtual machine behind an existing load balancing solution?|Select **Yes**.|
-    |**Load balancing settings**
+    |**Load balancing settings**||
     |Load balancing options |Select **Azure load balancing**.|
     |Select a load balancer |Select **myLoadBalancer**.|
     |Select a backend pool |Select **myBackendPool**.|    
