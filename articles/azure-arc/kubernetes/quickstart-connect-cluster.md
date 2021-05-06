@@ -47,9 +47,10 @@ In this quickstart, you'll learn the benefits of Azure Arc enabled Kubernetes an
 
 ## Meet network requirements
 
-Azure Arc agents require both of the following protocols/ports/outbound URLs to function:
-* TCP on port 443: `https://:443`
-* TCP on port 9418: `git://:9418`
+> [!IMPORTANT]
+> Azure Arc agents require both of the following protocols/ports/outbound URLs to function:
+> * TCP on port 443: `https://:443`
+> * TCP on port 9418: `git://:9418`
   
 | Endpoint (DNS) | Description |  
 | ----------------- | ------------- |  
