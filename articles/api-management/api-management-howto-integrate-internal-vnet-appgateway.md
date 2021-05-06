@@ -316,7 +316,7 @@ $fipconfig01 = New-AzApplicationGatewayFrontendIPConfig -Name "frontend1" -Publi
 Configure the certificates for the Application Gateway, which will be used to decrypt and re-encrypt the traffic passing through.
 
 > [!NOTE]
-> Application Gateway supports defining custom TLS options. It also supports disabling certain TLS protocol versions, as well defining which cipher suites to use and the order of preference. To learn more about configurable TLS options, see the [TLS policy overview](application-gateway-ssl-policy-overview.md).
+> Application Gateway supports defining custom TLS options. It also supports disabling certain TLS protocol versions, as well defining which cipher suites to use and the order of preference. To learn more about configurable TLS options, see the [TLS policy overview](../application-gateway/application-gateway-ssl-policy-overview.md).
 
 ```powershell
 $certGateway = New-AzApplicationGatewaySslCertificate -Name "gatewaycert" `
