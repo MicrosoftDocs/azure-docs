@@ -51,12 +51,12 @@ If you no longer need the Azure resources created in this quickstart, you can us
 To delete a resource group by name:
 1. Run the [az group delete](/cli/azure/group#az_group_delete) command. This command removes the resource group, the IoT Hub, and the device registration you created.
 
-    ```azurecli
+    ```azurecli-interactive
     az group delete --name MyResourceGroup
     ```
 1. Run the [az group list](/cli/azure/group#az_group_list) command to confirm the resource group is deleted.  
 
-    ```azurecli
+    ```azurecli-interactive
     az group list
     ```
 
