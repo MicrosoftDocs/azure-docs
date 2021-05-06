@@ -286,4 +286,4 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 In this article, you learned how to create and call batch endpoints, allowing you to score large amounts of data. See these other articles to learn more about Azure Machine Learning:
 
-* [Troubleshooting batch endpoints](tk)
+* [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md)
