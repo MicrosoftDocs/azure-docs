@@ -1,7 +1,7 @@
 ---
 title: Install VS Code Extension
 titleSuffix: Azure Machine Learning
-description: Learn how to set up 
+description: Learn how to set up the Azure Machine Learning Visual Studio Code extension
 services: machine-learning
 author: luisquintanilla
 ms.author: luquinta
@@ -28,7 +28,7 @@ The Azure Machine Learning extension for VS Code provides a user interface to:
 
 - Azure subscription. If you don't have one, sign up to try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 - Visual Studio Code. If you don't have it, [install it](https://code.visualstudio.com/docs/setup/setup-overview).
-- [Python 3](https://www.python.org/downloads/)
+- [Python](https://www.python.org/downloads/)
 
 ## Install the extension
 

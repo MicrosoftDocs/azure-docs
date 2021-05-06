@@ -9,7 +9,7 @@ ms.reviewer: luquinta
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 05/06/2021
 ---
 
 # Manage Azure Machine Learning resources with the VS Code Extension (preview)
@@ -17,6 +17,10 @@ ms.date: 11/16/2020
 Learn how to manage Azure Machine Learning resources with the VS Code extension.
 
 ![Azure Machine Learning VS Code Extension](media/how-to-manage-resources-vscode/azure-machine-learning-vscode-extension.png)
+
+# [Enhanced CLI](#tab/enhanced-cli)
+
+# [CLI](#tab/cli)
 
 ## Prerequisites
 
