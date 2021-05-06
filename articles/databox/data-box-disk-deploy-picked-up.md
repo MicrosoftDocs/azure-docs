@@ -242,7 +242,8 @@ If you are using Data Box Disk in US Government, Japan, Singapore, Korea, United
    ```
 
    > [!NOTE]
-   > Required information for return may vary by region. If you're returning a Data Box Disk in Brazil, see [Use self-managed shipping for Azure Data Box Disk](data-box-disk-portal-customer-managed-shipping.md) for detailed instructions.
+   > - Required information for return may vary by region. 
+   > - If you're returning a Data Box Disk in Brazil, see [Use self-managed shipping for Azure Data Box Disk](data-box-disk-portal-customer-managed-shipping.md) for detailed instructions.
   
 
 3. Azure Data Box Operations team will work with you to arrange the drop-off to the Azure datacenter.

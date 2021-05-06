@@ -365,7 +365,8 @@ If you're using Data Box in US Government, Japan, Singapore, Korea, India, South
     ```
 
    > [!NOTE]
-   > Required information for return may vary by region. If you're returning a Data Box in Brazil, see [Use self-managed shipping for Azure Data Box](data-box-portal-customer-managed-shipping.md) for detailed instructions. 
+   > - Required information for return may vary by region. 
+   > - If you're returning a Data Box in Brazil, see [Use self-managed shipping for Azure Data Box](data-box-portal-customer-managed-shipping.md) for detailed instructions. 
 
 ::: zone target="chromeless"
 
