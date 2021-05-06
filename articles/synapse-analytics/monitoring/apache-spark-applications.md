@@ -46,7 +46,7 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 2. Refresh the job.
 
-3. Click on **Compare applications** to use the comparison feature, for more information on this feature, see the [**Compare Apache Spark applications**](#compare-Apache-Spark-applications).
+3. Click on **Compare applications** to use the comparison feature, for more information on this feature, see the [**Compare Apache Spark applications**](#compare-apache-spark-applications).
 
 4. Click on **Spark history server** to open the History Server page.
 
@@ -117,7 +117,7 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
        Have the same features as the input.
 
-        ![output](./media/how-to-monitor-spark-applications/output.png)
+        ![output-image](./media/how-to-monitor-spark-applications/output.png)
            
 
 
