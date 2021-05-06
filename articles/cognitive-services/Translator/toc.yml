@@ -60,6 +60,8 @@
         href: translator-container-configuration.md
       - name: Use container instances
         href: /azure/cognitive-services/containers/azure-container-instance-recipe?context=/azure/cognitive-services/translator/context/context
+      - name:  Container support
+        href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
       - name: Cognitive Services containers documentation
         href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/translator/context/context   
   - name: Concepts

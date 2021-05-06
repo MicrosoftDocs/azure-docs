@@ -10,9 +10,10 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/05/2021
 ms.author: lajanuar
+recommendations: false
 ---
 
-# Configure Translator Docker containers
+# Configure Translator Docker containers (Preview)
 
 Cognitive Services provides each container with a common configuration framework.  You can easily configure your Translator containers and you to build Translator application architecture optimized for robust cloud capabilities and edge locality.
 

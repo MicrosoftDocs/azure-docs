@@ -10,6 +10,7 @@ ms.subservice: translator-text
 ms.topic: how-to
 ms.date: 04/28/2021
 ms.author: lajanuar
+recommendations: false
 keywords: on-premises, Docker, container, identify
 ---
 
