@@ -48,10 +48,11 @@ Create a tag filter to show your managed online endpoint:
 Create a tag filter to show your managed online deployment:
 1. Select **Add filter** > **Tag** > **azuremldeployment**: "\<your deployment name>".
 
+    > [!NOTE]
+    > Dollar values in this image are fictitious and do not reflect actual costs.
+
     [![Managed online endpoint cost analysis: screenshot of the Cost Analysis view showing a red box around the "Tag" buttons in the top right.](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-select-endpoint-deployment.png)](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-select-endpoint-deployment.png#lightbox)
 
-> [!NOTE]
-> Dollar values in this image are fictitious and do not reflect actual costs.
 
 ## Next steps
 
