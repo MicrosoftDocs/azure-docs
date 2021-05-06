@@ -68,7 +68,7 @@ A condition is only applied to the specific targeted actions.
 
 **What are the limits for a condition?**
 
-A condition can be up to to 4 KB long.
+A condition can be up to to 8 KB long.
 
 **What are the limits for a description?**
 
