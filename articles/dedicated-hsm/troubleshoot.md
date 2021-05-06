@@ -31,7 +31,7 @@ Dedicated HSM is not freely available for use as it is delivering hardware resou
 
 ### Getting access to Dedicated HSM
 
-First ask yourself what use cases do you have that cannot be addressed by [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) or [Azure Managed HSM](https://docs.microsoft.com/azure/key-vault/managed-hsm/overview). If then you believe only Dedicated HSM will fit your key storage requirements, then email HSMrequest@microsoft.com to request access. Outline your application and use cases, the regions you would like HSMs and the volume of HSMs you are looking for. If you work with a Microsoft representative, such as an Account Executive or Cloud Solution Architect for example, then include them in any request.
+First ask yourself what use cases do you have that cannot be addressed by [Azure Key Vault](../key-vault/general/overview.md) or [Azure Managed HSM](../key-vault/managed-hsm/overview.md). If then you believe only Dedicated HSM will fit your key storage requirements, then email HSMrequest@microsoft.com to request access. Outline your application and use cases, the regions you would like HSMs and the volume of HSMs you are looking for. If you work with a Microsoft representative, such as an Account Executive or Cloud Solution Architect for example, then include them in any request.
 
 ## HSM Provisioning
 
@@ -155,4 +155,4 @@ The Azure resource for an HSM cannot be deleted unless the HSM is in a "zeroized
 
 ## Next steps
 
-This article has provided insight into areas across the HSM deployment lifecycle that may have issues or require troubleshooting or careful consideration. Hopefully this article helps you avoid unnecessary delays and frustration, and if you have relevant additions or changes, then raise a support request with Microsoft and let us know. 
+This article has provided insight into areas across the HSM deployment lifecycle that may have issues or require troubleshooting or careful consideration. Hopefully this article helps you avoid unnecessary delays and frustration, and if you have relevant additions or changes, then raise a support request with Microsoft and let us know.

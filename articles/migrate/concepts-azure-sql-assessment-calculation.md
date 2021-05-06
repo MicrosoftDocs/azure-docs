@@ -123,7 +123,7 @@ If you select the target deployment type as **Recommended** in the Azure SQL ass
 If the SQL instance is not ready for Azure SQL Database and Azure SQL Managed Instance, the Recommended deployment type is marked as *Potentially ready for Azure VM*.
 - The user is recommended to create an assessment in Azure Migrate with assessment type as "Azure VM" to determine if the server on which the instance is running is ready to migrate to an Azure VM instead. Note that:
     - Azure VM assessments in Azure Migrate are currently lift and shift focused and will not consider the specific performance metrics for running SQL instances and databases on the Azure virtual machine. 
-    - When you run an Azure VM assessment on a server, the recommended size and cost estimates will be for all instances running on the server and can be migrated to an Azure VM using the Server Migration tool. Before you migrate, [review the performance guidelines](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) for SQL Server on Azure virtual machines.
+    - When you run an Azure VM assessment on a server, the recommended size and cost estimates will be for all instances running on the server and can be migrated to an Azure VM using the Server Migration tool. Before you migrate, [review the performance guidelines](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md) for SQL Server on Azure virtual machines.
 
 
 ## Calculate sizing

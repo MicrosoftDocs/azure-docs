@@ -184,6 +184,10 @@ items:
     items:
     - name: Manage Private endpoints
       href: catalog-private-link.md
+  - name: Disaster recovery
+    items:
+    - name: Disaster recovery
+      href: disaster-recovery.md
 - name: Reference
   items:
     - name: Supported classifications
@@ -197,4 +201,4 @@ items:
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/details/azure-purview/
     - name: Microsoft Q&A forum
-      href: https://docs.microsoft.com/answers/topics/azure-purview.html
+      href: /answers/topics/azure-purview.html

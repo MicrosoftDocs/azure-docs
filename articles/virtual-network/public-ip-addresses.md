@@ -188,7 +188,7 @@ The following table shows the property through which a public IP can be associat
 | --- | --- | --- | --- |
 | Virtual machine |Network interface |Yes |Yes |
 | Internet-facing Load balancer |Front-end configuration |Yes |Yes |
-| VPN gateway |Gateway IP configuration |Yes |No |
+| VPN gateway |Gateway IP configuration |Yes |Yes (VPNGwAZ only) |
 | Application gateway |Front-end configuration |Yes (V1 only) |Yes (V2 only) |
 | Azure Firewall | Front-end configuration | No | Yes|
 

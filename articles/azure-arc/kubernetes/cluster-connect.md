@@ -21,7 +21,7 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
 
 ## Prerequisites   
 
-- [Install or upgrade Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) to version >= 2.16.0
+- [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0
 
 - Install the `connectedk8s` Azure CLI extension of version >= 1.1.0:
 
@@ -143,8 +143,8 @@ You must be logged in to the server (Error:Error while retrieving group info. Er
 ```
 
 To get past this error:
-1. Create a [service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli), which is less likely to be a member of more than 200 groups.
-1. [Sign in](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal) to Azure CLI with the service principal before running `az connectedk8s proxy` command.
+1. Create a [service principal](/cli/azure/create-an-azure-service-principal-azure-cli), which is less likely to be a member of more than 200 groups.
+1. [Sign in](/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal) to Azure CLI with the service principal before running `az connectedk8s proxy` command.
 
 ## Next steps
 
