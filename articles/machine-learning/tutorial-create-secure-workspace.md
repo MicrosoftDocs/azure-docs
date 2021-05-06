@@ -159,11 +159,14 @@ Use the following steps create a network security group (NSG) and add rules requ
 
 1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
 
-### Enable private endpoint for file storage
+1. Once the Storage Account has been created, select __Go to resource__:
 
-While you created a private endpoint for Blob storage in the previous steps, you must also create one for File storage. Since the UI in the previous steps only allow you to create one private endpoint, use the following steps to add another after the Storage Account has been created.
+    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-go-to-resource.png" alt-text="Go to new storage resource":::
 
-1. Once the Storage Account has been created, select __Go to resource__. From the left navigation, select __Networking__ the __Private endpoint connections__ tab, and then select __+ Private endpoint__.
+1. From the left navigation, select __Networking__ the __Private endpoint connections__ tab, and then select __+ Private endpoint__:
+
+    > [!NOTE]
+    > While you created a private endpoint for Blob storage in the previous steps, you must also create one for File storage.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/storage-file-networking.png" alt-text="UI for storage account networking":::
 
@@ -251,6 +254,9 @@ While you created a private endpoint for Blob storage in the previous steps, you
 ## Create a workspace
 
 1. In the Azure portal, select the __Home__ link to return to the homepage. Select __+ Create a resource__ and then enter __Machine Learning__. Select the __Machine Learning__ entry, and then select __Create__.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/machine-learning-create.png" alt-text="{alt-text}":::
+
 1. From the __Basics__ tab, select the __subscription__, __resource group__, and __Region__ you previously used for the virtual network. Use the follow values for the other fields:
     * __Workspace name__: A unique name for your workspace.
     * __Storage account__: Select the storage account you created previously.
@@ -280,10 +286,19 @@ While you created a private endpoint for Blob storage in the previous steps, you
     :::image type="content" source="./media/tutorial-create-secure-workspace/machine-learning-workspace-private-endpoint.png" alt-text="Workspace private network config":::
 
 1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
+1. Once the workspace has been created, select __Go to resource__.
+1. From the __Settings__ section on the left, select __Private endpoint connections__ and then select the link in the __Private endpoint__ column:
 
+    :::image type="content" source="./media/tutorial-create-secure-workspace/workspace-private-endpoint-connections.png" alt-text="Workspace private endpoint connections":::
+
+1. Once the private endpoint information appears, select __DNS configuration__ from the left of the page. Save the IP address and fully qualified domain name (FQDN) information on this page, as it will be used later.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/workspace-private-endpoint-dns.png" alt-text="IP and FQDN entries":::
 ## Create a VPN gateway
 
-In the Azure portal, select the __Home__ link to return to the homepage. Select __+ Create a resource__ and then enter __Virtual network gateway__. Select the __Virtual network gateway__ entry, and then select __Create__.
+There are several ways that you might connect to the virtual network to use your workspace. The steps in this section use an Azure Virtual Network Gateway (VPN) with a __point-to-site__ configuration. For information on other VPN configurations, see [VPN gateway design](../vpn-gateway/design.md).
+
+1. In the Azure portal, select the __Home__ link to return to the homepage. Select __+ Create a resource__ and then enter __Virtual network gateway__. Select the __Virtual network gateway__ entry, and then select __Create__.
 1. From the __Basics__ tab, select the __subscription__ and __Region__ you used for the virtual network. Use the follow values for the other fields:
     * __Name__: A unique name for your VPN gateway.
     * __Gateway type__: VPN
@@ -298,44 +313,63 @@ In the Azure portal, select the __Home__ link to return to the homepage. Select 
     * __Assignment__: Dynamic
     * __Enable active-active mode__: Disabled
     * __Configure BGP__: Disabled
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-vpn-gateway.png" alt-text="Basic VPN gateway config":::
+
 1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
 
     > [!IMPORTANT]
     > It can take up to 45 minutes for the VPN gateway creation process to finish.
 
-### Configure the gateway
+### Configure the gateway and client
 
 Once the VPN gateway creation has completed, use the following steps to enable a __point-to-site__ configuration:
 
 1. To create an authentication certificate, use the __Generate certificates__ section of [Configure a Point-To-Site VPN connection](/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert) article.
-1. From the portal, select the VPN gateway you created previously. From the left navigation, select __Point-to-site configuration__.
-1. Select __Configure now__, and use the following values in the form:
+1. From the portal, select the VPN gateway you created previously. From the left navigation, select __Point-to-site configuration__ and then select __Configure now__:
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/vpn-config-point-to-site.png" alt-text="Create point-to-site config":::
+
+1. Use the following values in the form:
     * __Address pool__: 172.16.201.0/24
     * __Tunnel type__: IKEv2
     * __Authentication type__: Azure certificate
-1. When the __Root certificates__ fields appear, enter a unique __Name__ and then paste the contents of the __root certificate__ file you created earlier into the __Public certificate data__ field.
+
+    When the __Root certificates__ fields appear, enter a unique __Name__ and then paste the contents of the __root certificate__ file you created earlier into the __Public certificate data__ field.
 
     > [!TIP]
     > If your root certificate file contains `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----` lines, __do not__ include these lines when pasting into the __root certificate__ field.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/vpn-point-to-site-config.png" alt-text="Point-to-site config settings":::
+
 1. Select __Save__ to save the configuration.
 
     > [!TIP]
     > When you navigate away from the point-to-site configuration screen, you may receive an error that your changes will be discarded. Select __OK__. You can then select the configuration again to verify the settings were saved.
+
 1. From the __Point-to-site configuration__, select __Download VPN client__. For more information on configuring a VPN client using this zip, see [Create and install VPN client configuration files](/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert.md).
 
     > [!TIP]
     > It may take several seconds before the download begins.
 
-## Private IP addresses
+    Once you have configured the client, use it to verify that you can connect to the VPN gateway.
 
-To communicate with the resources in the VNet, use the following steps:
+## Name resolution
 
-1. In the Azure portal, find your resource group.
-1. In the resource group, select each of the resources with a type of __Private endpoint__.
-1. Select __DNS configuration__ area and copy the __FQDN__ and __IP addresses__ values listed on the page. 
+When using Azure Machine Learning behind a virtual network, the client must be able to resolve the fully qualified domain names (FQDN) used within the virtual network. In a production configuration, you would use a custom DNS server to resolve the names. However, for a point-to-site configuration you can add the FQDNs and IP addresses to the __hosts__ file on the VPN client machine.
 
-    > [!TIP]
-    > In some cases there may be entries in two tables under __Custom DNS records__. Copy all the FQDN and matching IP addresses on the page.
+The location of your hosts file can vary depending on the operating system you are using:
+
+| Operating system | Hosts file location |
+| ----- | ----- |
+| Windows | `C:\Windows\System32\drivers\etc\hosts` |
+| macOS | `/private/etc/hosts` |
+| Linux | `/etc/hosts` |
+
+> [!TIP]
+> The file can be opened with a text editor on all systems, though you may require admin or super user rights to save changes.
+
+Add the FQDNs and IP addresses you saved earlier (from your workspace private endpoint connections) to your hosts file and save the changes.
 
 ## Configure image builds
 
