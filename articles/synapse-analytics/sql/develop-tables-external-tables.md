@@ -29,6 +29,7 @@ The key differences between Hadoop and native external tables are presented in t
 | Folder partition elimination | No | Only for the partitioned tables synchronized from the Apache Spark pools in Synapse workspace to the serverless SQL pools |
 | Custom format for location | No | Only in serverless SQL pools using wildcards like `/year=*/month=*/day=*` |
 | Recursive folder scan | Always | Only in serverless SQL pools when specified `/**` at the end of the location path |
+| Storage filter pushdown | No | Yes. For the string pushdown you need to use `Latin1_General_100_BIN2_UTF8` collation on the `VARCHAR` columns. |
 | Storage authentication | Storage Access Key(SAK), AAD passthrough, Managed identity, Custom application Azure AD identity | Shared Access Signature(SAS), AAD passthrough, Managed identity |
 
 ## External tables in dedicated SQL pool and serverless SQL pool
