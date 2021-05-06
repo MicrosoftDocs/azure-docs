@@ -6,7 +6,7 @@ ms.service: azure-video-analyzer
 ms.date: 04/29/2021
 
 ---
-# Tutorial: Analyze live video by using Intel OpenVINO™ DL Streamer – Edge AI Extension 
+# Tutorial: Analyze live video with Intel OpenVINO™ DL Streamer – Edge AI Extension 
 
 This tutorial shows you how to use the Intel OpenVINO™ DL Streamer – Edge AI Extension from Intel to analyze a live video feed from a (simulated) IP camera. You'll see how this inference server gives you access to different models for detecting objects (a person, a vehicle, or a bike), object classification (vehicle attributions) and a model for object tracking (person, vehicle and bike). The integration with the gRPC module lets you send video frames to the AI inference server. The results are then sent to the IoT Edge Hub. When you run this inference service on the same compute node as Azure Video Analyzer, you can take advantage of sending video data via shared memory. This enables you to run inferencing at the frame rate of the live video feed (i.e. 30 frames/sec). 
 
@@ -86,12 +86,12 @@ In this quickstart, you will:
 1. In Visual Studio Code, right-click the *src/edge/deployment.openvino.grpc.template.json* file and then select **Generate IoT Edge Deployment Manifest**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/generate-deployment-manifest.png" alt-text="Generate IoT Edge Deployment Manifest":::
+    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/generate-deployment-manifest.png" alt-text="Generate an IoT Edge Deployment Manifest":::
 1. The *deployment.openvino.grpc.amd64.json* manifest file is created in the *src/edge/config* folder.
 1. Right-click *src/edge/config/deployment.openvino.grpc.amd64.json* and select **Create Deployment for Single Device**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/deployment-single-device.png" alt-text= "Create Deployment for Single Device":::
+    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/deployment-single-device.png" alt-text= "Create Deployment for a Single Device":::
 1. When you're prompted to select an IoT Hub device, select **avasample-iot-edge-device**.
 1. After about 30 seconds, in the lower-left corner of the window, refresh Azure IoT Hub. The edge device now shows the following deployed modules:
 
