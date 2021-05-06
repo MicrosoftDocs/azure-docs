@@ -105,13 +105,13 @@ AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_A
 
 You can then use your storage account values to get the information about the default datastore with a PUT request. 
 
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="createdatastore":::
+:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_datastore":::
 
 ### Data
 
 Now that you have the datastore, you can create a dataset. For this example, use the common dataset `iris.csv` and point to it in the `path`. 
 
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create-data":::
+:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_data":::
 
 ### Code
 
@@ -124,7 +124,7 @@ az storage blob upload-batch -d $AZUREML_DEFAULT_CONTAINER/src \
 
 Once you upload your code, you can specify your code with a PUT request and refer to the datastore with `datastoreId`. 
 
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create-code":::
+:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_code":::
 
 ## Basic Python training job
 
@@ -141,7 +141,7 @@ Now that your assets are in place, you can run the LightGBM job, which outputs a
 
 Use the following commands to submit the training job:
 
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create-job":::
+:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_job":::
 
 
 ## Sweep hyperparameters
@@ -159,7 +159,7 @@ Azure Machine Learning also lets you efficiently tune training hyperparameterss.
 
 To create a sweep job with the same LightGBM example, use the following commands: 
 
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create-a-sweep-job":::
+:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_a_sweep_job":::
 
 ## Next steps
 - Deploy models with REST
