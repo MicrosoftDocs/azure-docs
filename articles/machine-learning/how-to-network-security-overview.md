@@ -9,8 +9,8 @@ ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
 ms.date: 03/02/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
+ms.topic: how-to
+ms.custom: devx-track-python, references_regions, contperf-fy21q1
 
 ---
 

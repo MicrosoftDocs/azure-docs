@@ -30,7 +30,7 @@ Before you begin, you must have the following:
 
     + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
-+ The [.NET Core SDK 3.1](https://www.microsoft.com/net/download)
++ The [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
 
 ### Prerequisite check
 

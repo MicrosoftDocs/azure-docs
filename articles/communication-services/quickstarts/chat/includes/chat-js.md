@@ -171,7 +171,7 @@ async function createChatThread() {
       }
     ]
   };
-  const createChatTtreadResult = await chatClient.createChatThread(
+  const createChatThreadResult = await chatClient.createChatThread(
     createChatThreadRequest,
     createChatThreadOptions
   );

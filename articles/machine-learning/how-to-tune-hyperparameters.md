@@ -9,8 +9,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 02/26/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperf-fy21q1
+ms.topic: how-to
+ms.custom: devx-track-python, contperf-fy21q1
 
 ---
 
@@ -462,7 +462,7 @@ Once all of the hyperparameter tuning runs have completed, identify the best per
 ```Python
 best_run = hyperdrive_run.get_best_run_by_primary_metric()
 best_run_metrics = best_run.get_metrics()
-parameter_values = best_run.get_details()['runDefinition']['Arguments']
+parameter_values = best_run.get_details()['runDefinition']['arguments']
 
 print('Best Run Id: ', best_run.id)
 print('\n Accuracy:', best_run_metrics['accuracy'])

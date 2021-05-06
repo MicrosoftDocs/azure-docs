@@ -5,10 +5,9 @@ author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-
 ms.date: 02/12/2021
 ms.reviewer: jushiman
-ms.custom: mimckitt, devx-track-azurecli
+ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 ---
 
 # Preview: Orchestration modes for virtual machine scale sets in Azure 
