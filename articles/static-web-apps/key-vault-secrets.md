@@ -38,11 +38,11 @@ This article demonstrates how to set up each of these items in your application.
 
 1. Select the **Save** button.
 
-    :::image type="content" source="media/key-vault-secrets/azure-statiic-web-apps-enable-managed-identity.png" alt-text="Add system-assigned identity":::
+    :::image type="content" source="media/key-vault-secrets/azure-static-web-apps-enable-managed-identity.png" alt-text="Add system-assigned identity":::
 
 1. When the confirmation dialog appears, select the **Yes** button.
 
-    :::image type="content" source="media/key-vault-secrets/azure-statiic-web-apps-enable-managed-identity-confirmation.png" alt-text="Confirm identity assignment.":::
+    :::image type="content" source="media/key-vault-secrets/azure-static-web-apps-enable-managed-identity-confirmation.png" alt-text="Confirm identity assignment.":::
 
 You can now add an access policy to allow your static web app to read Key Vault secrets.
 
@@ -68,7 +68,7 @@ You can now add an access policy to allow your static web app to read Key Vault 
 
 1. Select the **Save** button.
 
-    :::image type="content" source="media/key-vault-secrets/azure-statiic-web-apps-key-vault-save-policy.png" alt-text="Save Key Vault access policy":::
+    :::image type="content" source="media/key-vault-secrets/azure-static-web-apps-key-vault-save-policy.png" alt-text="Save Key Vault access policy":::
 
 The access policy is now saved to Key Vault. Next, access the secret's URI to use when associating your static web app to the Key Vault resource.
 
@@ -114,7 +114,7 @@ The access policy is now saved to Key Vault. Next, access the secret's URI to us
 
 1. Select the **Save** button at the top of the _Application settings_ toolbar.
 
-    :::image type="content" source="media/key-vault-secrets/azure-statiic-web-apps-application-settings-save.png" alt-text="Save application settings":::
+    :::image type="content" source="media/key-vault-secrets/azure-static-web-apps-application-settings-save.png" alt-text="Save application settings":::
 
 Now when your custom authentication configuration references your newly created application setting, the value is extracted from Azure Key Vault using your static web app's identity.
 
