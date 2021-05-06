@@ -49,22 +49,31 @@ An approach to implementing rate limiting might look like this:
 
 ## Indexing
 
-Before measuring any costs, you should configure all indexes. If you change indexes, you will need to re-run all cost calculations.
+Unlike other SQL and NoSQL databases you may be familiar with, Cosmos DB's default indexing policy for newly created containers indexes **every** property. This will affect the number of RUs that a write operation consumes, and that is naturally very related to the number of properties in such records.
 
-Depending on protocol, Cosmos will index all properties. You should avoid running a system in this mode as the number of RUs consumed to write an item increases as the item property count increases - always specifically choose the properties to index.
+The default indexing policy helps foster lower latency in read-heavy systems where query filter conditions are well distributed across all of the stored fields (e.g. systems where Cosmos DB is spending most of its time serving end-user crafted ad-hoc searches, like searching retail order history for a hyper-targeted market segment a researcher is interested in).
+
+This could be an opportunity to improve overall system performance (cost and time) for systems that are more write-heavy, and where record retrieval patterns are more constrained and/or well known. This is especially applicable where records many many properties but are only ever fetched by only a few properties. Put another way, you might want to exclude properties that are never searched against from being indexed.
+
+Before measuring any costs, you should intentionally consider and configure indexes. Also, if you later change indexes, you will need to re-run all cost calculations. 
+
+Where possible, testing a system under development with a load reflecting typical queries at normal and peak demand conditions will help reveal what indexing policy to use.
+
+For more information about indexes, see [Indexing policies in Azure Cosmos DB](index-policy).
 
 ## Measuring Cost
 
 There are some key concepts when measuring cost:
 
 * Consider all factors that affect RU usage, as described in [request unit considerations](request-units.md#request-unit-considerations).
-* Keep in mind that all simultaneous read and write operations across all client connections for given database or container will be held to the single provision throughput set for that target.
+* Keep in mind that all simultaneous read and write operations across all client connections for given database or container will be held to the single provisioned throughput set for that target.
 * RU consumption is incurred, regardless of the Cosmos DB APIs being used.
+* The partition strategy for a collection can have a significant impact on the cost of a system. In write-heavy systems balancing the partition key and the number of partitions can improve both the price of the system and the time it takes to complete workloads. Again, rate-limiting ingest clients to match whats provisioned is important, but ensuring that the inbound records fan-out to write into distinct partitions (via the partition key) is critical, too, and help ease the need for rate-limiting. For more information , see [Partitioning and horizontal scaling in Azure Cosmos DB](partitioning-overview#choose-partitionkey).
 * Use representative documents and representative queries.
   * These are documents and queries that you think are close to what the operational system will encounter.
   * The best way to get these representative documents and queries is to instrument the usage of your application. It is always better to make this a data-driven decision.
 * Measure cost periodically.
-  * Index changes, the size of indexes, and the number of partitions can affect the cost. The volume of data can also have an affect in some cases, for example, if you pack lots of documents into a single logical partition.
+  * Index changes, the size of indexes can affect the cost. 
   * It will be helpful to create some repeatable (maybe even automated) test of the representative documents and queries.
   * Ensure your representative documents and queries are still representative.
 
@@ -126,4 +135,18 @@ You could employ a queue that acts as a buffer between a client and Cosmos DB in
 
 This pattern is useful to any application that uses services that are subject to overloading. However, this pattern isn't useful if the application expects a response from the service with minimal latency.
 
+This pattern is often very well suited to ingest operations.
+
 For more information about this pattern, see [Queue-Based Load Leveling pattern](architecture/patterns/queue-based-load-leveling).
+
+### Cache-Aside pattern
+
+Load data on demand into a cache from a data store. This can improve performance and also helps to maintain consistency between data held in the cache and data in the underlying data store.
+
+For more information, see: [Cache-Aside pattern](architecture/patterns/cache-aside)
+
+### Materialized View pattern
+
+Generate pre-populated views over the data in one or more data stores when the data isn't ideally formatted for required query operations. This can help support efficient querying and data extraction, and improve application performance.
+
+For more information, see [Materialized View pattern](architecture/patterns/materialized-view).
