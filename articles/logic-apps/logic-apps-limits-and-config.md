@@ -365,7 +365,7 @@ The following table lists the values for custom connectors:
 |------|--------------|-------------------------|---------------------------------|-------|
 | Custom connectors | 1,000 per Azure subscription | Unlimited | 1,000 per Azure subscription ||
 | Requests per minute for a custom connector | 500 requests per minute per connection | Based on your implementation | 2,000 requests per minute per *custom connector* ||
-| Connection timeout | ? | Idle connection: 4 minutes <p><p>Active connection: 10 minutes | ? ||
+| Connection timeout | 2 min | Idle connection: <br>4 min <p><p>Active connection: <br>10 min | 2 min ||
 ||||||
 
 For more information, review the following documentation:
