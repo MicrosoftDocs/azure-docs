@@ -421,6 +421,12 @@
       href: how-to-managed-cluster-availability-zones.md
     - name: Select managed cluster managed disk types
       href: how-to-managed-cluster-managed-disk.md
+    - name: Configure managed cluster upgrades
+      href: how-to-managed-cluster-upgrades.md
+    - name: Grant an application's managed identity access to Azure resources
+      href: how-to-managed-cluster-grant-access-other-resources.md
+    - name: Use Managed Identity service with Service Fabric application code
+      href: how-to-managed-cluster-managed-identity-service-fabric-app-code.md  
   - name: Set up your development environment
     items:
     - name: Windows
