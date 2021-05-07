@@ -24,8 +24,8 @@ The following table contains common problems and solutions you may see during ba
 |--|--|
 | Code configuration or Environment is missing. | Ensure you provide the scoring script and an environment definition if you are using a non-MLflow model. No-code deployment is supported for the MLflow model only. |
 | Failure to update model, code, environment, and compute for an existing batch endpoint. | Please create a new batch endpoint with a new name. Updating these assets for an existing batch endpoint is not yet supported. |
-| The resource was not found. | Ensure you use `-t batch` in your CLI command. Without this, the default `online` type is used.|
-| Unsupported input data. | Batch endpoint accepts input data in 3 forms: 1) registered data 2) data in the cloud 3) data in local. Ensure you are using the right format. For more, see [Use batch endpoints (preview) for batch scoring](how-to-use-batch-endpoint.md)|
+| The resource was not found. | Ensure you use `-t batch` in your CLI command. If this argument is not specified, the default `online` type is used.|
+| Unsupported input data. | Batch endpoint accepts input data in three forms: 1) registered data 2) data in the cloud 3) data in local. Ensure you are using the right format. For more, see [Use batch endpoints (preview) for batch scoring](how-to-use-batch-endpoint.md)|
 
 ##  Scoring script requirements
 
@@ -110,7 +110,7 @@ The file `~/azureml-logs/70_driver_log.txt` contains information from the contro
 
 Because of the distributed nature of batch scoring jobs, there are logs from several different sources. However, two consolidated files are created that provide high-level information: 
 
-- `~/logs/job_progress_overview.txt`: This file provides high-level information about the number of mini-batches (also known as tasks) created so far and the number of mini-batches processed so far. As these end, it further shows the results of the job. If the job failed, it will show the error message and where to start the troubleshooting.
+- `~/logs/job_progress_overview.txt`: This file provides high-level information about the number of mini-batches (also known as tasks) created so far and the number of mini-batches processed so far. As the mini-batches end, the log records the results of the job. If the job failed, it will show the error message and where to start the troubleshooting.
 
 - `~/logs/sys/master_role.txt`: This file provides the principal node (also known as the orchestrator) view of the running job. This log provides information on task creation, progress monitoring, the run result.
 
