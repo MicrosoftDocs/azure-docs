@@ -14,10 +14,22 @@ This cURL-based quickstart walks you through getting an answer from your knowled
 
 ## Prerequisites
 
-* Latest [**cURL**](https://curl.haxx.se/).
 * You must have
-    * A [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md) for the GA version. You would need to create a Text Analytics resource if you want to use the Custom question answering (preview release) feature.
-    * A trained and published knowledge base with questions and answers, from the previous [quickstart](../Quickstarts/add-question-metadata-portal.md), configured with metadata and Chit chat.
+    * Latest [**cURL**](https://curl.haxx.se/).
+    * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
+
+# [QnA Maker GA (stable release)](#tab/v1)
+
+> * A [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
+
+# [Custom question answering (preview release)](#tab/v2)
+
+> * A [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and Text Analytics resource name you selected when you created the resource.
+
+---
+
+   * A trained and published knowledge base with questions and answers, from the previous [quickstart](../Quickstarts/add-question-metadata-portal.md), configured with metadata and Chit chat.
+
 
 > [!NOTE]
 > When you are ready to generate an answer to a question from your knowledge base, you must [train](../Quickstarts/create-publish-knowledge-base.md#save-and-train) and [publish](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) your knowledge base. When your knowledge base is published, the **Publish** page displays the HTTP request settings to generate an answer. The **cURL** tab shows the settings required to generate an answer from the command-line tool.
