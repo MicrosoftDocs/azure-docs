@@ -235,7 +235,7 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type as '
     export class AppModule { }
     ```
 
-3. Add CSS to *src/style.css*: (OPTIONAL)
+3. (OPTIONAL) Add CSS to *src/style.css*:
 
     ```javascript
     @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
@@ -245,7 +245,7 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type as '
     .container { margin: 1%; }
     ```
 
-4. Add CSS to *src/app/app.component.css*: (OPTIONAL)
+4. (OPTIONAL) Add CSS to *src/app/app.component.css*:
 
     ```javascript
     .toolbar-spacer {
@@ -361,7 +361,7 @@ Add the code from the following sections to invoke login using a popup window or
 
 2. Add the `<app-redirect>` selector to *src/index.html*. This selector is used by the `MsalRedirectComponent`. Your *src/index.html* should look like this:
 
-    ```javascript
+    ```HTML
     <!doctype html>
     <html lang="en">
     <head>
@@ -440,7 +440,7 @@ Add the code from the following sections to invoke login using a popup window or
 
 ## Conditional rendering
 
-In order to render certain UI only for authenticated users, components have to subscribe to the `MsalBroadcastService` to see if users have been signed in and interaction has completed. Add the following code below:
+In order to render certain UI only for authenticated users, components have to subscribe to the `MsalBroadcastService` to see if users have been signed in and interaction has completed.
 
 1. Add the `MsalBroadcastService` to *src/app/app.component.ts* and subscribe to the `inProgress$` observable to check if interaction is complete and an account is signed in before rendering UI. Your code should now look like this:
 
@@ -536,7 +536,7 @@ In order to render certain UI only for authenticated users, components have to s
 
 3. Replace the code in *src/app/home/home.component.html* with the following conditional displays:
 
-    ```javascript
+    ```HTML
     <div *ngIf="!loginDisplay">
         <p>Please sign-in to see your profile information.</p>
     </div>
@@ -551,7 +551,7 @@ In order to render certain UI only for authenticated users, components have to s
 
 ### Angular Guard
 
-MSAL Angular provides a `MsalGuard` class that can be used to protect routes and require authentication before accessing the protected route. 
+MSAL Angular provides `MsalGuard`, a class you can use to protect routes and require authentication before accessing the protected route. 
 
 1. Add the `MsalGuard` class as a provider in your application in *src/app/app.module.ts*, and add the configurations for the `MsalGuard`. Scopes needed for acquiring tokens later can be provided in the `authRequest`, and the type of interaction for the Guard can be set to `Redirect` or `Popup`. Your code should look like the following:
 
@@ -570,7 +570,7 @@ MSAL Angular provides a `MsalGuard` class that can be used to protect routes and
     import { ProfileComponent } from './profile/profile.component';
 
     import { MsalModule, MsalRedirectComponent, MsalGuard } from '@azure/msal-angular'; // MsalGuard added to imports
-    import { PublicClientApplication, InteractionType } from '@azure/msal-browser'; // InterationType added to imports
+    import { PublicClientApplication, InteractionType } from '@azure/msal-browser'; // InteractionType added to imports
 
     const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
@@ -848,7 +848,7 @@ MSAL Angular provides an `Interceptor` class that automatically acquires tokens 
 
 Update the code in *src/app/app.component.html* to conditionally display a `Logout` button:
 
-```javascript
+```HTML
 <mat-toolbar color="primary">
   <a class="title" href="/">{{ title }}</a>
 
@@ -1014,7 +1014,7 @@ export class AppComponent implements OnInit {
     ```
 1. In your browser, enter **http://localhost:4200** or **http://localhost:{port}**, where *port* is the port that your web server is listening on. You should see a page that looks like the one below.
 
-:::image type="content" source="media/tutorial-v2-angular-auth-code/angular-01-not-signed-in.png" alt-text="Web browser displaying sign-in dialog":::
+    :::image type="content" source="media/tutorial-v2-angular-auth-code/angular-01-not-signed-in.png" alt-text="Web browser displaying sign-in dialog":::
 
 
 ### Provide consent for application access
@@ -1035,7 +1035,7 @@ After you sign in, select **Profile** to view the user profile information retur
 
 ## Add scopes and delegated permissions
 
-The Microsoft Graph API requires the user.read scope to read a user's profile. By default, this scope is automatically added in every application that's registered in the Azure portal. Other APIs for Microsoft Graph, as well as custom APIs for your back-end server, might require additional scopes. For example, the Microsoft Graph API requires the Mail.Read scope in order to list the user's email.
+The Microsoft Graph API requires the _User.Read_ scope to read a user's profile. The _User.Read_ scope is added automatically to every app registration you create in the Azure portal. Other APIs for Microsoft Graph, as well as custom APIs for your back-end server, might require additional scopes. For example, the Microsoft Graph API requires the _Mail.Read_ scope in order to list the user's email.
 
 As you add scopes, your users might be prompted to provide additional consent for the added scopes.
 
