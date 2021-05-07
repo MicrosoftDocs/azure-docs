@@ -103,6 +103,8 @@
     href: azure-netapp-files-create-volumes-smb.md
   - name: Create a dual-protocol volume 
     href: create-volumes-dual-protocol.md
+  - name: Configure ADDS LDAP over TLS
+    href: configure-ldap-over-tls.md
   - name: Configure export policy for NFS or dual protocol
     href: azure-netapp-files-configure-export-policy.md
   - name: Mount or unmount a volume
@@ -127,6 +129,8 @@
       href: cross-region-replication-manage-disaster-recovery.md
     - name: Delete volume replications or volumes
       href: cross-region-replication-delete.md
+  - name: Manage billing by using tags
+    href: manage-billing-tags.md
   - name: Develop
     items:
     - name: REST API

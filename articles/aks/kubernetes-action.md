@@ -119,6 +119,8 @@ To deploy a container image to AKS, you will need to use the `Azure/k8s-deploy@v
 | **imagepullsecrets** | (Optional) Name of a docker-registry secret that has already been set up within the cluster. Each of these secret names is added under imagePullSecrets field for the workloads found in the input manifest files |
 | **kubectl-version** | (Optional) Installs a specific version of kubectl binary |
 
+> [!NOTE]
+> The manifest files should be created manually by you. Currently there are no tools that will generate such files in an automated way, for more information see [this sample repository with example manifest files](https://github.com/MicrosoftDocs/mslearn-aks-deploy-container-app/tree/master/kubernetes).
 
 Before you can deploy to AKS, you'll need to set target Kubernetes namespace and create an image pull secret. See [Pull images from an Azure container registry to a Kubernetes cluster](../container-registry/container-registry-auth-kubernetes.md), to learn more about how pulling images works. 
 
@@ -214,6 +216,9 @@ When your Kubernetes cluster, container registry, and repository are no longer n
 
 > [!div class="nextstepaction"]
 > [Learn about Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-start-here)
+
+> [!div class="nextstepaction"]
+> [Learn how to create multiple pipelines on GitHub Actions with AKS](https://docs.microsoft.com/learn/modules/aks-deployment-pipeline-github-actions)
 
 ### More Kubernetes GitHub Actions
 

@@ -63,6 +63,10 @@ For more information how to register and use FIDO2 security keys, see [Enable pa
 
 No, not at this time.
 
+### Why I am getting "NotAllowedError" in the browser, when registering FIDO2 keys?
+
+You will receive "NotAllowedError" from fido2 key registration page. This typically happens when user is in private (Incognito) window or using remote desktop where FIDO2 Private key access is not possible.
+
 ## Prerequisites
 
 * [Does this feature work if there's no internet connectivity?](#does-this-feature-work-if-theres-no-internet-connectivity)
