@@ -6,15 +6,15 @@ ms.date: 01/23/2019
 ms.custom: "seodec18, H1Hack27Feb2017"
 ---
 
-# Push your first image to your Azure container registry using the Docker CLI
+# Push your first image to your Azure Container Registry using the Docker CLI
 
-An Azure container registry stores and manages private container images and other artifacts, similar to the way [Docker Hub](https://hub.docker.com/) stores public Docker container images. You can use the [Docker command-line interface](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) for [login](https://docs.docker.com/engine/reference/commandline/login/), [push](https://docs.docker.com/engine/reference/commandline/push/), [pull](https://docs.docker.com/engine/reference/commandline/pull/), and other container image operations on your container registry.
+An Azure Container Registry stores and manages private container images and other artifacts, similar to the way [Docker Hub](https://hub.docker.com/) stores public Docker container images. You can use the [Docker command-line interface](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) for [login](https://docs.docker.com/engine/reference/commandline/login/), [push](https://docs.docker.com/engine/reference/commandline/push/), [pull](https://docs.docker.com/engine/reference/commandline/pull/), and other container image operations on your container registry.
 
-In the following steps, you download a public [Nginx image](https://store.docker.com/images/nginx), tag it for your private Azure container registry, push it to your registry, and then pull it from the registry.
+In the following steps, you download a public [Nginx image](https://store.docker.com/images/nginx), tag it for your private Azure Container Registry, push it to your registry, and then pull it from the registry.
 
 ## Prerequisites
 
-* **Azure container registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md).
+* **Azure Container Registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md).
 * **Docker CLI** - You must also have Docker installed locally. Docker provides packages that easily configure Docker on any [macOS][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
 
 ## Log in to a registry
@@ -109,7 +109,7 @@ If you no longer need the Nginx image, you can delete it locally with the [docke
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
-To remove images from your Azure container registry, you can use the Azure CLI command [az acr repository delete](/cli/azure/acr/repository#az_acr_repository_delete). For example, the following command deletes the manifest referenced by the `samples/nginx:latest` tag, any unique layer data, and all other tags referencing the manifest.
+To remove images from your Azure Container Registry, you can use the Azure CLI command [az acr repository delete](/cli/azure/acr/repository#az_acr_repository_delete). For example, the following command deletes the manifest referenced by the `samples/nginx:latest` tag, any unique layer data, and all other tags referencing the manifest.
 
 ```azurecli
 az acr repository delete --name myregistry --image samples/nginx:latest
@@ -123,7 +123,7 @@ Now that you know the basics, you're ready to start using your registry! For exa
 * [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
 * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)
 
-Optionally install the [Docker Extension for Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) and the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension to work with your Azure container registries. Pull and push images to an Azure container registry, or run ACR Tasks, all within Visual Studio Code.
+Optionally install the [Docker Extension for Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) and the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension to work with your Azure container registries. Pull and push images to an Azure Container Registry, or run ACR Tasks, all within Visual Studio Code.
 
 
 <!-- LINKS - external -->
