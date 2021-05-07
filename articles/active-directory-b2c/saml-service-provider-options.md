@@ -224,7 +224,7 @@ Replace the following values:
 * **tenant-name** with your tenant name
 * **policy-name** with your SAML relying party policy name
 * **app-identifier-uri** with the `identifierUris` in the metadata file, such as `https://contoso.onmicrosoft.com/app-name`
-* **relay-state** (optional) with a value for the `RelayState` parameter which will then get sent as-is to the Service Provider along with the SAML response
+* **relay-state** (optional) with a value for the `RelayState` parameter, which will then get sent as-is to the service provider along with the SAML response
 
 ### Sample policy
 
