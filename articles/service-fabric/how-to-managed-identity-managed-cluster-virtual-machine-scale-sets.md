@@ -45,22 +45,34 @@ az identity create --name <userAssignedIdentityName> --resource-group <resourceG
 
 Add a role assignment to the managed identity with the Service Fabric Resource Provider application. This assignment allows Service Fabric Resource Provider to assign the identity to the managed cluster's virtual machine scale set. 
 
-The following values must be used where applicable:
+Get service principal for Service Fabric Resource Provider application:
 
-|Name|Corresponding Service Fabric Resource Provider value|
-|----|-------------------------------------|
-|Application ID|74cb6831-0dbb-4be1-8206-fd4df301cdc2|
-|Object ID|fbc587f2-66f5-4459-a027-bcd908b9d278|
+```powershell
+Login-AzAccount
+Select-AzSubscription -SubscriptionId <SubId>
+Get-AzADServicePrincipal -DisplayName "Azure Service Fabric Resource Provider"
+```
 
+> [!NOTE]
+> Make sure you are in the correct subscription, the principal Id will change if the subscription is in a different tenant.
+
+```powershell
+ServicePrincipalNames : {74cb6831-0dbb-4be1-8206-fd4df301cdc2}
+ApplicationId         : 74cb6831-0dbb-4be1-8206-fd4df301cdc2
+ObjectType            : ServicePrincipal
+DisplayName           : Azure Service Fabric Resource Provider
+Id                    : 00000000-0000-0000-0000-000000000000
+Type                  :
+```
+
+Use the Id of the previous output as **principalId** and the role definition Id bellow as **roleDefinitionId** where applicable on the template or PowerShell command:
 
 |Role definition name|Role definition ID|
 |----|-------------------------------------|
-|Managed Identity Operator|f1a07417-d97a-45cb-824c-7a7467783830
-|
+|Managed Identity Operator|f1a07417-d97a-45cb-824c-7a7467783830|
 
 
-
-This role assignment can be defined in the resources section using the Object ID and role definition ID:
+This role assignment can be defined in the resources section template using the Principal Id and role definition Id:
 
 ```JSON
 {
@@ -73,21 +85,17 @@ This role assignment can be defined in the resources section using the Object ID
     ], 
     "properties": {
         "roleDefinitionId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'f1a07417-d97a-45cb-824c-7a7467783830')]",
-        "principalId": "fbc587f2-66f5-4459-a027-bcd908b9d278" 
+        "principalId": "00000000-0000-0000-0000-000000000000" 
     } 
 }, 
 ```
+> [!NOTE]
+> vmIdentityRoleNameGuid should be a valid GUID. If you deploy again the same template including this role assignment, make sure the GUID is the same as the one originally used or remove this resource as it just needs to be created once.
 
-or created via PowerShell using either the application ID and role definition ID:
-
-```powershell
-New-AzRoleAssignment -ApplicationId 74cb6831-0dbb-4be1-8206-fd4df301cdc2 -RoleDefinitionName "Managed Identity Operator" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<userAssignedIdentityName>"
-```
-
-or object ID and role definition ID:
+or created via PowerShell using the principal Id and role definition name:
 
 ```powershell
-New-AzRoleAssignment -PrincipalId fbc587f2-66f5-4459-a027-bcd908b9d278 -RoleDefinitionName "Managed Identity Operator" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<userAssignedIdentityName>"
+New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Managed Identity Operator" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<userAssignedIdentityName>"
 ```
 
 ## Add managed identity properties to node type definition

@@ -65,12 +65,12 @@ The following table describes the cluster types and versions that are compatible
 
 | Version | Spark | Hive | Interactive Query | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 without ESP | Yes | Yes | Yes | Yes* | No | No | No |
-| HDInsight 4.0 without ESP | Yes | Yes | Yes | Yes* | No | No | No |
-| HDInsight 3.6 with ESP | Yes | Yes | Yes | Yes* | No | No | No |
-| HDInsight 4.0 with ESP | Yes | Yes | Yes | Yes* | No | No | No |
+| HDInsight 3.6 without ESP | Yes | Yes | Yes* | Yes* | No | No | No |
+| HDInsight 4.0 without ESP | Yes | Yes | Yes* | Yes* | No | No | No |
+| HDInsight 3.6 with ESP | Yes | Yes | Yes* | Yes* | No | No | No |
+| HDInsight 4.0 with ESP | Yes | Yes | Yes* | Yes* | No | No | No |
 
-\* HBase clusters can only be configured for schedule-based scaling, not load-based.
+\* HBase and Interactive Query clusters can only be configured for schedule-based scaling, not load-based.
 
 ## Get started
 
@@ -262,9 +262,6 @@ However, you may experience a Hive Server 2 restart failure if there are only a 
 
 ## Limitations
 
-### Node label file missing
-
-HDInsight Autoscale uses a node label file to determine whether a node is ready to execute tasks. The node label file is stored on HDFS with three replicas. If the cluster size is dramatically scaled down and there is a large amount of temporary data, there is a small chance that all three replicas could be dropped. If this happens, the cluster enters an error state.
 
 ### Interactive Query Daemons count
 
