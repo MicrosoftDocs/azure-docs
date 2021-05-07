@@ -172,7 +172,7 @@ For more information on how to configure Twitter as an authentication provider r
 
 ## Configure a custom OpenID Connect provider
 
-This section shows you how to configure Azure Static Web Apps to use a custom authentication provider that adheres to the [OpenID Connect (OIDC) specification](https://openid.net/connect/). This is required if you want to use an OIDC provider other than the built in providers provided by Azure Static Web Apps.
+This section shows you how to configure Azure Static Web Apps to use a custom authentication provider that adheres to the [OpenID Connect (OIDC) specification](https://openid.net/connect/). The following steps are required to use an OIDC provider other than the built-in providers provided by Azure Static Web Apps.
 
 - One or more OIDC providers are allowed.
 - Each provider must have a unique name in the configuration.
@@ -225,7 +225,17 @@ Once you have the registration credentials, use the following steps to create a 
 - The `wellKnownOpenIdConfiguration` uses the path to the _Issuer URL_ of the provider.
 - The `login` object allows you to provide values for: custom scopes, login parameters, or custom claims.
 
-## Authentication callbacks
+### Login, logout and purging user details
+
+To use a custom OIDC provider, use the following URL patterns.
+
+| Action             | Pattern                                  |
+| ------------------ | ---------------------------------------- |
+| Login              | `/.auth/login/<PROVIDER_NAME_IN_CONFIG>` |
+| Logout             | `/.auth/logout`                          |
+| Purge user details | `/.auth/purge/<PROVIDER_NAME_IN_CONFIG>` |
+
+### Authentication callbacks
 
 Authentication providers require redirect URL to complete the login or logout request. The following endpoints are available as redirect destinations.
 
@@ -236,16 +246,6 @@ Authentication providers require redirect URL to complete the login or logout re
 
 > [!Note]
 > These URLs are provided by Azure Static Web Apps to receive the response from the authentication provider, you don't need to create pages at these routes.
-
-## Login, logout and purging user details
-
-To use a custom OIDC provider, use the following URL patterns.
-
-| Action             | Pattern                                  |
-| ------------------ | ---------------------------------------- |
-| Login              | `/.auth/login/<PROVIDER_NAME_IN_CONFIG>` |
-| Logout             | `/.auth/logout`                          |
-| Purge user details | `/.auth/purge/<PROVIDER_NAME_IN_CONFIG>` |
 
 ## Next steps
 
