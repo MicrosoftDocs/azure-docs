@@ -51,11 +51,12 @@ You need the following items to complete the tutorial:
 - Install Visual Studio Code or Visual Studio.
 - [Set up your Visual Studio Code environment](https://code.visualstudio.com/Docs/languages/typescript) to support the TypeScript language.
 
-You need these additional settings for live-streaming software:
+You need these additional items for live-streaming software:
 
 - A camera or a device (like a laptop) that's used to broadcast an event.
-- An on-premises software encoder that encodes your camera stream and sends it to the Media Services live-streaming service through the Real-Time Messaging Protocol (RTMP). For more information, see [recommended on-premises live encoders](encode-recommended-on-premises-live-encoders.md). The stream has to be in RTMP or Smooth Streaming format.  
-- A software encoder. This sample assumes that you'll use Open Broadcaster Software (OBS) Studio to broadcast RTMP to the ingest endpoint. [Install OBS Studio](https://obsproject.com/download). 
+- An on-premises software encoder that encodes your camera stream and sends it to the Media Services live-streaming service through the Real-Time Messaging Protocol (RTMP). For more information, see [Recommended on-premises live encoders](encode-recommended-on-premises-live-encoders.md). The stream has to be in RTMP or Smooth Streaming format.
+
+  This sample assumes that you'll use Open Broadcaster Software (OBS) Studio to broadcast RTMP to the ingest endpoint. [Install OBS Studio](https://obsproject.com/download). 
 
   Use the following encoding settings in OBS Studio:
 
@@ -75,9 +76,9 @@ You need these additional settings for live-streaming software:
 
 Clone the GitHub repository that contains the live-streaming Node.js sample to your machine by using the following command:  
 
- ```bash
- git clone https://github.com/Azure-Samples/media-services-v3-node-tutorials.git
- ```
+```bash
+git clone https://github.com/Azure-Samples/media-services-v3-node-tutorials.git
+```
 
 The live-streaming sample is in the [Live](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/Live) folder.
 
@@ -178,7 +179,7 @@ The sample code shows how to set up a 1-hour time-shifting window. This window w
 
 The live output, or "tape recorder" in our analogy, can be created at any time as well. You can create a live output before starting the signal flow, or after. If you need to speed up things, it's often helpful to create the output before you start the signal flow.
 
-Live outputs start when they're created and stop when they're deleted.  When you delete the live output, you're not deleting the underlying asset or content in the asset. Think of it as ejecting the tape. The asset with the recording will last as long as you like. When it's ejected (meaning, when the live output is deleted), it will be available for on-demand viewing immediately.
+Live outputs start when they're created and stop when they're deleted.  When you delete the live output, you're not deleting the underlying asset or content in the asset. Think of it as ejecting the "tape." The asset with the recording will last as long as you like. When it's ejected (meaning, when the live output is deleted), it will be available for on-demand viewing immediately.
 
 [!code-typescript[Main](../../../media-services-v3-node-tutorials/AMSv3Samples/Live/index.ts#CreateLiveOutput)]
 
