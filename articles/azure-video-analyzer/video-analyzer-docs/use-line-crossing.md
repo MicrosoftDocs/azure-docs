@@ -2,7 +2,7 @@
 title: Create line crossing events from a live video with Azure Video Analyzer
 description: This quickstart shows you how to use Azure Video Analyzer on IoT Edge to emit events when objects cross a line in a live video feed from a (simulated) IP camera.
 ms.topic: tutorial
-ms.date: 04/01/2021
+ms.date: 05/07/2021
 ---
 
 # Quickstart: Emit events with line crossing in a live video
@@ -26,7 +26,7 @@ This quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated 
 ## Overview
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/track-objects-live-video/line-crossing-tracker-topology.png" alt-text="Track objects and use line crossing in live video":::
+> :::image type="content" source="./media/track-objects-live-video/line-crossing-tracker-topology.png" alt-text="Track objects and use line crossing in live video.":::
 
 This diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/azure-video-analyzer/tree/master/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline.md#http-extension-processor) node.
 
@@ -51,12 +51,12 @@ In this quickstart, you will:
 1. In Visual Studio Code, right-click the *src/edge/deployment.yolov3.template.json* file and then select **Generate IoT Edge Deployment Manifest**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/generate-deployment-manifest.png" alt-text="Generate IoT Edge Deployment Manifest":::
+    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/generate-deployment-manifest.png" alt-text="Generate IoT Edge Deployment Manifest.":::
 1. The *deployment.yolov3.amd64.json* manifest file is created in the *src/edge/config* folder.
 1. Right-click *src/edge/config/deployment.yolov3.amd64.json* and select **Create Deployment for Single Device**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/deployment-single-device.png" alt-text= "Create Deployment for Single Device":::
+    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/deployment-single-device.png" alt-text= "Create a Deployment for a Single IoT Edge Device.":::
 1. When you're prompted to select an IoT Hub device, select **avasample-iot-edge-device**.
 1. After about 30 seconds, in the lower-left corner of the window, refresh Azure IoT Hub. The edge device now shows the following deployed modules:
 
@@ -65,7 +65,7 @@ In this quickstart, you will:
     * The **avaextension** module, which is the YOLOv3 object detection model that applies computer vision to images and returns multiple classes of object types
 
         > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/vscode-common-screenshots/avaextension.png" alt-text= "YoloV3 object detection model":::
+        > :::image type="content" source="./media/vscode-common-screenshots/avaextension.png" alt-text= "IoT module running YoloV3 object detection model.":::
 
 
 ## Create and deploy the live pipeline
@@ -110,7 +110,7 @@ Open the URL for the pipeline topology in a browser, and examine the settings fo
 
 Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension node needs to pass through all frames, whether or not they have inference results, to the downstream object tracker node. The object tracker is capable of tracking objects over 15 frames, approximately. If the live video is at a frame rate of 30 frames/sec, that means at least two frames in every second should be sent to the HTTP server for inferencing - hence `maximumSamplesPerSecond` is set to 2.
 
-Also look at the line crossing node parameter placeholders `linecrossingName` and `lineCoordinates`. We have provided default values for these parameters but you overwite them using the operations.json file. Look at how we pass other parameters from the operations.json file to a topology (i.e. rtsp url).
+Also look at the line crossing node parameter placeholders `linecrossingName` and `lineCoordinates`. We have provided default values for these parameters but you overwrite them using the operations.json file. Look at how we pass other parameters from the operations.json file to a topology (i.e. rtsp url).
 
 > [!NOTE]
 > If you had closed Visual Studio Code after completing the prerequisite, and have re-launched the application, then please re-do step 4 to [monitor events](analyze-live-video-use-your-model-http.md?pivots=programming-language-csharp#prepare-to-monitor-events)
@@ -253,18 +253,18 @@ In this message, notice these details:
 This tutorial will work with the provided sample video for which we have calculated the correct line coordinates of the line. When you examine the topology file you will see that the `lineCoordinate` parameter contains the following value:
 `[[0.5,0.1], [0.5,0.9]]`
 
-What does this value mean? When you want to draw a line on a 2D image you need two points, A and B, and between those points you will have an imaginary line. Each point will have its own x and y coordinates to tertermine where it is with respect to the full image resolution. In this case point A is `[0.5,0.1]` and point B is `[0.5,0.9]`. A visual representation of the that line looks like this:
+What does this value mean? When you want to draw a line on a 2D image you need two points, A and B, and between those points you will have an imaginary line. Each point will have its own x and y coordinates to determine where it is with respect to the full image resolution. In this case point A is `[0.5,0.1]` and point B is `[0.5,0.9]`. A visual representation of the that line looks like this:
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/track-objects-live-video/line-crossing-visual-example.png" alt-text="Line crossing visual example":::
+> :::image type="content" source="./media/track-objects-live-video/line-crossing-visual-example.png" alt-text="A visual example showing a line crossing on a picture.":::
 
 In this image you see the line between point A and point B. Any object that moves across the line will create an event with its properties like direction as discussed earlier in this tutorial. Also notice the x and y axis in the bottom left corner. This is just for illustration to explain how we normalize the coordinates to the values we expect for the line crossing node. 
 
 Here is an example calculation:
 Lets say that the video resolution is 1920 x 1080. 1920 being the x and 1080 being the y axis respectively.
 Create a frame image from a video you plan to use. 
-Now open that image in an image editor program (i.e. MSPaint). Move you cursor to the location where you want to specify point A. In the bottom left corner you will see the x and y coordinates for that curson position.
+Now open that image in an image editor program (i.e. MSPaint). Move you cursor to the location where you want to specify point A. In the bottom left corner you will see the x and y coordinates for that cursor position.
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/track-objects-live-video/line-crossing-mspaint-coordinates.png" alt-text="Line crossing MSPaint visual example":::
+> :::image type="content" source="./media/track-objects-live-video/line-crossing-mspaint-coordinates.png" alt-text="A visual example for line crossing using MSPaint.":::
 
 Note down these values and repeat the same for point B and note down the same values. By now you should have the x and y values for point A and the x and y values for point B.
 For example:
