@@ -6,7 +6,6 @@ ms.author: lle
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 05/06/2021
-ms.custom: tutorial
 ---
 
 # Tutorial: How to access SQL Managed Instance from Data Factory Managed VNET using Private Endpoint
@@ -235,13 +234,12 @@ the page.
 1. Select All services in the left-hand menu, select All resources, and then select your 
 data factory from the resources list.
 2. Select **Author & Monitor** to launch the Data Factory UI in a separate tab.
-3. Add feature flag **&feature.enablePrivateLink=true** to data factory browser.
-4. Go to the **Manage** tab and then go to the **Managed private endpoints** section.
-5. Select + **New** under **Managed private endpoints.**
-6. Select the **Private Link Service** tile from the list and select **Continue**.
-7. Enter the name of private endpoint and select **myPrivateLinkService** in private 
+3. Go to the **Manage** tab and then go to the **Managed private endpoints** section.
+4. Select + **New** under **Managed private endpoints**.
+5. Select the **Private Link Service** tile from the list and select **Continue**.
+6. Enter the name of private endpoint and select **myPrivateLinkService** in private 
 link service list.
-8. Add FQDN of your target SQL Managed Instance and NAT IPs of your private link Service.
+7. Add FQDN of your target SQL Managed Instance and NAT IPs of your private link Service.
     
     ![Screenshot that shows SQL MI host.](./media/tutorial-managed-virtual-network/sql-mi-host.png) 
     
@@ -249,7 +247,7 @@ link service list.
 
     ![Screenshot that shows the private endpoint settings.](./media/tutorial-managed-virtual-network/private-endpoint-2.png)
 
-9. Create private endpoint.
+8. Create private endpoint.
 
 ## Create a linked service and test the connection
 
