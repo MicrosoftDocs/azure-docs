@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 03/24/2021
 ms.author: JenCook
 ---
-# How to: Run an application by using Fortanix Confidential Computing Manager
+# Run an application by using Fortanix Confidential Computing Manager
 
 Learn how to run your application in Azure confidential computing by using [Fortanix Confidential Computing Manager](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.enclave_manager?tab=Overview) and [Node Agent](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.rte_node_agent) from [Fortanix](https://www.fortanix.com/).
 
@@ -163,7 +163,7 @@ If you no longer need them, you can delete the resource group, virtual machine, 
 
 Select the resource group for the virtual machine, and then select **Delete**. Confirm the name of the resource group to finish deleting the resources.
 
-To delete the Fortanix Confidential Computing Manager account you created, go to the [Accounts page](https://ccm.fortanix.com/accounts) in the Fortanix Confidential Computing Manager. Hover over the account you want to delete. Select the vertical black dots in the upper right-hand corner and then select **DELETE ACCOUNT**.
+To delete the Fortanix Confidential Computing Manager account you created, go to the [Accounts page](https://ccm.fortanix.com/accounts) in the Fortanix Confidential Computing Manager. Hover over the account you want to delete. Select the vertical black dots in the upper-right corner and then select **DELETE ACCOUNT**.
 
 :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/delete-account.png" alt-text="Screenshot that shows how to delete an account.":::
 
