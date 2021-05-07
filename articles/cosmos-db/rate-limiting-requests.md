@@ -59,7 +59,7 @@ Before measuring any costs, you should intentionally consider and configure inde
 
 Where possible, testing a system under development with a load reflecting typical queries at normal and peak demand conditions will help reveal what indexing policy to use.
 
-For more information about indexes, see [Indexing policies in Azure Cosmos DB](index-policy).
+For more information about indexes, see [Indexing policies in Azure Cosmos DB](index-policy.md).
 
 ## Measuring Cost
 
@@ -68,7 +68,7 @@ There are some key concepts when measuring cost:
 * Consider all factors that affect RU usage, as described in [request unit considerations](request-units.md#request-unit-considerations).
 * Keep in mind that all simultaneous read and write operations across all client connections for a given database or container will be held to the single provisioned throughput set for that target.
 * RU consumption is incurred, regardless of the Cosmos DB APIs being used.
-* The partition strategy for a collection can have a significant impact on the cost of a system. For more information, see [Partitioning and horizontal scaling in Azure Cosmos DB](partitioning-overview#choose-partitionkey).
+* The partition strategy for a collection can have a significant impact on the cost of a system. For more information, see [Partitioning and horizontal scaling in Azure Cosmos DB](partitioning-overview.md#choose-partitionkey).
 * Use representative documents and representative queries.
   * These are documents and queries that you think are close to what the operational system will encounter.
   * The best way to get these representative documents and queries is to instrument the usage of your application. It is always better to make this a data-driven decision.
@@ -137,16 +137,16 @@ This pattern is useful to any application that uses services that are subject to
 
 This pattern is often very well suited to ingest operations.
 
-For more information about this pattern, see [Queue-Based Load Leveling pattern](architecture/patterns/queue-based-load-leveling).
+For more information about this pattern, see [Queue-Based Load Leveling pattern](architecture/patterns/queue-based-load-leveling.md).
 
 ### Cache-Aside pattern
 
 You might consider loading data on demand into a cache instead of querying Cosmos DB every time. This can improve performance and also helps to maintain consistency between data held in the cache and data in the underlying data store.
 
-For more information, see: [Cache-Aside pattern](architecture/patterns/cache-aside)
+For more information, see: [Cache-Aside pattern](architecture/patterns/cache-aside.md).
 
 ### Materialized View pattern
 
 You might pre-populated views into other collections after storing the data in Cosmos DB when the data isn't ideally formatted for required query operations. This can help support efficient querying and data extraction, and improve application performance.
 
-For more information, see [Materialized View pattern](architecture/patterns/materialized-view).
+For more information, see [Materialized View pattern](architecture/patterns/materialized-view.md).
