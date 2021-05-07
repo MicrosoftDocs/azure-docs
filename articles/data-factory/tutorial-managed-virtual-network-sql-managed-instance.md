@@ -1,5 +1,5 @@
 ---
-title: Access SQL Managed Instance from Data Factory Managed VNET using Private Endpoint
+title: Access Microsoft Azure SQL Managed Instance from Data Factory Managed VNET using Private Endpoint
 description: This tutorial provides steps for using the Azure portal to setup Private Link Service and access SQL Managed Instance from Managed VNET using Private Endpoint.
 author: lrtoyou1223
 ms.author: lle
@@ -13,7 +13,7 @@ ms.date: 05/06/2021
 This tutorial provides steps for using the Azure portal to setup Private Link Service and 
 access SQL Managed Instance from Managed VNET using Private Endpoint.
 
-![Screenshot that shows the access model of SQL MI.](./media/tutorial-managed-virtual-network/sql-mi-access-model.png)
+:::image type="content" source="./media/tutorial-managed-virtual-network/sql-mi-access-model.png" alt-text="Screenshot that shows the access model of SQL MI." lightbox="./media/tutorial-managed-virtual-network/sql-mi-access-model-expanded.png":::
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ access SQL Managed Instance from Managed VNET using Private Endpoint.
 |fe-subnet |subnet for standard internal load balancer|
 |pls-subnet|subnet for Private Link Service|
 
-![Screenshot that shows the subnets](./media/tutorial-managed-virtual-network/subnets.png)
+:::image type="content" source="./media/tutorial-managed-virtual-network/subnets.png" alt-text="Screenshot that shows the subnets." lightbox="./media/tutorial-managed-virtual-network/subnets-expanded.png":::
 
 ## Create a standard load balancer
 
@@ -56,8 +56,8 @@ Use the portal to create a standard internal load balancer.
 
 3. Accept the defaults for the remaining settings, and then select **Review + create**.
 4. In the **Review + create** tab, select **Create**.
-
-    ![Screenshot that shows the step to create standard load balancer.](./media/tutorial-managed-virtual-network/create-load-balancer.png)
+    
+    :::image type="content" source="./media/tutorial-managed-virtual-network/create-load-balancer.png" alt-text="Screenshot that shows the step to create standard load balancer.":::
 
 ## Create load balancer resources
 
@@ -214,12 +214,12 @@ the page.
     **sudo ./ip_fwd.sh -i eth0 -f 1433 -a <FQDN/IP> -b 1433**<br/>
     <FQDN/IP> is the host of your SQL Managed Instance.
     
-    ![Screenshot that shows the SQL MI host.](./media/tutorial-managed-virtual-network/sql-mi-host.png)    
+    :::image type="content" source="./media/tutorial-managed-virtual-network/sql-mi-host.png" alt-text="Screenshot that shows SQL MI host." lightbox="./media/tutorial-managed-virtual-network/sql-mi-host-expanded.png":::
 
 3. Run below command and check the iptables in your backend server VMs. You can see one record in   your iptables with your target IP. <br/>
     **sudo iptables -t nat -v -L PREROUTING -n --line-number**
     
-    ![Screenshot that shows the command record.](./media/tutorial-managed-virtual-network/command-record-2.png)
+    :::image type="content" source="./media/tutorial-managed-virtual-network/command-record-2.png" alt-text="Screenshot that shows the command record.":::
 
     >[!Note]
     > Note: If you have more than one SQL MI or other data sources, you need to define multiple load balancer rules and IP table records with different ports. Otherwise, there will be some conflict. For example,<br/>
@@ -229,7 +229,7 @@ the page.
     >|**SQL MI 1**|1433 |1433 |sudo ./ip_fwd.sh -i eth0 -f 1433 -a <FQDN/IP> -b 1433|
     >|**SQL MI 2**|1434 |1434 |sudo ./ip_fwd.sh -i eth0 -f 1434 -a <FQDN/IP> -b 1433|
     
-## Create a Private Endpoint to Private Link Service in your Data Factory
+## Create a Private Endpoint to Private Link Service
 
 1. Select All services in the left-hand menu, select All resources, and then select your 
 data factory from the resources list.
@@ -241,11 +241,11 @@ data factory from the resources list.
 link service list.
 7. Add FQDN of your target SQL Managed Instance and NAT IPs of your private link Service.
     
-    ![Screenshot that shows SQL MI host.](./media/tutorial-managed-virtual-network/sql-mi-host.png) 
-    
-    ![Screenshot that shows the NAT IP of the private link service.](./media/tutorial-managed-virtual-network/link-service-nat-ip.png)
+    :::image type="content" source="./media/tutorial-managed-virtual-network/sql-mi-host.png" alt-text="Screenshot that shows SQL MI host." lightbox="./media/tutorial-managed-virtual-network/sql-mi-host-expanded.png":::
 
-    ![Screenshot that shows the private endpoint settings.](./media/tutorial-managed-virtual-network/private-endpoint-2.png)
+    :::image type="content" source="./media/tutorial-managed-virtual-network/link-service-nat-ip.png" alt-text="Screenshot that shows the NAT IP in the linked service." lightbox="./media/tutorial-managed-virtual-network/link-service-nat-ip-expanded.png":::
+
+    :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint-2.png" alt-text="Screenshot that shows the private endpoint settings.":::
 
 8. Create private endpoint.
 
@@ -255,12 +255,12 @@ link service list.
 2. Select + **New** under **Linked Service**.
 3. Select the **Azure SQL Database Managed Instance** tile from the list and select **Continue**.    
 
-    ![Screenshot that shows the linked service creation page.](./media/tutorial-managed-virtual-network/linked-service-mi-1.png)
+    :::image type="content" source="./media/tutorial-managed-virtual-network/linked-service-mi-1.png" alt-text="Screenshot that shows the linked service creation page.":::        
 
 4. Enable **Interactive Authoring**.
 
-    ![Screenshot that shows how to enable Interactive Authoring.](./media/tutorial-managed-virtual-network/linked-service-mi-2.png)
-
+    :::image type="content" source="./media/tutorial-managed-virtual-network/linked-service-mi-2.png" alt-text="Screenshot that shows how to enable Interactive Authoring.":::
+  
 5. Input the **Host** of your SQL Managed Instance, **user name** and **password**.
 
     >[!Note]
@@ -268,8 +268,7 @@ link service list.
 
 6. Then click **Test connection**.
 
-    ![Screenshot that shows the SQL MI linked service creation page.](./media/tutorial-managed-virtual-network/linked-service-mi-3.png)
-
+    :::image type="content" source="./media/tutorial-managed-virtual-network/linked-service-mi-3.png" alt-text="Screenshot that shows the SQL MI linked service creation page.":::
 
 ## Next steps
 

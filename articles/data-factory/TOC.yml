@@ -164,7 +164,7 @@
     - name: Access on premises SQL Server
       href: tutorial-managed-virtual-network-on-premise-sql-server.md
     - name: Access SQL Managed Instance
-      href: tutorial-managed-virtual-network-sql-mi.md 
+      href: tutorial-managed-virtual-network-sql-managed-instance.md 
 - name: Samples
   items:
   - name: Code samples
