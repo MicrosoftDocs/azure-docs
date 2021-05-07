@@ -250,13 +250,16 @@ The running jobs will continue. The pending jobs will wait for scheduling with f
 
 You need to understand your cluster usage pattern when you configure schedule based Autoscale. [Grafana dashboard](https://docs.microsoft.com/azure/hdinsight/interactive-query/hdinsight-grafana)  can help you understand your query load and execution slots. Here is an example.
 
-    :::image type="content" source="./media/hdinsight-autoscale-clusters/hive-view-of-grafana-to-understand-usage-pattern.png " alt-text="Hive view of Grafana to understand usage pattern" border="true":::
+:::image type="content" source="./media/hdinsight-autoscale-clusters/hive-view-of-grafana-to-understand-usage-pattern.png " alt-text="Hive view of Grafana to understand usage pattern" border="true":::
 
 Here is a way you can estimate how many worker nodes will be needed. We recommend giving additional 10% buffer to handle the variation of the workload. 
 
 Number of executor slots actually used = Total executor slots – Total available executor slots.
+
 Number of worker nodes required = Number of executor slots actually used / (hive.llap.daemon.num.executors + hive.llap.daemon.task.scheduler.wait.queue.size)
+
 *hive.llap.daemon.num.executors is configurable and default is 4 
+
 *hive.llap.daemon.task.scheduler.wait.queue.size is configurable and default is 10
 
 
