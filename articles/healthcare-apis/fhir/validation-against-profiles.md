@@ -10,7 +10,7 @@ ms.author: ginle
 ---
 # How to validate FHIR resources against profiles
 
-HL7 FHIR defines a standard way to store and exchange healthcare data to assist in interoperability. However, even within the base FHIR, it can be helpful to define additional rules or extensions based on the context that FHIR is being used. Because of this, FHIR profiles is a useful tool to enable context specific uses of FHIR. 
+HL7 FHIR defines a standard and interoperable way to store and exchange healthcare data. However, even within the base FHIR, it can be helpful to define additional rules or extensions based on the context that FHIR is being used. Because of this, a FHIR profile is a useful tool to enable context-specific uses of FHIR. 
 
 [FHIR profile](https://www.hl7.org/fhir/profiling.html) describes additional context (constraints, extensions, etc.) on a resource represented as a `StructureDefinition`. The HL7 FHIR standard defines a set of base resources, and these standard base resources have generic definitions. FHIR profile allows you to narrow down and customize resource definitions using constraints and extensions. Azure API for FHIR allows validating profiles, and validating resources against profiles to see if the resources conform to the requirements set by the profiles. This article walks through the basics of FHIR profile, and how to use `$validate` for validating resources against the profiles when creating and updating resources.
 
@@ -64,7 +64,7 @@ You can access your existing profiles in the server using a `GET` request. All v
 GET http://<your FHIR service base URL>/StructureDefinition?url={canonicalUrl} 
 ```
 
-Where the field `{canonicalUrl}` would be replaced with the canoncial URL of your profile. 
+Where the field `{canonicalUrl}` would be replaced with the canonical URL of your profile.
 
 For example, if you want to view US Core `Goal` resource profile:
 
@@ -119,7 +119,7 @@ Most profiles have the resource type `StructureDefinition`, but they can also be
 ...
 ```
 ### Profiles in the capability statement
-The `Capability Statement` lists all of the possible behaviors of a FHIR Server to be used as a statement of the server functionality, such as `StructureDefinition`s and `ValueSet`s. Azure API for FHIR updates the capability statement with information on the uploaded and stored profiles in the forms of:
+The `Capability Statement` lists all possible behaviors of your FHIR server to be used as a statement of the server functionality, such as `StructureDefinition`s and `ValueSet`s. Azure API for FHIR updates the capability statement with information on the uploaded and stored profiles in the forms of:
 - `CapabilityStatement.rest.resource.profile` 
 - `CapabilityStatement.rest.resource.supportedProfile` 
 
@@ -134,8 +134,9 @@ There are two ways for you to validate your resource. First, you can use `$valid
 ### Using $validate 
 
 The `$validate` operation checks whether the provided profile is valid, and whether the resource conforms to the specified profile. As mentioned in the [HL7 FHIR specifications](https://www.hl7.org/fhir/resource-operation-validate.html), you can also specify the `mode` for `$validate`, such as `create` and `update`:
-- `create`: The server checks that the profile content is unique from the existing resources and that it is acceptable to be created as a new resource  
-- `update`: checks that the profile is an update against the nominated existing resource (e.g. that no changes to immutable fields the server does not allow to change)
+
+- `create`: The server checks that the profile content is unique from the existing resources and that it is acceptable to be created as a new resource
+- `update`: checks that the profile is an update against the nominated existing resource (e.g. that no changes are made to the immutable fields)
 
 The server will always return an `OperationOutcome` as the validation results.
 
