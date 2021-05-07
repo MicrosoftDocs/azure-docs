@@ -15,7 +15,7 @@ ms.author: aahi
 # How to: Use Text Analytics for health (preview)
 
 > [!IMPORTANT] 
-> Customers are solely responsible for the use of Text Analytics for health. Customers must separately license any and all source vocabularies they intend to use under the terms set for the UMLS Metathesaurus License Agreement Appendix (nih.gov) or any future equivalent link. Customers are responsible for ensuring compliance with those license terms, including any geographic or other applicable restrictions. Microsoft does not warrant that Text Analytics for health or any materials provided in connection with the capability will be sufficient for any medical purposes or otherwise meet the health or medical requirements of any person.
+> Customers are solely responsible for the use of Text Analytics for health. Customers must separately license any and all source vocabularies they intend to use under the terms set for the [UMLS Metathesaurus License Agreement Appendix](https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/license_agreement_appendix.html) or any future equivalent link. Customers are responsible for ensuring compliance with those license terms, including any geographic or other applicable restrictions. Microsoft does not warrant that Text Analytics for health or any materials provided in connection with the capability will be sufficient for any medical purposes or otherwise meet the health or medical requirements of any person.
 
 
 Text Analytics for health is a feature of the Text Analytics API service that extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records.  There are two ways to utilize this service: 
