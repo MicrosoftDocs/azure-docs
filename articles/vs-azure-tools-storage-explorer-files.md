@@ -1,5 +1,5 @@
 ---
-title: Using Storage Explorer with Azure File storage | Microsoft Docs
+title: Using Storage Explorer with Azure File Storage | Microsoft Docs
 description: Learn how learn how to use Storage Explorer to work with file shares and files.
 services: storage
 documentationcenter: na
@@ -17,9 +17,9 @@ ms.date: 03/09/2017
 ms.author: cawa
 ---
 
-# Using Storage Explorer with Azure File storage
+# Using Storage Explorer with Azure File Storage
 
-Azure File storage is a service that offers file shares in the cloud using the standard Server Message Block (SMB) Protocol. Both SMB 2.1 and SMB 3.0 are supported. With Azure File storage, you can migrate legacy applications that rely on file shares to Azure quickly and without costly rewrites. You can use File storage to expose data publicly to the world, or to store application data privately. In this article, you'll learn how to use Storage Explorer to work with file shares and files.
+Azure File Storage is a service that offers file shares in the cloud using the standard Server Message Block (SMB) Protocol. Both SMB 2.1 and SMB 3.0 are supported. With Azure File Storage, you can migrate legacy applications that rely on file shares to Azure quickly and without costly rewrites. You can use File storage to expose data publicly to the world, or to store application data privately. In this article, you'll learn how to use Storage Explorer to work with file shares and files.
 
 ## Prerequisites
 
