@@ -262,13 +262,9 @@ az account get-access-token
 {
     "properties": {
         "dataset": {
-            "dataInputType": "DatasetId",
-            "datasetId": "/subscriptions/{{subscription}}/resourceGroups/{{resourcegroup}}/providers/Microsoft.MachineLearningServices/workspaces/{{workspaceName}}/data/{{datasetName}}/versions/1"
-            },
-        "outputDataset" : {
-          "datastoreId": "/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.MachineLearningServices/workspaces/{{workspaceName}}/datastores/{{datastorename}}",
-          "path": "mypath"
-      }
+            "dataInputType": "DataUrl",
+            "Path": "https://pipelinedata.blob.core.windows.net/sampledata/mnist"
+        }
     }
 }
 ```

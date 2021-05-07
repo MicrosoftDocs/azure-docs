@@ -89,7 +89,7 @@ def run(mini_batch):
 
 ### Get logs
 
-After you invoke a batch endpoint using CLI or REST, the batch scoring job will run offline {>>Q: online? <<}. There are two options to get the logs for a batch scoring job.
+After you invoke a batch endpoint using CLI or REST, the batch scoring job will run asynchronously. There are two options to get the logs for a batch scoring job.
 
 Option 1: Stream logs to local console
 
