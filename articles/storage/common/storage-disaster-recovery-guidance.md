@@ -7,9 +7,8 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 05/07/2021
 ms.author: tamram
-ms.reviewer: artek
 ms.subservice: common
 ---
 
@@ -85,7 +84,11 @@ Write access is restored for geo-redundant accounts once the DNS entry has been 
 > [!IMPORTANT]
 > After the failover is complete, the storage account is configured to be locally redundant in the new primary endpoint. To resume replication to the new secondary, configure the account for geo-redundancy again.
 >
-> Keep in mind that converting an LRS account to use geo-redundancy incurs a cost. This cost applies to updating the storage account in the new primary region after a failover.  
+> Keep in mind that converting a locally redundant storage account to use geo-redundancy incurs both cost and time. The cost is due to the network egress charges to re-replicate the data to the new secondary region. The time for the conversion varies based on many factors. These include:
+> - The number and size of the objects in the storage account. Many small objects can take longer than fewer and larger objects.
+> - The available resources for background replication, such as CPU, memory, disk, and WAN capacity. Live traffic takes priority over geo replication.
+> - If using Blob storage, the number of snapshots per blob.
+> - If using Table storage, the [data partitioning strategy](/rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage). The replication process can't scale beyond the number of partition keys that you use.
 
 ### Anticipate data loss
 
@@ -154,7 +157,7 @@ Keep in mind that any data stored in a temporary disk is lost when the VM is shu
 The following features and services are not supported for account failover:
 
 - Azure File Sync does not support storage account failover. Storage accounts containing Azure file shares being used as cloud endpoints in Azure File Sync should not be failed over. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files.
-- ADLS Gen2 storage accounts (accounts that have hierarchical namespace enabled) are not supported at this time.
+- Storage accounts that have hierarchical namespace enabled (such as for Data Lake Storage Gen2) are not supported at this time.
 - A storage account containing premium block blobs cannot be failed over. Storage accounts that support premium block blobs do not currently support geo-redundancy.
 - A storage account containing any [WORM immutability policy](../blobs/storage-blob-immutable-storage.md) enabled containers cannot be failed over. Unlocked/locked time-based retention or legal hold policies prevent failover in order to maintain compliance.
 
