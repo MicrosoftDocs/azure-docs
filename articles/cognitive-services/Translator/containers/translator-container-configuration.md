@@ -24,7 +24,7 @@ The **Translator** container runtime environment is configured using the `docker
 [!INCLUDE [Container shared configuration settings table](../../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
  > [!IMPORTANT]
-> The [**ApiKey**](#apikey-configuration-setting), [**Billing**](#billing-configuration-setting), and [**EULA**](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](containers/translator-how-to-install-containers.md#billing).
+> The [**ApiKey**](#apikey-configuration-setting), [**Billing**](#billing-configuration-setting), and [**EULA**](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](translator-how-to-install-container.md#billing).
 
 ## ApiKey configuration setting
 
@@ -48,7 +48,7 @@ This setting can be found in the following place:
 
 | Required | Name | Data type | Description |
 | -------- | ---- | --------- | ----------- |
-| Yes | `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gathering required parameters](containers/translator-how-to-install-containers.md#required-elements). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../../cognitive-services-custom-subdomains.md). |
+| Yes | `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gathering required parameters](containers/translator-how-to-install-container.md#required-elements). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../../cognitive-services-custom-subdomains.md). |
 
 ## Eula setting
 
@@ -72,7 +72,7 @@ Use bind mounts to read and write data to and from the container. You can specif
 
 The Translator containers don't use input or output mounts to store training or service data.
 
-The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](containers/translator-how-to-install-containers.md#host-computer)'s mount location may not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions.
+The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](containers/translator-how-to-install-container.md#host-computer)'s mount location may not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions.
 <!-- markdownlint-disable MD033 -->
 |Optional| Name | Data type | Description |
 |-------|------|-----------|-------------|
