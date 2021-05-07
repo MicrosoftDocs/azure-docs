@@ -44,7 +44,7 @@ The following example shows a Conditional Access technical profile that is used 
 </TechnicalProfile>
 ```
 
-We recommend that you call ```ConditionalAccessEvaluation``` technical profile for all users, including local and social, to ensure that Identity Protection is functioning properly. Failure to do so may result in  Identity Protection not working correct or have an incorrect degree of risk associated with users.
+To ensure that Identity Protection is functioning properly, call `ConditionalAccessEvaluation` technical profile for all type of users, [local and social accounts](technical-overview.md#consumer-accounts). Failure to do so, may result in  Identity Protection not working correct or have an incorrect degree of risk associated with users.
 
 ::: zone-end
 
@@ -156,7 +156,7 @@ To add a Conditional Access policy:
     |---------|---------|---------|
     |**Report-only**|P1, P2| Report-only allows administrators to evaluate the impact of Conditional Access policies before enabling them in their environment. We recommend you check policy with this state, and determine the impact to end users without requiring multi-factor authentication or blocking users. For more information, see [Review Conditional Access outcomes in the audit report](#review-conditional-access-outcomes-in-the-audit-report)|
     | **On**| P1, P2| The access policy is evaluated and not enforced. |
-    | **Off** | P1, P2| The access policy is not activated and has no affect on the users. |
+    | **Off** | P1, P2| The access policy is not activated and has no effect on the users. |
 
 1. Enable your test Conditional Access policy by selecting **Create**.
 
@@ -272,9 +272,11 @@ To enable Conditional Access for a user flow, make sure the version supports Con
 1. In each file, replace the string `yourtenant` with the name of your Azure AD B2C tenant. For example, if the name of your B2C tenant is *contosob2c*, all instances of `yourtenant.onmicrosoft.com` become `contosob2c.onmicrosoft.com`.
 1. Upload the policy files.
  
-### Configure claim other than Phone Number to be used for MFA 
+### Configure claim other than phone number to be used for MFA
 
-The ```IsMfaRegisteredCT``` claim transformation method is provided to evaluate the claim carrying a valid MFA value, for example ```strongAuthenticationPhoneNumber``` storing a ```Phone Number```. However, you are not limited to ```strongAuthenticationPhoneNumber``` and depending on the scenario can use any other claim. For example, in the snippet below, ```strongAuthenticationEmailAddress``` is used instead of ```strongAuthenticationPhoneNumber```. The important point to note is that the claim you choose must have a valid value otherwise ```IsMfaRegistered```  will evaluate to ```False``` and a result Conditional Access policy will generate a ```Block``` grant type.
+In the conditional access policy above, the `DoesClaimExist` claim transformation method checks if a claim contains any value. For example, if `strongAuthenticationPhoneNumber` claim contains a phone number. 
+
+The claims transformation isn't limited to `strongAuthenticationPhoneNumber` claim. Depending on the scenario, you can use any other claim. In the following XML snippet, the `strongAuthenticationEmailAddress` is checked instead. The claim you choose must have a valid value, otherwise the `IsMfaRegistered` claim will be set to `False`. When set to `False`, the Conditional Access policy evaluation returns `Block` grant type. Preventing the user to complete the user flow.
 
 ```XML
  <ClaimsTransformation Id="IsMfaRegisteredCT" TransformationMethod="DoesClaimExist">
