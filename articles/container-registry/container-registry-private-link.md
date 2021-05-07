@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 03/31/2021
 ---
 
-# Connect privately to an Azure container registry using Azure Private Link
+# Connect privately to an Azure Container Registry using Azure Private Link
 
 
 Limit access to a registry by assigning virtual network private IP addresses to the registry endpoints and using [Azure Private Link](../private-link/private-link-overview.md). Network traffic between the clients on the virtual network and the registry's private endpoints traverses the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. Private Link also enables private registry access from on-premises through [Azure ExpressRoute](../expressroute/expressroute-introduction.MD) private peering or a [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
@@ -74,9 +74,9 @@ az network vnet subnet update \
 
 ### Configure the private DNS zone
 
-Create a [private Azure DNS zone](../dns/private-dns-privatednszone.md) for the private Azure container registry domain. In later steps, you create DNS records for your registry domain in this DNS zone. For more information, see [DNS configuration options](#dns-configuration-options), later in this article.
+Create a [private Azure DNS zone](../dns/private-dns-privatednszone.md) for the private Azure Container Registry domain. In later steps, you create DNS records for your registry domain in this DNS zone. For more information, see [DNS configuration options](#dns-configuration-options), later in this article.
 
-To use a private zone to override the default DNS resolution for your Azure container registry, the zone must be named **privatelink.azurecr.io**. Run the following [az network private-dns zone create][az-network-private-dns-zone-create] command to create the private zone:
+To use a private zone to override the default DNS resolution for your Azure Container Registry, the zone must be named **privatelink.azurecr.io**. Run the following [az network private-dns zone create][az-network-private-dns-zone-create] command to create the private zone:
 
 ```azurecli
 az network private-dns zone create \
@@ -427,7 +427,7 @@ To clean up your resources in the portal, navigate to your resource group. Once 
 
 * To learn more about Private Link, see the [Azure Private Link](../private-link/private-link-overview.md) documentation.
 
-* If you need to set up registry access rules from behind a client firewall, see [Configure rules to access an Azure container registry behind a firewall](container-registry-firewall-access-rules.md).
+* If you need to set up registry access rules from behind a client firewall, see [Configure rules to access an Azure Container Registry behind a firewall](container-registry-firewall-access-rules.md).
 
 * [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md)
 
