@@ -7,7 +7,7 @@ ms.service: web-application-firewall
 ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: mohitku
-ms.reviewer: tyao
+ms.reviewer: victorh
 ---
 
 # Tuning Web Application Firewall (WAF) for Azure Front Door
