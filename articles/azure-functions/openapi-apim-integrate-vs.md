@@ -1,37 +1,29 @@
 ---
-title: Expose your functions with OpenAPI using Azure API Management
-description: Create an OpenAPI definition that enables other apps and services to call your function in Azure.
+title: Create serverless APIs in Visual Studio using Azure Functions and API Management
+description: Use Visual Studio to create an HTTP triggered function along with an OpenAPI definition, which enables Azure API Management integration so that other apps and services can call your serverless function-based API.
 ms.topic: tutorial
-ms.date: 04/21/2020
-ms.reviewer: sunayv
-ms.custom: "devx-track-csharp, mvc, cc996988-fb4f-47, references_regions"
+ms.date: 05/07/2021
 ---
 
-# Create an OpenAPI definition for a serverless API using Azure API Management
+# Create serverless APIs in Visual Studio using Azure Functions and API Management integration (preview)
 
-REST APIs are often described using an OpenAPI definition. This definition contains information about what operations are available in an API and how the request and response data for the API should be structured.
-
-In this tutorial, you create a function that determines whether an emergency repair on a wind turbine is cost-effective. 
+REST APIs are often described using an OpenAPI definition. This file contains information about operations in an API and how the request and response data for the API should be structured.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a Functions project in Visual Studio
-> * Test function APIs locally using OpenAPI
-> * Publish project to Azure with API Management integration
-> *  
+> * Create a serverless function project in Visual Studio
+> * Test function APIs locally using built-in OpenAPI functionality
+> * Publish project to a function app in Azure with API Management integration 
 
-> [!IMPORTANT]
-> The following considerations apply when using the OpenAPI Extension:
-> 
-> * The OpenAPI Extension is in preview.
-> * The extension is only supported for version 2.x and later of the Azure Functions runtime.  
-> * The extension is currently only supported for C# class library (.NET Core 3.1) apps.
-> * For all unsupported scenarios, use [API Management integration](functions-openapi-definition.md) to generate OpenAPI definitions for your functions.
+The serverless function you create provides an API that lets you determine whether an emergency repair on a wind turbine is cost-effective. Because both the function app and API Management instance you create use consumption plans, your cost for completing this tutorial is minimal.
+
+> [!NOTE]
+> The OpenAPI and API Management integration featured in this article is currently in preview. This method for exposing a serverless API is only supported for C# class library (.NET Core 3.1) functions. All other language runtimes should instead [use Azure API Management integration from the portal](functions-openapi-definition.md). 
 
 ## Prerequisites
 
-+ [Visual Studio 2019](https://azure.microsoft.com/downloads/), version 16.10 or a later version. Make sure you select the **Azure development** workload during installation. 
++ [Visual Studio 2019](https://azure.microsoft.com/downloads/), version 16.10, or a later version. Make sure you select the **Azure development** workload during installation. 
 
     ![Install Visual Studio with the Azure development workload](media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
@@ -54,12 +46,12 @@ The Azure Functions project template in Visual Studio creates a project that you
     | **.NET version** | **.NET Core 3 (LTS)** | This value creates a function project that uses the version 3.x runtime of Azure Functions. Other versions don't support OpenAPI file generation. |
     | **Function template** | **HTTP trigger with OpenAPI** | This value creates a function triggered by an HTTP request, with the ability to generate an OpenAPI definition file.  |
     | **Storage account (AzureWebJobsStorage)**  | **Storage emulator** | You can use the emulator for local development of HTTP trigger functions. Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. |
-    | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information about keys and authorization, see [Authorization keys](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys). Use anonymous authorization when you plan to expose APIs by using API Management, which has its own endpoint security mechanisms. |
+    | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information about keys and authorization, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys). Use anonymous authorization when you plan to expose APIs by using API Management. When you need to restrict access to your APIs, API Management offers a full set of endpoint protections. |
     
     
-    ![Azure Functions project settings](./media/functions-openapi-definitions/functions-project-settings.png)
+    ![Azure Functions project settings](./media/openapi-apim-integrate-vs/functions-project-settings.png)
 
-    Make sure you set the **Authorization level** to **Anonymous**. If you choose the default level of **Function**, you're required to present the [function key](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) in requests to access your function endpoint.
+    Make sure you set the **Authorization level** to **Anonymous**. If you choose the default level of **Function**, you're required to present the [function key](functions-bindings-http-webhook-trigger.md#authorization-keys) in requests to access your function endpoint.
 
 1. Select **Create** to create the function project and HTTP trigger function, with support for OpenAPI. 
 
@@ -69,10 +61,12 @@ Visual Studio creates a project and class named `Function1` that contains boiler
 
 The function uses an HTTP trigger that takes two parameters:
 
-* The estimated time to make a turbine repair, up to the nearest whole hour.
-* The capacity of the turbine, in kilowatts. 
+| Parameter name | Description|
+| ---- | ---- |
+| *hours* | The estimated time to make a turbine repair, up to the nearest whole hour. |
+| *capacity* | The capacity of the turbine, in kilowatts. |
 
-The function then calculates how much a repair costs, and how much revenue the turbine could make in a 24-hour period. These parameters can be supplied either in the query string or in the payload of a POST request. 
+The function then calculates how much a repair costs, and how much revenue the turbine could make in a 24-hour period. Parameters are supplied either in the query string or in the payload of a POST request. 
 
 In the Function1.cs project file, replace the contents of the generated class library code with the following code:
 
@@ -100,7 +94,7 @@ Now you have a function that determines the cost-effectiveness of emergency repa
 
 ## Publish the project to Azure
 
-Before you can publish your project, you must have a function app in your Azure subscription. Visual Studio publishing creates a function app for you the first time you publish your project. It cal also create an API Management instance that integrates with your function app to expose the TurbineRepair API.
+Before you can publish your project, you must have a function app in your Azure subscription. Visual Studio publishing creates a function app the first time you publish your project. It can also create an API Management instance that integrates with your function app to expose the TurbineRepair API.
 
 1. In **Solution Explorer**, right-click the project and select **Publish** and in **Target**, select **Azure** then **Next**.
 
@@ -125,7 +119,7 @@ Before you can publish your project, you must have a function app in your Azure 
 
 1. Select **Create** to create a function app and its related resources in Azure. Status of resource creation is shown in the lower left of the window. 
 
-1. Back in **Functions instance**, make sure that **Run from package file** is checked. Your function app is deployed using [Zip Deploy](functions-deployment-technologies.md#zip-deploy) with [Run-From-Package](run-functions-from-deployment-package.md) mode enabled. This is the recommended deployment method for your functions project, since it results in better performance. 
+1. Back in **Functions instance**, make sure that **Run from package file** is checked. Your function app is deployed using [Zip Deploy](functions-deployment-technologies.md#zip-deploy) with [Run-From-Package](run-functions-from-deployment-package.md) mode enabled. This deployment method is recommended for your functions project, since it results in better performance. 
 
 1. Select **Next**, and in **API Management** page, also choose **+ Create an API Management API**.
 
@@ -138,19 +132,19 @@ Before you can publish your project, you must have a function app in your Azure 
     | **Resource group** | Name of your resource group | Select the same resource group as your function app from the drop-down list.   |
     | **API Management service** | New instance | Select **New** to create a new API Management instance in the serverless tier.   |
 
-    :::image type="content" source="media/openapi-apim-integrate-vs/create-api-management-api.png" alt-text="Create API Managment instance with API":::
+    :::image type="content" source="media/openapi-apim-integrate-vs/create-api-management-api.png" alt-text="Create API Management instance with API":::
 
 1. Select **Create** to create the API Management instance with the TurbineRepair API from the function integration.
 
-1. select **Finish**, verify that the Publish page says **Ready to publish**, and then select **Publish** to deploy the package containing your project files to your new function app in Azure. 
+1. select **Finish**, verify the Publish page says **Ready to publish**, and then select **Publish** to deploy the package containing your project files to your new function app in Azure. 
 
-    After the deployment completes the root URL of the function app in Azure is shown in the **Publish** tab. 
+    After the deployment completes, the root URL of the function app in Azure is shown in the **Publish** tab. 
 
 ## Verify the API in Azure
 
 After publishing your project, you should verify that the API works when hosted in Azure.
 
-1. In the **Publish** tab, select the elipses (**...**) next to **Hosting** and select **Open API in Azure portal**. This opens the API Management instance you just created, which is linked to your function app. 
+1. In the **Publish** tab, select the ellipses (**...**) next to **Hosting** and select **Open API in Azure portal**. The API Management instance you created is opened in the Azure portal in your default browser. This API Management instance is already linked to your function app. 
 
 1. Under **APIs**, select **Azure Functions OpenAPI Extension** > **Test** > **POST Run**, enter the following code in the **Request body** > **Raw**, and select **Send**:
 
@@ -171,7 +165,7 @@ After publishing your project, you should verify that the API works when hosted 
 
 If your API works as expected, you can download the OpenAPI definition.
 
-1. 1. Under **APIs**, select **Azure Functions OpenAPI Extension**, select the elipses (**...**), and select **Export**.
+1. 1. Under **APIs**, select **Azure Functions OpenAPI Extension**, select the ellipses (**...**), and select **Export**.
    
    ![Download OpenAPI definition](media/openapi-apim-integrate-vs/download-definition.png)
 
@@ -189,7 +183,7 @@ Select **Delete resource group**, type the name of your group in the text box to
 
 ## Next steps
 
-You have used Visual Studio 2019 to create a function that is self-documenting because of the [OpenAPI Extension](https://github.com/Azure/azure-functions-openapi-extension) and integrated with API Management. You can now refine the definition in API Management in the portal. You can also [learn more about API Management](../api-management/api-management-key-concepts.md).
+You've used Visual Studio 2019 to create a function that is self-documenting because of the [OpenAPI Extension](https://github.com/Azure/azure-functions-openapi-extension) and integrated with API Management. You can now refine the definition in API Management in the portal. You can also [learn more about API Management](../api-management/api-management-key-concepts.md).
 
 > [!div class="nextstepaction"]
 > [Edit the OpenAPI definition in API Management](../api-management/edit-api.md)
