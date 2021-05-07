@@ -7,7 +7,7 @@ ms.date: 05/04/2021
 
 # Expose serverless APIs from HTTP endpoints using Azure API Management
 
-Azure Functions integrates with Azure API Management in the portal to let you expose your HTTP trigger function endpoints as REST APIs. These APIs can be described using an OpenAPI definition, which contains information about what operations are available in an API and how the request and response data for the API should be structured. By integrating your function app, you can have API Management generate these OpenAPI definitions.  
+Azure Functions integrates with Azure API Management in the portal to let you expose your HTTP trigger function endpoints as REST APIs. These APIs are described using an OpenAPI definition. This JSON (or YAML) file contains information about what operations are available in an API. It includes details about how the request and response data for the API should be structured. By integrating your function app, you can have API Management generate these OpenAPI definitions.  
 
 This article shows you how to integrate your function app with API Management. This integration works for function apps developed in any [supported language](supported-languages.md). You can also [import your function app from Azure API Management](../api-management/import-function-app-as-api.md).
 
@@ -19,7 +19,7 @@ To create an API Management instance linked to your function app:
 
 1. Select the function app, choose **API Management** from the left menu, and then select **Create new** under **API Management**.
 
-    :::image type="content" source="media/functions-apim-integrate/select-all-settings-openapi.png" alt-text="Choose API Management":::
+    :::image type="content" source="media/functions-openapi-definitions/select-all-settings-openapi.png" alt-text="Choose API Management":::
 
 
 1. Use the API Management settings as specified in the following table:
@@ -34,7 +34,7 @@ To create an API Management instance linked to your function app:
     | **Administrator email** | your email | Email that received system notifications from API Management. |
     | **Pricing tier** | Consumption | Consumption tier isn't available in all regions. For complete pricing details, see the [API Management pricing page](https://azure.microsoft.com/pricing/details/api-management/) |
 
-    ![Create new API Management service](media/functions-apim-integrate/new-apim-service-openapi.png)
+    ![Create new API Management service](media/functions-openapi-definitions/new-apim-service-openapi.png)
 
 1. Choose **Create** to create the API Management instance, which may take several minutes.
 
@@ -48,11 +48,11 @@ After the API Management instance is created, you can import your HTTP triggered
 
 1. The **Import Azure Functions** opens with the **TurbineRepair** function highlighted. Choose **Select** to continue.
 
-    ![Import Azure Functions into API Management](media/functions-apim-integrate/import-function-openapi.png)
+    ![Import Azure Functions into API Management](media/functions-openapi-definitions/import-function-openapi.png)
 
 1. In the **Create from Function App** page, accept the defaults, and then select **Create**.
 
-    :::image type="content" source="media/functions-apim-integrate/create-function-openapi.png" alt-text="Create from Function App":::
+    :::image type="content" source="media/functions-openapi-definitions/create-function-openapi.png" alt-text="Create from Function App":::
 
     Azure creates the API for the function.
 
@@ -62,7 +62,7 @@ After your functions have been imported, you can download the OpenAPI definition
 
 1. Select **Download OpenAPI definition** at the top of the page.
    
-   ![Download OpenAPI definition](media/functions-apim-integrate/download-definition.png)
+   ![Download OpenAPI definition](media/functions-openapi-definitions/download-definition.png)
 
 2. Save the downloaded JSON file, and then open it. Review the definition.
 
@@ -70,5 +70,5 @@ After your functions have been imported, you can download the OpenAPI definition
 
 You can learn more about OpenAPI and API Management integration in these articles:
 
-+ [Create an OpenAPI definition for a serverless API using Azure API Management](functions-openapi-definition.md)
++ [Create an OpenAPI definition for a serverless API using Azure API Management](functions-openapi-definitions.md)
 + [Create an OpenAPI definition for C# class library functions](enable-openapi-endpoints.md)
