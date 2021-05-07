@@ -84,7 +84,7 @@ You're responsible for setting up a [deployment workflow](../azure-functions/fun
   > If you enable authentication and authorization in your linked Functions app, it must use Azure App Service Authentication and authorization provider is version 2.
 
 - **Required public accessibility:** An existing Functions app needs to not apply the following security configurations.
-  - Restriction the IP address of the Functions app.
+  - Restricting the IP address of the Functions app.
   - Restricting traffic through private link or service endpoints.
 
 - **Function access keys:** If your function requires an [access key](../azure-functions/security-concepts.md#function-access-keys), then you must provide the key with calls from the static app to the API.
