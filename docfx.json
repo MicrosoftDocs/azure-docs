@@ -974,7 +974,7 @@
     "rules": {
       "sensitive-language-ma": {
         "exclude": [
-          "/articles/app-service/deploy-local-git.md",
+          "articles/app-service/deploy-local-git.md",
           "articles/governance/blueprints/**/*.md",
           "articles/governance/policy/**/*.md",
           "articles/hdinsight/hdinsight-high-availability-components.md",
