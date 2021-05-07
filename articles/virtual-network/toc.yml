@@ -246,7 +246,7 @@
         href: ipv6-reserve-public-ip-address-prefix.md       
     - name: IP addressing
       items:
-      - name: Create public IP addresses - portal
+      - name: Create public IP addresses - Portal
         href: create-public-ip-portal.md
       - name: Create public IP addresses - PowerShell
         href: create-public-ip-powershell.md
@@ -254,8 +254,8 @@
         href: create-public-ip-cli.md                
       - name: Manage public IP addresses
         href: virtual-network-public-ip-address.md
-      - name: Manage public IP prefix
-        href: manage-public-ip-address-prefix.md
+      - name: Create public IP prefix - Portal
+        href: create-public-ip-prefix-portal.md
       - name: Upgrade public IP addresses
         href: virtual-network-public-ip-address-upgrade.md
       - name: Add or remove IP address from NICs
