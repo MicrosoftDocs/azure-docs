@@ -31,12 +31,19 @@ Call Automation APIs enable organizations to connect with their customers or emp
   "name": "create-call"
 }-->
 ```
-POST /calls
+POST /calling/calls
 Content-Type: application/json
 
 {
+  "source: {
+    "communicationUser": {
+        "id": "string"
+      }
+  },
   "targets": [
-    null
+    "communicationUser": {
+        "id": "string"
+      },
   ],
   "subject": "string",
   "callbackUri": "string",
@@ -125,7 +132,7 @@ Content-Type: application/json
   "name": "hangup-call"
 }-->
 ```
-POST /calls/{callId}/Hangup
+POST /calling/calls/{callId}/Hangup
 Content-Type: application/json
 
 ```
@@ -181,7 +188,7 @@ Content-Type: application/json
   "name": "play-audio"
 }-->
 ```
-POST /calls/{callId}/PlayAudio
+POST /calling/calls/{callId}/PlayAudio
 Content-Type: application/json
 
 {
@@ -263,7 +270,7 @@ Content-Type: application/json
   "name": "cancel-media-processing"
 }-->
 ```
-POST /calls/{callId}/CancelMediaProcessing
+POST /calling/calls/{callId}/CancelMediaProcessing
 Content-Type: application/json
 
 {
@@ -332,7 +339,7 @@ Content-Type: application/json
   "name": "invite-participant "
 }-->
 ```
-POST /calls/{callId}/participants
+POST /calling/calls/{callId}/participants
 Content-Type: application/json
 
 {
@@ -400,7 +407,7 @@ Content-Type: application/json
   "name": "remove-participant "
 }-->
 ```
-DELETE /calls/{callId}/participants/{participantId}
+DELETE /calling/calls/{callId}/participants/{participantId}
 Content-Type: application/json
 
 ```
