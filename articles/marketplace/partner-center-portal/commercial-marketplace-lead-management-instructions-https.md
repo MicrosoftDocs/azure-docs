@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 04/09/2021
+ms.date: 04/14/2021
 ---
 
 # Use an HTTPS endpoint to manage commercial marketplace leads
