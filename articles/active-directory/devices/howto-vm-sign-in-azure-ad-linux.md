@@ -25,7 +25,7 @@ To improve the security of Linux virtual machines (VMs) in Azure, you can integr
 
 There are many security benefits of using Azure AD with SSH certificate-based authentication to log in to Linux VMs in Azure, including:
 
-- Use your Azure AD credentials to log in to Azure Linux VMs. There is no need to create local administrator accounts and manage credential lifetime.
+- Use your Azure AD credentials to log in to Azure Linux VMs.
 - Get SSH key based authentication without needing to distribute SSH keys to users or provision SSH public keys on any Azure Linux VMs you deploy. This experience is much simpler than having to worry about sprawl of stale SSH public keys that could cause unauthorized access.
 - Reduce reliance on local administrator accounts, credential theft, and weak credentials.
 - Password complexity and password lifetime policies configured for Azure AD help secure Linux VMs as well.
