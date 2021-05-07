@@ -56,14 +56,16 @@
   items:
   - name: Request host quota for Azure VMware Solution
     href: enable-azure-vmware-solution.md
-  - name: Move resources
-    items:
-    - name: Move Azure VMware Solution subscriptions
-      href: move-ea-csp-subscriptions.md
   - name: Save costs with a reserved instance
     href: reserved-instance.md
   - name: Create an Azure VMware Solution assessment
     href: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
+  - name: Move resources
+    items:
+    - name: Move Azure VMware Solution subscriptions
+      href: move-ea-csp-subscriptions.md
+    - name: Move Azure VMware Solution across regions
+      href: move-azure-vmware-solution-across-regions.md
   - name: Manage DHCP
     href: manage-dhcp.md
   - name: Configure NSX network components
