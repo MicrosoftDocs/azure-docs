@@ -86,26 +86,41 @@ For more information about the CLI command, see [az eventgrid event-subscription
 1. Run the following command to get the **endpoint** for the topic: After you copy and paste the command, update the **topic name** and **resource group name** before you run the command. You'll publish sample events to this topic endpoint. 
 
     ```azurecli
-    endpoint=$(az eventgrid topic show --name <topic name> -g <resource group name> --query "endpoint" --output tsv)
+    az eventgrid topic show --name <topic name> -g <resource group name> --query "endpoint" --output tsv
     ```
 2. Run the following command to get the **key** for the custom topic: After you copy and paste the command, update the **topic name** and **resource group** name before you run the command. It's the primary key of the topic. To get this key from the Azure portal, switch to the **Access keys** tab of the **Event Grid Topic** page. To be able post an event to a custom topic, you need the access key. 
 
     ```azurecli
-    key=$(az eventgrid topic key list --name <topic name> -g <resource group name> --query "key1" --output tsv)
+    az eventgrid topic key list --name <topic name> -g <resource group name> --query "key1" --output tsv
     ```
-3. Copy the following statement with the event definition, and press **ENTER**. 
+3. Create file named **evt.json** with the following content: 
 
     ```json
-    event='[{"specVersion": "1.0", "type" : "orderCreated", "source": "myCompanyName/us/webCommerceChannel/myOnlineCommerceSiteBrandName", "id" : "eventId-n","time" : "2020-12-25T20:54:07+00:00", "subject" : "account/acct-123224/order/o-123456", "dataSchema" : "1.0", "data" : { "orderId" : "123", "orderType" : "PO", "reference" : "https://www.myCompanyName.com/orders/123"}}]'
+    [{
+          "specVersion": "1.0",
+          "type" : "orderCreated",
+          "source": "myCompanyName/us/webCommerceChannel/myOnlineCommerceSiteBrandName",
+          "id" : "eventId-n",
+          "time" : "2020-12-25T20:54:07+00:00",
+          "subject" : "account/acct-123224/order/o-123456",
+          "dataSchema" : "1.0",
+          "data" : {
+             "orderId" : "123",
+             "orderType" : "PO",
+             "reference" : "https://www.myCompanyName.com/orders/123"
+          }
+    }]
     ```
-4. Run the following **Curl** command to post the event: In the command, `aeg-sas-key` header is set to the access key you got earlier. 
+4. Run the following **Curl** command to post the event. Specify the endpoint URL and key from step 1 and 2 before running the command. 
 
     ```
-    curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
+    curl -k -X POST -H "Content-Type: application/cloudevents-batch+json" -H "aeg-sas-key: <KEY FROM STEP 2>" -g -d @evt.json <ENDPOINT URL from STEP 1>
     ```
 
 ### Verify in the Event Grid Viewer
 You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. View your web app to see the event you just sent.
+
+:::image type="content" source="./media/create-topic-subscription/viewer-received-event.png" alt-text="View received event in Event Grid Viewer":::
 
 ## Next steps
 See [Event handlers and destinations](event-handlers.md) to learn about all the event handlers and destinations that Event Grid on Kubernetes supports. 
