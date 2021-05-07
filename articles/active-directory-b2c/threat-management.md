@@ -44,8 +44,8 @@ To manage password protection settings, including the lockout threshold:
 
 ## View locked-out accounts
 
-To obtain information about locked-out accounts, you can check the Active Directory [sign-in activity report](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md). Under **Status**, select **Failure**. Failed sign-in attempts with a **Sign-in error code** of `50053` indicate a locked account:
+To obtain information about locked-out accounts, you can check the Active Directory [sign-in activity report](../active-directory/reports-monitoring/concept-sign-ins.md). Under **Status**, select **Failure**. Failed sign-in attempts with a **Sign-in error code** of `50053` indicate a locked account:
 
 ![Section of Azure AD sign-in report showing locked-out account](./media/threat-management/portal-01-locked-account.png)
 
-To learn about viewing the sign-in activity report in Azure Active Directory, see [Sign-in activity report error codes](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md).
+To learn about viewing the sign-in activity report in Azure Active Directory, see [Sign-in activity report error codes](../active-directory/reports-monitoring/concept-sign-ins.md).

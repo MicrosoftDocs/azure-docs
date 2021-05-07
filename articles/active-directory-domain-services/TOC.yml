@@ -153,10 +153,13 @@
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.addomainservices/
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
 - name: Resources
   items:
     - name: FAQs
-      href: faqs.md
+      href: faqs.yml
     - name: Service updates
       href: https://azure.microsoft.com/updates/?product=active-directory-ds
     - name: Pricing

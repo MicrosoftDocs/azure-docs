@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 03/03/2021
+ms.date: 04/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
@@ -157,9 +157,78 @@ After you've added the Azure AD Conditional Access policy, enable conditional ac
 
 Multiple Conditional Access policies may apply to an individual user at any time. In this case, the most strict access control policy takes precedence. For example, if one policy requires multi-factor authentication (MFA), while the other blocks access, the user will be blocked.
 
+## Conditional Access Template 1: Sign-in risk-based Conditional Access
+
+Most users have a normal behavior that can be tracked, when they fall outside of this norm it could be risky to allow them to just sign in. You may want to block that user or maybe just ask them to perform multi-factor authentication to prove that they are really who they say they are.
+
+A sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner. Organizations with P2 licenses can create Conditional Access policies incorporating [Azure AD Identity Protection sign-in risk detections](../active-directory/identity-protection/concept-identity-protection-risks.md#sign-in-risk). Please note the [limitations on Identity Protection detections for B2C](./identity-protection-investigate-risk.md?pivots=b2c-user-flow#service-limitations-and-considerations).
+
+If risk is detected, users can perform multi-factor authentication to self-remediate and close the risky sign-in event to prevent unnecessary noise for administrators.
+
+Organizations should choose one of the following options to enable a sign-in risk-based Conditional Access policy requiring multi-factor authentication (MFA) when sign-in risk is medium OR high.
+
+### Enable with Conditional Access policy
+
+1. Sign in to the **Azure portal**.
+2. Browse to **Azure AD B2C** > **Security** > **Conditional Access**.
+3. Select **New policy**.
+4. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
+5. Under **Assignments**, select **Users and groups**.
+   1. Under **Include**, select **All users**.
+   2. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
+   3. Select **Done**.
+6. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
+7. Under **Conditions** > **Sign-in risk**, set **Configure** to **Yes**. Under **Select the sign-in risk level this policy will apply to** 
+   1. Select **High** and **Medium**.
+   2. Select **Done**.
+8. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
+9. Confirm your settings and set **Enable policy** to **On**.
+10. Select **Create** to create to enable your policy.
+
+### Enable with Conditional Access APIs
+
+To create a Sign-in risk-based Conditional Access policy with Conditional Access APIs, please refer to the documentation for [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api).
+
+The following template can be used to create a Conditional Access policy with display name "CA002: Require MFA for medium+ sign-in risk" in report-only mode.
+
+```json
+{
+    "displayName": "Template 1: Require MFA for medium+ sign-in risk",
+    "state": "enabledForReportingButNotEnforced",
+    "conditions": {
+        "signInRiskLevels": [ "high" ,
+            "medium"
+        ],
+        "applications": {
+            "includeApplications": [
+                "All"
+            ]
+        },
+        "users": {
+            "includeUsers": [
+                "All"
+            ],
+            "excludeUsers": [
+                "f753047e-de31-4c74-a6fb-c38589047723"
+            ]
+        }
+    },
+    "grantControls": {
+        "operator": "OR",
+        "builtInControls": [
+            "mfa"
+        ]
+    }
+}
+```
+
 ## Enable multi-factor authentication (optional)
 
-When adding Conditional Access to a user flow, consider the use of **Multi-factor authentication (MFA)**. Users can use a one-time code via SMS or voice, or a one-time password via email for multi-factor authentication. MFA settings are independent from Conditional Access settings. You can set MFA to **Always On** so that MFA is always required regardless of your Conditional Access setup. Or, you can set MFA to **Conditional** so that MFA is required only when an active Conditional Access Policy requires it.
+When adding Conditional Access to a user flow, consider the use of **Multi-factor authentication (MFA)**. Users can use a one-time code via SMS or voice, or a one-time password via email for multi-factor authentication. MFA settings are independent from Conditional Access settings. You can choose from these MFA options:
+
+   - **Off** - MFA is never enforced during sign-in, and users are not prompted to enroll in MFA during sign-up or sign-in.
+   - **Always on** - MFA is always required regardless of your Conditional Access setup. If users aren't already enrolled in MFA, they're prompted to enroll during sign-in. During sign-up, users are prompted to enroll in MFA.
+   - **Conditional (Preview)** - MFA is required only when an active Conditional Access Policy requires it. If the result of the Conditional Access evaluation is an MFA challenge with no risk, MFA is enforced during sign-in. If the result is an MFA challenge due to risk *and* the user is not enrolled in MFA, sign-in is blocked. During sign-up, users aren't prompted to enroll in MFA.
 
 > [!IMPORTANT]
 > If your Conditional Access policy grants access with MFA but the user hasn't enrolled a phone number, the user may be blocked.
@@ -180,9 +249,9 @@ To enable Conditional Access for a user flow, make sure the version supports Con
  
    ![Configure MFA and Conditional Access in Properties](media/conditional-access-user-flow/add-conditional-access.png)
 
-1. In the **Multi-factor authentication** section, select the desired **MFA method**, and then under **MFA enforcement**, select **Conditional (Recommended)**.
+1. In the **Multifactor authentication** section, select the desired **Type of method**, and then under **MFA enforcement**, select **Conditional (Preview)**.
  
-1. In the **Conditional Access** section, select the **Enforce conditional access policies** check box.
+1. In the **Conditional access (Preview)** section, select the **Enforce conditional access policies** check box.
 
 1. Select **Save**.
 

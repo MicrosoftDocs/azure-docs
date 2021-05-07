@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot Azure Data Factory connectors
 description: Learn how to troubleshoot connector issues in Azure Data Factory. 
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 04/13/2021
-ms.author: jingwang
+ms.author: jianleishen
 ms.custom: has-adal-ref
 ---
 
@@ -562,7 +562,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
  
  - **Recommendation**: 
     1. Contact Dynamics support team with the detailed error message for help.  
-    1. Use the service principal authentication, and you can refer to this article: [Example: Dynamics online using Azure AD service-principal and certificate authentication](https://docs.microsoft.com/azure/data-factory/connector-dynamics-crm-office-365#example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication). 
+    1. Use the service principal authentication, and you can refer to this article: [Example: Dynamics online using Azure AD service-principal and certificate authentication](./connector-dynamics-crm-office-365.md#example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication). 
  
 
  - **Cause**: If you see `Unable to retrieve authentication parameters from the serviceUri` in the error message, it means that either you input the wrong Dynamics service URL or proxy/firewall to intercept the traffic. 
@@ -605,7 +605,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Cause**: The operation failed on the server side. 
 
-- **Recommendation**:  Extract the error code of the dynamics operation from the error message: `Dynamics operation failed with error code: {code}`, and refer to the article [Web service error codes](https://docs.microsoft.com/powerapps/developer/data-platform/org-service/web-service-error-codes) for more detailed information. You can contact the Dynamics support team if necessary. 
+- **Recommendation**:  Extract the error code of the dynamics operation from the error message: `Dynamics operation failed with error code: {code}`, and refer to the article [Web service error codes](/powerapps/developer/data-platform/org-service/web-service-error-codes) for more detailed information. You can contact the Dynamics support team if necessary. 
  
  
 ### Error code:  DynamicsInvalidFetchXml 

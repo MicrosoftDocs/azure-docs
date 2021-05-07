@@ -1,11 +1,11 @@
 ---
 title: Copy data from and to ODBC data stores using Azure Data Factory 
 description: Learn how to copy data from and to ODBC data stores by using a copy activity in an Azure Data Factory pipeline.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.author: jingwang
+ms.author: jianleishen
 ---
 # Copy data from and to ODBC data stores using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ To use this ODBC connector, you need to:
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to ODBC connector.
 

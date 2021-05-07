@@ -10,9 +10,9 @@ ms.date: 04/07/2020
 
 # Using Azure Migrate with private endpoints  
 
-This article describes how to use Azure Migrate to discover, assess, and migrate servers over a private network using [Azure private link](https://docs.microsoft.com/azure/private-link/private-endpoint-overview). 
+This article describes how to use Azure Migrate to discover, assess, and migrate servers over a private network using [Azure private link](../private-link/private-endpoint-overview.md). 
 
-You can use the [Azure Migrate: Discovery and Assessment](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-discovery-and-assessment-tool) and [Azure Migrate: Server Migration](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-server-migration-tool) tools to connect privately and securely to the Azure Migrate service over an ExpressRoute private peering or a site to site VPN connection, using Azure private link. 
+You can use the [Azure Migrate: Discovery and Assessment](./migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) and [Azure Migrate: Server Migration](./migrate-services-overview.md#azure-migrate-server-migration-tool) tools to connect privately and securely to the Azure Migrate service over an ExpressRoute private peering or a site to site VPN connection, using Azure private link. 
 
 The private endpoint connectivity method is recommended when there is an organizational requirement to access the Azure Migrate service and other Azure resources without traversing public networks. You can also use the private link support to use your existing ExpressRoute private peering circuits for better bandwidth or latency requirements. 
 
@@ -26,18 +26,18 @@ The private endpoint connectivity method is recommended when there is an organiz
 
 **Deployment** | **Details** | **Tools** 
 --- | --- | ---
-**Discovery and Assessment** | Perform an agentless, at-scale discovery and assessment of your servers running on any platform – hypervisor platforms such as [VMware vSphere](https://docs.microsoft.com/azure/migrate/tutorial-discover-vmware) or [Microsoft Hyper-V](https://docs.microsoft.com/azure/migrate/tutorial-discover-hyper-v), public clouds such as [AWS](https://docs.microsoft.com/azure/migrate/tutorial-discover-aws) or [GCP](https://docs.microsoft.com/azure/migrate/tutorial-discover-gcp), or even [bare metal servers](https://docs.microsoft.com/azure/migrate/tutorial-discover-physical). | Azure Migrate: Discovery and Assessment  <br/> 
+**Discovery and Assessment** | Perform an agentless, at-scale discovery and assessment of your servers running on any platform – hypervisor platforms such as [VMware vSphere](./tutorial-discover-vmware.md) or [Microsoft Hyper-V](./tutorial-discover-hyper-v.md), public clouds such as [AWS](./tutorial-discover-aws.md) or [GCP](./tutorial-discover-gcp.md), or even [bare metal servers](./tutorial-discover-physical.md). | Azure Migrate: Discovery and Assessment  <br/> 
 **Software inventory** | Discover apps, roles, and features running on VMware VMs. | Azure Migrate: Discovery and Assessment  
-**Dependency visualization** | Use the dependency analysis capability to identify and understand dependencies across servers. <br/> [Agentless dependency visualization](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies-agentless) is supported natively with Azure Migrate private link support. <br/>[Agent-based dependency visualization](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) requires Internet connectivity. [learn how](https://docs.microsoft.com/azure/azure-monitor/logs/private-link-security) to  to use private endpoints for agent-based dependency visualization. | Azure Migrate: Discovery and Assessment |
-**Migration** | Perform [agentless Hyper-V migrations](https://docs.microsoft.com/azure/migrate/tutorial-migrate-hyper-v) or use the agent-based approach to migrate your [VMware VMs](./tutorial-migrate-vmware-agent.md), [Hyper-V VMs](./tutorial-migrate-physical-virtual-machines.md), [physical servers](./tutorial-migrate-physical-virtual-machines.md), [VMs running on AWS](./tutorial-migrate-aws-virtual-machines.md), [VMs running on GCP](https://docs.microsoft.com/azure/migrate/tutorial-migrate-gcp-virtual-machines), or VMs running on a different virtualization provider. | Azure Migrate: Server Migration
+**Dependency visualization** | Use the dependency analysis capability to identify and understand dependencies across servers. <br/> [Agentless dependency visualization](./how-to-create-group-machine-dependencies-agentless.md) is supported natively with Azure Migrate private link support. <br/>[Agent-based dependency visualization](./how-to-create-group-machine-dependencies.md) requires Internet connectivity. [learn how](../azure-monitor/logs/private-link-security.md) to  to use private endpoints for agent-based dependency visualization. | Azure Migrate: Discovery and Assessment |
+**Migration** | Perform [agentless Hyper-V migrations](./tutorial-migrate-hyper-v.md) or use the agent-based approach to migrate your [VMware VMs](./tutorial-migrate-vmware-agent.md), [Hyper-V VMs](./tutorial-migrate-physical-virtual-machines.md), [physical servers](./tutorial-migrate-physical-virtual-machines.md), [VMs running on AWS](./tutorial-migrate-aws-virtual-machines.md), [VMs running on GCP](./tutorial-migrate-gcp-virtual-machines.md), or VMs running on a different virtualization provider. | Azure Migrate: Server Migration
  
 >[!Note]
 >
-> [Agentless VMware migrations](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware) require Internet access or connectivity via ExperessRoute Microsoft peering. <br/> [Learn how](https://docs.microsoft.com/azure/migrate/replicate-using-expressroute) to use private endpoints to perform replications over ExpressRoute private peering or a site-to-site (S2S) VPN connection.  <br/><br/> 
+> [Agentless VMware migrations](./tutorial-migrate-vmware.md) require Internet access or connectivity via ExperessRoute Microsoft peering. <br/> [Learn how](./replicate-using-expressroute.md) to use private endpoints to perform replications over ExpressRoute private peering or a site-to-site (S2S) VPN connection.  <br/><br/> 
    
 #### Other integrated tools
 
-Some migration tools may not be able to upload usage data to the Azure Migrate project if public network access is disabled. The Azure Migrate project should be configured to allow traffic from all networks to receive data from other Microsoft or external [independent software vendor (ISV)](https://docs.microsoft.com/azure/migrate/migrate-services-overview#isv-integration) offerings. 
+Some migration tools may not be able to upload usage data to the Azure Migrate project if public network access is disabled. The Azure Migrate project should be configured to allow traffic from all networks to receive data from other Microsoft or external [independent software vendor (ISV)](./migrate-services-overview.md#isv-integration) offerings. 
 
 
 To enable public network access for the Azure Migrate project, go to the Azure Migrate **properties page** on the Azure portal, select **No**, and select **Save**.
@@ -53,7 +53,7 @@ To enable public network access for the Azure Migrate project, go to the Azure M
 
 ## Create a project with private endpoint connectivity
 
-Use this [article](https://docs.microsoft.com/azure/migrate/create-manage-projects#create-a-project-for-the-first-time) to set up a new Azure Migrate project. 
+Use this [article](./create-manage-projects.md#create-a-project-for-the-first-time) to set up a new Azure Migrate project. 
 
 > [!Note]
 > You cannot change the connectivity method to private endpoint connectivity for existing Azure Migrate projects.
@@ -84,35 +84,39 @@ This creates a migrate project and attaches a private endpoint to it.
     > Do not close the Discover machines page during the creation of resources.  
     - At this step, Azure Migrate creates a key vault, storage account, Recovery Services vault (only for agentless VMware migrations), and a few internal resources and attaches a private endpoint to each resource. The private endpoints are created in the virtual network selected during the project creation.  
     - Once the private endpoints are created, the DNS CNAME resource records for the Azure Migrate resources are updated to an alias in a subdomain with the prefix 'privatelink'. By default, Azure Migrate also creates a private DNS zone corresponding to the 'privatelink' subdomain for each resource type and inserts DNS A records for the associated private endpoints. This enables the Azure Migrate appliance and other software components residing in the source network to reach the Azure Migrate resource endpoints on private IP addresses.  
-    - Azure Migrate also enables a [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for the migrate project, and grants permissions to the managed identity to securely access the storage account.  
+    - Azure Migrate also enables a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for the migrate project, and grants permissions to the managed identity to securely access the storage account.  
 
 4. After the key is successfully generated, copy the key details to configure and register the appliance.   
 
-#### Download the appliance installer file
+#### Download the appliance installer file  
 
 Azure Migrate: Discovery and assessment use a lightweight Azure Migrate appliance. The appliance performs server discovery and sends server configuration and performance metadata to Azure Migrate.
 
-To set up the appliance, download the zipped file containing the installer script from the portal. Copy the zipped file on the server that will host the appliance.
+To set up the appliance, download the zipped file containing the installer script from the portal. Copy the zipped file on the server that will host the appliance. After downloading the zipped file, verify the file security and run the installer script to deploy the appliance. 
 
-Make sure the server meets the [hardware requirements](https://docs.microsoft.com/azure/migrate/migrate-appliance) for the chosen scenario (VMware/Hyper-V/Physical or other) and can connect to the required Azure URLs - [public](./migrate-appliance.md#public-cloud-urls-for-private-link-connectivity) and [government](./migrate-appliance.md#government-cloud-urls-for-private-link-connectivity) clouds.
+Here are the download links for each of the scenario with their hash values:
 
-After downloading the zipped file, verify the file security and run the installer script to deploy the appliance.
+Scenario | Download link | Hash value
+--- | --- | ---
+Hyper-V | [AzureMigrateInstaller-HyperV-Public-PrivateLink.zip](https://go.microsoft.com/fwlink/?linkid=2160557) | 17EFA01E3A7683F1CE2A08E3A9197A27D8BD2CC03C3AB5C6E00E4261A822BDB3
+Physical | [AzureMigrateInstaller-Physical-Public-PrivateLink.zip](https://go.microsoft.com/fwlink/?linkid=2160558) | 01028F92C2095452F2DDCB89986CDC1F177AAC58E150A5B219A69CF1B7DA3BE0
+VMware | [AzureMigrateInstaller-VMware-public-PrivateLink.zip](https://go.microsoft.com/fwlink/?linkid=2160648) | 66D3217AEC1DE51D84EC608B22BDDA605EC9C4FBAB06FC69FEC985886627C224
+VMware scale-out | [AzureMigrateInstaller-VMware-Public-Scaleout-PrivateLink.zip](https://go.microsoft.com/fwlink/?linkid=2160811) | 42C1E8D5CF428E35E5B98E4E7465DD08439F0FD5C319340CE3E3ADC3DC1717A6
 
-#### Verify file security
+#### Verify security
 
-Check that the zipped file is secure before you deploy it.
+Check that the zipped file is secure, before you deploy it.
 
-1. Open an administrator command window on the server to which you downloaded the file. 
+1. Open an administrator command window on the server to which you downloaded the file.
 2. Run the following command to generate the hash for the zipped file
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMware-PrivateEndPoint.zip SHA256```
-3. Verify the latest appliance version and script for Azure public cloud:
 
-    **Algorithm** | **Download** | **SHA256**
-    --- | --- | ---
-    VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2116601) | 85b74d93dfcee43412386141808d82147916330e6669df94c7969fe1b3d0fe72
-    Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2116601) | 85b74d93dfcee43412386141808d82147916330e6669df94c7969fe1b3d0fe72
-    Physical or other (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2116601) | 85b74d93dfcee43412386141808d82147916330e6669df94c7969fe1b3d0fe72
+    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
+    - Example usage for public cloud: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMware-public-PrivateLink.zip SHA256 ```
+
+3.  Verify the latest version of the appliance by comparing the hash values from the table above.
+
+Make sure the server meets the [hardware requirements](./migrate-appliance.md) for the chosen scenario (VMware/Hyper-V/Physical or other) and can connect to the required Azure URLs - [public](./migrate-appliance.md#public-cloud-urls-for-private-link-connectivity) and [government](./migrate-appliance.md#government-cloud-urls-for-private-link-connectivity) clouds.
+
 
 #### Run the script
 
@@ -121,7 +125,7 @@ Check that the zipped file is secure before you deploy it.
 3. Change the PowerShell directory to the folder containing the contents extracted from the downloaded zipped file.
 4. Run the script **AzureMigrateInstaller.ps1**, as follows:
 
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1```
+    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-VMware-public-PrivateLink> .\AzureMigrateInstaller.ps1```
    
 5. After the script runs successfully, it launches the appliance configuration manager so that you can configure the appliance. If you encounter any issues, review the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log.
 
@@ -137,44 +141,44 @@ Open a browser on any machine that can connect to the appliance server, and open
    - **Connectivity**: The appliance checks for access to the required URLs. If the server uses a proxy:
      - Select **Set up proxy** to specify the proxy address `http://ProxyIPAddress` or `http://ProxyFQDN` and listening port.
      - Specify credentials if the proxy needs authentication. Only HTTP proxy is supported.
-     - If you want, you can add a list of URLs/IP addresses that should bypass the proxy server. If you are using ExpressRoute private peering, ensure that you bypass these [URLs](https://docs.microsoft.com/azure/migrate/replicate-using-expressroute#configure-proxy-bypass-rules-on-the-azure-migrate-appliance-for-vmware-agentless-migrations).
+     - If you want, you can add a list of URLs/IP addresses that should bypass the proxy server. If you are using ExpressRoute private peering, ensure that you bypass these [URLs](./replicate-using-expressroute.md#configure-proxy-bypass-rules-on-the-azure-migrate-appliance-for-vmware-agentless-migrations).
      - You need to select **Save** to register the configuration if you have updated the proxy server details or added URLs/IP addresses to bypass proxy.
      
         > [!Note]
-        > If you are getting an error with aka.ms/* link during connectivity check and you do not want the appliance to access this URL over the internet, you need to disable the auto update service on the appliance by following the steps [**here**](https://docs.microsoft.com/azure/migrate/migrate-appliance#turn-off-auto-update). After the auto-update has been disabled, the aka.ms/* URL connectivity check will be skipped. 
+        > If you are getting an error with aka.ms/* link during connectivity check and you do not want the appliance to access this URL over the internet, you need to disable the auto update service on the appliance by following the steps [**here**](./migrate-appliance.md#turn-off-auto-update). After the auto-update has been disabled, the aka.ms/* URL connectivity check will be skipped. 
 
    - **Time sync**: The time on the appliance should be in sync with internet time for discovery to work properly.
    - **Install updates**: The appliance ensures that the latest updates are installed. After the check completes, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
         > [!Note]
-        > If you have chosen to disable auto update service on the appliance, you can update the appliance services manually to get the latest versions of the services by following the steps [**here**](https://docs.microsoft.com/azure/migrate/migrate-appliance#manually-update-an-older-version).
+        > If you have chosen to disable auto update service on the appliance, you can update the appliance services manually to get the latest versions of the services by following the steps [**here**](./migrate-appliance.md#manually-update-an-older-version).
    - **Install VDDK**: (_Needed only for VMware appliance)_ The appliance checks that VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If it isn't installed, download VDDK 6.7 from VMware, and extract the downloaded zip contents to the specified location on the appliance, as provided in the **Installation instructions**.
 
 #### Register the appliance and start continuous discovery
 
 After the prerequisites check has completed, follow these steps to register the appliance and start continuous discovery for respective scenarios:
-[VMware VMs](https://docs.microsoft.com/azure/migrate/tutorial-discover-vmware#register-the-appliance-with-azure-migrate), 
-[Hyper-V VMs](https://docs.microsoft.com/azure/migrate/tutorial-discover-hyper-v#register-the-appliance-with-azure-migrate), 
-[Physical Servers](https://docs.microsoft.com/azure/migrate/tutorial-discover-physical#register-the-appliance-with-azure-migrate), 
-[AWS VMs](https://docs.microsoft.com/azure/migrate/tutorial-discover-aws#register-the-appliance-with-azure-migrate), 
-[GCP VMs](https://docs.microsoft.com/azure/migrate/tutorial-discover-gcp#register-the-appliance-with-azure-migrate).
+[VMware VMs](./tutorial-discover-vmware.md#register-the-appliance-with-azure-migrate), 
+[Hyper-V VMs](./tutorial-discover-hyper-v.md#register-the-appliance-with-azure-migrate), 
+[Physical Servers](./tutorial-discover-physical.md#register-the-appliance-with-azure-migrate), 
+[AWS VMs](./tutorial-discover-aws.md#register-the-appliance-with-azure-migrate), 
+[GCP VMs](./tutorial-discover-gcp.md#register-the-appliance-with-azure-migrate).
 
 
 >[!Note]
 > If you are getting DNS resolution issues during appliance registration or at the time of starting discovery, ensure that Azure Migrate resources created during the **Generate key** step on portal are reachable from the on-premises server hosting the Azure Migrate appliance. [Learn more on how to verify network connectivity](#troubleshoot-network-connectivity).
 
 ### Assess your servers for migration to Azure
-After the discovery is complete, assess your servers ([VMware VMs](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware-azure-vm), [Hyper-V VMs](https://docs.microsoft.com/azure/migrate/tutorial-assess-hyper-v), [physical servers](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware-azure-vm), [AWS VMs](https://docs.microsoft.com/azure/migrate/tutorial-assess-aws), [GCP VMs](https://docs.microsoft.com/azure/migrate/tutorial-assess-gcp)) for migration to Azure VMs or Azure VMware Solution (AVS), using the Azure Migrate: Discovery and Assessment tool. 
+After the discovery is complete, assess your servers ([VMware VMs](./tutorial-assess-vmware-azure-vm.md), [Hyper-V VMs](./tutorial-assess-hyper-v.md), [physical servers](./tutorial-assess-vmware-azure-vm.md), [AWS VMs](./tutorial-assess-aws.md), [GCP VMs](./tutorial-assess-gcp.md)) for migration to Azure VMs or Azure VMware Solution (AVS), using the Azure Migrate: Discovery and Assessment tool. 
 
-You can also [assess your on-premises machines](https://docs.microsoft.com/azure/migrate/tutorial-discover-import#prepare-the-csv) with the Azure Migrate: Discovery and Assessment tool using an imported comma-separated values (CSV) file.   
+You can also [assess your on-premises machines](./tutorial-discover-import.md#prepare-the-csv) with the Azure Migrate: Discovery and Assessment tool using an imported comma-separated values (CSV) file.   
 
 ## Migrate servers to Azure using Azure private link
 
-The following sections describe the steps required to use Azure Migrate with [private endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) for migrations using ExpressRoute private peering or VPN connections.  
+The following sections describe the steps required to use Azure Migrate with [private endpoints](../private-link/private-endpoint-overview.md) for migrations using ExpressRoute private peering or VPN connections.  
 
-This article shows a proof-of-concept deployment path for agent-based replications to migrate your [VMware VMs](./tutorial-migrate-vmware-agent.md), [Hyper-V VMs](./tutorial-migrate-physical-virtual-machines.md), [physical servers](./tutorial-migrate-physical-virtual-machines.md), [VMs running on AWS](./tutorial-migrate-aws-virtual-machines.md), [VMs running on GCP](https://docs.microsoft.com/azure/migrate/tutorial-migrate-gcp-virtual-machines), or VMs running on a different virtualization provider using Azure private endpoints. You can use a similar approach for performing [agentless Hyper-V migrations](https://docs.microsoft.com/azure/migrate/tutorial-migrate-hyper-v) using private link.
+This article shows a proof-of-concept deployment path for agent-based replications to migrate your [VMware VMs](./tutorial-migrate-vmware-agent.md), [Hyper-V VMs](./tutorial-migrate-physical-virtual-machines.md), [physical servers](./tutorial-migrate-physical-virtual-machines.md), [VMs running on AWS](./tutorial-migrate-aws-virtual-machines.md), [VMs running on GCP](./tutorial-migrate-gcp-virtual-machines.md), or VMs running on a different virtualization provider using Azure private endpoints. You can use a similar approach for performing [agentless Hyper-V migrations](./tutorial-migrate-hyper-v.md) using private link.
 
 >[!Note]
->[Agentless VMware migrations](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical) require Internet access or connectivity via ExperessRoute Microsoft peering. 
+>[Agentless VMware migrations](./tutorial-assess-physical.md) require Internet access or connectivity via ExperessRoute Microsoft peering. 
 
 ### Set up a replication appliance for migration 
 
@@ -182,7 +186,7 @@ The following diagram illustrates the agent-based replication workflow with priv
 
 ![Replication architecture](./media/how-to-use-azure-migrate-with-private-endpoints/replication-architecture.png)
 
-The tool uses a replication appliance to replicate your servers to Azure. Use this article to [prepare and set up a machine for the replication appliance. ](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines#prepare-a-machine-for-the-replication-appliance)
+The tool uses a replication appliance to replicate your servers to Azure. Use this article to [prepare and set up a machine for the replication appliance. ](./tutorial-migrate-physical-virtual-machines.md#prepare-a-machine-for-the-replication-appliance)
 
 After you set up the replication appliance, use the following instructions to create the required resources for migration. 
 
@@ -196,11 +200,11 @@ After you set up the replication appliance, use the following instructions to cr
 
 4. Before you register the replication appliance, ensure that the vault's private link FQDNs are reachable from the machine hosting the replication appliance. [Learn more on how to verify network connectivity.](#troubleshoot-network-connectivity) 
 
-5. Once you verify the connectivity, download the appliance setup and key file, run the installation process, and register the appliance to Azure Migrate. Review the [detailed steps here](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines#set-up-the-replication-appliance). After you set up the replication appliance, follow these instructions to [install the mobility service](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines#install-the-mobility-service) on the machines you want to migrate. 
+5. Once you verify the connectivity, download the appliance setup and key file, run the installation process, and register the appliance to Azure Migrate. Review the [detailed steps here](./tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance). After you set up the replication appliance, follow these instructions to [install the mobility service](./tutorial-migrate-physical-virtual-machines.md#install-the-mobility-service) on the machines you want to migrate. 
 
 ### Replicate servers to Azure using Azure private link 
 
-Now, follow [these steps](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines#replicate-machines) to select servers for replication.  
+Now, follow [these steps](./tutorial-migrate-physical-virtual-machines.md#replicate-machines) to select servers for replication.  
 
 In **Replicate** > **Target settings** > **Cache/Replication storage account**, use the drop-down to select a storage account to replicate over a private link.  
 
@@ -261,7 +265,7 @@ The role permissions vary depending on the type of the storage account.
 
 ### Create a private endpoint for the storage account (optional)
 
-To replicate using ExpressRoute with private peering, [create a private endpoint](https://docs.microsoft.com/azure/private-link/tutorial-private-endpoint-storage-portal#create-storage-account-with-a-private-endpoint) for the cache/replication storage accounts (target subresource: **_blob_**). 
+To replicate using ExpressRoute with private peering, [create a private endpoint](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint) for the cache/replication storage accounts (target subresource: **_blob_**). 
 
 >[!Note]
 >
@@ -269,7 +273,7 @@ To replicate using ExpressRoute with private peering, [create a private endpoint
 
 The private endpoint for the storage account should be created in the same virtual network as the Azure Migrate project private endpoint or another virtual network connected to this network. 
 
-Select **Yes** and integrate with a private DNS zone. The private DNS zone helps in routing the connections from the virtual network to the storage account over a private link. Selecting **Yes** automatically links the DNS zone to the  virtual network and adds the DNS records for the resolution of new IPs and fully qualified domain names created. Learn more about [private DNS zones.](https://docs.microsoft.com/azure/dns/private-dns-overview)
+Select **Yes** and integrate with a private DNS zone. The private DNS zone helps in routing the connections from the virtual network to the storage account over a private link. Selecting **Yes** automatically links the DNS zone to the  virtual network and adds the DNS records for the resolution of new IPs and fully qualified domain names created. Learn more about [private DNS zones.](../dns/private-dns-overview.md)
 
 If the user creating the private endpoint is also the owner of the storage account, the private endpoint will be auto-approved. Otherwise, the owner of the storage account must approve the private endpoint for usage. To approve or reject a requested private endpoint connection, go to **Private endpoint connections** under **Networking** on the storage account page.
 
@@ -285,7 +289,7 @@ Ensure that the on-premises replication appliance has network connectivity to th
 >
 > - For Hyper-V VM migrations to Azure, if the replication storage account is of _Premium_ type, you must select another storage account of _Standard_ type for the cache storage account. In this case, you must create private endpoints for both the replication and cache storage account.  
 
-Next, follow these instructions to [review and start replication](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines#replicate-machines) and [perform migrations](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines#run-a-test-migration).  
+Next, follow these instructions to [review and start replication](./tutorial-migrate-physical-virtual-machines.md#replicate-machines) and [perform migrations](./tutorial-migrate-physical-virtual-machines.md#run-a-test-migration).  
 
 ## Troubleshoot network connectivity 
 
@@ -305,7 +309,7 @@ Make sure the private endpoint is an approved state.
 
 ### Verify DNS resolution 
 
-The on-premises appliance (or replication provider) will access the Azure Migrate resources using their fully qualified private link domain names (FQDNs). You may require additional DNS settings to resolve the private IP address of the private endpoints from the source environment. [Use this article](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#on-premises-workloads-using-a-dns-forwarder) to understand the DNS configuration scenarios that can help troubleshoot any network connectivity issues.  
+The on-premises appliance (or replication provider) will access the Azure Migrate resources using their fully qualified private link domain names (FQDNs). You may require additional DNS settings to resolve the private IP address of the private endpoints from the source environment. [Use this article](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder) to understand the DNS configuration scenarios that can help troubleshoot any network connectivity issues.  
 
 To validate the private link connection, perform a DNS resolution of the Azure Migrate resource endpoints (private link resource FQDNs) from the on-premises server hosting the Migrate appliance and ensure that it resolves to a private IP address. 
 The private endpoint details and private link resource FQDNs' information is available in the Discovery and Assessment and Server Migration properties pages. Select **Download DNS settings** to view the list.   
@@ -328,7 +332,7 @@ You can verify the DNS resolution for other Azure Migrate artifacts using a simi
 
 If the DNS resolution is incorrect, follow these steps:  
 
-- If you use a custom DNS, review your custom DNS settings, and validate that the DNS configuration is correct. For guidance, see [private endpoint overview: DNS configuration](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+- If you use a custom DNS, review your custom DNS settings, and validate that the DNS configuration is correct. For guidance, see [private endpoint overview: DNS configuration](../private-link/private-endpoint-overview.md#dns-configuration).
 - If you use Azure-provided DNS servers, refer to the below section for further troubleshooting.  
 
 > [!Tip]
@@ -349,7 +353,7 @@ The private DNS zone will be automatically created by Azure Migrate (except for 
 
 ![DNS configuration screenshot](./media/how-to-use-azure-migrate-with-private-endpoints/dns-configuration.png)  
 
-If the DNS zone is not present (as shown below), [create a new Private DNS Zone resource.](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal)  
+If the DNS zone is not present (as shown below), [create a new Private DNS Zone resource.](../dns/private-dns-getstarted-portal.md)  
 
 ![Create a Private DNS Zone](./media/how-to-use-azure-migrate-with-private-endpoints/create-dns-zone.png) 
 
@@ -360,7 +364,7 @@ Navigate to the private DNS zone resource in the Azure portal and select the vir
 
 ![View virtual network links](./media/how-to-use-azure-migrate-with-private-endpoints/virtual-network-links.png) 
 
-This will show a list of links, each with the name of a virtual network in your subscription. The virtual network that contains the Private Endpoint resource must be listed here. Else, [follow this article](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network) to link the private DNS zone to a virtual network.    
+This will show a list of links, each with the name of a virtual network in your subscription. The virtual network that contains the Private Endpoint resource must be listed here. Else, [follow this article](../dns/private-dns-getstarted-portal.md#link-the-virtual-network) to link the private DNS zone to a virtual network.    
 
 Once the private DNS zone is linked to the virtual network, DNS requests originating from the virtual network will look for DNS records in the private DNS zone. This is required for correct address resolution to the virtual network where the private endpoint was created.   
 
@@ -387,7 +391,7 @@ This is a non-exhaustive list of items that can be found in advanced or complex 
 - Network peering, which may impact which DNS servers are used and how traffic is routed.  
 - Custom gateway (NAT) solutions may impact how traffic is routed, including traffic from DNS queries.
 
-For more information, review the [troubleshooting guide for Private Endpoint connectivity problems.](https://docs.microsoft.com/azure/private-link/troubleshoot-private-endpoint-connectivity)  
+For more information, review the [troubleshooting guide for Private Endpoint connectivity problems.](../private-link/troubleshoot-private-endpoint-connectivity.md)  
 
 ## Next steps 
-- [Complete the migration process](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines#complete-the-migration) and review the [post-migration best practices](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines#post-migration-best-practices).
+- [Complete the migration process](./tutorial-migrate-physical-virtual-machines.md#complete-the-migration) and review the [post-migration best practices](./tutorial-migrate-physical-virtual-machines.md#post-migration-best-practices).

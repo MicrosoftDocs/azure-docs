@@ -40,8 +40,6 @@ To access an entity, the client requires a SAS token generated using a specific 
 
 SAS authentication support for Service Bus is included in the Azure .NET SDK versions 2.0 and later. SAS includes support for a shared access authorization rule. All APIs that accept a connection string as a parameter include support for SAS connection strings.
 
-> [!IMPORTANT]
-> If you are using Azure Active Directory Access Control (also known as Access Control Service or ACS) with Service Bus, note that the support for this method is now limited and you should [migrate your application to use SAS](service-bus-migrate-acs-sas.md) or use OAuth 2.0 authentication with Azure AD (recommended).For more information about deprecation of ACS, see [this blog post](/archive/blogs/servicebus/upcoming-changes-to-acs-enabled-namespaces).
 
 ## Next steps
 For more information about authenticating with Azure AD, see the following articles:

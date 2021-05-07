@@ -24,14 +24,12 @@ The solution described in this article will allow you to gather and analyze hist
 ## Prerequisites
 
 Before you can set up a relationship with Time Series Insights, you'll need to set up the following resources:
-* An **IoT hub**. For instructions, see the [*Create an IoT Hub*](../iot-hub/quickstart-send-telemetry-cli.md#create-an-iot-hub) section of the *IoT Hub's Send Telemetry* quickstart.
-* An **Azure Digital Twins instance**.
-For instructions, see [*How-to: Set up an Azure Digital Twins instance and authentication*](./how-to-set-up-instance-portal.md).
-* A **model and a twin in the Azure Digital Twins instance**.
-You'll need to update twin's information a few times to see that data tracked in Time Series Insights. For instructions, see the [*Add a model and twin*](how-to-ingest-iot-hub-data.md#add-a-model-and-twin) section of the *How to: Ingest IoT hub* article.
+* An **IoT hub**. For instructions, see the [Create an IoT Hub](../iot-hub/quickstart-send-telemetry-cli.md#create-an-iot-hub) section of the *IoT Hub's Send Telemetry* quickstart.
+* An **Azure Digital Twins instance**. For instructions, see [How-to: Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md).
+* A **model and a twin in the Azure Digital Twins instance**. You'll need to update twin's information a few times to see that data tracked in Time Series Insights. For instructions, see the [Add a model and twin](how-to-ingest-iot-hub-data.md#add-a-model-and-twin) section of the *How to: Ingest IoT hub* article.
 
 > [!TIP]
-> In this article, the changing digital twin values that are viewed in Time Series Insights are updated manually for simplicity. However, if you'd like to complete this article with live simulated data, you can set up an Azure function that updates digital twins based on IoT telemetry events from a simulated device. For instructions, follow [*How to: Ingest IoT Hub data*](how-to-ingest-iot-hub-data.md), including the final steps to run the device simulator and validate that the data flow works.
+> In this article, the changing digital twin values that are viewed in Time Series Insights are updated manually for simplicity. However, if you want to complete this article with live simulated data, you can set up an Azure function that updates digital twins based on IoT telemetry events from a simulated device. For instructions, follow [How to: Ingest IoT Hub data](how-to-ingest-iot-hub-data.md), including the final steps to run the device simulator and validate that the data flow works.
 >
 > Later, look for another TIP to show you where to start running the device simulator and have your Azure functions update the twins automatically, instead of sending manual digital twin update commands.
 
@@ -50,7 +48,7 @@ You will be attaching Time Series Insights to Azure Digital Twins through the pa
 
 ## Create event hub namespace
 
-Before creating the event hubs, you'll first create an event hub namespace that will receive events from your Azure Digital Twins instance. You can either use the Azure CLI instructions below, or use the Azure portal: [*Quickstart: Create an event hub using Azure portal*](../event-hubs/event-hubs-create.md). To see what regions support event hubs, visit [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=event-hubs).
+Before creating the event hubs, you'll first create an event hub namespace that will receive events from your Azure Digital Twins instance. You can either use the Azure CLI instructions below, or use the Azure portal: [Quickstart: Create an event hub using Azure portal](../event-hubs/event-hubs-create.md). To see what regions support event hubs, visit [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-hubs).
 
 ```azurecli-interactive
 az eventhubs namespace create --name <name-for-your-event-hubs-namespace> --resource-group <your-resource-group> -l <region>
@@ -101,7 +99,7 @@ az dt endpoint create eventhub -n <your-Azure-Digital-Twins-instance-name> --eve
 
 ### Create twins hub event route
 
-Azure Digital Twins instances can emit [twin update events](how-to-interpret-event-data.md) whenever a twin's state is updated. In this section, you'll create an Azure Digital Twins **event route** that will direct these update events to the twins hub for further processing.
+Azure Digital Twins instances can emit [twin update events](./concepts-event-notifications.md) whenever a twin's state is updated. In this section, you'll create an Azure Digital Twins **event route** that will direct these update events to the twins hub for further processing.
 
 Create a [route](concepts-route-events.md#create-an-event-route) in Azure Digital Twins to send twin update events to your endpoint from above. The filter in this route will only allow twin update messages to be passed to your endpoint. Specify a name for the twins hub event route.
 
@@ -163,7 +161,7 @@ In this section, you'll create an Azure function that will convert twin update e
 
 ### Step 1: Create function app
 
-First, create a new function app project in Visual Studio. For instructions on how to do this, see the [**Create a function app in Visual Studio**](how-to-create-azure-function.md#create-a-function-app-in-visual-studio) section of the *How-to: Set up a function for processing data* article.
+First, create a new function app project in Visual Studio. For instructions on how to do this, see the [Create a function app in Visual Studio](how-to-create-azure-function.md#create-a-function-app-in-visual-studio) section of the *How-to: Set up a function for processing data* article.
 
 ### Step 2: Add a new function
 
@@ -188,13 +186,13 @@ Save your function code.
 
 Publish the project with the *ProcessDTUpdatetoTSI.cs* function to a function app in Azure.
 
-For instructions on how to do this, see the section [**Publish the function app to Azure**](how-to-create-azure-function.md#publish-the-function-app-to-azure) of the *How-to: Set up a function for processing data* article.
+For instructions on how to do this, see the section [Publish the function app to Azure](how-to-create-azure-function.md#publish-the-function-app-to-azure) of the *How-to: Set up a function for processing data* article.
 
 Save the function app name to use later to configure app settings for the two event hubs.
 
 ### Step 5: Security access for the function app
 
-Next, **assign an access role** for the function and **configure the application settings** so that it can access your Azure Digital Twins instance. For instructions on how to do this, see the section [**Set up security access for the function app**](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) of the *How-to: Set up a function for processing data* article.
+Next, **assign an access role** for the function and **configure the application settings** so that it can access your Azure Digital Twins instance. For instructions on how to do this, see the section [Set up security access for the function app](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) of the *How-to: Set up a function for processing data* article.
 
 ### Step 6: Configure app settings for the two event hubs
 
@@ -214,7 +212,7 @@ az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<your-t
 
 ## Create and connect a Time Series Insights instance
 
-In this section, you'll set up Time Series Insights instance to receive data from your time series hub. For more details about this process, see [*Tutorial: Set up an Azure Time Series Insights Gen2 PAYG environment*](../time-series-insights/tutorial-set-up-environment.md). Follow the steps below to create a time series insights environment.
+In this section, you'll set up Time Series Insights instance to receive data from your time series hub. For more details about this process, see [Tutorial: Set up an Azure Time Series Insights Gen2 PAYG environment](../time-series-insights/tutorial-set-up-environment.md). Follow the steps below to create a time series insights environment.
 
 1. In the [Azure portal](https://portal.azure.com), search for *Time Series Insights environments*, and select the **Add** button. Choose the following options to create the time series environment.
 
@@ -223,7 +221,7 @@ In this section, you'll set up Time Series Insights instance to receive data fro
     * **Environment name** - Specify a name for your time series environment.
     * **Location** - Choose a location.
     * **Tier** - Choose the **Gen2(L1)** pricing tier.
-    * **Property name** - Enter **$dtId** (Read more about selecting an ID value in [*Best practices for choosing a Time Series ID*](../time-series-insights/how-to-select-tsid.md)).
+    * **Property name** - Enter **$dtId** (Read more about selecting an ID value in [Best practices for choosing a Time Series ID](../time-series-insights/how-to-select-tsid.md)).
     * **Storage account name** - Specify a storage account name.
     * **Enable warm store** - Leave this field set to *Yes*.
 
@@ -262,7 +260,7 @@ az dt twin update -n <your-azure-digital-twins-instance-name> --twin-id thermost
 **Repeat the command at least 4 more times with different temperature values**, to create several data points that can be observed later in the Time Series Insights environment.
 
 > [!TIP]
-> If you'd like to complete this article with live simulated data instead of manually updating the digital twin values, first make sure you've completed the TIP from the [*Prerequisites*](#prerequisites) section to set up an Azure function that updates twins from a simulated device.
+> If you want to complete this article with live simulated data instead of manually updating the digital twin values, first make sure you've completed the TIP from the [Prerequisites](#prerequisites) section to set up an Azure function that updates twins from a simulated device.
 After that, you can run the device now to start sending simulated data and updating your digital twin through that data flow.
 
 ## Visualize your data in Time Series Insights
@@ -273,9 +271,9 @@ Now, data should be flowing into your Time Series Insights instance, ready to be
 
     :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Screenshot of the Azure portal to select the Time Series Insights explorer URL in the overview tab of your Time Series Insights environment." lightbox="media/how-to-integrate-time-series-insights/view-environment.png":::
 
-2. In the explorer, you will see the twins in the Azure Digital Twins instance shown on the left. Select the *thermostat67* twin, choose the property *Temperature*, and hit **Add**.
+2. In the explorer, you will see the twins in the Azure Digital Twins instance shown on the left. Select the *thermostat67* twin, choose the property *Temperature*, and select **Add**.
 
-    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Screenshot of the Time Series Insights explorer to select thermostat67, select the property temperature, and hit add." lightbox="media/how-to-integrate-time-series-insights/add-data.png":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Screenshot of the Time Series Insights explorer to select thermostat67, select the property temperature, and select add." lightbox="media/how-to-integrate-time-series-insights/add-data.png":::
 
 3. You should now see the initial temperature readings from your thermostat, as shown below. 
 
@@ -289,9 +287,9 @@ If you allow a simulation to run for much longer, your visualization will look s
 
 The digital twins are stored by default as a flat hierarchy in Time Series Insights, but they can be enriched with model information and a multi-level hierarchy for organization. To learn more about this process, read: 
 
-* [*Tutorial: Define and apply a model*](../time-series-insights/tutorial-set-up-environment.md#define-and-apply-a-model) 
+* [Tutorial: Define and apply a model](../time-series-insights/tutorial-set-up-environment.md#define-and-apply-a-model) 
 
 You can write custom logic to automatically provide this information using the model and graph data already stored in Azure Digital Twins. To read more about managing, upgrading, and retrieving information from the twins graph, see the following references:
 
-* [*How-to: Manage a digital twin*](./how-to-manage-twin.md)
-* [*How-to: Query the twin graph*](./how-to-query-graph.md)
+* [How-to: Manage a digital twin](./how-to-manage-twin.md)
+* [How-to: Query the twin graph](./how-to-query-graph.md)

@@ -4,7 +4,8 @@ description: Describes how to create a resource provider and deploy its custom r
 author: MSEvanhi
 ms.topic: tutorial
 ms.date: 06/24/2020
-ms.author: evanhi
+ms.author: evanhi 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart: Create a custom provider and deploy custom resources
@@ -260,7 +261,7 @@ You receive the response:
 
 ## Custom resource provider commands
 
-Use the [custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) commands to work with your custom resource provider.
+Use the [custom-providers](/cli/azure/custom-providers/resource-provider) commands to work with your custom resource provider.
 
 ### List custom resource providers
 

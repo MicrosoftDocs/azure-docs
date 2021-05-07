@@ -226,13 +226,13 @@ Again, this limit is not for an individual metric. It’s for the sum of all suc
 
 **Metrics with a variable in the name** – Do not use a variable as part of the metric name, use a constant instead. Each time the variable changes its value, Azure Monitor will generate a new metric, quickly hitting the limits on the number of metrics. Generally, when the developers want to include a variable in the metric name, they really want to track multiple timeseries within one metric and should use dimensions instead of variable metric names. 
 
-**High cardinality metric dimensions** - Metrics with too many valid values in a dimension (a “high cardinality”) are much more likely to hit the 50k limit. In general, you should never use a constantly changing value in a dimension or metric name. Timestamp, for example, should NEVER be a dimension. Server, customer or productid could be used, but only if you have a smaller number of each of those types. As a test, ask yourself if you would ever chart such data on a graph.  If you have 10 or maybe even 100 servers, it might be useful to see them all on a graph for comparison. But if you have 1000, the resulting graph would likely be difficult if not impossible to read. Best practice is to keep it to fewer to 100 valid values. Up to 300 is a grey area.  If you need to go over this amount, use Azure Monitor custom logs instead.   
+**High cardinality metric dimensions** - Metrics with too many valid values in a dimension (a “high cardinality”) are much more likely to hit the 50k limit. In general, you should never use a constantly changing value in a dimension. Timestamp, for example, should NEVER be a dimension. Server, customer or productid could be used, but only if you have a smaller number of each of those types. As a test, ask yourself if you would ever chart such data on a graph.  If you have 10 or maybe even 100 servers, it might be useful to see them all on a graph for comparison. But if you have 1000, the resulting graph would likely be difficult if not impossible to read. Best practice is to keep it to fewer to 100 valid values. Up to 300 is a grey area.  If you need to go over this amount, use Azure Monitor custom logs instead.   
 
 If you have a variable in the name or a high cardinality dimension, the following can occur:
 - Metrics become unreliable due to throttling
 - Metrics Explorer doesn’t work
 - Alerting and notifications become unpredictable
-- Costs can increase unexpectedably -  Microsoft is not charging while the custom metrics with dimensions are in public preview. However, once charges start in the future, you will incur unexpected charges. The plan is to charge for metrics consumption based on the number of time-series monitored and number of API calls made.  
+- Costs can increase unexpectedly -  Microsoft is not charging while the custom metrics with dimensions are in public preview. However, once charges start in the future, you will incur unexpected charges. The plan is to charge for metrics consumption based on the number of time-series monitored and number of API calls made.  
 
 ## Next steps
 Use custom metrics from different services: 

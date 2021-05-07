@@ -9,7 +9,8 @@ author: mikebudzynski
 ms.service: api-management
 ms.topic: article
 ms.date: 04/15/2021
-ms.author: apimpm
+ms.author: apimpm 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Overview of the developer portal

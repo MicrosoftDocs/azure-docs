@@ -178,6 +178,24 @@ Query latency varies based on the load of the service and services under higher 
 | 50%  | 63 ms  | 39 ms  | 81 ms   | 106 ms | 123 ms | 163 ms |
 | 80%  | 115 ms  | 73 ms  | 145 ms   | 191 ms | 224 ms | 291 ms |
 
+### S3 Performance
+
+#### Queries per second
+
+The chart below shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
+
+![Highest maintainable QPS doc search s3](./media/performance-benchmarks/s3-docsearch-qps.png)
+
+#### Query latency
+
+Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The table below show the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
+
+| Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
+|---|---|---|---| --- | --- | --- |
+| 20%  | 43 ms  | 29 ms  | 53 ms   | 74 ms | 86 ms | 111 ms |
+| 50%  | 65 ms  | 37 ms  | 85 ms   | 111 ms | 128 ms | 164 ms |
+| 80%  | 126 ms  | 83 ms  | 162 ms   | 205 ms | 233 ms | 281 ms |
+
 ## Takeaways
 
 Through these benchmarks, you can get an idea of the performance Azure Cognitive Search offers. You can also see difference between services at different tiers.

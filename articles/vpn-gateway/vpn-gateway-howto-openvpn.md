@@ -1,6 +1,7 @@
 ---
-title: 'How to configure OpenVPN for Azure VPN Gateway'
-description: Learn how to enable OpenVPN Protocol on Azure VPN Gateway for a point-to-site environment.
+title: 'How to enable OpenVPN for P2S VPN gateways'
+titleSuffix: Azure VPN Gateway
+description: Learn how to enable OpenVPN Protocol on VPN gateways for point-to-site configurations.
 services: vpn-gateway
 author: cherylmc
 
