@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Create and use native external tables using SQL pools in Azure Synapse Analytics
 
-In this section, you'll learn how to create and use [native external tables](develop-tables-external-tables.md) in Synapse SQL pools. The native external tables are the latest technology that will be used in future in Polybase to access external tables. The native external tables have better performance compared to the existing external tables with TYPE=HADOOP in their external data source definition because they are using the native code to access external data. 
+In this section, you'll learn how to create and use [native external tables](develop-tables-external-tables.md) in Synapse SQL pools. The native external tables are the latest technology that will be used in future in Polybase to access external tables. The native external tables have better performance compared to the existing external tables with `TYPE=HADOOP` in their external data source definition because they are using the native code to access external data. 
 
 External tables are useful when you want to control access to external data in Synapse SQL pool and if you want to use tools, such as Power BI, in conjunction with Synapse SQL pool. External tables can access two types of storage:
 - Public storage where users access public storage files.
@@ -25,7 +25,7 @@ External tables are useful when you want to control access to external data in S
 
 ## Prerequisites
 
-Your first step is to create a database where the tables will be created. Then initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. This setup script will create the following objects that are used in this sample:
+Your first step is to create a database where the tables will be created. Then create the following objects that are used in this sample:
 - DATABASE SCOPED CREDENTIAL `sqlondemand` that enables access to SAS-protected `https://sqlondemandstorage.blob.core.windows.net` Azure storage account.
 
     ```sql
@@ -34,7 +34,7 @@ Your first step is to create a database where the tables will be created. Then i
     SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
     ```
 
-- EXTERNAL DATA SOURCE `sqlondemanddemo` that references demo storage account protected with SAS key, and EXTERNAL DATA SOURCE `YellowTaxi` that references publicly available Azure storage account on location `https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/`.
+- EXTERNAL DATA SOURCE `sqlondemanddemo` that references demo storage account protected with SAS key, and EXTERNAL DATA SOURCE `nyctlc` that references publicly available Azure storage account on location `https://azureopendatastorage.blob.core.windows.net/nyctlc/`.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
@@ -88,11 +88,12 @@ WITH (
 );
 ```
 
+Native CSV tables are currently available only in the serverless SQL pools.
+
 ## Create an external table on public data
 
-You can create external tables that read data from the files placed on publicly available Azure storage. This [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) will create public external data source and Parquet file format definition that is used in the following query:
+You can create external tables that read data from the files placed on publicly available Azure storage:
 
-#### [Serverless SQL pool](#tab/serverless-sql-pool)
 ```sql
 CREATE EXTERNAL TABLE Taxi (
      vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
@@ -110,28 +111,6 @@ CREATE EXTERNAL TABLE Taxi (
          FILE_FORMAT = ParquetFormat
 );
 ```
-#### [Dedicated SQL pool](#tab/dedicated-sql-pool)
-
-```sql
-CREATE EXTERNAL TABLE Taxi (
-     vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
-     pickup_datetime DATETIME2, 
-     dropoff_datetime DATETIME2,
-     passenger_count INT,
-     trip_distance FLOAT,
-     fare_amount FLOAT,
-     tip_amount FLOAT,
-     tolls_amount FLOAT,
-     total_amount FLOAT
-) WITH (
-         LOCATION = 'yellow',
-         DATA_SOURCE = nyctlc,
-         FILE_FORMAT = ParquetFormat
-);
-```
-
-The Parquet external tables (preview) in dedicated SQL pools cannot use wildcards in the location.
----
 
 ## Use an external table
 
@@ -154,6 +133,8 @@ WHERE
 ORDER BY
     [population] DESC;
 ```
+
+Note that the performance of this query might vary depending on the region. Your workspace might not be placed in the same region as the Azure storage accounts used in these samples. In the production workloads place your Synapse workspace and Azure storage in the same region.
 
 ## Next steps
 
