@@ -117,7 +117,7 @@ Use these detailed steps and commands to migrate your Apache HBase cluster with 
 Run the following commands, depending on your source HDI version and whether the source and destination clusters have Accelerated Writes. The destination cluster is always HDI version 4.0, since HDI 3.6 is in Basic support and isn't recommended for new clusters.
 
 - [The source cluster is HDI 3.6 with Accelerated Writes, and the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-36-or-hdi-40-with-accelerated-writes-and-the-destination-cluster-has-accelerated-writes).
-- [The source cluster is HDI 3.6 without Accelerated Writes, and the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-36-with-accelerated-writes-and-the-destination-cluster-has-accelerated-writes).
+- [The source cluster is HDI 3.6 without Accelerated Writes, and the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-36-without-accelerated-writes-and-the-destination-cluster-has-accelerated-writes).
 - [The source cluster is HDI 3.6 without Accelerated Writes, and the destination cluster doesn't have Accelerated Writes](#the-source-cluster-is-hdi-36-without-accelerated-writes-and-the-destination-cluster-doesnt-have-accelerated-writes).
 - [The source cluster is HDI 4.0 with Accelerated Writes, and the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-36-or-hdi-40-with-accelerated-writes-and-the-destination-cluster-has-accelerated-writes).
 - [The source cluster is HDI 4.0 without Accelerated Writes, and the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-40-without-accelerated-writes-and-the-destination-cluster-has-accelerated-writes).

@@ -130,13 +130,13 @@ Run the following commands, depending on your source HDI version and whether the
 > - The `<source-container-fullpath>` for storage type Azure Data Lake Storage Gen2 is `abfs://<source-container-name>@<storageaccountname>.dfs.core.windows.net`.
 
 - [The source cluster is HDI 3.6 with Accelerated Writes, and the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-36-or-hdi-40-with-accelerated-writes-and-the-destination-cluster-has-accelerated-writes).
-- [The source cluster is HDI 3.6 without Accelerated Writes, and the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-36-with-accelerated-writes-and-the-destination-cluster-has-accelerated-writes).
+- [The source cluster is HDI 3.6 without Accelerated Writes, and the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-36-without-accelerated-writes-and-the-destination-cluster-has-accelerated-writes).
 - [The source cluster is HDI 3.6 without Accelerated Writes, and the destination cluster doesn't have Accelerated Writes](#the-source-cluster-is-hdi-36-without-accelerated-writes-and-the-destination-cluster-doesnt-have-accelerated-writes).
 - [The source cluster is HDI 4.0 with Accelerated Writes, and the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-36-or-hdi-40-with-accelerated-writes-and-the-destination-cluster-has-accelerated-writes).
 - [The source cluster is HDI 4.0 without Accelerated Writes, and the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-40-without-accelerated-writes-and-the-destination-cluster-has-accelerated-writes).
 - [The source cluster is HDI 4.0 without Accelerated Writes, and the destination cluster doesn't have Accelerated Writes](#the-source-cluster-is-hdi-40-without-accelerated-writes-and-the-destination-cluster-doesnt-have-accelerated-writes).
 
-#### The source cluster is HDI 3.6 or HDI 4.0 with Accelerated Writes, and the destination cluster haa Accelerated Writes
+#### The source cluster is HDI 3.6 or HDI 4.0 with Accelerated Writes, and the destination cluster has Accelerated Writes
 
 Clean the WAL FS data for the destination cluster, and copy the WAL directory from the source cluster into the destination cluster's HDFS. Copy the directory by running the following commands in any Zookeeper node or worker node on the destination cluster:
 
@@ -153,7 +153,7 @@ sudo -u hbase hdfs dfs -rm -r hdfs://mycluster/hbasewal
 sudo -u hbase hdfs dfs -Dfs.azure.page.blob.dir="/hbase/WALs,/hbase/MasterProcWALs,/hbase/oldWALs" -cp <source-container>/hbase/*WALs hdfs://mycluster/hbasewal
 ```
 
-#### The source cluster is HDI 3.6 without Accelerated Writes, and the destination clusters doesn't have Accelerated Writes
+#### The source cluster is HDI 3.6 without Accelerated Writes, and the destination cluster doesn't have Accelerated Writes
 
 Clean the WAL FS data for the destination cluster, and copy the source cluster WAL directory into the destination cluster's HDFS. To copy the directory, run the following commands in any Zookeeper node or worker node on the destination cluster:
 
