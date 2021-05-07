@@ -1,6 +1,6 @@
 ---
 title: Azure Event Grid on Kubernetes - create topics and subscriptions
-description: This article describes how to create an event grid topic on a Kubernetes cluster connected to Azure Arc and then create a subscription for the topic. 
+description: This article describes how to create an event grid topic on a Kubernetes cluster that's connected to Azure Arc and then create a subscription for the topic. 
 author: spelluru
 manager: JasonWHowell
 ms.author: spelluru
@@ -9,14 +9,13 @@ ms.topic: quickstart
 ---
 
 # Azure Event Grid on kubernetes - Create a topic and subscriptions
-In this quickstart, you will create a topic in Event Grid on Kubernetes, create a subscription for the topic, and then send a sample event to the topic to test the scenario. 
+In this quickstart, you'll create a topic in Event Grid on Kubernetes, create a subscription for the topic, and then send a sample event to the topic to test the scenario. 
 
 ## Prerequisites
 
 1. [Connect your Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md)
 1. Deploy the Event Grid Kubernetes extension. 
 1. Create a custom location.
-1. Download and install [Azure Resource Manager client (armclient)](https://github.com/yangl900/armclient-go). This command-line tool will allow you to send request to Azure to create and manage resources.
 
 ## Create a topic
 
@@ -41,7 +40,7 @@ Specify values for the place holders before running the command:
     - Name of the resource group that contains the custom location.
     - Name of the custom location
 
-For more information about the CLI command, see [az eventgrid topic create](/cli/azure/eventgrid/topic#az_eventgrid_topic_create).
+For more information about the CLI command, see [`az eventgrid topic create`](/cli/azure/eventgrid/topic#az_eventgrid_topic_create).
 
 ## Create a message endpoint
 Before you create a subscription for the custom topic, create an endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
@@ -79,33 +78,55 @@ Specify values for the place holders before running the command:
     - Name of the topic. 
     - Name of the web site for Event Grid Viewer.
     
-For more information about the CLI command, see [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create).
+For more information about the CLI command, see [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create).
 
 
 ## Send events to the topic
 1. Run the following command to get the **endpoint** for the topic: After you copy and paste the command, update the **topic name** and **resource group name** before you run the command. You'll publish sample events to this topic endpoint. 
 
     ```azurecli
-    endpoint=$(az eventgrid topic show --name <topic name> -g <resource group name> --query "endpoint" --output tsv)
+    az eventgrid topic show --name <topic name> -g <resource group name> --query "endpoint" --output tsv
     ```
 2. Run the following command to get the **key** for the custom topic: After you copy and paste the command, update the **topic name** and **resource group** name before you run the command. It's the primary key of the topic. To get this key from the Azure portal, switch to the **Access keys** tab of the **Event Grid Topic** page. To be able post an event to a custom topic, you need the access key. 
 
     ```azurecli
-    key=$(az eventgrid topic key list --name <topic name> -g <resource group name> --query "key1" --output tsv)
+    az eventgrid topic key list --name <topic name> -g <resource group name> --query "key1" --output tsv
     ```
-3. Copy the following statement with the event definition, and press **ENTER**. 
+3. Create file named **evt.json** with the following content: 
 
     ```json
-    event='[{"specVersion": "1.0", "type" : "orderCreated", "source": "myCompanyName/us/webCommerceChannel/myOnlineCommerceSiteBrandName", "id" : "eventId-n","time" : "2020-12-25T20:54:07+00:00", "subject" : "account/acct-123224/order/o-123456", "dataSchema" : "1.0", "data" : { "orderId" : "123", "orderType" : "PO", "reference" : "https://www.myCompanyName.com/orders/123"}}]'
+    [{
+          "specVersion": "1.0",
+          "type" : "orderCreated",
+          "source": "myCompanyName/us/webCommerceChannel/myOnlineCommerceSiteBrandName",
+          "id" : "eventId-n",
+          "time" : "2020-12-25T20:54:07+00:00",
+          "subject" : "account/acct-123224/order/o-123456",
+          "dataSchema" : "1.0",
+          "data" : {
+             "orderId" : "123",
+             "orderType" : "PO",
+             "reference" : "https://www.myCompanyName.com/orders/123"
+          }
+    }]
     ```
-4. Run the following **Curl** command to post the event: In the command, `aeg-sas-key` header is set to the access key you got earlier. 
+4. Run the following **Curl** command to post the event. Specify the endpoint URL and key from step 1 and 2 before running the command. 
 
     ```
-    curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
+    curl -k -X POST -H "Content-Type: application/cloudevents-batch+json" -H "aeg-sas-key: <KEY FROM STEP 2>" -g -d @evt.json <ENDPOINT URL from STEP 1>
     ```
+
+    > [!NOTE]
+    > To learn how to send cloud events using programming languages, see the following samples: 
+    > - [C#](/samples/azure/azure-sdk-for-net/azure-event-grid-sdk-samples/).
+    > - [Java](/samples/azure/azure-sdk-for-java/eventgrid-samples/)
+    > - [JavaScript](/samples/azure/azure-sdk-for-js/eventgrid-javascript/) and [TypeScript](/samples/azure/azure-sdk-for-js/eventgrid-typescript/)
+    > - [Python](/samples/azure/azure-sdk-for-python/eventgrid-samples/)
 
 ### Verify in the Event Grid Viewer
 You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. View your web app to see the event you just sent.
+
+:::image type="content" source="./media/create-topic-subscription/viewer-received-event.png" alt-text="View received event in Event Grid Viewer":::
 
 ## Next steps
 See [Event handlers and destinations](event-handlers.md) to learn about all the event handlers and destinations that Event Grid on Kubernetes supports. 
