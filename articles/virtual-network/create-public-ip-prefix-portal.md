@@ -46,10 +46,10 @@ In this section, you'll create the public IP prefix in the Azure portal.
     | IP version | Leave the default of **IPv4**. |
     | Prefix size | Select your prefix size. |
 
-:::image type="content" source="./media/create-public-ip-prefix-portal/create-public-ip-prefix.png" alt-text="Create public IP address prefix in Azure portal" border="true":::
+    :::image type="content" source="./media/create-public-ip-prefix-portal/create-public-ip-prefix.png" alt-text="Create public IP address prefix in Azure portal" border="true":::
     
-> [!NOTE]
->To create an IPv6 prefix, choose **IPv6** for the **IP Version**.
+    > [!NOTE]
+    >To create an IPv6 prefix, choose **IPv6** for the **IP Version**.
 
 6. Select the **Review + create** tab or the blue **Review + create** button at the bottom of the page.
 
@@ -66,7 +66,7 @@ Once you create a prefix, you must create static IP addresses from the prefix. I
 
 4. In **Overview** of **myPublicIPPrefix**, select **+ Add IP address**.
 
-:::image type="content" source="./media/create-public-ip-prefix-portal/add-ip-address.png" alt-text="Create public IP address from prefix in Azure portal" border="true":::
+    :::image type="content" source="./media/create-public-ip-prefix-portal/add-ip-address.png" alt-text="Create public IP address from prefix in Azure portal" border="true":::
 
 5. Enter **myPublicIP** in **Name**. 
 
@@ -74,8 +74,8 @@ Once you create a prefix, you must create static IP addresses from the prefix. I
 
 7. Select **Add**.
 
->[!NOTE]
->Only static public IP addresses created with the standard SKU can be assigned from the prefix's range. To learn more about public IP address SKUs, see [public IP address](./public-ip-addresses.md#public-ip-addresses).
+    >[!NOTE]
+    >Only static public IP addresses created with the standard SKU can be assigned from the prefix's range. To learn more about public IP address SKUs, see [public IP address](./public-ip-addresses.md#public-ip-addresses).
 
 8. Select **Public IP addresses** in **Settings** to view the created IP address.
 ## Delete a prefix
@@ -90,8 +90,8 @@ In this section, you'll learn how to view or delete a prefix.
 
 4. Select **Delete** in the **Overview** section.
 
->[!NOTE]
->If addresses within the prefix are associated to public IP address resources, you must first delete the public IP address resources. See [delete a public IP address](virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address).
+    >[!NOTE]
+    >If addresses within the prefix are associated to public IP address resources, you must first delete the public IP address resources. See [delete a public IP address](virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address).
 
 ## Clean up resources
 
