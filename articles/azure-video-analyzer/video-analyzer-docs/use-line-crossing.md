@@ -9,7 +9,7 @@ ms.date: 04/01/2021
 
 This quickstart shows you how to use Azure Video Analyzer on IoT Edge to create a line crossing and get events when objects cross that line in a live video feed from a (simulated) IP camera. You will see how to apply a computer vision model to detect objects in a subset of the frames in the live video feed. You can then use an object tracker node to track those objects in the other frames and pass them through a line crossing node.
 
-The line crossing node comes in handy when you want to detect obects that cross the imaginary line and emit events. The events contain the direction (clockwise, counterclockwise) and a counter per direction.  
+The line crossing node comes in handy when you want to detect objects that cross the imaginary line and emit events. The events contain the direction (clockwise, counterclockwise) and a total counter per direction.  
 
 This quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream.
 
@@ -30,7 +30,7 @@ This quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated 
 
 This diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/azure-video-analyzer/tree/master/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline.md#http-extension-processor) node.
 
-The HTTP extension node plays the role of a proxy. It converts every 10th video frame to the specified image type. Then it relays the image over HTTP to another edge module that runs an AI model behind a HTTP endpoint. In this example, that edge module is built by using the [YOLOv3](https://github.com/Azure/azure-video-analyzer/tree/master/edge-modules/extensions/yolo/yolov3) model, which can detect many types of objects. The HTTP extension processor node gathers the detection results and sends these results and all the video frames (not just the 10th frame) to the object tracker node. The object tracker node uses optical flow techniques to track the object in the 9 frames that did not have the AI model applied to them. The tracker node publishes its results to the IoT Hub sink node. This [IoT Hub sink](pipeline.md#iot-hub-message-sink) node then sends those events to [IoT Edge Hub](https://docs.microsoft.com/azure/iot-fundamentals/iot-glossary?view=iotedge-2020-11&preserve-view=true#iot-edge-hub).
+The HTTP extension node plays the role of a proxy. It converts every 10th video frame to the specified image type. Then it relays the image over HTTP to another edge module that runs an AI model behind a HTTP endpoint. In this example, that edge module is built by using the [YOLOv3](https://github.com/Azure/azure-video-analyzer/tree/master/edge-modules/extensions/yolo/yolov3) model, which can detect many types of objects. The HTTP extension processor node gathers the detection results and sends these results and all the video frames (not just the 10th frame) to the object tracker node. The object tracker node uses optical flow techniques to track the object in the 9 frames that did not have the AI model applied to them. The tracker node publishes its results to the IoT Hub message sink node. This [IoT Hub message sink](pipeline.md#iot-hub-message-sink) node then sends those events to [IoT Edge Hub](https://docs.microsoft.com/azure/iot-fundamentals/iot-glossary?view=iotedge-2020-11&preserve-view=true#iot-edge-hub).
 
 The line crossing node will receive the results from the upstream object tracker node. When objects cross the line the line crossing node will emit an event. The events are send to the IoT Edge Hub message sink. 
 
@@ -40,7 +40,7 @@ In this quickstart, you will:
 1. Deploy the required edge modules.
 1. Create and deploy the live pipeline.
 1. Interpret the results.
-1. Understand line calculation.
+1. Understand how to calculate coordinates.
 1. Clean up resources.
 
 ## Set up your development environment
@@ -152,7 +152,7 @@ Also look at the line crossing node parameter placeholders `linecrossingName` an
       "parameters": [
         {
           "name": "rtspUrl",
-          "value": "rtsp://rtspsim:554/media/cafetaria-01.mkv"
+          "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
         },
         {
           "name": "rtspUserName",
@@ -163,8 +163,8 @@ Also look at the line crossing node parameter placeholders `linecrossingName` an
           "value": "testpassword"
         }
       ]
+     }
     }
-  }
     ```
     * A call to livePipelineActivate that starts the live pipeline and the flow of video.
     * A second call to livePipelineList that shows that the live pipeline is in the running state.
@@ -215,7 +215,7 @@ In this message, notice these details:
 
 ## Line Crossing events
 
-The HTTP extension processor node sends the 0th, 15th, 30th, … etc. frames to the avaextension module, and receives the inference results. It then sends these results and all video frames to the object tracker node. The events are then received by the Line Crossing node which will evaluate the values against the line coordinates specified in the topology. When objects cross these coordinates an events is triggered. The event looks like this:
+The HTTP extension processor node sends the 0th, 15th, 30th, … etc. frames to the avaextension module, and receives the inference results. It then sends these results and all video frames to the object tracker node. The events are then received by the line crossing node which will evaluate the values against the line coordinates as specified in the topology. When objects cross these coordinates an events is triggered. The event looks like this:
 ```
 {
   "body": {
@@ -250,26 +250,29 @@ In this message, notice these details:
 
 ## Customize for your own environment
 
-This tutorial will work with the provided sample video for which we have calculated the correct line coordinates of the line. When you examine the topology file you will see that the lineCoordinate parameter contains the following value:
+This tutorial will work with the provided sample video for which we have calculated the correct line coordinates of the line. When you examine the topology file you will see that the `lineCoordinate` parameter contains the following value:
 `[[0.5,0.1], [0.5,0.9]]`
 
 What does this value mean? When you want to draw a line on a 2D image you need two points, A and B, and between those points you will have an imaginary line. Each point will have its own x and y coordinates to tertermine where it is with respect to the full image resolution. In this case point A is `[0.5,0.1]` and point B is `[0.5,0.9]`. A visual representation of the that line looks like this:
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/track-objects-live-video/line-crossing-visual-example.png" alt-text="Line crossing visual example":::
 
-In this image you see the line between point A and point B. Any object that moves across the line will create an event with its properties like direction. Also notice the X and Y axis in the bottom left corner. This is just for illustration to explain how we normalize the coordinates to the values we expect for the line crossing node. Here is an example calculation:
-Lets say that the video resolution is 1920 x 1080. 1920 being the X and 1080 being the Y axis respectively.
+In this image you see the line between point A and point B. Any object that moves across the line will create an event with its properties like direction as discussed earlier in this tutorial. Also notice the x and y axis in the bottom left corner. This is just for illustration to explain how we normalize the coordinates to the values we expect for the line crossing node. 
+
+Here is an example calculation:
+Lets say that the video resolution is 1920 x 1080. 1920 being the x and 1080 being the y axis respectively.
 Create a frame image from a video you plan to use. 
 Now open that image in an image editor program (i.e. MSPaint). Move you cursor to the location where you want to specify point A. In the bottom left corner you will see the x and y coordinates for that curson position.
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/track-objects-live-video/line-crossing-mspaint-coordinates.png" alt-text="Line crossing MSPaint visual example":::
 
-Note down these values and repeat the same for point B and note down the same values. By now you should have a x and y value for point A and a x and y value for point B.
+Note down these values and repeat the same for point B and note down the same values. By now you should have the x and y values for point A and the x and y values for point B.
 For example:
 point A: x=1024, y=96
 Point B: x=1024, y=960
 These values do not look like values that would go into the line crossing node since we need numbers between 0 and 1. To calculate this you apply the following formula:
-`x coordinate / x image resolution` in our example that is `1024/1920 = 0.53`. Now do the same for y `96/1080=0.9`. These are the normalized coordinates for point A. Repeat this for point B. You will end up with an array of values between 0 and 1 as shown earlier in this tutorial.
+
+`x coordinate / x image resolution` in our example that is `1024/1920 = 0.5`. Now do the same for y `96/1080=0.9`. These are the normalized coordinates for point A. Repeat this for point B. You will end up with an array of values between 0 and 1 `[[0.5,0.1], [0.5,0.9]]` as shown earlier in this tutorial.
 
 ## Clean up resources
 
