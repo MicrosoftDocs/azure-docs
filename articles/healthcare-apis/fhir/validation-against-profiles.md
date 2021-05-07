@@ -22,15 +22,14 @@ Azure API for FHIR allows validating resources against profiles to see if the re
 A profile sets additional context on the resource, usually represented as a `StructureDefinition` resource. `StructureDefinition` defines a set of rules on the content of a resource or a data type, such as what fields a resource has and what values these fields can take. For example, profiles can restrict cardinality (e.g. setting the maximum cardinality to 0 to rule out the element), restrict the contents of an element to a single fixed value, or define required extensions for the resource. It can also specify additional constraints on an existing profile. A `StructureDefinition` is identified by its canonical URL:
 
 ```rest
-http://hl7.org/fhir/StructureDefinition/{resource}
+http://hl7.org/fhir/StructureDefinition/{profile}
 ```
 
-Where in the `{resource}` field, you specify the name of the profile.
+Where in the `{profile}` field, you specify the name of the profile.
 
 For example:
 
-- `http://hl7.org/fhir/StructureDefinition/patient-birthPlace`
-is a base profile that requires information on the registered address of birth of the patient.
+- `http://hl7.org/fhir/StructureDefinition/patient-birthPlace` is a base profile that requires information on the registered address of birth of the patient.
 - `http://hl7.org/fhir/StructureDefinition/bmi` is another base profile that defines how to represent Body Mass Index (BMI) observations.
 - `http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance` is a US Core profile that sets minimum expectations for `AllergyIntolerance` resource associated with a patient, and identifies mandatory fields such as extensions and value sets.
 
@@ -64,7 +63,7 @@ Argonaut |<http://www.fhir.org/guides/argonaut/pd/>
 
 ### Viewing profiles
 
-You can access your existing profiles in the server using a `GET` request. All valid profiles, such as the profiles with valid canonical URLs in Implementation Guides, should be accessible by querying:
+You can access your existing custom profiles in the server using a `GET` request. All valid profiles, such as the profiles with valid canonical URLs in Implementation Guides, should be accessible by querying:
 
 ```rest
 GET http://<your FHIR service base URL>/StructureDefinition?url={canonicalUrl} 
@@ -78,6 +77,39 @@ For example, if you want to view US Core `Goal` resource profile:
 GET http://my-fhir-server.azurewebsites.net/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal
 ```
 
+This will return the `StructureDefinition` resource for US Core Goal profile, that will start like this:
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "us-core-goal",
+  "url" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal",
+  "version" : "3.1.1",
+  "name" : "USCoreGoalProfile",
+  "title" : "US Core Goal Profile",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-07-21",
+  "publisher" : "HL7 US Realm Steering Committee",
+  "contact" : [
+    {
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "http://www.healthit.gov"
+        }
+      ]
+    }
+  ],
+  "description" : "Defines constraints and extensions on the Goal resource for the minimal set of data to query and retrieve a patient's goal(s).",
+...
+```
+
+Our FHIR server does not return `StructureDefinition` instances for the base profiles, but they can be found easily on the HL7 website, such as:
+
+- `http://hl7.org/fhir/Observation.profile.json.html`
+- `http://hl7.org/fhir/Patient.profile.json.html`
+
 ### Storing profiles
 
 For storing profiles to the server, you can do a `POST` request:
@@ -88,51 +120,90 @@ POST http://<your FHIR service base URL>/{Resource}
 
 In which the field `{Resource}` will be replaced by `StructureDefinition`, and you would have your `StructureDefinition` resource `POST`ed to the server in `JSON` or `XML` format.
 
-Most profiles have the resource type `StructureDefinition`, but they can also be of other resource types such as sPatients, `Observation`, or `Encounter`. For example, if you `POST` a `Patient` profile in a JSON form, the server will return the stored profile with the assigned `id` for the profile, just as it would with `StructureDefinition`:
+Most profiles have the resource type `StructureDefinition`, but they can also be of the types `ValueSet` and `CodeSystem`, which are [terminology](http://hl7.org/fhir/terminologies.html) resources. For example, if you `POST` a `ValueSet` profile in a JSON form, the server will return the stored profile with the assigned `id` for the profile, just as it would with `StructureDefinition`. Below is an example you would get when you upload a [Condition Severity](https://www.hl7.org/fhir/valueset-condition-severity.html) profile, which specifies the criteria for a condition/diagnosis severity grading:
 
 ```json
 {
-    "resourceType": "Patient",
-    "id": "a473ad44-386b-46e7-b8fa-a2b5babf3270",
+    "resourceType": "ValueSet",
+    "id": "35ab90e5-c75d-45ca-aa10-748fefaca7ee",
     "meta": {
         "versionId": "1",
-        "lastUpdated": "2021-04-03T20:54:06.909+00:00"
+        "lastUpdated": "2021-05-07T21:34:28.781+00:00",
+        "profile": [
+            "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+        ]
     },
+    "text": {
+        "status": "generated",
+        "div": "<div>!-- Snipped for Brevity --></div>"
+    },
+    "extension": [
+        {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+            "valueCode": "pc"
+        }
+    ],
+    "url": "http://hl7.org/fhir/ValueSet/condition-severity",
     "identifier": [
         {
-            "use": "usual",
-            "system": "urn:oid:2.16.840.1.113883.2.4.6.3",
-            "value": "738472983"
-        },
-        {
-            "use": "usual",
-            "system": "urn:oid:2.16.840.1.113883.2.4.6.3"
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:oid:2.16.840.1.113883.4.642.3.168"
         }
     ],
-    "active": true,
-    "name": [
-        {
-            "use": "usual",
-            "family": "van de Heuvel",
-            "given": [
-                "Pieter"
-            ],
-            "suffix": [
-                "MSc"
-            ]
-        }
-    ],
+    "version": "4.0.1",
+    "name": "Condition/DiagnosisSeverity",
+    "title": "Condition/Diagnosis Severity",
+    "status": "draft",
+    "experimental": false,
+    "date": "2019-11-01T09:29:23+11:00",
+    "publisher": "FHIR Project team",
 ...
 ```
 
 ### Profiles in the capability statement
 
-The `Capability Statement` lists all possible behaviors of your FHIR server to be used as a statement of the server functionality, such as `StructureDefinition`s and `ValueSet`s. Azure API for FHIR updates the capability statement with information on the uploaded and stored profiles in the forms of:
+The `Capability Statement` lists all possible behaviors of your FHIR server to be used as a statement of the server functionality, such as Structure Definitions and Value Sets. Azure API for FHIR updates the capability statement with information on the uploaded and stored profiles in the forms of:
 
 - `CapabilityStatement.rest.resource.profile`
 - `CapabilityStatement.rest.resource.supportedProfile`
 
 These will show all of the specification for the profile that describes the overall support for the resource, including any constraints on cardinality, bindings, extensions, or other restrictions. Therefore, when you `POST` a profile in the form of a `StructureDefinition`, and `GET` the resource metadata to see the full capability statement, you will see next to the `supportedProfiles` parameter all the details on the profile you uploaded.
+
+For example, if you `POST` a US Core Patient profile, which starts like this:
+
+```json
+{
+  "resourceType": "StructureDefinition",
+  "id": "us-core-patient",
+  "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient",
+  "version": "3.1.1",
+  "name": "USCorePatientProfile",
+  "title": "US Core Patient Profile",
+  "status": "active",
+  "experimental": false,
+  "date": "2020-06-27",
+  "publisher": "HL7 US Realm Steering Committee",
+...
+```
+
+And send a `GET` request for your `metadata`:
+
+```rest
+GET http://<your FHIR service base URL>/metadata
+```
+
+You will be returned with a `CapabilityStatement` that includes the following information on the US Core Patient profile you uploaded to your FHIR server:
+
+```json
+...
+{
+    "type": "Patient",
+    "profile": "http://hl7.org/fhir/StructureDefinition/Patient",
+    "supportedProfile":[
+        "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+    ],
+...
+```
 
 ## Validating resources against the profiles
 
