@@ -68,7 +68,7 @@ The following steps use the collaborator role but any of the roles can be added 
 
     :::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-add-role-iam.png" alt-text="QnA Maker IAM add role.":::
 
-    Please refer to [Azure RBAC list](./includes/role-based-access-control.md)
+    Please refer to [Azure RBAC list](../includes/role-based-access-control.md)
     
 1. Enter the user's email address and press **Save**.
 
