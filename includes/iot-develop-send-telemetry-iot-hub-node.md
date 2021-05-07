@@ -15,11 +15,11 @@
 - [Node.js](https://nodejs.org) version 10 or later. To check your node version run `node --version`.
 - Azure CLI. You have two options for running Azure CLI commands in this quickstart:
     - Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, log into the [Azure portal](https://portal.azure.com). Follow the steps in [Cloud Shell quickstart](/azure/cloud-shell/quickstart) to **Start Cloud Shell** and **Select the Bash environment**.
-    - Optionally, run Azure CLI on your local machine. The quickstart requires Azure CLI version 2.0.76 or later. Run az --version to check the version. Follow the steps in [Install Azure CLI]( /cli/azure/install-azure-cli) to install or upgrade Azure CLI, run it, and log in. If you're prompted, install the Azure CLI extensions on first use.
+    - Optionally, run Azure CLI on your local machine. The quickstart requires Azure CLI version 2.0.76 or later. Run `az --version` to check the version. Follow the steps in [Install Azure CLI]( /cli/azure/install-azure-cli) to install or upgrade Azure CLI, run it, and log in. If you're prompted, install the Azure CLI extensions on first use.
 
 [!INCLUDE [iot-hub-include-create-hub-cli](iot-hub-include-create-hub-cli.md)]
 
-## Use the Node.js SDK to send messages
+## Run a simulated device
 In this section, you will use the Node.js SDK to send messages from your simulated device to your IoT hub. 
 
 1. Open a new console window. You will use this console to install the Node.js SDK and work with Node.js sample code. You should now have two console windows open: the one you just opened, and the Cloud Shell or CLI console that you used previously to enter CLI commands.
@@ -73,7 +73,7 @@ In this section, you will use the Node.js SDK to send messages from your simulat
     ```
 1. In your CLI app, run the [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command to begin monitoring for events on your simulated IoT device.  Event messages will be printed in the terminal as they arrive.
 
-    ```azurecli
+    ```azurecli-interactive
     az iot hub monitor-events --output table --hub-name {YourIoTHubName}
     ```
 
@@ -94,7 +94,7 @@ event:
   component: thermostat1
   interface: dtmi:com:example:TemperatureController;2
   module: ''
-  origin: nodeDevice
+  origin: myDevice
   payload:
     temperature: 70.5897683228018
 
@@ -102,7 +102,7 @@ event:
   component: thermostat2
   interface: dtmi:com:example:TemperatureController;2
   module: ''
-  origin: nodeDevice
+  origin: myDevice
   payload:
     temperature: 52.87582619316418
 ```

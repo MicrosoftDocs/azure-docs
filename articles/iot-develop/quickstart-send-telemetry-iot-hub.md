@@ -7,7 +7,7 @@ ms.service: iot-develop
 ms.topic: quickstart
 ms.date: 05/04/2021
 ms.collection: embedded-developer, application-developer
-zone_pivot_groups: iot-develop-set2
+zone_pivot_groups: iot-develop-set1
 
 #Customer intent: As a device application developer, I want to learn the basic workflow of using an Azure IoT device SDK to build a client app on a device, connect the device securely to Azure IoT Hub, and send telemetry.
 ---
@@ -17,6 +17,18 @@ zone_pivot_groups: iot-develop-set2
 **Applies to**: [Device application developers](about-iot-develop.md#device-application-development)
 
 In this quickstart, you learn a basic Azure IoT application development workflow. You use the Azure CLI to create an Azure IoT hub and a device. Then you use an Azure IoT device SDK sample to run a simulated temperature controller, connect it securely to the hub, and send telemetry.
+
+:::zone pivot="programming-language-ansi-c"
+
+[!INCLUDE [iot-develop-send-telemetry-iot-hub-c](../../includes/iot-develop-send-telemetry-iot-hub-c.md)]
+
+:::zone-end
+
+:::zone pivot="programming-language-csharp"
+
+[!INCLUDE [iot-develop-send-telemetry-iot-hub-csharp](../../includes/iot-develop-send-telemetry-iot-hub-csharp.md)]
+
+:::zone-end
 
 :::zone pivot="programming-language-nodejs"
 
@@ -51,12 +63,12 @@ If you no longer need the Azure resources created in this quickstart, you can us
 To delete a resource group by name:
 1. Run the [az group delete](/cli/azure/group#az_group_delete) command. This command removes the resource group, the IoT Hub, and the device registration you created.
 
-    ```azurecli
+    ```azurecli-interactive
     az group delete --name MyResourceGroup
     ```
 1. Run the [az group list](/cli/azure/group#az_group_list) command to confirm the resource group is deleted.  
 
-    ```azurecli
+    ```azurecli-interactive
     az group list
     ```
 
