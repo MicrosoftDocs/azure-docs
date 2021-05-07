@@ -61,7 +61,7 @@ As an admin in the Active Directory, connect to your on-premises network, open P
     Disable-ADAccount -Identity johndoe  
     ```
 
-2. Reset the user's password twice in the Active Directory. Refer to [Set-ADAccountPassword](/powershell/module/activedirectory/set-adaccountpassword?view=win10-ps).
+2. Reset the user's password twice in the Active Directory. Refer to [Set-ADAccountPassword](/powershell/module/activedirectory/set-adaccountpassword).
 
     > [!NOTE]
     > The reason for changing a user's password twice is to mitigate the risk of pass-the-hash, especially if there are delays in on-premises password replication. If you can safely assume this account isn't compromised, you may reset the password only once.
