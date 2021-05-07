@@ -78,9 +78,9 @@ To enable Azure AD SSO in the Azure portal, follow these steps:
     | Identifier URL |
     |---|
     | https://login.mypurecloud.com/saml |
-    | https://login.mypurecloud.com.de/saml |
-    | https://login.mypurecloud.com.jp/saml |
-    | https://login.mypurecloud.com.ie/saml |
+    | https://login.mypurecloud.de/saml |
+    | https://login.mypurecloud.jp/saml |
+    | https://login.mypurecloud.ie/saml |
     | https://login.mypurecloud.com.au/saml |
     |
 
@@ -89,9 +89,9 @@ To enable Azure AD SSO in the Azure portal, follow these steps:
     | Reply URL |
     |---|
     | https://login.mypurecloud.com/saml |
-    | https://login.mypurecloud.com.de/saml |
-    | https://login.mypurecloud.com.jp/saml |
-    | https://login.mypurecloud.com.ie/saml |
+    | https://login.mypurecloud.de/saml |
+    | https://login.mypurecloud.jp/saml |
+    | https://login.mypurecloud.ie/saml |
     | https://login.mypurecloud.com.au/saml |
     |
 
@@ -102,9 +102,9 @@ To enable Azure AD SSO in the Azure portal, follow these steps:
     |Sign-on URL |
     |---|
     | https://login.mypurecloud.com |
-    | https://login.mypurecloud.com.de |
-    | https://login.mypurecloud.com.jp |
-    | https://login.mypurecloud.com.ie |
+    | https://login.mypurecloud.de |
+    | https://login.mypurecloud.jp |
+    | https://login.mypurecloud.ie |
     | https://login.mypurecloud.com.au |
     |
 
