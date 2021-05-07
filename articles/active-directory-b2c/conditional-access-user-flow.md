@@ -44,6 +44,8 @@ The following example shows a Conditional Access technical profile that is used 
 </TechnicalProfile>
 ```
 
+We recommend that you call ```ConditionalAccessEvaluation``` technical profile for all users, including local and social, to ensure that Identity Protection is functioning properly. Failure to do so may result in  Identity Protection not working correct or have an incorrect degree of risk associated with users.
+
 ::: zone-end
 
 In the *Remediation* phase that follows, the user is challenged with MFA. Once complete, Azure AD B2C informs Identity Protection that the identified sign-in threat has been remediated and by which method. In this example, Azure AD B2C signals that the user has successfully completed the multi-factor authentication challenge.
@@ -269,10 +271,10 @@ To enable Conditional Access for a user flow, make sure the version supports Con
 1. Get the example of a conditional access policy on [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/conditional-access).
 1. In each file, replace the string `yourtenant` with the name of your Azure AD B2C tenant. For example, if the name of your B2C tenant is *contosob2c*, all instances of `yourtenant.onmicrosoft.com` become `contosob2c.onmicrosoft.com`.
 1. Upload the policy files.
+ 
+### Configure claim other than Phone Number to be used for MFA 
 
-### Configure the remediation technical profile
-
-The claim used inside the `IsMfaRegisteredCT` claims transformation must not be empty to ensure `IsMfaRegistered` evaluates to `True`. If it evaluates to `False`, the evaluate always results in a `Block` grant type. Also, you can use any valid claim within `IsMfaRegisteredCT` which carries a MFA value (Email or Phone). 
+The ```IsMfaRegisteredCT``` claim transformation method is provided to evaluate the claim carrying a valid MFA value, for example ```strongAuthenticationPhoneNumber``` storing a ```Phone Number```. However, you are not limited to ```strongAuthenticationPhoneNumber``` and depending on the scenario can use any other claim. For example, in the snippet below, ```strongAuthenticationEmailAddress``` is used instead of ```strongAuthenticationPhoneNumber```. The important point to note is that the claim you choose must have a valid value otherwise ```IsMfaRegistered```  will evaluate to ```False``` and a result Conditional Access policy will generate a ```Block``` grant type.
 
 ```XML
  <ClaimsTransformation Id="IsMfaRegisteredCT" TransformationMethod="DoesClaimExist">
