@@ -31,6 +31,8 @@
           href: authentication-authorization.md
         - name: Access user information
           href: user-information.md
+        - name: Custom authentication
+          href: authentication-custom.md
     - name: Review pull requests in pre-production environments
       href: review-publish-pull-requests.md
     - name: Custom domain
