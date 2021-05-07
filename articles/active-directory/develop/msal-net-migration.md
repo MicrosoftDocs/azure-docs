@@ -50,7 +50,7 @@ The following picture summarizes some of the differences between ADAL.NET and MS
 [![Screenshot showing some of the differences between ADAL.NET and MSAL.NET for a public client application.](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png)](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png#lightbox)
 
 And the following picture summarizes some of the differences between ADAL.NET and MSAL.NET for a confidential client application
-[![Screenshot showing differences between ADAL.NET and MSAL.NET for a confidential client application.](./media/msal-net-migration/confidential-client-application.png)](./media/msal-net-migration/confidential-client-application.png#lightbox)
+[![Screenshot showing some of the differences between ADAL.NET and MSAL.NET for a confidential client application.](./media/msal-net-migration/confidential-client-application.png)](./media/msal-net-migration/confidential-client-application.png#lightbox)
 
 ### NuGet packages and Namespaces
 
