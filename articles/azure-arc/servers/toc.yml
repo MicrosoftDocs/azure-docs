@@ -43,6 +43,10 @@
       href: onboard-windows-admin-center.md
     - name: Connect machines to Azure Arc with PowerShell
       href: onboard-powershell.md
+  - name: Migrate
+    items:
+    - name: Migrate machine to Azure
+      href: scenario-migrate-to-azure.md
   - name: Manage
     items:
     - name: VM extensions
@@ -61,8 +65,6 @@
       href: managed-identity-authentication.md
     - name: Manage agent
       href: manage-agent.md
-    - name: Migrate machine to Azure
-      href: scenario-migrate-to-azure.md
     - name: Migrate machine across regions
       href: manage-howto-migrate.md
   - name: Scenarios
