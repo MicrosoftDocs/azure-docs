@@ -1,11 +1,11 @@
 ---
 title: Mapping data flow video tutorials
 description: A list of video tutorials explaining mapping data flow concepts
-author: djpmsft
-ms.author: daperlov
+author: kromerm
+ms.author: makromer
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 09/23/2020
+ms.date: 05/04/2021
 ---
 
 # Mapping data flow video tutorials
@@ -78,7 +78,17 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Flatten transformation](https://youtu.be/VY2tFQJoAXE)
 
-[Transform Hierarchical Data](https://youtu.be/oAEh21NFgWQ)
+[Transform hierarchical data](https://youtu.be/oAEh21NFgWQ)
+
+[Rank transformation](https://youtu.be/6XvgkbMtws0)
+
+[Cached lookup](https://www.youtube.com/watch?v=HqCn42FaRJs)
+
+[Row context via Window transformation](http://youtu.be/jqt1gmX2XUg)
+
+[Parse transformation](https://www.youtube.com/watch?v=r7O7AJcuqoY)
+
+[Transform complex data types](https://youtu.be/Wk0C76wnSDE)
 
 ## Source and sink
 
@@ -117,6 +127,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Optimize data flow start-up times](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
 [Azure Integration Runtimes for Data Flows](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
+
+[Quick cluster start-up time with Azure IR](https://www.youtube.com/watch?v=mxzsOZX6WVY)
 
 ## Mapping data flow scenarios
 

@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate Abstract with Azure Active Direc
 * Enable your users to be automatically signed-in to Abstract with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -80,7 +80,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![The Certificate download link](common/copy-metadataurl.png)
+    ![The Certificate download link](common/copy-metadataurl.png)
 
 ### Configure Abstract SSO
 
@@ -126,11 +126,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the applications list, select **Abstract**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
-   ![The "Users and groups" link](common/users-groups-blade.png)
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add User link](common/add-assign-user.png)
+    ![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
@@ -142,7 +142,7 @@ To test SSO on Abstract:
 
 1. Open the [Abstract web app](https://app.abstract.com/).
 2. Go to the **Permissions** page in the left side bar.
-3. Click **Test with my Account**. If the test fails, please [contact our support team](https://www.abstract.com/help/contact/).
+3. Click **Test with my Account**. If the test fails, please [contact our support team](https://help.abstract.com/hc/).
 
 >[!Note]
 >You will need to authenticate with an organization Admin account to access the SSO settings on Abstract.
@@ -152,13 +152,12 @@ This organization Admin account will need to be assigned to Abstract on the Azur
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Abstract tile in the Access Panel, you should be automatically signed in to the Abstract for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Abstract tile in the Access Panel, you should be automatically signed in to the Abstract for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)

@@ -1,13 +1,13 @@
 ---
 title: Move Azure regions - Azure portal - Azure Database for PostgreSQL - Single Server
 description: Move an Azure Database for PostgreSQL server from one Azure region to another using a read replica and the Azure portal.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-#As an Azure service administrator, I want to move my service resources to another Azure region
+#Customer intent: As an Azure service administrator, I want to move my service resources to another Azure region
 ---
 
 # Move an Azure Database for Azure Database for PostgreSQL - Single Server to another region by using the Azure portal
@@ -17,7 +17,7 @@ There are various scenarios for moving an existing Azure Database for PostgreSQL
 You can use an Azure Database for PostgreSQL [cross-region read replica](concepts-read-replicas.md#cross-region-replication) to complete the move to another region. To do so, first create a read replica in the target region. Next, stop replication to the read replica server to make it a standalone server that accepts both read and write traffic. 
 
 > [!NOTE]
-> This article focuses on moving your server to a different region. If you want to move your server to a different resource group or subscription, refer to the [move](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) article. 
+> This article focuses on moving your server to a different region. If you want to move your server to a different resource group or subscription, refer to the [move](../azure-resource-manager/management/move-resource-group-and-subscription.md) article. 
 
 ## Prerequisites
 

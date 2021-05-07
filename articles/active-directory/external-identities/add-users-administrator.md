@@ -24,7 +24,7 @@ As a user who is assigned any of the limited administrator directory roles, you 
 After you add a guest user to the directory, you can either send the guest user a direct link to a shared app, or the guest user can click the redemption URL in the invitation email. For more information about the redemption process, see [B2B collaboration invitation redemption](redemption-experience.md).
 
 > [!IMPORTANT]
-> You should follow the steps in [How-to: Add your organization's privacy info in Azure Active Directory](https://aka.ms/adprivacystatement) to add the URL of your organization's privacy statement. As part of the first time invitation redemption process, an invited user must consent to your privacy terms to continue. 
+> You should follow the steps in [How-to: Add your organization's privacy info in Azure Active Directory](../fundamentals/active-directory-properties-area.md) to add the URL of your organization's privacy statement. As part of the first time invitation redemption process, an invited user must consent to your privacy terms to continue. 
 
 ## Before you begin
 
@@ -93,7 +93,7 @@ To add B2B collaboration users to an application, follow these steps:
    - If the guest user already exists in the directory, search for the B2B user. Select the user, click **Select**, and then click **Assign** to add the user to the app.
    - If the guest user does not already exist in the directory, under **Select member or invite an external user**, type the user's email address. In the message box, type an optional personal message. Under the message box, click **Invite**.
            
-       ![Add invite button to add guest members](./media/add-users-administrator/AppInviteUsers.png)
+       ![Screenshot that highlights where to add the user's email address, the personalized message, and also highlights the Invite button.](./media/add-users-administrator/AppInviteUsers.png)
    
       Click **Select**, and then click **Assign** to add the user to the app. An invitation automatically goes out to the invited user.
 
@@ -112,15 +112,13 @@ If a guest user has not yet redeemed their invitation, you can resend the invita
 3. Under **Manage**, select **Users**.
 5. Select the user account.
 6. Under **Manage**, select **Profile**.
-7. If the user has not yet accepted the invitation, a **Resend invitation** option is available. Select this button to resend.
-
-   ![Resend invitation option in the user profile](./media/add-users-administrator/b2b-user-resend-invitation.png)
+7. If the user has not yet accepted the invitation, in the **Identity** section, **Invitation accepted** will be set to **No**. To resend the invitation, select **(manage)**. Then in the **Manage invitations** page, next to **Resend invite?" select **Yes**, and select **Done**.
 
 > [!NOTE]
 > If you resend an invitation that originally directed the user to a specific app, understand that the link in the new invitation takes the user to the top-level Access Panel instead.
+> Additionally, only users with inviting permissions will be able to resend invitations.
 
 ## Next steps
 
 - To learn how non-Azure AD admins can add B2B guest users, see [How do information workers add B2B collaboration users?](add-users-information-worker.md)
 - For information about the invitation email, see [The elements of the B2B collaboration invitation email](invitation-email-elements.md).
-

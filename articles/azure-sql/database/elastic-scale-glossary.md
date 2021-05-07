@@ -35,7 +35,7 @@ These terms are used in [Adding a shard using Elastic Database tools](elastic-sc
 
 **Multi-tenant** and **Single-tenant**: This shows a single-tenant database and a multi-tenant database:
 
-![Single and multi-tenant databases](./media/elastic-scale-glossary/multi-single-simple.png)
+![Screenshot that shows a single-tenant database and a multi-tenant database.](./media/elastic-scale-glossary/multi-single-simple.png)
 
 Here is a representation of **sharded** single and multi-tenant databases. 
 

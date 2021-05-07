@@ -13,6 +13,7 @@
   - name: Create an ExpressRoute circuit - CLI
     href: howto-circuit-cli.md
   - name: Create an ExpressRoute circuit - ARM template
+    displayName: Resource Manager
     href: quickstart-create-expressroute-vnet-template.md
   expanded: true
 - name: Tutorials
@@ -81,7 +82,7 @@
       href: about-upgrade-circuit-bandwidth.md
     - name: Moving circuits from classic to Resource Manager
       href: expressroute-move.md
-  - name: About Expressroute gateways
+  - name: About ExpressRoute gateways
     href: expressroute-about-virtual-network-gateways.md
   - name: About ExpressRoute FastPath
     href: about-fastpath.md
@@ -95,12 +96,16 @@
     href: expressroute-connect-azure-to-public-cloud.md
   - name: Cross-network connectivity
     href: cross-network-connectivity.md
-  - name: Security attributes
-    href: expressroute-security-controls.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/expressroute-security-baseline?toc=/azure/expressroute/TOC.json
   - name: BFD over ExpressRoute
     href: expressroute-bfd.md
   - name: QoS requirements
     href: expressroute-qos.md
+  - name: Routing Microsoft 365 traffic over ExpressRoute 
+    href: using-expressroute-for-microsoft365.md
   - name: High Availability - Design
     href: designing-for-high-availability-with-expressroute.md
   - name: Disaster Recovery - Design
@@ -108,7 +113,7 @@
     - name: Private Peering
       href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
     - name: Using VPN as a backup
-      href: use-s2s-vpn-as-backup-for-expressroute-privatepeering.md    
+      href: use-s2s-vpn-as-backup-for-expressroute-privatepeering.md
 - name: How-to guides
   items:
   - name: Configuring ExpressRoute Direct
@@ -125,12 +130,22 @@
       href: expressroute-howto-macsec.md
   - name: Configure ExpressRoute Global Reach
     items:
+    - name: Azure portal
+      href: expressroute-howto-set-global-reach-portal.md
     - name: Azure PowerShell
       href: expressroute-howto-set-global-reach.md
     - name: Azure CLI
       href: expressroute-howto-set-global-reach-cli.md
+  - name: Add IPv6 support for private peering (Preview)
+    items:
+    - name: Azure portal
+      href: expressroute-howto-add-ipv6-portal.md
+    - name: Azure PowerShell
+      href: expressroute-howto-add-ipv6-powershell.md
   - name: Monitoring
     items:
+    - name: Network Insights
+      href: expressroute-network-insights.md
     - name: ExpressRoute monitoring, metrics, and alerts
       href: expressroute-monitoring-metrics-alerts.md
     - name: Configure Network Performance Monitor for ExpressRoute
@@ -140,7 +155,11 @@
   - name: Managing peerings
     items:
     - name: Enable and disable peerings
-      href: expressroute-howto-reset-peering.md
+      items:
+      - name: Azure portal 
+        href: expressroute-howto-reset-peering-portal.md
+      - name: Azure PowerShell
+        href: expressroute-howto-reset-peering.md
     - name: Move from public peering to Microsoft peering
       href: how-to-move-peering.md
   - name: Encrypt traffic over circuits
@@ -157,6 +176,8 @@
       href: expressroute-howto-coexist-resource-manager.md
     - name: Create a zone-redundant VNet gateway in Azure Availability Zones
       href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=%2fazure%2fexpressroute%2ftoc.json
+  - name: Plan and manage costs
+    href: plan-manage-cost.md
   - name: Moving from classic to Resource Manager
     items:
     - name: Move a circuit from classic to Resource Manager
@@ -166,7 +187,7 @@
   - name: Best Practices
     items:
     - name: Best practices for network security and cloud services
-      href: ../best-practices-network-security.md
+      href: /azure/cloud-adoption-framework/reference/networking-vdc
     - name: Optimize routing
       href: expressroute-optimize-routing.md
     - name: Asymmetric routing
@@ -190,11 +211,11 @@
   - name: Azure PowerShell
     href: /powershell/module/az.network#expressroute
   - name: Azure CLI
-    href: /cli/azure/network/express-route
+    href: /cli/azure/azure-cli-reference-for-network
   - name: REST
-    href: https://msdn.microsoft.com/library/azure/mt586720
+    href: /rest/api/expressroute/
   - name: REST (classic)
-    href: https://msdn.microsoft.com/library/azure/dn606310
+    href: /previous-versions/azure/reference/dn606310(v=azure.100)
   - name: Resource Manager template
     displayName: ARM,resource manager template
     href: /azure/templates/microsoft.network/expressroutecircuits
@@ -269,5 +290,3 @@
       href: expressroute-howto-add-gateway-classic.md
     - name: Create and modify public peering
       href: about-public-peering.md
-  - name: Security baseline
-    href: security-baseline.md

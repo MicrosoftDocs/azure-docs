@@ -9,7 +9,7 @@ ms.author: baanders
 
 To start working with Azure Digital Twins in an open [Azure Cloud Shell](https://shell.azure.com) window, the first thing to do is log in and set the shell context to your subscription for this session. Run these commands in your Cloud Shell:
 
-```azurecli
+```azurecli-interactive
 az login
 az account set --subscription "<your-Azure-subscription-ID>"
 ```
@@ -18,13 +18,15 @@ az account set --subscription "<your-Azure-subscription-ID>"
 
 If this is the first time you've used this subscription with Azure Digital Twins, run this command to register with the Azure Digital Twins namespace. (If you're not sure, it's ok to run it again even if you've done it sometime in the past.)
 
-```azurecli
+```azurecli-interactive
 az provider register --namespace 'Microsoft.DigitalTwins'
 ```
 
-Next you'll add the [**Microsoft Azure IoT Extension for Azure CLI**](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) to your Cloud Shell, to enable commands for interacting with Azure Digital Twins and other IoT services. 
+Next you'll add the [Microsoft Azure IoT Extension for Azure CLI](/cli/azure/service-page/azure%20iot) to your Cloud Shell, to enable commands for interacting with Azure Digital Twins and other IoT services. Run this command to make sure you have the latest version of the extension:
 
-[!INCLUDE [digital-twins-cloud-shell-extensions.md](digital-twins-cloud-shell-extensions.md)]
+```azurecli-interactive
+az extension add --upgrade -n azure-iot
+```
 
 Now you are ready to work with Azure Digital Twins in the Cloud Shell.
 

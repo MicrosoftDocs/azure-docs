@@ -1,19 +1,16 @@
 ---
-title: Run Azure Stream Analytics on Azure Stack (Preview)
+title: Run Azure Stream Analytics on Azure Stack
 description: Create an Azure Stream Analytics edge job and deploy it to Azure Stack hub via the IoT Edge runtime.
 ms.service: stream-analytics
-author: raan
+author: an-emma
 ms.author: raan
-ms.reviewer: mamccrea
+
 ms.topic: how-to
-ms.date: 08/21/2020
+ms.date: 03/15/2021
 ms.custom: seodec18
 ---
 
-# Run Azure Stream Analytics on Azure Stack (Preview)
-
-> [!IMPORTANT]
-> This functionality is in preview and is not recommended for use in production.
+# Run Azure Stream Analytics on Azure Stack 
 
 You can run Azure Stream Analytics on Azure Stack Hub as an IoT Edge module. Configurations have been added to the IoT Edge module which allows it to interact with blob storage, Event Hubs, and IoT Hubs running in an Azure Stack Hub subscription by allowing custom URLs found in every Azure Stack Hub employment.
 
@@ -29,9 +26,9 @@ If you are new to Azure Stack Hub or IoT Edge, please follow the instructions be
 
 ### Prepare the Azure Stack Hub environment
 
-Create an Azure Stack Hub subscription. For more information, see the [tutorial for creating an Azure Stack Hub subscription.](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services/)
+Create an Azure Stack Hub subscription. For more information, see the [tutorial for creating an Azure Stack Hub subscription.](/azure-stack/user/azure-stack-subscribe-services/)
 
-If you'd like to evaluate Azure Stack Hub on your own server, you can use the Azure Stack Development Kit (ASDK).  For more information on the ASDK, see the [ASDK overview](https://docs.microsoft.com/azure-stack/asdk/).
+If you'd like to evaluate Azure Stack Hub on your own server, you can use the Azure Stack Development Kit (ASDK).  For more information on the ASDK, see the [ASDK overview](/azure-stack/asdk/).
 
 ### Install the IoT Edge runtime
 
@@ -41,8 +38,8 @@ In addition to having network access to the Azure Stack Hub resources, the IoT E
 
 The following guides show how to set up the IoT Edge Runtime on your device or VM:
 
-* [Install the Azure IoT Edge runtime on Windows](../iot-edge/how-to-install-iot-edge-windows.md)
-* [Install the Azure IoT Edge runtime on Debian-based Linux systems](../iot-edge/how-to-install-iot-edge-linux.md)
+* [Install the Azure IoT Edge runtime on Windows](../iot-edge/how-to-install-iot-edge.md)
+* [Install the Azure IoT Edge runtime on Debian-based Linux systems](../iot-edge/how-to-install-iot-edge.md)
 
 
 ## Create an Azure Stream Analytics Edge job
@@ -62,7 +59,7 @@ When you create an Azure Stream Analytics job to run on an IoT Edge device, it n
    | Name | Provide a unique name for your storage account. |
    | Location | Choose a location close to you.|
    | Subscription | Choose the same subscription as your IoT hub.|
-   | Resource Group | We recommend that you use the same resource group for all of the test resources that you create during the [IoT Edge quickstarts](https://docs.microsoft.com/azure/iot-edge/quickstart) and tutorials. For example, **IoTEdgeResources**. |
+   | Resource Group | We recommend that you use the same resource group for all of the test resources that you create during the [IoT Edge quickstarts](../iot-edge/quickstart.md) and tutorials. For example, **IoTEdgeResources**. |
 
 3. Keep the default values for the other fields and select **Create**.
 
@@ -76,7 +73,7 @@ When you create an Azure Stream Analytics job to run on an IoT Edge device, it n
    | --- | --- |
    | Job Name | Provide a name for your job. For example, **IoTEdgeJob** |
    | Subscription | Choose the same subscription as your IoT hub.|
-   | Resource Group | We recommend that you use the same resource group for all of the test resources that you create during the [IoT Edge quickstarts](https://docs.microsoft.com/azure/iot-edge/quickstart) and tutorials. For example, **IoTEdgeResources**. |
+   | Resource Group | We recommend that you use the same resource group for all of the test resources that you create during the [IoT Edge quickstarts](../iot-edge/quickstart.md) and tutorials. For example, **IoTEdgeResources**. |
    | Location | Choose a location close to you. |
    | Hosting Environment | Select **Edge**. |
 
@@ -171,5 +168,5 @@ Once your Stream Analytics job is created in the Azure portal, you can configure
    > [ ![Deployment Page](media/on-azure-stack/edge-deployment.png) ](media/on-azure-stack/edge-deployment.png#lightbox)
 
 ## Next steps
-- [Azure Stream Analytics on IoT Edge](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge)
-- [Develop Stream Analytics Edge jobs](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+- [Azure Stream Analytics on IoT Edge](./stream-analytics-edge.md)
+- [Develop Stream Analytics Edge jobs](/stream-analytics-query/stream-analytics-query-language-reference)

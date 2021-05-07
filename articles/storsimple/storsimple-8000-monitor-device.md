@@ -134,6 +134,5 @@ If we look at the Data 1 interface throughput chart, another 1 GbE network inter
 
 
 ## Next steps
-* Learn how to [use the StorSimple Device Manager service device dashboard](storsimple-device-dashboard.md).
-* Learn how to [use the StorSimple Device Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
-
+* Learn how to [use the StorSimple Device Manager service device dashboard](./storsimple-8000-device-dashboard.md).
+* Learn how to [use the StorSimple Device Manager service to administer your StorSimple device](./storsimple-8000-manager-service-administration.md).

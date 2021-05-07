@@ -3,13 +3,13 @@ title: "Tutorial: Visualize anomalies using batch detection and Power BI"
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the Anomaly Detector API and Power BI to visualize anomalies throughout your time series data.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 09/10/2020
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 # Tutorial: Visualize anomalies using batch detection and Power BI
@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to:
 * An [Azure subscription](https://azure.microsoft.com/free/cognitive-services)
 * [Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/), available for free.
 * An excel file (.xlsx) containing time series data points. The example data for this quickstart can be found on [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962)
-* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint.
+* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint.
     * You will need the key and endpoint from the resource you create to connect your application to the Anomaly Detector API. You'll do this later in the quickstart.
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
@@ -114,7 +114,7 @@ Invoke the query on your data sheet by selecting `Sheet1` below **Enter Paramete
 ## Data source privacy and authentication
 
 > [!NOTE]
-> Be aware of your organization's policies for data privacy and access. See [Power BI Desktop privacy levels](https://docs.microsoft.com/power-bi/desktop-privacy-levels) for more information.
+> Be aware of your organization's policies for data privacy and access. See [Power BI Desktop privacy levels](/power-bi/desktop-privacy-levels) for more information.
 
 You may get a warning message when you attempt to run the query since it utilizes an external data source.
 
@@ -170,4 +170,4 @@ Apply colors to your chart by clicking on the **Format** tool and **Data colors*
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Streaming anomaly detection with Azure Databricks](anomaly-detection-streaming-databricks.md)
+>[Streaming anomaly detection with Azure Databricks](../overview.md)

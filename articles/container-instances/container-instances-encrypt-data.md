@@ -28,7 +28,7 @@ You can rely on Microsoft-managed keys for the encryption of your container data
 
 The rest of the document covers the steps required to encrypt your ACI deployment data with your key (customer-managed key). 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Encrypt data with a customer-managed key
 
@@ -54,7 +54,7 @@ In case you are unable to successfully create the service principal:
 
 ### Create a Key Vault resource
 
-Create an Azure Key Vault using [Azure portal](../key-vault/secrets/quick-create-portal.md#create-a-vault), [CLI](../key-vault/secrets/quick-create-cli.md), or [PowerShell](../key-vault/secrets/quick-create-powershell.md). 
+Create an Azure Key Vault using [Azure portal](../key-vault/general/quick-create-portal.md), [Azure CLI](../key-vault/general/quick-create-cli.md), or [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
 
 For the properties of your key vault, use the following guidelines: 
 * Name: A unique name is required. 
@@ -238,5 +238,5 @@ az deployment group create --resource-group myResourceGroup --template-file depl
 Within a few seconds, you should receive an initial response from Azure. Once the deployment completes, all data related to it persisted by the ACI service will be encrypted with the key you provided.
 
 <!-- LINKS - Internal -->
-[az-group-create]: /cli/azure/group#az-group-create
-[az-deployment-group-create]: /cli/azure/deployment/group/#az-deployment-group-create
+[az-group-create]: /cli/azure/group#az_group_create
+[az-deployment-group-create]: /cli/azure/deployment/group/#az_deployment_group_create

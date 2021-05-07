@@ -3,6 +3,7 @@ title: Constrained vCPU sizes
 description: Lists the Vm sizes that are capable of having a constrained vCPU count.
 author: mimckitt
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/09/2018
 ms.author: mimckitt
@@ -58,6 +59,17 @@ The licensing fees charged for SQL Server or Oracle are constrained to the new v
 | Standard_E32-8ds_v4 | 8    | Same as E32ds_v4|
 | Standard_E64-32ds_v4| 32   | Same as E64ds_v4|
 | Standard_E64-16ds_v4| 16   | Same as E64ds_v4|
+| Standard_E4-2as_v4  | 2    | Same as E4as_v4 |
+| Standard_E8-4as_v4  | 4    | Same as E8as_v4 |
+| Standard_E8-2as_v4  | 2    | Same as E8as_v4 |
+| Standard_E16-8as_v4 | 8    | Same as E16as_v4|
+| Standard_E16-4as_v4 | 4    | Same as E16as_v4|
+| Standard_E32-16as_v4| 16   | Same as E32as_v4|
+| Standard_E32-8as_v4 | 8    | Same as E32as_v4|
+| Standard_E64-32as_v4| 32   | Same as E64as_v4|
+| Standard_E64-16as_v4| 16   | Same as E64as_v4|
+| Standard_E96-48as_v4| 48   | Same as E96as_v4|
+| Standard_E96-24as_v4| 24   | Same as E96as_v4|
 | Standard_GS4-8      | 8    | Same as GS4     |
 | Standard_GS4-4      | 4    | Same as GS4     |
 | Standard_GS5-16     | 16   | Same as GS5     |

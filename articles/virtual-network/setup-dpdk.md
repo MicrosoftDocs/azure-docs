@@ -32,21 +32,22 @@ DPDK can run on Azure virtual machines that are supporting multiple operating sy
 **Higher packets per second (PPS)**: Bypassing the kernel and taking control of packets in the user space reduces the cycle count by eliminating context switches. It also improves the rate of packets that are processed per second in Azure Linux virtual machines.
 
 
-## Supported operating systems
+## Supported operating systems minimum versions
 
 The following distributions from the Azure Marketplace are supported:
 
 | Linux OS     | Kernel version               | 
 |--------------|---------------------------   |
-| Ubuntu 16.04 | 4.15.0-1014-azure+           | 
 | Ubuntu 18.04 | 4.15.0-1014-azure+           |
 | SLES 15 SP1  | 4.12.14-8.19-azure+          | 
 | RHEL 7.5     | 3.10.0-862.11.6.el7.x86_64+  | 
 | CentOS 7.5   | 3.10.0-862.11.6.el7.x86_64+  | 
 
+The noted versions are the minimum requirements. Newer versions are supported too.
+
 **Custom kernel support**
 
-For any Linux kernel version that's not listed, see [Patches for building an Azure-tuned Linux kernel](https://github.com/microsoft/azure-linux-kernel). For more information, you can also contact [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com). 
+For any Linux kernel version that's not listed, see [Patches for building an Azure-tuned Linux kernel](https://github.com/microsoft/azure-linux-kernel). For more information, you can also contact [aznetdpdk@microsoft.com](mailto:aznetdpdk@microsoft.com). 
 
 ## Region support
 
@@ -54,24 +55,28 @@ All Azure regions support DPDK.
 
 ## Prerequisites
 
-Accelerated networking must be enabled on a Linux virtual machine. The virtual machine should have at least two network interfaces, with one interface for management. Learn how to [create a Linux virtual machine with accelerated networking enabled](create-vm-accelerated-networking-cli.md).
+Accelerated networking must be enabled on a Linux virtual machine. The virtual machine should have at least two network interfaces, with one interface for management. Enabling Accelerated networking on management interface is not recommended. Learn how to [create a Linux virtual machine with accelerated networking enabled](create-vm-accelerated-networking-cli.md).
 
-## Install DPDK dependencies
-
-### Ubuntu 16.04
-
-```bash
-sudo add-apt-repository ppa:canonical-server/dpdk-azure -y
-sudo apt-get update
-sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev libmnl-dev
-```
+## Install DPDK
 
 ### Ubuntu 18.04
 
 ```bash
-sudo add-apt-repository ppa:canonical-server/dpdk-azure -y
+sudo add-apt-repository ppa:canonical-server/server-backports -y
 sudo apt-get update
-sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev libmnl-dev
+sudo apt-get install -y dpdk
+```
+
+### Ubuntu 20.04 and newer
+
+```bash
+sudo apt-get install -y dpdk
+```
+
+### Debian 10 and newer
+
+```bash
+sudo apt-get install -y dpdk
 ```
 
 ### RHEL7.5/CentOS 7.5
@@ -252,3 +257,4 @@ When you're running the previous commands on a virtual machine, change *IP_SRC_A
 
 * [EAL options](https://dpdk.org/doc/guides/testpmd_app_ug/run_app.html#eal-command-line-options)
 * [Testpmd commands](https://dpdk.org/doc/guides/testpmd_app_ug/run_app.html#testpmd-command-line-options)
+* [Packet dump commands](https://doc.dpdk.org/guides/tools/pdump.html#pdump-tool)

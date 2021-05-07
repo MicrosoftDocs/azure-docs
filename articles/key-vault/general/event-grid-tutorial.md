@@ -3,7 +3,6 @@ title: Receive and respond to key vault notifications with Azure Event Grid
 description: Learn how to integrate Key Vault with Azure Event Grid.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault

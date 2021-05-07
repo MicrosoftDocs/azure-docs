@@ -18,7 +18,7 @@ ms.custom: aaddev
 
 # Migrate Android applications that use a broker from ADAL.NET to MSAL.NET
 
-If you have a Xamarin Android app currently using the Azure Active Directory Authentication Library for .NET (ADAL.NET) and an [authentication broker](brokered-auth.md), it's time to migrate to the [Microsoft Authentication Library for .NET ](msal-overview.md) (MSAL.NET).
+If you have a Xamarin Android app currently using the Azure Active Directory Authentication Library for .NET (ADAL.NET) and an [authentication broker](msal-android-single-sign-on.md), it's time to migrate to the [Microsoft Authentication Library for .NET ](msal-overview.md) (MSAL.NET).
 
 ## Prerequisites
 

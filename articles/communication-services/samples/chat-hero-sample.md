@@ -7,7 +7,7 @@ manager: nimag
 services: azure-communication-services
 
 ms.author: dademath
-ms.date: 07/20/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 
@@ -15,29 +15,26 @@ ms.service: azure-communication-services
 
 # Get started with the group chat hero sample
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include-chat.md)]
 
-<!----
-> [!WARNING]
-> links to our Hero Sample repo need to be updated when the sample is publicly available.
----->
+> [!IMPORTANT]
+> [This sample is available **on GitHub**.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
-The Azure Communication Services **Group Chat Hero Sample** demonstrates how the Communication Services Chat Web client library can be used to build a group calling experience.
+
+The Azure Communication Services **Group Chat Hero Sample** demonstrates how the Communication Services Chat Web SDK can be used to build a group calling experience.
 
 In this Sample quickstart, we'll learn how the sample works before we run the sample on your local machine. We'll then deploy the sample to Azure using your own Azure Communication Services resources.
 
-> [!IMPORTANT]
-> [Download the sample from GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat)
 
 ## Overview
 
-The sample has both a client-side application and a server-side application. The **client-side application** is a React/Redux web application that uses Microsoft's Fluent UI framework. This application sends requests to an ASP.NET Core **server-side application** that helps the client-side application connect to Azure. 
+The sample has both a client-side application and a server-side application. The **client-side application** is a React/Redux web application that uses Microsoft's Fluent UI framework. This application sends requests to an ASP.NET Core **server-side application** that helps the client-side application connect to Azure.
 
 Here's what the sample looks like:
 
 :::image type="content" source="./media/chat/landing-page.png" alt-text="Screenshot showing the sample application's landing page.":::
 
-When you press the "Start a Chat" button, the web application fetches a user access token from the server-side application. This token is then used to connect the client app to Azure Communication Services. Once the token is retrieved, you'll be prompted to specify your name and emoji that will represent you in chat. 
+When you press the "Start a Chat" button, the web application fetches a user access token from the server-side application. This token is then used to connect the client app to Azure Communication Services. Once the token is retrieved, you'll be prompted to specify your name and emoji that will represent you in chat.
 
 :::image type="content" source="./media/chat/pre-chat.png" alt-text="Screenshot showing the application's pre-chat screen.":::
 
@@ -49,7 +46,7 @@ Components of the main chat screen:
 
 - **Main Chat Area**: This is the core chat experience where users can send and receives messages. To send messages, you can use the input area and press enter (or use the send button). Chat messages received are categorized by the sender with the correct name and emoji. You will see two types of notifications in the chat area: 1) typing notifications when a user is typing and 2) sent and read notifications for messages.
 - **Header**: This is where the user will see the title of the chat thread and the controls for toggling participant and settings side bars, and a leave button to exit the chat session.
-- **Side Bar**: This is where participants and setting information are shown when toggled using the controls in the header. The participants side bar contains a list of participants in the chat and a link to invite participants to the chat session. The settings side bar allows you to configure the chat thread title. 
+- **Side Bar**: This is where participants and setting information are shown when toggled using the controls in the header. The participants side bar contains a list of participants in the chat and a link to invite participants to the chat session. The settings side bar allows you to configure the chat thread title.
 
 Below you'll find more information on prerequisites and steps to set up the sample.
 
@@ -73,7 +70,7 @@ You can test the sample locally by opening multiple browser sessions with the UR
 ## Before running the sample for the first time
 
 1. Open an instance of PowerShell, Windows Terminal, Command Prompt or equivalent and navigate to the directory that you'd like to clone the sample to.
-2. `git clone https://github.com/Azure/Communication.git`
+2. `git clone https://github.com/Azure-Samples/communication-services-web-chat-hero.git`
 3. Get the `Connection String` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Resources](../quickstarts/create-communication-resource.md)
 4. Once you get the `Connection String`, Add the connection string to the **Chat/appsettings.json** file found under the Chat folder. Input your connection string in the variable: `ResourceConnectionString`.
 
@@ -100,18 +97,19 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 
->[!div class="nextstepaction"] 
->[Download the sample from GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat)
+>[!div class="nextstepaction"]
+>[Download the sample from GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 For more information, see the following articles:
 
 - Learn about [chat concepts](../concepts/chat/concepts.md)
-- Familiarize yourself with our [chat client library](../concepts/chat/sdk-features.md)
+- Familiarize yourself with our [Chat SDK](../concepts/chat/sdk-features.md)
+- Review the [Contoso Med App](https://github.com/Azure-Samples/communication-services-contoso-med-app) sample
 
 ## Additional reading
 
-- [Azure Communication GitHub](https://github.com/Azure/communication) - Find more examples and information on the official GitHub page
+- [Samples](./overview.md) - Find more samples and examples on our samples overview page.
 - [Redux](https://redux.js.org/) - Client-side state management
 - [FluentUI](https://aka.ms/fluent-ui) - Microsoft powered UI library
 - [React](https://reactjs.org/) - Library for building user interfaces
-- [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) - Framework for building web applications
+- [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?preserve-view=true&view=aspnetcore-3.1) - Framework for building web applications

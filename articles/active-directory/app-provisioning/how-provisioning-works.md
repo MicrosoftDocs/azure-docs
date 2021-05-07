@@ -3,14 +3,15 @@ title: Understand how Azure AD provisioning works | Microsoft Docs
 description: Understand how Azure AD provisioning works 
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/20/2020
+ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
+ms.custom: contperf-fy21q2
 ---
 
 # How provisioning works
@@ -37,9 +38,7 @@ To request an automatic Azure AD provisioning connector for an app that doesn't 
 
 ## Authorization
 
-Credentials are required for Azure AD to connect to the application's user management API. While you're configuring automatic user provisioning for an application, you'll need to enter valid credentials. You can find credential types and requirements for the application by referring to the app tutorial. In the Azure portal, you'll be able to test the credentials by having Azure AD attempt to connect to the app's provisioning app using the supplied credentials.
-
-If SAML-based single sign-on is also configured for the application, Azure AD's internal, per-application storage limit is 1024 bytes. This limit includes all certificates, secret tokens, credentials, and related configuration data associated with a single instance of an application (also known as a service principal record in Azure AD). When SAML-based single sign-on is configured, the certificate used to sign the SAML tokens often consumes over 50% percent of the space. Any additional items (secret tokens, URIs, notification email addresses, user names, and passwords) that you enter during user provisioning setup could exceed the storage limit. For more information, see [Problem saving administrator credentials while configuring user provisioning](./application-provisioning-config-problem-storage-limit.md).
+Credentials are required for Azure AD to connect to the application's user management API. While you're configuring automatic user provisioning for an application, you'll need to enter valid credentials. For gallery applications, you can find credential types and requirements for the application by referring to the app tutorial. For non-gallery applications, you can refer to the [SCIM](./use-scim-to-provision-users-and-groups.md#authorization-to-provisioning-connectors-in-the-application-gallery) documentation to understand the credential types and requirements. In the Azure portal, you'll be able to test the credentials by having Azure AD attempt to connect to the app's provisioning app using the supplied credentials.
 
 ## Mapping attributes
 
@@ -60,15 +59,15 @@ For outbound provisioning from Azure AD to a SaaS application, relying on [user 
 
 * **Groups.** With an Azure AD Premium license plan, you can use groups to assign access to a SaaS application. Then, when the provisioning scope is set to **Sync only assigned users and groups**, the Azure AD provisioning service will provision or de-provision users based on whether they're members of a group that's assigned to the application. The group object itself isn't provisioned unless the application supports group objects. Ensure that groups assigned to your application have the property "SecurityEnabled" set to "True".
 
-* **Dynamic groups.** The Azure AD user provisioning service can read and provision users in [dynamic groups](../users-groups-roles/groups-create-rule.md). Keep these caveats and recommendations in mind:
+* **Dynamic groups.** The Azure AD user provisioning service can read and provision users in [dynamic groups](../enterprise-users/groups-create-rule.md). Keep these caveats and recommendations in mind:
 
   * Dynamic groups can impact the performance of end-to-end provisioning from Azure AD to SaaS applications.
 
-  * How fast a user in a dynamic group is provisioned or de-provisioned in a SaaS application depends on how fast the dynamic group can evaluate membership changes. For information about how to check the processing status of a dynamic group, see [Check processing status for a membership rule](../users-groups-roles/groups-create-rule.md).
+  * How fast a user in a dynamic group is provisioned or de-provisioned in a SaaS application depends on how fast the dynamic group can evaluate membership changes. For information about how to check the processing status of a dynamic group, see [Check processing status for a membership rule](../enterprise-users/groups-create-rule.md).
 
   * When a user loses membership in the dynamic group, it's considered a de-provisioning event. Consider this scenario when creating rules for dynamic groups.
 
-* **Nested groups.** The Azure AD user provisioning service can't read or provision users in nested groups. The service can only read and provision users that are immediate members of an explicitly assigned group. This limitation of "group-based assignments to applications" also affects single sign-on (see [Using a group to manage access to SaaS applications](../users-groups-roles/groups-saasapps.md)). Instead, directly assign or otherwise [scope in](define-conditional-rules-for-provisioning-user-accounts.md) the groups that contain the users who need to be provisioned.
+* **Nested groups.** The Azure AD user provisioning service can't read or provision users in nested groups. The service can only read and provision users that are immediate members of an explicitly assigned group. This limitation of "group-based assignments to applications" also affects single sign-on (see [Using a group to manage access to SaaS applications](../enterprise-users/groups-saasapps.md)). Instead, directly assign or otherwise [scope in](define-conditional-rules-for-provisioning-user-accounts.md) the groups that contain the users who need to be provisioned.
 
 ### Attribute-based scoping 
 
@@ -135,7 +134,7 @@ After the initial cycle, all other cycles will:
 The provisioning service continues running back-to-back incremental cycles indefinitely, at intervals defined in the [tutorial specific to each application](../saas-apps/tutorial-list.md). Incremental cycles continue until one of the following events occurs:
 
 - The service is manually stopped using the Azure portal, or using the appropriate Microsoft Graph API command.
-- A new initial cycle is triggered using the **Clear state and restart** option in the Azure portal, or using the appropriate Microsoft Graph API command. This action clears any stored watermark and causes all source objects to be evaluated again.
+- A new initial cycle is triggered using the **Restart provisioning** option in the Azure portal, or using the appropriate Microsoft Graph API command. This action clears any stored watermark and causes all source objects to be evaluated again.
 - A new initial cycle is triggered because of a change in attribute mappings or scoping filters. This action also clears any stored watermark and causes all source objects to be evaluated again.
 - The provisioning process goes into quarantine (see below) because of a high error rate, and stays in quarantine for more than four weeks. In this event, the service will be automatically disabled.
 
@@ -175,6 +174,8 @@ Ensure that you have selected the checkbox for updates.
 
 Ensure that you have the mapping for *active* for your application. If your using an application from the app gallery, the mapping may be slightly different. Please ensure that you use the default / out of the box mapping for gallery applications.
 
+:::image type="content" source="./media/how-provisioning-works/disable-user.png" alt-text="Disable a user" lightbox="./media/how-provisioning-works/disable-user.png":::
+
 
 **Configure your application to delete a user**
 
@@ -184,7 +185,9 @@ The following scenarios will trigger a disable or a delete:
 * A user is permanently deleted / removed from the recycle bin in Azure AD.
 * A user is unassigned from an app.
 * A user goes from in scope to out of scope (doesn't pass a scoping filter anymore).
-	
+
+:::image type="content" source="./media/how-provisioning-works/delete-user.png" alt-text="Delete a user" lightbox="./media/how-provisioning-works/delete-user.png":::
+
 By default, the Azure AD provisioning service soft deletes or disables users that go out of scope. If you want to override this default behavior, you can set a flag to [skip out-of-scope deletions.](skip-out-of-scope-deletions.md)
 
 If one of the above four events occurs and the target application does not support soft deletes, the provisioning service will send a DELETE request to permanently delete the user from the app.

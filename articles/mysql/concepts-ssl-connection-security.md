@@ -1,8 +1,8 @@
 ---
 title: SSL/TLS connectivity - Azure Database for MySQL
 description: Information for configuring Azure Database for MySQL and associated applications to properly use SSL connections
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/09/2020
@@ -15,8 +15,11 @@ Azure Database for MySQL supports connecting your database server to client appl
 > [!NOTE]
 > Updating the `require_secure_transport` server parameter value does not affect the MySQL service's behavior. Use the SSL and TLS enforcement features outlined in this article to secure connections to your database.
 
+>[!NOTE]
+> Based on the feedback from customers we have extended the root certificate deprecation for our existing Baltimore Root CA till February 15, 2021 (02/15/2021).
+
 > [!IMPORTANT] 
-> SSL root certificate is set to expire starting October 26th, 2020 (10/26/2020). Please update your application to use the [new certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). To learn more , see [planned certificate updates](concepts-certificate-rotation.md)
+> SSL root certificate is set to expire starting February 15, 2021 (02/15/2021). Please update your application to use the [new certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). To learn more , see [planned certificate updates](concepts-certificate-rotation.md)
 
 ## SSL Default settings
 
@@ -55,7 +58,7 @@ For example, setting the value of minimum TLS setting version to TLS 1.0 means y
 >
 > Once you enforce a minimum TLS version, you cannot later disable minimum version enforcement.
 
-To learn how to set the TLS setting for your Azure Database for MySQL, refer to [How to configure TLS setting](howto-tls-configurations.md).
+The minimum TLS version setting doesnt require any restart of the server can be set while the server is online. To learn how to set the TLS setting for your Azure Database for MySQL, refer to [How to configure TLS setting](howto-tls-configurations.md).
 
 ## Cipher support by Azure Database for MySQL Single server
 

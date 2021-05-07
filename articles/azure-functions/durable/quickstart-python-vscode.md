@@ -4,7 +4,7 @@ description: Create and publish an Azure Durable Function in Python using Visual
 author: anthonychu
 
 ms.topic: quickstart
-ms.date: 04/04/2020
+ms.date: 12/23/2020
 ms.reviewer: azfuncdf, antchu
 ---
 
@@ -36,7 +36,7 @@ To complete this tutorial:
 
 In this section, you use Visual Studio Code to create a local Azure Functions project. 
 
-1. In Visual Studio Code, press F1 (or Ctrl/Cmd+Shift+P) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
+1. In Visual Studio Code, press F1 (or <kbd>Ctrl/Cmd+Shift+P</kbd>) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
 
     ![Create function](media/quickstart-python-vscode/functions-create-project.png)
 
@@ -54,20 +54,20 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 Visual Studio Code installs the Azure Functions Core Tools, if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-run-local.md#local-settings-file) configuration files.
 
-A requirements.txt file is also created in the root folder. It specifies the Python packages needed to run your function app.
+A *requirements.txt* file is also created in the root folder. It specifies the Python packages needed to run your function app.
 
 ## Install azure-functions-durable from PyPI
 
 When you created the project, the Azure Functions VS Code extension automatically created a virtual environment with your selected Python version. You will activate the virtual environment in a terminal and install some dependencies required by Azure Functions and Durable Functions.
 
-1. Open `requirements.txt` in the editor and change its content to the following:
+1. Open *requirements.txt* in the editor and change its content to the following:
 
     ```
     azure-functions
-    azure-functions-durable>=1.0.0b6
+    azure-functions-durable
     ```
 
-1. Open the editor's integrated terminal in the current folder (`` Ctrl-Shift-` ``).
+1. Open the editor's integrated terminal in the current folder (<kbd>Ctrl+Shift+`</kbd>).
 
 1. In the integrated terminal, activate the virtual environment in the current folder:
 
@@ -199,7 +199,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
     }
     ```
 
-1. To stop debugging, press **Shift + F5** in VS Code.
+1. To stop debugging, press <kbd>Shift+F5</kbd> in VS Code.
 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
@@ -209,7 +209,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Test your function in Azure
 
-1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in this format: `http://<functionappname>.azurewebsites.net/orchestrators/HelloOrchestrator`
+1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in this format: `http://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
 
 2. Paste this new URL for the HTTP request into your browser's address bar. You should get the same status response as before when using the published app.
 

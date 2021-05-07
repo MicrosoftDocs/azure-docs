@@ -12,7 +12,7 @@ Follow these steps to run the sample code:
 1. In Visual Studio Code, go to *src/cloud-to-device-console-app/operations.json*.
 1. On the **GraphTopologySet** node, make sure you see the following value:
 
-    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/topology.json"`
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/2.0/topology.json"`
 1. On the **GraphInstanceSet** and **GraphTopologyDelete**  nodes, ensure that the value of `topologyName` matches the value of the `name` property in the graph topology:
 
     `"topologyName" : "MotionDetection"`
@@ -25,7 +25,7 @@ Follow these steps to run the sample code:
     Executing operation GraphTopologyList
     -----------------------  Request: GraphTopologyList  --------------------------------------------------
     {
-        "@apiVersion": "1.0"
+        "@apiVersion": "2.0"
     }
     ---------------  Response: GraphTopologyList - Status: 200  ---------------
     {
@@ -42,7 +42,7 @@ Follow these steps to run the sample code:
          
     ```
     {
-      "@apiVersion": "1.0",
+      "@apiVersion": "2.0",
       "name": "Sample-Graph",
       "properties": {
         "topologyName": "MotionDetection",

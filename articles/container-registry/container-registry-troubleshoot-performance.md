@@ -110,7 +110,5 @@ If you don't resolve your problem here, see the following options.
   * [Troubleshoot registry login](container-registry-troubleshoot-login.md)
   * [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md)
 * [Community support](https://azure.microsoft.com/support/community/) options
-* [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
+* [Microsoft Q&A](/answers/products/)
 * [Open a support ticket](https://azure.microsoft.com/support/create-ticket/)
-
-

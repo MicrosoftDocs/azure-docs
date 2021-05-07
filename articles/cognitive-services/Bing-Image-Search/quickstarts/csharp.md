@@ -14,6 +14,11 @@ ms.custom: devx-track-csharp
 ---
 # Quickstart: Search for images using the Bing Image Search REST API and C#
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
 Use this quickstart to learn how to send search requests to the Bing Image Search API. This C# application sends a search query to the API, and displays the URL of the first image in the results. Although this application is written in C#, the API is a RESTful web service compatible with most programming languages.
 
 The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) with additional error handling and annotations.
@@ -203,8 +208,8 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
 
 ## See also
 
-* [What is the Bing Image Search API?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [What is the Bing Image Search API?](../overview.md)  
 * [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)
 * [Pricing details for the Bing Search APIs](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)
-* [Azure Cognitive Services documentation](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Azure Cognitive Services documentation](../../index.yml)
+* [Bing Image Search API reference](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

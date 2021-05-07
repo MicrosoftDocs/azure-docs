@@ -8,7 +8,7 @@ ms.author: crdun
 ### <a name="server-auth"></a>How to: Authenticate with a provider (Server Flow)
 To have Mobile Apps manage the authentication process in your app, you must register your app with your identity
 provider. Then in your Azure App Service, you need to configure the application ID and secret provided by your provider.
-For more information, see the tutorial [Add authentication to your app](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md).
+For more information, see the tutorial [Add authentication to your app](/previous-versions/azure/app-service-mobile/app-service-mobile-cordova-get-started-users).
 
 Once you have registered your identity provider, call the `.login()` method with the name of your provider. For
 example, to sign in with Facebook use the following code:

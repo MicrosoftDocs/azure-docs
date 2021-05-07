@@ -7,6 +7,7 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
+ms.subservice: deployment
 ---
 
 # Quickstart: Create SQL Server VM using an ARM template
@@ -17,7 +18,7 @@ Use this Azure Resource Manager template (ARM template) to deploy a SQL Server o
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-sql-vm-new-storage%2fazuredeploy.json)
+[![Deploy to Azure](../../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.sqlvirtualmachine%2Fsql-vm-new-storage%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -32,7 +33,7 @@ The SQL Server VM ARM template requires the following:
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-sql-vm-new-storage/).
 
-:::code language="json" source="~/quickstart-templates/101-sql-vm-new-storage/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.sqlvirtualmachine/sql-vm-new-storage/azuredeploy.json":::
 
 Five Azure resources are defined in the template: 
 
@@ -40,16 +41,16 @@ Five Azure resources are defined in the template:
 - [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups): Creates a network security group. 
 - [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces): Configures the network interface. 
 - [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines): Creates a virtual machine in Azure. 
-- [Microsoft.SqlVirtualMachine/SqlVirtualMachines](/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachines): registers the virtual machine with the SQL VM resource provider. 
+- [Microsoft.SqlVirtualMachine/SqlVirtualMachines](/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachines): registers the virtual machine with the SQL IaaS Agent extension. 
 
 More SQL Server on Azure VM templates can be found in the [quickstart template gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sqlvirtualmachine&pageNumber=1&sort=Popular).
 
 
 ## Deploy the template
 
-1. Select the following image to sign in to Azure and open a template. The template creates a virtual machine with the intended SQL Server version installed to it, and registered with the SQL VM resource provider. 
+1. Select the following image to sign in to Azure and open a template. The template creates a virtual machine with the intended SQL Server version installed to it, and registered with the SQL IaaS Agent extension. 
 
-   [![Deploy to Azure](../../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-sql-vm-new-storage%2fazuredeploy.json)
+   [![Deploy to Azure](../../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.sqlvirtualmachine%2Fsql-vm-new-storage%2Fazuredeploy.json)
 
 2. Select or enter the following values.
 
@@ -115,7 +116,7 @@ Write-Host "Press [ENTER] to continue..."
 For a step-by-step tutorial that guides you through the process of creating a template, see:
 
 > [!div class="nextstepaction"]
-> [ Tutorial: Create and deploy your first ARM template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [ Tutorial: Create and deploy your first ARM template](../../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 For other ways to deploy a SQL Server VM, see: 
 - [Azure portal](create-sql-vm-portal.md)

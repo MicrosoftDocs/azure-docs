@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # What is Windows Virtual Desktop?
 
@@ -65,7 +65,7 @@ We support the following operating systems, so make sure you have the [appropria
 
 Your infrastructure needs the following things to support Windows Virtual Desktop:
 
-* An [Azure Active Directory](/azure/active-directory/).
+* An [Azure Active Directory](../active-directory/index.yml).
 * A Windows Server Active Directory in sync with Azure Active Directory. You can configure this using Azure AD Connect (for hybrid organizations) or Azure AD Domain Services (for hybrid or cloud organizations).
   * A Windows Server AD in sync with Azure Active Directory. User is sourced from Windows Server AD and the Windows Virtual Desktop VM is joined to Windows Server AD domain.
   * A Windows Server AD in sync with Azure Active Directory. User is sourced from Windows Server AD and the Windows Virtual Desktop VM is joined to Azure AD Domain Services domain.
@@ -79,13 +79,13 @@ User requirements to connect to Windows Virtual Desktop:
 
 The Azure virtual machines you create for Windows Virtual Desktop must be:
 
-* [Standard domain-joined](../active-directory-domain-services/active-directory-ds-comparison.md) or [Hybrid AD-joined](../active-directory/devices/hybrid-azuread-join-plan.md). Virtual machines can't be Azure AD-joined.
+* [Standard domain-joined](../active-directory-domain-services/compare-identity-solutions.md) or [Hybrid AD-joined](../active-directory/devices/hybrid-azuread-join-plan.md). Virtual machines can't be Azure AD-joined.
 * Running one of the following [supported OS images](#supported-virtual-machine-os-images).
 
 >[!NOTE]
 >If you need an Azure subscription, you can [sign up for a one-month free trial](https://azure.microsoft.com/free/). If you're using the free trial version of Azure, you should use Azure AD Domain Services to keep your Windows Server Active Directory in sync with Azure Active Directory.
 
-For a list of URLs you should unblock for your Windows Virtual Desktop deployment to work as intended, see our [Safe URL list](safe-url-list.md).
+For a list of URLs you should unblock for your Windows Virtual Desktop deployment to work as intended, see our [Required URL list](safe-url-list.md).
 
 Windows Virtual Desktop comprises the Windows desktops and apps you deliver to users and the management solution, which is hosted as a service on Azure by Microsoft. Desktops and apps can be deployed on virtual machines (VMs) in any Azure region, and the management solution and data for these VMs will reside in the United States. This may result in data transfer to the United States.
 
@@ -95,7 +95,7 @@ For optimal performance, make sure your network meets the following requirements
 * Network traffic may flow outside country/region borders when VMs that host desktops and apps connect to the management service.
 * To optimize for network performance, we recommend that the session host's VMs are collocated in the same Azure region as the management service.
 
-You can see a typical architectural setup of Windows Virtual Desktop for the enterprise in our [architecture documenation](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
+You can see a typical architectural setup of Windows Virtual Desktop for the enterprise in our [architecture documenation](/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
 
 ## Supported Remote Desktop clients
 
@@ -115,25 +115,23 @@ To learn more about URLs you must unblock to use the clients, see the [Safe URL 
 
 ## Supported virtual machine OS images
 
-Windows Virtual Desktop supports the following x64 operating system images:
+Windows Virtual Desktop follows the [Microsoft Lifecycle Policy](https://docs.microsoft.com/lifecycle/) and supports the following x64 operating system images:
 
-* Windows 10 Enterprise multi-session, version 1809 or later
-* Windows 10 Enterprise, version 1809 or later
+* Windows 10 Enterprise multi-session
+* Windows 10 Enterprise
 * Windows 7 Enterprise
 * Windows Server 2019
 * Windows Server 2016
 * Windows Server 2012 R2
 
-Windows Virtual Desktop does not support x86 (32-bit), Windows 10 Enterprise N, or Windows 10 Enterprise KN operating system images. Windows 7 also doesn't support any VHD or VHDX-based profile solutions hosted on managed Azure Storage due to a sector size limitation.
+Windows Virtual Desktop does not support x86 (32-bit), Windows 10 Enterprise N, Windows 10 Pro, or Windows 10 Enterprise KN operating system images. Windows 7 also doesn't support any VHD or VHDX-based profile solutions hosted on managed Azure Storage due to a sector size limitation.
 
 Available automation and deployment options depend on which OS and version you choose, as shown in the following table:
 
 |Operating system|Azure Image Gallery|Manual VM deployment|Azure Resource Manager template integration|Provision host pools on Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
-|Windows 10 Enterprise (multi-session), version 2004|Yes|Yes|Yes|Yes|
-|Windows 10 Enterprise (multi-session), version 1909|Yes|Yes|Yes|Yes|
-|Windows 10 Enterprise (multi-session), version 1903|Yes|Yes|No|No|
-|Windows 10 Enterprise (multi-session), version 1809|Yes|Yes|No|No|
+|Windows 10 Enterprise multi-session, version 1909 and later|Yes|Yes|Yes|Yes|
+|Windows 10 Enterprise, version 1909 and later|Yes|Yes|Yes|Yes|
 |Windows 7 Enterprise|Yes|Yes|No|No|
 |Windows Server 2019|Yes|Yes|No|No|
 |Windows Server 2016|Yes|Yes|Yes|Yes|

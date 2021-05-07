@@ -1,16 +1,18 @@
 ---
-title: "Quickstart: Your first portal query"
+title: 'Quickstart: Your first portal query'
 description: In this quickstart, you follow the steps to run your first query from Azure portal using Azure Resource Graph Explorer.
-ms.date: 08/10/2020
+ms.date: 05/01/2021
 ms.topic: quickstart
+ms.custom:
+  - mode-portal
 ---
 # Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer
 
-The power of Azure Resource Graph is available directly in Azure portal through Azure Resource Graph
-Explorer. Resource Graph Explorer provides browsable information about the Azure Resource Manager
-resource types and properties that you can query. Resource Graph Explorer also provides a clean
-interface for working with multiple queries, evaluating the results, and even converting the results
-of some queries into a chart that can be pinned to an Azure dashboard.
+The power of Azure Resource Graph is available directly in the Azure portal through Azure Resource
+Graph Explorer. Resource Graph Explorer provides browsable information about the Azure Resource
+Manager resource types and properties that you can query. Resource Graph Explorer also provides a
+clean interface for working with multiple queries, evaluating the results, and even converting the
+results of some queries into a chart that can be pinned to an Azure dashboard.
 
 At the end of this quickstart, you'll have used Azure portal and Resource Graph Explorer to run your
 first Resource Graph query and pinned the results to a dashboard.
@@ -70,7 +72,7 @@ functions to achieve your intended results.
 
 ## Create a chart from the Resource Graph query
 
-After running the last query above, if you select the **Charts** tab, you get a message that "the
+After running the previous query, if you select the **Charts** tab, you get a message that "the
 result set isn't compatible with a pie chart visualization." Queries that list results can't be made
 into a chart, but queries that provide counts of resources can. Using the
 [Sample query - Count virtual machines by OS type](./samples/starter.md#count-os), let's create a
@@ -93,7 +95,7 @@ visualization from the Resource Graph query.
 ## Pin the query visualization to a dashboard
 
 When you have results from a query that can be visualized, that data visualization can then be
-pinned to one of your dashboards. After running the query above, follow these steps:
+pinned to one of your dashboards. After running the previous query, follow these steps:
 
 1. Select **Save** and provide the name "VMs by OS Type". Then select **Save** at the bottom of the
    right pane.
@@ -133,7 +135,7 @@ your Azure portal workflow, try out these example dashboards.
 
 1. Select and download the sample dashboard you want to evaluate.
 
-1. In Azure portal, select **Dashboard** from the left pane.
+1. In the Azure portal, select **Dashboard** from the left pane.
 
 1. Select **Upload**, then locate and select the downloaded sample dashboard file. Then select
    **Open**.
@@ -150,7 +152,7 @@ can do so with the following steps:
 
 1. Select **Dashboard** from the left pane.
 
-1. From the dashboard drop-down, select the sample Resource Graph dashboard you wish to delete.
+1. From the dashboard dropdown list, select the sample Resource Graph dashboard you wish to delete.
 
 1. Select **Delete** from the dashboard menu at the top of the dashboard and select **Ok** to
    confirm.

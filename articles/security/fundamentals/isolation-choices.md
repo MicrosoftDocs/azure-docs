@@ -35,7 +35,7 @@ Each Azure AD directory is distinct and separate from other Azure AD directories
 
 ### Azure Tenancy
 
-Azure tenancy (Azure Subscription) refers to a “customer/billing” relationship and a unique [tenant](../../active-directory/develop/quickstart-create-new-tenant.md) in [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md). Tenant level isolation in Microsoft Azure is achieved using Azure Active Directory and [role-based controls](../../role-based-access-control/overview.md) offered by it. Each Azure subscription is associated with one Azure Active Directory (AD) directory.
+Azure tenancy (Azure Subscription) refers to a “customer/billing” relationship and a unique [tenant](../../active-directory/develop/quickstart-create-new-tenant.md) in [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md). Tenant level isolation in Microsoft Azure is achieved using Azure Active Directory and [Azure role-based access control](../../role-based-access-control/overview.md) offered by it. Each Azure subscription is associated with one Azure Active Directory (AD) directory.
 
 Users, groups, and applications from that directory can manage resources in the Azure subscription. You can assign these access rights using the Azure portal, Azure command-line tools, and Azure Management APIs. An Azure AD tenant is logically isolated using security boundaries so that no customer can access or compromise co-tenants, either maliciously or accidentally. Azure AD runs on “bare metal” servers isolated on a segregated network segment, where host-level packet filtering and Windows Firewall block unwanted connections and traffic.
 
@@ -49,7 +49,7 @@ Users, groups, and applications from that directory can manage resources in the 
 
 - Physical access to servers that comprise the Azure AD service, and direct access to Azure AD’s back-end systems, is restricted.
 
-- Azure AD users have no access to physical assets or locations, and therefore it is not possible for them to bypass the logical RBAC policy checks stated following.
+- Azure AD users have no access to physical assets or locations, and therefore it is not possible for them to bypass the logical Azure RBAC policy checks stated following.
 
 For diagnostics and maintenance needs, an operational model that employs a just-in-time privilege elevation system is required and used. Azure AD Privileged Identity Management (PIM) introduces the concept of an eligible admin. [Eligible admins](../../active-directory/privileged-identity-management/pim-configure.md) should be users that need privileged access now and then, but not every day. The role is inactive until the user needs access, then they complete an activation process and become an active admin for a predetermined amount of time.
 
@@ -77,17 +77,17 @@ Azure RBAC has three basic roles that apply to all resource types:
 
 The rest of the Azure roles in Azure allow management of specific Azure resources. For example, the Virtual Machine Contributor role allows the user to create and manage virtual machines. It does not give them access to the Azure Virtual Network or the subnet that the virtual machine connects to.
 
-[RBAC built-in roles](../../role-based-access-control/built-in-roles.md) list the roles available in Azure. It specifies the operations and scope that each built-in role grants to users. If you're looking to define your own roles for even more control, see how to build [Custom roles in Azure RBAC](../../role-based-access-control/custom-roles.md).
+[Azure built-in roles](../../role-based-access-control/built-in-roles.md) list the roles available in Azure. It specifies the operations and scope that each built-in role grants to users. If you're looking to define your own roles for even more control, see how to build [Custom roles in Azure RBAC](../../role-based-access-control/custom-roles.md).
 
 Some other capabilities for Azure Active Directory include:
 
 - Azure AD enables SSO to SaaS applications, regardless of where they are hosted. Some applications are federated with Azure AD, and others use password SSO. Federated applications can also support user provisioning and [password vaulting](https://www.techopedia.com/definition/31415/password-vault).
 
-- Access to data in [Azure Storage](https://azure.microsoft.com/services/storage/) is controlled via authentication. Each storage account has a primary key ([storage account key](../../storage/common/storage-create-storage-account.md), or SAK) and a secondary secret key (the shared access signature, or SAS).
+- Access to data in [Azure Storage](https://azure.microsoft.com/services/storage/) is controlled via authentication. Each storage account has a primary key ([storage account key](../../storage/common/storage-account-create.md), or SAK) and a secondary secret key (the shared access signature, or SAS).
 
-- Azure AD provides Identity as a Service through federation by using [Active Directory Federation Services](../../active-directory/hybrid/how-to-connect-fed-azure-adfs.md), synchronization, and replication with on-premises directories.
+- Azure AD provides Identity as a Service through federation by using [Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs), synchronization, and replication with on-premises directories.
 
-- [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) is the multi-factor authentication service that requires users to verify sign-ins by using a mobile app, phone call, or text message. It can be used with Azure AD to help secure on-premises resources with the Azure Multi-Factor Authentication server, and also with custom applications and directories using the SDK.
+- [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) is the multi-factor authentication service that requires users to verify sign-ins by using a mobile app, phone call, or text message. It can be used with Azure AD to help secure on-premises resources with the Azure Multi-Factor Authentication server, and also with custom applications and directories using the SDK.
 
 - [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) lets you join Azure virtual machines to an Active Directory domain without deploying domain controllers. You can sign in to these virtual machines with your corporate Active Directory credentials and administer domain-joined virtual machines by using Group Policy to enforce security baselines on all your Azure virtual machines.
 
@@ -116,7 +116,7 @@ Microsoft Azure provides various cloud-based computing services that include a w
 
 ### Dedicated hosts
 
-In addition to the isolated hosts described in the preceding section, Azure also offers dedicated hosts. Dedicated hosts in Azure is a service that provides physical servers that can host one or more virtual machines, and which are dedicated to a single Azure subscription. Dedicated hosts provide hardware isolation at the physical server level. No other VMs will be placed on your hosts. Dedicated hosts are deployed in the same datacenters and share the same network and underlying storage infrastructure as other, non-isolated hosts. For more information, see the detailed overview of [Azure dedicated hosts](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts).
+In addition to the isolated hosts described in the preceding section, Azure also offers dedicated hosts. Dedicated hosts in Azure is a service that provides physical servers that can host one or more virtual machines, and which are dedicated to a single Azure subscription. Dedicated hosts provide hardware isolation at the physical server level. No other VMs will be placed on your hosts. Dedicated hosts are deployed in the same datacenters and share the same network and underlying storage infrastructure as other, non-isolated hosts. For more information, see the detailed overview of [Azure dedicated hosts](../../virtual-machines/dedicated-hosts.md).
 
 ### Hyper-V & Root OS Isolation Between Root VM & Guest VMs
 
@@ -191,7 +191,7 @@ Therefore, Azure Storage runs on separate hardware with no network connectivity 
 
 ![Isolation Using Storage Access control](./media/isolation-choices/azure-isolation-fig9.png)
 
-**Access to Azure Storage data (including Tables)** can be controlled through a [SAS (Shared Access Signature)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) token, which grants scoped access. The SAS is created through a query template (URL), signed with the [SAK (Storage Account Key)](https://msdn.microsoft.com/library/azure/ee460785.aspx). That [signed URL](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) can be given to another process (that is, delegated), which can then fill in the details of the query and make the request of the storage service. A SAS enables you to grant time-based access to clients without revealing the storage account’s secret key.
+**Access to Azure Storage data (including Tables)** can be controlled through a [SAS (Shared Access Signature)](../../storage/common/storage-sas-overview.md) token, which grants scoped access. The SAS is created through a query template (URL), signed with the [SAK (Storage Account Key)](/previous-versions/azure/reference/ee460785(v=azure.100)). That [signed URL](../../storage/common/storage-sas-overview.md) can be given to another process (that is, delegated), which can then fill in the details of the query and make the request of the storage service. A SAS enables you to grant time-based access to clients without revealing the storage account’s secret key.
 
 The SAS means that we can grant a client limited permissions, to objects in our storage account for a specified period of time and with a specified set of permissions. We can grant these limited permissions without having to share your account access keys.
 
@@ -222,13 +222,13 @@ For many organizations, [data encryption at rest](isolation-choices.md) is a man
 
 - [Storage Service Encryption](../../storage/blobs/security-recommendations.md) allows you to request that the storage service automatically encrypt data when writing it to Azure Storage.
 - [Client-side Encryption](../../storage/blobs/security-recommendations.md) also provides the feature of encryption at rest.
-- [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) allows you to encrypt the OS disks and data disks used by an IaaS virtual machine.
+- [Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md) allows you to encrypt the OS disks and data disks used by an IaaS virtual machine.
 
 #### Azure Disk Encryption
 
-[Azure Disk Encryption](../azure-security-disk-encryption-overview.md) for virtual machines (VMs) helps you address organizational security and compliance requirements by encrypting your VM disks (including boot and data disks) with keys and policies you control in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+[Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md) for virtual machines (VMs) helps you address organizational security and compliance requirements by encrypting your VM disks (including boot and data disks) with keys and policies you control in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
-The Disk Encryption solution for Windows is based on [Microsoft BitLocker Drive Encryption](https://technet.microsoft.com/library/cc732774.aspx), and the Linux solution is based on [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
+The Disk Encryption solution for Windows is based on [Microsoft BitLocker Drive Encryption](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)), and the Linux solution is based on [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
 The solution supports the following scenarios for IaaS VMs when they are enabled in Microsoft Azure:
 
@@ -240,7 +240,7 @@ The solution supports the following scenarios for IaaS VMs when they are enabled
 - Enabling encryption on IaaS VMs that are running Windows client OS
 - Enabling encryption on volumes with mount paths
 - Enabling encryption on Linux VMs that are configured with disk striping (RAID) by using [mdadm](https://en.wikipedia.org/wiki/Mdadm)
-- Enabling encryption on Linux VMs by using [LVM(Logical Volume Manager)](https://msdn.microsoft.com/library/windows/desktop/bb540532) for data disks
+- Enabling encryption on Linux VMs by using [LVM(Logical Volume Manager)](/windows/win32/fileio/about-volume-management) for data disks
 - Enabling encryption on Windows VMs that are configured by using storage spaces
 - All Azure public regions are supported
 

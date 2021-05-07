@@ -5,8 +5,8 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.subservice: management
-ms.date: 08/20/2019
+ms.subservice: maintenance-control
+ms.date: 04/26/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
 
@@ -17,14 +17,14 @@ ms.custom: mimckitt
 
 Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines (VMs). Updates might include patching the hosting environment or upgrading and decommissioning hardware. Most updates don't affect the hosted VMs. However, updates affect VMs in these scenarios:
 
-- If the maintenance doesn't require a reboot, Azure uses in-place migration to pause the VM while the host is updated. Maintenance operations that don't require a reboot are applied fault domain by fault domain. Progress is stopped if any warning health signals are received.
+- If the maintenance does not require a reboot, Azure pauses the VM for few seconds while the host is updated. These types of maintenance operations are applied fault domain by fault domain. Progress is stopped if any warning health signals are received.
 
 - If maintenance requires a reboot, you get a notice of when the maintenance is planned. In these cases, you are given a time window that is typically 35 days where you can start the maintenance yourself, when it works for you.
 
 
 Planned maintenance that requires a reboot is scheduled in waves. Each wave has different scope (regions):
 
-- A wave starts with a notification to customers. By default, notification is sent to the subscription owner and co-owners. You can add recipients and messaging options like email, SMS, and webhooks to the notifications by using Azure [Activity Log alerts](../azure-monitor/platform/platform-logs-overview.md).  
+- A wave starts with a notification to customers. By default, notification is sent to the subscription owner and co-owners. You can add recipients and messaging options like email, SMS, and webhooks to the notifications by using Azure [Activity Log alerts](../azure-monitor/essentials/platform-logs-overview.md).  
 - With notification, a *self-service window* is made available. During this window that is typically 35 days, you can find which of your VMs are included in the wave. You can proactively start maintenance according to your own scheduling needs.
 - After the self-service window, a *scheduled maintenance window* begins. At some point during this window, Azure schedules and applies the required maintenance to your VM. 
 
@@ -85,7 +85,7 @@ The **Self-service maintenance** column now appears in the list of virtual machi
 
 ## Notification and alerts in the portal
 
-Azure communicates a schedule for planned maintenance by sending an email to the subscription owner and co-owners group. You can add recipients and channels to this communication by creating Activity Log alerts. For more information, see [Monitor subscription activity with the Azure Activity Log](../azure-monitor/platform/platform-logs-overview.md).
+Azure communicates a schedule for planned maintenance by sending an email to the subscription owner and co-owners group. You can add recipients and channels to this communication by creating Activity Log alerts. For more information, see [Monitor subscription activity with the Azure Activity Log](../azure-monitor/essentials/platform-logs-overview.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the left menu, select **Monitor**. 
@@ -95,7 +95,7 @@ Azure communicates a schedule for planned maintenance by sending an email to the
    - **Services**: Select **Virtual Machine Scale Sets and Virtual Machines**.
    - **Type**: Select **Planned maintenance**. 
 	
-To learn more about how to configure Activity Log alerts, see [Create Activity Log alerts](../azure-monitor/platform/activity-log-alerts.md)
+To learn more about how to configure Activity Log alerts, see [Create Activity Log alerts](../azure-monitor/alerts/activity-log-alerts.md)
 	
 	
 ## Start maintenance on your virtual machine scale set from the portal
@@ -108,12 +108,12 @@ After you start maintenance, the affected VMs in your virtual machine scale set 
  
 ## Check maintenance status by using PowerShell
 
-You can use Azure PowerShell to see when VMs in your virtual machine scale sets are scheduled for maintenance. Planned maintenance information is available by using the [Get-AzVmss](/powershell/module/az.compute/get-azvmss) cmdlet when you use the `-InstanceView` parameter.
+You can use Azure PowerShell to see when VMs in your virtual machine scale sets are scheduled for maintenance. Planned maintenance information is available by using the [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) cmdlet when you use the `-InstanceView` parameter.
  
 Maintenance information is returned only if maintenance is planned. If no maintenance is scheduled that affects the VM instance, the cmdlet doesn't return any maintenance information. 
 
 ```powershell
-Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
+Get-AzVmssVm -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
 ```
 
 The following properties are returned under **MaintenanceRedeployStatus**: 
@@ -131,15 +131,15 @@ The following properties are returned under **MaintenanceRedeployStatus**:
 
 ### Start maintenance on your VM instance by using PowerShell
 
-You can start maintenance on a VM if **IsCustomerInitiatedMaintenanceAllowed** is set to **true**. Use the [Set-AzVmss](/powershell/module/az.compute/set-azvmss) cmdlet with `-PerformMaintenance` parameter.
+You can start maintenance on a VM if **IsCustomerInitiatedMaintenanceAllowed** is set to **true**. Use the [Set-AzVmssVM](/powershell/module/az.compute/set-azvmssvm) cmdlet with `-PerformMaintenance` parameter.
 
 ```powershell
-Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
+Set-AzVmssVM -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
 ```
 
 ## Check maintenance status by using the CLI
 
-You can view planned maintenance information by using [az vmss list-instances](/cli/azure/vmss?view=azure-cli-latest#az-vmss-list-instances).
+You can view planned maintenance information by using [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances).
  
 Maintenance information is returned only if maintenance is planned. If no maintenance that affects the VM instance is scheduled, the command doesn't return any maintenance information. 
 
@@ -181,7 +181,7 @@ For more information about high availability, see [Regions and availability for 
 
 **Q: How can I be notified about planned maintenance?**
 
-**A:** A planned maintenance wave starts by setting a schedule to one or more Azure regions. Soon after, an email notification is sent to the subscription owners (one email per subscription). You can add channels and recipients for this notification by using Activity Log alerts. If you deploy a VM to a region in which planned maintenance is already scheduled, you don't receive the notification. Instead, check the maintenance state of the VM.
+**A:** A planned maintenance wave starts by setting a schedule to one or more Azure regions. Soon after, an email notification is sent to the subscription admins, co-admins, owners, and contributors (one email per subscription). Additional channels and recipients for this notification could be configured using Activity Log Alerts. In case you deploy a virtual machine to a region where planned maintenance is already scheduled, you will not receive the notification. Instead, check the maintenance state of the VM.
 
 **Q: I don't see any indication of planned maintenance in the portal, PowerShell, or the CLI. What's wrong?**
 

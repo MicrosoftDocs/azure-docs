@@ -1,14 +1,14 @@
 ---
 title: Profile model memory and CPU usage
 titleSuffix: Azure Machine Learning
-description: Learn to profile your model memory and CPU usage
+description: Learn to profile your model before deployment. Profiling determines the memory and CPU usage of your model.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
-ms.topic: conceptual
+ms.topic: how-to
 zone_pivot_groups: aml-control-methods
 ms.reviewer: larryfr
 ms.custom: deploy

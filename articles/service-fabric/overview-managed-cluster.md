@@ -2,7 +2,7 @@
 title: Service Fabric managed clusters (preview)
 description: Service Fabric managed clusters are an evolution of the Azure Service Fabric cluster resource model that streamlines deployment and cluster management.
 ms.topic: overview
-ms.date: 09/28/2020
+ms.date: 02/15/2021
 ---
 
 # Service Fabric managed clusters (preview)
@@ -57,21 +57,26 @@ Service Fabric managed clusters are available in both Basic and Standard SKUs.
 | Add/remove node types | No | Yes |
 | Zone redundancy | No | Yes |
 
-## Service Fabric managed cluster feature roadmap
-As this is an early preview version of Service Fabric managed clusters their are some gaps to be aware of. These features will become available in future releases. 
+## What's new for Service Fabric managed clusters
 
-* Publishing applications to clusters directly from Visual Studio
-* Managed Identities 
-* ARM Application Deployments 
-* Availability Zones 
-* Reverse Proxy 
-* Auto scaling 
-* Updating NSG rules 
-* Auto OS Upgrades
+The latest features for Service Fabric managed clusters preview include support for:
+
+* [Deploying applications using ARM templates](how-to-managed-cluster-app-deployment-template.md)
+* [Automatic OS upgrades](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades)
+* [Disk encryption](how-to-enable-managed-cluster-disk-encryption.md)
+* [Applying NSG rules](how-to-managed-cluster-networking.md)
+
+Features to be added in upcoming releases include:
+
+* Deploying applications using Visual Studio
+* Managed Identities support
+* Availability Zones
+* Reverse Proxy
+* Autoscaling
 
 ## Next steps
 
-To get started with Service Fabric managed clusters, try out the quickstart:
+To get started with Service Fabric managed clusters, try the quickstart:
 
 > [!div class="nextstepaction"]
 > [Create a Service Fabric managed cluster (preview)](quickstart-managed-cluster-template.md)

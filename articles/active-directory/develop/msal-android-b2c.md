@@ -3,7 +3,7 @@ title: Azure AD B2C (MSAL Android) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about specific considerations when using Azure AD B2C with the Microsoft Authentication Library for Android (MSAL.Android)
 services: active-directory
-author: brianmel
+author: iambmelt
 manager: CelesteDG
 
 ms.service: active-directory
@@ -19,7 +19,10 @@ ms.custom: aaddev
 
 # Use MSAL for Android with B2C
 
-Microsoft Authentication Library (MSAL) enables application developers to authenticate users with social and local identities by using [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml). Azure AD B2C is an identity management service. Use it to customize and control how customers sign up, sign in, and manage their profiles when they use your applications.
+The Microsoft Authentication Library (MSAL) enables application developers to authenticate users with social and local identities by using [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml). Azure AD B2C is an identity management service. Use it to customize and control how customers sign up, sign in, and manage their profiles when they use your applications.
+
+## Choosing a compatible authorization_user_agent
+The B2C identity management system supports authentication with a number of social account providers such as Google, Facebook, Twitter, and Amazon. If you plan to support such account types in your app, it is recommended that you configure your MSAL public client application to use either the `DEFAULT` or `BROWSER` value when specifying your manifest's [`authorization_user_agent`](msal-configuration.md#authorization_user_agent) due to restrictions prohibiting use of WebView-based authentication with some external identity providers.
 
 ## Configure known authorities and redirect URI
 
@@ -33,21 +36,27 @@ Given a B2C application that has two policies:
 
 The configuration file for the app would declare two `authorities`. One for each policy. The `type` property of each authority is `B2C`.
 
+>Note: The `account_mode` must be set to **MULTIPLE** for B2C applications. Refer to the documentation for more information about [multiple account public client apps](./single-multi-account.md#multiple-account-public-client-application).
+
 ### `app/src/main/res/raw/msal_config.json`
+
 ```json
 {
-	"client_id": "<your_client_id_here>",
-	"redirect_uri": "<your_redirect_uri_here>",
-	"authorities": [{
-			"type": "B2C",
-			"authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/",
-			"default": true
-		},
-		{
-			"type": "B2C",
-			"authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_EditProfile/"
-		}
-	]
+  "client_id": "<your_client_id_here>",
+  "redirect_uri": "<your_redirect_uri_here>",
+  "account_mode" : "MULTIPLE",
+  "authorization_user_agent" : "DEFAULT",
+  "authorities": [
+    {
+      "type": "B2C",
+      "authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/",
+      "default": true
+    },
+    {
+      "type": "B2C",
+      "authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_EditProfile/"
+    }
+  ]
 }
 ```
 
@@ -112,7 +121,7 @@ pca.acquireToken(parameters);
 To acquire a token silently with MSAL, build an `AcquireTokenSilentParameters` instance and supply it to the `acquireTokenSilentAsync` method. Unlike the `acquireToken` method, the `authority` must be specified to acquire a token silently.
 
 ```java
-IMultilpeAccountPublicClientApplication pca = ...; // Initialization not shown
+IMultipleAccountPublicClientApplication pca = ...; // Initialization not shown
 AcquireTokenSilentParameters parameters = new AcquireTokenSilentParameters.Builder()
     .withScopes(Arrays.asList("https://contoso.onmicrosoft.com/contosob2c/read")) // Provide your registered scope here
     .forAccount(account)
@@ -126,7 +135,7 @@ AcquireTokenSilentParameters parameters = new AcquireTokenSilentParameters.Build
 
         @Override
         public void onError(MsalException exception) {
-            // Token request was unsuccesful, inspect the exception
+            // Token request was unsuccessful, inspect the exception
         }
     })
     .build();

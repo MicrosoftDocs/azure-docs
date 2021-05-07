@@ -1,13 +1,14 @@
 ---
 title: Overview of cloud-init support for Linux VMs in Azure 
 description: Overview of cloud-init capabilities to configure a VM at provisioning time in Azure.
-author: danielsollondon
-ms.service: virtual-machines-linux
+author: srijang
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 06/15/2020
-ms.author: danis
+ms.date: 04/27/2021
+ms.author: srijangupta
 
 ---
 # cloud-init support for virtual machines in Azure
@@ -93,10 +94,10 @@ These SLES images have been updated to provision using cloud-init, the Gen2 imag
 ### Debian
 | Publisher / Version | Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| debian (Gen1) |debian-10 | 10-cloudinit |cloud-init-preview| yes (preview only) | No, in preview. |
-| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |cloud-init-preview| yes (preview only) | No, in preview. |
-
-
+| debian (Gen1) |debian-10 | 10-cloudinit |cloud-init-preview| yes (note: this is a preview image, and **must** not be used anymore, this will be removed 1st January 2021) | No, in preview. |
+| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |cloud-init-preview| yes (note: this is a preview image, and **must** not be used anymore, this will be removed 1st January 2021) | No, in preview. |
+| debian (Gen1) |debian-10 | 10-cloudinit |10:0.20201013.422| yes | yes - support from package version: `20.2-2~deb10u1` |
+| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |0.20201013.422| yes | yes - support from package version: `20.2-2~deb10u1` |
 
 
 Currently Azure Stack will support the provisioning of cloud-init enabled images.
@@ -131,6 +132,10 @@ package_upgrade: true
 packages:
   - httpd
 ```
+> [!NOTE]
+> cloud-init has multiple [input types](https://cloudinit.readthedocs.io/en/latest/topics/format.html), cloud-init will use first line of the customData/userData to indicate how it should process the input, for example `#cloud-config` indicates a the content should be processed as a cloud-init config.
+
+
 Press `ctrl-X` to exit the file, type `y` to save the file and press `enter` to confirm the file name on exit.
 
 The final step is to create a VM with the [az vm create](/cli/azure/vm) command. 

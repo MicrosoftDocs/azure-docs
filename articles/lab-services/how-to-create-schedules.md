@@ -1,11 +1,11 @@
 ---
-title: Create schedule for classroom labs  in Azure Lab Services | Microsoft Docs
-description: Learn how to create schedules for classroom labs in Azure Lab Services so that VMs in the labs start up and shut down at a specified time. 
+title: Create schedule for labs  in Azure Lab Services | Microsoft Docs
+description: Learn how to create schedules for labs in Azure Lab Services so that VMs in the labs start up and shut down at a specified time. 
 ms.topic: article
 ms.date: 06/26/2020
 ---
 
-# Create and manage schedules for classroom labs in Azure Lab Services 
+# Create and manage schedules for labs in Azure Lab Services 
 Schedules allow you to configure a classroom lab such that VMs in the lab automatically start and shut down at a specified time. You can define a one-time schedule or a recurring schedule. The following procedures give you steps to create and manage schedules for a classroom lab: 
 
 > [!IMPORTANT]
@@ -72,4 +72,4 @@ See the following articles:
 - [As an admin, create and manage lab accounts](how-to-manage-lab-accounts.md)
 - [As a lab owner, create and manage labs](how-to-manage-classroom-labs.md)
 - [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
-- [As a lab user, access classroom labs](how-to-use-classroom-lab.md)
+- [As a lab user, access labs](how-to-use-classroom-lab.md)

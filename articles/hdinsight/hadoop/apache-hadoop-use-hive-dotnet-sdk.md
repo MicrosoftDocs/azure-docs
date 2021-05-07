@@ -1,9 +1,6 @@
 ---
 title: Run Apache Hive queries using HDInsight .NET SDK - Azure 
 description: Learn how to submit Apache Hadoop jobs to Azure HDInsight Apache Hadoop using HDInsight .NET SDK.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: "hdinsightactive, devx-track-csharp"
@@ -133,7 +130,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 
 The output of the application should be similar to:
 
-![HDInsight Hadoop Hive job output](./media/apache-hadoop-use-hive-dotnet-sdk/hdinsight-hadoop-use-hive-net-sdk-output.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-dotnet-sdk/hdinsight-hadoop-use-hive-net-sdk-output.png" alt-text="HDInsight Hadoop Hive job output" border="true":::
 
 ## Next steps
 
@@ -141,6 +138,6 @@ In this article, you learned how to submit Apache Hive queries using HDInsight .
 
 * [Get started with Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Create Apache Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
-* [HDInsight .NET SDK reference](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
+* [HDInsight .NET SDK reference](/dotnet/api/overview/azure/hdinsight)
 * [Use Apache Sqoop with HDInsight](apache-hadoop-use-sqoop-mac-linux.md)
 * [Create non-interactive authentication .NET HDInsight applications](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)

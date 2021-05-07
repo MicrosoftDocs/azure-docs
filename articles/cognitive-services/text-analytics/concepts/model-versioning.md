@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 07/16/2020
+ms.date: 02/17/2021
 ms.author: aahi
 ---
 
@@ -18,16 +18,17 @@ Version 3 of the Text Analytics API lets you choose the model version that gets 
 
 ## Available versions
 
-Use the table below to find which model versions are supported by each endpoint.
+Use the table below to find which model versions are supported by each hosted endpoint.
 
 
 | Endpoint                        | Supported Versions                                     | latest version |
 |---------------------------------|--------------------------------------------------------|----------------|
 | `/sentiment`                    | `2019-10-01`, `2020-04-01`                             | `2020-04-01`   |
-| `/languages`                    | `2019-10-01`, `2020-07-01`, `2020-09-01`               | `2020-09-01`   |
+| `/languages`                    | `2019-10-01`, `2020-07-01`, `2020-09-01`, `2021-01-05` | `2021-01-05`   |
 | `/entities/linking`             | `2019-10-01`, `2020-02-01`                             | `2020-02-01`   |
-| `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01`,              | `2020-04-01`   |
-| `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`  | `2020-07-01`   |
+| `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2021-01-15`  | `2021-01-15`   |
+| `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`, `2021-01-15`  | `2021-01-15`   |
+| `/entities/health`              | `2021-03-01`                           | `2021-03-01`   |
 | `/keyphrases`                   | `2019-10-01`, `2020-07-01`                             | `2020-07-01`   |
 
 
@@ -39,7 +40,8 @@ The [Text Analytics for Health](../how-tos/text-analytics-for-health.md) contain
 
 | Endpoint                        | Container Image Tag                     | Model version |
 |---------------------------------|-----------------------------------------|---------------|
-| `/entities/health`              | `1.1.013530001-amd64-preview` or latest          | `2020-09-03`  |
+| `/entities/health`              | `3.0.015370001-onprem-amd64` or latest          | `2021-03-01`  |
+| `/entities/health`              | `1.1.013530001-amd64-preview`           | `2020-09-03`  |
 | `/entities/health`              | `1.1.013150001-amd64-preview`           | `2020-07-24`  |
 | `/domains/health`               | `1.1.012640001-amd64-preview`           | `2020-05-08`  |
 | `/domains/health`               | `1.1.012420001-amd64-preview`           | `2020-05-08`  |

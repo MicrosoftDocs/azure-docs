@@ -13,7 +13,7 @@ ms.tgt_pltfrm: Python
 ms.workload: identity
 ms.date: 11/11/2019
 ms.author: rayluo
-ms.reviewer: rayluo, nacanuma
+ms.reviewer: marsma, rayluo, nacanuma
 ms.custom: aaddev, devx-track-python
 #Customer intent: As a Python application developer, I want to learn how to migrate my v1 ADAL app to v2 MSAL.
 ---
@@ -35,20 +35,20 @@ Supports:
   - OAuth v2.0
   - OpenID Connect (OIDC)
 
-See [What's different about the Microsoft identity platform (v2.0) endpoint?](../azuread-dev/azure-ad-endpoint-comparison.md) for more details.
+See [What's different about the Microsoft identity platform?](../azuread-dev/azure-ad-endpoint-comparison.md) for more details.
 
 ### Scopes not resources
 
 ADAL Python acquires tokens for resources, but MSAL Python acquires tokens for scopes. The API surface in MSAL Python does not have resource parameter anymore. You would need to provide scopes as a list of strings that declare the desired permissions and resources that are requested. To see some example of scopes, see [Microsoft Graph's scopes](/graph/permissions-reference).
 
-You can add the `/.default` scope suffix to the resource to help migrate your apps from the v1.0 endpoint (ADAL) to the Microsoft identity platform endpoint (MSAL). For example, for the resource value of `https://graph.microsoft.com`, the equivalent scope value is `https://graph.microsoft.com/.default`.  If the resource is not in the URL form, but a resource ID of the form `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX`, you can still use the scope value as `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`.
+You can add the `/.default` scope suffix to the resource to help migrate your apps from the v1.0 endpoint (ADAL) to the Microsoft identity platform (MSAL). For example, for the resource value of `https://graph.microsoft.com`, the equivalent scope value is `https://graph.microsoft.com/.default`.  If the resource is not in the URL form, but a resource ID of the form `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX`, you can still use the scope value as `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`.
 
 For more details about the different types of scopes, refer
 [Permissions and consent in the Microsoft identity platform](./v2-permissions-and-consent.md) and the [Scopes for a Web API accepting v1.0 tokens](./msal-v1-app-scopes.md) articles.
 
 ### Error handling
 
-Azure Active Directory Authentication Library (ADAL) for Python uses the exception `AdalError` to indicate that there's been a problem. MSAL for  Python typically uses error codes, instead. For more information, see  [MSAL for Python error handling](./msal-handling-exceptions.md?tabs=python).
+Azure Active Directory Authentication Library (ADAL) for Python uses the exception `AdalError` to indicate that there's been a problem. MSAL for  Python typically uses error codes, instead. For more information, see [MSAL for Python error handling](msal-error-handling-python.md).
 
 ### API changes
 
@@ -87,11 +87,11 @@ def get_preexisting_rt_and_their_scopes_from_elsewhere():
     #   https://github.com/AzureAD/azure-activedirectory-library-for-python/blob/1.2.3/sample/device_code_sample.py#L72
     # which uses a resource rather than a scope,
     # you need to convert your v1 resource into v2 scopes
-    # See https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison#scopes-not-resources
+    # See https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison#scopes-not-resources
     # You may be able to append "/.default" to your v1 resource to form a scope
     # See https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope
 
-    # Or maybe you have an app already talking to Microsoft identity platform v2,
+    # Or maybe you have an app already talking to the Microsoft identity platform,
     # powered by some 3rd-party auth library, and persist its tokens somehow.
 
     # Either way, you need to extract RTs from there, and return them like this.
@@ -106,7 +106,7 @@ app = msal.PublicClientApplication(
     "client_id", authority="...",
     # token_cache=...  # Default cache is in memory only.
                        # You can learn how to use SerializableTokenCache from
-                       # https://msal-python.rtfd.io/en/latest/#msal.SerializableTokenCache
+                       # https://msal-python.readthedocs.io/en/latest/#msal.SerializableTokenCache
     )
 
 # We choose a migration strategy of migrating all RTs in one loop

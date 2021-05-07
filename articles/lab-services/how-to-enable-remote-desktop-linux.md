@@ -33,7 +33,7 @@ X2Go uses the same port that is already enabled for SSH.  As a result, no extra 
 > In some cases, such as with Ubuntu LTS 18.04, X2Go provides better performance.  If you use RDP and notice latency when interacting with the graphical desktop environment, consider trying X2Go since it may improve performance.
 
 > [!IMPORTANT]
->  Some marketplace images already have a graphical desktop environment and remote desktop server installed.  For example, the [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) already has [XFCE and X2Go Server installed and configured to accept client connections](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro#x2go).
+>  Some marketplace images already have a graphical desktop environment and remote desktop server installed.  For example, the [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) already has [XFCE and X2Go Server installed and configured to accept client connections](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#x2go).
 
 ## Enable remote desktop connection for RDP
 
@@ -68,7 +68,7 @@ Follow the below steps to set up the template VM:
     ![SSH connection string](./media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
 
 4. Install either RDP or X2Go along with the graphical desktop environment of your choice.  Refer to the following instructions:
-    - [Install and configure RDP](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop)
+    - [Install and configure RDP](../virtual-machines/linux/use-remote-desktop.md)
     - [Install and configure X2Go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/X2GoRemoteDesktop)
 
 ## Connect to the template VM via the GUI
@@ -77,7 +77,7 @@ After the template VM is set up, the instructor can connect via the GUI using ei
 
 ### Microsoft Remote Desktop (RDP) client
 
-The Microsoft Remote Desktop (RDP) client is used to connect to a template VM that has RDP configured.  The Remote Desktop client can be used on Windows, Chromebooks, Macs and more.  Refer to the article on [Remote Desktop clients](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) for further details.
+The Microsoft Remote Desktop (RDP) client is used to connect to a template VM that has RDP configured.  The Remote Desktop client can be used on Windows, Chromebooks, Macs and more.  Refer to the article on [Remote Desktop clients](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) for further details.
 
 Follow the below steps based on the type of computer used to connect to the template VM:
 

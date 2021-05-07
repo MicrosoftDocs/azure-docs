@@ -2,7 +2,7 @@
 title: Resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 04/12/2021
 ---
 
 # Resources not limited to 800 instances per resource group
@@ -11,6 +11,11 @@ By default, you can deploy up to 800 instances of a resource type in each resour
 
 For some resource types, you need to contact support to have the 800 instance limit removed. Those resource types are noted in this article.
 
+
+## Microsoft.AlertsManagement
+
+* resourceHealthAlertRules
+* smartDetectorAlertRules
 
 ## Microsoft.Automation
 
@@ -71,6 +76,7 @@ For some resource types, you need to contact support to have the 800 instance li
 
 * flexibleServers
 * serverGroups
+* serverGroupsv2
 * servers
 * serversv2
 
@@ -100,6 +106,11 @@ For some resource types, you need to contact support to have the 800 instance li
 * softwareUpdateProfile
 * softwareUpdates
 
+## Microsoft.HybridCompute
+
+* machines - supports up to 5,000 instances
+* machines/extensions - supports an unlimited number of VM extension instances
+
 ## microsoft.insights
 
 * metricalerts
@@ -120,6 +131,7 @@ For some resource types, you need to contact support to have the 800 instance li
 * netAppAccounts/capacityPools/volumes
 * netAppAccounts/capacityPools/volumes/mountTargets
 * netAppAccounts/capacityPools/volumes/snapshots
+* netAppAccounts/volumeGroups
 
 ## Microsoft.Network
 
@@ -168,6 +180,11 @@ For some resource types, you need to contact support to have the 800 instance li
 
 * workspaceCollections - By default, limited to 800 instances. That limit can be increased by contacting support.
 
+## Microsoft.PowerBIDedicated
+
+* autoScaleVCores - By default, limited to 800 instances. That limit can be increased by contacting support.
+* capacities - By default, limited to 800 instances. That limit can be increased by contacting support.
+
 ## Microsoft.Relay
 
 * namespaces
@@ -180,18 +197,21 @@ For some resource types, you need to contact support to have the 800 instance li
 
 * namespaces
 
-## Microsoft.ServiceFabricMesh
+## Microsoft.Singularity
 
-* applications
-* containerGroups
-* gateways
-* networks
-* secrets
-* volumes
+* accounts
+* accounts/accountQuotaPolicies
+* accounts/groupPolicies
+* accounts/jobs
+* accounts/storageContainers
 
 ## Microsoft.Storage
 
 * storageAccounts
+
+## Microsoft.Sql
+
+* servers/databases
 
 ## Microsoft.Web
 

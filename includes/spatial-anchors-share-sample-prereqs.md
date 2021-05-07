@@ -1,9 +1,9 @@
 ---
-author: ramonarguelles
+author: msftradford
 ms.service: spatial-anchors
 ms.topic: include
-ms.date: 07/31/2020
-ms.author: rgarcia
+ms.date: 11/20/2020
+ms.author: parkerra
 ---
 ## Prerequisites
 

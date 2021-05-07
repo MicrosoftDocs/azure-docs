@@ -8,10 +8,8 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: 'SAP'
-
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -43,7 +41,7 @@ In such configurations, you separate the SAP application layer and the DBMS laye
 
 The graphical representation looks like:
 
-![Simple 2-Tier configuration](./media/sap-planning-supported-configurations/three-tier-simple-configuration.png)
+![Diagram that shows a simple 3-Tier configuration.](./media/sap-planning-supported-configurations/three-tier-simple-configuration.png)
 
 This type of configuration is supported on Windows, Red Hat, SUSE, and Oracle Linux for the DBMS systems of SQL Server, Oracle, Db2, SAP HANA, maxDB, and SAP ASE for production and non-production cases. This is the default deployment configuration for [Azure HANA Large Instances](./hana-overview-architecture.md). For simplification, we did not distinguish between SAP Central Services and SAP dialog instances in the SAP application layer. In this simple 3-Tier configuration, there would be no high availability protection for SAP Central Services.
 
@@ -80,7 +78,7 @@ In a lot of cases, multiple dialog instances got deployed on bare metal servers 
 
 At 3-Tier configuration where multiple SAP dialog instances are run within Azure VMs can look like:
 
-![Multiple DBMS instances in one unit](./media/sap-planning-supported-configurations/multiple-dialog-instances.png)
+![Diagram that shows a 3-Tier configuration where multiple SAP dialog instances are run within Azure VMs.](./media/sap-planning-supported-configurations/multiple-dialog-instances.png)
 
 For simplification, we did not distinguish between SAP Central Services and SAP dialog instances in the SAP application layer. In this simple 3-Tier configuration, there would be no high availability protection for SAP Central Services. For production systems, it is not recommended to leave SAP Central Services unprotected. For specifics on so called multi-SID configurations around SAP Central Instances and high-availability of such multi-SID configurations, see later sections of this document.
 
@@ -205,7 +203,7 @@ The configuration is documented in [High availability for SAP NetWeaver on Azure
 
 A multi-SID cluster with Enqueue Replication server schematically looks like
 
-![DBMS and ASCS HA configuration](./media/sap-planning-supported-configurations/high-available-multi-system-configuration.png)
+![Diagram that shows a  multi-SID cluster with Enqueue Replication server.](./media/sap-planning-supported-configurations/high-available-multi-system-configuration.png)
 
 
 ## SAP HANA scale-out scenarios

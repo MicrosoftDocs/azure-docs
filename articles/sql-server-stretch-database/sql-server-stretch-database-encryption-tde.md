@@ -45,7 +45,7 @@ To disable TDE for an Azure database that's storing the data migrated from a Str
 4. Select the **Off** setting, and then select **Save**
 
 <!--Anchors-->
-[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[Transparent Data Encryption (TDE)]: /sql/relational-databases/security/encryption/transparent-data-encryption
 
 
 <!--Image references-->

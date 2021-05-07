@@ -15,6 +15,11 @@ ms.author: scottwhi
 
 # Spell Check API upgrade guide
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
 This upgrade guide identifies the changes between version 5 and version 7 of the Bing Spell Check API. Use this guide to help you identify the parts of your application that you need to update to use version 7.
 
 ## Breaking changes
@@ -68,4 +73,4 @@ Blocked|InvalidRequest.Blocked
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use and display requirements](./UseAndDisplayRequirements.md)
+> [Use and display requirements](../bing-web-search/use-display-requirements.md)

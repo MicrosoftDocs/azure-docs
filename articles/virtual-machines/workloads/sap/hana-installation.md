@@ -6,9 +6,7 @@ documentationcenter:
 author: hermanndms
 manager: juergent
 editor:
-
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -87,7 +85,7 @@ See [Resource library/white papers](https://www.suse.com/products/sles-for-sap/r
 Following is additional and useful SAP on SUSE-related links:
 
 - [SAP HANA on SUSE Linux site](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE)
-- [Best practices for SAP: Enqueue replication – SAP NetWeaver on SUSE Linux Enterprise 12](https://www.suse.com/media/guide/SLES4SAP-NetWeaver-ha-guide-EnqRepl-12_color_en.pdf)
+- [Best practices for SAP: Enqueue replication – SAP NetWeaver on SUSE Linux Enterprise 12](https://www.scribd.com/document/351887168/SLES4SAP-NetWeaver-ha-guide-EnqRepl-12-color-en-pdf)
 - [ClamSAP – SLES virus protection for SAP](https://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap) (including SLES 12 for SAP applications)
 
 The following are SAP support notes that are applicable to implementing SAP HANA on SLES 12:
@@ -125,7 +123,7 @@ As a result, you must set up a separate time server that can be used by SAP appl
 We assume that you followed the recommendations in designing your Azure virtual networks and in connecting those virtual networks to the HANA Large Instances, as described in the following documents:
 
 - [SAP HANA (Large Instance) overview and architecture on Azure](./hana-overview-architecture.md)
-- [SAP HANA (Large Instances) infrastructure and connectivity on Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [SAP HANA (Large Instances) infrastructure and connectivity on Azure](hana-overview-infrastructure-connectivity.md)
 
 There are some details worth mentioning about the networking of the single units. Every HANA Large Instance unit comes with two or three IP addresses that are assigned to two or three NIC ports. Three IP addresses are used in HANA scale-out configurations and the HANA system replication scenario. One of the IP addresses that's assigned to the NIC of the unit is out of the server IP pool that's described in [SAP HANA (Large Instances) overview and architecture on Azure](./hana-overview-architecture.md).
 
@@ -135,7 +133,7 @@ For more information about Ethernet details for your architecture, see the [HLI 
 
 The storage layout for SAP HANA on Azure (Large Instances) is configured by SAP HANA on Azure `service management` through SAP recommended guidelines. These guidelines are documented in the [SAP HANA storage requirements](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper. 
 
-The rough sizes of the different volumes with the different HANA Large Instances SKUs is documented in [SAP HANA (Large Instances) overview and architecture on Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+The rough sizes of the different volumes with the different HANA Large Instances SKUs is documented in [SAP HANA (Large Instances) overview and architecture on Azure](hana-overview-architecture.md).
 
 The naming conventions of the storage volumes are listed in the following table:
 
@@ -157,7 +155,7 @@ For scale-out environments, data, log, and log backup volumes are shared and att
 
 When you look at a HANA Large Instance unit, you realize that the units come with generous disk volume for HANA/data, and that there is a volume HANA/log/backup. The reason that we made the HANA/data so large is that the storage snapshots we offer you as a customer are using the same disk volume. The     more storage snapshots you perform, the more space is consumed by snapshots in your assigned storage volumes. 
 
-The HANA/log/backup volume is not supposed to be the volume for database backups. It is sized to be used as the backup volume for the HANA transaction log backups. For more information, see [SAP HANA (Large Instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+The HANA/log/backup volume is not supposed to be the volume for database backups. It is sized to be used as the backup volume for the HANA transaction log backups. For more information, see [SAP HANA (Large Instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md). 
 
 In addition to the storage that's provided, you can purchase additional storage capacity in 1-TB increments. This additional storage can be added as new volumes to a HANA Large Instance.
 

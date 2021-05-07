@@ -56,7 +56,7 @@ This article provides answers to some of the most common questions about running
 
 1. **How can I install my licensed copy of SQL Server on an Azure VM?**
 
-   First, create a Linux OS-only virtual machine. Then run the [SQL Server installation steps](https://docs.microsoft.com/sql/linux/sql-server-linux-setup#platforms) for your Linux distribution. Unless you are installing one of the freely licensed editions of SQL Server, you must also have a SQL Server license and [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/).
+   First, create a Linux OS-only virtual machine. Then run the [SQL Server installation steps](/sql/linux/sql-server-linux-setup#platforms) for your Linux distribution. Unless you are installing one of the freely licensed editions of SQL Server, you must also have a SQL Server license and [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
 1. **Are there Bring-Your-Own-License (BYOL) Linux virtual machine images for SQL Server?**
 
@@ -70,7 +70,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Can I manage a Linux virtual machine running SQL Server with SQL Server Management Studio (SSMS)?**
 
-   Yes, but SSMS is currently a Windows-only tool. You must connect remotely from a Windows machine to use SSMS with Linux VMs running SQL Server. Locally on Linux, the new [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) tool can perform many administrative tasks. For a cross-platform database management tool, see [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is).
+   Yes, but SSMS is currently a Windows-only tool. You must connect remotely from a Windows machine to use SSMS with Linux VMs running SQL Server. Locally on Linux, the new [mssql-conf](/sql/linux/sql-server-linux-configure-mssql-conf) tool can perform many administrative tasks. For a cross-platform database management tool, see [Azure Data Studio](/sql/azure-data-studio/what-is).
 
 1. **Can I remove SQL Server completely from a SQL Server VM?**
 
@@ -80,7 +80,7 @@ This article provides answers to some of the most common questions about running
 
 1. **How do I upgrade to a new version/edition of the SQL Server in an Azure VM?**
 
-   Currently, there is no in-place upgrade for SQL Server running in an Azure VM. Create a new Azure virtual machine with the desired SQL Server version/edition, and then migrate your databases to the new server using [standard data migration techniques](https://docs.microsoft.com/sql/linux/sql-server-linux-migrate-overview).
+   Currently, there is no in-place upgrade for SQL Server running in an Azure VM. Create a new Azure virtual machine with the desired SQL Server version/edition, and then migrate your databases to the new server using [standard data migration techniques](/sql/linux/sql-server-linux-migrate-overview).
 
 ## General
 
@@ -94,7 +94,7 @@ This article provides answers to some of the most common questions about running
 
 * [Overview of SQL Server on a Linux VM](sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Provision SQL Server on a Linux VM](sql-vm-create-portal-quickstart.md)
-* [SQL Server on Linux documentation](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [SQL Server on Linux documentation](/sql/linux/sql-server-linux-overview)
 
 **Windows VMs**:
 

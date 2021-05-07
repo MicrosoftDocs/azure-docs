@@ -3,12 +3,14 @@ title: DateTimeAdd in Azure Cosmos DB query language
 description: Learn about SQL system function DateTimeAdd in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
 ---
 # DateTimeAdd (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Returns DateTime string value resulting from adding a specified number value (as a signed integer) to a specified DateTime string  
   
@@ -41,17 +43,17 @@ DateTimeAdd (<DateTimePart> , <numeric_expr> ,<DateTime>)
 *DateTime*  
    UTC date and time ISO 8601 string value in the format `YYYY-MM-DDThh:mm:ss.fffffffZ` where:
   
-  |Format|Description|
-  |-|-|
-  |YYYY|four-digit year|
-  |MM|two-digit month (01 = January, etc.)|
-  |DD|two-digit day of month (01 through 31)|
-  |T|signifier for beginning of time elements|
-  |hh|two-digit hour (00 through 23)|
-  |mm|two-digit minutes (00 through 59)|
-  |ss|two-digit seconds (00 through 59)|
-  |.fffffff|seven-digit fractional seconds|
-  |Z|UTC (Coordinated Universal Time) designator||
+|Format|Description|
+|-|-|
+|YYYY|four-digit year|
+|MM|two-digit month (01 = January, etc.)|
+|DD|two-digit day of month (01 through 31)|
+|T|signifier for beginning of time elements|
+|hh|two-digit hour (00 through 23)|
+|mm|two-digit minutes (00 through 59)|
+|ss|two-digit seconds (00 through 59)|
+|.fffffff|seven-digit fractional seconds|
+|Z|UTC (Coordinated Universal Time) designator|
   
   For more information on the ISO 8601 format, see [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 
@@ -59,17 +61,17 @@ DateTimeAdd (<DateTimePart> , <numeric_expr> ,<DateTime>)
 
 Returns a UTC date and time ISO 8601 string value in the format `YYYY-MM-DDThh:mm:ss.fffffffZ` where:
   
-  |Format|Description|
-  |-|-|
-  |YYYY|four-digit year|
-  |MM|two-digit month (01 = January, etc.)|
-  |DD|two-digit day of month (01 through 31)|
-  |T|signifier for beginning of time elements|
-  |hh|two-digit hour (00 through 23)|
-  |mm|two-digit minutes (00 through 59)|
-  |ss|two-digit seconds (00 through 59)|
-  |.fffffff|seven-digit fractional seconds|
-  |Z|UTC (Coordinated Universal Time) designator||
+|Format|Description|
+|-|-|
+|YYYY|four-digit year|
+|MM|two-digit month (01 = January, etc.)|
+|DD|two-digit day of month (01 through 31)|
+|T|signifier for beginning of time elements|
+|hh|two-digit hour (00 through 23)|
+|mm|two-digit minutes (00 through 59)|
+|ss|two-digit seconds (00 through 59)|
+|.fffffff|seven-digit fractional seconds|
+|Z|UTC (Coordinated Universal Time) designator|
 
 ## Remarks
 

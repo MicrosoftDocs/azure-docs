@@ -12,7 +12,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
-This article shows you how to use Visual Studio Code to connect the function you created in the [previous quickstart article](functions-create-first-function-vs-code.md) to Azure Storage. The output binding that you add to this function writes data from the HTTP request to a message in an Azure Queue storage queue. 
+This article shows you how to use Visual Studio Code to connect Azure Storage to the function you created in the previous quickstart article. The output binding that you add to this function writes data from the HTTP request to a message in an Azure Queue storage queue. 
 
 Most bindings require a stored connection string that Functions uses to access the bound service. To make it easier, you use the Storage account that you created with your function app. The connection to this account is already stored in an app setting named `AzureWebJobsStorage`.  
 
@@ -28,13 +28,30 @@ Before you start this article, you must meet the following requirements:
 * Install [.NET Core CLI tools](/dotnet/core/tools/?tabs=netcore2x).
 ::: zone-end
 
-* Complete the steps in [part 1 of the Visual Studio Code quickstart](functions-create-first-function-vs-code.md). 
+::: zone pivot="programming-language-csharp"  
+* Complete the steps in [part 1 of the Visual Studio Code quickstart](create-first-function-vs-code-csharp.md). 
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+* Complete the steps in [part 1 of the Visual Studio Code quickstart](create-first-function-vs-code-node.md). 
+::: zone-end   
+::: zone pivot="programming-language-java"  
+* Complete the steps in [part 1 of the Visual Studio Code quickstart](create-first-function-vs-code-java.md). 
+::: zone-end   
+::: zone pivot="programming-language-typescript"  
+* Complete the steps in [part 1 of the Visual Studio Code quickstart](create-first-function-vs-code-typescript.md). 
+::: zone-end   
+::: zone pivot="programming-language-python"  
+* Complete the steps in [part 1 of the Visual Studio Code quickstart](create-first-function-vs-code-python.md). 
+::: zone-end   
+::: zone pivot="programming-language-powershell"  
+* Complete the steps in [part 1 of the Visual Studio Code quickstart](create-first-function-vs-code-powershell.md). 
+::: zone-end   
 
 This article assumes that you're already signed in to your Azure subscription from Visual Studio Code. You can sign in by running `Azure: Sign In` from the command palette. 
 
 ## Download the function app settings
 
-In the [previous quickstart article](functions-create-first-function-vs-code.md), you created a function app in Azure along with the required Storage account. The connection string for this account is stored securely in app settings in Azure. In this article, you write messages to a Storage queue in the same account. To connect to your Storage account when running the function locally, you must download app settings to the local.settings.json file. 
+In the [previous quickstart article](./create-first-function-vs-code-csharp.md), you created a function app in Azure along with the required Storage account. The connection string for this account is stored securely in app settings in Azure. In this article, you write messages to a Storage queue in the same account. To connect to your Storage account when running the function locally, you must download app settings to the local.settings.json file. 
 
 1. Press the F1 key to open the command palette, then search for and run the command `Azure Functions: Download Remote Settings....`. 
 
@@ -75,7 +92,7 @@ Now, you can add the storage output binding to your project.
 
 In Functions, each type of binding requires a `direction`, `type`, and a unique `name` to be defined in the function.json file. The way you define these attributes depends on the language of your function app.
 
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-java"
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
 
 [!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
 
@@ -127,31 +144,25 @@ After the binding is defined, you can use the `name` of the binding to access it
 
 [!INCLUDE [functions-add-storage-binding-java-code](../../includes/functions-add-storage-binding-java-code.md)]
 
+## Update the tests
+
 [!INCLUDE [functions-add-output-binding-java-test](../../includes/functions-add-output-binding-java-test.md)]
 
 ::: zone-end  
 
-<!--- Local testing section --->
+## Run the function locally
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
+1. As in the previous article, press <kbd>F5</kbd> to start the function app project and Core Tools. 
 
-[!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
+1. With Core Tools running, go to the **Azure: Functions** area. Under **Functions**, expand **Local Project** > **Functions**. Right-click (Ctrl-click on Mac) the `HttpExample` function and choose **Execute Function Now...**.
 
-::: zone-end
+    :::image type="content" source="../../includes/media/functions-run-function-test-local-vs-code/execute-function-now.png" alt-text="Execute function now from Visual Studio Code":::
 
-::: zone pivot="programming-language-powershell"
+1. In **Enter request body** you see the request message body value of `{ "name": "Azure" }`. Press Enter to send this request message to your function.  
+ 
+1. After a response is returned, press <kbd>Ctrl + C</kbd> to stop Core Tools.
 
-[!INCLUDE [functions-run-function-test-local-vs-code-ps](../../includes/functions-run-function-test-local-vs-code-ps.md)]
-
-::: zone-end
-
-A new queue named **outqueue** is created in your storage account by the Functions runtime when the output binding is first used. You'll use Storage Explorer to verify that the queue was created along with the new message.
-
-::: zone pivot="programming-language-java"  
-
-[!INCLUDE [functions-add-output-binding-java-test](../../includes/functions-add-output-binding-java-test.md)]
-
-::: zone-end
+Because you are using the storage connection string, your function connects to the Azure storage account when running locally. A new queue named **outqueue** is created in your storage account by the Functions runtime when the output binding is first used. You'll use Storage Explorer to verify that the queue was created along with the new message.
 
 ### Connect Storage Explorer to your account
 
@@ -187,11 +198,7 @@ Now, it's time to republish the updated function app to Azure.
 
 1. Choose the function app that you created in the first article. Because you're redeploying your project to the same app, select **Deploy** to dismiss the warning about overwriting files.
 
-1. After deployment completes, you can again use cURL or a browser to test the redeployed function. As before, append the query string `&name=<yourname>` to the URL, as in the following example:
-
-    ```bash
-    curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
-    ```
+1. After deployment completes, you can again use the **Execute Function Now...** feature to trigger the function in Azure.
 
 1. Again [view the message in the storage queue](#examine-the-output-queue) to verify that the output binding again generates a new message in the queue.
 
@@ -201,33 +208,42 @@ In Azure, *resources* refer to function apps, functions, storage accounts, and s
 
 You created resources to complete these quickstarts. You may be billed for these resources, depending on your [account status](https://azure.microsoft.com/account/) and [service pricing](https://azure.microsoft.com/pricing/). If you don't need the resources anymore, here's how to delete them:
 
-[!INCLUDE [functions-cleanup-resources-vs-code.md](../../includes/functions-cleanup-resources-vs-code.md)]
+[!INCLUDE [functions-cleanup-resources-vs-code-inner.md](../../includes/functions-cleanup-resources-vs-code-inner.md)]
 
 ## Next steps
 
 You've updated your HTTP triggered function to write data to a Storage queue. Now you can learn more about developing Functions using Visual Studio Code:
 
 + [Develop Azure Functions using Visual Studio Code](functions-develop-vs-code.md)
+
++ [Azure Functions triggers and bindings](functions-triggers-bindings.md).
 ::: zone pivot="programming-language-csharp"  
 + [Examples of complete Function projects in C#](/samples/browse/?products=azure-functions&languages=csharp).
+
 + [Azure Functions C# developer reference](functions-dotnet-class-library.md)  
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"  
 + [Examples of complete Function projects in JavaScript](/samples/browse/?products=azure-functions&languages=javascript).
+
 + [Azure Functions JavaScript developer guide](functions-reference-node.md)  
+::: zone-end  
+::: zone pivot="programming-language-java"  
++ [Examples of complete Function projects in Java](/samples/browse/?products=azure-functions&languages=java).
+
++ [Azure Functions Java developer guide](functions-reference-java.md)  
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 + [Examples of complete Function projects in TypeScript](/samples/browse/?products=azure-functions&languages=typescript).
+
 + [Azure Functions TypeScript developer guide](functions-reference-node.md#typescript)  
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 + [Examples of complete Function projects in Python](/samples/browse/?products=azure-functions&languages=python).
+
 + [Azure Functions Python developer guide](functions-reference-python.md)  
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 + [Examples of complete Function projects in PowerShell](/samples/browse/?products=azure-functions&languages=azurepowershell).
+
 + [Azure Functions PowerShell developer guide](functions-reference-powershell.md) 
 ::: zone-end
-+ [Azure Functions triggers and bindings](functions-triggers-bindings.md).
-+ [Functions pricing page](https://azure.microsoft.com/pricing/details/functions/)
-+ [Estimating Consumption plan costs](functions-consumption-costs.md) article.

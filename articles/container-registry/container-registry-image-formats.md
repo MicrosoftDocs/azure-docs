@@ -2,7 +2,7 @@
 title: Supported content formats
 description: Learn about content formats supported by Azure Container Registry, including Docker-compatible container images, Helm charts, OCI images, and OCI artifacts.
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 03/02/2021
 ---
 
 # Content formats supported in Azure Container Registry
@@ -15,11 +15,11 @@ The following Docker container image formats are supported:
 
 * [Docker Image Manifest V2, Schema 1](https://docs.docker.com/registry/spec/manifest-v2-1/)
 
-* [Docker Image Manifest V2, Schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/) - includes Manifest Lists which allow registries to store multiplatform images under a single "image:tag" reference
+* [Docker Image Manifest V2, Schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/) - includes Manifest Lists which allow registries to store [multi-architecture images](push-multi-architecture-images.md) under a single `image:tag` reference
 
 ## OCI images
 
-Azure Container Registry supports images that meet the [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md). Packaging formats include [Singularity Image Format (SIF)](https://github.com/sylabs/sif).
+Azure Container Registry supports images that meet the [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md), including the optional [image index](https://github.com/opencontainers/image-spec/blob/master/image-index.md) specification. Packaging formats include [Singularity Image Format (SIF)](https://github.com/sylabs/sif).
 
 ## OCI artifacts
 
@@ -29,7 +29,7 @@ To learn more about OCI artifacts, see the [OCI Registry as Storage (ORAS)](http
 
 ## Helm charts
 
-Azure Container Registry can host repositories for [Helm charts](https://helm.sh/), a packaging format used to quickly manage and deploy applications for Kubernetes. [Helm client](https://docs.helm.sh/using_helm/#installing-helm) version 2 (2.11.0 or later) is supported.
+Azure Container Registry can host repositories for [Helm charts](https://helm.sh/), a packaging format used to quickly manage and deploy applications for Kubernetes. [Helm client](https://docs.helm.sh/using_helm/#installing-helm) version 3 is recommended. See [Push and pull Helm charts to an Azure container registry](container-registry-helm-repos.md).
 
 ## Next steps
 

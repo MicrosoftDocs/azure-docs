@@ -3,8 +3,9 @@ title: Deploy VMs and scale set instances to dedicated hosts using the CLI
 description: Deploy VMs and scale set instances to dedicated hosts using the Azure CLI.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: dedicated-hosts
 ms.topic: how-to
-ms.date: 09/25/2020
+ms.date: 11/12/2020
 ms.author: cynthn
 
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
@@ -15,7 +16,7 @@ ms.author: cynthn
 
 This article guides you through how to create an Azure [dedicated host](../dedicated-hosts.md) to host your virtual machines (VMs). 
 
-Make sure that you have installed Azure CLI version 2.0.70 or later, and signed in to an Azure account using `az login`. 
+Make sure that you have installed Azure CLI version 2.16.0 or later, and signed in to an Azure account using `az login`. 
 
 
 ## Limitations
@@ -50,7 +51,7 @@ In either case, you are need to provide the fault domain count for your host gro
 You can also decide to use both availability zones and fault domains. 
 
 
-In this example, we will use [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group using both availability zones and fault domains. 
+In this example, we will use [az vm host group create](/cli/azure/vm/host/group#az_vm_host_group_create) to create a host group using both availability zones and fault domains. 
 
 ```azurecli-interactive
 az vm host group create \
@@ -62,18 +63,10 @@ az vm host group create \
 
 Add the `--automatic-placement true` parameter to have your VMs and scale set instances automatically placed on hosts, within a host group. For more information, see [Manual vs. automatic placement ](../dedicated-hosts.md#manual-vs-automatic-placement).
 
-> [!IMPORTANT]
-> Automatic placement is currently in public preview.
->
-> To participate in the preview, complete the preview onboarding survey at [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
->
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
->
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### Other examples
 
-You can also use [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group in availability zone 1 (and no fault domains).
+You can also use [az vm host group create](/cli/azure/vm/host/group#az_vm_host_group_create) to create a host group in availability zone 1 (and no fault domains).
 
 ```azurecli-interactive
 az vm host group create \
@@ -83,7 +76,7 @@ az vm host group create \
    --platform-fault-domain-count 1 
 ```
  
-The following uses [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group by using fault domains only (to be used in regions where availability zones are not supported). 
+The following uses [az vm host group create](/cli/azure/vm/host/group#az_vm_host_group_create) to create a host group by using fault domains only (to be used in regions where availability zones are not supported). 
 
 ```azurecli-interactive
 az vm host group create \
@@ -98,7 +91,7 @@ Now let's create a dedicated host in the host group. In addition to a name for t
 
 For more information about the host SKUs and pricing, see [Azure Dedicated Host pricing](https://aka.ms/ADHPricing).
 
-Use [az vm host create](/cli/azure/vm/host#az-vm-host-create) to create a host. If you set a fault domain count for your host group, you will be asked to specify the fault domain for your host.  
+Use [az vm host create](/cli/azure/vm/host#az_vm_host_create) to create a host. If you set a fault domain count for your host group, you will be asked to specify the fault domain for your host.  
 
 ```azurecli-interactive
 az vm host create \
@@ -112,7 +105,7 @@ az vm host create \
 
  
 ## Create a virtual machine 
-Create a virtual machine within a dedicated host using [az vm create](/cli/azure/vm#az-vm-create). If you specified an availability zone when creating your host group, you are required to use the same zone when creating the virtual machine.
+Create a virtual machine within a dedicated host using [az vm create](/cli/azure/vm#az_vm_create). If you specified an availability zone when creating your host group, you are required to use the same zone when creating the virtual machine.
 
 ```azurecli-interactive
 az vm create \
@@ -130,16 +123,7 @@ To place the VM on a specific host, use `--host` instead of specifying the host 
 > [!WARNING]
 > If you create a virtual machine on a host which does not have enough resources, the virtual machine will be created in a FAILED state. 
 
-## Create a scale set (preview)
-
-> [!IMPORTANT]
-> Virtual Machine Scale Sets on Dedicated Hosts is currently in public preview.
->
-> To participate in the preview, complete the preview onboarding survey at [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
->
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
->
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## Create a scale set 
 
 When you deploy a scale set, you specify the host group.
 
@@ -162,7 +146,7 @@ If you want to manually choose which host to deploy the scale set to, add `--hos
 
 ## Check the status of the host
 
-You can check the host health status and how many virtual machines you can still deploy to the host using [az vm host get-instance-view](/cli/azure/vm/host#az-vm-host-get-instance-view).
+You can check the host health status and how many virtual machines you can still deploy to the host using [az vm host get-instance-view](/cli/azure/vm/host#az_vm_host_get_instance_view).
 
 ```azurecli-interactive
 az vm host get-instance-view \
@@ -269,7 +253,7 @@ az vm host get-instance-view \
 ```
  
 ## Export as a template 
-You can export a template if you now want to create an additional development environment with the same parameters, or a production environment that matches it. Resource Manager uses JSON templates that define all the parameters for your environment. You build out entire environments by referencing this JSON template. You can build JSON templates manually or export an existing environment to create the JSON template for you. Use [az group export](/cli/azure/group#az-group-export) to export your resource group.
+You can export a template if you now want to create an additional development environment with the same parameters, or a production environment that matches it. Resource Manager uses JSON templates that define all the parameters for your environment. You build out entire environments by referencing this JSON template. You can build JSON templates manually or export an existing environment to create the JSON template for you. Use [az group export](/cli/azure/group#az_group_export) to export your resource group.
 
 ```azurecli-interactive
 az group export --name myDHResourceGroup > myDHResourceGroup.json 
@@ -277,10 +261,10 @@ az group export --name myDHResourceGroup > myDHResourceGroup.json
 
 This command creates the `myDHResourceGroup.json` file in your current working directory. When you create an environment from this template, you are prompted for all the resource names. You can populate these names in your template file by adding the `--include-parameter-default-value` parameter to the `az group export` command. Edit your JSON template to specify the resource names, or create a parameters.json file that specifies the resource names.
  
-To create an environment from your template, use [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create).
+To create an environment from your template, use [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create).
 
 ```azurecli-interactive
-az group deployment create \ 
+az deployment group create \ 
     --resource-group myNewResourceGroup \ 
     --template-file myDHResourceGroup.json 
 ```
@@ -290,19 +274,19 @@ az group deployment create \
 
 You are being charged for your dedicated hosts even when no virtual machines are deployed. You should delete any hosts you are currently not using to save costs.  
 
-You can only delete a host when there are no any longer virtual machines using it. Delete the VMs using [az vm delete](/cli/azure/vm#az-vm-delete).
+You can only delete a host when there are no any longer virtual machines using it. Delete the VMs using [az vm delete](/cli/azure/vm#az_vm_delete).
 
 ```azurecli-interactive
 az vm delete -n myVM -g myDHResourceGroup
 ```
 
-After deleting the VMs, you can delete the host using [az vm host delete](/cli/azure/vm/host#az-vm-host-delete).
+After deleting the VMs, you can delete the host using [az vm host delete](/cli/azure/vm/host#az_vm_host_delete).
 
 ```azurecli-interactive
 az vm host delete -g myDHResourceGroup --host-group myHostGroup --name myHost 
 ```
  
-Once you have deleted all of your hosts, you may delete the host group using [az vm host group delete](/cli/azure/vm/host/group#az-vm-host-group-delete).  
+Once you have deleted all of your hosts, you may delete the host group using [az vm host group delete](/cli/azure/vm/host/group#az_vm_host_group_delete).  
  
 ```azurecli-interactive
 az vm host group delete -g myDHResourceGroup --host-group myHostGroup  

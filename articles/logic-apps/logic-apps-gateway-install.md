@@ -4,13 +4,15 @@ description: Before you can access data on premises from Azure Logic Apps, downl
 services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
-ms.topic: article
-ms.date: 05/15/2020
+ms.topic: how-to
+ms.date: 03/16/2021
+
+#Customer intent: As a software developer, I want to install and set up the on-premises data gateway so that I can create logic app workflows that can access data in on-premises systems.
 ---
 
 # Install on-premises data gateway for Azure Logic Apps
 
-Before you can [connect to on-premises data sources from Azure Logic Apps](../logic-apps/logic-apps-gateway-connection.md), download and install the [on-premises data gateway](https://aka.ms/on-premises-data-gateway-installer) on a local computer. The gateway works as a bridge that provides quick data transfer and encryption between data sources on premises and your logic apps. You can use the same gateway installation with other cloud services, such as Power BI, Power Automate, Power Apps, and Azure Analysis Services. For information about how to use the gateway with these services, see these articles:
+Before you can [connect to on-premises data sources from Azure Logic Apps](../logic-apps/logic-apps-gateway-connection.md), download and install the [on-premises data gateway](https://aka.ms/on-premises-data-gateway-installer) on a local computer. The gateway works as a bridge that provides quick data transfer and encryption between data sources on premises and your logic apps. You can use the same gateway installation with other cloud services, such as Power Automate, Power BI, Power Apps, and Azure Analysis Services. For information about how to use the gateway with these services, see these articles:
 
 * [Microsoft Power Automate on-premises data gateway](/power-automate/gateway-reference)
 * [Microsoft Power BI on-premises data gateway](/power-bi/service-gateway-onprem)
@@ -71,7 +73,16 @@ This article shows how to download, install, and set up your on-premises data ga
 
   * If you plan to use Windows authentication, make sure that you install the gateway on a computer that's a member of the same Active Directory environment as your data sources.
 
-  * The region that you select for your gateway installation is the same location that you must select when you later create the Azure gateway resource for your logic app. By default, this region is the same location as your Azure AD tenant that manages your Azure account. However, you can change the location during gateway installation.
+  * The region that you select for your gateway installation is the same location that you must select when you later create the Azure gateway resource for your logic app. By default, this region is the same location as your Azure AD tenant that manages your Azure user account. However, you can change the location during gateway installation or later.
+
+    > [!IMPORTANT]
+    > During gateway setup, the **Change Region** command is unavailable if you signed in with your Azure Government account, which is associated with an 
+    > Azure Active Directory (Azure AD) tenant in the [Azure Government cloud](../azure-government/compare-azure-government-global-azure.md). The gateway 
+    > automatically uses the same region as your user account's Azure AD tenant.
+    > 
+    > To continue using your Azure Government account, but set up the gateway to work in the global multi-tenant Azure Commercial cloud instead, first sign 
+    > in during gateway installation with the `prod@microsoft.com` username. This solution forces the gateway to use the global multi-tenant Azure cloud, 
+    > but still lets you continue using your Azure Government account.
 
   * If you're updating your gateway installation, uninstall your current gateway first for a cleaner experience.
 
@@ -140,9 +151,15 @@ This article shows how to download, install, and set up your on-premises data ga
 
 1. Now [create the Azure resource for your gateway installation](../logic-apps/logic-apps-gateway-connection.md).
 
+<a name="communication-settings"></a>
+
 ## Check or adjust communication settings
 
-The on-premises data gateway depends on [Azure Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md) for cloud connectivity and establishes the corresponding outbound connections to the gateway's associated Azure region. If your work environment requires that traffic goes through a proxy or firewall to access the internet, this restriction might prevent the on-premises data gateway from connecting to the gateway cloud service and Azure Service Bus Messaging. The gateway has several communication settings, which you can adjust. For more information, see these topics:
+The on-premises data gateway depends on [Azure Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md) for cloud connectivity and establishes the corresponding outbound connections to the gateway's associated Azure region. If your work environment requires that traffic goes through a proxy or firewall to access the internet, this restriction might prevent the on-premises data gateway from connecting to the gateway cloud service and Azure Service Bus Messaging. The gateway has several communication settings, which you can adjust.
+
+An example scenario is where you use custom connectors that access on-premises resources by using the on-premises data gateway resource in Azure. If you also have a firewall that limits traffic to specific IP addresses, you need to set up the gateway installation to allow access for the corresponding *managed connectors [outbound IP addresses](logic-apps-limits-and-config.md#outbound)*. *All* logic apps in the same region use the same IP address ranges.
+
+For more information, see these topics:
 
 * [Adjust communication settings for the on-premises data gateway](/data-integration/gateway/service-gateway-communication)
 * [Configure proxy settings for the on-premises data gateway](/data-integration/gateway/service-gateway-proxy)

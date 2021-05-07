@@ -28,8 +28,8 @@ Use the managed application offer type under the following conditions:
 |Requirements |Details  |
 |---------|---------|
 |An Azure subscription | Managed applications must be deployed to a customer's subscription, but they can be managed by a third party. |
-|Billing and metering    |  The resources are provided in a customer's Azure subscription. VMs that use the pay-as-you-go payment model are transacted with the customer via Microsoft and billed via the customer's Azure subscription. <br><br> For bring-your-own-license VMs, Microsoft bills any infrastructure costs that are incurred in the customer subscription, but you transact software licensing fees with the customer directly.        |
-|An Azure-compatible virtual hard disk (VHD)    |   VMs must be built on Windows or Linux.<br><br>For more information about creating a Linux VHD, see [Linux distributions endorsed on Azure](../virtual-machines/linux/endorsed-distros.md).<br><br>For more information about creating a Windows VHD, see [create an Azure application offer](./partner-center-portal/create-new-azure-apps-offer.md). |
+|Billing and metering    |  The resources are provided in a customer's Azure subscription. Azure Resources that use the pay-as-you-go payment model are transacted with the customer via Microsoft and billed via the customer's Azure subscription. <br><br> For bring-your-own-license Azure Resources, Microsoft bills any infrastructure costs that are incurred in the customer subscription, but you transact software licensing fees with the customer directly.        |
+|An Azure Managed Application package    |   The configured Azure Resource Manager Template and Create UI Definition that will be used to deploy your application to the customer's subscription.<br><br>For more information about creating a Managed Application, see [Managed Application Overview](../azure-resource-manager/managed-applications/publish-service-catalog-app.md).|
 
 ---
 
@@ -46,4 +46,4 @@ If you haven't already done so, learn how to [Grow your cloud business with Azur
 To register for and start working in Partner Center:
 
 - [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
-- See [Create an Azure application offer](./partner-center-portal/create-new-azure-apps-offer.md) for more information.
+- See [Create an Azure application offer](./create-new-azure-apps-offer.md) for more information.

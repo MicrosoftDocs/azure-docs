@@ -23,25 +23,15 @@ The Azure CLI is Azure's command-line experience for managing Azure resources. Y
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-## Install the Azure CLI locally
-
-If you choose to install and use the Azure CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.46 or later. Run `az --version` to determine your version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-
-If you are running the Azure CLI locally, you must log in and authenticate. This step is not necessary if you are using Azure Cloud Shell. To log in to Azure CLI, run `az login` and authenticate in the browser window:
-
-```azurecli
-az login
-```
-
-For more information about authentication` with Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+- This article requires version 2.0.46 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Authorize access to Blob storage
 
 You can authorize access to Blob storage from the Azure CLI either with Azure AD credentials or by using the storage account access key. Using Azure AD credentials is recommended. This article shows how to authorize Blob storage operations using Azure AD.
 
-Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to `login` to authorize with Azure AD credentials. For more information, see [Authorize access to blob or queue data with Azure CLI](../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to `login` to authorize with Azure AD credentials. For more information, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 Only Blob storage data operations support the `--auth-mode` parameter. Management operations, such as creating a resource group or storage account, automatically use Azure AD credentials for authorization.
 
@@ -95,7 +85,7 @@ az storage container create \
 > [!IMPORTANT]
 > Azure role assignments may take a few minutes to propagate.
 
-You can also use the storage account key to authorize the operation to create the container. For more information about authorizing data operations with Azure CLI, see [Authorize access to blob or queue data with Azure CLI](../common/authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
+You can also use the storage account key to authorize the operation to create the container. For more information about authorizing data operations with Azure CLI, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## Upload a blob
 
@@ -151,7 +141,7 @@ az storage blob download \
 
 ## Data transfer with AzCopy
 
-The AzCopy command-line utility offers high-performance, scriptable data transfer for Azure Storage. You can use AzCopy to transfer data to and from Blob storage and Azure Files. For more information about AzCopy v10, the latest version of AzCopy, see [Get started with AzCopy](../common/storage-use-azcopy-v10.md). To learn about using AzCopy v10 with Blob storage, see [Transfer data with AzCopy and Blob storage](../common/storage-use-azcopy-blobs.md).
+The AzCopy command-line utility offers high-performance, scriptable data transfer for Azure Storage. You can use AzCopy to transfer data to and from Blob storage and Azure Files. For more information about AzCopy v10, the latest version of AzCopy, see [Get started with AzCopy](../common/storage-use-azcopy-v10.md). To learn about using AzCopy v10 with Blob storage, see [Transfer data with AzCopy and Blob storage](../common/storage-use-azcopy-v10.md#transfer-data).
 
 The following example uses AzCopy to upload a local file to a blob. Remember to replace the sample values with your own values:
 
@@ -175,4 +165,4 @@ az group delete \
 In this quickstart, you learned how to transfer files between a local file system and a container in Azure Blob storage. To learn more about working with Blob storage by using Azure CLI, explore Azure CLI samples for Blob storage.
 
 > [!div class="nextstepaction"]
-> [Azure CLI samples for Blob storage](/azure/storage/blobs/storage-samples-blobs-cli?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Azure CLI samples for Blob storage](./storage-samples-blobs-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

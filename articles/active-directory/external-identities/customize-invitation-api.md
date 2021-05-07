@@ -6,18 +6,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/11/2017
+ms.date: 02/03/2021
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: elisolMS
 
 ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory B2B collaboration API and customization
 
-We've had many customers tell us that they want to customize the invitation process in a way that works best for their organizations. With our API, you can do just that. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+We've had many customers tell us that they want to customize the invitation process in a way that works best for their organizations. With our API, you can do just that. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](/graph/api/resources/invitation)
 
 ## Capabilities of the invitation API
 
@@ -64,6 +63,16 @@ The API offers the following capabilities:
     "invitedUserType": "Member"
     ```
 
+## Determine if a user was already invited to your directory
+
+You can use the invitation API to determine if a user already exists in your resource tenant. This can be useful when you're developing an app that uses the invitation API to invite a user. If the user already exists in your resource directory, they won't receive an invitation, so you can run a query first to determine whether the already email exists as a UPN or other sign-in property.
+
+1. Make sure the user's email domain isn't part of your resource tenant's verified domain.
+2. In the resource tenant, use the following get user query where {0} is the email address you're inviting:
+
+   ```
+   “userPrincipalName eq '{0}' or mail eq '{0}' or proxyAddresses/any(x:x eq 'SMTP:{0}') or signInNames/any(x:x eq '{0}') or otherMails/any(x:x eq '{0}')"
+   ```
 
 ## Authorization model
 
@@ -114,7 +123,7 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 
 ## See also
 
-Check out the invitation API reference in [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
+Check out the invitation API reference in [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](/graph/api/resources/invitation).
 
 ## Next steps
 

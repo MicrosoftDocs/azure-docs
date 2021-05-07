@@ -3,19 +3,17 @@ title: Azure Media Services Telemetry | Microsoft Docs
 description: This article provides an overview of Microsoft Azure Media Services telemetry.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 95c20ec4-c782-4063-8042-b79f95741d28
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/01/2019
-ms.author: juliako
-
+ms.date: 3/10/2021
+ms.author: inhenkel
 ---
 
 # Azure Media Services telemetry  
@@ -23,7 +21,7 @@ ms.author: juliako
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Azure Media Services (AMS) enables you to access telemetry/metrics data for its services. The current version of AMS lets you collect telemetry data for live **Channel**, **StreamingEndpoint**, and live **Archive** entities. 
 

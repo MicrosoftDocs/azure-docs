@@ -16,7 +16,7 @@ Message routing enables users to route different data types namely, device telem
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Message routing allows you to query on the message properties and message body as well as device twin tags and device twin properties. If the message body is not JSON, message routing can still route the message, but queries cannot be applied to the message body.  Queries are described as Boolean expressions where a Boolean true makes the query succeed which routes all the incoming data, and Boolean false fails the query and no data is routed. If the expression evaluates to null or undefined, it is treated as false and an error will be generated in diagnostic logs in case of a failure. The query syntax must be correct for the route to be saved and evaluated.  
+Message routing allows you to query on the message properties and message body as well as device twin tags and device twin properties. If the message body is not JSON, message routing can still route the message, but queries cannot be applied to the message body.  Queries are described as Boolean expressions where a Boolean true makes the query succeed which routes all the incoming data, and Boolean false fails the query and no data is routed. If the expression evaluates to null or undefined, it is treated as false and an error will be generated in IoT Hub [routes resource logs](monitor-iot-hub-reference.md#routes) logs in case of a failure. The query syntax must be correct for the route to be saved and evaluated.  
 
 ## Message routing query based on message properties 
 
@@ -161,6 +161,13 @@ length($body.Weather.Location.State) = 2
 ```sql
 $body.Weather.Temperature = 50 AND processingPath = 'hot'
 ```
+
+> [!NOTE] 
+> You can run queries and functions only on properties in the body reference. You can't run queries or functions on the entire body reference. For example, the following query is *not* supported and will return `undefined`:
+> 
+> ```sql
+> $body[0] = 'Feb'
+> ```
 
 ## Message routing query based on device twin 
 

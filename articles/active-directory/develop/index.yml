@@ -52,10 +52,8 @@ landingContent:
         links:
           - text: Angular
             url: quickstart-v2-angular.md
-          - text: JavaScript - Auth code flow
+          - text: JavaScript
             url: quickstart-v2-javascript-auth-code.md
-          - text: JavaScript - Implicit flow
-            url: quickstart-v2-javascript.md
   - title: Web app
     linkLists:
       - linkListType: get-started
@@ -66,6 +64,8 @@ landingContent:
             url: quickstart-v2-aspnet-core-webapp.md
           - text: Blazor Server
             url: tutorial-blazor-server.md
+          - text: Node.js & Express
+            url: tutorial-v2-nodejs-webapp-msal.md
   - title: Mobile / native app
     linkLists:
       - linkListType: get-started

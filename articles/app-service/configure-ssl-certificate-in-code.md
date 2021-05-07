@@ -45,10 +45,7 @@ To make all your certificates accessible, set the value to `*`.
 
 ## Load certificate in Windows apps
 
-The `WEBSITE_LOAD_CERTIFICATES` app setting makes the specified certificates accessible to your Windows hosted app in the Windows certificate store, and the location depends on the [pricing tier](overview-hosting-plans.md):
-
-- **Isolated** tier - in [Local Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores). 
-- All other tiers - in [Current User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
+The `WEBSITE_LOAD_CERTIFICATES` app setting makes the specified certificates accessible to your Windows hosted app in the Windows certificate store, in [Current User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
 
 In C# code, you access the certificate by the certificate thumbprint. The following code loads a certificate with the thumbprint `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`.
 
@@ -158,6 +155,19 @@ using System.Security.Cryptography.X509Certificates;
 
 ...
 var bytes = File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
+var cert = new X509Certificate2(bytes);
+
+// Use the loaded certificate
+```
+
+The following C# code shows how to load a private certificate in a Linux app.
+
+```csharp
+using System;
+using System.IO;
+using System.Security.Cryptography.X509Certificates;
+...
+var bytes = File.ReadAllBytes("/var/ssl/private/<thumbprint>.p12");
 var cert = new X509Certificate2(bytes);
 
 // Use the loaded certificate

@@ -1,7 +1,7 @@
 ---
 title: Azure AD FS support (MSAL Python)
 titleSuffix: Microsoft identity platform
-description: Learn about Active Directory Federation Services (AD FS) support in Microsoft Authentication Library for Python
+description: Learn about Active Directory Federation Services (AD FS) support in the Microsoft Authentication Library for Python
 services: active-directory
 author: abhidnya13    
 manager: CelesteDG
@@ -54,7 +54,7 @@ When you connect directory to AD FS, the authority you'll want to use to build y
 
 MSAL Python supports ADFS 2019.
 
-It does not support a direct connection to ADFS 2016 or ADFS v2. If you need to support scenarios requiring a direct connection to ADFS 2016, use the latest version of ADAL Python. Once you have upgraded your on-premises system to ADFS 2019, you can use MSAL Python.
+It does not support a direct connection to ADFS 2016 or ADFS v2. To support scenarios requiring a direct connection to ADFS 2016, use the latest version of ADAL Python. Once you have upgraded your on-premises system to ADFS 2019, you can use MSAL Python.
 
 ## Next steps
 

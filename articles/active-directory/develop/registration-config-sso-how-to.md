@@ -12,7 +12,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-
+ROBOTS: NOINDEX
 ---
 
 # How to configure single sign-on for an application
@@ -37,6 +37,6 @@ For iOS, see [Enabling Cross App SSO in iOS](../azuread-dev/howto-v1-enable-sso-
 
 [Integrating Apps to AzureAD](./quickstart-register-app.md)<br>
 
-[Permissions and consent in the Microsoft identity platform endpoint](./v2-permissions-and-consent.md)<br>
+[Permissions and consent in the Microsoft identity platform](./v2-permissions-and-consent.md)<br>
 
-[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD Microsoft Q&A](/answers/topics/azure-active-directory.html)

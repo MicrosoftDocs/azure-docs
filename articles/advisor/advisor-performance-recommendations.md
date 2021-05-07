@@ -83,7 +83,7 @@ Migrate your storage account deployment model to Azure Resource Manager to take 
 Advisor identifies any stand-alone storage accounts that are using the classic deployment model and recommends migrating to the Resource Manager deployment model.
 
 > [!NOTE]
-> Classic alerts in Azure Monitor were retired in August 2019. We recommended that you upgrade your classic storage account to use Resource Manager to retain alerting functionality with the new platform. For more information, see [classic alerts retirement](../azure-monitor/platform/monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform).
+> Classic alerts in Azure Monitor were retired in August 2019. We recommended that you upgrade your classic storage account to use Resource Manager to retain alerting functionality with the new platform. For more information, see [classic alerts retirement](../azure-monitor/alerts/monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform).
 
 ## Design your storage accounts to prevent reaching the maximum subscription limit
 
@@ -103,7 +103,7 @@ Advisor detects whether you can increase load performance and throughput by incr
 
 ## Co-locate the storage account in the same region to minimize latency when loading
 
-Advisor detects whether you're loading from a region that's different from your SQL pool. Consider loading from a storage account that's in the same region as your SQL pool to minimize latency when loading data. This change will help minimize latency and increase load performance.
+Advisor detects whether you're loading from a region that's different from your dedicated SQL pool. Consider loading from a storage account that's in the same region as your dedicated SQL pool to minimize latency when loading data. This change will help minimize latency and increase load performance.
 
 ## Use a supported Kubernetes version
 
@@ -137,15 +137,15 @@ Cache instances perform best when they're not running under high memory pressure
 
 ## Add regions with traffic to your Azure Cosmos DB account
 
-Advisor detects Azure Cosmos DB accounts that have traffic from a region that isn't currently configured. It recommends adding that region. Doing so improves latency for requests coming from that region and ensures availability in case of region outages. [Learn more about global data distribution with Azure Cosmos DB.](https://aka.ms/cosmos/globaldistribution)
+Advisor detects Azure Cosmos DB accounts that have traffic from a region that isn't currently configured. It recommends adding that region. Doing so improves latency for requests coming from that region and ensures availability in case of region outages. [Learn more about global data distribution with Azure Cosmos DB.](../cosmos-db/distribute-data-globally.md)
 
 ## Configure your Azure Cosmos DB indexing policy by using custom included or excluded paths
 
-Advisor identifies Azure Cosmos DB containers that are using the default indexing policy but could benefit from a custom indexing policy. This determination is based on the workload pattern. The default indexing policy indexes all properties. A custom indexing policy with explicit included or excluded paths used in query filters can reduce the RUs and storage consumed for indexing. [Learn more about modifying index policies.](https://aka.ms/cosmosdb/modify-index-policy)
+Advisor identifies Azure Cosmos DB containers that are using the default indexing policy but could benefit from a custom indexing policy. This determination is based on the workload pattern. The default indexing policy indexes all properties. A custom indexing policy with explicit included or excluded paths used in query filters can reduce the RUs and storage consumed for indexing. [Learn more about modifying index policies.](../cosmos-db/index-policy.md)
 
 ## Set your Azure Cosmos DB query page size (MaxItemCount) to -1 
 
-Azure Advisor identifies Azure Cosmos DB containers that are using a query page size of 100. It recommends using a page size of -1 for faster scans. [Learn more about MaxItemCount.](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
+Azure Advisor identifies Azure Cosmos DB containers that are using a query page size of 100. It recommends using a page size of -1 for faster scans. [Learn more about MaxItemCount.](../cosmos-db/sql-api-query-metrics.md)
 
 ## Consider using Accelerated Writes feature in your HBase cluster to improve cluster performance
 Azure Advisor analyses the system logs in the past 7 days and identifies if your cluster has encountered the following scenarios:
@@ -153,7 +153,7 @@ Azure Advisor analyses the system logs in the past 7 days and identifies if your
 2. High write request count (at least 3 one hour windows of over 1000 avg_write_requests/second/node)
 
 These conditions are indicators that your cluster is suffering from high write latencies. This could be due to heavy workload performed on your cluster.To improve the performance of your cluster, you may want to consider utilizing the Accelerated Writes feature provided by Azure HDInsight HBase. The Accelerated Writes feature for HDInsight Apache HBase clusters attaches premium SSD-managed disks to every RegionServer (worker node) instead of using cloud storage. As a result, provides low write-latency and better resiliency for your applications. 
-To read more on this feature, [learn more](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes#how-to-enable-accelerated-writes-for-hbase-in-hdinsight)
+To read more on this feature, [learn more](../hdinsight/hbase/apache-hbase-accelerated-writes.md#how-to-enable-accelerated-writes-for-hbase-in-hdinsight)
 
 ## Review Azure Data Explorer table cache-period (policy) for better performance (Preview)
 This recommendation surfaces Azure Data Explorer tables which have a high number of queries that look back beyond the configured cache period (policy) (You will see the top 10 tables by query percentage that access out-of-cache data). The recommended action to improve the cluster's performance: Limit queries on this table to the minimal necessary time range (within the defined policy). Alternatively, if data from the entire time range is required, increase the cache period to the recommended value.
@@ -165,12 +165,17 @@ Advisor analysis indicates that your MySQL server may be incurring unnecessary I
 Advisor identifies the server groups where the data has not been distributed but stays on the coordinator. Based on this, Advisor recommends that for full Hyperscale (Citus) benefits distribute data on worker nodes for your server groups. This will improve query performance by utilizing resource of each node in the server group. [Learn more](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
 ## Improve user experience and connectivity by deploying VMs closer to Windows Virtual Desktop deployment location
-We have determined that your VMs are located in a region different or far from where your users are connecting from, using Windows Virtual Desktop (WVD). This may lead to prolonged connection response times and will impact overall user experience on WVD. When creating VMs for your host pools, you should attempt to use a region closer to the user. Having close proximity ensures continuing satisfaction with the WVD service and a better overall quality of experience. [Learn more about connection latency here](https://docs.microsoft.com/azure/virtual-desktop/connection-latency).
+We have determined that your VMs are located in a region different or far from where your users are connecting from, using Windows Virtual Desktop (WVD). This may lead to prolonged connection response times and will impact overall user experience on WVD. When creating VMs for your host pools, you should attempt to use a region closer to the user. Having close proximity ensures continuing satisfaction with the WVD service and a better overall quality of experience. [Learn more about connection latency here](../virtual-desktop/connection-latency.md).
 
 ## Upgrade to the latest version of the Immersive Reader SDK
 We have identified resources under this subscription using outdated versions of the Immersive Reader SDK. Using the latest version of the Immersive Reader SDK provides you with updated security, performance and an expanded set of features for customizing and enhancing your integration experience.
-Learn more about [Immersive reader SDK](https://aka.ms/ImmersiveReaderAzureAdvisorSDKLearnMore).
+Learn more about [Immersive reader SDK](../cognitive-services/immersive-reader/index.yml).
 
+## Improve VM performance by changing the maximum session limit
+
+Advisor detects that you have a host pool that has depth first set as the load balancing algorithm, and that host pool's max session limit is greater than or equal to 999999. Depth first load balancing uses the max session limit to determine the maximum number of users that can have concurrent sessions on a single session host. If the max session limit is too high, all user sessions will be directed to the same session host, and this will cause performance and reliability issues. Therefore, when setting a host pool to have depth first load balancing, you must set an appropriate max session limit according to the configuration of your deployment and capacity of your VMs. 
+
+To learn more about load balancing in Windows Virtual Desktop, see [Configure the Windows Virtual Desktop load-balancing method](../virtual-desktop/troubleshoot-set-up-overview.md).
 
 ## How to access performance recommendations in Advisor
 

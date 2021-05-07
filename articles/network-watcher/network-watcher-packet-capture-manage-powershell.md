@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 02/22/2017
+ms.date: 01/07/2021
 ms.author: damendo
 ---
 
@@ -43,7 +43,7 @@ This article assumes you have the following resources:
 * A virtual machine with the packet capture extension enabled.
 
 > [!IMPORTANT]
-> Packet capture requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md).
+> Packet capture requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md).
 
 ## Install VM extension
 
@@ -123,7 +123,7 @@ Once the preceding steps are complete, the packet capture agent is installed on 
 The next step is to retrieve the Network Watcher instance. This variable is passed to the `New-AzNetworkWatcherPacketCapture` cmdlet in step 4.
 
 ```powershell
-$networkWatcher = Get-AzResource -ResourceType "Microsoft.Network/networkWatchers" | Where {$_.Location -eq "WestCentralUS" }
+$networkWatcher = Get-AzNetworkWatcher  | Where {$_.Location -eq "westcentralus" }
 ```
 
 ### Step 2
@@ -276,17 +276,3 @@ Learn how to automate packet captures with Virtual machine alerts by viewing [Cr
 Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](diagnose-vm-network-traffic-filtering-problem.md)
 
 <!-- Image references -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -18,7 +18,7 @@ ms.author: damendo
 The Network Configuration Diagnostic tool helps customers understand which traffic flows will be allowed or denied in your Azure Virtual Network along with detailed information for debugging. It can help your in understanding if your NSG rules are configured correctly. 
 
 ## Pre-requisites
-For using Network Configuration Diagnostics, Network Watcher must be enabled in your subscription. See [Create an Azure Network Watcher instance](https://docs.microsoft.com/azure/network-watcher/network-watcher-create) to enable.
+For using Network Configuration Diagnostics, Network Watcher must be enabled in your subscription. See [Create an Azure Network Watcher instance](./network-watcher-create.md) to enable.
 
 ## Background
 
@@ -34,7 +34,6 @@ For a given flow, the NCD tool runs a simulation of the flow and returns whether
 ## Next steps
 
 Use Network Configuration Diagnostic through other interfaces
- - [REST API](https://docs.microsoft.com/rest/api/network-watcher/networkwatchers/getnetworkconfigurationdiagnostic)
- - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/invoke-aznetworkwatchernetworkconfigurationdiagnostic?view=azps-4.6.1)
- - [Azure CLI](https://docs.microsoft.com/cli/azure/network/watcher?view=azure-cli-latest#az_network_watcher_run_configuration_diagnostic)
-
+ - [REST API](/rest/api/network-watcher/networkwatchers/getnetworkconfigurationdiagnostic)
+ - [PowerShell](/powershell/module/az.network/invoke-aznetworkwatchernetworkconfigurationdiagnostic)
+ - [Azure CLI](/cli/azure/network/watcher#az_network_watcher_run_configuration_diagnostic)

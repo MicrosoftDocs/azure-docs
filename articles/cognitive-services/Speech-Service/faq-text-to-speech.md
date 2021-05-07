@@ -14,7 +14,7 @@ ms.author: panosper
 
 # Text to Speech frequently asked questions
 
-If you can't find answers to your questions in this FAQ, check out [other support options](support.md).
+If you can't find answers to your questions in this FAQ, check out [other support options](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 ## General
 
@@ -24,11 +24,11 @@ If you can't find answers to your questions in this FAQ, check out [other suppor
 
 **Q: Where do I start if I want to use a standard voice model?**
 
-**A**: More than 80 standard voice models in over 45 languages are available through HTTP requests. First, get a [subscription key](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). To make REST calls to the predeployed voice models, see the [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+**A**: More than 80 standard voice models in over 45 languages are available through HTTP requests. First, get a [subscription key](./overview.md#try-the-speech-service-for-free). To make REST calls to the predeployed voice models, see the [REST API](./overview.md#reference-docs).
 
 **Q: If I want to use a customized voice model, is the API the same as the one that's used for standard voices?**
 
-**A**: When a custom voice model is created and deployed, you get a unique endpoint for your model. To use the voice to speak in your apps, you must specify the endpoint in your HTTP requests. The same functionality that's available in the REST API for the Text to Speech service is available for your custom endpoint. Learn how to [create and use your custom endpoint](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-voice-endpoint).
+**A**: When a custom voice model is created and deployed, you get a unique endpoint for your model. To use the voice to speak in your apps, you must specify the endpoint in your HTTP requests. The same functionality that's available in the REST API for the Text to Speech service is available for your custom endpoint. Learn how to [create and use your custom endpoint](./how-to-custom-voice-create-voice.md#create-and-use-a-custom-voice-endpoint).
 
 **Q: Do I need to prepare the training data to create custom voice models on my own?**
 
@@ -36,7 +36,7 @@ If you can't find answers to your questions in this FAQ, check out [other suppor
 
 A collection of speech data is required to create a customized voice model. This collection consists of a set of audio files of speech recordings and a text file of the transcription of each audio file. The result of your digital voice relies heavily on the quality of your training data. To produce a good text-to-speech voice, it's important that the recordings are made in a quiet room with a high-quality, standing microphone. A consistent volume, speaking rate, and speaking pitch, and even consistency in expressive mannerisms of speech are essential for building a great digital voice. We highly recommend recording the voices in a recording studio.
 
-Currently, we don't provide online recording support or have any recording studio recommendations. For the format requirement, see [how to prepare recordings and transcripts](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice-create-voice).
+Currently, we don't provide online recording support or have any recording studio recommendations. For the format requirement, see [how to prepare recordings and transcripts](./how-to-custom-voice-create-voice.md).
 
 **Q: What scripts should I use to record the speech data for custom voice training?**
 

@@ -1,7 +1,7 @@
 ---
 title: Work with large data sets
 description: Understand how to get, format, page, and skip records in large data sets while working with Azure Resource Graph.
-ms.date: 09/30/2020
+ms.date: 05/01/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ---
@@ -88,16 +88,16 @@ When it's necessary to break a result set into smaller sets of records for proce
 result set would exceed the maximum allowed value of _1000_ returned records, use paging. The
 [REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)
 **QueryResponse** provides values to indicate of a results set has been broken up:
-**resultTruncated** and **$skipToken**. **resultTruncated** is a boolean value that informs the
-consumer if there are additional records not returned in the response. This condition can also be
+**resultTruncated** and **$skipToken**. **resultTruncated** is a Boolean value that informs the
+consumer if there are more records not returned in the response. This condition can also be
 identified when the **count** property is less than the **totalRecords** property. **totalRecords**
 defines how many records that match the query.
 
- **resultTruncated** is **true** when either paging is disabled or not possible because no `id`
- column or when there are less resources available than a query is requesting. When
- **resultTruncated** is **true**, the **$skipToken** property isn't set.
+**resultTruncated** is **true** when either paging is disabled or not possible because no `id`
+column or when there are less resources available than a query is requesting. When
+**resultTruncated** is **true**, the **$skipToken** property isn't set.
 
-The following examples show how to **skip** the first 3000 records and return the **first** 1000
+The following examples show how to **skip** the first 3,000 records and return the **first** 1,000
 records after those records skipped with Azure CLI and Azure PowerShell:
 
 ```azurecli-interactive
@@ -133,7 +133,7 @@ design and row values of the properties returned by the query. This format close
 defined in a structured table or spreadsheet with the columns identified first and then each row
 representing data aligned to those columns.
 
-Here is a sample of a query result with the _Table_ formatting:
+Here's a sample of a query result with the _Table_ formatting:
 
 ```json
 {
@@ -177,7 +177,7 @@ The _ObjectArray_ format also returns results in a JSON format. However, this de
 key/value pair relationship common in JSON where the column and the row data are matched in array
 groups.
 
-Here is a sample of a query result with the _ObjectArray_ formatting:
+Here's a sample of a query result with the _ObjectArray_ formatting:
 
 ```json
 {

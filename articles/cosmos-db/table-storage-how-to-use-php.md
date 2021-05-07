@@ -10,6 +10,7 @@ ms.topic: sample
 ms.date: 07/23/2020
 ---
 # How to use Azure Storage Table service or the Azure Cosmos DB Table API from PHP
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]

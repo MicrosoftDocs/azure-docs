@@ -15,7 +15,7 @@ This article explains how to register a SaaS application using the Microsoft [Az
 
 Azure Marketplace does not impose any constraints on the authentication method your SaaS service uses for end users. The flow below is required only for authenticating the SaaS Service in Azure Marketplace.
 
-For more information about Azure AD (Active Directory), see [What is authentication](../../active-directory/develop/authentication-scenarios.md)?
+For more information about Azure AD (Active Directory), see [What is authentication](../../active-directory/develop/authentication-vs-authorization.md)?
 
 ## Register an Azure AD-secured app
 
@@ -32,11 +32,11 @@ Any application that wants to use the capabilities of Azure AD must first be reg
     -   **Application type**:  
         
         Select **Web app / API** for
-        [client applications](../../active-directory/develop/active-directory-dev-glossary.md#client-application))
-        and [resource/API applications](../../active-directory/develop/active-directory-dev-glossary.md#resource-server))
+        [client applications](../../active-directory/develop/developer-glossary.md#client-application))
+        and [resource/API applications](../../active-directory/develop/developer-glossary.md#resource-server))
         that are installed on a secure server. This setting is used for
-        OAuth confidential [web clients](../../active-directory/develop/active-directory-dev-glossary.md#web-client))
-        and public [user-agent-based  clients](../../active-directory/develop/active-directory-dev-glossary.md#user-agent-based-client)).
+        OAuth confidential [web clients](../../active-directory/develop/developer-glossary.md#web-client))
+        and public [user-agent-based  clients](../../active-directory/develop/developer-glossary.md#user-agent-based-client)).
         The same application can also expose both a client and resource/API.
 
         For specific examples of web applications, check out the quickstart guided setups that are available in the [Get Started](../../active-directory/develop/quickstart-create-new-tenant.md) section of the [Azure AD Developers Guide](../../active-directory/develop/index.yml).
@@ -48,7 +48,7 @@ Any application that wants to use the capabilities of Azure AD must first be reg
 The **Azure AD app ID** is associated to your publisher ID, so make sure that the same *app ID* is used in all your offers.
 
 >[!Note]
->If a publisher has two different accounts in Partner Center, two different Azure AD app IDs should be used.  Each partner account in Partner Center should use a unique Azure AD app ID for all the SaaS offers that are published through this account.
+>If the publisher has two or more different accounts in Partner Center, the Azure AD app registration details can be used in one account only. Using the same tenant ID, app ID pair for an offer under a different publisher account is not supported.
 
 ## How to get the publisher's authorization token
 

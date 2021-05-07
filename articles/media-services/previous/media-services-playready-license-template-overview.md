@@ -1,21 +1,19 @@
 ---
 title: Media Services PlayReady license template overview
 description: This topic gives an overview of a PlayReady license template that is used to configure PlayReady licenses.
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-
 ms.assetid: fddce5d0-1278-478f-ae05-9b985c748731
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 # Media Services PlayReady license template overview
 
@@ -64,25 +62,25 @@ For an end-to-end example that uses .NET classes to configure the PlayReady lice
 ## <a id="classes"></a>Media Services .NET classes that are used to configure license templates
 The following classes are the main .NET classes that are used to configure Media Services PlayReady license templates. These classes map to the types defined in [PlayReady license template XML schema](media-services-playready-license-template-overview.md#schema).
 
-The [MediaServicesLicenseTemplateSerializer](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer?view=azure-dotnet#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_mediaserviceslicensetemplateserializer) class is used to serialize and deserialize to and from the Media Services license template XML.
+The [MediaServicesLicenseTemplateSerializer](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_mediaserviceslicensetemplateserializer) class is used to serialize and deserialize to and from the Media Services license template XML.
 
 ### PlayReadyLicenseResponseTemplate
-[PlayReadyLicenseResponseTemplate](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate?view=azure-dotnet#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_playreadylicenseresponsetemplate): This class represents the template for the response sent back to the user. It contains a field for a custom data string between the license server and the application (which might be useful for custom app logic). It also contains a list of one or more license templates.
+[PlayReadyLicenseResponseTemplate](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_playreadylicenseresponsetemplate): This class represents the template for the response sent back to the user. It contains a field for a custom data string between the license server and the application (which might be useful for custom app logic). It also contains a list of one or more license templates.
 
 As the "top-level" class in the template hierarchy, the response template includes a list of license templates. The license templates include (directly or indirectly) all the other classes that make up the template data to be serialized.
 
 ### PlayReadyLicenseTemplate
-[PlayReadyLicenseTemplate](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate?view=azure-dotnet#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_playreadylicensetemplate): This class represents a license template that is used to create PlayReady licenses to be returned to users. It contains the data on the content key in the license. It also includes any rights or restrictions that the PlayReady DRM runtime must enforce when the content key is used.
+[PlayReadyLicenseTemplate](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_playreadylicensetemplate): This class represents a license template that is used to create PlayReady licenses to be returned to users. It contains the data on the content key in the license. It also includes any rights or restrictions that the PlayReady DRM runtime must enforce when the content key is used.
 
 ### <a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
-[PlayReadyPlayRight](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright?view=azure-dotnet#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_playreadyplayright): This class represents the PlayRight of a PlayReady license. It grants the user the ability to play back the content subject to any restrictions configured in the license and on the PlayRight itself (for playback-specific policy). Much of the policy on a PlayRight concerns output restrictions that control the types of outputs that the content can be played over. It also includes any restrictions that must be put in place when a given output is used. For example, if DigitalVideoOnlyContentRestriction is enabled, the DRM runtime only allows the video to be displayed over digital outputs. (Analog video outputs aren't allowed to pass the content.)
+[PlayReadyPlayRight](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_playreadyplayright): This class represents the PlayRight of a PlayReady license. It grants the user the ability to play back the content subject to any restrictions configured in the license and on the PlayRight itself (for playback-specific policy). Much of the policy on a PlayRight concerns output restrictions that control the types of outputs that the content can be played over. It also includes any restrictions that must be put in place when a given output is used. For example, if DigitalVideoOnlyContentRestriction is enabled, the DRM runtime only allows the video to be displayed over digital outputs. (Analog video outputs aren't allowed to pass the content.)
 
 > [!IMPORTANT]
 > These types of restrictions can be powerful, but they also can affect the consumer experience. If the output protections are too restrictive, the content might be unplayable on some clients. For more information, see the [PlayReady Compliance Rules](https://www.microsoft.com/playready/licensing/compliance/).
 > 
 > 
 
-For an example of the protection levels that Silverlight supports, see [Silverlight support for output protections](https://go.microsoft.com/fwlink/?LinkId=617318).
+For an example of the protection levels that Silverlight supports, see [Silverlight support for output protections](/previous-versions/windows/silverlight/dotnet-windows-silverlight/cc838192(v=vs.95)).
 
 ## <a id="schema"></a>PlayReady license template XML schema
 ```xml

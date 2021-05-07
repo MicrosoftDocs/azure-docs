@@ -12,7 +12,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/20/2018
-ms.author: apimpm
+ms.author: apimpm 
+ms.custom: devx-track-azurepowershell
 ---
 
 # How to add a custom CA certificate in Azure API Management
@@ -37,15 +38,15 @@ Follow the steps below to upload a new CA certificate. If you have not created a
 
 3. Click the **+ Add** button.  
 
-    ![Add CA certificates](media/api-management-howto-ca-certificates/01.png)  
+    ![Screenshot that shows the + Add button for adding a CA certificate.](media/api-management-howto-ca-certificates/01.png)  
 
 4. Browse for the certificate and decide on the certificate store. Only the public key is needed, so the password is not required.
 
-    ![Add CA certificates](media/api-management-howto-ca-certificates/02.png)  
+    ![Screenshot that shows how to browse for the certificate.](media/api-management-howto-ca-certificates/02.png)  
 
 5. Click **Save**. This operation may take a few minutes.
 
-    ![Add CA certificates](media/api-management-howto-ca-certificates/03.png)  
+    ![Screenshot that shows how to save the certificate.](media/api-management-howto-ca-certificates/03.png)  
 
 > [!NOTE]
 > You can upload a CA certificate using the `New-AzApiManagementSystemCertificate` Powershell command.

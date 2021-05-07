@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 02/10/2020
+ms.date: 10/02/2020
 ---
 
 # Receive and confirm  B2B AS2 messages by using Azure Logic Apps and Enterprise Integration Pack
@@ -34,7 +34,7 @@ This article shows how to create a logic app that receives an HTTP request by us
 
 * At least two [trading partners](../logic-apps/logic-apps-enterprise-integration-partners.md) that you've already defined in your integration account along with [AS2 and X12 agreements](logic-apps-enterprise-integration-agreements.md) for those partners.
 
-## Add Request trigger
+## Add the Request trigger
 
 This example uses the Logic App Designer in the Azure portal, but you can follow similar steps for the Logic App Designer in Visual Studio.
 
@@ -54,7 +54,7 @@ This example uses the Logic App Designer in the Azure portal, but you can follow
 
    ![URL generated for Request trigger to receive calls](./media/logic-apps-enterprise-integration-b2b/generated-url-request-trigger.png)
 
-## Add AS2 decode action
+## Add the AS2 decode action
 
 Now add the B2B actions that you want to use. This example uses AS2 and X12 actions.
 
@@ -86,13 +86,21 @@ Now add the B2B actions that you want to use. This example uses AS2 and X12 acti
 
 1. For the **Message headers** property, enter any headers required for the AS2 action, which are described by the `headers` content that's received by the HTTP request trigger.
 
-   To enter an expression that references the trigger's `headers` output, click inside the **Message headers** box. After the dynamic content list appears, select **Expression**. In the expression editor, enter the expression here, and select **OK**:
+   1. To enter an expression that references the trigger's `headers` output, select **Switch Message headers to text mode**.
 
-   `triggerOutputs()['Headers']`
+      ![Screenshot that shows "Switch Message headers to text mode" selected.](./media/logic-apps-enterprise-integration-b2b/as2-decode-switch-text-mode.png)
 
-   To get this expression to resolve as this token, switch between the designer and code view, for example:
+   1. Click inside the **Message headers** box. After the dynamic content list appears, select **Expression**. In the expression editor, enter the expression here, and select **OK**:
 
-   ![Resolved headers output from trigger](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-headers-expression.png)
+      `triggerOutputs()['Headers']`
+
+      In the AS2 Decode action, the expression now appears as a token:
+
+      ![Screenshot that shows the "@triggerOutputs()['Headers']" token in the "Message headers" box.](./media/logic-apps-enterprise-integration-b2b/as2-decode-message-header-expression.png)
+
+   1. To get the expression token to resolve into the **Headers** token, switch between the designer and code view. After this step, the AS2 Decode action looks like this example:
+
+      ![Resolved headers output from trigger](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-headers-expression.png)
 
 ## Add Response action for message receipt notification
 

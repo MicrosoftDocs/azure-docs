@@ -6,14 +6,14 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 04/29/2021
 ---
 
 # Build expressions in mapping data flow
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-In mapping data flow, many transformation properties are entered as expressions. These expressions are composed of column values, parameters, functions, operators, and literals that evaluate to a Spark data type at run time. Mapping data flows has a dedicated experience aimed to aid you in building these expressions called the **Expression Builder**. Utilizing  [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) code completion for highlighting, syntax checking, and autocompleting, the expression builder is designed to make building data flows easy. This article explains how to use the expression builder to effectively build your business logic.
+In mapping data flow, many transformation properties are entered as expressions. These expressions are composed of column values, parameters, functions, operators, and literals that evaluate to a Spark data type at run time. Mapping data flows has a dedicated experience aimed to aid you in building these expressions called the **Expression Builder**. Utilizing  [IntelliSense](/visualstudio/ide/using-intellisense) code completion for highlighting, syntax checking, and autocompleting, the expression builder is designed to make building data flows easy. This article explains how to use the expression builder to effectively build your business logic.
 
 ![Expression Builder](media/data-flow/expresion-builder.png "Expression Builder")
 
@@ -25,15 +25,15 @@ There are multiple entry points to opening the expression builder. These are all
 
 In some transformations like [filter](data-flow-filter.md), clicking on a blue expression text box will open the expression builder. 
 
-![Blue expression box](media/data-flow/expressionbox.png "Expression Builder")
+![Blue expression box](media/data-flow/expressionbox.png "Blue expression box")
 
 When you reference columns in a matching or group-by condition, an expression can extract values from columns. To create an expression, select **Computed column**.
 
-![Computed column option](media/data-flow/computedcolumn.png "Expression Builder")
+![Computed column option](media/data-flow/computedcolumn.png "Computed column option")
 
 In cases where an expression or a literal value are valid inputs, select **Add dynamic content** to build an expression that evaluates to a literal value.
 
-![Add dynamic content option](media/data-flow/add-dynamic-content.png "Expression Builder")
+![Add dynamic content option](media/data-flow/add-dynamic-content.png "Add dynamic content option")
 
 ## Expression elements
 
@@ -66,7 +66,17 @@ When you have column names that include special characters or spaces, surround t
 
 ### Parameters
 
-Parameters are values that are passed into a data flow at run time from a pipeline. To reference a parameter, either click on the parameter from the **Expression elements** view or reference it with a dollar sign in front of its name. For example, a parameter called parameter1 would be referenced by `$parameter1`. To learn more, see [parameterizing mapping data flows](parameters-data-flow.md).
+Parameters are values that are passed into a data flow at run time from a pipeline. To reference a parameter, either click on the parameter from the **Expression elements** view or reference it with a dollar sign in front of its name. For example, a parameter called parameter1 would be referenced by `$parameter1`. To learn more, see [parameterizing mapping data flows](parameters-data-flow.md). 
+
+### Cached lookup
+
+A cached lookup allows you to do an inline lookup of the output of a cached sink. There are two functions available to use on each sink, `lookup()` and `outputs()`. The syntax to reference these functions is `cacheSinkName#functionName()`. For more information, see [cache sinks](data-flow-sink.md#cache-sink).
+
+`lookup()` takes in the matching columns in the current transformation as parameters and returns a complex column equal to the row matching the key columns in the cache sink. The complex column returned contains a subcolumn for each column mapped in the cache sink. For example, if you had an error code cache sink `errorCodeCache` that had a key column matching on the code and a column called `Message`. Calling `errorCodeCache#lookup(errorCode).Message` would return the message corresponding with the code passed in. 
+
+`outputs()` takes no parameters and  returns the entire cache sink as an array of complex columns. This can't be called if key columns are specified in the sink and should only be used if there is a small number of rows in the cache sink. A common use case is appending the max value of an incrementing key. If a cached single aggregated row `CacheMaxKey` contains a column `MaxKey`, you can reference the first value by calling `CacheMaxKey#outputs()[1].MaxKey`.
+
+![Cached lookup](media/data-flow/cached-lookup-example.png "Cached lookup")
 
 ### Locals
 
@@ -91,6 +101,9 @@ Some examples of string interpolation:
 * ```"Total cost with sales tax is {round(totalcost * 1.08,2)}"```
 
 * ```"{:playerName} is a {:playerRating} player"```
+
+> [!NOTE]
+> When using string interpolation syntax in SQL source queries, the query string must be on one single line, without '/n'.
 
 ## Commenting expressions
 
@@ -154,6 +167,12 @@ toLong(
     currentTimestamp() -
     toTimestamp('1970-01-01 00:00:00.000', 'yyyy-MM-dd HH:mm:ss.SSS')
 ) * 1000l
+
+### Data flow time evaluation
+
+Dataflow processes till milliseconds. For *2018-07-31T20:00:00.2170000*, you will see *2018-07-31T20:00:00.217*  in output.
+In ADF portal,  timestamp is being shown in the **current browser setting**, which can  eliminate 217, but when you will run the data flow end to end, 217 (milliseconds part will be processed as well). You can use toString(myDateTimeColumn) as expression and see full precision data in preview. Process datetime as datetime rather than string for all practical purposes.
+ 
 
 ## Next steps
 

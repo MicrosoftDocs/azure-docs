@@ -2,15 +2,15 @@
 title: Management concepts for Azure AD Domain Services | Microsoft Docs
 description: Learn about how to administer an Azure Active Directory Domain Services managed domain and the behavior of user accounts and passwords
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/05/2020
-ms.author: joflore
+ms.date: 03/10/2021
+ms.author: justinha
 
 ---
 
@@ -77,7 +77,7 @@ In Azure AD DS, the available performance and features are based on the SKU. You
 
 | SKU name   | Maximum object count | Backup frequency | Maximum number of outbound forest trusts |
 |------------|----------------------|------------------|----|
-| Standard   | Unlimited            | Every 7 days     | 0  |
+| Standard   | Unlimited            | Every 5 days     | 0  |
 | Enterprise | Unlimited            | Every 3 days     | 5  |
 | Premium    | Unlimited            | Daily            | 10 |
 

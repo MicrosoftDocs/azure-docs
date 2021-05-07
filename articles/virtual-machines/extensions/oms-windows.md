@@ -1,20 +1,13 @@
 ---
 title: Log Analytics virtual machine extension for Windows 
 description: Deploy the Log Analytics agent on Windows virtual machine using a virtual machine extension.
-services: virtual-machines-windows
-documentationcenter: ''
-author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: feae6176-2373-4034-b5d9-a32c6b4e1f10
-ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: windows
 ms.date: 06/26/2020
-ms.author: akjosh
 
 ---
 # Log Analytics virtual machine extension for Windows
@@ -25,13 +18,14 @@ Azure Monitor Logs provides monitoring capabilities across cloud and on-premises
 
 ### Operating system
 
-For details about the supported Windows operating systems, refer to the [Overview of Azure Monitor agents](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) article.
+For details about the supported Windows operating systems, refer to the [Overview of Azure Monitor agents](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) article.
 
 ### Agent and VM Extension version
 The following table provides a mapping of the version of the Windows Log Analytics VM extension and Log Analytics agent bundle for each release. 
 
 | Log Analytics Windows agent bundle version | Log Analytics Windows VM extension version | Release Date | Release Notes |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18053| 1.0.18053.0 | October 2020   | <ul><li>New Agent Troubleshooter</li><li>Updates to how the agent handles certificate changes to Azure services</li></ul> |
 | 10.20.18040 | 1.0.18040.2 | August 2020   | <ul><li>Resolves an issue on Azure Arc</li></ul> |
 | 10.20.18038 | 1.0.18038 | April 2020   | <ul><li>Enables connectivity over Private Link using Azure Monitor Private Link Scopes</li><li>Adds ingestion throttling to avoid a sudden, accidental influx in ingestion to a workspace</li><li>Adds support for additional Azure Government clouds and regions</li><li>Resolves a bug where HealthService.exe crashed</li></ul> |
 | 10.20.18029 | 1.0.18029 | March 2020   | <ul><li>Adds SHA-2 code signing support</li><li>Improves VM extension installation and management</li><li>Resolves a bug in Azure Arc for Servers integration</li><li>Adds a built-in troubleshooting tool for customer support</li><li>Adds support for additional Azure Government regions</li> |
@@ -95,14 +89,14 @@ The following JSON shows the schema for the Log Analytics agent extension. The e
 \* The workspaceId is called the consumerId in the Log Analytics API.
 
 > [!NOTE]
-> For additional properties see Azure [Connect Windows Computers to Azure Monitor](../../azure-monitor/platform/agent-windows.md).
+> For additional properties see Azure [Connect Windows Computers to Azure Monitor](../../azure-monitor/agents/agent-windows.md).
 
 ## Template deployment
 
 Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Log Analytics agent extension during an Azure Resource Manager template deployment. A sample template that includes the Log Analytics agent VM extension can be found on the [Azure Quickstart Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
 
 >[!NOTE]
->The template does not support specifying more than one workspace ID and workspace key when you want to configure the agent to report to multiple workspaces. To configure the agent to report to multiple workspaces, see [Adding or removing a workspace](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace).  
+>The template does not support specifying more than one workspace ID and workspace key when you want to configure the agent to report to multiple workspaces. To configure the agent to report to multiple workspaces, see [Adding or removing a workspace](../../azure-monitor/agents/agent-manage.md#adding-or-removing-a-workspace).  
 
 The JSON for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/templates/child-resource-name-type.md). 
 

@@ -1,11 +1,8 @@
 ---
 title: Polymorphism in the Reliable Actors framework 
 description: Build hierarchies of .NET interfaces and types in the Reliable Actors framework to reuse functionality and API definitions.
-author: vturecek
-
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
 ---
 # Polymorphism in the Reliable Actors framework

@@ -1,7 +1,7 @@
 ---
 title: Understand resource locking
 description: Learn about the locking options in Azure Blueprints to protect resources when assigning a blueprint.
-ms.date: 10/05/2020
+ms.date: 04/22/2021
 ms.topic: conceptual
 ---
 # Understand resource locking in Azure Blueprints
@@ -12,9 +12,10 @@ see an example of resource locking and application of _deny assignments_, see th
 [protecting new resources](../tutorials/protect-new-resources.md) tutorial.
 
 > [!NOTE]
-> Resource locks deployed by Azure Blueprints are only applied to resources deployed by the
-> blueprint assignment. Existing resources, such as those in resource groups that already exist,
-> don't have locks added to them.
+> Resource locks deployed by Azure Blueprints are only applied to
+> [non-extension resources](../../../azure-resource-manager/templates/scope-extension-resources.md)
+> deployed by the blueprint assignment. Existing resources, such as those in resource groups that
+> already exist, don't have locks added to them.
 
 ## Locking modes and states
 
@@ -48,7 +49,7 @@ designed to create from accidental or programmatic deletion or alteration.
 
 ### Assign at management group
 
-An additional option to prevent subscription owners from removing a blueprint assignment is to
+The only option to prevent subscription owners from removing a blueprint assignment is to
 assign the blueprint to a management group. In this scenario, only **Owners** of the management
 group have the permissions needed to remove the blueprint assignment.
 

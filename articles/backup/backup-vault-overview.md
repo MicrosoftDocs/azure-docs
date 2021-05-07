@@ -2,7 +2,7 @@
 title: Overview of Backup vaults
 description: An overview of Backup vaults.
 ms.topic: conceptual
-ms.date: 08/17/2020
+ms.date: 04/19/2021
 ---
 # Backup vaults overview
 
@@ -10,7 +10,7 @@ This article describes the features of a Backup vault. A Backup vault is a stora
 
 - **Enhanced capabilities to help secure backup data**: With Backup vaults, Azure Backup provides security capabilities to protect cloud backups. The security features ensure you can secure your backups, and safely recover data, even if production and backup servers are compromised. [Learn more](backup-azure-security-feature.md)
 
-- **Role-Based Access Control (RBAC)**: RBAC provides fine-grained access management control in Azure. [Azure provides various built-in roles](../role-based-access-control/built-in-roles.md), and Azure Backup has three [built-in roles to manage recovery points](backup-rbac-rs-vault.md). Backup vaults are compatible with RBAC, which restricts backup and restore access to the defined set of user roles. [Learn more](backup-rbac-rs-vault.md)
+- **Azure role-based access control (Azure RBAC)**: Azure RBAC provides fine-grained access management control in Azure. [Azure provides various built-in roles](../role-based-access-control/built-in-roles.md), and Azure Backup has three [built-in roles to manage recovery points](backup-rbac-rs-vault.md). Backup vaults are compatible with Azure RBAC, which restricts backup and restore access to the defined set of user roles. [Learn more](backup-rbac-rs-vault.md)
 
 ## Storage settings in the Backup vault
 
@@ -22,7 +22,8 @@ A Backup vault is an entity that stores the backups and recovery points created 
 
 ## Encryption settings in the Backup vault
 
-This section discusses the options available for encrypting your backup data stored in the Backup vault.
+This section discusses the options available for encrypting your backup data stored in the Backup vault. Azure Backup service uses the **Backup Management Service** app to access Azure Key Vault, but not the managed identity of the Backup vault.
+
 
 ### Encryption of backup data using platform-managed keys
 
@@ -81,7 +82,7 @@ The following operation is destructive and can't be undone. All backup data and 
 
 To properly delete a vault, you must follow the steps in this order:
 
-- You must check to verify if there are any protected items:
+- Verify if there are any protected items:
   - Go to **Backup Instances** in the left navigation bar. All items listed here must be deleted first.
 
 After you've completed these steps, you can continue to delete the vault.

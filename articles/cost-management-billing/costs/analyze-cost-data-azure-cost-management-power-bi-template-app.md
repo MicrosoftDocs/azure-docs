@@ -3,7 +3,7 @@ title: Analyze Azure costs with the Power BI App
 description: This article explains how to install and use the Azure Cost Management Power BI App.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 02/19/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -14,41 +14,40 @@ ms.reviewer: benshy
 
 This article explains how to install and use the Azure Cost Management Power BI app. The app helps you analyze and manage your Azure costs in Power BI. You can use the app to monitor costs, usage trends, and identify cost optimization options to reduce your expenditures.
 
-You can use the app as-is, or you can modify it to extend the default filters, views, and visualizations to customize for your needs. Then, use it to join additional data to create customized reports to get holistic views of your overall business cost.
+The Azure Cost Management Power BI app currently supports only customers with an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
-The Azure Cost Management Power BI App currently supports only customers with an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/).
+The app limits customizability. If you want to modify and extend the default filters, views, and visualizations to customize for your needs, use [Azure Cost Management connector in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management) instead. With the Azure Cost Management connector you can join additional data from other sources to create customized reports to get holistic views of your overall business cost. The connector also supports Microsoft Customer Agreements.
 
 > [!NOTE]
 > Power BI template apps don't support downloading the PBIX file.
 
 ## Prerequisites
 
-- A [Power BI Pro license](/power-bi/service-self-service-signup-for-power-bi) to install and use the app
-- To connect to data, you must use an [Enterprise Administrator](../manage/understand-ea-roles.md) account
+- A [Power BI Pro license](/power-bi/service-self-service-signup-for-power-bi) is required to install and use the app.
+- To connect to data, you must use an [Enterprise Administrator](../manage/understand-ea-roles.md) account. The Enterprise Administrator (read only) role is supported.
 
 ## Installation steps
 
 To install the app:
 
 1. Open [Azure Cost Management Power BI App](https://aka.ms/costmgmt/ACMApp).
-2. On the Power BI AppSource page, select **Get it now**.
-3. Select **Continue** to agree to the terms of use and privacy policy.
-4. In the **Install this Power BI app** box, select **Install**.
-5. If needed, create a workspace and select **Continue**.
-6. When installation completes, notification appears saying that your new app is ready.
-7. Select **Go to app**.
-8. In **Get started with your new app**, under **Connect your data**, select **Connect**.  
-  ![Get started with your new app - Connect](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-data2.png)
-9. In the dialog that appears, enter your EA enrollment number for **BillingProfileIdOrEnrollmentNumber**. Specify the number of months of data to get. Leave the default **Scope** value of **Enrollment Number**, then select **Next**.  
-  ![Enter EA enrollment information](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
-10. The next dialog connects to Azure and gets data required for reserved instance recommendations. *Leave the default values as configured* and select **Sign in**.  
-  ![Screenshot shows the Connect to Azure Cost Management App dialog box with default values.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
-11. The final installation step connects to your EA enrollment and requires an [Enterprise Administrator](../manage/understand-ea-roles.md) account. Select **Sign in** to authenticate with your EA enrollment. This step also starts a data refresh action in Power BI.  
-  ![Connect to EA enrollment](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png)  
+1. On the Power BI AppSource page, select **Get it now**.
+1. Select **Continue** to agree to the terms of use and privacy policy.
+1. In the **Install this Power BI app** box, select **Install**.
+1. If needed, create a workspace and select **Continue**.
+1. When installation completes, notification appears saying that your new app is ready.
+1. Select the app that you installed.
+1. On the Getting started page, select **Connect your data**.
+    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-your-data.png" alt-text="Screenshot highlighting the Connect your data link." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-your-data.png" :::
+1. In the dialog that appears, enter your EA enrollment number for **BillingProfileIdOrEnrollmentNumber**. Specify the number of months of data to get. Leave the default **Scope** value of **Enrollment Number**, then select **Next**.  
+    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png" alt-text="Screenshot showing where you enter your E A enrollment information." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png" :::
+1. The next dialog connects to Azure and gets data. *Leave the default values as configured* and select **Sign in and continue**.  
+    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" alt-text="Screenshot showing the Connect to Azure Cost Management App dialog box with default values." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" :::
+1. The final installation step connects to your EA enrollment and requires an [Enterprise Administrator](../manage/understand-ea-roles.md) account. Leave all the default values. Select **Sign in and connect**.  
+    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" alt-text="Screenshot showing the Connect to Azure Cost Management App dialog box with default values to connect with." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" :::
+1. You are prompted to authenticate with your EA enrollment. Authenticate with Power BI. After you're authenticated, a Power BI data refresh starts.
     > [!NOTE]
     > The data refresh process might take quite a while to complete. The length depends on the number of months specified and the amount of data needed to sync.
-12. To check the data refresh status, select the **Datasets** tab in the workspace. Look next to the Refreshed timestamp. If it's still updating, you'll see an indicator showing that the refresh is in progress.  
-  ![Refresh data](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/data-refresh2.png)
 
 After the data refresh is complete, select the Azure Cost Management App to view the pre-created reports.
 
@@ -73,17 +72,17 @@ The following reports are available in the app.
 
 **Windows Server AHB Usage** - The report shows the number virtual machines that have Azure Hybrid Benefit enabled. It also shows a count of cores/vCPUs used by the virtual machines.
 
-![Azure Hybrid Benefits full report](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report-full.png)
+:::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report-full.png" alt-text="Screenshot showing the full Azure Hybrid Benefits report." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report-full.png" :::
 
 The report also identifies Windows VMs where Hybrid Benefit is **enabled** but there are _less than_ 8 vCPUs. It also shows where Hybrid Benefit is **not enabled** that have 8 _or more_ vCPUs. This information helps you fully use your Hybrid Benefit. Apply the benefit to your most expensive virtual machines to maximize your potential savings.
 
-![Azure Hybrid Benefits – Less than 8 vCPUs and vCPUs not enabled](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report.png)
+:::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report.png" alt-text="Screenshot showing the Less than 8 vCPUs and vCPUs not enabled area of the Azure Hybrid Benefits report." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report.png" :::
 
 **RI Chargeback** - The report helps you understand where and how much of a reserved instance (RI) benefit is applied per region, subscription, resource group, or resource. The report uses amortized usage data to show the view.
 
 You can apply a filter on _chargetype_ to view RI underutilization data.
 
-For more information about amortized data, see [Get Enterprise Agreement reservation costs and usage](/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea).
+For more information about amortized data, see [Get Enterprise Agreement reservation costs and usage](../reservations/understand-reserved-instance-usage-ea.md).
 
 **RI Savings** - The report shows the savings accrued by reservations for subscription, resource group, and the resource level. It displays:
 
@@ -100,7 +99,7 @@ You can use the amortized usage data to build on the data.
 
 To use the report, select the drill-down filter.
 
-![VM RI coverage report – select drill down](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-drill-down2.png)
+:::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-drill-down2.png" alt-text="Screenshot showing the select drill down option in the VM RI coverage report." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-drill-down2.png" :::
 
 Select the region that you want to analyze. Then select the instance size flexibility group, and so on.
 
@@ -113,7 +112,7 @@ The recommendations table provides recommendations for the reservation purchase,
 
 The _Normalized Size_ and _Recommended Quantity Normalized_ values help you normalize the purchase to the smallest size for an instance size flexibility group. The information is helpful if you plan to purchase just one reservation for all sizes in the instance size flexibility group.
 
-![RI recommendations](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-recomendations.png)
+:::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-recommendations.png" alt-text="Screenshot showing the RI recommendations report." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-recommendations.png" :::
 
 **VM RI Coverage (single recommendation)** - The report is split between on-demand VM usage and RI VM usage over the selected time period. It provides recommendations for VM RI purchases at a subscription scope.
 
@@ -146,7 +145,7 @@ The default **Scope** value of `Enrollment Number` was changed in the connection
 
 Reconnect to Cost Management and set the **Scope** value to `Enrollment Number`. Do not enter your organization's enrollment number, instead type `Enrollment Number` exactly as it appears in the following image.
 
-![Enter EA enrollment information](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
+:::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number-troubleshoot.png" alt-text="Screenshot showing that the default text of Enrollment Number must not change." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number-troubleshoot.png" :::
 
 ### BudgetAmount error
 
@@ -161,12 +160,11 @@ Data source error: The 'budgetAmount' column does not exist in the rowset. Table
 
 #### Cause
 
-This error occurs because of a bug with the underlying metadata. The issue happens because there's no budget available under **Cost Management > Budget** in the Azure portal. The bug fix is in the process of getting deployed to the Power BI Desktop and Power BI service. 
+This error occurs because of a bug with the underlying metadata. The issue happens because there's no budget available under **Cost Management > Budget** in the Azure portal. The bug fix is in the process of getting deployed to the Power BI Desktop and Power BI service.
 
 #### Solution
 
 - Until the bug is fixed, you can work around the problem by adding a test budget in the Azure portal at the billing account/EA enrollment level. The test budget unblocks connecting with Power BI. For more information about creating a budget, see [Tutorial: Create and manage Azure budgets](tutorial-acm-create-budgets.md).
-
 
 ### Invalid credentials for AzureBlob error
 
@@ -178,15 +176,14 @@ Failed to update data source credentials: The credentials provided for the Azure
 
 #### Cause
 
-This error occurs if you change the authentication method for the AutoFitComboMeter blob connection.
+This error occurs if you change the authentication method for your data source connection.
 
 #### Solution
 
 1. Connect to your data.
 1. After you enter your EA enrollment and number of months, make sure that you leave the default value of **Anonymous** for Authentication method and **None** for the Privacy level setting.  
-  ![Screenshot shows the Connect to Azure Cost Management App dialog box with Anonymous and None values entered.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png)  
+  :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png" alt-text="Screenshot shows the Connect to Azure Cost Management App dialog box with Anonymous and None values entered." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png" :::
 1. On the next page, set **OAuth2** for the Authentication method and **None** set for Privacy level. Then, sign in to authenticate with your enrollment. This step also starts a Power BI data refresh.
-
 
 ## Data reference
 
@@ -199,8 +196,8 @@ The following information summarizes the data available through the app. There's
 | [**Budgets**](/rest/api/consumption/budgets/get#definitions) | Budget details to view actual costs or usage against existing budget targets. |
 | [**Pricesheets**](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet#see-also) | Applicable meter rates for the provided billing profile or EA enrollment. |
 | [**RI charges**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges#response) | Charges associated to your reserved instances over the last 24 months. |
-| [**RI recommendations (shared)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response) | Reserved instance purchase recommendations based on all your subscription usage trends for the last 7, 30, or 60 days. |
-| [**RI recommendations (single)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response-1) | Reserved instance purchase recommendations based on your single subscription usage trends for the last 7, 30, or 60 days. |
+| [**RI recommendations (shared)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response) | Reserved instance purchase recommendations based on all your subscription usage trends for the last 7 days. |
+| [**RI recommendations (single)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response-1) | Reserved instance purchase recommendations based on your single subscription usage trends for the last 7 days. |
 | [**RI usage details**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#response) | Consumption details for your existing reserved instances over the last month. |
 | [**RI usage summary**](/rest/api/consumption/reservationssummaries/list) | Daily Azure reservation usage percentage. |
 | [**Usage details**](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#usage-details-field-definitions) | A breakdown of consumed quantities and estimated charges for the given billing profile in the EA enrollment. |

@@ -4,7 +4,7 @@ description: Connect privately to a Web App using Azure Private Endpoint
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 10/09/2020
+ms.date: 04/27/2021
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
@@ -88,7 +88,7 @@ For example, the name resolution will be:
 
 |Name |Type |Value |Remark |
 |-----|-----|------|-------|
-|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|<--Azure creates this entry in Azure Public DNS to point the app service to the privatelink and this is managed by us|
 |mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|<--You manage this entry in your DNS system to point to your Private Endpoint IP address|
 
 After this DNS configuration you can reach your Web App privately with the default name mywebappname.azurewebsites.net. You must use this name, because the default certificate is issued for *.azurewebsites.net.
@@ -115,11 +115,13 @@ For pricing details, see [Azure Private Link pricing][pricing].
 
 When you use Azure Function in Elastic Premium Plan with Private Endpoint, to run or execute the function in Azure Web portal, you must have direct network access or you will receive an HTTP 403 error. In other words, your browser must be able to reach the Private Endpoint to execute the function from the Azure Web portal. 
 
-You can connect up to 100 Private Endpoint to a particular Web App.
-
-Slots cannot use Private Endpoint.
+You can connect up to 100 Private Endpoints to a particular Web App.
 
 Remote Debugging functionality is not available when Private Endpoint is enabled for the Web App. The recommendation is to deploy the code to a slot and remote debug it there.
+
+FTP access is provided through the inbound public IP address. Private Endpoint does not support FTP access to the Web App.
+
+There is a known limitation affecting Private Endpoints and traffic routing with slots (aka [Test in Production feature][TiP]). As of April 2021, automatic and manual request routing between slots will result in a "403 Access Denied". This limitation will be removed in a future release.
 
 We are improving Private Link feature and Private Endpoint regularly, check [this article][pllimitations] for up-to-date information about limitations.
 
@@ -143,9 +145,10 @@ We are improving Private Link feature and Private Endpoint regularly, check [thi
 [dnsvalidation]: ../app-service-web-tutorial-custom-domain.md
 [pllimitations]: ../../private-link/private-endpoint-overview.md#limitations
 [pricing]: https://azure.microsoft.com/pricing/details/private-link/
-[howtoguide1]: ../../private-link/create-private-endpoint-webapp-portal.md
+[howtoguide1]: ../../private-link/tutorial-private-endpoint-webapp-portal.md
 [howtoguide2]: ../scripts/cli-deploy-privateendpoint.md
 [howtoguide3]: ../scripts/powershell-deploy-private-endpoint.md
 [howtoguide4]: ../scripts/template-deploy-private-endpoint.md
 [howtoguide5]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-privateendpoint-vnet-injection
 [howtoguide6]: ../scripts/terraform-secure-backend-frontend.md
+[TiP]: https://docs.microsoft.com/azure/app-service/deploy-staging-slots#route-traffic

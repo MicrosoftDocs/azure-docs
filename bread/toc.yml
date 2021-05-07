@@ -49,11 +49,14 @@
         tocHref: /azure/active-directory-domain-services/
         topicHref: /azure/active-directory-domain-services/
       - name: Users, groups, and roles
-        tocHref: /azure/active-directory/users-groups-roles/
-        topicHref: /azure/active-directory/users-groups-roles/
+        tocHref: /azure/active-directory/roles/groups-concept
+        topicHref: /azure/active-directory/roles/groups-concept
       - name: Identity Governance
         tocHref: /azure/active-directory/governance/
         topicHref: /azure/active-directory/governance/
+      - name: Application proxy
+        tocHref: /azure/active-directory/app-proxy/
+        topicHref: /azure/active-directory/app-proxy/
       - name: Application provisioning
         tocHref: /azure/active-directory/app-provisioning/
         topicHref: /azure/active-directory/app-provisioning/
@@ -67,6 +70,9 @@
       - name: Reports and monitoring
         tocHref: /azure/active-directory/reports-monitoring/
         topicHref: /azure/active-directory/reports-monitoring/
+      - name: Verifiable credentials
+        tocHref: /azure/active-directory/verifiable-credentials/
+        topicHref: /azure/active-directory/verifiable-credentials/
   - name: Analysis Services
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/
@@ -127,12 +133,6 @@
       - name: Arc enabled servers
         tocHref: /azure/azure-arc/servers/
         topicHref: /azure/azure-arc/servers/
-  - name: ASC for IoT
-    tocHref: /azure/asc-for-iot/
-    topicHref: /azure/asc-for-iot/
-  - name: Attestation
-    tocHref: /azure/attestation/
-    topicHref: /azure/attestation/
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
@@ -210,33 +210,29 @@
     topicHref: /azure/vmware-cloudsimple/
   - name: Azure portal documentation
     tocHref: /azure/azure-portal/
-    topicHref: /azure/azure-portal/\
+    topicHref: /azure/azure-portal/
+  - name: Azure portal documentation
+    tocHref: /azure/virtual-machines/
+    topicHref: /azure/azure-portal/index
+  - name: Azure portal documentation
+    tocHref: /power-bi
+    topicHref: /azure/azure-portal/index
   - name: Internet of Things
     tocHref: /azure/iot-fundamentals/
     topicHref: /azure/iot-fundamentals/
     items:
+      - name: Azure Percept
+        tocHref: /azure/azure-percept/
+        topicHref: /azure/azure-percept/
+      - name: Device Update for IoT Hub
+        tocHref: /azure/iot-hub-device-update/
+        topicHref: /azure/iot-hub-device-update/            
       - name: IoT Hub
         tocHref: /azure/iot-hub/
         topicHref: /azure/iot-hub/
       - name: IoT Central
         tocHref: /azure/iot-central/
         topicHref: /azure/iot-central/
-        items:
-        - name: IoT Central
-          tocHref: /azure/iot-central/core/
-          topicHref: /azure/iot-central/core/
-        - name: IoT Central for Energy
-          tocHref: /azure/iot-central/energy/
-          topicHref: /azure/iot-central/energy/
-        - name: IoT Central for Government
-          tocHref: /azure/iot-central/government/
-          topicHref: /azure/iot-central/government/
-        - name: IoT Central for Healthcare
-          tocHref: /azure/iot-central/healthcare/
-          topicHref: /azure/iot-central/healthcare/
-        - name: IoT Central for Retail
-          tocHref: /azure/iot-central/retail/
-          topicHref: /azure/iot-central/retail/
       - name: IoT Edge
         tocHref: /azure/iot-edge/
         topicHref: /azure/iot-edge/
@@ -258,6 +254,9 @@
       - name: Azure Maps
         tocHref: /azure/azure-maps/
         topicHref: /azure/azure-maps/
+      - name: Azure Certified Device
+        tocHref: /azure/certification/
+        topicHref: /azure/certification/
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
@@ -274,15 +273,29 @@
       - name: Azure Custom Providers
         tocHref: /azure/azure-resource-manager/custom-providers/
         topicHref: /azure/azure-resource-manager/custom-providers/
+  - name: Partner Solutions
+    tocHref: /azure/partner-solutions/
+    topicHref: /azure/partner-solutions/
+    items:
+      - name: Apache Kafka for Confluent Cloud
+        tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
+        topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
   - name: SignalR Service
     tocHref: /azure/azure-signalr/
     topicHref: /azure/azure-signalr/
   - name: Azure Stack
     tocHref: /azure/azure-stack/
     topicHref: /azure/azure-stack/
+    items:
+    - name: Azure Stack Edge
+      tocHref: /azure/databox-online/
+      topicHref: /azure/databox-online/
   - name: Azure Stack User
     tocHref: /azure/azure-stack/user/
     topicHref: /azure/azure-stack/user/
+  - name: BareMetal Infrastructure
+    tocHref: /azure/baremetal-infrastructure/
+    topicHref: /azure/baremetal-infrastructure/
   - name: Backup
     tocHref: /azure/backup/
     topicHref: /azure/backup/
@@ -463,6 +476,13 @@
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
+    items:
+    - name: MongoDB API
+      tocHref: /azure/cosmos-db/mongodb/
+      topicHref: /azure/cosmos-db/mongodb/
+  - name: Managed Instance for Apache Cassandra
+    tocHref: /azure/managed-instance-apache-cassandra/
+    topicHref: /azure/managed-instance-apache-cassandra/
   - name: Storage
     tocHref: /azure/storage/
     topicHref: /azure/storage/
@@ -470,9 +490,9 @@
     - name: Data Box offline transfer
       tocHref: /azure/databox/
       topicHref: /azure/databox/
-    - name: Data Box online transfer
-      tocHref: /azure/databox-online/
-      topicHref: /azure/databox-online/
+    - name: Data Box Gateway
+      tocHref: /azure/databox-gateway/
+      topicHref: /azure/databox-gateway/  
   - name: Data Catalog
     tocHref: /azure/data-catalog/
     topicHref: /azure/data-catalog/
@@ -585,25 +605,6 @@
   - name: Jenkins
     tocHref: /azure/jenkins/
     topicHref: /azure/jenkins/
-  - name: Key Vault
-    tocHref: /azure/key-vault/
-    topicHref: /azure/key-vault
-    items:
-      - name: General
-        tocHref: /azure/key-vault/general/
-        topicHref: /azure/key-vault/general/
-      - name: Certificates
-        tocHref: /azure/key-vault/certificates/
-        topicHref: /azure/key-vault/certificates/
-      - name: Keys
-        tocHref: /azure/key-vault/keys/
-        topicHref: /azure/key-vault/keys/
-      - name: Secrets
-        tocHref: /azure/key-vault/secrets/
-        topicHref: /azure/key-vault/secrets/
-      - name: Managed HSM
-        tocHref: /azure/key-vault/managed-hsm/
-        topicHref: /azure/key-vault/managed-hsm/
   - name: Azure Kinect DK
     tocHref: /azure/kinect-dk/
     topicHref: /azure/kinect-dk/
@@ -690,6 +691,8 @@
     tocHref: /azure/networking/
     topicHref: /azure/networking/
     items:
+      - name: Fundamentals
+        tocHref: /azure/networking/fundamentals
       - name: Application Gateway
         tocHref: /azure/application-gateway/
         topicHref: /azure/application-gateway/
@@ -711,9 +714,15 @@
       - name: Firewall Manager
         tocHref: /azure/firewall-manager/
         topicHref: /azure/firewall-manager/
+      - name: DDoS Protection Standard
+        tocHref: /azure/ddos-protection/
+        topicHref: /azure/ddos-protection/
       - name: Front Door Service
         tocHref: /azure/frontdoor/
         topicHref: /azure/frontdoor/
+      - name: Front Door Standard/Premium (Preview)
+        tocHref: /azure/frontdoor/standard-premium
+        topicHref: /azure/frontdoor/standard-premium
       - name: Internet Analyzer
         tocHref: /azure/internet-analyzer/
         topicHref: /azure/internet-analyzer/
@@ -732,6 +741,9 @@
       - name: Peering Service
         tocHref: /azure/peering-service/
         topicHref: /azure/peering-service/
+      - name: Route Server (Preview)
+        tocHref: /azure/route-server/
+        topicHref: /azure/route-server/
       - name: Traffic Manager
         tocHref: /azure/traffic-manager/
         topicHref: /azure/traffic-manager/
@@ -799,15 +811,43 @@
       - name: Develop
         tocHref: /azure/security/develop/
         topicHref: /azure/security/develop/
+      - name: Journey
+        tocHref: /azure/security/journey
+        topicHref: /azure/security/journey
       - name: Benchmarks
         tocHref: /azure/security/benchmarks/
         topicHref: /azure/security/benchmarks/
-  - name: Security Center
-    tocHref: /azure/security-center/
-    topicHref: /azure/security-center/
-  - name: Azure Sentinel
-    tocHref: /azure/sentinel/
-    topicHref: /azure/sentinel/
+      - name: Key Vault
+        tocHref: /azure/key-vault/
+        topicHref: /azure/key-vault
+        items:
+          - name: General
+            tocHref: /azure/key-vault/general/
+            topicHref: /azure/key-vault/general/
+          - name: Certificates
+            tocHref: /azure/key-vault/certificates/
+            topicHref: /azure/key-vault/certificates/
+          - name: Keys
+            tocHref: /azure/key-vault/keys/
+            topicHref: /azure/key-vault/keys/
+          - name: Secrets
+            tocHref: /azure/key-vault/secrets/
+            topicHref: /azure/key-vault/secrets/
+          - name: Managed HSM
+            tocHref: /azure/key-vault/managed-hsm/
+            topicHref: /azure/key-vault/managed-hsm/
+      - name: Security Center
+        tocHref: /azure/security-center/
+        topicHref: /azure/security-center/
+      - name: Azure Sentinel
+        tocHref: /azure/sentinel/
+        topicHref: /azure/sentinel/
+      - name: Defender for IoT
+        tocHref: /azure/defender-for-iot/
+        topicHref: /azure/defender-for-iot/
+      - name: Attestation
+        tocHref: /azure/attestation/
+        topicHref: /azure/attestation/
   - name: Service Fabric
     tocHref: /azure/service-fabric/
     topicHref: /azure/service-fabric/
@@ -862,6 +902,9 @@
       - name: Files
         tocHref: /azure/storage/files/
         topicHref: /azure/storage/files/storage-files-introduction
+      - name: File Sync
+        tocHref: /azure/storage/file-sync/
+        topicHref: /azure/storage/file-sync/file-sync-introduction
       - name: Queues
         tocHref: /azure/storage/queues/
         topicHref: /azure/storage/queues/storage-queues-introduction
@@ -936,3 +979,9 @@
     - name: Reservations
       tocHref: /azure/cost-management-billing/reservations/
       topicHref: /azure/cost-management-billing/reservations/
+    - name: Microsoft Customer Agreement
+      tocHref: /azure/cost-management-billing/microsoft-customer-agreement/
+      topicHref: /azure/cost-management-billing/microsoft-customer-agreement/
+  - name: Purview
+    tocHref: /azure/purview/
+    topicHref: /azure/purview/

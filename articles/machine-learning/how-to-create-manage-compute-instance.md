@@ -1,12 +1,12 @@
 ---
 title: Create and manage a compute instance
 titleSuffix: Azure Machine Learning
-description: Learn how to create and manage a compute instance in your Azure Machine Learning workspace. Use the compute instance as your development environment, or for training and inference dev/test purposes.
+description: Learn how to create and manage an Azure Machine Learning compute instance. Use as your development environment, or as  compute target for dev/test purposes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
+ms.custom: devx-track-azurecli, references_regions
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
@@ -33,15 +33,20 @@ Compute instances can run jobs securely in a [virtual network environment](how-t
 
 * An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-* The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
+* The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
 
 ## Create
 
+> [!IMPORTANT]
+> Items marked (preview) below are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 **Time estimate**: Approximately 5 minutes.
 
-Creating a compute instance is a one time process for your workspace. You can reuse this compute as a development workstation or as a compute target for training. You can have multiple compute instances attached to your workspace.
+Creating a compute instance is a one time process for your workspace. You can reuse the compute as a development workstation or as a compute target for training. You can have multiple compute instances attached to your workspace.
 
-The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance does not release quota to ensure you will be able to restart the compute instance. Please note it is not possible to change the virtual machine size of compute instance once it is created.
+The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance does not release quota to ensure you will be able to restart the compute instance. Note it is not possible to change the virtual machine size of compute instance once it is created.
 
 The following example demonstrates how to create a compute instance:
 
@@ -77,9 +82,9 @@ except ComputeTargetException:
 
 For more information on the classes, methods, and parameters used in this example, see the following reference documents:
 
-* [ComputeInstance class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance.computeinstance?view=azure-ml-py&preserve-view=true)
-* [ComputeTarget.create](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#create-workspace--name--provisioning-configuration-)
-* [ComputeInstance.wait_for_completion](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py&preserve-view=true#wait-for-completion-show-output-false--is-delete-operation-false-)
+* [ComputeInstance class](/python/api/azureml-core/azureml.core.compute.computeinstance.computeinstance)
+* [ComputeTarget.create](/python/api/azureml-core/azureml.core.compute.computetarget#create-workspace--name--provisioning-configuration-)
+* [ComputeInstance.wait_for_completion](/python/api/azureml-core/azureml.core.compute.computeinstance(class)#wait-for-completion-show-output-false--is-delete-operation-false-)
 
 
 # [Azure CLI](#tab/azure-cli)
@@ -88,7 +93,7 @@ For more information on the classes, methods, and parameters used in this exampl
 az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 ```
 
-For more information, see the [az ml computetarget create computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext_azure_cli_ml_az_ml_computetarget_create_computeinstance) reference.
+For more information, see the [az ml computetarget create computeinstance](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_computeinstance) reference.
 
 # [Studio](#tab/azure-studio)
 
@@ -100,13 +105,17 @@ For information on creating a compute instance in the studio, see [Create comput
 
 You can also create a compute instance with an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance). 
 
-### Create on behalf of (preview)
+
+
+## <a name="on-behalf"></a> Create on behalf of (preview)
 
 As an administrator, you can create a compute instance on behalf of a data scientist and assign the instance to them with:
-* [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  For details on how to find the TenantID and ObjectID needed in this template, see [Find identity object IDs for authentication configuration](../healthcare-apis/find-identity-object-ids.md).  You can also find these values in the Azure Active Directory portal.
+
+* [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  For details on how to find the TenantID and ObjectID needed in this template, see [Find identity object IDs for authentication configuration](../healthcare-apis/fhir/find-identity-object-ids.md).  You can also find these values in the Azure Active Directory portal.
+
 * REST API
 
-The data scientist you create the compute instance for needs the following be [Azure role-based access control (RBAC)](../role-based-access-control/overview.md) permissions: 
+The data scientist you create the compute instance for needs the following be [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) permissions: 
 * *Microsoft.MachineLearningServices/workspaces/computes/start/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
@@ -118,9 +127,110 @@ The data scientist can start, stop, and restart the compute instance. They can u
 * RStudio
 * Integrated notebooks
 
+## <a name="setup-script"></a> Customize the compute instance with a script (preview)
+
+> [!TIP]
+> This preview is currently available for workspaces in West Central US and East US regions.
+
+Use a setup script for an automated way to customize and configure the compute instance at provisioning time. As an administrator, you can write a customization script to be used to provision all compute instances in the workspace according to your requirements. 
+
+Some examples of what you can do in a setup script:
+
+* Install packages, tools, and software
+* Mount data
+* Create custom conda environment and Jupyter kernels
+* Clone git repositories and set git config
+* Set network proxies
+* Set environment variables
+* Install JupyterLab extensions
+
+### Create the setup script
+
+The setup script is a shell script which runs as *rootuser*.  Create or upload the script into your **Notebooks** files:
+
+1. Sign into the [studio](https://ml.azure.com) and select your workspace.
+2. On the left, select **Notebooks**
+3. Use the **Add files** tool to create or upload your setup shell script.  Make sure the script filename ends in ".sh".  When you create a new file, also change the **File type** to *bash(.sh)*.
+
+:::image type="content" source="media/how-to-create-manage-compute-instance/create-or-upload-file.png" alt-text="Create or upload your setup script to Notebooks file in studio":::
+
+When the script runs, the current working directory of the script is the directory where it was uploaded. For example, if you upload the script to **Users>admin**, the location of the script on the compute instance and current working directory when the script runs is */home/azureuser/cloudfiles/code/Users/admin*. This would enable you to use relative paths in the script.
+
+Script arguments can be referred to in the script as $1, $2, etc. 
+
+If your script was doing something specific to azureuser such as installing conda environment or jupyter kernel you will have to put it within *sudo -u azureuser* block like this
+
+```shell
+sudo -u azureuser -i <<'EOF'
+
+EOF
+```
+Please note *sudo -u azureuser* does change the current working directory to */home/azureuser*. You also can't access the script arguments in this block.
+
+You can also use the following environment variables in your script:
+
+1. CI_RESOURCE_GROUP
+2. CI_WORKSPACE
+3. CI_NAME
+4. CI_LOCAL_UBUNTU_USER. This points to azureuser
+
+### Use the script in the studio
+
+Once you store the script, specify it during creation of your compute instance:
+
+1. Sign into the [studio](https://ml.azureml.com) and select your workspace.
+1. On the left, select **Compute**.
+1. Select **+New** to create a new compute instance.
+1. [Fill out the form](how-to-create-attach-compute-studio.md#compute-instance).
+1. On the second page of the form, open **Show advanced settings**
+1. Turn on **Provision with setup script**
+1. Browse to the shell script you saved.  Or upload a script from your computer.
+1. Add command arguments as needed.
+
+:::image type="content" source="media/how-to-create-manage-compute-instance/setup-script.png" alt-text="Provisiona compute instance with a setup script in the studio.":::
+
+### Use script in a Resource Manager template
+
+In a Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance), add `setupScripts` to invoke the setup script when the compute instance is provisioned. For example:
+
+```json
+"setupScripts":{
+    "scripts":{
+        "creationScript":{
+        "scriptSource":"workspaceStorage",
+        "scriptData":"[parameters('creationScript.location')]",
+        "scriptArguments":"[parameters('creationScript.cmdArguments')]"
+        }
+    }
+}
+```
+
+You could instead provide the script inline for a Resource Manager template.  The shell command can refer to any dependencies uploaded into the notebooks file share.  When you use an inline string, the working directory for the script is */mnt/batch/tasks/shared/LS_root/mounts/clusters/**ciname**/code/Users*.
+
+For example, specify a base64 encoded command string for `scriptData`:
+
+```json
+"setupScripts":{
+    "scripts":{
+        "creationScript":{
+        "scriptSource":"inline",
+        "scriptData":"[base64(parameters('inlineCommand'))]",
+        "scriptArguments":"[parameters('creationScript.cmdArguments')]"
+        }
+    }
+}
+```
+
+### Setup script logs
+
+Logs from the setup script execution appear in the logs folder in the compute instance details page. Logs are stored back to your notebooks file share under the Logs\<compute instance name> folder. Script file and command arguments for a particular compute instance are shown in the details page.
+
 ## Manage
 
-Start, stop, restart and delete a compute instance. A compute instance does not automatically scale down, so make sure to stop the resource to prevent ongoing charges.
+Start, stop, restart, and delete a compute instance. A compute instance does not automatically scale down, so make sure to stop the resource to prevent ongoing charges. Stopping a compute instance deallocates it. Then start it again when you need it. While stopping the compute instance stops the billing for compute hours, you will still be billed for disk, public IP, and standard load balancer.
+
+> [!TIP]
+> The compute instance has 120GB OS disk. If you run out of disk space, [use the terminal](how-to-access-terminal.md) to clear at least 1-2 GB before you stop or restart the compute instance.
 
 # [Python](#tab/python)
 
@@ -173,7 +283,7 @@ In the examples below, the name of the compute instance is **instance**
     az ml computetarget stop computeinstance -n instance -v
     ```
 
-    For more information, see [az ml computetarget stop computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
+    For more information, see [az ml computetarget stop computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_stop).
 
 * Start 
 
@@ -181,7 +291,7 @@ In the examples below, the name of the compute instance is **instance**
     az ml computetarget start computeinstance -n instance -v
     ```
 
-    For more information, see [az ml computetarget start computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
+    For more information, see [az ml computetarget start computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_start).
 
 * Restart 
 
@@ -189,7 +299,7 @@ In the examples below, the name of the compute instance is **instance**
     az ml computetarget restart computeinstance -n instance -v
     ```
 
-    For more information, see [az ml computetarget restart computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
+    For more information, see [az ml computetarget restart computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_restart).
 
 * Delete
 
@@ -197,7 +307,7 @@ In the examples below, the name of the compute instance is **instance**
     az ml computetarget delete -n instance -v
     ```
 
-    For more information, see [az ml computetarget delete computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-delete).
+    For more information, see [az ml computetarget delete computeinstance](/cli/azure/ml/computetarget#az_ml_computetarget_delete).
 
 # [Studio](#tab/azure-studio)
 
@@ -221,9 +331,9 @@ For each compute instance in your workspace that you created (or that was create
 
 ---
 
-[RBAC](/azure/role-based-access-control/overview) allows you to control which users in the workspace can create, delete, start, stop, restart a compute instance. All users in the workspace contributor and owner role can create, delete, start, stop, and restart compute instances across the workspace. However, only the creator of a specific compute instance, or the user assigned if it was created on their behalf, is allowed to access Jupyter, JupyterLab, and RStudio on that compute instance. A compute instance is dedicated to a single user who has root access, and can terminal in through Jupyter/JupyterLab/RStudio. Compute instance will have single-user log in and all actions will use that user’s identity for RBAC and attribution of experiment runs. SSH access is controlled through public/private key mechanism.
+[Azure RBAC](../role-based-access-control/overview.md) allows you to control which users in the workspace can create, delete, start, stop, restart a compute instance. All users in the workspace contributor and owner role can create, delete, start, stop, and restart compute instances across the workspace. However, only the creator of a specific compute instance, or the user assigned if it was created on their behalf, is allowed to access Jupyter, JupyterLab, and RStudio on that compute instance. A compute instance is dedicated to a single user who has root access, and can terminal in through Jupyter/JupyterLab/RStudio. Compute instance will have single-user log in and all actions will use that user’s identity for Azure RBAC and attribution of experiment runs. SSH access is controlled through public/private key mechanism.
 
-These actions can be controlled by RBAC:
+These actions can be controlled by Azure RBAC:
 * *Microsoft.MachineLearningServices/workspaces/computes/read*
 * *Microsoft.MachineLearningServices/workspaces/computes/write*
 * *Microsoft.MachineLearningServices/workspaces/computes/delete*
@@ -231,59 +341,13 @@ These actions can be controlled by RBAC:
 * *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
 
-
-## Access the terminal window
-
-Open the terminal window of your compute instance in any of these ways:
-
-* RStudio: Select the **Terminal** tab on top left.
-* Jupyter Lab:  Select the **Terminal** tile under the **Other** heading in the Launcher tab.
-* Jupyter:  Select **New>Terminal** on top right in the Files tab.
-* SSH to the machine, if you enabled SSH access when the compute instance was created.
-
-Use the terminal window to install packages and create additional kernels.
-
-## Install packages
-
-You can install packages directly in Jupyter Notebook or RStudio:
-
-* RStudio Use the **Packages** tab on the bottom right, or the **Console** tab on the top left.  
-* Python: Add install code and execute in a Jupyter Notebook cell.
-
-Or you can install from a  terminal window. Install Python packages into the **Python 3.6 - AzureML** environment.  Install R packages into the **R** environment.
-
-## Add new kernels
-
-> [!WARNING]
->  While customizing the compute instance, make sure you do not delete the **azureml_py36** conda environment or **Python 3.6 - AzureML** kernel. This is needed for Jupyter/JupyterLab functionality
-
-To add a new Jupyter kernel to the compute instance:
-
-1. Create new terminal from Jupyter, JupyterLab or from notebooks pane or SSH into the compute instance
-2. Use the terminal window to create a new environment.  For example, the code below creates `newenv`:
-
-    ```shell
-    conda create --name newenv
-    ```
-
-3. Activate the environment.  For example, after creating `newenv`:
-
-    ```shell
-    conda activate newenv
-    ```
-
-4. Install pip and ipykernel package to the new environment and create a kernel for that conda env
-
-    ```shell
-    conda install pip
-    conda install ipykernel
-    python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
-    ```
-
-Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) can be installed.
-
+To create a compute instance you need to have permissions for the following actions:
+* *Microsoft.MachineLearningServices/workspaces/computes/write*
+* *Microsoft.MachineLearningServices/workspaces/checkComputeNameAvailability/action*
 
 
 ## Next steps
 
-* [Submit a training run](how-to-set-up-training-targets.md) 
+* [Access the compute instance terminal](how-to-access-terminal.md)
+* [Create and manage files](how-to-manage-files.md)
+* [Submit a training run](how-to-set-up-training-targets.md)

@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
-ms.date: 03/30/2020
+ms.reviewer: wiassaf, sstein
+ms.date: 03/23/2021
 ---
 # Automatic tuning in Azure SQL Database and Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -40,7 +40,7 @@ Automatic tuning mechanisms are mature and have been perfected on several millio
 
 ![How does automatic tuning work](./media/automatic-tuning-overview/how-does-automatic-tuning-work.png)
 
-Azure SQL Database automatic tuning is sharing its core logic with the SQL Server automatic tuning feature in the database engine. For additional technical information on the built-in intelligence mechanism, see [SQL Server automatic tuning](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).
+Azure SQL Database automatic tuning is sharing its core logic with the SQL Server automatic tuning feature in the database engine. For additional technical information on the built-in intelligence mechanism, see [SQL Server automatic tuning](/sql/relational-databases/automatic-tuning/automatic-tuning).
 
 For an overview of how automatic tuning works and for typical usage scenarios, see the embedded video:
 
@@ -48,8 +48,8 @@ For an overview of how automatic tuning works and for typical usage scenarios, s
 
 ## Enable automatic tuning
 
-- You [enable automatic tuning for Azure SQL Database in the Azure portal](automatic-tuning-enable.md) or by using the [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) T-SQL statement.
-- You enable automatic tuning for Azure SQL Managed Instance by using the [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) T-SQL statement.
+- You [enable automatic tuning for Azure SQL Database in the Azure portal](automatic-tuning-enable.md) or by using the [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true) T-SQL statement.
+- You enable automatic tuning for Azure SQL Managed Instance by using the [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current&preserve-view=true) T-SQL statement.
 
 ## Automatic tuning options
 
@@ -58,12 +58,12 @@ The automatic tuning options available in Azure SQL Database and Azure SQL Manag
 | Automatic tuning option | Single database and pooled database support | Instance database support |
 | :----------------------------- | ----- | ----- |
 | **CREATE INDEX** - Identifies indexes that may improve performance of your workload, creates indexes, and automatically verifies that performance of queries has improved. | Yes | No |
-| **DROP INDEX** - Identifies redundant and duplicate indexes daily, except for unique indexes, and indexes that were not used for a long time (>90 days). Please note that this option is not compatible with applications using partition switching and index hints. Dropping unused indexes is not supported for Premium and Business Critical service tiers. | Yes | No |
+| **DROP INDEX** - Drops unused (over the last 90 days) and duplicate indexes. Unique indexes, including indexes supporting primary key and unique constraints, are never dropped. This option may be automatically disabled when queries with index hints are present in the workload, or when the workload performs partition switching. On Premium and Business Critical service tiers, this option will never drop unused indexes, but will drop duplicate indexes, if any. | Yes | No |
 | **FORCE LAST GOOD PLAN** (automatic plan correction) - Identifies Azure SQL queries using an execution plan that is slower than the previous good plan, and queries using the last known good plan instead of the regressed plan. | Yes | Yes |
 
 ### Automatic tuning for SQL Database
 
-Automatic tuning for Azure SQL Database uses the **CREATE INDEX**, **DROP INDEX**, and **FORCE LAST GOOD PLAN** database advisor recommendations to optimize your database performance. For more information, see [Database advisor recommendations in the Azure portal](database-advisor-find-recommendations-portal.md), in [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction), and in the [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
+Automatic tuning for Azure SQL Database uses the **CREATE INDEX**, **DROP INDEX**, and **FORCE LAST GOOD PLAN** database advisor recommendations to optimize your database performance. For more information, see [Database advisor recommendations in the Azure portal](database-advisor-find-recommendations-portal.md), in [PowerShell](/powershell/module/az.sql/get-azsqldatabaserecommendedaction), and in the [REST API](/rest/api/sql/serverautomatictuning).
 
 You can either manually apply tuning recommendations using the Azure portal or you can let automatic tuning autonomously apply tuning recommendations for you. The benefits of letting the system autonomously apply tuning recommendations for you is that it automatically validates there exists a positive gain to the workload performance, and if there is no significant performance improvement detected, it will automatically revert the tuning recommendation. Please note that in case of queries affected by tuning recommendations that are not executed frequently, the validation phase can take up to 72 hrs by design.
 
@@ -84,7 +84,7 @@ To learn about building email notifications for automatic tuning recommendations
 
 ### Automatic tuning for Azure SQL Managed Instance
 
-Automatic tuning for SQL Managed Instance only supports **FORCE LAST GOOD PLAN**. For more information about configuring automatic tuning options through T-SQL, see [Automatic tuning introduces automatic plan correction](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) and [Automatic plan correction](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction).
+Automatic tuning for SQL Managed Instance only supports **FORCE LAST GOOD PLAN**. For more information about configuring automatic tuning options through T-SQL, see [Automatic tuning introduces automatic plan correction](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) and [Automatic plan correction](/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction).
 
 ## Next steps
 

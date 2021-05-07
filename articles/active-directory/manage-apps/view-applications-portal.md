@@ -2,14 +2,14 @@
 title: 'Quickstart: View the list of applications that are using your Azure Active Directory (Azure AD) tenant for identity management'
 description: In this Quickstart, use the Azure portal to view the list of applications that are registered to use your Azure Active Directory (Azure AD) tenant for identity management.
 services: active-directory
-author: kenwith
-manager: celestedg
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 04/09/2019
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: arvinh
 ms.custom: it-pro
 ---
@@ -64,7 +64,7 @@ To search for a particular application:
 
 
 > [!TIP]
-> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](/graph/application-saml-sso-configure-api).
 
 
 ## Clean up resources

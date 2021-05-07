@@ -2,14 +2,14 @@
 title: Managing access to apps using Azure AD
 description: Describes how Azure Active Directory enables organizations to specify the apps to which each user has access.
 services: active-directory
-author: kenwith
-manager: celestedg
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/16/2017
-ms.author: kenwith
+ms.author: iangithinji
 ---
 
 # Managing access to apps
@@ -89,4 +89,4 @@ As with enterprise apps, you can [assign users](assign-user-or-group-access-port
 
 ## Next steps
 * [Protecting apps with Conditional Access](../conditional-access/concept-conditional-access-cloud-apps.md)
-* [Self-service group management/SSAA](../users-groups-roles/groups-self-service-management.md)
+* [Self-service group management/SSAA](../enterprise-users/groups-self-service-management.md)

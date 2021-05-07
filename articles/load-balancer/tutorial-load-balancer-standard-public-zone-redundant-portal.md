@@ -6,7 +6,7 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: twooley
-Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
+# Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -32,9 +32,13 @@ Load balancing provides a higher level of availability by spreading incoming req
 
 For more information about using Availability zones with Standard Load Balancer, see [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md).
 
-If you prefer, you can complete this tutorial using the [Azure CLI](load-balancer-standard-public-zone-redundant-cli.md).
+If you prefer, you can complete this tutorial using the [Azure CLI](./quickstart-load-balancer-standard-public-cli.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+
+## Prerequisites
+
+* An Azure subscription
 
 ## Sign in to Azure
 
@@ -226,8 +230,10 @@ To see the load balancer distribute traffic across the VMs distributed across th
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, load balancer, and all related resources. To do so, select the resource group that contains the load balancer and click **Delete**.
+When no longer needed, delete the resource group, load balancer, and all related resources. To do so, select the resource group that contains the load balancer and select **Delete**.
 
 ## Next steps
 
-Learn more about [Standard Load Balancer](load-balancer-standard-overview.md).
+Learn more about load balancing a VM within a specific availability zone..
+> [!div class="nextstepaction"]
+> [Load balance VMs within an availability zone](tutorial-load-balancer-standard-public-zonal-portal.md)

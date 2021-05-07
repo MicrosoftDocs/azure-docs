@@ -12,6 +12,8 @@ services: iot-edge
 
 # Create and provision a simulated IoT Edge device with a virtual TPM on Windows
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 Azure IoT Edge devices can be auto-provisioned using the [Device Provisioning Service](../iot-dps/index.yml) just like devices that are not edge-enabled. If you're unfamiliar with the process of auto-provisioning, review the [provisioning](../iot-dps/about-iot-dps.md#provisioning-process) overview before continuing.
 
 DPS supports symmetric key attestation for IoT Edge devices in both individual enrollment and group enrollment. For group enrollment, if you check "is IoT Edge device" option to be true in symmetric key attestation, all the devices that are registered under that enrollment group will be marked as IoT Edge devices.
@@ -56,7 +58,7 @@ Choose the SDK language that you want to use to create the simulated device, and
 When you create the individual enrollment, select **True** to declare that the simulated TPM device on your Windows development machine is an **IoT Edge device**.
 
 > [!TIP]
-> In the Azure CLI, you can create an [enrollment](/cli/azure/ext/azure-iot/iot/dps/enrollment) or an [enrollment group](/cli/azure/ext/azure-iot/iot/dps/enrollment-group) and use the **edge-enabled** flag to specify that a device, or group of devices, is an IoT Edge device.
+> In the Azure CLI, you can create an [enrollment](/cli/azure/iot/dps/enrollment) or an [enrollment group](/cli/azure/iot/dps/enrollment-group) and use the **edge-enabled** flag to specify that a device, or group of devices, is an IoT Edge device.
 
 Simulated device and individual enrollment guides:
 
@@ -92,7 +94,7 @@ Once the runtime is installed on your device, configure the device with the info
    Deploy-IoTEdge
    ```
 
-1. At this point, the output may prompt you to restart. If so, restart your device now. Once your device is ready, run PowerShell as an administrator again.
+1. At this point, IoT Core devices may restart automatically. Windows 10 or Windows Server devices may prompt you to restart. If so, restart your device now. Once your device is ready, run PowerShell as an administrator again.
 
 1. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers. Use the `-Dps` flag to use the Device Provisioning Service instead of manual provisioning.
 

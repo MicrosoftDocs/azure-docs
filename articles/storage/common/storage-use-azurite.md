@@ -1,9 +1,9 @@
 ---
 title: Use Azurite emulator for local Azure Storage development
 description: The Azurite open-source emulator provides a free local environment for testing your Azure storage applications.
-author: mhopkins-msft
+author: twooley
 
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 07/15/2020
 ms.service: storage
 ms.subservice: common
@@ -278,7 +278,7 @@ azurite --version
 
 ### Certificate configuration (HTTPS)
 
-**Optional** - By default, Azurite uses the HTTP protocol. Enable HTTPS mode by providing a path to a Privacy Enhanced Mail (.pem) or [Personal Information Exchange (.pfx)](https://docs.microsoft.com/windows-hardware/drivers/install/personal-information-exchange---pfx--files) certificate file to the `--cert` switch.
+**Optional** - By default, Azurite uses the HTTP protocol. Enable HTTPS mode by providing a path to a Privacy Enhanced Mail (.pem) or [Personal Information Exchange (.pfx)](/windows-hardware/drivers/install/personal-information-exchange---pfx--files) certificate file to the `--cert` switch.
 
 When `--cert` is provided for a PEM file, you must provide a corresponding `--key` switch.
 

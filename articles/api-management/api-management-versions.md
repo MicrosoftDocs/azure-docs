@@ -7,7 +7,7 @@ author: johndowns
  
 ms.service: api-management
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 02/10/2021
 ms.author: jodowns
 ms.custom: fasttrack-new
 ---
@@ -37,7 +37,7 @@ When the path versioning scheme is used, the version identifier needs to be incl
 
 For example, `https://apis.contoso.com/products/v1` and `https://apis.contoso.com/products/v2` could refer to the same `products` API but to versions `v1` and `v2` respectively.
 
-The format of an API request URL when using header-based versioning is: `https://{yourDomain}/{apiName}/{versionIdentifier}/{operationId}`.
+The format of an API request URL when using path-based versioning is: `https://{yourDomain}/{apiName}/{versionIdentifier}/{operationId}`.
 
 ### Header-based versioning
 
@@ -59,9 +59,13 @@ If you add a version to a non-versioned API, an `Original` version will be autom
 
 ## How versions are represented
 
-Azure API Management maintains a resource called a *version set*, which represents a set of versions for a single logical API. When you use the Azure portal to manage versions you don't see the version set, but if you interact with your API Management service using PowerShell, Resource Manager templates, or the Azure Resource Manager API, you can directly view and manage version sets. A version set contains the display name of the versioned API, as well as the [versioning scheme used](#versioning-schemes) to direct requests to specified versions.
+Azure API Management maintains a resource called a *version set*, which represents a set of versions for a single logical API. A version set contains the display name of the versioned API and the [versioning scheme used](#versioning-schemes) to direct requests to specified versions.
 
-Each version of an API is maintained as its own API resource, which is then associated with a version set. A version set might contain APIs with very different operations or policies, which reflects the fact that you might make significant changes between versions of your API.
+Each version of an API is maintained as its own API resource, which is then associated with a version set. A version set might contain APIs with different operations or policies. You might make significant changes between versions in a set.
+
+The Azure portal creates version sets for you. You can modify the name and description for a version set in the Azure portal.
+
+You can view and manage version sets directly by using [Azure CLI](/cli/azure/apim/api/versionset), [Azure PowerShell](/powershell/module/az.apimanagement/#api-management), [Resource Manager templates](/azure/templates/microsoft.apimanagement/service/apiversionsets), or the [Azure Resource Manager API](/rest/api/apimanagement/2020-06-01-preview/apiversionset).
 
 ### Migrating a non-versioned API to a versioned API
 

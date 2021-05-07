@@ -3,12 +3,14 @@ title: Learn how to manage database accounts in Azure Cosmos DB
 description: Learn how to manage Azure Cosmos DB resources by using the Azure portal, PowerShell, CLI, and Azure Resource Manager templates
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 04/25/2021
 ms.author: mjbrown
 ---
 
 # Manage an Azure Cosmos account
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article describes how to manage various tasks on an Azure Cosmos account using the Azure portal, Azure PowerShell, Azure CLI, and Azure Resource Manager templates.
 
@@ -28,9 +30,12 @@ Please see [Create an Azure Cosmos DB account with PowerShell](manage-with-power
 
 ### <a id="create-database-account-via-arm-template"></a>Azure Resource Manager template
 
-Please see [Create Azure Cosmos DB account with Azure Resource Manager templates](manage-sql-with-resource-manager.md)
+Please see [Create Azure Cosmos DB account with Azure Resource Manager templates](./manage-with-templates.md)
 
 ## Add/remove regions from your database account
+
+> [!TIP]
+> When a new region is added, all data must be fully replicated and committed into the new region before the region is marked as available. The amount of time this operation takes will depend upon how much data is stored within the account.
 
 ### <a id="add-remove-regions-via-portal"></a>Azure portal
 
@@ -108,7 +113,7 @@ An account can be migrated from single write region to multiple write regions by
             "type": "Microsoft.DocumentDb/databaseAccounts",
             "kind": "GlobalDocumentDB",
             "name": "[parameters('name')]",
-            "apiVersion": "2019-08-01",
+            "apiVersion": "2021-03-15",
             "location": "[parameters('location')]",
             "tags": {},
             "properties": {
@@ -199,7 +204,7 @@ Please see [Set failover priority with PowerShell](manage-with-powershell.md#mod
 The process for performing a manual failover involves changing the account's write region (failover priority = 0) to another region configured for the account.
 
 > [!NOTE]
-> Accounts with multiple write regions cannot be manually failed over. For applications using the Azure Cosmos SDK, the SDK will detect when a region becomes unavailable, then redirect automatically to the next closest region if using multi-homing API in the SDK.
+> Accounts with multiple write regions cannot be manually failed over. For applications using the Azure Cosmos SDK, the SDK will detect when a region becomes unavailable, then redirect automatically to the next closest region.
 
 ### <a id="enable-manual-failover-via-portal"></a>Azure portal
 

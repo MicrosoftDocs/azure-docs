@@ -13,20 +13,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/10/2021
 ms.author: b-juche
 ---
 # Manage disaster recovery using cross-region replication 
 
-An ongoing replication between the source and the destination volumes (see [Create replication peering](cross-region-replication-create-peering.md)) prepares you for a disaster recovery event. 
+An ongoing replication between the source and the destination volumes (see [Create volume replication](cross-region-replication-create-peering.md)) prepares you for a disaster recovery event. 
 
-When such an event occurs, you can [failover to the destination volume](#break-replication-peering-to-activate-the-destination-volume), enabling the client to read and write to the destination volume. 
+When such an event occurs, you can [fail over to the destination volume](#fail-over-to-destination-volume), enabling the client to read and write to the destination volume. 
 
-After disaster recovery, you can fail back to the source volume with a [resync operation](#resync-replication-to-reactivate-the-source-volume) that overwrites the source volume data with the destination volume data.  You then [reestablish the source-to-destination replication](#reestablish-source-to-destination-replication) and remount the source volume for the client to access. 
+After disaster recovery, you can perform a [resync](#resync-replication) operation to fail back to the source volume. You then [reestablish the source-to-destination replication](#reestablish-source-to-destination-replication) and remount the source volume for the client to access. 
 
 The details are described below. 
 
-## Break replication peering to activate the destination volume
+## Fail over to destination volume
 
 When you need to activate the destination volume (for example, when you want to failover to the destination region), you need to break replication peering and then mount the destination volume.  
 
@@ -49,7 +49,7 @@ When you need to activate the destination volume (for example, when you want to 
 5.	Mount the destination volume by following the steps in [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).   
     This step enables a client to access the destination volume.
 
-## Resync replication to reactivate the source volume   
+## <a name="resync-replication"></a>Resync volumes after disaster recovery
 
 After disaster recovery, you can reactivate the source volume by performing a resync operation.  The resync operation reverses the replication process and synchronizes data from the destination volume to the source volume.  
 
@@ -58,7 +58,7 @@ After disaster recovery, you can reactivate the source volume by performing a re
 
 1. To resync replication, select the *source* volume. Click **Replication** under Storage Service. Then click **Resync**.  
 
-2. Type **Yes** when prompted and click the **Resync** button. 
+2. Type **Yes** when prompted and click **Resync**. 
  
     ![Resync replication](../media/azure-netapp-files/cross-region-replication-resync-replication.png)
 
@@ -97,6 +97,8 @@ After the resync operation from destination to source is complete, you need to b
 * [Cross-region replication](cross-region-replication-introduction.md)
 * [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
+* [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
+* [Delete volume replications or volumes](cross-region-replication-delete.md)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)
 

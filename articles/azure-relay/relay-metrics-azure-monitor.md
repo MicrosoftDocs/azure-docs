@@ -16,9 +16,9 @@ Azure Monitor provides unified user interfaces for monitoring across various Azu
 
 ## Access metrics
 
-Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.com), or use the Azure Monitor APIs (REST and .NET) and analysis solutions such as Operation Management Suite and Event Hubs. For more information, see [Monitoring data collected by Azure Monitor](../azure-monitor/platform/data-platform.md).
+Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.com), or use the Azure Monitor APIs (REST and .NET) and analysis solutions such as Operation Management Suite and Event Hubs. For more information, see [Monitoring data collected by Azure Monitor](../azure-monitor/data-platform.md).
 
-Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This is configured in [diagnostic settings](../azure-monitor/platform/diagnostic-settings.md) in Azure Monitor.
+Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This is configured in [diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md) in Azure Monitor.
 
 ## Access metrics in the portal
 
@@ -26,7 +26,7 @@ You can monitor metrics over time in the [Azure portal](https://portal.azure.com
 
 ![A page titled "Monitor - Metrics (preview)" shows a line graph of memory usage for the last 30 days.][1]
 
-You can also access metrics directly via the namespace. To do so, select your namespace and then click **Metrics **. 
+You can also access metrics directly via the namespace. To do so, select your namespace and then click **Metrics**. 
 
 For metrics supporting dimensions, you must filter with the desired dimension value.
 

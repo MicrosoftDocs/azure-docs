@@ -3,18 +3,16 @@ title: Azure Media Services overview | Microsoft Docs
 description: Microsoft Azure Media Services is an extensible cloud-based platform that enables developers to build scalable media management and delivery applications. This article gives an overview of Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 # Azure Media Services overview
 
@@ -25,7 +23,7 @@ ms.author: juliako
 > * [Version 2](media-services-overview.md)
 
 > [!NOTE]
-> No new features are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+> No new features are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Microsoft Azure Media Services (AMS) is an extensible cloud-based platform that enables developers to build scalable media management and delivery applications. Media Services is based on REST APIs that enable you to securely upload, store, encode, and package video or audio content for both on-demand and live streaming delivery to various clients (for example, TV, PC, and mobile devices).
 
@@ -82,13 +80,12 @@ For Azure Media Services concepts, see [Concepts](media-services-concepts.md).
 
 ## Supported scenarios and availability of Media Services across data centers
 
-For detailed information, see [AMS scenarios and availability of features and services across data centers](scenarios-and-availability.md).
+For more information about Azure common scenarios, see [AMS scenarios](scenarios-and-availability.md).
+For information about regional availability, see [Media service availability](availability-regions-v-2.md).
 
 ## Service Level Agreement (SLA)
 
 For more information, see [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/).
-
-For information about availability in datacenters, see the [Availability](scenarios-and-availability.md#availability) section.
 
 ## Support
 

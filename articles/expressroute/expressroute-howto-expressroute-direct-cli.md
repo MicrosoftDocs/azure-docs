@@ -7,7 +7,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 12/14/2020
 ms.author: duau 
 ms.custom: devx-track-azurecli
 
@@ -16,6 +16,24 @@ ms.custom: devx-track-azurecli
 # Configure ExpressRoute Direct by using the Azure CLI
 
 ExpressRoute Direct gives you the ability to directly connect to Microsoft's global network through peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct Connect](expressroute-erdirect-about.md).
+
+## Before you begin
+
+Before using ExpressRoute Direct, you must first enroll your subscription. Before using ExpressRoute Direct, you must first enroll your subscription. To enroll, please do the following via Azure PowerShell:
+1.  Sign in to Azure and select the subscription you wish to enroll.
+
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+
+    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+    ```
+
+2. Register your subscription for Public Preview using the following command:
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
+    ```
+
+Once enrolled, verify that the **Microsoft.Network** resource provider is registered to your subscription. Registering a resource provider configures your subscription to work with the resource provider.
 
 ## <a name="resources"></a>Create the resource
 
@@ -207,7 +225,7 @@ ExpressRoute Direct gives you the ability to directly connect to Microsoft's glo
    }  
    ```
 
-## <a name="authorization"></a>Generate the Letter of Authorization (LOA)
+## <a name="resources"></a>Generate the Letter of Authorization (LOA)
 
 Input the recently created ExpressRoute Direct resource name, resource group name, and a customer name to write the LOA to and (optionally) define a file location to store the document. If a file path is not referenced, the document will download to the current directory.
 
@@ -298,7 +316,7 @@ You can use additional circuit bandwidths on ExpressRoute Direct only to support
 Create a circuit on the ExpressRoute Direct resource:
 
   ```azurecli
-  az network express-route create --express-route-port "/subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/expressRoutePorts/Contoso-Direct" -n "Contoso-Direct-ckt" -g "Contoso-Direct-rg" --sku-family MeteredData --sku-tier Standard --bandwidth 100 Gbps
+  az network express-route create --express-route-port "/subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/expressRoutePorts/Contoso-Direct" -n "Contoso-Direct-ckt" -g "Contoso-Direct-rg" --sku-family MeteredData --sku-tier Standard --bandwidth 100 Gbps --location $AzureRegion
   ```
 
   Other bandwidths include 5 Gbps, 10 Gbps, and 40 Gbps.

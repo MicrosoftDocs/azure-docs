@@ -70,7 +70,7 @@ In the next section, you'll surface your API through a proxy. Azure Functions Pr
 A proxy can point to any HTTP resource, such as:
 - Azure Functions 
 - API apps in [Azure App Service](../app-service/overview.md)
-- Docker containers in [App Service on Linux](../app-service/containers/app-service-linux-intro.md)
+- Docker containers in [App Service on Linux](../app-service/overview.md#app-service-on-linux)
 - Any other hosted API
 
 To learn more about proxies, see [Working with Azure Functions Proxies].
@@ -81,7 +81,7 @@ In this section, you create a new proxy, which serves as a frontend to your over
 
 ### Setting up the frontend environment
 
-Repeat the steps to [Create a function app](./functions-create-first-azure-function.md#create-a-function-app) to create a new function app in which you will create your proxy. This new app's URL serves as the frontend for our API, and the function app you were previously editing serves as a backend.
+Repeat the steps to [Create a function app](./functions-get-started.md) to create a new function app in which you will create your proxy. This new app's URL serves as the frontend for our API, and the function app you were previously editing serves as a backend.
 
 1. Navigate to your new frontend function app in the portal.
 1. Select **Platform Features** and choose **Application Settings**.
@@ -192,5 +192,5 @@ The following references may be helpful as you develop your API further:
 - [Documenting an Azure Functions API (preview)](./functions-openapi-definition.md)
 
 
-[Create your first function]: ./functions-create-first-azure-function.md
+[Create your first function]: ./functions-get-started.md
 [Working with Azure Functions Proxies]: ./functions-proxies.md

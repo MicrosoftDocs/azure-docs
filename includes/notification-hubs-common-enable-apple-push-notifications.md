@@ -46,7 +46,7 @@ A certificate is required to enable the notification hub to work with **Apple Pu
 
 1. [Creating a p8 certificate that can be used for token-based authentication](#option-2-creating-a-p8-certificate-that-can-be-used-for-token-based-authentication) (*the newer and recommended approach*)
 
-The newer approach has a number of benefits as documented in [Token-based (HTTP/2) authentication for APNS](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentification). Fewer steps are required but is also mandated for specific scenarios. However, steps have been provided for both approaches since either will work for the purposes of this tutorial.
+The newer approach has a number of benefits as documented in [Token-based (HTTP/2) authentication for APNS](../articles/notification-hubs/notification-hubs-push-notification-http2-token-authentication.md). Fewer steps are required but is also mandated for specific scenarios. However, steps have been provided for both approaches since either will work for the purposes of this tutorial.
 
 ##### OPTION 1: Creating a p12 push certificate that can be uploaded directly to Notification Hub
 
@@ -163,7 +163,7 @@ At the end of these steps, you should have the following information for use lat
 1. In the **Select certificates** window, select the development certificate that you use for code signing, and select **Continue**.
 
     > [!NOTE]
-    > This certificate is not the push certificate you created in the [previous step](#creating-a-certificate-for-notification-hubs). This is your development certificate. If one does not exist, you must create it since this is a [prerequisite](#prerequisites) for this tutorial. Developer certificates can be created in the [Apple Developer Portal](https://developer.apple.com), via [Xcode](https://developer.apple.com/library/archive/documentation/ToolsLanguages/Conceptual/YourFirstAppStoreSubmission/ProvisionYourDevicesforDevelopment/ProvisionYourDevicesforDevelopment.html) or in [Visual Studio](https://docs.microsoft.com/xamarin/ios/get-started/installation/device-provisioning/).
+    > This certificate is not the push certificate you created in the [previous step](#creating-a-certificate-for-notification-hubs). This is your development certificate. If one does not exist, you must create it since this is a [prerequisite](#prerequisites) for this tutorial. Developer certificates can be created in the [Apple Developer Portal](https://developer.apple.com), via [Xcode](https://developer.apple.com/library/archive/documentation/ToolsLanguages/Conceptual/YourFirstAppStoreSubmission/ProvisionYourDevicesforDevelopment/ProvisionYourDevicesforDevelopment.html) or in [Visual Studio](/xamarin/ios/get-started/installation/device-provisioning/).
 
 1. Return to the **Certificates, Identifiers & Profiles** page, select **Profiles** from the left menu, and then select **+** to create a new profile. The **Register a New Provisioning Profile** screen appears.
 

@@ -5,7 +5,8 @@ keywords: runbook, runbook template, runbook automation, azure runbook
 services: automation
 ms.subservice: process-automation
 ms.date: 09/15/2020
-ms.topic: tutorial
+ms.topic: tutorial 
+ms.custom: devx-track-azurepowershell
 ---
 # Tutorial: Create a graphical runbook
 
@@ -72,7 +73,7 @@ The Library control on the left side of the editor allows you to select activiti
 
    You can use output from such sources as another activity, an Automation asset, or a PowerShell expression. In this case, the output is just `Hello World`. You can use a PowerShell expression and specify a string.
 
-8. In the **Expression** field, type `Hello World` and then click **OK** twice to return to the canvas.
+8. In the **Expression** field, type `"Hello World"` and then click **OK** twice to return to the canvas.
 
 9. Save the runbook by clicking **Save**.
 

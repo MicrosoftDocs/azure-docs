@@ -6,7 +6,7 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 03/19/2021
 ms.author: banders
 ---
 
@@ -27,20 +27,20 @@ An HLI SKU must be provisioned before going through the reserved capacity purcha
 - You can't have a shared reservation scope for HANA reserved capacity. You can't split, merge, or update reservation scope.
 - You can purchase a single HLI at a time using the reserved capacity API calls. Make additional API calls to buy additional quantities.
 
-You can purchase reserved capacity in the Azure portal or by using the [REST API](https://docs.microsoft.com/rest/api/reserved-vm-instances/reservationorder/purchase).
+You can purchase reserved capacity in the Azure portal or by using the [REST API](/rest/api/reserved-vm-instances/reservationorder/purchase).
 
 ## Buy a HANA Large Instance reservation
 
-Use the following information to buy an HLI reservation with the [Reservation Order REST APIs](https://docs.microsoft.com/rest/api/reserved-vm-instances/reservationorder/purchase).
+Use the following information to buy an HLI reservation with the [Reservation Order REST APIs](/rest/api/reserved-vm-instances/reservationorder/purchase).
 
 ### Get the reservation order and price
 
-First, get the reservation order and price for the provisioned HANA large instance SKU by using the [Calculate Price](https://docs.microsoft.com/rest/api/reserved-vm-instances/reservationorder/calculate) API.
+First, get the reservation order and price for the provisioned HANA large instance SKU by using the [Calculate Price](/rest/api/reserved-vm-instances/reservationorder/calculate) API.
 
 The following example uses [armclient](https://github.com/projectkudu/ARMClient) to make REST API calls with PowerShell. Here's what the reservation order and Calculate Price API request and request body should resemble:
 
 ```azurepowershell-interactive
-armclient post /providers/Microsoft.Capacity/calculatePrice?api-version=2018-06-01 "{
+armclient post /providers/Microsoft.Capacity/calculatePrice?api-version=2019-04-01  "{
     'sku': {
         'name': 'SAP_HANA_On_Azure_S224om'
     },
@@ -50,6 +50,7 @@ armclient post /providers/Microsoft.Capacity/calculatePrice?api-version=2018-06-
         'billingScopeId': '/subscriptions/11111111-1111-1111-111111111111',
         'term': 'P1Y',
         'quantity': '1',
+        'billingplan': 'Monthly'
         'displayName': 'testreservation_S224om',
         'appliedScopes': ['/subscriptions/11111111-1111-1111-111111111111'],
         'appliedScopeType': 'Single',
@@ -109,16 +110,18 @@ Make your purchase using the returned `quoteId` and the `reservationOrderId` tha
 Here's an example request:
 
 ```azurepowershell-interactive
-armclient put /providers/Microsoft.Capacity/reservationOrders/22222222-2222-2222-2222-222222222222?api-version=2018-06-01 "{
+armclient put /providers/Microsoft.Capacity/reservationOrders/22222222-2222-2222-2222-222222222222?api-version=2019-04-01  "{
     'sku': {
         'name': 'SAP_HANA_On_Azure_S224om'
     },
     'location': 'eastus',
     'properties': {
-        'reservedResourceType': 'SapHana',
+       'reservedResourceType': 'SapHana',
         'billingScopeId': '/subscriptions/11111111-1111-1111-111111111111',
         'term': 'P1Y',
         'quantity': '1',
+               'billingplan': 'Monthly'
+
         'displayName': ' testreservation_S224om',
         'appliedScopes': ['/subscriptions/11111111-1111-1111-111111111111/resourcegroups/123'],
         'appliedScopeType': 'Single',
@@ -217,13 +220,13 @@ The following information explains the meaning of various reservation fields.
   HLI SKU name. It looks like `SAP_HANA_On_Azure_<SKUname>`.
 
   **Location**
-   Available HLI regions. See [SKUs for SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) for available regions. To get location string format, use the [get locations API call](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations#locationlistresult).
+   Available HLI regions. See [SKUs for SAP HANA on Azure (Large Instances)](../../virtual-machines/workloads/sap/hana-available-skus.md) for available regions. To get location string format, use the [get locations API call](/rest/api/resources/subscriptions/listlocations#locationlistresult).
 
   **Reserved Resource type**
    `SapHana`
 
   **Subscription**
-   The subscription used to pay for the reservation. The payment method on the subscription is charged the costs for the reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Microsoft Customer Agreement. The charges are deducted from the monetary commitment balance, if available, or charged as overage.
+   The subscription used to pay for the reservation. The payment method on the subscription is charged the costs for the reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Microsoft Customer Agreement. The charges are deducted from the Azure Prepayment (previously called monetary commitment) balance, if available, or charged as overage.
 
   **Scope**
    The reservation's scope should be single scope.
@@ -250,5 +253,5 @@ location. You can also go to https://aka.ms/corequotaincrease to learn about quo
 
 ## Next steps
 
-- Learn about [How to call Azure REST APIs with Postman and cURL](https://docs.microsoft.com/rest/api/azure/#how-to-call-azure-rest-apis-with-postman).
-- See [SKUs for SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) for the available SKU list and regions.
+- Learn about [How to call Azure REST APIs with Postman and cURL](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman).
+- See [SKUs for SAP HANA on Azure (Large Instances)](../../virtual-machines/workloads/sap/hana-available-skus.md) for the available SKU list and regions.

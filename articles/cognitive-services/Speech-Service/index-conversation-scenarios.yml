@@ -20,10 +20,12 @@ landingContent:
       links:
       - text: What is Conversation Transcription in meetings?
         url: conversation-transcription.md
+    - linkListType: quickstart
+      links:
+        - text: Real-time Conversation Transcription quickstart
+          url: how-to-use-conversation-transcription.md
     - linkListType: how-to-guide
       links:
-        - text: Real-time Conversation Transcription
-          url: how-to-use-conversation-transcription.md
         - text: Asynchronous Conversation Transcription
           url: how-to-async-conversation-transcription.md
 - title: About Multi-device Conversation (meeting scenario)
@@ -52,3 +54,10 @@ landingContent:
           url: multi-device-conversation.md#language-support
         - text: Speech transcription pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+
+- title: Help and feedback
+  linkLists:
+  - linkListType: reference
+    links:
+      - text: Support and help options
+        url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
-ms.date: 08/23/2018
+ms.date: 11/19/2020
 tags: connectors
 ---
 
@@ -38,7 +38,7 @@ SQL Access Manager (SQLAM) versions 10 and 11:
 
 | Platform | Version | 
 |----------|---------|
-| IBM DB2 for z/OS | 11.1, 10.1 |
+| IBM DB2 for z/OS | 12, 11.1, 10.1 |
 | IBM DB2 for i | 7.3, 7.2, 7.1 |
 | IBM DB2 for LUW | 11, 10.5 |
 |||

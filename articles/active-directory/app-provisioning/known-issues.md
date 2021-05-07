@@ -3,13 +3,13 @@ title: Known issues for application provisioning in Azure AD
 description: Learn about known issues when working with automated application provisioning in Azure AD.
 author: kenwith
 ms.author: kenwith
-manager: celestedg
+manager: daveba
 services: active-directory
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/11/2020
+ms.date: 01/05/2021
 ms.reviewer: arvinh
 ---
 
@@ -23,7 +23,7 @@ Known issues to be aware of when working with app provisioning. You can provide 
 
 **Unable to save after successful connection test**
 
-If you can successfully test a connection, but can’t save, then you've exceeded the allowable storage limit for credentials. To learn more, see [Problem saving administrator credentials](application-provisioning-config-problem-storage-limit.md).
+If you can successfully test a connection, but can’t save, then you've exceeded the allowable storage limit for credentials. To learn more, see [Problem saving administrator credentials](./user-provisioning.md).
 
 **Unable to save**
 
@@ -52,6 +52,10 @@ Azure AD currently can't provision null attributes. If an attribute is null on t
 
 Attribute-mapping expressions can have a maximum of 10,000 characters. 
 
+**Unsupported scoping filters**
+
+Directory extensions, appRoleAssignments, userType, and accountExpires are not supported as scoping filters.
+
 
 ## Service issues 
 
@@ -59,7 +63,8 @@ Attribute-mapping expressions can have a maximum of 10,000 characters.
 
 - Provisioning passwords isn't supported. 
 - Provisioning nested groups isn't supported. 
-- Provisioning to B2C tenants isn't supported because of the size of the tenants. 
+- Provisioning to B2C tenants isn't supported because of the size of the tenants.
+- Not all provisioning apps are available in all clouds. For example, Atlassian is not yet available in the Government Cloud. We are working with app developers to onboard their apps to all clouds.
 
 **Automatic provisioning is not available on my OIDC based application**
 
@@ -67,11 +72,15 @@ If you create an app registration, the corresponding service principal in enterp
 
 **The provisioning interval is fixed**
 
-The [time](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) between provisioning cycles is currently not configurable. 
+The [time](./application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users) between provisioning cycles is currently not configurable. 
 
 **Changes not moving from target app to Azure AD**
 
 The app provisioning service isn't aware of changes made in external apps. So, no action is taken to roll back. The app provisioning service relies on changes made in Azure AD. 
+
+**Switching from sync all to sync assigned not working**
+
+After changing scope from 'Sync All' to 'Sync Assigned', please make sure to also perform a restart to ensure that the change takes effect. You can do the restart from the UI.
 
 **Provisioning cycle continues until completion**
 
@@ -81,6 +90,9 @@ When setting provisioning `enabled = off`, or hitting stop, the current provisio
 
 When a group is in scope and a member is out of scope, the group will be provisioned. The out of scope user won't be provisioned. If the member comes back into scope, the service won’t immediately detect the change. Restarting provisioning will address the issue. We recommend periodically restarting the service to ensure that all users are properly provisioned.  
 
+**Manager is not provisioned**
+
+If a user and their manager are both in scope for provisioning, the service will provision the user and then update the manager. However if on day one the user is in scope and the manager is out of scope, we will provision the user without the manager reference. When the manager comes into scope, the manager reference will not be updated until you restart provisioning and cause the service to re evaluate all the users again. 
 
 ## Next steps
 - [How provisioning works](how-provisioning-works.md)

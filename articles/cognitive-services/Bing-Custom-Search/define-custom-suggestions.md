@@ -15,6 +15,11 @@ ms.author: maheshb
 
 # Configure your custom autosuggest experience
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
 Custom Autosuggest returns a list of suggested search query strings that are relevant to your search experience. The suggested query strings are based on a partial query string that the user provides in the search box. The list will contain a maximum of 10 suggestions. 
 
 You specify whether to return only custom suggestions or to also include Bing suggestions. If you include Bing suggestions, custom suggestions appear before the Bing suggestions. If you provide enough relevant suggestions, it's possible that the returned list of suggestions will not include Bing suggestions. Bing suggestions are always in the context of your Custom Search instance. 
@@ -84,6 +89,6 @@ If the user selects a suggested query string from the dropdown list, use the que
 
 ## Next steps
 
-- [Get custom suggestions](./get-custom-suggestions.md)
+- [Get custom suggestions]()
 - [Search your custom instance](./search-your-custom-view.md)
 - [Configure and consume custom hosted UI](./hosted-ui.md)

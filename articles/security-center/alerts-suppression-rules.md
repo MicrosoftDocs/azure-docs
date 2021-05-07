@@ -1,11 +1,11 @@
 ---
 title: Using alerts suppression rules to suppress false positives or other unwanted security alerts in Azure Security Center.
-description: This article explains how to use Azure Security Center's suppression rules to hide unwanted Azure Defender alerts
+description: This article explains how to use Azure Security Center's suppression rules to hide unwanted security alerts
 author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 09/10/2020
+ms.date: 02/17/2021
 ms.service: security-center
 ms.topic: how-to
 ---
@@ -18,7 +18,7 @@ This page explains how you can use alerts suppression rules to suppress false po
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Preview|
+|Release state:|General Availability (GA)|
 |Pricing:|Free<br>(Most security alerts are only available with Azure Defender)|
 |Required roles and permissions:|**Security admin** and **Owner** can create/delete rules.<br>**Security reader** and **Reader** can view rules.|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
@@ -55,9 +55,7 @@ To create a rule directly in the Azure portal:
 
 1. From Security Center's security alerts page:
 
-    - Locate the specific alert you don't want to see anymore, and from the ellipsis menu (...) for the alert, select **Create suppression rule**:
-
-        [![**Create suppression rule** option](media/alerts-suppression-rules/auto-dismiss-future-option.png)](media/alerts-suppression-rules/auto-dismiss-future-option.png#lightbox)
+    - Select the specific alert you don't want to see anymore, and from the details pane, select **Take action**.
 
     - Or, select the **suppression rules** link at the top of the page, and from the suppression rules page select **Create new suppression rule**:
 
@@ -80,9 +78,9 @@ To create a rule directly in the Azure portal:
 1. Save the rule. 
 
 
-## Edit a suppression rules
+## Edit a suppression rule
 
-To edit a rules you've created, use the suppression rules page.
+To edit a rule you've created, use the suppression rules page.
 
 1. From Security Center's security alerts page, select the **suppression rules** link at the top of the page.
 1. The suppression rules page opens with all the rules for the selected subscriptions.
@@ -102,20 +100,6 @@ To delete one or more rules you've created, use the suppression rules page.
 1. To delete multiple rules, select the check boxes for the rules to be deleted and select **Delete**.
     ![Deleting one or more suppression rules](media/alerts-suppression-rules/delete-multiple-alerts.png)
 
-## View suppressed alerts
-
-Alerts that match your enabled suppression rules will still be generated, but their state will be set to **dismissed**. You can see the state in the Azure portal or however you access your Security Center security alerts. 
-
-> [!TIP]
-> [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) won't create incidents for suppressed alerts. For other SIEMs, you can filter suppressed alerts by using the alerts' state ('dismissed').
-
-Use Security Center's filter to view alerts that have been dismissed by your rules.
-
-* From Security Center's security alerts page, open the filter options and select **Dismissed**.  
-
-   [![Viewing dismissed alerts](media/alerts-suppression-rules/view-dismissed-alerts.png)](media/alerts-suppression-rules/view-dismissed-alerts.png#lightbox)
-
-
 ## Create and manage suppression rules with the API
 
 You can create, view, or delete alert suppression rules via Security Center's REST API. 
@@ -134,7 +118,7 @@ The relevant HTTP methods for suppression rules in the REST API are:
 
 - **DELETE**: Deletes an existing rule (but doesn't change the status of alerts already dismissed by it).
 
-For full details and usage examples, see the [API documentation](https://docs.microsoft.com/rest/api/securitycenter/). 
+For full details and usage examples, see the [API documentation](/rest/api/securitycenter/). 
 
 
 ## Next steps

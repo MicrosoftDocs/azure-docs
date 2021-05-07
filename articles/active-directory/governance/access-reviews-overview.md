@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/08/2020
+ms.date: 10/29/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # What are Azure AD access reviews?
@@ -69,14 +69,22 @@ Depending on what you want to review, you will create your access review in Azur
 
 Your directory needs at least as many Azure AD Premium P2 licenses as the number of employees who will be performing the following tasks:
 
-- Member and guest users who are assigned as reviewers
-- Member and guest users who perform a self-review
-- Group owners who perform an access review
-- Application owners who perform an access review
+-	Member users who are assigned as reviewers
+-	Member users who perform a self-review
+-	Member users as group owners who perform an access review
+-	Member users as application owners who perform an access review
+
+For guest users, licensing needs will depend on the licensing model you’re using. However, the below guest users’ activities are considered Azure AD Premium P2 usage:
+
+-	Guest users who are assigned as reviewers
+-	Guest users who perform a self-review
+-	Guest users as group owners who perform an access review
+-	Guest users as application owners who perform an access review
+
 
 Azure AD Premium P2 licenses are **not** required for users with the Global Administrator or User Administrator roles who set up access reviews, configure settings, or apply the decisions from the reviews.
 
-For each paid Azure AD Premium P2 license that you assign to one of your own organization's users, you can use Azure AD business-to-business (B2B) to invite up to five guest users under the External User Allowance. These guest users can also use Azure AD Premium P2 features. For more information, see [Azure AD B2B collaboration licensing guidance](../external-identities/licensing-guidance.md).
+Azure AD guest user access is based on a monthly active users (MAU) billing model, which replaces the 1:5 ratio billing model. For more information, see [Azure AD External Identities pricing](../external-identities/external-identities-pricing.md).
 
 For more information about licenses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
 
@@ -90,7 +98,7 @@ Here are some example license scenarios to help you determine the number of lice
 | An administrator creates an access review of Group B with 500 users and 3 group owners, and assigns the 3 group owners as reviewers. | 3 licenses for each group owner as reviewers | 3 |
 | An administrator creates an access review of Group B with 500 users. Makes it a self-review. | 500 licenses for each user as self-reviewers | 500 |
 | An administrator creates an access review of Group C with 50 member users and 25 guest users. Makes it a self-review. | 50 licenses for each user as self-reviewers.* | 50 |
-| An administrator creates an access review of Group D with 6 member users and 108 guest users. Makes it a self-review. | 6 licenses for each user as self-reviewers. Guest users are billed on a monthly active user (MAU) basis. No additional licenses are required. *  | - |
+| An administrator creates an access review of Group D with 6 member users and 108 guest users. Makes it a self-review. | 6 licenses for each user as self-reviewers. Guest users are billed on a monthly active user (MAU) basis. No additional licenses are required. *  | 6 |
 
 \* Azure AD External Identities (guest user) pricing is based on monthly active users (MAU), which is the count of unique users with authentication activity within a calendar month. This model replaces the 1:5 ratio billing model, which allowed up to five guest users for each Azure AD Premium license in your tenant. When your tenant is linked to a subscription and you use External Identities features to collaborate with guest users, you'll be automatically billed using the MAU-based billing model. For more information, see Billing model for Azure AD External Identities.
 

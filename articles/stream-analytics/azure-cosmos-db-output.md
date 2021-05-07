@@ -1,9 +1,8 @@
 ---
 title: Azure Cosmos DB output from Azure Stream Analytics
 description: This article describes how to output data from Azure Stream Analytics to Azure Cosmos DB.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
@@ -34,7 +33,7 @@ The following table describes the properties for creating an Azure Cosmos DB out
 
 ## Partitioning
 
-The partition key is based on the PARTITION BY clause in the query. The number of output writers follows the input partitioning for [fully parallelized queries](stream-analytics-scale-jobs.md). Stream Analytics converts the Cosmos DB output partition key to a string. For example, if you have a partition key with a value of 1 of type bigint, it is converted to "1" of type string.
+The partition key is based on the PARTITION BY clause in the query. The number of output writers follows the input partitioning for [fully parallelized queries](stream-analytics-scale-jobs.md). Stream Analytics converts the Cosmos DB output partition key to a string. For example, if you have a partition key with a value of 1 of type bigint, it is converted to "1" of type string. This conversion always happens regardless of whether the partition property is written to Cosmos DB.
 
 ## Output batch size
 

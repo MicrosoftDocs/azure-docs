@@ -7,25 +7,20 @@ ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 01/20/2021
 ms.author: yelevin
 ---
 # Connect data from Azure DDoS Protection
 
-> [!IMPORTANT]
-> The Azure DDoS Protection data connector in Azure Sentinel is currently in public preview.
-> This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Distributed denial of service (DDoS) attacks attempt to exhaust an application's resources, making the application unavailable to legitimate users. DDoS attacks can be targeted at any endpoint that is publicly reachable through the internet. [Azure DDoS protection](../virtual-network/ddos-protection-overview.md), combined with application design best practices, provides a robust defense against DDoS attacks. You can connect Azure DDoS Protection logs to Azure Sentinel, enabling you to view log data in workbooks, use it to create custom alerts, and incorporate it to improve your investigations. 
+Distributed denial of service (DDoS) attacks attempt to exhaust an application's resources, making the application unavailable to legitimate users. DDoS attacks can be targeted at any endpoint that is publicly reachable through the internet. [Azure DDoS protection](../ddos-protection/ddos-protection-overview.md), combined with application design best practices, provides a robust defense against DDoS attacks. You can connect Azure DDoS Protection logs to Azure Sentinel, enabling you to view log data in workbooks, use it to create custom alerts, and incorporate it to improve your investigations. 
 
 ## Prerequisites
 
 - You must have read and write permissions on the Azure Sentinel workspace.
 
-- You must have a configured [Azure DDoS Standard protection plan](../virtual-network/manage-ddos-protection.md#create-a-ddos-protection-plan).
+- You must have a configured [Azure DDoS Standard protection plan](../ddos-protection/manage-ddos-protection.md#create-a-ddos-protection-plan).
 
-- You must have a configured [virtual network with Azure DDoS Standard enabled](../virtual-network/manage-ddos-protection.md#enable-ddos-for-a-new-virtual-network).
+- You must have a configured [virtual network with Azure DDoS Standard enabled](../ddos-protection/manage-ddos-protection.md#enable-ddos-protection-for-a-new-virtual-network).
 
 ## Connect to Azure DDoS Protection
 	
@@ -33,7 +28,7 @@ Distributed denial of service (DDoS) attacks attempt to exhaust an application's
 
 1. Select **Azure DDoS Protection** from the data connectors gallery, and then select **Open Connector Page** on the preview pane.
 
-1. Enable **Diagnostic logs** on all the firewalls whose logs you wish to connect:
+1. Enable **Diagnostic logs** on all the public IP addresses whose logs you wish to connect:
 
     1. Select the **Open Diagnostics settings >** link, and choose a **Public IP Address** resource from the list.
 

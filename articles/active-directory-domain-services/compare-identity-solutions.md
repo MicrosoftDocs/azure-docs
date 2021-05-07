@@ -2,7 +2,7 @@
 title: Compare Active Directory-based services in Azure | Microsoft Docs
 description: In this overview, you compare the different identity offerings for Active Directory Domain Services, Azure Active Directory, and Azure Active Directory Domain Services.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
-ms.author: joflore
+ms.author: justinha
 
 #Customer intent: As an IT administrator or decision maker, I want to understand the differences between Active Directory Domain Services (AD DS), Azure AD, and Azure AD DS so I can choose the most appropriate identity solution for my organization.
 ---
@@ -76,7 +76,7 @@ The following table outlines some of the features you may need for your organiza
 | **Secure LDAP (LDAPS)**                           | **&#x2713;** | **&#x2713;** |
 | **LDAP read**                                     | **&#x2713;** | **&#x2713;** |
 | **LDAP write**                                    | **&#x2713;** (within the managed domain) | **&#x2713;** |
-| **Geo-distributed deployments**                   | **&#x2715;** | **&#x2713;** |
+| **Geo-distributed deployments**                   | **&#x2713;** | **&#x2713;** |
 
 ## Azure AD DS and Azure AD
 
@@ -112,6 +112,9 @@ With Azure AD DS-joined devices, applications can use the Kerberos and NTLM prot
 | Management                      | Mobile Device Management (MDM) software like Intune | Group Policy                                                              |
 | Networking                      | Works over the internet                             | Must be connected to, or peered with, the virtual network where the managed domain is deployed |
 | Great for...                    | End-user mobile or desktop devices                  | Server VMs deployed in Azure                                              |
+
+
+If on-prem AD DS and Azure AD are configured for federated authentication using ADFS then there is no (current/valid) password hash available in Azure DS. Azure AD user accounts created before fed auth was implemented might have an old password hash but this likely doesn't match a hash of their on-prem password. Hence Azure AD DS won't be able to validate the users credentials
 
 ## Next steps
 

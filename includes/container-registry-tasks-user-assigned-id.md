@@ -8,7 +8,7 @@ ms.service: container-registry
 ms.topic: include
 ms.date: 07/12/2019
 ms.author: danlep
-ms.custom: include file
+ms.custom: include file, devx-track-azurecli
 ---
 ### Create a user-assigned identity
 
@@ -43,5 +43,5 @@ clientID=$(az identity show \
 ```
 
 <!-- LINKS - Internal -->
-[az-identity-create]: /cli/azure/identity#az-identity-create
-[az-identity-show]: /cli/azure/identity#az-identity-show
+[az-identity-create]: /cli/azure/identity#az_identity_create
+[az-identity-show]: /cli/azure/identity#az_identity_show

@@ -42,13 +42,13 @@ aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
 Add the [official stable Helm repository][helm-stable-repo], which contains the traefik ingress controller Helm chart.
 
 ```console
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+helm repo add stable https://charts.helm.sh/stable
 ```
 
 Create a Kubernetes namespace for the traefik ingress controller and install it using `helm`.
 
 > [!NOTE]
-> If your AKS cluster does not have RBAC enabled, remove the *--set rbac.enabled=true* parameter.
+> If your AKS cluster does not have Kubernetes RBAC enabled, remove the *--set rbac.enabled=true* parameter.
 
 ```console
 kubectl create ns traefik
@@ -218,7 +218,7 @@ kubectl apply -f letsencrypt-clusterissuer.yaml --namespace traefik
 Remove the previous *traefik* *ClusterRole* and *ClusterRoleBinding*, then upgrade traefik to use HTTPS using `helm`.
 
 > [!NOTE]
-> If your AKS cluster does not have RBAC enabled, remove the *--set rbac.enabled=true* parameter.
+> If your AKS cluster does not have Kubernetes RBAC enabled, remove the *--set rbac.enabled=true* parameter.
 
 ```console
 kubectl delete ClusterRole traefik
@@ -366,11 +366,11 @@ Learn more about how Azure Dev Spaces works.
 > [How Azure Dev Spaces works](../how-dev-spaces-works.md)
 
 
-[az-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
-[az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/a?view=azure-cli-latest#az-network-dns-record-set-a-add-record
-[az-network-dns-record-set-a-remove-record]: /cli/azure/network/dns/record-set/a?view=azure-cli-latest#az-network-dns-record-set-a-remove-record
-[custom-domain]: ../../app-service/manage-custom-dns-buy-domain.md#buy-the-domain
+[az-cli]: /cli/azure/install-azure-cli
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/a#az_network_dns_record_set_a_add_record
+[az-network-dns-record-set-a-remove-record]: /cli/azure/network/dns/record-set/a#az_network_dns_record_set_a_remove_record
+[custom-domain]: ../../app-service/manage-custom-dns-buy-domain.md#buy-an-app-service-domain
 [dns-zone]: ../../dns/dns-getstarted-cli.md
 [azds-yaml]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/azds.yaml
 [azure-account-create]: https://azure.microsoft.com/free

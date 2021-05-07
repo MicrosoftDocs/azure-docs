@@ -2,18 +2,21 @@
 title: 'Tutorial: User provisioning for GitHub - Azure AD'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to GitHub.
 services: active-directory
-author: ArvindHarinder1
+author: Zhchia
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
-ms.date: 03/27/2019
-ms.author: arvinh
+ms.topic: tutorial
+ms.date: 10/21/2020
+ms.author: Zhchia
 ---
 # Tutorial: Configure GitHub for automatic user provisioning
 
 The objective of this tutorial is to show you the steps you need to perform in GitHub and Azure AD to automatically provision and de-provision user accounts from Azure AD to GitHub.
+
+> [!NOTE]
+> The Azure AD provisioning integration relies on the [GitHub SCIM API](https://developer.github.com/v3/scim/), which is available to [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) customers on the [GitHub Enterprise billing plan](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations).
 
 ## Prerequisites
 
@@ -22,12 +25,12 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * An Azure Active directory tenant
 * A GitHub organization created in [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), which requires the [GitHub Enterprise billing plan](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
 * A user account in GitHub with Admin permissions to the organization
-* [SAML configured for the GitHub Enterprise Cloud organization](https://docs.microsoft.com/azure/active-directory/saas-apps/github-tutorial)
+* [SAML configured for the GitHub Enterprise Cloud organization](./github-tutorial.md)
 * Ensure that OAuth access has been provided for your organization as described [here](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)
 * SCIM provisioning to a single organization is supported only when SSO is enabled at the organization level
 
 > [!NOTE]
-> The Azure AD provisioning integration relies on the [GitHub SCIM API](https://developer.github.com/v3/scim/), which is available to [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) customers on the [GitHub Enterprise billing plan](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations).
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Assigning users to GitHub
 

@@ -1,10 +1,8 @@
 ---
 title: Manage Azure Data Lake Analytics using Python
 description: This article describes how to use Python to manage Data Lake Analytics accounts, data sources, users, & jobs.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: how-to
 ms.date: 06/08/2018
 ms.custom: devx-track-python

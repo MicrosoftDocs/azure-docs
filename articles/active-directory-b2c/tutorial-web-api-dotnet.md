@@ -36,7 +36,7 @@ Complete the steps and prerequisites in [Tutorial: Enable authenticate in a web 
 
 Web API resources need to be registered in your tenant before they can accept and respond to protected resource requests by client applications that present an access token.
 
-To register an application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](https://aka.ms/b2cappregtraining).
+To register an application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](./app-registrations-training-guide.md).
 
 #### [App registrations](#tab/app-reg-ga/)
 
@@ -162,4 +162,4 @@ In this tutorial, you learned how to:
 > * Configure the sample to use the application
 
 > [!div class="nextstepaction"]
-> [Tutorial: Add identity providers to your applications in Azure Active Directory B2C](tutorial-add-identity-providers.md)
+> [Add identity providers to your applications in Azure Active Directory B2C](add-identity-provider.md)

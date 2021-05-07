@@ -1,7 +1,7 @@
 ---
 title: Install Micro Focus Enterprise Server 5.0 and Enterprise Developer 5.0 on Azure | Microsoft Docs
 description: In this article, learn how to install Micro Focus Enterprise Server 5.0 and Enterprise Developer 5.0 on Microsoft Azure.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter:
 author: maggsl
 ms.author: edprice
@@ -11,7 +11,8 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 tags:
 keywords:
-ms.service: multiple
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 ---
 
 # Install Micro Focus Enterprise Server 5.0 and Enterprise Developer 5.0 on Azure
@@ -39,7 +40,7 @@ Before getting started, check out these prerequisites:
     > [!Note]
     > There are a few options for controlling access to your VMs:
     > -   A best practice is to set up [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/).
-    > -   A [site-to-site virtual private network (VPN)](../../../../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md)
+    > -   A [site-to-site virtual private network (VPN)](../../../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
     tunnel.
     > -   A jumpbox VM.
 
@@ -73,11 +74,11 @@ Before getting started, check out these prerequisites:
 
 9.  Double-click the file to start the installation. In the first window, select the installation location and accept the end-user license agreement.
 
-    ![Micro Focus Enterprise Server Setup screen](media/install-image-1.png)
+    ![Screenshot shows the Micro Focus Enterprise Server dialog box where you can start the installation.](media/install-image-1.png)
 
     When Setup is complete, the following message appears:
 
-    ![Micro Focus Enterprise Server Setup screen](media/install-image-2.png)
+    ![Screenshot shows a success message in the Micro Focus Enterprise Server dialog box.](media/install-image-2.png)
 
  ### Check for updates
 
@@ -89,7 +90,7 @@ After the installation, be sure to check for any additional updates as a number 
 
 2.  Select **Start** \> **Micro Focus License Manager** \> **License Administration**, and then click the **Install** tab. Choose the type of license format to upload: a license file or a 16-character license code. For example, for a file, in **License file**, browse to the *`mflic` file uploaded previously to the VM and select **Install Licenses**.
 
-    ![Micro Focus License Administration dialog box](media/install-image-3.png)
+    ![Screenshot shows the Micro Focus License Administration dialog box where you can select Install Licenses.](media/install-image-3.png)
 
 3.  Verify that Enterprise Server loads. Try launching the Enterprise Server Administration site from a browser using this URL: `http://localhost:86/`. The Enterprise Server Administration page is displayed as shown.
 

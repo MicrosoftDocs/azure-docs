@@ -15,11 +15,11 @@ ms.service: azure-app-configuration
 
 Azure App Configuration events enable applications to react to changes in key-values. This is done without the need for complicated code or expensive and inefficient polling services. Instead, events are pushed through [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to subscribers such as [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), or even to your own custom http listener. Critically, you only pay for what you use.
 
-Azure App Configuration events are sent to the Azure Event Grid which provides reliable delivery services to your applications through rich retry policies and dead-letter delivery. To learn more, see [Event Grid message delivery and retry](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
+Azure App Configuration events are sent to the Azure Event Grid, which provides reliable delivery services to your applications through rich retry policies and dead-letter delivery. To learn more, see [Event Grid message delivery and retry](../event-grid/delivery-and-retry.md).
 
 Common App Configuration event scenarios include refreshing application configuration, triggering deployments, or any configuration-oriented workflow. When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
 
-Take a look at [Route Azure App Configuration events to a custom web endpoint - CLI](./howto-app-configuration-event.md) for a quick example. 
+Take a look at [Use Event Grid for data change notifications](./howto-app-configuration-event.md) for a quick example. 
 
 ![Event Grid Model](./media/event-grid-functional-model.png)
 
@@ -84,4 +84,4 @@ Applications that handle App Configuration events should follow these recommende
 Learn more about Event Grid and give Azure App Configuration events a try:
 
 - [About Event Grid](../event-grid/overview.md)
-- [Route Azure App Configuration events to a custom web endpoint](./howto-app-configuration-event.md)
+- [How to use Event Grid for data change notifications](./howto-app-configuration-event.md)

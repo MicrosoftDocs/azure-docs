@@ -1,15 +1,9 @@
 ---
-title: Manage Azure portal settings and preferences | Microsoft Docs
+title: Manage Azure portal settings and preferences
 description: You can change Azure portal default settings to meet your own preferences. Settings include inactive session timeout, default view, menu mode, contrast, theme, notifications, and language and regional formats
-services: azure-portal
 keywords: settings, timeout, language, regional
-author: mgblythe
-ms.author: mblythe
-ms.date: 08/05/2020
+ms.date: 03/15/2021
 ms.topic: how-to
-
-ms.service: azure-portal
-manager:  mtillman
 ---
 
 # Manage Azure portal settings and preferences
@@ -46,7 +40,7 @@ You can change the page that opens by default when you sign in to the Azure port
 
 The default mode for the portal menu controls how much space the portal menu takes up on the page.
 
-![Screenshot showing Azure portal settings with themes highlighted](./media/set-preferences/menu-mode.png)
+![Screenshot that shows how to set the default mode for the portal menu.](./media/set-preferences/menu-mode.png)
 
 - When the portal menu is in **Flyout** mode, it's hidden until you need it. Select the menu icon to open or close the menu.
 
@@ -72,7 +66,7 @@ To read all notifications received during your current session, select **Notific
 
 ![Screenshot showing Azure portal global header with notifications highlighted](./media/set-preferences/read-notifications.png)
 
-If you want to read notifications from previous sessions, look for events in the Activity log. For more information, see [View the Activity log](../azure-monitor/platform/activity-log.md#view-the-activity-log). 
+If you want to read notifications from previous sessions, look for events in the Activity log. For more information, see [View the Activity log](../azure-monitor/essentials/activity-log.md#view-the-activity-log). 
 
 ## Change the inactivity timeout setting
 
@@ -92,7 +86,7 @@ If your admin has enabled an inactivity timeout policy, you can still set your o
 
 ### Change the directory timeout setting (admin)
 
-Admins in the [Global Administrator role](../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) can enforce the maximum idle time before a session is signed out. The inactivity timeout setting applies at the directory level. The setting takes effect for new sessions. It won't apply immediately to any users who are already signed in. For more information about directories, see [Active Directory Domain Services Overview](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
+Admins in the [Global Administrator role](../active-directory/roles/permissions-reference.md#global-administrator) can enforce the maximum idle time before a session is signed out. The inactivity timeout setting applies at the directory level. The setting takes effect for new sessions. It won't apply immediately to any users who are already signed in. For more information about directories, see [Active Directory Domain Services Overview](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
 If you're a Global Administrator, and you want to enforce an idle timeout setting for all users of the Azure portal, follow these steps:
 

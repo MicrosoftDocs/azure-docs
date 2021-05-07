@@ -22,6 +22,8 @@ To simplify the creation of diagnostics settings at scale (with LA as the destin
 
 * The built-in policy is currently not available in national clouds.
 
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+
 ## Assigning the built-in policy to a scope
 
 To assign the policy for vaults in the required scope, follow the steps below:

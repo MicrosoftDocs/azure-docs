@@ -23,7 +23,7 @@ This image consists of Azure SQL Edge based on Ubuntu 18.04. It can be used with
 - Docker **overlay2** storage driver. This is the default for most users. If you find that you are not using this storage provider and need to change, please see the instructions and warnings in the [docker documentation for configuring overlay2](https://docs.docker.com/storage/storagedriver/overlayfs-driver/#configure-docker-with-the-overlay-or-overlay2-storage-driver).
 - Minimum of 10 GB of disk space.
 - Minimum of 1 GB of RAM.
-- [Hardware requirements for Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/features#hardware-support).
+- [Hardware requirements for Azure SQL Edge](./features.md#hardware-support).
 
 
 ## Pull and run the container image
@@ -65,7 +65,7 @@ The previous command pulls the latest Azure SQL Edge container images. To see al
     | Parameter | Description |
     |-----|-----|
     | **-e "ACCEPT_EULA=Y"** |  Set the **ACCEPT_EULA** variable to any value to confirm your acceptance of the [End-User Licensing Agreement](https://go.microsoft.com/fwlink/?linkid=2139274). Required setting for the Azure SQL Edge image. |
-    | **-e "MSSQL_SA_PASSWORD=yourStrong(!)Password"** | Specify your own strong password that is at least 8 characters and meets the [Azure SQL Edge password requirements](https://docs.microsoft.com/sql/relational-databases/security/password-policy). Required setting for the Azure SQL Edge image. |
+    | **-e "MSSQL_SA_PASSWORD=yourStrong(!)Password"** | Specify your own strong password that is at least 8 characters and meets the [Azure SQL Edge password requirements](/sql/relational-databases/security/password-policy). Required setting for the Azure SQL Edge image. |
     | **-p 1433:1433** | Map a TCP port on the host environment (first value) with a TCP port in the container (second value). In this example, Azure SQL Edge is listening on TCP 1433 in the container and this is exposed to the port, 1433, on the host. |
     | **--name azuresqledge** | Specify a custom name for the container rather than a randomly generated one. If you run more than one container, you cannot reuse this same name. |
     | **-d** | Run the container in the background (daemon) |

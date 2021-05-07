@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 03/23/2021
 ms.custom: seodec18
 ---
 
@@ -19,6 +19,11 @@ This article summarizes the importance of the Time Series ID for your Azure Time
 ## Choose a Time Series ID
 
 Selecting an appropriate Time Series ID is critical. Choosing a Time Series ID is like choosing a partition key for a database. It's required when you create an Azure Time Series Insights Gen2 environment.
+
+Watch the environment provisioning tutorial for a detailed explanation of the Time Series ID. You'll view two different JSON telemetry payload examples and the  correct Time Series ID selection for each.</br>
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWzk3P]
+
 
 > [!IMPORTANT]
 > Time Series IDs are:
@@ -81,4 +86,4 @@ In the Azure portal, you can then enter the composite key as follows:
 
 * Read the [JSON flattening and escaping rules](./concepts-json-flattening-escaping-rules.md) to understand how events will be stored.
 
-* Plan your [Azure Time Series Insights Gen2 environment](./time-series-insights-update-plan.md).
+* Plan your [Azure Time Series Insights Gen2 environment](./how-to-plan-your-environment.md).

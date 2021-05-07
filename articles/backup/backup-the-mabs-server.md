@@ -179,9 +179,9 @@ If the MABS server is still operational and the storage pool is intact (such as 
 
 You can back up the MABS database to a local disk with native SQL Server backup, independent of MABS.
 
-- Get an [overview](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) of SQL Server backup.
+- Get an [overview](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) of SQL Server backup.
 
-- [Learn more](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) about backing up SQL Server to the cloud.
+- [Learn more](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) about backing up SQL Server to the cloud.
 
 ## Back up to a share protected by MABS
 
@@ -233,9 +233,9 @@ This backup option uses native SQL to back up the MABS database to a share, prot
 
 You can back up the MABS database as you would any other SQL Server database using SQL Server native backup.
 
-- Get an [overview](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) of SQL Server backup.
+- Get an [overview](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) of SQL Server backup.
 
-- [Learn more](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) about backing up SQL Server to the cloud.
+- [Learn more](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) about backing up SQL Server to the cloud.
 
 ### Recover the MABS database
 
@@ -327,4 +327,4 @@ DpmSync -ReallocateReplica
 ## Next steps
 
 - [MABS support matrix](backup-support-matrix-mabs-dpm.md)
-- [MABS FAQ](backup-azure-dpm-azure-server-faq.md)
+- [MABS FAQ](backup-azure-dpm-azure-server-faq.yml)

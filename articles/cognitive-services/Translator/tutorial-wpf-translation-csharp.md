@@ -3,19 +3,19 @@ title: "Tutorial: Create a translation app with WPF, C#  - Translator"
 titleSuffix: Azure Cognitive Services
 description: In this tutorial, you'll create a WPF app to perform text translation, language detection, and spell checking with a single subscription key.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 05/26/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Create a translation app with WPF
 
-In this tutorial, you'll build a [Windows Presentation Foundation (WPF)](https://docs.microsoft.com/visualstudio/designers/getting-started-with-wpf?view=vs-2019) app that uses Azure Cognitive Services for text translation, language detection, and spell checking with a single subscription key. Specifically, your app will call APIs from the Translator and [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/).
+In this tutorial, you'll build a [Windows Presentation Foundation (WPF)](/visualstudio/designers/getting-started-with-wpf) app that uses Azure Cognitive Services for text translation, language detection, and spell checking with a single subscription key. Specifically, your app will call APIs from the Translator and [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 
 What is WPF? It's a UI framework that creates desktop client apps. The WPF development platform supports a broad set of app development features, including an app model, resources, controls, graphics, layout, data binding, documents, and security. It's a subset of the .NET Framework, so if you have previously built apps with the .NET Framework using ASP.NET or Windows Forms, the programming experience should be familiar. WPF uses the Extensible app Markup Language (XAML) to provide a declarative model for app programming, which we'll review in the coming sections.
 
@@ -35,16 +35,16 @@ This list includes the Cognitive Services used in this tutorial. Follow the link
 
 | Service | Feature | Description |
 |---------|---------|-------------|
-| Translator | [Get Languages](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Retrieve a complete list of supported languages for text translation. |
-| Translator | [Translate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Translate text into more than 70 languages. |
-| Translator | [Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Detect the language of the input text. Includes confidence score for detection. |
-| Bing Spell Check | [Spell Check](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Correct spelling errors to improve translation accuracy. |
+| Translator | [Get Languages](./reference/v3-0-languages.md) | Retrieve a complete list of supported languages for text translation. |
+| Translator | [Translate](./reference/v3-0-translate.md) | Translate text into 90 languages and dialects. |
+| Translator | [Detect](./reference/v3-0-detect.md) | Detect the language of the input text. Includes confidence score for detection. |
+| Bing Spell Check | [Spell Check](/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Correct spelling errors to improve translation accuracy. |
 
 ## Prerequisites
 
 Before we continue, you'll need the following:
 
-* An Azure Cognitive Services subscription. [Get a Cognitive Services key](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#create-a-new-azure-cognitive-services-resource).
+* An Azure Cognitive Services subscription. [Get a Cognitive Services key](../cognitive-services-apis-create-account.md#create-a-new-azure-cognitive-services-resource).
 * A Windows machine
 * [Visual Studio 2019](https://www.visualstudio.com/downloads/) - Community or Enterprise
 
@@ -78,14 +78,14 @@ Let's add assemblies to our project to serialize and deserialize objects, and to
 1. The **Assemblies** tab lists all .NET Framework assemblies that are available to reference. Use the search bar in the upper right to search for references.
    ![Add assembly references](media/add-assemblies-2019.png)
 1. Select the following references for your project:
-   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
-   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Runtime.Serialization](/dotnet/api/system.runtime.serialization)
+   * [System.Web](/dotnet/api/system.web)
    * System.Web.Extensions
-   * [System.Windows](https://docs.microsoft.com/dotnet/api/system.windows)
+   * [System.Windows](/dotnet/api/system.windows)
 1. After you've added these references to your project, you can click **OK** to close **Reference Manager**.
 
 > [!NOTE]
-> If you'd like to learn more about assembly references, see [How to: Add or remove reference using the Reference Manager](https://docs.microsoft.com/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019).
+> If you'd like to learn more about assembly references, see [How to: Add or remove reference using the Reference Manager](/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager).
 
 ### Install NewtonSoft.Json
 
@@ -259,12 +259,12 @@ Last, we've added code to call methods to retrieve languages for translation and
 
 ## Get supported languages
 
-The Translator currently supports more than 70 languages. Since new language support will be added over time, we recommend calling the Languages resource exposed by the Translator rather than hardcoding the language list in your app.
+The Translator currently supports 90 languages and dialects. Since new language support will be added over time, we recommend calling the Languages resource exposed by the Translator rather than hardcoding the language list in your app.
 
 In this section, we'll create a `GET` request to the Languages resource, specifying that we want a list of languages available for translation.
 
 > [!NOTE]
-> The Languages resource allows you to filter language support with the following query parameters: transliteration, dictionary, and translation. For more information, see [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
+> The Languages resource allows you to filter language support with the following query parameters: transliteration, dictionary, and translation. For more information, see [API reference](./reference/v3-0-languages.md).
 
 Before we go any further, let's take a look at a sample output for a call to the Languages resource:
 
@@ -576,4 +576,4 @@ Source code for this project is available on GitHub.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Microsoft Translator reference](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
+> [Microsoft Translator reference](./reference/v3-0-reference.md)

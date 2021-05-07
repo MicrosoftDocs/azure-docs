@@ -1,22 +1,22 @@
 ---
-title: Azure Stack Edge Pro share management | Microsoft Docs 
-description: Describes how to use the Azure portal to manage shares on your Azure Stack Edge Pro.
+title: Azure Stack Edge Pro - FPGA share management | Microsoft Docs 
+description: Describes how to use the Azure portal to manage shares on your Azure Stack Edge Pro - FPGA.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/25/2019
+ms.date: 01/04/2021
 ms.author: alkohli
 ---
-# Use the Azure portal to manage shares on Azure Stack Edge Pro
+# Use the Azure portal to manage shares on Azure Stack Edge Pro FPGA 
 
-This article describes how to manage shares on your Azure Stack Edge Pro. You can manage the Azure Stack Edge Pro via the Azure portal or via the local web UI. Use the Azure portal to add, delete, refresh shares, or sync storage key for storage account associated with the shares.
+This article describes how to manage shares on your Azure Stack Edge Pro FPGA device. You can manage the Azure Stack Edge Pro FPGA device via the Azure portal or via the local web UI. Use the Azure portal to add, delete, refresh shares, or sync storage key for storage account associated with the shares.
 
 ## About shares
 
-To transfer data to Azure, you need to create shares on your Azure Stack Edge Pro. The shares that you add on the Azure Stack Edge Pro device can be local shares or shares that push data to cloud.
+To transfer data to Azure, you need to create shares on your Azure Stack Edge Pro FPGA. The shares that you add on the Azure Stack Edge Pro device can be local shares or shares that push data to cloud.
 
  - **Local shares**: Use these shares when you want the data to be processed locally on the device.
  - **Shares**: Use these shares when you want the device data to be automatically pushed to your storage account in the cloud. All the cloud functions such as **Refresh** and **Sync storage keys** apply to the shares.
@@ -34,7 +34,7 @@ In this article, you learn how to:
 
 Do the following steps in the Azure portal to create a share.
 
-1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Gateway > Shares**. Select **+ Add share** on the command bar.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Cloud storage gateway**. Go to **Shares** and then select **+ Add share** on the command bar.
 
     ![Select add share](media/azure-stack-edge-manage-shares/add-share-1.png)
 
@@ -49,7 +49,7 @@ Do the following steps in the Azure portal to create a share.
 5. From the dropdown list, choose the **Storage service** from block blob, page blob, or files. The type of the service chosen depends on which format you want the data to reside in Azure. For example, in this instance, we want the data to reside as block blobs in Azure, hence we select **Block Blob**. If choosing **Page Blob**, you must ensure that your data is 512 bytes aligned. Use **Page blob** for VHDs or VHDX that are always 512 bytes aligned.
 
    > [!IMPORTANT]
-   > Make sure that the Azure Storage account that you use does not have immutability policies set on it if you are using it with a Azure Stack Edge Pro or Data Box Gateway device. For more information, see [Set and manage immutability policies for blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Make sure that the Azure Storage account that you use does not have immutability policies set on it if you are using it with a Azure Stack Edge Pro or Data Box Gateway device. For more information, see [Set and manage immutability policies for blob storage](../storage/blobs/storage-blob-immutability-policies-manage.md).
 
 6. This step depends on whether you are creating an SMB or an NFS share.
    - **If creating an SMB share** - In the **All privilege local user** field, choose from **Create new** or **Use existing**. If creating a new local user, provide the **username**, **password**, and then confirm password. This assigns the permissions to the local user. After you have assigned the permissions here, you can then use File Explorer to modify these permissions.
@@ -67,7 +67,7 @@ Do the following steps in the Azure portal to create a share.
 
 ## Add a local share
 
-1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Gateway > Shares**. Select **+ Add share** on the command bar.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Cloud storage gateway > Shares**. Select **+ Add share** on the command bar.
 
    ![Select add share 2](media/azure-stack-edge-manage-shares/add-local-share-1.png)
 
@@ -91,15 +91,13 @@ Do the following steps in the Azure portal to create a share.
 
    ![View updates Shares blade](media/azure-stack-edge-manage-shares/add-local-share-3.png)
     
-    Select the share to view the local mountpoint for the Edge compute modules for this share.
 
-   ![View local share details](media/azure-stack-edge-manage-shares/add-local-share-4.png)
 
 ## Mount a share
 
 If you created a share before you configured compute on your Azure Stack Edge Pro device, you will need to mount the share. Take the following steps to mount a share.
 
-1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Gateway > Shares**. From the list of the shares, select the share you want to mount. The **Used for compute** column will show the status as **Disabled** for the selected share.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Cloud storage gateway > Shares**. From the list of the shares, select the share you want to mount. The **Used for compute** column will show the status as **Disabled** for the selected share.
 
    ![Select share 3](media/azure-stack-edge-manage-shares/select-share-mount.png)
 
@@ -117,13 +115,13 @@ If you created a share before you configured compute on your Azure Stack Edge Pr
 
 5. Select the share again to view the local mountpoint for the share. Edge compute module uses this local mountpoint for the share.
 
-   ![Local mountpoint for the share](media/azure-stack-edge-manage-shares/share-mountpoint.png)
+   ![Local mountpoint for the share](media/azure-stack-edge-manage-shares/share-mountpoint.png) 
 
 ## Unmount a share
 
 Do the following steps in the Azure portal to unmount a share.
 
-1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Gateway > Shares**.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Cloud storage gateway > Shares**.
 
    ![Select share 4](media/azure-stack-edge-manage-shares/select-share-unmount.png)
 
@@ -143,13 +141,13 @@ Do the following steps in the Azure portal to unmount a share.
 
 Do the following steps in the Azure portal to delete a share.
 
-1. From the list of shares, select and click the share that you want to delete.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Cloud storage gateway > Shares**. From the list of shares, select and click the share that you want to delete.
 
    ![Select share 5](media/azure-stack-edge-manage-shares/delete-share-1.png)
 
-2. Click **Delete**.
+2. Select **Delete**.
 
-   ![Click delete](media/azure-stack-edge-manage-shares/delete-share-2.png)
+   ![Select delete](media/azure-stack-edge-manage-shares/delete-share-2.png)
 
 3. When prompted for confirmation, click **Yes**.
 
@@ -168,15 +166,15 @@ The refresh feature allows you to refresh the contents of a share. When you refr
 
 Do the following steps in the Azure portal to refresh a share.
 
-1. In the Azure portal, go to **Shares**. Select and click the share that you want to refresh.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Cloud storage gateway > Shares**. Select and click the share that you want to refresh.
 
    ![Select share 6](media/azure-stack-edge-manage-shares/refresh-share-1.png)
 
-2. Click **Refresh**.
+2. Select **Refresh data**.
 
-   ![Click refresh](media/azure-stack-edge-manage-shares/refresh-share-2.png)
+   ![Select refresh](media/azure-stack-edge-manage-shares/refresh-share-2.png)
  
-3. When prompted for confirmation, click **Yes**. A job starts to refresh the contents of the on-premises share.
+3. When prompted for confirmation, select **Yes**. A job starts to refresh the contents of the on-premises share.
 
    ![Confirm refresh](media/azure-stack-edge-manage-shares/refresh-share-3.png)
 
@@ -194,7 +192,7 @@ If your storage account keys have been rotated, then you need to sync the storag
 
 Do the following steps in the Azure portal to sync your storage access key.
 
-1. Go to **Overview** in your resource. From the list of shares, choose and click a share associated with the storage account that you need to sync.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Cloud storage gateway > Shares**. From the list of shares, choose and click a share associated with the storage account that you need to sync.
 
     ![Select share with relevant storage account](media/azure-stack-edge-manage-shares/sync-storage-key-1.png)
 

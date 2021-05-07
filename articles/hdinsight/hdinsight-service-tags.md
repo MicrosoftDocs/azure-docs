@@ -1,8 +1,6 @@
 ---
 title: Network security group (NSG) service tags for Azure HDInsight
 description: Use HDInsight service tags to allow inbound traffic to your cluster from health and management services nodes, without adding IP addresses to your NSGs.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
@@ -11,7 +9,7 @@ ms.date: 08/11/2020
 
 # NSG service tags for Azure HDInsight
 
-Azure HDInsight service tags for network security groups (NSGs) are groups of IP addresses for health and management services. These groups help minimize complexity for security rule creation. [Service tags](../virtual-network/security-overview.md#service-tags) allow inbound traffic from specific IPs without entering each of the [management IP addresses](hdinsight-management-ip-addresses.md) in your NSGs.
+Azure HDInsight service tags for network security groups (NSGs) are groups of IP addresses for health and management services. These groups help minimize complexity for security rule creation. [Service tags](../virtual-network/network-security-groups-overview.md#service-tags) allow inbound traffic from specific IPs without entering each of the [management IP addresses](hdinsight-management-ip-addresses.md) in your NSGs.
 
 The HDInsight service manages these service tags. You can't create your own service tag or modify an existing tag. Microsoft manages the address prefixes that match to the service tag and automatically updates the service tag as addresses change.
 
@@ -37,7 +35,7 @@ The easiest way to begin using service tags with your HDInsight cluster is to ad
 
 1. From the **Source service tag** drop-down list, select **HDInsight**.
 
-    ![Add a service tag from the Azure portal](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
+    :::image type="content" source="./media/hdinsight-service-tags/azure-portal-add-service-tag.png" alt-text="Add a service tag from the Azure portal":::
 
 This tag contains the IP addresses of health and management services for all regions where HDInsight is available. The tag will ensure that your cluster can communicate with the necessary health and management services no matter where it's created.
 
@@ -120,5 +118,5 @@ Clusters in the regions of *Germany Central* and *Germany Northeast* need to all
 
 ## Next steps
 
-- [Network security groups: service tags](../virtual-network/security-overview.md#security-rules)
+- [Network security groups: service tags](../virtual-network/network-security-groups-overview.md#security-rules)
 - [Create virtual networks for Azure HDInsight clusters](hdinsight-create-virtual-network.md)

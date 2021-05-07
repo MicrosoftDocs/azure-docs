@@ -130,7 +130,7 @@ The following output creates an annotation ("/document/languageWithDefault") tha
 
 ###	Sample skill definition 3: Merge values from two fields into one
 
-In this example, some sentences have a *frenchSentiment* property. Whenever the *frenchSentiment* property is null, we want to use the *englishSentiment* value. We assign the output to a member that's called *sentiment* ("/document/sentiment/*/sentiment").
+In this example, some sentences have a *frenchSentiment* property. Whenever the *frenchSentiment* property is null, we want to use the *englishSentiment* value. We assign the output to a member that's called *sentiment* ("/document/sentences/*/sentiment").
 
 ```json
 {

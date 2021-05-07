@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure Cloud Services documentation
+title: Azure Cloud Services (classic) documentation
 summary: Learn how to use Cloud Services to host and run highly available, scalable cloud applications and APIs. Shows how to manage virtual machine hosts and configure, patch, and install software.
 
 metadata:
-  title: Azure Cloud Services documentation
+  title: Azure Cloud Services (classic) documentation
   description: Describes how to use Cloud Services to host and run highly available and scalable cloud applications and APIs.
   ms.service: cloud-services
   service: cloud-services
@@ -17,15 +17,15 @@ metadata:
 
 landingContent:
   # Card
-  - title: About Cloud Services
+  - title: About Cloud Services (classic)
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Cloud Services?
+          - text: What is Cloud Services (classic)?
             url: cloud-services-choose-me.md
       - linkListType: video
         links:
-          - text: Cloud Services video library
+          - text: Cloud Services (classic) video library
             url: https://azure.microsoft.com/documentation/videos/index/?services=cloud-services
 
   # Card
@@ -55,9 +55,9 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Create and deploy a cloud service in portal
+          - text: Create and deploy a Cloud Service (classic) in portal
             url: cloud-services-how-to-create-deploy-portal.md
-          - text: Create an empty cloud service container in PowerShell
+          - text: Create an empty Cloud Service (classic) container in PowerShell
             url: cloud-services-powershell-create-cloud-container.md
 
   # Card
@@ -67,5 +67,5 @@ landingContent:
         links:
           - text: Common management tasks
             url: cloud-services-how-to-manage-portal.md
-          - text: Configure Cloud Service
+          - text: Configure Cloud Service (classic)
             url: cloud-services-how-to-configure-portal.md

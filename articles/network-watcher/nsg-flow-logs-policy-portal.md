@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 10/01/2020
+ms.date: 01/07/2021
 ms.author: damendo
 
 ---
@@ -23,8 +23,8 @@ ms.author: damendo
 Azure Policy helps to enforce organizational standards and to assess compliance at-scale. Common use cases for Azure Policy include implementing governance for resource consistency, regulatory compliance, security, cost, and management. In this article, we will use two built-in policies available for NSG Flow Logs to manage your flow logs setup. The first policy  flags any NSGs without flow logs enabled. The second policy automatically deploys Flow logs for NSGs without Flow logs enabled. 
 
 If you are creating an Azure policy for the first time, you can read through: 
-- [Azure Policy overview](https://docs.microsoft.com/azure/governance/policy/overview) 
-- [Tutorial for creating policy](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal#create-a-policy-assignment).
+- [Azure Policy overview](../governance/policy/overview.md) 
+- [Tutorial for creating policy](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
 
 
 ## Locate the policies
@@ -135,5 +135,5 @@ You should see something like following screenshot once your policy. In case you
 
 ## Next steps 
 
--	Use this [tutorial](https://docs.microsoft.com/azure/network-watcher/quickstart-configure-network-security-group-flow-logs-from-arm-template) Go deeper by using ARM templates to deploy Flow Logs and Traffic Analytics.
--	Learn more about [Network Watcher](https://docs.microsoft.com/azure/network-watcher/)
+-	Use this [tutorial](./quickstart-configure-network-security-group-flow-logs-from-arm-template.md) Go deeper by using ARM templates to deploy Flow Logs and Traffic Analytics.
+-	Learn more about [Network Watcher](./index.yml)

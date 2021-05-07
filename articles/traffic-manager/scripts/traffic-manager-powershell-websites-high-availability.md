@@ -56,6 +56,6 @@ This script uses the following commands to create a resource group, web app, tra
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/).
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional networking PowerShell script samples can be found in the [Azure Networking Overview documentation](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).

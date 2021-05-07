@@ -3,11 +3,13 @@ title: Create Azure Service Bus namespace topic using a template
 description: 'Quickstart: Create a Service Bus namespace with topic and subscription using Azure Resource Manager template'
 documentationcenter: .net
 author: spelluru
+ms.author: spelluru
+ms.date: 06/23/2020
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.date: 06/23/2020
-ms.author: spelluru 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - mode-arm
 ---
 
 # Quickstart: Create a Service Bus namespace with topic and subscription using an Azure Resource Manager template
@@ -139,7 +141,7 @@ New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<
 ## Azure CLI
 
 ```azurecli-interactive
-az group deployment create \<my-resource-group\> --name \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
+az deployment group create \<my-resource-group\> --name \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
 ```
 
 ## Next steps

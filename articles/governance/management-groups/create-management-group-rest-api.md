@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a management group with REST API"
 description: In this quickstart, you use REST API to create a management group to organize your resources into a resource hierarchy.
-ms.date: 08/31/2020
+ms.date: 05/01/2021
 ms.topic: quickstart
 ---
 # Quickstart: Create a management group with REST API
@@ -23,8 +23,8 @@ directory. You receive a notification when the process is complete. For more inf
   account before you begin.
 
 - If you haven't already, install [ARMClient](https://github.com/projectkudu/ARMClient). It's a tool
-  that sends HTTP requests to Azure Resource Manager-based REST APIs. Alternatively, you can use the
-  "Try It" feature in REST documentation or tooling like PowerShell's
+  that sends HTTP requests to Azure Resource Manager-based REST APIs. Instead, you can use the "Try
+  It" feature in REST documentation or tooling like PowerShell's
   [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) or
   [Postman](https://www.postman.com).
 
@@ -44,7 +44,7 @@ directory. You receive a notification when the process is complete. For more inf
 ### Create in REST API
 
 For REST API, use the
-[Management Groups - Create or Update](/rest/api/resources/managementgroups/createorupdate) endpoint
+[Management Groups - Create or Update](/rest/api/managementgroups/managementgroups/createorupdate) endpoint
 to create a new management group. In this example, the management group **groupId** is _Contoso_.
 
 - REST API URI
@@ -104,7 +104,7 @@ specify a different management group as the parent, use the **properties.parent.
 ## Clean up resources
 
 To remove the management group created above, use the
-[Management Groups - Delete](/rest/api/resources/managementgroups/delete) endpoint:
+[Management Groups - Delete](/rest/api/managementgroups/managementgroups/delete) endpoint:
 
 - REST API URI
 

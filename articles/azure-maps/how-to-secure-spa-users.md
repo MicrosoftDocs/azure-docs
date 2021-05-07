@@ -62,7 +62,7 @@ Create the web application in Azure AD for users to sign in. The web application
         </script>   
     ```
 
-7. Configure Azure role based access control for users or groups. See the [following sections to enable RBAC](#grant-role-based-access-for-users-to-azure-maps).
+7. Configure Azure role-based access control (Azure RBAC) for users or groups. See the [following sections to enable Azure RBAC](#grant-role-based-access-for-users-to-azure-maps).
    
 [!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
 
@@ -70,7 +70,7 @@ Create the web application in Azure AD for users to sign in. The web application
 
 Further understanding of single page application scenario:
 > [!div class="nextstepaction"]
-> [Single-page application](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-overview)
+> [Single-page application](../active-directory/develop/scenario-spa-overview.md)
 
 Find the API usage metrics for your Azure Maps account:
 > [!div class="nextstepaction"]
