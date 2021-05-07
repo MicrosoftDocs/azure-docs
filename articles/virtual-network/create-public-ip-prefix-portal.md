@@ -56,7 +56,7 @@ In this section, you'll create the public IP prefix in the Azure portal.
 7. Select **Create**.
 
 ## Create a static public IP address from a prefix
-Once you create a prefix, you must create static IP addresses from the prefix. In this section you'll create a static IP address from the prefix you created earlier.
+Once you create a prefix, you must create static IP addresses from the prefix. In this section, you'll create a static IP address from the prefix you created earlier.
 
 1. In the search box at the top of the portal, enter **Public IP**.
 
@@ -95,9 +95,9 @@ In this section, you'll learn how to view or delete a prefix.
 
 ## Clean up resources
 
-In this how-to you created a public IP prefix and a public IP from that prefix. 
+In this article, you created a public IP prefix and a public IP from that prefix. 
 
-When you are done with the public IP prefix, delete the resource group and all of the resources it contains:
+When you're done with the public IP prefix, delete the resource group and all of the resources it contains:
 
 1. Search for and select **myResourceGroup**.
 
