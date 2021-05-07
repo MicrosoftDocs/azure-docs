@@ -22,17 +22,21 @@ This article describes review and follow-up for non-retryable errors that preven
 
 When data is uploaded to Azure from your device, some file uploads might fail because of configuration errors that can't be resolved through a retry. In that case, you receive a notification to give you a chance to review and fix the errors for a later upload.
 
-You'll see the following notifications in the Azure portal. The errors are listed in the data copy log.
+You'll see the following notification in the Azure portal. The errors are listed in the data copy log, which you can open using the **DATA COPY PATH**.
 
 ![Notification of errors during upload](media/data-box-troubleshoot-data-upload/copy-completed-with-errors-notification-01.png)
 
- You can't fix these errors. The upload has completed with errors. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
+You can't fix these errors. The upload has completed with errors. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
 
-When you confirm that you're ready to proceed, the data will be secure erased from the device. For more information, see [Verify data upload to Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8).
+After you review the errors and confirm that you're ready to proceed, the data will be secure erased from the device. If you don't respond to the notification, the order is completed automatically after 14 days.
 
-If you don't respond, the order is completed automatically after 14 days. By acting on the notification, you can move things along more quickly.
 
-## Non-retryable upload errors
+## Review non-retryable errors
+
+[!INCLUDE [data-box-review-nonretryable-errors](../../includes/data-box-review-nonretryable-errors.md)]
+
+
+## Summary of non-retryable upload errors
 
 The following non-retryable errors result in a pause in an upload and a notification:
 
@@ -48,6 +52,8 @@ The following non-retryable errors result in a pause in an upload and a notifica
 <!--Temporarily removed from table: Bad Request (file property failure for Azure Files)-->
 
 For more information about the data log's contents, see [Tracking and event logging for your Azure Data Box and Azure Data Box Heavy import order](data-box-logs.md).
+
+For information about REST API errors, see [Common REST API error codes](/rest/api/storageservices/common-rest-api-error-codes).
 
 > [!NOTE]
 > The **Follow-up** sections in the error descriptions describe how to update your data configuration before you place a new import order or perform a network transfer. You can't fix these errors in the current upload. The upload will complete with errors.
@@ -146,4 +152,5 @@ For more information about the data log's contents, see [Tracking and event logg
 
 ## Next steps
 
+- Review [common REST API errors](/rest/api/storageservices/common-rest-api-error-codes).
 - [Verify a data upload to Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8)

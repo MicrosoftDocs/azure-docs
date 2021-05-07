@@ -19,8 +19,9 @@ You can't fix these errors. The upload has completed with errors. The notificati
 
 When you confirm that you've reviewed the errors and are ready to proceed, the data will be secure erased from the device. The order is completed automatically after 14 days. By acting on the notification, you can move things along more quickly.
 
+[!INCLUDE [data-box-review-nonretryable-errors](data-box-review-nonretryable-errors.md)]
 
-To review non-retryable errors and proceed with your order, do the following:
+<!--To review non-retryable errors and proceed with your order, do the following:
 
 1. Open your order in the Azure portal.  
 
@@ -47,7 +48,7 @@ To review non-retryable errors and proceed with your order, do the following:
    ![Status display for a Data Box import order that completed with errors](media/data-box-verify-upload-return/copy-errors-in-upload-04.png)
 
    If you don't take any action, the order completes automatically after 14 days.
-
+-->
 
 ### Verify data in completed upload
 
