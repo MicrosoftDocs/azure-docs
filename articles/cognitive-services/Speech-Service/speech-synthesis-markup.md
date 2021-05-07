@@ -201,7 +201,7 @@ Currently, speaking style adjustments are supported for the following neural voi
 * `zh-CN-XiaohanNeural` 
 * `zh-CN-XiaomoNeural` 
 * `zh-CN-XiaoxuanNeural` 
-* `zh-CN-XiaoruiNeural` 
+* `zh-CN-XiaoruiNeural`
 
 The intensity of speaking style can be further changed to better fit your use case. You can specify a stronger or softer style with `styledegree` to make the speech more expressive or subdued. Currently, speaking style adjustments are supported for Chinese (Mandarin, Simplified) neural voices.
 
