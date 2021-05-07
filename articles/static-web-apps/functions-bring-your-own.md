@@ -62,16 +62,23 @@ You're responsible for setting up a [deployment workflow](../azure-functions/fun
 
 ## Security constraints
 
-If authentication and authorization policies aren't already set up on your existing Functions app, then the static web app has exclusive access to the API. To make your Functions app accessible to other applications, add another identity provider or change the security settings to allow unauthenticated access.
+- **Authentication and authorization:** If authentication and authorization policies aren't already set up on your existing Functions app, then the static web app has exclusive access to the API. To make your Functions app accessible to other applications, add another identity provider or change the security settings to allow unauthenticated access.
 
-> [!NOTE]
-> If you enable authentication and authorization in your linked Functions app, it must use Azure App Service Authentication and authorization provider is version 2.
+  > [!NOTE]
+  > If you enable authentication and authorization in your linked Functions app, it must use Azure App Service Authentication and authorization provider is version 2.
+
+- **Required public accessibility:** The Functions app must be publicly accessible. Therefore, you must use an existing Functions app that does not use the following security configurations.
+  - Restriction the IP address of the Functions app.
+  - Restricting traffic through private link or service endpoints.
+
+- **Function access keys:** If your function requires an [access key](./azure-functions/security-concepts.md#function-access-keys), then you must provide the key with calls from the static app to the API.
 
 ## Restrictions
 
 - Only one Azure Functions app is available to a single static web app.
 - The `api_location` value in the [workflow configuration](./github-actions-workflow.md) must be blank.
 - Only supported in the Static Web Apps production environment.
+- While your Azure Functions app may respond to a variety of triggers, the Static Web App can only access functions via Http endpoints.
 
 ## Next steps
 
