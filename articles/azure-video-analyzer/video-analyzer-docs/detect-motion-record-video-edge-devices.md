@@ -200,8 +200,8 @@ To play the MP4 clip:
 
 1. Go to your resource group, find the VM, and then connect to the VM.
 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/detect-motion-record-video-edge-devices/sample-iot-edge-device.png" alt-text= "Edge device":::
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/detect-motion-record-video-edge-devices/sample-iot-edge-device.png" alt-text= "Edge device":::
 
 1. Sign in by using the credentials that were generated when you set up your Azure resources.
 1. At the command prompt, go to the relevant directory. The default location is /var/media. You should see the MP4 files in the directory.
