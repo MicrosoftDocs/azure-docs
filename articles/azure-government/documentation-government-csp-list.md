@@ -17,6 +17,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 
 |Partner Name|
 |----------------------------|
+|[Dynamics Square](https://www.dynamicssquare.com/)|
 |[10th Magnitude](https://www.10thmagnitude.com)|
 |[12:34 MicroTechnolgies Inc.](https://www.1234micro.com/)|
 |[1901 Group, LLC](https://1901group.com)|
