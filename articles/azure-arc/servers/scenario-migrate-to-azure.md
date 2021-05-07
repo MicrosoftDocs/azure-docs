@@ -15,7 +15,7 @@ In this article, you:
 
 * Inventory Azure Arc enabled servers supported VM extensions installed.
 * Uninstall all VM extensions from the Arc enabled server.
-* Identify Azure services configured to authenticate with your Arc enabled server managed identity and prepare to update those services to use the Azure VM identity after migration.
+* Identify Azure services configured to authenticate with your Arc enabled server-managed identity and prepare to update those services to use the Azure VM identity after migration.
 * Review Azure role-based access control (Azure RBAC) access rights granted to the Arc enabled server resource to maintain who has access to the resource after it has been migrated to an Azure VM. 
 * Delete the Arc enabled server resource identity from Azure and remove the Arc enabled server agent.
 * Install the Azure guest agent.
@@ -33,7 +33,7 @@ After identifying which VM extensions are deployed, you can remove them using th
 
 ## Step 2: Review access rights 
 
-List role assignments for the Arc enabled servers resource, using [Azure PowerShell](../../role-based-access-control/role-assignments-list-powershell.md#list-role-assignments-for-a-resource) and with additional PowerShell code, you can export the results to CSV or another format. 
+List role assignments for the Arc enabled servers resource, using [Azure PowerShell](../../role-based-access-control/role-assignments-list-powershell.md#list-role-assignments-for-a-resource) and with other PowerShell code, you can export the results to CSV or another format. 
 
 If you're using a managed identity for an application or process running on an Arc enabled server, you need to make sure the Azure VM has a managed identity assigned. To view the role assignment for a managed identity, you can use the Azure PowerShell `Get-AzADServicePrincipal` cmdlet. For more information, see [List role assignments for a managed identity](../../role-based-access-control/role-assignments-list-powershell.md#list-role-assignments-for-a-managed-identity). 
 
@@ -65,7 +65,7 @@ Before proceeding with the migration with Azure Migration, review the [Prepare o
 
 After migration and completion of all post-migration configuration steps, you can now deploy the Azure VM extensions based on the VM extensions originally installed on your Arc enabled server. Review [Azure virtual machine extensions and features](../../virtual-machines/extensions/overview.md) to help plan your extension deployment. 
 
-To resume using audit settings inside a machine with Azure Policy Guest Configuration policy definitions , see [Enable Guest Configuration](../../governance/policy/concepts/guest-configuration.md#enable-guest-configuration).
+To resume using audit settings inside a machine with Azure Policy Guest Configuration policy definitions, see [Enable Guest Configuration](../../governance/policy/concepts/guest-configuration.md#enable-guest-configuration).
 
 If the Log Analytics VM extension or Dependency agent VM extension was deployed using Azure Policy and the [VM insights initiative](../../azure-monitor/vm/vminsights-enable-policy.md), remove the [exclusion](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion) you created earlier. To use Azure Policy to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](../../azure-monitor/deploy-scale.md#vm-insights). 
 
