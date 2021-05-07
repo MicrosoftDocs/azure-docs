@@ -5,7 +5,7 @@ summary: Learn how to use Event Grid on Kubernetes to react to relevant events g
 
 metadata:
   title: Event Grid on Kubernetes documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Learn how to use Event Grid on Kubernetes to react to relevant events generated on on Kubernetes clusters connected to Azure Arc in near-real time fashion. # Required; article description that is displayed in search results. < 160 chars.
+  description: Learn how to use Event Grid on Kubernetes to react to relevant events generated on Kubernetes clusters connected to Azure Arc in near-real time fashion. # Required; article description that is displayed in search results. < 160 chars.
   services: event-grid
   ms.service: event-grid #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: 
