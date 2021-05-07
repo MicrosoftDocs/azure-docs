@@ -1,6 +1,6 @@
 ---
-title: Create and use external tables in serverless SQL pool
-description: In this section, you'll learn how to create and use external tables in serverless SQL pool.
+title: Create and use external tables in Synapse SQL pool
+description: In this section, you'll learn how to create and use external tables in Synapse SQL pool.
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -11,15 +11,21 @@ ms.author: vvasic
 ms.reviewer: jrasnick 
 ---
 
-# Create and use external tables using serverless SQL pool in Azure Synapse Analytics
+# Create and use native external tables using SQL pools in Azure Synapse Analytics
 
-In this section, you'll learn how to create and use [external tables](develop-tables-external-tables.md) in serverless SQL pool. External tables are useful when you want to control access to external data in serverless SQL pool and if you want to use tools, such as Power BI, in conjunction with serverless SQL pool. External tables can access two types of storage:
+In this section, you'll learn how to create and use [native external tables](develop-tables-external-tables.md) in Synapse SQL pools. The native external tables have better performance compared to the existing external tables with `TYPE=HADOOP` in their external data source definition because they are using the native code to access external data. 
+
+External tables are useful when you want to control access to external data in Synapse SQL pool and if you want to use tools, such as Power BI, in conjunction with Synapse SQL pool. External tables can access two types of storage:
 - Public storage where users access public storage files.
 - Protected storage where users access storage files using SAS credential, Azure AD identity, or Managed Identity of Synapse workspace.
 
+> [!NOTE]
+>  In the dedicated SQL pools you can use only Parquet native external tables. The native Parquet external tables are in public preview in the dedicated pools. If you want to use generally available functionality in the dedicated pools, or you need to access CSV or ORC files use Hadoop external tables. Native external tables are generaly available in the serverless SQL pools.
+> Learn more about the differences between the native and Hadoop external tables in [this article](develop-tables-external-tables.md).
+
 ## Prerequisites
 
-Your first step is to create a database where the tables will be created. Then initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. This setup script will create the following objects that are used in this sample:
+Your first step is to create a database where the tables will be created. Then create the following objects that are used in this sample:
 - DATABASE SCOPED CREDENTIAL `sqlondemand` that enables access to SAS-protected `https://sqlondemandstorage.blob.core.windows.net` Azure storage account.
 
     ```sql
@@ -28,7 +34,7 @@ Your first step is to create a database where the tables will be created. Then i
     SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
     ```
 
-- EXTERNAL DATA SOURCE `sqlondemanddemo` that references demo storage account protected with SAS key, and EXTERNAL DATA SOURCE `YellowTaxi` that references publicly available Azure storage account on location `https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/`.
+- EXTERNAL DATA SOURCE `sqlondemanddemo` that references demo storage account protected with SAS key, and EXTERNAL DATA SOURCE `nyctlc` that references publicly available Azure storage account on location `https://azureopendatastorage.blob.core.windows.net/nyctlc/`.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
@@ -36,8 +42,8 @@ Your first step is to create a database where the tables will be created. Then i
         CREDENTIAL = sqlondemand
     );
     GO
-    CREATE EXTERNAL DATA SOURCE YellowTaxi
-    WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/')
+    CREATE EXTERNAL DATA SOURCE nyctlc
+    WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/')
     ```
 
 - File formats `QuotedCSVWithHeaderFormat` and `ParquetFormat` that describe CSV and parquet file types.
@@ -82,9 +88,11 @@ WITH (
 );
 ```
 
+Native CSV tables are currently available only in the serverless SQL pools.
+
 ## Create an external table on public data
 
-You can create external tables that read data from the files placed on publicly available Azure storage. This [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) will create public external data source and Parquet file format definition that is used in the following query:
+You can create external tables that read data from the files placed on publicly available Azure storage:
 
 ```sql
 CREATE EXTERNAL TABLE Taxi (
@@ -98,11 +106,12 @@ CREATE EXTERNAL TABLE Taxi (
      tolls_amount FLOAT,
      total_amount FLOAT
 ) WITH (
-         LOCATION = 'puYear=*/puMonth=*/*.parquet',
-         DATA_SOURCE = YellowTaxi,
+         LOCATION = 'yellow/puYear=*/puMonth=*/*.parquet',
+         DATA_SOURCE = nyctlc,
          FILE_FORMAT = ParquetFormat
 );
 ```
+
 ## Use an external table
 
 You can use [external tables](develop-tables-external-tables.md) in your queries the same way you use them in SQL Server queries.
@@ -124,6 +133,8 @@ WHERE
 ORDER BY
     [population] DESC;
 ```
+
+Note that the performance of this query might vary depending on the region. Your workspace might not be placed in the same region as the Azure storage accounts used in these samples. In the production workloads place your Synapse workspace and Azure storage in the same region.
 
 ## Next steps
 
