@@ -44,7 +44,7 @@ The following example shows a Conditional Access technical profile that is used 
 </TechnicalProfile>
 ```
 
-To ensure that Identity Protection is functioning properly, call `ConditionalAccessEvaluation` technical profile for all type of users, [local and social accounts](technical-overview.md#consumer-accounts). Failure to do so, may result in  Identity Protection not working correct or have an incorrect degree of risk associated with users.
+To ensure that Identity Protection signals are evaluated properly, you'll want to call the `ConditionalAccessEvaluation` technical profile for all users, including both [local and social accounts](technical-overview.md#consumer-accounts). Otherwise, Identity Protection will indicate an incorrect degree of risk associated with users.
 
 ::: zone-end
 
@@ -53,9 +53,9 @@ In the *Remediation* phase that follows, the user is challenged with MFA. Once c
 The remediation may also happen through other channels. For example, when the account's password is reset, either by the administrator or by the user. You can check the the user *Risk state* in the [risky users report](identity-protection-investigate-risk.md#navigating-the-risky-users-report).
 
 > [!IMPORTANT]
-> To remediate the risk successfully within the journey, make sure the *Remediation* technical profile is called after *Evaluation* is executed. If only the *Evaluation* technical profile invoked without the Remediation, the risk state will be *At risk*.
+> To remediate the risk successfully within the journey, make sure the *Remediation* technical profile is called after the *Evaluation* technical profile is executed. If  *Evaluation* is invoked without *Remediation*, the risk state will be *At risk*.
 
-When the *Evaluation* technical profile recommendation returns `Block`, the call to *Evaluation* technical profile is not required. The risk state is set will be *At risk*.
+When the *Evaluation* technical profile recommendation returns `Block`, the call to the *Evaluation* technical profile is not required. The risk state is set to *At risk*.
 
 ::: zone pivot="b2c-custom-policy"
 
@@ -168,7 +168,7 @@ A sign-in risk represents the probability that a given authentication request is
 
 If risk is detected, users can perform multi-factor authentication to self-remediate and close the risky sign-in event to prevent unnecessary noise for administrators.
 
-Configure Conditional Access through Azure Portal or Microsoft Graph APIs to enable a sign-in risk-based Conditional Access policy requiring multi-factor authentication (MFA) when sign-in risk is medium OR high.
+Configure Conditional Access through the Azure portal or Microsoft Graph APIs to enable a sign-in risk-based Conditional Access policy requiring MFA when the sign-in risk is *medium* or *high*.
 
 ### Enable with Conditional Access policy
 
@@ -188,9 +188,9 @@ Configure Conditional Access through Azure Portal or Microsoft Graph APIs to ena
 9. Confirm your settings and set **Enable policy** to **On**.
 10. Select **Create** to create to enable your policy.
 
-### Enable with Conditional Access APIs (Optional)
+### Enable with Conditional Access APIs (optional)
 
-To create a Sign-in risk-based Conditional Access policy with MS Graph APIs. For more information, see [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api).
+Create a sign-in risk-based Conditional Access policy with MS Graph APIs. For more information, see [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api).
 
 The following template can be used to create a Conditional Access policy with display name "Template 1: Require MFA for medium+ sign-in risk" in report-only mode.
 
@@ -227,9 +227,9 @@ The following template can be used to create a Conditional Access policy with di
 
 ## Add Conditional Access to a user flow
 
-After you've added the Azure AD Conditional Access policy, enable conditional access in your user flow or custom policy. When you enable conditional access, you don't need to specify a policy name.
+After you've added the Azure AD Conditional Access policy, enable Conditional Access in your user flow or custom policy. When you enable Conditional Access, you don't need to specify a policy name.
 
-Multiple Conditional Access policies may apply to an individual user at any time. In this case, the most strict access control policy takes precedence. For example, if one policy requires multi-factor authentication (MFA), while the other blocks access, the user will be blocked.
+Multiple Conditional Access policies may apply to an individual user at any time. In this case, the most strict access control policy takes precedence. For example, if one policy requires MFA while the other blocks access, the user will be blocked.
 
 ## Enable multi-factor authentication (optional)
 
@@ -274,9 +274,9 @@ To enable Conditional Access for a user flow, make sure the version supports Con
  
 ### Configure claim other than phone number to be used for MFA
 
-In the conditional access policy above, the `DoesClaimExist` claim transformation method checks if a claim contains any value. For example, if `strongAuthenticationPhoneNumber` claim contains a phone number. 
+In the Conditional Access policy above, the `DoesClaimExist` claim transformation method checks if a claim contains a value, for example if the `strongAuthenticationPhoneNumber` claim contains a phone number. 
 
-The claims transformation isn't limited to `strongAuthenticationPhoneNumber` claim. Depending on the scenario, you can use any other claim. In the following XML snippet, the `strongAuthenticationEmailAddress` is checked instead. The claim you choose must have a valid value, otherwise the `IsMfaRegistered` claim will be set to `False`. When set to `False`, the Conditional Access policy evaluation returns `Block` grant type. Preventing the user to complete the user flow.
+The claims transformation isn't limited to the `strongAuthenticationPhoneNumber` claim. Depending on the scenario, you can use any other claim. In the following XML snippet, the `strongAuthenticationEmailAddress` claim is checked instead. The claim you choose must have a valid value, otherwise the `IsMfaRegistered` claim will be set to `False`. When set to `False`, the Conditional Access policy evaluation returns a `Block` grant type, preventing the user from completing user flow.
 
 ```XML
  <ClaimsTransformation Id="IsMfaRegisteredCT" TransformationMethod="DoesClaimExist">
