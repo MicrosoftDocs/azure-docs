@@ -87,7 +87,7 @@ You're responsible for setting up a [deployment workflow](../azure-functions/fun
   - Restriction the IP address of the Functions app.
   - Restricting traffic through private link or service endpoints.
 
-- **Function access keys:** If your function requires an [access key](./azure-functions/security-concepts.md#function-access-keys), then you must provide the key with calls from the static app to the API.
+- **Function access keys:** If your function requires an [access key](../azure-functions/security-concepts.md#function-access-keys), then you must provide the key with calls from the static app to the API.
 
 ## Restrictions
 
