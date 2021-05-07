@@ -66,7 +66,7 @@ As customers scenario grow more mature and diverse, we have identified some limi
 
 Starting from May 15 2021, HDInsight will only support schedule-based Autoscale for Interactive Query workload. New Interactive Query clusters can’t enable load-based Autoscale. Existing running clusters can continue to run under above limitations. 
 
-We recommend customers to move to schedule-based Autoscale for LLAP.  Customers can analyze their current usage pattern through Grafana Hive dashboard. More details are [here](https://docs.microsoft.com/azure/hdinsight/hdinsight-autoscale-clusters). 
+Microsoft recommends that you move to a schedule-based Autoscale for LLAP.  You can analyze your cluster's current usage pattern through the Grafana Hive dashboard. For more information, see [Automatically scale Azure HDInsight clusters](hdinsight-autoscale-clusters.md). 
 
 ### OS version upgrade
 HDInsight clusters are currently running on Ubuntu 16.04 LTS. As referenced in [Ubuntu’s release cycle](https://ubuntu.com/about/release-cycle), the Ubuntu 16.04 kernel will reach End of Life (EOL) in April 2021. We’ll start rolling out the new HDInsight 4.0 cluster image running on Ubuntu 18.04 in May 2021. Newly created HDInsight 4.0 clusters will run on Ubuntu 18.04 by default once available. Existing clusters on Ubuntu 16.04 will run as is with full support.
