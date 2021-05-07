@@ -10,18 +10,24 @@ ms.date: 05/25/2021
 
 # Deploy an Azure API Management gateway on Azure Arc (preview)
 
-With the integration between Azure API Management (APIM) and Azure Arc on Kubernetes, you can deploy the API Management gateway component as an extension in an Azure Arc enabled Kubernetes cluster. 
+With the integration between Azure API Management and Azure Arc on Kubernetes, you can deploy the API Management gateway component as an extension in an Azure Arc enabled Kubernetes cluster. 
+
+Deploying the API Management gateway on an Arc-enabled Kubernetes cluster expands API Management support for hybrid and multi-cloud environments. Enable the deployment using a cluster extension to make managing and applying policies to your Arc-enabled cluster a consistent experience.
 
 [!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-azure-arc.md)]
+
+> [!NOTE]
+> You can also deploy a self-hosted gateway to a [Kubernetes cluster](./how-to-deploy-self-hosted-gateway-kubernetes.md) or an [Azure Kubernetes Service cluster](./how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md).
 
 ## Prerequisites
 
 * [Connect your Kubernetes cluster](../azure-arc/kubernetes/quickstart-connect-cluster.md). 
-* [Create an Azure APIM instance](./get-started-create-service-instance.md).
-* [Provision a gateway resource in your Azure APIM instance](./api-management-howto-provision-self-hosted-gateway.md).
+* [Create an Azure API Management instance](./get-started-create-service-instance.md).
+* [Provision a gateway resource in your Azure API Management instance](./api-management-howto-provision-self-hosted-gateway.md).
 
-## Deploy the API management gateway extension
-1. In the Azure portal, navigate to your APIM instance.
+## Deploy the API Management gateway extension using Azure CLI
+
+1. In the Azure portal, navigate to your API Management instance.
 1. Select **Gateways** from the side navigation menu.
 1. Select and open your provisioned gateway resource from the list.
 1. In your provisioned gateway resource, click **Deployment** from the side navigation menu.
@@ -30,15 +36,34 @@ With the integration between Azure API Management (APIM) and Azure Arc on Kubern
     * The following example uses the `service.Type='NodePort'` extension configuration. See more [available extension configurations](#available-extension-configurations).
 
     ```azurecli
-    az k8s-extension create --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <rg-name> --name <extension-name> --extension-type Microsoft.ApiManagement.Gateway --scope cluster --release-namespace {namespace} --configuration-settings gateway.endpoint='{Configuration URL}' --configuration-settings gateway.authKey='{token}' --configuration-settings service.type='NodePort' --release-train preview
+    az k8s-extension create --cluster-type connectedClusters --cluster-name <cluster-name> 
+    --resource-group <rg-name> --name <extension-name> --extension-type Microsoft.ApiManagement.Gateway 
+    --namespace cluster --release-namespace {namespace} --configuration-settings gateway.endpoint='{Configuration URL}' 
+    --configuration-settings gateway.authKey='{token}' 
+    --configuration-settings service.type='NodePort' --release-train preview
     ```
 1. Verify deployment status using the following CLI command:
     ```azurecli
     az k8s-extension show --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <rg-name> --name <extension-name>
     ```
 1. Navigate back to the **Gateways** list to verify the gateway status shows a green check mark with a node count. This status means the deployed self-hosted gateway pods:
-    * Are successfully communicating with the APIM service.
+    * Are successfully communicating with the API Management service.
     * Have a regular "heartbeat".
+
+## Deploy the API Management gateway extension using Azure portal
+
+1. In the Azure portal, navigate to your Azure Arc connected cluster.
+1. In the left menu, select Extensions (preview) > + Add > API Management Gateway (preview).
+1. Select Create.
+1. In the Install API Management Gateway window, configure the gateway extension:
+    * Select the subscription and resource group for your API Management instance.
+    * In Gateway details, select the API Management instance and Gateway name. Enter a Namespace scope for your extension and optionally a number of Replicas, if supported in your API Management service tier.
+    * In Kubernetes configuration, select the default configuration or a different configuration for your cluster. For options, see available extension configurations.
+
+    :::image type="content" source="./media/how-to-deploy-self-hosted-gateway-azure-arc/deploy-gateway-extension-azure-arc.png" alt-text="Screenshot of deploying the extension in Azure portal":::
+
+1. On the Monitoring tab, optionally enable monitoring to upload metrics tracking requests to the gateway and backend. If enabled, select an existing Log Analytics workspace.
+1. Select Review + install and then Install.
 
 ## Available extension configurations
 
@@ -51,6 +76,7 @@ The following extension configurations are **required**.
 | `service.Type` | Kubernetes service configuration for the gateway: `LoadBalancer`, `NodePort`, or `ClusterIP`. Example above uses `NodePort`. |
 
 ## Next Steps
-* To learn more about the self-hosted gateway, see [Azure APIM self-hosted gateway overview](self-hosted-gateway-overview.md).
+
+* To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md).
 * Discover all [Azure Arc enabled Kubernetes extensions](../azure-arc/kubernetes/extensions.md). 
 * Learn more about [Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md).
