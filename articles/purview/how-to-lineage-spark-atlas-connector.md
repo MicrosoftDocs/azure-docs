@@ -16,15 +16,15 @@ Apache Atlas Spark Connector is a hook to track Spark SQL/DataFrame data movemen
 
 This connector supports following tracking:
 1.	SQL DDLs like "CREATE/ALTER DATABASE", "CREATE/ALTER TABLE".
-2.	SQL DMLs like "CREATE TABLE tbl AS SELECT", "INSERT INTO...", "LOAD DATA [LOCAL] INPATH", "INSERT OVERWRITE [LOCAL] DIRECTORY" and so on.
-3.	DataFrame movements which has inputs and outputs.
+2.	SQL DMLs like "CREATE TABLE HelloWorld AS SELECT", "INSERT INTO...", "LOAD DATA [LOCAL] INPATH", "INSERT OVERWRITE [LOCAL] DIRECTORY" and so on.
+3.	DataFrame movements that have inputs and outputs.
 
 This connector relies on query listener to retrieve query and examine the impacts. It will correlate with other systems like Hive, HDFS to track the life cycle of data in Atlas.
 Since Purview supports Atlas API and Atlas native hook, the connector can report lineage to Purview  after configured with Spark. The connector could be configured per job or configured as the cluster default setting. 
 
 ## Configuration requirement
 
-The connector require a version of Spark 2.4.0+, but Spark 3 is not supported. The Spark supports three types of listener required to be set:  
+The connectors require a version of Spark 2.4.0+. But Spark version 3 is not supported. The Spark supports three types of listener required to be set:  
 
 | Listener | 	Since Spark Version|
 | ------------------- | ------------------- | 
@@ -56,6 +56,7 @@ The following steps are documented based on DataBricks as an example:
 2. Prepare Connector config
     1. Get Kafka Endpoint and credential in Azure portal of the Purview Account
         1. Provide your account with *“Purview Data Curator”* permission 
+
         :::image type="content" source="./media/how-to-lineage-spark-atlas-connector/assign-purview-data-curator-role.png" alt-text="Screenshot showing data curator role assignment" lightbox="./media/how-to-lineage-spark-atlas-connector/assign-purview-data-curator-role.png":::
 
         1. Endpoint: Get from *Atlas Kafka endpoint primary connection string*. Endpoint part
@@ -73,18 +74,18 @@ The following steps are documented based on DataBricks as an example:
     atlas.kafka.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="<connection string got from your Purview account>";
     ```
     
-    c.	Make sure the atlas configuration file is in the Driver’s classpath  generated in [step 1 Generate package section above](../purview/how-to-lineage-spark-atlas-connector.md###step-1.-prepare-spark-atlas-connector-package). In cluster mode, please ship this config file to the remote Drive using *--files atlas-application.properties*
+    c.	Make sure the atlas configuration file is in the Driver’s classpath  generated in [step 1 Generate package section above](../purview/how-to-lineage-spark-atlas-connector.md###step-1.-prepare-spark-atlas-connector-package). In cluster mode, ship this config file to the remote Drive *--files atlas-application.properties*
 
 
 ### Step 2. Prepare your Purview account
-Once the Atlas Spark model definition is successfully created follow below steps
-1. Get spark type definition from Github https://github.com/apache/atlas/blob/release-2.1.0-rc3/addons/models/1000-Hadoop/1100-spark_model.json
+After the Atlas Spark model definition is successfully created, follow below steps
+1. Get spark type definition from GitHub https://github.com/apache/atlas/blob/release-2.1.0-rc3/addons/models/1000-Hadoop/1100-spark_model.json
 
 2. Assign role:
     1. Open Purview management center and choose Assign roles
     1. Add Users and grant your service principal *Purview Data source administrator* role
 3. Get auth token:
-    1. Open postman or similar tools 
+    1. Open "postman" or similar tools 
     1. Use the service principal used in previous step to get the bearer token:
         * Endpoint: https://login.windows.net/microsoft.com/oauth2/token
         * grant_type: client_credentials
@@ -99,7 +100,7 @@ Once the Atlas Spark model definition is successfully created follow below steps
     1. Post Spark type definition into the Purview account:
        * Post: {{endpoint}}/api/atlas/v2/types/typedefs
        * Use the generated access token 
-       * Body: choose raw and copy all content from Github https://github.com/apache/atlas/blob/release-2.1.0-rc3/addons/models/1000-Hadoop/1100-spark_model.json
+       * Body: choose raw and copy all content from GitHub https://github.com/apache/atlas/blob/release-2.1.0-rc3/addons/models/1000-Hadoop/1100-spark_model.json
 
 :::image type="content" source="./media/how-to-lineage-spark-atlas-connector/postman-example-type-definition.png" alt-text="Screenshot showing postman example for type definition" lightbox="./media/how-to-lineage-spark-atlas-connector/postman-example-type-definition.png":::
 
@@ -120,7 +121,7 @@ To capture specific jobs’ lineage, use spark-submit to kick off a job with the
 
     In the job parameter set:
 * Path of the connector Jar file. 
-* Three listeners: extraListeners, queryExecutionListeners,streamingQueryListeners as the connector. 
+* Three listeners: extraListeners, queryExecutionListeners, streamingQueryListeners as the connector. 
 
 | Listener | |
 | ------------------- | ------------------- | 
@@ -130,7 +131,7 @@ To capture specific jobs’ lineage, use spark-submit to kick off a job with the
 
 * The path of your Spark job application Jar file.
 
-Setup Databricks job: Key part is to use spark-submit to run a job with listeners setup properly. The listener info needs to be set in task parameter.   
+Setup Databricks job: Key part is to use spark-submit to run a job with listeners setup properly. Set the listener info in task parameter.   
 
 Below is an example parameter for the spark job.
 
@@ -157,7 +158,7 @@ Kick off The Spark job and check the lineage info in your Purview account.
 :::image type="content" source="./media/how-to-lineage-spark-atlas-connector/purview-with-spark-lineage.png" alt-text="Screenshot showing purview with spark lineage" lightbox="./media/how-to-lineage-spark-atlas-connector/purview-with-spark-lineage.png":::
 
 ## Known limitations with the connector for Spark lineage:
-1. Supports SQL/DataFrame API (in other words, it does not support RDD).This connector relies on query listener to retrieve query and examine the impacts.
+1. Supports SQL/DataFrame API (in other words, it does not support RDD). This connector relies on query listener to retrieve query and examine the impacts.
     
 2. All "inputs" and "outputs" from multiple queries are combined into single "spark_process" entity.
     
