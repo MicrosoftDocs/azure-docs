@@ -200,20 +200,9 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | English (United Kingdom) | `en-GB` | Female | `en-GB-LibbyNeural` | General |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-MiaNeural` | General |
 | English (United Kingdom) | `en-GB` | Male | `en-GB-RyanNeural` | General |
-| English (United States) | `en-US` | Female | `en-US-AmberNeural` <sup>New</sup> | General |
 | English (United States) | `en-US` | Female | `en-US-AriaNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| English (United States) | `en-US` | Female | `en-US-AshleyNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Female | `en-US-CoraNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Female | `en-US-ElizabethNeural` <sup>New</sup> | General |
 | English (United States) | `en-US` | Female | `en-US-JennyNeural` | General |
-| English (United States) | `en-US` | Female | `en-US-MichelleNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Female | `en-US-MonicaNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Kid | `en-US-AnaNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Male | `en-US-BrandonNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Male | `en-US-ChristopherNeural` <sup>New</sup> | General |
 | English (United States) | `en-US` | Male | `en-US-GuyNeural` | General |
-| English (United States) | `en-US` | Male | `en-US-JacobNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Male | `en-US-EricNeural` <sup>New</sup> | General |
 | Estonian (Estonia) | `et-EE` | Female | `et-EE-AnuNeural` | General |
 | Estonian (Estonia) | `et-EE` | Male | `et-EE-KertNeural` | General |
 | Finnish (Finland) | `fi-FI` | Female | `fi-FI-NooraNeural` | General |
@@ -329,6 +318,17 @@ Below neural voices are in public preview.
 | Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoruiNeural` | Senior voice, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoxuanNeural` | General, multiple role-play and styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Male   | `zh-CN-YunxiNeural` | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` | Female | `en-US-AmberNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Female | `en-US-AshleyNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Female | `en-US-CoraNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Female | `en-US-ElizabethNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Female | `en-US-MichelleNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Female | `en-US-MonicaNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Kid | `en-US-AnaNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Male | `en-US-BrandonNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Male | `en-US-ChristopherNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Male | `en-US-JacobNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Male | `en-US-EricNeural` <sup>New</sup> | General |
 
 > [!IMPORTANT]
 > Voices in public preview are only available in 3 service regions: East US, West Europe and Southeast Asia.
