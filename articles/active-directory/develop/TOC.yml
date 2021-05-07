@@ -82,6 +82,8 @@
     items:
     - name: Angular
       href: tutorial-v2-angular.md
+    - name: Angular - Auth code flow
+      href: tutorial-v2-angular-auth-code.md
     - name: Blazor WebAssembly
       href: tutorial-blazor-webassembly.md
     - name: JavaScript
@@ -601,6 +603,8 @@
       - name: OAuth 2.0 resource owner password credentials grant
         displayName: ROPC
         href: v2-oauth-ropc.md
+      - name: OAuth 2.0 SAML bearer assertion flow
+        href: v2-saml-bearer-assertion.md
       - name: Signing key rollover
         href: active-directory-signing-key-rollover.md
       - name: Token exchange scenarios
