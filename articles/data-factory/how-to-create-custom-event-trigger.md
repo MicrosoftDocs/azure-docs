@@ -6,16 +6,14 @@ author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 03/11/2021
+ms.date: 05/07/2021
 ---
 
 # Create a custom event trigger to run a pipeline in Azure Data Factory (Preview)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article describes custom event triggers you can create in your Data Factory pipelines.
-
-Event-driven architecture (EDA) is a common data integration pattern that involves production, detection, consumption, and reaction to events. Data integration scenarios often require Data Factory customers to trigger pipelines based on certain events happening. Data Factory native integration with [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) now covers [custom topics](../event-grid/custom-topics.md). You send events to an event grid topic. Data Factory subscribes to the topic, listens, and then triggers pipelines accordingly.
+Event-driven architecture (EDA) is a common data integration pattern that involves production, detection, consumption, and reaction to events. Data integration scenarios often require Data Factory customers to trigger pipelines when certain events occur. Data Factory native integration with [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) now covers [custom topics](../event-grid/custom-topics.md). You send events to an Event Grid topic. Data Factory subscribes to the topic, listens, and then triggers pipelines accordingly.
 
 > [!NOTE]
 > The integration described in this article depends on [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Make sure that your subscription is registered with the Event Grid resource provider. For more information, see [Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). You must be able to do the `Microsoft.EventGrid/eventSubscriptions/` action. This action is part of the [EventGrid EventSubscription Contributor](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-contributor) built-in role.
@@ -65,24 +63,28 @@ Data Factory expects events to follow the [Event Grid event schema](../event-gri
 
 1. Select **Custom events** as the **Type**.
 
-    :::image type="content" source="media/how-to-create-custom-event-trigger/custom-event-1-creation.png" alt-text="Screenshot of Author page to create a new custom event trigger in Data Factory UI." lightbox="media/how-to-create-custom-event-trigger/custom-event-1-creation-expanded.png":::
+   :::image type="content" source="media/how-to-create-custom-event-trigger/custom-event-1-creation.png" alt-text="Screenshot of Author page to create a new custom event trigger in Data Factory UI." lightbox="media/how-to-create-custom-event-trigger/custom-event-1-creation-expanded.png":::
 
 1. Select your custom topic from the Azure subscription dropdown or manually enter the event topic scope.
 
    > [!NOTE]
-   > To create a new or modify an existing custom event trigger in Data Factory, you need to use an Azure account with appropriate role based access control (Azure RBAC). No additional permission is required. The Data Factory service principle does *not* require special permission to your Event Grid. For more information about access control, see the [Role based access control](#role-based-access-control) section.
+   > To create or modify a custom event trigger in Data Factory, you need to use an Azure account with appropriate role-based access control (Azure RBAC). No additional permission is required. The Data Factory service principle does *not* require special permission to your Event Grid. For more information about access control, see the [Role-based access control](#role-based-access-control) section.
 
 1. The **Subject begins with** and **Subject ends with** properties allow you to filter for trigger events. Both properties are optional.
 
-1. Use **+ New** to add **Event Types** to filter on. The list of custom event triggers uses an OR relationship. When a custom event with an `eventType` property that matches one on the list, a pipeline run is triggered. The event type is case insensitive. For example, in See the following screenshot for an example. The trigger matches all `copycompleted` or `copysucceeded` events that have a subject starting with *factories*.
+1. Use **+ New** to add **Event Types** to filter on. The list of custom event triggers uses an OR relationship. When a custom event with an `eventType` property that matches one on the list, a pipeline run is triggered. The event type is case insensitive. For example, in the following screenshot, the trigger matches all `copycompleted` or `copysucceeded` events that have a subject that begins with *factories*.
 
-    :::image type="content" source="media/how-to-create-custom-event-trigger/custom-event-2-properties.png" alt-text="Screenshot of Edit Trigger page to explain Event Types and Subject filtering in Data Factory UI.":::
+   :::image type="content" source="media/how-to-create-custom-event-trigger/custom-event-2-properties.png" alt-text="Screenshot of Edit Trigger page to explain Event Types and Subject filtering in Data Factory UI.":::
 
-1. A custom event trigger can parse and send a custom `data` payload to your pipeline. First, create the pipeline parameters, and fill in the values on the **Parameters** page. Use the format `@triggerBody().event.data._keyName_` to parse the data payload and pass values to pipeline parameters. For a detailed explanation, see [Reference Trigger Metadata in Pipelines](how-to-use-trigger-parameterization.md) and [System Variables in Custom Event Trigger](control-flow-system-variables.md#custom-event-trigger-scope)
+1. A custom event trigger can parse and send a custom `data` payload to your pipeline. You create the pipeline parameters, and then fill in the values on the **Parameters** page. Use the format `@triggerBody().event.data._keyName_` to parse the data payload and pass values to the pipeline parameters.
+ 
+   For a detailed explanation, see the following articles:
+   - [Reference trigger metadata in pipelines](how-to-use-trigger-parameterization.md)
+   - [System variables in custom event trigger](control-flow-system-variables.md#custom-event-trigger-scope)
 
-    :::image type="content" source="media/how-to-create-custom-event-trigger/custom-event-4-trigger-values.png" alt-text="Screenshot of pipeline parameters settings.":::
+   :::image type="content" source="media/how-to-create-custom-event-trigger/custom-event-4-trigger-values.png" alt-text="Screenshot of pipeline parameters settings.":::
 
-    :::image type="content" source="media/how-to-create-custom-event-trigger/custom-event-3-parameters.png" alt-text="Screenshot of the parameters page to reference data payload in custom event.":::
+   :::image type="content" source="media/how-to-create-custom-event-trigger/custom-event-3-parameters.png" alt-text="Screenshot of the parameters page to reference data payload in custom event.":::
 
 1. After you've entered the parameters, select **OK**.
 
@@ -94,17 +96,17 @@ The following table provides an overview of the schema elements that are related
 |---|----------------------------|---|---|---|
 | `scope` | The Azure Resource Manager resource ID of the event grid topic. | String | Azure Resource Manager ID | Yes |
 | `events` | The type of events that cause this trigger to fire. | Array of strings    |  | Yes, at least one value is expected. |
-| `subjectBeginsWith` | Subject field must begin with the provided pattern for the trigger to fire. For example, `factories` only fires the trigger for event subject starting with `factories`. | String   | | No |
-| `subjectEndsWith` | Subject field must end with the provided pattern for the trigger to fire. | String   | | No |
+| `subjectBeginsWith` | The `subject` field must begin with the provided pattern for the trigger to fire. For example, *factories* only fires the trigger for event subjects that start with *factories*. | String   | | No |
+| `subjectEndsWith` | The `subject` field must end with the provided pattern for the trigger to fire. | String   | | No |
 
 ## Role-based access control
 
-Azure Data Factory uses Azure role-based access control (Azure RBAC) to prohibit unauthorized access to the following activities:
+Azure Data Factory uses Azure role-based access control (Azure RBAC) to prohibit unauthorized access. To function properly, Data Factory requires access to:
 - Listen to events
 - Subscribe to updates from events
 - Trigger pipelines linked to custom events
 
-To successfully create or update custom event trigger, you need to sign into Data Factory with an Azure account that has appropriate access. Otherwise, the operation will fail with an _Access Denied_ error.
+To successfully create or update custom event trigger, you need to sign in to Data Factory with an Azure account that has appropriate access. Otherwise, the operation will fail with an _Access Denied_ error.
 
 Data Factory doesn't require special permission to your Event Grid. You also do *not* need to assign special Azure RBAC permission to the Data Factory service principal for the operation.
 
@@ -113,4 +115,4 @@ Specifically, you need `Microsoft.EventGrid/EventSubscriptions/Write` permission
 ## Next steps
 
 * Get detailed information about [trigger execution](concepts-pipeline-execution-triggers.md#trigger-execution).
-* Learn how to [Reference Trigger Metadata in Pipeline Runs](how-to-use-trigger-parameterization.md).
+* Learn how to [reference trigger metadata in pipeline runs](how-to-use-trigger-parameterization.md).
