@@ -116,6 +116,7 @@ The status of items that appear in this tables will change over time as support 
 | [Append blobs](storage-blobs-introduction.md#blobs) | ✔️   |	⛔ | [Page blobs](storage-blobs-introduction.md#blobs) | ⛔ |	⛔ |
 | [Azure Active Directory (AD) security](../common/storage-auth-aad.md?toc=/azure/storage/blobs/toc.json) | ⛔ |	⛔ | [Encryption scopes](encryption-scope-overview.md)  |	⛔ |	⛔ |
 | [Object replication for block blobs](object-replication-overview.md) | ⛔  |	⛔ | [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json) | ⛔ |	⛔ |
+| [Blob storage events](storage-blob-event-overview.md)| ⛔ |	⛔ 
 
   
 ## Known issues
