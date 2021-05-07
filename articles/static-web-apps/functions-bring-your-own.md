@@ -42,7 +42,7 @@ https://my-functions-app.azurewebsites.net/api/getProducts
 Once linked, you can access that same endpoint through the `api` path from your static web app, as shown in this example URL.
 
 ```url
-https://red-sea-124.azurestaticapps.net/api/getProducts
+https://red-sea-123.azurestaticapps.net/api/getProducts
 ```
 
  Both endpoint URLs point to the same function.
@@ -94,7 +94,7 @@ You're responsible for setting up a [deployment workflow](../azure-functions/fun
 - Only one Azure Functions app is available to a single static web app.
 - The `api_location` value in the [workflow configuration](./github-actions-workflow.md) must be blank.
 - Only supported in the Static Web Apps production environment.
-- While your Azure Functions app may respond to various triggers, the Static Web App can only access functions via Http endpoints.
+- While your Azure Functions app may respond to various triggers, the static web app can only access functions via Http endpoints.
 
 ## Next steps
 
