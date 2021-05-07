@@ -116,11 +116,11 @@ Follow these steps to prepare the development environment for the DevKit:
 
 Now you are all set with preparing and configuring your development environment.
 
-## Prepare Azure Resources
+## Prepare Azure resources
 
 For this How-To, you will need to have an IoT Hub created and a device registered to use the hub. The following subsections show how to create the resources with the Azure CLI.  You can also do this within Visual Studio code. For more information on creating the hub and device within VS Code, see [Use Azure IoT Tools for VS Code](iot-hub-create-use-iot-toolkit.md).
 
-#### Create an IoT Hub
+#### Create an IoT hub
 
 If you haven't already created a IoT Hub, follow the steps in one of the How-to guides to create an IoT Hub.  For example, [Create an IoT Hub using Azure CLI](iot-hub-create-using-cli.md).
 
