@@ -7,7 +7,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.author: tyao
+ms.author: duau
 ms.custom: references_regions
 ---
 
