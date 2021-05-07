@@ -16,7 +16,6 @@ In this quickstart, you'll create a topic in Event Grid on Kubernetes, create a 
 1. [Connect your Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md)
 1. Deploy the Event Grid Kubernetes extension. 
 1. Create a custom location.
-1. Download and install [Azure Resource Manager client (armclient)](https://github.com/yangl900/armclient-go). This command-line tool will allow you to send request to Azure to create and manage resources.
 
 ## Create a topic
 
