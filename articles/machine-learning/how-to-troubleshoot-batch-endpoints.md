@@ -23,7 +23,7 @@ The following table contains common problems and solutions you may see during ba
 | Problem | Possible solution |
 |--|--|
 | Code configuration or Environment is missing. | Ensure you provide the scoring script and an environment definition if you're using a non-MLflow model. No-code deployment is supported for the MLflow model only. |
-| Failure to update model, code, environment, and compute for an existing batch endpoint. | Please create a new batch endpoint with a new name. Updating these assets for an existing batch endpoint isn't yet supported. |
+| Failure to update model, code, environment, and compute for an existing batch endpoint. | Create a new batch endpoint with a new name. Updating these assets for an existing batch endpoint isn't yet supported. |
 | The resource wasn't found. | Ensure you use `-t batch` in your CLI command. If this argument isn't specified, the default `online` type is used.|
 | Unsupported input data. | Batch endpoint accepts input data in three forms: 1) registered data 2) data in the cloud 3) data in local. Ensure you're using the right format. For more, see [Use batch endpoints (preview) for batch scoring](how-to-use-batch-endpoint.md)|
 
@@ -31,10 +31,10 @@ The following table contains common problems and solutions you may see during ba
 
 If you're using a non-MLflow model, you'll need to provide a scoring script. The scoring script must contain two functions:
 
-- `init()`: Use this function for any costly or common preparation for later inference. For example, use it to load the model into a global object. This function will be called only once at beginning of process.
--  `run(mini_batch)`: The function will run for each `mini_batch` instance.
-    -  `mini_batch`: Each entry in `mini_batch` will be a file path.
-    -  `response`: The `run()` method should return a pandas DataFrame or an array. These returned elements are appended to the common output file. Each returned output element indicates one successful run of input element in the input mini-batch. Make sure that enough data is included in run result to map input to run output result. Run output will be written in output file and isn't guaranteed to be in order, so you should use some key in the output to map it to the correct input.
+- `init()`: Use this function for any costly or common preparation for later inference. For example, use it to load the model into a global object. This function will be called once at the beginning of the process.
+-  `run(mini_batch)`: This function will run for each `mini_batch` instance.
+    -  `mini_batch`: The value for `mini_batch` will be a file path.
+    -  `response`: The `run()` method should return a pandas DataFrame or an array. These returned elements are appended to the common output file. Each returned output element indicates one successful run of an input element in the input mini-batch. Make sure that enough data is included in the run result to map a single input to the run output result. Run output will be written in the output file but isn't guaranteed to be in order, so you should use some key in the output to map it to the correct input.
 
 ```python
 %%writefile digit_identification.py
@@ -79,6 +79,7 @@ def run(mini_batch):
         inference_result = output.eval(feed_dict={in_tensor: np_im}, session=g_tf_sess)
         # find best probability, and add to result list
         best_result = np.argmax(inference_result)
+        # result has enough data to identify input with output
         resultList.append("{}: {}".format(os.path.basename(image), best_result))
 
     return resultList

@@ -51,6 +51,12 @@ If necessary, upgrade the Azure CLI:
 az upgrade
 ```
 
+Add the Azure ML extension:
+
+```azurecli
+az extension -add  ml
+```
+
 > [!IMPORTANT]
 > The `az upgrade` command was added in version tk. If you are below that version, you need to manually install a newer version.
 {>> 2021-05-05 sent q to teams ML Platform / CLI team <<}
@@ -69,7 +75,7 @@ Batch scoring runs only on cloud resources, not locally. The cloud resource is c
 
 Run the following code to create a CPU-enabled [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py&preserve-view=true) target. For more information about compute targets, see [What are compute targets in Azure Machine Learning?](./concept-compute-target.md).
 
-```
+```azurecli
 az ml compute create -n cpu-cluster --type AmlCompute --min-instances 0 --max-instances 5
 ```
 
@@ -77,7 +83,7 @@ az ml compute create -n cpu-cluster --type AmlCompute --min-instances 0 --max-in
 
 If you're using an MLflow model, you can use no-code batch endpoint creation. That is, you don't need to prepare a scoring script and environment, both can be auto generated.
 
-```
+```azurecli
 az ml endpoint create --type batch --file cli/endpoints/batch/create-batch-endpoint.yml
 ```
 
@@ -89,7 +95,7 @@ Below is the YAML file defining the MLFlow batch endpoint. To use a registered m
 
 After a batch endpoint is created, you can use `show` to check the details. Use the [`--query parameter`](https://docs.microsoft.com/cli/azure/query-azure-cli) to get only specific attributes from the returned data.
 
-```
+```azurecli
 az ml endpoint show -n mybatchedp -t batch
 ```
 
@@ -110,7 +116,7 @@ Use `--input-data` to pass in an AML registered data.
 
 {>> Q: According to Cody, "`FileDataset` is strictly a v1 Python SDK concept.:" Does this require explanation here? <<}
 
-```
+```azurecli
 az ml endpoint invoke --name mybatchedp --type batch --input-data azureml:<dataName>:<dataVersion>
 ```
 
@@ -118,7 +124,7 @@ Option 2: Data in the cloud
 
 Use `--input-datastore` to specify an AML registered datastore, and use `--input-path` to specify the relative path in the datastore.
 
-```
+```azurecli
 az ml endpoint invoke --name mybatchedp --type batch --input-datastore azureml:<datastoreName> --input-path <relativePath>
 ```
 
@@ -126,13 +132,13 @@ If your data is publicly available, use `--input-path` to specify the public pat
 
 If you're using the provided example, you can run the following command to start a batch scoring job.
 
-```
+```azurecli
 az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv
 ```
 
 Option 3: Data stored locally
 
-```
+```azurecli
 az ml endpoint invoke --name mybatchedp --type batch --input-local-path <localPath>
 ```
 
@@ -143,7 +149,7 @@ The batch scoring results are by default stored in the workspace's default blob 
 > [!IMPORTANT]
 > You must use a unique output location. If the output location exists, the batch scoring job will fail. 
 
-```
+```azurecli
 az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --output-datastore azureml:workspaceblobstore --output-path mypath
 ```
 
@@ -155,7 +161,7 @@ Some settings can be overwritten when you start a batch scoring job to make best
 * Use `--instance-count` to overwrite `instance_count` if different compute resource is needed for this job. 
 * Use `--set` to overwrite other settings including `max_retries`, `timeout`, and `error_threshold`.
 
-```
+```azurecli
 az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --set retry_settings.max_retries=1
 ```
 
@@ -167,19 +173,19 @@ You can also check job details along with status using CLI.
 
 Get the job name from the invoke response.
 
-```
+```azurecli
 job_name=`az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --query name -o tsv`
 ```
 
 Use `job show` to check details and status of a batch scoring job.
 
-```
+```azurecli
 az ml job show --name <job_name>
 ```
 
 Stream the job logs using `job stream`.
 
-```
+```azurecli
 az ml job stream --name <job_name>
 ```
 
@@ -206,10 +212,9 @@ One batch endpoint can have multiple deployments. Each deployment hosts one mode
 
 Use the following command to add a new deployment to an existing batch endpoint.
 
-```
+```azurecli
 az ml endpoint update --name mybatchedp --type batch --deployment mnist_deployment --deployment-file cli/endpoints/batch/add-deployment.yml
 ```
-{>> TODO: Confirm this command with final path <<}
 
 This sample uses a non-MLflow model. When using non-MLflow, you'll need to specify the environment and a scoring script in the YAML file:
 
@@ -223,13 +228,13 @@ In studio, you'll see that you now have two deployments: `mnist_deployment` and 
 
 For batch inference, you must send 100% of inquiries to the wanted deployment. To set your newly created deployment as the target, use:
 
-```
+```azurecli
 az ml endpoint update --name mybatchedp --type batch --traffic mnist_deployment:100
 ```
 
 Now you can invoke a batch scoring job with this new deployment:
 
-```
+```azurecli
 az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/mnist --mini-batch-size 10 --instance-count 2
 ```
 
@@ -239,13 +244,13 @@ Batch endpoints have scoring URIs for REST access. REST lets you use any HTTP li
 
 1. Get the `scoring_uri`:  
 
-```
+```azurecli
 az ml endpoint show --name mybatchedp --type batch --query scoring_uri
 ```
 
 1. Get the access token:
 
-```
+```azurecli
 az account get-access-token
 ```
 
