@@ -93,7 +93,7 @@ This is an example of the DETECTOR_NODE_CONFIG parameters for all Spatial Analys
 | `calibration_quality_check_one_round_sample_collect_num` | int | Minimum number of new data samples to collect per round of sample collection. Default is `10`. Only used when `enable_recalibration=True`.|
 | `calibration_quality_check_queue_max_size` | int | Maximum number of data samples to store when camera model is calibrated. Default is `1000`. Only used when `enable_recalibration=True`.|
 | `enable_breakpad`| bool | Indicates whether you want to enable breakpad, which is used to generate crash dump for debug use. It is `false` by default. If you set it to `true`, you also need to add `"CapAdd": ["SYS_PTRACE"]` in the `HostConfig` part of container `createOptions`. By default, the crash dump is uploaded to the [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter app, if you want the crash dumps to be uploaded to your own AppCenter app, you can override the environment variable `RTPT_APPCENTER_APP_SECRET` with your app's app secret.
-| `enable_orientation` | bool | Indicates whether you want to compute the orientation for the detected people or not . `enable_orientation` is set by default to False. |
+| `enable_orientation` | bool | Indicates whether you want to compute the orientation for the detected people or not. `enable_orientation` is set by default to False. |
 
 ## Spatial Analysis operations configuration and output
 ### Zone configuration for cognitiveservices.vision.spatialanalysis-personcount
