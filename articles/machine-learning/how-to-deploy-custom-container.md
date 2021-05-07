@@ -35,10 +35,16 @@ To file bugs that are related to MIRv2 more broadly, use [this template](https:/
 
 ## Install and configure extension
 
+Once you have created your compute instance, go to **Compute** -> **name of compute instance** -> **JupyterLab** -> **Terminal** to run the command below.
+
 ```azurecli-interactive
 # Install Azure CLI
-curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+# Do not run installation if using a fresh compute instance! This will mess things up
+# curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
 az --version # Needs to be >= 2.15.0
+
+# Remove any previously installed versions of the az ml extension
 az extension remove -n ml; az extension remove -n azure-cli-ml
 az extension add --source https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-cli-v2/ml-0.0.75-py3-none-any.whl \
      --pip-extra-index-urls https://azuremlsdktestpypi.azureedge.net/sdk-cli-v2 -y
@@ -50,7 +56,7 @@ az configure --defaults group="<resource_group>" workspace="<workspace_name>"
 ## Download source code
 
 ```azurecli-interactive
-git clone git@github.com:Azure/azureml-examples.git --branch gopalv/triton-sample
+git clone https://github.com/Azure/azureml-examples.git --branch gopalv/triton-sample
 cd azureml-examples/cli
 ```
 
