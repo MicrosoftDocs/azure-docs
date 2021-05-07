@@ -64,7 +64,7 @@ The following changes will happen in upcoming releases.
 
 As customer scenarios grow more mature and diverse, we have identified some limitations with Interactive Query (LLAP) load-based Autoscale. These limitations are caused by the nature of LLAP query dynamics, future load prediction accuracy issues, and issues in the LLAP scheduler's task redistribution. Due to these limitations, users may see their queries run slower on LLAP clusters when Autoscale is enabled. The impact on performance can outweigh the cost benefits of Autoscale.
 
-Starting from May 15 2021, HDInsight will only support schedule-based Autoscale for Interactive Query workload. New Interactive Query clusters can’t enable load-based Autoscale. Existing running clusters can continue to run under above limitations. 
+Starting from May 15, 2021, the Interactive Query workload in HDInsight only supports schedule-based Autoscale. You can no longer enable Autoscale on new Interactive Query clusters. Existing running clusters can continue to run with the known limitations described above. 
 
 Microsoft recommends that you move to a schedule-based Autoscale for LLAP.  You can analyze your cluster's current usage pattern through the Grafana Hive dashboard. For more information, see [Automatically scale Azure HDInsight clusters](hdinsight-autoscale-clusters.md). 
 
