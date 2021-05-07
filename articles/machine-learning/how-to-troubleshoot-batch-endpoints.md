@@ -16,25 +16,25 @@ ms.date: 05/05/2021
 ---
 # Troubleshooting batch endpoints (preview)
 
-Learn how to troubleshoot and solve, or work around, common errors you may encounter when using [batch endpoints](how-to-use-batch-endpoint.md) for batch scoring.
+Learn how to troubleshoot and solve, or work around, common errors you may come across when using [batch endpoints](how-to-use-batch-endpoint.md) for batch scoring.
 
 The following table contains common problems and solutions you may see during batch endpoint development and consumption.
 
 | Problem | Possible solution |
 |--|--|
-| Code configuration or Environment is missing. | Ensure you provide the scoring script and an environment definition if you are using a non-MLflow model. No-code deployment is supported for the MLflow model only. |
-| Failure to update model, code, environment, and compute for an existing batch endpoint. | Please create a new batch endpoint with a new name. Updating these assets for an existing batch endpoint is not yet supported. |
-| The resource was not found. | Ensure you use `-t batch` in your CLI command. If this argument is not specified, the default `online` type is used.|
-| Unsupported input data. | Batch endpoint accepts input data in three forms: 1) registered data 2) data in the cloud 3) data in local. Ensure you are using the right format. For more, see [Use batch endpoints (preview) for batch scoring](how-to-use-batch-endpoint.md)|
+| Code configuration or Environment is missing. | Ensure you provide the scoring script and an environment definition if you're using a non-MLflow model. No-code deployment is supported for the MLflow model only. |
+| Failure to update model, code, environment, and compute for an existing batch endpoint. | Please create a new batch endpoint with a new name. Updating these assets for an existing batch endpoint isn't yet supported. |
+| The resource wasn't found. | Ensure you use `-t batch` in your CLI command. If this argument isn't specified, the default `online` type is used.|
+| Unsupported input data. | Batch endpoint accepts input data in three forms: 1) registered data 2) data in the cloud 3) data in local. Ensure you're using the right format. For more, see [Use batch endpoints (preview) for batch scoring](how-to-use-batch-endpoint.md)|
 
 ##  Scoring script requirements
 
-If you are using a non-MLflow model, you will need to provide a scoring script. The scoring script must contain two functions:
+If you're using a non-MLflow model, you'll need to provide a scoring script. The scoring script must contain two functions:
 
 - `init()`: Use this function for any costly or common preparation for later inference. For example, use it to load the model into a global object. This function will be called only once at beginning of process.
 -  `run(mini_batch)`: The function will run for each `mini_batch` instance.
     -  `mini_batch`: Each entry in `mini_batch` will be a file path.
-    -  `response`: The `run()` method should return a pandas DataFrame or an array. These returned elements are appended to the common output file. Each returned output element indicates one successful run of input element in the input mini-batch. Make sure that enough data is included in run result to map input to run output result. Run output will be written in output file and is not guaranteed to be in order, so you should use some key in the output to map it to the correct input.
+    -  `response`: The `run()` method should return a pandas DataFrame or an array. These returned elements are appended to the common output file. Each returned output element indicates one successful run of input element in the input mini-batch. Make sure that enough data is included in run result to map input to run output result. Run output will be written in output file and isn't guaranteed to be in order, so you should use some key in the output to map it to the correct input.
 
 ```python
 %%writefile digit_identification.py
@@ -108,7 +108,7 @@ There are two top-level log folders, `azureml-logs` and `logs`.
 
 The file `~/azureml-logs/70_driver_log.txt` contains information from the controller that launches the scoring script.  
 
-Because of the distributed nature of batch scoring jobs, there are logs from several different sources. However, two consolidated files are created that provide high-level information: 
+Because of the distributed nature of batch scoring jobs, there are logs from several different sources. However, two combined files are created that provide high-level information: 
 
 - `~/logs/job_progress_overview.txt`: This file provides high-level information about the number of mini-batches (also known as tasks) created so far and the number of mini-batches processed so far. As the mini-batches end, the log records the results of the job. If the job failed, it will show the error message and where to start the troubleshooting.
 
