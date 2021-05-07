@@ -137,13 +137,13 @@ This pattern is useful to any application that uses services that are subject to
 
 This pattern is often very well suited to ingest operations.
 
-For more information about this pattern, see [Queue-Based Load Leveling pattern](architecture/patterns/queue-based-load-leveling.md).
+For more information about this pattern, see [Queue-Based Load Leveling pattern](https://docs.microsoft.com/azure/architecture/patterns/queue-based-load-leveling.md).
 
 ### Cache-Aside pattern
 
 You might consider loading data on demand into a cache instead of querying Cosmos DB every time. This can improve performance and also helps to maintain consistency between data held in the cache and data in the underlying data store.
 
-For more information, see: [Cache-Aside pattern](architecture/patterns/cache-aside.md).
+For more information, see: [Cache-Aside pattern](https://docs.microsoft.com/azure/architecture/patterns/cache-aside).
 
 ### Materialized View pattern
 
