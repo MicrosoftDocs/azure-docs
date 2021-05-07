@@ -10,9 +10,11 @@ ms.author: ginle
 ---
 # How to validate FHIR resources against profiles
 
-HL7 FHIR defines a standard and interoperable way to store and exchange healthcare data. However, even within the base FHIR, it can be helpful to define additional rules or extensions based on the context that FHIR is being used. Because of this, a FHIR profile is a useful tool to enable context-specific uses of FHIR. 
+HL7 FHIR defines a standard and interoperable way to store and exchange healthcare data. Even within the base FHIR specification, it can be helpful to define additional rules or extensions based on the context that FHIR is being used. For such context-specific uses of FHIR, **FHIR profiles** are used for the extra layer of specifications.
 
-[FHIR profile](https://www.hl7.org/fhir/profiling.html) describes additional context (constraints, extensions, etc.) on a resource represented as a `StructureDefinition`. The HL7 FHIR standard defines a set of base resources, and these standard base resources have generic definitions. FHIR profile allows you to narrow down and customize resource definitions using constraints and extensions. Azure API for FHIR allows validating profiles, and validating resources against profiles to see if the resources conform to the requirements set by the profiles. This article walks through the basics of FHIR profile, and how to use `$validate` for validating resources against the profiles when creating and updating resources.
+[FHIR profile](https://www.hl7.org/fhir/profiling.html) describes additional context, such as constraints or extensions, on a resource represented as a `StructureDefinition`. The HL7 FHIR standard defines a set of base resources, and these standard base resources have generic definitions. FHIR profile allows you to narrow down and customize resource definitions using constraints and extensions.
+
+Azure API for FHIR allows validating resources against profiles to see if the resources conform to the profiles. This article walks through the basics of FHIR profile, and how to use `$validate` for validating resources against the profiles when creating and updating resources.
 
 ## FHIR profile: the basics
 
@@ -31,7 +33,7 @@ is a base profile that requires information on the registered address of birth o
 
 ### Base profile and custom profile
 
-There are two types of profiles: base profile and custom profile. A base profile is a base `StructureDefinition` to which a resource needs to conform to, and has been defined by base resources such as `Patient` or `Observation`. For example, there is a profile under `Observation` that defines how to represent Body Mass Index (BMI) observations, and its JSON form would start like this:
+There are two types of profiles: base profile and custom profile. A base profile is a base `StructureDefinition` to which a resource needs to conform to, and has been defined by base resources such as `Patient` or `Observation`. For example, a Body Mass Index (BMI) `Observation` profile would start like this:
 
 ```json
 {
