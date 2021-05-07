@@ -25,7 +25,7 @@ Using a custom container lets you deploy web servers that may not listen on same
 ## Prerequisites
 
 * An Azure Machine Learning workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
-* A Linux machine with [Docker](https://docs.docker.com/engine/install/ubuntu/) installed. If you don't have a Linux machine locally, you can use a [compute instance](how-to-create-manage-compute-instance.md).
+* A Linux machine with [Docker](https://docs.docker.com/engine/install/ubuntu/) and Python installed. If you don't have a Linux machine locally, you can use a [compute instance](how-to-create-manage-compute-instance.md).
 
 ## How to file bugs
 
@@ -97,6 +97,17 @@ This script will:
 6. Run predictions against that deployed endpoint
 
 Once the script finishes running, open up the Azure portal and click on the endpoint in order to see the metrics that were collected.
+
+### Bonus points
+
+For bonus points, open up `test_triton.py` and replace the `https://aka.ms/peacock-pic` URL with a link to a different JPEG. Then run:
+
+```azure-cli-interactive
+KEY=$(az ml endpoint list-keys -n triton-endpoint --query accessToken -o tsv)
+BASE_URL=$(az ml endpoint show -n triton-endpoint --query scoring_uri -o tsv | cut -d'/' -f3)
+endpoints/online/custom-container/test_triton.py --base_url=$BASE_URL --token=$KEY --num_requests=1
+```
+and see if the classifier works.
 
 ## Next steps
 
