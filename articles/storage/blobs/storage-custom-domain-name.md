@@ -95,7 +95,7 @@ Create a CNAME record to point to your host name. A CNAME record is a type of Do
 
 1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 
-2. In the menu pane, under **Blob Service**, select **Networking**.
+2. In the menu pane, under **Security + networking**, select **Networking**.
 
 3. In the **Networking** page, choose the **Custom domain** tab.
 
@@ -187,7 +187,7 @@ The host name is the storage endpoint URL without the protocol identifier and th
 
 2. In the menu pane, under **Settings**, select **Endpoints**.  
 
-3. Copy the value of the **Blob service** endpoint or the **static website** endpoint to a text file.  
+3. Copy the value of the **Blob service** endpoint or the **Static website** endpoint to a text file.  
 
    > [!NOTE]
    > The Data Lake storage endpoint is not supported (For example: `https://mystorageaccount.dfs.core.windows.net/`).
@@ -231,7 +231,7 @@ When you pre-register your custom domain with Azure, you permit Azure to recogni
 
 1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 
-2. In the menu pane, under **Blob Service**, select **Networking**.
+2. In the menu pane, under **Security + networking**, select **Networking**.
 
 3. In the **Networking** page, choose the **Custom domain** tab.
 
@@ -322,13 +322,13 @@ To remove a custom domain mapping, deregister the custom domain. Use one of the 
 
 1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 
-2. In the menu pane, under **Blob Service**, select **Networking**.
+2. In the menu pane, under **Security + networking**, select **Networking**.
 
 3. In the **Networking** page, choose the **Custom domain** tab.
 
-3. Clear the contents of the text box that contains your custom domain name.
+4. Clear the contents of the text box that contains your custom domain name.
 
-4. Select the **Save** button.
+5. Select the **Save** button.
 
 After the custom domain has been removed successfully, you will see a portal notification that your storage account was successfully updated.
 

@@ -1,8 +1,8 @@
 ---
 title: Copy data from Amazon Simple Storage Service (S3)
 description: Learn about how to copy data from Amazon Simple Storage Service (S3) to supported sink data stores by using Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
@@ -46,7 +46,7 @@ For the full list of Amazon S3 permissions, see [Specifying Permissions in a Pol
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)] 
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)] 
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Amazon S3.
 
@@ -121,7 +121,7 @@ The following properties are supported for an Amazon S3 linked service:
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for Amazon S3 under `location` settings in a format-based dataset:
 
@@ -166,7 +166,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### Amazon S3 as a source type
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for Amazon S3 under `storeSettings` settings in a format-based copy source:
 
