@@ -8,6 +8,8 @@
     href: create-topic-subscription.md
 - name: Concepts
   items:
+  - name: Event Grid on Kubernetes concepts
+    href: concepts.md
   - name: Event handlers
     href: event-handlers.md    
   - name: Event schemas
