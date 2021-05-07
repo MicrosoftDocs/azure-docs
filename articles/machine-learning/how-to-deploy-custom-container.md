@@ -100,12 +100,12 @@ Once the script finishes running, open up the Azure portal and click on the endp
 
 ### Bonus points
 
-For bonus points, open up `test_triton.py` and replace the `https://aka.ms/peacock-pic` URL with a link to a different JPEG. Then run:
+For bonus points, try testing the classifier with a different JPEG. Look up an image on Bing Image search. Then run:
 
 ```azure-cli-interactive
 KEY=$(az ml endpoint list-keys -n triton-endpoint --query accessToken -o tsv)
 BASE_URL=$(az ml endpoint show -n triton-endpoint --query scoring_uri -o tsv | cut -d'/' -f3)
-endpoints/online/custom-container/test_triton.py --base_url=$BASE_URL --token=$KEY --num_requests=1
+endpoints/online/custom-container/test_triton.py --base_url=$BASE_URL --token=$KEY --num_requests=1 --image_url=<paste_image_link>
 ```
 and see if the classifier works.
 
