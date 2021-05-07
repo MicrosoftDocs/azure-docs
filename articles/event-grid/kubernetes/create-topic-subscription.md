@@ -4,8 +4,8 @@ description: This article describes how to create an event grid topic on a Kuber
 author: spelluru
 manager: JasonWHowell
 ms.author: spelluru
-ms.date: 05/05/2021
-ms.topic: how-to
+ms.date: 05/06/2021
+ms.topic: quickstart
 ---
 
 # Azure Event Grid on kubernetes - Create a topic and subscriptions
@@ -18,32 +18,29 @@ ms.topic: how-to
 1. Download and install [Azure Resource Manager client (armclient)](https://github.com/yangl900/armclient-go). This command-line tool will allow you to send request to Azure to create and manage resources.
 
 ## Create a topic
-1. Create a file called ```topic-1.json``` containing the following request payload that defines the topic you want to create.  
 
-    ```json
-    {
-      "name": "<TOPIC-NAME>",
-      "location": "<REGION>",
-      "kind": "AzureArc",
-      "extendedLocation": {
-        "name": "<YOUR-CUSTOMLOCATION-RESOURCE-ID>",
-        "type": "CustomLocation"
-      },
-      "properties": {
-              "inputschema": "cloudeventschemav1_0"
-      }
-    }
-    ```
-2. Create a topic by sending the following request.
+### Azure CLI
+Run the following Azure CLI command to create a topic:
 
-    ```console
-    armclient put "https://<REGION>.management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-10-15-preview" @topic-1.json -verbose
-    ```
-3. Verify that the provisioning state of the topic is ```Succeeded```.
+```azurecli-interactive
+az eventgrid topic create --name <EVENT GRID TOPIC NAME> \
+                        --resource-group <RESOURCE GROUP NAME> \
+                        -location <REGION> \
+                        --kind azurearc \
+                        --extended-location-name /subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ExtendedLocation/customLocations/<CUSTOM LOCATION NAME> \
+                        --extended-location-type customlocation \
+                        --input-schema CloudEventSchemaV1_0
+```
+Specify values for the place holders before running the command:
+- Name of the Azure resource group in which you want the event grid topic to created. 
+- Name for the topic. 
+- Region for the topic.
+- In the resource ID of the custom location, specify the following values:
+    - ID of the Azure subscription in which the custom location exists.
+    - Name of the resource group that contains the custom location.
+    - Name of the custom location
 
-   ```console
-   armclient get "https://<REGION>.management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<TOPIC NAME>?api-version=2020-10-15-preview"
-   ```
+For more information about the CLI command, see [az eventgrid topic create](/cli/azure/eventgrid/topic#az_eventgrid_topic_create).
 
 ## Create a message endpoint
 Before you create a subscription for the custom topic, create an endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
@@ -60,37 +57,54 @@ Before you create a subscription for the custom topic, create an endpoint for th
    ![View new site](../media/custom-event-quickstart-portal/view-site.png)
 
 ## Create a subscription
-An event subscription defines the filtering criteria to select the events to be routed and the destination to which those events are sent. To learn about all the destinations or handlers supported, see [Event handlers](event-handlers.md).
+Subscribers can register for events published to a topic. To receive any event, you'll need to create an Event Grid subscription for a topic of interest. An event subscription defines the destination to which those events are sent. To learn about all the destinations or handlers supported, see [Event handlers](event-handlers.md).
 
-To create an event subscription with a WebHook (HTTPS endpoint) destination, follow these steps: 
 
-1. Create a file called ```event-subscription-1.json``` that will contain the following request payload that defines a basic filter criteria that selects events for routing based on prefix and suffix strings in the event's subject attribute. You should change the values in  ```subjectBeginsWith``` and ```subjectEndsWith``` to suit your needs. You might also remove the filter criteria. If you do, Event Grid will send all events to the defined destination in ```endpointUrl```.
+### Azure CLI
+To create an event subscription with a WebHook (HTTPS endpoint) destination, run the following Azure CLI command:
+
+```azurecli-interactive
+az eventgrid event-subscription create --name <EVENT SUBSCRIPTION NAME> \
+                                    --source-resource-id /subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<TOPIC'S RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<TOPIC NAme> \
+                                    --endpoint https://<SITE NAME>.azurewebsites.net/api/updates
+```
+
+Specify values for the place holders before running the command:
+- Name of the event subscription to be created. 
+
+- In the resource ID of the custom location, specify the following values:
+    - ID of the Azure subscription in which you want the subscription to be created. 
+    - Name of the resource group that contains the topic.
+    - Name of the topic. 
+    - Name of the web site for Event Grid Viewer.
+    
+For more information about the CLI command, see [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create).
+
+
+## Send events to the topic
+1. Run the following command to get the **endpoint** for the topic: After you copy and paste the command, update the **topic name** and **resource group name** before you run the command. You'll publish sample events to this topic endpoint. 
+
+    ```azurecli
+    endpoint=$(az eventgrid topic show --name <topic name> -g <resource group name> --query "endpoint" --output tsv)
+    ```
+2. Run the following command to get the **key** for the custom topic: After you copy and paste the command, update the **topic name** and **resource group** name before you run the command. It's the primary key of the Event Grid topic. To get this key from the Azure portal, switch to the **Access keys** tab of the **Event Grid Topic** page. To be able post an event to a custom topic, you need the access key. 
+
+    ```azurecli
+    key=$(az eventgrid topic key list --name <topic name> -g <resource group name> --query "key1" --output tsv)
+    ```
+3. Copy the following statement with the event definition, and press **ENTER**. 
 
     ```json
-    {
-      "properties": {
-              "destination": {
-                 "endpointType": "WebHook",
-                 "properties": {
-                         "endpointUrl": "{provide-a-full-url-to-an-http-endpoint}"
-                 }
-              },
-              "filter": {
-                 "isSubjectCaseSensitive": false,
-                 "subjectBeginsWith": "ExamplePrefix",
-                 "subjectEndsWith": "ExampleSuffix"
-             }
-      }
-    }
+    event='[{"specVersion": "1.0", "type" : "orderCreated", "source": "myCompanyName/us/webCommerceChannel/myOnlineCommerceSiteBrandName", "id" : "eventId-n","time" : "2020-12-25T20:54:07+00:00", "subject" : "account/acct-123224/order/o-123456", "dataSchema" : "1.0", "data" : { "orderId" : "123", "orderType" : "PO", "reference" : "https://www.myCompanyName.com/orders/123"}}]'
     ```
-2. For the web hook URL, provide the URL of your web app and add `api/updates` to the home page URL.
-1. Create an event subscription by sending the following HTTP PUT request with the entity  body defined above:
-  
-    ```console
-    armclient put "https://<REGION>.management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}/providers/Microsoft.EventGrid/eventSubscriptions/{eventSubscriptionName}?api-version=2020-10-15-preview" @event-subscription-1.json -verbose
+4. Run the following **Curl** command to post the event: In the command, `aeg-sas-key` header is set to the access key you got earlier. 
+
+    ```
+    curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
     ```
 
-Following are some request payload examples for different type of destinations.
+### Verify in the Event Grid Viewer
+You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. View your web app to see the event you just sent.
 
 ## Next steps
 See [Event handlers and destinations](event-handlers.md) to learn about all the event handlers and destinations that Event Grid on Kubernetes supports. 
