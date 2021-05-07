@@ -356,7 +356,7 @@ Once the VPN gateway creation has completed, use the following steps to enable a
 
 ## Name resolution
 
-When using Azure Machine Learning behind a virtual network, the client must be able to resolve the fully qualified domain names (FQDN) used within the virtual network. In a production configuration, you would use a custom DNS server to resolve the names. However, for a point-to-site configuration you can add the FQDNs and IP addresses to the __hosts__ file on the VPN client machine.
+When using Azure Machine Learning behind a virtual network, the client must be able to resolve the fully qualified domain names (FQDN) used within the virtual network. In a production configuration, you would use a [custom DNS server](how-to-custom-dns.md) to resolve the names. However, as a quick test of a point-to-site configuration you can add the FQDNs and IP addresses to the __hosts__ file on the VPN client machine.
 
 The location of your hosts file can vary depending on the operating system you are using:
 
@@ -370,6 +370,24 @@ The location of your hosts file can vary depending on the operating system you a
 > The file can be opened with a text editor on all systems, though you may require admin or super user rights to save changes.
 
 Add the FQDNs and IP addresses you saved earlier (from your workspace private endpoint connections) to your hosts file and save the changes.
+
+## Create compute instance
+
+After configuring name resolution and a VPN client ([Create and install VPN client configuration files](/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert.md)), use the following steps to verify that you can connect from the VPN client:
+
+1. From the Azure Machine Learning studio, select 
+1. On the __Select virtual machine__ page, accept the default values by selecting __Next__.
+1. On the __Configure Settings__ page, enter a unique name for the compute resource.
+1. Select __Create__ to create the compute instance.
+
+### Compute instance name resolution
+
+Before you can use the compute instance from your client, you must be able to resolve the FQDN. To identify the IP address and FQDN of the compute instance, use the following information:
+
+* The __host name (FQDN)__ uses the format `<instance-name>.<region>.instances.azureml.ms`. Replace `<instance-name>` with the name of the compute instance. Replace `<region>` with the Azure region that contains the compute instance. For example, a compute instance named `docs-ml-ci` in the `East US 2` region would have a FQDN of `docs-ml-ci.eastus2.instances.azureml.ms`.
+* The __IP address__ is the _same_ as the IP address of the FQDN entry ending in `api.azureml.ms` that you retrieved earlier from the workspace. It is __NOT__ the private IP listed in properties for the compute instance.
+
+
 
 ## Configure image builds
 
