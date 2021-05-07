@@ -54,9 +54,9 @@ You can also use the [IoT Hub resource provider REST APIs](/rest/api/iothub/ioth
 The following how-to guides provide complete walkthroughs of the file upload process in a variety of SDK languages. These guides show you how to use the Azure portal to associate a storage account with an IoT hub. They also contain code snippets or refer to samples that guide you through the upload process.
 
 * [.NET](iot-hub-csharp-csharp-file-upload.md)
-* [Java](iot-hub-java-java-file-upload)
-* [Node.js](iot-hub-node-node-file-upload)
-* [Python](iot-hub-python-python-file-upload)
+* [Java](iot-hub-java-java-file-upload.md)
+* [Node.js](iot-hub-node-node-file-upload.md)
+* [Python](iot-hub-python-python-file-upload.md)
 
 > [!NOTE]
 > The [Azure IoT SDKs](iot-hub-devguide-sdks.md) automatically handle retrieving the shared access signature URI, uploading the file, and notifying IoT Hub of a completed upload. If a firewall blocks access to the Blob Storage endpoint but allows access to the IoT Hub endpoint, the file upload process fails and shows the following error for the IoT C# device SDK:
