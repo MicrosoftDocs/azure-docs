@@ -31,7 +31,8 @@ User data is a new version of [custom data](https://docs.microsoft.com/azure/vir
 
 **Security warning**
 
-> Note user data will not be encrypted, and any process on the VM can query this data. You should not store confidential information in user data.
+> [!WARNING]
+> User data will not be encrypted, and any process on the VM can query this data. You should not store confidential information in user data.
 
 Make sure you get the latest Azure ARM API to use the new user data features. The contents should be base64 encoded before passed to the API. The size cannot exceed 64 KB.
 
