@@ -914,7 +914,7 @@ Next, you can invoke direct methods to deactivate and delete the live pipeline (
 
 ### Deactivate the live pipeline
 
-Invoke the`lLivePipelineDeactivate` direct method with the following payload:
+Invoke the`livePipelineDeactivate` direct method with the following payload:
 
 ```
 {
