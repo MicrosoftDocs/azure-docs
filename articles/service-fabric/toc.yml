@@ -225,6 +225,8 @@
       href: service-fabric-concept-resource-model.md
     - name: Application and service manifests
       href: service-fabric-application-and-service-manifests.md
+    - name: Service Configuration using StartupServices model
+      href: service-fabric-startupservices-model.md
     - name: Application and service manifest examples
       href: service-fabric-manifest-examples.md
       items:
