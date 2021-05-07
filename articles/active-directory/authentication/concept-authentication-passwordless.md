@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 05/06/2021
 
-ms.author: markvi
-author: MarkusVi
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: librown
 
