@@ -23,9 +23,9 @@ This article walks you through the steps to use Azure Video Analyzer edge module
 [![Deploy to Azure](https://camo.githubusercontent.com/bad3d579584bd4996af60a96735a0fdcb9f402933c139cc6c4c4a4577576411f/68747470733a2f2f616b612e6d732f6465706c6f79746f617a757265627574746f6e)](https://aka.ms/ava-click-to-deploy)
 
 The deployment process will take about **20 minutes**. Upon completion, you will have certain Azure resources deployed in the Azure subscription, including:
-1. **Video Analyzer account** - This [cloud service](../../overview.md) is used to register the Video Analyzer edge module, and for playing back recorded video and video analytics.
+1. **Video Analyzer account** - This [cloud service](overview.md) is used to register the Video Analyzer edge module, and for playing back recorded video and video analytics.
 1. **Storage account** - For storing recorded video and video analytics.
-1. **Managed Identity** - This is the user assigned [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) used to manage access to the above storage account.
+1. **Managed Identity** - This is the user assigned [managed identity]../../active-directory/managed-identities-azure-resources/overview.md) used to manage access to the above storage account.
 1. **Virtual machine** - This is a virtual machine that will serve as your simulated edge device.
 1. **IoT Hub** - This acts as a central message hub for bi-directional communication between your IoT application, IoT Edge modules and the devices it manages.
 
@@ -135,7 +135,7 @@ The above response is expected, as no pipeline topologies have been created.
 
 Using the same steps as those outlined for invoking `pipelineTopologyList`, you can invoke `pipelineTopologySet` to set a pipeline topology using the following JSON as the payload. You will be creating a pipeline topology named "EVRtoVideoSinkOnMotionDetection".
 
-    > [!NOTE]
+> [!NOTE]
     > In the payload below, the `videoName` property is set to "sample-motion-video-camera001", which will be the name of the video resource that is created in your Video Analyzer account. This resource name must be unique for each live video source you record. You should edit the `videoName` property below as needed to ensure uniqueness.
 
 ```
