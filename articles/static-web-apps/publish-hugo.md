@@ -9,7 +9,7 @@ ms.date: 05/08/2020
 ms.author: aapowell
 ---
 
-# Tutorial: Publish a Hugo site to Azure Static Web Apps Preview
+# Tutorial: Publish a Hugo site to Azure Static Web Apps
 
 This article demonstrates how to create and deploy a [Hugo](https://gohugo.io/) web application to [Azure Static Web Apps](overview.md). The final result is a new Azure Static Web App with associated GitHub Actions that give you control over how the app is built and published.
 
@@ -95,7 +95,7 @@ The following steps show you how to create a new static site app and deploy it t
 1. Navigate to the [Azure portal](https://portal.azure.com)
 1. Click **Create a Resource**
 1. Search for **Static Web Apps**
-1. Click **Static Web Apps (Preview)**
+1. Click **Static Web Apps**
 1. Click **Create**
 
    :::image type="content" source="./media/publish-hugo/create-in-portal.png" alt-text="Create a Azure Static Web Apps resource in the portal":::
@@ -162,7 +162,7 @@ jobs:
           submodules: true
       - name: Build And Deploy
         id: builddeploy
-        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+        uses: Azure/static-web-apps-deploy@v1.0.0
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)

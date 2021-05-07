@@ -2183,12 +2183,12 @@ param testArray array = [
   'two'
   'three'
 ]
-param elementsToSkip int = 2
+param elementsToTake int = 2
 param testString string = 'one two three'
-param charactersToSkip int = 2
+param charactersToTake int = 2
 
-output arrayOutput array = take(testArray, elementsToSkip)
-output stringOutput string = take(testString, charactersToSkip)
+output arrayOutput array = take(testArray, elementsToTake)
+output stringOutput string = take(testString, charactersToTake)
 ```
 
 ---

@@ -7,9 +7,7 @@ ms.date: 03/22/2021
 
 # Azure VMware Solution identity concepts
 
-Azure VMware Solution private clouds are provisioned with a vCenter Server and NSX-T Manager. You use vCenter to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the the CloudAdmin role for vCenter and restricted administrator rights for NSX-T Manager. 
-
-For more information, see [private cloud upgrades concepts article][concepts-upgrades].
+Azure VMware Solution private clouds are provisioned with a vCenter Server and NSX-T Manager. You use vCenter to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter and restricted administrator rights for NSX-T Manager. 
 
 ## vCenter access and identity
 
@@ -34,7 +32,7 @@ You can view the privileges granted to the Azure VMware Solution CloudAdmin role
 
    :::image type="content" source="media/role-based-access-control-cloudadmin-privileges.png" alt-text="How to view the CloudAdmin role privileges in vSphere Client":::
 
-The CloudAdmin role in Azure VMware Solution has the following privileges on vCenter. For more details, see the [VMware product documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
+The CloudAdmin role in Azure VMware Solution has the following privileges on vCenter. For more information, see the [VMware product documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
 
 | Privilege | Description |
 | --------- | ----------- |
@@ -89,22 +87,27 @@ To prevent the creation of roles that can't be assigned or deleted, Azure VMware
 
 ## NSX-T Manager access and identity
 
-Use the *administrator* account to access NSX-T Manager. It has full privileges and lets you create and manage Tier-1 (T1) Gateways, segments (logical switches), and all services. The privileges give you access to the NSX-T Tier-0 (T0) Gateway. A change to the T0 Gateway could result in degraded network performance or no private cloud access. Open a support request in the Azure portal to request any changes to your NSX-T T0 Gateway.
+>[!NOTE]
+>NSX-T 2.5 is currently supported for all new private clouds.
+
+Use the *admin* account to access NSX-T Manager. It has full privileges and lets you create and manage Tier-1 (T1) Gateways, segments (logical switches), and all services. The privileges give you access to the NSX-T Tier-0 (T0) Gateway. A change to the T0 Gateway could result in degraded network performance or no private cloud access. Open a support request in the Azure portal to request any changes to your NSX-T T0 Gateway.
+
+>[!TIP]
+>You can use the [simplified NSX feature in the Azure portal](configure-nsx-network-components-azure-portal.md) as an alternative to using NSX-T Manager.
 
  
 ## Next steps
 
 Now that you've covered Azure VMware Solution access and identity concepts, you may want to learn about:
 
-- [Private cloud upgrade concepts](concepts-upgrades.md).
-- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md).
-- [Details of each privilege](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
-- [How Azure VMware Solution monitors and repairs private clouds](concepts-monitor-repair-private-cloud.md).
-- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md).
+- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md)
+- [Details of each privilege](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html)
+- [How Azure VMware Solution monitors and repairs private clouds](/azure/azure-vmware/concepts-private-clouds-clusters#host-monitoring-and-remediation)
+- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md)
 
 
 <!-- LINKS - external-->
 [VMware product documentation]: https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html
 
 <!-- LINKS - internal -->
-[concepts-upgrades]: ./concepts-upgrades.md
+[concepts-upgrades]: ./concepts-private-clouds-clusters#host-maintenance-and-lifecycle-management

@@ -13,9 +13,6 @@ ms.service: azure-communication-services
 ---
 # Reference documentation overview
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-
 The following table details the available Communication Services packages along with corresponding reference documentation:
 
 <!--note that this table also exists here and should be synced: https://github.com/Azure/Communication/blob/master/README.md -->

@@ -2,16 +2,16 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/17/2021
+ms.date: 05/04/2021
 ms.author: dacoulte
 ms.custom: generated
 ---
 
 ## Azure Security Benchmark
 
-The [Azure Security Benchmark](../../../../articles/security/benchmarks/overview.md) provides
-recommendations on how you can secure your cloud solutions on Azure. To see how this service
-completely maps to the Azure Security Benchmark, see the
+The [Azure Security Benchmark](/security/benchmark/azure/introduction) provides recommendations on
+how you can secure your cloud solutions on Azure. To see how this service completely maps to the
+Azure Security Benchmark, see the
 [Azure Security Benchmark mapping files](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
@@ -38,13 +38,12 @@ standard, see
 |Posture and Vulnerability Management |PV-2 |Sustain secure configurations for Azure services |[Kubernetes cluster services should listen only on allowed ports](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F233a2a17-77ca-4fb1-9b6b-69223d272a44) |[6.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ServiceAllowedPorts.json) |
 |Posture and Vulnerability Management |PV-2 |Sustain secure configurations for Azure services |[Kubernetes cluster should not allow privileged containers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F95edb821-ddaf-4404-9732-666045e056b4) |[6.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerNoPrivilege.json) |
 |Posture and Vulnerability Management |PV-2 |Sustain secure configurations for Azure services |[Kubernetes clusters should not allow container privilege escalation](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerNoPrivilegeEscalation.json) |
-|Posture and Vulnerability Management |PV-7 |Rapidly and automatically remediate software vulnerabilities |[Kubernetes Services should be upgraded to a non-vulnerable Kubernetes version](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb893a29-21bb-418c-a157-e99480ec364c) |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UpgradeVersion_KubernetesService_Audit.json) |
 
 ## Azure Security Benchmark v1
 
-The [Azure Security Benchmark](../../../../articles/security/benchmarks/overview.md) provides
-recommendations on how you can secure your cloud solutions on Azure. To see how this service
-completely maps to the Azure Security Benchmark, see the
+The [Azure Security Benchmark](/security/benchmark/azure/introduction) provides recommendations on
+how you can secure your cloud solutions on Azure. To see how this service completely maps to the
+Azure Security Benchmark, see the
 [Azure Security Benchmark mapping files](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance

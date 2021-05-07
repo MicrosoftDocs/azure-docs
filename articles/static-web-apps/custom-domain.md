@@ -9,7 +9,7 @@ ms.date: 05/08/2020
 ms.author: buhollan
 ---
 
-# Setup a custom domain in Azure Static Web Apps Preview
+# Setup a custom domain in Azure Static Web Apps
 
 By default, Azure Static Web Apps provides an auto-generated domain name. This article shows you how to map a custom domain name to an Azure Static Web Apps application.
 

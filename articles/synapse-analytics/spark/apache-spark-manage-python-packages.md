@@ -71,7 +71,8 @@ dependencies:
   - matplotlib
   - koalas==1.7.0
 ```
-For details on creating an environment from this environment.yml file, see [Creating an environment from an environment.yml file](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually).
+For details on creating an environment from this environment.yml file, see [Creating an environment from an environment.yml file](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment
+).
 
 #### Update Python packages
 Once you have identified the environment specification file or set of libraries you want to install on the Spark pool, you can update the Spark pool libraries by navigating to the Azure Synapse Studio or Azure portal. Here, you can provide the environment specification and select the workspace libraries to install. 

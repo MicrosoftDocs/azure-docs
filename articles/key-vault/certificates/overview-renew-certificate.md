@@ -3,7 +3,6 @@ title: About Azure Key Vault certificate renewal
 description: This article discusses how to renew Azure Key Vault certificates.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -25,7 +24,7 @@ This article discusses how to renew your Azure Key Vault certificates.
 To get notified about certificate life events, you would need to add certificate contact. Certificate contacts contain contact information to send notifications triggered by certificate lifetime events. The contacts information is shared by all the certificates in the key vault. A notification is sent to all the specified contacts for an event for any certificate in the key vault.
 
 ### Steps to set certificate notifications:
-First, add a certificate contact to your key vault. You can add using Azure portal or PowerShell cmdlet [`Add-AzureKeyVaultCertificateContact`](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0).
+First, add a certificate contact to your key vault. You can add using Azure portal or PowerShell cmdlet [`Add-AzureKeyVaultCertificateContact`](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact).
 
 Second, configure when you want to be notified about the certificate expiration. To configure the lifecycle attributes of the certificate, see [Configure certificate autorotation in Key Vault](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate).
 
@@ -37,9 +36,9 @@ If a certificate's policy is set to auto renewal, then a notification is sent on
   When a certificate policy that is set to be manually renewed (email only), a notification is sent when it's time to renew the certificate.  
 
 In Key Vault, there are three categories of certificates:
--	Certificates that are created with an integrated certificate authority (CA), such as DigiCert or GlobalSign
--	Certificates that are created with a nonintegrated CA
--	Self-signed certificates
+-    Certificates that are created with an integrated certificate authority (CA), such as DigiCert or GlobalSign
+-    Certificates that are created with a nonintegrated CA
+-    Self-signed certificates
 
 ## Renew an integrated CA certificate 
 Azure Key Vault handles the end-to-end maintenance of certificates that are issued by trusted Microsoft certificate authorities DigiCert and GlobalSign. Learn how to [integrate a trusted CA with Key Vault](./how-to-integrate-certificate-authority.md).
@@ -78,12 +77,12 @@ Azure Key Vault also handles autorenewal of self-signed certificates. To learn m
 
 **How can I test the autorotation feature of the certificate?**
 
-Create a certificate with a validity of **1 month**, and then set the lifetime action for rotation at **1%**. This setting will rotate the certificate every 7.2 hours.
+Create a self-signed certificate with a validity of **1 month**, and then set the lifetime action for rotation at **1%**. You should be able to view certificate version history being created over next few days.
   
 **Will the tags be replicated after autorenewal of the certificate?**
 
 Yes, the tags are replicated after autorenewal.
 
 ## Next steps
-*	[Integrate Key Vault with DigiCert certificate authority](how-to-integrate-certificate-authority.md)
-*	[Tutorial: Configure certificate autorotation in Key Vault](tutorial-rotate-certificates.md)
+*    [Integrate Key Vault with DigiCert certificate authority](how-to-integrate-certificate-authority.md)
+*    [Tutorial: Configure certificate autorotation in Key Vault](tutorial-rotate-certificates.md)

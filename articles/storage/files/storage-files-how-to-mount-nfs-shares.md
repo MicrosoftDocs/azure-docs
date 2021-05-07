@@ -4,7 +4,7 @@ description: Learn how to mount a Network File System share.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2020
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
@@ -50,7 +50,7 @@ ms.custom: references_regions
 1. Enter the mount path you'd like to use, then copy the script.
 1. Connect to your client and use the provided mounting script.
 
-    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="Screenshot of file share connect blade":::
+    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="Screenshot of file share connect blade.":::
 
 You have now mounted your NFS share.
 

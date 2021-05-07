@@ -24,7 +24,7 @@ instance and fetches **Lineage** between data assets.
     runtime](https://www.microsoft.com/download/details.aspx?id=39717).
     For more information, see [Create and configure a self-hosted
     integration
-    runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+    runtime](../data-factory/create-self-hosted-integration-runtime.md).
 
 2.  Make sure the [JDK
     11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
@@ -43,7 +43,7 @@ instance and fetches **Lineage** between data assets.
 
     :::image type="content" source="media/register-scan-sapecc-source/requirement.png" alt-text="pre-requisite" border="true":::
 
-5.  The connector reads metadata from SAP using the Java Connector (JCo)
+5.  The connector reads metadata from SAP using the [SAP Java Connector (JCo)](https://support.sap.com/en/product/connectors/jco.html)
     3.0 API. Hence make sure the Java Connector is available on your
     virtual machine where self-hosted integration runtime is installed.
     Make sure that you are using the correct JCo distribution for your
@@ -97,7 +97,7 @@ To create and run a new scan, do the following:
 
 1.  In the Management Center, click on Integration runtimes. Make sure a
     self-hosted integration runtime is set up. If it is not set up, use
-    the steps mentioned [here](https://docs.microsoft.com/azure/purview/manage-integration-runtimes) to create a self-hosted integration runtime.
+    the steps mentioned [here](./manage-integration-runtimes.md) to create a self-hosted integration runtime.
 
 2.  Navigate to **Sources**
 

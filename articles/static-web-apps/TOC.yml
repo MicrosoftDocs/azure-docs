@@ -27,12 +27,10 @@
       href: routes.md
     - name: Security
       items:
-      - name: Authentication and authorization
-        href: authentication-authorization.md
-      - name: Access user information
-        href: user-information.md
-      - name: Custom authorization
-        href: authorization-custom.md
+        - name: Authentication and authorization
+          href: authentication-authorization.md
+        - name: Access user information
+          href: user-information.md
     - name: Review pull requests in pre-production environments
       href: review-publish-pull-requests.md
     - name: Custom domain
@@ -40,31 +38,31 @@
     - name: Build and workflow configuration
       href: github-actions-workflow.md
     - name: Enterprise features
-      items: 
+      items:
         - name: Managed identity
           href: managed-identity.md
-        - name: Networking options
-          href: networking-options.md
-        - name: Token rotation
-          href: token-rotation.md
 - name: How-to guides
   items:
     - name: Setup local development
       href: local-development.md
     - name: Add an API
       href: add-api.md
-    - name: Add custom Functions app
-      href: functions-custom.md
     - name: Configure app settings
       href: application-settings.md
     - name: Publish with Azure DevOps
       href: publish-devops.md
     - name: Configure front-end frameworks and libraries
       href: front-end-frameworks.md
-    - name: Create private endpoint access
-      href: private-link.md
+    - name: Enable monitoring
+      href: monitor.md
+      displayName: Application Insights
     - name: Reset deployment tokens
       href: deployment-token-management.md
+    - name: Troubleshooting errors
+      href: troubleshooting.md
+      displayName: deployment, runtime, errors
+    - name: Secure authentication secrets
+      href: key-vault-secrets.md
 - name: Tutorials
   items:
     - name: Publish from a static site generator
@@ -85,6 +83,16 @@
           href: deploy-nextjs.md
         - name: Nuxt.js
           href: deploy-nuxtjs.md
+    - name: Add a database with Mongoose.js and Cosmos DB
+      href: add-mongoose.md
+    - name: Publish with Azure DevOps
+      href: publish-devops.md
+    - name: Publish with an ARM template
+      href: publish-azure-resource-manager.md
+- name: Reference
+  items:
+    - name: Azure CLI
+      href: /cli/azure/staticwebapp
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn
@@ -98,6 +106,6 @@
         - name: Create and publish a static web app with Blazor
           href: /learn/modules/publish-app-service-static-web-app-api-dotnet
     - name: Pricing
-      href: pricing.md
+      href: https://azure.microsoft.com/pricing/details/app-service/static/
     - name: Quotas
       href: quotas.md

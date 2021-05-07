@@ -13,7 +13,7 @@ While in preview, NFS has the following limitations:
 
 - NFS 4.1 currently only supports most features from the [protocol specification](https://tools.ietf.org/html/rfc5661). Some features such as delegations and callback of all kinds, lock upgrades and downgrades, Kerberos authentication, and encryption are not supported.
 - If the majority of your requests are metadata-centric, then the latency will be worse when compared to read/write/update operations.
-- Must create a new storage account in order to create an NFS share.
+- NFS Shares can only be enabled/created on new storage account/s and not the existing ones
 - Only the management plane REST APIs are supported. Data plane REST APIs are not available, which means that tools like Storage Explorer will not work with NFS shares nor will you be able to browse NFS share data in the Azure portal.
 - AzCopy is not currently supported.
 - Only available for the premium tier.

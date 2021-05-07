@@ -1,12 +1,14 @@
 ---
-title: "Quickstart: Building your first static web app with Azure Static Web Apps using the Azure portal"
+title: 'Quickstart: Building your first static web app with Azure Static Web Apps using the Azure portal'
 description: Learn to deploy a static site to Azure Static Web Apps with the Azure portal.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
-ms.topic:  quickstart
-ms.date: 09/03/2020
 ms.author: cshoe
+ms.date: 09/03/2020
+ms.topic: quickstart
+ms.service: static-web-apps
+ms.custom:
+  - mode-portal
 ---
 
 # Quickstart: Building your first static site in the Azure portal
@@ -29,7 +31,7 @@ Now that the repository is created, you can create a static web app from the Azu
 1. Navigate to the [Azure portal](https://portal.azure.com)
 1. Select **Create a Resource**
 1. Search for **Static Web Apps**
-1. Select **Static Web Apps (Preview)**
+1. Select **Static Web Apps**
 1. Select **Create**
 
 In the _Basics_ section, begin by configuring your new app and linking it to a GitHub repository.

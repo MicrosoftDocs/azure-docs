@@ -10,7 +10,7 @@ ms.author: wachegha
 ms.custom: devx-track-js
 ---
 
-# Add an API to Azure Static Web Apps Preview with Azure Functions
+# Add an API to Azure Static Web Apps with Azure Functions
 
 You can add serverless APIs to Azure Static Web Apps via integration with Azure Functions. This article demonstrates how to add and deploy an API to an Azure Static Web Apps site.
 
@@ -216,7 +216,7 @@ Using Visual Studio Code, commit and push your changes to the remote git reposit
 1. Navigate to the [Azure portal](https://portal.azure.com)
 1. Click **Create a Resource**
 1. Search for **Static Web App**
-1. Click **Static Web App (Preview)**
+1. Click **Static Web App**
 1. Click **Create**
 
 Next, add the app-specific settings.
@@ -250,7 +250,7 @@ Next, add the following build details.
 
     :::image type="content" source="media/add-api/github-action-flag.png" alt-text="GitHub Workflow":::
 
-1. Once the deployment is complete, ou can navigate to the web app, by clicking on the _URL_ link shown on the _Overview_ page.
+1. Once the deployment is complete, you can navigate to the web app, by clicking on the _URL_ link shown on the _Overview_ page.
 
     :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Access static app URL from the Azure portal":::
 

@@ -16,7 +16,7 @@ ms.date: 08/10/2020
 # Quickstart: Use .NET and C# in Visual Studio to connect to and query a database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-This quickstart shows how to use the [.NET Framework](https://www.microsoft.com/net/) and C# code in Visual Studio to query a database in Azure SQL or Synapse SQL with Transact-SQL statements.
+This quickstart shows how to use the [.NET Framework](https://dotnet.microsoft.com) and C# code in Visual Studio to query a database in Azure SQL or Synapse SQL with Transact-SQL statements.
 
 ## Prerequisites
 

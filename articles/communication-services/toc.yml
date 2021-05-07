@@ -26,8 +26,10 @@
         href: quickstarts/chat/meeting-interop.md
   - name: Telephony and SMS
     items:
-      - name: Manage telephone numbers
+      - name: Get a telephone number
         href: quickstarts/telephony-sms/get-phone-number.md
+      - name: Port a telephone number into Azure
+        href: quickstarts/telephony-sms/port-phone-number.md
       - name: Add telephone calling to your app
         href: quickstarts/voice-video-calling/pstn-call.md
       - name: Send an SMS message
@@ -40,9 +42,9 @@
     items:
     - name: Add voice calling to your app
       href: quickstarts/voice-video-calling/getting-started-with-calling.md
-    - name: Add video calling to your app (JavaScript)
+    - name: Add video calling to your app
       href: quickstarts/voice-video-calling/get-started-with-video-calling.md
-    - name: Use the calling client library
+    - name: Use the Calling SDK
       href: quickstarts/voice-video-calling/calling-client-samples.md
     - name: Join your calling app to a Teams meeting
       href: quickstarts/voice-video-calling/get-started-teams-interop.md
@@ -70,13 +72,13 @@
   items:
   - name: Chat
     items:
-      - name: Chat client library overview
+      - name: Chat SDK overview
         href: concepts/chat/sdk-features.md
       - name: Chat concepts
         href: concepts/chat/concepts.md
   - name: Telephony and SMS
     items:
-      - name: SMS client library overview
+      - name: SMS SDK overview
         href: concepts/telephony-sms/sdk-features.md
       - name: SMS concepts
         href: concepts/telephony-sms/concepts.md
@@ -84,14 +86,22 @@
         href: concepts/telephony-sms/telephony-concept.md
       - name: Phone number types
         href: concepts/telephony-sms/plan-solution.md
-      - name: SIP Interface infrastructure requirements
+      - name: Azure direct routing infrastructure requirements
         href: concepts/telephony-sms/sip-interface-infrastructure.md
+      - name: SMS FAQ
+        href: concepts/telephony-sms/sms-faq.md
+      - name: Messaging policy
+        href: concepts/telephony-sms/messaging-policy.md
   - name: Voice and video calling
     items:
-      - name: Calling client library overview
+      - name: Known issues
+        href: concepts/known-issues.md
+      - name: Calling SDK overview
         href: concepts/voice-video-calling/calling-sdk-features.md
       - name: Voice and video concepts
         href: concepts/voice-video-calling/about-call-types.md
+      - name: Network requirements
+        href: concepts/voice-video-calling/network-requirements.md
       - name: Call flows
         href: concepts/call-flows.md
       - name: Call flow topologies
@@ -102,17 +112,6 @@
         href: concepts/ui-framework/ui-sdk-overview.md
       - name: UI Framework capabilities
         href: concepts/ui-framework/ui-sdk-features.md
-  - name: Data and Operations
-    items:
-      - name: Service Events (EventGrid)
-        href: ../event-grid/event-schema-communication-services.md
-        maintainContext: true
-      - name: Logging and diagnostics
-        href: concepts/logging-and-diagnostics.md
-      - name: Metrics
-        href: concepts/metrics.md
-      - name: Troubleshooting
-        href: concepts/troubleshooting-info.md
   - name: SDKs and REST APIs
     href: concepts/sdk-options.md 
   - name: Client and server architecture
@@ -129,8 +128,15 @@
     href: concepts/notifications.md
   - name: Teams interoperability
     href: concepts/teams-interop.md
-  - name: Known issues
-    href: concepts/known-issues.md
+  - name: Service Events (EventGrid)
+    href: ../event-grid/event-schema-communication-services.md
+    maintainContext: true
+  - name: Logging and diagnostics
+    href: concepts/logging-and-diagnostics.md
+  - name: Metrics
+    href: concepts/metrics.md
+  - name: Troubleshooting
+    href: concepts/troubleshooting-info.md
 - name: Samples
   items:
   - name: Overview
@@ -145,6 +151,8 @@
   items:
   - name: Reference documentation overview
     href: concepts/reference.md
+  - name: Azure CLI
+    href: /cli/azure/communication
   - name: REST API documentation
     href: /rest/api/communication/
   - name: Calling libraries
@@ -152,7 +160,7 @@
     - name: Calling (JavaScript)
       href: /javascript/api/azure-communication-services/@azure/communication-calling/
     - name: Calling (Android/Java)
-      href: /java/api/com.azure.communication.calling
+      href: /java/api/com.azure.android.communication.calling?view=communication-services-java-android
     - name: Calling (iOS)
       href: /objectivec/communication-services/calling/
   - name: Chat libraries

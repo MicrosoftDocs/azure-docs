@@ -3,7 +3,7 @@ title: 'ML Studio (classic): Migrate to Azure Machine Learning - Rebuild experim
 description: Rebuild Studio (classic) experiments in Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: xiaoharper

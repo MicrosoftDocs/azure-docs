@@ -17,7 +17,7 @@ ms.service: azure-communication-services
 
 Teams Embed is an Azure Communication Services capability focused on common business-to-consumer and business-to-business calling interactions. The core of the Teams Embed system is [video and voice calling](../voice-video-calling/calling-sdk-features.md), but the Teams Embed system builds on Azure's calling primitives to deliver a complete user experience based on Microsoft Teams meetings.
 
-Teams Embed client libraries are closed-source and make these capabilities available to you in a turnkey, composite format. You drop Teams Embed into your app's canvas and the client library generates a complete user experience. Because this user experience is very similar to Microsoft Teams meetings you can take advantage of:
+Teams Embed SDKs are closed-source and make these capabilities available to you in a turnkey, composite format. You drop Teams Embed into your app's canvas and the SDK generates a complete user experience. Because this user experience is very similar to Microsoft Teams meetings you can take advantage of:
 
 - Reduced development time and engineering complexity
 - End-user familiarity with Teams
@@ -29,6 +29,6 @@ The Teams Embed provides most features supported in Teams meetings, including:
 - In-meeting experience for configuring audio and video devices
 - [Video Backgrounds](https://support.microsoft.com/office/change-your-background-for-a-teams-meeting-f77a2381-443a-499d-825e-509a140f4780): allowing participants to blur or replace their backgrounds
 - [Multiple options for the video gallery](https://support.microsoft.com/office/using-video-in-microsoft-teams-3647fc29-7b92-4c26-8c2d-8a596904cdae) large gallery, together mode, focus, pinning, and spotlight
-- [Content Sharing](https://support.microsoft.comoffice/share-content-in-a-meeting-in-teams-fcc2bf59-aecd-4481-8f99-ce55dd836ce8#ID0EABAAA=Mobile): allowing participants to share their screen
+- [Content Sharing](https://support.microsoft.com/office/share-content-in-a-meeting-in-teams-fcc2bf59-aecd-4481-8f99-ce55dd836ce8): allowing participants to share their screen
 
 For more information about this UI compared to other Azure Communication SDKs, see the [UI SDK concept introduction](ui-sdk-overview.md). 

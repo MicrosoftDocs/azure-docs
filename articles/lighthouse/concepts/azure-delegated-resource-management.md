@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Azure delegated resource management
 
-Azure delegated resource management is one of the key components of [Azure Lighthouse](../overview.md). With Azure delegated resource management, service providers can simplify customer engagement and onboarding experiences, while managing delegated resources at scale with agility and precision. Customers maintain control over which service providers can access their tenant, Customers maintain control over who can access their tenant, what resources they can access, and what actions can be taken.
+Azure delegated resource management is one of the key components of [Azure Lighthouse](../overview.md). With Azure delegated resource management, service providers can simplify customer engagement and onboarding experiences, while managing delegated resources at scale with agility and precision. Customers maintain control over who can access their tenant, what resources they can access, and what actions can be taken.
 
 ## What is Azure delegated resource management?
 

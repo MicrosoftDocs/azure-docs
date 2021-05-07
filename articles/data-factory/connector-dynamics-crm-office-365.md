@@ -3,8 +3,8 @@ title: Copy data in Dynamics (Common Data Service)
 description: Learn how to copy data from Microsoft Dynamics CRM or Microsoft Dynamics 365 (Common Data Service/Microsoft Dataverse) to supported sink data stores or from supported source data stores to Dynamics CRM or Dynamics 365 by using a copy activity in a data factory pipeline.
 ms.service: data-factory
 ms.topic: conceptual
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
 ---
@@ -58,7 +58,7 @@ To use this connector with Azure AD service-principal authentication, you must s
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Dynamics.
 
@@ -365,7 +365,7 @@ The optimal combination of **writeBatchSize** and **parallelCopies** depends on 
 
 To retrieve data from Dynamics views, you need to get the saved query of the view, and use the query to get the data.
 
-There are two entities which store different types of view: "saved query" stores system view and "user query" stores user view. To get the information of the views, refer to the following FetchXML query and replace the "TARGETENTITY" with `savedquery` or `userquery`. Each entity type has more available attributes that you can add to the query based on your need. Learn more about [savedquery entity](https://docs.microsoft.com/dynamics365/customer-engagement/web-api/savedquery) and [userquery entity](https://docs.microsoft.com/dynamics365/customer-engagement/web-api/userquery).
+There are two entities which store different types of view: "saved query" stores system view and "user query" stores user view. To get the information of the views, refer to the following FetchXML query and replace the "TARGETENTITY" with `savedquery` or `userquery`. Each entity type has more available attributes that you can add to the query based on your need. Learn more about [savedquery entity](/dynamics365/customer-engagement/web-api/savedquery) and [userquery entity](/dynamics365/customer-engagement/web-api/userquery).
 
 ```xml
 <fetch top="5000" >

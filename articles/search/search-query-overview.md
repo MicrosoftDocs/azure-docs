@@ -72,7 +72,7 @@ If you anticipate heavy use of Boolean operators, which is more likely in indexe
 
 ## Autocomplete and suggested queries
 
-[Autocomplete or suggested results](search-autocomplete-tutorial.md) are alternatives to **`search`** that fire successive query requests based on partial string inputs (after each character) in a search-as-you-type experience. You can use **`autocomplete`** and **`suggestions`** parameter together or separately, as described in [this tutorial](tutorial-csharp-type-ahead-and-suggestions.md), but you cannot use them with **`search`**. Both completed terms and suggested queries are derived from index contents. The engine will never return a string or suggestion that is non-existent in your index. For more information, see [Autocomplete (REST API)](/rest/api/searchservice/autocomplete) and [Suggestions (REST API)](/rest/api/searchservice/suggestions).
+[Autocomplete or suggested results](search-add-autocomplete-suggestions.md) are alternatives to **`search`** that fire successive query requests based on partial string inputs (after each character) in a search-as-you-type experience. You can use **`autocomplete`** and **`suggestions`** parameter together or separately, as described in [this tutorial](tutorial-csharp-type-ahead-and-suggestions.md), but you cannot use them with **`search`**. Both completed terms and suggested queries are derived from index contents. The engine will never return a string or suggestion that is non-existent in your index. For more information, see [Autocomplete (REST API)](/rest/api/searchservice/autocomplete) and [Suggestions (REST API)](/rest/api/searchservice/suggestions).
 
 ## Filter search
 
