@@ -146,7 +146,7 @@ Copy the following code into class `MainActivity` in file `MainActivity.java`:
 ```
 
 1. Replace `<resource>` with your Communication Services resource.
-2. Replace `<first_user_id>` and `<second_user_id>` with valid Communication Services user IDs that was generated as part of prerequisite steps.
+2. Replace `<first_user_id>` and `<second_user_id>` with valid Communication Services user IDs that were generated as part of prerequisite steps.
 3. Replace `<first_user_access_token>` with the Communication Services access token for `<first_user_id>` that was generated as part of prerequisite steps.
 
 In following steps, we'll replace the placeholders with sample code using the Azure Communication Services Chat library.
