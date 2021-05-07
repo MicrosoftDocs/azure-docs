@@ -192,7 +192,7 @@ This property declares (to Azure Resource Manager, and the Managed Identity and 
 
 ## Deploy Application
 
-Start an application deployment by running from a Powershell window:
+Start an application deployment by running from a PowerShell window:
 ```powershell 
 New-AzResourceGroupDeployment -TemplateParameterFile ".\SFMC\app.parameters.json" -TemplateFile ".\SFMC\app.template.json" -ResourceGroupName $ResourceGroupName
 ```
