@@ -20,7 +20,7 @@ The diagram shows the recommended ExpressRoute connectivity between the two Azur
 :::image type="content" source="media/move-azure-vmware-solution-across-regions/move-ea-csp-across-regions2.png" alt-text="Diagram showing ExpressRoute Global Reach communication between the source and target Azure VMware Solution environments." border="false":::
 
 >[!NOTE]
-> You don't need to migrate any workflow back to on-premises because, the ExpressRoute Global reach, traffic will flow between the private clouds (Source and Target):
+>You don't need to migrate any workflow back to on-premises because the traffic will flow between the private clouds (source and target):
 >
 >**Azure VMware Solution private cloud (source) > ExpressRoute gateway (source) > ExpressRoute gateway (target) > Azure VMware Solution private cloud (target)**
 
