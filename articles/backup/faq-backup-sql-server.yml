@@ -34,8 +34,7 @@ sections:
       - question: |
           Can I cancel an auto-heal backup job?
         answer: |
-          No, you can’t cancel an auto-heal job. However, you can opt-out of it by following these steps: 
-          Auto-heal as a capability is enabled for all users by default. However if you choose to opt-out of it, then perform the following steps:
+          No, you can’t cancel an auto-heal job. However, you can opt-out of it by following these steps:
           
           1. On the SQL Server instance, in the *C:\Program Files\Azure Workload Backup\bin* folder, create or edit the **ExtensionSettingsOverrides.json** file.
           1. In the **ExtensionSettingsOverrides.json** file, set *{"EnableAutoHealer": false}*.
