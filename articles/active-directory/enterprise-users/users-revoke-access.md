@@ -125,4 +125,4 @@ Once admins have taken the above steps, the user can't gain new tokens for any a
 
 - [Secure access practices for Azure AD administrators](../roles/security-planning.md)
 - [Add or update user profile information](../fundamentals/active-directory-users-profile-azure-portal.md)
-- [Remove or Delete a former employee](https://docs.microsoft.com/microsoft-365/admin/add-users/remove-former-employee?view=o365-worldwide)
+- [Remove or Delete a former employee](/microsoft-365/admin/add-users/remove-former-employee)
