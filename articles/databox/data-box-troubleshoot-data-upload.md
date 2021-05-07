@@ -22,18 +22,13 @@ This article describes review and follow-up for non-retryable errors that preven
 
 When data is uploaded to Azure from your device, some file uploads might fail because of configuration errors that can't be resolved through a retry. In that case, you receive a notification to give you a chance to review and fix the errors for a later upload.
 
-You'll see the following notification in the Azure portal. The errors are listed in the data copy log, which you can open using the **DATA COPY PATH**.
+You'll see the following notification in the Azure portal. The errors are listed in the data copy log, which you can open using the **DATA COPY PATH**. For guidance on resolving the errors, see [Summary of non-retryable upload errors](#summary-of-nonretryable-upload-errors).
 
 ![Notification of errors during upload](media/data-box-troubleshoot-data-upload/copy-completed-with-errors-notification-01.png)
 
 You can't fix these errors. The upload has completed with errors. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
 
-After you review the errors and confirm that you're ready to proceed, the data will be secure erased from the device. If you don't respond to the notification, the order is completed automatically after 14 days.
-
-
-## Review non-retryable errors
-
-[!INCLUDE [data-box-review-nonretryable-errors](../../includes/data-box-review-nonretryable-errors.md)]
+After you review the errors and confirm that you're ready to proceed, the data will be secure erased from the device. If you don't respond to the notification, the order is completed automatically after 14 days. For step-by-step instructions, see [Review errors and proceed](#review-errors-and-proceed).
 
 
 ## Summary of non-retryable upload errors
@@ -51,9 +46,9 @@ The following non-retryable errors result in a pause in an upload and a notifica
 |UploadErrorManagedConversionError |409        |The size of the blob being imported is invalid. The blob size is `<blob-size>` bytes. Supported sizes are between 20971520 Bytes and 8192 GiB. [Learn more](#the-size-of-the-blob-being-imported-is-invalid-the-blob-size-is-blob-size-bytes-supported-sizes-are-between-20971520-bytes-and-8192-gib)|
 <!--Temporarily removed from table: Bad Request (file property failure for Azure Files)-->
 
-For more information about the data log's contents, see [Tracking and event logging for your Azure Data Box and Azure Data Box Heavy import order](data-box-logs.md).
+For more information about the data copy log's contents, see [Tracking and event logging for your Azure Data Box and Azure Data Box Heavy import order](data-box-logs.md).
 
-For information about REST API errors, see [Common REST API error codes](/rest/api/storageservices/common-rest-api-error-codes).
+Other REST API errors might occur during data uploads. For more information, see [Common REST API error codes](/rest/api/storageservices/common-rest-api-error-codes).
 
 > [!NOTE]
 > The **Follow-up** sections in the error descriptions describe how to update your data configuration before you place a new import order or perform a network transfer. You can't fix these errors in the current upload. The upload will complete with errors.
@@ -148,6 +143,10 @@ For information about REST API errors, see [Common REST API error codes](/rest/a
 **Error description:** The listed page blobs failed to upload because they are not a size that can be converted to a Managed Disk. To be converted to a Managed Disk, a page blob must be from 20 MB (20,971,520 Bytes) to 8192 GiB in size.
 
 **Follow-up:** You can't fix this error in the current upload. The upload has completed with errors. Before you do a network transfer or start a new import order, make sure each listed blob is from 20 MB to 8192 GiB in size.
+
+## Review errors and proceed
+
+[!INCLUDE [data-box-review-nonretryable-errors](../../includes/data-box-review-nonretryable-errors.md)]
 
 
 ## Next steps
