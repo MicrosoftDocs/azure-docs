@@ -246,6 +246,21 @@ During the cluster scaling down process, Autoscale decommissions the nodes to me
 
 The running jobs will continue. The pending jobs will wait for scheduling with fewer available worker nodes.
 
+### Configure schedule-based Autoscale based on usage pattern
+
+You need to understand your cluster usage pattern when you configure schedule based Autoscale. [Grafana dashboard](https://docs.microsoft.com/azure/hdinsight/interactive-query/hdinsight-grafana)  can help you understand your query load and execution slots. You can get the available executor slots and total executor slots from the dashboard. 
+
+Here is a way you can estimate how many worker nodes will be needed. We recommend giving additional 10% buffer to handle the variation of the workload. 
+
+Number of executor slots actually used = Total executor slots – Total available executor slots.
+
+Number of worker nodes required = Number of executor slots actually used / (hive.llap.daemon.num.executors + hive.llap.daemon.task.scheduler.wait.queue.size)
+
+*hive.llap.daemon.num.executors is configurable and default is 4 
+
+*hive.llap.daemon.task.scheduler.wait.queue.size is configurable and default is 10
+
+
 ### Be aware of the minimum cluster size
 
 Don't scale your cluster down to fewer than three nodes. Scaling your cluster to fewer than three nodes can result in it getting stuck in safe mode because of insufficient file replication. For more information, see [getting stuck in safe mode](hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
