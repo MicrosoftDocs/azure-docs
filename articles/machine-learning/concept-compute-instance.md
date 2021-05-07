@@ -35,7 +35,9 @@ A compute instance is a fully managed cloud-based workstation optimized for your
 |Preconfigured&nbsp;for&nbsp;ML|Save time on setup tasks with pre-configured and up-to-date ML packages, deep learning frameworks, GPU drivers.|
 |Fully customizable|Broad support for Azure VM types including GPUs and persisted low-level customization such as installing packages and drivers makes advanced scenarios a breeze. |
 
-You can [create a compute instance](how-to-create-manage-compute-instance.md?tabs=python#create) yourself, or an administrator can [create a compute instance for you](how-to-create-manage-compute-instance.md?tabs=python#on-behalf).
+You can [create a compute instance](how-to-create-manage-compute-instance.md?tabs=python#create) yourself, or an administrator can **[create a compute instance on your behalf](how-to-create-manage-compute-instance.md?tabs=python#on-behalf)**.
+
+You can also **[use a setup script (preview)](how-to-create-manage-compute-instance.md#setup-script)**  for an automated way to customize and configure the compute instance as per your needs.
 
 ## <a name="contents"></a>Tools and environments
 
@@ -107,7 +109,9 @@ For more about managing the compute instance, see [Create and manage an Azure Ma
 
 ### <a name="create"></a>Create a compute instance
 
-As an administrator, you can [create a compute instance for others in the workspace (preview)](how-to-create-manage-compute-instance.md#on-behalf).  You can also [use a setup script (preview)](how-to-create-manage-compute-instance.md#setup-script)  for an automated way to customize and configure the compute instance.
+As an administrator, you can **[create a compute instance for others in the workspace (preview)](how-to-create-manage-compute-instance.md#on-behalf)**.  
+
+You can also **[use a setup script (preview)](how-to-create-manage-compute-instance.md#setup-script)**  for an automated way to customize and configure the compute instance.
 
 To create your a compute instance for yourself, use your workspace in Azure Machine Learning studio, [create a new compute instance](how-to-create-attach-compute-studio.md#compute-instance) from either the **Compute** section or in the **Notebooks** section when you are ready to run one of your notebooks. 
 
