@@ -123,6 +123,7 @@ In the case where there are scheduled events, the response contains an array of 
             "NotBefore": {timeInUTC},       
             "Description": {eventDescription},
             "EventSource" : "Platform" | "User",
+            "DurationInSeconds" : {timeInSeconds},
         }
     ]
 }
@@ -139,6 +140,18 @@ In the case where there are scheduled events, the response contains an array of 
 | NotBefore| Time after which this event can start. <br><br> Example: <br><ul><li> Mon, 19 Sep 2016 18:29:47 GMT  |
 | Description | Description of this event. <br><br> Example: <br><ul><li> Host server is undergoing maintenance. |
 | EventSource | Initiator of the event. <br><br> Example: <br><ul><li> `Platform`: This event is initiated by platform. <li>`User`: This event is initiated by user. |
+| DurationInSeconds | The expected duration of the interruption caused by the event.  There may be additional processes   <br><br> Example: <br><ul><li> `9`: The interruption caused by the event will last for 9 seconds. <li>`-1`: The default value used if the impact duration is either unknown or not applicable. |
+
+### Event life-cycle
+The life-cycle of a Scheduled Event is fairly intuitive and straightforward, but there are some key points to be aware of. 
+
+When you first receive an event, EventStatus will be “Scheduled”, and it will include a “NotBefore” time. The “NotBefore” time is an indication of the earliest time that the update will begin, but is not a guarantee that the event will commence at that exact time. It is possible that the event could start shortly after the described time. However, any additional delay should be comparatively short relative to the amount of heads-up time given. An event with 15 minutes of advance notification is unlikely to begin more than a minute or two after the advertised time. 
+
+Once the event has begun, the Scheduled Event entry will be updated, and the EventStatus field will change to “Started”. However, after the event is completed, you will not see an update to the EventStatus field. Instead, the entire Scheduled Event entry will be removed. So if you no longer see an entry for an event that was in progress, it means it has completed and you can resume normal operations safely. 
+
+It is important to note that while a Scheduled Event includes a "DurationInSeconds" field, this is a reference to the duration of the impactful portion of the event, not the duration of the event itself. In the case of system updates, for example, there is work that needs to be done before the impact to prepare the system and install the update in the background before it is applied, and there is work that needs to be done afterwards to ensure that things are running smoothly and that the update was applied successfully.
+
+The actual impact of an event can happen at any point between when the event starts and when it completes. Once the event is completed and the entry is removed, you can be confident that there will be no further impact.
 
 ### Event scheduling
 Each event is scheduled a minimum amount of time in the future based on the event type. This time is reflected in an event's `NotBefore` property. 
