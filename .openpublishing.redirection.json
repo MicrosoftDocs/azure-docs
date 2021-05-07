@@ -65995,11 +65995,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/virtual-network/manage-public-ip-address-prefix.md",
-      "redirect_url": "/azure/virtual-network/create-public-ip-prefix-portal",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/overview-reports",
       "redirect_document_id": false
