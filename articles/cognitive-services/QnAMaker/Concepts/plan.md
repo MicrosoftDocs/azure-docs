@@ -35,11 +35,19 @@ Each [Azure resource](azure-resources.md#resource-purposes) created with QnA Mak
 ---
 ### Resource planning
 
+# [QnA Maker GA (stable release)](#tab/v1)
+
 The free tier, `F0`, of each resource works and can provide both the authoring and query prediction experience. You can use this tier to learn authoring and query prediction. When you move to a production or live scenario, reevaluate your resource selection.
+
+# [Custom question answering (preview release)](#tab/v2)
+
+Custom question answering (Preview) is a free feature, and the throughput is currently capped at 10 transactions per second for both management APIs and prediction APIs. To target 10 transactions per second for your service, we recommend the S1 (one instance) SKU of Azure Cognitive Search.
 
 ### Text Analytics resource
 
 A single Text Analytics resource with the custom question answering feature enabled can host more than one knowledge base. The number of knowledge bases is determined by the Cognitive Search pricing tier's quantity of supported indexes. Learn more about the [relationship of indexes to knowledge bases](azure-resources.md#index-usage).
+
+---
 
 ### Knowledge base size and throughput
 
@@ -90,13 +98,21 @@ You can now have knowledge bases in different languages within the same Text Ana
 
 ### Ingest data sources
 
+# [QnA Maker GA (stable release)](#tab/v1)
+
 You can use one of the following ingested [data sources](../Concepts/data-sources-and-content.md) to create a knowledge base:
 
 * Public URL
 * Private SharePoint URL
 * File
 
+# [Custom question answering (preview release)](#tab/v2)
+
 Custom question answering also supports unstructured content. You can upload a file that has unstructured content.
+
+Currently we do not support URLs for unstructured content.
+
+---
 
 The ingestion process converts [supported content types](../reference-document-format-guidelines.md) to markdown. All further editing of the *answer* is done with markdown. After you create a knowledge base, you can edit [QnA pairs](question-answer-set.md) in the QnA Maker portal with [rich text authoring](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
 
