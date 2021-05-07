@@ -21,7 +21,7 @@ The **Translator** container runtime environment is configured using the `docker
 
 ## Configuration settings
 
-[!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
+[!INCLUDE [Container shared configuration settings table](../../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
  > [!IMPORTANT]
 > The [**ApiKey**](#apikey-configuration-setting), [**Billing**](#billing-configuration-setting), and [**EULA**](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](translator-how-to-install-containers.md#billing).
@@ -52,19 +52,19 @@ This setting can be found in the following place:
 
 ## Eula setting
 
-[!INCLUDE [Container shared configuration eula settings](../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
+[!INCLUDE [Container shared configuration eula settings](../../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 
 ## Fluentd settings
 
-[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
+[!INCLUDE [Container shared configuration fluentd settings](../../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
 ## HTTP proxy credentials settings
 
-[!INCLUDE [Container shared HTTP proxy settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+[!INCLUDE [Container shared HTTP proxy settings](../../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## Logging settings
 
-[!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
+[!INCLUDE [Container shared configuration logging settings](../../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
 ## Mount settings
 
@@ -82,4 +82,4 @@ The exact syntax of the host mount location varies depending on the host operati
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Cognitive Services Containers](../cognitive-services-container-support.md)
+> [Learn more about Cognitive Services Containers](../../cognitive-services-container-support.md)

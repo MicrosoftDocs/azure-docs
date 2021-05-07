@@ -24,12 +24,13 @@ keywords: on-premises, Docker, container, identify
 
 The following Translator container is in gated preview:
 
-|Container| Features|Available pricing tiers|Latest version|
-|---|---|---|---|
-|Text Translator| You provide an input sentence in a source language and Azure's pre-trained model translates that sentence into a chosen target language.|[Translator pricing](/pricing/details/cognitive-services/translator/)<ul><li> **S1**</li><li>**S2**</li> <li>**S3**</li> <li>**S3-HD**</li></ul>|v3.0|
+|Container| Features|
+|---|---|
+|Text Translator| You provide an input sentence in a source language and Azure's pre-trained model translates that sentence into a chosen target language.|
 
-> [!NOTE]
-> The Translator container provides multi-language support for text translation. It does not provide support for transliteration, dictionaries, or language detection. **Language detection** container support is available in our[**Text Analytics containers**](../text-analytics/how-tos/text-analytics-how-to-install-containers?tabs=language#get-the-container-image-with-docker-pull)
+* The Translator container provides multi-language support for standard text translation. It does not provide support for custom models, transliteration, dictionaries, or language detection. *See* our [Translator container: supported parameters](translator-container-supported-parameters.md) documentation.
+
+* **Language detection** container support is available in our [**Text Analytics containers**](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language#get-the-container-image-with-docker-pull)
 
 ## Prerequisites
 
@@ -55,16 +56,12 @@ All Cognitive Services containers require three primary elements:
 
 * **EULA accept setting**. An end-user license agreement (EULA) set with a value of `Eula=accept`.
 
-* **Endpoint URL**. You can retrieve the URL value by navigating to the Translator resource _Keys and Endpoint_  and _Overview_ pages. On the `Overview` page, hover over  _Endpoint_, a `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> icon will appear. Copy and paste to a convenient location. 
+* **API key** and **Endpoint URL**.  The API key is used to start the container. You can retrieve the API key and Endpoint URL values by navigating to the Translator resource _Keys and Endpoint_ page and selecting the `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> icon.
 
-:::image type="content" source="../containers/media/overview-endpoint-uri.png" alt-text="location of endpoint url on resource overview page":::
-
-* **API key**. The API key is used to start the container, and is available on the Translator resource  `Keys and Endpoint` page. Navigate to the *Keys* page, and click on the `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> icon. You can also find Endpoint URL in this location as well.
-
-:::image type="content" source="../containers/media/keys-copy-api-key.png" alt-text="API key page and location.":::
+:::image type="content" source="../media/keys-and-endpoint.png" alt-text="location of endpoint url on resource overview page":::
 
 > [!IMPORTANT]
->Subscription keys are used to access your Cognitive Service API. Do not share your keys. Store them securely, for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service. *See* [Azure Cognitive Services security](../cognitive-services-security.md) for ways to securely store and access your credentials.
+>Subscription keys are used to access your Cognitive Service API. Do not share your keys. Store them securely, for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service. *See* [Azure Cognitive Services security](../../cognitive-services-security.md) for ways to securely store and access your credentials.
 
 ## Host computer
 
@@ -91,7 +88,7 @@ For every language pair, it's recommended to have 2 GB of memory. By default, th
 Fill out and submit the [**Azure Cognitive Services
 Application for Gated Services**](https://aka.ms/csgate) to request access to the container. 
 
-[!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
+[!INCLUDE [Request access to public preview](../../../../includes/cognitive-services-containers-request-access.md)]
 
 ## Container images
 
@@ -100,49 +97,6 @@ Container images for Translator are available in the following container registr
 |Container|Repository|
 |-----------|-----------|
 |Text Translator| translatorcontainerpreview.azurecr.io/cognitive-services-offline-translator|
-
-> [!TIP]
-> You can use the [**docker images**](https://docs.docker.com/engine/reference/commandline/images/) command to list your downloaded container images. For example, the following command lists the ID, repository, and tag of each downloaded container image, formatted as a table:
->
->```dockerfile
->  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
->
->  IMAGE ID        REPOSITORY                                                                     TAG
->  d7324af7220f    translatorcontainerpreview.azurecr.io/cognitive-services-offline-translator    en_ar_de_ru_zh_1.0.11
->  7ee233eec36c    translatorcontainerpreview.azurecr.io/cognitive-services-offline-translator    en_es_fr_nl_pt_1.0.11
->  fd92f07b283c    translatorcontainerpreview.azurecr.io/cognitive-services-offline-translator    en_fa_ja_ko_uk_1.0.11
->```
-
-### Language support
-
-The following table lists the language supported by each container image:
-
-| Image Tag | Languages Supported |
-|-----------|---------------------|
-| `en_ar_de_ru_zh_1.0.11` |Arabic—Saudi Arabia (`ar-SA` ), German (`de-DE`), Russian (`ru-RU`), Chinese—PRC `zh-CN` |
-| `en_es_fr_nl_pt_1.0.11` | Spanish—Spain (`es-ES`), French—Standard `fr-FR`, Dutch—Standard `nl-NL`, Portuguese—Brazil (`pt-BR`) |
-| `en_fa_ja_ko_uk_1.0.11` |Farsi—Iran (`fa-IR`), Japanese (`ja-JP`), Korean (`ko-KR`), and (Ukrainian (`uk-UA)`|
-
-### Text translation support
-
- The `POST /translate` method supports the following language conversions to and from *English*. </br>**NOTE**: while the process can translate from English to one of the languages listed, it *cannot*  process a translation from a *non-English* language to another *non-English* language.
-
-> For optimal quality consumers should only send one sentence per request.
-
-| Language Conversion | Language ISO Conversion | Image Tags |
-|--|--|:--|
-| English  &leftrightarrow; Arabic | `en-US`  &leftrightarrow; `ar-SA` | `en_ar_de_ru_zh_1.0.11` |
-| English  &leftrightarrow; Chinese | `en-US`  &leftrightarrow; `zh-CN` | `en_ar_de_ru_zh_1.0.11` |
-| English  &leftrightarrow; German | `en-US`  &leftrightarrow; `de-DE` | `en_ar_de_ru_zh_1.0.11` |
-| English  &leftrightarrow; Russian | `en-US`  &leftrightarrow; `ru-RU` | `en_ar_de_ru_zh_1.0.11` |
-| English  &leftrightarrow; French | `en-US`  &leftrightarrow; `fr-FR` | `en_es_fr_nl_pt_1.0.11` |
-| English  &leftrightarrow; Dutch | `en-US`  &leftrightarrow; `nl-NL` | `en_es_fr_nl_pt_1.0.11` |
-| English  &leftrightarrow; Portuguese (Brazil) | `en-US`  &leftrightarrow; `pt-BR` | `en_es_fr_nl_pt_1.0.11` |
-| English  &leftrightarrow; Spanish | `en-US`  &leftrightarrow; `es-ES` | `en_es_fr_nl_pt_1.0.11` |
-| English  &leftrightarrow; Japanese | `en-US`  &leftrightarrow; `ja-JP` | `en_fa_ja_ko_uk_1.0.11` |
-| English  &leftrightarrow; Korean | `en-US`  &leftrightarrow; `ja-JP` | `en_fa_ja_ko_uk_1.0.11` |
-| English  &leftrightarrow; Persian | `en-US`  &leftrightarrow; `ja-JP` | `en_fa_ja_ko_uk_1.0.11` |
-| English  &leftrightarrow; Ukranian | `en-US`  &leftrightarrow; `ja-JP` | `en_fa_ja_ko_uk_1.0.11` |
 
 ## Get container images with **docker  pull**
 
@@ -219,7 +173,7 @@ curl -X POST "http://localhost:5000/translate?api-version=3.0&from=en-US&to=zh-C
 
 ## Stop the container
 
-[!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
+[!INCLUDE [How to stop the container](../../../../includes/cognitive-services-containers-stop.md)]
 
 ## Troubleshoot
 
@@ -238,7 +192,7 @@ There are several ways to validate that the container is running:
 | `http://localhost:5000/status` | Requested with GET.  Verifies if the api-key used to start the container is valid without causing an endpoint query. This request can be used for Kubernetes [liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/). |
 | `http://localhost:5000/swagger` | The container provides a full set of documentation for the endpoints and a **Try it out** feature. With this feature, you can enter your settings into a web-based HTML form and make the query without having to write any code. After the query returns, an example CURL command is provided to demonstrate the HTTP headers and body format that's required. |
 
-:::image type="content" source="../../../includes/media/cognitive-services-containers-api-documentation/container-webpage.png" alt-text="Container home page":::
+:::image type="content" source="../../../../includes/media/cognitive-services-containers-api-documentation/container-webpage.png" alt-text="Container home page":::
 
 ### View your container's logs
 
@@ -259,9 +213,9 @@ docker logs <Container ID> --timestamps --since=4h | grep Error
 
 ## Billing
 
-The Text Analytics containers send billing information to Azure, using a _Translator_ resource on your Azure account. 
+Translator containers send billing information to Azure, using a _Translator_ resource on your Azure account. 
 
-[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
+[!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](translator-container-configuration.md).
 
@@ -285,7 +239,7 @@ Navigate to the swagger page: <http://localhost:5000/swagger/index.html>
         {
             "text": "hello, how are you"
         }
-    ]
+    ]cd
 ```
 
 1. Select **Execute**, the resulting translations are output in the **Response Body**. You should expect something similar to the following response:

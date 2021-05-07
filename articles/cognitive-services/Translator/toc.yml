@@ -50,20 +50,18 @@
       href: dynamic-dictionary.md
     - name: Translate behind firewalls
       href: firewalls.md
-    - name: Use the Translator container
-      items:
-      - name: Containers overview
-        href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/translator/context/context
-      - name: Install and run containers
-        href: translator-how-to-install-containers.md
-      - name: Configure containers
-        href: translator-container-configuration.md
-      - name: Use container instances
-        href: /azure/cognitive-services/containers/azure-container-instance-recipe?context=/azure/cognitive-services/translator/context/context
-      - name:  Container support
-        href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
-      - name: Cognitive Services containers documentation
-        href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/translator/context/context   
+  - name: Use the Translator container
+    items:
+    - name: Install and run containers
+      href: containers/translator-how-to-install-containers.md
+    - name: Configure containers
+      href: containers/translator-container-configuration.md
+    - name: Use container instances
+      href: /azure/cognitive-services/containers/azure-container-instance-recipe?context=/azure/cognitive-services/translator/context/context
+    - name: Container reference:\ supported translation parameters
+      href: containers/translator-container-supported-parameters.md
+    - name: Cognitive Services containers documentation
+      href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/translator/context/context
   - name: Concepts
     items:
     - name: How the API counts characters
