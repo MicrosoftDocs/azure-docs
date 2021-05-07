@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Create and use native external tables using SQL pools in Azure Synapse Analytics
 
-In this section, you'll learn how to create and use [native external tables](develop-tables-external-tables.md) in Synapse SQL pools. The native external tables are the latest technology that will be used in future in Polybase to access external tables. The native external tables have better performance compared to the existing external tables with `TYPE=HADOOP` in their external data source definition because they are using the native code to access external data. 
+In this section, you'll learn how to create and use [native external tables](develop-tables-external-tables.md) in Synapse SQL pools. The native external tables have better performance compared to the existing external tables with `TYPE=HADOOP` in their external data source definition because they are using the native code to access external data. 
 
 External tables are useful when you want to control access to external data in Synapse SQL pool and if you want to use tools, such as Power BI, in conjunction with Synapse SQL pool. External tables can access two types of storage:
 - Public storage where users access public storage files.
