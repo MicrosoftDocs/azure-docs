@@ -39,6 +39,7 @@ To add B2B collaboration users to the directory, follow these steps:
 3. Under **Manage**, select **Users**.
 4. Select **New guest user**.
 5. On the **New user** page, select **Invite user** and then add the guest user's information.
+
    ![Guest user type image](media/add-users-administrator/invite-user.png)
 
       - **Name.** The first and last name of the guest user.
@@ -65,8 +66,8 @@ If you need to manually add B2B collaboration users to a group, follow these ste
 5. Select the link under **Members**.
 6. Do one of the following:
 
- - If the guest user already exists in the directory, search for the B2B user. Select the user, and then select **Select** to add the user to the group.
- - If the guest user does not already exist in the directory, invite them to the group by typing their email address in the search box, typing an optional personal message, and then choosing **Invite**. The invitation automatically goes out to the invited user.
+     - If the guest user already exists in the directory, search for the B2B user. Select the user, and then select **Select** to add the user to the group.
+     - If the guest user does not already exist in the directory, invite them to the group by typing their email address in the search box, typing an optional personal message, and then choosing **Invite**. The invitation automatically goes out to the invited user.
    
 ![Add invite button to add guest members](./media/add-users-administrator/group-invite.png)
  
@@ -101,9 +102,10 @@ If a guest user has not yet redeemed their invitation, you can resend the invita
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Search for and select **Azure Active Directory** from any page.
 3. Under **Manage**, select **Users**.
-5. Select the user account.
-6. In the **Identity** section, under **Invitation accepted**, Select the **(manage)** link. 
-7. If the user has not yet accepted the invitation, Select the **Yes** option to resend.
+4. Select the user account.
+5. In the **Identity** section, under **Invitation accepted**, Select the **(manage)** link. 
+6. If the user has not yet accepted the invitation, Select the **Yes** option to resend.
+
     ![Resend Invitation](./media/add-users-administrator/resend-invitation.png)
 
 > [!NOTE]
