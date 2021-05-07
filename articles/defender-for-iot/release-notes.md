@@ -2,14 +2,29 @@
 title: What's new in Azure Defender for IoT 
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 04/19/2021
+ms.date: 05/05/2021
 ---
 
-# What's new in Azure Defender for IoT?
+# What's new in Azure Defender for IoT?  
 
 This article lists new features and feature enhancements for Defender for IoT.
 
-Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+## Versioning and support for Azure Defender for IoT 
+
+Listed below are the support, breaking change policies for Defender for IoT, and the versions of Azure Defender for IoT that are currently available. 
+
+### Servicing information and timelines 
+
+Microsoft plans to release updates for Azure Defender for IoT no less than once per quarter. Each general availability (GA) version of the Azure Defender for IoT sensor, and on premises management console is supported for up to nine months after its release. Fixes, and new functionality will be applied to the current GA version that are currently in support, and will not be applied to older GA versions.
+
+### Versions and support dates
+
+| Version | Date released | End support date |
+|--|--|--|
+| 10.0 | 01/2021 | 10/2021 |
+| 10.3 | 04/2021 | 02/2022 |
 
 ## April 2021
 
@@ -58,7 +73,7 @@ API version 2 is required when working with the new fields.
 
 ### Features delivered as Generally Available (GA)
 
-The following features were previously available for Public Preview, and are now Generally Available (GA)features:
+The following features were previously available for Public Preview, and are now Generally Available (GA) features:
 
 - Sensor - enhanced custom alert rules
 - On-premises management console - export alerts
@@ -81,15 +96,10 @@ This feature is available on the on-premises management console with the release
 
 ### Add second network interface to On-premises management console (Public Preview)
 
-You can now enhance the security of your deployment by adding a second network interface to your on-premises management console. This feature allows your on-premises management to have it’s connected sensors on one secure network, while allowing your users to access the on-premises management console through a second separate network interface.
+You can now enhance the security of your deployment by adding a second network interface to your on-premises management console. This feature allows your on-premises management to have its connected sensors on one secure network, while allowing your users to access the on-premises management console through a second separate network interface.
 
 This feature is available on the on-premises management console with the release of version 10.2.
 
-### Add second network interface to On-premises management console (Public preview)
-
-You can now enhance the security of your deployment by adding a second network interface to your on-premises management console. This feature allows your on-premises management to have it’s connected sensors on one secure network, while allowing your users to access the on-premises management console through a second separate network interface.
-
-This feature is available on the on-premises management console with the release of version 10.2.
 ### Device builder - new micro agent (Public preview)
 
 A new device builder module is available. The module, referred to as a micro-agent, allows:
@@ -119,7 +129,7 @@ Certificate and password recovery enhancements were made for this release.
 This version lets you:
 
 - Upload SSL certificates directly to the sensors and on-premises management consoles.
-- Perform validation between the on-premises management console and connected sensors, and between a management console and a High Availability management console. Validation is based on expiration dates, root CA authenticity and Certificate Revocation Lists.  If validation fails, the session will not continue.
+- Perform validation between the on-premises management console and connected sensors, and between a management console and a High Availability management console. Validation is based on expiration dates, root CA authenticity, and Certificate Revocation Lists.  If validation fails, the session will not continue.
 
 For upgrades:
 

@@ -39,7 +39,7 @@ ms.author: anfeldma
 |**SDK download**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**API documentation**|[Change Feed Processor library API reference documentation](/dotnet/api/microsoft.azure.documents.changefeedprocessor)|
 |**Get started**|[Get started with the Change Feed Processor .NET SDK](change-feed.md)|
-|**Current supported framework**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
+|**Current supported framework**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://dotnet.microsoft.com/download) |
 
 > [!NOTE]
 > If you are using change feed processor, please see the latest version 3.x of the [.NET SDK](change-feed-processor.md), which has change feed built into the SDK. 

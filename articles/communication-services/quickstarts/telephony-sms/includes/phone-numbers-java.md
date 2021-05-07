@@ -24,7 +24,7 @@ Open the **pom.xml** file in your text editor. Add the following dependency elem
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-phonenumbers</artifactId>
-    <version>1.0.0-beta.7</version>
+    <version>1.0.0</version>
 </dependency>
 
 <dependency>
@@ -48,10 +48,11 @@ Use the following code to begin:
 ```java
 import com.azure.communication.phonenumbers.*;
 import com.azure.communication.phonenumbers.models.*;
-import java.io.*;
+import com.azure.core.http.rest.*;
 import com.azure.core.util.Context;
 import com.azure.core.util.polling.PollResponse;
 import com.azure.identity.*;
+import java.io.*;
 
 public class App
 {

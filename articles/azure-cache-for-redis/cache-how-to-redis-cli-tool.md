@@ -6,7 +6,8 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 02/08/2021 
+ms.custom: devx-track-azurepowershell
 ---
 # Use the Redis command-line tool with Azure Cache for Redis
 

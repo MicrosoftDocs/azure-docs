@@ -8,7 +8,7 @@ ms.author: victorh
 ms.date: 01/20/2021
 ms.topic: quickstart
 ms.service: application-gateway
-ms.custom:
+ms.custom: devx-track-azurepowershell
   - mvc
   - subject-armqs
   - mode-arm

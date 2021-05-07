@@ -45,6 +45,8 @@
       href: tutorial-desktop-app-webapi.md
     - name: Single page
       href: tutorial-single-page-app-webapi.md
+  - name: 6 - Clean up and delete tenant
+    href: tutorial-delete-tenant.md
 - name: Samples
   href: code-samples.md
 - name: Concepts
@@ -86,6 +88,9 @@
       href: user-flow-overview.md
     - name: Custom policy overview
       href: custom-policy-overview.md
+  - name: API Connectors
+    href: api-connectors-overview.md
+    displayName: REST API, web API, API connectors
   - name: User accounts
     href: user-overview.md
   - name: User profile attributes
@@ -169,6 +174,8 @@
       href: identity-provider-azure-ad-multi-tenant.md
     - name: Azure AD B2C
       href: identity-provider-azure-ad-b2c.md
+    - name: eBay
+      href: identity-provider-ebay.md
     - name: Facebook
       href: identity-provider-facebook.md
     - name: Generic OpenId Connect
@@ -275,26 +282,18 @@
       href: conditional-access-user-flow.md
   - name: Configure age gating
     href: age-gating.md
-  - name: API connectors (preview)
+  - name: API connectors
     items:
-    - name: Overview
-      href: api-connectors-overview.md
-    - name: Add an API connector
+    - name: Add an API connector to a sign-up user flow
       href: add-api-connector.md
+      displayName: rest claims validation, validate
+    - name: Add an API connector to a sign-up or sign-in user flow
+      href: custom-policy-rest-api-claims-exchange.md
+      displayName: rest claims exchange
+    - name: Secure an API connector
+      href: secure-rest-api.md
   - name: Custom policy
     items:
-    - name: Add your own business logic
-      items:
-      - name: Integrate REST API
-        href: custom-policy-rest-api-intro.md
-      - name: Validate user input
-        href: custom-policy-rest-api-claims-validation.md
-        displayName: rest claims validation, validate
-      - name: Obtain additional claims
-        href: custom-policy-rest-api-claims-exchange.md
-        displayName: rest claims exchange
-      - name: Secure REST API
-        href: secure-rest-api.md
     - name: Troubleshooting
       items:
       - name: Collect logs using Application Insights
@@ -323,15 +322,18 @@
       href: partner-lexisnexis.md
     - name: Onfido
       href: partner-onfido.md
-  - name: Fraud protection
+  - name: Fraud protection partners
     items: 
-    - name: Microsoft Dynamics 365 Fraud Protection
-      href: partner-dynamics-365-fraud-protection.md
-      displayName: m365 dynamics, dynamics fraud protection, fraud, 365 protection
     - name: Arkose Labs
       href: partner-arkose-labs.md
       displayName: fraud protection, fraud, Azure AD b2c, protection, B2Cprotection
-  - name: Secure legacy and on-premises apps
+    - name: BioCatch
+      href: partner-biocatch.md
+      displayName: fraud protection, fraud, Azure AD b2c, protection, B2Cprotection, user behavior
+    - name: Microsoft Dynamics 365 Fraud Protection
+      href: partner-dynamics-365-fraud-protection.md
+      displayName: m365 dynamics, dynamics fraud protection, fraud, 365 protection
+  - name: Secure access to legacy and on-premises apps
     items:
     - name: Ping Identity
       href: partner-ping-identity.md
@@ -347,6 +349,10 @@
       href: b2clogin.md
     - name: Configure a custom domain
       href: custom-domain.md
+    - name: Web Application Firewall partners
+      items:
+      - name: Cloudflare
+        href: partner-cloudflare.md
     - name: Configure web API domains 
       href: multiple-token-endpoints.md
       displayName: migrate, b2clogin, owin
@@ -496,10 +502,12 @@
       href: relyingparty.md
     - name: Claim resolvers
       href: claim-resolver-overview.md
-  - name: Custom policy release notes
+  - name: Release notes
     href: custom-policy-developer-notes.md
   - name: Service limits and restrictions
     href: service-limits.md
+  - name: TLS and cipher suite requirements
+    href: https-cipher-tls-requirements.md
   - name: App registrations
     href: app-registrations-training-guide.md
   - name: Billing model

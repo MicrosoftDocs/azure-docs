@@ -10,11 +10,6 @@ ms.service: azure-communication-services
 
 In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling SDK for iOS.
 
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-android-ios.md)]
-
-> [!NOTE]
-> This document uses version 1.0.0-beta.9 of the Calling SDK.
-
 ## Prerequisites
 
 To complete this tutorial, you’ll need the following prerequisites:
@@ -43,9 +38,7 @@ In Xcode, create a new iOS project and select the **Single View App** template. 
    use_frameworks!
 
    target 'AzureCommunicationCallingSample' do
-     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.9'
-     pod 'AzureCommunication', '~> 1.0.0-beta.9'
-     pod 'AzureCore', '~> 1.0.0-beta.9'
+     pod 'AzureCommunicationCalling', '~> 1.0.0'
    end
    ```
 
@@ -142,13 +135,12 @@ do {
 self.callClient = CallClient()
 
 // Creates the call agent
-self.callClient?.createCallAgent(userCredential: userCredential) { (agent, error) in
+self.callClient?.createCallAgent(userCredential: userCredential!) { (agent, error) in
     if error != nil {
         print("ERROR: It was not possible to create a call agent.")
         return
     }
-
-    if let agent = agent {
+    else {
         self.callAgent = agent
         print("Call agent successfully created.")
     }
@@ -169,7 +161,13 @@ func startCall()
         if granted {
             // start call logic
             let callees:[CommunicationIdentifier] = [CommunicationUserIdentifier(identifier: self.callee)]
-            self.call = self.callAgent?.startCall(participants: callees, options: StartCallOptions())
+            self.call = self.callAgent?.startCall(participants: callees, options: StartCallOptions()) { (call, error) in
+                if (error == nil) {
+                    self.call = call
+                } else {
+                    print("Failed to get call object")
+                }
+            }
         }
     }
 }

@@ -617,8 +617,8 @@ Array of JSON objects that represent alerts.
 | **engine** | String | No | Protocol Violation, Policy Violation, Malware, Anomaly, or Operational |
 | **sourceDevice** | Numeric | Yes | Device ID |
 | **destinationDevice** | Numeric | Yes | Device ID |
-| **sourceDeviceAddress** | Numeric | Yes | IP, MAC, Null |
-| **destinationDeviceAddress** | Numeric | Yes | IP, MAC, Null |
+| **sourceDeviceAddress** | Numeric | Yes | IP, MAC |
+| **destinationDeviceAddress** | Numeric | Yes | IP, MAC |
 | **remediationSteps** | String | Yes | Remediation steps described in alert |
 | **additionalInformation** | Additional information object | Yes | - |
 
@@ -2051,12 +2051,12 @@ Use this API to retrieve all or filtered alerts from an on-premises management c
 | **engine** | String | No | Protocol Violation, Policy Violation, Malware, Anomaly, or Operational |
 | **sourceDevice** | Numeric | Yes | Device ID |
 | **destinationDevice** | Numeric | Yes | Device ID |
-| **sourceDeviceAddress** | Numeric | Yes | IP, MAC, Null |
-| **destinationDeviceAddress** | Numeric | Yes | IP, MAC, Null |
+| **sourceDeviceAddress** | Numeric | Yes | IP, MAC |
+| **destinationDeviceAddress** | Numeric | Yes | IP, MAC |
 | **remediationSteps** | String | Yes | Remediation steps shown in alert|
-| **sensorName** | String | Yes | Name of sensor defined by user in the console|
-|**zoneName** | String | Yes | Name of zone associated with sensor in the console|
-| **siteName** | String | Yes | Name of site associated with sensor in the console |
+| **sensorName** | String | Yes | Name of sensor defined by user |
+|**zoneName** | String | Yes | Name of zone associated with sensor|
+| **siteName** | String | Yes | Name of site associated with sensor |
 | **additionalInformation** | Additional information object | Yes | - |
 
 Note that /api/v2/ is needed for the following information:

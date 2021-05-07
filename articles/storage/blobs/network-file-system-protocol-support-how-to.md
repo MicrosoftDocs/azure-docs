@@ -17,6 +17,8 @@ You can mount a container in Blob storage from a Linux-based Azure Virtual Machi
 
 ## Step 1: Register the NFS 3.0 protocol feature with your subscription
 
+# [PowerShell](#tab/azure-powershell)
+
 1. Open a PowerShell command window. 
 
 2. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
@@ -45,14 +47,54 @@ You can mount a container in Blob storage from a Linux-based Azure Virtual Machi
    ```powershell
    Register-AzResourceProvider -ProviderNamespace Microsoft.Storage   
    ```
+   
+# [Azure CLI](#tab/azure-cli)
+
+1. Open a Terminal window.
+
+2. Sign in to your Azure subscription with the `az login` command and follow the on-screen directions.
+
+   ```azurecli-interactive
+   az login
+   ```
+   
+3. Register the `AllowNFSV3` feature by using the following command.
+
+   ```azurecli-interactive
+   az feature register --namespace Microsoft.Storage --name AllowNFSV3 --subscription <subscription-id>
+   ```
+
+   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+4. Register the resource provider by using the following command.
+    
+   ```azurecli-interactive
+   az provider register -n Microsoft.Storage --subscription <subscription-id>
+   ```
+
+   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+---
 
 ## Step 2: Verify that the feature is registered 
 
 Registration approval can take up to an hour. To verify that the registration is complete, use the following commands.
 
+# [PowerShell](#tab/azure-powershell)
+
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNFSV3
 ```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Storage --name AllowNFSV3 --subscription <subscription-id>
+```
+
+Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+---
 
 ## Step 3: Create an Azure Virtual Network (VNet)
 

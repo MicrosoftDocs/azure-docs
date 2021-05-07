@@ -104,6 +104,26 @@ These represent the limits for each update action; that is, clicking *Save and t
 * Maximum number of URLs that can be refreshed: 5
 * Maximum number of QnAs permitted per call: 1000
 
+## Add unstructured file limits
+
+> [!NOTE]
+> * If you need to use larger files than the limit allows, you can break the file into smaller files before sending them to the API. 
+
+These represent the limits when unstructured files are used to *Create KB* or call the CreateKnowledgeBase API:
+* Length of file: We will extract first 32000 characters
+* Maximum 3 responses per file.
+
+## Prebuilt question answering limits
+
+> [!NOTE]
+> * If you need to use larger documents than the limit allows, you can break the text into smaller chunks of text before sending them to the API. 
+> * A document is a single string of text characters.  
+
+These represent the limits when Prebuilt API is used to *Generate response* or call the GenerateAnswer API:
+* Number of documents: 5
+* Maximum size of a single document:  5,120 characters
+* Maximum 3 responses per document.
+
 ## Next steps
 
 Learn when and how to change [service pricing tiers](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku).
