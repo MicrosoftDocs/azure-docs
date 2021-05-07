@@ -92,7 +92,8 @@ additionalContent:
               url: ../dns/dns-delegate-domain-azure-dns.md
             - text: See more
               url: ../dns/index.yml
-           # Card
+        
+        # Card
         - title: Route between NVA and virtual network
           links:
             - text: What is Azure Route server (Preview)?
