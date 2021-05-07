@@ -1,12 +1,12 @@
 ---
-title: Grant an application access to other Azure resources
-description: This article explains how to grant your managed-identity-enabled Service Fabric application access to other Azure resources supporting Azure Active Directory-based authentication.
+title: Grant an application access to other Azure resources on a Service Fabric managed cluster
+description: This article explains how to grant your managed-identity-enabled Service Fabric application access to other Azure resources supporting Azure Active Directory-based authentication on a Service Fabric managed cluster.
 
 ms.topic: article
 ms.date: 5/10/2021
 ---
 
-# Granting a Service Fabric application's managed identity access to Azure resources
+# Granting a Service Fabric application's managed identity access to Azure resources on a Service Fabric managed cluster
 
 Before the application can use its managed identity to access other resources, permissions must be granted to that identity on the protected Azure resource being accessed. Granting permissions is typically a management action on the 'control plane' of the Azure service owning the protected resource routed via Azure Resource Manager, which will enforce any applicable role-based access checking.
 

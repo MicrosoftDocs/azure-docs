@@ -200,5 +200,4 @@ Sample application that has a managed identity is available here: [Service Fabri
 
 
 ## Next steps
-* [Leverage the managed identity of a Service Fabric application from service code](./how-to-managed-cluster-managed-cluster-managed-identity-service-fabric-app-code.md)
 * [Grant an Azure Service Fabric application access to other Azure resources](./how-to-managed-cluster-grant-access-other-resources.md)
