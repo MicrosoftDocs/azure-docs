@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 10/23/2020
+ms.date: 05/07/2021
 
 ---
 
@@ -78,6 +78,7 @@ Get started with Azure Cosmos DB with one of our quickstarts:
 - [Get started with Azure Cosmos DB Cassandra API](create-cassandra-dotnet.md)
 - [Get started with Azure Cosmos DB Gremlin API](create-graph-dotnet.md)
 - [Get started with Azure Cosmos DB Table API](create-table-dotnet.md)
+- [A whitepaper on next-gen app development with Azure Cosmos DB](https://azure.microsoft.com/resources/microsoft-azure-cosmos-db-flexible-reliable-cloud-nosql-at-any-scale/)
 
 > [!div class="nextstepaction"]
 > [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/)
