@@ -79,7 +79,9 @@ steps:
 ::: zone pivot="programming-language-java"
 ### Deploy artifacts
 
-You can build and deploy your projects using a series of `tasks`. This snippet first defines a Maven task to build the application, followed by a second task that deploys the JAR file using the Azure Spring Cloud Azure CLI extension.
+#### To Production
+
+You can build and deploy your projects using a series of tasks. This snippet first defines a Maven task to build the application, followed by a second task that deploys the JAR file using the Azure Spring Cloud task for Azure Pipelines.
 
 ```yaml
 steps:
@@ -95,6 +97,35 @@ steps:
     UseStagingDeployment: false
     DeploymentName: 'default'
     Package: ./target/your-result-jar.jar
+```
+
+#### Blue-Green Deployments
+
+The deployment shown in the previous section immediately receives application traffic upon deployment. Sometimes, developers want to test their applications in the production environment but before the application receives any customer traffic.
+
+The snippet below builds the application as above and then deploys it to a staging deployment. In this example, the staging deployment must already exist (see [Blue Green Deployment Strategies](concepts-blue-green-deployment-strategies.md) for an alternate approach).
+
+
+```yaml
+steps:
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+- task: AzureSpringCloud@0
+  inputs:
+    azureSubscription: '<your service connection name>'
+    Action: 'Deploy'
+    AzureSpringCloud: <your Azure Spring Cloud service>
+    AppName: <app-name>
+    UseStagingDeployment: true
+    Package: ./target/your-result-jar.jar
+- task: AzureSpringCloud@0
+  inputs:
+    azureSubscription: '<your service connection name>'
+    Action: 'Set Production'
+    AzureSpringCloud: <your Azure Spring Cloud service>
+    AppName: <app-name>
+    UseStagingDeployment: true
 ```
 
 ### Deploy from source
