@@ -50,14 +50,14 @@ For more information, see [License requirements](access-reviews-overview.md#lice
     ![Create an access review - Review name and description](./media/create-access-review/select-what-review.png)
 
 5. If you selected **Teams + Groups** in Step 1, you have two options in Step 2
-   - **All Microsoft 365 groups with guest users.** Select this option if you would like to create recurring reviews on all your guest users across all your Microsoft Teams and M365 groups in your organization. You can choose to exclude certain groups by clicking on ‘Select group(s) to exclude’.
+   - **All Microsoft 365 groups with guest users.** Select this option if you would like to create recurring reviews on all your guest users across all your Microsoft Teams and Microsoft 365 groups in your organization. You can choose to exclude certain groups by clicking on ‘Select group(s) to exclude’.
    - **Select teams + groups.** Select this option if you would like to specify a finite set of teams and/or groups to review. After clicking on this option, you will see a list of groups to the right to pick from.
 
      ![Teams and groups](./media/create-access-review/teams-groups.png)
 
      ![Teams and groups chosen in the user interface](./media/create-access-review/teams-groups-detailed.png)
 
-6. If you selected **Applications** in Step 1, you can then select one or more applications in Step 2.
+6. If you selected **Applications** in Step 1, you can then select one or more applications in Step 2
 
     >[!NOTE]
     > Selecting multiple groups and/or applications will result in multiple access reviews created. For example, if you select 5 groups to review, that will result in 5 separate access reviews
@@ -71,7 +71,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
     >[!NOTE]
     > If you selected All Microsoft 365 groups with guest users in Step 2, then your only option is to review Guest users in Step 3
 
-8. Click on Next: Reviews
+8. Click on **Next: Reviews**.
 
 9. In the **Select reviewers** section, select either one or more people to perform the access reviews. You can choose from:
     - **Group owner(s)** (Only available when performing a review on a Team or group)
@@ -109,14 +109,17 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
     To learn more about best practices for removing guest users who no longer have access to resources in your organization read the article titled [Use Azure AD Identity Governance to review and remove external users who no longer have resource access.](access-reviews-external-users.md)
 
-   > [!NOTE]
-   > Action to apply on denied guest users is not configurable on reviews scoped to more than guest users. It is also not configurable for reviews of **All Microsoft 365 groups with guest users.** When not configurable, the default option of removing user's membership from the resource is used on denied users. 
 
-13.	In the **Enable review decision helpers** choose whether you would like your reviewer to receive recommendations during the review process.
+   > [!NOTE]
+   > Action to apply on denied guest users isn't configurable on reviews scoped to more than guest users. It's also not configurable for reviews of **All Microsoft 365 groups with guest users.** When not configurable, the default option of removing user's membership from the resource is used on denied users.
+
+13. You can send notifications to additional users or groups (Preview) to receive review completion updates. This feature allows for stakeholders other than the review creator to be updated on the progress of the review. To use this feature, select **Select User(s) or Group(s)** and add an additional user or group upon you want to receive the status of completion.
+
+14.	In the **Enable review decision helpers** choose whether you would like your reviewer to receive recommendations during the review process.
 
     ![Enable decision helpers options](./media/create-access-review/helpers.png)
 
-14. In the **Advanced settings** section you can choose the following
+15. In the **Advanced settings** section you can choose the following
     - Set **Justification required** to **Enable** to require the reviewer to supply a reason for approval.
     - Set **email notifications** to **Enable** to have Azure AD send email notifications to reviewers when an access review starts, and to administrators when a review completes.
     - Set **Reminders** to **Enable** to have Azure AD send reminders of access reviews in progress to reviewers who have not completed their review. These reminders will be self half-way through the duration of the review.
@@ -124,17 +127,17 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
       ![additional content for reviewer](./media/create-access-review/additional-content-reviewer.png)
 
-15. Click on **Next: Review + Create** to move to the next page
+16. Click on **Next: Review + Create** to move to the next page
 
-16.	Name the access review. Optionally, give the review a description. The name and description are shown to the reviewers.
+17.	Name the access review. Optionally, give the review a description. The name and description are shown to the reviewers.
 
-17.	Review the information and select **Create**
+18.	Review the information and select **Create**.
 
        ![create review screen](./media/create-access-review/create-review.png)
 
 ## Allow  group owners to create and manage access reviews (Preview)
 
-Prerequisite role: Global or User Admin
+Prerequisite role: Global or User Administrator
 
 1. Sign in to the Azure portal and open the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
