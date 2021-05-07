@@ -35,7 +35,7 @@ The following tables list the values for a single workflow definition:
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
 | Workflows per region per subscription | 1,000 workflows | |
-| Triggers per workflow | 10 triggers | This limit applies only when you work on the JSON workflow definition, whether in code view or an ARM template, not the designer. |
+| Triggers per workflow | 10 triggers | This limit applies only when you work on the JSON workflow definition, whether in code view or an Azure Resource Manaager (ARM) template, not the designer. |
 | Actions per workflow | 500 actions | To extend this limit, you can use nested workflows as necessary. |
 | Actions nesting depth | 8 actions | To extend this limit, you can use nested workflows as necessary. |
 | Trigger or action - Maximum name length | 80 characters | |
@@ -85,7 +85,7 @@ For example, suppose that you reduce the retention limit from 90 days to 30 days
 
 To change the default value or current limit for these properties, follow these steps:
 
-#### [Portal (Consumption)](#tab/azure-portal)
+#### [Portal (multi-tenant service)](#tab/azure-portal)
 
 1. In the [Azure portal](https://portal.azure.com) search box, find and select **Logic apps**.
 
@@ -99,7 +99,7 @@ To change the default value or current limit for these properties, follow these 
 
 1. When you're done, on the **Workflow settings** toolbar, select **Save**.
 
-#### [Resource Manager Template](#tab/azure-resource-manager)
+#### [Resource Manager template](#tab/azure-resource-manager)
 
 If you use an Azure Resource Manager template, this setting appears as a property in your workflow's resource definition, which is described in the [Microsoft.Logic workflows template reference](/azure/templates/microsoft.logic/workflows):
 
@@ -175,7 +175,7 @@ The following table lists the values for a single workflow definition:
 | ---- | ----- | ----- |
 | Action - Executions per 5-minute rolling interval | - Default: 100,000 executions <p><p>- High throughput mode: 300,000 executions  | To raise the default value to the maximum value for your workflow, see [Run in high throughput mode](#run-high-throughput-mode), which is in preview. Or, you can [distribute the workload across more than one workflow](handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary. |
 | Action - Concurrent outbound calls | ~2,500 calls | You can reduce the number of concurrent requests or reduce the duration as necessary. |
-| Managed connector throttling | - Multi-tenant: Throttling limit varies based on connector <p><p>- Single-tenant: 50 requests per minute per connection | For multi-tenant, review [each managed connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors). <p><p>For more information about handling connector throttling, review [Handle throttling problems ("429 - Too many requests" errors](handle-throttling-problems-429-errors.md#connector-throttling). |
+| Managed connector throttling | - Multi-tenant: Throttling limit varies based on connector <p><p>- Single-tenant: 50 requests per minute per connection | For multi-tenant, review [each managed connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors). <p><p>For more information about handling connector throttling, review [Handle throttling problems ("429 - Too many requests" errors)](handle-throttling-problems-429-errors.md#connector-throttling). |
 | Runtime endpoint - Concurrent inbound calls | ~1,000 calls | You can reduce the number of concurrent requests or reduce the duration as necessary. |
 | Runtime endpoint - Read calls per 5 min  | 60,000 read calls | This limit applies to calls that get the raw inputs and outputs from a workflow's run history. You can distribute the workload across more than one workflow as necessary. |
 | Runtime endpoint - Invoke calls per 5 min | 45,000 invoke calls | You can distribute workload across more than one workflow as necessary. |
@@ -188,7 +188,7 @@ The following table lists the values for a single workflow definition:
 
 For a single workflow definition, the number of actions that run every 5 minutes has a [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). To raise the default value to the [maximum value](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) for your workflow, which is three times the default value, you can enable high throughput mode, which is in preview. Or, you can [distribute the workload across more than one workflow](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary.
 
-#### [Portal (Consumption)](#tab/azure-portal)
+#### [Portal (multi-tenant service)](#tab/azure-portal)
 
 1. In the Azure portal, on your logic app's menu, under **Settings**, select **Workflow settings**.
 
