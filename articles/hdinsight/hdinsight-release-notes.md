@@ -16,9 +16,9 @@ Azure HDInsight is one of the most popular services among enterprise customers f
 
 If you would like to subscribe on release notes, watch releases on [this GitHub repository](https://github.com/hdinsight/release-notes/releases).
 
-## Price Correction for Azure HDInsight Dv2 Virtual Machines
+## Price Correction for HDInsight Dv2 Virtual Machines
 
-A pricing error was corrected on April 25th, 2021, for the Dv2 VM series on HDInsight, which resulted in a reduced charge on some customer's bills. The pricing error impacted customers in the following regions who used Dv2 VMs:
+A pricing error was corrected on April 25th, 2021, for the Dv2 VM series on HDInsight. The pricing error resulted in a reduced charge on some customer's bills prior to April 25th, and with the correction, prices now match what had been advertised on the HDInsight pricing page and the HDInsight pricing calculator. The pricing error impacted customers in the following regions who used Dv2 VMs:
 
 - Canada Central
 - Canada East
@@ -26,8 +26,6 @@ A pricing error was corrected on April 25th, 2021, for the Dv2 VM series on HDIn
 - South Africa North
 - Southeast Asia
 - UAE Central
-
-Prior to April 25th 2021, the Pricing calculator and the HDInsight pricing page reflected the correct price in those regions, however charges on your account were at a reduced rate.
 
 Starting on April 25, 2021, the corrected amount for the Dv2 VMs will be on your account. Customer notifications were sent to subscription owners prior to the change. You can use the Pricing calculator, HDInsight pricing page, or the Create HDInsight cluster blade in the Azure portal to see the corrected costs for Dv2 VMs in your region.
 
