@@ -286,9 +286,8 @@ chatAsyncClient.on(ChatEventId.chatMessageReceived, "chatMessageReceived", (Base
 ```
 
 > [!IMPORTANT]
-> Currently, the Azure Communication Services Android Chat SDK Real-time Notifications feature does not work with Azure Communication Services Android Calling SDK.
-> A dependency resolving issue would be popped up if Azure Communication Services Android Chat SDK and Azure Communication Services Android Calling SDK are used in the same application.
-> A workaround is to turn off Chat Real-time Notifications feature by adding the following dependency information in app's build.gradle file.
+> Known issue: When using Android Chat and Calling SDK together in the same application, Chat SDK's real-time notifications feature does not work. You might get a dependency resolving issue.
+> While we are working on a solution, you can turn off real-time notifications feature by adding the following dependency information in app's build.gradle file and instead poll the GetMessages API to display incoming messages to users. 
 > 
 > ```
 > implementation ("com.azure.android:azure-communication-chat:1.0.0-beta.8") {
