@@ -99,7 +99,7 @@ Most tasks and services can be performed on delegated resources across managed t
 - Create [diagnostic settings](../..//azure-monitor/essentials/diagnostic-settings.md) in customer tenants to send resource logs to workspaces in the managing tenant
 - For SAP workloads, [monitor SAP Solutions metrics with an aggregated view across customer tenants](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
-[Azure Networking](../../networking/networking-overview.md):
+[Azure Networking](../../networking/fundamentals/networking-overview.md):
 
 - Deploy and manage [Azure Virtual Network](../../virtual-network/index.yml) and virtual network interface cards (vNICs) within managed tenants
 - Deploy and configure [Azure Firewall](../../firewall/overview.md) to protect customers’ Virtual Network resources

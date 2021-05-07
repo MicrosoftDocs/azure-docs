@@ -103,7 +103,7 @@ Refer to the following document to reconfigure a managed identity if you have mo
 Refer to the following documents to use managed identity with [Azure Automation](../../automation/automation-intro.md):
 
 * [Automation account authentication overview - Managed identities](../../automation/automation-security-overview.md#managed-identities-preview)
-* [Enable and use managed identity for Automation](https://docs.microsoft.com/azure/automation/enable-managed-identity-for-automation)
+* [Enable and use managed identity for Automation](../../automation/enable-managed-identity-for-automation.md)
 
 ### Azure Blueprints
 
@@ -249,7 +249,7 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | System assigned | ![Available][check] | ![Available][check] | Not available | Not available |
-| User assigned | Preview | Not available | Not available | Not available |
+| User assigned | Preview | ![Available][check] | Not available | Not available |
 
 
 For more information, see [Use managed identities in Azure Kubernetes Service](../../aks/use-managed-identity.md).
@@ -322,7 +322,7 @@ Refer to the following list to configure managed identity for Azure Service Fabr
 | User assigned | Not Available | Not Available | Not Available | Not Available |
 
 
-For more information, see [How to enable system-assigned managed identity for Azure Spring Cloud application](~/articles/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity.md).
+For more information, see [How to enable system-assigned managed identity for Azure Spring Cloud application](../../spring-cloud/how-to-enable-system-assigned-managed-identity.md).
 
 ### Azure Stack Edge
 

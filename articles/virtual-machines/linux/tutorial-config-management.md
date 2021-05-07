@@ -166,7 +166,7 @@ After the solution has been enabled, it may take some time while inventory is be
 
 On your VM, select **Change Tracking** under **OPERATIONS**. Select **Edit Settings**, the **Change Tracking** page is displayed. Select the type of setting you want to track and then select **+ Add** to configure the settings. The available option Linux is **Linux Files**
 
-For detailed information on Change Tracking see, [Troubleshoot changes on a VM](../../automation/automation-tutorial-troubleshoot-changes.md)
+For detailed information on Change Tracking see, [Troubleshoot changes on a VM](../../automation/troubleshoot/change-tracking.md)
 
 ### View inventory
 

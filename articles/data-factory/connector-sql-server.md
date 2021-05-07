@@ -1,8 +1,8 @@
 ---
 title: Copy data to and from SQL Server
 description: Learn about how to move data to and from SQL Server database that is on-premises or in an Azure VM by using Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
@@ -42,11 +42,11 @@ Specifically, this SQL Server connector supports:
 
 ## Prerequisites
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to the SQL Server database connector.
 

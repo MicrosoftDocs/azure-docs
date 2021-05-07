@@ -435,6 +435,6 @@ Each JSON download consists of four different files:
 
 ## Next steps
 
-* [Sign-in activity report error codes](reference-sign-ins-error-codes.md)
+* [Sign-in activity report error codes](./concept-sign-ins.md)
 * [Azure AD data retention policies](reference-reports-data-retention.md)
 * [Azure AD report latencies](reference-reports-latencies.md)

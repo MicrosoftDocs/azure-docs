@@ -162,7 +162,13 @@
         - name: Manage device identities
           href: iot-hub-devguide-identity-registry.md
         - name: Control access to IoT Hub
-          href: iot-hub-devguide-security.md
+          items:
+            - name: Overview
+              href: iot-hub-devguide-security.md
+            - name: Control access with Azure AD
+              href: iot-hub-dev-guide-azure-ad-rbac.md
+            - name: Control access with SAS
+              href: iot-hub-dev-guide-sas.md
         - name: Understand device twins
           href: iot-hub-devguide-device-twins.md
         - name: Understand module twins
@@ -194,7 +200,7 @@
     - name: Security
       items:
         - name: Security baseline
-          href: /security/benchmark/azure/baselines/iot-hub-security-baseline
+          href: /security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json
         - name: Recommendations
           href: ../iot-fundamentals/security-recommendations.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Security from the ground up
