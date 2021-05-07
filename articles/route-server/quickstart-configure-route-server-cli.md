@@ -13,6 +13,8 @@ ms.author: duau
 
 This article helps you configure Azure Route Server to peer with network virtual appliances (NVA) in your virtual network using Azure CLI. Azure Route Server will learn routes from the NVA and program them for the virtual machines in the virtual network. It will also advertise the virtual network routes to the NVA. For more information, read [Azure Route Server](overview.md).
 
+:::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure CLI." border="false":::
+
 > [!IMPORTANT]
 > Azure Route Server (Preview) is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
@@ -89,7 +91,7 @@ Use the following command to establish peering from the Route Server to the NVA:
 
 ```azurecli-interactive 
 
-az network routeserver peering create --routeserver-name "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA1_name" 
+az network routeserver peering create --routeserver "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA1_name" 
 
 ``` 
 
@@ -99,7 +101,7 @@ To set up peering with different NVA or another instance of the same NVA for red
 
 ```azurecli-interactive 
 
-az network routeserver peering create --routeserver-name "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA2_name" 
+az network routeserver peering create --routeserver "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA2_name" 
 ``` 
 
 ## Complete the configuration on the NVA 
@@ -164,7 +166,7 @@ If you no longer need the Azure Route Server, use these commands to remove the B
 1. Remove the BGP peering between Azure Route Server and an NVA with this command:
 
 ```azurecli-interactive
-az network routeserver peering delete --routeserver-name "myRouteServer" -g "RouteServerRG" -n "NVA2_name" 
+az network routeserver peering delete --routeserver "myRouteServer" -g "RouteServerRG" -n "NVA2_name" 
 ``` 
 
 2. Remove Azure Route Server with this command: 

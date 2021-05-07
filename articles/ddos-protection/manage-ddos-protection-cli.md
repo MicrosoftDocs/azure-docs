@@ -34,7 +34,7 @@ If you choose to install and use the CLI locally, this quickstart requires Azure
 
 In Azure, you allocate related resources to a resource group. You can either use an existing resource group or create a new one.
 
-To create a resource group, use [az group create](/cli/azure/group#az-group-create). In this example, we'll name our resource group _MyResourceGroup_ and use the _East US_ location:
+To create a resource group, use [az group create](/cli/azure/group#az_group_create). In this example, we'll name our resource group _MyResourceGroup_ and use the _East US_ location:
 
 ```azurecli-interactive
 az group create \

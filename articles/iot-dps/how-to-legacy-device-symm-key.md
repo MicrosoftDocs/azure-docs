@@ -3,7 +3,7 @@ title: Provision devices using symmetric keys - Azure IoT Hub Device Provisionin
 description: How to use symmetric keys to provision devices with your Device Provisioning Service (DPS) instance
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/28/2021
+ms.date: 04/23/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
@@ -146,7 +146,23 @@ To generate device keys, use the enrollment group master key to compute an [HMAC
 > Your device code for each device should only include the corresponding derived device key for that device. Do not include your group master key in your device code. 
 > A compromised master key has the potential to compromise the security of all devices being authenticated with it.
 
+# [Azure CLI](#tab/azure-cli)
 
+The IoT extension for the Azure CLI provides the [`compute-device-key`](/cli/azure/iot/dps?view=azure-cli-latest&preserve-view=true#az_iot_dps_compute_device_key) command for generating derived device keys. This command can be used from a Windows-based or Linux systems, in PowerShell or a Bash shell.
+
+Replace the value of `--key` argument with the **Primary Key** from your enrollment group.
+
+Replace the value of `--registration-id` argument with your registration ID.
+
+```azurecli
+az iot dps compute-device-key --key 8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw== --registration-id sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+```
+
+Example result:
+
+```azurecli
+"Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc="
+```
 # [Windows](#tab/windows)
 
 If you are using a Windows-based workstation, you can use PowerShell to generate your derived device key as shown in the following example.

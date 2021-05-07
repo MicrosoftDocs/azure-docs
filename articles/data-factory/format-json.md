@@ -1,11 +1,11 @@
 ---
 title: JSON format in Azure Data Factory 
 description: 'This topic describes how to deal with JSON format in Azure Data Factory.'
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.author: jingwang
+ms.author: jianleishen
 ---
 
 # JSON format in Azure Data Factory

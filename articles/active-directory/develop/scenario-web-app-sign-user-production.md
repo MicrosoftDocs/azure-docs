@@ -52,7 +52,7 @@ This progressive tutorial has production-ready code for a web app, including how
 
 Learn more about the Node.js web in this tutorial:
 
-[Tutorial: Sign-in users in a Node.js & Express web app](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-nodejs-webapp-msal)
+[Tutorial: Sign-in users in a Node.js & Express web app](./tutorial-v2-nodejs-webapp-msal.md)
 
 ## Sample code: Java web app
 
