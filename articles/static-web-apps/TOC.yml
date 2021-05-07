@@ -63,6 +63,8 @@
     - name: Troubleshooting errors
       href: troubleshooting.md
       displayName: deployment, runtime, errors
+    - name: Bring your own functions
+      href: functions-bring-your-own.md
     - name: Secure authentication secrets
       href: key-vault-secrets.md
 - name: Tutorials
