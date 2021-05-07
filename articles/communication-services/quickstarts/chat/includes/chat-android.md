@@ -252,7 +252,7 @@ chatMessageId = chatThreadAsyncClient.sendMessage(chatMessageOptions).get().getI
 ## Receive chat messages from a chat thread
 With real-time signaling, you can subscribe to new incoming messages and update the current messages in memory accordingly. Azure Communication Services supports a [list of events that you can subscribe to](../../../concepts/chat/concepts.md#real-time-notifications).
 
-Update creating chat client code to add a `realtimeNotificationParams`:
+Update the chat client code to add `realtimeNotificationParams`:
 
 ```java
 ChatAsyncClient chatAsyncClient = new ChatClientBuilder()
