@@ -117,6 +117,13 @@ For more information about the CLI command, see [az eventgrid event-subscription
     curl -k -X POST -H "Content-Type: application/cloudevents-batch+json" -H "aeg-sas-key: <KEY FROM STEP 2>" -g -d @evt.json <ENDPOINT URL from STEP 1>
     ```
 
+    > [!NOTE]
+    > To learn how to send cloud events using programming languages, see the following samples: 
+    > - [C#](https://docs.microsoft.com/en-us/samples/azure/azure-sdk-for-net/azure-event-grid-sdk-samples/).
+    > - [Java](https://docs.microsoft.com/en-us/samples/azure/azure-sdk-for-java/eventgrid-samples/)
+    > - [JavaScript](https://docs.microsoft.com/en-us/samples/azure/azure-sdk-for-js/eventgrid-javascript/) and [TypeScript](https://docs.microsoft.com/en-us/samples/azure/azure-sdk-for-js/eventgrid-typescript/)
+    > - [Python](https://docs.microsoft.com/en-us/samples/azure/azure-sdk-for-python/eventgrid-samples/)
+
 ### Verify in the Event Grid Viewer
 You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. View your web app to see the event you just sent.
 
