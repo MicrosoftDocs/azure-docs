@@ -152,12 +152,12 @@ spark-submit --class com.microsoft.SparkAtlasTest --master yarn --deploy-mode --
 2. Below instructions are for Cluster Setting:
 The connector jar and listener’s setting should be put in Spark clusters’: *conf/spark-defaults.conf*. Spark-submit will read the options in *conf/spark-defaults.conf* and pass them to your application. 
  
-### Step 5. Run and Check lineage in Purview account.
+### Step 5. Run and Check lineage in Purview account
 Kick off The Spark job and check the lineage info in your Purview account. 
 
 :::image type="content" source="./media/how-to-lineage-spark-atlas-connector/purview-with-spark-lineage.png" alt-text="Screenshot showing purview with spark lineage" lightbox="./media/how-to-lineage-spark-atlas-connector/purview-with-spark-lineage.png":::
 
-## Known limitations with the connector for Spark lineage:
+## Known limitations with the connector for Spark lineage
 1. Supports SQL/DataFrame API (in other words, it does not support RDD). This connector relies on query listener to retrieve query and examine the impacts.
     
 2. All "inputs" and "outputs" from multiple queries are combined into single "spark_process" entity.
