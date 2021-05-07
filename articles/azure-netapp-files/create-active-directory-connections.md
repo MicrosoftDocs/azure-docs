@@ -223,6 +223,11 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
         ![Active Directory backup policy users](../media/azure-netapp-files/active-directory-backup-policy-users.png)
 
+     * **Administrators**  
+        You can specify users or groups that will be given administrator privileges on the volume. 
+
+        ![Screenshot that shows the Administrators box of Active Directory connections window.](../media/azure-netapp-files/active-directory-administrators.png) 
+
     * Credentials, including your **username** and **password**
 
         ![Active Directory credentials](../media/azure-netapp-files/active-directory-credentials.png)

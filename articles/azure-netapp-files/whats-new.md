@@ -30,6 +30,10 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     * [Snapshot policy](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)
     * [Manual QoS capacity pool](manual-qos-capacity-pool-introduction.md)
 
+* [Administrators in Active Directory configuration](create-active-directory-connections.md) 
+
+    The Active Directory configuration now includes an **Administrators** field. You can specify users or groups that will be given administrator privileges on the volume.
+
 * [Support for capacity pool billing tags](manage-billing-tags.md)   
 
     Azure NetApp Files now supports billing tags to help you cross-reference cost with business units or other internal consumers. Billing tags are assigned at the capacity pool level and not volume level, and they appear on the customer invoice.
