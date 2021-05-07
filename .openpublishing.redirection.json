@@ -2,7 +2,7 @@
   "redirections": [
     {
       "source_path": "articles/static-web-apps/routes.md",
-      "redirect_url": "/configuration",
+      "redirect_url": "/azure/static-web-apps/configuration",
       "redirect_document_id": true
     },
     {
