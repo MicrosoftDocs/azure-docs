@@ -103,7 +103,8 @@ Creating a VM in the same VNET as the AKS cluster is the easiest option.  Expres
 
 Today when you need to access a private cluster, you must do so within the cluster virtual network or a peered network or client machine. This usually requires your machine to be connected via VPN or Express Route to the cluster virtual network or a jumpbox to be created in the cluster virtual network. AKS run command allows you to remotely invoke commands in an AKS cluster through the AKS API. This feature provides an API that allows you to, for example, execute just-in-time commands from a remote laptop for a private cluster. This can greatly assist with quick just-in-time access to a private cluster when the client machine is not on the cluster private network while still retaining and enforcing the same RBAC controls and private API server.
 
-Note: If you have AAD enabled with PrivateCluster, this Run Command feature won't work, we are working on fixing it.
+> [!NOTE]
+> If you have Azure AD enabled with PrivateCluster, the Run Command feature currently won't work.
 
 ### Register the `RunCommandPreview` preview feature
 
