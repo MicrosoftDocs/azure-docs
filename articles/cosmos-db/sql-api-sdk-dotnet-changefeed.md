@@ -50,7 +50,7 @@ ms.author: anfeldma
 
 ### <a id="2.4.0"></a>2.4.0
 * Added support for lease collections that can be partitioned with partition key defined as /partitionKey. Prior to this change lease collection's partition key would have to be defined as /id.
-* This allows using lease collections with Gremlin API, as Gremlin collections cannot have partition key defined as /id.
+* This release allows using lease collections with Gremlin API, as Gremlin collections cannot have partition key defined as /id.
 
 ### <a id="2.3.2"></a>2.3.2
 * Added lease store compatibility with [V3 SDK that enables hot migration paths. An application can migrate to V3 SDK and migrate back to the Change Feed processor library without losing any state.
