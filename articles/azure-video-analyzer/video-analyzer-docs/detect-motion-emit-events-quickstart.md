@@ -4,8 +4,8 @@ description: This quickstart shows you how to use Azure Video Analyzer on IoT Ed
 ms.topic: quickstart
 ms.date: 03/17/2021
 zone_pivot_groups: ams-lva-edge-programming-languages
-
 ---
+
 # Quickstart: Detect motion and emit events
 
 This quickstart walks you through the steps to get started with Azure Video Analyzer on IoT Edge. It uses an Azure VM as an IoT Edge device and a simulated live video stream. After completing the setup steps, you'll be able to run a simulated live video stream through a video pipeline that detects and reports any motion in that stream. The following diagram shows a graphical representation of that pipeline.
@@ -20,29 +20,24 @@ This quickstart walks you through the steps to get started with Azure Video Anal
 
 ## Prerequisites
 
+::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](./includes/common-includes/csharp-prerequisites.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](./includes/common-includes/python-prerequisites.md)]
+::: zone-end
 
 ## Set up Azure resources
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
-
 [!INCLUDE [resources](./includes/common-includes/azure-resources.md)]
 
 ## Overview
 
-![Azure Video Analyzer based on motion detection](./media/analyze-live-video/motion-detection.png) 
+![Azure Video Analyzer based on motion detection](./media/analyze-live-video/detect-motion.png)
 
-This diagram shows you how the signal flows in this quickstart. An [edge module](https://github.com/Azure/azure-video-analyzer/tree/master/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [motion detection processor](pipeline.md#motion-detection-processor) node. The motion detection processor node enables you to detect motion in live video. It examines incoming video frames and determines if there is movement in the video. If motion is detected, it passes on the video frame to the next node in the pipeline, and emits an event. 
-
-## Review the sample video
-
-::: zone pivot="programming-language-csharp"
-[!INCLUDE [review-sample-video](includes/detect-motion-emit-events-quickstart/csharp/review-sample-video.md)]
-::: zone-end
-
-::: zone pivot="programming-language-python"
-[!INCLUDE [review-sample-video](includes/detect-motion-emit-events-quickstart/python/review-sample-video.md)]
-::: zone-end
+This diagram shows you how the signal flows in this quickstart. An [edge module](https://github.com/Azure/azure-video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [motion detection processor](pipeline.md#motion-detection-processor) node. The motion detection processor node enables you to detect motion in live video. It examines incoming video frames and determines if there is movement in the video. If motion is detected, it passes on the video frame to the next node in the pipeline, and emits an event.
 
 ## Set up your development environment
 
@@ -54,44 +49,54 @@ This diagram shows you how the signal flows in this quickstart. An [edge module]
 [!INCLUDE [setup development environment](./includes/set-up-dev-environment/python/python-set-up-dev-env.md)]
 ::: zone-end
 
-## Examine the sample files
+## Review the sample video
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [examine-sample-files](includes/detect-motion-emit-events-quickstart/csharp/examine-sample-files.md)]
+[!INCLUDE [review-sample-video](./includes/detect-motion-emit-events-quickstart/csharp/review-sample-video.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [examine-sample-files](includes/detect-motion-emit-events-quickstart/python/examine-sample-files.md)]
+[!INCLUDE [review-sample-video](./includes/detect-motion-emit-events-quickstart/python/review-sample-video.md)]
+::: zone-end
+
+## Examine the sample files
+
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [examine-sample-files](./includes/detect-motion-emit-events-quickstart/csharp/examine-sample-files.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [examine-sample-files](./includes/detect-motion-emit-events-quickstart/python/examine-sample-files.md)]
 ::: zone-end
 
 ## Generate and deploy the deployment manifest
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [generate-deploy-deployment-manifest](includes/detect-motion-emit-events-quickstart/csharp/generate-deploy-deployment-manifest.md)]
+[!INCLUDE [generate-deploy-deployment-manifest](./includes/detect-motion-emit-events-quickstart/csharp/generate-deploy-deployment-manifest.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [generate-deploy-deployment-manifest](includes/detect-motion-emit-events-quickstart/python/generate-deploy-deployment-manifest.md)]
+[!INCLUDE [generate-deploy-deployment-manifest](./includes/detect-motion-emit-events-quickstart/python/generate-deploy-deployment-manifest.md)]
 ::: zone-end
 
 ## Prepare to monitor events
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [prepare-monitor-events](includes/detect-motion-emit-events-quickstart/csharp/prepare-monitor-events.md)]
+[!INCLUDE [prepare-monitor-events](./includes/detect-motion-emit-events-quickstart/csharp/prepare-monitor-events.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [prepare-monitor-events](includes/detect-motion-emit-events-quickstart/python/prepare-monitor-events.md)]
+[!INCLUDE [prepare-monitor-events](./includes/detect-motion-emit-events-quickstart/python/prepare-monitor-events.md)]
 ::: zone-end
 
 ## Run the sample program
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [run-sample-program](includes/detect-motion-emit-events-quickstart/csharp/run-sample-program.md)]
+[!INCLUDE [run-sample-program](./includes/detect-motion-emit-events-quickstart/csharp/run-sample-program.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [run-sample-program](includes/detect-motion-emit-events-quickstart/python/run-sample-program.md)]
+[!INCLUDE [run-sample-program](./includes/detect-motion-emit-events-quickstart/python/run-sample-program.md)]
 ::: zone-end
 
 ## Interpret results
@@ -110,5 +115,8 @@ If you intend to try the other quickstarts, then you should keep the resources y
 
 ## Next steps
 
-Run the other quickstarts, such as detecting an object in a live video feed.
+- Follow the [Run Azure Video Analyzer with your own model](analyze-live-video-use-your-model-http.md) quickstart to apply AI to live video feeds.
+- Review additional challenges for advanced users:
 
+  - Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that supports RTSP instead of using the RTSP simulator. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products/) page. Look for devices that conform with profiles G, S, or T.
+  - Use an AMD64 or x64 Linux device rather than using a Linux VM in Azure. This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11&preserve-view=true). Then follow the instructions in [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux?view=iotedge-2020-11&preserve-view=true) register the device with Azure IoT Hub.
