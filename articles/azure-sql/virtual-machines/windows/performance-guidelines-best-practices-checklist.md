@@ -71,9 +71,9 @@ To learn more, see the comprehensive [Storage best practices](performance-guidel
 
 ## SQL Server features
 
-The following is a quick checklist of best practices for SQL Server configuration settings when running your SQL Server instances in production: 
+The following is a quick checklist of best practices for SQL Server configuration settings when running your SQL Server instances in an Azure virtual machine in production: 
 
-- Enable [database page compression](/sql/relational-databases/data-compression/data-compression).
+- Enable [database page compression](/sql/relational-databases/data-compression/data-compression) where appropriate.
 - Enable [backup compression](/sql/relational-databases/backup-restore/backup-compression-sql-server).
 - Enable [instant file initialization](/sql/relational-databases/databases/database-instant-file-initialization) for data files.
 - Limit [autogrowth](/troubleshoot/sql/admin/considerations-autogrow-autoshrink#considerations-for-autogrow) of the database.
@@ -88,8 +88,7 @@ The following is a quick checklist of best practices for SQL Server configuratio
 - Evaluate and apply the [latest cumulative updates](/sql/database-engine/install-windows/latest-updates-for-microsoft-sql-server) for the installed versions of SQL Server.
 - Enable [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) on all production SQL Server databases [following best practices](/sql/relational-databases/performance/best-practice-with-the-query-store).
 - Enable [automatic tuning](/sql/relational-databases/automatic-tuning/automatic-tuning) on mission critical application databases.
-- Be aware of the [performance improvements](/sql/relational-databases/databases/tempdb-database#performance-improvements-in-tempdb-for-sql-server) for tempdb in SQL Server 2016 and later.
-- Increase tempdb default sizes to avoid auto growth.
+- Ensure that all [tempdb best practices](/sql/relational-databases/databases/tempdb-database#optimizing-tempdb-performance-in-sql-server) are followed.
 - Place tempdb on the ephemeral D:/ drive.
 - [Use the recommended number of files](/troubleshoot/sql/performance/recommendations-reduce-allocation-contention#resolution), using multiple tempdb data files starting with 1 file per core, up to 8 files.
 - Schedule SQL Server Agent jobs to run [DBCC CHECKDB](/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql#a-checking-both-the-current-and-another-database), [index reorganize](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes#reorganize-an-index), [index rebuild](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes#rebuild-an-index), and [update statistics](/sql/t-sql/statements/update-statistics-transact-sql#examples) jobs.
