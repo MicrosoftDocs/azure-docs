@@ -246,7 +246,7 @@ During the cluster scaling down process, Autoscale decommissions the nodes to me
 
 The running jobs will continue. The pending jobs will wait for scheduling with fewer available worker nodes.
 
-### Configure Schedule-based Autoscale based on Usage Pattern
+### Configure schedule-based Autoscale based on usage pattern
 
 You need to understand your cluster usage pattern when you configure schedule based Autoscale. [Grafana dashboard](https://docs.microsoft.com/azure/hdinsight/interactive-query/hdinsight-grafana)  can help you understand your query load and execution slots. Here is an example.
 
