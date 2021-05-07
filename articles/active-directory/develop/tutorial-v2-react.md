@@ -175,7 +175,7 @@ function handleLogin(instance) {
 }
 
 /**
- * Renders a button which, when clicked, will open a popup for login
+ * Renders a button which, when selected, will open a popup for login
  */
 export const SignInButton = () => {
     const { instance } = useMsal();
@@ -188,7 +188,7 @@ export const SignInButton = () => {
 
 ### Sign in using redirects
 
-Add the following code to *src/components/SignInButton.jsx* to create a button component that will invoke a redirect login when clicked:
+Add the following code to *src/components/SignInButton.jsx* to create a button component that will invoke a redirect login when selected:
 
 ```jsx
 import React from "react";
@@ -203,7 +203,7 @@ function handleLogin(instance) {
 }
 
 /**
- * Renders a button which, when clicked, will redirect the page to the login prompt
+ * Renders a button which, when selected, will redirect the page to the login prompt
  */
 export const SignInButton = () => {
     const { instance } = useMsal();
@@ -274,7 +274,7 @@ In *src/components* create a file named *SignOutButton.jsx*. Add the code from e
 
 ### Sign out using popups
 
-Add the following code to *src/components/SignOutButton.jsx* to create a button component that will invoke a popup logout when clicked:
+Add the following code to *src/components/SignOutButton.jsx* to create a button component that will invoke a popup logout when selected:
 
 ```jsx
 import React from "react";
@@ -288,7 +288,7 @@ function handleLogout(instance) {
 }
 
 /**
- * Renders a button which, when clicked, will open a popup for logout
+ * Renders a button which, when selected, will open a popup for logout
  */
 export const SignOutButton = () => {
     const { instance } = useMsal();
@@ -301,7 +301,7 @@ export const SignOutButton = () => {
 
 ### Sign out using redirects
 
-Add the following code to *src/components/SignOutButton.jsx* to create a button component that will invoke a redirect logout when clicked:
+Add the following code to *src/components/SignOutButton.jsx* to create a button component that will invoke a redirect logout when selected:
 
 ```jsx
 import React from "react";
@@ -315,7 +315,7 @@ function handleLogout(instance) {
 }
 
 /**
- * Renders a button which, when clicked, will redirect the page to the logout prompt
+ * Renders a button which, when selected, will redirect the page to the logout prompt
  */
 export const SignOutButton = () => {
     const { instance } = useMsal();
@@ -464,7 +464,7 @@ export const PageLayout = (props) => {
     }
     ```
 
-The code above will render a button for signed in users, allowing them to request an access token for Microsoft Graph when the button is clicked.
+The code above will render a button for signed in users, allowing them to request an access token for Microsoft Graph when the button is selected.
 
 After a user signs in, your app shouldn't ask users to reauthenticate every time they need to access a protected resource (that is, to request a token). To prevent such reauthentication requests, call `acquireTokenSilent` which will first look for a cached, unexpired access token then, if needed, use the refresh token to obtain a new access token. There are some situations, however, where you might need to force users to interact with the Microsoft identity platform. For example:
 
@@ -585,7 +585,7 @@ You've completed creation of the application and are now ready to launch the web
 
     :::image type="content" source="media/tutorial-v2-react/react-01-not-signed-in.png" alt-text="Web browser displaying sign-in dialog":::
 
-1. Click the sign-in button to sign in.
+1. Select the sign-in button to sign in.
 
 ### Provide consent for application access
 
