@@ -135,8 +135,8 @@ The startupServices.xml feature is enabled for all new project in SDK version 5.
 - Learn about [Service Fabric Application and Service Manifests](service-fabric-application-and-service-manifests.md).
 
 <!--Image references-->
-[exisiting-design-diagram]: ./media/service-fabric-startupservices/existing-design.jpg
-[new-design-diagram]: ./media/service-fabric-startupservices/new-design.jpg
-[publish-application]: ./media/service-fabric-startupservices/publish-application.jpg
-[create-new-project]: ./media/service-fabric-startupservices/create-new-project.jpg
+[exisiting-design-diagram]: ./media/service-fabric-startupservices/existing-design.png
+[new-design-diagram]: ./media/service-fabric-startupservices/new-design.png
+[publish-application]: ./media/service-fabric-startupservices/publish-application.png
+[create-new-project]: ./media/service-fabric-startupservices/create-new-project.png
 
